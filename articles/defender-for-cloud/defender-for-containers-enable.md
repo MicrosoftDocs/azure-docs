@@ -534,7 +534,7 @@ The request may take several minutes to complete.
 
 ::: zone pivot="defender-for-container-aks"
 
-## Removing the Defender profile
+## Remove the Defender profile
 
 You can remove the profile using the REST API or a Resource Manager template as explained in the tabs below.
 
