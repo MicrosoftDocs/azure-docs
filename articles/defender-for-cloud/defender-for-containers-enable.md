@@ -31,7 +31,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 
 ## Protect AKS clusters
 
-Placeholder
+1. If you already have Defender for Kubernetes enabled on your subscription, the environment settings page will 
 
 ::: zone-end
 
