@@ -1,5 +1,5 @@
 ---
-title: Troubleshooting NoHostAvailableException
+title: Troubleshooting NoHostAvailableException and NoNodeAvailableException
 description: This article discusses the different possible reasons for having a NoHostException and ways to handle it.
 author: IriaOsara
 ms.service: cosmos-db
@@ -10,59 +10,69 @@ ms.author: IriaOsara
 
 ---
 
-# Handling NoHostAvailableException
-The NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with cluster or connection settings, one or more Cassandra nodes is unavailable and depending on the replication factor and consistency level. Here we explore possible reasons for this exception along with details specific to the client driver being used.
+# Troubleshooting NoHostAvailableException and NoNodeAvailableException
+The NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with cluster, connection settings or one or more Cassandra nodes is unavailable. Here we explore possible reasons for this exception along with details specific to the client driver being used.
 
 ## Exception Messages
-Review the exception messages below, if your error log contains any of these messages and recommended ways to handle it.
+Review the exception messages below, if your error log contains any of these messages and follow the recommended ways to handle it.
 
 ### Connection has been closed
-This TransportException message is common with using Datastax client Java v3 driver. The default number of connections per host is set to 1, with a single connection value, all requests get sent to a single node. 
+This message is common with using Datastax client Java v3 driver. The default number of connections per host is set to 1, with a single connection value, all requests get sent to a single node. Sample exception message below: 
+
+`Exception in thread main [2021-05-20 11:24:14,083] ERROR - [Control connection] Cannot connect to any host, scheduling retry in 1000 milliseconds (com.datastax.driver.core.ControlConnection)
+com.datastax.driver.core.exceptions.TransportException: [127.0.0.1:15350] Connection has been closed.`
+
+If DataStax driver logs are collected, the error below:
+`ERROR - [Control connection] Cannot connect to any host, scheduling retry in 1000 milliseconds (com.datastax.driver.core.ControlConnection)`
+
 #### Recommendation
 We advise setting the `PoolingOptions` to a minimum of 10. See code reference section for guidance.
 
 ### BusyPoolException
-This client-side error indicates that the maximum number of request connections for a host has been reached. If unable to remove, request from the queue, you might see this error if the current driver is  Datastax client Java v3 or C# v3 
+This client-side error indicates that the maximum number of request connections for a host has been reached. If unable to remove, request from the queue, you might see this error if the current driver is Datastax client Java v3 or C# v3.
 #### Recommendation
-Instead of tuning the `MaxQueueSize or PoolTimeoutMillis`, we advise making sure the `ConnectionsPerHost` is set to a minimum of 10. See the code section.
+Instead of tuning the `max requests per connection`, we advise making sure the `connections per host` is set to a minimum of 10. See the code section.
 
 ### TooManyRequest(429)
-OverloadException is thrown when the request rate is too large, which may be because of insufficient throughput being provisioned for the table and the RU budget being exceeded. Learn more about [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large)
+OverloadException is thrown when the request rate is too large. Which may be because of insufficient throughput being provisioned for the table and the RU budget being exceeded. Learn more about [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large)
 #### Recommendation
 We recommend using either of the following options:
 1. Increase RU provisioned for the table or database if the throttling is consistent.
 2. If throttling is persistent, we advise using CosmosRetryPolicy in our [Azure Cosmos Cassandra extensions]( https://github.com/Azure/azure-cosmos-cassandra-extensions)
+3. Where the extension cannot be referenced or the client sire retry policy cannot be used in any way, [enable server side retry](prevent-rate-limiting-errors).
 
 ### All hosts tried for query failed
-Seen when using Datastax client Java v3, this error can be seen either because there is no live host in the cluster at the time the query request was sent or connection issues. However, with C# v3 driver one of the most common cause is that the default value of connections per host is 2.
+If the primary contact point cannot be reached, client sees a different exception. This error is specific to when the client is set to connect to a different region other than what the primary contact point region. The error is seen during the initial a few seconds upon start-up.
 #### Recommendation
-Java v3: We advise using the CosmosLoadBalancingPolicy in [Azure Cosmos Cassandra extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
-C# v3:  The recommended value is 10. Refer to PoolingOptions in the sample codes below.
+- Java v3: We advise using the CosmosLoadBalancingPolicy in [Azure Cosmos Cassandra extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
+-  C# v3: Workaround is to open a support ticket so we can enable the server-side private preview feature (blocking region cache initialization).
 
-### AuthenticationException: Invalid Cosmos DB account or key
-This AllNodesFailedException is thrown when the account name or key is incorrect. Another reason could be that the client is blocked by the firewall setting.
-#### Recommendation
-Review the connection string, [firewall](../how-to-configure-firewall.md), and private link settings.
+> [!NOTE]
+> Currently, our C# extension does not include CosmosLoadBalancingPolicy. 
 
-### Could not reach any contact point or Failed to add contact point or No host name could be resolved
-If the contact point also known as the global endpoint URL is unreachable an UnknownHostException or NoHostAvailableException is thrown depending on the Datastax driver, you are using.
+
+### IllegalArgumentException (driver 3) / AllNodesFailedException (driver 4)
+1. If the contact point also known as the global endpoint URL is unreachable an UnknownHostException or NoHostAvailableException is thrown depending on the Datastax driver, you are using.
+`Exception in thread "main" com.datastax.oss.driver.api.core.AllNodesFailedException: Could not reach any contact point, make sure you've provided valid addresses (showing first 1 nodes, use getAllErrors() for more)`
+2. The account name or key is incorrect.
+``Exception in thread "main" com.datastax.oss.driver.api.core.AllNodesFailedException: Could not reach any contact point, make sure you've provided valid addresses (showing first 1 nodes, use getAllErrors() for more)``
+3. The account server's firewall setting has a blocked client.
+4.  Account server's private link configuration has a blocked client.
 #### Recommendation
 We recommend the following steps:
 -	Confirm you can access the account and carryout data operations via the Azure Cosmos DB portal. 
--	If you are unable to do this, appears the account may not have been provisioned correctly. 
+-	If you are unable to do this, it would appear the account may not have been provisioned correctly. 
 -	If the account is brand new, recreate an account else open a support ticket.
-
-### No node was available to execute the query
-On each connection channel, the driver can execute X number of parallel requests, controlled by (advanced.connection.max-requests-per-connection) with default value of 1024. When all connection channels are full, NoNodeAvailableException will be thrown. This exception can be seen using Datastax client driver Java v4. 
-#### Recommendation
-1.	If this exception is consistent when local data center is set to the remote region, then we advise use CosmosLoadBalancingPolicy in our [Azure Cosmos Cassandra extensions library](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
-2.	If this exception is intermittent during runtime, we advise increasing the value set for CONNECTION_POOL_LOCAL_SIZE and CONNECTION_POOL_REMOTE_SIZE. See sample code section.
+- Review the connection string, [firewall](../how-to-configure-firewall.md) and private link settings.
 
 ### ArgumentException
-If any of the Cassandra native load-balancing policies is used, an ArgumentException is raised during Cluster.Connect().
 This is because the regional endpoint cache is asynchronous, the peers would not contain the remote regions during a cold restart. It usually takes a few seconds for the update. The C# drivers do not have a retry like the Java drivers hence the exception.
 #### Recommendation
-See code sample implementation below on how to use the CosmosLoadBalancingPolicy to route   the primary endpoint while the specified local data center is unavailable or reach out to our support team to enable RegionalEndpointsIsInitialRefreshBlocking
+See code sample implementation below on how to use the CosmosLoadBalancingPolicy to route the primary endpoint while the specified local data center is unavailable or reach out to our support team to enable RegionalEndpointsIsInitialRefreshBlocking
+
+
+> [!NOTE]
+> Please reach out to Azure Cosmos DB support with details around - error observed, time of the failures, consistent/one-time failure, failing keyspace and table, request type that failed, SDK version if none of the above recommendations help resolve your issue."
 
 
 ## Code Sample
