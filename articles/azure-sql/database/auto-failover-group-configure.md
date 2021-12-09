@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.devlang: 
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 08/14/2019
 ---
 # Configure a failover group for Azure SQL Database

@@ -52,6 +52,7 @@ The following are virtual network resource requirements for API Management. Some
 * An Azure Resource Manager virtual network is required.
 * You must provide a Standard SKU [public IPv4 address](../virtual-network/ip-services/public-ip-addresses.md#sku) in addition to specifying a virtual network and subnet.
 * The subnet used to connect to the API Management instance may contain other Azure resource types.
+* A [network security group](../virtual-network/network-security-groups-overview.md) attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. 
 * The API Management service, virtual network and subnet, and public IP address resource must be in the same region and subscription.
 * For multi-region API Management deployments, you configure virtual network resources separately for each location.
 
@@ -93,7 +94,7 @@ For more information, see:
 * [Create an Azure private DNS zone](../dns/private-dns-getstarted-portal.md)
 
 > [!IMPORTANT]
-> If you plan to use a custom DNS solution for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
+> If you plan to use a custom DNS solution for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates).
 
 ## Limitations
 

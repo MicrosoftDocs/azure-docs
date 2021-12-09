@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 author: yossi-y
 ms.author: yossiy
-ms.date: 10/17/2021
+ms.date: 12/01/2021
 
 ---
 
@@ -35,35 +35,10 @@ Log Analytics workspace data export continuously exports data from a Log Analyti
 - Destination must be unique across all export rules in your workspace.
 - Destinations must be in the same region as the Log Analytics workspace.
 - Tables names can be no longer than 60 characters when exporting to storage account and 47 characters to event hub. Tables with longer names will not be exported.
-- Data export will be available in all regions, but currently supported in: 
-    - Australia Central
-    - Australia East
-    - Australia Southeast
-    - Brazil South
-    - Canada Central
-    - Central India
-    - Central US
-    - East Asia
-    - East US
-    - East US 2
-    - France Central
-    - Germany West Central
-    - Japan East
-    - Korea Central
-    - North Central US
-    - North Europe
-    - South Africa North
-    - South Central US
-    - Southeast Asia
-    - Switzerland North
-    - Switzerland West
-    - UAE North
-    - UK South
-    - UK West
-    - West Central US
-    - West Europe
-    - West US
-    - West US 2
+- Data export isn't supported in these regions currently: 
+	- Korea South
+	- Jio India Central
+	- Government regions
 
 ## Data completeness
 Data export is optimized for moving large data volume to your destinations and in certain retry conditions, can include a fraction of duplicated records. The export operation to your destination could fail when ingress limits are reached, see details under [Create or update data export rule](#create-or-update-data-export-rule). Export continues to retry for up to 30 minutes and if destination is unavailable to accept data, data will be discarded until the destination becomes available.

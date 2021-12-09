@@ -94,7 +94,7 @@ After the resync operation from destination to source is complete, you need to b
     a. Select the *destination* volume. Click **Replication** under Storage Service. Then click **Resync**.   
     b. Type **Yes** when prompted and click the **Resync** button.
 
-3. Remount the source volume by following the steps in [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
+3. Remount the source volume by following the steps in [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md).  
     This step enables a client to access the source volume.
 
 ## Next steps  

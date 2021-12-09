@@ -11,7 +11,7 @@ ms.devlang:
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 09/28/2020
 ---
 # Quickstart: Use SSMS to connect to and query Azure SQL Database or Azure SQL Managed Instance

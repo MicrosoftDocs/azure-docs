@@ -4,7 +4,6 @@ titleSuffix: Microsoft Azure Maps
 description: In this article, you will learn about the different layers available in an Azure Maps Power BI visual.
 author: stevemunk
 ms.author: v-munksteve
-manager: jokebeck
 ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps

@@ -83,7 +83,7 @@ As the above example shows, the user for `file1` should be `root`, but it maps t
 4. Restart the `rpcbind` service on your host (`service rpcbind restart`), or simply reboot the host.
 5. Mount the NFS volumes as required.   
 
-    See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
+    See [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md). 
 
 The following example shows the resulting user/group change: 
 
@@ -105,6 +105,6 @@ On `Host2`, note that the test user accounts have not been created, but the same
 
 ## Next step 
 
-* [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Mount a volume for Windows or Linux VMs](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Configure ADDS LDAP with extended groups for NFS volume access](configure-ldap-extended-groups.md)
 

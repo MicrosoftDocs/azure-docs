@@ -16,7 +16,7 @@ This article answers frequently asked questions (FAQs) about the NFS protocol of
 
 For an NFS volume to automatically mount at VM start or reboot, add an entry to the `/etc/fstab` file on the host. 
 
-See [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) for details.  
+See [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md) for details.  
 
 ## What NFS version does Azure NetApp Files support?
 
