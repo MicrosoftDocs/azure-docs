@@ -16,9 +16,12 @@ ms.service: azure-communication-services
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md) 
 
-## Setting up
 
 ### Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start).
+
+### Azure Communication UI open source library for Android can be found [here](https://github.com/Azure/communication-ui-library-android).
+
+## Setting up
 
 ### Creating an Android app with an empty activity
 
