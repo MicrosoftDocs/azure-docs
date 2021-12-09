@@ -11,7 +11,7 @@ ms.date: 11/09/2021
 
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes workload protection.
 
-Learn more about these features in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+Learn more about these features in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
 Defender for Cloud offers more container security features if you enable Microsoft Defender for Kubernetes. Specifically:
 
@@ -28,7 +28,7 @@ Defender for Cloud offers more container security features if you enable Microso
 | Aspect                          | Details                                                                                                                                      |
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                  | General availability (GA)                                                                                                                    |
-| Pricing:                        | Free                                                                                                                                         |
+| Pricing:                        | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes or EKS, it's billed according to the Microsoft Defender for Containers plan       |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
 | Environment requirements:       | Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
 | Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |
