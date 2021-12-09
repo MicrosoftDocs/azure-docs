@@ -10,7 +10,7 @@ ms.service: virtual-machines-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 06/08/2021
+ms.date: 12/08/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
 ---
@@ -505,7 +505,8 @@ Detailed documentation on deploying Always On with SQL Server in Azure VMs lists
 - [Configure a load balancer for an Always On availability group in Azure](../../../azure-sql/virtual-machines/windows/availability-group-load-balancer-portal-configure.md).
 
 >[!NOTE]
-> If you are configuring the Azure load balancer for the virtual IP address of the Availability Group listener, make sure that the DirectServerReturn is configured. configuring this option will reduce the network round trip latency between the SAP application layer and the DBMS layer. 
+> If you are configuring the Azure load balancer for the virtual IP address of the Availability Group listener, make sure to enable **Floating IP**. Configuring this option will reduce the network round trip latency between the SAP application layer and the DBMS layer.   
+> Also make sure to select **HA ports**.  
 
 >[!NOTE]
 >Reading [Introducing SQL Server Always On availability groups on Azure virtual machines](../../../azure-sql/virtual-machines/windows/availability-group-overview.md), you are going to read about SQL Server's [Direct Network Name (DNN) listener](../../../azure-sql/virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md). This new functionality got introduced with SQL Server 2019 CU8. This new functionality makes the usage of an Azure load balancer handling the virtual IP address of the Availability Group Listener obsolete.
