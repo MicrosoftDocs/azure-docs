@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 12/09/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
@@ -15,19 +15,54 @@ ms.custom: contperf-fy21q3
 This article provides information on how to view the drive and job status for Azure Import/Export jobs. Azure Import/Export service is used to securely transfer large amounts of data to Azure Blobs and Azure Files. The service is also used to export data from Azure Blob storage.  
 
 ## View job and drive status
-You can track the status of your import or export jobs on the **Import/Export** tab in the Azure portal.
-1. Log on to https://portal.azure.com/.
-2. Search for **import/export jobs**.
 
-    ![Search on import/export jobs](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
+You can view the status of your import and export jobs in the Azure portal. The procedures differ slightly depending on whether you created the job in the Preview portal or using the Classic experience.
 
- 3. A list of your Import/Export jobs appears on the page.
+### [Portal (Preview)](#tab/azure-portal-preview)
 
-    ![View Job State](./media/storage-import-export-view-drive-status/job-state.png)
+If you created your import or export job in the Preview portal, you'll track its status in the **Data Box** area of the Azure portal.
+
+1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
+
+2. Search for **azure data box**.
+
+    ![Screenshot showing how to search for Data Box jobs in the Azure portal. The Search box and selected Azure Data Box service are highlighted.](./media/storage-import-export-view-drive-status/preview-open-data-box-tab.png)<!--Replace graphic.-->
+
+ 3. To filter to Azure Import/Export jobs, enter "Import/Export" in the search box.
+
+    ![Screenshot showing how to filter Data Box resources in the Azure portal to show Import/Export jobs. The Search box is highlighted.](./media/storage-import-export-view-drive-status/preview-filter-to-import-export-jobs.png)
+
+    A list of Import/Export jobs appears on the page.
+
+    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-drive-status/preview-jobs-list.png) ](./media/storage-import-export-view-drive-status/preview-jobs-list.png)
 
 4. Select and click a job to view job details.
 
-   ![View detailed job status](./media/storage-import-export-view-drive-status/job-detail.png)
+   You'll see the **Current order status** and also the **Data copy details** for each drive.
+
+   * If you have access to the storage account, you can select and click a **Copy log path** or **Verbose log path** to view the log.
+
+   * Select and click a **Drive ID** to open a panel with full copy information, including the manifest file and hash.
+
+   [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-drive-status/preview-job-details.png) ](./media/storage-import-export-view-drive-status/preview-job-details.png#lightbox)
+
+### [Portal (Classic)](#tab/azure-portal-classic)
+
+If you created your import or export job in the Classic Import/Export experience, you'll track the status of the job in the **Import/Export** area of the Azure portal.
+
+1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
+
+2. Search for **import/export jobs**.
+
+    ![Screenshot showing how to search for Azure Import Export jobs in the Azure portal. Import Slash Export is typed in the highlighted Search.](./media/storage-import-export-view-drive-status/open-import-export-tab.png)
+
+    A list of your Import/Export jobs appears on the page.
+
+    ![Screenshot of Azure Import Export resources in the Azure portal.](./media/storage-import-export-view-drive-status/job-state.png)
+
+3. Select and click a job to view job details.
+
+   ![Screenshot of the Overview for an Azure Import Export job in the Azure portal. The selected job and the job details are highlighted.](./media/storage-import-export-view-drive-status/job-detail.png)
   
 ## View job status
 
@@ -123,9 +158,9 @@ The following table describes each state that each drive in a job may pass throu
 | CompletedMoreInfo | A drive moves to the **CompletedMoreInfo** state when the service has experienced issues while copying data from or to the drive. The information can include errors, warnings, or informational messages about overwriting blobs.
 | ShippedBack | A drive moves to the **ShippedBack** state when it has been shipped from the datacenter back to the return address. |
 
-This image from the Azure portal displays the drive state of an example job:
+This image from the Azure portal displays the drive state of an example job.
 
-![View Drive State](./media/storage-import-export-view-drive-status/drive-state.png)
+![Screenshot showing drive state for an Azure Import Export order in the Azure portal. The Drive ID, Drive State, Copy Status, and Percent Complete for the drive are highlighted.](./media/storage-import-export-view-drive-status/drive-state.png)
 
 The following table describes the drive failure states and the actions taken for each state.
 
