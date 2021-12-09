@@ -52,7 +52,7 @@ Applications are hosted in App Service plans, which are created in an App Servic
 > It is possible for the App Service plans and the apps they host to be provisioned in a different Subscription to the App Service Environment. This can be useful for segregating access. The prerequisties are:
 > - The Subscriptions must share the same Azure AD Tenant
 > - The App Service Environment, App Service plans and apps must be in the same region
-> - Today you cannot create App Service Plans and apps in a different subscription using the Azure Portal. Instead, use either [Azure REST API](https://docs.microsoft.com/rest/api/appservice/app-service-plans/create-or-update) or [Azure Resource Manager Templates](https://docs.microsoft.com/azure/templates/microsoft.web/allversions).
+> - Today you cannot create App Service Plans and apps in a different subscription using the Azure Portal. Instead, use either [Azure REST API](/rest/api/appservice/app-service-plans/create-or-update) or [Azure Resource Manager Templates](/azure/templates/microsoft.web/allversions).
 
 ## Virtual network support
 

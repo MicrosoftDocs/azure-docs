@@ -7,7 +7,7 @@ ms.custom: sqldbrb=1
 ms.topic: conceptual
 author: MaraSteiu 
 ms.author: masteiu
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/20/2018
 ---
 # Best practices for Azure SQL Data Sync 
