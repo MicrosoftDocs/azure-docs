@@ -467,7 +467,7 @@ To update and run the provisioning sample with your device information:
 
     No further changes are needed.
 
-5. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the global device endpoint URL of your Device Provisioning Service):
+5. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the global device endpoint URL of Device Provisioning Service):
 
     ```console
     set PROVISIONING_HOST=<provisioning-host>
@@ -535,9 +535,9 @@ To update and run the provisioning sample with your device information:
 
 2. Copy the **ID Scope** and **Global device endpoint** values.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Extract Device Provisioning Service endpoint information":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
-3. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the global device endpoint URL of your Device Provisioning Service):
+3. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the global device endpoint URL of Device Provisioning Service):
 
     ```console
     set PROVISIONING_HOST=<provisioning-host>
@@ -623,13 +623,13 @@ To update and run the provisioning sample with your device information:
 
 2. Copy the **ID Scope** and **Global device endpoint** values. These are your `SCOPE_ID` and `GLOBAL_ENDPOINT` respectively.
 
-    :::image type="content" source="./media/quick-create-simulated-device-symm-key/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Extract Device Provisioning Service endpoint information":::
+    :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
 3. Open the Java device sample code for editing. The full path to the device sample code is:
 
     `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
 
-4. Replace the value of the following variables for your DPS and device enrollment(replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the global device endpoint URL of your Device Provisioning Service):
+4. Replace the value of the following variables for your DPS and device enrollment(replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the global device endpoint URL of Device Provisioning Service):
 
     ```java
     private static final String SCOPE_ID = "<id-scope>";
