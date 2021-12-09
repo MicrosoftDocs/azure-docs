@@ -15,49 +15,46 @@ ms.custom: template-how-to
 
 # Manage blob containers using PowerShell
 
-The Azure Storage platform offers a suite of cloud solutions, each designed to address a specific use-case. Azure blob storage allows you to store large amounts of unstructured object data. Using this solution, you can gather or expose media, content, or application data to users. You can also build an enterprise data lake to perform big data analytics. Objects stored in blob storage are saved as block blobs, which are optimized for fast and efficient transfer. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
-You can use PowerShell conditional and iterative operations to automate workflows involving Azure storage objects. PowerShell operations occur through the use of context objects. Context objects are PowerShell objects that represent your active subscription and the authentication information with which you'll connect to it. Because context objects are used, Azure PowerShell doesn't need to reauthenticate your account each time you switch subscriptions.
-
-This how-to article explains how to work with individual storage containers and collections of multiple objects.
+This how-to article explains how to work with both individual and multiple storage container objects.
 
 ## Prerequisites
 
 - An Azure subscription. See [Get Azure free trial](https://azure.microsoft.com/pricing/free-trial/).
 
-- A storage account that has hierarchical namespace (HNS) enabled. Follow the steps outlined in the [Create a storage account](../common/storage-account-create.md) article to create one.
+- Azure PowerShell module Az, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
-- Azure PowerShell module Az version 0.7 or later. Run `Get-InstalledModule -Name Az -AllVersions | select Name,Version` to find the version. If you need to install or upgrade, see [Install Azure PowerShell module](/powershell/azure/install-az-ps).
+You'll need to obtain authorization to an Azure subscription before you can use the examples in this article. Authorization can occur by authenticating with an Azure Active Directory (AAD) account or using a shared key. The examples in this article use AAD authentication in conjunction with context objects. Context objects represent the authentication information with which you'll connect to an active Azure subscription. Because context objects are used, Azure PowerShell doesn't need to reauthenticate your account each time you switch subscriptions.
 
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
+To sign in to your Azure account with an Azure Active Directory (AAD) account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
-<!--
-Point users to these resources for further info somewhere:
+```powershell
+# Connect to your Azure subscription
+ Connect-AzAccount
+```
 
-- PS reference available at [Az.Storage Module](https://docs.microsoft.com/powershell/module/az.storage) / Relative link for doc: [Az.Storage Module](/powershell/module/az.storage)
-- PS Gallery: https://www.powershellgallery.com/packages/Az.Storage
+After the connection has been established, create the storage account context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Azure AD credentials.
 
-Avoid using the Azure resource manager implementation for storage; they're an alternate way to work with containers. We may go back and add them in.
--->
+```powershell
+# Create a context object using Azure AD credentials
+ $ctx = New-AzStorageContext -StorageAccountName <storage account name> -UseConnectedAccount
+```
+
+Remember to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
 
 ## Create a container
 
-Before you can upload a blob, you must first create a container. Azure blob containers are themselves contained within an Azure storage account. Although billing, configuration, and replication properties are set at the storage account level, all blob data resides within containers. There are no limits to the number of blobs or containers that can be created within a storage account. Containers cannot be nested within other containers.
+To create containers with PowerShell, call the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) cmdlet. There are no limits to the number of blobs or containers that can be created within a storage account. Containers cannot be nested within other containers.
 
-To create containers with PowerShell, call the [New-AzStorageContainer](/powershell/module/az.storage/new-azstoragecontainer) cmdlet.
+The following example illustrates three options for the creation of blob containers with the `New-AzStorageContainer` cmdlet. The first approach creates a single container, while the remaining two approaches leverage PowerShell operations to automate container creation.
 
-The following simplified example illustrates three options for the creation of blob containers with the `New-AzStorageContainer` cmdlet. The first approach creates a single container, while the remaining two approaches automate container creation by leveraging PowerShell operations.
-
-To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. 
+To use this example, supply values for the variables and ensure that you've created a connection to your Azure subscription. Remember to replace the placeholder values in brackets with your own values.
 
  ```azurepowershell
 # Create variables
- $accountName    = "<storage-account>"
  $containerName  = "individual-container"
- $prefixName     = "loop-container"
-
-# Create a context object using Azure AD credentials
- $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+ $prefixName     = "loop"
 
 # Approach 1: Create a container
  New-AzStorageContainer -Name $containerName -Context $ctx
@@ -89,32 +86,21 @@ loop-container6        Off            11/2/2021 4:09:05 AM +00:00
 
 ## List containers
 
-You can use the `Get-AzStorageContainer` cmdlet to retrieve a single container or a collection of containers. Use the `-Name` switch to retrieve a single container. Instead, you can use the `-Prefix` switch to return a collection of containers.
+Use the `Get-AzStorageContainer` cmdlet to retrieve storage containers. To retrieve a single container, include the `-Name` parameter. To return a list of containers, specify a value for the `-Prefix` parameter to return the list of containers whose name contains the parameter value.
 
-In some cases, it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` switch will return containers deleted within the associated retention period. The `-IncludeDeleted` switch can only be used in conjunction with the`-Prefix` switch when returning a container collection. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
-
-The following example retrieves both an individual container and a collection of container resources.
+The following example retrieves both an individual container and a list of container resources.
 
 ```azurepowershell
 # Create variables
- $accountName    = "<storage-account>"
  $containerName  = "individual-container"
  $prefixName     = "loop-"
-
-# Create a context object using Azure AD credentials
- $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
 
 # Approach 1: Retrieve an individual container
  Get-AzStorageContainer -Name $containerName -Context $ctx
  Write-Host
 
-# Approach 2: Retrieve a collection of containers
+# Approach 2: Retrieve a list of containers
  Get-AzStorageContainer -Prefix $prefixName -Context $ctx
- Write-Host
-
-# Approach 3: Retrieve a collection of containers including those recently deleted
- Get-AzStorageContainer -Prefix $prefixName -Context $ctx -IncludeDeleted
-```
 
 The result provides the URI of the blob endpoint and lists the containers retrieved by name and prefix.
 
@@ -134,12 +120,6 @@ loop-container3                           11/2/2021 12:22:00 AM +00:00   True   
 loop-container4                           11/2/2021 12:22:00 AM +00:00   True       01D7E8A5EF01C787 
 ```
 
-<!--**include soft-deleted containers (with -IncludeDeleted)**
-
-This example lists all containers of a storage account, include deleted containers. Then show the deleted container properties, include : DeletedOn, RemainingRetentionDays. Deleted containers will only exist after enabled Container softdelete with Enable-AzStorageBlobDeleteRetentionPolicy.
-
-*****NOTE: If we're looking at including the developer guide, does it not make sense to include more in-depth info in the Storage Account article?-->
-
 ## Read container properties and metadata
 
 In addition to the blob data stored within a container, the container itself exposes both system properties and user-defined metadata.
@@ -153,12 +133,8 @@ User-defined metadata consists of one or more name-value pairs that you specify 
 The following example retrieves all containers with the **demo** prefix and iterates through them, listing their properties.
 
 ```azurepowershell
-# Create variables
- $accountName    = "<storage-account>"
- $prefix         = "loop"
-
-# Create a context object using Azure AD credentials
- $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+# Create variable
+ $prefix = "loop"
 
 # Get containers
  $containers = Get-AzStorageContainer -Prefix $prefix -Context $ctx
@@ -172,7 +148,7 @@ The following example retrieves all containers with the **demo** prefix and iter
  }
 ```
 
-The results display all containers with the prefix loop and list their properties.
+The results display all containers with the prefix **loop** and list their properties.
 
 ```Results
 loop-container1 properties:
@@ -218,12 +194,10 @@ To access the metadata, you'll use the `BlobContainerClient` object. This object
 The example below first updates a container's metadata and afterward retrieve a container's metadata. The example flushes the sample container from memory and retrieves it again to ensure that metadata isn't being read from the object in memory.
 
 ```azurepowershell
-# Create variables
- $accountName   = "<storage-account>"
- $containerName = "individual-container"
+# Create variable
+  $containerName = "individual-container"
 
-# Create a context object using Azure AD credentials, retrieve container
- $ctx       = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
+# Retrieve container
  $container = Get-AzStorageContainer -Name $containerName -Context $ctx
 
 # Create IDictionary, add key-value metadata pairs to IDictionary
@@ -287,7 +261,7 @@ The following example illustrates the process of configuring a service SAS for a
  -Permission $permissions `
  -Protocol $protocol
 
-# Approach 2: Generate SAS tokens for a container collection using pipeline
+# Approach 2: Generate SAS tokens for a container list using pipeline
   Get-AzStorageContainer -Container $filterName -Context $ctx | New-AzStorageContainerSASToken `
  -Context $ctx `
  -StartTime $startTime `
@@ -296,9 +270,9 @@ The following example illustrates the process of configuring a service SAS for a
  -Protocol $protocol | Write-Output
 ```
 
-## Delete a container
+## Delete containers
 
-Depending on your use case, you can retrieve a container or container collection with the `Remove-AzStorageContainer` cmdlet. When deleting a collection, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
+Depending on your use case, you can retrieve a container or list of containers with the `Remove-AzStorageContainer` cmdlet. When deleting a list of containers, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
 
 ```azurepowershell
 # Create variables
@@ -306,10 +280,7 @@ Depending on your use case, you can retrieve a container or container collection
  $containerName  = "individual-container"
  $prefixName     = "loop-"
 
-# Create a context object using Azure AD credentials
- $ctx = New-AzStorageContext -StorageAccountName $accountName -UseConnectedAccount
-
-# Delete a individual, named container
+# Delete a single named container
  Remove-AzStorageContainer -Name $containerName -Context $ctx
 
 # Iterate a loop, deleting containers
@@ -317,8 +288,17 @@ Depending on your use case, you can retrieve a container or container collection
      Remove-AzStorageContainer -Name (-join($containerPrefix, $i)) -Context $ctx
     } 
 
-# Retrieve collection, delete using a pipeline
+# Retrieve container list, delete using a pipeline
  Get-AzStorageContainer -Prefix $prefixName -Context $ctx | Remove-AzStorageContainer
+```
+
+In some cases, it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` switch will return containers deleted within the associated retention period. The `-IncludeDeleted` switch can only be used in conjunction with the`-Prefix` switch when returning a list of containers. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
+
+Use the following example to retrieve a list of containers deleted within the storage account's associated retention period.
+
+```azurepowershell
+# Retrieve a list of containers including those recently deleted
+ Get-AzStorageContainer -Prefix $prefixName -Context $ctx -IncludeDeleted
 ```
 
 ## Restore a soft-deleted container
@@ -344,7 +324,7 @@ To learn more about the soft delete data protection option, refer to the [Soft d
 The results display all containers with the prefix **demo** which have been restored.
 
 ```Results
-    Storage Account Name: shaasstorageaccount
+    Storage Account Name: demostorageaccount
 
 Name                 PublicAccess         LastModified                   IsDeleted  VersionId        
 ----                 ------------         ------------                   ---------  ---------        
