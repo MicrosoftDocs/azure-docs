@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 12/09/2021
 ms.custom: references_regions
 ms.author: b-hchen
 ---
@@ -36,12 +36,6 @@ Two settings are available for network features:
     This setting provides reduced IP limits (<1000) and no additional VNet features for the volumes.
 
     You should set **Network Features** to *Basic* if you do not require VNet features.  
-
-## Supported regions 
-
-Currently the network features capability is supported in the following regions: 
-
-* North Central US 
 
 ## Considerations
 
