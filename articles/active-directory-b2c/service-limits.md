@@ -32,7 +32,7 @@ The amount of users able to authenticate through an Azure AD B2C tenant is gated
 
 ## Endpoint request usage
 
-The frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview) article for more information on which endpoints are consumed by your application.
+The frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
 
 |Endpoint                 |Endpoint type     |Requests consumed |
 |-----------------------------|---------|------------------|
@@ -143,8 +143,8 @@ You can optimize the token issuance rate by considering the following configurat
 
 1. Increasing access and refresh [token lifetimes](./configure-tokens.md).
 1. Increasing the Azure AD B2C [web session lifetime](./session-behavior.md).
-1. Enabling [Keep Me Signed In](./session-behavior#enable-keep-me-signed-in-kmsi.md).
-1. Caching the [OpenId Connect metadata](./openid-connect#validate-the-id-token.md) documents at your API's.
+1. Enabling [Keep Me Signed In](./session-behavior.md#enable-keep-me-signed-in-kmsi).
+1. Caching the [OpenId Connect metadata](./openid-connect.md#validate-the-id-token) documents at your API's.
 1. Enforcing conditional MFA using [Conditional Access](./conditional-access-identity-protection-overview.md).
 
 ## Azure AD B2C configuration limits
