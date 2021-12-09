@@ -619,6 +619,36 @@ The data object has the following properties:
 | `transcriptionLanguage` | string  | The language code (in BCP-47 format) of the transcription language. For example “de-de” indicates German (Germany). The value is empty for the video track heartbeats, or when live transcription is turned off. |
 
 
+### LiveEventChannelArchiveHeartbeatEvent
+
+The following example shows the schema of the **LiveEventChannelArchiveHeartbeatEvent** event:
+
+```json
+[
+  {
+    "topic": "/subscriptions/<subscription-id>/resourceGroups/<rg-name>/providers/Microsoft.Media/mediaservices/<account-name>",
+    "subject": "liveEvent/mle1",
+    "eventType": "Microsoft.Media.LiveEventChannelArchiveHeartbeatEvent",
+    "eventTime": "2021-05-14T23:50:00.324",
+    "id": "7f450938-491f-41e1-b06f-c6cd3965d786",
+    "data": {
+      "channelLatencyMs": "10",
+      "latencyResultCode": "S_OK"
+    },
+    "dataVersion": "1.0",
+    "metadataVersion": "1"
+  }
+]
+```
+
+The data object has the following properties:
+
+| Property | Type | Description |
+| -------- | ---- | ----------- |
+| `channelLatencyMs` | string | The milliseconds (ms) end-to-end for live event archiving |
+| `latencyResultCode` | string | The result code for the archive latency. If latency is in a healthy range for the live event, this will return `S_OK`|
+
+
 ### LiveEventTrackDiscontinuityDetected
 
 The following example shows the schema of the **LiveEventTrackDiscontinuityDetected** event: 
