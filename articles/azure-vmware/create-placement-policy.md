@@ -8,7 +8,7 @@ ms.date: 8/18/2021
 
 ---
 
-# Create a placement policy in Azure VMware Solution (Preview)
+# Create a placement policy in Azure VMware Solution
 
 In Azure VMware Solution, clusters in a private cloud are a managed resource. As a result, the cloudadmin role can't make certain changes to the cluster from the vSphere Client, including the management of Distributed Resource Scheduler (DRS) rules.
 
@@ -210,9 +210,9 @@ Azure VMware Solution provides a VMware private cloud in Azure. In this managed 
 
 Further, the lack of the desired granularity in the vSphere privileges presents some challenges when managing the placement of the workloads on the private cloud. For example, vSphere DRS rules commonly used on-premises to define affinity and anti-affinity rules can't be used as-is in a VMware Cloud environment, as some of those rules can block day-to-day operation the private cloud. Placement Policies provides a way to define those rules using the Azure VMware Solution portal, thereby circumventing the need to use DRS rules. Coupled with a simplified experience, they also ensure that the rules don't impact the day-to-day infrastructure maintenance and operation activities. 
 
-###  What is the difference between the VM-Host affinity policy and Restrict VM Movement?
+###  What is the difference between the VM-Host affinity policy and Restrict VM movement?
 
-A VM-Host affinity policy is used to restrict the movement of VMs to a group of hosts included in the VM-Host affinity policy. Hence, a VM can be vMotioned within the set of hosts selected in the VM-Host affinity policy. On the other hand, Restrict VM movement ensures that the selected VM stays on the host that it currently resides on.
+A VM-Host affinity policy is used to restrict the movement of VMs to a group of hosts included in the VM-Host affinity policy. Thus, a VM can be vMotioned within the set of hosts selected in the VM-Host affinity policy. Alternatively, **Restrict VM movement** ensures that the selected VM remains on the host on which it currently resides.
 
 ###  What caveats should I know about?
 
