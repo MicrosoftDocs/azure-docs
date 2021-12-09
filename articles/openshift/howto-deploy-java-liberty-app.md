@@ -48,6 +48,31 @@ Complete the following prerequisites to successfully walk through this guide.
 
 1. Verify you can sign in to the OpenShift CLI with the token for user `kubeadmin`.
 
+### Create an Azure Database for MySQL(Only if your application requires)
+
+Create an Azure Database for MySQL(Only if your application requires)
+
+1. Create a single database in Azure SQL Database by following: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](../mysql/quickstart-create-mysql-server-database-using-azure-portal)
+    > [!NOTE]
+    >
+    > * At **Basics** step, write down ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
+
+2. Once your database is created, open **your SQL server** > **Connection security** and complete the following settings:
+   * Set **Allow access to Azure services** to **Yes**.
+   * Click **Add current client IP address**. 
+   * Set **Minimal TLS Version** to **>1.0** > Click **Save**.
+
+   ![configure-mysql-database-connection-security](./media/howto-deploy-java-liberty-app/configure-mysql-database-connection-security.png)
+
+3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **3306** is the port number in the example below.
+
+   ![mysql-server-jdbc-connection-string](./media/howto-deploy-java-liberty-app/mysql-server-jdbc-connection-string.png)
+
+4. If you didn't create database in above steps, please following [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](../mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one.
+    > [!NOTE]
+    >
+    > * Write down **Database name** you created.
+
 ### Enable the built-in container registry for OpenShift
 
 The steps in this tutorial create a Docker image which must be pushed to a container registry accessible to OpenShift. The simplest option is to use the built-in registry provided by OpenShift. To enable the built-in container registry, follow the steps in [Configure built-in container registry for Azure Red Hat OpenShift 4](built-in-container-registry.md). Three items from those steps are used in this article.
@@ -110,6 +135,78 @@ We'll use a Java EE 8 application as our example in this guide. Open Liberty is 
 
 To run the application on Open Liberty, you need to create an Open Liberty server configuration file so that the [Liberty Maven plugin](https://github.com/OpenLiberty/ci.maven#liberty-maven-plugin) can package the application for deployment. The Liberty Maven plugin is not required to deploy the application to OpenShift.  However, we'll use it in this example with Open Liberty’s developer (dev) mode.  Developer mode lets you easily run the application locally. Complete the following steps on your local computer.
 
+# [with DB connection](#tab/with-mysql-devc)
+
+#### We assume the application is:
+* Managed using Maven
+* Using the liberty-maven-plugin to configure DB connection
+* Using Azure Container Registry to manage application images
+
+#### Check out the application
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aro). There are three samples in the repository, and we will use `open-liberty-on-aro/3-integration/connect-db/mysql`. The file structure is as follows:
+```
+javaee-app-db-using-actions/mssql
+├─ src/main/
+│  ├─ aro/
+│  │  ├─ db-secret.yaml
+│  │  ├─ openlibertyapplication.yaml
+│  ├─ docker/
+│  │  ├─ Dockerfile
+│  │  ├─ Dockerfile-local
+│  │  ├─ Dockerfile-wlp
+│  │  ├─ Dockerfile-wlp-local
+│  ├─ liberty/config/
+│  │  ├─ server.xml
+│  ├─ java/
+│  ├─ resources/
+│  ├─ webapp/
+├─ pom.xml
+```
+* Directory *java*, *resources*, and *webapp* contains the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
+
+* In directory *aro* we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. *openlibertyapplication.yaml* is used to deploy the application image.
+
+* In directory *docker*, we place four Dockerfiles. *Dockerfile-local* is used for local debug and *Dockerfile* is used to build image for ARO deployment, they both work with Open Liberty. *Dockerfile-wlp-local* is used for local debug and *Dockerfile-wlp* is used to build image for ARO deployment, they both work with WebSphere Liberty.
+
+* In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty/WebSphere Liberty cluster.
+
+#### Build project
+
+Build your application.
+```bash
+cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+# The following variables will be used for deployment file generation
+export DB_SERVER_NAME=<Server name>.database.windows.net
+export DB_PORT_NUMBER=1433
+export DB_NAME=<Database name>
+export DB_USER=<Server admin username>@<Database name>
+export DB_PASSWORD=<Server admin password>
+export NAMESPACE=open-liberty-demo
+mvn clean install
+```
+#### Test your application
+
+Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
+We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the sample application.
+
+* Start your local docker environment if you haven't done so already.
+  ```bash
+  sudo dockerd
+  ```
+* Start the application in `liberty:devc` mode
+  ```bash
+  cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+  # If you are running with Open Liberty
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-local
+  
+  # If you are running with WebSphere Liberty
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-wlp-local
+  ```
+* Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
+* Press `Ctrl+C` to stop `liberty:devc` mode.
+
+# [without DB connection](#tab/without-mysql-dev)
+
 1. Copy `2-simple/src/main/liberty/config/server.xml` to `1-start/src/main/liberty/config`, overwriting the existing zero-length file. This `server.xml` configures the Open Liberty server with Java EE features.
 1. Copy `2-simple/pom.xml` to `1-start/pom.xml`.  This step adds the `liberty-maven-plugin` to the POM.
 1. Change directory to `1-start` of your local clone.
@@ -130,6 +227,8 @@ To run the application on Open Liberty, you need to create an Open Liberty serve
 
 The directory `2-simple` of your local clone shows the Maven project with the above changes already applied.
 
+---
+
 ## Prepare the application image
 
 To deploy and run your Liberty application on an ARO 4 cluster, containerize your application as a Docker image using [Open Liberty container images](https://github.com/OpenLiberty/ci.docker) or [WebSphere Liberty container images](https://github.com/WASdev/ci.docker).
@@ -137,6 +236,79 @@ To deploy and run your Liberty application on an ARO 4 cluster, containerize you
 ### Build application image
 
 Complete the following steps to build the application image:
+
+# [with DB connection](#tab/with-mysql-image)
+
+Run the `docker build` command to build the image.
+```bash
+cd cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+# Fetch maven artifactId as image name, maven build version as image version
+IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+cd cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
+# If you are build with Open Liberty base image
+docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile .
+# If you are build with WebSphere Liberty base image
+docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile-wlp .
+```
+### Push the image to the container image registry
+
+When you're satisfied with the state of the application, push it to the built-in container image registry by following the instructions below.
+
+#### Log in to the OpenShift CLI as the Azure AD user
+
+1. Sign in to the OpenShift web console from your browser using the credentials of an Azure AD user.
+
+   1. Use an InPrivate, Incognito or other equivalent browser window feature to sign in to the console.
+   1. Select **openid**
+
+   > [!NOTE]
+   > Take note of the username and password you use to sign in here. This username and password will function as an administrator for other actions in this and other articles.
+1. Sign in with the OpenShift CLI by using the following steps.  For discussion, this process is known as `oc login`.
+   1. At the right-top of the web console, expand the context menu of the signed-in user, then select **Copy Login Command**.
+   1. Sign in to a new tab window with the same user if necessary.
+   1. Select **Display Token**.
+   1. Copy the value listed below **Login with this token** to the clipboard and run it in a shell, as shown here.
+
+       ```bash
+       oc login --token=XOdASlzeT7BHT0JZW6Fd4dl5EwHpeBlN27TAdWHseob --server=https://api.aqlm62xm.rnfghf.aroapp.io:6443
+       Logged into "https://api.aqlm62xm.rnfghf.aroapp.io:6443" as "kube:admin" using the token provided.
+
+       You have access to 57 projects, the list has been suppressed. You can list all projects with 'oc projects'
+
+       Using project "default".
+       ```
+
+#### Push the container image to the container registry for OpenShift
+
+Execute these commands to push the image to the container registry for OpenShift.
+
+```bash
+# Note: replace "<Container_Registry_URL>" with the fully qualified name of the registry
+Container_Registry_URL=<Container_Registry_URL>
+
+# Create a new tag with registry info that refers to source image
+docker tag ${IMAGE_NAME}:${IMAGE_VERSION} ${Container_Registry_URL}/${NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION}
+
+# Sign in to the built-in container image registry
+docker login -u $(oc whoami) -p $(oc whoami -t) ${Container_Registry_URL}
+```
+
+Successful output will look similar to the following.
+
+```bash
+WARNING! Using --password via the CLI is insecure. Use --password-stdin.
+Login Succeeded
+```
+
+Push image to the built-in container image registry with the following command.
+
+```bash
+
+docker push ${Container_Registry_URL}/${NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION}
+```
+
+# [without DB connection](#tab/without-mysql-mage)
 
 1. Change directory to `2-simple` of your local clone.
 2. Run `mvn clean package` to package the application.
@@ -221,9 +393,68 @@ Push image to the built-in container image registry with the following command.
 docker push ${Container_Registry_URL}/open-liberty-demo/javaee-cafe-simple:1.0.0
 ```
 
+
+---
+
 ## Deploy application on the ARO 4 cluster
 
 Now you can deploy the sample Liberty application to the Azure Red Hat OpenShift 4 cluster you created earlier when working through the prerequisites.
+# [with DB connection from web console](#tab/with-mysql-deploy-console)
+
+### Deploy the application from the web console
+
+Because we use the Open Liberty Operator to manage Liberty applications, we need to create an instance of its *Custom Resource Definition*, of type "OpenLibertyApplication". The Operator will then take care of all aspects of managing the OpenShift resources required for deployment.
+
+1. Sign in to the OpenShift web console from your browser using the credentials of the Azure AD user.
+1. Expand **Home**, Select **Projects** > **open-liberty-demo**.
+1. Navigate to **Operators** > **Installed Operators**.
+1. In the middle of the page, select **Open Liberty Operator**.
+1. In the middle of the page, select **Open Liberty Application**.  The navigation of items in the user interface mirrors the actual containment hierarchy of technologies in use.
+   <!-- Diagram source https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/diagrams/aro-java-containment.vsdx -->
+   ![ARO Java Containment](./media/howto-deploy-java-liberty-app/aro-java-containment.png)
+1. Select **Create OpenLibertyApplication**
+1. Replace the generated yaml with yours, which is located at `<path-to-repo>/3-integration/connect-db/mysql/target/openlibertyapplication.yaml`.
+1. Select **Create**. You'll be returned to the list of OpenLibertyApplications.
+1. Select **javaee-cafe-simple**.
+1. In the middle of the page, select **Resources**.
+1. In the table, select the link for **javaee-cafe-simple** with the **Kind** of **Route**.
+1. On the page that opens, select the link below **Location**.
+
+You'll see the application home page opened in the browser.
+
+# [with DB connection](#tab/with-mysql-deploy-cli)
+
+Now you can deploy the sample Liberty application to the ARO 4 cluster with the following steps.
+1. Log in to the OpenShift web console from your browser using the credentials of the Azure AD user.
+1. [Log in to the OpenShift CLI with the token for the Azure AD user](https://github.com/Azure-Samples/open-liberty-on-aro/blob/master/guides/howto-deploy-java-liberty-app.md#log-in-to-the-openshift-cli-with-the-token).
+1. Run the following commands to deploy the application.
+   ```bash
+   # Change directory to "<path-to-repo>/3-integration/connect-db/mysql"
+   cd <path-to-repo>/3-integration/connect-db/mysql
+
+   # Change project to "open-liberty-demo"
+   oc project open-liberty-demo   
+   
+   # Create DB secret
+   oc create -f db-secret.yaml
+
+   # Create the deployment
+   oc create -f openlibertyapplication.yaml
+
+   # Check if OpenLibertyApplication instance is created
+   oc get openlibertyapplication ${IMAGE_NAME}
+
+   # Check if deployment created by Operator is ready
+   oc get deployment ${IMAGE_NAME}
+
+   # Get host of the route
+   HOST=$(oc get route ${IMAGE_NAME} --template='{{ .spec.host }}')
+   echo "Route Host: $HOST"
+   ```
+Once the Liberty application is up and running, open the output of **Route Host** in your browser to visit the application home page.
+
+
+# [without DB connection from web console](#tab/without-mysql-deploy-console)
 
 ### Deploy the application from the web console
 
@@ -255,6 +486,8 @@ When you're done with the application, follow these steps to delete the applicat
 1. Select **Open Liberty Operator**.
 1. In the middle of the page select **Open Liberty Application**.
 1. Select the vertical ellipsis (three vertical dots) then select **Delete OpenLiberty Application**.
+
+# [without DB connection from CLI](#tab/without-mysql-deploy-cli)
 
 ### Deploy the application from CLI
 
@@ -308,6 +541,7 @@ Delete the application from the CLI by executing this command.
 ```bash
 oc delete -f openlibertyapplication.yaml
 ```
+---
 
 ## Clean up resources
 
