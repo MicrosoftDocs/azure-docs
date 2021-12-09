@@ -11,8 +11,7 @@ ms.subservice: education-hub
 
 # What is the Azure Education Hub?
 
-The Microsoft Azure [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/quickstart) is a tool that helps academic users provision and manage
-cloud credit across many different Azure subscriptions. This is useful when faculty
+The Microsoft Azure [Education Hub](https://portal.azure.com/#blade/Microsoft_Azure_Education/EducationMenuBlade/quickstart) is a tool that helps academic users provision and manage cloud credit across many different Azure subscriptions. This is useful when faculty
 members need to manage many cloud-based student projects. The Education Hub is also useful for research purposes when your Azure credit needs are not yet known.
 
 Users can easily adjust the amount of allocated credit within each subscription or in bulk. Subscriptions can also be suspended—for example, when a semester or quarter project is complete—to maximize available credits.
