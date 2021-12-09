@@ -184,7 +184,8 @@ To create a scaling plan:
 9. In **Exclusion tags**, enter tags for VMs you don't want to include in scaling operations. For example, you might want to tag VMs that are set to drain mode so that autoscale doesn't override drain mode during maintenance.
         
     >[!NOTE]
-    >Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
+    >- Though an exclusion tag will exclude the tagged VM from power management scaling operations, tagged VMs will still be considered as part of the calculation of the minimum percentage of hosts.
+    >- Make sure not to include any sensitive information in the exclusion tags such as user principal names or other personally identifiable information.
 
 10. Select **Next**, which should take you to the **Schedules** tab.
 
@@ -231,7 +232,8 @@ To create or change a schedule:
       - Force logoff users
 
     >[!IMPORTANT]
-    > If you've enabled the autoscale feature to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions to shut down. The autoscale feature will put the session host in drain mode, send all active user sessions a notification telling them they'll be signed out, and then sign out all users after the specified wait time is over. After the autoscale feature signs out all user sessions, it then deallocates the VM. If you haven't enabled forced sign out during ramp-down, session hosts with no active or disconnected sessions will be deallocated.
+    >- If you've enabled the autoscale feature to force users to sign out during ramp-down, the feature will choose the session host with the lowest number of user sessions to shut down. The autoscale feature will put the session host in drain mode, send all active user sessions a notification telling them they'll be signed out, and then sign out all users after the specified wait time is over. After the autoscale feature signs out all user sessions, it then deallocates the VM. If you haven't enabled forced sign out during ramp-down, session hosts with no active or disconnected sessions will be deallocated.
+    >- During ramp-down, the autoscale feature will only shut down VMs if all existing user sessions in the host pool can be consolidated to fewer VMs without exceeding the capacity threshold.
 
     - Likewise, **Off-peak hours** works the same way as **Peak hours**:
 
