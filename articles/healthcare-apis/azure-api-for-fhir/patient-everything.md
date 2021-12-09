@@ -14,8 +14,8 @@ ms.author: cavoeg
 
 The [Patient-everything](https://www.hl7.org/fhir/patient-operation-everything.html) operation is used to provide a patient with access to their entire record or for a provider or other user to perform a bulk data download. This operation can be useful to give patients' access to their entire record or for a provider or other user to perform a bulk data download related to a patient. According to the FHIR specification, Patient-everything returns all the information related to one or more patients described in the resource or context on which this operation is invoked. In the Azure API for FHIR, Patient-everything is available to pull data related to a specific patient.
 
-## Use patient-everything
-To call patient-everything, use the following command:
+## Use Patient-everything
+To call Patient-everything, use the following command:
 
 ```json
 GET {FHIRURL}/Patient/{ID}/$everything
@@ -77,7 +77,7 @@ In addition, you can set the `Prefer` header to `handling=strict` to throw an er
 > [!Note]
 > If a `replaced-by` link is present, `Prefer: handling=lenient` and results are returned asynchronously in multiple bundles, only an operation outcome is returned in one bundle.
 
-## Examples of $patient-everything 
+## Examples of Patient-everything 
 
 Below are some examples of using the Patient-everything operation. In addition to the examples below, we have a sample REST file that illustrates how the `seealso` and `replaced-by` behavior works.
 
