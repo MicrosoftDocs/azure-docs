@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to onboard to Microsoft Defend
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 12/05/2021
+ms.date: 12/09/2021
 ms.custom: template-tutorial
 ---
 
@@ -30,9 +30,9 @@ An Azure subscription is required for this tutorial.
 
 If you don't already have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription. TO learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
+If you already have a subscription that is onboarded for Azure Defender for IoT for OT environments, you will need to create a new subscription. To learn how to onboard a subscription, see [Onboard a subscription](how-to-manage-subscriptions.md#onboard-a-subscription).
 
-There is a minimum security level needed to access different parts of Azure Defender for Iot. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
+There is a minimum security level needed to access different parts of Azure Defender for IoT. You must have a level of Security Owner, or a Subscription contributor of the subscription to onboard a subscription, and commit to a pricing. Security Reader level permissions to access the Defender for IoT user interface.
 
 The following table describes user access permissions to Azure Defender for IoT portal tools:
 
@@ -56,7 +56,7 @@ Before you deploy your Enterprise IoT sensor, you will need to configure your se
 
     * 250 GB HDD
 
-    * 2 Network Adapters
+    * Two Network Adapters
 
     * OS: Ubuntu 18.04
 
@@ -113,7 +113,6 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
 **To set up an Enterprise sensor**:
 
-
 1. Navigate to the [Azure portal](https://portal.azure.com#home).
 
 1. Select **Set up Enterprise IoT Security**.
@@ -144,8 +143,8 @@ Run the command that you received, and saved when you registered the Enterprise 
 
 **To install the sensor**:
 
-1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm. 
-    
+1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
+
 1. Run the command that you saved from the Register an EIoT sensor.
 
 1. When the command is complete, the installation wizard will appear.
@@ -224,7 +223,7 @@ Once you have validated your setup, the device inventory will start to populate 
 
 1. From the left side toolbar, select **Device inventory**.
 
-The device inventory is where you will be able to view all of your device systems, and network information. To learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations). 
+The device inventory is where you will be able to view all of your device systems, and network information. Learn more about the device inventory see [Manage your IoT devices with the device inventory for organizations](how-to-manage-device-inventory-for-organizations.md#manage-your-iot-devices-with-the-device-inventory-for-organizations).
 
 ## Remove the sensor (optional)
 
