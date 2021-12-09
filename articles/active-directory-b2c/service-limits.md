@@ -23,7 +23,7 @@ This article outlines the usage constraints and other service limits for the Azu
 
 ## End user/consumption related limits
 
-The number and frequency of users authenticating through an Azure AD B2C tenant is gated by the token issuance limits as illustrated in the table below. The below table illustrates the maximum request limits for your Azure AD B2C tenant.
+The amount of users able to authenticate through an Azure AD B2C tenant is gated request limits. The below table illustrates the request limits for your Azure AD B2C tenant.
 
 |Category |Limit    |
 |---------|---------|
@@ -32,7 +32,7 @@ The number and frequency of users authenticating through an Azure AD B2C tenant 
 
 ## Endpoint request usage
 
-The number and frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview) article for more information on which endpoints are consumed by your application type.
+The frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview) article for more information on which endpoints are consumed by your application type.
 
 |Endpoint                 |Endpoint type     |Requests consumed |
 |-----------------------------|---------|------------------|
@@ -53,12 +53,12 @@ The number and frequency of requests made to Azure AD B2C endpoints determine th
 <sup>1</sup> The configuration of your Custom Policy determines the total number of requests consumed when using these endpoints.
 ::: zone-end
 
-## Token issuance capability
+## Token issuance rate
 
 ::: zone pivot="b2c-user-flow"
 
-Each type of user flow provides a unique user experience and will consume a different number of requests.
-The token issuance capability of a user flow is dependent on the number of requests consumed by both the static and dynamic endpoints that your application uses. The below table shows the number of requests consumed at a dynamic endpoint for each User Flow.
+Each type of User Flow provides a unique user experience and will consume a different number of requests.
+The token issuance rate of a User Flow is dependent on the number of requests consumed by both the static and dynamic endpoints. The below table shows the number of requests consumed at a dynamic endpoint for each User Flow.
 
 |User Flow |Requests consumed    |
 |---------|---------|
@@ -77,7 +77,7 @@ When you add more features to a User Flow, such as multi-factor authentication, 
 |Age gating     |2   |
 |Federated identity provider  |2   |
 
-To obtain the token issuance rate per second for your user flow:
+To obtain the token issuance rate per second for your User Flow:
 
 1. Use the tables above to add the total number of requests consumed at the dynamic endpoint.
 2. Add the number of requests expected at the static endpoints based on your application type.
@@ -90,7 +90,7 @@ Tokens/sec = 200/requests-consumed
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
 
-The token issuance capability of a Custom Policy is dependent on the number of requests consumed by the static and dynamic endpoints that your application uses. The below table shows the number of requests consumed at a dynamic endpoint for the [Azure AD B2C starter packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
+The token issuance rate of a Custom Policy is dependent on the number of requests consumed by the static and dynamic endpoints. The below table shows the number of requests consumed at a dynamic endpoint for the [Azure AD B2C starter packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack).
 
 |Starter Pack |Scenario |User journey ID |Requests consumed|
 |---------|---------|---------|---------|
@@ -139,7 +139,7 @@ Tokens/sec = 200/requests-consumed
 
 ## Best practices
 
-Once Azure AD B2C is fully integrated and deployed within your application, you can optimise the token issuance rate by considering the following configuration options:
+You can optimize the token issuance rate by considering the following configuration options:
 
 1. Increasing access and refresh [token lifetimes](./configure-tokens).
 1. Increasing the Azure AD B2C [web session lifetime](./session-behavior).
