@@ -52,7 +52,7 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - With [Cloud Video Interop for Microsoft Teams](/microsoftteams/cloud-video-interop), some devices have seen issues when a Communication Services user shares their screen.
 - Features such as reactions, raised hand, together mode, and breakout rooms are only available for Teams users.
 - Communication Services users cannot interact with poll or Q&A apps in meetings.
-- Communication Services wont have access to all chat features supported by Teams. They can send and receive text messages, use typing indicators, read receipts and other features supported by Chat SDK. However features like file sharing, reply or react to a message are not supported for Communication Services users.   
+- Communication Services won't have access to all chat features supported by Teams. They can send and receive text messages, use typing indicators, read receipts and other features supported by Chat SDK. However features like file sharing, reply or react to a message are not supported for Communication Services users.   
 - The Calling SDK does not currently support closed captions for Teams meetings.
 - Communication Services users cannot join [Teams live events](/microsoftteams/teams-live-events/what-are-teams-live-events)
 - [Teams activity handler events](/microsoftteams/platform/bots/bot-basics?tabs=csharp) for bots do not fire when Communication Services users join a Teams meeting.
