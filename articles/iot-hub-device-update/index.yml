@@ -47,6 +47,8 @@ landingContent:
           url: import-concepts.md
         - text: Understand Device Update groups
           url: device-update-groups.md
+        - text: Understand Device Update deployments
+          url: device-update-deployments.md
         - text: Understand Device Update limits
           url: device-update-limits.md
   - title: Developer guide
