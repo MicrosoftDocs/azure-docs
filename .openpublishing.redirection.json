@@ -40009,6 +40009,46 @@
       "redirect_document_id": true
     },
     {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-devices",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/get-speech-devices-sdk",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-quickstart",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-troubleshooting",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-devices-microphone-array-configuration",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-roobo-v1",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-roobo-v2",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
       "redirect_url": "/azure/cognitive-services/text-analytics",
       "redirect_document_id": false
