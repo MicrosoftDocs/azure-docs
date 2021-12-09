@@ -465,7 +465,7 @@ For information about what to do when the timer trigger doesn't work as expected
 
 ## Next steps
 
-[!div class="nextstepaction"]
+> [!div class="nextstepaction"]
 > [Go to a quickstart that uses a timer trigger](functions-create-scheduled-function.md)
 
 > [!div class="nextstepaction"]
