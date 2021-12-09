@@ -2,7 +2,8 @@
 metadata:
   title: General questions about the Azure Site Recovery service
   description: This article discusses popular general questions about Azure Site Recovery.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: azure
   ms.date: 05/27/2021
 
 
@@ -252,12 +253,12 @@ sections:
       - question: |
          Can I extend replication from existing recovery site to another tertiary site?
         answer: |
-              Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+              Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84).
 
       - question: |
          Can I do an offline replication the first time I replicate to Azure?
         answer: |
-              This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+              This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84).
 
       - question: |
          Can I exclude specific disks from replication?
@@ -362,7 +363,7 @@ sections:
         answer: |
               To understand how Site Recovery generates recovery points, let's see an example of a replication policy. This replication policy has a recovery point with a 24-hour retention window and an app-consistent frequency snapshot of 1 hour.
 
-              Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the last hour, you can choose from 12 crash-consistent points and 1 app-consistent point. As time progresses, Site Recovery prunes all the recovery points beyond the last hour and saves only 1 recovery point per hour.
+              Site Recovery creates a crash-consistent recovery point every 5 minutes. You can't change this frequency. For the most recent hour, you can choose from 12 crash-consistent points and 1 app-consistent point. As time progresses, Site Recovery prunes all the recovery points beyond the last hour and saves only 1 recovery point per hour for up to 24 hours, and only 1 recovery point every 2 hours for up to 72 hours.
 
               The following screenshot illustrates the example. In the screenshot:
 

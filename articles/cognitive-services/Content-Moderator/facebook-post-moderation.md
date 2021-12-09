@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Tutorial: Moderate Facebook posts and commands with Azure Content Moderator
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 In this tutorial, you will learn how to use Azure Content Moderator to help moderate the posts and comments on a Facebook page. Facebook will send the content posted by visitors to the Content Moderator service. Then your Content Moderator workflows will either publish the content or create reviews within the Review tool, depending on the content scores and thresholds. See the [Build 2017 demo video](https://channel9.msdn.com/Events/Build/2017/T6033) for a working example of this scenario.
 
 > [!IMPORTANT]
@@ -116,7 +118,7 @@ Sign in to the [Azure portal](https://portal.azure.com/) and follow these steps:
     > [!IMPORTANT]
     > In 2018, Facebook implemented a more strict vetting of Facebook apps. You will not be able to execute sections 2, 3 and 4 if your app has not been reviewed and approved by the Facebook review team.
 
-    1. Navigate to [Facebook](https://www.facebook.com/bookmarks/pages) and create a **new Facebook Page**.
+    1. Navigate to [Facebook](https://www.facebook.com/pages) and create a **new Facebook Page**.
     1. Allow the Facebook App to access this page by following these steps:
         1. Navigate to the [Graph API Explorer](https://developers.facebook.com/tools/explorer/).
         1. Select **Application**.

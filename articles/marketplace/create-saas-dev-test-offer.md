@@ -1,5 +1,5 @@
 ---
-title: Create a test offer
+title: Create a test SaaS offer
 description: Create a separate development offer for testing your production offer in Azure Marketplace. 
 author: mingshen-ms 
 ms.author: mingshen
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 04/20/2021
 ---
 
-# Create a test offer
+# Create a test SaaS offer
 
 To develop in a separate environment from your production offer, you’ll create a separate test and development (DEV) offer and a separate production (PROD) offer. For information about the benefits of using a separate DEV offer, see [Plan a SaaS offer](plan-saas-offer.md#test-offer).
 

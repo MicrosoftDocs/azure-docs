@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
-ms.date: 09/04/2020
+ms.date: 11/11/2021
 ---
 
 # Publishing guide for Azure managed applications
@@ -46,4 +46,4 @@ If you haven't already done so, learn how to [Grow your cloud business with Azur
 To register for and start working in Partner Center:
 
 - [Sign in to Partner Center](https://partner.microsoft.com/dashboard/account/v3/enrollment/introduction/partnership) to create or complete your offer.
-- See [Create an Azure application offer](./create-new-azure-apps-offer.md) for more information.
+- See [Create an Azure application offer](azure-app-offer-setup.md) for more information.

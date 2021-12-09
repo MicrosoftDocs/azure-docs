@@ -4,6 +4,7 @@ description: This tutorial provides steps for using the Azure portal to setup Pr
 author: lrtoyou1223
 ms.author: lle
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.date: 05/06/2021
 ---
@@ -18,9 +19,9 @@ access SQL Managed Instance from Managed VNET using Private Endpoint.
 ## Prerequisites
 
 * **Azure subscription**. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* **Virtual Network**. If you don’t have a Virtual Network, create one following [Create Virtual Network](https://docs.microsoft.com/azure/virtual-network/quick-create-portal).
-* **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](https://docs.microsoft.com/azure/expressroute/expressroute-howto-linkvnet-portal-resource-manager?toc=/azure/virtual-network/toc.json) or [VPN](https://docs.microsoft.com/azure/vpn-gateway/tutorial-site-to-site-portal?toc=/azure/virtual-network/toc.json).
-* **Data Factory with Managed VNET enabled**. If you don’t have a Data Factory or Managed VNET is not enabled, create one following [Create Data Factory with Managed VNET](https://docs.microsoft.com/azure/data-factory/tutorial-copy-data-portal-private).
+* **Virtual Network**. If you don’t have a Virtual Network, create one following [Create Virtual Network](../virtual-network/quick-create-portal.md).
+* **Virtual network to on-premises network**. Create a connection between virtual network and on-premises network either using [ExpressRoute](../expressroute/expressroute-howto-linkvnet-portal-resource-manager.md?toc=%2fazure%2fvirtual-network%2ftoc.json) or [VPN](../vpn-gateway/tutorial-site-to-site-portal.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* **Data Factory with Managed VNET enabled**. If you don’t have a Data Factory or Managed VNET is not enabled, create one following [Create Data Factory with Managed VNET](./tutorial-copy-data-portal-private.md).
 
 ## Create subnets for resources
 
@@ -38,8 +39,9 @@ access SQL Managed Instance from Managed VNET using Private Endpoint.
 
 Use the portal to create a standard internal load balancer.
 
-1. On the top left-hand side of the screen, select **Create a resource > Networking > Load Balancer**.
-2. In the **Basics** tab of the **Create load balancer** page, enter, or select the following information:
+1. In the search bar at the top of the portal, search for and select **Load Balancers** in the **Services** section of the search pane.
+2. On the **Load balancing** services page, Select **Create** to create a new load balancer.
+3. On the **Basics** tab of the **Create load balancer** page, enter, or select the following details:
 
     | Setting | Value |
     |:--- |:--- |
@@ -47,18 +49,22 @@ Use the portal to create a standard internal load balancer.
     |Resource group|Select your resource group.|
     |Name|Enter **myLoadBalancer**.|
     |Region|Select **East US**.|
-    |Type|Select **Internal**.|
     |SKU|Select **Standard**.|
+    |Type|Select **Internal**.|
+
+4. On the **Frontend IP configuration** tab of the **Create load balancer** page, select **Add a frontend IP configuration**, and then enter, or select the following details on the **Add frontend IP address** configuration pane:
+
+    | Setting | Value |
+    |:--- |:--- |
+    |Frontend IP name|Enter a name for your frontend IP|
     |Virtual network|Select your virtual network.|
     |Subnet|Select **fe-subnet** created in the previous step.|
     |IP address assignment|Select **Dynamic**.|
     |Availability zone|Select **Zone-redundant**.|
 
-3. Accept the defaults for the remaining settings, and then select **Review + create**.
-4. In the **Review + create** tab, select **Create**.
+5. Accept the defaults for the remaining settings, and then select **Review + create**.
+6. In the **Review + create** tab, select **Create**.
     
-    :::image type="content" source="./media/tutorial-managed-virtual-network/create-load-balancer.png" alt-text="Screenshot that shows the step to create standard load balancer.":::
-
 ## Create load balancer resources
 
 ### Create a backend pool
@@ -239,13 +245,12 @@ data factory from the resources list.
 5. Select the **Private Link Service** tile from the list and select **Continue**.
 6. Enter the name of private endpoint and select **myPrivateLinkService** in private 
 link service list.
-7. Add FQDN of your target SQL Managed Instance and NAT IPs of your private link Service.
+7. Add FQDN of your target SQL Managed Instance.
     
     :::image type="content" source="./media/tutorial-managed-virtual-network/sql-mi-host.png" alt-text="Screenshot that shows SQL MI host." lightbox="./media/tutorial-managed-virtual-network/sql-mi-host-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/link-service-nat-ip.png" alt-text="Screenshot that shows the NAT IP in the linked service." lightbox="./media/tutorial-managed-virtual-network/link-service-nat-ip-expanded.png":::
 
-    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-2.png" alt-text="Screenshot that shows the private endpoint settings.":::
+    :::image type="content" source="./media/tutorial-managed-virtual-network/private-endpoint-5.png" alt-text="Screenshot that shows the private endpoint settings.":::
 
 8. Create private endpoint.
 

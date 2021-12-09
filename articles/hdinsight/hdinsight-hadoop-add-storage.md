@@ -119,12 +119,11 @@ If you change the key for a storage account, HDInsight can no longer access the 
 
 Running the script action again **doesn't** update the key, as the script checks to see if an entry for the storage account already exists. If an entry already exists, it doesn't make any changes.
 
-To work around this problem:  
-1. Remove the storage account.
-1. Add the storage account.
+To work around this problem:
 
-> [!IMPORTANT]  
-> Rotating the storage key for the primary storage account attached to a cluster is not supported.
+* See [Update storage account access keys](hdinsight-rotate-storage-keys.md) on how to rotate the access keys.
+
+* You can also remove the storage account and then add back the storage account.
 
 ## Next steps
 

@@ -1,20 +1,20 @@
 ---
-title: Customize feed for Windows Virtual Desktop (classic) users - Azure
-description: How to customize feed for Windows Virtual Desktop (classic) users with PowerShell cmdlets.
+title: Customize feed for Azure Virtual Desktop (classic) users - Azure
+description: How to customize feed for Azure Virtual Desktop (classic) users with PowerShell cmdlets.
 author: Heidilohr
 ms.topic: how-to
 ms.date: 03/30/2020
 ms.author: helohr
 manager: femila
 ---
-# Customize feed for Windows Virtual Desktop (classic) users
+# Customize feed for Azure Virtual Desktop (classic) users
 
 >[!IMPORTANT]
->This content applies to Windows Virtual Desktop (classic), which doesn't support Azure Resource Manager Windows Virtual Desktop objects. If you're trying to manage Azure Resource Manager Windows Virtual Desktop objects, see [this article](../customize-feed-for-virtual-desktop-users.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../customize-feed-for-virtual-desktop-users.md).
 
 You can customize the feed so the RemoteApp and remote desktop resources appear in a recognizable way for your users.
 
-First, [download and import the Windows Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
+First, [download and import the Azure Virtual Desktop PowerShell module](/powershell/windows-virtual-desktop/overview/) to use in your PowerShell session if you haven't already. After that, run the following cmdlet to sign in to your account:
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -66,7 +66,7 @@ Set-RdsRemoteDesktop -TenantName <tenantname> -HostPoolName <hostpoolname> -AppG
 
 ## Next steps
 
-Now that you've customized the feed for users, you can sign in to a Windows Virtual Desktop client to test it out. To do so, continue to the Connect to Windows Virtual Desktop How-tos:
+Now that you've customized the feed for users, you can sign in to a Azure Virtual Desktop client to test it out. To do so, continue to the Connect to Azure Virtual Desktop How-tos:
 
  * [Connect from Windows 10 or Windows 7](connect-windows-7-10-2019.md)
  * [Connect from a web browser](connect-web-2019.md)

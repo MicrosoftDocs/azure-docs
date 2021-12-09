@@ -3,7 +3,7 @@ title: Bicep deployment what-if
 description: Determine what changes will happen to your resources before deploying a Bicep file.
 author: tfitzmac
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 09/02/2021
 ms.author: tomfitz
 ---
 # Bicep deployment what-if operation
@@ -11,6 +11,10 @@ ms.author: tomfitz
 Before deploying a Bicep file, you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the Bicep file. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified Bicep file is deployed.
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+
+### Microsoft Learn
+
+To learn more about the what-if operation, and for hands-on guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif/) on **Microsoft Learn**.
 
 ## Install Azure PowerShell module
 
@@ -121,7 +125,7 @@ For REST API, use:
 The what-if operation lists six different types of changes:
 
 * **Create**: The resource doesn't currently exist but is defined in the Bicep file. The resource will be created.
-* **Delete**: This change type only applies when using [complete mode](../templates/deployment-modes.md) for JSON template deployment. The resource exists, but isn't defined in the Bicep file. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](../templates/complete-mode-deletion.md) are included in this change type.
+* **Delete**: This change type only applies when using [complete mode](../templates/deployment-modes.md) for JSON template deployment. The resource exists, but isn't defined in the Bicep file. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](../templates/deployment-complete-mode-deletion.md) are included in this change type.
 * **Ignore**: The resource exists, but isn't defined in the Bicep file. The resource won't be deployed or modified.
 * **NoChange**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, but the properties of the resource won't change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
 * **Modify**: The resource exists, and is defined in the Bicep file. The resource will be redeployed, and the properties of the resource will change. This change type is returned when [ResultFormat](#result-format) is set to `FullResourcePayloads`, which is the default value.
@@ -190,7 +194,11 @@ The following results show the two different output formats:
 
 ### Set up environment
 
-To see how what-if works, let's runs some tests. First, deploy a [Bicep file that creates a virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-before.bicep). You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
+To see how what-if works, let's runs some tests. First, deploy a Bicep file that creates a virtual network. You'll use this virtual network to test how changes are reported by what-if. Download a copy of the Bicep file.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-before.bicep":::
+
+To deploy the Bicep file, use:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -218,7 +226,11 @@ az deployment group create \
 
 ### Test modification
 
-After the deployment completes, you're ready to test the what-if operation. This time you deploy a [Bicep file that changes the virtual network](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/what-if-after.Bicep). It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+After the deployment completes, you're ready to test the what-if operation. This time you deploy a Bicep file that changes the virtual network. It's missing one the original tags, a subnet has been removed, and the address prefix has changed. Download a copy of the Bicep file.
+
+:::code language="bicep" source="~/azure-docs-bicep-samples/samples/deploy-what-if/what-if-after.bicep":::
+
+To view the changes, use:
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -368,6 +380,24 @@ Are you sure you want to execute the deployment?
 ```
 
 You see the expected changes and can confirm that you want the deployment to run.
+
+## Clean up resources
+
+When you no longer need the example resources, use Azure CLI or Azure PowerShell to delete the resource group.
+
+# [CLI](#tab/CLI)
+
+```azurecli
+az group delete --name ExampleGroup
+```
+
+# [PowerShell](#tab/PowerShell)
+
+```azurepowershell
+Remove-AzResourceGroup -Name ExampleGroup
+```
+
+---
 
 ## SDKs
 

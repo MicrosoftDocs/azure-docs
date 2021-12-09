@@ -167,7 +167,7 @@ Run the application with the `node` command on your quickstart file.
 node index.js
 ```
 
-The output of the application should appear in the console. You can then verify that the test image (found in **<sampleDataRoot>/Test/**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
+The output of the application should appear in the console. You can then verify that the test image (found in **\<sampleDataRoot\>/Test/**) is tagged appropriately and that the region of detection is correct. You can also go back to the [Custom Vision website](https://customvision.ai) and see the current state of your newly created project.
 
 ## Clean up resources
 

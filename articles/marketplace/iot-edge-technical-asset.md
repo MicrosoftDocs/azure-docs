@@ -4,8 +4,8 @@ description: Prepare IoT Edge module technical assets on Azure Marketplace.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
+author: aarathin
+ms.author: aarathin
 ms.date: 05/21/2021
 ---
 
@@ -61,11 +61,11 @@ Copy this HTML text or use the corresponding rich text functions in the editing 
 
 ### Configuration
 
-Your module must include default configuration settings to make the deployment to an IoT Edge device as straightforward as possible. This information can be provided in the **Technical configuration** page for the plan in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace). The container may also include the IoT Edge Module SDK to enable communication with the edge Hub and IoT Hub.
+Your module must include default configuration settings to make the deployment to an IoT Edge device as straightforward as possible. This information can be provided in the **Technical configuration** page for the plan in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290). The container may also include the IoT Edge Module SDK to enable communication with the edge Hub and IoT Hub.
 
 #### Default configuration
 
-IoT Edge modules must be able to start with the default settings provided in the **Technical configuration** page for the plan in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace). The following default settings are available:
+IoT Edge modules must be able to start with the default settings provided in the **Technical configuration** page for the plan in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290). The following default settings are available:
 
 - Default **routes**
 - Default **module twin desired properties**
@@ -80,7 +80,7 @@ ServerIPAddress = <MY_SERVER_IP_ADDRESS>
 
 #### Configuration documentation
 
-All configuration settings of an IoT Edge module must be clearly documented. For example, you must document how to use its routes, twin desired properties, environment variables, createOptions, and so on. You must either provide a link to your documentation or make it part of your offer or plan description. You can provide this information in the **Offer listing** and **Plan listing** page in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace).
+All configuration settings of an IoT Edge module must be clearly documented. For example, you must document how to use its routes, twin desired properties, environment variables, createOptions, and so on. You must either provide a link to your documentation or make it part of your offer or plan description. You can provide this information in the **Offer listing** and **Plan listing** page in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290).
 
 #### Tags and versioning
 
@@ -128,7 +128,7 @@ Partners are notified whenever there's a breaking change that affects their modu
 - IoT Edge runtime
 - IoT Edge module certification guidelines
 
-Partners must update and recertify their offers by re-publishing them in [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace).
+Partners must update and recertify their offers by re-publishing them in [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165290).
 
 Your offer will also be recertified if you update it, such as adding new image tags.
 

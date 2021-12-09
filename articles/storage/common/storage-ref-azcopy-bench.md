@@ -15,7 +15,7 @@ ms.reviewer: zezha-msft
 Runs a performance benchmark by uploading or downloading test data to or from a specified destination. 
 For uploads, the test data is automatically generated.
 
-The benchmark command runs the same process as 'copy', except that: 
+The benchmark command runs the same process as 'copy', except that:
 
   - Instead of requiring both source and destination parameters, benchmark takes just one. This is the 
     blob container, Azure Files Share, or Azure Data Lake Storage Gen2 file system that you want to upload to or download from.
@@ -28,17 +28,17 @@ The benchmark command runs the same process as 'copy', except that:
 
   - For downloads, the payload consists of whichever files already exist at the source. (See example below about how to generate
     test files if needed).
-  
+
   - Only a few of the optional parameters that are available to the copy command are supported.
-  
+
   - Additional diagnostics are measured and reported.
-  
+
   - For uploads, the default behavior is to delete the transferred data at the end of the test run.  For downloads, the data
     is never saved locally.
 
 Benchmark mode will automatically tune itself to the number of parallel TCP connections that gives 
 the maximum throughput. It will display that number at the end. To prevent autotuning, set the 
-AZCOPY_CONCURRENCY_VALUE environment variable to a specific number of connections. 
+AZCOPY_CONCURRENCY_VALUE environment variable to a specific number of connections.
 
 All the usual authentication types are supported. However, the most convenient approach for benchmarking upload is typically
 to create an empty container with a SAS token and use SAS authentication. (Download mode requires a set of test data to be
@@ -48,7 +48,6 @@ present in the target container.)
 
 - [Get started with AzCopy](storage-use-azcopy-v10.md)
 - [Optimize the performance of AzCopy v10 with Azure Storage](storage-use-azcopy-optimize.md)
-
 
 ## Examples
 
@@ -61,11 +60,13 @@ Run a benchmark test with default parameters (suitable for benchmarking networks
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"
 ```
+
 Run a benchmark test that uploads 100 files, each 2 GiB in size: (suitable for benchmarking on a fast network, for example, 10 Gbps):'
 
 ```azcopy
 azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>"--file-count 100 --size-per-file 2G
 ```
+
 Run a benchmark test but use 50,000 files, each 8 MiB in size and compute their MD5 hashes (in the same way that the `--put-md5` flag does this
 in the copy command). The purpose of `--put-md5` when benchmarking is to test whether MD5 computation affects throughput for the 
 selected file count and size:
@@ -117,7 +118,6 @@ azcopy bench "https://[account].blob.core.windows.net/[container]?<SAS>" --file-
 **--output-type** string  Format of the command's output. The choices include: text, json. The default value is 'text'. (default "text").
 
 **--trusted-microsoft-suffixes** string   Specifies additional domain suffixes where Azure Active Directory login tokens may be sent.  The default is '*.core.windows.net;*.core.chinacloudapi.cn;*.core.cloudapi.de;*.core.usgovcloudapi.net'. Any listed here are added to the default. For security, you should only put Microsoft Azure domains here. Separate multiple entries with semi-colons.
-
 
 ## See also
 

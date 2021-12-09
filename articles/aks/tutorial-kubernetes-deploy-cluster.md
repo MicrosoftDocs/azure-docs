@@ -116,6 +116,12 @@ Import-AzAksCredential -ResourceGroupName myResourceGroup -Name myAKSCluster
 
 To verify the connection to your cluster, run the [kubectl get nodes][kubectl-get] command to return a list of the cluster nodes:
 
+```azurecli-interactive
+kubectl get nodes
+```
+
+The following example output shows the list of cluster nodes.
+
 ```
 $ kubectl get nodes
 

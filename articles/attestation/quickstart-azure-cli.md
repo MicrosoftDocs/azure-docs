@@ -7,7 +7,7 @@ ms.service: attestation
 ms.topic: quickstart
 ms.date: 11/20/2020
 ms.author: mbaldwin
-
+ms.custom: mode-api
 ---
 # Quickstart: Set up Azure Attestation with Azure CLI
 

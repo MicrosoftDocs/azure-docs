@@ -1,13 +1,13 @@
 ---
 title: 'Tutorial: Deploy your ASP.NET app and Azure SQL Database code by using Azure DevOps Starter'
 description: DevOps Starter makes it easy to get started on Azure. With DevOps Starter, you can deploy your ASP.NET app and Azure SQL Database code in a few quick steps.
-ms.author: mlearned
+ms.author: gwallace
 ms.manager: gwallace
 ms.prod: devops
 ms.technology: devops-cicd
 ms.topic: tutorial
 ms.date: 03/24/2020
-author: mlearned
+author: georgewallace
 ---
 
 # Tutorial: Deploy your ASP.NET app and Azure SQL Database code by using Azure DevOps Starter

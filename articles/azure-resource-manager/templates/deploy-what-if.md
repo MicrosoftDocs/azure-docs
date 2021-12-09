@@ -4,7 +4,7 @@ description: Determine what changes will happen to your resources before deployi
 author: tfitzmac
 ms.topic: conceptual
 ms.date: 03/09/2021
-ms.author: tomfitz 
+ms.author: tomfitz
 ms.custom: devx-track-azurepowershell
 ---
 # ARM template deployment what-if operation
@@ -12,6 +12,10 @@ ms.custom: devx-track-azurepowershell
 Before deploying an Azure Resource Manager template (ARM template), you can preview the changes that will happen. Azure Resource Manager provides the what-if operation to let you see how resources will change if you deploy the template. The what-if operation doesn't make any changes to existing resources. Instead, it predicts the changes if the specified template is deployed.
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
+
+### Microsoft Learn
+
+To learn more about what-if, and for hands-on guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif) on **Microsoft Learn**.
 
 ## Install Azure PowerShell module
 
@@ -123,7 +127,7 @@ The what-if operation lists six different types of changes:
 
 - **Create**: The resource doesn't currently exist but is defined in the template. The resource will be created.
 
-- **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](complete-mode-deletion.md) are included in this change type.
+- **Delete**: This change type only applies when using [complete mode](deployment-modes.md) for deployment. The resource exists, but isn't defined in the template. With complete mode, the resource will be deleted. Only resources that [support complete mode deletion](./deployment-complete-mode-deletion.md) are included in this change type.
 
 - **Ignore**: The resource exists, but isn't defined in the template. The resource won't be deployed or modified.
 
@@ -145,7 +149,7 @@ The default value is **FullResourcePayloads**.
 For PowerShell deployment commands, use the `-WhatIfResultFormat` parameter. In the programmatic object commands, use the `ResultFormat` parameter.
 
 For Azure CLI, use the `--result-format` parameter.
- 
+
 The following results show the two different output formats:
 
 - Full resource payloads
@@ -315,7 +319,7 @@ results=$(az deployment group what-if --resource-group ExampleGroup --template-u
 
 ## Confirm deletion
 
-The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/empty-template/azuredeploy.json) in complete mode.
+The what-if operation supports using [deployment mode](deployment-modes.md). When set to complete mode, resources not in the template are deleted. The following example deploys a [template that has no resources defined](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/what-if/azuredeploy.json) in complete mode.
 
 To preview changes before deploying a template, use the confirm switch parameter with the deployment command. If the changes are as you expected, respond that you want the deployment to complete.
 
@@ -326,7 +330,7 @@ New-AzResourceGroupDeployment `
   -ResourceGroupName ExampleGroup `
   -Mode Complete `
   -Confirm `
-  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+  -TemplateUri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/azuredeploy.json"
 ```
 
 # [Azure CLI](#tab/azure-cli)
@@ -336,7 +340,7 @@ az deployment group create \
   --resource-group ExampleGroup \
   --mode Complete \
   --confirm-with-what-if \
-  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/empty-template/azuredeploy.json"
+  --template-uri "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/what-if/azuredeploy.json"
 ```
 
 ---

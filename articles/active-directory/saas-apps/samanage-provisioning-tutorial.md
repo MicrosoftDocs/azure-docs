@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure SolarWinds Service Desk (previously Samanage) for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to SolarWinds Service Desk (previously Samanage).
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 01/13/2020
-ms.author: Zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure SolarWinds Service Desk (previously Samanage) for automatic user provisioning
@@ -151,7 +151,7 @@ If you select the **Sync all users and groups** option and configure a value for
 
 ## Change log
 
-* 09/14/2020 - Changed the company name in two SaaS tutorials from Samanage to SolarWinds Service Desk (previously Samanage) per https://github.com/ravitmorales.
+* 09/14/2020 - Changed the company name in two SaaS tutorials from Samanage to SolarWinds Service Desk (previously Samanage) per `https://github.com/ravitmorales`.
 * 04/22/2020 - Updated authorization method from basic auth to long lived secret token.
 
 ## Additional resources

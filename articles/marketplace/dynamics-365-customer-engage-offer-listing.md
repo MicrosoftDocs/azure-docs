@@ -1,15 +1,15 @@
 ---
-title: Configure Dynamics 365 for Customer Engagement & PowerApps offer listing details on Microsoft AppSource (Azure Marketplace)
-description: Configure Dynamics 365 for Customer Engagement & PowerApps offer listing details on Microsoft AppSource (Azure Marketplace).
+title: Configure Dynamics 365 apps on Dataverse and Power App offer listing details on Microsoft AppSource (Azure Marketplace)
+description: Configure Dynamics 365 apps on Dataverse and Power App offer listing details on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 04/20/2021
+ms.date: 12/03/2021
 ---
 
-# Configure Dynamics 365 for Customer Engagement & Power Apps offer listing details
+# Configure Dynamics 365 apps on Dataverse and Power App offer listing details
 
 This page lets you define the offer details such as offer name, description, links, contacts, logo, and screenshots.
 

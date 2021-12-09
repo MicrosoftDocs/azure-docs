@@ -1,8 +1,8 @@
 ---
 title: Azure Kinect playback API
 description: Learn how to use the Azure Kinect Sensor SDK to open a recording file using the playback API.
-author: xthexder
-ms.author: jawirth
+author: martinekuan
+ms.author: martinek
 ms.prod: kinect-dk
 ms.date: 06/26/2019
 ms.topic: conceptual

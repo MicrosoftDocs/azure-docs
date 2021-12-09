@@ -9,7 +9,7 @@ ms.date: 03/25/2021
 ---
 
 # Resource Manager template samples for SQL insights
-This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/template-syntax.md) to enable SQL insights for monitoring SQL running in Azure.  See the [SQL insights documentation](sql-insights-overview.md) for details on the offering and versions of SQL we support. Each sample includes a template file and a parameters file with sample values to provide to the template.
+This article includes sample [Azure Resource Manager templates](../../azure-resource-manager/templates/syntax.md) to enable SQL insights for monitoring SQL running in Azure.  See the [SQL insights documentation](sql-insights-overview.md) for details on the offering and versions of SQL we support. Each sample includes a template file and a parameters file with sample values to provide to the template.
 
 [!INCLUDE [azure-monitor-samples](../../../includes/azure-monitor-resource-manager-samples.md)]
 

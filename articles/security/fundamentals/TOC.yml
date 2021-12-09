@@ -10,6 +10,15 @@
   - name: Shared responsibility in the cloud
     href: shared-responsibility.md
 
+- name: Detect and mitigate threats
+  items:
+  - name: Backup and restore plan for ransomware
+    href: backup-plan-to-protect-against-ransomware.md
+  - name: Recovering from systemic identity compromise
+    href: recover-from-identity-compromise.md
+  - name: Threat protection
+    href: threat-detection.md
+
 - name: Securing workloads in Azure
   items:
   - name: Security technical capabilities
@@ -46,6 +55,8 @@
     items:
     - name: Firmware security
       href: firmware.md
+    - name: Code integrity
+      href: code-integrity.md
     - name: Secure Boot
       href: secure-boot.md
     - name: Measured boot & host attestation
@@ -71,8 +82,6 @@
     href: ../../active-directory/authentication/concept-authentication-passwordless.md?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
   - name: Authentication
     href: /azure/architecture/framework/security/design-identity-authentication?toc=/azure/security/fundamentals/toc.json&bc=/azure/security/breadcrumb/toc.json
-
-
 
 - name: Network security
   items:
@@ -151,8 +160,6 @@
 
 - name: Monitoring, auditing, and operations
   items:
-  - name: Threat protection
-    href: threat-detection.md
   - name: Azure logging and auditing
     href: log-audit.md
   - name: Security management and monitoring

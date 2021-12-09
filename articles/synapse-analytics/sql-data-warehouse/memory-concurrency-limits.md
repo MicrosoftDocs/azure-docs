@@ -7,7 +7,7 @@ manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 02/04/2020
+ms.date: 04/04/2021
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: azure-synapse
@@ -17,6 +17,9 @@ ms.custom: azure-synapse
 # Memory and concurrency limits for dedicated SQL pool in Azure Synapse Analytics
 
 View the memory and concurrency limits allocated to the various performance levels and resource classes in Azure Synapse Analytics.  
+
+> [!NOTE]
+> Workload management workload groups provide more flexibility for configuring resources per request and concurrency than dynamic or static resource classes.  See [Workload Groups](sql-data-warehouse-workload-isolation.md) and the [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql) syntax for further details.
 
 ## Data warehouse capacity settings
 
@@ -127,5 +130,7 @@ When there are not enough concurrency slots free to start query execution, queri
 
 To learn more about how to leverage resource classes to optimize your workload further please review the following articles:
 
+* [Workload management workload groups](sql-data-warehouse-workload-isolation.md)
+* [CREATE WORKLOAD GROUP](/sql/t-sql/statements/create-workload-group-transact-sql)
 * [Resource classes for workload management](resource-classes-for-workload-management.md)
 * [Analyzing your workload](analyze-your-workload.md)

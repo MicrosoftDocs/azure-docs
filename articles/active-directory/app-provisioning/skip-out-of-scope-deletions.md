@@ -3,7 +3,7 @@ title: Skip deletion of out of scope users in Azure Active Directory Application
 description: Learn how to override the default behavior of de-provisioning out of scope users in Azure Active Directory.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: how-to
@@ -70,7 +70,7 @@ In the URL below replace [servicePrincipalId]  with the **ServicePrincipalId** e
 ```http
    PUT https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
-Copy the updated text from Step 3 into the "Request Body" and set the header "Content-Type" to "application/json" in "Request Headers". 
+Copy the updated text from Step 3 into the "Request Body". 
 
    ![PUT request](./media/skip-out-of-scope-deletions/skip-05.png)
 

@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Define and use moderation jobs (API console)
 
+[!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
+
 A moderation job serves as a kind of wrapper for the functionality of content moderation, workflows, and reviews. This guide shows you how to use the job REST APIs to initiate and check content moderation jobs. Once you understand the structure of the APIs, you can easily port these calls to any REST-compatible platform.
 
 ## Prerequisites

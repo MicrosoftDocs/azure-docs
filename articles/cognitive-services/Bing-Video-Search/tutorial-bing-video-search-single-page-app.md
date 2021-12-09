@@ -412,4 +412,4 @@ Leave the command window open while you use the tutorial app; closing the window
 
 ## Next steps
 > [!div class="nextstepaction"]
-> [Bing Video Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-video-api-v7-reference)
+> [Bing Video Search API reference](/rest/api/cognitiveservices/bing-video-api-v7-reference)

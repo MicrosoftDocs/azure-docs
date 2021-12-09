@@ -218,7 +218,7 @@ When your Kubernetes cluster, container registry, and repository are no longer n
 > [Learn about Azure Kubernetes Service](/azure/architecture/reference-architectures/containers/aks-start-here)
 
 > [!div class="nextstepaction"]
-> [Learn how to create multiple pipelines on GitHub Actions with AKS](https://docs.microsoft.com/learn/modules/aks-deployment-pipeline-github-actions)
+> [Learn how to create multiple pipelines on GitHub Actions with AKS](/learn/modules/aks-deployment-pipeline-github-actions)
 
 ### More Kubernetes GitHub Actions
 

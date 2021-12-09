@@ -5,7 +5,7 @@ ms.service: data-share
 author: jifems
 ms.author: jife
 ms.topic: conceptual
-ms.date: 04/20/2021
+ms.date: 09/10/2021
 ---
 # Supported data stores in Azure Data Share
 
@@ -62,7 +62,7 @@ When consumers accept data into Azure Data Lake Storage Gen2 or Azure Blob Stora
 For more information, see [Share and receive data from Azure SQL Database and Azure Synapse Analytics](how-to-share-from-sql.md).
 
 ## Share from Data Explorer
-Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. A data provider can share at the level of the database or the cluster. 
+Azure Data Share supports the ability to share databases in-place from Azure Data Explorer clusters. A data provider can share at the level of the database or the cluster. If you are using Data Share API to share data, you can also share specific tables.  
 
 When data is shared at the database level, data consumers can access only the databases that the data provider shared. When a provider shares data at the cluster level, data consumers can access all of the databases from the provider's cluster, including any future databases that the data provider creates.
 

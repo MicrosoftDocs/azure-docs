@@ -4,13 +4,13 @@ description: Learn how to configure log analytics.
 
 services: active-directory
 ms.service: active-directory
-ms.subservice: devices
+ms.subservice: report-monitor
 ms.topic: tutorial
 ms.date: 08/05/2020
 
 ms.author: markvi
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 ms.reviewer: sandeo
 
 #Customer intent: As an IT admin, I want to set up log analytics so I can analyze the health of my environment.
@@ -225,7 +225,7 @@ This procedure shows how to send alerts when the breakglass account is used.
 
 8. On the **Create alert rule** page, verify that the scope is correct.
 
-9. Under **Condition**, click: **Whenever the average custom log search is greater than <logic undefined> count**
+9. Under **Condition**, click: **Whenever the average custom log search is greater than `logic undefined` count**
 
     ![Default condition](./media/tutorial-log-analytics-wizard/default-condition.png)
 

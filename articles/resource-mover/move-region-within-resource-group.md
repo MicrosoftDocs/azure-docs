@@ -13,10 +13,6 @@ ms.author: raynew
 
 In this article, learn how to move resources in a specific resource group to a different Azure region. In the resource group, you select the resources you want to move. Then, you move them using [Azure Resource Mover](overview.md).
 
-> [!IMPORTANT]
-> Azure Resource Mover is currently in public preview.
-
-
 ## Prerequisites
 
 - You need *Owner* access on the subscription in which resources you want to move are located.
@@ -114,7 +110,7 @@ Prepare as follows:
 
 1. In **Across regions**, select the source resource group > **Prepare**.
 2. In **Prepare resources**, select **Prepare**.
-1. 
+
     ![Button to prepare the source resource group](./media/move-region-within-resource-group/prepare-source-resource-group.png)
 
     During the Prepare process, Resource Mover generates Azure Resource Manager (ARM) templates using the resource group settings. Resources inside the resource group aren't affected.
@@ -132,7 +128,7 @@ Initiate the move as follows:
 2. ln **Move Resources**, select **Initiate move**. The resource group moves into an *Initiate move in progress* state.
 3. After initiating the move, the target resource group is created, based on the generated ARM template. The source resource group moves into a *Commit move pending* state.
 
-![Status showing commit move](./media/move-region-availability-zone/commit-move-pending.png)
+    ![Status showing commit move](./media/move-region-availability-zone/commit-move-pending.png)
 
 To commit and finish the move process:
 

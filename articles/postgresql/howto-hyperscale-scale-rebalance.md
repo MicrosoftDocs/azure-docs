@@ -6,14 +6,16 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 07/20/2021
 ---
 
 # Rebalance shards in Hyperscale (Citus) server group
 
 To take advantage of newly added nodes you must rebalance distributed table
 [shards](concepts-hyperscale-distributed-data.md#shards), which means moving
-some shards from existing nodes to the new ones.
+some shards from existing nodes to the new ones. Hyperscale (Citus) offers
+zero-downtime rebalancing, meaning queries can run without interruption during
+shard rebalancing.
 
 ## Determine if the server group needs a rebalance
 

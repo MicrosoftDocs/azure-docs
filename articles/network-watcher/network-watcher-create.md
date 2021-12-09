@@ -99,7 +99,7 @@ armclient put "https://management.azure.com/subscriptions/${subscriptionId}/reso
 
 ## Create a Network Watcher using Azure Quickstart Template
 
-To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/101-networkwatcher-create/)
+To create an instance of Network Watcher refer this [Quickstart Template](https://azure.microsoft.com/resources/templates/networkwatcher-create/)
 
 ## Delete a Network Watcher in the portal
 
@@ -117,8 +117,8 @@ To delete an instance of Network Watcher, run the following example:
 
 ```powershell
 New-AzResourceGroup -Name NetworkWatcherRG -Location westcentralus
-New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG -Location westcentralus
-Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroup NetworkWatcherRG
+New-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroupName NetworkWatcherRG -Location westcentralus
+Remove-AzNetworkWatcher -Name NetworkWatcher_westcentralus -ResourceGroupName NetworkWatcherRG
 ```
 
 ## Next steps

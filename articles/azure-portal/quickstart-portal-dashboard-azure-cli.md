@@ -2,7 +2,7 @@
 title: Create an Azure portal dashboard with Azure CLI
 description: "Quickstart: Learn how to create a dashboard in the Azure portal using the Azure CLI. A dashboard is a focused and organized view of your cloud resources."
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, mode-api
 ms.date: 12/4/2020
 ---
 
@@ -44,8 +44,8 @@ az vm create --resource-group myResourceGroup --name SimpleWinVM --image win2016
 > The password must be complex.
 > This is a new user name and password.
 > It's not, for example, the account you use to sign in to Azure.
-> For more information, see [username requirements](../virtual-machines/windows/faq.md#what-are-the-username-requirements-when-creating-a-vm)
-and [password requirements](../virtual-machines/windows/faq.md#what-are-the-password-requirements-when-creating-a-vm).
+> For more information, see [username requirements](../virtual-machines/windows/faq.yml#what-are-the-username-requirements-when-creating-a-vm-)
+and [password requirements](../virtual-machines/windows/faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
 The deployment starts and typically takes a few minutes to complete.
 After deployment completes, move on to the next section.

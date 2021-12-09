@@ -6,7 +6,7 @@ ms.service: cosmos-db
 ms.topic: how-to
 ms.date: 10/23/2020
 ms.author: dech
-ms.custom: seodec18, has-adal-ref
+ms.custom: seodec18
 ---
 # Manage Azure Cosmos DB resources by using Azure Storage Explorer
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]

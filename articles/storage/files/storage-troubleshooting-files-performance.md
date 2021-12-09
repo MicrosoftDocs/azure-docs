@@ -1,17 +1,24 @@
 ---
 title: Azure file shares performance troubleshooting guide
 description: Troubleshoot known performance issues with Azure file shares. Discover potential causes and associated workarounds when these problems are encountered.
-author: roygara
+author: jeffpatt24
 ms.service: storage
 ms.topic: troubleshooting
-ms.date: 11/16/2020
-ms.author: rogarana
+ms.date: 07/06/2021
+ms.author: jeffpatt
 ms.subservice: files
 #Customer intent: As a < type of user >, I want < what? > so that < why? >.
 ---
 # Troubleshoot Azure file shares performance issues
 
 This article lists some common problems related to Azure file shares. It provides potential causes and workarounds for when you encounter these problems.
+
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## High latency, low throughput, and general performance issues
 
@@ -53,9 +60,9 @@ To confirm whether your share is being throttled, you can access and use Azure m
     > [!NOTE]
     > To receive an alert, see the ["How to create an alert if a file share is throttled"](#how-to-create-an-alert-if-a-file-share-is-throttled) section later in this article.
 
-### Solution
+#### Solution
 
-- If you're using a standard file share, enable [large file shares](./storage-files-how-to-create-large-file-share.md?tabs=azure-portal) on your storage account. Large file shares support up to 10,000 IOPS per share.
+- If you're using a standard file share, [enable large file shares](storage-how-to-create-file-share.md#enable-large-files-shares-on-an-existing-account) on your storage account and [increase the size of file share quota to take advantage of the large file share support](storage-how-to-create-file-share.md#expand-existing-file-shares). Large file shares support great IOPS and bandwidth limits; see [Azure Files scalability and performance targets](storage-files-scale-targets.md) for details.
 - If you're using a premium file share, increase the provisioned file share size to increase the IOPS limit. To learn more, see the [Understanding provisioning for premium file shares](./understanding-billing.md#provisioned-model).
 
 ### Cause 2: Metadata or namespace heavy workload
@@ -66,19 +73,29 @@ To determine whether most of your requests are metadata-centric, start by follow
 
 ![Screenshot of the metrics options for premium file shares, showing an "API name" property filter.](media/storage-troubleshooting-premium-fileshares/MetadataMetrics.png)
 
-### Workaround
+#### Workaround
 
 - Check to see whether the application can be modified to reduce the number of metadata operations.
-- Add a virtual hard disk (VHD) on the file share and mount the VHD over SMB from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
+- Add a virtual hard disk (VHD) on the file share and mount the VHD from the client to perform file operations against the data. This approach works for single writer/reader scenarios or scenarios with multiple readers and no writers. Because the file system is owned by the client rather than Azure Files, this allows metadata operations to be local. The setup offers performance similar to that of a local directly attached storage.
+    -   To mount a VHD on a Windows client, use the [Mount-DiskImage](/powershell/module/storage/mount-diskimage) PowerShell cmdlet.
+    -   To mount a VHD on Linux, consult the documentation for your Linux distribution.     
 
 ### Cause 3: Single-threaded application
 
 If the application that you're using is single-threaded, this setup can result in significantly lower IOPS throughput than the maximum possible throughput, depending on your provisioned share size.
 
-### Solution
+#### Solution
 
 - Increase application parallelism by increasing the number of threads.
 - Switch to applications where parallelism is possible. For example, for copy operations, you could use AzCopy or RoboCopy from Windows clients or the **parallel** command from Linux clients.
+
+### Cause 4: Number of SMB channels exceeds four
+
+If you're using SMB MultiChannel and the number of channels you have exceeds four, this will result in poor performance. To determine if your connection count exceeds four, use the PowerShell cmdlet `get-SmbClientConfiguration` to view the current connection count settings.
+
+#### Solution
+
+Set the Windows per NIC setting for SMB so that the total channels don't exceed four. For example, if you have two NICs, you can set the maximum per NIC to two using the following PowerShell cmdlet: `Set-SmbClientConfiguration -ConnectionCountPerRssNetworkInterface 2`.
 
 ## Very high latency for requests
 
@@ -98,10 +115,11 @@ One potential cause is a lack of SMB multi-channel support for standard file sha
 
 ### Workaround
 
-- For premium file shares, [Enable SMB Multichannel on a FileStorage account](storage-files-enable-smb-multichannel.md).
+- For premium file shares, [Enable SMB Multichannel](files-smb-protocol.md#smb-multichannel).
 - Obtaining a VM with a bigger core might help improve throughput.
 - Running the client application from multiple VMs will increase throughput.
 - Use REST APIs where possible.
+- For NFS file shares, nconnect is available, in preview. Not recommended for production workloads.
 
 ## Throughput on Linux clients is significantly lower than that of Windows clients
 
@@ -182,17 +200,6 @@ Higher than expected latency accessing Azure file shares for I/O-intensive workl
 
 - Install the available [hotfix](https://support.microsoft.com/help/3114025/slow-performance-when-you-access-azure-files-storage-from-windows-8-1).
 
-## SMB Multichannel option not visible under File share settings. 
-
-### Cause
-
-Either the subscription is not registered for the feature, or the region and account type is not supported.
-
-### Solution
-
-Ensure that your subscription is registered for SMB Multichannel feature. See [Getting started](storage-files-enable-smb-multichannel.md#getting-started)
-Ensure that the account kind is FileStorage (premium file account) in the account overview page. 
-
 ## SMB Multichannel is not being triggered.
 
 ### Cause
@@ -208,7 +215,7 @@ Recent changes to SMB Multichannel config settings without a remount.
 
 ### Cause  
 
-High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that SMB client is registered for  pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
+High number file change notification on file shares can result in significant high latencies. This typically occurs with web sites hosted on file shares with deep nested directory structure. A typical scenario is IIS hosted web application where file change notification is setup for each directory in the default configuration. Each change ([ReadDirectoryChangesW](/windows/win32/api/winbase/nf-winbase-readdirectorychangesw)) on the share that the client is registered for pushes a change notification from the file service to the client, which takes system resources, and issue worsens with the number of changes. This can cause share throttling and thus, result in higher client side latency. 
 
 To confirm, you can use Azure Metrics in the portal - 
 
@@ -216,7 +223,7 @@ To confirm, you can use Azure Metrics in the portal -
 1. In the left menu, under Monitoring, select Metrics. 
 1. Select File as the metric namespace for your storage account scope. 
 1. Select Transactions as the metric. 
-1. Add a filter for ResponseType and check to see if any requests have a response code of SuccessWithThrottling (for SMB) or ClientThrottlingError (for REST).
+1. Add a filter for ResponseType and check to see if any requests have a response code of SuccessWithThrottling (for SMB or NFS) or ClientThrottlingError (for REST).
 
 ### Solution 
 
@@ -271,7 +278,7 @@ To confirm, you can use Azure Metrics in the portal -
 12. Fill in the **Alert details** like **Alert rule name**, **Description**, and **Severity**.
 13. Click **Create alert rule** to create the alert.
 
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## How to create alerts if a premium file share is trending toward being throttled
 
@@ -309,7 +316,7 @@ To learn more about configuring alerts in Azure Monitor, see [Overview of alerts
     >    - In step 5, select the **Transactions** metric instead of **Egress**.
     >    - In step 10, the only option for **Aggregation type** is *Total*. Therefore, the threshold value depends on your selected aggregation granularity. For example, if you want your threshold to be 80&nbsp;percent of provisioned baseline IOPS and you select *1 hour* for **Aggregation granularity**, your **Threshold value** would be your baseline IOPS (in bytes) &times;&nbsp;0.8 &times;&nbsp;3600. 
 
-To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure]( https://docs.microsoft.com/azure/azure-monitor/platform/alerts-overview).
+To learn more about configuring alerts in Azure Monitor, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md).
 
 ## See also
 - [Troubleshoot Azure Files in Windows](storage-troubleshoot-windows-file-connection-problems.md)  

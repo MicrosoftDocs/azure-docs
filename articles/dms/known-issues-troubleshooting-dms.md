@@ -41,16 +41,6 @@ The following error occurs when creating an activity for a database migration pr
 | ------------- | ------------- |
 | This error displays when you've selected more than four databases for a single migration activity. At present, each migration activity is limited to four databases. | Select four or fewer databases per migration activity. If you need to migrate more than four databases in parallel, provision another instance of Azure Database Migration Service. Currently, each subscription supports up to two Azure Database Migration Service instances.<br><br> |
 
-## Errors for MySQL migration to Azure MySQL with recovery failures
-
-When you migrate from MySQL to Azure Database for MySQL using Azure Database Migration Service, the migration activity fails with the following error:
-
-* **Error**: Database migration error - Task 'TaskID' was suspended due to [n] successive recovery failures.
-
-| Cause         | Resolution |
-| ------------- | ------------- |
-| This error may occur when the user doing the  migration is missing ReplicationAdmin role and/or privileges of REPLICATION CLIENT, REPLICATION REPLICA, and SUPER (versions earlier than MySQL 5.6.6).<br><br><br><br><br><br><br><br><br><br><br><br><br> | Make sure the [pre-requisite privileges](./tutorial-mysql-azure-mysql-online.md#prerequisites) for the user account are configured accurately on the Azure Database for MySQL instance. For example, the following steps can be followed to create a user named 'migrateuser' with required privileges:<br>1. CREATE USER migrateuser@'%' IDENTIFIED BY 'secret'; <br>2. Grant all privileges on db_name.* to 'migrateuser'@'%' identified by 'secret'; // repeat this step to grant access on more databases <br>3. Grant replication slave on *.* to 'migrateuser'@'%' identified by 'secret';<br>4. Grant replication client on *.* to 'migrateuser'@'%' identified by 'secret';<br>5. Flush privileges; |
-
 ## Error when attempting to stop Azure Database Migration Service
 
 You receive following error when stopping the Azure Database Migration Service instance:
@@ -122,7 +112,6 @@ When you try to connect Azure Database Migration Service to SQL Server source th
 ## Additional known issues
 
 * [Known issues/migration limitations with online migrations to Azure SQL Database](./index.yml)
-* [Known issues/migration limitations with online migrations to Azure Database for MySQL](./known-issues-azure-mysql-online.md)
 * [Known issues/migration limitations with online migrations to Azure Database for PostgreSQL](./known-issues-azure-postgresql-online.md)
 
 ## Next steps
@@ -130,4 +119,4 @@ When you try to connect Azure Database Migration Service to SQL Server source th
 * View the article [Azure Database Migration Service PowerShell](/powershell/module/azurerm.datamigration#data_migration).
 * View the article [How to configure server parameters in Azure Database for MySQL by using the Azure portal](../mysql/howto-server-parameters.md).
 * View the article [Overview of prerequisites for using Azure Database Migration Service](./pre-reqs.md).
-* See the [FAQ about using Azure Database Migration Service](./faq.md).
+* See the [FAQ about using Azure Database Migration Service](./faq.yml).

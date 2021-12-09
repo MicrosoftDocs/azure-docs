@@ -14,9 +14,7 @@ ms.date: 6/08/2020
 This article describes how to set up agentless dependency analysis using Azure Migrate:Discovery and assessment tool. [Dependency analysis](concepts-dependency-visualization.md) helps you to identify and understand dependencies across servers for assessment and migration to Azure.
 
 > [!IMPORTANT]
-> Agentless dependency analysis is currently in preview for servers running in your VMware environment, discovered with the Azure Migrate:Discovery and assessment tool.
-> This preview is covered by customer support and can be used for production workloads.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+>Agentless dependency analysis is currently available only for servers running in your VMware environment, discovered with the Azure Migrate:Discovery and assessment tool.
 
 ## Current limitations
 

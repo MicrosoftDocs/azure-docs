@@ -1,6 +1,6 @@
 ---
-title: Install Microsoft Office FSLogix application containers in Windows Virtual Desktop - Azure
-description: How to use the app rule editor to create an FSLogix application container with Office in Windows Virtual Desktop.
+title: Install Microsoft Office FSLogix application containers in Azure Virtual Desktop - Azure
+description: How to use the app rule editor to create an FSLogix application container with Office in Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual
 ms.date: 02/23/2021
@@ -16,7 +16,7 @@ Here's why using an FSLogix app container can help make installation faster:
 - Offloading your Office apps to an app container reduces the requirements for your C drive size.
 - Snapshots or backups of your VM takes less resources.
 - Having an automated pipeline through updating a single image makes updating your VMs easier.
-- You only need one image to install Office (and other apps) onto all the VMs in your Windows Virtual Desktop deployment.
+- You only need one image to install Office (and other apps) onto all the VMs in your Azure Virtual Desktop deployment.
 
 This article will show you how to set up an FSLogix application container with Office.
 
@@ -34,7 +34,7 @@ You'll need the following things to set up the rule editor:
 To install Office on your VHD or VHDX, enable the Remote Desktop Protocol in your VM, then follow the instructions in [Install Office on a VHD master image](install-office-on-wvd-master-image.md). When installing, make sure you're using [the correct licenses](overview.md#requirements).
 
 >[!NOTE]
->Windows Virtual Desktop requires Share Computer Activation (SCA).
+>Azure Virtual Desktop requires Share Computer Activation (SCA).
 
 ## Install FSLogix
 

@@ -19,10 +19,10 @@ ms.collection: M365-identity-device-management
 
 Application Proxy is a feature of Azure AD that enables users to access on-premises web applications from a remote client. Application Proxy includes both the Application Proxy service in the cloud, and the Application Proxy connectors, which run on an on-premises server. 
 
-Users access on-premises resources through a URL published via Application Proxy. They are redirected to the Azure AD sign in page. The Application Proxy service in Azure AD then sends a token to the Application Proxy connector in the corporate network, which passes the token to the on-premises Active Directory The authenticated user can then access the on-premises resource. In the diagram below, [connectors](../manage-apps/application-proxy-connectors.md) are shown in a [connector group](../manage-apps/application-proxy-connector-groups.md).
+Users access on-premises resources through a URL published via Application Proxy. They are redirected to the Azure AD sign in page. The Application Proxy service in Azure AD then sends a token to the Application Proxy connector in the corporate network, which passes the token to the on-premises Active Directory The authenticated user can then access the on-premises resource. In the diagram below, [connectors](../app-proxy/application-proxy-connectors.md) are shown in a [connector group](../app-proxy/application-proxy-connector-groups.md).
 
 > [!IMPORTANT]
-> When you publish your applications via Application Proxy, you must implement [capacity planning and appropriate redundancy for the Application Proxy connectors](../manage-apps/application-proxy-connectors.md#capacity-planning).
+> When you publish your applications via Application Proxy, you must implement [capacity planning and appropriate redundancy for the Application Proxy connectors](../app-proxy/application-proxy-connectors.md#capacity-planning).
 
 ![Architecture diagram of Application y](./media/resilience-on-prem-access/admin-resilience-app-proxy.png))
 
@@ -30,11 +30,11 @@ Users access on-premises resources through a URL published via Application Proxy
 
 To implement remote access with Azure AD Application Proxy, see the following resources.
 
-* [Planning an Application Proxy deployment](../manage-apps/application-proxy-deployment-plan.md)
+* [Planning an Application Proxy deployment](../app-proxy/application-proxy-deployment-plan.md)
 
-* [High availability and load balancing best practices](../manage-apps/application-proxy-high-availability-load-balancing.md)
+* [High availability and load balancing best practices](../app-proxy/application-proxy-high-availability-load-balancing.md)
 
-* [Configure proxy servers](../manage-apps/application-proxy-configure-connectors-with-proxy-servers.md)
+* [Configure proxy servers](../app-proxy/application-proxy-configure-connectors-with-proxy-servers.md)
 
 * [Design a resilient access control strategy](../authentication/concept-resilient-controls.md)
 

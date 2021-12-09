@@ -37,13 +37,13 @@ In this quickstart, we use the workspace named "sampletest" as an example. It wi
 
 A pipeline contains the logical flow for an execution of a set of activities. In this section, you'll create a pipeline that contains an Apache Spark job definition activity.
 
-1. Go to the **Integrate** tab. Select on the plus icon next to the pipelines header and select Pipeline.
+1. Go to the **Integrate** tab. Select the plus icon next to the pipelines header and select **Pipeline**.
 
      ![Create a new pipeline](media/doc-common-process/new-pipeline.png)
 
 2. In the **Properties** settings page of the pipeline, enter **demo** for **Name**.
 
-3. Under *Synapse* in the *Activities* pane, drag **Spark job definition** onto the pipeline canvas.
+3. Under **Synapse** in the **Activities** pane, drag **Spark job definition** onto the pipeline canvas.
 
      ![drag spark job definition](media/quickstart-transform-data-using-spark-job-definition/drag-spark-job-definition.png)
 
@@ -54,9 +54,9 @@ Once you create your Apache Spark job definition, you'll be automatically sent t
 
 ### General settings
 
-1. Select the spark job definition module in the canvas.
+1. Select the spark job definition module on the canvas.
 
-2. In General tab, enter **sample** for **Name**.
+2. In the **General** tab, enter **sample** for **Name**.
 
 3. (Option) You can also enter a description.
 
@@ -66,9 +66,9 @@ Once you create your Apache Spark job definition, you'll be automatically sent t
 
 6. Retry interval: The number of seconds between each retry attempt.
 
-7. Secure output: When checked, output from the activity will not be captured in logging.
+7. Secure output: When checked, output from the activity won't be captured in logging.
 
-8. Secure input: When checked, input from the activity will not be captured in logging.
+8. Secure input: When checked, input from the activity won't be captured in logging.
 
      ![spark job definition general](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-general.png)
 
@@ -76,9 +76,9 @@ Once you create your Apache Spark job definition, you'll be automatically sent t
 
 On this panel, you can reference to the Spark job definition to run.
 
-* Expand the Spark job definition list, you can choose an existing Apache Spark job definition. You can also create a new Apache Spark job definition by clicking the new button to reference the Spark job definition to be run.
+* Expand the Spark job definition list, you can choose an existing Apache Spark job definition. You can also create a new Apache Spark job definition by selecting the **New** button to reference the Spark job definition to be run.
 
-* You can add command-line arguments by clicking the **New** button. It should be noted that this will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
+* You can add command-line arguments by clicking the **New** button. It should be noted that adding command-line arguments will override the command-line arguments defined by the Spark job definition. <br> *Sample: `abfss://…/path/to/shakespeare.txt` `abfss://…/path/to/result`* <br>
 
      ![spark job definition pipline settings](media/quickstart-transform-data-using-spark-job-definition/spark-job-definition-pipline-settings.png)
 

@@ -4,9 +4,9 @@ description: Create and edit plans for an IoT Edge Module offer on Azure Marketp
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-author: keferna
-ms.author: keferna
-ms.date: 05/21/2021
+author: aarathin
+ms.author: aarathin
+ms.date: 07/08/2021
 ---
 
 # Create and edit plans for an IoT Edge Module offer
@@ -26,7 +26,7 @@ After you create a plan, the **Plan overview** page shows:
 The actions available for a plan vary depending on the current status of your plan. They include:
 
 - **Delete draft** if the plan status is a Draft.
-- **Stop sell plan** if the plan status is Published Live.
+- **Stop distribution of a plan** if the plan status is Published Live.
 
 ## Edit a plan
 
@@ -45,5 +45,5 @@ Select **Create** and continue below.
 ## Next steps
 
 - [+ Create new plan](iot-edge-plan-setup.md), or
-- Exit plan setup and continue with optional [Co-sell with Microsoft](marketplace-co-sell.md), or
+- Exit plan setup and continue with optional [Co-sell with Microsoft](./co-sell-overview.md), or
 - [Review and publish your offer](review-publish-offer.md)

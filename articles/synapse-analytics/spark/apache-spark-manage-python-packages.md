@@ -9,6 +9,7 @@ ms.date: 02/26/2020
 ms.author: midesa
 ms.reviewer: jrasnick 
 ms.subservice: spark
+ms.custom: has-adal-ref
 ---
 
 # Manage Python libraries for Apache Spark in Azure Synapse Analytics
@@ -37,7 +38,7 @@ There are two primary ways to install a library on a cluster:
 > [!IMPORTANT]
 > - If the package you are installing is large or takes a long time to install, this affects the Spark instance start up time.
 > - Altering the PySpark, Python, Scala/Java, .NET, or Spark version is not supported.
-> - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within DEP-enabled workspaces.
+> - Installing packages from external repositories like PyPI, Conda-Forge, or the default Conda channels is not supported within data exfiltration protection enabled workspaces.
 
 ### Install Python packages
 Python packages can be installed from repositories like PyPI and Conda-Forge by providing an environment specification file. 
@@ -47,7 +48,7 @@ Python packages can be installed from repositories like PyPI and Conda-Forge by 
 ##### PIP requirements.txt
 A *requirements.txt* file (output from the `pip freeze` command) can be used to upgrade the environment. When a pool is updated, the packages listed in this file are downloaded from PyPI. The full dependencies are then cached and saved for later reuse of the pool. 
 
-The following snippet shows the format for the requirements file. The PyPI package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/reference/pip_freeze/) reference documentation. 
+The following snippet shows the format for the requirements file. The PyPI package name is listed along with an exact version. This file follows the format described in the [pip freeze](https://pip.pypa.io/en/stable/cli/pip_freeze/) reference documentation. 
 
 This example pins a specific version. 
 ```
@@ -55,7 +56,7 @@ absl-py==0.7.0
 adal==1.2.1
 alabaster==0.7.10
 ```
-##### YML format (preview)
+##### YML format
 In addition, you can also provide an *environment.yml* file to update the pool environment. The packages listed in this file are downloaded from the default Conda channels, Conda-Forge, and PyPI. You can specify other channels or remove the default channels by using the configuration options.
 
 This example specifies the channels and Conda/PyPI dependencies. 
@@ -110,7 +111,7 @@ To update or add  libraries to a Spark pool:
 > If this setting is unchecked, then you  will have to wait for the current Spark session to end or stop it manually. Once the session has ended, you will need to let the pool restart.
 
 
-##### Track installation progress (preview)
+##### Track installation progress  
 A system reserved Spark job is initiated each time a pool is updated with a new set of libraries. This Spark job helps monitor the status of the library installation. If the installation fails due to library conflicts or other issues, the Spark pool will revert to its previous or default state. 
 
 In addition, users can also inspect the installation logs to identify dependency conflicts or see which libraries were installed during the pool update.
@@ -126,7 +127,7 @@ To view these logs:
 ## Install wheel files
 Python wheel files are a common way for packaging Python libraries. Within Azure Synapse Analytics, users can upload their wheel files to a well-known location the Azure Data Lake Storage account or upload using the Azure Synapse Workspace packages interface.
 
-### Workspace packages (preview)
+### Workspace packages 
 Workspace packages can be custom or private wheel files. You can upload these packages to your workspace and later assign them to a specific Spark pool.
 
 To add workspace packages:
@@ -139,7 +140,7 @@ To add workspace packages:
 >[!WARNING]
 >- Within Azure Synapse, an Apache Spark pool can leverage custom libraries that are either uploaded  as Workspace Packages or uploaded within a well-known Azure Data Lake Storage path. However, both of these options cannot be used simultaneously within the same Apache Spark pool. If packages are provided using both methods, only the wheel files specified in the Workspace packages list will be installed. 
 >
->- Once Workspace Packages (preview) are used to install packages on a given Apache Spark pool, there is a limitation that you can no longer specify packages using the Storage account path on the same pool.  
+>- Once Workspace Packages are used to install packages on a given Apache Spark pool, there is a limitation that you can no longer specify packages using the Storage account path on the same pool.  
 
 ### Storage account
 Custom-built wheel packages can be installed on the Apache Spark pool by uploading all the wheel files into the Azure Data Lake Storage (Gen2) account that is linked with the Synapse workspace. 
@@ -158,7 +159,7 @@ abfss://<file_system>@<account_name>.dfs.core.windows.net/synapse/workspaces/<wo
 > To install custom libraries using the Azure DataLake Storage method, you must have the **Storage Blob Data Contributor** or **Storage Blob Data Owner** permissions on the primary Gen2 Storage account that is linked to the Azure Synapse Analytics workspace.
 
 
-## Session-scoped packages (preview)
+## Session-scoped packages
 In addition to pool level packages, you can also specify session-scoped libraries at the beginning of a notebook session.  Session-scoped libraries let you specify and use custom Python environments within a notebook session. 
 
 When using session-scoped libraries, it is important to keep the following points in mind:

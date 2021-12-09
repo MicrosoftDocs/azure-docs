@@ -1,13 +1,10 @@
 ---
 title: Unregister a VMM server script
 description: This article describes the cleanup script on the VMM server
-author: v-harisudhan
 manager: evansma
 ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2021
-ms.author: v-harisudhan
-
 ---
 
 # Cleanup script on a VMM server

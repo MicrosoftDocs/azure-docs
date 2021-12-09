@@ -11,6 +11,9 @@ ms.author: cynthn
 ---
 
 # How to find and delete unattached network interface cards (NICs) for Azure VMs
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 When you delete a virtual machine (VM) in Azure, the network interface cards (NICs) are not deleted by default. If you create and delete multiple VMs, the unused NICs continue to use the internal IP address leases. As you create other VM NICs, they may be unable to obtain an IP lease in the address space of the subnet. This article shows you how to find and delete unattached NICs.
 
 ## Find and delete unattached NICs

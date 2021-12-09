@@ -1,7 +1,7 @@
 ---
-title: Configure a lab to use Remote Desktop Gateway in Azure DevTest Labs
+title: Configure a lab to use Remote Desktop Gateway
 description: Learn how to configure a lab in Azure DevTest Labs with a remote desktop gateway to ensure secure access to the lab VMs without having to expose the RDP port. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

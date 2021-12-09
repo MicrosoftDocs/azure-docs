@@ -8,7 +8,7 @@ ms.service: iot-hub
 services: iot-hub
 ms.devlang: nodejs
 ms.topic: conceptual
-ms.date: 03/13/2020
+ms.date: 06/18/2021
 ms.author: wesmc
 ms.custom: ['Role: Cloud Development', devx-track-js]
 ---
@@ -17,7 +17,7 @@ ms.custom: ['Role: Cloud Development', devx-track-js]
 
 [!INCLUDE [iot-hub-get-started-device-selector](../../includes/iot-hub-get-started-device-selector.md)]
 
-In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspbian. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](https://www.windowsondevices.com/).
+In this tutorial, you begin by learning the basics of working with Raspberry Pi that's running Raspberry Pi OS. You then learn how to seamlessly connect your devices to the cloud by using [Azure IoT Hub](about-iot-hub.md). For Windows 10 IoT Core samples, go to the [Windows Dev Center](https://www.windowsondevices.com/).
 
 Don't have a kit yet? Try [Raspberry Pi online simulator](iot-hub-raspberry-pi-web-simulator-get-started.md). Or buy a new kit [here](https://azure.microsoft.com/develop/iot/starter-kits).
 
@@ -84,25 +84,25 @@ The following items are optional:
 
 ## Set up Raspberry Pi
 
-### Install the Raspbian operating system for Pi
+### Install the Raspberry Pi OS
 
-Prepare the microSD card for installation of the Raspbian image.
+Prepare the microSD card for installation of the Raspberry Pi OS image.
 
-1. Download Raspbian.
+1. Download Raspberry Pi OS with desktop.
 
-   a. [Raspbian Buster with desktop](https://www.raspberrypi.org/software/) (the .zip file).
+   a. [Raspberry Pi OS with desktop](https://www.raspberrypi.org/software/) (the .zip file).
 
-   b. Extract the Raspbian image to a folder on your computer.
+   b. Extract the Raspberry Pi OS with desktop image to a folder on your computer.
 
-2. Install Raspbian to the microSD card.
+2. Install Raspberry Pi OS with desktop to the microSD card.
 
    a. [Download and install the Etcher SD card burner utility](https://etcher.io/).
 
-   b. Run Etcher and select the Raspbian image that you extracted in step 1.
+   b. Run Etcher and select the Raspberry Pi OS with desktop image that you extracted in step 1.
 
    c. Select the microSD card drive. Etcher may have already selected the correct drive.
 
-   d. Click Flash to install Raspbian to the microSD card.
+   d. Click Flash to install Raspberry Pi OS with desktop to the microSD card.
 
    e. Remove the microSD card from your computer when installation is complete. It's safe to remove the microSD card directly because Etcher automatically ejects or unmounts the microSD card upon completion.
 
@@ -112,13 +112,20 @@ Prepare the microSD card for installation of the Raspbian image.
 
 1. Connect Pi to the monitor, keyboard, and mouse.
 
-2. Start Pi and then sign into Raspbian by using `pi` as the user name and `raspberry` as the password.
+2. Start Pi and then sign into Raspberry Pi OS by using `pi` as the user name and `raspberry` as the password.
 
 3. Click the Raspberry icon > **Preferences** > **Raspberry Pi Configuration**.
 
-   ![The Raspbian Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
+   ![The Raspberry Pi OS with Preferences menu](./media/iot-hub-raspberry-pi-kit-node-get-started/1-raspbian-preferences-menu.png)
 
-4. On the **Interfaces** tab, set **I2C** and **SSH** to **Enable**, and then click **OK**. If you don't have physical sensors and want to use simulated sensor data, this step is optional.
+4. On the **Interfaces** tab, set **SSH** and **I2C** to **Enable**, and then click **OK**. 
+ 
+    | Interface | Description |
+    | --------- | ----------- |
+    | *SSH* | Secure Shell (SSH) is used to remote into the Raspberry Pi with a remote command-line. This is the preferred method for issuing the commands to your Raspberry Pi remotely in this document. |
+    | *I2C* | Inter-integrated Circuit (I2C) is a communications protocol used to interface with hardware such as sensors. This interface is required for interfacing with physical sensors in this topic.|
+
+    If you don't have physical sensors and want to use simulated sensor data from your Raspberry Pi device, you can leave **I2C** disabled.
 
    ![Enable I2C and SSH on Raspberry Pi](./media/iot-hub-raspberry-pi-kit-node-get-started/2-enable-i2c-ssh-on-raspberry-pi.png)
 
@@ -191,7 +198,7 @@ Turn on Pi by using the micro USB cable and the power supply. Use the Ethernet c
    If the version is lower than 10.x, or if there is no Node.js on your Pi, install the latest version.
 
    ```bash
-   curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash
+   curl -sSL https://deb.nodesource.com/setup_16.x | sudo -E bash
    sudo apt-get -y install nodejs
    ```
 
@@ -249,6 +256,14 @@ You should see the following output that shows the sensor data and the messages 
 One way to monitor messages received by your IoT hub from your device is to use the Azure IoT Tools for Visual Studio Code. To learn more, see [Use Azure IoT Tools for Visual Studio Code to send and receive messages between your device and IoT Hub](iot-hub-vscode-iot-toolkit-cloud-device-messaging.md).
 
 For more ways to process data sent by your device, continue on to the next section.
+
+## Clean up resources
+
+You can use the resources created in this topic with other tutorials and quickstarts in this document set. If you plan to continue on to work with other quickstarts or with the tutorials, do not clean up the resources created in this topic. If you do not plan to continue, use the following steps to delete all resources created by this topic in the Azure portal.
+
+1. From the left-hand menu in the Azure portal, select **All resources** and then select the IoT Hub you created. 
+1. At the top of the IoT Hub overview pane, click **Delete**.
+1. Enter your hub name and click **Delete** again to confirm permanently deleting the IoT Hub.
 
 ## Next steps
 

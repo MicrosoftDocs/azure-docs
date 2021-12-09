@@ -10,10 +10,7 @@ ms.date: 05/28/2019
 ms.topic: quickstart
 ms.service: synapse-analytics
 ms.subservice: sql-dw
-ms.custom:
-  - seo-lt-2019
-  - azure-synapse
-  - mode-portal
+ms.custom: seo-lt-2019, azure-synapse, mode-portal
 ---
 
 # Quickstart: Create and query a dedicated SQL pool (formerly SQL DW) in Azure synapse Analytics using the Azure portal

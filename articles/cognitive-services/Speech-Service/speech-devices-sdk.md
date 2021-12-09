@@ -3,14 +3,14 @@ title: Speech Devices SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: Get started with the Speech Devices SDK. The Speech service works with a wide variety of devices and audio sources. The Speech Devices SDK is a pre-tuned library that's paired with purpose-built, microphone array development kits.
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 03/11/2020
-ms.author: erhopf
+ms.author: eur
 ---
 
 # What is the Speech Devices SDK?
@@ -47,7 +47,7 @@ The application is built with the Speech SDK package, and the Eclipse Java IDE (
 ### Linux
 
 For Linux, the sample application is provided as a cross-platform Java application. Download the latest version of the [JRE Speech Devices SDK](https://aka.ms/sdsdk-download-JRE).
-The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). It runs on a 64-bit Java 8 runtime environment (JRE).
+The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu Ubuntu 18.04, Debian 9, RHEL 8, CentOS 8). It runs on a 64-bit Java 8 runtime environment (JRE).
 
 Additional binaries are provided to support upcoming devices, [Roobo v2 DDK](https://aka.ms/sdsdk-download-roobov2), [Urbetter DDK](https://aka.ms/sdsdk-download-urbetter), [GGEC Speaker](https://aka.ms/sdsdk-download-speaker), [Linux ARM32](https://aka.ms/sdsdk-download-linux-arm32), and [Linux ARM64](https://aka.ms/sdsdk-download-linux-arm64).
 

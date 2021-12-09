@@ -1,7 +1,7 @@
 ---
 title: Monitor delegation changes in your managing tenant
-description: Learn how to monitor delegation activity from customer tenants to your managing tenant. 
-ms.date: 05/11/2021
+description: Learn how to monitor all Azure Lighthouse delegation activity to your managing tenant. 
+ms.date: 09/08/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -36,7 +36,9 @@ After you elevate your access, your account will have the User Access Administra
 Once you have elevated your access, you can assign the appropriate permissions to an account so that it can query tenant-level activity log data. This account will need to have the [Monitoring Reader](../../role-based-access-control/built-in-roles.md#monitoring-reader) Azure built-in role assigned at the root scope of your managing tenant.
 
 > [!IMPORTANT]
-> Granting a role assignment at root scope means that the same permissions will apply to every resource in the tenant. Because this is a broad level of access, you may wish to [assign this role to a service principal account and using that account to query data](#use-a-service-principal-account-to-query-the-activity-log). You can also assign the Monitoring Reader role at root scope to individual users or to user groups so that they can [view delegation information directly in the Azure portal](#view-delegation-changes-in-the-azure-portal). If you do so, be aware that this is a broad level of access which should be limited to the fewest number of users possible.
+> Granting a role assignment at root scope means that the same permissions will apply to every resource in the tenant. Because this is a broad level of access, we recommend [assigning this role to a service principal account and using that account to query data](#use-a-service-principal-account-to-query-the-activity-log).
+> 
+> You can also assign the Monitoring Reader role at root scope to individual users or to user groups so that they can [view delegation information directly in the Azure portal](#view-delegation-changes-in-the-azure-portal). If you do so, be aware that this is a broad level of access which should be limited to the fewest number of users possible.
 
 Use one of the following methods to make the root scope assignment.
 

@@ -4,7 +4,7 @@ description: Compares Azure Resource Manager templates developed with JSON and B
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 06/01/2021
+ms.date: 07/30/2021
 ---
 # Comparing JSON and Bicep for templates
 
@@ -160,7 +160,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = if(deployVM) {
 ]
 ```
 
-To set resource property:
+To set a resource property:
 
 ```bicep
 sku: '2016-Datacenter'
@@ -170,7 +170,7 @@ sku: '2016-Datacenter'
 "sku": "2016-Datacenter",
 ```
 
-To get resource ID of resource in the template:
+To get the resource ID of a resource in the template:
 
 ```bicep
 nic1.id
@@ -200,7 +200,7 @@ To iterate over items in an array or count:
 
 ## Resource dependencies
 
-For Bicep, you can set an explicit dependency but this approach is not recommended. Instead, rely on implicit dependencies. An implicit dependency is created when one resource declaration references the identifier of another resource.
+For Bicep, you can set an explicit dependency but this approach isn't recommended. Instead, rely on implicit dependencies. An implicit dependency is created when one resource declaration references the identifier of another resource.
 
 The following shows a network interface with an implicit dependency on a network security group. It references the network security group with `nsg.id`.
 
@@ -281,7 +281,7 @@ output hostname string = publicIP.properties.dnsSettings.fqdn
 To separate a solution into multiple files:
 
 * For Bicep, use [modules](modules.md).
-* For JSON, use [linked templates](../templates/linked-templates.md).
+* For ARM templates, use [linked templates](../templates/linked-templates.md).
 
 ## Next steps
 
