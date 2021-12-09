@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 12/07/2021
+ms.date: 12/09/2021
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -23,6 +23,7 @@ Updates in December include:
 
 - [Microsoft Defender for Containers plan released for general availability (GA)](#microsoft-defender-for-containers-plan-released-for-general-availability-ga)
 - [New alerts for Microsoft Defender for Storage released for general availability (GA)](#new-alerts-for-microsoft-defender-for-storage-released-for-general-availability-ga)
+- [Improvements to alerts for Microsoft Defender for Storage](#improvements-to-alerts-for-microsoft-defender-for-storage)
 
 ### Microsoft Defender for Containers plan released for general availability (GA)
 
@@ -66,6 +67,53 @@ These are the new alerts:
 |||
 
 For more information, see:
+- [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
+- [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md)
+- [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
+
+
+### Improvements to alerts for Microsoft Defender for Storage
+
+The initial access alerts now have improved accuracy and more data to support investigation.
+
+Threat actors use various techniques in the initial access to gain a foothold within a network. Two of the [Microsoft Defender for Storage](defender-for-storage-introduction.md) alerts that detect behavioral anomalies in this stage now have improved detection logic and additional data to support investigations. 
+
+If you've [configured automations](workflow-automation.md) or defined [alert suppression rules](alerts-suppression-rules.md) for these alerts in the past, update them in accordance with these changes. 
+
+#### Detecting access from a Tor exit node
+
+Access from a Tor exit node might indicate a threat actor trying to hide their identity. 
+
+The alert is now tuned to generate only for authenticated access, which results in higher accuracy and confidence that the activity is malicious. This enhancement reduces the benign positive rate.  
+
+An outlying pattern will have high severity, while less anomalous patterns will have medium severity. 
+ 
+The alert name and description have been updated. The AlertType remains unchanged. 
+
+- Alert name (old): Access from a Tor exit node to a storage account 
+- Alert name (new): Authenticated access from a Tor exit node 
+- Alert types:  Storage.Blob_TorAnomaly / Storage.Files_TorAnomaly
+- Description: One or more storage container(s) / file share(s) in your storage account were successfully accessed from an IP address known to be an active exit node of Tor (an anonymizing proxy). Threat actors use Tor to make it difficult to trace the activity back to them. Authenticated access from a Tor exit node is a likely indication that a threat actor is trying to hide their identity. Applies to: Azure Blob Storage, Azure Files, Azure Data Lake Storage Gen2
+- MITRE tactic: Initial access
+- Severity: High/Medium
+
+#### Unusual unauthenticated access 
+
+A change in access patterns may indicate that a threat actor was able to exploit public read access to storage containers, either by exploiting a mistake in access configurations, or by changing the access permissions. 
+
+This medium severity alert is now tuned with improved behavioral logic, higher accuracy, and confidence that the activity is malicious. This enhancement reduces the benign positive rate. 
+
+The alert name and description have been updated. The AlertType remains unchanged. 
+ 
+- Alert name (old): Anonymous access to a storage account 
+- Alert name (new): Unusual unauthenticated access to a storage container
+- Alert types: Storage.Blob_AnonymousAccessAnomaly
+- Description: This storage account was accessed without authentication, which is a change in the common access pattern. Read access to this container is usually authenticated. This might indicate that a threat actor was able to exploit public read access to storage container(s) in this storage account(s). Applies to: Azure Blob Storage
+- MITRE tactic: Collection 
+- Severity: Medium
+
+For more information, see: 
+
 - [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
 - [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md)
 - [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)

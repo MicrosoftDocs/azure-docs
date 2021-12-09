@@ -3,7 +3,7 @@ title: How to enable Microsoft Defender for Containers in Microsoft Defender for
 description: Enable the container protections of Microsoft Defender for Containers
 ms.topic: overview
 zone_pivot_groups: k8s-host
-ms.date: 12/08/2021
+ms.date: 12/09/2021
 ---
 # Enable Microsoft Defender for Containers
 
@@ -26,13 +26,116 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 > 
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
-
 ::: zone pivot="defender-for-container-aks"
 
 ## Protect AKS clusters
 
-1. If you already have Defender for Kubernetes enabled on your subscription, the environment settings page will 
+You can enable the containers plan and deploy all of the relevant components from the Azure portal, the REST API, or with a Resource Manager template. For detailed steps, select the relevant tab.
 
+### [**Azure portal**](#tab/aks-deploy-portal)
+
+### Use the Defender plans or auto provisioning pages to enable all necessary components
+
+A streamlined, frictionless, process lets you use the Azure portal pages to enable the Defender for Cloud plan and setup auto provisioning of all the necessary components for defending your Kubernetes clusters at scale. 
+
+1. From Defender for Cloud's menu, open the [Environment settings page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/EnvironmentSettings) and select the relevant subscription.
+
+1. In the [Defender plans page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/pricingTier), enable **Defender for Containers**
+
+    > [!TIP]
+    > If the subscription already has Defender for Kubernetes and/or Defender for container registries enabled, an update notice is shown. Otherwise, the only option will be **Defender for Containers**.
+    >
+    > :::image type="content" source="media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
+
+1. By default, the plan is configured to automatically defend any supported Kubernetes cluster that is attached to this subscription. To optionally modify the configuration, select *configure** from the configuration column.
+
+    :::image type="content" source="media/defender-for-containers/defender-for-containers-provisioning-configuration.gif" alt-text="Viewing the configuration for Defender for Containers.":::
+
+    You can also modify this configuration from the [Auto provisioning page](https://ms.portal.azure.com/#blade/Microsoft_Azure_Security/SecurityMenuBlade/dataCollection) on the **Microsoft Defender for Containers components (preview)** row:
+
+    :::image type="content" source="media/defender-for-containers/auto-provisioning-defender-for-containers.png" alt-text="Screenshot of the auto provisioning options for Microsoft Defender for Containers." lightbox="./media/defender-for-containers/auto-provisioning-defender-for-containers.png":::
+
+1. If you disable the auto provisioning of any component, you can easily deploy the component to one or more clusters using the appropriate recommendation:
+
+    - Policy Add-on for Kubernetes - [Azure Kubernetes Service clusters should have the Azure Policy Add-on for Kubernetes installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/08e628db-e2ed-4793-bc91-d13e684401c3)
+    - Azure Kubernetes Service profile - [Azure Kubernetes Service clusters should have Defender profile enabled](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/56a83a6e-c417-42ec-b567-1e6fcb3d09a9)
+    - Azure Arc-enabled Kubernetes extension - [Azure Arc-enabled Kubernetes clusters should have the Defender extension installed](https://portal.azure.com/#blade/Microsoft_Azure_Security/RecommendationsBlade/assessmentKey/3ef9848c-c2c8-4ff3-8b9c-4c8eb8ddfce6)
+
+
+### [**REST API**](#tab/aks-deploy-rest)
+
+### Use the REST API to deploy the Defender profile
+
+To install the 'SecurityProfile' on an existing cluster with the REST API, run the following PUT command:
+
+```rest
+PUT https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegroups/{{Resource Group}}/providers/Microsoft.Kubernetes/connectedClusters/{{Cluster Name}}/providers/Microsoft.KubernetesConfiguration/extensions/microsoft.azuredefender.kubernetes?api-version=2020-07-01-preview
+```
+
+Request URI: `https://management.azure.com/subscriptions/{{SubscriptionId}}/resourcegroups/{{ResourceGroup}}/providers/Microsoft.ContainerService/managedClusters/{{ClusterName}}?api-version={{ApiVersion}}`
+ 
+Request query parameters:
+ 
+| Name           | Description                        | Mandatory |
+|----------------|------------------------------------|-----------|
+| SubscriptionId | Cluster's subscription id          | Yes       |
+| ResourceGroup  | Cluster's resource group           | Yes       |
+| ClusterName    | Cluster's name                     | Yes       |
+| ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
+|                |                                    |           |
+ 
+Request Body:
+ 
+```rest
+{
+  "properties": {
+    "securityProfile": {
+            "azureDefender": {
+                "enabled": true,
+                "logAnalyticsWorkspaceResourceId": "{{LAWorkspaceResourceId}}"
+            }
+        }
+    }
+}
+```
+ 
+Request body parameters:
+
+| Name                                                                     | Description                                                                              | Mandatory |
+|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
+| properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
+| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
+|                                                                          |                                                                                          |           |
+
+
+### [**Resource Manager**](#tab/aks-deploy-arm)
+
+### Use Azure Resource Manager to deploy the Defender profile
+
+To use Azure Resource Manager to deploy the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+
+> [!TIP]
+> If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md)
+
+To install the 'SecurityProfile' on an existing cluster with Resource Manager:
+
+```
+{ 
+    "type": "Microsoft.ContainerService/managedClusters", 
+    "apiVersion": "2021-07-01", 
+    "name": "string", 
+    "location": "string",
+    "properties": {
+        …
+        "securityProfile": { 
+            "azureDefender": { 
+                "enabled": true, 
+                "logAnalyticsWorkspaceResourceId": “logAnalyticsWorkspaceResourceId "
+            }
+        },
+    }
+}
+```
 ::: zone-end
 
 
@@ -146,11 +249,12 @@ To use the REST API to deploy the Defender extension, you'll need a Log Analytic
 
     Where:
 
-    | Name            | In   | Required | Type   | Description                                  |
-    |-----------------|------|----------|--------|----------------------------------------------|
-    | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes resource's subscription ID |
-    | Resource Group  | Path | True     | String | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
-    | Cluster Name    | Path | True     | String | Name of your Azure Arc-enabled Kubernetes resource  |
+    | Name            | In   | Required | Type   | Description                                                                      |
+    |-----------------|------|----------|--------|----------------------------------------------------------------------------------|
+    | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes resource's subscription ID                     |
+    |Resource Group   | Path | True     | String | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
+    | Cluster Name    | Path | True     | String | Name of your Azure Arc-enabled Kubernetes resource                               |
+    |                 |      |          |        |                                                                                  |
 
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
@@ -404,6 +508,7 @@ DELETE https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegr
 | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's subscription ID |
 | Resource Group  | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's resource group  |
 | Cluster Name    | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's name            |
+||||||
 
 For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
@@ -412,6 +517,96 @@ az account get-access-token --subscription <your-subscription-id>
 ```
 
 The request may take several minutes to complete.
+
+---
+
+::: zone-end
+
+
+
+
+
+
+
+
+
+
+
+::: zone pivot="defender-for-container-aks"
+
+## Removing the Defender profile
+
+You can remove the profile using the REST API or a Resource Manager template as explained in the tabs below.
+
+### [**REST API**](#tab/aks-removeprofile-api)
+
+### Use REST API to remove the Defender profile from AKS 
+
+To remove the profile using the REST API, run the following PUT command:
+
+```rest
+https://management.azure.com/subscriptions/{{SubscriptionId}}/resourcegroups/{{ResourceGroup}}/providers/Microsoft.ContainerService/managedClusters/{{ClusterName}}?api-version={{ApiVersion}}
+```
+
+| Name           | Description                        | Mandatory |
+|----------------|------------------------------------|-----------|
+| SubscriptionId | Cluster's subscription id          | Yes       |
+| ResourceGroup  | Cluster's resource group           | Yes       |
+| ClusterName    | Cluster's name                     | Yes       |
+| ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
+|                |                                    |           |
+
+Request body:
+ 
+```rest
+{
+  "properties": {
+    "securityProfile": {
+            "azureDefender": {
+                "enabled": false,
+                "logAnalyticsWorkspaceResourceId": "" // leave empty
+            }
+        }
+    }
+}
+```
+ 
+Request body parameters:
+
+| Name                                                                     | Description                                                                              | Mandatory |
+|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
+| properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
+| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
+|                                                                          |                                                                                          |           |
+
+
+### [**Resource Manager**](#tab/aks-removeprofile-resource-manager)
+
+### Use Azure Resource Manager to remove the Defender profile from AKS
+
+To use Azure Resource Manager to remove the Defender profile, you'll need a Log Analytics workspace on your subscription. Learn more in [Log Analytics workspaces](../azure-monitor/logs/data-platform-logs.md#log-analytics-and-workspaces).
+
+> [!TIP]
+> If you're new to Resource Manager templates, start here: [What are Azure Resource Manager templates?](../azure-resource-manager/templates/overview.md)
+
+The relevant template and parameters to remove the Defender profile from AKS are:
+
+```
+{ 
+    "type": "Microsoft.ContainerService/managedClusters", 
+    "apiVersion": "2021-07-01", 
+    "name": "string", 
+    "location": "string",
+    "properties": {
+        …
+        "securityProfile": { 
+            "azureDefender": { 
+                "enabled": false, 
+                "logAnalyticsWorkspaceResourceId": "" // leave empty
+            }
+        },
+    }
+}
 
 ---
 
