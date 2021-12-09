@@ -14,7 +14,7 @@ ms.custom: template-how-to
 
 # Delete a VM and attached resources
 
-By default, when you delete a VM it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM. 
+Depending on how you delete a VM, it only deletes the VM resource, not the networking and disk resources. You can change this default behavior when you create a VM, or update an existing VM, to delete specific resources along with the VM. 
 
 
 ## Set delete options when creating a VM
@@ -26,7 +26,7 @@ By default, when you delete a VM it only deletes the VM resource, not the networ
 1. Select **+ Create a resource**.
 1. On the **Create a resource** page, under **Virtual machines**, select **Create**.
 1. Make your choices on the **Basics**, then select **Next : Disks >**. The **Disks** tab will open.
-1. Under **Disk options**, select **Delete with VM** to delete the OS disk when you delete the VM.
+1. Under **Disk options**, by default the OS disk is set to **Delete with VM**. If you do not want to delete the OS disk, uncheck the box.
 
     :::image type="content" source="media/delete/delete-disk.png" alt-text="Screenshot checkbox to choose to have the disk deleted when the VM is deleted.":::
 
