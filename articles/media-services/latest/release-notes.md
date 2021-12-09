@@ -31,7 +31,7 @@ To stay up-to-date with the most recent developments, this article provides you 
 
 ### Sweden Central region is now GA
 
- Media Services is now generally available in the Sweden Central region. There are currently some feature limitations in the region while we await a few dependency services to also arrive in the region. Check the [regional feature availability chart](./azure-cloud-regions.md) to determine when features will arrive.
+ Media Services is now generally available in the Sweden Central region. There are currently some feature limitations in the region while we await a few dependency services to also arrive in the region. Check the [regional feature availability chart](./azure-clouds-regions.md) to determine when features will arrive.
 
 ### New live event channel archive heartbeat event
 
