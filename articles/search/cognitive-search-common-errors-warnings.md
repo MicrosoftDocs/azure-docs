@@ -253,9 +253,15 @@ If you know that your data set contains multiple languages and thus you need the
 ```
 
 Here are some references for the currently supported languages for each of the skills that may produce this error message:
-* [Text Analytics Supported Languages](../cognitive-services/text-analytics/language-support.md) (for the [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition-v3.md), [EntityLinkingSkill](cognitive-search-skill-entity-linking-v3.md), [SentimentSkill](cognitive-search-skill-sentiment-v3.md), and [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
-* [Translator Supported Languages](../cognitive-services/translator/language-support.md) (for the [Text TranslationSkill](cognitive-search-skill-text-translation.md))
-* [Text SplitSkill](cognitive-search-skill-textsplit.md) Supported Languages: `da, de, en, es, fi, fr, it, ko, pt`
+
+* [EntityRecognitionSkill supported languages](../cognitive-services/language-service/named-entity-recognition/language-support.md)
+* [EntityLinkingSkill supported languages](../cognitive-services/language-service/entity-linking/language-support.md)
+* [KeyPhraseExtractionSkill supported languages](../cognitive-services/language-service/key-phrase-extraction/language-support.md)
+* [LanguageDetectionSkill supported languages](../cognitive-services/language-service/language-detection/language-support.md)
+* [PIIDetectionSkill supported languages](../cognitive-services/language-service/personally-identifiable-information/language-support.md)
+* [SentimentSkill supported languages](../cognitive-services/language-service/sentiment-opinion-mining/language-support.md)
+* [Translator supported languages](../cognitive-services/translator/language-support.md)
+* [Text SplitSkill](cognitive-search-skill-textsplit.md) supported languages: `da, de, en, es, fi, fr, it, ko, pt`
 
 <a name="skill-input-was-truncated"></a>
 
@@ -350,4 +356,4 @@ Collections with [Lazy](../cosmos-db/index-policy.md#indexing-mode) indexing pol
 
 ## Warning: The document contains very long words (longer than 64 characters). These words may result in truncated and/or unreliable model predictions.
 
-This warning is passed from the Text Analytics service.  In some cases, it is safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.
+This warning is passed from the Language service of Azure Cognitive Services. In some cases, it is safe to ignore this warning, such as when your document contains a long URL (which likely isn't a key phrase or driving sentiment, etc.).  Be aware that when a word is longer than 64 characters, it will be truncated to 64 characters which can affect model predictions.

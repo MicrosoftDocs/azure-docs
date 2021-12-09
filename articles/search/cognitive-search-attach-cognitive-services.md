@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 11/22/2021
+ms.date: 12/09/2021
 
 ---
 
@@ -17,9 +17,9 @@ When configuring an optional [AI enrichment pipeline](cognitive-search-concept-i
 
 A multi-service resource references "Cognitive Services" as the offering, rather than individual services, with access granted through a single API key. This key is specified in a [**skillset**](/rest/api/searchservice/create-skillset) and allows Microsoft to charge you for using these APIs:
 
-+ [Computer Vision](https://azure.microsoft.com/services/cognitive-services/computer-vision/) for image analysis and optical character recognition (OCR)
-+ [Text Analytics](https://azure.microsoft.com/services/cognitive-services/text-analytics/) for language detection, entity recognition, sentiment analysis, and key phrase extraction
-+ [Text Translation](https://azure.microsoft.com/services/cognitive-services/translator-text-api/)
++ [Computer Vision](../cognitive-services/computer-vision/overview.md) for image analysis and optical character recognition (OCR)
++ [Language service](../cognitive-services/language-service/overview.md) for language detection, entity recognition, sentiment analysis, and key phrase extraction
++ [Translator](../cognitive-services/translator/translator-overview.md) for machine text translation
 
 > [!TIP]
 > Azure provides infrastructure for you to monitor billing and budgets. For more information about monitoring Cognitive Services, see [Plan and manage costs for Azure Cognitive Services](../cognitive-services/plan-manage-costs.md).

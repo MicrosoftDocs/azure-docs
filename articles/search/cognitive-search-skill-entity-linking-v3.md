@@ -8,7 +8,7 @@ author: ayokande
 ms.author: aakande
 ms.service: cognitive-search
 ms.topic: reference
-ms.date: 08/12/2021
+ms.date: 12/09/2021
 ---
 
 # Entity Linking cognitive skill
@@ -16,7 +16,7 @@ ms.date: 08/12/2021
 The **Entity Linking** skill returns a list of recognized entities with links to articles in a well-known knowledge base (Wikipedia).
 
 > [!NOTE]
-> This skill is bound to Cognitive Services [Text Analytics](../cognitive-services/text-analytics/overview.md) and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
+> This skill is bound to the [Entity Linking](../cognitive-services/language-service/entity-linking/overview.md) machine learning models in [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md) and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
 >
 
 ## @odata.type
@@ -33,15 +33,15 @@ Parameter names are case-sensitive and are all optional.
 
 | Parameter name     | Description |
 |--------------------|-------------|
-| `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
+| `defaultLanguageCode` |    Language code of the input text. If the default language code is not specified,  English (en) will be used as the default language code. <br/> See [Full list of supported languages](../cognitive-services/language-service/entity-linking/language-support.md). |
 | `minimumPrecision` | A value between 0 and 1. If the confidence score (in the `entities` output) is lower than this value, the entity is not returned. The default is 0. |
-| `modelVersion` | (Optional) The version of the model to use when calling the Text Analytics service. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary. See [Model versioning in the Text Analytics API](../cognitive-services/text-analytics/concepts/model-versioning.md) for more details.|
+| `modelVersion` | (Optional) Specifies the [version of the model](../cognitive-services/language-service/entity-linking/how-to/call-api.md#determine-how-to-process-the-data-optional) to use when calling entity linking. It will default to the latest available when not specified. We recommend you do not specify this value unless absolutely necessary.|
 
 ## Skill inputs
 
 | Input name      | Description                   |
 |---------------|-------------------------------|
-| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
+| `languageCode`    | A string indicating the language of the records. If this parameter is not specified, the default language code will be used to analyze the records. <br/>See [Full list of supported languages](../cognitive-services/language-service/entity-linking/language-support.md). |
 | `text`          | The text to analyze.          |
 
 ## Skill outputs
@@ -127,7 +127,7 @@ Parameter names are case-sensitive and are all optional.
 }
 ```
 
-Note that the offsets returned for entities in the output of this skill are directly returned from the [Text Analytics API](../cognitive-services/text-analytics/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content.  [More details can be found here.](../cognitive-services/text-analytics/concepts/text-offsets.md)
+The offsets returned for entities in the output of this skill are directly returned from the [Language Service APIs](../cognitive-services/language-service/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content. See [Multilingual and emoji support in Language service features](../cognitive-services/language-service/concepts/multilingual-emoji-support.md) for more information.
 
 ## Warning cases
 
