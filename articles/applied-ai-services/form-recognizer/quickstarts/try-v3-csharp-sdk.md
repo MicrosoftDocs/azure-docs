@@ -87,7 +87,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 ### [Option 2: Visual Studio](#tab/vs)
 --->
 
-1. Start Visual Studio 2019.
+1. Start Visual Studio.
 
 1. On the start page, choose Create a new project.
 
@@ -101,7 +101,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
     :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Screenshot: The Visual Studio configure new project dialog window.":::
 
-1. In the **Additional information** dialog window, select **.NET 5.0 (Current)**, and then select **Create**.
+1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
     :::image type="content" source="../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio additional information dialog window.":::
 
@@ -117,7 +117,7 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
  1. Choose the **Include prerelease** checkbox.
 
- 1. Select version **4.0.0-beta.1** from the dropdown menu and select **Install**.
+ 1. Select version **4.0.0-beta.*** from the dropdown menu and select **Install**.
 
      :::image type="content" source="../media/quickstarts/prerelease-nuget-package.png" alt-text="{alt-text}":::
 
@@ -126,32 +126,36 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
 To interact with the Form Recognizer service, you'll need to create an instance of the `DocumentAnalysisClient` class. To do so, you'll create an `AzureKeyCredential` with your apiKey and a `DocumentAnalysisClient`  instance with the `AzureKeyCredential` and your Form Recognizer `endpoint`.
 
+> [!NOTE]
+>
+> * Starting with .NET 6, new projects using the `console` template generate different code than previous versions.
+> * The new output uses recent C# features that simplify the code you need to write for a program.
+> * When you use the newer version, you only need to write the body of the `Main` method. You don't need to include the other program elements.
+> * For more information, *see* [**New C# templates generate top-level statements**](/dotnet/core/tutorials/top-level-templates).
+
 1. Open the **Program.cs** file.
 
 1. Include the following using directives:
 
     ```csharp
-    using System;
-    using System.Threading.Tasks;
     using Azure;
-    using Azure.AI.FormRecognizer;
     using Azure.AI.FormRecognizer.DocumentAnalysis;
     ```
 
-1. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance:
+1. Add the following code snippt to your Program.cs file. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance:
 
     ```csharp
     string endpoint = "<your-endpoint>";
     string apiKey = "<your-apiKey>";
     AzureKeyCredential credential = new AzureKeyCredential(apiKey);
     DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
-    ```
+    `
 
-1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the **Main** method in the **Program.cs** file:
+1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the file:
 
     :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
-### Select a code sample to copy and paste into your application's Main method:
+### Select one of the following code samples to copy and paste into your application Program.cs file:
 
 * [**General document**](#try-it-general-document-model)
 
@@ -172,17 +176,32 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 > * We've added the file URI value to the `string fileUri` variable at the top of the Main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-### Add the following code to your general document application **Main** method
+### Add the following code to the Program.cs file:
 
 ```csharp
+
 // sample form document
-string fileUri = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
+Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-document", fileUri);
 
 await operation.WaitForCompletionAsync();
 
 AnalyzeResult result = operation.Value;
+
+Console.WriteLine("Detected key-value pairs:");
+
+foreach (DocumentKeyValuePair kvp in result.KeyValuePairs)
+{
+    if (kvp.Value == null)
+    {
+        Console.WriteLine($"  Found key with no value: '{kvp.Key.Content}'");
+    }
+    else
+    {
+        Console.WriteLine($"  Found key-value pair: '{kvp.Key.Content}' and '{kvp.Value.Content}'");
+    }
+}
 
 Console.WriteLine("Detected entities:");
 
@@ -195,20 +214,6 @@ foreach (DocumentEntity entity in result.Entities)
     else
     {
         Console.WriteLine($"  Found entity '{entity.Content}' with category '{entity.Category}' and sub-category '{entity.SubCategory}'.");
-    }
-}
-
-Console.WriteLine("Detected key-value pairs:");
-
-foreach (DocumentKeyValuePair kvp in result.KeyValuePairs)
-{
-    if (kvp.Value.Content == null)
-    {
-        Console.WriteLine($"  Found key with no value: '{kvp.Key.Content}'");
-    }
-    else
-    {
-        Console.WriteLine($"  Found key-value pair: '{kvp.Key.Content}' and '{kvp.Value.Content}'");
     }
 }
 
