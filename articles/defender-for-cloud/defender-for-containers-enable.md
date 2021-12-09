@@ -24,7 +24,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 > [!NOTE]
 > Defender for Containers' support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is a preview feature.
 > 
-> [!INCLUDE [Legalese](../includes/security-center-preview-legal-text.md)]
+> [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
 
 
 ::: zone pivot="defender-for-container-aks"
