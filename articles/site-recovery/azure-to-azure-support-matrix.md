@@ -215,6 +215,7 @@ Size | Any Azure VM size with at least two CPU cores and 1-GB RAM | Verify [Azur
 RAM | Azure Site Recovery driver consumes 6% of RAM.
 Availability sets | Supported | If you enable replication for an Azure VM with the default options, an availability set is created automatically, based on the source region settings. You can modify these settings.
 Availability zones | Supported |
+Dedicated Hosts | Not supported |
 Hybrid Use Benefit (HUB) | Supported | If the source VM has a HUB license enabled, a test failover or failed over VM also uses the HUB license.
 VMSS Flex | Availability scenario - supported. Scalability scenario - not supported. |
 Azure gallery images - Microsoft published | Supported | Supported if the VM runs on a supported operating system.

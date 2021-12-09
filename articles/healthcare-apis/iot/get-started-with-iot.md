@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 12/01/2021
 ms.author: zxue
+ms.custom: mode-other
 ---
 
 # Get started with the IoT connector

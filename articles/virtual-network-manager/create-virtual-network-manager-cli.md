@@ -1,14 +1,15 @@
 ---
-title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure CLI'
+title: 'Quickstart: Create a mesh network topology with Azure Virtual Network Manager via the Azure CLI'
 description: Use this quickstart to learn how to create a mesh network topology with Virtual Network Manager using the Azure CLI.
 author: duongau
 ms.author: duau
 ms.service: virtual-network-manager
 ms.topic: quickstart
 ms.date: 11/16/2021
+ms.custom: mode-api
 ---
 
-# Quickstart: Create a mesh network topology with Azure Virtual Network Manager using the Azure CLI
+# Quickstart: Create a mesh network topology with Azure Virtual Network Manager via the Azure CLI
 
 Get started with Azure Virtual Network Manager by using the Azure CLI to manage connectivity for all your virtual networks.
 

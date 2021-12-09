@@ -19,7 +19,7 @@ In this article, you'll learn how to deploy an AutoML-trained machine learning m
 
 In this article you'll know how to deploy AutoML trained machine learning model to online endpoints using: 
 
-- Azure Machine Learning Studio
+- Azure Machine Learning studio
 - Azure Machine Learning CLI 2.0
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
@@ -32,7 +32,7 @@ An AutoML-trained machine learning model. For more, see [Tutorial: Train a class
 
 Deploying an AutoML-trained model from the Automated ML page is a no-code experience. That is, you don't need to prepare a scoring script and environment, both are auto generated. 
 
-1. Go to the Automated ML page in studio
+1. Go to the Automated ML page in the studio
 1. Select your experiment and run
 1. Choose the Models tab
 1. Select the model you want to deploy 
@@ -70,7 +70,7 @@ You'll receive a zip file containing:
 * A Python scoring file named `scoring_file_<VERSION>.py`
 * The model itself, in a Python `.pkl` file named `model.pkl`
 
-To deploy using these files, you can use either studio or the Azure command line interface.
+To deploy using these files, you can use either the studio or the Azure CLI.
 
 # [Studio](#tab/Studio)
 

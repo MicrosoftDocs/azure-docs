@@ -145,7 +145,7 @@ In this section, you will configure an IoT Hub device input to the Stream Analyt
    SELECT *
    INTO BlobOutput
    FROM IoTHubInput
-   HAVING Temperature > 27
+   WHERE Temperature > 27
    ```
 
 3. In this example, the query reads the data from IoT Hub and copies it to a new file in the blob. Select **Save**.  

@@ -148,7 +148,7 @@
         href: backup-instant-restore-capability.md
       - name: Enable backup when you create an Azure VM
         href: backup-during-vm-creation.md
-      - name: Back up an Azure VM using enhanced policy
+      - name: Back up an Azure VM using Enhanced policy
         href: backup-azure-vms-enhanced-policy.md
       - name: Back up an Azure VM from VM settings
         href: backup-azure-vms-first-look-arm.md
