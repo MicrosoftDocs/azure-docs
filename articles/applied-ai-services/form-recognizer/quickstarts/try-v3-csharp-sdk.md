@@ -161,7 +161,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 * [**Layout model**](#layout-model)
 
-* [**Prebuilt model (invoice)**](#prebuilt-model)
+* [**Prebuilt model (invoice)**](#prebuilt-model-invoice)
 
 > [!IMPORTANT]
 >
