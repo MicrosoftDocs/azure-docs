@@ -9,7 +9,7 @@ ms.topic: quickstart
 author: LitKnd
 ms.author: kendralittle
 ms.reviewer: mathoma
-ms.date: 01/27/2021
+ms.date: 12/09/2021
 ---
 # Quickstart: Create an Azure SQL Database single database
 
@@ -81,6 +81,15 @@ To create a single database in the Azure portal, this quickstart starts at the A
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account. 
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
+
+### Sign in to Azure
+
+
+```azurecli-interactive
+subscription="<subscriptionId>" # add subscription here
+
+az account set -s $subscription # ...or use 'az login'
+```
 
 ## Set parameter values
 

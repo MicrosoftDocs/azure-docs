@@ -23,13 +23,15 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ### Sign in to Azure
 
-[!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+Log into Azure using the appropriate subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 subscription="<subscriptionId>" # add subscription here
 
 az account set -s $subscription # ...or use 'az login'
 ```
+
+For more information, see [set active scription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
 ### Run the script
 
