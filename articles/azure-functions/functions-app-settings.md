@@ -203,7 +203,7 @@ Valid values:
 
 ## FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED
 
-This setting enables the Python worker use shared memory to improve throughput. When the function app is hitting bottlenecks, shared memory can be enabled.
+This setting enables the Python worker to use shared memory to improve throughput. Enable shared memory when your Python function app is hitting memory bottlenecks.
 
 |Key|Sample value|
 |---|------------|
