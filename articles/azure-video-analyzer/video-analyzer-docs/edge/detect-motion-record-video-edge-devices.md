@@ -1,5 +1,5 @@
 ---
-title: Detect motion and record video on edge devices - Azure
+title: Detect motion and record video on edge devices 
 description: Use Azure Video Analyzer to analyze the live video feed from a (simulated) IP camera. It shows how to detect if any motion is present, and if so, record an MP4 video clip to the local file system on the edge device. The quickstart uses an Azure VM as an IoT Edge device and also uses a simulated live video stream.
 ms.topic: quickstart
 ms.date: 06/01/2021

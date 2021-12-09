@@ -1,5 +1,5 @@
 ---
-title: Get started with Azure Video Analyzer - Azure
+title: Get started
 description: This quickstart walks you through the steps to get started with Azure Video Analyzer. It uses an Azure VM as an IoT Edge device and a simulated live video stream.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
