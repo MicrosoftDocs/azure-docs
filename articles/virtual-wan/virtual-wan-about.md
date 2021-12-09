@@ -132,7 +132,7 @@ The below features are currently in gated public preview.
 | Feature | Description |
 | ---------- | --------- |
 | Routing Intent and Policies Enabling Inter-hub security | This feature allows customers to configure internet-bound, private or inter-hub traffic flow through the Azure Firewall. Please review [Routing Intent and Policies](../virtual-wan/how-to-routing-policies.md) to learn more. |
-| Hub to Hub over ER preview link | This feature allows traffic between 2 hubs traverse through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft edge routers/MSEE). Please review [Hub to Hub over ER preview link](virtual-wan/virtual-wan-faq.md#expressroute-bow-tie)
+| Hub to Hub over ER preview link | This feature allows traffic between 2 hubs traverse through the Azure Virtual WAN router in each hub and uses a hub-to-hub path instead of the ExpressRoute path (which traverses through the Microsoft edge routers/MSEE). Please review [Hub to Hub over ER preview link](virtual-wan-faq.md#expressroute-bow-tie)
 | BGP peering with a virtual hub | This feature provides the ability for the virtual hub to pair with and directly exchange routing information through Border Gateway Protocol (BGP) routing protocol. Please review the concept [BGP peering with a virtual hub](create-bgp-peering-hub-portal.md) and the guide [How to peer BGP with a virtual hub](scenario-bgp-peering-hub.md)
 
 ## <a name="faq"></a>FAQ
