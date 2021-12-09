@@ -78,6 +78,7 @@ In this section, you find documents about Microsoft Power BI integration into SA
 
 ## Change Log
 
+- December 08, 2021: Change in [SQL Server Azure Virtual Machines DBMS deployment for SAP NetWeaver](./dbms_guide_sqlserver.md) to clarify Azure Load Balancer settings.   
 - December 08, 2021: Release of scenario [HA of SAP HANA Scale-up with Azure NetApp Files on SLES](./sap-hana-high-availability-netapp-files-suse.md).  
 - December 07, 2021: Change in [Setting up Pacemaker on RHEL in Azure](./high-availability-guide-rhel-pacemaker.md) to clarify that the instructions are applicable for both RHEL 7 and RHEL 8
 - December 07, 2021: Change in [HA for SAP NW on SLES with NFS on Azure Files](./high-availability-guide-suse-nfs-azure-files.md), [HA for SAP NW on Azure VMs on SLES with ANF](./high-availability-guide-suse-netapp-files.md) and [HA for SAP NW on Azure VMs on SLES for SAP applications](./high-availability-guide-suse.md) to adjust the instructions for configuring SWAP file.  
