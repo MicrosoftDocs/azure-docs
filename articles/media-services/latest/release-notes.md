@@ -26,6 +26,18 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+
+## December 2021
+
+### Sweden Central region is now GA
+
+ Media Services is now generally available in the Sweden Central region. There are currently some feature limitations in the region while we await a few dependency services to also arrive in the region. Check the [regional feature availability chart](./azure-cloud-regions.md) to determine when features will arrive.
+
+### New live event channel archive heartbeat event
+
+A new event that tracks the status and health of the live event archive has been added. See the LiveEventChannelArchiveHeartbeatEvent in the [Event Grid schemas for Media Services](./media-services-event-schemas.md) for more details on this new event.
+
+
 ## September 2021
 
 ### New basic pass-through live event SKU

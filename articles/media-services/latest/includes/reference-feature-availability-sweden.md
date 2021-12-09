@@ -12,9 +12,9 @@ ms.author: johnde
 | Feature                                                               | Sweden Central (Public)                                                                                      |
 | --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------ |
 | [Azure EventGrid](../monitoring/reacting-to-media-services-events.md) | ![Azure EventGrid Sweden Central (Public) general availability](../media/azure-clouds-regions/ga.svg)        |
-| [VideoAnalyzerPreset](../analyze-video-audio-files-concept.md)        |                                                                                                              |
-| [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md)        |                                                                                                              |
+| [VideoAnalyzerPreset](../analyze-video-audio-files-concept.md)        | Coming in Q1 2022                                                                                                            |
+| [AudioAnalyzerPreset](../analyze-video-audio-files-concept.md)        | Coming in Q1 2022                                                                                                            |
 | [StandardEncoderPreset](../encode-concept.md)                         | ![StandardEncoderPreset Sweden Central  (Public) general availability](../media/azure-clouds-regions/ga.svg) |
 | [LiveEvents](../stream-live-streaming-concept.md)                     | ![LiveEvents Sweden Central (Public) general availability](../media/azure-clouds-regions/ga.svg)             |
 | [StreamingEndpoints](../stream-streaming-endpoint-concept.md)         | ![StreamingEndpoints Sweden Central  (Public) general availability](../media/azure-clouds-regions/ga.svg)    |
-| [LiveTranscription](../live-event-live-transcription-how-to.md)       |                                                                                                              |
+| [LiveTranscription](../live-event-live-transcription-how-to.md)       | Coming in Q1 2022                                                                                                           |
