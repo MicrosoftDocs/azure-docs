@@ -219,6 +219,9 @@ If you enabled the `sourceTriggerStatus` parameter of the ImportPipeline (the de
 az acr repository list --name <target-registry-name>
 ```
 
+> [!Note]
+> Source Trigger will only import blobs that have a Last Modified time within the last 60 days. If you intend to use Source Trigger to import blobs older than that, please refresh the Last Modified time of the blobs by add blob metadata to them or else import them with manually created pipeline runs.
+
 If you didn't enable the `sourceTriggerStatus` parameter of the import pipeline, run the ImportPipeline resource manually, as shown in the following section.
 
 ## Create PipelineRun for import with Resource Manager (optional)

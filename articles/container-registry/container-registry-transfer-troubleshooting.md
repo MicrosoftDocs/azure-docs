@@ -22,6 +22,11 @@ ms.custom:
   * Existing storage blob in source storage account might not be overwritten during multiple export runs. Confirm that the OverwriteBlob option is set in the export run and the SAS token has sufficient permissions.
   * Storage blob in target storage account might not be deleted after successful import run. Confirm that the DeleteBlobOnSuccess option is set in the import run and the SAS token has sufficient permissions.
   * Storage blob not created or deleted. Confirm that container specified in export or import run exists, or specified storage blob exists for manual import run.
+* **Problems with Source Trigger Imports**
+  * The SAS token must have the List permission for Source Trigger imports to work.
+  * Source Trigger imports will only fire if the Storage Blob has a Last Modified time within the last 60 days.
+  * The Storage Blob must have a valid ContentMD5 property in order to be imported by the Source Trigger feature.
+  * The Storage Blob must have the "category":"acr-transfer-blob" blob metadata in order to be imported by the Source Trigger feature. This metadata is added automatically during an Export Pipeline Run, but may be stripped when moved from storage account to storage account depending on the method of copy.
 * **AzCopy issues**
   * See [Troubleshoot AzCopy issues](../storage/common/storage-use-azcopy-configure.md).
 * **Artifacts transfer problems**
