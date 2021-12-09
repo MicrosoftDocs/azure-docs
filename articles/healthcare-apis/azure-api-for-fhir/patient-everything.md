@@ -56,7 +56,7 @@ The FHIR specification has a detailed overview of the different types of [patien
 
 ### Patient-everything patient links details:
 
-The Patient-everything operation in the FHIR service processes patient links in different ways to give you the most holistic view of the patient.
+The Patient-everything operation in Azure API for FHIR processes patient links in different ways to give you the most holistic view of the patient.
 
 > [!Note]
 > A link can also reference a `RelatedPerson`. If it's a `RelatedPerson` type and it's not returned, you can only run Patient-everything on a patient.
