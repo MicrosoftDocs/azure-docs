@@ -426,7 +426,7 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Change feed (Preview):** If true, you will get data from [Azure Cosmos DB change feeds](/azure/cosmos-db/change-feed) which is a persistent record of changes to a container in the order they occur. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feeds (preview)](#azure-cosmos-db-change-feeds-preview).
 
-**Start from beginning:** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feeds (preview)](#azure-cosmos-db-change-feeds-preview).
+**Start from beginning (Preview):** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feeds (preview)](#azure-cosmos-db-change-feeds-preview).
 
 #### JSON Settings
 
