@@ -22,7 +22,7 @@ Automating risk assessment with policy conditions means risky sign-ins are ident
 
 ## Service overview
 
-Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. During this **Evaluation** phase, the Conditional Access service evaluates the signals collected by Identity Protection risk detections during sign-in events. The outcome of this evaluation process is a set of claims that indicates whether the sign-in should be granted or blocked. The Azure AD B2C policy uses these claims to act within the user flow. An example is blocking access or challenging the user with a specific remediation like multi-factor authentication (MFA). “Block access” overrides all other settings.
+Azure AD B2C evaluates each sign-in event and ensures that all policy requirements are met before granting the user access. During this **Evaluation** phase, the Conditional Access service evaluates the signals collected by Identity Protection risk detections during sign-in events. The outcome of this evaluation process is a set of claims that indicates whether the sign-in should be granted or blocked. The Azure AD B2C policy uses these claims to act within the user flow. An example is blocking access or challenging the user with a specific remediation like multifactor authentication (MFA). “Block access” overrides all other settings.
 ::: zone pivot="b2c-custom-policy"
 The following example shows a Conditional Access technical profile that is used to evaluate the sign-in threat.
 
@@ -93,8 +93,11 @@ To add a Conditional Access policy, disable security defaults:
 1. On the **Portal settings | Directories + subscriptions** page, find your Azure AD B2C directory in the **Directory name** list, and then select **Switch**.
 1. Under **Azure services**, select **Azure AD B2C**. Or use the search box to find and select **Azure AD B2C**.
 1. Select **Properties**, and then select **Manage Security defaults**.
+
    ![Disable the security defaults](media/conditional-access-user-flow/disable-security-defaults.png)
+
 1. Under **Enable Security defaults**, select **No**.
+
    ![Set the Enable security defaults toggle to No](media/conditional-access-user-flow/enable-security-defaults-toggle.png)
 
 ## Add a Conditional Access policy
@@ -115,34 +118,34 @@ To add a Conditional Access policy:
 1. Enter a name for the policy, such as *Block risky sign-in*.
 1. Under **Assignments**, choose **Users and groups**, and then select the one of the following supported configurations:
 
-| Include  |License   |   Notes|
-|---|---|---|
-|**All users**    | P1, P2  | If you choose to include **All Users**, this policy will affect all of your users. To be sure not to lock yourself out, exclude your administrative account by choosing **Exclude**, selecting **Directory roles**, and then selecting **Global Administrator** in the list. You can also select **Users and Groups** and then select your account in the **Select excluded users** list.  |
+    | Include  |License   |   Notes|
+    |---|---|---|
+    |**All users**    | P1, P2  | If you choose to include **All Users**, this policy will affect all of your users. To be sure not to lock yourself out, exclude your administrative account by choosing **Exclude**, selecting **Directory roles**, and then selecting **Global Administrator** in the list. You can also select **Users and Groups** and then select your account in the **Select excluded users** list.  |
 
 1. Select **Cloud apps or actions**, and then **Select apps**. Browse for your [relying party application](tutorial-register-applications.md).
 1. Select **Conditions**, and then select from the following conditions. For example, select **Sign-in risk** and **High**, **Medium**, and **Low** risk levels.
 
-|Condition|License   |Notes   |
-|---|---|---|
-| **User risk**  | P2  |User risk represents the probability that a given identity or account is compromised.   |
-| **Sign-in risk**   | P2  |Sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner.   |
-| **Device platforms**  |Not supported   |Characterized by the operating system that runs on a device. For more information, see [Device platforms](../active-directory/conditional-access/concept-conditional-access-conditions.md#device-platforms).   |
-| **Locations**  |P1,P2   |Named locations may include the public IPv4 network information, country or region, or unknown areas that don't map to specific countries or regions. For more information, see [Locations](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations).   |
+    |Condition|License   |Notes   |
+    |---|---|---|
+    | **User risk**  | P2  |User risk represents the probability that a given identity or account is compromised.   |
+    | **Sign-in risk**   | P2  |Sign-in risk represents the probability that a given authentication request isn't authorized by the identity owner.   |
+    | **Device platforms**  |Not supported   |Characterized by the operating system that runs on a device. For more information, see [Device platforms](../active-directory/conditional-access/concept-conditional-access-conditions.md#device-platforms).   |
+    | **Locations**  |P1,P2   |Named locations may include the public IPv4 network information, country or region, or unknown areas that don't map to specific countries or regions. For more information, see [Locations](../active-directory/conditional-access/concept-conditional-access-conditions.md#locations).   |
 
 3. Under **Access controls**, select **Grant**. Then select whether to block or grant access:
 
-|Option   | License  | Notes  |
-|---|---|---|
-| **Block access**  |P1, P2| Prevents access based on the conditions specified in this conditional access policy.  |  
-| **Grant access** with **Require multi-factor authentication**  | P1, P2| Based on the conditions specified in this conditional access policy, the user is required to go through Azure AD B2C multifactor authentication. |  
+    |Option   | License  | Notes  |
+    |---|---|---|
+    | **Block access**  |P1, P2| Prevents access based on the conditions specified in this conditional access policy.  |  
+    | **Grant access** with **Require multi-factor authentication**  | P1, P2| Based on the conditions specified in this conditional access policy, the user is required to go through Azure AD B2C multifactor authentication. |  
 
 4. Under **Enable policy**, select one of the following:
 
-| Option  | License  | Notes  |
-|---|---|---|
-|**Report-only**    | P1, P2  | Report-only allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment. We recommend you check policy with this state, and determine the impact to end users without requiring multifactor authentication or blocking users. For more information, see [Review Conditional Access outcomes in the audit report](#review-conditional-access-outcomes-in-the-audit-report)  |
-|**On**   |  P1, P2 |The access policy is evaluated and not enforced.   |
-|**Off**    | P1, P2  | The access policy is not activated and has no effect on the users.  |
+    | Option  | License  | Notes  |
+    |---|---|---|
+    |**Report-only**    | P1, P2  | Report-only allows administrators to evaluate the impact of Conditional Access policies before enabling them in their environment. We recommend you check policy with this state, and determine the impact to end users without requiring multifactor authentication or blocking users. For more information, see [Review Conditional Access outcomes in the audit report](#review-conditional-access-outcomes-in-the-audit-report)  |
+    |**On**   |  P1, P2 |The access policy is evaluated and not enforced.   |
+    |**Off**    | P1, P2  | The access policy is not activated and has no effect on the users.  |
 
 5. Enable your test Conditional Access policy by selecting **Create**.
 
@@ -207,7 +210,7 @@ Identity Protection can calculate what it believes is normal for a user's behavi
 
 Learn more about [user risk in Identity Protection](../active-directory/identity-protection/concept-identity-protection-risks.md#user-linked-detections), taking into account the [limitations on Identity Protection detections for B2C](identity-protection-investigate-risk.md#service-limitations-and-considerations).
 
-Configure Conditional Access through Azure portal or Microsoft Graph APIs to enable a user risk-based Conditional Access policy requiring multi-factor authentication (MFA) and password change when user risk is medium OR high.
+Configure Conditional Access through Azure portal or Microsoft Graph APIs to enable a user risk-based Conditional Access policy requiring multifactor authentication (MFA) and password change when user risk is medium OR high.
 
 To configure your user based conditional access:
 
@@ -346,7 +349,7 @@ The following template can be used to create a Conditional Access policy with di
 After you've added the Azure AD Conditional Access policy, enable Conditional Access in your user flow or custom policy. When you enable Conditional Access, you don't need to specify a policy name.
 Multiple Conditional Access policies may apply to an individual user at any time. In this case, the most strict access control policy takes precedence. For example, if one policy requires MFA while the other blocks access, the user will be blocked.
 
-## Enable multi-factor authentication (optional)
+## Enable multifactor authentication (optional)
 
 When adding Conditional Access to a user flow, consider using **Multi-factor authentication (MFA)**. Users can use a one-time code via SMS or voice, a one-time password via email, or a time-based one-time password (TOTP) code via an authenticator app for multifactor authentication. MFA settings are configured separately from Conditional Access settings. You can choose from these MFA options:
 
@@ -382,7 +385,9 @@ To enable Conditional Access for a user flow, make sure the version supports Con
 1. Get the example of a conditional access policy on [GitHub](https://github.com/azure-ad-b2c/samples/tree/master/policies/conditional-access).
 1. In each file, replace the string `yourtenant` with the name of your Azure AD B2C tenant. For example, if the name of your B2C tenant is *contosob2c*, all instances of `yourtenant.onmicrosoft.com` become `contosob2c.onmicrosoft.com`.
 1. Upload the policy files.
+
 ### Configure claim other than phone number to be used for MFA
+
 In the Conditional Access policy above, the `DoesClaimExist` claim transformation method checks if a claim contains a value, for example if the `strongAuthenticationPhoneNumber` claim contains a phone number. 
 The claims transformation isn't limited to the `strongAuthenticationPhoneNumber` claim. Depending on the scenario, you can use any other claim. In the following XML snippet, the `strongAuthenticationEmailAddress` claim is checked instead. The claim you choose must have a valid value, otherwise the `IsMfaRegistered` claim will be set to `False`. When set to `False`, the Conditional Access policy evaluation returns a `Block` grant type, preventing the user from completing user flow.
 

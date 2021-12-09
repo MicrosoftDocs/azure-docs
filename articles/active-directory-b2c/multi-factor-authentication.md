@@ -1,5 +1,5 @@
 ---
-title: Multifactor Authentication in Azure Active Directory B2C  
+title: Multifactor authentication in Azure Active Directory B2C  
 description: How to enable multifactor authentication in consumer-facing applications secured by Azure Active Directory B2C.
 services: active-directory-b2c
 author: kengaderdus

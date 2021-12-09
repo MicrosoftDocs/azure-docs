@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/9/2021
+ms.date: 12/09/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -26,7 +26,7 @@ To enable TOTP within your custom policy, use the following display controls:
 
 The following screenshot illustrates the TOTP enrollment page showing the three display controls.
 
-![Screenshot showing TOTP display controls enrollment flow](media/display-control-totp/display-control-totp-enrollment.png)
+![Screenshot showing TOTP display controls enrollment flow](media/display-control-display-control-time-based-one-time-password/display-control-totp-enrollment.png)
 
 
 The following XML snippet shows the three display controls:
@@ -112,7 +112,7 @@ The verification TOTP code is done by another self-asserted technical profile th
 
 The following screenshot illustrates a TOTP verification page.
 
-![Screenshot showing TOTP display controls verification flow](media/display-control-totp/display-control-totp-verification.png)
+![Screenshot showing TOTP display controls verification flow](media/display-control-display-control-time-based-one-time-password/display-control-totp-verification.png)
 
 ## Next steps
 
