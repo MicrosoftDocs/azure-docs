@@ -36,6 +36,15 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 * Azure CLI 
 * arcdata extension for Azure CLI.
 
+In addition, because this deployment is on Azure Kubernetes Service, you need the following additional extensions:
+
+* connectedk8s
+* k8sconfiguration
+* k8s-configuration
+* k8s-extension
+
+
+
 ## Set metrics and logs service credentials
 
 Azure Arc-enabled data services provides:
