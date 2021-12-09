@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/29/2021
+ms.date: 12/02/2021
 ms.author: tamram 
 ms.custom: devx-track-azurepowershell
 ---
@@ -88,6 +88,8 @@ Two access keys are assigned so that you can rotate your keys. Having two keys e
 If you plan to manually rotate access keys, Microsoft recommends that you set a key expiration policy, and then use queries in Azure Monitor to determine when it's time to rotate an access key.
 
 ### Create a key expiration policy
+
+Before you can create a key expiration policy, you may need to rotate each of your account keys at least once.
 
 #### [Portal](#tab/azure-portal)
 
@@ -189,7 +191,7 @@ If you create a diagnostic setting that [sends logs to Azure Log Analytics](../b
 To determine if a key has expired, enter the following query in the **Log search** bar.
 
 ```kusto
-StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated". 
+StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated" 
 ```
 
 You can also create a query that helps you determine if a query is nearing expiration. The following query provides this information.
@@ -244,7 +246,7 @@ To rotate your storage account access keys with Azure CLI:
 
 1. Update the connection strings in your application code to reference the secondary access key for the storage account.
 
-2. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) command to regenerate the primary access key, as shown in the following example:
+1. Call the [az storage account keys renew](/cli/azure/storage/account/keys#az_storage_account_keys_renew) command to regenerate the primary access key, as shown in the following example:
 
     ```azurecli-interactive
     az storage account keys renew \
@@ -255,7 +257,7 @@ To rotate your storage account access keys with Azure CLI:
 
 1. Update the connection strings in your code to reference the new primary access key.
 
-2. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `secondary` as the key name instead of `primary`.
+1. Regenerate the secondary access key in the same manner. To regenerate the secondary key, use `secondary` as the key name instead of `primary`.
 
 ---
 
