@@ -123,6 +123,8 @@ Follow these steps to take a snapshot with the `az snapshot create` command and 
     ```
 
 ---
+Note:
+Please review your VM Size to validate the supportability of attaching Standard or Premium disks. [Refer FAQ](https://docs.microsoft.com/en-us/azure/virtual-machines/faq-for-disks#can-i-attach-both-premium-and-standard-data-disks-to-a-size-series-that-doesn-t-support-premium-ssd-disks--such-as-d--dv2--g--or-f-series-)
 
 ## Next steps
 
