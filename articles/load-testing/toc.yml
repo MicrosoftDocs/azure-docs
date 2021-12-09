@@ -44,6 +44,8 @@
       href: how-to-export-test-results.md
     - name: Use a managed identity
       href: how-to-use-a-managed-identity.md
+    - name: Use CSV data in load tests
+      href: how-to-create-data-driven-test.md
 - name: Reference
   items:
       - name: Test configuration YAML
