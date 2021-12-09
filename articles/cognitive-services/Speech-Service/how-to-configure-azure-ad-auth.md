@@ -141,10 +141,11 @@ To get the Resource ID using PowerShell, confirm that your computer has PowerShe
 
     If nothing appears, or if that version of the Azure PowerShell module is earlier than 5.1.0, follow the instructions at [Install the Azure PowerShell module](/powershell/azure/install-Az-ps) to upgrade.
 
-Now run `Connect-AzAccount` to create a connection with Azure.
-
+The following code connects to Azure and retrieves the resource Id.
 
 ```azurepowershell
+Connect-AzAccount
+
 $subId = "Your Azure subscription Id"
 $resourceGroup = "Resource group name where Speech resource is located"
 $speechResourceName = "Your Speech resource name"
