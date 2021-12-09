@@ -60,7 +60,7 @@ There are three triggers for an image scan:
  
 The scan completes typically within 2 minutes, but it might take up to 40 minutes. Findings are made available as security recommendations such as this one:
 
-[![Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image.](media/azure-container-registry-integration/container-security-acr-page.png)](media/azure-container-registry-integration/container-security-acr-page.png#lightbox)
+[![Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image.](media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png)](media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png#lightbox)
 
 
 ## How does Defender for Cloud work with Azure Container Registry

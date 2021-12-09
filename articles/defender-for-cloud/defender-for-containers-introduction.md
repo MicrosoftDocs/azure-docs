@@ -150,7 +150,7 @@ The scan typically completes within 2 minutes, but it might take up to 40 minute
 
 Defender for Cloud filters and classifies findings from the scanner. When an image is healthy, Defender for Cloud marks it as such. Defender for Cloud generates security recommendations only for images that have issues to be resolved. By only notifying when there are problems, Defender for Cloud reduces the potential for unwanted informational alerts.
 
-:::image type="content" source="./media/azure-container-registry-integration/container-security-acr-page.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in an Azure Container Registry (ACR) hosted image." lightbox="./media/azure-container-registry-integration/container-security-acr-page.png":::
+:::image type="content" source="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png" alt-text="Sample Microsoft Defender for Cloud recommendation about vulnerabilities discovered in Azure Container Registry (ACR) hosted images." lightbox="./media/defender-for-containers/recommendation-acr-images-with-vulnerabilities.png":::
 
 
 ### Scanning images at runtime

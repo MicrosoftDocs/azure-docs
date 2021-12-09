@@ -31,9 +31,7 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 
 ## Protect AKS clusters
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Posuere urna nec tincidunt praesent semper feugiat nibh sed. Volutpat lacus laoreet non curabitur gravida arcu. Pellentesque nec nam aliquam sem et tortor consequat id porta. Lacinia at quis risus sed vulputate odio. 
-
-Donec ultrices tincidunt arcu non sodales neque sodales ut etiam. Adipiscing diam donec adipiscing tristique risus nec feugiat. Sed id semper risus in hendrerit gravida rutrum quisque non. Et malesuada fames ac turpis. Pretium viverra suspendisse potenti nullam ac tortor vitae purus. Enim nulla aliquet porttitor lacus luctus accumsan tortor posuere. Vel pharetra vel turpis nunc eget. Condimentum id venenatis a condimentum vitae sapien pellentesque habitant morbi. 
+Placeholder
 
 ::: zone-end
 
@@ -65,7 +63,7 @@ You can deploy the Defender extension using a range of methods. For detailed ste
 
 ### Use the fix button from the Defender for Cloud recommendation
 
-A dedicated recommendation in Microsoft Defender for Cloud provides:
+A dedicated Defender for Cloud recommendation provides:
 
 - **Visibility** about which of your clusters has the Defender for Kubernetes extension deployed
 - **Fix** button to deploy it to those clusters without the extension
@@ -85,7 +83,7 @@ A dedicated recommendation in Microsoft Defender for Cloud provides:
 
 1. Select the relevant Log Analytics workspace and select **Remediate x resource**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Defender extension for Azure Arc with Defender for Cloud's fix option.":::
+    :::image type="content" source="media/defender-for-kubernetes-azure-arc/security-center-deploy-extension.gif" alt-text="Deploy Defender extension for Azure Arc with Defender for Cloud's 'fix' option.":::
 
 
 ### [**Azure CLI**](#tab/k8s-deploy-cli)
@@ -150,9 +148,9 @@ To use the REST API to deploy the Defender extension, you'll need a Log Analytic
 
     | Name            | In   | Required | Type   | Description                                  |
     |-----------------|------|----------|--------|----------------------------------------------|
-    | Subscription ID | path | True     | string | Your Azure Arc-enabled Kubernetes resource's subscription ID |
-    | Resource Group  | path | True     | string | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
-    | Cluster Name    | path | True     | string | Name of your Azure Arc-enabled Kubernetes resource  |
+    | Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes resource's subscription ID |
+    | Resource Group  | Path | True     | String | Name of the resource group containing your Azure Arc-enabled Kubernetes resource |
+    | Cluster Name    | Path | True     | String | Name of your Azure Arc-enabled Kubernetes resource  |
 
 
     For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
@@ -196,7 +194,7 @@ To verify that your cluster has the Defender extension installed on it, follow t
 
 1. Select the recommendation named **Azure Arc-enabled Kubernetes clusters should have Microsoft Defender for Cloud's extension installed**.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
+    :::image type="content" source="./media/defender-for-kubernetes-azure-arc/extension-recommendation.png" alt-text="Microsoft Defender for Cloud's recommendation for deploying the Defender extension for Azure Arc-enabled Kubernetes clusters." lightbox="media/defender-for-kubernetes-azure-arc/extension-recommendation.png":::
 
 1. Check that the cluster on which you deployed the extension is listed as **Healthy**.
 
@@ -209,11 +207,11 @@ To verify that your cluster has the Defender extension installed on it, follow t
 1. From the infrastructure list, select **Kubernetes clusters** and then select the specific cluster.
 1. Open the extensions page. The extensions on the cluster are listed. To confirm whether the Defender extension was installed correctly, check the **Install status** column.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-installed-clusters-page.png" alt-text="Azure Arc page for checking the status of all installed extensions on a Kubernetes cluster." lightbox="media/defender-for-kubernetes-azure-arc/extension-installed-clusters-page.png":::
+    :::image type="content" source="./media/defender-for-kubernetes-azure-arc/extension-installed-clusters-page.png" alt-text="Azure Arc page for checking the status of all installed extensions on a Kubernetes cluster." lightbox="media/defender-for-kubernetes-azure-arc/extension-installed-clusters-page.png":::
 
 1. For more details, select the extension.
 
-    :::image type="content" source="media/defender-for-kubernetes-azure-arc/extension-details-page.png" alt-text="Full details of an Azure Arc extension on a Kubernetes cluster.":::
+    :::image type="content" source="./media/defender-for-kubernetes-azure-arc/extension-details-page.png" alt-text="Full details of an Azure Arc extension on a Kubernetes cluster.":::
 
 
 ### [**Azure CLI**](#tab/k8s-verify-cli)
@@ -285,7 +283,7 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
 
     :::image type="content" source="media/defender-for-kubernetes-intro/enable-containers-plan-on-aws-connector.png" alt-text="Screenshot of enabling Defender for Containers for an AWS connector.":::
 
-1. Optionally, to change the retention period for your audit logs, select **Configure**, enter the desired timeframe, and select **Save**.
+1. Optionally, to change the retention period for your audit logs, select **Configure**, enter the required timeframe, and select **Save**.
 
     :::image type="content" source="media/defender-for-kubernetes-intro/adjust-eks-logs-retention.png" alt-text="Screenshot of adjusting the retention period for EKS control pane logs." lightbox="./media/defender-for-kubernetes-intro/adjust-eks-logs-retention.png":::
 
@@ -306,7 +304,7 @@ To protect your EKS clusters, enable the Containers plan on the relevant account
     1. Select **Download remediation logic**.
     1. Run the generated script on your cluster. 
 
-    :::image type="content" source="media/defender-for-kubernetes-intro/generate-script-defender-extension-kubernetes.gif" alt-text="Video of how to use the Defender for Cloud recommendation to generate a script for your EKS clusters that enables the Azure Arc extension. ":::
+    :::image type="content" source="./media/defender-for-kubernetes-intro/generate-script-defender-extension-kubernetes.gif" alt-text="Video of how to use the Defender for Cloud recommendation to generate a script for your EKS clusters that enables the Azure Arc extension. ":::
 
 ### View recommendations and alerts for your EKS clusters
 
@@ -403,9 +401,9 @@ DELETE https://management.azure.com/subscriptions/{{Subscription Id}}/resourcegr
 
 | Name            | In   | Required | Type   | Description                                           |
 |-----------------|------|----------|--------|-------------------------------------------------------|
-| Subscription ID | path | True     | string | Your Azure Arc-enabled Kubernetes cluster's subscription ID |
-| Resource Group  | path | True     | string | Your Azure Arc-enabled Kubernetes cluster's resource group  |
-| Cluster Name    | path | True     | string | Your Azure Arc-enabled Kubernetes cluster's name            |
+| Subscription ID | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's subscription ID |
+| Resource Group  | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's resource group  |
+| Cluster Name    | Path | True     | String | Your Azure Arc-enabled Kubernetes cluster's name            |
 
 For **Authentication**, your header must have a Bearer token (as with other Azure APIs). To get a bearer token, run the following command:
 
