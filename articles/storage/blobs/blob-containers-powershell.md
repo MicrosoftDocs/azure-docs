@@ -101,7 +101,6 @@ The following example retrieves both an individual container and a list of conta
 
 # Approach 2: Retrieve a list of containers
  Get-AzStorageContainer -Prefix $prefixName -Context $ctx
-
 The result provides the URI of the blob endpoint and lists the containers retrieved by name and prefix.
 
 ```Result
@@ -330,5 +329,5 @@ loop-container4
 
 ## See also
 
-- [Run PowerShell commands with Azure AD credentials to access blob data - Azure Storage | Microsoft Docs](/azure/storage/blobs/authorize-data-operations-powershell)
-- [Create a storage account - Azure Storage | Microsoft Docs](/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
+- [Run PowerShell commands with Azure AD credentials to access blob data](/azure/storage/blobs/authorize-data-operations-powershell)
+- [Create a storage account](/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
