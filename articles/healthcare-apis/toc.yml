@@ -34,9 +34,14 @@ items:
       items:
         - name: Authentication & Authorization
           href: authentication-authorization.md
-        - name: Register a Client Application
-          href: register-application.md
-        - name: Configure Azure RBAC
+        - name: Register a client application
+          expanded: true
+          items:
+           - name: Register a client application using the portal
+             href: register-application.md
+           - name: Register a client application using scripts
+             href: register-application-cli-rest.md  
+        - name: Grant access permissions using the portal
           href: configure-azure-rbac.md
         - name: Get an Access Token
           href: get-access-token.md

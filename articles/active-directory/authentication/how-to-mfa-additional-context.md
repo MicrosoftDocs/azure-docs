@@ -4,7 +4,7 @@ description: Learn how to use additional context in MFA notifications
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 12/08/2021
 ms.author: justinha
 author: mjsantani
 ms.collection: M365-identity-device-management
@@ -38,6 +38,8 @@ Identify a single target group for the schema configuration. Then use the follow
 
 https://graph.microsoft.com/beta/authenticationMethodsPolicy/authenticationMethodConfigurations/MicrosoftAuthenticator
 
+>[!NOTE]
+>The Authenticator app does not retrieve policy information just in time for each sign-in request. Instead, the Authenticator app does a best effort retrieval of the policy once every 7 days. We understand this limitation is less than ideal and are working to optimize the behavior. In the meantime, if you want to force a policy update to test this feature, you can remove and re-add the account in the Authenticator app..
 
 #### MicrosoftAuthenticatorAuthenticationMethodConfiguration properties
 

@@ -73,8 +73,9 @@ During registration, enable the data source for access policy through the **Data
 :::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
 
 >[!IMPORTANT]
-> - While user needs to have both Azure Storage *Owner* and Purview *Data source admin* to register a source for *Data use governance*, any of those roles can independently de-register it.
-> - Disabling a subscription for *Data use governance* will disable it also for all assets registered in that subscription.
+> - To disable a source for *Data use Governance*, ensure it is first removed from all policy statements
+> - While user needs to have both Azure Storage *Owner* and Purview *Data source admin* to enable a source for *Data use governance*, any of those roles can independently disable it.
+> - Disabling *Data use governance* for a subscription will disable it also for all assets registered in that subscription.
 
 > [!WARNING]
 > **Known issues** related to source registration
