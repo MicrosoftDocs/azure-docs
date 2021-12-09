@@ -57,7 +57,7 @@ items:
       href: how-to-use-fhir-mappings.md
     - name: Display Metrics
       href: how-to-display-metrics.md
-    - name: Create mappings templates copies
+    - name: Create copies of mappings templates
       href: how-to-create-mappings-copies.md
 
 - name: Resources
