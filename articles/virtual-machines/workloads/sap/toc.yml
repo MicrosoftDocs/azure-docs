@@ -426,7 +426,7 @@
     - name: Provision users to SAP Cloud Platform Identity Authentication Service
       href: ../../../active-directory/saas-apps/sap-cloud-platform-identity-authentication-provisioning-tutorial.md
     - name: Secure access with SAP Cloud Identity Services and Azure AD
-      href: ../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md
+      href: ../../../active-directory/fundamentals/scenario-azure-first-sap-identity-integration.md
     - name: SSO
       items:               
       - name: Configure SSO with SAP Cloud Platform Identity Authentication Service
