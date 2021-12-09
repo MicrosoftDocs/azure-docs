@@ -26,11 +26,11 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
-* [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model (invoice)**](#try-it-prebuilt-model) Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt model (invoice)**](#prebuilt-model) Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -142,7 +142,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     using Azure.AI.FormRecognizer.DocumentAnalysis;
     ```
 
-1. Add the following code snippt to your Program.cs file. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance:
+1. Add the following code snippet to your Program.cs file. Set your  `endpoint` and `apiKey`  environment variables and create your `AzureKeyCredential` and `DocumentAnalysisClient` instance:
 
     ```csharp
     string endpoint = "<your-endpoint>";
@@ -165,9 +165,9 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article.
 
-### [General document model](#tab)
+### [General document model](#tab/general-document)
 
 > [!div class="checklist"]
 >
@@ -280,7 +280,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-### [Layout model](#tab)
+### [Layout model](#tab/layout)
 
 Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
 
@@ -365,7 +365,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-### [Prebuilt model](#tab)
+### [Prebuilt model](#tab/prebuilt-invoice)
 
 This sample demonstrates how to analyze data from certain common document types with a pre-trained model, using an invoice as an example.
 
