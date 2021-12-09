@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/08/2021
+ms.date: 12/09/2021
 ms.author: v-ydequadros
 ---
 
@@ -61,7 +61,7 @@ There are 11 different query parameters that you can configure individually or i
 
 5. To clear the recent selections, click **Reset**.
 
-### Operator options
+### How to read the Operator options
 
 The **Operator** menu contains the following options:
 

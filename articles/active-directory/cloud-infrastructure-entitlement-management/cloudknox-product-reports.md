@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/08/2021
+ms.date: 12/09/2021
 ms.author: v-ydequadros
 ---
 
@@ -80,7 +80,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Use cases:** 
 		 - This report lists the different key findings in the selected auth systems. The key findings include Super identities, Inactive identities, Over provisioned active identities, storage bucket hygiene, Access key age (AWS), etc. This report will help administrators in visualizing the findings across the organization. 
 
-	For more information about the Permissions Analytics report, see [Permissions Analytics Report]().
+	For more information, see Permissions analytics report.
 
 - **CIS Benchmarks** 
 	- **Summary of report:** Provides results of CIS Benchmarks.
@@ -154,7 +154,7 @@ CloudKnox offers the following reports for management associated with the author
 		 - This report lists all the assigned permissions for the selected identities. 
 
 
-## How to read the Reports Dashboard
+## How to read the Reports dashboard
 
 The reports dashboard provides a table of information with both System Reports and Custom Reports. The **Reports** page defaults to the **System Reports** tab, which has the following details:
 
@@ -239,7 +239,7 @@ The reports dashboard provides a table of information with both System Reports a
 
 2. To perform actions to the report and select from the following options, click the ellipses (**...**) icon:
 
-	 If there are reports listed that were not created by the current user, the only option from the list will be **Duplicate**.
+	 Reports that were not created by the current user, are listed as **Duplicate**.
 
 	- **Download** - Downloads a copy of the report.
 
