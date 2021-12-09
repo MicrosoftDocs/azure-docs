@@ -364,7 +364,19 @@ Verify that the Windows 10 PC you are using to initiate the remote desktop conne
 Verify that the AADLoginForWindows extension was not uninstalled after the Azure AD join finished.
 
 Also, make sure that the security policy "Network security: Allow PKU2U authentication requests to this computer to use online identities" is enabled on both the server **and** the client.
- 
+
+#### Password change required
+
+If you see the following error message when you initiate a remote desktop connection to your VM: 
+
+- Your credentials did not work.
+
+![Your credentials did not work](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
+
+Verify that the user doesn't have a temporary password. If the user has just been created, or if the user password has just been reset, the user's password is temporary and must be changed on the next sign in. Temporary passwords cannot be used to log in to a remote desktop connection.
+
+To resolve the issue, log in to the user account in a web browser, for instance by opening the [Azure portal](https://portal.azure.com) in a private browsing window. If prompted to change the password, set a new password and connect to the remote desktop connection with that new password.
+
 #### MFA sign-in method required
 
 If you see the following error message when you initiate a remote desktop connection to your VM: 
