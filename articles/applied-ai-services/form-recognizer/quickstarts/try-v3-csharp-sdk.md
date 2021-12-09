@@ -157,17 +157,17 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ### Select one of the following code samples to copy and paste into your application Program.cs file:
 
-* [**General document**](#try-it-general-document-model)
+* [**General document**](#general-document-model)
 
-* [**Layout**](#try-it-layout-model)
+* [**Layout**](#layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)
+* [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
-## **Try it**: General document model
+### [General document model](#tab)
 
 > [!div class="checklist"]
 >
@@ -280,21 +280,21 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## **Try it**: Layout model
+### [Layout model](#tab)
 
 Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
 
 > [!div class="checklist"]
 >
 > * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * We've added the file URI value to the `string fileUri` variable at the top of the Main method.
+> * We've added the file URI value to the `string fileUri` variable at the top Program.cs file.
 > * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-layout` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 
-### Add the following code to your layout application **Main** method
+### Add the following code to the Program.cs file:
 
 ```csharp
-// sample form document
-string fileUri = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
+
+Uri fileUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf");
 
 AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-layout", fileUri);
 
@@ -365,14 +365,14 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## **Try it**: Prebuilt model
+### [Prebuilt model](#tab)
 
 This sample demonstrates how to analyze data from certain common document types with a pre-trained model, using an invoice as an example.
 
 > [!div class="checklist"]
 >
 > * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-> * We've added the file URI value to the `string fileUri` variable at the top of the Main method.
+> * We've added the file URI value to the `string fileUri` variable at the top of the Program.cs file.
 > * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
@@ -385,15 +385,14 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 * [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
-### Add the following code to your prebuilt invoice application **Main** method
+### Add the following code to your Program.cs file:
 
 ```csharp
 // sample invoice document
-string filePath = "(https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf";
 
-using var stream = new FileStream(filePath, FileMode.Open);
+Uri invoiceUri = new Uri ("https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf");
 
-AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentAsync("prebuilt-invoice", stream);
+AnalyzeDocumentOperation operation = await client.StartAnalyzeDocumentFromUriAsync("prebuilt-invoice", invoiceUri);
 
 await operation.WaitForCompletionAsync();
 
@@ -405,7 +404,7 @@ for (int i = 0; i < result.Documents.Count; i++)
 
     AnalyzedDocument document = result.Documents[i];
 
-    if (document.Fields.TryGetValue("VendorName", out DocumentField vendorNameField))
+    if (document.Fields.TryGetValue("VendorName", out DocumentField? vendorNameField))
     {
         if (vendorNameField.ValueType == DocumentFieldType.String)
         {
@@ -414,7 +413,7 @@ for (int i = 0; i < result.Documents.Count; i++)
         }
     }
 
-    if (document.Fields.TryGetValue("CustomerName", out DocumentField customerNameField))
+    if (document.Fields.TryGetValue("CustomerName", out DocumentField? customerNameField))
     {
         if (customerNameField.ValueType == DocumentFieldType.String)
         {
@@ -423,7 +422,7 @@ for (int i = 0; i < result.Documents.Count; i++)
         }
     }
 
-    if (document.Fields.TryGetValue("Items", out DocumentField itemsField))
+    if (document.Fields.TryGetValue("Items", out DocumentField? itemsField))
     {
         if (itemsField.ValueType == DocumentFieldType.List)
         {
@@ -435,7 +434,7 @@ for (int i = 0; i < result.Documents.Count; i++)
                 {
                     IReadOnlyDictionary<string, DocumentField> itemFields = itemField.AsDictionary();
 
-                    if (itemFields.TryGetValue("Description", out DocumentField itemDescriptionField))
+                    if (itemFields.TryGetValue("Description", out DocumentField? itemDescriptionField))
                     {
                         if (itemDescriptionField.ValueType == DocumentFieldType.String)
                         {
@@ -445,7 +444,7 @@ for (int i = 0; i < result.Documents.Count; i++)
                         }
                     }
 
-                    if (itemFields.TryGetValue("Amount", out DocumentField itemAmountField))
+                    if (itemFields.TryGetValue("Amount", out DocumentField? itemAmountField))
                     {
                         if (itemAmountField.ValueType == DocumentFieldType.Double)
                         {
@@ -459,7 +458,7 @@ for (int i = 0; i < result.Documents.Count; i++)
         }
     }
 
-    if (document.Fields.TryGetValue("SubTotal", out DocumentField subTotalField))
+    if (document.Fields.TryGetValue("SubTotal", out DocumentField? subTotalField))
     {
         if (subTotalField.ValueType == DocumentFieldType.Double)
         {
@@ -468,7 +467,7 @@ for (int i = 0; i < result.Documents.Count; i++)
         }
     }
 
-    if (document.Fields.TryGetValue("TotalTax", out DocumentField totalTaxField))
+    if (document.Fields.TryGetValue("TotalTax", out DocumentField? totalTaxField))
     {
         if (totalTaxField.ValueType == DocumentFieldType.Double)
         {
@@ -477,7 +476,7 @@ for (int i = 0; i < result.Documents.Count; i++)
         }
     }
 
-    if (document.Fields.TryGetValue("InvoiceTotal", out DocumentField invoiceTotalField))
+    if (document.Fields.TryGetValue("InvoiceTotal", out DocumentField? invoiceTotalField))
     {
         if (invoiceTotalField.ValueType == DocumentFieldType.Double)
         {
@@ -488,6 +487,8 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 
 ```
+
+---
 
 ## Run your application
 
