@@ -118,13 +118,13 @@ Use this claims transformation to generate a TOTP URI that will be displayed in 
 
 - Input claims:
   - **path**: emily@fabrikam.com
-  - **query.secret**: fay2lj7ynpntjgqa
+  - **query.secret**: `fay2lj7ynpntjgqa`
 - Input parameters:
-    - **scheme**: otpauth
-    - **host**: totp
-    - **query.issuer**: {AuthenticatorIssuer}
+    - **scheme**: `otpauth`
+    - **host**: `totp`
+    - **query.issuer**: `{AuthenticatorIssuer}`
 - Output claims:
-  - **outputClaim**: otpauth://totp/Contoso%20demo:emily@fabrikam.com?secret=fay2lj7ynpntjgqa&issuer=Contoso+demo
+  - **outputClaim**: `otpauth://totp/Contoso%20demo:emily@fabrikam.com?secret=fay2lj7ynpntjgqa&issuer=Contoso+demo`
 
 ## ChangeCase
 
@@ -299,7 +299,7 @@ Determines whether a claim value is equal to the input parameter value.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
-| InputParameter | compareTo | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
+| InputParameter | compareTo | string | String comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
 
@@ -559,7 +559,7 @@ To use the GetLocalizedStringsTransformation claims transformation:
 
 ![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
 
-The following example looks up the email subject, body, your code message, and the signature of the email, from localized strings. These claims later used by custom email verification template.
+The following example looks up the email subject, body, your code message, and the signature of the email, from localized strings. The claims later used by custom email verification template.
 
 Define localized strings for English (default) and Spanish.
 
@@ -1135,11 +1135,11 @@ The following example takes a string collection of user roles, and converts it t
 ### Example
 
 - Input claims:
-  - **inputClaim**: [ "Admin", "Author", "Reader" ]
+  - **inputClaim**: `[ "Admin", "Author", "Reader" ]`
 - Input parameters:
   - **delimiter**: ","
 - Output claims:
-  - **outputClaim**: "Admin,Author,Reader"
+  - **outputClaim**: `"Admin,Author,Reader"`
 
 
 ## StringSplit

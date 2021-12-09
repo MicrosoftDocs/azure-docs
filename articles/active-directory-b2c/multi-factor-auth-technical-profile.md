@@ -168,7 +168,7 @@ The following example shows an Azure AD MFA technical profile used to verify the
 
 In this mode, the user is required to install any authenticator app that supports time-based one-time password (TOTP) verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app), on a device that they own. 
 
-During the first sign-up or sign-in, the user scans a QR code, opens a deep link, or enters the code manually using the authenticator app. To verify the TOTP code, use the [Begin verify OTP](#begin-verify-TOTP) followed by [Verify TOTP](#verify-totp) validation technical profiles.
+During the first sign-up or sign-in, the user scans a QR code, opens a deep link, or enters the code manually using the authenticator app. To verify the TOTP code, use the [Begin verify OTP](#begin-verify-totp) followed by [Verify TOTP](#verify-totp) validation technical profiles.
 
 For subsequent sign-ins, use the [Get available devices](#get-available-devices) method to check if the user has already enrolled their device. If the number of available devices is greater than zero, this indicates the user has enrolled before. In this case, the user needs to type the TOTP code that appears in the authenticator app.
 
