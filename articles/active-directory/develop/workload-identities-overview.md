@@ -14,25 +14,30 @@ ms.date: 12/06/2021
 ms.author: ryanwi
 ms.reviewer: udayh, ilanas
 ms.custom: aaddev 
-#Customer intent: As a developer, I want to learn what workload identities are and
+#Customer intent: As a developer, I want workload identities so I can authenticate with Azure AD and access Azure AD protected resources.
 ---
 
 # What are workload identities?
 
-A workload identity is an identity used by a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The terminology for software, or workload, identities is inconsistent across the industry. Generally, a workload identity is anything you need for your software to authenticate with some system.  A workload identity could be a database account or a role in AWS that you need to access S3. Some examples of workload identities in Azure Active Directory (Azure AD) are:
+A workload identity is an identity used by a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The terminology is inconsistent across the industry, but generally a workload identity is something you need for your software entity to authenticate with some system.  A workload identity could be a database account in a MongoDB database or a role in AWS that you need to access Amazon S3.
 
-- An application that enables access to Microsoft Graph based on admin or user consent. This access could be either on behalf of the user or on behalf of the application.
+In Azure Active Directory (Azure AD), workload identities are apps, service principals, and managed identities.  Here are some ways that workload identities in Azure AD are used:
+
+- An app that enables a web app to access Microsoft Graph based on admin or user consent. This access could be either on behalf of the user or on behalf of the application.
 - A managed identity used by a developer to provision their service with access to an Azure resource such as Azure Key Vault or Azure Storage.
-- A service principal used by a developer to enable CI/CD with GitHub Actions.
+- A service principal used by a developer to enable a CI/CD pipeline in GitHub Actions to deploy a web app to Azure App Service.
 
-## Human and non-human/machine identities
+## Workload identities, other machine identities, and human identities
 
-At a high level, there are two types of identities: human and machine/non-human identities.  Human identities can be employees (internal workers, front line workers) and external users (customers, consultants, vendors, or partners). Machine, or non-human, identities can be devices (desktop computers, mobile, IoT sensors, or IoT managed devices) or workloads (applications, services, web apps, scripts, containers, virtual machines).
+At a high level, there are two types of identities: human and machine/non-human identities. Workload identities and device identities together make up a group called machine (or non-human) identities.  Workload identities represent software workloads while device identities represent devices such as desktop computers, mobile, IoT sensors, and IoT managed devices. Machine identities are distinct from human identities, which represent people such as employees (internal workers and front line workers) and external users (customers, consultants, vendors, and partners).  
 
 :::image type="content" source="media/workload-identities-overview/identity-types.svg" alt-text="Shows different types of machine and human identities" border="false":::
 
 ## Supported scenarios
+
+Here are some ways you can use workload identities:
 - Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review).
 - Access Azure AD protected resources without needing to manage secrets (for supported scenarios) using [workload identity federation](workload-identity-federation.md).
 
 ## Next steps
+Learn how to choose the right workload identity for your application.
