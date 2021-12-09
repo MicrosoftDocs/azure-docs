@@ -15,7 +15,7 @@ A device group can only have one active deployment associated with it at any giv
 
 ## Dynamic deployments
 
-Deployments in Device Update for IoT Hub are dynamic in nature. Dynamic Deployments empower users to move towards a set-and-forget management model by automatically deploying
+Deployments in Device Update for IoT Hub are dynamic in nature. Dynamic deployments empower users to move towards a set-and-forget management model by automatically deploying
 updates to newly provisioned, applicable devices. Any devices that are provisioned or change their group membership after a deployment is initiated, will automatically receive
 the update deployment as long as the deployment remains active without any other action on part of the user. 
 
