@@ -105,7 +105,7 @@ Azure Backup Server can protect data in the following clustered applications:
 * SQL Server - Azure Backup Server doesn't support backing up SQL Server databases hosted on cluster-shared volumes (CSVs).
 
 >[!NOTE]
->- MABS V3 UR1 supports the protection of Hyper-V virtual machines on Cluster Shared Volumes (CSVs). Protecting other workloads hosted on CSVs isn't supported.
+>- MABS V3 UR1 supports the protection of Hyper-V virtual machines on Cluster Shared Volumes (CSVs). Protection of other workloads hosted on CSVs isn't supported.
 >- MABS v3 UR2 additionally supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volumes (CSVs).
 
 Azure Backup Server can protect cluster workloads that are located in the same domain as the MABS server, and in a child or trusted domain. If you want to protect data sources in untrusted domains or workgroups, use NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.
