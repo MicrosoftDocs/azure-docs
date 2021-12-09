@@ -35,8 +35,8 @@ Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" targ
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
 ```
 
-> [!TIP]
-> If you're targeting a web browser, and using the `<script>` tag; the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
+> [!NOTE]
+> If you're targeting a web browser, and using the `<script>` tag, the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
 
 # [import](#tab/import)
 
