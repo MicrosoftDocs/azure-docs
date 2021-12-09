@@ -28,6 +28,13 @@ You can also use the Speech SDK to build ambient devices that have your own [cus
 
 The Speech SDK enables a variety of voice-enabled scenarios, such as [voice assistants](./voice-assistants.md), drive-thru ordering systems, [conversation transcription](./conversation-transcription.md), and smart speakers. You can respond to users with text, speak back to them in a default or [custom voice](./how-to-custom-voice-create-voice.md), provide search results, [translate](speech-translation.md) to other languages, and more. We look forward to seeing what you build!
 
+
+## Device development kits
+The Speech SDK is designed to work with purpose-built development kits, and varying microphone array configurations. For example, you can use one of these Azure development kits. 
+
+- [Azure Percept DK](../../azure-percept/overview-azure-percept-dk.md) contains a preconfigured audio processor and a four-microphone linear array and audio processing via XMOS Codec. You can use voice commands, keyword spotting, and far field speech with the help of Azure Cognitive Services. 
+- [Azure Kinect DK](../../kinect-dk/about-azure-kinect-dk.md) is a spatial computing developer kit with advanced AI sensors that provide sophisticated computer vision and speech models. As an all in-one small device with multiple modes, it contains a depth sensor, spatial microphone array with a video camera, and orientation sensor. 
+
 ## Next steps
 
 > [!div class="nextstepaction"]
