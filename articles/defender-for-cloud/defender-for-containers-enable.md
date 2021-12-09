@@ -7,8 +7,6 @@ ms.date: 12/09/2021
 ---
 # Enable Microsoft Defender for Containers
 
-[!INCLUDE [Banner for top of topics](./includes/banner.md)]
-
 Microsoft Defender for Containers is the cloud-native solution for securing your containers.
 
 Defender for Containers protects your clusters whether they're running in:
