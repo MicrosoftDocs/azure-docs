@@ -17,4 +17,4 @@ To immediately sync files that are changed in the Azure file share, the **Invoke
 >[!NOTE]
 >Changes made to an Azure file share using REST does not update the SMB last modified time and will not be seen as a change by sync.
 
-We are exploring adding change detection for an Azure file share similar to USN for volumes on Windows Server.
+We are exploring adding change detection for an Azure file share similar to USN for volumes on Windows Server. Help us prioritize this feature for future development by voting for it at [Azure Community Feedback](https://feedback.azure.com/d365community/idea/26f8aa9d-3725-ec11-b6e6-000d3a4f0f84).

@@ -102,7 +102,7 @@ This section describes features and limitations of the v2 SKU that differ from t
 |FIPS mode|These are currently not supported.|
 |ILB only mode|This is currently not supported. Public and ILB mode together is supported.|
 |Net watcher integration|Not supported.|
-|Azure Security Center integration|Not yet available.
+|Microsoft Defender for Cloud integration|Not yet available.
 
 ## Migrate from v1 to v2
 

@@ -1,8 +1,9 @@
 ---
 title: Create a PowerShell function using Visual Studio Code - Azure Functions
-description: Learn how to create a PowerShell function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.   
+description: Learn how to create a PowerShell function, then publish the local project to serverless hosting in Azure Functions using the Azure Functions extension in Visual Studio Code.
 ms.topic: quickstart
 ms.date: 11/04/2020
+ms.custom: mode-other
 ---
 
 # Quickstart: Create a PowerShell function in Azure using Visual Studio Code
@@ -66,7 +67,7 @@ After you've verified that the function runs correctly on your local computer, i
 
 [!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
-[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-project-vscode.md)]
+[!INCLUDE [functions-publish-project-vscode](../../includes/functions-publish-powershell-project-vscode.md)]
 
 [!INCLUDE [functions-vs-code-run-remote](../../includes/functions-vs-code-run-remote.md)]
 

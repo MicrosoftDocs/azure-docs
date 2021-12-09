@@ -81,6 +81,17 @@ Use the following table for port configuration for the servers hosting Azure IoT
 
 For complete information, go to [Firewall and port configuration rules for IoT Edge deployment](../iot-edge/troubleshoot.md).
 
+
+### Port requirements for Kubernetes on Azure Stack Edge
+
+| Port no. | In or out | Port scope | Required | Guidance |
+|----------|-----------|------------|----------|----------|
+| TCP 31000 (HTTPS)| In       | LAN        | In some cases. <br> See notes.      |This port is required only if you are connecting to the Kubernetes dashboard to monitor your device. |
+| TCP 6443 (HTTPS)| In       | LAN        | In some cases. <br> See notes.       |This port is required by Kubernetes API server only if you are using `kubectl` to access your device. |
+
+> [!IMPORTANT]
+> If your datacenter firewall is restricting or filtering traffic based on source IPs or MAC addresses, make sure that the compute IPs (Kubernetes node IPs) and MAC addresses are in the allowed list. The MAC addresses can be specified by running the `Set-HcsMacAddressPool` cmdlet on the PowerShell interface of the device.
+
 ## URL patterns for firewall rules
 
 Network administrators can often configure advanced firewall rules based on the URL patterns to filter the inbound and the outbound traffic. Your Azure Stack Edge Pro device and the service depend on other Microsoft applications such as Azure Service Bus, Azure Active Directory Access Control, storage accounts, and Microsoft Update servers. The URL patterns associated with these applications can be used to configure firewall rules. It is important to understand that the URL patterns associated with these applications can change. These changes require the network administrator to monitor and update firewall rules for your Azure Stack Edge Pro as and when needed.

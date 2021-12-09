@@ -14,8 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/09/2020
 ms.author: allensu
-ms.custom: mvc,subject-armqs
-
+ms.custom: mvc, subject-armqs, mode-other
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs by using an ARM template

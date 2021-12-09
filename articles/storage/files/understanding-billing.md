@@ -4,7 +4,7 @@ description: Learn how to interpret the provisioned and pay-as-you-go billing mo
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/17/2021
+ms.date: 12/08/2021
 ms.author: rogarana
 ms.subservice: files
 ---
@@ -58,7 +58,7 @@ Azure Files supports storage capacity reservations, which enable you to achieve 
 - **Location**: The Azure region for the capacity reservation. Capacity reservations are available in a subset of Azure regions.
 - **Redundancy**: The storage redundancy for the capacity reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
 
-Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, and data transfer charges are not including in the reservation.
+Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, data transfer, and metadata storage charges are not included in the reservation.
 
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
 
@@ -76,24 +76,23 @@ When you provision a premium file share, you specify how many GiBs your workload
 |-|-|
 | Minimum size of a file share | 100 GiB |
 | Provisioning unit | 1 GiB |
-| Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
-| Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
+| Baseline IOPS formula | `MIN(3000 + 1 * ProvisionedGiB, 100000)` |
+| Burst limit | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 | Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
-| Ingress rate | `40 MiB/sec + 0.04 * ProvisionedGiB` |
-| Egress rate | `60 MiB/sec + 0.06 * ProvisionedGiB` |
+| Throughput rate (ingress + egress) | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
-| Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Ingress (MiB/sec) | Egress (MiB/sec) |
-|-|-|-|-|-|-|
-| 100 | 500 | Up to 4,000 | 12,600,000 | 44 | 66 |
-| 500 | 900 | Up to 4,000 | 11,160,000 | 60 | 90 |
-| 1,024 | 1,424 | Up to 4,000 | 10,713,600 | 81 | 122 |
-| 5,120 | 5,520 | Up to 15,360 | 35,424,000 | 245 | 368 |
-| 10,240 | 10,640 | Up to 30,720 | 72,288,000 | 450 | 675 |
-| 33,792 | 34,192 | Up to 100,000 | 236,908,800 | 1,392 | 2,088 |
-| 51,200 | 51,600 | Up to 100,000 | 174,240,000 | 2,088 | 3,132 |
-| 102,400 | 100,000 | Up to 100,000 | 0 | 4,136 | 6,204 |
+| Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Throughput (ingress + egress) (MiB/sec) |
+|-|-|-|-|-|
+| 100 | 3,100 | Up to 10,000 | 24,840,000 | 110 |
+| 500 | 3,500 | Up to 10,000 | 23,400,000 | 150 |
+| 1,024 | 4,024 | Up to 10,000 | 21,513,600 | 203 |
+| 5,120 | 8,120 | Up to 15,360 | 26,064,000 | 613 |
+| 10,240 | 13,240 | Up to 30,720 | 62,928,000 | 1,125 |
+| 33,792 | 36,792 | Up to 100,000 | 227,548,800 | 3,480 |
+| 51,200 | 54,200 | Up to 100,000 | 164,880,000 | 5,220 |
+| 102,400 | 100,000 | Up to 100,000 | 0 | 10,340 |
 
 Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel) and spread the load across multiple VMs. Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 
@@ -146,6 +145,39 @@ There are five basic transaction categories: write, list, read, other, and delet
 
 > [!Note]  
 > NFS 4.1 is only available for premium file shares, which use the provisioned billing model, transactions do not affect billing for premium file shares.
+
+## Value-add services
+
+### Azure File Sync
+If you are thinking about using Azure File Sync, consider the following when evaluating cost:
+
+#### Server fee
+For each server that you have connected to a sync group, there is an additional $5 fee. This is independent of the number of server endpoints. For example, if you had one server that contained three different server endpoints, you would only have one $5 charge. One sync server is free per Storage Sync Service. 
+
+#### Data cost
+The cost of data at rest depends on the billing tier you choose. This is the cost of storing data in the Azure file share in the cloud including snapshot storage.  
+
+#### Cloud enumeration scans cost
+Azure File Sync enumerates the Azure File Share in the cloud once per day to discover changes that were made directly to the share so that they can sync down to the server endpoints. This scan generates transactions which are billed to the storage account at a rate of two LIST transactions per directory per day. You can put this number into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to estimate the scan cost.  
+
+> [!Tip]  
+> If you don't know how many folders you have, check out the TreeSize tool from JAM Software GmbH.
+
+#### Churn and tiering costs
+As files change on server endpoints, the changes are uploaded to the cloud share, which generates transactions. When cloud tiering is enabled, additional transactions are generated for managing tiered files, including I/O happening on tiered files, in addition to egress costs. The quantity and type of transactions is difficult to predict due to churn rates and cache efficiency, but you can use your previous transaction patterns to predict future costs if you only have one file share in your storage account. See [Choosing a billing tier](#choosing-a-billing-tier) for details on how to view previous transactions.  
+
+#### Choosing a billing tier
+For Azure File Sync customers, we recommend choosing standard file shares over premium file shares. This is because with Azure File Sync, customers get that low latency on-premises that they always had, so the higher performance provided by premium file shares isn’t necessary. When first migrating to Azure Files via Azure File Sync, we recommend the Transaction Optimized tier due to the large number of transactions incurred during migration. Once migration is complete, you can plug in your previous transactions into the [pricing calculator](https://azure.microsoft.com/pricing/calculator/) to figure out which tier is best suited for your workload. 
+
+To see previous transactions:
+1. Go to your storage account and select **Metrics** in the left navigation bar.
+2. Select **Scope** as your storage account name, **Metric Namespace** as "File", **Metric** as "Transactions", and **Aggregation** as "Sum".
+3. Select **Apply Splitting**.
+4. Select **Values** as "API Name". Select your desired **Limit** and **Sort**.
+5. Select your desired time period.
+
+> [!Note]  
+> Make sure you view transactions over a period of time to get a better idea of average number of transactions. Ensure that the chosen time period does not overlap with initial provisioning. Multiply the average number of transactions during this time period to get the estimated transactions for an entire month.
 
 ## File storage comparison checklist
 To correctly evaluate the cost of Azure Files compared to other file storage options, consider the following questions:

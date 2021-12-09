@@ -3,7 +3,7 @@ title: How Azure NetApp Files snapshots work | Microsoft Docs
 description: Explains how Azure NetApp Files snapshots work, including ways to create snapshots, ways to restore snapshots, how to use snapshots in cross-region replication settings. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/27/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # How Azure NetApp Files snapshots work
 

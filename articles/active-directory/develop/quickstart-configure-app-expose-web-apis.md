@@ -5,14 +5,13 @@ description: In this quickstart, your register a web API with the Microsoft iden
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperf-fy21q1
+ms.custom: aaddev, contperf-fy21q1, mode-other
 ms.reviewer: aragra, lenalepa, sureshja
 # Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---

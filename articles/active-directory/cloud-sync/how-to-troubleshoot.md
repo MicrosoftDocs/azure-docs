@@ -4,7 +4,7 @@ description: This article describes how to troubleshoot problems that might aris
 author: billmath
 ms.author: billmath
 manager: daveba
-ms.date: 01/19/2021
+ms.date: 10/13/2021
 ms.topic: how-to
 ms.prod: windows-server-threshold
 ms.technology: identity-adfs
@@ -22,6 +22,7 @@ Cloud sync touches many different things and has many different dependencies. Th
 |[Agent problems](#agent-problems)|Verify that the agent was installed correctly and that it communicates with Azure Active Directory (Azure AD).|
 |[Object synchronization problems](#object-synchronization-problems)|Use provisioning logs to troubleshoot object synchronization problems.|
 |[Provisioning quarantined problems](#provisioning-quarantined-problems)|Understand provisioning quarantine problems and how to fix them.|
+|[Password writeback](#password-writeback)|Understand common password writeback issues and how to fix them.|
 
 
 ## Agent problems
@@ -162,25 +163,26 @@ By selecting the status, you can see additional information about the quarantine
 
 ![Screenshot that shows additional information about the quarantine.](media/how-to-troubleshoot/quarantine-2.png)
 
-Right clicking on the status will bring up additional options:
-    
-   - view provisioning logs
-   - view agent
-   - clear quarantine
+Right-clicking on the status will bring up additional options:
+
+- view provisioning logs
+- view agent
+- clear quarantine
 
 ![Screenshot that shows the right-click menu options.](media/how-to-troubleshoot/quarantine-4.png)
 
-
 ### Resolve a quarantine
-There are two different ways to resolve a quarantine.  They are:
 
-  - clear quarantine - clears the watermark and runs a delta sync
-  - restart the provisioning job - clears the watermark and runs an initial sync
+There are two different ways to resolve a quarantine. They are:
+
+- clear quarantine - clears the watermark and runs a delta sync
+- restart the provisioning job - clears the watermark and runs an initial sync
 
 #### Clear quarantine
+
 To clear the watermark and run a delta sync on the provisioning job once you have verified it, simply right-click on the status and select **clear quarantine**.
 
-You should see an notice that the quarantine is clearing.
+You should see a notice that the quarantine is clearing.
 
 ![Screenshot that shows the notice that the quarantine is clearing.](media/how-to-troubleshoot/quarantine-5.png)
 
@@ -189,11 +191,13 @@ Then you should see the status on your agent as healthy.
 ![Quarantine status information](media/how-to-troubleshoot/quarantine-6.png)
 
 #### Restart the provisioning job
+
 Use the Azure portal to restart the provisioning job. On the agent configuration page, select **Restart provisioning**.
 
   ![Restart provisioning](media/how-to-troubleshoot/quarantine-3.png)
 
 - Use Microsoft Graph to [restart the provisioning job](/graph/api/synchronization-synchronizationjob-restart?tabs=http&view=graph-rest-beta&preserve-view=true). You'll have full control over what you restart. You can choose to clear:
+
   - Escrows, to restart the escrow counter that accrues toward quarantine status.
   - Quarantine, to remove the application from quarantine.
   - Watermarks. 
@@ -203,20 +207,39 @@ Use the Azure portal to restart the provisioning job. On the agent configuration
   `POST /servicePrincipals/{id}/synchronization/jobs/{jobId}/restart`
 
 ## Repairing the the Cloud Sync service account
-If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.  
 
+If you need to repair the cloud sync service account you can use the `Repair-AADCloudSyncToolsAccount`.
 
-   1.  Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
-   2.  From a Windows PowerShell session with administrative privileges, type or copy and paste the following: 
-	```
-	Connect-AADCloudSyncTools
-	```  
-   3. Enter your Azure AD global admin credentials
-   4. Type or copy and paste the following: 
-	```
-	Repair-AADCloudSyncToolsAccount
-	```  
+   1. Use the installation steps outlined [here](reference-powershell.md#install-the-aadcloudsynctools-powershell-module) to begin and then continue with the remaining steps.
+
+   2. From a PowerShell session with administrative privileges, type or copy and paste the following:
+
+      ```powershell
+      Connect-AADCloudSyncTools
+      ```
+
+   3. Enter your Azure AD global admin credentials.
+
+   4. Type or copy and paste the following:
+
+      ```powershell
+      Repair-AADCloudSyncToolsAccount
+      ```
+
    5. Once this completes it should say that the account was repaired successfully.
+
+## Password writeback
+The following information is important to keep in mind with regard to enabling and using password writeback with cloud sync.
+
+- If you need to update the [gMSA permissions](how-to-gmsa-cmdlets.md#using-set-aadcloudsyncpermissions), it may take up to an hour or more for these permissions to replicate to all the objects in your directory. If you don't assign these permissions, writeback may appear to be configured correctly, but users may encounter errors when they update their on-premises passwords from the cloud. Permissions must be applied to “This object and all descendant objects” for **Unexpire Password** to appear. 
+- If passwords for some user accounts aren't written back to the on-premises directory, make sure that inheritance isn't disabled for the account in the on-prem AD DS environment. Write permissions for passwords must be applied to descendant objects for the feature to work correctly. 
+- Password policies in the on-premises AD DS environment may prevent password resets from being correctly processed. If you are testing this feature and want to reset passwords for users more than once per day, the group policy for Minimum password age must be set to 0. This setting can be found under **Computer Configuration > Policies > Windows Settings > Security Settings > Account Policies** within **gpmc.msc**. 
+     - If you update the group policy, wait for the updated policy to replicate, or use the gpupdate /force command. 
+     - For passwords to be changed immediately, Minimum password age must be set to 0. However, if users adhere to the on-premises policies, and the Minimum password age is set to a value greater than zero, password writeback will not work after the on-premises policies are evaluated. 
+
+
+
+
 
 ## Next steps 
 

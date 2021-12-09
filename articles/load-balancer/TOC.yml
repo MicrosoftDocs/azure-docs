@@ -43,6 +43,14 @@
       href: tutorial-cross-region-powershell.md
     - name: Create cross-region load balancer - Azure CLI
       href: tutorial-cross-region-cli.md
+  - name: Gateway load balancer
+    items:
+    - name: Create gateway load balancer - Portal
+      href: tutorial-gateway-portal.md
+    - name: Create gateway load balancer - PowerShell
+      href: tutorial-gateway-powershell.md
+    - name: Create gateway load balancer - Azure CLI
+      href: tutorial-gateway-cli.md
   - name: NAT gateway
     items:
     - name: Integrate NAT gateway public load balancer
@@ -65,16 +73,18 @@
   items:
   - name: Portal settings
     href: manage.md
-  - name: Cross-region load balancer
-    href: cross-region-overview.md
   - name: What's new?
     href: whats-new.md
   - name: Components
     href: components.md
   - name: Load balancing algorithm
     href: concepts.md
+  - name: Distribution modes
+    href: distribution-mode-concepts.md
   - name: SKUs
     href: skus.md
+  - name: Floating IP configuration
+    href: load-balancer-floating-ip.md
   - name: Health monitoring
     items:
     - name: Monitor load balancer
@@ -99,12 +109,12 @@
     href: outbound-rules.md
   - name: TCP reset on idle timeout
     href: load-balancer-tcp-reset.md
-  - name: Standard Load Balancer and Availability Zones
+  - name: Availability Zones
     href: load-balancer-standard-availability-zones.md
-  - name: Floating IP configuration
-    href: load-balancer-floating-ip.md
-  - name: Distribution modes
-    href: distribution-mode-concepts.md
+  - name: Cross-region load balancer
+    href: cross-region-overview.md
+  - name: Gateway load balancer
+    href: gateway-overview.md
   - name: Security
     items:
     - name: Security baseline
@@ -140,11 +150,11 @@
   - name: Create public Load Balancer with IPv6
     items:
     - name: Azure CLI
-      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
+      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-cli.md
     - name: Azure PowerShell
-      href: ../virtual-network/virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
+      href: ./virtual-network-ipv4-ipv6-dual-stack-standard-load-balancer-powershell.md
     - name: Azure Resource Manager template
-      href: ../virtual-network/ipv6-configure-standard-load-balancer-template-json.md
+      href: ./ipv6-configure-standard-load-balancer-template-json.md
       displayName: ARM
   - name: Configure TCP reset and idle timeout
     href: load-balancer-tcp-idle-timeout.md
@@ -162,7 +172,7 @@
       href: move-across-regions-external-load-balancer-portal.md
     - name: Public Load Balancer - PowerShell
       href: move-across-regions-external-load-balancer-powershell.md
-    - name: Public Load Balancer - Portal
+    - name: Internal load balancer - Portal
       href: move-across-regions-internal-load-balancer-portal.md
     - name: Internal load balancer - PowerShell
       href: move-across-regions-internal-load-balancer-powershell.md
@@ -208,6 +218,10 @@
       href: troubleshoot-outbound-connection.md
     - name: Resource health and inbound availability issues
       href: troubleshoot-rhc.md
+    - name: Common error codes for Azure Instance Metadata Service (IMDS)
+      href: troubleshoot-load-balancer-imds.md
+    - name: Common deployment errors
+      href: load-balancer-common-deployment-errors.md
 - name: Reference
   items:
   - name: Code samples
@@ -231,10 +245,6 @@
   - name: Resource Manager template
     href: /azure/templates/microsoft.network/loadbalancers
     displayName: ARM
-  - name: Common error codes for Azure Instance Metadata Service (IMDS)
-    href: troubleshoot-load-balancer-imds.md
-  - name: Common deployment errors
-    href: load-balancer-common-deployment-errors.md
 - name: Resources
   items:
   - name: Build your skills with Microsoft Learn
@@ -242,7 +252,7 @@
   - name: Azure Roadmap
     href: https://azure.microsoft.com/roadmap/?category=networking
   - name: Azure Load Balancer feedback
-    href: https://feedback.azure.com/forums/217313-networking/category/77467-load-balancing
+    href: https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=e8894060-8326-ec11-b6e6-000d3a4f0789
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/load-balancer/
   - name: Pricing calculator

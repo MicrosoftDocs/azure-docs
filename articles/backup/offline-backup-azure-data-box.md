@@ -104,7 +104,7 @@ Or you can:
     Install-Module -Name AzureRM -RequiredVersion 3.7.0
     ```
 
-Azure PowerShell could have also been installed by using an msi file. To remove it, uninstall it by using the **Uninstall programs** option in Control Panel.
+Azure PowerShell could have also been installed by using an MSI file. To remove it, uninstall it by using the **Uninstall programs** option in Control Panel.
 
 ### Order and receive the Data Box device
 

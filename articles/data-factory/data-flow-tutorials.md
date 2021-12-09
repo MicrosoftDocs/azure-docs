@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
-ms.date: 05/18/2021
+ms.date: 12/01/2021
 ---
 
 # Mapping data flow video tutorials
@@ -94,6 +94,10 @@ As updates are constantly made to the product, some features have added or diffe
 [Transform complex data types](https://youtu.be/Wk0C76wnSDE)
 
 [Output to next activity](http://youtu.be/r1m3Ya14qpE?hd=1)
+
+[Stringify transformation](https://www.youtube.com/watch?v=1X4sRHf5W2U)
+
+[External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
 
 ## Source and sink
 
@@ -186,6 +190,8 @@ As updates are constantly made to the product, some features have added or diffe
 [Data Quality Expressions](https://www.youtube.com/watch?v=O8gmv5-lXhs)
 
 [Collect aggregate function](https://www.youtube.com/watch?v=zneE18EHJSE)
+
+[Dynamic expressions as parameters](https://www.youtube.com/watch?v=q7W6J-DUuJY)
 
 ## Metadata
 

@@ -14,7 +14,7 @@ ms.author: kengaderdus
 
 ::: zone pivot="b2c-custom-policy"
 
-* Complete the steps in [Get started with custom policies in Active Directory B2C](../articles/active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy).
+* Complete the steps in [Get started with custom policies in Active Directory B2C](../articles/active-directory-b2c/tutorial-create-user-flows.md?pivots=b2c-custom-policy)
 * [Register a web application](../articles/active-directory-b2c/tutorial-register-applications.md) and [enable ID token implicit grant](../articles/active-directory-b2c/tutorial-register-applications.md#enable-id-token-implicit-grant).
 
 ::: zone-end

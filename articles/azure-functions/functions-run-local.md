@@ -35,13 +35,13 @@ There are four versions of Azure Functions Core Tools. The version you use depen
 
 Choose a version tab below to learn about each specific version and for detailed installation instructions:
 
+# [Version 4.x](#tab/v4)
+
+Supports [version 4.x](functions-versions.md) of the Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. This is the recommended version of the Functions runtime and Core Tools.
+
 # [Version 3.x](#tab/v3)
 
-Supports [version 3.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. This is the recommended version of the Functions runtime and Core Tools.
-
-# [Version 4.x (preview)](#tab/v4)
-
-Supports [version 4.x](functions-versions.md) of the Functions runtime, which is in preview. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. Unless you need to run you C# functions on .NET 6.0, consider using version 3.x of the Functions runtime and Core Tools.
+Supports [version 3.x](functions-versions.md) of the Azure Functions runtime. This version supports Windows, macOS, and Linux, and uses platform-specific package managers or npm for installation. 
 
 # [Version 2.x](#tab/v2)
 
@@ -500,7 +500,7 @@ The Azure Functions Core Tools supports three types of deployment:
 | ----- | ----- | ----- |
 | Project files | [`func azure functionapp publish`](functions-core-tools-reference.md#func-azure-functionapp-publish) | Deploys function project files directly to your function app using [zip deployment](functions-deployment-technologies.md#zip-deploy). |
 | Custom container | `func deploy` | Deploys your project to a Linux function app as a custom Docker container.  |
-| Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a customer Docker container to a Kubernetes cluster. | 
+| Kubernetes cluster | `func kubernetes deploy` | Deploys your Linux function app as a custom Docker container to a Kubernetes cluster. | 
 
 ### Before you publish 
 

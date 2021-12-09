@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page 
   author: suzizuber
   ms.author: v-szuber 
-  ms.date: 10/06/2021 
+  ms.date: 11/12/2021 
 
 
 # card 1
@@ -74,19 +74,29 @@ landingContent:
         - text: 7 - Scale in a private cloud
           url: tutorial-scale-private-cloud.md
         - text: 8 - Delete a private cloud
-          url: tutorial-delete-private-cloud.md
+          url: tutorial-delete-private-cloud.md     
 
 # card 2
-  - title: Disaster recovery
+  - title: Enterprise-Scale for Azure VMware Solution
     linkLists:
-      - linkListType: how-to-guide
+      - linkListType: architecture
         links:
-        - text: Deploy JetStream DR
-          url: deploy-disaster-recovery-using-jetstream.md
-        - text: Deploy VMware HCX for disaster recovery
-          url: deploy-disaster-recovery-using-vmware-hcx.md
-        - text: Deploy VMware SRM for disaster recovery
-          url: disaster-recovery-using-vmware-site-recovery-manager.md
+        - text: Enterprise-Scale for Azure VMware Solution
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/enterprise-scale-landing-zone
+        - text: Identity and access management
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-identity-and-access-management
+        - text: Network topology and connectivity
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-network-topology-connectivity
+        - text: Management and monitoring
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-management-and-monitoring
+        - text: Enterprise-scale business continuity and disaster recovery
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-business-continuity-and-disaster-recovery
+        - text: Enterprise-scale security, governance, and compliance
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-security-governance-and-compliance
+        - text: Platform automation and DevOps
+          url: /azure/cloud-adoption-framework/scenarios/azure-vmware/eslz-platform-automation-and-devops
+        - text: Enterprise-Scale for Azure VMware Solution automation
+          url: https://github.com/Azure/Enterprise-Scale-for-AVS
 
 # card 12
   - title: Identity management
@@ -142,7 +152,7 @@ landingContent:
         links:
           - text: Protect, monitor, and manage VMs
             url: integrate-azure-native-services.md
-          - text: Integrate Azure Security Center
+          - text: Integrate Microsoft Defender for Cloud
             url: azure-security-integration.md
           - text: Integrate Azure NetApp Files
             url: netapp-files-with-azure-vmware-solution.md
@@ -164,6 +174,14 @@ landingContent:
           url: set-up-backup-server-for-azure-vmware-solution.md
         - text: Back up private cloud VMs with Backup Server
           url: backup-azure-vmware-solution-virtual-machines.md
+      - linkListType: deploy
+        links:
+        - text: Deploy JetStream DR
+          url: deploy-disaster-recovery-using-jetstream.md
+        - text: Deploy VMware HCX for disaster recovery
+          url: deploy-disaster-recovery-using-vmware-hcx.md
+        - text: Deploy VMware SRM for disaster recovery
+          url: disaster-recovery-using-vmware-site-recovery-manager.md          
 
 # card 7
   - title: VMware solutions
@@ -184,7 +202,7 @@ landingContent:
             url: https://docs.vmware.com/en/VMware-HCX/4.1/hcx-user-guide/GUID-02DB88E1-EC81-434B-9AE9-D100E427B31C.html           
 
 # card 8
-  - title: VMware ecosystem
+  - title: Partner solutions ecosystem
     linkLists:
       - linkListType: reference
         links:
@@ -192,7 +210,10 @@ landingContent:
             url: ecosystem-back-up-vms.md
           - text: Migration solutions for VMs
             url: ecosystem-migration-vms.md
-
+          - text: Security solutions for Azure VMware Solution
+            url: ecosystem-security-solutions.md
+          - text: Bitnami appliance deployment
+            url: bitnami-appliances-deployment.md
 
 # card 9
   - title: Resources
@@ -209,6 +230,8 @@ landingContent:
             url: /azure/templates/microsoft.avs/privateclouds
           - text: Terraform Azure provider
             url: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/vmware_private_cloud
+          - text: Enterprise-Scale for Azure VMware Solution automation
+            url: https://github.com/Azure/Enterprise-Scale-for-AVS
       - linkListType: video
         links:
           - text: Playlist

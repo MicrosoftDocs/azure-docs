@@ -106,7 +106,7 @@ The required info in the sample code can be found in the Azure AD portal, as fol
 | \<Tenant ID> | **Azure Active Directory** > **Properties** > **Directory ID** |
 | \<App ID of the Native app> | **Application registration** > *your native application* > **Overview** > **Application ID** |
 | \<Scope> | **Application registration** > *your native application* > **API permissions** > Click on the Permission API (user_impersonation) > A panel with the caption **user_impersonation** appears on the right hand side. > The scope is the URL in the edit box.
-| \<Proxy App Url> | the External Url and path to the API
+| \<Proxy App URL> | the External URL and path to the API
 
 After you edit the MSAL code with these parameters, your users can authenticate to native client applications even when they are outside of the corporate network.
 

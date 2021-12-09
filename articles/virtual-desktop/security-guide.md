@@ -44,21 +44,19 @@ Azure Virtual Desktop is a service under Azure. To maximize the safety of your A
 
 This section describes best practices for securing your Azure ecosystem.
 
-### Enable Azure Security Center
+### Enable Microsoft Defender for Cloud
 
-We recommend you enable Azure Security Center Standard for subscriptions, virtual machines, key vaults, and storage accounts.
+We recommend enabling Microsoft Defender for Cloud's enhanced security features to:
 
-With Azure Security Center Standard, you can:
+- Manage vulnerabilities.
+- Assess compliance with common frameworks like PCI.
+- Strengthen the overall security of your environment.
 
-* Manage vulnerabilities.
-* Assess compliance with common frameworks like PCI.
-* Strengthen the overall security of your environment.
-
-To learn more, see [Onboard your Azure subscription to Security Center Standard](../security-center/security-center-get-started.md).
+To learn more, see [Enable enhanced security features](../security-center/enable-enhanced-security.md).
 
 ### Improve your Secure Score
 
-Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Azure Security Center](../security-center/secure-score-security-controls.md).
+Secure Score provides recommendations and best practice advice for improving your overall security. These recommendations are prioritized to help you pick which ones are most important, and the Quick Fix options help you address potential vulnerabilities quickly. These recommendations also update over time, keeping you up to date on the best ways to maintain your environment’s security. To learn more, see [Improve your Secure Score in Microsoft Defender for Cloud](../security-center/secure-score-security-controls.md).
 
 ## Azure Virtual Desktop security best practices
 
@@ -103,11 +101,11 @@ For profile solutions like FSLogix or other solutions that mount VHD files, we r
 
 ### Install an endpoint detection and response product
 
-We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Azure Security Center](../security-center/security-center-services.md) enabled, installing an EDR product will deploy Defender ATP. For client operating systems, you can deploy [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
+We recommend you install an endpoint detection and response (EDR) product to provide advanced detection and response capabilities. For server operating systems with [Microsoft Defender for Cloud](../security-center/security-center-services.md) enabled, installing an EDR product will deploy Defender ATP. For client operating systems, you can deploy [Defender ATP](/windows/security/threat-protection/microsoft-defender-atp/onboarding) or a third-party product to those endpoints.
 
 ### Enable threat and vulnerability management assessments
 
-Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Azure Security Center can help you identify problem spots through vulnerability assessments for server operating systems. You can also use Defender ATP, which provides threat and vulnerability management for desktop operating systems. You can also use third-party products if you're so inclined, although we recommend using Azure Security Center and Defender ATP.
+Identifying software vulnerabilities that exist in operating systems and applications is critical to keeping your environment secure. Microsoft Defender for Cloud can help you identify problem spots through vulnerability assessments for server operating systems. You can also use Defender ATP, which provides threat and vulnerability management for desktop operating systems. You can also use third-party products if you're so inclined, although we recommend using Microsoft Defender for Cloud and Defender ATP.
 
 ### Patch software vulnerabilities in your environment
 
@@ -190,6 +188,7 @@ The following operating systems support running nested virtualization on Azure V
 
 - Windows Server 2016
 - Windows Server 2019
+- Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
 
@@ -199,6 +198,7 @@ The following operating systems support using Windows Defender Application Contr
 
 - Windows Server 2016
 - Windows Server 2019
+- Windows Server 2022
 - Windows 10 Enterprise
 - Windows 10 Enterprise multi-session
 

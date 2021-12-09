@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.author: sacartac
 ms.reviewer: nibaccam
 author: cartacioS
-ms.date: 12/21/2020
+ms.date: 10/21/2021
 ms.custom: automl
 # Customer intent: As a non-coding data scientist, I want to use automated machine learning to build a demand forecasting model.
 ---
@@ -36,7 +36,7 @@ Also try automated machine learning for these other model types:
 
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md). 
 
-* Download the [bike-no.csv](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv) data file
+* Download the [bike-no.csv](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv) data file
 
 ## Sign in to the studio
 
@@ -66,7 +66,7 @@ Before you configure your experiment, upload your data file to your workspace in
 
     1. Select **Browse**. 
     
-    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-bike-share/bike-no.csv).
+    1. Choose the **bike-no.csv** file on your local computer. This is the file you downloaded as a [prerequisite](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/forecasting-bike-share/bike-no.csv).
 
     1. Select **Next**
 
@@ -107,9 +107,11 @@ After you load and configure your data, set up your remote compute target and se
 
     1. Select **cnt** as the target column, what you want to predict. This column indicates the number of total bike share rentals.
 
-    1. Select **Create a new compute** and configure your compute target. Automated ML only supports Azure Machine Learning compute. 
+    1. Select **compute cluster** as your compute type. 
 
-        1. Populate the **Virtual Machine** form to set up your compute.
+    1. Select **+New** to configure your compute target. Automated ML only supports Azure Machine Learning compute. 
+
+        1. Populate the **Select virtual machine** form to set up your compute.
 
             Field | Description | Value for tutorial
             ----|---|---

@@ -23,7 +23,7 @@ Azure Standard Load Balancer supports cross-region load balancing enabling geo-r
 * [Instant global failover](#regional-redundancy) to the next optimal regional deployment.
 * Load distribution across regions to the closest Azure region with [ultra-low latency](#ultra-low-latency).
 * Ability to [scale up/down](#ability-to-scale-updown-behind-a-single-endpoint) behind a single endpoint.
-* [Static IP](#static-ip)
+* Static anycast global IP address
 * [Client IP preservation](#client-ip-preservation)
 * [Build on existing load balancer](#build-cross-region-solution-on-existing-azure-load-balancer) solution with no learning curve
 
@@ -75,8 +75,8 @@ When you expose the global endpoint of a cross-region load balancer to customers
 
 <!---To learn about how to add or remove a regional deployment from the backend, read more [here](TODO: Insert CLI doc here).--->
 
-### Static IP
-Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/public-ip-addresses.md#ip-address-assignment)
+### Static anycast global IP address
+Cross-region load balancer comes with a static public IP, which ensures the IP address remains the same. To learn more about static IP, read more [here](../virtual-network/ip-services/public-ip-addresses.md#ip-address-assignment)
 
 ### Client IP Preservation
 Cross-region load balancer is a Layer-4 pass-through network load balancer. This pass-through preserves the original IP of the packet.  The original IP is available to the code running on the virtual machine. This preservation allows you to apply logic that is specific to an IP address.

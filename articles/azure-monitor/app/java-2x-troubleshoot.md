@@ -76,7 +76,7 @@ In code:
 
 Update ApplicationInsights.xml (in the resources folder in your project). Add the following under the root node:
 
-```XML
+```xml
 
     <DisableTelemetry>true</DisableTelemetry>
 ```
@@ -101,7 +101,7 @@ To get more information about what's happening in the API, add `<SDKLogger/>` un
 
 You can also instruct the logger to output to a file:
 
-```XML
+```xml
   <SDKLogger type="FILE"><!-- or "CONSOLE" to print to stderr -->
     <Level>TRACE</Level>
     <UniquePrefix>AI</UniquePrefix>

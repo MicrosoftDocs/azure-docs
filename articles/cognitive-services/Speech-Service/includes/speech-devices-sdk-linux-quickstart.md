@@ -1,15 +1,15 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 02/20/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
 In this quickstart, you'll learn how to use the Speech Devices SDK for Linux to build a speech-enabled product or use it as a [Conversation Transcription](../conversation-transcription.md) device. Currently only the [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/) is supported.
 
-The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). It runs on a 64-bit Java 8 runtime environment (JRE).
+The application is built with the Speech SDK package, and the Eclipse Java IDE (v4) on 64-bit Linux (Ubuntu Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8). It runs on a 64-bit Java 8 runtime environment (JRE).
 
 This guide requires an [Azure Cognitive Services](../overview.md#try-the-speech-service-for-free) account with a Speech service resource. 
 
@@ -19,7 +19,7 @@ The source code for the [sample application](https://aka.ms/sdsdk-download-JRE) 
 
 This quickstart requires:
 
-* Operating System: 64-bit Linux (Ubuntu 16.04, Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8)
+* Operating System: 64-bit Linux (Ubuntu Ubuntu 18.04, Debian 9, RHEL 7/8, CentOS 7/8)
 * [Azure Kinect DK](https://azure.microsoft.com/services/kinect-dk/)
 * [Eclipse Java IDE](https://www.eclipse.org/downloads/)
 * [Java 8](https://www.oracle.com/technetwork/java/javase/downloads/jre8-downloads-2133155.html) or [JDK 8](https://www.oracle.com/technetwork/java/javase/downloads/index.html) only.

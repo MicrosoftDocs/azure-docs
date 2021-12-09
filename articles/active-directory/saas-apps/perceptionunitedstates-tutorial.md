@@ -78,9 +78,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     b. In the **Reply URL** text box, type a URL using the following pattern:
     `https://perception.kanjoya.com/sso?idp=<entity_id>`
 
-	c. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value as <entity_id>, which you will get from the **Set up Perception United States (Non-UltiPro)** section, to be uri encoded. To get the uri encoded value, use the following link: **http://www.url-encode-decode.com/**.
+	c. The **Perception United States (Non-UltiPro)** application requires the **Azure AD Identifier** value as <entity_id>, which you will get from the **Set up Perception United States (Non-UltiPro)** section, to be URI-encoded. To get the URI-encoded value, use the following link: **http://www.url-encode-decode.com/**.
 
-	d. After getting the uri encoded value combine it with the **Reply URL** as mentioned below-
+	d. After getting the URI-encoded value combine it with the **Reply URL** as mentioned below-
 
 	`https://perception.kanjoya.com/sso?idp=<URI encooded entity_id>`
 	
@@ -168,4 +168,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Perception United States (Non-UltiPro) you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Perception United States (Non-UltiPro) you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

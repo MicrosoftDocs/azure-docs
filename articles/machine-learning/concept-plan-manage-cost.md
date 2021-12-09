@@ -9,7 +9,7 @@ ms.reviewer: nigup
 ms.service: machine-learning
 ms.subservice: mlops
 ms.topic: conceptual
-ms.date: 06/08/2021
+ms.date: 10/21/2021
 ---
 
 # Plan to manage costs for Azure Machine Learning
