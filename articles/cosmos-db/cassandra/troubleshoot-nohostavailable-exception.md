@@ -39,7 +39,7 @@ OverloadException is thrown when the request rate is too large. Which may be bec
 We recommend using either of the following options:
 1. Increase RU provisioned for the table or database if the throttling is consistent.
 2. If throttling is persistent, we advise using CosmosRetryPolicy in our [Azure Cosmos Cassandra extensions]( https://github.com/Azure/azure-cosmos-cassandra-extensions)
-3. Where the extension cannot be referenced or the client sire retry policy cannot be used in any way, [enable server side retry](../prevent-rate-limiting-errors.md).
+3. Where the extension cannot be referenced or the client sire retry policy cannot be used in any way, [enable server side retry](prevent-rate-limiting-errors.md).
 
 ### All hosts tried for query failed
 If the primary contact point cannot be reached, client sees a different exception. This error is specific to when the client is set to connect to a different region other than what the primary contact point region. The error is seen during the initial a few seconds upon start-up.
