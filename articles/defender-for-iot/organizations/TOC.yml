@@ -24,13 +24,15 @@
 - name: Tutorials
   expanded: false
   items:
-  - name: OT Networks
-    items: 
-    - name: Defender for IoT trial setup
-      href: tutorial-onboarding.md
+  - name: Enterprise IoT networks
+    items:
     - name: Get started with Enterprise IoT
       displayNAme: EIoT, Enterprise, IoT
       href: tutorial-getting-started-eiot-sensor.md
+  - name: OT networks
+    items: 
+    - name: Defender for IoT trial setup
+      href: tutorial-onboarding.md
     - name: Integrate ClearPass
       href: tutorial-clearpass.md
     - name: Integrate CyberArk
