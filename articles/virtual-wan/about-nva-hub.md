@@ -55,23 +55,21 @@ Customers can deploy a Network Virtual Appliance in every Azure region where the
 Branch sites can then access workloads in Azure deployed in Virtual Networks in the same region or other regions through the Microsoft global-backbone. SD-WAN connected sites can also talk to other branches that are connected to Azure via ExpressRoute, Site-to-site VPN or Remote User Connectivity.
 
 
-:::image type="content" source="./media/about-nva-hub/global-transit-nva.png" alt-text="Global transit architecture.":::
+:::image type="content" source="./media/about-nva-hub/global-transit-nva.png" alt-text="Global transit architecture." lightbox="./media/about-nva-hub/global-transit-nva.png":::
 
 
 ### Security provided by Azure Firewall
 
 Customers can deploy a Azure Firewall along side their connectivity-based Network Virtual Appliances. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You may also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection. 
 
-:::image type="content" source="./media/about-nva-hub/global-transit-firewall.png" alt-text="Global transit architecture with Azure Firewall.":::
-
-
+:::image type="content" source="./media/about-nva-hub/global-transit-firewall.png" alt-text="Global transit architecture with Azure Firewall." lightbox="./media/about-nva-hub/global-transit-firewall.png":::
 
 ### Security provided by third-party NGFW
 
 Customers can deploy Network Virtual Appliances into the Virtual WAN Hub that perform both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the Network Virtual Appliance in the hub and also use the same appliance to inspect all North-South, East-West and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md). 
 
   
-:::image type="content" source="./media/about-nva-hub/global-transit-ngfw.png" alt-text="Global transit architecture with third-party NVA.":::
+:::image type="content" source="./media/about-nva-hub/global-transit-ngfw.png" alt-text="Global transit architecture with third-party NVA." lightbox="./media/about-nva-hub/global-transit-ngfw.png":::
 
 ## <a name="how"></a>How does it work?
 
