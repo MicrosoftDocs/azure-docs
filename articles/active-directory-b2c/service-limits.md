@@ -23,7 +23,7 @@ This article outlines the usage constraints and other service limits for the Azu
 
 ## End user/consumption related limits
 
-The amount of users able to authenticate through an Azure AD B2C tenant is gated request limits. The below table illustrates the request limits for your Azure AD B2C tenant.
+The amount of users able to authenticate through an Azure AD B2C tenant is gated through request limits. The below table illustrates the request limits for your Azure AD B2C tenant.
 
 |Category |Limit    |
 |---------|---------|
@@ -32,7 +32,7 @@ The amount of users able to authenticate through an Azure AD B2C tenant is gated
 
 ## Endpoint request usage
 
-The frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview) article for more information on which endpoints are consumed by your application type.
+The frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview) article for more information on which endpoints are consumed by your application.
 
 |Endpoint                 |Endpoint type     |Requests consumed |
 |-----------------------------|---------|------------------|
