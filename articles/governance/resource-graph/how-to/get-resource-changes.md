@@ -135,14 +135,13 @@ changeType = tostring(properties.changeType), correlationId = properties.ch
 | project changeTime, resourceGroup, targetResourceId, changeType, correlationId
 ```
 
-## Changes to a specific property
+## Changes to a specific property value
 ```kusto
 ResourceChanges
-| extend provisioningStateChange = properties.changes["properties.provisioningState"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)
-| where isnotempty(provisioningStateChange)
-| extend newValue = provisioningStateChange.newValue, previousValue = provisioningStateChange.previousValue
+| extend provisioningStateChange = properties.changes["properties.provisioningState"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)
+| where isnotempty(provisioningStateChange)and provisioningStateChange.newValue == "Succeeded"
 | order by changeTime desc
-| project changeTime, targetResourceId, changeType, previousValue, newValue, properties
+| project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
 ```
 
 ## Next steps
