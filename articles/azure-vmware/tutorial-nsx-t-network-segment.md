@@ -34,6 +34,7 @@ An Azure VMware Solution private cloud with access to the vCenter and NSX-T Mana
 The virtual machines (VMs) created in vCenter are placed onto the network segments created in NSX-T and are visible in vCenter.
 
 [!INCLUDE [add-network-segment-steps](includes/add-network-segment-steps.md)]
+
 ## Verify the new network segment
 
 Verify the presence of the new network segment. In this example, **ls01** is the new network segment.
