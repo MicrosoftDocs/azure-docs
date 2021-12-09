@@ -47,22 +47,23 @@ This example deploys the workload zone, as defined by the parameter files. The p
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
-export subscriptionID=<subscriptionID>
+export subscriptionId=<subscriptionID>
 export appId=<appID>
-export spn_secret="<password>"
-export tenant_id=<tenant>
+export spnSecret="<password>"
+export tenantId=<tenantID>
 export keyvault=<keyvaultName>
-export storageaccount=<storageaccountName>
-export statefile_subscription=<statefile_subscription>
+export storageAccount=<storageaccountName>
+export statefileSubscription=<statefile_subscription>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --parameter_file DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars  \
         --keyvault $keyvault                                   \
-        --state_subscription $statefile_subscription           \
-        --subscription $subscriptionID                         \
-        --spn_id $appID                                        \
-        --spn_secret $spn_secret                               \ 
-        --tenant_id $tenant
+        --state_subscription $statefileSubscription            \
+        --storageaccountname $storageAccount                   \
+        --subscription $subscriptionId                         \
+        --spn_id $appId                                        \
+        --spn_secret $spnSecret                                \ 
+        --tenant_id $tenantId
 ```
 ## Parameters
 

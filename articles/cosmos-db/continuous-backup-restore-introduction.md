@@ -26,7 +26,7 @@ Azure Cosmos DB performs data backup in the background without consuming any ext
 
 The available time window for restore (also known as retention period) is the lower value of the following two: *30 days back in past from now* or *up to the resource creation time*. The point in time for restore can be any timestamp within the retention period. In strong consistency mode, backup taken in the write region is more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in that region to ensure that the resource has taken backups up to the given timestamp and can restore in that region.
 
-Currently, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [Azure Command Line Interface](restore-account-continuous-backup.md#restore-account-cli) (az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or the [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+Currently, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template).
 
 ## Backup storage redundancy
 
@@ -51,6 +51,10 @@ The following configurations aren't restored after the point-in-time recovery:
 * Stored procedures, triggers, UDFs.
 
 You can add these configurations to the restored account after the restore is completed.
+
+## Restorable timestamp for live accounts
+
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
 
 ## Restore scenarios
 

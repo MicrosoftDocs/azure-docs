@@ -46,7 +46,7 @@
     - name: Rules match conditions
       href: ../rules-match-conditions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
     - name: Rules actions
-      href: ../rules-actions.md?toc=%2fazure%2ffrontdoor%2fstandard-premium%2ftoc.json
+      href: concept-rule-set-actions.md
   - name: URL redirect and URL rewrite
     href: concept-rule-set-url-redirect-and-rewrite.md
   - name: Security

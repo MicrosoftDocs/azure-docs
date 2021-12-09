@@ -50,7 +50,7 @@ Public IP addresses can be created with an IPv4 or IPv6 address. You may be give
 
 Public IP addresses are created with one of the following SKUs:
 
-| | Standard  | Basic |
+| Public IP address | Standard  | Basic |
 | --- | --- | --- |
 | Allocation method| Static | For IPv4: Dynamic or Static; For IPv6: Dynamic.| 
 | | Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|Have an adjustable inbound originated flow idle timeout of 4-30 minutes, with a default of 4 minutes, and fixed outbound originated flow idle timeout of 4 minutes.|

@@ -120,7 +120,7 @@ landingContent:
           - text: Use the Layout model
             url: quickstarts/try-v3-form-recognizer-studio.md#layout
           - text: Use the Custom model
-            url: quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics
+            url: quickstarts/try-v3-form-recognizer-studio.md#custom-projects
           - text: Use the Invoice model
             url: quickstarts/try-v3-form-recognizer-studio.md#prebuilt-models
           - text: Use the Receipt model
@@ -193,7 +193,7 @@ landingContent:
           - text: Using the REST API (cURL)
             url: quickstarts/client-library.md?pivots=programming-language-rest-api&tabs=preview%2Cv2-1#analyze-forms-with-a-custom-model
           - text: Form Recognizer Studio
-            url: "quickstarts/try-v3-form-recognizer-studio.md#custom-model-basics"
+            url: "quickstarts/try-v3-form-recognizer-studio.md#custom-projects"
           - text: Sample Labeling tool
             url: "concept-custom.md#sample-labeling-tool"
 #Card 9

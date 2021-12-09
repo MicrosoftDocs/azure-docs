@@ -16,7 +16,7 @@ Backups form an essential part of any business continuity strategy. They help wi
 
 ## Backup overview
 
-Flexible Server takes snapshot backups of the data files and stores them securely in zone-redundant storage or locally redundant storage depending on the [region](overview.md#azure-regions). The server also performs transaction logs backup as and when the WAL file as and when it is ready to be archived. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days and can be stored up to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
+Flexible Server takes snapshot backups of the data files and stores them securely in zone-redundant storage or locally redundant storage depending on the [region](overview.md#azure-regions). The server also performs transaction logs backup as and when the WAL file is ready to be archived. These backups allow you to restore a server to any point-in-time within your configured backup retention period. The default backup retention period is seven days and can be stored up to 35 days. All backups are encrypted using AES 256-bit encryption for the data stored at rest.
 
 These backup files cannot be exported or used to create servers outside of Azure Database for PostgreSQL - Flexible Server. For that purpose, you can use PostgreSQL tools pg_dump and pg_restore/psql.
 
