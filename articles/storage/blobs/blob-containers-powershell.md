@@ -101,9 +101,11 @@ The following example retrieves both an individual container and a list of conta
 
 # Approach 2: Retrieve a list of containers
  Get-AzStorageContainer -Prefix $prefixName -Context $ctx
+```
+ 
 The result provides the URI of the blob endpoint and lists the containers retrieved by name and prefix.
 
-```Result
+```Results
    Storage Account Name: demostorageaccount
 
 Name                 PublicAccess         LastModified                   IsDeleted  VersionId        
