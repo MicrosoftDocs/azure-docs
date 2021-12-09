@@ -24,7 +24,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Americas | Europe | Africa | Asia Pacific |
 |--------------------|----------------------|---------------------|----------------|
 | Brazil South | France Central | South Africa North | Australia East |
-| Canada Central | Germany West Central | | Central India\* |
+| Canada Central | Germany West Central | | Central India |
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
@@ -32,8 +32,6 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | US Gov Virginia | Sweden | | |
 | West US 2 | | | |
 | West US 3 | | | |
-
-\* To learn more about availability zones and available services support in this region, contact your Microsoft sales or customer representative. For information on upcoming regions that will support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 For a list of Azure services that support availability zones by Azure region, see the [availability zones documentation](az-overview.md).
 
@@ -103,7 +101,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 
 | **Products**   | **Resiliency**   |
 | --- | --- |
-| [App Service](../app-service/how-to-zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
+| [App Service](../app-service/how-to-zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure App Service environments](../app-service/environment/zone-redundancy.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
 | [Azure Active Directory Domain Services](../active-directory-domain-services/overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Azure API Management](../api-management/zone-redundancy.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
@@ -175,7 +173,6 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Azure Advisor  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Blueprints  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Bot Services  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
-| Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Microsoft Defender for IoT  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Front Door  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |
 | Azure Information Protection  | ![An icon that signifies this service is always available.](media/icon-always-available.svg) |

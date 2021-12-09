@@ -22,7 +22,6 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
 | [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | November 2021             |
 | [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | November 2021             |
-| [Changes to a security alert from Microsoft Defender for Storage](#changes-to-a-security-alert-from-microsoft-defender-for-storage)                                                 | November 2021             |
 | [Container security features to be grouped under Defender for Containers](#container-security-features-to-be-grouped-under-defender-for-containers)                                 | December 2021             |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | December 2021             |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | Q1 2022                   |
@@ -49,25 +48,6 @@ We've created new alerts that provide this information and add to it. In additio
 The legacy implementation of ISO 27001 will be removed from Defender for Cloud's regulatory compliance dashboard. If you're tracking your ISO 27001 compliance with Defender for Cloud, onboard the new ISO 27001:2013 standard for all relevant management groups or subscriptions, and the current legacy ISO 27001 will soon be removed from the dashboard.
 
 :::image type="content" source="media/upcoming-changes/removing-iso-27001-legacy-implementation.png" alt-text="Defender for Cloud's regulatory compliance dashboard showing the message about the removal of the legacy implementation of ISO 27001." lightbox="media/upcoming-changes/removing-iso-27001-legacy-implementation.png":::
-
-
-### Changes to a security alert from Microsoft Defender for Storage
-
-**Estimated date for change:** November 2021
-
-One of the preview alerts provided by Microsoft Defender for Storage is being divided into two new recommendations to provide greater clarity about the suspicious events discovered. This alert is relevant to Azure Blob Storage only.
-
-**The alert type is changing too.**
-
-- Before the change, the alert was:<br>
-    "Preview - Anonymous scan of public storage containers"<br>(Storage.Blob_ContainerAnonymousScan)
-
-- From this change, there'll be two recommendations:
-
-    - "Open storage containers discovered by external scanning tool or script"<br>(Storage.Blob_OpenContainersScanning.FailedAttempt)
-    - "Successful discovery of open storage containers by external scanning script or tool"<br>(Storage.Blob_OpenContainersScanning.SuccessfulDiscovery)
-
-More details of these alerts will be published when the change is released.
 
 
 ### Multiple changes to identity recommendations
@@ -133,7 +113,7 @@ There'll be no change to subscriptions that already have Defender for Kubernetes
 
 When we release Microsoft Defender for Containers for general availability, new subscriptions won't have the option to use the deprecated plans.
 
-Learn more about [Container security in Microsoft Defender for Cloud](container-security.md).
+Learn more about [Container security in Microsoft Defender for Cloud](defender-for-containers-introduction.md).
 
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases

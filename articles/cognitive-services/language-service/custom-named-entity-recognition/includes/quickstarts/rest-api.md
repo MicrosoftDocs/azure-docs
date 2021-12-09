@@ -94,7 +94,7 @@ Use the following JSON in your request. Replace the placeholder values below wit
     "metadata": {
         "name": "MyProject",
         "multiLingual": true,
-        "description": "Tryong out custom text classification",
+        "description": "Trying out custom NER",
         "modelType": "Extraction",
         "language": "string",
         "storageInputContainerName": "YOUR-CONTAINER-NAME",

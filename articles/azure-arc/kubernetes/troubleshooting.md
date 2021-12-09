@@ -542,3 +542,9 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v
 
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/split.yaml
 ```
+
+### 13. Troubleshoot Certificate Management
+Information on how OSM issues and manages certificates to Envoy proxies running on application pods can be found on the [OSM docs site](https://docs.openservicemesh.io/docs/guides/certificates/).
+
+### 14. Upgrade Envoy
+When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the envoy version needs to be updated, steps to do so can be found in the [Upgrade Guide](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OSM docs site.
