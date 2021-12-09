@@ -49,13 +49,13 @@ The CloudKnox dashboard contains the following information:
 
 	- The number of resources a user has access to, otherwise known as resource reach.
 
-	- The high-risk privileges coupled with the number of resources a user has access to produces the score seen on the gauge. They are classified as high, medium, and low:
+	- The high-risk privileges coupled with the number of resources a user has access to produce the score seen on the gauge. They are classified as high, medium, and low:
 
 	- High (red) - The score is between 68 and 100. A user has access to many high-risk privileges they are not using, and/or have high resource reach.
 
 	- Medium (yellow) - The score is between 34 and 67. A user has access to some high-risk privileges that they use, or have medium resource reach.
 
-	- Low (green) - The score is between 0 and 33. A user has access to fewer high-risk privileges and use all of them, and/or they have low resource reach.
+	- Low (green) - The score is between 0 and 33. A user has access to fewer high-risk privileges. They use all of them, and/or have low resource reach.
 
 	- The number displayed on the graph shows how many users contribute to the PCI. It shows how many users contribute to a particular score. Hover over the number to view specific data.
 

@@ -14,7 +14,10 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management product reports
 
-Microsoft CloudKnox Permissions Management has various types of system reports available that capture specific sets of data that assist management in making timely decisions. These reports allow management to analyze trends and system/user performance. Identifying trends in data and high risk areas allows management to address issues more quickly and improve efficiency. 
+Microsoft CloudKnox Permissions Management has various types of system reports available that capture specific sets of data. These reports allow management to:
+- Make timely decisions. These reports allow management to 
+- Analyze trends and system/user performance. 
+- Identify trends in data and high risk areas. This helps management to address issues more quickly and improve efficiency. 
 
 ## CloudKnox reports
 
@@ -153,7 +156,6 @@ CloudKnox offers the following reports for management associated with the author
 	- **Use cases:** 
 		 - This report lists all the assigned permissions for the selected identities. 
 
-
 ## How to read the Reports dashboard
 
 The reports dashboard provides a table of information with both System Reports and Custom Reports. The **Reports** page defaults to the **System Reports** tab, which has the following details:
@@ -167,9 +169,9 @@ The reports dashboard provides a table of information with both System Reports a
 
       The following message displays across the top of the screen in green if the download is successful: **Successfully Started to Generate On Demand Report**.
 
-## How to view a custom report and create a new custom report
+## How to view a custom report
 
-1. To view the following information, click the **Custom Reports** tab:
+- To view the following information, click the **Custom Reports** tab:
      - **Report Name** - Displays the name of the report.
      - **Category** - Describes the type of report, for example, **Permission**, **Compliance**, etc.
      - **Authorization Systems** - Displays which authorizations the custom report applies to.
@@ -177,53 +179,46 @@ The reports dashboard provides a table of information with both System Reports a
      - **Schedule** - Displays the date and time the next report will be generated.
      - **Next On** - Displays the date the next custom report will be generated on.
 
-2. Click **New Custom Report**.
+
+## How to create a new custom report
+
+1. Click **New Custom Report**.
 
  	The **New Custom Report** box opens.
-
-3. Enter a name for the new report in the **Report Name** box.
-
-4. Click an option from the **Report Based on** list.
+2. Enter a name for the new report in the **Report Name** box.
+3. Click an option from the **Report Based on** list.
 
  	- To view which authorization systems the report applies to, hover over each report option.
     - To view a description of the report, click the required option.
-
-5. Click **Next**.
-
-6. Under the **Authorization Systems** tab, select the appropriate authorization system type (AWS, Azure, GCP, and/or vCenter), and check or uncheck the appropriate authorization system under the applicable authorization system type.
+4. Click **Next**.
+5. Under the **Authorization Systems** tab, select the appropriate authorization system type (AWS, Azure, GCP, and/or vCenter), and check or uncheck the appropriate authorization system under the applicable authorization system type.
 
 	Use **Search** to find an authorization system.
-
-7. To add specific users from each authorization system type, click the **Identities** tab.
+6. To add specific users from each authorization system type, click the **Identities** tab.
 
      - To find users, click each authorization system type. 
      - To find a specific user, click **Search** under **Users**, and add user names.
-
-8. Click the **Report Format** tab and check the following options, if applicable:
+7. Click the **Report Format** tab and check the following options, if applicable:
 	- **Detailed** - Check **CSV** for a detailed report.
 	- **Summary** - Check **CSV** and/or **PDF** for a summary of the report.
 	- **Dashboard** - Check **CSV** for a dashboard view of the report.
-
-9. Click the **Schedule** tab and choose from **None** up to **Monthly**.
+8. Click the **Schedule** tab and choose from **None** up to **Monthly**.
 
 	For **Hourly** and **Daily** options, you can set the start date by choosing from the **Calendar** dropdown, and can input a specific time of the day they want to receive the report. 
 
     In addition to date and time, the **Weekly** and **Biweekly** options you to select what day(s)of the week the report should repeat on.
 
 	When you select the time options for the schedule, the **Share With** option appears in the left side bar. 
-
-10. Click the **Share With** tab. 
+9. Click the **Share With** tab. 
 
 	The current user's email appears under **Email**, and other email addresses can be added by typing them into the **Search Email to add** box.
 
 	The **User Status** column displays the type of user the email address is associate with. 
     - To remove them from the list, click the **X** to the right of the users name.
-
-11. Click **Save**.
+10. Click **Save**.
 
       The following message displays across the top of the screen in green if the download is successful: **Report has been created**.
-
-12. To view the report, click **Custom Reports**.
+11. To view the report, click **Custom Reports**.
 
 ## How to make changes to a saved or scheduled report
 
@@ -236,7 +231,6 @@ The reports dashboard provides a table of information with both System Reports a
 		 Select this option to return to the Report interface as described in creating a new custom report. You can make any necessary updates and save the changes.
 
 	- To download a copy of the report, select the **Down arrow** icon.
-
 2. To perform actions to the report and select from the following options, click the ellipses (**...**) icon:
 
 	 Reports that were not created by the current user, are listed as **Duplicate**.

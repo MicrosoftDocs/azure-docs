@@ -14,8 +14,6 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management product compliance
 
-## Introduction
-
 Compliance is the state of being in accordance with various established guidelines or specifications.
 CloudKnox currently supports the Center for Internet Security (CIS) Benchmarks standard, Amazon Web Services (AWS) Well-Architected Framework, Next Generation Security and Privacy (NIST) 800-53, and Payment Card Industry / Data Security Standards (PCI DSS) benchmark frameworks.
 
@@ -102,7 +100,7 @@ All accounts for the selected **Authorization System Type** display on the main 
         - **Passed** – Displays how many resources passed the recommendation.
          - **Not Run** – Displays how many resources for which the recommendation was not run.
 
-           A failure usually happens when the CloudKnox does not have sufficient privileges to access the resources.
+           A failure usually happens when the CloudKnox account does not have sufficient privileges to access the resources.
       - **Ignored** – Displays how many resources the user decided to ignore or exclude from the recommendations.
 
 ## How to view details about a recommendation
@@ -165,6 +163,6 @@ There are several filtering options to choose from when filtering the recommenda
 
 2. To search for your criteria, press **Enter** or click **Search**. 
 
-     The search results display on the screen. The top-right corner indicates **Showing 1 of XX** to let you know how many pages of results have been found and which page is currently displayed.
+     The search results display on the screen. The top-right corner displays **Showing 1 of XX** to let you know how many pages of results have been found and which page is currently displayed.
 
 <!---## Next steps--->
