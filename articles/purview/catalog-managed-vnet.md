@@ -214,4 +214,4 @@ Currently, managed virtual network and managed private endpoints are available f
 
 ## Next steps
 
-- [Manage data sources in Azure Purview](.//manage-data-source.md)
+- [Manage data sources in Azure Purview](./manage-data-source.md)
