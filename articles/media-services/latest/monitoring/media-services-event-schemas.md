@@ -645,8 +645,9 @@ The data object has the following properties:
 
 | Property | Type | Description |
 | -------- | ---- | ----------- |
-| `channelLatencyMs` | string | The milliseconds (ms) in latency from ingest-to-publish for live event archiving. This is not a glass-to-galss measurement, but just a measuring of the elapsed time for the first frame of a fragment arriving and then being published.|
-| `latencyResultCode` | string | The result code for the archive latency. `S_OK` indicates that the live event ingest was received without any problems. If latencyResultCode has an error condition, it can indicate that there was an issue in calculating the latency. If there is an error case, the channelLatencyMs will not display a millisecond value.  `MPE_KEY_FRAME_INTERVAL_TOO_LARGE` error code indicates that the ingested video source has a very large GOP (key frame distance) size that is not optimal for Media Services live streaming and has an impact on the channel latency.  `MPE_INGEST_DISCONTINUITY` error code indicates that discontinuities were detected on the source stream which can add long-latencies to the channel. |
+| `channelLatencyMs` | string | The time in milliseconds (ms) a media fragment spends from ingest to when it becomes available to be downloaded by a player.|
+
+| `latencyResultCode` | string | The result code for the channelLatencyMs calculation. `S_OK` indicates that the live event ingest was received without any problems. Other result codes indicate situations that would cause the channelLatencyMs to have an empty value.  `MPE_KEY_FRAME_INTERVAL_TOO_LARGE` error code indicates that the ingested video source has a very large GOP (key frame distance) that would negatively impact the channel latency.  `MPE_INGEST_DISCONTINUITY` error code indicates that discontinuities were detected on the source stream which can add long-latencies to the channel. |
 
 ### LiveEventTrackDiscontinuityDetected
 
