@@ -40016,37 +40016,37 @@
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/get-speech-devices-sdk.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-quickstart.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-troubleshooting.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-devices-microphone-array-configuration.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-roobo-v1.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-roobo-v2.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
