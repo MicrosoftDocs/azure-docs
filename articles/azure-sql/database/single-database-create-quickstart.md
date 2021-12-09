@@ -96,7 +96,7 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-17":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-18":::
 
 ## Create a resource group
 
@@ -156,7 +156,10 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-17":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-18":::
+
+> [!NOTE]
+> [az sql up](/cli/azure/sql#az_sql_up) is currently in preview and does not currently support the serverless compute tier. Also, the use of non-alphabetic and non-numeric characters in the database name are not currently supported.
 
 ## Create a database and resources
 
@@ -169,19 +172,20 @@ This command creates and configures a [logical server](logical-servers.md) for A
 
 1. Run the `az sql up` command. If any required parameters aren't used, like `--server-name`, that resource is created with a random name and login information assigned to it.
 
-    ```azurecli-interactive
+    ```azurecli
     az sql up \
         --resource-group $resourceGroup \
         --location $location \
         --server-name $server \
-        --database-name $database \
+        --database-name $database \\
         --admin-user $login \
         --admin-password $password
+
     ```
 
 2. A server firewall rule is automatically created. If the server declines your IP address, create a new firewall rule using the `az sql server firewall-rule create` command and specifying appropriate start and end IP addresses.
 
-    ```azurecli-interactive
+    ```azurecli
     startIP=0.0.0.0
     endIP=0.0.0.0
     az sql server firewall-rule create \
@@ -190,6 +194,7 @@ This command creates and configures a [logical server](logical-servers.md) for A
         -n AllowYourIp \
         --start-ip-address $startip \
         --end-ip-address $endip
+
     ```
 
 3. All required resources are created, and the database is ready for queries.
@@ -325,16 +330,16 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+```azurecli
+az group delete --name $resourceGroup
 ```
 
 ### [Azure CLI (sql up)](#tab/azure-cli-sql-up)
 
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 
-```azurecli-interactive
-az group delete --name $resourceGroupName
+```azurecli
+az group delete --name $resourceGroup
 ```
 
 ### [PowerShell](#tab/azure-powershell)
