@@ -6,7 +6,9 @@
   - name: Integration
     expanded: true
     items:
-    - name: CloudKnox integration with the CloudKnox API
+    - name: Integration with other systems
+      href: cloudknox-product-integrations.md
+    - name: Integration with the CloudKnox API
       href: cloudknox-api.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
@@ -16,6 +18,17 @@
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
       href: cloudknox-product-account-settings.md
+  - name: User management
+    expanded: true
+    items:
+    - name: View usage analytics about users
+      href: cloudknox-product-usage-analytics.md
+    - name: Adjust permissions with the Just Enough Privilege Controller
+      href: cloudknox-product-jep-controller.md
+    - name: Manage users with the Autopilot function
+      href: cloudknox-product-autopilot.md
+    - name: Collect data sources
+      href: cloudknox-product-data-sources.md
   #- name: Concepts
     #expanded: true
     #items: 
