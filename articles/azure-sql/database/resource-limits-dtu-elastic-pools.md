@@ -154,8 +154,6 @@ For the same number of DTUs, resources provided to an elastic pool may exceed th
 If all DTUs of an elastic pool are used, then each database in the pool receives an equal amount of resources to process queries. The SQL Database service provides resource sharing fairness between databases by ensuring equal slices of compute time. Elastic pool resource sharing fairness is in addition to any amount of resource otherwise guaranteed to each database when the DTU min per database is set to a non-zero value.
 
 > [!NOTE]
-> For `tempdb` limits, see [tempdb limits](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
->
 > For additional information on storage limits in the Premium service tier, see [Storage space governance](resource-limits-logical-server.md#storage-space-governance).
 
 ### Database properties for pooled databases
@@ -182,6 +180,24 @@ The following table describes per database properties for pooled databases.
 While the per database properties are expressed in DTUs, they also govern consumption of other resource types, such as data IO, log IO, buffer pool memory, and worker threads. As you adjust min and max per database DTUs values, reservations and limits for all resource types are adjusted proportionally.
 
 Min and max per database DTU values apply to resource consumption by user workloads, but not to resource consumption by internal processes. For example, for a database with a per database max DTU set to half of the pool eDTU, user workload cannot consume more than one half of the buffer pool memory. However, this database can still take advantage of pages in the buffer pool that were loaded by internal processes. For more information, see [Resource consumption by user workloads and internal processes](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
+
+## Tempdb sizes
+
+The following table lists tempdb sizes for single databases in Azure SQL Database: 
+
+|Service-level objective|Maximum `tempdb` data file size (GB)|Number of `tempdb` data files|Maximum `tempdb` data size (GB)|
+|---|---:|---:|---:|
+|Basic Elastic Pools (all DTU configurations)|13.9|12|166.7|
+|Standard Elastic Pools (50 eDTU)|13.9|12|166.7|
+|Standard Elastic Pools (100 eDTU)|32|1|32|
+|Standard Elastic Pools (200 eDTU)|32|2|64|
+|Standard Elastic Pools (300 eDTU)|32|3|96|
+|Standard Elastic Pools (400 eDTU)|32|3|96|
+|Standard Elastic Pools (800 eDTU)|32|6|192|
+|Standard Elastic Pools (1200 eDTU)|32|10|320|
+|Standard Elastic Pools (1600-3000 eDTU)|32|12|384|
+|Premium Elastic Pools (all DTU configurations)|13.9|12|166.7|
+||||
 
 ## Next steps
 

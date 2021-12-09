@@ -17,7 +17,7 @@ ms.date: 12/15/2021
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!div class="op_single_selector"]
-> * [Azure SQL Database](../database/resource-limits-vcore-single-databases.md)
+> * [Azure SQL Database](../database/resource-limits-logical-server.md)
 > * [Azure SQL Managed Instance](resource-limits.md)
 
 This article provides an overview of the technical characteristics and resource limits for Azure SQL Managed Instance, and provides information about how to request an increase to these limits.

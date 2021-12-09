@@ -16,13 +16,15 @@ ms.date: 10/01/2021
 # Resource management in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
+> [!div class="op_single_selector"]
+> * [Azure SQL Database](resource-limits-logical-server.md)
+> * [Azure SQL Managed Instance](../managed-instance/resource-limits.md)
+
 This article provides an overview of resource management in Azure SQL Database. It provides information on what happens when resource limits are reached, and describes  resource governance mechanisms that are used to enforce these limits.
 
 For specific resource limits per pricing tier (also known as service objective) for single databases, refer to either [DTU-based single database resource limits](resource-limits-dtu-single-databases.md) or [vCore-based single database resource limits](resource-limits-vcore-single-databases.md). For elastic pool resource limits, refer to either [DTU-based elastic pool resource limits](resource-limits-dtu-elastic-pools.md) or [vCore-based elastic pool resource limits](resource-limits-vcore-elastic-pools.md).
 
 > [!TIP]
-> For Azure SQL Managed Instance limits, see [resource limits for managed instances](../managed-instance/resource-limits.md).
->
 > For Azure Synapse Analytics dedicated SQL pool limits, see [capacity limits](../../synapse-analytics/sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md) and [memory and concurrency limits](../../synapse-analytics/sql-data-warehouse/memory-concurrency-limits.md).
 
 ## Logical server limits
@@ -206,8 +208,12 @@ Because all data is copied to local storage volumes on different machines, movin
 > [!NOTE]
 > Database movement due to insufficient local storage only occurs in the Premium or Business Critical service tiers. It does not occur in the Hyperscale, General Purpose, Standard, and Basic service tiers, because in those tiers data files are not stored in local storage.
 
+## Tempdb sizes
+
+Size limits for tempdb in Azure SQL Database depend on the purchasing and deployment model. To learn more, review tempdb size limits for [vCore](resource-limits-vcore-single-databases.md), [single databases (DTU)](resource-limits-dtu-single-databases.md#tempdb-sizes), [pooled databases (DTU)](resource-limits-dtu-elastic-pools.md#tempdb-sizes). 
+
 ## Next steps
 
 - For information about general Azure limits, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md).
 - For information about DTUs and eDTUs, see [DTUs and eDTUs](purchasing-models.md#dtu-purchasing-model).
-- For information about tempdb size limits, see [Tempdb in Azure SQL Database](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
+- For information about tempdb size limits, see [vCore](resource-limits-vcore-single-databases.md), [single databases (DTU)](resource-limits-dtu-single-databases.md#tempdb-sizes), [pooled databases (DTU)](resource-limits-dtu-elastic-pools.md#tempdb-sizes).

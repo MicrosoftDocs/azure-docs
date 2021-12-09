@@ -110,9 +110,31 @@ The following tables show the resources available for a single database at each 
 > More than 1 TB of storage in the Premium tier is currently available in all regions except: China East, China North, Germany Central, and Germany Northeast. In these regions, the storage max in the Premium tier is limited to 1 TB.  For more information, see [P11-P15 current limitations](single-database-scale.md#p11-and-p15-constraints-when-max-size-greater-than-1-tb).
 
 > [!NOTE]
-> For `tempdb` limits, see [tempdb limits](/sql/relational-databases/databases/tempdb-database#tempdb-database-in-sql-database).
-> 
 > For additional information on storage limits in the Premium service tier, see [Storage space governance](resource-limits-logical-server.md#storage-space-governance).
+
+## Tempdb sizes
+
+The following table lists tempdb sizes for single databases in Azure SQL Database: 
+
+|Service-level objective|Maximum `tempdb` data file size (GB)|Number of `tempdb` data files|Maximum `tempdb` data size (GB)|
+|---|---:|---:|---:|
+|Basic|13.9|1|13.9|
+|S0|13.9|1|13.9|
+|S1|13.9|1|13.9|
+|S2|13.9|1|13.9|
+|S3|32|1|32
+|S4|32|2|64|
+|S6|32|3|96|
+|S7|32|6|192|
+|S9|32|12|384|
+|S12|32|12|384|
+|P1|13.9|12|166.7|
+|P2|13.9|12|166.7|
+|P4|13.9|12|166.7|
+|P6|13.9|12|166.7|
+|P11|13.9|12|166.7|
+|P15|13.9|12|166.7|
+||||
 
 ## Next steps
 

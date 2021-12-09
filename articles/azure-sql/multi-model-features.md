@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: yorek
 ms.author: damauri
-ms.reviewer: mathoma, urmilano kendralittle
-ms.date: 12/15/2021
+ms.reviewer: mathoma, urmilano, kendralittle
+ms.date: 12/17/2018
 ---
 # Multi-model capabilities of Azure SQL Database and SQL Managed Instance
 [!INCLUDE[appliesto-sqldb-sqlmi](includes/appliesto-sqldb-sqlmi.md)]
