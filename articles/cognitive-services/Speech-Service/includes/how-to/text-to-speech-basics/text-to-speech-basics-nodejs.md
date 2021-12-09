@@ -1,9 +1,9 @@
 ---
-author: eric-urban
+author: yulin-li
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 07/02/2021
-ms.author: eur
+ms.date: 11/15/2021
+ms.author: yulili
 ms.custom: devx-track-js
 ---
 
@@ -11,7 +11,7 @@ In this quickstart, you learn common design patterns for doing text-to-speech sy
 
 * Getting responses as in-memory streams
 * Customizing output sample rate and bit rate
-* Submitting synthesis requests using SSML (speech synthesis markup language)
+* Submitting synthesis requests using Speech Synthesis Markup Language (SSML)
 
 ## Skip to samples on GitHub
 
@@ -23,9 +23,9 @@ This article assumes that you have an Azure account and Speech service resource.
 
 ## Install the Speech SDK
 
-Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. See the [instructions](../../../speech-sdk.md?tabs=browser#get-the-speech-sdk).
+Before you can do anything, you'll need to install the <a href="https://www.npmjs.com/package/microsoft-cognitiveservices-speech-sdk" target="_blank">Speech SDK for JavaScript </a>. See the [instructions](../../../speech-sdk.md?tabs=nodejs#get-the-speech-sdk).
 
-Additionally, depending on the target environment use one of the following:
+Additionally, depending on the target environment use one of the following options:
 
 # [script](#tab/script)
 
@@ -35,8 +35,8 @@ Download and extract the <a href="https://aka.ms/csspeech/jsbrowserpackage" targ
 <script src="microsoft.cognitiveservices.speech.sdk.bundle.js"></script>;
 ```
 
-> [!TIP]
-> If you're targeting a web browser, and using the `<script>` tag; the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
+> [!NOTE]
+> If you're targeting a web browser, and using the `<script>` tag, the `sdk` prefix is not needed. The `sdk` prefix is an alias used to name the `require` module.
 
 # [import](#tab/import)
 
@@ -59,7 +59,7 @@ For more information on `require`, see <a href="https://nodejs.org/en/knowledge/
 
 ## Create a speech configuration
 
-To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your resource, like your speech key and associated location/region, endpoint, host, or authorization token.
+To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig). This class includes information about your resource, for example your subscription key, region, endpoint, host, and access token.
 
 > [!NOTE]
 > Regardless of whether you're performing speech recognition, speech synthesis, translation, or intent recognition, you'll always create a configuration.
@@ -83,7 +83,7 @@ synthesizeSpeech();
 
 ## Select synthesis language and voice
 
-The Azure Text-to-Speech service supports more than 270 voices and more than 110 languages and variants.
+The Azure Text to Speech service supports more than 250 voices and over 70 languages and variants.
 You can get the [full list](../../../language-support.md#prebuilt-neural-voices), or try them in [text to speech demo](https://azure.microsoft.com/services/cognitive-services/text-to-speech/#features).
 Specify the language or voice of [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) to match your input text and use the wanted voice.
 
@@ -100,9 +100,48 @@ function synthesizeSpeech() {
 synthesizeSpeech();
 ```
 
+## Synthesize speech to a file
+
+Next, you create a [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) object, which executes text-to-speech conversions and outputs to speakers, files, or other output streams. The [`SpeechSynthesizer`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesizer) accepts as params the [`SpeechConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechconfig) object created in the previous step, and an [`AudioConfig`](/javascript/api/microsoft-cognitiveservices-speech-sdk/audioconfig) object that specifies how output results should be handled.
+
+To start, create an `AudioConfig` to automatically write the output to a `.wav` file using the `fromAudioFileOutput()` static function.
+
+```javascript
+function synthesizeSpeech() {
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path/to/file.wav");
+}
+```
+
+Next, instantiate a `SpeechSynthesizer` passing your `speechConfig` and `audioConfig` objects as params. Now, writing synthesized speech to a file is as simple as running `speakTextAsync()` with a string of text. The result callback is a great place to call `synthesizer.close()`. The call to `synthesizer.close()` is needed for synthesis to function correctly.
+
+```javascript
+function synthesizeSpeech() {
+    const speechConfig = sdk.SpeechConfig.fromSubscription("<paste-your-speech-key-here>", "<paste-your-speech-location/region-here>");
+    const audioConfig = sdk.AudioConfig.fromAudioFileOutput("path-to-file.wav");
+
+    const synthesizer = new SpeechSynthesizer(speechConfig, audioConfig);
+    synthesizer.speakTextAsync(
+        "A simple test to write to a file.",
+        result => {
+            synthesizer.close();
+            if (result) {
+                // return result as stream
+                return fs.createReadStream("path-to-file.wav");
+            }
+        },
+        error => {
+            console.log(error);
+            synthesizer.close();
+        });
+}
+```
+
+Run the program, and a synthesized speech is written to a `.wav` file in the location you specified.
+
 ## Synthesize to speaker output
 
-In some cases, you may want to directly output synthesized speech directly to a speaker. To do this, instantiate the `AudioConfig` using the `fromDefaultSpeakerOutput()` static function. This outputs to the current active output device.
+You can choose to output the synthesized speech directly to a speaker instead of writing to a file. To synthesize speech from a web browser, instantiate the `AudioConfig` using the `fromDefaultSpeakerOutput()` static function. The audio is sent to the current active output device.
 
 ```javascript
 function synthesizeSpeech() {
@@ -125,15 +164,13 @@ function synthesizeSpeech() {
 }
 ```
 
-Run the program, and a synthesized audio is played from the speaker. This is a good example of the most basic usage, but next you look at customizing output and handling the output response as an in-memory stream for working with custom scenarios.
-
 ## Get result as an in-memory stream
 
-For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. This will allow you to build custom behavior including:
+For many scenarios in speech application development, you likely need the resulting audio data as an in-memory stream rather than directly writing to a file. You can build custom behavior including:
 
 * Abstract the resulting byte array as a seek-able stream for custom downstream services.
 * Integrate the result with other API's or services.
-* Modify the audio data, write custom `.wav` headers, etc.
+* Modify the audio data and write custom `.wav` headers.
 
 It's simple to make this change from the previous example. First, remove the `AudioConfig` block, as you will manage the output behavior manually from this point onward for increased control. Then pass `undefined` for the `AudioConfig` in the `SpeechSynthesizer` constructor.
 
@@ -162,7 +199,7 @@ function synthesizeSpeech() {
 }
 ```
 
-From here you can implement any custom behavior using the resulting `ArrayBuffer` object. The ArrayBuffer is a common type to receive in a browser and play from this format.
+From here, you can implement any custom behavior using the resulting `ArrayBuffer` object. The ArrayBuffer is a common type to receive in a browser and play from this format.
 
 For any server-based code, if you need to work with the data as a stream, instead of an ArrayBuffer, you need to convert the object into a stream.
 
@@ -201,7 +238,7 @@ The following section shows how to customize audio output attributes including:
 
 To change the audio format, you use the `speechSynthesisOutputFormat` property on the `SpeechConfig` object. This property expects an `enum` of type [`SpeechSynthesisOutputFormat`](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat), which you use to select the output format. See the reference docs for a [list of audio formats](/javascript/api/microsoft-cognitiveservices-speech-sdk/speechsynthesisoutputformat) that are available.
 
-There are various options for different file types depending on your requirements. Note that by definition, raw formats like `Raw24Khz16BitMonoPcm` do not include audio headers. Use raw formats only when you know your downstream implementation can decode a raw bitstream, or if you plan on manually building headers based on bit-depth, sample-rate, number of channels, etc.
+There are various options for different file types depending on your requirements. By definition, raw formats like `Raw24Khz16BitMonoPcm` do not include audio headers. Use raw formats only when you know your downstream implementation can decode a raw bitstream, or if you plan on manually building headers based on bit-depth, sample-rate, number of channels, etc.
 
 In this example, you specify a high-fidelity RIFF format `Riff24Khz16BitMonoPcm` by setting the `speechSynthesisOutputFormat` on the `SpeechConfig` object. Similar to the example in the previous section, get the audio `ArrayBuffer` data and interact with it.
 
@@ -228,6 +265,8 @@ function synthesizeSpeech() {
         });
 }
 ```
+
+Running your program again will write a `.wav` file to the specified path.
 
 ## Use SSML to customize speech characteristics
 
@@ -284,8 +323,8 @@ function synthesizeSpeech() {
 
 ## Get facial pose events
 
-Speech can be a good way to drive the animation of facial expressions.
-Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw and tongue when producing a particular phoneme.
-You can subscribe the viseme event in Speech SDK.
-Then, you can apply viseme events to animate the face of a character as speech audio plays.
+Speech can be a good way to drive the animation of facial expressions. Often [visemes](../../../how-to-speech-synthesis-viseme.md) are used to represent the key poses in observed speech, such as the position of the lips, jaw, and tongue when producing a particular phoneme.
+
+You can subscribe to the `viseme` event in Speech SDK. Then, you apply `viseme` events to animate the face of a character as speech audio plays.
+
 Learn [how to get viseme events](../../../how-to-speech-synthesis-viseme.md#get-viseme-events-with-the-speech-sdk).

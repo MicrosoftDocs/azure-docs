@@ -102,7 +102,7 @@ Similarly, AKS regularly releases new kubernetes patches and minor versions. The
 
 #### User customization of agent nodes
 > [!NOTE]
-> AKS agent nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (usually prefixed with MC_\*). You cannot change the base OS image or do any direct customizations to these nodes using the IaaS APIs or resources. Any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. 
+> AKS agent nodes appear in the Azure portal as regular Azure IaaS resources. But these virtual machines are deployed into a custom Azure resource group (usually prefixed with MC_\*). You cannot change the base OS image or do any direct customizations to these nodes using the IaaS APIs or resources. Any custom changes that are not done via the AKS API will not persist through an upgrade, scale, update or reboot. Also any change to the nodes' extensions like the CustomScriptExtension one can lead to unexpected behavior and should be prohibited.
 > Avoid performing changes to the agent nodes unless Microsoft Support directs you to make changes.
 
 AKS manages the lifecycle and operations of agent nodes on your behalf - modifying the IaaS resources associated with the agent nodes is **not supported**. An example of an unsupported operation is customizing a node pool virtual machine scale set by manually changing configurations through the virtual machine scale set portal or API.

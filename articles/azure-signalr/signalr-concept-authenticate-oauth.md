@@ -384,7 +384,7 @@ Prepare your environment for the Azure CLI:
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-In this section, you will use the Azure command-line interface (CLI) to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
+In this section, you will use the Azure CLI to create a new web app in [Azure App Service](../app-service/index.yml) to host your ASP.NET application in Azure. The web app will be configured to use local Git deployment. The web app will also be configured with your SignalR connection string, GitHub OAuth app secrets, and a deployment user.
 
 When creating the following resources, make sure to use the same resource group that your SignalR Service resource resides in. This approach will make clean up a lot easier later when you want to remove all the resources. The examples given assume you used the group name recommended in previous tutorials, *SignalRTestResources*.
 
