@@ -7,7 +7,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: mvc
 ms.topic: tutorial
-ms.date: 12/08/2021
+ms.date: 12/09/2021
 ms.author: danlep
 ---
 # Tutorial: Monitor published APIs
