@@ -693,6 +693,601 @@ The response to this request looks like the following example:
 }
 ```
 
+## ODATA Support for device template list API
+
+You can use ODATA filters for device template list API to filter the data
+
+* **$top** - You can use this filter to get the desired result size, the maximum returned result size is 100, the default size is 25.
+
+Use the following request to retrieve a top 1 device templates from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$top=1
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "value": [
+        {
+            "etag": "\"~6Ku691rHAgw/yw8u+ygZJGAKjSN4P4q/KxCU2xskrmk=\"",
+            "displayName": "Thermostat",
+            "capabilityModel": {
+                "@id": "dtmi:contoso:Thermostat;1",
+                "@type": "Interface",
+                "contents": [
+                    {
+                        "@type": [
+                            "Telemetry",
+                            "Temperature"
+                        ],
+                        "description": "Temperature in degrees Celsius.",
+                        "displayName": "Temperature",
+                        "name": "temperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Allows to remotely specify the desired target temperature.",
+                        "displayName": "Target Temperature",
+                        "name": "targetTemperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius",
+                        "writable": true,
+                        "decimalPlaces": 1,
+                        "displayUnit": "C",
+                        "maxValue": 80,
+                        "minValue": 50
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Returns the max temperature since last device reboot.",
+                        "displayName": "Max temperature since last reboot.",
+                        "name": "maxTempSinceLastReboot",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": "Command",
+                        "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+                        "displayName": "Get report",
+                        "name": "getMaxMinReport",
+                        "request": {
+                            "@type": "CommandPayload",
+                            "description": "Period to return the max-min report.",
+                            "displayName": "Since",
+                            "name": "since",
+                            "schema": "dateTime"
+                        },
+                        "response": {
+                            "@type": "CommandPayload",
+                            "displayName": "Temperature Report",
+                            "name": "tempReport",
+                            "schema": {
+                                "@type": "Object",
+                                "fields": [
+                                    {
+                                        "displayName": "Max temperature",
+                                        "name": "maxTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Min temperature",
+                                        "name": "minTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Average Temperature",
+                                        "name": "avgTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Start Time",
+                                        "name": "startTime",
+                                        "schema": "dateTime"
+                                    },
+                                    {
+                                        "displayName": "End Time",
+                                        "name": "endTime",
+                                        "schema": "dateTime"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "StringValue"
+                        ],
+                        "displayName": "Customer Name",
+                        "name": "CustomerName",
+                        "schema": "string"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "DateTimeValue"
+                        ],
+                        "displayName": "Last Maintenance Date",
+                        "name": "LastMaintenanceDate",
+                        "schema": "dateTime"
+                    }
+                ],
+                "description": "Reports current temperature and provides desired temperature control.",
+                "displayName": "Thermostat"
+            },
+            "@id": "dtmi:modelDefinition:spzeut3n:n2lteu39u6",
+            "@type": [
+                "ModelDefinition",
+                "DeviceModel"
+            ],
+            "@context": [
+                "dtmi:iotcentral:context;2",
+                "dtmi:dtdl:context;2"
+            ]
+        }
+    ],
+    "nextLink": "https://custom-12qmyn6sm0x.azureiotcentral.com/api/deviceTemplates?api-version=1.1-preview&%24top=1&%24skiptoken=%7B%22token%22%3A%22%2BRID%3A%7EJWYqAKZQKp20qCoAAAAACA%3D%3D%23RT%3A1%23TRC%3A1%23ISV%3A2%23IEO%3A65551%23QCF%3A4%22%2C%22range%22%3A%7B%22min%22%3A%2205C1DFFFFFFFFC%22%2C%22max%22%3A%22FF%22%7D%7D"
+}
+```
+
+The response includes a **nextLink**, you can click on the link to see the response.
+
+* **$filter** - You can use this filter for comparison operators for device list:
+
+| Comparison Operator | Symbol | Example                        |
+| -------------------- | ------ | ------------------------------ |
+| Equals               | eq     | '@id' eq 'dtmi:example:test;1' |
+| Not Equals           | ne     | displayName ne 'template 1'    |
+| Less or Equals       | le     | displayName le 'template A'    |
+| Less than            | lt     | displayName lt 'template B'    |
+| Great or Equals      | ge     | displayName ge 'template A'    |
+| Great than           | gt     | displayName gt 'template B'    |
+
+You can also use this filter for logic operators for device list:
+
+| Logic Operator | Symbol | Example                                                                              |
+| -------------- | ------ | ------------------------------------------------------------------------------------ |
+| AND            | and    | '@id' eq 'dtmi:example:test;1' and capabilityModelId eq 'dtmi:example:test:model1;1' |
+| OR             | or     | '@id' eq 'dtmi:example:test;1' or displayName ge 'template'                          |
+
+Currently *$filter* supported field list for device template list API are:
+
+| FieldName         | Type   | Description                         |
+| ----------------- | ------ | ----------------------------------- |
+| @id               | string | Device Template ID                  |
+| displayName       | string | Device Template Display Name        |
+| capabilityModelId | string | Device Template Capability Model ID |
+
+**$filter supported functions:**
+
+Currently device template list only supports `contains` function, for example:
+
+```
+$filter=contains(displayName, 'template1')
+$filter=contains(displayName, 'template1) eq false
+```
+
+Use the following request to retrieve a device template using `contains` from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=contains(displayName, 'thermostat')
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "value": [
+        {
+            "etag": "\"~6Ku691rHAgw/yw8u+ygZJGAKjSN4P4q/KxCU2xskrmk=\"",
+            "displayName": "Thermostat",
+            "capabilityModel": {
+                "@id": "dtmi:contoso:Thermostat;1",
+                "@type": "Interface",
+                "contents": [
+                    {
+                        "@type": [
+                            "Telemetry",
+                            "Temperature"
+                        ],
+                        "description": "Temperature in degrees Celsius.",
+                        "displayName": "Temperature",
+                        "name": "temperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Allows to remotely specify the desired target temperature.",
+                        "displayName": "Target Temperature",
+                        "name": "targetTemperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius",
+                        "writable": true,
+                        "decimalPlaces": 1,
+                        "displayUnit": "C",
+                        "maxValue": 80,
+                        "minValue": 50
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Returns the max temperature since last device reboot.",
+                        "displayName": "Max temperature since last reboot.",
+                        "name": "maxTempSinceLastReboot",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": "Command",
+                        "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+                        "displayName": "Get report",
+                        "name": "getMaxMinReport",
+                        "request": {
+                            "@type": "CommandPayload",
+                            "description": "Period to return the max-min report.",
+                            "displayName": "Since",
+                            "name": "since",
+                            "schema": "dateTime"
+                        },
+                        "response": {
+                            "@type": "CommandPayload",
+                            "displayName": "Temperature Report",
+                            "name": "tempReport",
+                            "schema": {
+                                "@type": "Object",
+                                "fields": [
+                                    {
+                                        "displayName": "Max temperature",
+                                        "name": "maxTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Min temperature",
+                                        "name": "minTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Average Temperature",
+                                        "name": "avgTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Start Time",
+                                        "name": "startTime",
+                                        "schema": "dateTime"
+                                    },
+                                    {
+                                        "displayName": "End Time",
+                                        "name": "endTime",
+                                        "schema": "dateTime"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "StringValue"
+                        ],
+                        "displayName": "Customer Name",
+                        "name": "CustomerName",
+                        "schema": "string"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "DateTimeValue"
+                        ],
+                        "displayName": "Last Maintenance Date",
+                        "name": "LastMaintenanceDate",
+                        "schema": "dateTime"
+                    }
+                ],
+                "description": "Reports current temperature and provides desired temperature control.",
+                "displayName": "Thermostat"
+            },
+            "@id": "dtmi:modelDefinition:spzeut3n:n2lteu39u6",
+            "@type": [
+                "ModelDefinition",
+                "DeviceModel"
+            ],
+            "@context": [
+                "dtmi:iotcentral:context;2",
+                "dtmi:dtdl:context;2"
+            ]
+        }
+    ]
+}
+```
+
+* **$orderby** - You can use this filter to get the results by desired order, currently $orderby only supports order by displayName, by default use ascending, for example:
+
+```
+$orderby=displayName
+$orderby=displayName desc
+```
+
+Use the following request to retrieve a device templates using `$orderby` from your application:
+
+```http
+GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$orderby=displayName
+```
+
+The response to this request looks like the following example:
+
+```json
+{
+    "value": [
+        {
+            "etag": "\"~6Ku691rHAgw/yw8u+ygZJGAKjSN4P4q/KxCU2xskrmk=\"",
+            "displayName": "Thermostat",
+            "capabilityModel": {
+                "@id": "dtmi:contoso:Thermostat;1",
+                "@type": "Interface",
+                "contents": [
+                    {
+                        "@type": [
+                            "Telemetry",
+                            "Temperature"
+                        ],
+                        "description": "Temperature in degrees Celsius.",
+                        "displayName": "Temperature",
+                        "name": "temperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Allows to remotely specify the desired target temperature.",
+                        "displayName": "Target Temperature",
+                        "name": "targetTemperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius",
+                        "writable": true,
+                        "decimalPlaces": 1,
+                        "displayUnit": "C",
+                        "maxValue": 80,
+                        "minValue": 50
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Returns the max temperature since last device reboot.",
+                        "displayName": "Max temperature since last reboot.",
+                        "name": "maxTempSinceLastReboot",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": "Command",
+                        "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+                        "displayName": "Get report",
+                        "name": "getMaxMinReport",
+                        "request": {
+                            "@type": "CommandPayload",
+                            "description": "Period to return the max-min report.",
+                            "displayName": "Since",
+                            "name": "since",
+                            "schema": "dateTime"
+                        },
+                        "response": {
+                            "@type": "CommandPayload",
+                            "displayName": "Temperature Report",
+                            "name": "tempReport",
+                            "schema": {
+                                "@type": "Object",
+                                "fields": [
+                                    {
+                                        "displayName": "Max temperature",
+                                        "name": "maxTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Min temperature",
+                                        "name": "minTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Average Temperature",
+                                        "name": "avgTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Start Time",
+                                        "name": "startTime",
+                                        "schema": "dateTime"
+                                    },
+                                    {
+                                        "displayName": "End Time",
+                                        "name": "endTime",
+                                        "schema": "dateTime"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "StringValue"
+                        ],
+                        "displayName": "Customer Name",
+                        "name": "CustomerName",
+                        "schema": "string"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "DateTimeValue"
+                        ],
+                        "displayName": "Last Maintenance Date",
+                        "name": "LastMaintenanceDate",
+                        "schema": "dateTime"
+                    }
+                ],
+                "description": "Reports current temperature and provides desired temperature control.",
+                "displayName": "Thermostat"
+            },
+            "@id": "dtmi:modelDefinition:spzeut3n:n2lteu39u6",
+            "@type": [
+                "ModelDefinition",
+                "DeviceModel"
+            ],
+            "@context": [
+                "dtmi:iotcentral:context;2",
+                "dtmi:dtdl:context;2"
+            ]
+        },
+        {
+            "etag": "\"~XS5GovPNzJqFIwkkV/vyWW5U/6if2NwC/NqUlDxExAY=\"",
+            "displayName": "Thermostat2",
+            "capabilityModel": {
+                "@id": "dtmi:contoso:Thermostat2;1",
+                "@type": "Interface",
+                "contents": [
+                    {
+                        "@type": [
+                            "Telemetry",
+                            "Temperature"
+                        ],
+                        "description": "Temperature in degrees Celsius.",
+                        "displayName": "Temperature",
+                        "name": "temperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature",
+                            "NumberValue"
+                        ],
+                        "description": "Allows to remotely specify the desired target temperature.",
+                        "displayName": "Target Temperature",
+                        "name": "targetTemperature",
+                        "schema": "double",
+                        "unit": "degreeCelsius",
+                        "writable": true,
+                        "decimalPlaces": 1,
+                        "displayUnit": "C",
+                        "maxValue": 80,
+                        "minValue": 50
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Temperature"
+                        ],
+                        "description": "Returns the max temperature since last device reboot.",
+                        "displayName": "Max temperature since last reboot.",
+                        "name": "maxTempSinceLastReboot",
+                        "schema": "double",
+                        "unit": "degreeCelsius"
+                    },
+                    {
+                        "@type": "Command",
+                        "description": "This command returns the max, min and average temperature from the specified time to the current time.",
+                        "displayName": "Get report",
+                        "name": "getMaxMinReport",
+                        "request": {
+                            "@type": "CommandPayload",
+                            "description": "Period to return the max-min report.",
+                            "displayName": "Since",
+                            "name": "since",
+                            "schema": "dateTime"
+                        },
+                        "response": {
+                            "@type": "CommandPayload",
+                            "displayName": "Temperature Report",
+                            "name": "tempReport",
+                            "schema": {
+                                "@type": "Object",
+                                "fields": [
+                                    {
+                                        "displayName": "Max temperature",
+                                        "name": "maxTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Min temperature",
+                                        "name": "minTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Average Temperature",
+                                        "name": "avgTemp",
+                                        "schema": "double"
+                                    },
+                                    {
+                                        "displayName": "Start Time",
+                                        "name": "startTime",
+                                        "schema": "dateTime"
+                                    },
+                                    {
+                                        "displayName": "End Time",
+                                        "name": "endTime",
+                                        "schema": "dateTime"
+                                    }
+                                ]
+                            }
+                        }
+                    },
+                    {
+                        "@type": [
+                            "Property",
+                            "Cloud",
+                            "StringValue"
+                        ],
+                        "displayName": "Customer Name",
+                        "name": "CustomerName",
+                        "schema": "string"
+                    }
+                ],
+                "description": "Reports current temperature and provides desired temperature control.",
+                "displayName": "Thermostat"
+            },
+            "@id": "dtmi:modelDefinition:spzeut3n:n2lteu39u67",
+            "@type": [
+                "ModelDefinition",
+                "DeviceModel"
+            ],
+            "@context": [
+                "dtmi:iotcentral:context;2",
+                "dtmi:dtdl:context;2"
+            ]
+        }
+    ]
+}
+```
+
 ### Update a device template
 
 ```http
