@@ -53,7 +53,7 @@ To access metrics:
 
 1. From the drop-down, select metrics you're interested in. For example, **Requests**.
 1. The chart shows the total number of API calls.
-1. You can filter the chart using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Category**, enter 500 as the value. The chart shows the number of requests failed in API backend.
+1. You can filter the chart using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Category**, enter 500 as the value. The chart shows the number of requests failed in the API backend.
 
 ## Set up an alert rule
 
