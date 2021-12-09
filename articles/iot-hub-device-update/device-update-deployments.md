@@ -22,7 +22,7 @@ the update deployment as long as the deployment remains active without any other
 ## Deployment life cycle
 
 Due to their dynamic nature, deployments remain active and in-progress until they are explicitly canceled. A deployment is considered Inactive and Superseded if a new deployment
-is created targeting the same device group. A deployment can be retried for devices that might fail. Once a deployment is canceled, it cannot be re-activated again. 
+is created targeting the same device group. A deployment can be retried for devices that might fail. Once a deployment is canceled, it cannot be reactivated again. 
 
 
 ## Next steps
