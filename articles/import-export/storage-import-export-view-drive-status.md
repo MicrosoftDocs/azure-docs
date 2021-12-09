@@ -21,13 +21,13 @@ You can view the status of your import and export jobs in the Azure portal. The 
 
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
-If you created your import or export job in the Preview portal, you'll track its status in the **Data Box** area of the Azure portal.
+If you created your import or export job in Azure Data Box (the Preview experience), you'll track the job's status along with your other **Data Box** resources.
 
 1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
 
 2. Search for **azure data box**.
 
-    ![Screenshot showing how to search for Data Box jobs in the Azure portal. The Search box and selected Azure Data Box service are highlighted.](./media/storage-import-export-view-drive-status/preview-open-data-box-tab.png)<!--Replace graphic.-->
+    ![Screenshot showing how to search for Data Box jobs in the Azure portal. The Search box and selected Azure Data Box service are highlighted.](./media/storage-import-export-view-drive-status/preview-open-data-box-tab.png)
 
  3. To filter to Azure Import/Export jobs, enter "Import/Export" in the search box.
 
@@ -37,20 +37,20 @@ If you created your import or export job in the Preview portal, you'll track its
 
     [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-drive-status/preview-jobs-list.png) ](./media/storage-import-export-view-drive-status/preview-jobs-list.png)
 
-4. Select and click a job to view job details.
+4. Select a job name to view job details.
 
    You'll see the **Current order status** and also the **Data copy details** for each drive.
 
-   * If you have access to the storage account, you can select and click a **Copy log path** or **Verbose log path** to view the log.
+   * If you have access to the storage account, you can select a **Copy log path** or **Verbose log path** to view the log.
 
-   * Select and click a **Drive ID** to open a panel with full copy information, including the manifest file and hash.
+   * Select a **Drive ID** to open a panel with full copy information, including the manifest file and hash.
 
    [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-drive-status/preview-job-details.png) ](./media/storage-import-export-view-drive-status/preview-job-details.png#lightbox)
 
 
 ### [Portal (Classic)](#tab/azure-portal-classic)
 
-If you created your import or export job in the Classic Import/Export experience, you'll track the status of the job in the **Import/Export** area of the Azure portal.
+If you created your import or export job in Azure Import/Export (the Classic experience), you'll track the status of the job in the **Import/Export** area of the Azure portal.
 
 1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
 
@@ -68,7 +68,7 @@ If you created your import or export job in the Classic Import/Export experience
 
 ---
   
-## View job status
+## Job status descriptions
 
 XXX
 
@@ -107,27 +107,28 @@ If you create your job using the Classic method, you see one of the following jo
 
 ---
 
-## View drive status
+## Drive status descriptions
 
-XXX
+The Azure portal shows the current state of each drive during the lifecycle of an Azure Import/Export job. The following tables describe these drive states.
+
+The drive states differ slightly for Azure Import/Export Jobs created in Azure Data Box (the Preview experience) and jobs created in Azure Import/Export (the Classic experience).
+
 
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
-The table below describes the life cycle of an individual drive as it transitions through an import or export job. The current state of each drive in a job is seen in the Azure Preview portal.<!--Move sentence to section introduction.-->
+The following tables describe the drive states for import or export jobs created in Azure Data Box (the Preview experience).
 
-The following table describes each state that each drive in a job may pass through when the drive is successfully processed.
+The table below describes the life cycle of an individual drive as it transitions through an import or export job.
 
 | Drive status                       | Description                                 |
 |:-----------------------------------|:--------------------------------------------|
 | Data copy not started              | Data copy has not yet started on the drive. |
-| %age completed<br/>                | Data copy is in progress for the drive, and this percentage is complete. |
+| %age completed                     | Data copy is in progress for the drive, and this percentage of the data copy is complete. |
 | Data copy completed                | The service successfully transferred all the data from or to the drive with no errors. |
 | Data copy completed with errors    | The service came across errors while copying data from or to the drive. |
 | Data copy completed with warnings  | The service completed copying data from or to the drive, but some warnings were raised in the process. |
 
-<!--Add a screenshot from the Preview portal?-->
-
-The following table describes the drive Failure states and the actions to take in each state.
+The following table describes states that a drive may have when a data copy fails and fthe actions to take to fix the problem.
 
 | Drive status                      | Description   |
 |:----------------------------------|:------------------------------------------|
