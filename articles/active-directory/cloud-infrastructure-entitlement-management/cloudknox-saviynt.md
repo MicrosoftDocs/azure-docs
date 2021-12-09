@@ -40,7 +40,7 @@ This topic describes how to configure the Saviynt integration with Microsoft Clo
 2. Click **Generate New Key**.
 3. On the **Validate OTP To Generate New Keys**, a message displays asking you to check your email for a code that was sent to the email address on file.
 
-      If you did not receive the email, click **Resend OTP** and then check your email again.
+      If you don't receive the email, click **Resend OTP**, and then check your email again.
 4. In the **Enter OTP box**, enter the code from the email.
 5. Click **Verify**.
 

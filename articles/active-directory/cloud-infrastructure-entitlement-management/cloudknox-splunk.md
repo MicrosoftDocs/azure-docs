@@ -25,12 +25,12 @@ This topic describes how to integrate Microsoft CloudKnox Permissions Management
    - **Service Account ID** - This box is pre-populated with the ID for the given connected service account.
    - **Access Key** - This box is pre-populated with the access key code.
    - **Secret Key** - Lists the access key code is *hidden*. It should be reserved for future use.
-3. Click **Generate New Key**.
-4. On the **Validate OTP To Generate New Keys**, a message displays asking you to check your email for a code that was sent to the email address on file.  
+2. Click **Generate New Key**.
+3. On the **Validate OTP To Generate New Keys**, a message displays asking you to check your email for a code that was sent to the email address on file.  
 
-     If you do not receive the email, click **Resend OTP** and then check your email again.
-5. In the **Enter OTP box**, enter the code from the email.
-6. Click **Verify**.
+     If you don't receive the email, click **Resend OTP** and then check your email again.
+4. In the **Enter OTP box**, enter the code from the email.
+5. Click **Verify**.
 
 ## How to use the Splunk tab
 
@@ -52,7 +52,7 @@ This topic describes how to integrate Microsoft CloudKnox Permissions Management
 2. Click **Generate New Key**.
 3. On the **Validate OTP To Generate New Keys**, a message displays asking you to check your email for a code that was sent to the email address on file.  
 
-     If you do not receive the email, click **Resend OTP** and then check your email again.
+     If you don't receive the email, click **Resend OTP** and then check your email again.
 4. In the **Enter OTP box**, enter the code from the email.
 5. Click **Verify**.
 
