@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 06/17/2019
+ms.date: 12/08/2021
 ms.author: alkohli
 ---
 
@@ -26,7 +26,7 @@ The verbose log contains complete information about the status of the copy opera
 
 The error log has the same structure as the verbose log, but filters out successful operations.
 
-## Download logs
+## Locate the logs
 
 Take the following steps to locate the upload logs.
 
@@ -40,7 +40,22 @@ Take the following steps to locate the upload logs.
 
 In each case, you see the error logs and the verbose logs. Select each log and download a local copy.
 
+TK: MAKE TABS FOR OLD AND NEW RELEASES.
+
+## Locate the logs (Preview)
+
+NEW INSTRUCTIONS FOR PREVIEW - IN PROGRESS. Take the following steps to locate the upload logs.
+
+1. When the data upload completes, the Azure portal displays the disk status and the path to the copy logs for the disk.
+
+    ![Screenshot of the Overview pane for a Data Box Disk order with Copy Completed With Errors status. The Disk Status and Copy Log Path for each disk are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
+
+2. Select and click the COPY LOG PATH for a drive to open the folder with the logs for that drive. A copy log lists all data copy error that occurred. If you selected STOPPED HERE FOR THE EVENING.
+
+
 ## Sample upload logs
+
+ADD TABS.
 
 A sample of the `_verbose.xml` is shown below. In this case, the order has completed successfully with no errors.
 
