@@ -156,7 +156,7 @@
         href: remediate-vulnerability-findings-vm.md
       - name: Disable specific vulnerability findings
         displayName: qualys, rapid7, va
-        href: remediate-vulnerability-findings-vm.md#disable-specific-findings-preview
+        href: remediate-vulnerability-findings-vm.md#disable-specific-findings
     - name: Secure management ports with just-in-time VM access
       items:
       - name: Overview of just-in-time VM access
