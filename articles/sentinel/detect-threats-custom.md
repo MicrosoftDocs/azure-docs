@@ -233,7 +233,7 @@ If you want to package your rule to be managed and deployed as code, you can eas
 
 ### Issue: No events appear in query results
 
-When **event grouping** is set to **trigger an alert for each event**, query results viewed at a later time may show no results, or different results than expected.  For example, you might view a query's results at a later time when you've pivoted back to the results from a related incident.
+When **event grouping** is set to **trigger an alert for each event**, query results viewed at a later time may appear to be missing, or different than expected.  For example, you might view a query's results at a later time when you've pivoted back to the results from a related incident.
 
 - Results are automatically saved with the alerts. However, if the results are too large, no results are saved, and then no data will appear when viewing the query results again.
 - In cases where there is [ingestion delay](ingestion-delay.md), or the query is not deterministic due to aggregation, the alert's result might be different than the result shown by running the query manually.
