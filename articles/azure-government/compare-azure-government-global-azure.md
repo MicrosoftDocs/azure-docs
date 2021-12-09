@@ -6,6 +6,7 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
+recommendations: false
 ms.date: 12/07/2021
 ---
 
@@ -481,6 +482,10 @@ When connecting your Functions app to Application Insights in Azure Government, 
 Learn more about Azure Government:
 
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Azure support for export controls](./documentation-government-overview-itar.md)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
 
 Start using Azure Government:
 
