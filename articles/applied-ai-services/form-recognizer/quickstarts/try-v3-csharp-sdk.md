@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 12/09/2021
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-other
@@ -26,7 +26,7 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart, you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#general-document)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 

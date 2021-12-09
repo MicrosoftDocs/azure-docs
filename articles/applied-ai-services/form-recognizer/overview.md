@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: overview
-ms.date: 11/16/2021
+ms.date: 12/09/2021
 ms.author: lajanuar
 recommendations: false
 keywords: automated data processing, document processing, automated data entry, forms processing
