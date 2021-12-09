@@ -51,7 +51,7 @@ This script uses the following commands. Each command in the table links to comm
 | Command | Description |
 |---|---|
 | [az sql elastic-pool](/cli/azure/sql/elastic-pool) | Elastic pool commands. |
-| [az sql failover-group ](/cli/azure/sql/failover-group) | Failover group commands. |
+| [az sql failover-group](/cli/azure/sql/failover-group) | Failover group commands. |
 
 ## Next steps
 
