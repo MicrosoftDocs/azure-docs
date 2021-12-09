@@ -1520,3 +1520,12 @@ groups:
     title: Azure Resource Manager (ARM) template
   - id: container-apps-bicep
     title: Bicep
+# Owner: cshoe
+- id: container-apps-container-types
+  title: Container source
+  prompt: Select the source of your container
+  pivots:
+  - id: container-apps-example
+    title: Example container
+  - id: container-apps-byo
+    title: Bring your own container
