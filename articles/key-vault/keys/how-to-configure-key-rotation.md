@@ -101,7 +101,7 @@ az keyvault key rotation-policy update --vault-name <vault-name> --name <key-nam
 Key rotation can be invoked manually.
 
 ### Portal
-Click 'Rotate Now' to invoke rotation
+Click 'Rotate Now' to invoke rotation.
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-4.png" alt-text="Rotation on-demand":::
 
