@@ -173,6 +173,10 @@ When selecting fields for your semantic configuration, choose only fields of the
 | Edm.String | HotelName, Category, Description |
 | Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
 | Collection(Edm.String) | Tags (a comma-delimited list of strings) |
+
+> [!NOTE]
+> Subfields of Collection(Edm.ComplexType) fields are not currently supported by semantic search and won't be used for semantic ranking, captions, or answers.
+
 ---
 
 ## Query using REST
