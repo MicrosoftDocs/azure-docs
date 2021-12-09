@@ -21,14 +21,14 @@ Before applying these recommendations to your environment, you should consult yo
 
 Azure Purview is a Platform as a Service (PaaS) solution in Azure. You can enable the following network security capabilities for your Azure Purview accounts: 
 
-- [Enable end-to-end network isolation](catalog-private-link-end-to-end.md) using Private Link Service. 
+- Enable [end-to-end network isolation](catalog-private-link-end-to-end.md) using Private Link Service. 
 - Use [Azure Purview Firewall](catalog-private-link-end-to-end.md#firewalls-to-restrict-public-access) to disable Public access.
-- Deployment of Network Security Group (NSG) rules for data sources, Purview and self-hosted runtime VMs. 
+- Deploy [Network Security Group (NSG) rules](#use-network-security-groups) for subnets where Azure data sources private endpoints, Azure Purview private endpoints and self-hosted runtime VMs are deployed. 
 - Implement Azure Purview with private endpoints managed by a Network Virtual Appliance, such as [Azure Firewall](../firewall/overview.md) for network inspection and network filtering.
 
 :::image type="content" source="media/concept-best-practices/security-networking.png" alt-text="Screenshot that shows Azure Purview account in a network."lightbox="media/concept-best-practices/security-networking.png":::
 
-For more information, see [Best practices related to connectivity to Azure PaaS Services](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services.md).
+For more information, see [Best practices related to connectivity to Azure PaaS Services](/azure/cloud-adoption-framework/ready/azure-best-practices/connectivity-to-azure-paas-services).
 
 ### Deploy private endpoints for Azure Purview accounts
 
@@ -136,7 +136,7 @@ Examples of control plane operations and data plane operations:
 |Setup a Private Endpoint for Azure Purview     | Control plane         | Contributor         | Azure RBAC roles        |
 |Delete a Purview account      | Control plane         | Contributor         | Azure RBAC roles        |
 |View Purview metrics to get current capacity units       | Control plane         | Reader       | Azure RBAC roles        |
-|Create a collection      | Data plane           | Control plane        | Azure RBAC roles        |
+|Create a collection      | Data plane           | Collection Admin        | Azure Purview roles        |
 |Register a data source    | Data plane          | Collection Admin         | Azure Purview roles         |
 |Scan a SQL Server      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
 |Search inside Purview Data Catalog      | Data plane          | Data source admin and data reader or data curator          | Azure Purview roles         |
@@ -294,7 +294,7 @@ To add another layer of security in addition to access controls, Azure Purview s
 
 Azure Purview supports data encryption in transit with Transport Layer Security (TLS) v1.2 or greater. 
 
-For more information, see, [Encrypt sensitive information in transit](/security/benchmark/azure/baselines/purview-security-baseline.md#dp-4-encrypt-sensitive-information-in-transit).
+For more information, see, [Encrypt sensitive information in transit](/security/benchmark/azure/baselines/purview-security-baseline#dp-4-encrypt-sensitive-information-in-transit).
 
 #### Transparent data encryption (Encryption-at-rest) 
 
@@ -303,7 +303,7 @@ Data at rest includes information that resides in persistent storage on physical
 To add another layer of security in addition to access controls, Azure Purview encrypts data at rest to protect against 'out of band' attacks (such as accessing underlying storage). 
 It uses encryption with Microsoft-managed keys. This practice helps make sure attackers can't easily read or modify the data. 
 
-For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline.md#dp-5-encrypt-sensitive-data-at-rest). 
+For more information, see [Encrypt sensitive data at rest](/security/benchmark/azure/baselines/purview-security-baseline#dp-5-encrypt-sensitive-data-at-rest). 
 
 ## Credential management
 
@@ -325,8 +325,8 @@ As a general rule, you can use the following options to set up integration runti
 |Scenario  |Runtime option   |Supported Credentials   |
 |---------|---------|---------|
 |Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside public network      | Option 1: Azure Runtime          | Azure Purview Managed Identity, Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
-|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 Gen 2 or Azure SQL inside public network      | Option 2: Self-hosted integration runtime          | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
-|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
+|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside public network      | Option 2: Self-hosted integration runtime          | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
+|Data source is an Azure Platform as a Service, such as Azure Data Lake Storage Gen 2 or Azure SQL inside private network using Azure Private Link Service      |  Self-hosted integration runtime         | Service Principal or Access Key / SQL Authentication (depending on Azure data source type)         |
 |Data source is inside an Azure IaaS VM such as SQL Server       | Self-hosted integration runtime deployed in Azure         | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Data source is inside an on-premises system such as SQL Server or Oracle      | Self-hosted integration runtime deployed in Azure or in the on-premises network        | SQL Authentication or Basic Authentication (depending on Azure data source type)         |
 |Multi-cloud      | Azure runtime or self-hosted integration runtime based on data source types          |  Supported credential options vary based on data sources types       |
@@ -338,7 +338,7 @@ Use [this guide](purview-connector-overview.md) to read more about each connecto
 
 ### Define required number of Purview accounts for your organization
 
-As part of security planning for implementation of Azure Purview in your organization, review your business and security requirements to define [how many Purview accounts are needed](concept-best-practices-accounts.md) in your organization. various factors may impact the decision, such as [multi-tenancy](/azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants.md#define-azure-ad-tenants) billing or compliance requirements. 
+As part of security planning for implementation of Azure Purview in your organization, review your business and security requirements to define [how many Purview accounts are needed](concept-best-practices-accounts.md) in your organization. various factors may impact the decision, such as [multi-tenancy](/azure/cloud-adoption-framework/ready/enterprise-scale/enterprise-enrollment-and-azure-ad-tenants#define-azure-ad-tenants) billing or compliance requirements. 
 
 ### Apply security best practices for Self-hosted runtime VMs
 

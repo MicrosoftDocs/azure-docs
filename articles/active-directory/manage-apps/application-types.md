@@ -1,7 +1,7 @@
 ---
-title: Viewing apps using your tenant for identity management
+title: Reasons why applications appear in your tenant.
 titleSuffix: Azure AD
-description: Understand how to view all applications using your Azure Active Directory tenant for identity management.
+description: Understand the reasons why applications appear in the all applications list in your tenant.
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -9,18 +9,18 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/07/2021
+ms.date: 12/06/2021
 ms.author: davidmu
 ms.reviewer: alamaral
 ---
 
-# Viewing apps using your Azure Active Directory tenant for identity management
+# Reasons why applications appear in my all applications list
 
-The [Quickstart Series on Application Management](view-applications-portal.md) walks you the basics. In it, you learn how to view all of the apps using your Azure AD tenant for identity management. This article dives a bit deeper into the types of apps you'll find.
+The [Quickstart Series on Application Management](view-applications-portal.md) walks you through the basics. In it, you learn how to view all of the apps using your Azure AD tenant for identity management. This article dives a bit deeper into the types of apps you'll find.
 
 ## Why does a specific application appear in my all applications list?
 
-When filtered to **All Applications**, the **All Applications** **List** shows every Service Principal object in your tenant. Service Principal objects can appear in this list in a various ways:
+When filtered to **All Applications**, the **All Applications** **List** shows every Service Principal object in your tenant. Service Principal objects can appear in this list in various ways:
 
 - When you add any application from the application gallery, including:
 

@@ -29,7 +29,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Overview
 
-This tutorial uses Python and the [**azure-search-documents** client library](/python/api/overview/azure/search-documents-readme?view=azure-python) to create a data source, index, indexer, and skillset.
+This tutorial uses Python and the [**azure-search-documents** client library](/python/api/overview/azure/search-documents-readme) to create a data source, index, indexer, and skillset.
 
 The indexer connects to sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index.
 
