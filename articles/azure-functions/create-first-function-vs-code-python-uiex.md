@@ -49,7 +49,7 @@ Before you get started, make sure you have the following requirements in place:
 
     ![Choose Create a new project](./media/functions-create-first-function-vs-code/create-new-project.png)
 
-1. Choose a directory location for your project workspace and choose **Select**.
+1. Choose a directory location for your project workspace and choose **Select**. It is recommended that you create a new folder or choose an empty folder as the project workspace.
 
     > [!NOTE]
     > These steps were designed to be completed outside of a workspace. In this case, do not select a project folder that is part of a workspace.

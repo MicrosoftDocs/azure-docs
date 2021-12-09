@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 04/08/2019
 ---
 # What is a single database in Azure SQL Database?

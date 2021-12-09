@@ -8,7 +8,7 @@ ms.custom:
 
 # Security considerations for Azure Container Instances
 
-This article introduces security considerations for using Azure Container Instances to run container apps. Topics include:
+This article introduces security considerations for using Azure Container Instances to run container applications. Topics include:
 
 > [!div class="checklist"]
 > * **Security recommendations** for managing images and secrets for Azure Container Instances

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: vanto, genemi
+ms.reviewer: kendralittle, vanto, genemi, mathoma
 ms.date: 05/26/2021
 ---
 # Use virtual network service endpoints and rules for servers in Azure SQL Database

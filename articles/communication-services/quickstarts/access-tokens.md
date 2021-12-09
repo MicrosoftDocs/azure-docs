@@ -59,6 +59,10 @@ Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_0000000
 ```
 <!---cSpell:enable --->
 
+## Using identity for monitoring and metrics
+
+The user ID is intended to act as a primary key for logs and metrics collected through Azure Monitor. If you'd like to get a view of all of a specific user's calls, for example, you should set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a singular user. Learn more about [authentication concepts](../concepts/authentication.md), call diagnostics through [log analytics](../concepts/analytics/log-analytics.md), and [metrics](../concepts/metrics.md) available to you.
+
 ## Clean up resources
 
 If you want to clean up and remove a Communication Services subscription, you can delete the resource or resource group. Deleting the resource group also deletes any other resources associated with it. Learn more about [cleaning up resources](./create-communication-resource.md#clean-up-resources).

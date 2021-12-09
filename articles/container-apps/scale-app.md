@@ -138,7 +138,7 @@ The following example shows how to create a CPU scaling rule.
       "template": {
         ...
         "scale": {
-          "minReplicas": "0",
+          "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
             "name": "cpuScalingRule",
@@ -176,7 +176,7 @@ The following example shows how to create a memory scaling rule.
       "template": {
         ...
         "scale": {
-          "minReplicas": "0",
+          "minReplicas": "1",
           "maxReplicas": "10",
           "rules": [{
             "name": "memoryScalingRule",

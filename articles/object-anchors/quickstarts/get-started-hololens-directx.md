@@ -35,6 +35,8 @@ To complete this quickstart, make sure you have:
 * A HoloLens 2 device that is up to date and has [developer mode](/windows/mixed-reality/using-visual-studio#enabling-developer-mode) enabled.
   * To update to the latest release on HoloLens, open the **Settings** app, go to **Update & Security**, and then select **Check for updates**.
 
+## Create an Object Anchors account
+
 [!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 
 [!INCLUDE [Upload your model](../../../includes/object-anchors-quickstart-unity-upload-model.md)]
