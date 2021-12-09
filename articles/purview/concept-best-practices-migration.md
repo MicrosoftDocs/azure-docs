@@ -108,11 +108,11 @@ Below steps are referring to [Purview API documentation](https://docs.microsoft.
 |Task|Description|
 |-------------|-----------------|
 |**Account information**|Maintain Account information by granting access for the admin and/or service principle to the account at root level|
-|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](../../rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](../../rest/api/purview/accountdataplane/collections/get-collection.md)|
-|**Scan rule set**|Create and maintain custom scan rule sets. You need to call [List all custom scan rule sets API](https://docs.microsoft.com/rest/api/purview/scanningdataplane/scan-rulesets/list-all) and get details by calling [Get scan rule set API](https://docs.microsoft.com/rest/api/purview/scanningdataplane/scan-rulesets/get)|
+|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](/rest/api/purview/accountdataplane/collections/get-collection.md)|
+|**Scan rule set**|Create and maintain custom scan rule sets. You need to call [List all custom scan rule sets API](/rest/api/purview/scanningdataplane/scan-rulesets/list-all) and get details by calling [Get scan rule set API](/rest/api/purview/scanningdataplane/scan-rulesets/get)|
 |**Manual classifications**|Get a list of all manual classifications by calling get classifications APIs and get details of each classification|
-|**Resource set rule**|Create and maintain resource set rule. You can call the [Get resource set rule API](https://docs.microsoft.com/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule) to get the rule details|
-|**Data sources**|Call the [Get all data sources API](https://docs.microsoft.com/rest/api/purview/scanningdataplane/scans/list-by-data-source) to list data sources with details. You also have to get the triggers by calling [Get trigger API](https://docs.microsoft.com/rest/api/purview/scanningdataplane/triggers/get-trigger). There is also [Create data sources API](https://docs.microsoft.com/rest/api/purview/scanningdataplane/data-sources/create-or-update) if you need to re-create the sources in bulk in the new account.|
+|**Resource set rule**|Create and maintain resource set rule. You can call the [Get resource set rule API](/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule) to get the rule details|
+|**Data sources**|Call the [Get all data sources API](/rest/api/purview/scanningdataplane/scans/list-by-data-source) to list data sources with details. You also have to get the triggers by calling [Get trigger API](/rest/api/purview/scanningdataplane/triggers/get-trigger). There is also [Create data sources API](/rest/api/purview/scanningdataplane/data-sources/create-or-update) if you need to re-create the sources in bulk in the new account.|
 |**Credentials**|Create and maintain credentials used while scanning. There is no API to extract credentials, so this must be redone in the new account.|
 |**Self-hosted integration runtime (SHIR)**|Get a list of SHIR and get updated keys from the new account then update the SHIRs. This must be done [manually inside the SHIRs' hosts](https://docs.microsoft.com/azure/purview/manage-integration-runtimes#create-a-self-hosted-integration-runtime)|
 |**ADF connections**|Currently an ADF can be connected to one Purview at a time. You must disconnect ADF from failed Purview account and reconnect it to the new account later.|
@@ -134,10 +134,10 @@ Running the scans is the most effective way to get all assets of data sources th
 ### Migrate custom typedefs and custom assets
 
 #### Custom typedefs
-To identify all custom `typedef`, you can use the [get all type definitions API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/types/get-all-type-definitions). This will return each type. You need to identify the custom types in such format as `"serviceType": "<custom_typedef>"`
+To identify all custom `typedef`, you can use the [get all type definitions API](/rest/api/purview/catalogdataplane/types/get-all-type-definitions). This will return each type. You need to identify the custom types in such format as `"serviceType": "<custom_typedef>"`
 
 #### Custom assets
-To export custom assets, you can search those custom assets and pass the proper custom `typedef` via the [discovery API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/discovery/query)
+To export custom assets, you can search those custom assets and pass the proper custom `typedef` via the [discovery API](/rest/api/purview/catalogdataplane/discovery/query)
 
 > [!Note]
 > There is a 100,000 return limit per search result.
@@ -318,11 +318,11 @@ When you re-create the custom entities, you may need to prepare the payload prio
 
 To complete the asset migration, you must remap the relationships. There are three tasks:
 
-1. Call the [relationship API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/relationship/get) to get relationship information between entities by its `guid`
+1. Call the [relationship API](/rest/api/purview/catalogdataplane/relationship/get) to get relationship information between entities by its `guid`
 
 1. Prepare the relationship payload so that there is no hard reference to old `guids` in the old Purview accounts. You need to update those `guids` to the new account's `guids`.
 
-1. Finally, [Create a new relationship between entities](https://docs.microsoft.com/rest/api/purview/catalogdataplane/relationship/create)
+1. Finally, [Create a new relationship between entities](/rest/api/purview/catalogdataplane/relationship/create)
 
 ### Migrate glossary terms
 
@@ -333,7 +333,7 @@ To complete the asset migration, you must remap the relationships. There are thr
 The quickest way to migrate glossary terms is to [export terms to a .csv file](https://review.docs.microsoft.com/azure/purview/how-to-create-import-export-glossary?branch=main). You can do this using the Purview Studio.
 
 #### Using Purview API
-To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.
+To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.
 
 The below sample response will provide the `guid` to use for subsequence API calls:
 
@@ -343,24 +343,24 @@ The below sample response will provide the `guid` to use for subsequence API cal
 
 Once you have the `glossaryGuid`, you can start to migrate the terms via two steps:
 
-1. [Export Glossary Terms As .csv](https://docs.microsoft.com/rest/api/purview/catalogdataplane/glossary/export-glossary-terms-as-csv)
+1. [Export Glossary Terms As .csv](/rest/api/purview/catalogdataplane/glossary/export-glossary-terms-as-csv)
 
-1. [Import Glossary Terms Via .csv](https://docs.microsoft.com/rest/api/purview/catalogdataplane/glossary/import-glossary-terms-via-csv)
+1. [Import Glossary Terms Via .csv](/rest/api/purview/catalogdataplane/glossary/import-glossary-terms-via-csv)
 
 ### Assign classifications to assets
 
 > [!Note]
 > The prerequisite for this step is to have all classifications available in the new account from [Migrate configuration items]() step.
 
-You must call the [discovery API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/discovery/query) to get the classification assignments to assets. This is applicable to all assets. If you have migrated the custom assets, the information about classification assignments is already available in `classifications` property. Another way to get classifications is to [list classification per `guid`](https://docs.microsoft.com/rest/api/purview/catalogdataplane/entity/get-classifications) in the old account.
+You must call the [discovery API](/rest/api/purview/catalogdataplane/discovery/query) to get the classification assignments to assets. This is applicable to all assets. If you have migrated the custom assets, the information about classification assignments is already available in `classifications` property. Another way to get classifications is to [list classification per `guid`](/rest/api/purview/catalogdataplane/entity/get-classifications) in the old account.
 
-To assign classifications to assets, you need to [associate a classification to multiple entities in bulk](https://docs.microsoft.com/rest/api/purview/catalogdataplane/entity/add-classification) via the API.
+To assign classifications to assets, you need to [associate a classification to multiple entities in bulk](/rest/api/purview/catalogdataplane/entity/add-classification) via the API.
 
 ### Assign contacts to assets
 
-If you have extracted asset information from previous steps, the contact details are available from the [discovery API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/discovery/query).
+If you have extracted asset information from previous steps, the contact details are available from the [discovery API](/rest/api/purview/catalogdataplane/discovery/query).
 
-To assign contacts to assets, you need a list of `guids` and identify all `objectid` of the contacts. You can automate this process by iterating through all assets and reassign contacts to all assets using the [Create Or Update Entities API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/entity/create-or-update-entities)
+To assign contacts to assets, you need a list of `guids` and identify all `objectid` of the contacts. You can automate this process by iterating through all assets and reassign contacts to all assets using the [Create Or Update Entities API](/rest/api/purview/catalogdataplane/entity/create-or-update-entities)
 
 ## Next steps
 -  [Create a Purview account](./create-catalog-portal.md)
