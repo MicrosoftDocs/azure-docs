@@ -80,7 +80,7 @@ Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Sto
 
 ## Setup
 
-Begin by signing in to Azure from the CLI.
+Begin by signing in to Azure.
 
 Run the following command, and follow the prompts to complete the authentication process.
 
@@ -764,9 +764,9 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or from the command line. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
 
-Use the following CLI command to view logs on the command line.
+Use the following command to view logs in bash or Powershell.
 
 # [Bash](#tab/bash)
 
@@ -786,7 +786,7 @@ $queryResults.Results
 
 ---
 
-The following output demonstrates the type of response to expect from the CLI command.
+The following output demonstrates the type of response to expect from the command.
 
 ```console
 ContainerAppName_s    Log_s                            TableName      TimeGenerated
