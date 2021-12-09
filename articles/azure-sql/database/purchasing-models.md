@@ -1,7 +1,7 @@
 ---
 title: Purchasing models
 titleSuffix: Azure SQL Database 
-description: Learn about the purchasing models that are available for Azure SQL Database and Azure SQL Managed Instance - the vCore purchasing model, and the DTU purchasing model.  
+description: Learn about the purchasing models that are available for Azure SQL Database: the vCore purchasing model and the DTU purchasing model.  
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
@@ -13,8 +13,8 @@ ms.author: kendralittle
 ms.reviewer: mathoma
 ms.date: 12/15/2021
 ---
-# Compare vCore and DTU purchasing models (Azure SQL Database)
-[!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb.md)]
+# Compare vCore and DTU purchasing models of Azure SQL Database
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database lets you easily purchase a fully managed platform as a service (PaaS) database engine that fits your performance and cost needs. Depending on the deployment model you've chosen for Azure SQL Database, you can select the purchasing model that works for you:
 
@@ -64,7 +64,7 @@ The following table and chart compare and contrast the vCore-based and the DTU-b
 |vCore-based|This model allows you to independently choose compute and storage resources. The vCore-based purchasing model also allows you to use [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) for SQL Server to save costs.|Customers who value flexibility, control, and transparency|
 ||||  
 
-![Pricing model comparison](./media/purchasing-models/pricing-model.png)
+:::image type="content" source="./media/purchasing-models/pricing-model.png" alt-text="Pricing model comparison" lightbox="./media/purchasing-models/pricing-model.png":::
 
 Want to optimize and save on your cloud spending?
 
@@ -92,7 +92,7 @@ Storage costs are calculated differently based on each purchasing model.
 
 ### DTU storage costs
 
-Since storage is included in the price of the DTU, the price of the DTU reflects the storage costs as is calculated by reads and writes. It's possible to add extra storage in the standard and premium tiers. Long-term backup retention is not included, and is billed separately. 
+Since storage is included in the price of the DTU, the price of the DTU reflects the storage costs as is calculated by reads and writes. It's possible to add extra storage in the standard and premium tiers. See the [Azure SQL Database pricing options](https://azure.microsoft.com/pricing/details/sql-database/single/) for details on provisioning extra storage. [Long-term backup retention](long-term-retention-overview.md) is not included, and is billed separately. 
 
 ## vCore storage costs 
 

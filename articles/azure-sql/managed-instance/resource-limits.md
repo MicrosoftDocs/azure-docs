@@ -124,7 +124,7 @@ Find more information about the [resource limits in SQL Managed Instance pools i
 
 The following factors affect the amount of storage used for data and log files, and apply to general purpose and business critical tiers. 
 
-- Each compute size supports a maximum data size, with a default of 32 GB.
+- Each compute size supports a maximum data size, with a default of 16 GB. For more information on resource limits in Azure SQL Managed Instance, see [resource-limits.md].
 - When you configure maximum data size, an additional 30 percent of storage is automatically added for log files.
 - You can select any maximum data size between 1 GB and the supported storage size maximum, in 1 GB increments.
 - In the general purpose service tier, `tempdb` uses local SSD storage, and this storage cost is included in the vCore price.

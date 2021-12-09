@@ -12,10 +12,10 @@ ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
 ms.date: 12/15/2021
 ---
-# DTU-based purchase model overview 
+# DTU-based purchasing model overview 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Service tiers in the DTU-based purchase model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchase model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/azure-sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
+Service tiers in the DTU-based purchasing model are differentiated by a range of compute sizes with a fixed amount of included storage, fixed retention period for backups, and fixed price. All service tiers in the DTU-based purchasing model provide flexibility of changing compute sizes with minimal [downtime](https://azure.microsoft.com/support/legal/sla/azure-sql-database); however, there is a switch over period where connectivity is lost to the database for a short amount of time, which can be mitigated using retry logic. Single databases and elastic pools are billed hourly based on service tier and compute size.
 
 
 > [!NOTE]

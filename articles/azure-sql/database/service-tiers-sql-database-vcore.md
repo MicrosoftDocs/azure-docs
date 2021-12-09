@@ -73,7 +73,9 @@ For information on selecting a service tier for your particular workload, see th
 
 Compute tier options in the vCore model include the provisioned and serverless compute tiers.
 
-The **provisioned compute tier** provides a specific amount of compute resources that are continuously provisioned independent of workload activity, and bills for the amount of compute provisioned at a fixed price per hour. The [serverless compute tier](serverless-tier-overview.md) auto-scales compute resources based on workload activity, and bills for the amount of compute used per second.
+- While the **provisioned compute tier** provides a specific amount of compute resources that are continuously provisioned independent of workload activity, the **serverless compute tier** auto-scales compute resources based on workload activity. 
+
+- While the **provisioned compute tier** bills for the amount of compute provisioned at a fixed price per hour, the **serverless compute tier** bills for the amount of compute used, per second.
 
 
 ## Hardware generations
@@ -209,7 +211,7 @@ If you need DC-series in a currently unsupported region, [submit a support ticke
 
 ## Compute and memory 
 
-The following table compares compute and  memroy between the different generations and compute tiers: 
+The following table compares compute and memory between the different generations and compute tiers: 
 
 |Hardware generation  |Compute  |Memory  |
 |:---------|:---------|:---------|

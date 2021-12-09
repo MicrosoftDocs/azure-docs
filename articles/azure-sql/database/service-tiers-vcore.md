@@ -74,7 +74,7 @@ The following factors affect the amount of storage used for data and log files, 
 > [!IMPORTANT]
 > In the general purpose and business critical tiers, you are charged for the maximum storage size configured for a database, elastic pool, or managed instance. In the Hyperscale tier, you are charged for the allocated data storage.
 
-To monitor the current allocated and used data storage size in SQL Database, use *allocated_data_storage* and *storage* Azure Monitor [metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) respectively. To monitor the current allocated and used storage size of individual data and log files in a database using T-SQL, use the [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) view and the [FILEPROPERTY(... , 'SpaceUsed')](/sql/t-sql/functions/fileproperty-transact-sql) function.
+To monitor the current allocated and used data storage size in SQL Database, use the *allocated_data_storage* and *storage* Azure Monitor [metrics](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserversdatabases) respectively. To monitor the current allocated and used storage size of individual data and log files in a database using T-SQL, use the [sys.database_files](/sql/relational-databases/system-catalog-views/sys-database-files-transact-sql) view and the [FILEPROPERTY(... , 'SpaceUsed')](/sql/t-sql/functions/fileproperty-transact-sql) function.
 
 > [!TIP]
 > Under some circumstances, you may need to shrink a database to reclaim unused space. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
