@@ -23,11 +23,12 @@ You can choose the required security providers to protect and govern your networ
 
 Using Firewall Manager in the Azure portal, you can either create a new secured virtual hub, or convert an existing virtual hub that you previously created using Azure Virtual WAN.
 
-## Gated Public Preview
+## Gated public preview   
+
 The below features are currently in gated public preview
 | Feature | Description |
 | ---------- | --------- |
-| Routing Intent and Policies enabling Inter-hub security | This feature allows customers to configure to configure internet-bound, private or inter-hub traffic flow route through the Azure Firewall. Please review [Routing Intent and Policies](https://docs.microsoft.com/en-us/azure/virtual-wan/how-to-routing-policies) to learn more. |
+| Routing Intent and Policies enabling Inter-hub security | This feature allows customers to configure internet-bound, private or inter-hub traffic flow route through the Azure Firewall. Please review [Routing Intent and Policies](../articles/virtual-wan/how-to-routing-policies.md) to learn more. |
 
 ## Next steps
 
