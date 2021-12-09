@@ -163,7 +163,19 @@ ALTER AVAILABILITY GROUP [AzureAG]   GRANT CREATE ANY DATABASE;
 GO 
 ```
 
-Finally, create a listener (**AzureAG_LST**) for your target availability group (**AzureAG**). If you deployed your SQL Server VMs to multiple subnets, [create your listener](../../virtual-machines/windows/availability-group-manually-configure-tutorial-multi-subnet.md#create-availability-group). If you deployed your SQL Server VMs to a single subnet, configure either an [Azure Load Balancer](../../virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md), or a [distributed network name](../../virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) for your listener. 
+Finally, create a listener (**AzureAG_LST**) for your target availability group (**AzureAG**). If you deployed your SQL Server VMs to multiple subnets, create your listener using Transact-SQL. If you deployed your SQL Server VMs to a single subnet, configure either an [Azure Load Balancer](../../virtual-machines/windows/availability-group-vnn-azure-load-balancer-configure.md), or a [distributed network name](../../virtual-machines/windows/availability-group-distributed-network-name-dnn-listener-configure.md) for your listener. 
+
+To create your listener, run this script on the primary replica of the availability group in Azure. 
+
+```sql
+ALTER AVAILABILITY GROUP [AzureAG]
+ADD LISTENER N'AzureAG_LST' (
+WITH IP
+( (N'<primary replica's secondary ip >', N'<primary mask>'), (N'<secondary replica's secondary ip>', N'<secondary mask>') )
+, PORT=<port number you set>);
+GO
+```
+
 
 
 ## Create distributed AG 
