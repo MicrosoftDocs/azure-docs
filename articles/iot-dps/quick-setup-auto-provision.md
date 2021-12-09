@@ -8,7 +8,7 @@ ms.date: 08/06/2021
 ms.topic: quickstart
 ms.service: iot-dps
 services: iot-dps
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ---
 
 # Quickstart: Set up the IoT Hub Device Provisioning Service with the Azure portal

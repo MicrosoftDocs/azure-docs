@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 07/01/2021
+ms.date: 11/23/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -116,13 +116,11 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 ## Limitations
 
-When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words, your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
-
-You can connect up to 100 Private Endpoints to a particular Web App.
-
-Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
-
-FTP access is provided through the inbound public IP address. Private Endpoint does not support FTP access to the Web App.
+* When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words, your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
+* You can connect up to 100 Private Endpoints to a particular Web App.
+* Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
+* FTP access is provided through the inbound public IP address. Private Endpoint does not support FTP access to the Web App.
+* IP-Based SSL is not supported with Private Endpoints.
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 

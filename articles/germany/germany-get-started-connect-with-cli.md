@@ -13,7 +13,7 @@ ms.custom: bfdocs, devx-track-azurecli
 
 [!INCLUDE [closureinfo](../../includes/germany-closure-info.md)]
 
-To use the Azure command-line interface (Azure CLI), you need to connect to Azure Germany instead of global Azure. You can use Azure CLI to manage a large subscription through scripts or to access features that are not currently available in the Azure portal. If you have used Azure CLI in global Azure, it's mostly the same.  
+To use the Azure CLI, you need to connect to Azure Germany instead of global Azure. You can use the Azure CLI to manage a large subscription through scripts or to access features that are not currently available in the Azure portal. If you have used Azure CLI in global Azure, it's mostly the same.
 
 ## Azure CLI
 There are multiple ways to [install the Azure CLI](/cli/azure/install-az-cli2).  

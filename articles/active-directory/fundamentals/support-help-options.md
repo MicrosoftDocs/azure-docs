@@ -1,7 +1,6 @@
 ---
 title: Support and help options for Azure Active Directory
 description: Learn where to get help and find answers to your questions as you build and configure identity and access management (IAM) solutions that integrate with Azure Active Directory (Azure AD).
-services: active-directory
 author: CelesteDG
 manager: CelesteDG
 

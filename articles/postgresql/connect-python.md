@@ -4,7 +4,7 @@ description: This quickstart provides Python code samples that you can use to co
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devcenter, devx-track-python
+ms.custom: mvc, devcenter, devx-track-python, mode-other
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020

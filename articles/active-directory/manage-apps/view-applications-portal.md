@@ -13,6 +13,7 @@ ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: arvinh
 # Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
+ms.custom: contperf-fy22q2
 ---
 
 # Quickstart: View enterprise applications
@@ -63,7 +64,7 @@ Select options according to what you're looking for:
 
 ## Clean up resources
 
-If you created a test application named **Azure AD SAML Toolkit 1** that was used throughout the quickstarts, you can consider deleting it now to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you created a test application named **Azure AD SAML Toolkit 1** that was used throughout the quickstarts, you can consider deleting it now to clean up your tenant. 
 
 ## Next steps
 

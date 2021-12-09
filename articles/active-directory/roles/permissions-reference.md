@@ -658,7 +658,7 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/devices/memberOf/read | Read device memberships |
 > | microsoft.directory/devices/registeredOwners/read | Read registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/read | Read registered users of devices |
-> | microsoft.directory/directoryRoles/standard/read | Update basic properties in Azure AD roles |
+> | microsoft.directory/directoryRoles/standard/read | Read basic properties in Azure AD roles |
 > | microsoft.directory/directoryRoles/eligibleMembers/read | Read the eligible members of Azure AD roles |
 > | microsoft.directory/directoryRoles/members/read | Read all members of Azure AD roles |
 > | microsoft.directory/domains/standard/read | Read basic properties on domains |

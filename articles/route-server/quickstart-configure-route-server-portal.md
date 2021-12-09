@@ -7,6 +7,7 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/08/2021
 ms.author: duau
+ms.custom: mode-portal
 ---
 
 # Quickstart: Create and configure Route Server using the Azure portal

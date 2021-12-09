@@ -49,7 +49,7 @@ Note: This step can be skipped if you already have an AKS cluster.
 ## Create a service principal and grant permission to Synapse workspace
 
 ```bash
-az ad sp create-for-rbac --name <service_principal_name>
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor
 ```
 
 The result should look like:

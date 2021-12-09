@@ -1,13 +1,10 @@
 ---
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
-author: memildin
-ms.author: memildin
-ms.date: 11/09/2021
 ms.topic: quickstart
-ms.service: defender-for-cloud
-manager: rkarlin
+ms.date: 11/24/2021
 zone_pivot_groups: connect-aws-accounts
+ms.custom: mode-other
 ---
 #  Connect your AWS accounts to Microsoft Defender for Cloud
 
@@ -24,7 +21,7 @@ To protect your AWS-based resources, you can connect an account with one of two 
 - **Environment settings page (in preview)** (recommended) - This preview page provides a greatly improved, simpler, onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your AWS resources.
 
     - **Defender for Cloud's CSPM features** extend to your AWS resources. This agentless plan assesses your AWS resources according to AWS-specific security recommendations and these are included in your secure score. The resources will also be assessed for compliance with built-in standards specific to AWS (AWS CIS, AWS PCI DSS, and AWS Foundational Security Best Practices). Defender for Cloud's [asset inventory page](asset-inventory.md) is a multi-cloud enabled feature helping you manage your AWS resources alongside your Azure resources.
-    - **Microsoft Defender for Kubernetes** extends its container threat detection and advanced defenses to your **Amazon EKS Linux clusters**.
+    - **Microsoft Defender for Containers** extends the container threat detection and advanced defenses of [Defender for Kubernetes](defender-for-kubernetes-introduction.md) to your **Amazon EKS clusters**.
     - **Microsoft Defender for servers** brings threat detection and advanced defenses to your Windows and Linux EC2 instances. This plan includes the integrated license for Microsoft Defender for Endpoint, security baselines and OS level assessments, vulnerability assessment scanning, adaptive application controls (AAC), file integrity monitoring (FIM), and more.
 
 This screenshot shows AWS accounts displayed in Defender for Cloud's [overview dashboard](overview-page.md).
@@ -39,7 +36,7 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 |Aspect|Details|
 |----|:----|
 |Release state:|Preview.<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]|
-|Pricing:|The CSPM plan is free.<br>The Defender for Kubernetes plan is free during the preview. After which, it will be billed at the same price as the Defender for Kubernetes plan for Azure resources.<br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the Defender for servers plan is billed at the same price as the Defender for servers plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
+|Pricing:|The **CSPM plan** is free.<br>The **Defender for Containers** plan is free during the preview. After which, it will be billed at the same price as the Defender for Kubernetes plan for Azure resources.<br>For every AWS machine connected to Azure with [Azure Arc-enabled servers](../azure-arc/servers/overview.md), the Defender for servers plan is billed at the same price as the [Microsoft Defender for servers](defender-for-servers-introduction.md) plan for Azure machines. If an AWS EC2 doesn't have the Azure Arc agent deployed, you won't be charged for that machine.|
 |Required roles and permissions:|**Owner** on the relevant Azure subscription<br>**Contributor** can also connect an AWS account if an owner provides the service principal details (required for the Defender for servers plan)|
 |Clouds:|:::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/no-icon.png"::: National (Azure Government, Azure China 21Vianet)|
 |||
@@ -84,7 +81,7 @@ Follow the steps below to create your AWS cloud connector.
 
     - To extend Defender for Servers coverage to your AWS EC2, set the **Servers** plan to **On** and edit the configuration as required. 
 
-    - To extend Defender for Kubernetes coverage to your AWS EKS Linux clusters, set the **Containers** plan to **On** and edit the configuration as required.
+    - For Defender for Kubernetes to protect your AWS EKS clusters, Azure Arc-enabled Kubernetes and the Defender extension should be installed. Set the **Containers** plan to **On**, and use the dedicated Defender for Cloud recommendation to deploy the extension (and Arc, if necessary) as explained in [Protect Amazon Elastic Kubernetes Service clusters](defender-for-kubernetes-introduction.md#protect-amazon-elastic-kubernetes-service-clusters).
 
 1. Complete the setup:
     1. Select **Next: Configure access**.
@@ -256,14 +253,12 @@ To view all the active recommendations for your resources by resource type, use 
 
 ### What operating systems for my EC2 instances are supported?
 
-Supported OS for automatic onboarding to Azure Arc for AWS Machines
+For a list of the AMIs with the SSM Agent preinstalled see [this page in the AWS docs](https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent-technical-details.html#ami-preinstalled-agent).
 
-- Ubuntu 16.04 - SSM Agent is preinstalled, by default
-- Ubuntu 18.04 - SSM Agent is preinstalled, by default
-- Windows server - SSM Agent is preinstalled, by default
-- CentOS Linux 7 – SSM should be installed manually or onboard separately
-- SUSE Linux Enterprise Server (SLES) 15 (x64) - SSM should be installed manually or onboarded separately
-- Red Hat Enterprise Linux (RHEL) 7 (x64) - SSM should be installed manually or onboarded separately
+For other operating systems, the SSM Agent should be installed manually using the following instructions:
+
+- [Install SSM Agent for a hybrid environment (Windows)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-win.html)
+- [Install SSM Agent for a hybrid environment (Linux)](https://docs.aws.amazon.com/systems-manager/latest/userguide/sysman-install-managed-linux.html)
 
 
 ## Next steps

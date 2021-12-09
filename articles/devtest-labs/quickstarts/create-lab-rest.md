@@ -4,6 +4,7 @@ description: In this quickstart, you create a lab in Azure DevTest Labs by using
 ms.topic: quickstart
 ms.date: 10/27/2021
 # Customer intent: As an administrator, I want to set up a lab so that my developers have a test environment.
+ms.custom: mode-other
 ---
 
 # Quickstart: Create a lab in Azure DevTest Labs using Azure REST API
@@ -18,7 +19,7 @@ Get started with Azure DevTest Labs by using the Azure REST API. Azure DevTest L
 
 ## Prepare request body
 
-Prepare the [request body](/rest/api/dtl/labs/create-or-update.md#request-body) to be consumed by the REST call.
+Prepare the [request body](/rest/api/dtl/labs/create-or-update#request-body) to be consumed by the REST call.
 
 Copy and paste the following JSON syntax into a file called `body.json`. Save the file on your local machine or in an Azure storage account.
 

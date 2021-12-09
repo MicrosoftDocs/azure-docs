@@ -3,7 +3,7 @@ title: Create a dual-protocol volume for Azure NetApp Files | Microsoft Docs
 description: Describes how to create a volume that uses the dual protocol (NFSv3 and SMB, or NFSv4.1 and SMB) with support for LDAP user mapping.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Create a dual-protocol volume for Azure NetApp Files
 

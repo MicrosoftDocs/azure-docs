@@ -11,7 +11,7 @@ ms.author: trbye
 | C# <sup>1</sup> | Windows, Linux, macOS, Mono, Xamarin.iOS, Xamarin.Mac, Xamarin.Android, UWP, Unity | [.NET SDK](/dotnet/api/overview/azure/cognitiveservices/client/speechservice) |
 | C++ | Windows, Linux, macOS | [C++ SDK](/cpp/cognitive-services/speech/)      |
 | Go  | Linux | [Go SDK](https://github.com/Microsoft/cognitive-services-speech-sdk-go) |
-| Java <sup>2</sup> | Android, Windows, Linux, macOS | [Java SDK](/java/api/com.microsoft.cognitiveservices.speech) |
+| Java | Android, Windows, Linux, macOS | [Java SDK](/java/api/com.microsoft.cognitiveservices.speech) |
 | JavaScript | Browser, Node.js | [JavaScript SDK](/javascript/api/microsoft-cognitiveservices-speech-sdk/) |
 | Objective-C / Swift | iOS, macOS | [Objective-C SDK](/objectivec/cognitive-services/speech/) |
 | Python | Windows, Linux, macOS | [Python SDK](/python/api/azure-cognitiveservices-speech/) |

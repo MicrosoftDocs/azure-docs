@@ -3,7 +3,7 @@ title: Create an SMB volume for Azure NetApp Files | Microsoft Docs
 description: This article shows you how to create an SMB3 volume in Azure NetApp Files. Learn about requirements for Active Directory connections and Domain Services.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Create an SMB volume for Azure NetApp Files
 
@@ -161,7 +161,7 @@ You can set permissions for a file or folder by using the **Security** tab of th
 
 ## Next steps  
 
-* [Mount or unmount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
+* [Mount a volume for Windows or Linux virtual machines](azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Configure ADDS LDAP over TLS for Azure NetApp Files](configure-ldap-over-tls.md) 
 * [Enable Continuous Availability on existing SMB volumes](enable-continuous-availability-existing-SMB.md)

@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, logicappspm
 ms.topic: quickstart
-ms.custom: mvc, devx-track-azurecli, contperf-fy21q2
+ms.custom: mvc, devx-track-azurecli, contperf-fy21q2, mode-other
 ms.date: 05/25/2021
 ---
 

@@ -1,5 +1,5 @@
 ---
-title: Pay your bill for Microsoft Azure
+title: Pay your Microsoft Customer Agreement Azure bill
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
 author: banders
@@ -8,11 +8,11 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/28/2021
+ms.date: 12/06/2021
 ms.author: banders
 ---
 
-# How to pay your bill for Microsoft Azure
+# Pay your Microsoft Customer Agreement Azure bill
 
 This article applies to customers with a Microsoft Customer Agreement (MCA).
 
