@@ -45,7 +45,12 @@ With this release, the availability and presentation of Defender for Kubernetes 
 
 The new plan is free for the month of December 2021. For the potential changes to the billing from the old plans to Defender for Containers, and for more details on the benefits introduced with this plan, see [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317).
 
-Learn more in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md).
+For more information, see:
+
+- [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
+- [Enable Microsoft Defender for Containers](defender-for-containers-enable.md)
+- [Introducing Microsoft Defender for Containers - Microsoft Tech Community](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317)
+- [Microsoft Defender for Containers | Defender for Cloud in the Field #3 - YouTube](https://www.youtube.com/watch?v=KeH0a3enLJ0&t=201s)
 
 
 ### New alerts for Microsoft Defender for Storage released for general availability (GA)
