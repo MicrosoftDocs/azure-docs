@@ -37,7 +37,7 @@ For more information, see [set active scription](/cli/azure/account#az_account_s
 
 ### Run the script
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-33":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-33":::
 
 ### Clean up deployment
 
