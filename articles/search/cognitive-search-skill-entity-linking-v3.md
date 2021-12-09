@@ -48,7 +48,7 @@ Parameter names are case-sensitive and are all optional.
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
-| `entities` | An array of complex types that contains the following fields: <ul><li>name (The actual entity name as it appears in the text)</li> <li>id </li> <li>language (The language of the text as determined by the skill)</li> <li>url (The linked url to this entity)</li> <li>bingId (The bingId for this linked entity)</li> <li>dataSource (The data source associated with the url) </li> <li>matches (An array of complex types that contains: `text`, `offset`, `length` and `confidenceScore`)</li></ul>|
+| `entities` | An array of complex types that contains the following fields: <ul><li>`"name"` (The actual entity name as it appears in the text)</li> <li>`"id"` </li> <li>`"language"` (The language of the text as determined by the skill)</li> <li>`"url"` (The linked url to this entity)</li> <li>"`bingId`" (The bingId for this linked entity)</li> <li>`"dataSource"` (The data source associated with the url) </li> <li>`"matches"` (An array of complex types that contains: `text`, `offset`, `length` and `confidenceScore`)</li></ul>|
 
 ## Sample definition
 
