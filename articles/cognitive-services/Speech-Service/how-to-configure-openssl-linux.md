@@ -102,7 +102,7 @@ speech_config.set_property_by_name("CONFIG_MAX_CRL_SIZE_KB"", "15000")
 
 ### Bypassing or ignoring CRL failures
 
-If an environment cannot be configured to access an Azure CA location, the Speech SDK will never be able to retrieve an updated CRL. In these circumstances, the SDK can be configured to either continue upon download failures while still logging them or to skip CRL checks entirely.
+If an environment cannot be configured to access an Azure CA location, the Speech SDK will never be able to retrieve an updated CRL. You can configure the SDK either to continue and log download failures or to bypass all CRL checks.
 
 > [!WARNING]
 > CRL checks are a security measure and bypassing them increases susceptibility to attacks. They should not be bypassed without thorough consideration of the security implications and alternative mechanisms for protecting against the attack vectors that CRL checks mitigate.
@@ -149,7 +149,7 @@ speech_config.set_property_by_name("OPENSSL_CONTINUE_ON_CRL_DOWNLOAD_FAILURE", "
 
 ::: zone-end
 
-To completely disable certificate revocation checks, set the property `"OPENSSL_DISABLE_CRL_CHECK"` to `"true"`. When this property is set, no attempt to download or check a CRL will be made in the course of connecting to the Speech Service and no additional verification of a reported TLS certificate will be automatically made.
+To turn off certificate revocation checks, set the property `"OPENSSL_DISABLE_CRL_CHECK"` to `"true"`. Then, while connecting to the Speech Service, there will be no attempt to check or download a CRL and no automatic verification of a reported TLS certificate.
 
 ::: zone pivot="programming-language-csharp"
 
@@ -195,7 +195,7 @@ speech_config.set_property_by_name("OPENSSL_DISABLE_CRL_CHECK", "true")
 
 By default, the Speech SDK will cache a successfully downloaded CRL on disk to improve the initial latency of future connections. When no cached CRL is present or when the cached CRL is expired, a new list will be downloaded.
 
-Some Linux distributions do not have a `TMP` or `TMPDIR` environment variable defined. This will prevent the Speech SDK from caching downloaded CRLs and it to download a new CRL upon every connection. To improve initial connection performance in this situation, you can [create a `TMPDIR` environment variable and set it to the accessible path of a temporary directory.](https://help.ubuntu.com/community/EnvironmentVariables).
+Some Linux distributions do not have a `TMP` or `TMPDIR` environment variable defined. This will prevent the Speech SDK from caching downloaded CRLs and cause it to download a new CRL upon every connection. To improve initial connection performance in this situation, you can [create a `TMPDIR` environment variable and set it to the accessible path of a temporary directory.](https://help.ubuntu.com/community/EnvironmentVariables).
 
 ## Next steps
 
