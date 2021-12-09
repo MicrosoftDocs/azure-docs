@@ -94,7 +94,7 @@ For more information, see:
 * [Create an Azure private DNS zone](../dns/private-dns-getstarted-portal.md)
 
 > [!IMPORTANT]
-> If you plan to use a custom DNS solution for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
+> If you plan to use a custom DNS solution for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates).
 
 ## Limitations
 

@@ -72,9 +72,11 @@ This is a known limitation. For more information, see [Calling SDK overview](./v
 
 ### Enumerating devices isn't possible in Safari when the application runs on iOS or iPadOS
 
-Applications can't enumerate or select microphone or speaker devices (like Bluetooth) on Safari iOS or iPadOS. This is a known limitation of these operating systems.
+Applications can't enumerate or select speaker devices (like Bluetooth) on Safari iOS or iPadOS. This is a known limitation of these operating systems.
 
 If you're using Safari on macOS, your app won't be able to enumerate or select speakers through the Communication Services device manager. In this scenario, you must select devices via the operating system. If you use Chrome on macOS, the app can enumerate or select devices through the Communication Services device manager.
+
+* iOS Safari version: 15.1
 
 ### Device mutes and incoming video stops rendering when certain interruptions occur
 

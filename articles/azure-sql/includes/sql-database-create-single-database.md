@@ -74,7 +74,7 @@ To create a resource group, server, and single database in the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
+You can create an Azure resource group, server, and single database using the Azure CLI. If you don't want to use the Azure Cloud Shell, [install the Azure CLI](/cli/azure/install-azure-cli) on your computer.
 
 To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startip` and `$endip`, replace `0.0.0.0` with the public IP address of the computer you're using.
 

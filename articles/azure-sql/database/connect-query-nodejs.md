@@ -9,7 +9,7 @@ ms.devlang: nodejs
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma, v-masebo
+ms.reviewer: kendralittle, mathoma, v-masebo
 ms.date: 05/19/2021
 ms.custom: seo-javascript-september2019, seo-javascript-october2019, sqldbrb=2, devx-track-js, mode-other
 ---
