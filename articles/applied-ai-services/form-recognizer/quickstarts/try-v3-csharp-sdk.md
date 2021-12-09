@@ -157,7 +157,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ### Select one of the following code samples to copy and paste into your application Program.cs file:
 
-* [**General document**](#general-document-model)
+* [**General document**](#general-documenttabgeneral-document-model)
 
 * [**Layout model**](#layout-model)
 
