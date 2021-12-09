@@ -37,7 +37,7 @@ You can also use API Management's built-in [analytics](howto-use-analytics.md) t
 API Management emits [metrics](../azure-monitor/essentials/data-platform-metrics.md) every minute, giving you near real-time visibility into the state and health of your APIs. The following are the two most frequently used metrics. For a list of all available metrics, see [supported metrics](../azure-monitor/essentials/metrics-supported.md#microsoftapimanagementservice).
 
 * **Capacity** - helps you make decisions about upgrading/downgrading your APIM services. The metric is emitted per minute and reflects the gateway capacity at the time of reporting. The metric ranges from 0-100 calculated based on gateway resources such as CPU and memory utilization.
-* **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. It includes response codes, location, hostname, and errors.
+* **Requests** - helps you analyze API traffic going through your API Management services. The metric is emitted per minute and reports the number of gateway requests with dimensions. The report includes response codes, location, hostname, and errors.
 
 > [!IMPORTANT]
 > The following metrics have been deprecated as of May 2019 and will be retired in August 2023: Total Gateway Requests, Successful Gateway Requests, Unauthorized Gateway Requests, Failed Gateway Requests, Other Gateway Requests. Please migrate to the Requests metric which provides equivalent functionality.
@@ -53,9 +53,9 @@ To access metrics:
 
 1. From the drop-down, select metrics you're interested in. For example, **Requests**.
 1. The chart shows the total number of API calls.
-1. The chart can be filtered using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Category**, enter 500 as the value. Now the chart shows the number of requests that were failed in the API backend.
+1. You can filter the chart using the dimensions of the **Requests** metric. For example, select **Add filter**, select **Backend Response Code Category**, enter 500 as the value. The chart shows the number of requests failed in API backend.
 
-## Set up an alert rule 
+## Set up an alert rule
 
 You can receive [alerts](../azure-monitor/alerts/alerts-metric-overview.md) based on metrics and activity logs. Azure Monitor allows you to [configure an alert](../azure-monitor/alerts/alerts-metric.md) to do the following when it triggers:
 
@@ -78,7 +78,7 @@ To configure an example alert rule based on a request metric:
     1. In **Split by dimensions**, in **Dimension name**, select **Gateway Response Code Category**.
     1. In **Dimension values**, select **4xx**, for client errors such as unauthorized or invalid requests.
     1. In **Alert logic**, specify a **Threshold value** after which the alert should be triggered.
-    1. In **Evaluated based on**, specify **Aggregation granularity** and **Frequency of evaluation** then select **Done**.
+    1. In **Evaluated based on**, specify **Aggregation granularity** and **Frequency of evaluation**, then select **Done**.
 
     :::image type="content" source="media/api-management-howto-use-azure-monitor/threshold-1.png" alt-text="Screenshot of Configure Signal Logic windows":::
 
@@ -94,7 +94,7 @@ To configure an example alert rule based on a request metric:
     curl GET https://apim-hello-world.azure-api.net/conference/speakers HTTP/1.1 
     ```
 
-    An alert will be triggered based on the evaluation period, and email will be sent to admin@contoso.com.
+    An alert triggers based on the evaluation period, and it will send email to admin@contoso.com.
 
     Alerts also appear on the **Alerts** page for the API Management instance.
 
@@ -122,7 +122,7 @@ To view the activity log:
 
 ## Resource logs
 
-Resource logs provide rich information about operations and errors that are important for auditing and troubleshooting purposes. Resource logs differ from activity logs. The activity log provides insights into the operations that were performed on your Azure resources. Resource logs provide insight into operations that your resource performed.
+Resource logs provide rich information about operations and errors that are important for auditing and troubleshooting purposes. Resource logs differ from activity logs. The activity log provides insights into the operations run on your Azure resources. Resource logs provide insight into operations that your resource ran.
 
 To configure resource logs:
 
