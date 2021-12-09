@@ -240,9 +240,9 @@ namespace JobNotification
                 // Specify how often you want to get messages from the queue.
                 Thread.Sleep(TimeSpan.FromSeconds(10));
 
-                foreach (QueueMessage message in _queue.ReceiveMessages(10).Value)
+                foreach (QueueMessage message in _queue.ReceiveMessages(maxMessages: 10).Value)
                 {
-                    using (Stream stream = new MemoryStream(message.Body.ToArray()))
+                    using (Stream stream = message.Body.ToStream())
                     {
                         DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
                         settings.UseSimpleDictionaryFormat = true;
