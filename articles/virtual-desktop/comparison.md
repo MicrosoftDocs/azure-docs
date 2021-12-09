@@ -1,29 +1,32 @@
 ---
-title: Comparing Azure Virtual Desktop and Microsoft 365 comparison - Azure
-description: A comparison of the technical features in Microsoft 365 and Azure Virtual Desktop.
+title: Comparing Azure Virtual Desktop and Windows 365 comparison - Azure
+description: Comparing technical features between Azure virtual Desktop and Windows 365.
 author: Heidilohr
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 12/09/2021
 ms.author: helohr
 manager: femila
 ---
 
-# Comparing Azure Virtual Desktop and Microsoft 365 features
+# Comparing Azure Virtual Desktop and Windows 365 features
 
-Intro text goes here!
+Azure Virtual Desktop and Windows 365 are both possible solutions for customers who want to run apps and desktops remotely. However, it's not always obvious which service to choose. This article will show you a comparison of technical features between the two services to help you choose the right solution for your organization.
 
-## Technical architecture
+## Technical features
+
+The following table describes high-level differences in the technical features between Azure Virtual Desktop and Windows 365.
 
 | Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
 |Design|Designed to be flexible.|Designed to be flexible.|Designed to be simple and easy to use.|Designed to be simple and easy to use.|
-|Type of desktop||Pooled (single and multi-session) desktop|Pooled (single and multi-session) desktop|Personal desktop|Personal desktop|
-|Management|Customer-managed|Customer-managed|Microsoft-managed (except networking)|Fully Microsoft-managed|
-|VM SKUs|Any Azure virtual machine (VM)|Any Azure VM|Multiple optimized options for a range of use cases|Multiple optimized options for a range of use cases|
+|Type of desktop|Pooled (single and multi-session) desktop|Pooled (single and multi-session) desktop|Personal desktop|Personal desktop|
+|Pricing model|Based on your own resource usage|Based on your own resource usage|Fixed per-user pricing|Fixed per-user pricing|
+|Subscription|Customer-managed|Customer-managed|Microsoft-managed (except networking)|Fully Microsoft-managed|
+|VM stock keeping units (SKUs)|Any Azure virtual machine (VM) including graphics processing unit (GPU)-enabled SKUs|Any Azure VM including GPU-enabled SKUs|Multiple optimized options for a range of use cases|Multiple optimized options for a range of use cases|
 |Backup|Azure backup services|Azure backup services|Local redundant storage for disaster recovery|Local redundant storage for disaster recovery|
-|Networking|Customer-managed|Microsoft-managed|Customer-managed|Customer-managed|
-|Identity|Hybrid join, Azure Active Directory (AD) join (preview)|Azure AD join (preview)|Domain join with Active Directory Domain Services (AD DS) or Azure AD DS, Hybrid Azure AD join or Azure AD join (preview)|Domain join (AD DS or Azure AD DS), Hybrid Azure AD join or Azure AD join (preview)|
-|User profiles|Local redundant storage for user profiles|Local redundant storage for user profiles|Local redundant storage for user profiles, or FSLogix profiles that can be stored locally in Azure Files or Azure NetApp Files|Local redundant storage for user profiles, or FSLogix profiles that can be stored locally in Azure Files or Azure NetApp Files|
+|Networking|Customer-managed|Microsoft-managed|Customer-managed|Microsoft-managed|
+|Identity|Domain join with Active Directory Domain Services (AD DS) or Azure AD DS, Hybrid Azure AD join or Azure AD join (preview)|Domain join with AD DS or Azure AD DS, Hybrid Azure AD join or Azure AD join (preview)|Hybrid Join, Azure AD join (Preview)|Azure AD join (can't use AD DS)|
+|User profiles|Azure Files, Azure NetApp Files, or VM-based storage for FSLogix for pooled host pools, and an option for local profiles for personal desktops|Azure Files, Azure NetApp Files, VM-based storage for FSLogix for pooled host pools, and an option for local profiles for personal desktops|Local profiles, offered as software-as-a-service (SaaS)|Local profiles (offered as SaaS)|
 |Operating systems|Windows 10 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise (single session and multi-session) <br>Windows Server 2012 R2, 2016, 2019 (single session and multi-session)<br>Windows 7 Enterprise (single session)|Windows 10 Enterprise (single session)|Windows 10 Enterprise (single session)|
 |Base image|Custom and Microsoft-provided|Custom and Microsoft-provided|Custom and Microsoft-provided|Microsoft-provided only|
 |VM location|[Any Azure region](data-locations.md)|[Any Azure region](data-locations.md)|Most geographies|Most geographies|
@@ -31,35 +34,36 @@ Intro text goes here!
 
 ## Deployment and management
 
-Intro text goes here!
+The following table describes differences deploying and managing Azure Virtual Desktop and Windows 365.
 
 | Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
-|Hybrid (on-premises) or multi-cloud support|Supported with Citrix and VMware cloud integration|Supported with Citrix and VMware cloud integration|Not supported|Not supported|
+|Hybrid (on-premises) or multi-cloud support|Supported with Azure Stack HCI (public preview), Citrix, and VMware|Supported with Azure Stack HCI (public preview), Citrix, and VMware|Unavailable|Unavailable|
+|On-premises connection|Supported by ExpressRoute, VPN, Azure Gateway, and SD-WAN|Supported by ExpressRoute, VPN, Azure Gateway, and SD-WAN|Supported by ExpressRoute, VPN, Azure Gateway, and SD-WAN|Supported by ExpressRoute, VPN, Azure Gateway, and SD-WAN|
 |Management portal|Azure portal (deploy and manage), Microsoft Endpoint Manager (manage only)|Azure portal (deploy and manage), Microsoft Endpoint Manager (manage only)|Microsoft Endpoint Manager|End-user portal|
 |Image management|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management| Microsoft-managed image management only|
 |Screen capture protection|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|
-|Patches|Other Microsoft solutions|Other Microsoft solutions|Microsoft Endpoint Manager|Microsoft Endpoint Manager|
-|Autoscaling|Supported with Azure Logic Apps|Supported with Azure Logic Apps|Not required due to fixed monthly cost|Not required due to fixed monthly cost|
-|Application delivery|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager or custom images|Microsoft Endpoint Manager or custom images|
-|Monitoring|Azure Monitor|Azure Monitor|Endpoint Analytics|Endpoint Analytics|
-|Environment validation|Configured manually with Azure Advisor|Configured manually with Azure Advisor|Built-in network configuration watchdog service|Built-in network configuration watchdog service|
-|App lifecycle management|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|Same as physical PC (MEM, SCCM, MSI, EXE, MSIX, App-V, and so on) with MSIX app attach or partner solutions|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|
+|Updating and patching process|Similar to physical PC|Similar to physical PC|Similar to physical PC|Similar to physical PC|
+|Autoscaling|Supported with the Autoscaling tool (preview)|Supported with the Autoscaling tool (preview)|N/A|N/A|
+|Application delivery|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Same as physical PC|Same as physical PC|
+|Monitoring|Azure Virtual Desktop Insights, powered by Azure Monitor|Azure Virtual Desktop Insights, powered by Azure Monitor|Similar to physical PC|Similar to physical PC|
+|Environment validation|[Required URL check tool](safe-url-list.md)|[Required URL check tool](safe-url-list.md)|Offered as SaaS|Offered as SaaS|
+|App lifecycle management|MEM, SCCM, MSI, EXE, MSIX, App-V, and others with MSIX app attach or partner solutions|MEM, SCCM, MSI, EXE, MSIX, App-V, and others with MSIX app attach or partner solutions|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|Same as physical PC (MEM, SSCM, MSI, EXE, MSIX, App-V, and so on)|
 
 ## User experience
 
-Intro text goes here.
+The following table compares user experience when using Azure Virtual Desktop and Windows 365.
 
 | Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
 |Client|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|
-|Printing|Universal print and print redirection support|Print redirection only|Universal print and print redirection support|Universal print and print redirection support|
-|Protocol|RDP|RDP|RDP|RDP|
+|Printing|Universal Print and print redirection support, network printers|Universal Print and print redirection support, network printers|Universal print and print redirection support|Universal print and print redirection support|
+|Protocol|Remote Desktop Protocol (RDP)|RDP|RDP|RDP|
 |End-user portal capabilities|IT uses the Azure portal to manage deployments|IT uses the Azure portal to manage deployments|User sign in, start VM, troubleshooting, restart, rename and profile reset, VM and disk resizing, OS choice|User sign in, start VM, troubleshooting, restart, rename and profile reset, VM and disk resizing, OS choice|
 
 ## Licensing and pricing
 
-Intro text goes here.
+The following table describes the difference in licensing and pricing costs for both Azure Virtual Desktop and Windows 365.
 
 | Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
