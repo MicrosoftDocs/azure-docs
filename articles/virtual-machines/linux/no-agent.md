@@ -150,7 +150,9 @@ print(f'Response: {resp.status} {resp.reason}')
 
 wireserver_conn.close()
 ```
-#### Bash script ####
+
+#### Bash script
+
 ```
 #!/bin/bash
 
@@ -217,6 +219,7 @@ do
     sleep 5 # sleep to prevent throttling from wire server
 done
 ```
+
 #### Generic steps (if not using Python or Bash)
 
 If your VM doesn't have Python installed or available, you can programmatically reproduce this above script logic with the following steps:
