@@ -23,7 +23,7 @@ When you hit service limitations you will generally receive an HTTP status code 
 - Reduce the frequency of calls.
 - Avoid immediate retries, because all requests accrue against your usage limits.
 
-You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture.md) documentation for [throttling patterns](/azure/architecture/patterns/throttling.md).
+You can find more general guidance on how to set up your service architecture to handle throttling and limitations in the [Azure Architecture](/azure/architecture) documentation for [throttling patterns](/azure/architecture/patterns/throttling).
 
 ## Acquiring phone numbers
 Before trying to acquire a phone number, make sure your subscription meets the [geographic and subscription](./telephony/plan-solution.md) requirements, otherwise you can't purchase a phone number. The below limitations apply to purchasing numbers through the [Phone Numbers SDK](./reference.md) and the [Azure portal](https://portal.azure.com/).
@@ -141,14 +141,14 @@ The following timeouts apply to the Communication Services Calling SDKs:
 For more information about the voice and video calling SDK and service, see the [calling SDK overview](./voice-video-calling/calling-sdk-features.md) page or [known issues](./known-issues.md).
 
 ## Teams Interoperability and Microsoft Graph
-If you are using a Teams interoperability scenario, you will likely end up using some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings.md).  
+If you are using a Teams interoperability scenario, you will likely end up using some Microsoft Graph APIs to create [meetings](/graph/cloud-communications-online-meetings).  
 
-Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling.md) in more detail.
+Each service offered through Microsoft Graph has different limitations; service-specific limits are [described here](/graph/throttling) in more detail.
 
 ### Action to take
 When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the ```Retry-After``` response header. Backing off requests using the ```Retry-After``` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
 
-You can find more information on Microsoft Graph [throttling](/graph/throttling.md) limits in the [Microsoft Graph](/graph/overview.md) documentation.
+You can find more information on Microsoft Graph [throttling](/graph/throttling.md) limits in the [Microsoft Graph](/graph/overview) documentation.
 
 ## Network Traversal
 
