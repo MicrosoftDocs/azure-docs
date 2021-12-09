@@ -122,7 +122,7 @@ The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Ma
 
 16. Under **Effect**, select **Allow** or **Deny**, then click **Next**.
 
-17. In the **JSON** tab on the **Preview**, view the **character count** to see if the policy needs to be split.
+17. In the **JSON** tab on the **Preview** screen, view the **character count** to see if the policy needs to be split.
 
      If **Controller Enabled** displays under the icon, CloudKnox can automatically create the policy in the authorization system because permissions to do so have been granted. 
 
@@ -150,7 +150,7 @@ The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Ma
 
        A green check mark with **Success** displays when the policy has been created, and the task moves to the **Completed** tab.
 
-### How to create a new Role (Azure/GCP/VCENTER)
+### How to create a new role (Azure/GCP/VCENTER)
 
 > [!NOTE]
 > Only users with the **Controller** or **Administrator** role can perform this action.
@@ -213,7 +213,7 @@ The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Ma
 
 17. Under **Effect**, select **Allow** or **Deny**, and then click **Next**.
 
-18. To see if the policy should be split, in the **JSON** tab on the **Preview**screen, view the **character count**.
+18. To see if the policy should be split, in the **JSON** tab on the **Preview** screen, view the **character count**.
 
      - Character count is specific to **AWS only**.
      - **GCP Only:** The **Preview** screen displays **YAML** instead of JSON.
@@ -259,7 +259,8 @@ The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Ma
 
 7. For selected authorization systems, if the data collector has not been given controller privileges, the following message displays: 
 
-   **Note: Only Online/Controller Enabled authorization systems can be submitted for cloning.** 
+   > [!NOTE]
+   > Only Online/Controller Enabled authorization systems can be submitted for cloning.
 
    To clone this role manually, the system administrator can download the script and JSON file. 
 
@@ -452,7 +453,7 @@ The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Ma
 
      When the changes are completed, the following message displays in green at the top of the screen: **Role/Policy template has been successfully Saved**.
 
-### How to use the My Requests tab for Templates
+### How to use the My Requests tab for templates
 
 > [!NOTE]
 > Only users with the Administrator role can view this tab and perform actions.
@@ -558,7 +559,7 @@ The Just Enough Privilege (JEP) Controller at Microsoft CloudKnox Permissions Ma
 
 4. Under **Request OTP Settings**, you can reset the OTP requirement to **On** or **Off** for both **Requests** and **My Requests**.
 
-### Privilege On Demand (POD)
+### Privilege on Demand (POD)
 
 CloudKnox provides a workflow, know as *Privilege on demand (POD)*, for users to ask for additional permissions for a short duration.  CloudKnox provisions the requested permissions for the user when the request approved and automatically deprovisions the permission when the requested duration is exceeded.
 
@@ -815,6 +816,4 @@ The **My Requests** tab  displays details about requests submitted by the curren
 
 6. To view the request details, click **Details**, or click **Cancel** if the request is no longer required.
 
-## Next steps
-
-Links to come.
+<!---## Next steps--->

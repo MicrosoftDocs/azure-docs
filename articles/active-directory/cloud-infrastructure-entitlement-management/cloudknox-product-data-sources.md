@@ -57,7 +57,7 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
 
 6. To hide **Recently Uploaded On** or **Recently Transformed On**, click **Columns**.
 
-### How to use the Deploy Button on the Data Collector page
+### How to use the Deploy button on the Data Collector page
 
 1. Click **Deploy**.
 
@@ -185,6 +185,4 @@ Microsoft CloudKnox Permissions Management's **Data Sources** page collects data
 
      AWS, Azure, GCP, and VCENTER each list their own authorization systems with the total number of licenses associated with each system.
 
-## Next steps
-
-Links to come.
+<!---## Next steps--->

@@ -143,6 +143,4 @@ The Amazon Web Services (AWS), Microsoft Azure (Azure), and Google Cloud Platfor
 
     - To reactivate a role, select the role and then click **Create Role**.
 
-## Next steps
-
-Links to come.
+<!---## Next steps--->

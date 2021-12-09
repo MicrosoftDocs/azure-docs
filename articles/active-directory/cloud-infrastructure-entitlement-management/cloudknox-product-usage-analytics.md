@@ -27,7 +27,7 @@ The CloudKnox Usage Analytics feature contains details about identities, resourc
 - **Access Keys** - Tracks the privilege usage of access keys for a given user.
 - **Serverless Functions** - Tracks assigned privileges and usage of the serverless functions.
 
-For common definitions used in the CloudKnox application, see the [glossary](). 
+For common definitions used in the CloudKnox application, see the glossary. 
 
 ## How to view usage analytics about users
 
@@ -45,7 +45,7 @@ On the **Usage Analytics** tab:
          - To view additional details about the user, click the username. 
 
            Users are denoted with an icon for Security Assertion Markup Language (SAML) users, an icon for Enterprise Directory (ED) user, an icon for local users, and an icon for cross-account users (users from another account). AWS roles, AWS EC2 instances, Azure applications, and Google service accounts are shown with their respective icons. 
-           For more information, see [How to use identity explorer for users](). 
+           For more information, see How to use identity explorer for users. 
 
     - **Domain/Account** - This column displays a domain name for SAML or ED users and displays an account name for local users, AWS roles, AWS  EC2 instances, Azure applications, and Google service accounts.
     - **Privilege Creep Index** (PCI) - Captures the incurred risk of users with access to high-risk privileges. Information is displayed in the following columns:
@@ -71,7 +71,7 @@ On the **Usage Analytics** tab:
 
     -  To expand details about the user, click the **Tags** icon. 
 
-       For more information, see [How to read the information panel for users](). 
+       For more information, see How to read the information panel for users. 
 
 ### How to apply filters for users
 
@@ -245,7 +245,7 @@ There are many filter options on the **Users** screen, including filters by **Au
     1. To save the tag, click **Save**.
     1. To close the **Tag** window, click the **X**.
 
-### Using Predefined Tags
+### Using predefined tags
 
 CloudKnox has the following set of predefined tags that can be applied:
 
@@ -398,7 +398,7 @@ The **Active Resources** dashboard provides a high-level overview of resource de
 
 - **Resource Name** - Provides the name of the resource.
 
-     - To view additional details about the resource, click the resource name. For more information, see [How to use identity explorer for Active Resources]().
+     - To view additional details about the resource, click the resource name. For more information, see How to use identity explorer for Active Resources.
 
        Hovering over the resource name displays the resource ID. Two resources may potentially have the same name, but different IDs.
 
@@ -456,7 +456,7 @@ There are many filter options within the **Active Resources** screen, including 
 
     4. Click **Apply**.
 
-### Using Predefined Tags
+### Using predefined tags
 
 You can apply the following predefined tags in CloudKnox:
 
@@ -484,7 +484,7 @@ You can apply the following predefined tags in CloudKnox:
 
 ### How to view usage analytics about active tasks
 
-#### Dashboard View
+#### Dashboard view
 
 The **Active Tasks** dashboard provides a high-level overview of privileges used by various identities. 
 
@@ -496,12 +496,12 @@ The only tasks listed in this dashboard are those that have been used in the las
 - **Tasks** - This section  displays the number of tasks granted to a user, and the total number of unexecuted and executed tasks based on the authorization system selected. For more information, see [How to apply filters for active tasks](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-active-tasks).
 - **Resources** - This section  displays how many resources have been accessed by users based on the authorization system selected. For more information, see [How to apply filters for active tasks](cloudknox-product-usage-analytics.md#how-to-apply-filters-for-active-tasks).
 
-### Table View
+### Table view
 
 The following components make up the **Active Tasks** table:
 
 - **Task Name** - Provides the name of the task. 
-    - To view additional details about the task, click the task name. For more information, see [How to use identity explorer for Active Tasks](). 
+    - To view additional details about the task, click the task name. For more information, see How to use identity explorer for Active Tasks. 
 
         -  A **Deleted** icon next to the task name means the task is a delete task. 
 
@@ -678,11 +678,11 @@ The only filter option in the **Serverless Functions** screen is **Authorization
 1. To expand the **Authorization systems** menu, click the **Lock** icon on the left side of the page. Then select all applicable consoles. 
 2. To filter by the selection, click **Apply**. 
 
-  The top of the screen displays a list of filters that were applied. 
+    The top of the screen displays a list of filters that were applied.
+3. To remove all filters, click **X**.
 
-3.To remove all filters. click **X**.
 
-### Using Predefined Tags
+### Using predefined tags
 
 You can apply the following set of predefined tags:
 
@@ -692,7 +692,7 @@ You can apply the following set of predefined tags:
 - **ck_primary_owner** - Used for service accounts to indicate the primary owner of the service account.
 - **ck_secondary_owner** - Used for service accounts to indicate the secondary owner of the service account
 
-### How to read Information Panel for serverless functions
+### How to read the Information Panel for serverless functions
 
 - Set your filters and select your Authorization System. Then click the icon at the end of the row to view additional information about the serverless function.
 
@@ -740,7 +740,7 @@ The CloudKnox explorers provide additional information about an identity, includ
 ### How to use the User Explorer
 
 1. To access the **User Explorer**, select an authorization system from the left side panel, select **Groups**, and then select **User**. 
-For more information, see [How to apply filters to users](). 
+For more information, see How to apply filters to users. 
 
 2. Under the **Username** column, click the username to expand details within the last 90 days. The default view is the **User Info** tab.
 3. The **User Info** tab displays the high risk activities performed in the last 90 days with the following details:
@@ -823,7 +823,7 @@ For more information, see [How to apply filters to users]().
             - **No. of Times Logged In** - Displays how many times the user logged in to the access agent.
 7. To view the resources the user has accessed with the following details, click the **Resources** tab:
     - **Resource Name** – Displays the name of the resource affected by the task.
-    - **Resource Type** – Displays the type of resource being touched, for example, iam::role.
+    - **Resource Type** – Displays the type of resource being touched, for example, iam:role.
     - **No. of Times Accessed** – Displays how many times the resource was accessed.
     - **All Tasks** – Displays the number of tasks available to the user total.
     - **High Risk Tasks** – Displays the number of high risk tasks the user has access to total.
@@ -877,7 +877,7 @@ For more information, see [How to apply filters to users]().
 
 1. To access the **Role Explorer**, choose an authorization system. 
 
-2. Select **Groups**, and then select **Role / App / Service a/c**. For more information, see [How to apply filters to users](). 
+2. Select **Groups**, and then select **Role / App / Service a/c**. For more information, see How to apply filters to users. 
 
 3. To expand details within the last 90 days, under the **Username** column, click the username. The default view is the **Role Info** tab.
      
@@ -920,7 +920,7 @@ For more information, see [How to apply filters to users]().
 
 7. To view the resources the role has accessed with the following details, click the **Resource** tab:
     - **Resource Name** – Displays the name of the resource affected by the task performed by the role.
-    - **Resource Type** – Displays the type of resource being touched, for example, iam::policy.
+    - **Resource Type** – Displays the type of resource being touched, for example, iam:policy.
     - **No. of Times Accessed** – Displays how many times the resource was accessed.
     - **All Tasks** – Displays the number of tasks available to the role total.
     - **High Risk Tasks** – Displays the number of high risk tasks the role has access to total.
@@ -938,7 +938,7 @@ For more information, see [How to apply filters to users]().
 
 ### How to use the Resource Explorer
 
-1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. For more information, see [How to apply filters to users](). 
+1. To access the **Resource Explorer**, select **Active Resources** from the  drop-down list, then select an authorization system. **Resource**. For more information, see How to apply filters to users. 
 
 2. To expand details within the last 90 days, under the **Resource Name** column, click the resource. 
 
@@ -1006,13 +1006,13 @@ For more information, see [How to apply filters to users]().
 
 ### How to use the Task Explorer
 
-1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. For more information, see [How to apply filters to users]().
+1. To access the **Task Explorer**, select **Active Tasks** from the  drop-down list, and select an authorization system. For more information, see How to apply filters to users.
 
     - To expand details within the last 90 days, in the **Task Name** column, click the task. 
 2. The default view is the **Activity** tab.The **Activity** tab displays the high risk activities performed in the last 90 days with the following details:
     - **Username** – Displays the name of the user who performed the task.
     - **Resource Name** – Displays the name of the resource in which the task was executed.
-    - **Resource Type** – Displays the type of resource being touched, for example, iam::policy.
+    - **Resource Type** – Displays the type of resource being touched, for example, iam:policy.
     - **Start Date** – Displays when the task was executed.
     - **IP Address** – Displays the IP address of the user, if applicable.
 3. To display details about the users, including the following details, click the **Users** tab:
@@ -1037,7 +1037,7 @@ For more information, see [How to apply filters to users]().
 The **Account Explorer** displays all the identities - users, roles, EC2 instances and Lambda Functions - that can access the selected account from an external account.
 
 1. To access the **Account Explorer**:
-    - To choose an authorization system from the left-side panel, click the **Lock** icon. Select an AWS account. For more information see, [How to apply filters to users](). 
+    - To choose an authorization system from the left-side panel, click the **Lock** icon. Select an AWS account. For more information, see How to apply filters to users. 
       - Under the **Domain/Account** column, click the domain or account name to access **Account Explorer**. The default view is the **Cross Account** **Users** tab.
        - Or, click the **Data Collectors** icon on the top menu. Choose the **Authorization Systems** tab and click the **Name** of any AWS accounts.
 2. The **Cross Account** **Users** tab displays which identities can access the specified account, with the following details:
@@ -1074,8 +1074,5 @@ The **Account Explorer** displays all the identities - users, roles, EC2 instanc
         - To view all the identities from that account can access the specified account, click the icon to the left of the account name.
         - For EC2 instances and Lambda Functions, to view **Role Summary**, which displays the details noted above, click **View** to the right of the identity name.
         - To view a diagram of the ways in which the identity is able to access the specified account and through which role(s), click the identity name.
-        
-        
-## Next steps
 
-Links to come.
+<!---## Next steps--->

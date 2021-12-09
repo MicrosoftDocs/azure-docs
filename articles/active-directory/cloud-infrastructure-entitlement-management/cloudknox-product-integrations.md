@@ -16,6 +16,7 @@ ms.author: v-ydequadros
 
 The Integrations function in the Microsoft CloudKnox Permissions Management application allows you to view subsystems in one place, and to ensure all applications are functioning as one. This provides improved quality and performance as a whole.
 
+## Authorization systems integrated into CloudKnox 
 The following authorization systems are integrated into the CloudKnox application:
 
 - **ServiceNow** - Manages digital workflows for enterprise operations, and the CloudKnox integration allows you to request and approve permissions through the ServiceNow ticketing workflow.
@@ -29,6 +30,4 @@ The following authorization systems are integrated into the CloudKnox applicatio
 
 Refer to the Integration subpages in CloudKnox for information about available authorization systems for integration. 
 
-## Next steps
-
-Links to come.
+<!---## Next steps--->
