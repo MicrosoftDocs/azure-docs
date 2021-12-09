@@ -173,8 +173,8 @@
       href: access-public-endpoints-networking.md
   - name: Security 
     items:
-    - name: Assign built-in Policy    
-      href: policy-definitions-security.md   
+    - name: Assign built-in policy    
+      href: policy-definitions-security.md
   - name: Visualize
     items:
     - name: Embed player widget in a web app
