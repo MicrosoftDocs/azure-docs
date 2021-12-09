@@ -1,5 +1,5 @@
 ---
-title: PII Detection cognitive skill
+title: PPersonally Identifiable Information Detection cognitive skill
 titleSuffix: Azure Cognitive Search
 description: Extract and mask personal information from text in an enrichment pipeline in Azure Cognitive Search.
 
@@ -13,7 +13,7 @@ ms.date: 12/09/2021
 
 # Personally Identifiable Information (PII) Detection cognitive skill
 
-The **PII Detection** skill extracts personal information from an input text and gives you the option of masking it. This skill uses the [Personally Identifiable Information (PII) detection](../cognitive-services/language-service/personally-identifiable-information/overview.md) machine learning models provided by [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md).
+The **Personally Identifiable Information (PII) Detection** skill extracts personal information from an input text and gives you the option of masking it. This skill uses the [Personally Identifiable Information (PII) detection](../cognitive-services/language-service/personally-identifiable-information/overview.md) machine learning models provided by [Azure Cognitive Services for Language](../cognitive-services/language-service/overview.md).
 
 > [!NOTE]
 > This skill is bound to Cognitive Services and requires [a billable resource](cognitive-search-attach-cognitive-services.md) for transactions that exceed 20 documents per indexer per day. Execution of built-in skills is charged at the existing [Cognitive Services pay-as-you go price](https://azure.microsoft.com/pricing/details/cognitive-services/).
@@ -52,7 +52,7 @@ Parameters are case-sensitive and all are optional.
 
 | Output name      | Description                   |
 |---------------|-------------------------------|
-| `piiEntities` | An array of complex types that contains the following fields: <ul><li>text (The actual PII as extracted)</li> <li>type</li><li>subType</li><li>score (Higher value means it's more likely to be a real entity)</li><li>offset (into the input text)</li><li>length</li></ul> </br> See [Supported Personally Identifiable Information (PII) entity categories](../cognitive-services/language-service/personally-identifiable-information/concepts/entity-categories.md) for the full list.  |
+| `piiEntities` | An array of complex types that contains the following fields: <ul><li>text (The actual personally identifiable information as extracted)</li> <li>`"type"`</li><li>`"subType"`</li><li>`"score"` (Higher value means it's more likely to be a real entity)</li><li>`"offset"` (into the input text)</li><li>`"length"`</li></ul> </br> See [Supported Personally Identifiable Information (PII) entity categories](../cognitive-services/language-service/personally-identifiable-information/concepts/entity-categories.md) for the full list.  |
 | `maskedText` | If `maskingMode` is set to a value other than `none`, this output will be the string result of the masking performed on the input text as described by the selected `maskingMode`.  If `maskingMode` is set to `none`, this output will not be present. |
 
 ## Sample definition
