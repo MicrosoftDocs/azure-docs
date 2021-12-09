@@ -36,6 +36,14 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 * Azure CLI 
 * arcdata extension for Azure CLI.
 
+In addition, because this deployment is on Azure Kubernetes Service, you need the following additional extensions:
+
+* connectedk8s
+* k8sconfiguration
+* k8s-configuration
+* k8s-extension
+
+
 ## Access your Kubernetes cluster
 
 After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
@@ -128,7 +136,7 @@ After the connect command completes successfully, you can view the shadow object
 
 ## Create the data controller
 
-The next step is to create the data controller in directly connected mode via the Azure portal.
+The next step is to create the data controller in directly connected mode via the Azure portal. Use the same subscription and resource group that you used to [create a cluster](#create-a-cluster).
 
 1. In the portal, locate the resource group from the previous step.
 1. Select the **Kubernetes - Azure Arc** object name.
@@ -136,7 +144,7 @@ The next step is to create the data controller in directly connected mode via th
 1. Select **Azure Arc data controller**.
 1. Click **Create**.
 1. Specify a name for the data controller.
-1. Specify a custom location (namespace).
+1. Specify a custom location (namespace). Use the same value that you set in the [previous step](#create-a-cluster).
 1. For **Kubernetes configuration template**, specify *azure-arc-aks-premium-storage* because this example uses an AKS cluster. 
 1. Set a user name and password for the metrics and log services. 
 
@@ -144,7 +152,7 @@ The next step is to create the data controller in directly connected mode via th
 
 Follow the instructions in the portal to complete the specification and deploy the data controller.
 
-If you want to view that data controllers are present, you can use the following command in the Azure CLI to get all the data controllers: 
+To view data controllers, run following command: 
 
 ```console
 kubectl get datacontrollers -A
