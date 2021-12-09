@@ -76,7 +76,7 @@ Request query parameters:
  
 | Name           | Description                        | Mandatory |
 |----------------|------------------------------------|-----------|
-| SubscriptionId | Cluster's subscription id          | Yes       |
+| SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
 | ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
@@ -548,7 +548,7 @@ https://management.azure.com/subscriptions/{{SubscriptionId}}/resourcegroups/{{R
 
 | Name           | Description                        | Mandatory |
 |----------------|------------------------------------|-----------|
-| SubscriptionId | Cluster's subscription id          | Yes       |
+| SubscriptionId | Cluster's subscription ID          | Yes       |
 | ResourceGroup  | Cluster's resource group           | Yes       |
 | ClusterName    | Cluster's name                     | Yes       |
 | ApiVersion     | API version, must be >= 2021-07-01 | Yes       |
