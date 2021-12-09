@@ -10,7 +10,7 @@ ms.custom: sqldbrb=1, contperf-fy21q3-portal, mode-other
 ms.topic: quickstart
 author: Ninarn
 ms.author: ninarn
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/01/2021
 ---
 # Quickstart: Use the Azure portal's query editor (preview) to query an Azure SQL Database

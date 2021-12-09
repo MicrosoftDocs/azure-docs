@@ -1,6 +1,6 @@
 ---
-title: Azure Active Directory SSO integration with F5 BIG-IP for header-based authentication
-description: Learn how to integrate F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory SSO for header-based authentication
+title: Configure F5 BIG-IP Access Policy Manager for header-based SSO
+description: Learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory SSO for header-based authentication
 services: active-directory
 author: gargi-sinha
 manager: martinco
@@ -13,11 +13,11 @@ ms.author: gasinh
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate Azure Active Directory Single sign-on with F5 BIG-IP for header-based authentication
+# Tutorial: Configure F5 BIG-IP’s Access Policy Manager for header-based SSO
 
-In this tutorial, you'll learn how to integrate F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications.
+In this tutorial, you'll learn how to configure F5's BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications.
 
-Integrating BIG-IP published applications with Azure AD provides many benefits, including:
+Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
 - Improved Zero trust governance through Azure AD pre-authentication and authorization
 

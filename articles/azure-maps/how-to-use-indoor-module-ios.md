@@ -7,7 +7,6 @@ ms.date: 11/18/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
 ---
 
 # Using indoor maps in the iOS SDK

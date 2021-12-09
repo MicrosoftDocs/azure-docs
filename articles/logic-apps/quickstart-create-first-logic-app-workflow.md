@@ -32,7 +32,7 @@ To create and manage a logic app resource using other tools, review these other 
 
 * [Create and manage logic apps in Visual Studio Code](quickstart-create-logic-apps-visual-studio-code.md)
 * [Create and manage logic apps in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md)
-* [Create and manage logic apps using the Azure Command-Line Interface (Azure CLI)](quickstart-logic-apps-azure-cli.md)
+* [Create and manage logic apps via the Azure CLI](quickstart-logic-apps-azure-cli.md)
 
 <a name="prerequisites"></a>
 

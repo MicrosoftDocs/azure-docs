@@ -2,7 +2,7 @@
 title: Set up Bicep development and deployment environments
 description: How to configure Bicep development and deployment environments
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 12/07/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -31,7 +31,7 @@ If you get an error during installation, see [Troubleshoot Bicep installation](i
 
 ## Deployment environment
 
-After setting up your development environment, you need to install the tools for your deployment environment. To set up a local deployment environment, install the Bicep CLI with [Azure CLI](#azure-cli) or [Azure PowerShell](#azure-powershell). Those steps are shown in the next sections.
+After setting up your development environment, you need to install Bicep CLI for your deployment environment. Depends on whether you want to use [Azure CLI](#azure-cli) or [Azure PowerShell](#azure-powershell), the steps to set up a local deployment environment are different. Those steps are shown in the next sections.
 
 To deploy Bicep files from an Azure Pipeline, see [Integrate Bicep with Azure Pipelines](add-template-to-azure-pipelines.md). To deploy Bicep files through GitHub Actions, see [Deploy Bicep files by using GitHub Actions](deploy-github-actions.md).
 

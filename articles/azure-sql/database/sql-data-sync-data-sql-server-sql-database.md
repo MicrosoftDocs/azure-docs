@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: MaraSteiu 
 ms.author: masteiu
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 09/09/2021
 ---
 # What is SQL Data Sync for Azure?

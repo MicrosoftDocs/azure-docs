@@ -277,7 +277,7 @@ Add a transformation your job by using the [New-AzStreamAnalyticsTransformation]
     "properties":{
         "streamingUnits":1,
         "script":null,
-        "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"
+        "query":" SELECT * INTO BlobOutput FROM IoTHubInput WHERE Temperature > 27"
     }
 }
 ```
