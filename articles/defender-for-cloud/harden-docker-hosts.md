@@ -60,4 +60,4 @@ When vulnerabilities are found, they're grouped inside a single recommendation.
 
 Docker hardening is just one aspect of Defender for Cloud's container security features. 
 
-Learn more [Container security in Defender for Cloud](container-security.md).
+Learn more [Container security in Defender for Cloud](defender-for-containers-introduction.md).
