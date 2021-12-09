@@ -2,34 +2,34 @@
 title: Purview migration best practices
 description: This article provides steps to perform backup and recovery for migration best practices.
 author: hophanms
-ms.author: hophanms
+ms.author: hophan
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 11/03/2021
+ms.date: 12/09/2021
 ---
 
 # Azure Purview backup and recovery for migration best practices  
 
-This article provides guidance on backup and recovery strategy when your organization has Azure Purview in production deployment. You can also use this general guideline to implement account migration. The scope of this article is to cover [manual BCDR methods](https://review.docs.microsoft.com/azure/purview/disaster-recovery) where you could automate using APIs. There is some key information to consider upfront: 
+This article provides guidance on backup and recovery strategy when your organization has Azure Purview in production deployment. You can also use this general guideline to implement account migration. The scope of this article is to cover [manual BCDR methods](disaster-recovery.md) where you could automate using APIs. There is some key information to consider upfront: 
 
 - It is not advisable to back up "scanned" assets' details. You should only back up the curated data such as mapping of classifications and glossaries on assets. The only case when you need to back up assets' details is when you have custom assets via custom `typeDef`.
 
 - The backed-up asset count should be fewer than 100,000 assets. The main driver is that you have to use the search query API to get the assets, which has limitation of 100,000 assets returned. However, if you are able to segment the search query to get smaller number of assets per API call, it is possible to back up more than 100,000 assets.
 
-- The goal is to perform one time migration. If you wish to continuously "sync" assets between two accounts, there are other steps which will not be covered in detail by this article. You have to use [Azure Purview's Event Hub to subscribe and create entities to another account](https://docs.microsoft.com/azure/purview/manage-kafka-dotnet). However, Event Hub only has Atlas information. Azure Purview has added other capabilities such as **glossaries** and **contacts** which won't be available via Event Hub.
+- The goal is to perform one time migration. If you wish to continuously "sync" assets between two accounts, there are other steps which will not be covered in detail by this article. You have to use [Azure Purview's Event Hub to subscribe and create entities to another account](manage-kafka-dotnet.md). However, Event Hub only has Atlas information. Azure Purview has added other capabilities such as **glossaries** and **contacts** which won't be available via Event Hub.
 
-# Intended audience
+## Intended audience
 * Data architecture team
 * Data governance and management teams
 * Data security team
 
-# Identify key requirements
+## Identify key requirements
 Most of enterprise organizations have critical requirement for Azure Purview for capabilities such as Backup, Business Continuity, and Disaster Recovery (BCDR). To get into more details of this requirement, you need to differentiate between Backup, High Availability (HA), and Disaster recovery (DR).
 
 While they are similar, HA will keep the service operational if there was a hardware fault, for example, but it would not protect you if someone accidentally or deliberately deleted all the records in your database. For that, you may need to restore the service from a backup. 
  
-## Backup 
+### Backup 
 You may need to create regular backups from a Purview account and use a backup in case a piece of data or configuration is accidentally or deliberately deleted from the Purview account by the users.
 
 The backup should allow saving a point in time copy of the following configurations from the Purview account:
@@ -54,10 +54,10 @@ There are three main requirements to take into consideration:
 * **Recovery Point Objective (RPO)** – This defines the acceptable amount of data loss that is ok following a disaster. Normally this is expressed as a timeframe in hours or minutes.
 * **Recovery Level Object (RLO)** – This defines the granularity of the data being restored. It could be a SQL server, a set of databases, tables, records, etc.
 
-## High Availability
+### High Availability
 In computing, the term availability is used to describe the period of time when a service is available, and the time required by a system to respond to a request made by a user. For Purview, high availability means ensuring that Purview instances are available in the case of a problem that is local to a data center or single region in the cloud region.
 
-### Measuring Availability
+#### Measuring Availability
 Availability is often expressed as a percentage indicating how much uptime is expected from a particular system or component in a given period of time, where a value of 100% would indicate that the system never fails. 
 
 These values are calculated based on several factors, including both scheduled and unscheduled maintenance periods, and the time to recover from a possible system failure.
@@ -67,22 +67,22 @@ These values are calculated based on several factors, including both scheduled a
 > Information about Azure Purview availability is available at [SLA for Azure Purview](https://azure.microsoft.com/support/legal/sla/purview/v1_0/).
 > Azure Purview ensures no data loss but a recovery from outages may require you to restart your workflows such as scans.
 
-## Resiliency
+### Resiliency
 The ability of a system to recover from failures and continue to function. It's not about avoiding failures but responding to failures in a way that avoids downtime or data loss. 
  
-## Business Continuity 
+### Business Continuity 
 Business continuity means continuing your business in the event of a disaster, planning for recovery, and ensuring that your data map is highly available.
  
-## Disaster Recovery 
+### Disaster Recovery 
 Organizations need a failover mechanism for their Purview instances, so when the primary region experiences a catastrophic event like an earthquake or flood, the business must be prepared to have its systems come online elsewhere. 
 
 > [!Note]
 > Not all Azure mirrored regions support deploying Purview accounts. For example, For a DR scenario, you cannot choose to deploy a new Purview account in Canada East if the primary region is Canada Central. Even with Customers managed DR, not all customer may able to trigger a DR.
 
-# Implementation steps
+## Implementation steps
 This section provides high level guidance on required tasks to copy assets, glossaries, classifications & relationships across regions or subscriptions either using the Purview Studio or the REST APIs. The approach is to perform the tasks as programmatically as possible at scale.
 
-## High-level task outline
+### High-level task outline
 1.	Create the new account
 1.	Migrate configuration items
 1.	Run scans
@@ -92,7 +92,7 @@ This section provides high level guidance on required tasks to copy assets, glos
 1.  Assign classifications to assets
 1.  Assign contacts to assets
 
-## Create the new account
+### Create the new account
 You will need to create a new Purview account by following below instruction:
 * [Quickstart: Create an Azure Purview account in the Azure portal](https://docs.microsoft.com/azure/purview/create-catalog-portal)
 
@@ -102,13 +102,13 @@ It’s crucial to plan ahead on configuration items that you cannot change later
 * Subscription
 * Manage resource group name
 
-## Migrate configuration items
+### Migrate configuration items
 Below steps are referring to [Purview API documentation](https://docs.microsoft.com/rest/api/purview) so that you can programmatically stand up the backup account quickly:
 
 |Task|Description|
 |-------------|-----------------|
 |**Account information**|Maintain Account information by granting access for the admin and/or service principle to the account at root level|
-|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](https://docs.microsoft.com/rest/api/purview/accountdataplane/collections/get-collection)|
+|**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](../../rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](../../rest/api/purview/accountdataplane/collections/get-collection.md)|
 |**Scan rule set**|Create and maintain custom scan rule sets. You need to call [List all custom scan rule sets API](https://docs.microsoft.com/rest/api/purview/scanningdataplane/scan-rulesets/list-all) and get details by calling [Get scan rule set API](https://docs.microsoft.com/rest/api/purview/scanningdataplane/scan-rulesets/get)|
 |**Manual classifications**|Get a list of all manual classifications by calling get classifications APIs and get details of each classification|
 |**Resource set rule**|Create and maintain resource set rule. You can call the [Get resource set rule API](https://docs.microsoft.com/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule) to get the rule details|
@@ -118,7 +118,7 @@ Below steps are referring to [Purview API documentation](https://docs.microsoft.
 |**ADF connections**|Currently an ADF can be connected to one Purview at a time. You must disconnect ADF from failed Purview account and reconnect it to the new account later.|
 
 
-## Run scans
+### Run scans
 This will populate all assets with default `typedef`. There are several reasons to run the scans again vs. exporting the existing assets and importing to the new account:
 
 1. There is a limit of 100,000 assets returned from the search query to export assets.
@@ -131,12 +131,12 @@ This will populate all assets with default `typedef`. There are several reasons 
 
 Running the scans is the most effective way to get all assets of data sources that Purview is already supporting.
 
-## Migrate custom typedefs and custom assets
+### Migrate custom typedefs and custom assets
 
-### Custom typedefs
+#### Custom typedefs
 To identify all custom `typedef`, you can use the [get all type definitions API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/types/get-all-type-definitions). This will return each type. You need to identify the custom types in such format as `"serviceType": "<custom_typedef>"`
 
-### Custom assets
+#### Custom assets
 To export custom assets, you can search those custom assets and pass the proper custom `typedef` via the [discovery API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/discovery/query)
 
 > [!Note]
@@ -314,7 +314,7 @@ When you re-create the custom entities, you may need to prepare the payload prio
 
 1. Similarly, `classifications` needs to be an empty array as well when you submit the payload to create entities since you have to create classification mapping to bulk entities later using a different API.
 
-## Migrate relationships
+### Migrate relationships
 
 To complete the asset migration, you must remap the relationships. There are three tasks:
 
@@ -324,15 +324,15 @@ To complete the asset migration, you must remap the relationships. There are thr
 
 1. Finally, [Create a new relationship between entities](https://docs.microsoft.com/rest/api/purview/catalogdataplane/relationship/create)
 
-## Migrate glossary terms
+### Migrate glossary terms
 
 > [!Note]
 > Before migrating terms, you need to migrate the term templates. This step should be already covered in the custom `typedef` migration.
 
-### Using Purview Portal
+#### Using Purview Portal
 The quickest way to migrate glossary terms is to [export terms to a .csv file](https://review.docs.microsoft.com/azure/purview/how-to-create-import-export-glossary?branch=main). You can do this using the Purview Studio.
 
-### Using Purview API
+#### Using Purview API
 To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.
 
 The below sample response will provide the `guid` to use for subsequence API calls:
@@ -347,7 +347,7 @@ Once you have the `glossaryGuid`, you can start to migrate the terms via two ste
 
 1. [Import Glossary Terms Via .csv](https://docs.microsoft.com/rest/api/purview/catalogdataplane/glossary/import-glossary-terms-via-csv)
 
-## Assign classifications to assets
+### Assign classifications to assets
 
 > [!Note]
 > The prerequisite for this step is to have all classifications available in the new account from [Migrate configuration items]() step.
@@ -356,7 +356,7 @@ You must call the [discovery API](https://docs.microsoft.com/rest/api/purview/ca
 
 To assign classifications to assets, you need to [associate a classification to multiple entities in bulk](https://docs.microsoft.com/rest/api/purview/catalogdataplane/entity/add-classification) via the API.
 
-## Assign contacts to assets
+### Assign contacts to assets
 
 If you have extracted asset information from previous steps, the contact details are available from the [discovery API](https://docs.microsoft.com/rest/api/purview/catalogdataplane/discovery/query).
 
