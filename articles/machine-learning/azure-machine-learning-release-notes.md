@@ -20,9 +20,16 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-12-13
 
 ### Azure Machine Learning SDK for Python v1.37.0
++ **Breaking changes**
   + **azureml-core**
-    + Removed instance types from the attach workflow for Kubernetes compute. Instance types can now directly be set up in the Kubernetes cluster. 
-    + For more details, please visit aka.ms/amlarc/doc.
+    + Starting in version 1.37.0, AzureML SDK uses MSAL as the underlying authentication library. MSAL uses AAD v2.0 authentication flow to provide more functionality and increases security for token cache. For more details, see [Overview of the Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview).
+    + Update AML SDK dependencies to the latest version of Azure Resource Management Client Library for Python (azure-mgmt-resource>=15.0.0,<20.0.0) & adopt track2 SDK.
+    + Starting in version 1.37.0, azure-ml-cli extension should be compatible with the latest version of Azure CLI >=2.30.0.
+    + When using Azure CLI in a pipeline, like as Azure DevOps, ensure all tasks/stages are using versions of Azure CLI above v2.30.0 for MSAL-based azure CLI. Azure CLI 2.30.0 is not backward compatible with prior versions and throws an error when using incompatible versions.
+  
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Removed instance types from the attach workflow for Kubernetes compute. Instance types can now directly be set up in the Kubernetes cluster. For more details, please visit aka.ms/amlarc/doc.
   + **azureml-interpret**
     + updated azureml-interpret to interpret-community 0.22.*
   + **azureml-pipeline-steps**
@@ -43,6 +50,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-11-08
 
 ### Azure Machine Learning SDK for Python v1.36.0
++ **Bug fixes and improvements**
   + **azureml-automl-dnn-vision**
     + Cleaned up minor typos on some error messages.
   + **azureml-contrib-reinforcementlearning**
@@ -69,6 +77,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-10-11
 
 ### Azure Machine Learning SDK for Python v1.35.0
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Enable binary metrics calculation
   + **azureml-contrib-fairness**
@@ -95,6 +104,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-09-07
 
 ### Azure Machine Learning SDK for Python v1.34.0
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Added support for re-fitting a previously trained forecasting pipeline.
     + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
@@ -143,6 +153,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-08-02
 
 ### Azure Machine Learning SDK for Python v1.33.0
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Improved error handling around XGBoost model retrieval.
     + Added possibility to convert the predictions from float to integers for forecasting and regression tasks.
