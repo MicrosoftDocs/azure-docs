@@ -30,7 +30,7 @@ Apart from checking the disk usage on Task Manager, you can always refer to **Re
 
 **Resource Monitor** displays information about the use of hardware and software resources in real time. To run Resource Monitor on a Windows machine, follow the below steps –
 
-1. Press Win + R and type _resmon_.
+1. Press Win + R and then type _resmon_.
 1. Once the resmon, that is, Resource Monitor, window opens switch to the Disk tab. It gives following view -
 
     ![Resource Monitor Disk Tab](./media/monitoring-high-churn/resmon-disk-tab.png)
