@@ -57,7 +57,7 @@ items:
       href: how-to-use-fhir-mappings.md
     - name: Display Metrics
       href: how-to-display-metrics.md
-    - name: Create mappings copies
+    - name: Create mappings templates copies
       href: how-to-create-mappings-copies.md
 
 - name: Resources
@@ -75,4 +75,5 @@ items:
       - name: Device and FHIR destination mappings
         href: iot-troubleshoot-mappings.md
       - name: Errors and conditions
-        href: iot-troubleshoot-error-messages-and-conditions.md   
+        href: iot-troubleshoot-error-messages-and-conditions.md
+           
