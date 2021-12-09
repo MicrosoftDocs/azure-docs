@@ -13,15 +13,17 @@ ms.date: 12/10/2021
 
 # Create server with user-assigned managed identity
 
+[!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
+
 This how-to guide outlines the steps to create a [logical server](logical-servers.md) for Azure SQL Database with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). For more information on the benefits of using a user-assigned managed identity for the server identity in Azure SQL Database, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md).
 
 ## Prerequisites
 
 -  To provision a SQL Database server with a user-assigned managed identity, the [SQL Server Contributor](../../role-based-access-control/built-in-roles.md#sql-server-contributor) role (or a role with greater permissions), along with an Azure RBAC role containing the following action:
    - Microsoft.ManagedIdentity/userAssignedIdentities/*/assign/action - For example, the [Managed Identity Operator](/azure/role-based-access-control/built-in-roles#managed-identity-operator) has this action.
-
 - Create a user-assigned managed identity. For more information, see [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
-- [Az.Sql module 3.4](https://www.powershellgallery.com/packages/Az.Sql/3.4.0) or greater is required when using PowerShell.
+- [Az.Sql module 3.4](https://www.powershellgallery.com/packages/Az.Sql/3.4.0) or higher is required when using PowerShell for user-assigned managed identities.
+- [The Azure CLI 2.26.0](/cli/azure/install-azure-cli) or higher is required to use the Azure CLI with user-assigned managed identities.
 
 ## Create server configured with a user-assigned managed identity
 
