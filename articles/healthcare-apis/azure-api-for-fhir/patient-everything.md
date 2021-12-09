@@ -49,7 +49,7 @@ On a patient resource, there's an element called link, which links a patient to 
 
 The FHIR specification has a detailed overview of the different types of [patient links](https://www.hl7.org/fhir/valueset-link-type.html#expansion), but below is a high-level summary:
 
-* [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) - Patient will not be pulled into the Patient-everything bundle.
+* [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) - The Patient resource replaces a different Patient.
 * [refer](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-refer) - Patient is valid, but it's not considered the main source of information. Points to another patient to retrieve additional information.
 * [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-seealso) - Patient contains a link to another patient that's equally valid. 
 * [replaced-by](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaced-by) - The Patient resource replaces a different Patient.
