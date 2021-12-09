@@ -402,7 +402,7 @@ To update and run the provisioning sample with your device information:
 
 5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file.  No changes are needed.
 
-6. Build and run the sample code using the following command. Replace `<id-scope>` with the ID Scope that you copied in step 2 above, `<registration-id>` with the registration ID of your device, and `<primarykey>` with the primary key of your device.
+6. Build and run the sample code using the following command. Replace `<id-scope>` with the ID Scope that you copied in step 2, `<registration-id>` with the registration ID of your device, and `<primarykey>` with the primary key of your device.
 
     ```console
     dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
@@ -467,7 +467,12 @@ To update and run the provisioning sample with your device information:
 
     No further changes are needed.
 
-5. In your command prompt, run the following commands to set environment variables used by the sample. Replace `<id-scope>` with the **ID Scope** that you copied in step 2,`<registration-id>` with the registration ID of your device,`<primarykey>` with the primary key of your device, and `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
+5. In your command prompt, run the following commands to set environment variables used by the sample:
+
+    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
+    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
+    * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
+    * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
 
     ```console
     set PROVISIONING_HOST=<provisioning-global-endpoint>
