@@ -30,7 +30,7 @@ subscription="<subscriptionId>" # add subscription here
 az account set -s $subscription # ...or use 'az login'
 ```
 
-For more information, see [set active scription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
+For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
 ### Run the script
 

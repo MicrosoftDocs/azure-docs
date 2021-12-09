@@ -90,7 +90,7 @@ subscription="<subscriptionId>" # add subscription here
 az account set -s $subscription # ...or use 'az login'
 ```
 
-For more information, see [set active scription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
+For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
 ## Set parameter values
 
@@ -118,9 +118,19 @@ Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/
 
 ## Create a single database
 
-Create a database with the [az sql db create](/cli/azure/sql/db) command.
+Create a database with the [az sql db create](/cli/azure/sql/db) command in the [serverless compute tier](serverless-tier-overview.md).
 
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="28-29":::
+```azurecli
+az sql db create \
+    --resource-group $resourceGroup \
+    --server $server \
+    --name $database \
+    --sample-name AdventureWorksLT \
+    --edition GeneralPurpose \
+    --compute-model Serverless \
+    --family Gen5 \
+    --capacity 2
+```
 
 # [Azure CLI (sql up)](#tab/azure-cli-sql-up)
 
@@ -140,7 +150,7 @@ subscription="<subscriptionId>" # add subscription here
 az account set -s $subscription # ...or use 'az login'
 ```
 
-For more information, see [set active scription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
+For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
 ## Set parameter values
 
