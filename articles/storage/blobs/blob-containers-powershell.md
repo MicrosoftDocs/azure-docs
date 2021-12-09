@@ -15,7 +15,7 @@ ms.custom: template-how-to
 
 # Manage blob containers using PowerShell
 
-Azure blob storage allows you to store large amounts of unstructured object data. You can use blob storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about blob storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
+Azure blob storage allows you to store large amounts of unstructured object data. You can use Blob Storage to gather or expose media, content, or application data to users. Because all blob data is stored within containers, you must create a storage container before you can begin to upload data. To learn more about Blob Storage, read the [Introduction to Azure Blob storage](storage-blobs-introduction.md).
 
 This how-to article explains how to work with both individual and multiple storage container objects.
 
@@ -25,9 +25,9 @@ This how-to article explains how to work with both individual and multiple stora
 
 - Azure PowerShell module Az, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
-You'll need to obtain authorization to an Azure subscription before you can use the examples in this article. Authorization can occur by authenticating with an Azure Active Directory (AAD) account or using a shared key. The examples in this article use AAD authentication in conjunction with context objects. Context objects represent the authentication information with which you'll connect to an active Azure subscription. Because context objects are used, Azure PowerShell doesn't need to reauthenticate your account each time you switch subscriptions.
+You'll need to obtain authorization to an Azure subscription before you can use the examples in this article. Authorization can occur by authenticating with an Azure Active Directory (Azure AD) account or using a shared key. The examples in this article use Azure AD authentication in conjunction with context objects. Context objects encapsulate your Azure AD credentials and pass them on subsequent data operations, eliminating the need to reauthenticate.
 
-To sign in to your Azure account with an Azure Active Directory (AAD) account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
+To sign in to your Azure account with an Azure AD account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```powershell
 # Connect to your Azure subscription
@@ -68,10 +68,10 @@ To use this example, supply values for the variables and ensure that you've crea
  "$($prefixName)4 $($prefixName)5 $($prefixName)6".split() | New-AzStorageContainer -Context $ctx
 ```
 
-The result provides the URI of the blob endpoint and confirms the creation of the new container.
+The result provides the name of the storage account and confirms the creation of the new container.
 
 ```Result
-Blob End Point: https://demostorageaccount.blob.core.windows.net/
+Storage Account Name: demostorageaccount
 
 Name                   PublicAccess   LastModified
 ----                   ------------   ------------
@@ -86,7 +86,7 @@ loop-container6        Off            11/2/2021 4:09:05 AM +00:00
 
 ## List containers
 
-Use the `Get-AzStorageContainer` cmdlet to retrieve storage containers. To retrieve a single container, include the `-Name` parameter. To return a list of containers, specify a value for the `-Prefix` parameter to return the list of containers whose name contains the parameter value.
+Use the `Get-AzStorageContainer` cmdlet to retrieve storage containers. To retrieve a single container, include the `-Name` parameter. To return a list of containers that begins with a given character string, specify a value for the -Prefix parameter.
 
 The following example retrieves both an individual container and a list of container resources.
 
@@ -122,11 +122,9 @@ loop-container4                           11/2/2021 12:22:00 AM +00:00   True   
 
 ## Read container properties and metadata
 
-In addition to the blob data stored within a container, the container itself exposes both system properties and user-defined metadata.
+A container exposes both system properties and user-defined metadata. System properties exist on each Blob Storage resource. Some properties are read-only, while others can be read or set. Under the covers, some system properties map to certain standard HTTP headers.
 
-System properties exist on each Blob storage resource. Some properties are read-only, while others can be read or set. Under the covers, some system properties map to certain standard HTTP headers. The Azure Storage client library for .NET maintains these properties for you.
-
-User-defined metadata consists of one or more name-value pairs that you specify for a Blob storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
+User-defined metadata consists of one or more name-value pairs that you specify for a Blob Storage resource. You can use metadata to store additional values with the resource. Metadata values are for your own purposes only, and don't affect how the resource behaves.
 
 ### Container properties
 
@@ -187,9 +185,7 @@ HasImmutableStorageWithVersioning : False
 
 ### Read and write container metadata
 
-Containers support the use of metadata, which allows a greater degree of flexibility when performing operations on containers and their contents. Metadata consists of a series of key-value pairs that can be used to describe or categorize your data. Users that have many thousands of objects within their storage account can quickly locate specific containers based on their metadata.
-
-To access the metadata, you'll use the `BlobContainerClient` object. This object allows you to access and manipulate containers and their blobs. To update metadata, you'll need to call the `SetMetadata()` method. The method only accepts key-value pairs stored in a generic `IDictionary` object. For more information, see the [BlobContainerClient class](/dotnet/api/azure.storage.blobs.blobcontainerclient)
+Users that have many thousands of objects within their storage account can quickly locate specific containers based on their metadata. To access the metadata, you'll use the `BlobContainerClient` object. This object allows you to access and manipulate containers and their blobs. To update metadata, you'll need to call the `SetMetadata()` method. The method only accepts key-value pairs stored in a generic `IDictionary` object. For more information, see the [BlobContainerClient class](/dotnet/api/azure.storage.blobs.blobcontainerclient)
 
 The example below first updates a container's metadata and afterward retrieve a container's metadata. The example flushes the sample container from memory and retrieves it again to ensure that metadata isn't being read from the object in memory.
 
@@ -238,7 +234,7 @@ Azure Storage supports three types of shared access signatures: user delegation,
 > [!CAUTION]
 > Any client that possesses a valid SAS can access data in your storage account as permitted by that SAS. It's important to protect a SAS from malicious or unintended use. Use discretion in distributing a SAS, and have a plan in place for revoking a compromised SAS.
 
-The following example illustrates the process of configuring a service SAS for a specific container using the `New-AzStorageContainerSASToken` cmdlet. This example will configure the SAS with start and expiry times, a permission level, and a protocol.
+The following example illustrates the process of configuring a service SAS for a specific container using the `New-AzStorageContainerSASToken` cmdlet. The example will configure the SAS with start and expiry times and a protocol. It will also specify the **read**, **write**, and **list** permissions in the SAS using the `-Permission` parameter. You can reference the full table of permissions in the [Create a service SAS](/rest/api/storageservices/create-service-sas#permissions-for-a-directory-container-or-blob) article.
 
 ```azurepowershell
 # Create variables
@@ -246,7 +242,7 @@ The following example illustrates the process of configuring a service SAS for a
  $containerName = "individual-container"
  $startTime     = Get-Date
  $expiryTime    = $startTime.AddDays(7)
- $permissions   = "rwd"
+ $permissions   = "rwl"
  $protocol      = "HttpsOnly"
 
 # Create a context object using Azure AD credentials, retrieve container
@@ -292,7 +288,7 @@ Depending on your use case, you can retrieve a container or list of containers w
  Get-AzStorageContainer -Prefix $prefixName -Context $ctx | Remove-AzStorageContainer
 ```
 
-In some cases, it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` switch will return containers deleted within the associated retention period. The `-IncludeDeleted` switch can only be used in conjunction with the`-Prefix` switch when returning a list of containers. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
+In some cases, it's possible to retrieve containers that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` parameter will return containers deleted within the associated retention period. The `-IncludeDeleted` parameter can only be used in conjunction with the `-Prefix` parameter when returning a list of containers. To learn more about soft delete, refer to the [Soft delete for containers](soft-delete-container-overview.md) article.
 
 Use the following example to retrieve a list of containers deleted within the storage account's associated retention period.
 
@@ -328,8 +324,11 @@ The results display all containers with the prefix **demo** which have been rest
 
 Name                 PublicAccess         LastModified                   IsDeleted  VersionId        
 ----                 ------------         ------------                   ---------  ---------        
-democontainer3                                                                                       
-democontainer4               
+loop-container3                                                                                       
+loop-container4               
 ```
 
-## See also...
+## See also
+
+- [Run PowerShell commands with Azure AD credentials to access blob data - Azure Storage | Microsoft Docs](/azure/storage/blobs/authorize-data-operations-powershell)
+- [Create a storage account - Azure Storage | Microsoft Docs](/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
