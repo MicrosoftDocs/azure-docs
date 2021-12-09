@@ -373,9 +373,9 @@ If you see the following error message when you initiate a remote desktop connec
 
 ![Your credentials did not work](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
 
-Verify that the user doesn't have a temporary password. If the user has just been created, or if the user password has just been reset, the user's password is temporary and must be changed on the next sign in. Temporary passwords cannot be used to log in to a remote desktop connection.
+Verify that the user doesn't have a temporary password. If the user has just been created, or if the user password has just been reset, the user's password is temporary and must be changed on the next sign-in. Temporary passwords cannot be used to log in to a remote desktop connection.
 
-To resolve the issue, log in to the user account in a web browser, for instance by opening the [Azure portal](https://portal.azure.com) in a private browsing window. If prompted to change the password, set a new password and connect to the remote desktop connection with that new password.
+To resolve the issue, log in to the user account in a web browser, for instance by opening the [Azure portal](https://portal.azure.com) in a private browsing window. If you are prompted to change the password, set a new password and connect to the remote desktop connection with that new password.
 
 #### MFA sign-in method required
 
