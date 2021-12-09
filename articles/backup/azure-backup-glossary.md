@@ -57,7 +57,7 @@ Azure Backup offers three types of replication to keep your storage and data hig
 
 [Zone-redundant storage (ZRS)](../storage/common/storage-redundancy.md#zone-redundant-storage) replicates your backup data in [availability zones](../availability-zones/az-overview.md#availability-zones), guaranteeing backup data residency and resiliency in the same region. So your critical workloads that require [data residency](https://azure.microsoft.com/resources/achieving-compliant-data-residency-and-security-with-azure/) can be backed up in ZRS.
 
-## Azure Command-Line Interface (CLI)
+## Azure CLI
 
 Refer to [Azure CLI documentation](/cli/azure/what-is-azure-cli).
 
