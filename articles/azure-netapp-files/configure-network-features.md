@@ -43,7 +43,7 @@ Two settings are available for network features:
  
 * Currently, you can specify the network features setting only during the creation process of a new volume. You cannot modify the setting on existing volumes. 
 
-* You can create volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](#supported-regions). 
+* You can create volumes with the Standard network features only if the corresponding [Azure region supports the Standard volume capability](azure-netapp-files-network-topologies.md#supported-regions). 
     * If the Standard volume capability is supported for the region, the Network Features field of the Create a Volume page defaults to *Standard*. You can change this setting to *Basic*. 
     * If the Standard volume capability is not available for the region, the Network Features field of the Create a Volume page defaults to *Basic*, and you cannot modify the setting.
 
