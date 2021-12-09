@@ -209,13 +209,6 @@ This setting enables the Python worker to use shared memory to improve throughpu
 |---|------------|
 |FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
 |DOCKER_SHM_SIZE|`268435456`|
-
-Valid values:
-
-| Value | Language |
-|---|---|
-| `python` | [Python](functions-reference-python.md) |
-
 ## MDMaxBackgroundUpgradePeriod
 
 Controls the managed dependencies background update period for PowerShell function apps, with a default value of `7.00:00:00` (weekly).
