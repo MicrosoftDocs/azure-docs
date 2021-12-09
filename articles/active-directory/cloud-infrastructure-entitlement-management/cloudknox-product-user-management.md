@@ -14,11 +14,11 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management User Management
 
-This topic describes how to manage users with Microsoft CloudKnox Permissions Management.
+In Microsoft CloudKnox Permissions Management, User Management is a key component of the product's interface. This allows system administrators to define and manage users, roles, and their access levels in the system. 
 
-## Introduction
+## The User Management dashboard
 
-In Microsoft CloudKnox Permissions Management, User Management is a key component of the product's interface allowing system administrators the ability to define and manage users, roles, and their access levels in the system. The CloudKnox User Management dashboard provides a high-level overview of registered and invited users, permissions allowed for each user within a given system, and recent user activity. The User Management interface provides the functionality to invite or delete a user, edit, view and customize permissions settings.
+The CloudKnox User Management dashboard provides a high-level overview of registered and invited users, permissions allowed for each user within a given system, and recent user activity. It provides the functionality to invite or delete a user, edit, view and customize permissions settings.
 
 The CloudKnox User Management system encompasses the following components.
 
@@ -111,13 +111,13 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
 
 ### How to use the Registered tab
 
-1. The **Registered** tab provides a high level overview of user details to system administrators:
+1. The **Registered** tab provides a high-level overview of user details to system administrators:
     - The **Name/Email Address** column lists the name and email address of the user.
     - The **Permissions** column lists each authorization system, and each type of permission.    
 
       If a user has all permissions for all authorization systems,  **Admin for All Authorization Types** displays across all columns.    
 
-      If a user has only some permissions, numbers displays in each column they have permissions for. For example, if the number "3" is listed in the **Viewer** column, the user has viewer permission for three accounts within that authorization system.
+      If a user has only some permissions, numbers display in each column they have permissions for. For example, if the number "3" is listed in the **Viewer** column, the user has viewer permission for three accounts within that authorization system.
     - The **Joined On** column displays when the user registered for CloudKnox.
     - The **Recent Activity** column displays when a user last performed an activity.
     - **Search** allows a system administrator to search for a user by name and all users who match the criteria are displayed.
@@ -131,7 +131,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
 
 ## How to manage users for customers with SAML integration
 
-The CloudKnox user invitation process is as follows if the the customer has enabled Security Assertion Markup Language (SAML) integration with CloudKnox application.
+The CloudKnox user invitation process is as follows if the customer has enabled Security Assertion Markup Language (SAML) integration with CloudKnox application.
 
 ### How to create a permission in CloudKnox
 
@@ -194,7 +194,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
      
        The following message displays in green at the top of the screen:
  **New User Has Been Created Successfully**.  
-    5. The new user receives an email invitation to login to CloudKnox.
+    5. The new user receives an email invitation to log in to CloudKnox.
 
 ### How to use the Pending tab
 
@@ -215,7 +215,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
 - For **Users**:
 
-    1. The **Registered** tab provides a high level overview of user details to system administrators: 
+    1. The **Registered** tab provides a high-level overview of user details to system administrators: 
         - The **Name/Email Address** column lists the name and email address of the user.
         - The **Permissions** column lists each authorization system, and each type of permission.    
 
@@ -227,7 +227,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
           To display all authorization system accounts,Click **All**. Then select the appropriate boxes for the accounts that need to be viewed.
     2. To make the changes to the following changes, click the ellipses **(...)** in the far right column:
-        - **View Permissions** - This displays which accounts the user has permissions for
+        - **View Permissions** - Displays which accounts the user has permissions for
         - **Edit Permissions** - System administrators can edit which permissions a user has
         - **Remove Permissions** - System administrators can remove permissions from a user
         
@@ -290,14 +290,14 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
 ### How to use the Groups tab
 
-1. The **Groups** tab provides a high level overview of user details to system administrators:
+1. The **Groups** tab provides a high-level overview of user details to system administrators:
     
     - The **Name** column lists the name of the group.
     - The **Permissions** column lists each authorization system, and each type of permission.    
 
        If a group has all permissions for all authorization systems, **Admin for All Authorization Types** displays across all columns.    
 
-       If a group only has some permissions, then numbers displays in each column they have permissions for.    
+       If a group only has some permissions, numbers display in each column they have permissions for.    
 
         For example, if the number "3" is listed in the **Viewer** column, then the group has viewer permission for three accounts within that authorization system.
     - The **Modified By** column records the email address of the person who created the group.

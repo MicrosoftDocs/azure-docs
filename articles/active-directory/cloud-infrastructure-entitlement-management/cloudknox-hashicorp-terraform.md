@@ -19,9 +19,9 @@ This topic describes how to configure the HashiCorp Terraform integration with M
 
 ## How to use the HashiCorp Terraform Provider tab
 
-1. On the **Integrations** page, click the **HashiCorp Terraform** box.
+1. On the **Integrations** page, click **HashiCorp Terraform**.
 2. Click the **HashiCorp Terraform Provider** tab.
-3. For information on how to perform various tasks, click the link on the **HashiCorp Terraform Provider** tab.
+3. For information on how to do various tasks, click the link on the **HashiCorp Terraform Provider** tab.
 
 ## How to use the Integration tab
 

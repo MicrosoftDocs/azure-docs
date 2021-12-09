@@ -22,7 +22,7 @@ This topic describes how to configure Securonix integration with Microsoft Cloud
 
 ## How to use the Securonix tab
 
-- To read additional documentation on Securonix integration, click the link provided on the Securonix tab.
+- For information about Securonix integration, click the link on the **Integrations** page.
 
 ## How to use the Integration tab
 

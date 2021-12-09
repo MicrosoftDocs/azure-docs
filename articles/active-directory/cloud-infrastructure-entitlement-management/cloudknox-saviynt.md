@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management integration with Saviynt
 
-This topic describes how to configure the Saviyint integration with Microsoft CloudKnox Permissions Management.
+This topic describes how to configure the Saviynt integration with Microsoft CloudKnox Permissions Management.
 
 ## How to configure the Saviynt integration
 
@@ -22,7 +22,7 @@ This topic describes how to configure the Saviyint integration with Microsoft Cl
 
 ## How to use the Saviynt tab
 
-- To read additional documentation, click the link provided on the **Integrations** page.
+- For information about Saviynt integration, click the link on the **Integrations** page.
 
 ## How to use the Integrations tab
 

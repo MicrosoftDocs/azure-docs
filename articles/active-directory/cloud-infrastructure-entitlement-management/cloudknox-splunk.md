@@ -35,7 +35,7 @@ This topic describes how to integrate Microsoft CloudKnox Permissions Management
 ## How to use the Splunk tab
 
 1. On the **Integrations** page, click **Splunk**.
-2. To read additional documentation on how to perform a task, click the link provided on the tab.
+2. For information about Splunk tasks, click the link.
 
 ## How to use the Integration tab
 
