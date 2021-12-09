@@ -1,5 +1,5 @@
 ---
-title: Analyze live video with your own model - HTTP
+title: Analyze live video with your own HTTP model
 description: Analyze a live video feed from a (simulated) IP camera; apply a computer vision model to detect objects. Some frames in the feed are sent to an inference service; results are sent to IoT Edge Hub.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
