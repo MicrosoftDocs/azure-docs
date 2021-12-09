@@ -62,7 +62,7 @@ These steps should be performed before you run the Defender for Cloud cmdlets:
     ```
 
     ```powershell
-    Set-AzSecurityPricing -Name "default" -PricingTier "Standard"
+    Set-AzSecurityPricing -Name "VirtualMachines" -PricingTier "Standard"
     ```
 
 1. Configure a Log Analytics workspace to which the agents will report. You must have a Log Analytics workspace that you already created, that the subscription’s VMs will report to. You can define multiple subscriptions to report to the same workspace. If not defined, the default workspace will be used.
