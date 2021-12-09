@@ -335,4 +335,4 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
 
 ## See also
 
-- [User-assigned managed identity in Azure AD for Azure SQL](user-assigned-managed-identity.md)
+- [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md)
