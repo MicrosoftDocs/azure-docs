@@ -170,7 +170,27 @@ Threat protection at the cluster level is achieved by analyzing the Kubernetes a
 Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
 
 
+## FAQ - Defender for Containers
 
+- [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for container registries enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-container-registries-enabled)
+- [Is Defender for Containers a mandatory upgrade?](#is-defender-for-containers-a-mandatory-upgrade)
+- [Does the new plan reflect a price increase?](#does-the-new-plan-reflect-a-price-increase)
+- [What are the options to enable the new plan at scale?](#what-are-the-options-to-enable-the-new-plan-at-scale)
+
+### What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for container registries enabled?
+
+Subscriptions that already have one of these plans enabled can continue to benefit from it.
+
+If you haven't enabled them yet, or create a new subscription, these plans can no longer be enabled.
+
+### Is Defender for Containers a mandatory upgrade?
+No. Subscriptions that have either Microsoft Defender for Kubernetes or Microsoft Defender for container registries enabled don't need to be upgraded to the new Microsoft Defender for Containers plan. However, they won't benefit from the new and improved capabilities and they will have an upgrade icon shown alongside them in the Azure portal. 
+
+### Does the new plan reflect a price increase?
+No. There is no direct price increase. The new comprehensive Container security plan  combines Kubernetes protection and container registry image scanning, and removes the previous dependency on the (paid) Defender for Servers plan. 
+
+### What are the options to enable the new plan at scale? 
+We’ve rolled out a new policy in Azure Policy, **Configure Microsoft Defender for Containers to be enabled**, to make it easier to enable the new plan at scale. 
 
 
 
