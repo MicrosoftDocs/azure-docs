@@ -82,7 +82,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Sign in to Azure
 
-Log into Azure using the appropriate subscription.
+Sign in to Azure using the appropriate subscription.
 
 ```azurecli-interactive
 subscription="<subscriptionId>" # add subscription here
@@ -132,7 +132,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 ## Sign in to Azure
 
-Log into Azure using the appropriate subscription.
+Sign in to Azure using the appropriate subscription.
 
 ```azurecli-interactive
 subscription="<subscriptionId>" # add subscription here

@@ -26,7 +26,7 @@ An existing Managed Instance, see [Use Azure CLI to create an Azure SQL Managed 
 
 ### Sign in to Azure
 
-Log into Azure using the appropriate subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+Sign in to Azure using the appropriate subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 subscription="<subscriptionId>" # add subscription here
