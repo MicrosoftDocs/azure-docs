@@ -1,12 +1,12 @@
 ---
 title: Use patient-everything in Azure API for FHIR
-description: This article explains how to use the patient-everything operation in the Azure API for FHIR
+description: This article explains how to use the Patient-everything operation in the Azure API for FHIR.
 services: healthcare-apis
 author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 12/09/2021
 ms.author: cavoeg
 ---
 
@@ -45,21 +45,21 @@ The Azure API for FHIR supports the following query parameters. All of these par
 
 ## Processing patient links
 
-On a patient resource, there's an element called link, which it links a patient to other patients or related persons. These linked patients give more details on how to get a holistic view of the original patient. The link reference can be used when a patient is replacing another patient or when two patient resources have complimentary information. One use case for links is when an ADT 38 or 39 message comes. It describes an update to a patient. This update can be stored as a reference between two patients in the link reference.
+On a patient resource, there's an element called link, which links a patient to other patients or related persons. These linked patients help give a holistic view of the original patient. The link reference can be used when a patient is replacing another patient or when two patient resources have complimentary information. One use case for links is when an ADT 38 or 39 HL7v2 message comes. The ADT38/39 describe an update to a patient. This update can be stored as a reference between two patients in the link element.
 
 The FHIR specification has a detailed overview of the different types of [patient links](https://www.hl7.org/fhir/valueset-link-type.html#expansion), but below is a high-level summary:
 
 * [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) - Patient will not be pulled into the Patient-everything bundle.
 * [refer](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-refer) - Patient is valid, but it's not considered the main source of information. Points to another patient to retrieve additional information.
 * [seealso](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-seealso) - Patient contains a link to another patient that's equally valid. 
-* [replaced-by](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaced-by) - Patient resource is no longer being used. Points to another updated resource.
+* [replaced-by](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaced-by) - The Patient resource replaces a different Patient.
 
 ### Patient-everything patient links details:
 
 The Patient-everything operation in Azure API for FHIR processes patient links in different ways to give you the most holistic view of the patient.
 
 > [!Note]
-> A link can also reference a `RelatedPerson`. If it's a `RelatedPerson` type and it's not returned, you can only run Patient-everything on a patient.
+> A link can also reference a `RelatedPerson`. Right now, `RelatedPerson` resources are not processed in Patient-everything and are not returned in the bundle.
 
 Right now, [replaces](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaces) and [refer](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-refer) links are ignored by the Patient-everything operation, and the linked patient is not returned in the bundle. 
 
@@ -70,16 +70,16 @@ As described above, [seealso](https://www.hl7.org/fhir/codesystem-link-type.html
 
 [ ![See also flow diagram.](media/patient-everything/see-also-flow.png) ](media/patient-everything/see-also-flow.png#lightbox) 
 
-The final link type is [replaced-by](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaced-by). In this case, the original patient resource is no longer being used and the `replaced-by` link points to the patient that should be used. This implementation of `Patient-everything` will include by default an operation outcome at the start of the bundle with a warning that the patient is no longer valid. This will also be the behavior when the `Prefer*` header is set to `handling=lenient`.
+The final link type is [replaced-by](https://www.hl7.org/fhir/codesystem-link-type.html#link-type-replaced-by). In this case, the original patient resource is no longer being used and the `replaced-by` link points to the patient that should be used. This implementation of `Patient-everything` will include by default an operation outcome at the start of the bundle with a warning that the patient is no longer valid. This will also be the behavior when the `Prefer` header is set to `handling=lenient`.
 
-In addition, you can set the `Prefer` header to `handling=strict` to throw an error instead. In this case, we'll return a `MovedPermanently` error indicating that the current patient is out of date and return the ID for the correct patient that is included in the link. The `ContentLocation` header of the returned error will point to the correct and up-to-date request.
+In addition, you can set the `Prefer` header to `handling=strict` to throw an error instead. In this case, a return of error code 301 `MovedPermanently` indicates that the current patient is out of date and returns the ID for the correct patient that's included in the link. The `ContentLocation` header of the returned error will point to the correct and up-to-date request.
 
 > [!Note]
 > If a `replaced-by` link is present, `Prefer: handling=lenient` and results are returned asynchronously in multiple bundles, only an operation outcome is returned in one bundle.
 
 ## Examples of Patient-everything 
 
-Below are some examples of using the Patient-everything operation. In addition to the examples below, we have a sample REST file that illustrates how the `seealso` and `replaced-by` behavior works.
+Below are some examples of using the Patient-everything operation. In addition to the examples below, we have a [sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PatientEverythingLinks.http) that illustrates how the `seealso` and `replaced-by` behavior works.
 
 To use Patient-everything to query a patient's "everything" between 2010 and 2020, use the following call: 
 
