@@ -61,7 +61,7 @@ To assign a user account to an enterprise application:
 
 ## Clean up resources
 
-If you are planning to complete the next quickstart, keep the application that you created. Otherwise, you can consider deleting it to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the application that you created. Otherwise, you can consider deleting it to clean up your tenant.
 
 ## Next steps
 
