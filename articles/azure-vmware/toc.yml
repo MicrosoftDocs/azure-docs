@@ -68,6 +68,8 @@
       href: deploy-traffic-manager-balance-workloads.md
     - name: Configure alerts and work with metrics
       href: configure-alerts-for-azure-vmware-solution.md
+    - name: Configure customer-managed keys
+      href: configure-customer-managed-keys.md
     - name: Attach disk pools to Azure VMware Solution hosts
       href: attach-disk-pools-to-azure-vmware-solution-hosts.md
     - name: Backup with Azure Backup Server
