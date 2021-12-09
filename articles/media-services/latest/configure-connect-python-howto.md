@@ -46,7 +46,7 @@ Open a command-line tool and use the following commands to install the modules.
 
 ```
 pip3 install azure-mgmt-resource
-pip3 install azure-mgmt-media==3.0.0
+pip3 install azure-mgmt-media
 ```
 
 ## Connect to the Python client
@@ -57,46 +57,40 @@ pip3 install azure-mgmt-media==3.0.0
 
       Set the variables' values to the values you got from [Access APIs](./access-api-howto.md). Update the `ACCOUNT_NAME` and `RESOUCE_GROUP_NAME` variables to the Media Services account name and Resource Group names used when creating those resources.
 
-      ```
-      import adal
-      from azure.mgmt.media import AzureMediaServices
-      from msrestazure.azure_active_directory import AdalAuthentication
-      from msrestazure.azure_cloud import AZURE_PUBLIC_CLOUD
+      ```python
+        # Tenant ID for your Azure Subscription
+        TENANT_ID = "(redacted)"
+        # Your Client ID of your Service Principal application
+        CLIENT_ID = "(redacted)"
+        # Your Service Principal secret key
+        CLIENT_SECRET = "(redacted)"
+        # Your Azure Subscription ID
+        SUBSCRIPTION_ID = "(redacted)"
+        # Your Azure Media Service account name
+        ACCOUNT_NAME = "(redacted)"
+        # Your Resource Group name
+        RESOURCE_GROUP_NAME = "(redacted)"
 
-      RESOURCE = "https://management.core.windows.net/"
-      # Tenant ID for your Azure Subscription (AadTenantId)
-      TENANT_ID = "00000000-0000-0000-000000000000"
-      # Your Service Principal App ID (AadClientId)
-      CLIENT = "00000000-0000-0000-000000000000"
-      # Your Service Principal Password (AadSecret)
-      KEY = "00000000-0000-0000-000000000000"
-      # Your Azure Subscription ID (SubscriptionId)
-      SUBSCRIPTION_ID = "00000000-0000-0000-000000000000"
-      # Your Azure Media Service (AMS) Account Name
-      ACCOUNT_NAME = "amsaccount"
-      # Your Resource Group Name
-      RESOUCE_GROUP_NAME = "amsResourceGroup"
+        credentials = ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET)
 
-      LOGIN_ENDPOINT = AZURE_PUBLIC_CLOUD.endpoints.active_directory
-      RESOURCE = AZURE_PUBLIC_CLOUD.endpoints.active_directory_resource_id
+        # The Azure Media Services Client
 
-      context = adal.AuthenticationContext(LOGIN_ENDPOINT + "/" + TENANT_ID)
-      credentials = AdalAuthentication(
-          context.acquire_token_with_client_credentials, RESOURCE, CLIENT, KEY
-      )
+        client = AzureMediaServices(credentials, SUBSCRIPTION_ID)
 
-      # The AMS Client
-      # You can now use this object to perform different operations to your AMS account.
-      client = AzureMediaServices(credentials, SUBSCRIPTION_ID)
+        # Now that you are authenticated, you can manipulate the entities.
+        # For example, list assets in your Media Services account
+        assets = client.assets.list(RESOURCE_GROUP_NAME, ACCOUNT_NAME)
 
-      print("signed in")
-
-      # Now that you are authenticated, you can manipulate the entities.
-      # For example, list assets in your AMS account
-      print(client.assets.list(RESOUCE_GROUP_NAME, ACCOUNT_NAME).get(0))
+        for i, r in enumerate(assets):
+        print(r)
       ```
 
 1. Run the file
+
+
+## Additional samples
+
+Additional samples are available in GitHub in the [Azure Media Services v3 Python Samples](https://github.com/Azure-Samples/media-services-v3-python) repo.
 
 ## Next steps
 
