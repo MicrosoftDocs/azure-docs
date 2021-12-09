@@ -40,13 +40,13 @@ The following packing configuration outlines the max packing of uniform VMs you 
 
 ### Easv4-Type2
 
-The Easv4-Type2 is a Dedicated Host SKU utilizing AMD's 2.35 GHz EPYC™ 7452 processor. It offers 64 physical cores, 96 vCPUs, and 768 GiB of RAM. The Easv4-Type2 runs [Easv4-series](eav4-easv4-series.md#easv4-series) VMs.
+The Easv4-Type2 is a Dedicated Host SKU utilizing AMD's EPYC™ 7763v processor. It offers 64 physical cores, 112 vCPUs, and 768 GiB of RAM. The Easv4-Type2 runs [Easv4-series](eav4-easv4-series.md#easv4-series) VMs.
 
 The following packing configuration outlines the max packing of uniform VMs you can put onto a Easv4-Type2 host.
 
 | Physical cores | Available vCPUs | Available RAM | VM Size  | # VMs |
 |----------------|-----------------|---------------|----------|-------|
-| 64             | 96              | 768 GiB       | E2as v4  | 32    |
+| 64             | 112             | 768 GiB       | E2as v4  | 32    |
 |                |                 |               | E4as v4  | 21    |
 |                |                 |               | E8as v4  | 10    |
 |                |                 |               | E16as v4 | 5     |

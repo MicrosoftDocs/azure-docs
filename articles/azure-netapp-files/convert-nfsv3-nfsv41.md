@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/20/2021
+ms.date: 12/09/2021
 ms.author: b-hchen
 ---
 # Convert an NFS volume between NFSv3 and NFSv4.1

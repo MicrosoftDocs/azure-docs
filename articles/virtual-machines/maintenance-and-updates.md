@@ -30,7 +30,7 @@ Within a VM, you can get notifications about upcoming maintenance by [using Sche
 
 Most platform updates don't affect customer VMs. When a no-impact update isn't possible, Azure chooses the update mechanism that's least impactful to customer VMs. 
 
-Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certain cases, Azure uses memory-preserving maintenance mechanisms. These mechanisms pause the VM for typically 30 seconds and preserve the memory in RAM. The VM is then resumed, and its clock is automatically synchronized. 
+Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certain cases, Azure uses memory-preserving maintenance mechanisms. These mechanisms pause the VM for typically up to 30 seconds and preserve the memory in RAM. The VM is then resumed, and its clock is automatically synchronized. 
 
 Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, L, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
 

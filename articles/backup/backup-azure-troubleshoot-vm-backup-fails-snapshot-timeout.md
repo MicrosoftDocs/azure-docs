@@ -162,12 +162,13 @@ After you register and schedule a VM for the Azure Backup service, Backup initia
 - **Cause 2: [The agent installed in the VM is out of date (for Linux VMs)](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 - **Cause 3: [The snapshot status can't be retrieved, or a snapshot can't be taken](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 - **Cause 4: [Backup service doesn't have permission to delete the old restore points because of a resource group lock](#remove_lock_from_the_recovery_point_resource_group)**
-- **Cause 5**: The module **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\ {extension version} \iaasvmprovider.dll** is corrupt or mismatch of extension version/bits with the Windows version you're running. To resolve this issue, check if the module is compatible with x86 (32-bit)/x64 (64-bit) version of _regsvr32.exe_ and follow these steps:
+- **Cause 5**: There's an extension version/bits mismatch with the Windows version you're running or the following module is corrupt:
+  **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<extension version\>\iaasvmprovider.dll** <br>   To resolve this issue, check if the module is compatible with x86 (32-bit)/x64 (64-bit) version of _regsvr32.exe_, and then follow these steps:
 
   1. In the affected VM, go to **Control panel** -> **Program and features**.
   1. Uninstall **Visual C++ Redistributable x64** for **Visual Studio 2013**.
   1. Reinstall **Visual C++ Redistributable** for **Visual Studio 2013** in the VM. To install, follow these steps:
-     1. Go to **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\ *{LatestVersion}*** folder.
+     1. Go to the folder: **C:\Packages\Plugins\Microsoft.Azure.RecoveryServices.VMSnapshot\\<LatestVersion\>**
      1. Search and run the **vcredist2013_x64** file to install.
   1. Retry the backup operation.
 
