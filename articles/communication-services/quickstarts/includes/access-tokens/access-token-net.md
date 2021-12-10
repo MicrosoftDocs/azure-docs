@@ -26,7 +26,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 ### Create a new C# application
 
-In a Command Prompt window (such as cmd, PowerShell, or Bash), run the `dotnet new` command to create a new console app with the name `AccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file, *Program.cs*.
+In a Command Prompt window, such as cmd, PowerShell, or Bash, run the `dotnet new` command to create a new console app with the name `AccessTokensQuickstart`. This command creates a simple "Hello World" C# project with a single source file, *Program.cs*.
 
 ```console
 dotnet new console -o AccessTokensQuickstart
@@ -116,7 +116,7 @@ var identityResponse = await client.CreateUserAsync();
 var identity = identityResponse.Value;
 Console.WriteLine($"\nCreated an identity with ID: {identity.Id}");
 ```
-Store the received identity with mapping to your application's users (for example, by storing them in your application server database).
+Store the received identity with mapping to your application's users (for example, by storing it in your application server database).
 
 ## Issue access tokens
 
