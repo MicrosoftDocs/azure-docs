@@ -1,5 +1,5 @@
 ---
-title: Speech SDK microphone array recommendations
+title: Microphone array recommendations - Speech service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK microphone array recommendations. These array geometries are recommended for use with the Microsoft Audio Stack.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-# Speech SDK Microphone array recommendations
+# Microphone array recommendations
 
 In this article, you learn how to design a microphone array for the Speech SDK.
 

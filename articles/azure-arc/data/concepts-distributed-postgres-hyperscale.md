@@ -5,8 +5,8 @@ description: Concepts for distributing data with Azure Arc-enabled PostgreSQL Hy
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 06/02/2021
 ms.topic: how-to
