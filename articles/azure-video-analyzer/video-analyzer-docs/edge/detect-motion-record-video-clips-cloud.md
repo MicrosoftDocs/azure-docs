@@ -1002,4 +1002,4 @@ You can examine the Video Analyzer video resource that was created by the live p
 ## Next steps
 
 * Learn how to [play back video recordings](../playback-recordings-how-to.md)
-* Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
+* Try [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md)

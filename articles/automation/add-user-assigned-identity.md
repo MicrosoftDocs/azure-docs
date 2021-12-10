@@ -339,6 +339,7 @@ $client_id="&client_id=<ClientId of USI>"
 $url = $env:IDENTITY_ENDPOINT + $resource + $client_id 
 $Headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"  
 $Headers.Add("Metadata", "True")
+$headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
 $accessToken = Invoke-RestMethod -Uri $url -Method 'GET' -Headers $Headers
 Write-Output $accessToken.access_token 
 ```
@@ -349,6 +350,7 @@ Write-Output $accessToken.access_token
 $url = $env:IDENTITY_ENDPOINT
 $headers = New-Object "System.Collections.Generic.Dictionary[[String],[String]]"
 $headers.Add("Metadata", "True")
+$headers.Add("X-IDENTITY-HEADER", $env:IDENTITY_HEADER) 
 $body = @{'resource'='https://management.azure.com/' 
 'client_id'='<ClientId of USI>'}
 $accessToken = Invoke-RestMethod $url -Method 'POST' -Headers $headers -ContentType 'application/x-www-form-urlencoded' -Body $body
@@ -382,9 +384,11 @@ import requests  
 resource = "?resource=https://management.azure.com/" 
 client_id = "&client_id=<ClientId of USI>" 
 endPoint = os.getenv('IDENTITY_ENDPOINT')+ resource +client_id 
+identityHeader = os.getenv('IDENTITY_HEADER') 
 payload={}  
 headers = {  
-  'Metadata': 'True'  
+  'X-IDENTITY-HEADER': identityHeader,
+  'Metadata': 'True' 
 }  
 response = requests.request("GET", endPoint, headers=headers, data=payload)  
 print(response.text) 
