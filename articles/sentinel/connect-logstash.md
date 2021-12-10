@@ -1,18 +1,9 @@
 ---
 title: Connect data sources through Logstash to Microsoft Sentinel | Microsoft Docs
 description: Learn how to use Logstash to forward logs from external data sources to Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ---

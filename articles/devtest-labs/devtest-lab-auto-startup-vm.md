@@ -2,7 +2,7 @@
 title: Configure auto start settings for a VM
 description: Learn how to configure auto start settings for VMs in a lab. This setting allows VMs in the lab to be automatically started on a schedule. 
 ms.topic: how-to
-ms.date: 10/21/2021
+ms.date: 12/10/2021
 ---
 
 # Start up lab virtual machines automatically
@@ -13,7 +13,7 @@ This article shows you how to configure an auto start policy for a lab. For info
 
 ## Configure auto start settings for a lab 
 
-The policy doesn't automatically apply auto start to any VMs in the lab. After configuring the policy, follow the steps from [Enable auto start for a VM in the lab](#enable-auto start-for-a-vm-in-the-lab).
+The policy doesn't automatically apply auto start to any VMs in the lab. After configuring the policy, follow the steps from [Enable auto start for a VM in the lab](#enable-auto-start-for-a-vm-in-the-lab).
 
 1. Sign in to the [Azure portal](https://portal.azure.com/).
 

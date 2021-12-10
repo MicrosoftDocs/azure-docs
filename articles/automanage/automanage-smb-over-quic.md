@@ -12,7 +12,7 @@ ms.author: jol
 
 # SMB over QUIC with Automanage machine best practices
 
-SMB over QUIC offers an "SMB VPN" for telecommuters, mobile device users, and branch offices, providing secure, reliable connectivity to edge file servers over untrusted networks like the Internet. To learn more about SMB over QUIC and how to configure SMB over QUIC, see [SMB over QUIC](https://aka.ms/smboverquic).
+SMB over QUIC offers an "SMB VPN" for telecommuters, mobile device users, and branch offices, providing secure, reliable connectivity to edge file servers over untrusted networks like the Internet. To learn more about SMB over QUIC and how to configure SMB over QUIC, see [SMB over QUIC](/windows-server/storage/file-server/smb-over-quic).
 
 Additionally, SMB over QUIC is integrated with Automanage machine best practices to help make SMB over QUIC management easier. QUIC uses certificates to provide its encryption and organizations often struggle to maintain complex public key infrastructures. Automanage machine best practices ensures that certificates do not expire without warning and that SMB over QUIC stays enabled for maximum continuity of service.
 
@@ -56,4 +56,4 @@ It may take a couple of hours for machine best practices to be configured and th
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Learn more about SMB over QUIC](https://aka.ms/smboverquic)
+> [Learn more about SMB over QUIC](/windows-server/storage/file-server/smb-over-quic)

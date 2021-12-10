@@ -167,7 +167,7 @@ Let's look at how to quickly copy data to/from an Azure blob storage. In this wa
 1. Create a general-purpose **Azure Storage Account** if you don't have one already. You use the blob storage as both **source** and **destination** data store in this walkthrough. if you don't have an Azure storage account, see the [Create a storage account](../../storage/common/storage-account-create.md) article for steps to create one.
 2. Create a blob container named **adfblobconnector** in the storage account.
 4. Create a folder named **input** in the **adfblobconnector** container.
-5. Create a file named **emp.txt** with the following content and upload it to the **input** folder by using tools such as [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+5. Create a file named **emp.txt** with the following content and upload it to the **input** folder by using tools such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
     ```json
     John, Doe
     Jane, Doe

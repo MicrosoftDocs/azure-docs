@@ -1,11 +1,12 @@
 ---
 title: Deploy a FHIR service within Azure Healthcare APIs
-description: This article teaches users how to deploy a FHIR service in the Azure portal. 
+description: This article teaches users how to deploy a FHIR service in the Azure portal.
 author: stevewohl
 ms.service: healthcare-apis
 ms.topic: quickstart
 ms.date: 09/10/2021
 ms.author: ginle
+ms.custom: mode-other
 ---
 
 # Deploy a FHIR service within Azure Healthcare APIs - using portal
@@ -55,4 +56,3 @@ To validate that the new FHIR API account is provisioned, fetch a capability sta
 
 >[!div class="nextstepaction"]
 >[Access the FHIR service using Postman](../use-postman.md)
-

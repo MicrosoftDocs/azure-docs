@@ -6,7 +6,7 @@ metadata:
   author: vhorne
   ms.service: application-gateway
   ms.topic: article
-  ms.date: 06/08/2021
+  ms.date: 10/20/2021
   ms.author: victorh
   ms.custom: references_regions
     
@@ -114,6 +114,10 @@ sections:
           New Application Gateway v1 SKU deployments can take up to 20 minutes to provision. Changes to instance size or count aren't disruptive, and the gateway remains active during this time.
           
           Most deployments that use the v2 SKU take around 6 minutes to provision. However it can take longer depending on the type of deployment. For example, deployments across multiple Availability Zones with many instances can take more than 6 minutes. 
+          
+      - question: How does application gateway handle routine maintenance?
+        answer: |
+          Updates initiated to Application Gateway are applied one [update domain](../../articles/virtual-machines/availability-set-overview.md#how-do-availability-sets-work) at a time, during off business hours for the region the gateway is deployed in. Active connections will gracefully be drained from the instance(s) being updated.  While the update is in progress, Application Gateway will temporarily run at reduced capacity, which is determined by the amount of instances configured. The update process will proceed to the next set of instances only if the current set of instances have been upgraded successfully.
           
       - question: Can I use Exchange Server as a backend with Application Gateway?
         answer: No. Application Gateway doesn't support email protocols such as SMTP, IMAP, and POP3.

@@ -30,11 +30,13 @@ Standalone VMs, availability sets, and virtual machine scale sets can be connect
 | --- | --- | --- |
 | **Scenario** |  Equipped for load-balancing network layer traffic when high performance and ultra-low latency is needed. Routes traffic within and across regions, and to availability zones for high resiliency. | Equipped for small-scale applications that don't need high availability or redundancy. Not compatible with availability zones. |
 | **Backend type** | IP based, NIC based | NIC based |
-| **[Backend pool size](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 1000 instances. | Supports up to 300 instances. |
-| **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network. | Virtual machines in a single availability set or virtual machine scale set. |
+| **Protocol** | TCP, UDP | TCP, UDP |
+| **[Frontend IP Configurations](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 600 configurations | Supports up to 200 configurations |
+| **[Backend pool size](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer)** | Supports up to 1000 instances | Supports up to 300 instances |
+| **Backend pool endpoints** | Any virtual machines or virtual machine scale sets in a single virtual network | Virtual machines in a single availability set or virtual machine scale set |
 | **[Health probes](./load-balancer-custom-probe-overview.md#types)** | TCP, HTTP, HTTPS | TCP, HTTP |
 | **[Health probe down behavior](./load-balancer-custom-probe-overview.md#probedown)** | TCP connections stay alive on an instance probe down __and__ on all probes down. | TCP connections stay alive on an instance probe down. All TCP connections end when all probes are down. |
-| **Availability Zones** | Zone-redundant and zonal frontends for inbound and outbound traffic. | Not available |
+| **Availability Zones** | Zone-redundant and zonal frontends for inbound and outbound traffic | Not available |
 | **Diagnostics** | [Azure Monitor multi-dimensional metrics](./load-balancer-standard-diagnostics.md) | Not supported |
 | **HA Ports** | [Available for Internal Load Balancer](./load-balancer-ha-ports-overview.md) | Not available |
 | **Secure by default** | Closed to inbound flows unless allowed by a network security group. Internal traffic from the virtual network to the internal load balancer is allowed. | Open by default. Network security group optional. |
@@ -44,6 +46,9 @@ Standalone VMs, availability sets, and virtual machine scale sets can be connect
 | **Management Operations** | Most operations < 30 seconds | 60-90+ seconds typical |
 | **SLA** | [99.99%](https://azure.microsoft.com/support/legal/sla/load-balancer/v1_0/) | Not available | 
 | **Global VNet Peering Support** | Standard ILB is supported via Global VNet Peering | Not supported | 
+| **[NAT Gateway Support](../virtual-network/nat-gateway/nat-overview.md)** | Both Standard ILB and Standard Public LB are supported via Nat Gateway | Not supported | 
+| **[Private Link Support](../private-link/private-link-overview.md)** | Standard ILB is supported via Private Link | Not supported | 
+| **[Cross-regional load balancing (Preview)](./cross-region-overview.md)** | Standard Public LB is supported via Cross-region LB | Not supported | 
 
 For more information, see [Load balancer limits](../azure-resource-manager/management/azure-subscription-service-limits.md#load-balancer). For Standard Load Balancer details, see [overview](./load-balancer-overview.md), [pricing](https://aka.ms/lbpricing), and [SLA](https://aka.ms/lbsla).
 

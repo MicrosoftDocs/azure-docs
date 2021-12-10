@@ -379,3 +379,8 @@ sections:
           Are Classic NSGs supported?
         answer: |
           No, Traffic Analytics does not support classic NSG. It is recommended to migrate IaaS resources from classic to Azure Resource Manager as classic resources will be [deprecated](../virtual-machines/classic-vm-deprecation.md). Refer this article to understand [how to migrate](../virtual-machines/migration-classic-resource-manager-overview.md).
+      
+      - question: |
+          Why does Traffic Analytics not display data for my Traffic Analytics enabled NSGs? 
+        answer: |
+          In the resource selection dropdown in the Traffic Analytics dashboard, the resource group of the **Virtual Network** resource must be selected, not the resource group of the virtual machine or network security group.  

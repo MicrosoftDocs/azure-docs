@@ -25,7 +25,7 @@ Follow this guide to learn how to update the OS and firmware of the carrier boar
 > [!NOTE]
 > If you have already imported the update, you can skip directly to **Create a device update group**.
 
-1. Determine which [manifest and update package](./how-to-select-update-package.md) is appropriate for your dev kit.
+1. Determine which [manifest and update package](./software-releases-over-the-air-updates.md) is appropriate for your dev kit.
 
 1. Navigate to the Azure IoT Hub that you are using for your Azure Percept device. On the left-hand menu panel, select **Device Updates** under **Automatic Device Management**.
 

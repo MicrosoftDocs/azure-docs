@@ -5,7 +5,7 @@ author: viseshag
 ms.author: viseshag
 ms.service: purview
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 11/22/2021
 ---
 
 # Access control in Azure Purview
@@ -27,7 +27,7 @@ Azure Purview uses a set of predefined roles to control who can access what with
 - **Collection admins** - a role for users that will need to assign roles to other users in Azure Purview or manage collections. Collection admins can add users to roles on collections where they're admins. They can also edit collections, their details, and add subcollections.
 - **Data curators** - a role that provides access to the data catalog to manage assets, configure custom classifications, set up glossary terms, and view insights. Data curators can create, read, modify, move, and delete assets. They can also apply annotations to assets.
 - **Data readers** - a role that provides read-only access to data assets, classifications, classification rules, collections and glossary terms.
-- **Data source admins** - a role that allows a user to manage data sources and scans. A user in the Data source admin role doesn't have access to Azure Purview studio. Combining this role with the Data reader or Data curator roles at any collection scope provides Azure Purview studio access.
+- **Data source admins** - a role that allows a user to manage data sources and scans. If a user is granted only to **Data source admin** role on a given data source, they can run new scans using an existing scan rule. To create new scan rules, the user must be also granted as either **Data reader** or **Data curator** roles.
 
 ## Who should be assigned to what role?
 
@@ -55,6 +55,8 @@ Sources, assets, and objects can be added directly to this root collection, but 
 All other users can only access information within the Azure Purview account if they, or a group they're in, are given one of the above roles. This means, when you create an Azure Purview account, no one but the creator can access or use its APIs until they are [added to one or more of the above roles in a collection](how-to-create-and-manage-collections.md#add-role-assignments).
 
 Users can only be added to a collection by a collection admin, or through permissions inheritance. The permissions of a parent collection are automatically inherited by its subcollections. However, you can choose to [restrict permission inheritance](how-to-create-and-manage-collections.md#restrict-inheritance) on any collection. If you do this, its subcollections will no longer inherit permissions from the parent and will need to be added directly, though collection admins that are automatically inherited from a parent collection can't be removed.
+
+You can assign Purview roles to users, security groups and service principals from your Azure Active Directory which is associated with your purview account's subscription.
 
 ## Assign permissions to your users
 

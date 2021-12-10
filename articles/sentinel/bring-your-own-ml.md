@@ -1,16 +1,7 @@
 ---
 title: Bring your own ML into Microsoft Sentinel | Microsoft Docs
 description: This article explains how to create and use your own machine learning algorithms for data analysis in Microsoft Sentinel.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin
@@ -104,7 +95,7 @@ To build custom ML models based on your own data in Microsoft Sentinel, you will
 
 For this example, you need to have your training data for File Share Access log in the Azure blob storage. The format of the data is documented in the notebook and libraries.
 
-You can automatically export your data from Log Analytics using the [Azure Command Line Interface (CLI)](/cli/azure/monitor/log-analytics). 
+You can automatically export your data from Log Analytics using the [Azure CLI](/cli/azure/monitor/log-analytics). 
 
 You must be assigned the **Contributor** role in your Log Analytics workspace, your Storage account, and your EventHub resource in order to run the commands. 
 

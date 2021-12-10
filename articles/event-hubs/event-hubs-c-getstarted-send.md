@@ -1,8 +1,9 @@
 ---
 title: 'Quickstart: Send events using C - Azure Event Hubs'
-description: 'Quickstart: This article provides a walkthrough for creating a C application that sends events to Azure Event Hubs.' 
+description: 'Quickstart: This article provides a walkthrough for creating a C application that sends events to Azure Event Hubs.'
 ms.topic: quickstart
 ms.date: 09/23/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Send events to Azure Event Hubs using C

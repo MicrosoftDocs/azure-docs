@@ -1,12 +1,13 @@
 ---
 title: Deploy workspace in the Azure portal - Azure Healthcare APIs
-description: This document teaches users how to deploy a workspace in the Azure portal. 
+description: This document teaches users how to deploy a workspace in the Azure portal.
 author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 07/12/2021
 ms.author: ginle
+ms.custom: mode-portal
 ---
 
 # Deploy Healthcare APIs (preview) workspace using Azure portal
@@ -76,4 +77,3 @@ Now that the workspace is created, you can:
 
 >[!div class="nextstepaction"]
 >[Workspace overview](workspace-overview.md)
-

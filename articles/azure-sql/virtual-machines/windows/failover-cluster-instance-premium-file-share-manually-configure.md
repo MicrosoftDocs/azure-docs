@@ -159,7 +159,7 @@ After you've configured the failover cluster, you can create the SQL Server FCI.
 
 
 >[!NOTE]
-> Azure Marketplace gallery images come with SQL Server Management Studio installed. If you didn't use a marketplace image [Download SQL Server Management Studio (SSMS)](/sql/ssms/ownload-sql-server-management-studio-ssms).
+> Azure Marketplace gallery images come with SQL Server Management Studio installed. If you didn't use a marketplace image [Download SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms).
 
 
 ## Register with SQL IaaS extension 

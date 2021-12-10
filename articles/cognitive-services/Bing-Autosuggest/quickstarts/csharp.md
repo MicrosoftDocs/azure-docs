@@ -1,17 +1,16 @@
 ---
 title: "Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#"
 titleSuffix: Azure Cognitive Services
-description: Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and C#.
+description: "Learn how to quickly start suggesting search terms in real time with the Bing Autosuggest API and C#."
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ---
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and C#
 

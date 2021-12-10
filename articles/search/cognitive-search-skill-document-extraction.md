@@ -6,7 +6,7 @@ manager: nitinme
 author: careyjmac
 
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ms.author: chalton
 ---

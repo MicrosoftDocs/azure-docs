@@ -5,7 +5,6 @@ description: In this quickstart, you learn how a .NET Core sample app can use th
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
@@ -13,7 +12,7 @@ ms.workload: identity
 ms.date: 10/05/2020
 ms.author: jmprieur
 ms.reviewer: marsma
-ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:aspnet-core", mode-other
 #Customer intent: As an application developer, I want to learn how my .NET Core app can get an access token and call an API that's protected by the Microsoft identity platform by using the client credentials flow.
 ---
 

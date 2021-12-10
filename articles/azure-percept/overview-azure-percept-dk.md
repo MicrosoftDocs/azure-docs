@@ -6,7 +6,7 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 03/23/2021
-ms.custom: 'template-concept #Required, leave this attribute/value as-is., ignite-fall-2021'
+ms.custom: template-concept, ignite-fall-2021
 ---
 
 # Azure Percept DK and Vision device overview

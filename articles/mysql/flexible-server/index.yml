@@ -32,6 +32,8 @@ landingContent:
         links:
           - text: Create a PHP app with flexible server
             url: tutorial-php-database-app.md
+          - text: Deploy Spring Boot app on AKS with flexible server
+            url: tutorial-deploy-springboot-on-aks-vnet.md
       - linkListType: whats-new
         links:
           - text: What's new in Flexible Server?

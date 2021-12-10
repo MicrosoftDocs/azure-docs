@@ -2,7 +2,7 @@
 title: Storage account name errors
 description: Describes errors that can occur when specifying a storage account name in an Azure Resource Manager template (ARM template) or Bicep file.
 ms.topic: troubleshooting
-ms.date: 10/26/2021
+ms.date: 11/12/2021
 ---
 
 # Resolve errors for storage account names
@@ -36,12 +36,7 @@ Storage account names must be between 3 and 24 characters in length and only use
 
 You can create a unique name by concatenating your naming convention with the result of the `uniqueString` function.
 
-ARM templates use [concat](../templates/template-functions-string.md#concat) with [uniqueString](../templates/template-functions-string.md#uniquestring).
-
-```json
-"name": "[concat('storage', uniqueString(resourceGroup().id))]",
-"type": "Microsoft.Storage/storageAccounts",
-```
+# [Bicep](#tab/bicep)
 
 Bicep uses [string interpolation](../bicep/bicep-functions-string.md#concat) with [uniqueString](../bicep/bicep-functions-string.md#uniquestring).
 
@@ -50,9 +45,30 @@ resource storageAccount 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   name: 'storage${uniqueString(resourceGroup().id)}'
 ```
 
+# [JSON](#tab/json)
+
+ARM templates use [concat](../templates/template-functions-string.md#concat) with [uniqueString](../templates/template-functions-string.md#uniquestring).
+
+```json
+"name": "[concat('storage', uniqueString(resourceGroup().id))]",
+"type": "Microsoft.Storage/storageAccounts",
+```
+
+---
+
 Make sure your storage account name doesn't exceed 24 characters. The `uniqueString` function returns 13 characters. If you want to concatenate a prefix or suffix, provide a value that's 11 characters or less.
 
 The following examples use a parameter that creates a prefix with a maximum of 11 characters.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+@description('The prefix value for the storage account name.')
+@maxLength(11)
+param storageNamePrefix string = 'storage'
+```
+
+# [JSON](#tab/json)
 
 ```json
 "parameters": {
@@ -67,18 +83,20 @@ The following examples use a parameter that creates a prefix with a maximum of 1
 }
 ```
 
-```bicep
-@description('The prefix value for the storage account name.')
-@maxLength(11)
-param storageNamePrefix string = 'storage'
-```
+---
 
 You then concatenate the parameter value with the `uniqueString` value to create a storage account name.
+
+# [Bicep](#tab/bicep)
+
+```bicep
+name: '${storageNamePrefix}${uniqueString(resourceGroup().id)}'
+```
+
+# [JSON](#tab/json)
 
 ```json
 "name": "[concat(parameters('storageNamePrefix'), uniquestring(resourceGroup().id))]"
 ```
 
-```bicep
-name: '${storageNamePrefix}${uniqueString(resourceGroup().id)}'
-```
+---

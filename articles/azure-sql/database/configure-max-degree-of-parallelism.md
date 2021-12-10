@@ -13,7 +13,7 @@ ms.devlang: tsql
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
+ms.reviewer: kendralittle, mathoma
 ---
 # Configure the max degree of parallelism (MAXDOP) in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]

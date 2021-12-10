@@ -5,14 +5,13 @@ description: In this quickstart, you learn how a Java app can get an access toke
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 01/22/2021
 ms.author: marsma
-ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-other
 #Customer intent: As an application developer, I want to learn how my Java app can get an access token and call an API that's protected by Microsoft identity platform endpoint using client credentials flow.
 ---
 

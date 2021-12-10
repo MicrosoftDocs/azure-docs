@@ -1,16 +1,15 @@
 ---
-
 title: Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
 description: How to interact with Azure Cosmos DB using Apache Spark in Azure Synapse Link
-services: synapse-analytics 
+services: synapse-analytics
 author: Rodrigossz
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: synapse-link
 ms.date: 11/02/2021
 ms.author: rosouz
 ms.reviewer: jrasnick
-ms.custom: cosmos-db
+ms.custom: cosmos-db, mode-other
 ---
 
 # Interact with Azure Cosmos DB using Apache Spark 2 in Azure Synapse Link
