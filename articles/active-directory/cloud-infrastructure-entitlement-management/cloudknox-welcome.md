@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 12/10/2021
 ms.author: v-ydequadros
 ---
 
@@ -22,35 +22,35 @@ If you are new to Microsoft CloudKnox Permissions Management, our solution requi
 
 ## How to install Sentry as your cloud service provider
 
-- To open the **Sentry installation pages** for the appropriate cloud service provider, click:
+- To open the Sentry installation page** for the appropriate cloud service provider, click:
 
-<p>
-<a class="md-button sentry-install-button md-button-spacing aws-sentry-install-button" href="sentry-install-aws/">
-    <span class="sentry-install-button__wrapper">
-        <span>AWS</span>
-    </span>
-    </a>
-</p><p>
-    <a class="md-button sentry-install-button md-button-spacing azure-sentry-install-button" href="sentry-install-azure/">
-    <span class="sentry-install-button__wrapper">
-        <span>Azure</span>
-    </span>
-    </a>
-</p><p>
-    <a class="md-button sentry-install-button md-button-spacing gcp-sentry-install-button" href="sentry-install-gcp/">
-    <span class="sentry-install-button__wrapper">
-        <span>GCP</span>
-    </span>
-    </a>
-</p><p>
-    <a class="md-button sentry-install-button vcenter-sentry-install-button" href="sentry-install-vcenter/">
-    <span class="sentry-install-button__wrapper">
-        <span>vCenter</span>
-    </span>
-    </a>
-</p>
+    <p>
+    <a class="md-button sentry-install-button md-button-spacing aws-sentry-install-button" href="sentry-install-aws/">
+        <span class="sentry-install-button__wrapper">
+            <span>AWS</span>
+        </span>
+        </a>
+    </p><p>
+        <a class="md-button sentry-install-button md-button-spacing azure-sentry-install-button" href="sentry-install-azure/">
+        <span class="sentry-install-button__wrapper">
+            <span>Azure</span>
+        </span>
+        </a>
+    </p><p>
+        <a class="md-button sentry-install-button md-button-spacing gcp-sentry-install-button" href="sentry-install-gcp/">
+        <span class="sentry-install-button__wrapper">
+            <span>GCP</span>
+        </span>
+        </a>
+    </p><p>
+        <a class="md-button sentry-install-button vcenter-sentry-install-button" href="sentry-install-vcenter/">
+        <span class="sentry-install-button__wrapper">
+            <span>vCenter</span>
+        </span>
+        </a>
+    </p>
 
-<div class="hr hr-spacing"></div>
+    <div class="hr hr-spacing"></div>
 
 ## What's new
 
@@ -67,12 +67,10 @@ This data displays metrics related to avoidable risk, and allows the CloudKnox a
 
 ### Privilege Creep Index (PCI)
 
-The PCI is an indicator of an organization's level of exposure to insider threat risks as well as their ability to enforce the **Principle of least privilege (POLP)**, which is one of the most fundamental and essential concepts in security.  
+The PCI is an indicator of an organization's level of exposure to insider threat risks and their ability to enforce the **Principle of least privilege (POLP)**, which is one of the most fundamental and essential concepts in security.  
 
 PCI measures the number of unused high-risk privileges that have been granted to all unique identities. It also takes into account the number of resources that an identity has access to but has not touched over the last 90 days.   
 
-A PCI score of 100 represents the highest risk to the organization, indicating a high percentage of identities with excessive high-risk privileges, as well as broad but unnecessary access to cloud resources, with zero representing the lowest risk.
+A PCI score of 100 represents the highest risk to the organization and zero represents the lowest risk. A high risk indicates that a high percentage of identities are assigned excessive high-risk privileges and broad, but unnecessary, access to cloud resources.
 
-## Next steps
-
-Links to come.
+<!---## Next steps--->
