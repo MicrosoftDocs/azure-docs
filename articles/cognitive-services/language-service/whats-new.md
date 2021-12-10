@@ -17,6 +17,10 @@ ms.custom: ignite-fall-2021
 
 Azure Cognitive Service for Language is updated on an ongoing basis. To stay up-to-date with recent developments, this article provides you with information about new releases and features.
 
+## December 2021
+
+* The version 3.1-preview.x REST endpoints and 5.1.0-beta.x client library have been retired. Please upgrade to the general availability version - 3.1 (for SDKs use package version 5.1.0 or higher). See the [Migration to the latest version guidance](https://aka.ms/ta-get-started-sdk) for details
+
 ## November 2021
 
 * Based on ongoing customer feedback, we have increased the character limit per document for Text Analytics for health from 5,120 to 30,720.
