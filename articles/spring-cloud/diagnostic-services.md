@@ -210,7 +210,8 @@ AppPlatformBuildLogs
 
 ### Show build log entries for a specific app in a specific build stage
 To review log entries for a specific app in a specific build stage, run the following query:
-The build process has the following stages: prepare, detect, restore, analyze, build, export, and completion.
+
+The build process has the following stages: `prepare`, `detect`, `restore`, `analyze`, `build`, `export`, and `completion`.
 ```sql
 AppPlatformBuildLogs
 | where TimeGenerated > ago(1h) and PodName contains "{AppName}" and ContainerName == "prepare"
