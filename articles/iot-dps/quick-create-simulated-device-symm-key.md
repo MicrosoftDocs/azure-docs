@@ -162,18 +162,6 @@ In this section, you'll prepare a development environment that's used to build t
     git clone https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
-3. Go to the `azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios` directory where the sample file, _provision_symmetric_key.py_, is located.
-
-   ```console
-   cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
-   ```
-
-4. Install the _azure-iot-device_ library by running the following command.
-
-    ```console
-    pip install azure-iot-device
-    ```
-
 ::: zone-end
 
 ::: zone pivot="programming-language-java"
@@ -188,7 +176,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 3. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages. This step can take several minutes to complete.
 
-   ```cmd/sh
+   ```cmd
    cd azure-iot-sdk-java
    mvn install -DskipTests=true
    ```
@@ -303,7 +291,7 @@ To update and run the provisioning sample with your device information:
 
 4. In Visual Studio's *Solution Explorer* window, go to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
-5. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied in step 2.
+5. Find the `id_scope` constant, and replace the value with the **ID Scope** value that you copied in step 2.
 
     ```c
     static const char* id_scope = "0ne00002193";
@@ -340,7 +328,7 @@ To update and run the provisioning sample with your device information:
 
     The following output is an example of the device successfully connecting to the provisioning Service instance to be assigned to an IoT hub:
 
-    ```cmd
+    ```output
     Provisioning API Version: 1.2.8
 
     Registering Device
@@ -402,7 +390,7 @@ To update and run the provisioning sample with your device information:
     * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
-    ```console
+    ```cmd
     dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
     ```
 
@@ -465,36 +453,36 @@ To update and run the provisioning sample with your device information:
 
     No further changes are needed.
 
-5. In your command prompt, run the following commands to set environment variables used by the sample:
+5. In the command prompt, run the following commands to set environment variables used by the sample:
 
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
-    ```console
+    ```cmd
     set PROVISIONING_HOST=<provisioning-global-endpoint>
     ```
 
-    ```console
+    ```cmd
     set PROVISIONING_IDSCOPE=<id-scope>
     ```
 
-    ```console
+    ```cmd
     set PROVISIONING_REGISTRATION_ID=<registration-id>
     ```
 
-    ```console
+    ```cmd
     set PROVISIONING_SYMMETRIC_KEY=<primarykey>
     ```
 
 6. Build and run the sample code using the following commands:
 
-   ```console
+   ```cmd
     npm install
     ```
 
-    ```console
+    ```cmd
     node register_symkey.js
     ```
 
@@ -540,42 +528,48 @@ To update and run the provisioning sample with your device information:
 
     :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
-3. In your command prompt, run the following commands to set environment variables used by the sample:
+3. Open a command prompt and go to the directory where the sample file, _provision_symmetric_key.py_, is located.
+
+   ```cmd
+   cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
+   ```
+
+4. In the command prompt, run the following commands to set environment variables used by the sample:
 
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
-    ```console
+    ```cmd
     set PROVISIONING_HOST=<provisioning-global-endpoint>
     ```
 
-    ```console
+    ```cmd
     set PROVISIONING_IDSCOPE=<id-scope>
     ```
 
-    ```console
+    ```cmd
     set PROVISIONING_REGISTRATION_ID=<registration-id>
     ```
 
-    ```console
+    ```cmd
     set PROVISIONING_SYMMETRIC_KEY=<primarykey>
     ```
 
-4. In the command prompt window, go to the following directory:
+5. Install the _azure-iot-device_ library by running the following command.
 
     ```cmd
-    cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
+    pip install azure-iot-device
     ```
 
-5. Run the python sample code in *_provision_symmetric_key.py_*.
+6. Run the python sample code in *_provision_symmetric_key.py_*.
 
-    ```console
+    ```cmd
     python provision_symmetric_key.py
     ```
 
-6. You should now see something similar to the following output. Some example wind speed telemetry messages are also sent to the hub as a test.
+7. You should now see something similar to the following output. Some example wind speed telemetry messages are also sent to the hub as a test.
 
      ```output
     D:\azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios>python provision_symmetric_key.py
@@ -659,7 +653,7 @@ To update and run the provisioning sample with your device information:
 
 6. Build the sample then navigate to the `target` folder to execute the created `.jar` file.
 
-    ```cmd/sh
+    ```cmd
     mvn clean install
     cd target
     java -jar ./provisioning-symmetrickey-sample-{version}-with-deps.jar
@@ -667,7 +661,7 @@ To update and run the provisioning sample with your device information:
 
 7. You should now see something similar to the following output.
 
-     ```cmd/sh
+     ```output
       Starting...
       Beginning setup.
       Waiting for Provisioning Service to register
