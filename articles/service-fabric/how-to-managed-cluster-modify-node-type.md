@@ -18,7 +18,7 @@ The rest of this document will cover how to adjust various settings from creatin
 ## Add a node type
 You can add a node type to a Service Fabric managed cluster through Portal, an Azure Resource Manager template, or PowerShell. 
 
-### With portal
+### Add with portal
 > [!NOTE]
 > You can only add secondary node types using Portal
 
@@ -34,7 +34,7 @@ You can add a node type to a Service Fabric managed cluster through Portal, an A
 
 5) Wait for the new node type addition to be completed
 
-### With an ARM template
+### Add with an ARM template
 
 Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` with the required values and do a cluster deployment for the setting to take effect.
 
@@ -64,7 +64,7 @@ Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` wi
 ```
 For an example two node type configuration, see our [sample two node type ARM Template](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/SF-Managed-Standard-SKU-2-NT)
 
-### Add a node type using a cmdlet
+### Add with PowerShell
 
 To create a new node type, you'll need to define three properties:
 
@@ -89,7 +89,7 @@ New-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterNam
 > [!NOTE]
 > To remove a primary node type from a Service Fabric managed cluster, you must use PowerShell and there must be more then one primary node type available.
 
-### With portal
+### Remove with portal
 1) Log in to [Azure portal](https://portal.azure.com/)
 
 2) Navigate to your cluster resource Overview page. 
@@ -100,7 +100,7 @@ New-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterNam
 
 4) Select the `Node Type` you want to remove and click `Delete` at the top.
 
-### With PowerShell
+### Remove with PowerShell
 To remove a node type:
 
 ```powershell
@@ -115,7 +115,14 @@ Remove-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -Cluster
 
 
 
-## Scale a node type manually with portal
+## Scale a node type 
+
+
+### Scale using Autoscale
+
+To learn how to configure autoscale, refer to [how to configure autoscale for a secondary node type](how-to-managed-cluster-autoscale.md) documentation.
+
+### Scale using portal
 
 In this walkthrough, you will learn how to modify the node count for a node type using portal.
 
@@ -135,7 +142,7 @@ In this walkthrough, you will learn how to modify the node count for a node type
 ![Sample showing a node type updating][node-type-updating]
 
 
-## Scale a node type manually with a template
+### Scale a node type with a template
 
 To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take effect.
 
@@ -201,7 +208,10 @@ If an upgrade fails, Service Fabric will retry after 24 hours, for a maximum of 
 
 For more on image upgrades, see [Automatic OS image upgrades with Azure virtual machine scale sets](../virtual-machine-scale-sets/virtual-machine-scale-sets-automatic-upgrade.md).
 
-## Modify the OS image for a node type with portal
+## Modify the OS SKU for a node type
+Service Fabric managed clusters enables you to modify the OS SKU for a node type in place. This is helpful for scenarios such as migrating from Windows 2019 to Windows 2022 or if you want to switch to a Server (Core) SKU vs Server with Desktop Experience SKU.
+
+### Modify OS SKU with portal
 
 In this walkthrough, you will learn how to modify the OS image for a node type using portal.
 
@@ -221,7 +231,7 @@ In this walkthrough, you will learn how to modify the OS image for a node type u
 ![Sample showing a node type updating][node-type-updating]
 
 
-## Modify the OS image for a node type with a template
+### Modify OS SKU with a template
 
 To modify the OS image used for a node type using an ARM Template, adjust the `vmImageSku` property with the new value and do a cluster deployment for the setting to take effect. The managed cluster provider will reimage each instance by upgrade domain.
 
@@ -245,7 +255,10 @@ To modify the OS image used for a node type using an ARM Template, adjust the `v
 }
 ```
 
-## Configure placement properties for a node type with portal
+## Configure placement properties for a node type
+[Placement properties](service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints) are used to ensure that certain workloads run only on certain node types in the cluster. Service Fabric managed clusters support configuring these properties via portal, ARM template, or PowerShell.
+
+### Configure placement properties with portal
 
 In this walkthrough, you will learn how to modify a placement property for a node type using portal.
 
@@ -264,9 +277,8 @@ In this walkthrough, you will learn how to modify a placement property for a nod
 6) The `Provisioning state` will now show a status of `Updating` until complete. When complete, it will show `Succeeded` again.
 ![Sample showing a node type updating][node-type-updating]
 
-You can now use that [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
 
-## Configure placement properties for a node type with a template
+### Configure placement properties with a template
 
 To adjust the placement properties for a node type using an ARM Template, adjust the `placementProperties` property with the new value(s) and do a cluster deployment for the setting to take effect. The below sample shows three values being set for a node type.
 
@@ -287,7 +299,17 @@ To adjust the placement properties for a node type using an ARM Template, adjust
         }
 }
 ```
-You can now use that [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
+
+### Configure placement properties with PowerShell
+
+The following example will update and overwrite any existing placement properties for a given node type.
+
+```PowerShell
+$rgName = "testRG"
+$clusterName = "testCluster"
+$NodeTypeName = "nt1"
+Set-AzServiceFabricManagedNodeType -ResourceGroupName $rgName -ClusterName $clusterName -name $NodeTypeName -PlacementProperty @{NodeColor="Red";SomeProperty="6";} -Verbose
+```
 
 ## Modify the VM SKU for a node type
 
