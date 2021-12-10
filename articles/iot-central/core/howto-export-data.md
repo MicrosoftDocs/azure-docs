@@ -33,9 +33,9 @@ If you have a V2 application, see [Migrate your V2 IoT Central application to V3
 
 ## Set up an export destination
 
-Your export destination must exist before you configure your data export. The following destination types are currently available:
+Your export destination must exist before you configure your data export. Choose from the following destination types:
 
-### Azure Blob Storage
+# [Blob Storage](#tab/blob-storage)
 
 IoT Central exports data once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
 
@@ -44,7 +44,13 @@ IoT Central exports data once per minute, with each file containing the batch of
 
 To browse the exported files in the Azure portal, navigate to the file and select **Edit blob**.
 
-### Azure Event Hubs and Azure Service Bus
+### Connection options
+
+Blob Storage destinations let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+
+[!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
+
+# [Service Bus](#tab/service-bus)
 
 Both queues and topics are supported for Azure Service Bus destinations.
 
@@ -52,263 +58,31 @@ IoT Central exports data in near real time. The data is in the message body and 
 
 The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
 
-### Azure Data Explorer
+### Connection options
+
+Service Bus destinations let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+
+[!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
+
+# [Event Hubs](#tab/event-hubs)
+
+IoT Central exports data in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
+
+The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
+
+### Connection options
+
+Event Hubs destinations let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md).
+
+[!INCLUDE [iot-central-managed-identities](../../../includes/iot-central-managed-identities.md)]
+
+# [Azure Data Explorer](#tab/data-explorer)
 
 You can use an [Azure Data Explorer cluster](/azure/data-explorer/data-explorer-overview) or an [Azure Synapse Data Explorer pool](../../synapse-analytics/data-explorer/data-explorer-overview.md). To learn more, see [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer?](../..//synapse-analytics/data-explorer/data-explorer-compare.md).
 
 IoT Central exports data in near real time to a database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform](howto-transform-data-internally.md) in IoT Central to export data that matches the table schema.
 
 To query the exported data in the Azure Data Explorer portal, navigate to the database and select **Query**.
-
-### Webhook
-
-For webhooks destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
-
-### Connection options
-
-Blob Storage, Event Hubs, and Service Bus destinations, let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities are more secure because:
-
-- You don't store the credentials for your resource in a connection string in your IoT Central application.
-- The credentials are automatically tied to the lifetime of your IoT Central application.
-- Managed identities automatically rotate their security keys regularly.
-
-IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
-
-When you configure a managed identity, the configuration includes a *scope* and a *role*:
-
-- The scope defines where you can use the managed identity. For example, you can use an Azure resource group as the scope. In this case, both the IoT Central application and the destination must be in the same resource group.
-- The role defines what permissions the IoT Central application is granted in the destination service. For example, for an IoT Central application to send data to an event hub, the managed identity needs the **Azure Event Hubs Data Sender** role assignment.
-
-This article shows how to create a managed identity in the Azure portal. You can also use the Azure CLI to create a manged identity. To learn more, see [Assign a managed identity access to a resource using Azure CLI](../../active-directory/managed-identities-azure-resources/howto-assign-access-cli.md).
-
-### Create an Event Hubs destination
-
-# [Connection string](#tab/connection-string)
-
-If you don't have an existing Event Hubs namespace to export to, follow these steps:
-
-1. Create a [new Event Hubs namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
-
-1. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
-
-1. Generate a key to use when you to set up your data export in IoT Central:
-
-    - Select the event hub instance you created.
-    - Select **Settings > Shared access policies**.
-    - Create a new key or choose an existing key that has **Send** permissions.
-    - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
-    - Alternatively, you can generate a connection string for the entire Event Hubs namespace:
-        1. Go to your Event Hubs namespace in the Azure portal.
-        2. Under **Settings**, select **Shared Access Policies**
-        3. Create a new key or choose an existing key that has **Send** permissions.
-        4. Copy either the primary or secondary connection string
-
-To create the Event Hubs destination in IoT Central on the **Create new destination** page:
-
-1. Enter a **Destination name**.
-
-1. Select **Azure Event Hubs** as the destination type.
-
-1. Select **Connection string** as the authorization type.
-
-1. Paste in the connection string for your Event Hubs resource, and enter the case-sensitive event hub name if necessary.
-
-1. Select **Save**.
-
-# [Managed identity](#tab/managed-identity)
-
-If you don't have an existing Event Hubs namespace to export to, follow these steps:
-
-1. Create a [new Event Hubs namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
-
-1. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
-
-[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
-
-To configure the permissions:
-
-1. On the **Add role assignment** page, select the scope and subscription you want to use.
-
-    > [!TIP]
-    > If your IoT Central application and event hub are in the same resource group, you can choose **Resource group** as the scope and then select the resource group.
-
-1. Select **Azure Event Hubs Data Sender** as the **Role**.
-
-1. Select **Save**. The managed identity for your IoT Central application is now configured.
-
-To further secure your event hub and only allow access from trusted services with managed identities, see:
-
-- [Allow access to Azure Event Hubs namespaces using private endpoints](../../event-hubs/private-link-service.md)
-- [Trusted Microsoft services](../../event-hubs/private-link-service.md#trusted-microsoft-services)
-- [Allow access to Azure Event Hubs namespaces from specific virtual networks](../../event-hubs/event-hubs-service-endpoints.md)
-
-To create the Event Hubs destination in IoT Central on the **Create new destination** page:
-
-1. Enter a **Destination name**.
-
-1. Select **Azure Event Hubs** as the destination type.
-
-1. Select **System-assigned managed identity** as the authorization type.
-
-1. Enter the host name of your Event Hubs resource. Then enter the case-sensitive event hub name. A host name looks like: `contoso-waste.servicebus.windows.net`.
-
-1. Select **Save**.
-
----
-
-### Create a Service Bus queue or topic destination
-
-# [Connection string](#tab/connection-string)
-
-If you don't have an existing Service Bus namespace to export to, follow these steps:
-
-1. Create a [new Service Bus namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
-
-1. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
-
-1. Generate a key to use when you to set up your data export in IoT Central:
-
-    - Select the queue or topic you created.
-    - Select **Settings/Shared access policies**.
-    - Create a new key or choose an existing key that has **Send** permissions.
-    - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
-    - Alternatively, you can generate a connection string for the entire Service Bus namespace:
-        1. Go to your Service Bus namespace in the Azure portal.
-        2. Under **Settings**, select **Shared Access Policies**
-        3. Create a new key or choose an existing key that has **Send** permissions.
-        4. Copy either the primary or secondary connection string
-
-To create the Service Bus destination in IoT Central on the **Create new destination** page:
-
-1. Enter a **Destination name**.
-
-1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
-
-1. Select **Connection string** as the authorization type.
-
-1. Paste in the connection string for your Service Bus resource, and enter the case-sensitive queue or topic name if necessary.
-
-1. Select **Save**.
-
-# [Managed identity](#tab/managed-identity)
-
-If you don't have an existing Service Bus namespace to export to, follow these steps:
-
-1. Create a [new Service Bus namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
-
-1. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
-
-[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
-
-To configure the permissions:
-
-1. On the **Add role assignment** page, select the scope and subscription you want to use.
-
-    > [!TIP]
-    > If your IoT Central application and queue or topic are in the same resource group, you can choose **Resource group** as the scope and then select the resource group.
-
-1. Select **Azure Service Bus Data Sender** as the **Role**.
-
-1. Select **Save**. The managed identity for your IoT Central application is now configured.
-
-To further secure your queue or topic and only allow access from trusted services with managed identities, see:
-
-- [Allow access to Azure Service Bus namespaces using private endpoints](../../service-bus-messaging/private-link-service.md)
-- [Trusted Microsoft services](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
-- [Allow access to Azure Service Bus namespace from specific virtual networks](../../service-bus-messaging/service-bus-service-endpoints.md)
-
-To create the Service Bus destination in IoT Central on the **Create new destination** page:
-
-1. Enter a **Destination name**.
-
-1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
-
-1. Select **System-assigned managed identity** as the authorization type.
-
-1. Enter the host name of your Service Bus resource. Then enter the case-sensitive queue or topic name. A host name looks like: `contoso-waste.servicebus.windows.net`.
-
-1. Select **Save**.
-
----
-
-### Create an Azure Blob Storage destination
-
-# [Connection string](#tab/connection-string)
-
-If you don't have an existing Azure storage account to export to, follow these steps:
-
-1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
-
-    |Performance Tier|Account Type|
-    |-|-|
-    |Standard|General Purpose V2|
-    |Standard|General Purpose V1|
-    |Standard|Blob storage|
-    |Premium|Block Blob storage|
-
-1. To create a container in your storage account, go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
-
-1. Generate a connection string for your storage account by going to **Settings > Access keys**. Copy one of the two connection strings.
-
-To create the Blob Storage destination in IoT Central on the **Create new destination** page:
-
-1. Enter a **Destination name**.
-
-1. Select **Azure Blob Storage** as the destination type.
-
-1. Select **Connection string** as the authorization type.
-
-1. Paste in the connection string for your Blob Storage resource, and enter the case-sensitive container name if necessary.
-
-1. Select **Save**.
-
-# [Managed identity](#tab/managed-identity)
-
-If you don't have an existing Azure storage account to export to, follow these steps:
-
-1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
-
-    |Performance Tier|Account Type|
-    |-|-|
-    |Standard|General Purpose V2|
-    |Standard|General Purpose V1|
-    |Standard|Blob storage|
-    |Premium|Block Blob storage|
-
-1. To create a container in your storage account, go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
-
-[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
-
-To configure the permissions:
-
-1. On the **Add role assignment** page, select the subscription you want to use and **Storage** as the scope. Then select your storage account as the resource.
-
-1. Select **Storage Blob Data Contributor** as the **Role**.
-
-1. Select **Save**. The managed identity for your IoT Central application is now configured.
-
-    > [!TIP]
-    > This role assignment isn't visible in the list on the **Azure role assignments** page.
-
-To further secure your blob container and only allow access from trusted services with managed identities, see:
-
-- [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md)
-- [Authorize access to blob data with managed identities for Azure resources](../../storage/blobs/authorize-managed-identity.md)
-- [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
-
-To create the Blob Storage destination in IoT Central on the **Create new destination** page:
-
-1. Enter a **Destination name**.
-
-1. Select **Azure Blob Storage** as the destination type.
-
-1. Select **System-assigned managed identity** as the authorization type.
-
-1. Enter the endpoint URI for your storage account and the case-sensitive container name. An endpoint URI looks like: `https://contosowaste.blob.core.windows.net`.
-
-1. Select **Save**.
-
----
 
 ### Create an Azure Data Explorer destination
 
@@ -378,7 +152,11 @@ To create the Azure Data Explorer destination in IoT Central on the **Create new
 
     :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination.":::
 
-### Create a webhook endpoint
+# [Webhook](#tab/webhook)
+
+For webhook destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
+
+### Create a webhook destination
 
 You can export data to a publicly available HTTP webhook endpoint. You can create a test webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
 
@@ -397,6 +175,239 @@ To create the Azure Data Explorer destination in IoT Central on the **Create new
     - For **Authorization token**, you can specify a token value that's directly attached to the `Authorization` header for every message sent to this destination.
 
 1. Select **Save**.
+
+---
+
+# [Connection string](#tab/connection-string/event-hubs)
+
+### Create an Event Hubs destination
+
+If you don't have an existing Event Hubs namespace to export to, follow these steps:
+
+1. Create a [new Event Hubs namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
+
+1. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
+
+1. Generate a key to use when you to set up your data export in IoT Central:
+
+    - Select the event hub instance you created.
+    - Select **Settings > Shared access policies**.
+    - Create a new key or choose an existing key that has **Send** permissions.
+    - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
+    - Alternatively, you can generate a connection string for the entire Event Hubs namespace:
+        1. Go to your Event Hubs namespace in the Azure portal.
+        2. Under **Settings**, select **Shared Access Policies**
+        3. Create a new key or choose an existing key that has **Send** permissions.
+        4. Copy either the primary or secondary connection string
+
+To create the Event Hubs destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Event Hubs** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Event Hubs resource, and enter the case-sensitive event hub name if necessary.
+
+1. Select **Save**.
+
+# [Managed identity](#tab/managed-identity/event-hubs)
+
+### Create an Event Hubs destination
+
+If you don't have an existing Event Hubs namespace to export to, follow these steps:
+
+1. Create a [new Event Hubs namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.EventHub). You can learn more in [Azure Event Hubs docs](../../event-hubs/event-hubs-create.md).
+
+1. Create an event hub in your Event Hubs namespace. Go to your namespace, and select **+ Event Hub** at the top to create an event hub instance.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+To configure the permissions:
+
+1. On the **Add role assignment** page, select the scope and subscription you want to use.
+
+    > [!TIP]
+    > If your IoT Central application and event hub are in the same resource group, you can choose **Resource group** as the scope and then select the resource group.
+
+1. Select **Azure Event Hubs Data Sender** as the **Role**.
+
+1. Select **Save**. The managed identity for your IoT Central application is now configured.
+
+To further secure your event hub and only allow access from trusted services with managed identities, see:
+
+- [Allow access to Azure Event Hubs namespaces using private endpoints](../../event-hubs/private-link-service.md)
+- [Trusted Microsoft services](../../event-hubs/private-link-service.md#trusted-microsoft-services)
+- [Allow access to Azure Event Hubs namespaces from specific virtual networks](../../event-hubs/event-hubs-service-endpoints.md)
+
+To create the Event Hubs destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Event Hubs** as the destination type.
+
+1. Select **System-assigned managed identity** as the authorization type.
+
+1. Enter the host name of your Event Hubs resource. Then enter the case-sensitive event hub name. A host name looks like: `contoso-waste.servicebus.windows.net`.
+
+1. Select **Save**.
+
+# [Connection string](#tab/connection-string/service-bus)
+
+### Create a Service Bus queue or topic destination
+
+If you don't have an existing Service Bus namespace to export to, follow these steps:
+
+1. Create a [new Service Bus namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+
+1. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
+
+1. Generate a key to use when you to set up your data export in IoT Central:
+
+    - Select the queue or topic you created.
+    - Select **Settings/Shared access policies**.
+    - Create a new key or choose an existing key that has **Send** permissions.
+    - Copy either the primary or secondary connection string. You use this connection string to set up a new destination in IoT Central.
+    - Alternatively, you can generate a connection string for the entire Service Bus namespace:
+        1. Go to your Service Bus namespace in the Azure portal.
+        2. Under **Settings**, select **Shared Access Policies**
+        3. Create a new key or choose an existing key that has **Send** permissions.
+        4. Copy either the primary or secondary connection string
+
+To create the Service Bus destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Service Bus resource, and enter the case-sensitive queue or topic name if necessary.
+
+1. Select **Save**.
+
+# [Managed identity](#tab/managed-identity/service-bus)
+
+### Create a Service Bus queue or topic destination
+
+If you don't have an existing Service Bus namespace to export to, follow these steps:
+
+1. Create a [new Service Bus namespace in the Azure portal](https://portal.azure.com/#create/Microsoft.ServiceBus.1.0.5). You can learn more in [Azure Service Bus docs](../../service-bus-messaging/service-bus-create-namespace-portal.md).
+
+1. To create a queue or topic to export to, go to your Service Bus namespace, and select **+ Queue** or **+ Topic**.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+To configure the permissions:
+
+1. On the **Add role assignment** page, select the scope and subscription you want to use.
+
+    > [!TIP]
+    > If your IoT Central application and queue or topic are in the same resource group, you can choose **Resource group** as the scope and then select the resource group.
+
+1. Select **Azure Service Bus Data Sender** as the **Role**.
+
+1. Select **Save**. The managed identity for your IoT Central application is now configured.
+
+To further secure your queue or topic and only allow access from trusted services with managed identities, see:
+
+- [Allow access to Azure Service Bus namespaces using private endpoints](../../service-bus-messaging/private-link-service.md)
+- [Trusted Microsoft services](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
+- [Allow access to Azure Service Bus namespace from specific virtual networks](../../service-bus-messaging/service-bus-service-endpoints.md)
+
+To create the Service Bus destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
+
+1. Select **System-assigned managed identity** as the authorization type.
+
+1. Enter the host name of your Service Bus resource. Then enter the case-sensitive queue or topic name. A host name looks like: `contoso-waste.servicebus.windows.net`.
+
+1. Select **Save**.
+
+# [Connection string](#tab/connection-string/blob-storage)
+
+### Create an Azure Blob Storage destination
+
+If you don't have an existing Azure storage account to export to, follow these steps:
+
+1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+
+    |Performance Tier|Account Type|
+    |-|-|
+    |Standard|General Purpose V2|
+    |Standard|General Purpose V1|
+    |Standard|Blob storage|
+    |Premium|Block Blob storage|
+
+1. To create a container in your storage account, go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
+
+1. Generate a connection string for your storage account by going to **Settings > Access keys**. Copy one of the two connection strings.
+
+To create the Blob Storage destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Blob Storage** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Blob Storage resource, and enter the case-sensitive container name if necessary.
+
+1. Select **Save**.
+
+# [Managed identity](#tab/managed-identity/blob-storage)
+
+### Create an Azure Blob Storage destination
+
+If you don't have an existing Azure storage account to export to, follow these steps:
+
+1. Create a [new storage account in the Azure portal](https://portal.azure.com/#create/Microsoft.StorageAccount-ARM). You can learn more about creating new [Azure Blob storage accounts](../../storage/blobs/storage-quickstart-blobs-portal.md) or [Azure Data Lake Storage v2 storage accounts](../../storage/common/storage-account-create.md). Data export can only write data to storage accounts that support block blobs. The following list shows the known compatible storage account types:
+
+    |Performance Tier|Account Type|
+    |-|-|
+    |Standard|General Purpose V2|
+    |Standard|General Purpose V1|
+    |Standard|Blob storage|
+    |Premium|Block Blob storage|
+
+1. To create a container in your storage account, go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
+
+[!INCLUDE [iot-central-managed-identity](../../../includes/iot-central-managed-identity.md)]
+
+To configure the permissions:
+
+1. On the **Add role assignment** page, select the subscription you want to use and **Storage** as the scope. Then select your storage account as the resource.
+
+1. Select **Storage Blob Data Contributor** as the **Role**.
+
+1. Select **Save**. The managed identity for your IoT Central application is now configured.
+
+    > [!TIP]
+    > This role assignment isn't visible in the list on the **Azure role assignments** page.
+
+To further secure your blob container and only allow access from trusted services with managed identities, see:
+
+- [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md)
+- [Authorize access to blob data with managed identities for Azure resources](../../storage/blobs/authorize-managed-identity.md)
+- [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
+
+To create the Blob Storage destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Blob Storage** as the destination type.
+
+1. Select **System-assigned managed identity** as the authorization type.
+
+1. Enter the endpoint URI for your storage account and the case-sensitive container name. An endpoint URI looks like: `https://contosowaste.blob.core.windows.net`.
+
+1. Select **Save**.
+
+---
 
 ## Set up a data export
 
@@ -428,7 +439,7 @@ Now that you have a destination to export your data to, set up data export in yo
 
     | Type of data | Available filters|
     |--------------|------------------|
-    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message optionally sent by devices that use the device SDKs. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../articles/iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
+    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message optionally sent by devices that use the device SDKs. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../../iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
     |Property changes|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain property changes that meet the filter conditions</li></ul>|
     |Device connectivity|<ul><li>Filter by device name, device ID, device template, organizations, and if the device is simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
     |Device lifecycle|<ul><li>Filter by device name, device ID, device template, and if the device is provisioned, enabled, or simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
@@ -462,7 +473,10 @@ In IoT Central, the **Data export** page lets you check the status of your expor
 
 To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
 
-## Telemetry format
+## Data formats
+
+The following sections describe the formats of the exported data:
+### Telemetry format
 
 Each exported message contains a normalized form of the full message the device sent in the message body. The message is in JSON format and encoded as UTF-8. Information in each message includes:
 
@@ -514,7 +528,7 @@ The following example shows an exported telemetry message:
 }
 ```
 
-### Message properties
+#### Message properties
 
 Telemetry messages have properties for metadata as well as the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System Properties of D2C IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
 
@@ -613,7 +627,7 @@ The following snippet shows this property in the message exported to Blob storag
 }
 ```
 
-## Property changes format
+### Property changes format
 
 Each message or record represents changes to device and cloud properties. Information in the exported message includes:
 
@@ -654,7 +668,7 @@ The following example shows an exported property change message received in Azur
 }
 ```
 
-## Device connectivity changes format
+### Device connectivity changes format
 
 Each message or record represents a connectivity event from a single device. Information in the exported message includes:
 
@@ -689,7 +703,7 @@ The following example shows an exported device connectivity message received in 
 
 ```
 
-## Device lifecycle changes format
+### Device lifecycle changes format
 
 Each message or record represents one change to a single device. Information in the exported message includes:
 
@@ -723,7 +737,7 @@ The following example shows an exported device lifecycle message received in Azu
 }
 ```
 
-## Device template lifecycle changes format
+### Device template lifecycle changes format
 
 Each message or record represents one change to a single published device template. Information in the exported message includes:
 
