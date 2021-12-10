@@ -5,7 +5,7 @@ ms.service: marketplace
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 11/23/2020
+ms.date: 12/08/2021
 ---
 
 # Find Tenant ID, Object ID, and partner association details
