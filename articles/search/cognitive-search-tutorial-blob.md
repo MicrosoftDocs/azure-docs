@@ -174,11 +174,11 @@ A [skillset object](/rest/api/searchservice/create-skillset) is a set of enrichm
    | Skill                 | Description    |
    |-----------------------|----------------|
    | [Optical Character Recognition](cognitive-search-skill-ocr.md) | Recognizes text and numbers in image files. |
-   | [Text Merge](cognitive-search-skill-textmerger.md)  | Creates "merged content" that reunites previously separated content, useful for files that include both text and images (PDF, DOCX, and so forth). Images and text are separated during the document cracking phase. The merge skill inserts any recognized text, image captions, or tags that were created by image analysis into the same location where the image was extracted in the document.|
+   | [Text Merge](cognitive-search-skill-textmerger.md)  | Creates "merged content" that reunites previously separated content, useful for files that include both text and images (PDF, DOCX, and so forth). Images and text are separated during the document cracking phase. The merge skill recombines them by inserting any recognized text, image captions, or tags created by image analysis into the same location where the image was extracted from in the document. Merged content is inclusive of all content in the documents. It will include straight text or image-only information if that's what the source document contains.|
    | [Language Detection](cognitive-search-skill-language-detection.md) | Detects the language and outputs either a language name or code. In multilingual data sets, a language field can be useful for filters. |
-   | [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) | Extracts the names of people, organizations, and locations from content in the blob container. |
-   | [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
-   | [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) | Pulls out the top key phrases. |
+   | [Entity Recognition](cognitive-search-skill-entity-recognition-v3.md) | Extracts the names of people, organizations, and locations from merged content. |
+   | [Text Split](cognitive-search-skill-textsplit.md)  | Breaks large merged content into smaller chunks before calling the key phrase extraction skill. Key phrase extraction accepts inputs of 50,000 characters or less. A few of the sample files need splitting up to fit within this limit. |
+   | [Key Phrase Extraction](cognitive-search-skill-keyphrases.md) | Pulls out the top key phrases.|
 
    Each skill executes on the content of the document. During processing, Azure Cognitive Search cracks each document to read content from different file formats. Found text originating in the source file is placed into a generated `content` field, one for each document. As such, the input becomes `"/document/content"`.
 
@@ -554,7 +554,13 @@ Recall that we started with blob content, where the entire document is packaged 
     GET /indexes//{{index_name}}/docs?search=*&$select=metadata_storage_name,language,organizations&$count=true&api-version=2020-06-30
    ```
 
-1. For the second query, apply a filter. The language field and all entity fields are filterable.
+1. Revise the previous query to search for "creating boundaryless opportunities". This phrase was obtained through OCR of an embedded image file in a PDF document. Include "highlight" to apply formatting on matching terms in densely populated fields.
+
+   ```http
+    GET /indexes//{{index_name}}/docs?search=creating boundaryless opportunities&$select=content&highlight=content&$count=true&api-version=2020-06-30
+   ```
+
+1. For the next query, apply a filter. Recall that the language field and all entity fields are filterable.
 
    ```http
     GET /indexes/{{index_name}}/docs?search=*&$filter=organizations/any(organizations: organizations eq 'NASDAQ')&$select=metadata_storage_name,organizations&$count=true&api-version=2020-06-30
