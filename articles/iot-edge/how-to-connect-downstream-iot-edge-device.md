@@ -2,7 +2,7 @@
 title: Connect downstream IoT Edge devices - Azure IoT Edge | Microsoft Docs
 description: How to configure an IoT Edge device to connect to Azure IoT Edge gateway devices. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 03/01/2021
 ms.topic: conceptual
@@ -47,6 +47,8 @@ The step of setting up parent/child relationships authorizes child devices to co
 
 Only IoT Edge devices can be parent devices, but both IoT Edge devices and IoT devices can be children. A parent can have many children, but a child can only have one parent. A gateway hierarchy is created by chaining parent/child sets together so that the child of one device is the parent of another.
 
+By default, a parent can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
+
 <!-- TODO: graphic of gateway hierarchy -->
 
 # [Portal](#tab/azure-portal)
@@ -84,7 +86,7 @@ Additional device-identity commands, including `add-children`,`list-children`, a
 >[!NOTE]
 >If you wish to establish parent-child relationships programmatically, you can use the C#, Java, or Node.js [IoT Hub Service SDK](../iot-hub/iot-hub-devguide-sdks.md).
 >
->Here is an [example of assigning child devices](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
+>Here is an [example of assigning child devices](https://github.com/Azure/azure-iot-sdk-csharp/blob/main/e2e/test/iothub/service/RegistryManagerE2ETests.cs) using the C# SDK. The task `RegistryManager_AddAndRemoveDeviceWithScope()` shows how to programmatically create a three-layer hierarchy. An IoT Edge device is in layer one, as the parent. Another IoT Edge device is in layer two, serving as both a child and a parent. Finally, an IoT device is in layer three, as the lowest layer child device.
 
 ## Prepare certificates
 
@@ -112,7 +114,7 @@ To enable gateway discovery, every IoT Edge gateway device needs to be configure
 
 To enable secure connections, every IoT Edge device in a gateway scenario needs to be configured with an unique device CA certificate and a copy of the root CA certificate shared by all devices in the gateway hierarchy.
 
-You should already have IoT Edge installed on your device. If not, follow the steps to [Register an IoT Edge device in IoT Hub](how-to-register-device.md) and then [Install the Azure IoT Edge runtime](how-to-install-iot-edge.md).
+You should already have IoT Edge installed on your device. If not, follow the steps to [Manually provision a single Linux IoT Edge device](how-to-provision-single-device-linux-symmetric.md).
 
 The steps in this section reference the **root CA certificate** and **device CA certificate and private key** that were discussed earlier in this article. If you created those certificates on a different device, have them available on this device. You can transfer the files physically, like with a USB drive, with a service like [Azure Key Vault](../key-vault/general/overview.md), or with a function like [Secure file copy](https://www.ssh.com/ssh/scp/).
 
@@ -141,7 +143,11 @@ Make sure that the user **iotedge** has read permissions for the directory holdi
    ```
 
    >[!TIP]
-   >If the config file doesn't exist on your device yet, use `/etc/aziot/config.toml.edge.template` as a template to create one.
+   >If the config file doesn't exist on your device yet, use the following command to create it based on the template file:
+   >
+   >```bash
+   >sudo cp /etc/aziot/config.toml.edge.template /etc/aziot/config.toml
+   >```
 
 1. Find the **Hostname** section in the config file. Uncomment the line that contains the `hostname` parameter, and update the value to be the fully qualified domain name (FQDN) or the IP address of the IoT Edge device.
 
@@ -378,7 +384,7 @@ The API proxy module was designed to be customized to handle most common gateway
                        "edgeAgent": {
                            "settings": {
                                "image": "mcr.microsoft.com/azureiotedge-agent:1.2",
-                               "createOptions": ""
+                               "createOptions": "{}"
                            },
                            "type": "docker"
                        },

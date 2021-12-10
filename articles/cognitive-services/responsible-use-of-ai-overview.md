@@ -7,7 +7,7 @@ author: nitinme
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/02/2021
+ms.date: 10/28/2021
 ms.author: nitinme
 ---
 
@@ -38,11 +38,11 @@ Azure Cognitive Services provides information and guidelines on how to responsib
 * [Integration and responsible use](/legal/cognitive-services/qnamaker/guidance-integration-responsible-use-qnamaker?context=/azure/cognitive-services/qnamaker/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/qnamaker/data-privacy-security-qnamaker?context=/azure/cognitive-services/qnamaker/context/context)
 
-## Text Analytics
+## Language service
 
-* [Transparency note and use cases](/legal/cognitive-services/text-analytics/transparency-note?context=/azure/cognitive-services/text-analytics/context/context)
-* [Integration and responsible use](/legal/cognitive-services/text-analytics/guidance-integration-responsible-use?context=/azure/cognitive-services/text-analytics/context/context)
-* [Data, privacy, and security](/legal/cognitive-services/text-analytics/data-privacy?context=/azure/cognitive-services/text-analytics/context/context)
+* [Transparency note and use cases](/legal/cognitive-services/language-service/transparency-note?context=/azure/cognitive-services/language-service/context/context)
+* [Integration and responsible use](/legal/cognitive-services/language-service/guidance-integration-responsible-use?context=/azure/cognitive-services/language-service/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/language-service/data-privacy?context=/azure/cognitive-services/language-service/context/context)
 
 ## Speech - Pronunciation Assessment
 
@@ -59,3 +59,17 @@ Azure Cognitive Services provides information and guidelines on how to responsib
 * [Disclosure of design patterns](./speech-service/concepts-disclosure-patterns.md)
 * [Code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=/azure/cognitive-services/speech-service/context/context)
 * [Data, privacy, and security](/legal/cognitive-services/speech-service/custom-neural-voice/data-privacy-security-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context)
+
+## Anomaly Detector
+
+* [Transparency note and use cases](/legal/cognitive-services/anomaly-detector/transparency-note?context=/azure/cognitive-services/anomaly-detector/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/anomaly-detector/characteristics-and-limitations?context=/azure/cognitive-services/anomaly-detector/context/context)
+* [Integration and responsible use](/legal/cognitive-services/anomaly-detector/guidance-integration-responsible-use?context=/azure/cognitive-services/anomaly-detector/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/anomaly-detector/data-privacy-security?context=/azure/cognitive-services/anomaly-detector/context/context)
+
+## Language Understanding
+
+* [Transparency note and use cases](/legal/cognitive-services/luis/luis-transparency-note?context=/azure/cognitive-services/LUIS/context/context)
+* [Characteristics and limitations](/legal/cognitive-services/luis/characteristics-and-limitations?context=/azure/cognitive-services/LUIS/context/context)
+* [Integration and responsible use](/legal/cognitive-services/luis/guidance-integration-responsible-use?context=/azure/cognitive-services/LUIS/context/context)
+* [Data, privacy, and security](/legal/cognitive-services/luis/data-privacy-security?context=/azure/cognitive-services/LUIS/context/context)

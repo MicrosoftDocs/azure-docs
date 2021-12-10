@@ -18,7 +18,7 @@ Here are suggestions for where you can get help when developing your Azure Cloud
     <img alt='Self help content' src='./media/logos/doc-logo.png'>
 </div>
 
-For common issues and and workarounds, see [Troubleshoot Azure Cloud Services (extended support) role start failures](role-startup-failure.md) and [Frequently asked questions](faq.md)
+For common issues and and workarounds, see [Troubleshoot Azure Cloud Services (extended support) role start failures](role-startup-failure.md) and [Frequently asked questions](faq.yml)
 
 
 

@@ -145,14 +145,14 @@ so save your work often.
 
    1. In the **Subject** field, enter this text:
 
-      ```Time to leave: Traffic more than 10 minutes```
+     `Time to leave: Traffic more than 10 minutes`
 
    1. In the **Body** field, enter this text with a trailing space: 
 
-      ```Travel time:```
+     `Travel time:`
 
-      While your cursor appears in the **Body** field, 
-      the dynamic content list stays open so that you can 
+     While your cursor appears in the **Body** field,
+      the dynamic content list stays open so that you can
       select any parameters that are available at this point.
 
    1. In the dynamic content list, choose **Expression**.

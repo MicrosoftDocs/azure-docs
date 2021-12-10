@@ -41,11 +41,11 @@ This dataset is stored in the West US 2 and West Central US Azure regions. Alloc
 
 ## Data Access
 
-West US 2: https://datasetreferencegenomes.blob.core.windows.net/dataset
+West US 2: 'https://datasetreferencegenomes.blob.core.windows.net/dataset'
 
-West Central US: https://datasetreferencegenomes-secondary.blob.core.windows.net/dataset
+West Central US: 'https://datasetreferencegenomes-secondary.blob.core.windows.net/dataset'
 
-[SAS Token](/azure/storage/common/storage-sas-overview): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=JtQoPFqiC24GiEB7v9zHLi4RrA2Kd1r%2F3iFt2l9%2FlV8%3D
+[SAS Token](../storage/common/storage-sas-overview.md): sv=2019-02-02&se=2050-01-01T08%3A00%3A00Z&si=prod&sr=c&sig=JtQoPFqiC24GiEB7v9zHLi4RrA2Kd1r%2F3iFt2l9%2FlV8%3D
 
 ## Use Terms
 
@@ -70,7 +70,7 @@ For any questions or feedback about this dataset, contact the [Genome Reference 
 
 Several public genomics data has been uploaded as an Azure Open Dataset [here](https://azure.microsoft.com/services/open-datasets/catalog/). We create a blob service linked to this open dataset. You can find examples of data calling procedure from Azure Open Datasets for `Reference Genomes` dataset in below:
 
-Users can call and download the following path with this notebook: https://datasetreferencegenomes.blob.core.windows.net/dataset/vertebrate_mammalian/Homo_sapiens/latest_assembly_versions/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_assembly_structure/genomic_regions_definitions.txt
+Users can call and download the following path with this notebook: 'https://datasetreferencegenomes.blob.core.windows.net/dataset/vertebrate_mammalian/Homo_sapiens/latest_assembly_versions/GCF_000001405.39_GRCh38.p13/GCF_000001405.39_GRCh38.p13_assembly_structure/genomic_regions_definitions.txt'
 
 **Important note:** Users need to log in their Azure Account via Azure CLI for viewing the data with Azure ML SDK. On the other hand, they do not need do any actions for downloading the data.
 

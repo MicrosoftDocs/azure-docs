@@ -13,7 +13,7 @@ metadata:
   ms.collection: collection
   author: spelluru #Required; your GitHub user alias, with correct capitalization.
   ms.author: spelluru #Required; microsoft alias of author; optional team alias.
-  ms.date: 06/23/2020 #Required; mm/dd/yyyy format.
+  ms.date: 07/23/2021 #Required; mm/dd/yyyy format.
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | whats-new
 
@@ -170,8 +170,6 @@ landingContent:
         links:
           - text: Monitor Event Hubs using Azure Monitor
             url: monitor-event-hubs.md
-          - text: Set up diagnostic logs
-            url: event-hubs-diagnostic-logs.md
           - text: Automatically scale up
             url: event-hubs-auto-inflate.md
           - text: Troubleshoot exceptions

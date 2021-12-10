@@ -14,7 +14,7 @@ ms.author: lajanuar
 
 # Customize your text translations
 
-The Custom Translator is feature of the Translator service, which allows users to customize Microsoft Translator's advanced neural machine translation when translating text using Translator (version 3 only).
+The Custom Translator is a feature of the Translator service, which allows users to customize Microsoft Translator's advanced neural machine translation when translating text using Translator (version 3 only).
 
 The feature can also be used to customize speech translation when used with [Cognitive Services Speech](../speech-service/index.yml).
 

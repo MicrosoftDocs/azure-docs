@@ -2,15 +2,13 @@
 title: 'Quickstart: Create a search index in JavaScript'
 titleSuffix: Azure Cognitive Search
 description: In this JavaScript quickstart, learn how to create an index, load data, and run queries on Azure Cognitive Search using JavaScript
-
 author: dereklegenzoff
-manager: luisca
 ms.author: delegenz
 ms.devlang: javascript
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 06/11/2021
-ms.custom: devx-track-js
+ms.date: 07/08/2021
+ms.custom: devx-track-js, mode-other
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using the JavaScript SDK
@@ -105,7 +103,7 @@ Begin by opening VS Code and its [integrated terminal](https://code.visualstudio
       "author": "Your Name",
       "license": "MIT",
       "dependencies": {
-        "@azure/search-documents": "^11.0.3",
+        "@azure/search-documents": "^11.2.0",
         "dotenv": "^8.2.0"
       }
     }
@@ -194,7 +192,7 @@ Add the following to **hotels_quickstart_index.json** or [download the file](htt
             "filterable": false,
             "sortable": false,
             "facetable": false,
-            "analyzer": "en.lucene"
+            "analyzerName": "en.lucene"
         },
         {
             "name": "Description_fr",
@@ -203,7 +201,7 @@ Add the following to **hotels_quickstart_index.json** or [download the file](htt
             "filterable": false,
             "sortable": false,
             "facetable": false,
-            "analyzer": "fr.lucene"
+            "analyzerName": "fr.lucene"
         },
         {
             "name": "Category",

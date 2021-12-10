@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 06/25/2021
 ms.author: alkohli
 ---
 
@@ -48,7 +48,7 @@ Before you begin, make sure that:
     ```
     Here is an example output:
     
-    ```powershell
+    ```output
         [10.100.10.10]: PS>Get-NetAdapter -Physical
         
         Name                      InterfaceDescription                    ifIndex Status       MacAddress       LinkSpeed
@@ -66,13 +66,13 @@ Before you begin, make sure that:
 2. Choose a network interface that is:
 
     - In the **Up** status. 
-    - Not used by any existing virtual switches. Currently, only one vswitch can be configured per network interface. 
+    - Not used by any existing virtual switches. Currently, only one virtual switch can be configured per network interface. 
     
     To check the existing virtual switch and network interface association, run the `Get-HcsExternalVirtualSwitch` command.
  
     Here is an example output.
 
-    ```powershell
+    ```output
     [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
     Name                          : vSwitch1
@@ -102,8 +102,8 @@ Use the `Get-HcsExternalVirtualSwitch` command to identify the newly created swi
 
 Here is an example output:
 
-```powershell
-[10.100.10.10]: P> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
+```output
+[10.100.10.10]: PS> Add-HcsExternalVirtualSwitch -InterfaceAlias Port5 -WaitForSwitchCreation $true
 [10.100.10.10]: PS>Get-HcsExternalVirtualSwitch
 
 Name                          : vSwitch1
@@ -131,11 +131,69 @@ Type                          : External
 [10.100.10.10]: PS>
 ```
 
-## Verify network, subnet 
+## Verify network, subnet for switch
 
 After you have created the new virtual switch, Azure Stack Edge Pro GPU automatically creates a virtual network and subnet that corresponds to it. You can use this virtual network when creating VMs.
 
-<!--To identify the virtual network and subnet associated with the new switch that you created, use the `Get-HcsVirtualNetwork` command. This cmdlet will be released in April some time. -->
+To identify the virtual network and the subnet associated with the new switch that you created, use the `Get-HcsVirtualNetwork` cmdlet. 
+
+## Create virtual LANs
+
+To add a virtual local area network (LAN) configuration on a virtual switch, use the following cmdlet.
+
+```powershell
+Add-HcsVirtualNetwork-VirtualSwitchName <Virtual Switch name> -VnetName <Virtual Network Name> –VlanId <Vlan Id> –AddressSpace <Address Space> –GatewayIPAddress <Gateway IP>–DnsServers <Dns Servers List> -DnsSuffix <Dns Suffix name>
+``` 
+
+The following parameters can be used with the `Add-HcsVirtualNetwork-VirtualSwitchName` cmdlet.
+
+
+|Parameters  |Description  |
+|---------|---------|
+|VNetName     |Name for the virtual LAN network         |
+|VirtualSwitchName    |Virtual switch name where you want to add virtual LAN config         |
+|AddressSpace     |Subnet address space for the virtual LAN network         |
+|GatewayIPAddress     |Gateway for the virtual network         |
+|DnsServers     |List of Dns Server IP addresses         |
+|DnsSuffix     |Dns name without the host part for the virtual LAN network subnet         |
+
+
+
+Here is an example output.
+
+```output
+[10.100.10.10]: PS> Add-HcsVirtualNetwork -VirtualSwitchName vSwitch1 -VnetName vlanNetwork100 -VlanId 100 -AddressSpace 5.5.0.0/16 -GatewayIPAddress 5.5.0.1 -DnsServers "5.5.50.50","5.5.50.100" -DnsSuffix "name.domain.com"
+
+[10.100.10.10]: PS> Get-HcsVirtualNetwork
+ 
+Name             : vnet2015
+AddressSpace     : 10.128.48.0/22
+SwitchName       : vSwitch1
+GatewayIPAddress : 10.128.48.1
+DnsServers       : {}
+DnsSuffix        :
+VlanId           : 2015
+ 
+Name             : vnet3011
+AddressSpace     : 10.126.64.0/22
+SwitchName       : vSwitch1
+GatewayIPAddress : 10.126.64.1
+DnsServers       : {}
+DnsSuffix        :
+VlanId           : 3011
+```
+ 
+> [!NOTE]
+> - You can configure multiple virtual LANs on the same virtual switch. 
+> - The gateway IP address must in the same subnet as the parameter passed in as address space.
+> -	You can't remove a virtual switch if there are virtual LANs configured. To delete this virtual switch, you first need to delete the virtual LAN and then delete the virtual switch.
+
+## Verify network, subnet for virtual LAN
+
+After you've created the virtual LAN, a virtual network and a corresponding subnet are automatically created. You can use this virtual network when creating VMs.
+
+To identify the virtual network and the subnet associated with the new switch that you created, use the `Get-HcsVirtualNetwork` cmdlet.
+
 
 ## Next steps
 

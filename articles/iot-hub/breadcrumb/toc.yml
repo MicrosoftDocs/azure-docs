@@ -12,3 +12,6 @@
     - name: IoT Hub
       tocHref: /azure/iot-fundamentals/
       topicHref: /azure/iot-hub/index
+    - name: IoT Hub
+      tocHref: /azure/iot-develop/
+      topicHref: /azure/iot-hub/index

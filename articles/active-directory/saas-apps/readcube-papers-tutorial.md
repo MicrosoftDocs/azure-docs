@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 06/07/2021
 ms.author: jeedes
 
 ---
@@ -74,10 +74,12 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
 1. On the **Basic SAML Configuration** section, perform the following step:
+	1. In the **Reply URL (ACS URL)** text box, type the URL: `https://connect.liblynx.com/saml/module.php/saml/sp/saml2-acs.php/dsrsi`
+	2. In the **Sign on URL** text box, type the URL: `https://app.readcube.com`
 
-	a. In the **Sign on URL** text box, type the URL:
-    `https://app.readcube.com`
+	    ![Screenshot that shows example settings in the SAML Configuration pane.](./media/readcube-papers-tutorial/configure-saml.png)
 
+    	 
 1. On the **Set up single sign-on with SAML** page, In the **SAML Signing Certificate** section, click copy button to copy **App Federation Metadata Url** and save it on your computer.
 
 	![The Certificate download link](common/copy-metadataurl.png)
@@ -108,22 +110,25 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure ReadCube Papers SSO
 
-To configure single sign-on on **ReadCube Papers** side, you need to send the **App Federation Metadata Url** to [ReadCube Papers support team](mailto:support@readcube.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on the **ReadCube Papers** side, you need to send the **App Federation Metadata URL** to the [ReadCube Papers support team](mailto:sso-support@readcube.com). They change this setting so that the SAML SSO connection works properly on both sides.
 
 ### Create ReadCube Papers test user
 
-In this section, a user called Britta Simon is created in ReadCube Papers. ReadCube Papers supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in ReadCube Papers, a new one is created after authentication.
+In this section, a user called B.Simon is created in ReadCube Papers. ReadCube Papers supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in ReadCube Papers, a new one is created after authentication.
 
 ## Test SSO 
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
 
+> [!NOTE]
+> Before testing, please confirm with the [ReadCube Papers support team](mailto:sso-support@readcube.com) that SSO is set up on the ReadCube side.
+
 * Click on **Test this application** in Azure portal. This will redirect to ReadCube Papers Sign-on URL where you can initiate the login flow. 
 
 * Go to ReadCube Papers Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the ReadCube Papers tile in the My Apps, this will redirect to ReadCube Papers Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the ReadCube Papers tile in the My Apps portal, this will redirect to ReadCube Papers Sign-on URL. For more information about the My Apps portal, see [Introduction to My Apps](../user-help/my-apps-portal-end-user-access.md).
 
 ## Next steps
 
-Once you configure ReadCube Papers you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+After you configure ReadCube Papers, you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

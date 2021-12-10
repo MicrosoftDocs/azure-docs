@@ -3,19 +3,17 @@ title: Cancel translation method
 titleSuffix: Azure Cognitive Services
 description: The cancel translation method cancels a currently processing or queued operation.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
-ms.date: 04/21/2021
-ms.author: v-jansk
+ms.date: 06/20/2021
 ---
 
 # Cancel translation
 
-Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed or failed or canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
+Cancel a currently processing or queued operation. An operation won't be canceled if it is already completed, has failed, or is canceling. A bad request will be returned. All documents that have completed translation won't be canceled and will be charged. All pending documents will be canceled if possible.
 
 ## Request URL
 

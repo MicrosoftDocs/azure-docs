@@ -14,13 +14,13 @@ ms.custom: seodec18, devx-track-azurepowershell
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-When using App Service, you can scale your apps by scaling the [App Service plan](overview-hosting-plans.md) they run on. When multiple apps are run in the same App Service plan, each scaled-out instance runs all the apps in the plan.
+When using App Service, you can scale your apps by scaling the [App Service plan](overview-hosting-plans.md) they run on. When multiple apps are running in the same App Service plan, each scaled-out instance runs all the apps in the plan.
 
 *Per-app scaling* can be enabled at the App Service plan level to allow for scaling an app independently from the
 App Service plan that hosts it. This way, an App Service plan can be scaled to 10 instances, but an app can be set to use only five.
 
 > [!NOTE]
-> Per-app scaling is available only for **Standard**, **Premium**, **Premium V2** and **Isolated** pricing tiers.
+> Per-app scaling is available only for **Standard**, **Premium**, **Premium V2**, **Premium V3**, and **Isolated** pricing tiers.
 >
 
 Apps are allocated to available App Service plan using a best effort approach for an even distribution across instances. While an even distribution is not guaranteed, the platform will make sure that two instances of the same app will not be hosted on the same App Service plan instance.

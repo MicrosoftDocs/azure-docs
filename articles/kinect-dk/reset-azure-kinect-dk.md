@@ -1,16 +1,14 @@
 ---
 title: Reset Azure Kinect DK
 description: Describes how to reset an Azure Kinect DK device to its factory image
-author: Teresa-Motiv
-ms.author: v-tea
+author: martinekuan
+ms.author: martinek
 ms.reviewer: jarrettr
 ms.prod: kinect-dk
 ms.date: 02/11/2020
 ms.topic: how-to
 keywords: kinect, reset
-ms.custom: 
-- CI 113492
-- CSSTroubleshooting
+ms.custom: CI 113492, CSSTroubleshooting
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high

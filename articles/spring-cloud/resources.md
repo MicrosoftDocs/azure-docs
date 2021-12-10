@@ -1,11 +1,11 @@
 ---
 title: Resources for Azure Spring Cloud | Microsoft Docs
 description: Azure Spring Cloud resource list
-author: bmitchell287
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: reference
 ms.date: 09/08/2020
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 

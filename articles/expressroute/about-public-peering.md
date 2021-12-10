@@ -27,7 +27,7 @@ This article helps you create and manage public peering routing configuration fo
 
 ## Connectivity
 
-Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. If your ExpressRoute circuit is enabled for Azure public peering, you can access the [public IP ranges used in Azure](../virtual-network/public-ip-addresses.md#public-ip-addresses) over the circuit.
+Connectivity is always initiated from your WAN to Microsoft Azure services. Microsoft Azure services will not be able to initiate connections into your network through this routing domain. If your ExpressRoute circuit is enabled for Azure public peering, you can access the [public IP ranges used in Azure](../virtual-network/ip-services/public-ip-addresses.md#public-ip-addresses) over the circuit.
 
 Once public peering is enabled, you can connect to most Azure services. We do not allow you to selectively pick services for which we advertise routes to.
 

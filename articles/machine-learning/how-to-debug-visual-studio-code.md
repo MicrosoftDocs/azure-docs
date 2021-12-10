@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Interactively debug Azure Machine Learning code, pipelines, and deployments using Visual Studio Code
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 author: luisquintanilla
 ms.author: luquinta
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ---
 
 # Interactive debugging with Visual Studio Code
@@ -24,7 +24,7 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 * Azure Machine Learning VS Code extension (preview). For more information, see [Set up Azure Machine Learning VS Code extension](how-to-setup-vs-code.md).
 
     > [!IMPORTANT]
-    > The Azure Machine Learning VS Code extension uses the 2.0 CLI by default. The instructions in this guide use 1.0 CLI. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
+    > The Azure Machine Learning VS Code extension uses the CLI (v2) by default. The instructions in this guide use 1.0 CLI. To switch to the 1.0 CLI, set the `azureML.CLI Compatibility Mode` setting in Visual Studio Code to `1.0`. For more information on modifying your settings in Visual Studio Code, see the [user and workspace settings documentation](https://code.visualstudio.com/docs/getstarted/settings).
 
 * [Docker](https://www.docker.com/get-started)
   * Docker Desktop for Mac and Windows
@@ -41,7 +41,10 @@ Use the Azure Machine Learning extension to validate, run, and debug your machin
 ### Debug experiment locally
 
 > [!IMPORTANT]
-> Before running your experiment locally, make sure that Docker is running.
+> Before running your experiment locally make sure that:
+>
+> * Docker is running.
+> * The `azureML.CLI Compatibility Mode` setting in Visual Studio Code is set to `1.0` as specified in the prerequisites
 
 1. In VS Code, open the Azure Machine Learning extension view.
 1. Expand the subscription node containing your workspace. If you don't already have one, you can [create an Azure Machine Learning workspace](how-to-manage-resources-vscode.md#create-a-workspace) using the extension.
@@ -337,6 +340,9 @@ Save the `ip_address` value. It is used in the next section.
 
 In some cases, you may need to interactively debug the Python code contained in your model deployment. For example, if the entry script is failing and the reason cannot be determined by additional logging. By using VS Code and the debugpy, you can attach to the code running inside the Docker container.
 
+> [!TIP]
+> Save time and catch bugs early by debugging managed online endpoints and deployments locally. For more information, see [Debug managed online endpoints locally in Visual Studio Code (preview)](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+
 > [!IMPORTANT]
 > This method of debugging does not work when using `Model.deploy()` and `LocalWebservice.deploy_configuration` to deploy a model locally. Instead, you must create an image using the [Model.package()](/python/api/azureml-core/azureml.core.model.model#package-workspace--models--inference-config-none--generate-dockerfile-false-) method.
 
@@ -458,7 +464,7 @@ Local web service deployments require a working Docker installation on your loca
 
     myenv = Environment.from_conda_specification(name="env", file_path="myenv.yml")
     myenv.docker.base_image = None
-    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04"
+    myenv.docker.base_dockerfile = "FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20210615.v1"
     inference_config = InferenceConfig(entry_script="score.py", environment=myenv)
     package = Model.package(ws, [model], inference_config)
     package.wait_for_creation(show_output=True)  # Or show_output=False to hide the Docker build logs.

@@ -111,6 +111,6 @@ You can create multiple versions of the device template. Over time, you'll have 
 
 ## Next steps
 
-If you're an operator or solution builder, a suggested next step is to learn [how to manage your devices](./howto-manage-devices.md).
+If you're an operator or solution builder, a suggested next step is to learn [how to manage your devices](./howto-manage-devices-individually.md).
 
 If you're a device developer, a suggested next step is to read about [Azure IoT Edge devices and Azure IoT Central](./concepts-iot-edge.md).

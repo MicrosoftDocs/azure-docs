@@ -4,7 +4,7 @@ description: Connect privately to a Web App using Azure Private Endpoint
 author: ericgre
 ms.assetid: 2dceac28-1ba6-4904-a15d-9e91d5ee162c
 ms.topic: article
-ms.date: 06/15/2021
+ms.date: 11/23/2021
 ms.author: ericg
 ms.service: app-service
 ms.workload: web
@@ -36,6 +36,8 @@ A Private Endpoint is a special network interface (NIC) for your Azure Web App i
 When you create a Private Endpoint for your Web App, it provides secure connectivity between clients on your private network and your Web App. The Private Endpoint is assigned an IP Address from the IP address range of your VNet.
 The connection between the Private Endpoint and the Web App uses a secure [Private Link][privatelink]. Private Endpoint is only used for incoming flows to your Web App. Outgoing flows will not use this Private Endpoint, but you can inject outgoing flows to your network in a different subnet through the [VNet integration feature][vnetintegrationfeature].
 
+Each slot of an app is configured separately. You can plug up to 100 Private Endpoints per slot. You cannot share a Private Endpoint between slots.
+
 The Subnet where you plug the Private Endpoint can have other resources in it, you don't need a dedicated empty Subnet.
 You can also deploy the Private Endpoint in a different region than the Web App. 
 
@@ -57,6 +59,7 @@ In the Web HTTP logs of your Web App, you will find the client source IP. This f
 
   > [!div class="mx-imgBorder"]
   > ![Web App Private Endpoint global overview](media/private-endpoint/global-schema-web-app.png)
+
 
 ## DNS
 
@@ -113,13 +116,11 @@ For pricing details, see [Azure Private Link pricing][pricing].
 
 ## Limitations
 
-When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words, your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
-
-You can connect up to 100 Private Endpoints to a particular Web App.
-
-Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
-
-FTP access is provided through the inbound public IP address. Private Endpoint does not support FTP access to the Web App.
+* When you use Azure Function in Elastic Premium Plan with Private Endpoint, to run or execute the function in Azure Web portal, you must have direct network access or you will receive an HTTP 403 error. In other words, your browser must be able to reach the Private Endpoint to execute the function from the Azure Web portal. 
+* You can connect up to 100 Private Endpoints to a particular Web App.
+* Remote Debugging functionality is not available when Private Endpoint is enabled for the Web App. The recommendation is to deploy the code to a slot and remote debug it there.
+* FTP access is provided through the inbound public IP address. Private Endpoint does not support FTP access to the Web App.
+* IP-Based SSL is not supported with Private Endpoints.
 
 We are improving Private Link feature and Private Endpoint regularly, check [this article][pllimitations] for up-to-date information about limitations.
 
@@ -136,7 +137,7 @@ We are improving Private Link feature and Private Endpoint regularly, check [thi
 <!--Links-->
 [serviceendpoint]: ../../virtual-network/virtual-network-service-endpoints-overview.md
 [privatelink]: ../../private-link/private-link-overview.md
-[vnetintegrationfeature]: ../web-sites-integrate-with-vnet.md
+[vnetintegrationfeature]: ../overview-vnet-integration.md
 [disablesecuritype]: ../../private-link/disable-private-endpoint-network-policy.md
 [accessrestrictions]: ../app-service-ip-restrictions.md
 [tcpproxy]: ../../private-link/private-link-service-overview.md#getting-connection-information-using-tcp-proxy-v2

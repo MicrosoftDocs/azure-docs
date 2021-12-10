@@ -1,13 +1,13 @@
 ---
 title: React to Azure Maps events by using Event Grid 
 description: Find out how to react to Azure Maps events involving geofences. See how to listen to map events and how to use Event Grid to reroute events to event handlers.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/16/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ms.custom: mvc
 ---
 

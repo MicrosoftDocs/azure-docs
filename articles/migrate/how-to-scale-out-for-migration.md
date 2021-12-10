@@ -56,43 +56,49 @@ To add a scale-out appliance, follow the steps mentioned below:
 ### 2. Download the installer for the scale-out appliance
 
 In **Download Azure Migrate appliance**, click  **Download**. You need to download the PowerShell installer script to deploy the scale-out appliance on an existing server running Windows Server 2016 and with the required hardware configuration (32-GB RAM, 8 vCPUs, around 80 GB of disk storage and internet access, either directly or through a proxy).
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/download-scale-out.png" alt-text="Download script for scale-out appliance":::
 
 > [!TIP]
 > You can validate the checksum of the downloaded zip file using these steps:
 >
-> 1. Open command prompt as an administrator
+> 1. On the server to which you downloaded the file, open an administrator command window.
 > 2. Run the following command to generate the hash for the zipped file:
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
-    - Example usage for public cloud: ```C:\>Get-FileHash -Path .\AzureMigrateInstaller-VMware-Public-Scaleout.zip -Algorithm SHA256 ```
+    - Example usage: ```C:\>CertUtil -HashFile C:\Users\administrator\Desktop\AzureMigrateInstaller.zip SHA256 ```
 > 3. Download the latest version of the scale-out appliance installer from the portal if the computed hash value doesn't match this string:
-1E6B6E3EE8B2A800818B925F5DA67EF7874DAD87E32847120B32F3E21F5960F9
+3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
 
 ### 3. Run the Azure Migrate installer script
-The installer script does the following:
 
-- Installs gateway agent and appliance configuration manager to perform more concurrent server replications.
-- Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
-- Download and installs an IIS rewritable module.
-- Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
-- Creates the following files under the path:
-    - **Config Files**: %Programdata%\Microsoft Azure\Config
-    - **Log Files**: %Programdata%\Microsoft Azure\Logs
+1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 
-Run the script as follows:
-
-1. Extract the zip file to a folder on the server that will host the scale-out appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
 2. Launch PowerShell on the above server with administrative (elevated) privilege.
-3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zip file.
-4. Run the script named **AzureMigrateInstaller.ps1**  using the following command:
 
-    - For the public cloud: 
-    
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
+3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 
-    The script will launch the appliance configuration manager when it completes the execution.
+4. Run the script named `AzureMigrateInstaller.ps1` by running the following command:
 
-If you come across any issues, you can access the script logs at: <br/> C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
+  `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 `
+
+5. Select from the scenario, cloud, configuration and connectivity options to deploy the desired appliance. For instance, the selection shown below sets up a **scale-out appliance** to initiate concurrent replications on servers running in your VMware environment to an Azure Migrate project with **default _(public endpoint)_ connectivity** on **Azure public cloud**.
+
+    :::image type="content" source="./media/how-to-scale-out-for-migration/script-vmware-scaleout-inline.png" alt-text="Screenshot that shows how to set up scale-out appliance." lightbox="./media/how-to-scale-out-for-migration/script-vmware-scaleout-expanded.png":::
+
+6. The installer script does the following:
+
+    - Installs gateway agent and appliance configuration manager to perform more concurrent server replications.
+    - Install Windows roles, including Windows Activation Service, IIS, and PowerShell ISE.
+    - Download and installs an IIS rewritable module.
+    - Updates a registry key (HKLM) with persistent setting details for Azure Migrate.
+    - Creates the following files under the path:
+        - **Config Files**: %Programdata%\Microsoft Azure\Config
+        - **Log Files**: %Programdata%\Microsoft Azure\Logs
+
+After the script has executed successfully, the appliance configuration manager will be launched automatically.
+
+> [!NOTE]
+> If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 
 
 ### 4. Configure the appliance
@@ -118,7 +124,8 @@ Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#pu
 
 1. Paste the **Azure Migrate project key** copied from the portal. If you do not have the key, go to **Server Assessment> Discover> Manage existing appliances**, select the primary appliance name, find the scale-out appliance associated with it and copy the corresponding key.
 1. You will need a device code to authenticate with Azure. Clicking on **Login** will open a modal with the device code as shown below.
-:::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
+
+   :::image type="content" source="./media/tutorial-discover-vmware/device-code.png" alt-text="Modal showing the device code":::
 
 1. Click on **Copy code & Login** to copy the device code and open an Azure Login prompt in a new browser tab. If it doesn't appear, make sure you've disabled the pop-up blocker in the browser.
 1. On the new tab, paste the device code and sign-in by using your Azure username and password.
@@ -134,14 +141,17 @@ Before you begin ensure that the [these Azure endpoints](migrate-appliance.md#pu
 To complete the registration of the scale-out appliance, click **import** to get the necessary configuration files from the primary appliance.
 
 1. Clicking **import** opens a pop-up window with instructions on how to import the necessary configuration files from the primary appliance.
+
 :::image type="content" source="./media/how-to-scale-out-for-migration/import-modal-scale-out.png" alt-text="Import configuration modal":::
+
 1. Login (remote desktop) to the primary appliance and execute the following PowerShell commands:
 
-    ``` PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' ```
+   `PS cd 'C:\Program Files\Microsoft Azure Appliance Configuration Manager\Scripts\PowerShell' `
     
-    ``` PS .\ExportConfigFiles.ps1 ```
+    `PS .\ExportConfigFiles.ps1 `
 
 1. Copy the zip file created by running the above commands to the scale-out appliance. The zip file contains configuration files needed to register the scale-out appliance.
+
 1. In the pop-up window opened in the previous step, select the location of the copied configuration zip file and click **Save**.
 
 Once the files have been successfully imported, the registration of the scale-out appliance will complete and it will show you the timestamp of the last successful import. You can also see the registration details by clicking **View details**.

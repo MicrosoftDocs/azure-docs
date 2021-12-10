@@ -1164,7 +1164,7 @@ The format is {source1}:{target1},{source2}:{target2},{sourceN},{targetN} where 
 **Remarks:**
 
 * The function takes each occurrence of defined sources and replaces them with the targets.
-* The source must be exactly one (unicode) character.
+* The source must be exactly one (Unicode) character.
 * The source cannot be empty or longer than one character (parsing error).
 * The target can have multiple characters, for example ö:oe, β:ss.
 * The target can be empty indicating that the character should be removed.

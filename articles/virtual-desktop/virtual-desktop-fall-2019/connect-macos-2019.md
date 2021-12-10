@@ -12,7 +12,7 @@ manager: femila
 > Applies to: macOS 10.12 or later
 
 >[!IMPORTANT]
->This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../connect-macos.md).
+>This content applies to Azure Virtual Desktop (classic), which doesn't support Azure Resource Manager Azure Virtual Desktop objects. If you're trying to manage Azure Resource Manager Azure Virtual Desktop objects, see [this article](../user-documentation/connect-macos.md).
 
 You can access Azure Virtual Desktop resources from your macOS devices with our downloadable client. This guide will tell you how to set up the client.
 

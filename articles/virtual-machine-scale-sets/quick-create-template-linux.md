@@ -8,11 +8,12 @@ ms.service: virtual-machine-scale-sets
 ms.collection: linux
 ms.date: 03/27/2020
 ms.reviewer: mimckitt
-ms.custom: mimckitt, subject-armqs
-
+ms.custom: mimckitt, subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a Linux virtual machine scale set with an ARM template
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Uniform scale sets
 
 A virtual machine scale set allows you to deploy and manage a set of auto-scaling virtual machines. You can scale the number of VMs in the scale set manually, or define rules to autoscale based on resource usage like CPU, memory demand, or network traffic. An Azure load balancer then distributes traffic to the VM instances in the scale set. In this quickstart, you create a virtual machine scale set and deploy a sample application with an Azure Resource Manager template (ARM template).
 

@@ -52,7 +52,7 @@ This attribute can be set either:
 ### Disable the synchronization scheduler:
 
 Before you start either scenario, you must disable the synchronization scheduler while making changes to the sync rules.
- 1. Start windows PowerShell enter.
+ 1. Start Windows PowerShell enter.
 
      `set-adsyncscheduler-synccycleenabled$false`
 

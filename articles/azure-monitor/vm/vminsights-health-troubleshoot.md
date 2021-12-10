@@ -15,7 +15,7 @@ This article describes troubleshooting steps that you can take when you have iss
 If any of the following solutions do not solve your installation issue, collect VM Health agent log located at `/var/log/azure/Microsoft.Azure.Monitor.VirtualMachines.GuestHealthLinuxAgent/*.log` and contact Microsoft for further investigation.
 
 ### Error message showing db5 error
-Your installation didn’t succeed and your installation error message is similar to the following:
+Your installation didn't succeed and your installation error message is similar to the following:
 
 ```
 script execution exit with error: error: db5 error(5) from dbenv->open: Input/output error
@@ -27,13 +27,13 @@ error: cannot open Packages database in /var/lib/rpm
 This is because your package manager rpm database is corrupted, try following the guidance at [RPM Database Recovery](https://rpm.org/user_doc/db_recovery.html) to recover. Once your rpm database is recovered, try to install again.
 
 ### Init file already exist error
-Your installation didn’t succeed and your installation error message is similar to the following:
+Your installation didn't succeed and your installation error message is similar to the following:
 
 ```
 Exiting with the following error: "Failed to install VM Guest Health Agent: Init already exists: /etc/systemd/system/vmGuestHealthAgent.service"install vmGuestHealthAgent service execution failed with exit code 37
 ```
 
-VM Health Agent will uninstall the existing service first before installing the current version. The reason for this error is likely because the previous service file didn’t get cleaned up due to some reason. Login to the VM and run the following command backup existing service file and try re-install again.
+VM Health Agent will uninstall the existing service first before installing the current version. The reason for this error is likely because the previous service file didn't get cleaned up due to some reason. Login to the VM and run the following command backup existing service file and try re-install again.
 
 ```
 sudo mv /etc/systemd/system/vmGuestHealthAgent.service  /etc/systemd/system/vmGuestHealthAgent.service.bak
@@ -46,19 +46,19 @@ sudo rm /etc/systemd/system/vmGuestHealthAgent.service.bak
 ```
 
 ### Installation Failed to Exit Code 37
-Your installation didn’t succeed and your installation error message is similar to the following: 
+Your installation didn't succeed and your installation error message is similar to the following: 
 
 ```
 Exiting with the following error: "Failed to install VM Guest Health Agent: exit status 1"install vmGuestHealthAgent service execution failed with exit code 37
 ```
-This is likely because VM Guest Agent couldn’t acquire the lock for the service file. Try to reboot your VM which will release the lock.
+This is likely because VM Guest Agent couldn't acquire the lock for the service file. Try to reboot your VM which will release the lock.
 
 
 ## Upgrade errors
 
 ### Upgrade available message is still displayed after upgrading guest health 
 
-- Verify that VM is running in global Azure. Arc enabled servers are not yet supported.
+- Verify that VM is running in global Azure. Azure Arc-enabled servers are not yet supported.
 - Verify that the virtual machine's region and operating system version are supported as described in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md).
 - Verify that guest health extension installed successfully with 0 exit code.
 - Verify that Azure Monitor agent extension is installed successfully.
@@ -70,7 +70,7 @@ This is likely because VM Guest Agent couldn’t acquire the lock for the servic
   - For Linux: Daemon is *vmGuestHealthAgent*. State folder is */var/opt/vmGuestHealthAgent/**
   - For Windows: Service is *VM Guest Health agent*. State folder is _%ProgramData%\Microsoft\VMGuestHealthAgent\\*_.
 - Verify the Azure Monitor agent has network connectivity. 
-  - From the virtual machine, attempt to ping _<region>.handler.control.monitor.azure.com_. For example, for a virtual machine in westeurope, attempt to ping _westeurope.handler.control.monitor.azure.com:443_.
+  - From the virtual machine, attempt to ping _\<region\>.handler.control.monitor.azure.com_. For example, for a virtual machine in westeurope, attempt to ping _westeurope.handler.control.monitor.azure.com:443_.
 - Verify that virtual machine has an association with a data collection rule in the same region as the Log Analytics workspace.
   -  Refer to **Create data collection rule (DCR)** in [Enable Azure Monitor for VMs guest health (preview)](vminsights-health-enable.md) to ensure structure of the DCR is correct. Pay particular attention to presence of *performanceCounters* data source section set up to samples three counters and presence of *inputDataSources* section in health extension configuration to send counters to the extension.
 -  Check the virtual machine for guest health extension errors.
@@ -109,7 +109,7 @@ Verify that the system assigned identity is enabled on the virtual machine. Sele
 Verify that the data collection rule specifying health extension as a data source is associated with the virtual machine.
 
 ### Error message for bad request due to insufficient permissions
-This error indicates that the **Microsoft.WorkloadMonitor** resource provider wasn’t registered in the subscription. See [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for details on registering this resource provider. 
+This error indicates that the **Microsoft.WorkloadMonitor** resource provider wasn't registered in the subscription. See [Azure resource providers and types](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider) for details on registering this resource provider. 
 
 ![Bad request](media/vminsights-health-troubleshoot/bad-request.png)
 

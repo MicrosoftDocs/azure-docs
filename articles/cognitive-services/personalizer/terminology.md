@@ -1,6 +1,9 @@
 ---
 title: Terminology - Personalizer
 description: Personalizer uses terminology from reinforcement learning. These terms are used in the Azure portal and the APIs.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: conceptual

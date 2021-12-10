@@ -3,14 +3,14 @@ title: Get trending images with the Bing Image Search API
 titleSuffix: Azure Cognitive Services
 description: Search for today's trending images from the web with the Bing Image Search API.
 services: cognitive-services
-author: swhite-msft
+
 manager: nitinme
 ms.assetid: EAB92D35-5C0B-4A0A-8F49-02DF7FAD44B4
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: conceptual
 ms.date: 03/04/2019
-ms.author: scottwhi
+
 ms.custom: seodec2018
 ---
 

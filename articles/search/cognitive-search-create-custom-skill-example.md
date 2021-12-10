@@ -2,10 +2,8 @@
 title: 'Custom skill example using Bing Entity Search API'
 titleSuffix: Azure Cognitive Search
 description: Demonstrates using the Bing Entity Search service in a custom skill mapped to an AI-enriched indexing pipeline in Azure Cognitive Search.
-
-manager: nitinme
-author: luiscabrer
-ms.author: luisca
+author: LiamCavanagh
+ms.author: liamca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
@@ -308,7 +306,7 @@ namespace SampleSkills
 
 Make sure to enter your own *key* value in the `key` constant based on the key you got when signing up for the Bing entity search API.
 
-This sample includes all necessary code in a single file for convenience. You can find a slightly more structured version of that same skill in [the power skills repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/master/Text/BingEntitySearch).
+This sample includes all necessary code in a single file for convenience. You can find a slightly more structured version of that same skill in [the power skills repository](https://github.com/Azure-Samples/azure-search-power-skills/tree/main/Text/BingEntitySearch).
 
 Of course, you may rename the file from `Function1.cs` to `BingEntitySearch.cs`.
 

@@ -5,11 +5,11 @@ author: sidramadoss
 ms.author: sidram
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 5/12/2021
+ms.date: 6/16/2021
 ms.custom: devx-track-csharp
 ---
 
-# Read input in any format using .NET custom deserializers
+# Read input in any format using .NET custom deserializers (Preview)
 
 .NET custom deserializers allow your Azure Stream Analytics job to read data from formats outside of the three [built-in data formats](stream-analytics-parsing-json.md). This article explains the serialization format and the interfaces that define .NET custom deserializers for Azure Stream Analytics cloud and edge jobs. There are also example deserializers for Protocol Buffer and CSV format.
 
@@ -237,7 +237,7 @@ This feature is available in [6 regions](#region-support). If you are interested
 
 ### Can I access MetadataPropertyValue from my inputs similar to GetMetadataPropertyValue function?
 
-This functionality is not supported. If you need this capability, you can vote for this request on [UserVoice](https://feedback.azure.com/forums/270577-stream-analytics/suggestions/38779801-accessing-input-metadata-properties-in-custom-dese).
+This functionality is not supported. If you need this capability, you can vote for this request on [UserVoice](https://feedback.azure.com/d365community/idea/b4517302-b925-ec11-b6e6-000d3a4f0f1c).
 
 ### Can I share my deserializer implementation with the community so that others can benefit?
 

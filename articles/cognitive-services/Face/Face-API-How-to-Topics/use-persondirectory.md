@@ -78,7 +78,7 @@ First, you should define a data model like the following to handle the status re
 public class AsyncStatus
 {
     [DataMember(Name = "status")]
-    public string AsyncStatus { get; set; }
+    public string Status { get; set; }
 
     [DataMember(Name = "createdTime")]
     public DateTime CreatedTime { get; set; }
@@ -349,7 +349,7 @@ HttpResponseMessage response;
 // Request body
 var body = new Dictionary<string, object>();
 body.Add("faceIds", new List<string>{"{guid1}", "{guid2}", …});
-body.Add("personIds", new List<string>{"{guid1}", "{guid2}", …});
+body.Add("personIds", new List<string>{"*"});
 byte[] byteData = Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(body));
 
 using (var content = new ByteArrayContent(byteData))

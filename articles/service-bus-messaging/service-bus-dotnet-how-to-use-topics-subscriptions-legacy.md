@@ -1,24 +1,24 @@
 ---
-title: Get started with Azure Service Bus topics and subscriptions | Microsoft Docs
+title: Use Azure Service Bus topics and subscriptions with .NET (old version)
 description: Write a C# .NET Core console application that uses Service Bus messaging topics and subscriptions.
-ms.topic: quickstart
+ms.topic: how-to
 ms.tgt_pltfrm: dotnet
-ms.date: 09/02/2020
+ms.date: 07/27/2021
 ms.custom: devx-track-csharp
 ---
 
-# Get started with Service Bus topics
-This tutorial covers the following steps:
+# Use Service Bus topics and subscriptions with .NET (old package)
+This article covers the following steps:
 
 1. Write a .NET Core console application to send a set of messages to the topic.
 2. Write a .NET Core console application to receive those messages from the subscription.
 
 > [!WARNING]
-> This quickstart uses the old Microsoft.Azure.ServiceBus package. For a quickstart that uses the latest Azure.Messaging.ServiceBus package, see [Send and receive messages using the Azure.Messaging.ServiceBus package](service-bus-dotnet-how-to-use-topics-subscriptions.md). To move your application from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
+> This article uses the old Microsoft.Azure.ServiceBus package. For an article that uses the latest Azure.Messaging.ServiceBus package, see [Send and receive messages using the Azure.Messaging.ServiceBus package](service-bus-dotnet-how-to-use-topics-subscriptions.md). To move your application from using the old library to new one, see the [Guide to migrate from Microsoft.Azure.ServiceBus to Azure.Messaging.ServiceBus](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/servicebus/Azure.Messaging.ServiceBus/MigrationGuide.md). 
 
 ## Prerequisites
 
-1. An Azure subscription. To complete this tutorial, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
+1. An Azure subscription. To complete steps in this article, you need an Azure account. You can activate your [Visual Studio or MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF) or sign-up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF).
 2. Follow steps in the [Quickstart: Use the Azure portal to create a Service Bus topic and subscriptions to the topic](service-bus-quickstart-topics-subscriptions-portal.md) to do the following tasks:
     1. Create a Service Bus **namespace**.
     2. Get the **connection string**.

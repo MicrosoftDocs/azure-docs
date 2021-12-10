@@ -15,7 +15,7 @@ For an overview of Batch concepts, including pools, jobs, and tasks, see [this a
 
 ## Batch pools using custom VM images and standard application licensing
 
-As with other workloads and types of application, a custom VM image can be created with the required rendering applications and plug-ins. The custom VM image is placed in the [Shared Image Gallery](../virtual-machines/shared-image-galleries.md) and [can be used to create Batch Pools](batch-sig-images.md).
+As with other workloads and types of application, a custom VM image can be created with the required rendering applications and plug-ins. The custom VM image is placed in the [Azure Compute Gallery](../virtual-machines/shared-image-galleries.md) and [can be used to create Batch Pools](batch-sig-images.md).
 
 The task command line strings will need to reference the applications and paths used when creating the custom VM image.
 
@@ -41,8 +41,8 @@ The Azure portal and Batch Explorer provide GUI tools to select a rendering VM i
 
 Other options are available if additional applications are required on the pool VMs:
 
-* A custom image from the Shared Image Gallery:
-  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Create a pool with the Shared Image Gallery](batch-sig-images.md). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
+* A custom image from the Azure Compute Gallery:
+  * Using this option, you can configure your VM with the exact applications and specific versions that you require. For more information, see [Create a pool with the Azure Compute Gallery](batch-sig-images.md). Autodesk and Chaos Group have modified Arnold and V-Ray, respectively, to validate against an Azure Batch licensing service. Make sure you have the versions of these applications with this support, otherwise the pay-per-use licensing won't work. Current versions of Maya or 3ds Max don't require a license server when running headless (in batch/command-line mode). Contact Azure support if you're not sure how to proceed with this option.
 * [Application packages](./batch-application-packages.md):
   * Package the application files using one or more ZIP files, upload via the Azure portal, and specify the package in pool configuration. When pool VMs are created, the ZIP files are downloaded and the files extracted.
 * Resource files:

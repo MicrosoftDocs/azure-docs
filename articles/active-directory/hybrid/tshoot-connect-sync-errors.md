@@ -128,7 +128,9 @@ The most common reason for the ObjectTypeMismatch error is two objects of differ
 #### Description
 Azure Active Directory schema does not allow two or more objects to have the same value of the following attributes. That is each object in Azure AD is forced to have a unique value of these attributes at a given instance.
 
+* Mail
 * ProxyAddresses
+* SignInName
 * UserPrincipalName
 
 If Azure AD Connect attempts to add a new object or update an existing object with a value for the above attributes that is already assigned to another object in Azure Active Directory, the operation results in the "AttributeValueMustBeUnique" sync error.
@@ -178,6 +180,15 @@ a. Ensure that the userPrincipalName attribute has supported characters and requ
 
 #### Related Articles
 * [Prepare to provision users through directory synchronization to Microsoft 365](https://support.office.com/article/Prepare-to-provision-users-through-directory-synchronization-to-Office-365-01920974-9e6f-4331-a370-13aea4e82b3e)
+
+## Deletion access violation and Password access violation errors
+
+Azure Active Directory protects cloud only objects from being updated through Azure AD Connect. While it is not possible to update these objects through Azure AD Connect, calls can be made directly to the AADConnect cloud side backend to attempt to change cloud only objects. When doing so, the following errors can be returned:
+
+* This synchronization operation, Delete, is not valid. Contact Technical Support.
+* Unable to process this update as one or more cloud only users credential update is included in current request.
+* Deleting a cloud only object is not supported. Please contact Microsoft Customer Support.
+* The password change request cannot be executed since it contains changes to one or more cloud only user objects, which is not supported. Please contact Microsoft Customer Support.
 
 ## LargeObject
 ### Description

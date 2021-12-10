@@ -68,9 +68,9 @@ productDirectory:
            text: Books
          - url: resources/events.md
            text: Events
-         - url: articles/code.md
+         - url: articles/code.yml
            text: "FAQ: SRE and coding"
-         - url: articles/devops.md
+         - url: articles/devops.yml
            text: "FAQ: SRE and DevOps"
          - url: resources/links.md
            text: Links and digests
@@ -111,7 +111,7 @@ conceptualContent:
           itemType: reference
           text: Cloud Best Practices
 
-        - url: /azure/architecture/framework/resiliency/overview
+        - url: /azure/architecture/framework/resiliency/app-design
           itemType: reference
           text: Designing Reliable Azure applications
 

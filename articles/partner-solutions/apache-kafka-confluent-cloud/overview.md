@@ -4,7 +4,7 @@ description: Learn about using Apache Kafka on Confluent Cloud in the Azure Mark
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 01/15/2021
+ms.date: 06/07/2021
 ms.author: tomfitz
 ---
 
@@ -16,7 +16,7 @@ To reduce the burden of cross-platform management, Microsoft partnered with Conf
 
 Previously, you had to purchase the Confluent Cloud offering in the Marketplace and separately set up the account in Confluent Cloud. To manage configurations and resources, you had to navigate between the portals for Azure and Confluent Cloud.
 
-Now, you provision the Confluent Cloud resources through a resource provider named **Microsoft.Confluent**. You create and manage Confluent Cloud organization resources through the [Azure portal](https://portal.azure.com/), [Azure CLI](/cli/azure/), or [Azure SDKs](/azure/index.yml#languages-and-tools). Confluent Cloud owns and runs the software as a service (SaaS) application, including the environments, clusters, topics, API keys, and managed connectors.
+Now, you provision the Confluent Cloud resources through a resource provider named **Microsoft.Confluent**. You create and manage Confluent Cloud organization resources through the [Azure portal](https://portal.azure.com/), [Azure CLI](/cli/azure/), or [Azure SDKs](/azure#languages-and-tools). Confluent Cloud owns and runs the software as a service (SaaS) application, including the environments, clusters, topics, API keys, and managed connectors.
 
 ## Capabilities
 
@@ -51,12 +51,6 @@ There are two billing options available: pay-as-you-go monthly plan and commitme
 - With a **commitment plan**, you sign up for a minimum spend amount and get a discount on your committed usage of Confluent Cloud.
 
 You decide which billing option to use when you create the service.
-
-## Connector to Azure Cosmos DB
-
-From within the Confluent Hub client, install the Cosmos DB Connector as recommended in the [Confluent Hub listing](https://www.confluent.io/hub/microsoftcorporation/kafka-connect-cosmos). 
-
-To install the connector manually, first download an uber JAR from the [Cosmos DB Releases page](https://github.com/microsoft/kafka-connect-cosmosdb/releases). Alternatively, you can [build your own uber JAR directly from the source code](https://github.com/microsoft/kafka-connect-cosmosdb/blob/dev/doc/README_Sink.md#install-sink-connector). Complete the installation by following the guidance described in the Confluent documentation for [installing connectors manually](https://docs.confluent.io/home/connect/install.html#install-connector-manually).  
 
 ## Confluent links
 

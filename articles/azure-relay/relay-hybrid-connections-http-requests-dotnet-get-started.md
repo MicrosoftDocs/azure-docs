@@ -3,11 +3,11 @@ title: Azure Relay Hybrid Connections - HTTP requests in .NET
 description: Write a C# console application for Azure Relay Hybrid Connections HTTP requests in .NET.
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 06/23/2020
+ms.date: 06/23/2021
 ---
 
 # Get started with Relay Hybrid Connections HTTP requests in .NET
-[!INCLUDE [relay-selector-hybrid-connections](../../includes/relay-selector-hybrid-connections.md)]
+[!INCLUDE [relay-selector-hybrid-connections](./includes/relay-selector-hybrid-connections.md)]
 
 In this quickstart, you create .NET sender and receiver applications that send and receive messages by using the HTTP protocol. The applications use Hybrid Connections feature of Azure Relay. To learn about Azure Relay in general, see [Azure Relay](relay-what-is-it.md). 
 
@@ -27,20 +27,20 @@ To complete this tutorial, you need the following prerequisites:
 * An Azure subscription. If you don't have one, [create a free account](https://azure.microsoft.com/free/) before you begin.
 
 ## Create a namespace
-[!INCLUDE [relay-create-namespace-portal](../../includes/relay-create-namespace-portal.md)]
+[!INCLUDE [relay-create-namespace-portal](./includes/relay-create-namespace-portal.md)]
 
 ## Create a hybrid connection
-[!INCLUDE [relay-create-hybrid-connection-portal](../../includes/relay-create-hybrid-connection-portal.md)]
+[!INCLUDE [relay-create-hybrid-connection-portal](./includes/relay-create-hybrid-connection-portal.md)]
 
 ## Create a server application (listener)
 In Visual Studio, write a C# console application to listen for and receive messages from the relay.
 
-[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
+[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-server](./includes/relay-hybrid-connections-http-requests-dotnet-get-started-server.md)]
 
 ## Create a client application (sender)
 In Visual Studio, write a C# console application to send messages to the relay.
 
-[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](../../includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
+[!INCLUDE [relay-hybrid-connections-http-requests-dotnet-get-started-client](./includes/relay-hybrid-connections-http-requests-dotnet-get-started-client.md)]
 
 ## Run the applications
 1. Run the server application. You see the following text in the console window:
