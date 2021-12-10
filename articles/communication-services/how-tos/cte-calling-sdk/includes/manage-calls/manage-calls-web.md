@@ -14,7 +14,7 @@ To create and start a call, use one of the APIs on `callAgent` and provide a use
 Call creation and start are synchronous. The `call` instance allows you to subscribe to call events.
 
 > [!NOTE]
-> Place a call with custom Teams application requires chat `threadId` when calling `startCall` method on `callAgent`. Read more on [how to get chat thread Id](https://docs.microsoft.com/graph/api/chat-post?view=graph-rest-1.0&tabs=javascript#example-2-create-a-group-chat&preserve-view=true).
+> Place a call with custom Teams application requires chat `threadId` when calling `startCall` method on `callAgent`. Read more on [how to get chat thread Id](https://docs.microsoft.com/graph/api/chat-post?view=graph-rest-1.0&tabs=javascript#example-2-create-a-group-chat&preserve-view=true). Applications will need to manage their chat thread participants separate from call participants. Learn how to [manage chat thread](#manage-chat-thread).
 ### Place a 1:n call to a user or PSTN
 
 To call another Teams user, use the `startCall` method on `callAgent` and pass the recipient's `MicrosoftTeamsUserIdentifier` that you [created with the Communication Services administration library](../../../../quickstarts/manage-teams-identity.md).
@@ -26,7 +26,7 @@ const userCallee = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' }
 const oneToOneCall = callAgent.startCall([userCallee], { threadId: '<THREAD_ID>' });
 ```
 
-To place a call to a public switched telephone network (PSTN), use the `startCall` method on `callAgent` and pass the recipient's `PhoneNumberIdentifier`. Your Communication Services resource must be configured to allow PSTN calling.
+To place a call to a public switched telephone network (PSTN), use the `startCall` method on `callAgent` and pass the recipient's `PhoneNumberIdentifier` and `threadId` for a chat thread between caller and recipient. Your Communication Services resource must be configured to allow PSTN calling.
 
 > [!NOTE]
 > PSTN calling is currently in public preview with the Azure terms of use.
@@ -133,7 +133,8 @@ call.remoteParticipants; // [remoteParticipant, remoteParticipant....]
 To add a participant (either a user or a phone number) to a call, you can use `addParticipant`. Provide one of the `Identifier` types. It synchronously returns the `remoteParticipant` instance. The `remoteParticipantsUpdated` event from Call is raised when a participant is successfully added to the call.
 
 > [!NOTE]
-> Chat `threadId` is required when adding a participant to a call. Learn more about [how to get chat thread id](https://docs.microsoft.com/graph/api/chat-post?view=graph-rest-1.0&tabs=javascript#example-2-create-a-group-chat&preserve-view=true). 
+> Chat `threadId` is required when adding a participant to a call. Learn more about [how to get chat thread id](https://docs.microsoft.com/graph/api/chat-post?view=graph-rest-1.0&tabs=javascript#example-2-create-a-group-chat&preserve-view=true). Applications will need to manage their chat thread participants separate from call participants. Learn how to [manage chat thread](#manage-chat-thread).
+
 ```js
 const userIdentifier = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' };
 const pstnIdentifier = { phoneNumber: '<PHONE_NUMBER_E164_FORMAT>' }
@@ -294,3 +295,13 @@ Inspect active video streams by checking the `localVideoStreams` collection. It 
 ```js
 const localVideoStreams = call.localVideoStreams;
 ```
+
+## Manage chat thread
+Creating a chat thread is mandatory for making calls and add participant to an existing call. However, application is responsible for managing the participants in a chat thread. For example the following scenario: Alice makes a call to Bob, later Alice adds Charlie, and 3 minutes later, Alice removes Charlie from the call.
+
+1. Create a chat thread between Alice and Bob, record `threadId`
+2. Alice calls Bob using `startCall` method on `callAgent` and specify the `threadId`
+3. Add Charlie to chat thread with `threadId` using [Chat Graph API to add member](https://docs.microsoft.com/graph/api/chat-post-members?view=graph-rest-1.0&tabs=http)
+4. Alice adds Charlie to the call using `addParticipant` method on `call` and specity the `threadId`
+5. Alice removes Charlie from the call using `removeParticipant` method on `call` and specify the `threadId`
+6. Remove Charlie from chat thread with `threadId` using [Chat Graph API to remove member](https://docs.microsoft.com/graph/api/chat-delete-members?view=graph-rest-1.0&tabs=http)
