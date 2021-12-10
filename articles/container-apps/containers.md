@@ -28,7 +28,7 @@ Additional features include:
 - If a container crashes, it automatically restarts.
 
 > [!NOTE]
-> The only supported protocols for a container app's fully qualified domain name (FQDM) are HTTP and HTTPS through ports 80 and 443 respectively.
+> The only supported protocols for a container app's fully qualified domain name (FQDN) are HTTP and HTTPS through ports 80 and 443 respectively.
 
 ## Configuration
 
