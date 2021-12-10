@@ -6,6 +6,9 @@
     href: azure-sql-iaas-vs-paas-what-is-overview.md
   - name: Migrate to Azure SQL 
     href: migration-guides/index.yml
+  - name: Azure SQL glossary of terms
+    href: glossary-terms.md
+
 
 - name: Shared SQL DB & SQL MI docs
   items:
@@ -30,7 +33,7 @@
       href: database/service-tier-business-critical.md
 
   - name: Shared concepts 
-    itemS: 
+    items: 
     - name: Feature comparison
       href: database/features-comparison.md
     - name: Multi-model features
