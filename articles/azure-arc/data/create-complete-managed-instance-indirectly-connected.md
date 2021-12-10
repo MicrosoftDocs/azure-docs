@@ -34,13 +34,11 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 * The Azure Arc extension for Azure Data Studio
 * Kubernetes CLI
 * Azure CLI 
-* arcdata extension for Azure CLI.
+* arcdata extension for Azure CLI
 
 In addition, because this deployment is on Azure Kubernetes Service, you need the following additional extensions:
 
 * connectedk8s
-* k8sconfiguration
-* k8s-configuration
 * k8s-extension
 
 
@@ -142,7 +140,7 @@ Now that our cluster is up and running, we are ready to create the data controll
 The CLI command to create the data controller is: 
 
 ```azurecli
-az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace <namespace> --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --use-k8s
+az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace <namespace> --name <data controller name> --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --use-k8s
 ```
 
 ## Create Azure Arc-enabled SQL Managed Instance
@@ -159,4 +157,4 @@ To connect with Azure Data Studio, see [Connect to Azure Arc-enabled SQL Managed
 
 ## Next steps
 
-[Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md)
+[Upload usage data, metrics, and logs to Azure](upload-metrics-and-logs-to-azure-monitor.md).

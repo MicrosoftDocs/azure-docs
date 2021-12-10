@@ -39,14 +39,12 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 In addition, because this deployment is on Azure Kubernetes Service, you need the following additional extensions:
 
 * connectedk8s
-* k8sconfiguration
-* k8s-configuration
 * k8s-extension
 
 
 ## Access your Kubernetes cluster
 
-After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
+After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](FIX LINK /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
 
 ### Create a cluster
 
@@ -62,7 +60,7 @@ To quickly create a Kubernetes cluster, use Azure Kubernetes Services (AKS).
     1. Specify a cluster name
     1. Specify a region
     1. Under **Availability zones**, select **None**.
-    1. Verify the Kubernetes version. Normally, the latest version is recommended.
+    1. Verify the Kubernetes version. For minumum supported version, see [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md).
     1. Under **Node size**, Azure Arc-enabled data services generally requires a larger node size. **Standard D8s v3** is recommended for this purpose. 
     1. For **Scale method**, select **Manual**.
 1. Click **Review + create**.
@@ -99,7 +97,7 @@ After creating the cluster, connect to the cluster through the Azure CLI.
    Azure CLI returns the following output.
 
    ```output
-   Merged "<namespace>" as current context in C:<current path>\.kube\config
+   Merged "<cluster name>" as current context in C:<current path>\.kube\config
    ```
 
 1. Confirm that your cluster is running. Use the following command: 
@@ -122,7 +120,7 @@ After creating the cluster, connect to the cluster through the Azure CLI.
 Now that the cluster is running, we need to connect our cluster to Azure. This can be done through the Azure CLI command: 
 
 ```azurecli
-az connectedk8s connect --resource-group <resource group> --name <namespace> 
+az connectedk8s connect --resource-group <resource group> --name <cluster name> 
 ```
 
 After the connect command completes successfully, you can view the shadow object in the Azure portal. The shadow object is the representation of the Azure Arc-enabled cluster. 
@@ -130,7 +128,7 @@ After the connect command completes successfully, you can view the shadow object
 1. In the Azure portal, locate the resource group. One way to find the resource group is to type the resource group name in search on the portal. The portal displays a link to the resource group below the search box. Click the resource group link.
 1. In the resource group, under **Overview** you can see the Kubernetes cluster, and the shadow object. See the following image:
 
-   :::image type="content" source="media/create-complete-managed-instance-directly-connected/azure-arc-resources.png" alt-text="Portal resource group":::
+   :::image type="content" source="media/create-complete-managed-instance-directly-connected/azure-arc-resources.png" alt-text="Portal resource group." lightbox="media/create-complete-managed-instance-directly-connected/azure-arc-resources-expanded.png":::
 
    The shadow resource is the resource type **Kubernetes - Azure Arc** in the image above. The other resource is the **Kubernetes service** cluster. Both resources have the same name. 
 
@@ -144,7 +142,10 @@ The next step is to create the data controller in directly connected mode via th
 1. Select **Azure Arc data controller**.
 1. Click **Create**.
 1. Specify a name for the data controller.
-1. Specify a custom location (namespace). Use the same value that you set in the [previous step](#create-a-cluster).
+1. Specify a custom location (namespace). 
+
+   :::image type="content" source="media/create-complete-managed-instance-directly-connected/custom-location.png" alt-text="Create a new custom location and specify a namespace.":::
+
 1. For **Kubernetes configuration template**, specify *azure-arc-aks-premium-storage* because this example uses an AKS cluster. 
 1. Set a user name and password for the metrics and log services. 
 
@@ -169,14 +170,14 @@ kubectl get datacontroller --namespace <namespace>
 The command returns the state of the data controller. For example, the following results indicate that the deployment is in progress:
 
 ```output
-NAME      STATE
+NAME          STATE
 <namespace>   DeployingMonitoring
 ```
 
 Once the state of the data controller is ‘READY’, then this step is completed. For example:
 
 ```output
-NAME      STATE
+NAME          STATE
 <namespace>   Ready
 ```
 
@@ -186,7 +187,7 @@ NAME      STATE
 1. In the resource group, select **Create**.
 1. Type *managed instance*, select **Azure SQL Managed Instance - Azure Arc**.
 1. Click **Create**. 
-1. Specify your resource group, and custom location.
+1. Specify your resource group, and custom location. Use the same value that you set in the [previous step](#create-a-cluster).
 1. Set the **LoadBalancer** service type. 
 1. Provide credentials (login and password) for the managed instance administrator account. 
 1. Click **Review and Create**.
@@ -194,6 +195,6 @@ NAME      STATE
 
 Azure creates the managed instance on the Azure Arc-enabled Kubernetes cluster. 
 
-## Connect to with Azure Data Studio
+## Connect with Azure Data Studio
 
 To connect with Azure Data Studio, see [Connect to Azure Arc-enabled SQL Managed Instance](connect-managed-instance.md).
