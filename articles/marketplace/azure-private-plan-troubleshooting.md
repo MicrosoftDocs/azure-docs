@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: keferna
 ms.author: keferna
-ms.date: 12/09/2021
+ms.date: 12/10/2021
 ---
 
 # Troubleshooting Private Plans in Commercial Marketplace
