@@ -17,18 +17,18 @@ ms.subservice: pstn
 
 ## Overview  
 
-Azure Communication Calling SDK can be used to add Enhanced 911 dialing and Public Safety Answering Point (PSAP) call-back support to your applications in the United States (US) & Puerto Rico (PR) listed further below. The capability to dial 911 and receive a call-back may be a requirement for your application. Verify the E911 requirements with your legal counsel.
+Azure Communication Calling SDK can be used to add Enhanced 911 dialing and Public Safety Answering Point (PSAP) call-back support to your applications in the United States (US) & Puerto Rico (PR). The capability to dial 911 and receive a call-back may be a requirement for your application. Verify the E911 requirements with your legal counsel.
 
-Calls to 911 are routed over the Microsoft network. A temporary phone number is assigned by Microsoft as the Call Line Identity (CLI) when 911 calls from the US & PR are placed. Microsoft temporarily maintains a mapping of the phone number to the caller's identity. If there is a call-back from the PSAP, the call will route directly to the originating 911 caller regardless of whether inbound calling is otherwise enabled.
+Calls to 911 are routed over the Microsoft network. Microsoft assigns a temporary phone number as the Call Line Identity (CLI) when 911 calls from the US & PR are placed. Microsoft temporarily maintains a mapping of the phone number to the caller's identity. If there is a call-back from the PSAP, we route the call directly to the originating 911 caller. The caller can accept incoming PSAP call even if inbound calling is disabled.
 
-The service is available for Microsoft phone numbers. It requires that the Azure resource from where the 911 call originates has a Microsoft-issued phone number enabled with outbound dialing (otherwise referred to as ‘make calls').  
+The service is available for Microsoft phone numbers. It requires that the Azure resource from where the 911 call originates has a Microsoft-issued phone number enabled with outbound dialing (also referred to as ‘make calls').  
 
 ACS direct routing is currently in public preview and not intended for production workloads. So E911 dialing is out of scope for ACS Direct Routing.
 
 ## The call flow
 
 1. An ACS user identity dials 911 using the ACS Calling SDK from the US or PR
-1. Microsoft validates the Azure Resource has a Microsoft phone number enabled for outbound dialing
+1. Microsoft validates the Azure resource has a Microsoft phone number enabled for outbound dialing
 1. Microsoft ACS 911 service replaces the user’s phone number `alternateCallerId` with a temporary unique phone number. This number allocation remains in place for at least 60 minutes from the time that 911 is first dialed
 1. Microsoft maintains a temporary record (for approximately 60 minutes) of the user’s identity to the unique phone number
 1. The 911 call will be first routed to a call center where an agent will request the caller’s address
@@ -36,9 +36,11 @@ ACS direct routing is currently in public preview and not intended for productio
 1. If the 911 call is unexpectedly dropped, the PSAP then makes a call-back to the user
 1. On receiving the call-back within 60 minutes, Microsoft will route the inbound call directly to the user identity, which initiated the 911 call
 
-Emergency dialing is automatically enabled for all users of the Azure Communication Client Calling SDK with an acquired Microsoft telephone number that is enabled for outbound dialing in the Azure Resource. To use E911 with Microsoft phone numbers, follow the below steps:
+## Enabling Emergency calling
 
-1. Acquire a Microsoft phone number in the Azure Resource of the client application (at least one of the numbers in the Azure resource must have the ability to ‘Make Calls’) 
+Emergency dialing is automatically enabled for all users of the Azure Communication Client Calling SDK with an acquired Microsoft telephone number that is enabled for outbound dialing in the Azure resource. To use E911 with Microsoft phone numbers, follow the below steps:
+
+1. Acquire a Microsoft phone number in the Azure resource of the client application (at least one of the numbers in the Azure resource must have the ability to ‘Make Calls’) 
 
 1. Use the APIs in the calling SDK to set the country code of the user
 
@@ -58,7 +60,7 @@ Emergency dialing is automatically enabled for all users of the Azure Communicat
 
 1. Ensure your application supports [receiving an incoming call](../../how-tos/calling-sdk/includes/manage-calls/manage-calls-web.md#receive-an-incoming-call) so call-backs from the PSAP are appropriately routed to the originator of the 911 call. To test inbound calling is working correctly, place inbound VoIP calls to the user of the Calling SDK
 
-The Emergency service is temporarily free to use for ACS customers within reasonable use, however, billing for the service will be enabled in 2022. Calls to 911 are capped at 10 concurrent calls per Azure Resource.
+The Emergency service is temporarily free to use for ACS customers within reasonable use, however, billing for the service will be enabled in 2022. Calls to 911 are capped at 10 concurrent calls per Azure resource.
 
 ## Next steps
 
