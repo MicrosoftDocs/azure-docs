@@ -89,6 +89,9 @@ In this article, you learn about various Azure DevTest Labs features that can be
     DevTest Labs creates a new virtual network (VNET) whenever a lab is created. If you have configured your own VNET – for example, by using ExpressRoute or site-to-site VPN – you can add this VNET to your lab's virtual network settings so that it is available when creating VMs.
 
     In addition, there is an Active Directory domain join artifact available that will join a VM to a domain when the VM is being created. 
+    
+    > [!Important]
+    > Only Domain join is supported. 
    
     Learn more by clicking on the links in the following table:
    
