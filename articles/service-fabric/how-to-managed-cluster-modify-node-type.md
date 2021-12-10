@@ -114,13 +114,11 @@ Remove-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -Cluster
 > If removing a primary node type for scenarios such as upgrading the SKU it will take multiple hours and progress can be monitored by using SFX. Seed nodes will migrate one node per upgrade domain(UD) walk at a time.
 
 
-
 ## Scale a node type 
+You can scale a Service Fabric managed cluster node type with portal, ARM template, or PowerShell. You can also [configure autoscale for a secondary node type](how-to-managed-cluster-autoscale.md) if you want a fully automated solution.
 
-
-### Scale using Autoscale
-
-To learn how to configure autoscale, refer to [how to configure autoscale for a secondary node type](how-to-managed-cluster-autoscale.md) documentation.
+> [!NOTE]
+> For the Primary node type, you will not be able to go below 3 nodes for a Basic SKU cluster, and 5 nodes for a Standard SKU cluster.
 
 ### Scale using portal
 
@@ -144,7 +142,7 @@ In this walkthrough, you will learn how to modify the node count for a node type
 
 ### Scale a node type with a template
 
-To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take effect.
+To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take effect. The cluster will begin upgrading automatically you will see the additional nodes when complete.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -165,6 +163,21 @@ To adjust the node count for a node type using an ARM Template, adjust the `vmIn
         }
 }
 ```
+
+### Scale a node type with PowerShell
+Change the instance count to increase or decrease the number of nodes on the node type that you would like to scale. You can find node type names in the Azure Resource Manager template (ARM template) from your cluster deployment, or in the Service Fabric Explorer.  
+
+```powershell
+$resourceGroup = "myResourceGroup"
+$clusterName = "mysfcluster"
+$nodeTypeName = "FE"
+$instanceCount = "7"
+
+Set-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName -name $nodeTypeName -InstanceCount $instanceCount -Verbose
+```
+
+The cluster will begin upgrading automatically you will see the additional nodes when complete.
+
 
 ## Enable automatic OS image upgrades
 
