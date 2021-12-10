@@ -15,17 +15,17 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
-This article provides steps for creating copies of your IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings templates that can be used outside of the Azure portal. The copies can be used for editing, troubleshooting, and archiving.
+This article provides steps for creating copies of your IoT connector's Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings that can be used outside of the Azure portal. These copies can be used for editing, troubleshooting, and archiving.
 
 > [!TIP]
 > Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
 
 > [!NOTE]
-> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include [copies of your Device and FHIR destination mappings templates](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
+> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
 
 ## File creation process
 
-1. Select **"IoT connectors"** on the left side of the Healthcare APIs Workspace.
+1. Select **"IoT connectors"** on the left side of the Healthcare APIs workspace.
 
    :::image type="content" source="media/iot-troubleshoot/iot-connector-blade.png" alt-text="Select IoT connectors." lightbox="media/iot-troubleshoot/iot-connector-blade.png":::
 

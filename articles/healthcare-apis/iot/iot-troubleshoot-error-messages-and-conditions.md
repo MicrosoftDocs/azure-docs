@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: troubleshooting
-ms.date: 12/9/2021
+ms.date: 12/10/2021
 ms.author: jasteppe
 ---
 
@@ -24,11 +24,11 @@ This article provides steps for troubleshooting and fixing IoT connector error m
 > Check out the [IoMT Connector Data Mapper](https://github.com/microsoft/iomt-fhir/tree/master/tools/data-mapper) tool for editing, testing, and troubleshooting IoT connector Device and FHIR destination mappings. Export mappings for uploading to IoT connector in the Azure portal or use with the [open-source version](https://github.com/microsoft/iomt-fhir) of IoT connector.
 
 > [!NOTE]
-> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for IoT connector, include [copies of your Device and FHIR destination mappings templates](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
+> When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for IoT connector, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
 
 ## IoT Connector error messages and conditions
 
-### The operation performed by IoT connector
+### The operation being performed by IoT connector
 
 This property represents the operation being performed by IoT connector when the error has occurred. An operation generally represents the data flow stage while processing a device message. Below is a list of possible values for this property.
 
@@ -90,16 +90,16 @@ This property provides the name for a specific error. Below is the list of all e
 |The maximum number of resource type `iotconnectors` has been reached.|API and Azure portal|IoT connector subscription quota is reached (default is 10 IoT connectors per workspace and 10 workspaces per subscription).|Delete one of the existing instances of IoT connector. Use a different subscription that hasn't reached the subscription quota. Request a subscription quota increase.
 |Invalid `deviceMapping` mapping. Validation errors: {List of errors}|API and Azure portal|The `properties.deviceMapping` provided in the IoT connector Resource provisioning request is invalid.|Correct the errors in the mapping JSON provided in the `properties.deviceMapping` property.
 |`fullyQualifiedEventHubNamespace` is null, empty, or formatted incorrectly.|API and Azure portal|The IoT connector provisioning request `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` is not valid.|Update the IoT connector `properties.ingestionEndpointConfiguration.fullyQualifiedEventHubNamespace` to the correct format. Should be `{YOUR_NAMESPACE}.servicebus.windows.net`.
-|Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace is still provisioning.|Wait until the parent Workspace provisioning has completed and submit the provisioning request again.
-|`Location` property of child resources must match the `Location` property of parent resources.|API|The IoT connector provisioning request `location` property is different from the parent Workspace `location` property.|Set the `location` property of the IoT connector in the provisioning request to the same value as the parent Workspace `location` property.
+|Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent workspace is still provisioning.|Wait until the parent workspace provisioning has completed and submit the provisioning request again.
+|`Location` property of child resources must match the `Location` property of parent resources.|API|The IoT connector provisioning request `location` property is different from the parent workspace `location` property.|Set the `location` property of the IoT connector in the provisioning request to the same value as the parent workspace `location` property.
 
 ### Destination Resource
 
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
 |The maximum number of resource type `iotconnectors/destinations` has been reached.|API and Azure portal|IoT connector Destination Resource quota is reached and the default is 1 per IoT connector).|Delete the existing instance of IoT connector Destination Resource. Only one Destination Resource is permitted per IoT connector.
-|The `fhirServiceResourceId` provided is invalid.|API and Azure portal|The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request is not a valid resource ID for an instance of the Azure Healthcare APIs FHIR service.|Ensure the resource ID is formatted correctly, and make sure the resource ID is for an Azure Healthcare APIs FHIR service instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{WORKSPACE_NAME}/fhirservices/{FHIR_SERVICE_NAME}`
-|Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent Workspace or the parent IoT connector is still provisioning.|Wait until the parent Workspace or the parent IoT connector provisioning completes, and then submit the provisioning request again.
+|The `fhirServiceResourceId` provided is invalid.|API and Azure portal|The `properties.fhirServiceResourceId` provided in the Destination Resource provisioning request is not a valid resource ID for an instance of the Azure Healthcare APIs FHIR service.|Ensure the resource ID is formatted correctly, and make sure the resource ID is for an Azure Healthcare APIs FHIR service instance. The format should be: `/subscriptions/{SUBSCRIPTION_ID}/resourceGroups/{RESOURCE_GROUP_NAME}/providers/Microsoft.HealthcareApis/workspaces/{workspace_NAME}/fhirservices/{FHIR_SERVICE_NAME}`
+|Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent workspace or the parent IoT connector is still provisioning.|Wait until the parent workspace or the parent IoT connector provisioning completes, and then submit the provisioning request again.
 |`Location` property of child resources must match the `Location` property of parent resources.|API|The Destination provisioning request `location` property is different from the parent IoT connector `location` property.|Set the `location` property of the Destination in the provisioning request to the same value as the parent IoT connector `location` property.
 
 ## Why is IoT connector data not showing up in the FHIR service?
