@@ -32,7 +32,7 @@ Replica outages refer to outages of individual nodes in a Cosmos DB cluster depl
 Cosmos DB automatically mitigates replica outages by guaranteeing at least two replicas of your data at all times in each Azure region where your account is deployed.
 This results in RTO = 0 and and RPO = 0, for individual node outages, with no application changes or configurations required.
 
-In many Azure regions, it is possible to distribute your Cosmos DB cluster across **availability zones**, which results increased SLAs, as availability zones are physically separate and provide distinct power source, network, and cooling. See [Availability Zones](https://docs.microsoft.com/azure/architecture/reliability/architect).
+In many Azure regions, it is possible to distribute your Cosmos DB cluster across **availability zones**, which results increased SLAs, as availability zones are physically separate and provide distinct power source, network, and cooling. See [Availability Zones](/azure/architecture/reliability/architect).
 When using this option, Cosmos DB provides RTO = 0 and and RPO = 0 even in case of outages of a whole availability zone.
 
 When deploying in a single Azure region, with no extra user input, Cosmos DB is resilient to node outages. Enabling redundancy across availability zones makes Cosmos DB resilient to entire availability zone outages at the cost of increased charges. Both SLAs and price are reported in the [SLAs section](#slas).
