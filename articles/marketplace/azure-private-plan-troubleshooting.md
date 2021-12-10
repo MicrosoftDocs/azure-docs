@@ -59,7 +59,7 @@ While troubleshooting the Azure Subscription Hierarchy, keep these things in min
 - Security and RG policies propagate down and affect Marketplace deployment, Private Plan audience, automation, etc.
 - ISV must ensure the right Subscription is being used by the end user when searching for Private Plans or deploying – users can access multiple subscriptions, and the mapping is non-trivial.
 
-:::image type="content" source="media/troubleshoot-private-plan/azure-subscription-hierarchy.png" alt-text="Shows the subscription hierarchy" lightbox="media/troubleshoot-private-plan/azure-subscription-hierarchy.png":::
+:::image type="content" source="media/troubleshoot-private-plan/azure-subscription-hierarchy.png" alt-text="Displays the Azure subscription hierarchy" lightbox="media/troubleshoot-private-plan/azure-subscription-hierarchy.png":::
 
 ## Troubleshooting Checklist
 
