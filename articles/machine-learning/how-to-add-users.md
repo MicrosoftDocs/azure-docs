@@ -28,7 +28,7 @@ You'll need certain permission levels to follow the steps in this article. If yo
 
 ## Add custom role
 
-To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles).
+To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md).
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com)
 1. Open the menu on the top right and select **View all properties in Azure Portal**.  You'll use Azure portal for all the rest of the steps in this article.
