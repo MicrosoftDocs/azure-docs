@@ -98,7 +98,7 @@
       href: tutorial-multiple-data-sources.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Use AI to create content
+  - name: Enrich with AI (skills)
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
