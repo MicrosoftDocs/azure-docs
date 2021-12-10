@@ -295,7 +295,7 @@ When properties are changed, services consuming those properties need to be noti
 
 By default auto-refresh is set to false and the refresh-interval is set to 60 seconds.
 
-    ```yaml
+```yaml
     spring:
       cloud:
         config:
@@ -307,7 +307,7 @@ By default auto-refresh is set to false and the refresh-interval is set to 60 se
           exposure:
             include:
               - refresh
-    ```
+```
 
 3. Add @RefreshScope in your code. In this example, the variable connectTimeout will be automatically refreshed every 60 seconds.
 
