@@ -91,14 +91,11 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 
 There are a few different types of DNS configurations available for an application.
 
-# [A](#tab/a)
+# [Root domain](#tab/rootdomain)
 
-`contoso.com`, `example.co.uk`  
+ipedia.org/wiki/List_of_DNS_record_types#A)
 
-To map the root domain, use an A record. Don't use CNAME for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)).
-
-[A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A)
-
+- To map the root domain (example: `contoso.com`, `example.co.uk`), use an [A record](https://en.wik. Don't use CNAME for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)).
 - For a root domain like `contoso.com`, create two records according to the following table:
 
     | Record type | Host | Value | Comments |
@@ -108,13 +105,7 @@ To map the root domain, use an A record. Don't use CNAME for the root record (fo
     
     ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
     
-- To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
-
-    |Record type|Host|Value|
-    |--- |--- |--- |
-    |A|\<subdomain\> (for example, www)|IP address from Copy the app's IP address|
-    |TXT|asuid.\<subdomain\> (for example, asuid.www)|The verification ID you got earlier|
-# [CNAME](#tab/cname)
+# [Subdomain](#tab/subdomain)
 
 `www.mydomain.com`, `foo.mydomain.com`
 
@@ -128,10 +119,15 @@ For a subdomain like `www` in `www.contoso.com`, create two records according to
 | TXT | `asuid.<subdomain>` (for example, `asuid.www`) | [The verification ID you got earlier](#3-get-a-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
-        
-# [Wildcard (CNAME)](#tab/wildcard)
 
-`*.contoso.com`
+- To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
+
+    |Record type|Host|Value|
+    |--- |--- |--- |
+    |A|\<subdomain\> (for example, www)|IP address from Copy the app's IP address|
+    |TXT|asuid.\<subdomain\> (for example, asuid.www)|The verification ID you got earlier|
+        
+# [Wildcard](#tab/wildcard)
 
 To map a [wildcard domain](https://en.wikipedia.org/wiki/Wildcard_DNS_record), use a CNAME record.
 
@@ -247,20 +243,6 @@ If you receive an HTTP 404 (Not Found) error when you browse to the URL of your 
 
 <a name="virtualdir" aria-hidden="true"></a>
 
-## Redirect to a custom directory
-
-> [!NOTE]
-> By default, App Service directs web requests to the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app is accessible at `http://contoso.com/public`, but you typically want to direct `http://contoso.com` to the `public` directory instead.
-
-While this is a common scenario, it doesn't actually involve custom DNS mapping, but is about customizing the virtual directory within your app.
-
-1. Select **Application settings** in the left pane of your web app page.
-
-1. At the bottom of the page, the root virtual directory `/` points to `site\wwwroot` by default, which is the root directory of your app code. Change it to point to the `site\wwwroot\public` instead, for example, and save your changes.
-
-    ![Screenshot that shows customizing a virtual directory.](./media/app-service-web-tutorial-custom-domain/customize-virtual-directory.png)
-
-1. After the operation finishes, verify by navigating to your app's root path in the browser (for example, `http://contoso.com` or `http://<app-name>.azurewebsites.net`).
 
 
 ## Automate with scripts
@@ -298,7 +280,6 @@ For more information, see [Assign a custom domain to a web app](scripts/powershe
 
 ## Next steps
 
-Continue to the next tutorial to learn how to bind a custom TLS/SSL certificate to a web app.
-
 > [!div class="nextstepaction"]
 > [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
+> [Migrate a live site and its DNS domain name to App Service with no downtime](manage-custom-dns-migrate-domain.md).
