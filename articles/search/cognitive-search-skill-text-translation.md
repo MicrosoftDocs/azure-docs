@@ -44,8 +44,8 @@ Parameters are case-sensitive.
 | Input name	 | Description |
 |--------------------|-------------|
 | text | The text to be translated.|
-| toLanguageCode	| A string indicating the language the text should be translated to. If this input is not specified, the defaultToLanguageCode will be used to translate the text. <br/>See [Full list of supported languages](../cognitive-services/translator/language-support.md)|
-| fromLanguageCode	| A string indicating the current language of the text. If this parameter is not specified, the defaultFromLanguageCode (or automatic language detection if the defaultFromLanguageCode is not provided) will be used to translate the text. <br/>See [Full list of supported languages](../cognitive-services/translator/language-support.md)|
+| toLanguageCode	| A string indicating the language the text should be translated to. If this input is not specified, the defaultToLanguageCode will be used to translate the text. <br/>See [Full list of supported languages](../cognitive-services/translator/language-support.md). |
+| fromLanguageCode	| A string indicating the current language of the text. If this parameter is not specified, the defaultFromLanguageCode (or automatic language detection if the defaultFromLanguageCode is not provided) will be used to translate the text. <br/>See [Full list of supported languages](../cognitive-services/translator/language-support.md). |
 
 ## Skill outputs
 
@@ -55,7 +55,7 @@ Parameters are case-sensitive.
 | translatedToLanguageCode	| A string indicating the language code the text was translated to. Useful if you are translating to multiple languages and want to be able to keep track of which text is which language.|
 | translatedFromLanguageCode	| A string indicating the language code the text was translated from. Useful if you opted for the automatic language detection option as this output will give you the result of that detection.|
 
-##	Sample definition
+## Sample definition
 
 ```json
  {
