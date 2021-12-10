@@ -1,11 +1,11 @@
 ---
 title: Set up your Config Server instance in Azure Spring Cloud
-description: Learn how to set up a Spring Cloud Config Server instance for your Azure Spring Cloud on the Azure portal
+description: Learn how to set up a Spring Cloud Config Server instance for Azure Spring Cloud on the Azure portal
 ms.service: spring-cloud
 ms.topic: how-to
 ms.author: karler
 author: karlerickson
-ms.date: 10/18/2019
+ms.date: 12/10/2021
 ms.custom: devx-track-java
 ---
 
@@ -15,7 +15,7 @@ ms.custom: devx-track-java
 
 This article shows you how to connect a Spring Cloud Config Server instance to your Azure Spring Cloud service.
 
-Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. With the Config Server instance, you have a central place to manage external properties for applications across all environments.​ For more information, see [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
+Spring Cloud Config provides server and client-side support for an externalized configuration in a distributed system. With the Config Server instance, you have a central place to manage external properties for applications across all environments. For more information, see the [Spring Cloud Config Server reference](https://spring.io/projects/spring-cloud-config).
 
 ## Prerequisites
 
@@ -36,7 +36,7 @@ spring.jmx.enabled
 ```
 
 > [!CAUTION]
-> We strongly recommend that you _do not_ put the above properties in your Config Server application files.
+> We strongly recommend that you *do not* put the above properties in your Config Server application files.
 
 ## Create your Config Server files
 
@@ -214,7 +214,7 @@ Azure Spring Cloud can access Git repositories that are public, secured by SSH, 
 
 1. In the Azure Repos portal for your project, select the **Clone** button:
 
-    ![Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
+    ![Picture of Clone Button](media/spring-cloud-tutorial-config-server/clone-button.png)
 
 1. Copy the clone URL from the textbox. This URL will typically be in the form:
 
@@ -256,7 +256,7 @@ You can select the **Reset** button that appears in the **Config Server** tab to
 
 ## Config Server Refresh
 
-When properties are changed, services consuming those properties need to be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the [refresh event](https://spring.io/guides/gs/centralized-configuration/), which may not be feasible if there are lots of app instances. Alternatively, you can automatically refresh values from the config server by letting the config client to poll for changes based on a refresh internal.
+When properties are changed, services consuming those properties need to be notified before changes can be made. The default solution for Spring Cloud Config is to manually trigger the [refresh event](https://spring.io/guides/gs/centralized-configuration/), which may not be feasible if there are lots of app instances. Alternatively, you can automatically refresh values from the config server by letting the config client poll for changes based on a refresh internal.
 
 1. Register a scheduled task to refresh the context in a given interval.
 
@@ -292,7 +292,8 @@ When properties are changed, services consuming those properties need to be noti
     ```
 
 2. Enable auto-refresh and set the appropriate refresh interval in your application.yml. In this example, the client will poll for config changes every 60 seconds, which is the minimum value you can set for refresh interval.
-By default auto-refresh is set to false and refresh-interval is set to 60 seconds.
+
+By default auto-refresh is set to false and the refresh-interval is set to 60 seconds.
 
     ```yml
     spring:
@@ -320,7 +321,7 @@ By default auto-refresh is set to false and refresh-interval is set to 60 second
     ```
 
 > [!TIP]
-> You can also refer this [sample project](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling) for more information.
+> You can also refer to this [sample project](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/config-client-polling) for more information.
 
 ## Next steps
 
