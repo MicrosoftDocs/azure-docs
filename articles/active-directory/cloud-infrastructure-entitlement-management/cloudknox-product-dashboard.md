@@ -22,7 +22,7 @@ This data shows metrics related to avoidable risk. It allows the CloudKnox admin
 
 The CloudKnox dashboard contains the following information:
 
-- Privilege Creep Index (PCI) gauge/chart - The PCI gauge identifies how many users who have been granted high-risk privileges are not using them. The PCI chart identifies how many users are contributing to the PCI and where they are on the scale.
+- Privilege Creep Index (PCI) gauge/chart - The PCI gauge identifies how many users who have been granted high-risk privileges aren't using them. The PCI chart identifies how many users are contributing to the PCI and where they're on the scale.
 
 - Usage analytics summary – Provides a snapshot of permission metrics within the last 90 days.
 
@@ -45,17 +45,17 @@ The CloudKnox dashboard contains the following information:
 
 1. The **Privilege Creep Index** heat map shows the incurred risk of users with access to high-risk privileges, and is a function of:
 
-	- Users who were given access to high-risk privileges but are not actively using them. High-risk privileges include the ability to modify or delete contents within the authorization system.
+	- Users who were given access to high-risk privileges but aren't actively using them. High-risk privileges include the ability to modify or delete contents within the authorization system.
 
 	- The number of resources a user has access to, otherwise known as resource reach.
 
 	- The high-risk privileges coupled with the number of resources a user has access to produce the score seen on the gauge. They are classified as high, medium, and low:
 
-	- High (red) - The score is between 68 and 100. A user has access to many high-risk privileges they are not using, and/or have high resource reach.
+	- High (red) - The score is between 68 and 100. A user has access to many high-risk privileges they aren't using, and has high resource reach.
 
 	- Medium (yellow) - The score is between 34 and 67. A user has access to some high-risk privileges that they use, or have medium resource reach.
 
-	- Low (green) - The score is between 0 and 33. A user has access to fewer high-risk privileges. They use all of them, and/or have low resource reach.
+	- Low (green) - The score is between 0 and 33. A user has access to fewer high-risk privileges. They use all of them, and has low resource reach.
 
 	- The number displayed on the graph shows how many users contribute to the PCI. It shows how many users contribute to a particular score. Hover over the number to view specific data.
 
@@ -65,17 +65,17 @@ The CloudKnox dashboard contains the following information:
 
 3. The **Usage Analytics Summary** section provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
 
-	- **Users with Access to High Risk Tasks** - Displays the total number of users with access to a high risk task (Total), how many users have access but have not used the task (Inactive), and how many users are actively using the task (Active).
+	- **Users with Access to High Risk Tasks** - Displays the total number of users with access to a high risk task (Total), how many users have access but haven't used the task (Inactive), and how many users are actively using the task (Active).
 
-	- **Users with Access to Delete Tasks** - A subset of high-risk tasks, which displays the number of users with access to delete tasks (Total), how many users have the delete privilege but have not used the privilege (Inactive), and how many users are actively executing the delete capability (Active).
+	- **Users with Access to Delete Tasks** - A subset of high-risk tasks, which displays the number of users with access to delete tasks (Total), how many users have the delete privilege but haven't used the privilege (Inactive), and how many users are actively executing the delete capability (Active).
 
-	- **High Risk Tasks Accessible by Users** - Displays all available high-risk tasks in the authorization system (Granted), how many high-risk tasks are not used (Unexecuted), and how many high-risk tasks are being used (Executed).
+	- **High Risk Tasks Accessible by Users** - Displays all available high-risk tasks in the authorization system (Granted), how many high-risk tasks aren't used (Unexecuted), and how many high-risk tasks are being used (Executed).
 
-	- **Delete Tasks Accessible by Users** - Displays all available delete tasks in the authorization system (Granted), how many delete tasks are not used (Unexecuted), and how many delete tasks are being used (Executed).
+	- **Delete Tasks Accessible by Users** - Displays all available delete tasks in the authorization system (Granted), how many delete tasks aren't used (Unexecuted), and how many delete tasks are being used (Executed).
 
 	- **Resources that Permit High Risk Tasks** - Displays the total number of resources a user has access to (Total), how many resources are available but not utilized (Inactive), and how many resources are being used (Active).
 
-	- **Resources that Permit Delete Tasks** - Displays the total number of resources that permit delete tasks (Total), how many resources with delete tasks are not being utilized (Inactive), and how many resources with delete tasks are being used (Active).
+	- **Resources that Permit Delete Tasks** - Displays the total number of resources that permit delete tasks (Total), how many resources with delete tasks aren't being utilized (Inactive), and how many resources with delete tasks are being used (Active).
 
 4. To view specific information about the following, select the number displayed on the heat map:
 	- **Users** - Displays the total number of users and how many fall into the high, medium, and low categories.

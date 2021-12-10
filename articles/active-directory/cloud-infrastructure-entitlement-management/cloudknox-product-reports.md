@@ -17,14 +17,14 @@ ms.author: v-ydequadros
 Microsoft CloudKnox Permissions Management has various types of system reports available that capture specific sets of data. These reports allow management to:
 - Make timely decisions. These reports allow management to 
 - Analyze trends and system/user performance. 
-- Identify trends in data and high risk areas. This helps management to address issues more quickly and improve efficiency. 
+- Identify trends in data and high risk areas so that management can address issues more quickly and improve their efficiency. 
 
 ## CloudKnox reports
 
 CloudKnox offers the following reports for management associated with the authorization systems noted in parenthesis:
 
 - **Access key entitlements and usage**:
-	- **Summary of report:** Provides information about access key - permissions, usage, rotation date, etc.
+	- **Summary of report:** Provides information about access key - permissions, usage, rotation date, and so on.
 	- **Applies to:** Amazon Web Services (AWS) and Microsoft Azure
 	- **Report output type:** CSV
 	- **Ability to collate report:** Yes
@@ -34,7 +34,7 @@ CloudKnox offers the following reports for management associated with the author
 		- Granted task along with PCI score in order to take the action on the keys. 
 
 - **User entitlements and usage**: 
-	- **Summary of report:** Provides information about the identities' permissions - entitlement, usage, PCI, etc.
+	- **Summary of report:** Provides information about the identities' permissions - entitlement, usage, PCI, and so on.
 	- **Applies to:** AWS, Azure, Google Cloud Platform (GCP), and VCENTER
 	- **Report output type:** A comma-separated values (CSV) file
 	- **Ability to collate report:** Yes
@@ -43,7 +43,7 @@ CloudKnox offers the following reports for management associated with the author
 		 - The data displayed on the **Usage Analytics** screen is downloaded as part of the **Summary** report, and detailed permissions usage by User is listed in the Detailed report. 
 
 - **Group entitlements and usage**:
-	- **Summary of report:** Provides information about the group's permissions - entitlement, usage, PCI, etc.
+	- **Summary of report:** Provides information about the group's permissions - entitlement, usage, PCI, and so on.
 	- **Applies to:** AWS, Azure, GCP, and VCENTER
 	- **Report output type:** CSV
 	- **Ability to collate report:** Yes
@@ -81,7 +81,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Detailed
 	- **Use cases:** 
-		 - This report lists the different key findings in the selected auth systems. The key findings include Super identities, Inactive identities, Over provisioned active identities, storage bucket hygiene, Access key age (AWS), etc. This report will help administrators in visualizing the findings across the organization. 
+		 - This report lists the different key findings in the selected auth systems. The key findings include Super identities, Inactive identities, Over provisioned active identities, storage bucket hygiene, Access key age (AWS), and so on. This report will help administrators in visualizing the findings across the organization. 
 
 	For more information, see Permissions analytics report.
 
@@ -161,11 +161,11 @@ CloudKnox offers the following reports for management associated with the author
 The reports dashboard provides a table of information with both System Reports and Custom Reports. The **Reports** page defaults to the **System Reports** tab, which has the following details:
 
 - **Report Name** - Lists the name of the report.
-- **Category** - Lists the type of report, for example, **Permission**, **Compliance**, etc.
+- **Category** - Lists the type of report, for example, **Permission**, **Compliance**, and so on.
 - **Authorization System** - Displays which authorizations the custom report applies to.
 - **Format** - Displays the output format the report can be generated in, for example, CSV.
 
-    - To download the report, select the menu, select select **Download**, and then select the icon.
+    - To download the report, select the menu, select **Download**, and then select **Download**.
 
       The following message displays across the top of the screen in green if the download is successful: **Successfully Started to Generate On Demand Report**.
 
@@ -173,7 +173,7 @@ The reports dashboard provides a table of information with both System Reports a
 
 - To view the following information, select the **Custom Reports** tab:
      - **Report Name** - Displays the name of the report.
-     - **Category** - Describes the type of report, for example, **Permission**, **Compliance**, etc.
+     - **Category** - Describes the type of report, for example, **Permission**, **Compliance**, and so on.
      - **Authorization Systems** - Displays which authorizations the custom report applies to.
      - **Format** - Displays the output format the report can be generated in, for example, CSV.
      - **Schedule** - Displays the date and time the next report will be generated.
@@ -237,11 +237,13 @@ The reports dashboard provides a table of information with both System Reports a
 
 	- **Download** - Downloads a copy of the report.
 
-	- **Report Settings** - Displays the settings on the report, including scheduling, authorization system type, etc. 
+	- **Report Settings** - Displays the settings on the report, including scheduling, authorization system type, and so on. 
 
 	- **Duplicate** - Creates a duplicate of the report called **"Copy of XXX"**
 
-		 After selecting **Duplicate**, a pop-up box appears asking if the user is sure they want to create a duplicate. Select **Confirm**. **Report generated successfully** appears across the top of the screen in green if successfully duplicated.
+		 After selecting **Duplicate**, a pop-up box appears asking if the user is sure they want to create a duplicate. Select **Confirm**. 
+
+         **Report generated successfully** appears across the top of the screen in green if successfully duplicated.
 
 	- **API Settings** - Download the report using API.
 
@@ -249,7 +251,9 @@ The reports dashboard provides a table of information with both System Reports a
 
 	- **Delete** - Select this option to delete the report.
 
-		 After selecting **Delete**, a pop-up box appears asking if the user is sure they want to delete the report. Select **Confirm**. **Report is deleted successfully** appears across the top of the screen in green if successfully deleted.
+		 After selecting **Delete**, a pop-up box appears asking if the user is sure they want to delete the report. Select **Confirm**. 
+
+        **Report is deleted successfully** appears across the top of the screen in green if successfully deleted.
 
 	- **Unsubscribe** - Unsubscribe the user from receiving scheduled reports and notifications.
 

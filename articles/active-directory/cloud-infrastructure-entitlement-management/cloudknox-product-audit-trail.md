@@ -14,7 +14,8 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management audit trail
 
-Microsoft CloudKnox Permissions Management's audit trail details all user activity performed in the Cloud, capturing high risk activity in a centralized location, and allowing system administrators the ability to query the logs. The audit trail screen provides: 
+Microsoft CloudKnox Permissions Management's audit trail details all user activity performed in the Cloud. It captures high risk activity in a centralized location and allows system administrators to query the logs. 
+The audit trail screen provides: 
 - The ability to set and save new queries and easily access key data points.
 - The functionality to query across multiple authorization systems at once.
 
@@ -286,7 +287,7 @@ The **Operator** menu contains the following options:
 
     - **Resource Name** - The name of the resource on which the task is being performed.
 
-        If the column displays **Multiple**, this means multiple resources are listed in the column. 
+        If the column displays **Multiple**, it means multiple resources are listed in the column. 
 
 3. To view a list of all resources, hover over **Multiple**.
 
@@ -334,7 +335,7 @@ The **Operator** menu contains the following options:
 
       - **Query** - Displays the name of the saved query.
       - **Query Type** - Displays whether the query is a *System* query or a *Custom* query.
-      - **Schedule** - Displays how often a report will be generated. This can be a one-time report or a monthly report.
+      - **Schedule** - Displays how often a report will be generated. You can schedule a one-time report or a monthly report.
       - **Next On** - Displays the date and time the next report will be generated.
       - **Format** - Displays the output format for the report, for example, CSV.
 
@@ -354,9 +355,9 @@ The **Operator** menu contains the following options:
 
 6. To make changes to the query and select from the following options, select the ellipses (**...**).  
 
-    System queries only have the option to **Duplicate**.   
+    System queries have only one option:
 
-      - **Duplicate** - Creates a duplicate of the query and names it *Copy of XXX*.
+      - **Duplicate** - Creates a duplicate of the query and names the file *Copy of XXX*.
 
     Custom queries have the following options: 
 
