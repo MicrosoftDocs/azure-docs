@@ -26,6 +26,18 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+
+## December 2021
+
+### Sweden Central region is now GA
+
+ Media Services is now generally available in the Sweden Central region. There are currently some feature limitations in the region while we await a few dependency services to also arrive in the region. Check the [regional feature availability chart](./azure-clouds-regions.md) to determine when features will arrive.
+
+### New live event channel archive heartbeat event
+
+A new event that tracks the status and health of the live event archive has been added. See the LiveEventChannelArchiveHeartbeatEvent in the [Event Grid schemas for Media Services](./media-services-event-schemas.md) for more details on this new event.
+
+
 ## September 2021
 
 ### New basic pass-through live event SKU
@@ -59,8 +71,8 @@ The key management portal page for Media Services now supports configuration and
 ### Private Link support for Media services
 You can now restrict public access to your live events, streaming endpoints, and key delivery services endpoint for content protection and DRM by creating a private endpoint for each of the services. This will limit public access to each of these services. Only traffic originating from your configured virtual network (VNET), configured in Private Endpoint, will be able reach these endpoints.
 
-### IP Allow list for Key Service
-You can now choose to allow certain public IP addresses to have access to the key delivery service for DRM and content protection. Live event and streaming endpoints already support configuration of IP Allow List in their respective pages.
+### IP allowlist for Key Service
+You can now choose to allow certain public IP addresses to have access to the key delivery service for DRM and content protection. Live event and streaming endpoints already support configuration of IP allowlist in their respective pages.
 
 You also now have an account level feature flag to allow/block public internet access to your media services account.
 
@@ -106,9 +118,9 @@ For details on how to use Media Services with private links, see [Create a Media
 
 The US West 3 region is now GA and available for customers to use when creating new Media Services accounts.
 
-### Key delivery supports IP allow list restrictions
+### Key delivery supports IP allowlist restrictions
 
-Media Services accounts can now be configured with IP allow list restrictions on key delivery. The new allow list setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
+Media Services accounts can now be configured with IP allowlist restrictions on key delivery. The new allowlist setting is available on the Media Services account resource through the SDK as well as in the portal and CLI.
 This allows operators to restrict delivery of DRM licenses and AES-128 content keys to specific IPv4 ranges.
 
 This feature can also be used to shut off all public internet delivery of DRM licenses or AES-128 keys and restrict delivery to a private network endpoint.
