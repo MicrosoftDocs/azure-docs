@@ -64,7 +64,7 @@ Read other users | This setting is available in Microsoft Graph and PowerShell o
 
 ## Restrict guest users' default permissions
 
-You an restrict default permissions for guest users in the following ways.
+You can restrict default permissions for guest users in the following ways.
 
 >[!NOTE]
 >The **Guest user access restrictions** setting replaced the **Guest users permissions are limited** setting. For guidance on using this feature, see [Restrict guest access permissions in Azure Active Directory](../enterprise-users/users-restrict-guest-permissions.md).
@@ -81,7 +81,7 @@ Permission | Setting explanation
 ### Application registration owner permissions
 When a user registers an application, they're automatically added as an owner for the application. As an owner, they can manage the metadata of the application, such as the name and permissions that the app requests. They can also manage the tenant-specific configuration of the application, such as the single sign-on (SSO) configuration and user assignments. 
 
-An owner can also add or remove other owners. Unlike global administrators, owners can only manage applications that they own.
+An owner can also add or remove other owners. Unlike global administrators, owners can manage only the applications that they own.
 
 ### Enterprise application owner permissions
 When a user adds a new enterprise application, they're automatically added as an owner. As an owner, they can manage the tenant-specific configuration of the application, such as the SSO configuration, provisioning, and user assignments. 
@@ -91,7 +91,7 @@ An owner can also add or remove other owners. Unlike global administrators, owne
 ### Group owner permissions
 When a user creates a group, they're automatically added as an owner for that group. As an owner, they can manage properties of the group (such as the name) and manage group membership. 
 
-An owner can also add or remove other owners. Unlike global administrators and user administrators, owners can only manage groups that they own. 
+An owner can also add or remove other owners. Unlike global administrators and user administrators, owners can manage only the groups that they own. 
 
 To assign a group owner, see [Managing owners for a group](active-directory-accessmanagement-managing-group-owners.md).
 
