@@ -226,7 +226,7 @@ $ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
 Hybrid connection for the target resource does not exist. Agent might not have started successfully.
 ```
 
-When this occurs, ensure that you are using `connectedk8s` Azure CLI extension of version >= 1.2.0 and [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes. If your cluster is behind an outbound proxy or firewall, verify that websockets connections are enabled for `*.servicebus.windows.net` which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
+When this occurs, ensure that you are using `connectedk8s` Azure CLI extension of version >= 1.2.0 and [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes. If your cluster is behind an outbound proxy or firewall, verify that websocket connections are enabled for `*.servicebus.windows.net` which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
 
 ### Cluster Connect feature disabled
 
