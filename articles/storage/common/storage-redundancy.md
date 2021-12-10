@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 12/10/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -106,6 +106,8 @@ Premium block blobs are available in a subset of Azure regions:
 
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
 <sup>2</sup> Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Unmanaged disks don't support ZRS or GZRS.
+
+#### Premium file share accounts
 
 ZRS is supported for premium file shares (Azure Files) through the `FileStorage` storage account kind.
 
@@ -213,6 +215,8 @@ The following table indicates whether your data is durable and available in a gi
 <sup>1</sup> Account failover is required to restore write availability if the primary region becomes unavailable. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 ### Supported Azure Storage services
+
+The following table shows which redundancy options are supported by each Azure Storage service.
 
 | LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
 |---|---|---|---|---|---|
