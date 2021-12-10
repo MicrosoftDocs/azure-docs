@@ -25,7 +25,7 @@ AdventureWorks is a fictional sports equipment retailer that is used to demo Mic
 
 Follow these steps to locate the template.
 
-1. Navigate to your Synapse workspace. From the home page, select **Learn** and then select **Browse gallery**. The Synapse gallery opens. You can search for datasets, scripts, pipelines, and more to install in your workspace. 
+1. Navigate to your Synapse workspace. From the home page, select **Knowledge Center** and then select **Browse gallery**. The Synapse gallery opens. You can search for datasets, scripts, pipelines, and more to install in your workspace. 
 
 1. Select **Pipelines**, and filter the results with the keyword "AdventureWorks."
 

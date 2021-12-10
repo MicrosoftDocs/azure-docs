@@ -10,6 +10,11 @@ ms.date: 03/05/2021
 Container insights provides a rich monitoring experience for Azure Kubernetes Service (AKS) and AKS engine clusters. This article describes how to achieve a similar monitoring experience by enabling monitoring for Kubernetes clusters that are hosted on [Azure Red Hat OpenShift](../../openshift/intro-openshift.md) version 4.x.
 
 >[!NOTE]
+> We are phasing out Container Insights support for Azure Red Hat OpenShift v4.x by May 2022. We recommend customers to migrate Container Insights on Azure Arc enabled Kubernetes, which offers an upgraded experience and 1-click onboarding. For more information, please visit our [documentation](./container-insights-enable-arc-enabled-clusters.md)
+>
+
+
+>[!NOTE]
 >Support for Azure Red Hat OpenShift is a feature in public preview at this time.
 >
 

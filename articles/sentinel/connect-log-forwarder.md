@@ -47,7 +47,7 @@ Your machine must meet the following requirements:
     - Oracle Linux 7 (64-bit/32-bit)
     - Red Hat Enterprise Linux (RHEL) Server 7 and 8 (not 6), including minor versions (64-bit/32-bit)
     - Debian GNU/Linux 8 and 9 (64-bit/32-bit)
-    - Ubuntu Linux 14.04 LTS and 16.04 LTS (64-bit/32-bit), and 18.04 LTS (64-bit only)
+    - Ubuntu Linux 14.04 LTS and 16.04 LTS (64-bit/32-bit), 18.04 LTS (64-bit only), and 20.04 LTS (64-bit only)
     - SUSE Linux Enterprise Server 12, 15 (64-bit only)
 
 - **Daemon versions**

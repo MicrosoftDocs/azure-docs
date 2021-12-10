@@ -101,7 +101,7 @@ application_server_image= {
 scs_server_count=1
 
 # scs_instance_number
-scs_instance_number="01"
+scs_instance_number="00"
 
 # ers_instance_number
 ers_instance_number="02"
@@ -123,6 +123,16 @@ Running the command below will deploy the SAP System.
 > [!TIP]
 > Perform this task from the deployer.
 
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+```bash
+cd ~/Azure_SAP_Automated_Deployment
+
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+
+```
+
+
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X01
 
@@ -131,6 +141,17 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh          \
         --type sap_system
 ```
 # [Windows](#tab/windows)
+
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+```powershell
+
+cd C:\Azure_SAP_Automated_Deployment
+
+xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+
+```
+
 
 ```powershell
 

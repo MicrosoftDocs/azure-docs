@@ -3,6 +3,7 @@ title: 'Quickstart: Create a function app on Azure Arc'
 description: Get started with Azure Functions on Azure Arc by deploying your first function app.
 ms.topic: quickstart
 ms.date: 05/10/2021
+ms.custom: mode-other
 ---
 
 # Create your first function on Azure Arc (preview)

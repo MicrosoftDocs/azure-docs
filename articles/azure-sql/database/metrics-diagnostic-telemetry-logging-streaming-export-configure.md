@@ -8,7 +8,7 @@ ms.custom: seoapril2019, devx-track-azurepowershell
 ms.topic: how-to
 author: AlainDormehlMSFT
 ms.author: aldorme
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 10/13/2021
 ---
 

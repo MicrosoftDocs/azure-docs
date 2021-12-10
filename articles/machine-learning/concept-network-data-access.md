@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/08/2021
+ms.date: 11/19/2021
 ---
 
 
@@ -49,8 +49,8 @@ In general, data access from studio involves the following checks:
     - Create, read, update, and delete (CRUD) operations on a data store/dataset are handled by Azure Machine Learning.
     - Data Access calls (such as preview or schema) go to the underlying storage and need extra permissions.
 5. Where is this operation being run; compute resources in your Azure subscription or resources hosted in a Microsoft subscription?
-    - All calls to dataset and datastore services (except the "Generate Profile" option,) use resources hosted in a __Microsoft subscription__ to run the operations.
-    - Jobs, including a the "Generate Profile" option for datasets, run on a compute resource in __your subscription__, and access the data from there. So the compute identity needs permission to the storage rather than the identity of the user submitting the job.
+    - All calls to dataset and datastore services (except the "Generate Profile" option) use resources hosted in a __Microsoft subscription__ to run the operations.
+    - Jobs, including the "Generate Profile" option for datasets, run on a compute resource in __your subscription__, and access the data from there. So the compute identity needs permission to the storage rather than the identity of the user submitting the job.
 
 The following diagram shows the general flow of a data access call. In this example, a user is trying to make a data access call through a machine learning workspace, without using any compute resource.
 
@@ -66,15 +66,17 @@ When using an Azure Storage Account from Azure Machine Learning studio, you must
 For more information, see [Use Azure Machine Learning studio in an Azure Virtual Network](how-to-enable-studio-virtual-network.md).
 
 See the following sections for information on limitations when using Azure Storage Account with your workspace in a VNet.
-### Using an existing storage account
-
-If you use an existing storage account as the __default storage__ when creating a workspace, the `azureml-filestore` folder in the file store doesn't automatically get created. This folder is required when submitting [AutoML](concept-automated-ml.md) experiments.
-
-To avoid this issue, you can either allow Azure Machine Learning to create the default storage for you when creating the workspace or make sure the existing storage account  is __not__ in the VNet when creating the workspace. For more information on networking with Azure Storage Account, see [Configure Azure Storage Accounts with virtual networks](../storage/common/storage-network-security.md).
 
 ### Azure Storage firewall
 
-When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it isn't  your client that connects to the storage account; it's the Azure Machine Learning service that makes the request. The IP address of the service isn't documented and changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
+When an Azure Storage account is behind a virtual network, the storage firewall can normally be used to allow your client to directly connect over the internet. However, when using studio it isn't your client that connects to the storage account; it's the Azure Machine Learning service that makes the request. The IP address of the service isn't documented and changes frequently. __Enabling the storage firewall will not allow studio to access the storage account in a VNet configuration__.
+
+### Azure Storage endpoint type
+
+When the workspace uses a private endpoint and the storage account is also in the VNet, there are extra validation requirements when using studio:
+
+* If the storage account uses a __service endpoint__, the workspace private endpoint and storage service endpoint must be in the same subnet of the VNet.
+* If the storage account uses a __private endpoint__, the workspace private endpoint and storage service endpoint must be in the same VNet. In this case, they can be in different subnets.
 
 ## Azure Data Lake Storage Gen1
 

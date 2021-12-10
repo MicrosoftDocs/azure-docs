@@ -13,6 +13,7 @@ ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: arvinh
 # Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
+ms.custom: mode-other
 ---
 
 # Quickstart: View enterprise applications
@@ -56,6 +57,7 @@ Select options according to what you're looking for:
 1. Under **Application Type**, choose one of these options:
     - **Enterprise Applications** shows non-Microsoft applications.
     - **Microsoft Applications** shows Microsoft applications.
+    - **Managed Identities** shows applications that are used to authenticate to services that support Azure AD authentication.
     - **All Applications** shows both non-Microsoft and Microsoft applications.
 1. Under **Application Status**, choose **Any**, **Disabled**, or **Enabled**. The **Any** option includes both disabled and enabled applications.
 1. Under **Application Visibility**, choose **Any**, or **Hidden**. The **Hidden** option shows applications that are in the tenant, but aren't visible to users.

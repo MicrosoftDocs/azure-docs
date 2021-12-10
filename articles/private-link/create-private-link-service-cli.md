@@ -8,7 +8,7 @@ ms.service: private-link
 ms.topic: quickstart
 ms.date: 01/22/2021
 ms.author: allensu
-
+ms.custom: mode-api
 ---
 # Quickstart: Create a Private Link service using Azure CLI
 

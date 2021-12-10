@@ -1,5 +1,5 @@
 ---
-title: Connect Synapse workspace to Azure Purview  
+title: Connect Synapse workspace to Azure Purview
 description: Connect a Synapse workspace to an Azure Purview account.
 author: Jejiang
 ms.service: synapse-analytics
@@ -8,6 +8,7 @@ ms.topic: quickstart
 ms.date: 09/29/2021
 ms.author: jejiang
 ms.reviewer: jrasnick
+ms.custom: mode-other
 ---
 
 # QuickStart: Connect a Synapse workspace to an Azure Purview account

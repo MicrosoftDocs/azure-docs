@@ -1,12 +1,9 @@
 ---
 title: Enable Microsoft Defender for Cloud's integrated workload protections
 description: Learn how to enable enhanced security features to extend the protections of Microsoft Defender for Cloud to your hybrid and multi-cloud resources
-author: memildin
-ms.author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Enable enhanced security features
@@ -21,7 +18,7 @@ For the purpose of the Defender for Cloud quickstarts and tutorials you must ena
 
 You can protect an entire Azure subscription with Defender for Cloud's enhanced security features and the protections will be inherited by all resources within the subscription.
 
-A free 30-day trial is available. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+A free 30-day trial is available. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 
 ## Enable enhanced security features from the Azure portal
 

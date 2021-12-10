@@ -1,17 +1,16 @@
 ---
 title: "Quickstart: Send a search request to the REST API using C# - Bing Entity Search"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response.
+description: "Use this quickstart to send a request to the Bing Entity Search REST API using C#, and receive a JSON response."
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-other
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using C#

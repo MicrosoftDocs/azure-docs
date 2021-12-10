@@ -108,7 +108,7 @@ sections:
       - question: |
           What does the error "Retrieve SSH Key Secret Details" mean?
         answer: |
-          When you deploy the SAP HANA software from `test_menu.sh`, you might get the fatal error `Retrieve SSH Key Secret Details`.
+          When you deploy the SAP HANA software from `configuration_menu.sh`, you might get the fatal error `Retrieve SSH Key Secret Details`.
           Make sure that the name of the secrets in the user credentials' key vault match the environment naming prefix. For example, you might need to change `DEV-<ID>-SAP01` to `DEV-<ID>-SAP`.
 
 additionalContent: |

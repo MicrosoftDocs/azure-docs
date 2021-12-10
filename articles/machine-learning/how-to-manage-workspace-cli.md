@@ -393,3 +393,5 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 ## Next steps
 
 For more information on the Azure CLI extension for machine learning, see the [az ml](/cli/azure/ml) documentation.
+
+To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).
