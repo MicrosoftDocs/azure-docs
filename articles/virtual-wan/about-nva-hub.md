@@ -15,37 +15,23 @@ Customers can deploy select Network Virtual Appliances directly into the Virtual
 
 ## Key benefits
 
-When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway to which on-premises devices can connect via proprietary SD-WAN protocols. Network Virtual Appliances in the Virtual WAN hub can also serve as a security appliance, allowing customers to send traffic to the appliance for inspection.
+When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as a SD-WAN gateway, Firewall or a combination of both.  
 
 Deploying Network Virtual Appliances into the Virtual WAN Hub allows customers to enjoy the following benefits:
 
-1. Choose from a pre-defined and pre-tested selection of infrastructure choices ([NVA Infrastructure Units](#units)) to meet  throughput needs.
-1. Availability-zone aware and highly-available (HA) deployments.
-1. No-hazard provisioning and boot-strapping through a Managed Application.
-1. One-touch routing with Virtual WAN's fully meshed hubs and advanced routing capabilities .
-1. Most partners have a special integrated support handshake with Microsoft Azure to quickly diagnose any customer problems.
+1. Pre-defined and pre-tested selection of infrastructure choices ([NVA Infrastructure Units](#units)): Microsoft and the partner work together to validate throughput and bandwidth limits prior to solution being made available to customers.
+1. Built-in availability and resiliency: Virtual WAN deployments AZ and HA.
+1. No-hassle provisioning and boot-strapping: A Managed Application is pre-qualified for provisioning and boot-strapping for the Virtual WAN platform. This Managed Application is available through the Azure Marketplace link.
+1. Simplified routing: Leverage Virtual WAN's intelligent routing systems. NVA solutions peer with the Virtual WAN Hub router and participate in the Virtual WAN routing decision process similarly to Microsoft Gateways.
+1. Integrated Support: Partners have a special support agreement with Microsoft Azure Virtual WAN to quickly diagnose and resolve any customer problems.
+1. Platform-provided Lifecycle Management: Upgrades and patches are a part of the Azure Virtual WAN service. This takes away the complexity of lifecycle management from a customer deploying Virtual Appliance solutions.
+1. Integrated with platform features: Transit connectivity with Microsoft gateways and Virtual Networks, Encrypted ExpressRoute (SD-WAN overlay running over an ExpressRoute circuit), Virtual Hub route tables etc. interact seamlessly.
 
 
 ## <a name ="partner"></a> Partners
 
-The following SD-WAN connectivity Network Virtual Appliances can be deployed in the Virtual WAN hub.
+[!INCLUDE [NVA PARTNERS](../../includes/virtual-wan-nva-hub-partners.md)]
 
-|Partners|Configuration/How-to/Deployment Guide| Dedicated Support Model |
-|---|---| --- |
-|[Barracuda Networks](https://azuremarketplace.microsoft.com/en-us/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overviewus/marketplace/apps/barracudanetworks.barracuda_cloudgenwan_gateway?tab=Overview)| [Barracuda CloudGen WAN Deployment Guide](https://campus.barracuda.com/product/cloudgenwan/doc/91980640/deployment/)| Yes|
-|[Cisco Cloud Service Router(CSR) VWAN](https://aka.ms/ciscoMarketPlaceOffer)| The integration of the Cisco SD-WAN solution with Azure virtual WAN enhances Cloud OnRamp for Multi-Cloud deployments and enables configuring Cisco Catalyst 8000V Edge Software (Cisco Catalyst 8000V) as a network virtual appliance (NVA) in Azure Virtual WAN Hubs. [View  Cisco SD-WAN Cloud OnRamp, Cisco IOS XE Release 17.x Configuration Guide](https://www.cisco.com/c/en/us/td/docs/routers/sdwan/configuration/cloudonramp/ios-xe-17/cloud-onramp-book-xe/cloud-onramp-multi-cloud.html#Cisco_Concept.dita_c61e0e7a-fff8-4080-afee-47b81e8df701) | Yes|
-|[VMware SD-WAN ](https://sdwan.vmware.com/partners/microsoft) | [VMware SD-WAN in Virtual WAN Hub Deployment Guide](https://kb.vmware.com/s/article/82746). The managed application for deployment can be found [here](https://azuremarketplace.microsoft.com/marketplace/apps/velocloud.vmware_sdwan_in_vwan).| Yes|
-| Versa Networks | Versa Deployment Guide | Yes |
-
-
-The following dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances can be deployed in the Virtual WAN hub.
-
-|Partners|Configuration/How-to/Deployment Guide| Dedicated Support Model |
-|---|---| --- | 
-| [Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall) | To access the preview of Fortinet NGFW deployed in the Virtual WAN hub, please reach out to vwan@fortinet.com. For more information about the offering, please see the following [document](https://www.fortinet.com/blog/business-and-technology/fortigate-vm-first-ngfw-and-secure-sd-wan-integration-in-microsoft-azure-virtual-wan). | No|
-
-
-The following Partners are coming soon: Aviatrix, Citrix, Cisco Meraki and Silver Peak.
 ## Basic use cases
 
 ### Any-to-any connectivity
@@ -58,13 +44,13 @@ Branch sites can then access workloads in Azure deployed in Virtual Networks in 
 :::image type="content" source="./media/about-nva-hub/global-transit-nva.png" alt-text="Global transit architecture." lightbox="./media/about-nva-hub/global-transit-nva.png":::
 
 
-### Security provided by Azure Firewall
+### Security provided by Azure Firewall along with Connectivity NVA
 
 Customers can deploy a Azure Firewall along side their connectivity-based Network Virtual Appliances. Virtual WAN routing can be configured to send all traffic to Azure Firewall for inspection. You may also configure Virtual WAN to send all internet-bound traffic to Azure Firewall for inspection.
 
 :::image type="content" source="./media/about-nva-hub/global-transit-firewall.png" alt-text="Global transit architecture with Azure Firewall." lightbox="./media/about-nva-hub/global-transit-firewall.png":::
 
-### Security provided by third-party NGFW
+### Security provided by Network Virtual Appliance Firewalls
 
 Customers can also deploy Network Virtual Appliances into the Virtual WAN Hub that perform both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the Network Virtual Appliance in the hub and also use the same appliance to inspect all North-South, East-West and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md).
 

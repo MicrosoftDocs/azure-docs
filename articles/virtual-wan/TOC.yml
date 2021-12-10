@@ -39,9 +39,9 @@
     href: virtual-wan-regions.md
   - name: NVA in the Virtual WAN Hub
     href: about-nva-hub.md
-  - name: Branch Connectivity Automation
+  - name: Locations and Partners
     items:
-    - name: Branch Connectivity Automation
+    - name: Hub locations and partners
       href: virtual-wan-locations-partners.md
     - name: Automation guidelines for partners
       href: virtual-wan-configure-automation-providers.md

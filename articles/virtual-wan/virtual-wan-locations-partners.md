@@ -13,11 +13,22 @@ ms.custom: references_regions
 ---
 # Virtual WAN partners and virtual hub locations
 
-This article provides information on Virtual WAN supported regions and partners for connectivity into Virtual Hub.
+This article provides information on Virtual WAN supported regions and partners for connectivity into the Virtual WAN Hub.
 
-Azure Virtual WAN is a networking service that provides optimized and automated branch-to-branch connectivity through Azure. Virtual WAN lets you connect and configure branch devices to communicate with Azure. Connection and configuration can be done either manually, or by using provider devices through a Virtual WAN partner. Using partner devices allows you ease of use, simplification of connectivity, and configuration management.
+There are two types of offerings with partners to make connecting to Azure easier for customers:
 
-Connectivity from the on-premises device is established in an automated way to the Virtual Hub. A virtual hub is a Microsoft-managed virtual network. The hub contains various service endpoints to enable connectivity from your on-premises network (vpnsite). 
+1. Network Virtual Appliances deployed directly in the Virtual WAN Hub: Customers can deploy Network Virtual Appliances directly into the Virtual WAN hub in a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors. To learn more about NVA's deployed in the Virtual WAN Hub please reference the following [article](../about-nva-hub.md).
+1. Branch IPsec connectivity automation from partners: Customers can automatically configure and connect their branch-sites to the Azure Virtual WAN Site-to-site VPN Gateway using IPsec tunnels.  
+
+## Partners with integrated Virtual Hub offerings
+
+Some partners offer Network Virtual Appliances (NVAs) that can be deplyoed directly into the Azure Virtual WAN hub through a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance vendors.
+
+When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as a SD-WAN gateway, Firewall or a combination of both. For more information about the benfits of deploying a NVA into the Virtual WAN hub, please reference this [article](../about-nva-hub.md).
+
+
+[!INCLUDE [NVA PARTNERS](../../includes/virtual-wan-nva-hub-partners.md)]
+
 
 ## <a name="automation"></a>Branch IPsec connectivity automation from partners
 
@@ -37,6 +48,10 @@ Some connectivity partners may extend the automation to include creating the Azu
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
 The following partners are slated on our roadmap based on a terms sheet signed between the companies indicating the scope of work to automate IPsec connectivity between the partner device and Azure Virtual WAN VPN Gateways: 128 Technologies, Arista, F5 Networks, Oracle SD-WAN (Talari), and SharpLink.
+
+## <a name="locations"></a>Locations
+
+[!INCLUDE [Virtual WAN regions file](../../includes/virtual-wan-regions-include.md)]
 
 ## Next steps
 
