@@ -8,6 +8,8 @@
     items:
     - name: CloudKnox integration with the CloudKnox API
       href: cloudknox-api.md
+    - name: CloudKnox integration with ServiceNow
+      href: cloudknox-product-dashboard
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
     - name: Install CloudKnox with AWS role
@@ -16,6 +18,21 @@
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
       href: cloudknox-product-account-settings.md
+  - name: Data management
+    expanded: true
+    items:
+    - name: Create and save product alerts
+      href: cloudknox-product-alerts
+    - name: Filter and query user activity
+      href: cloudknox-product-audit-trail
+    - name: Create and system and custom reports
+      href: cloudknox-product-reports
+  - name: Reference
+    expanded: true
+    items:
+    - name: Compliance with established guidelines
+      href: cloudknox-product-compliance
+
   #- name: Concepts
     #expanded: true
     #items: 
