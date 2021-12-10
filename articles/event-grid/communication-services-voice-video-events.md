@@ -119,6 +119,7 @@ This section contains an example of what that data would look like for each even
     "metadataVersion": "1",
     "eventTime": "2021-09-22T17:03:12.6143005Z"
   }
+
 ]
 ```
 
