@@ -35,7 +35,7 @@ An image is a copy of either a full VM (including any attached data disks) or ju
 
 If you have a large number of images that you need to maintain, and would like to make them available throughout your company, you can use an Azure Compute Gallery as a repository. 
 
-The there are multiple resource types that are created when you use a gallery for storing images:
+There are multiple resource types that are created when you use a gallery for storing images:
 
 | Resource | Description|
 |----------|------------|
