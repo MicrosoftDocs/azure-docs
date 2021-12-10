@@ -34,7 +34,7 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 * The Azure Arc extension for Azure Data Studio
 * Kubernetes CLI
 * Azure CLI 
-* arcdata extension for Azure CLI.
+* `arcdata` extension for Azure CLI.
 
 In addition, because this deployment is on Azure Kubernetes Service, you need the following additional extensions:
 
@@ -60,7 +60,7 @@ To quickly create a Kubernetes cluster, use Azure Kubernetes Services (AKS).
     1. Specify a cluster name
     1. Specify a region
     1. Under **Availability zones**, select **None**.
-    1. Verify the Kubernetes version. For minumum supported version, see [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md).
+    1. Verify the Kubernetes version. For minimum supported version, see [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md).
     1. Under **Node size**, Azure Arc-enabled data services generally requires a larger node size. **Standard D8s v3** is recommended for this purpose. 
     1. For **Scale method**, select **Manual**.
 1. Click **Review + create**.
@@ -185,7 +185,8 @@ NAME          STATE
 
 1. In the portal, locate the resource group.
 1. In the resource group, select **Create**.
-1. Type *managed instance*, select **Azure SQL Managed Instance - Azure Arc**.
+1. Enter *managed instance*. The Azure portal returns resource types with a matching name.
+1. Select **Azure SQL Managed Instance - Azure Arc**.
 1. Click **Create**. 
 1. Specify your resource group, and custom location. Use the same value that you set in the [previous step](#create-a-cluster).
 1. Set the **LoadBalancer** service type. 

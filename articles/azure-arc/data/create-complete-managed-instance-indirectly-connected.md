@@ -34,7 +34,7 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 * The Azure Arc extension for Azure Data Studio
 * Kubernetes CLI
 * Azure CLI 
-* arcdata extension for Azure CLI
+* `arcdata` extension for Azure CLI
 
 In addition, because this deployment is on Azure Kubernetes Service, you need the following additional extensions:
 
@@ -77,7 +77,7 @@ $ENV:AZDATA_METRICSUI_PASSWORD="<password for metrics>"
 
 ## Create and connect to your Kubernetes cluster
 
-After you install the client tools, and configure the environment variables, you need access to a Kubernetes cluster. The steps in this section deploy an cluster on Azure Kubernetes Service (AKS).
+After you install the client tools, and configure the environment variables, you need access to a Kubernetes cluster. The steps in this section deploy a cluster on Azure Kubernetes Service (AKS).
 
 
 Follow the steps below to deploy the cluster from the Azure CLI.  
@@ -96,7 +96,7 @@ Follow the steps below to deploy the cluster from the Azure CLI.
 
    Create the cluster in the resource group that you created previously.
 
-   The following example creates a 3 node cluster, with monitoring enabled, and generates public and private key files if missing.
+   The following example creates a three node cluster, with monitoring enabled, and generates public and private key files if missing.
 
    ```azurecli
    az aks create --resource-group <resource_group_name> --name <cluster_name> --node-count 3 --enable-addons monitoring --generate-ssh-keys --node-vm-size Standard_D8s_v3
