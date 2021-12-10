@@ -277,14 +277,7 @@ You'll need to create a separate release pipeline to deploy to Azure Functions. 
 
 ## Deploy a container
 
-You can automatically deploy your code to Azure Functions as a custom container after every successful build.
-
-### Configure registry credentials
-
-App Service needs information about your registry and image to pull the private image. In the [Azure portal](https://portal.azure.com), go to your **Function App** > **Platform features** > **All settings**. Select **Container settings** from App Service. Update the **Image source** and **Registry** and save.
-
-:::image type="content" source="media/function-app-pipelines/container-settings.png" alt-text="Screenshot showing Update image source and Registry in container settings":::
-
+You can automatically deploy your code to Azure Functions as a custom container after every successful build. To learn more about containers, see [Create a function on Linux using a custom container](functions-create-function-linux-custom-image.md). 
 ### Deploy with the Azure Function App for Container task
 
 # [YAML](#tab/yaml/)
