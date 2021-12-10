@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: vanto
-ms.date: 12/10/2021
+ms.date: 12/15/2021
 ---
 
 # User-assigned managed identity in Azure AD for Azure SQL
@@ -20,14 +20,14 @@ ms.date: 12/10/2021
 
 Azure Active Directory (AD) supports two types of managed identities: System-assigned managed identity (SMI) and user-assigned managed identity (UMI). For more information, see [Managed identity types](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types).
 
-When using Azure AD authentication with Azure SQL Managed Instance, a managed identity must be assigned to the server identity. Previously, only a system-assigned managed identity could be assigned to the Managed Instance or SQL Database server identity. With support for user-assigned managed identity, the UMI can be assigned to Azure SQL Managed Instance or Azure SQL Database as the server or instance identity. This feature is now supported for SQL Database. 
+When using Azure AD authentication with Azure SQL Managed Instance, a managed identity must be assigned to the server identity. Previously, only a system-assigned managed identity could be assigned to the Managed Instance or SQL Database server identity. With support for user-assigned managed identity, the UMI can be assigned to Azure SQL Managed Instance or Azure SQL Database as the instance or server identity. This feature is now supported for SQL Database. 
 
 > [!NOTE]
 > A system-assigned managed identity is automatically assigned to a managed instance when it is created.
 >
-> UMI is not supported for Azure Synapse Analytics.
+> user-assigned managed identity is not supported for Azure Synapse Analytics.
 
-## Benefits of using user-assigned managed identity
+## Benefits of using user-assigned managed identities
 
 There are several benefits of using UMI as a server identity.
 
