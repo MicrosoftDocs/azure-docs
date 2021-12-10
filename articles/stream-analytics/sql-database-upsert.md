@@ -19,7 +19,7 @@ Alternative options to Azure Functions are presented at the end.
 
 ## Requirement
 
-Writing data in a table can generally be done in the following manners:
+Writing data in a table can generally be done in the following manner:
 
 |Mode|Equivalent T-SQL statement|Requirements|
 |-|-|-|
