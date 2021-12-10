@@ -9,6 +9,9 @@ ms.date: 11/23/2021
 
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab plan* within your Azure subscription. A lab plan is associated one or more labs, and it takes only a few minutes to set up.
 
+> [!NOTE]
+> This article focuses on the January 2022 Update, where lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
+
 This guide includes three sections:
 
 - Prerequisites
@@ -42,12 +45,12 @@ For more information, see [VM subscription limits and regional capacity](https:/
 
 ### Decide how many lab plans to create
 
-To get started quickly, create a single lab plan within its own resource group.  Later, you can create additional lab plans and resource groups, as needed. For example, you might eventually have one lab plan and resource group per department as a way to clearly separate costs. 
+To get started quickly, create a single lab plan within its own resource group.  Later, you can create additional lab plans and resource groups, as needed. For example, you might eventually have one lab plan and resource group per department as a way to clearly separate costs.
 
 For more information about lab plans, resource groups, and separating costs, see:
 
 - The "Resource group" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#resource-group)
-- The "Lab plan" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#lab-plan) 
+- The "Lab plan" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#lab-plan)
 - [Cost management for Azure Lab Services](./cost-management-guide.md)
 
 ## Plan your lab plan settings
@@ -103,9 +106,10 @@ When you set up a lab plan, you also can bring your own virtual network to your 
 
 - **Access to a license server**
   
-   When you use Azure Marketplace images, the cost of the operating system license is bundled into the pricing for lab services. However, you don't need to provide licenses for the operating system itself. For additional software and applications that are installed, you do need to provide a license, as appropriate.  To access a license server:
-   - You may choose to connect to an on-premises license server.  Connecting to an on-premises license server requires additional setup.
-   - Another option, which is faster to set up, is to create a license server that you host on an Azure VM.  The Azure VM is located within a virtual network that you associated with your lab plan.
+    When you use Azure Marketplace images, the cost of the operating system license is bundled into the pricing for lab services. However, you don't need to provide licenses for the operating system itself. For additional software and applications that are installed, you do need to provide a license, as appropriate.  To access a license server:
+
+  - You may choose to connect to an on-premises license server.  Connecting to an on-premises license server requires additional setup.
+  - Another option, which is faster to set up, is to create a license server that you host on an Azure VM.  The Azure VM is located within a virtual network that you associated with your lab plan.
 
 - **Access to other on-premises resources such as a file share or database**
 
@@ -117,13 +121,13 @@ When you set up a lab plan, you also can bring your own virtual network to your 
 
    For more information about virtual networks, see:
 
-   - The "Virtual network" section of [Architecture fundamentals in Azure Lab Services](./classroom-labs-fundamentals.md#virtual-network)
-   - [Connect to your virtual network in Azure Lab Services](./how-to-connect-vnet-injection.md)
-   - [Create a lab with a shared resource in Azure Lab Services](./how-to-create-a-lab-with-shared-resource.md)
+  - The "Virtual network" section of [Architecture fundamentals in Azure Lab Services](./classroom-labs-fundamentals.md#virtual-network)
+  - [Connect to your virtual network in Azure Lab Services](./how-to-connect-vnet-injection.md)
+  - [Create a lab with a shared resource in Azure Lab Services](./how-to-create-a-lab-with-shared-resource.md)
 
 ## Set up your lab plan
 
-After you've finished planning, you're ready to set up your lab plan. You can apply the same steps to setting up [Azure Lab Services in Canvas](./lab-services-within-canvas-overview.md).
+After you've finished planning, you're ready to set up your lab plan.
 
 1. **Create your lab plan**. For instructions, see [Create a lab plan](./tutorial-setup-lab-plan.md#create-a-lab-plan).
 
@@ -132,8 +136,6 @@ After you've finished planning, you're ready to set up your lab plan. You can ap
 1. **Add users to the Lab Creator role**. For instructions, see [Add users to the Lab Creator role](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
 
 1. **Connect to your virtual network**. For instructions, see [Connect to your virtual network in Azure Lab Services](./how-to-connect-vnet-injection.md).
-
-   You might also need to refer to instructions for [configuring the lab VMs address range](./how-to-configure-lab-plans.md).
 
 1. **Enable and review images**. For instructions, see [Specify which Azure Marketplace images are available to Lab Creators](./specify-marketplace-images.md).
 

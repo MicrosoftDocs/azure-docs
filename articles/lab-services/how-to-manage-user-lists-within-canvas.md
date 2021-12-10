@@ -7,28 +7,30 @@ ms.date: 11/08/2021
 
 # Manage Lab Services user lists from Canvas
 
-When a lab is created within Canvas (see [Get started and create a Lab Services lab from Canvas](how-to-get-started-create-lab-within-canvas.md)), the lab user list is automatically populated and synced with the team membership. Everyone on the team, including Owners, Members, and Guests will be automatically added to the lab user list. Azure lab Services maintains a sync with the team membership and an automatic sync is triggered every 24 hours.
+When a lab is created within Canvas (see [Get started and create a Lab Services lab from Canvas](how-to-get-started-create-lab-within-canvas.md)), the lab user list is automatically populated and synced with the course membership. An automatic sync is triggered every 24 hours.  Educators can also manually sync users when needed.
 
 ## Sync users
 
-Educators can use the **Sync** button to trigger a manual sync once the team membership is updated.
+Educators can use the **Sync** button to trigger a manual sync once the course membership is updated.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/how-to-manage-users-with-teams/sync-users.png" alt-text="Sync users":::
 
-Once the automatic or manual sync is complete the following is true depending on whether the lab has been published.
+Once the automatic or manual sync is complete the following is true depending on whether the lab has been [published](tutorial-setup-classroom-lab.md#publish-the-lab).
 
-* If the lab has not been published at least once:
-    * Users will be added or deleted from the lab user list as per changes to the team membership. 
-* If the lab has been published at least once, in addition to adding or deleting users, the lab capacity will be automatically updated.
-    * If there are any new additions to the team, new VMs will be created.
-    * If any user has been deleted from the team, the associated VM will be deleted as well.
+If the lab has *not* been published at least once:
+
+- Users will be added or deleted from the lab user list as per changes to the course membership.
+
+If the lab has been published at least once:
+
+- If there are any new additions to the team, new VMs will be created.
+- If any user has been deleted from the team, the associated VM will be deleted as well.
+- Lab capacity will be automatically updated as need.
 
 ## Next steps
 
-Once the template VM is configured and when the educator selects to publish the template, number of VMs equivalent to the number of users in the lab’s user list will be created. Once the lab is published and VMs are created, Users will be automatically registered to the lab and VMs will be assigned to them on their first login to Azure Lab Services that is, when they first access the tab having **Azure Lab Services** App. 
-
-To publish the template VM, go to the Canvas Lab Services window, select **Template** tab -> **...** -> **Publish**.
+Once the template VM is configured and when the educator selects to publish the template, number of VMs equivalent to the number of users in the lab’s user list will be created. Once the lab is published and VMs are created, users will be automatically registered to the lab and VMs will be assigned to them on their first login to Azure Lab Services that is, when they first access the tab having **Azure Lab Services** app.
 
 To manage VM pools, see [Manage a VM pool in Lab Services from Canvas](how-to-manage-vm-pool-within-canvas.md).
 

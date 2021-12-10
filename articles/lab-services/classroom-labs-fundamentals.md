@@ -12,11 +12,11 @@ ms.author: enewman
 Azure Lab Services is a SaaS (software as a service) solution, which means that the resources needed by Lab Services are handled for you. This article will cover the fundamental resources used by Lab Services and basic architecture of a lab.
 
 >[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new.md). The new experience is in preview.
+> For the latest experience in Azure Lab Services, see [What's New in the January 2022 Update](lab-services-whats-new.md). The new experience is in preview.
 
-Azure Lab Services does provide a couple of areas that allow you to use your own resources in conjunction with Lab Services.  For more information about using VMs on your own network, see how to [peer a virtual network](how-to-connect-peer-virtual-network.md).  To reuse images from a Shared Image Gallery, see how to [attach a Shared Image Gallery](how-to-attach-detach-shared-image-gallery.md).
+Azure Lab Services does provide a couple of areas that allow you to use your own resources in conjunction with Lab Services.  For more information about using VMs on your own network, see how to [peer a virtual network](how-to-connect-peer-virtual-network.md).  If using the January 2022 update, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) to use virtual network injection instead of virtual network peering.  To reuse images from a Shared Image Gallery, see how to [attach a Shared Image Gallery](how-to-attach-detach-shared-image-gallery.md).
 
-Below is the basic architecture of a classroom lab.  The lab plan is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Lab Services. Let’s talk about what is in Lab Service's subscriptions in more detail.
+Below is the basic architecture of a classroom lab.  The lab account or lab plan is hosted in your subscription. The student VMs, along with the resources needed to support the VMs are hosted in a subscription owned by Azure Lab Services. Let’s talk about what is in Azure Lab Service's subscriptions in more detail.
 
 ![labs basic architecture](./media/classroom-labs-fundamentals/labservices-basic-architecture.png)
 
@@ -26,8 +26,8 @@ The resources required to run a classroom lab are hosted in one of the Microsoft
 
 ## Virtual Network
 
->[!NOTE]
-> For the latest experience in Azure Lab Services using your virtual network, see [Connect to your virtual network](how-to-connect-vnet-injection.md). This experience replaces the peer virtual network.
+> [!NOTE]
+> For the latest experience in Azure Lab Services using your virtual network, see [Connect to your virtual network](how-to-connect-vnet-injection.md). This experience replaces the peer virtual network experience.
 
 Each lab is isolated by its own virtual network.  If the lab has a [peered virtual network](how-to-connect-peer-virtual-network.md), then each lab is isolated by its own subnet.  Students connect to their virtual machine through a load balancer.  No student virtual machines have a public IP address; they only have a private ip address.  The connection string for the student will be the public IP address of the load balancer and a random port between 49152 and 65535.  Inbound rules on the load balancer forward the connection, depending on the operating system, to either port 22 (SSH) or port 3389 (RDP) of the appropriate virtual machine. An NSG prevents outside traffic on any other ports.
 

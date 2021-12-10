@@ -7,14 +7,14 @@ ms.date: 11/19/2021
 
 # Use labs for trainings
 
-Azure Labs Services allows educators (teachers, professors, trainers, or teaching assistants, etc.) to quickly and easily create an online lab to provision pre-configured learning environments for the trainees. Each trainee would be able use identical and isolated environments for the training. Policies can be applied to ensure that the training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training. 
+Azure Labs Services allows educators (teachers, professors, trainers, or teaching assistants, etc.) to quickly and easily create an online lab to provision pre-configured learning environments for the trainees. Each trainee would be able use identical and isolated environments for the training. Policies can be applied to ensure that the training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training.
 
 ![Classroom lab](./media/classroom-labs-scenarios/classroom.png)
 
 >[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+> For the latest experience in Azure Lab Services, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
-Labs meets the following requirements that are required to conduct training in any virtual environment: 
+Labs meets the following requirements that are required to conduct training in any virtual environment:
 
 - Trainees can quickly provision their training environments
 - Every training machine should be identical
@@ -43,7 +43,7 @@ Schedules allow you to configure a classroom lab such that VMs in the lab automa
 
 ## Set up and publish a template VM
 
-A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template VM so that it is configured with exactly what you want to provide to the training attendees. You can provide a name and description of the template that the lab users see. Then, you publish the template to make instances of the template VM available to your lab users. When you publish a template, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. For details, see [Set up and publish template virtual machines](how-to-create-manage-template.md). 
+A template in a lab is a base virtual machine image from which all users’ virtual machines are created. Set up the template VM so that it is configured with exactly what you want to provide to the training attendees. You can provide a name and description of the template that the lab users see. Then, you publish the template to make instances of the template VM available to your lab users. When you publish a template, Azure Lab Services creates VMs in the lab by using the template. The number of VMs created in this process is same as the maximum number of users allowed into the lab, which you can set in the usage policy of the lab. All virtual machines have the same configuration as the template. For details, see [Set up and publish template virtual machines](how-to-create-manage-template.md).
 
 ## Use VMs in the classroom lab
 

@@ -15,6 +15,7 @@ This article shows you how to do the following tasks:
 - Ensure that the appropriate GPU drivers are installed.
 
 ## Choose between visualization and compute GPU sizes
+
 On the first page of the lab creation wizard, in the **Which virtual machine size do you need?** drop-down list, you select the size of the VMs that are needed for your class.  
 
 ![Screenshot of the "New lab" pane for selecting a VM size](./media/how-to-setup-gpu/lab-gpu-selection.png)
@@ -23,14 +24,14 @@ In this process, you have the option of selecting either **Visualization** or **
 
 As described in the following table, the *compute* GPU size is intended for compute-intensive applications.  For example, the [Deep Learning in Natural Language Processing class type](./class-type-deep-learning-natural-language-processing.md) uses the **Small GPU (Compute)** size.  The compute GPU is suitable for this type of class, because students use deep learning frameworks and tools that are provided by the [Data Science Virtual Machine image](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) to train deep learning models with large sets of data.
 
-| Size | Cores | RAM | Description | 
-| ---- | ----- | --- | ----------- | 
+| Size | Cores | RAM | Description |
+| ---- | ----- | --- | ----------- |
 | Small GPU (Compute) | -&nbsp;6&nbsp;cores<br>-&nbsp;56&nbsp;GB&nbsp;RAM  | [Standard_NC6](../virtual-machines/nc-series.md) |This size is best suited for compute-intensive applications such as artificial intelligence (AI) and deep learning. |
 
 The *visualization* GPU sizes are intended for graphics-intensive applications.  For example, the [SOLIDWORKS engineering class type](./class-type-solidworks.md) shows using the **Small GPU (Visualization)** size.  The visualization GPU is suitable for this type of class, because students interact with the SOLIDWORKS 3D computer-aided design (CAD) environment for modeling and visualizing solid objects.
 
-| Size | Cores | RAM | Description | 
-| ---- | ----- | --- | ----------- | 
+| Size | Cores | RAM | Description |
+| ---- | ----- | --- | ----------- |
 | Small GPU (Visualization) | -&nbsp;6&nbsp;cores<br>-&nbsp;56&nbsp;GB&nbsp;RAM  | [Standard_NV6](../virtual-machines/nv-series.md) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
 | Medium GPU (Visualization) | -&nbsp;12&nbsp;cores<br>-&nbsp;112&nbsp;GB&nbsp;RAM  | [Standard_NV12](../virtual-machines/nv-series.md?bc=%2fazure%2fvirtual-machines%2flinux%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) | This size is best suited for remote visualization, streaming, gaming, and encoding that use frameworks such as OpenGL and DirectX. |
 
@@ -91,23 +92,25 @@ To manually install drivers for the *visualization* GPU sizes, do the following:
 1. After you've installed the drivers and other software that are required for your class, select **Publish** to create your students' VMs.
 
 ### Validate the installed drivers
+
 This section describes how to validate that your GPU drivers are properly installed.
 
 #### Windows images
-1.  Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
-1.  If you're using a *visualization* GPU, you can also:
+
+1. Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Windows](../virtual-machines/windows/n-series-driver-setup.md#verify-driver-installation).
+1. If you're using a *visualization* GPU, you can also:
     - View and adjust your GPU settings in the NVIDIA Control Panel. To do so, in **Windows Control Panel**, select **Hardware**, and then select **NVIDIA Control Panel**.
 
       ![Screenshot of Windows Control Panel showing the NVIDIA Control Panel link](./media/how-to-setup-gpu/control-panel-nvidia-settings.png) 
 
-     - View your GPU performance by using **Task Manager**.  To do so, select the **Performance** tab, and then select the **GPU** option.
+    - View your GPU performance by using **Task Manager**.  To do so, select the **Performance** tab, and then select the **GPU** option.
 
-       ![Screenshot showing the Task Manager GPU Performance tab](./media/how-to-setup-gpu/task-manager-gpu.png) 
+       ![Screenshot showing the Task Manager GPU Performance tab](./media/how-to-setup-gpu/task-manager-gpu.png)
 
       > [!IMPORTANT]
       > The NVIDIA Control Panel settings can be accessed only for *visualization* GPUs.  If you attempt to open the NVIDIA Control Panel for a compute GPU, you'll get the following error: "NVIDIA Display settings are not available.  You are not currently using a display attached to an NVIDIA GPU."  Similarly, the GPU performance information in Task Manager is provided only for visualization GPUs.
 
- Depending on your scenario, you may also need to do additional validation to ensure the GPU is properly configured.  Read the class type about [Python and Jupyter Notebooks](./class-type-jupyter-notebook.md#template-virtual-machine) that explains an example where specific versions of drivers are needed.
+ Depending on your scenario, you may also need to do additional validation to ensure the GPU is properly configured.  Read the class type about [Python and Jupyter Notebooks](class-type-jupyter-notebook.md#template-machine-configuration) that explains an example where specific versions of drivers are needed.
 
 #### Linux images
 Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).

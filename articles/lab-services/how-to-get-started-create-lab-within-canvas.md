@@ -5,96 +5,87 @@ ms.topic: how-to
 ms.date: 10/29/2021
 ---
 
-# Get started and create a Lab Services lab within Canvas
+# Get started and create a Azure Lab Services lab within Canvas
 
-This article shows how to add the Azure Lab Services app to a Canvas and then how to create a lab within the Canvas environment. The Azure Lab Services app will be an inherited app in Canvas.
+This article shows how to add the Azure Lab Services app to [Canvas](https://www.instructure.com/canvas). It will also show how to create a lab within the Canvas environment. The Azure Lab Services app will be an inherited app in Canvas.
 
-## Prerequisites
+## Getting started
 
-- You need a Canvas URL
+To use Azure Lab Services in Canvas, two tasks must be completed. The first is to enable the Azure Lab Services app in your school's/organization's Canvas instance.  The second is to connect the Canvas instance to a lab plan resource in Azure.
 
-## Get started
+### Prerequisites
 
-1. Follow steps to [create a lab plan in Azure](./tutorial-setup-lab-plan.md).
+- Canvas administrator permissions.
+- Write access to [lab plan](how-to-manage-lab-plans.md) to be linked to Canvas.
 
-   After the lab plan is created, give permission to users so that they can create labs.  Each user needs to be assigned the following roles:
+### Enable Azure Lab Service app in Canvas
 
-   * On the Resource Group that contains your lab plan, you need to assign the Contributor role so that the user has Write permission.
-   * On the Lab Plan, you also need to assign the Reader role.
-   * On the subscription, the user will also need the Reader role assigned.
+First, let's turn on Azure Lab Services developer key for Canvas.
 
-2. Validate that Azure Lab Services app is available in your canvas instance.
+1. In Canvas, select **Admin** page.
+1. Select **Developer Keys** menu item on the left.
+1. When the **Developer Keys** page appears, select **Inherited** view of the developer keys.
+1. Change the **Azure Lab Services** entry to **On**.  The Azure Lab Services developer key is **170000000000711**.
 
-   Azure Lab Services is enabled as an inherited app in your canvas tenant, so it should already be turned on. You will be able to see the app when you go to a Course in Canvas to add the Azure Lab Services app to the course.
+### Link lab plans to Canvas
 
-3. Enable Azure Lab Services for a course in Canvas.
+Now that Azure Lab Services app is enabled in Canvas, we need to link the lab plans to Canvas.  Only linked lab plans will be available for Canvas educators to use when creating labs.
 
+1. If not already done, [create a lab plan in Azure](./tutorial-setup-lab-plan.md).
+1. Verify Canvas administrator has the following permissions on the lab plan.
+      - **Reader** role on the subscription.
+      - **Contributor** role on the resource group that contains your lab plan.
+1. Add Azure Lab Services to a course in Canvas.  Canvas administrator will need to add Azure Lab Services a the course *only* if there are no other courses with Azure Lab Services.  If there is already a course with the Azure Lab Services app, navigate to that course in Canvas and skip this step.  
    1. In Canvas, go to the course that will use Azure Lab Services.
    2. Choose **Settings**, then select the **Apps** tab.
    3. Click **View App Configurations** and then the blue **+ App** button at the top right of the page.
    4. In the Configuration Type dropdown, choose **By Client ID** and enter Azure Lab Services client ID, which is **170000000000711**, into the field.
+1. Link lap plan to Canvas.
+    1. Open the Azure Lab Services app in the course.
+    1. In the Azure Lab Services app, select the resource group in which the lab plan resides.
+    1. Select the button to finish administrator setup.
+    1. If prompted, enter Azure credentials to finish setup.
 
-       :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/enable-lab-services.png" alt-text="Canvas -> Add App":::
+## Create labs in Canvas
 
-4. Use Azure Lab Services in your course.
+1. Add Azure Lab Services app to the course.
+   1. In Canvas, go to the course that will use Azure Lab Services.
+   2. Choose **Settings**, then select the **Apps** tab.
+   3. Click **View App Configurations** and then the blue **+ App** button at the top right of the page.
+   4. In the Configuration Type dropdown, choose **By Client ID** and enter Azure Lab Services client ID, which is **170000000000711**, into the field.
+     :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/enable-lab-services.png" alt-text="Canvas -> Add App":::
+1. Once Azure Lab Services is added to your course, you’ll see **Azure Lab Services** in the course navigation menu.
+1. If you are authenticated in Canvas as an educator, you will see this sign-in screen (shown below) before you can use the service. You will need to sign in here with an Azure Active Directory account that has been added as a Lab creator linked lab plan.
+    :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/welcome-to-lab-services.png" alt-text="Canvas -> Welcome":::
+1. Create one or more labs for student. See [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md) for further instructions.
+1. [Publish the lab](tutorial-setup-classroom-lab.md#publish-the-lab).
 
-   Once Azure Lab Services is added to your course, you’ll see **Azure Lab Services** in the course navigation menu.
+When you create a lab inside a Course in Canvas, the lab will automatically pull the list of students from Canvas’s course roster and add them as users in the lab’s user list. Virtual machines will be added and deleted automatically based on changes to the course roster. You can create multiple labs for a course.
 
-   If you are authenticated in Canvas as an educator, you will see this sign-in screen (shown below) before you can use the service. You will need to sign in here with an AAD account that has been added as a Lab creator to the Lab plan created in step 1 above.
+If a lab is not yet published, you will see that each student is assigned a virtual machine, but the VM is marked as “unpublished.” Students don’t have access to the VMs until the lab is published.
 
-   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/welcome-to-lab-services.png" alt-text="Canvas -> Welcome":::
+:::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/user-list.png" alt-text="Canvas VM pool":::
 
-   When you create a lab inside a Course in Canvas, the lab will automatically pull the list of students from Canvas’s course roster and add them as users in the lab’s user list. Virtual machines will be added and deleted automatically based on changes to the course roster. You can create multiple labs for a course.
+## Access labs (students)
 
-   If a lab is not yet published, you will see that each student is assigned a virtual machine, but the VM is marked as “unpublished.” Students don’t have access to the VMs until the lab is published.
-
-   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/user-list.png" alt-text="Canvas VM pool":::
-
-5. Access labs (students)
-
-   In Canvas, students can access the labs you set up for a course by clicking on the Azure Lab Services tab. If students are signed into Canvas, they get a single sign-on experience to Azure Lab Services. Students will be able to see and access the virtual machines provided to them. Students will only see virtual machines from labs that were created for this course.
+In Canvas, students can access the labs you set up for a course by clicking on the Azure Lab Services tab. If students are signed into Canvas, they get a single sign-on experience to Azure Lab Services. Students will be able to see and access the virtual machines provided to them. Students will only see virtual machines from labs that were created for this course.
 
    :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/student-experience.png" alt-text="Canvas student experience":::
-
-## Troubleshoot by redeploying the VM
-
-We’ve added a Redeploy capability for lab VMs. If lab owners or students are facing difficulties troubleshooting Remote Desktop (RDP) connection or accessing a virtual machine, redeploying the VM may provide a quick resolution for the issue.
-
-When you [redeploy a VM](/azure/virtual-machines/redeploy-to-new-node-windows), Azure will shut down the VM, move it to a new Azure host, and restart, retaining any data you saved in the OS disk (usually C: drive) of the VM. You can think of it as a refresh of the underlying VM for the student’s machine, and students don’t need to re-register to the lab or perform any other action. Note that anything saved on the temporary disk (usually D: drive) will be lost when performing Redeploy. Both lab owners and lab users can Redeploy a VM.
 
 ## Troubleshooting
 
 This section outlines common error messages that you may see, along with the steps to resolve them.
 
-* This lab isn’t available yet.
+- Student sees warning that the lab isn’t available yet.
 
-  In Canvas, you will see the following message if you haven’t created the lab plan in the Azure portal:
+  In Canvas, you will see the following message if the instructor hasn't published the lab yet.  Instructors must [publish the lab](how-to-manage-classroom-labs-2.md#publish-the-lab)  and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
 
-  To fix this, follow the steps in bullet #1 at the beginning of this document, which shows how to create a lab plan in Azure.
+- Insufficient permissions to create lab.
 
-* Insufficient permissions to create lab.
+  In Canvas, an instructor will see a message indicating that they don’t have sufficient permission. Instructors should contact your Azure admin so they may assigned the appropriate [Lab Services built-in role](administrator-guide-2.md#manage-identity).
 
-  In Canvas, you will see a message indicating that you don’t have sufficient permission if you haven’t assigned the user the appropriate roles to allow them to create a lab.
+- Message that there is not enough capacity to create lab VMs.
 
-  To fix this, follow the steps in bullet #1 at the beginning of this document, which shows which roles to assign the user.  Also, ensure that when you’ve updated the user’s roles, that they have signed out and back into Canvas.
-
-* Your admin needs to request a limit increase.
-
-  In Canvas, you will see a message saying that you need to request a limit increase for the VM cores. This message might appear if you haven’t requested the product team increase this for a preview.
-
-  To fix this, follow the steps in bullet #1 at the beginning of this document, which has you email the number of VMs you plan to use and your subscription ID to the product team so that they can increase the limit.
-
-* Subscription not enabled for preview.
-
-  Creating the lab plan will fail with an error:
-
-  ```json
-  "status": "Failed",
-    "error": {
-      "code": "InvalidResourceType",
-      "message": "The resource type could not be found in the namespace 'Microsoft.LabServices' for api version '2020-05-01-preview'."
-  ```
-
-  To fix this contact the Lab Services to enable the subscription.
+  [Request a limit increase](capacity-limits.md#request-a-limit-increase).  To create a support request, you must be an [Owner](/azure/role-based-access-control/built-in-roles), [Contributor](/azure/role-based-access-control/built-in-roles) or be assigned to the [Support Request Contributor](/azure/role-based-access-control/built-in-roles) role at the subscription level. For information about creating support requests in general, see how to create a [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
