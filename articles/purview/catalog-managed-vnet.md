@@ -186,7 +186,7 @@ To scan a data source using a managed vnet runtime and Purview managed identity 
 
 1. Follow the steps to select the appropriate scan rule and scope for your scan.
 1. Choose your scan trigger. You can set up a schedule or run the scan once.
-6. Review your scan and select **Save and run**.
+1. Review your scan and select **Save and run**.
 
     :::image type="content" source="media/catalog-managed-vnet\purview-managed-scan-run.png" alt-text="review scan":::
 
