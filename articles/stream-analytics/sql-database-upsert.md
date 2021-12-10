@@ -133,7 +133,7 @@ This sample was built on:
 - [.NET 6.0](/dotnet/core/whats-new/dotnet-6)
 - Microsoft.Azure.WebJobs.Extensions.Sql [0.1.131-preview](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Sql/0.1.131-preview)
 
-To better understand the binding approach, it's recommended the follow [this tutorial](https://github.com/Azure/azure-functions-sql-extension#quick-start).
+To better understand the binding approach, it's recommended to follow [this tutorial](https://github.com/Azure/azure-functions-sql-extension#quick-start).
 
 First, create a default HttpTrigger function app by following this [tutorial](/azure/azure-functions/create-first-function-vs-code-csharp?tabs=in-process). The following information will be used:
 
