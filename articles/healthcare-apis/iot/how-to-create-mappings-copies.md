@@ -23,7 +23,7 @@ This article provides steps for creating copies of your IoT connector's Device a
 > [!NOTE]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for the IoT connector, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
 
-## File creation process
+## Copy creation process
 
 1. Select **"IoT connectors"** on the left side of the Healthcare APIs workspace.
 
