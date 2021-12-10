@@ -30,7 +30,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model**](#prebuilt-model-invoice)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
+* [**Prebuilt model**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -161,7 +161,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 * [**Layout model**](#layout-model)
 
-* [**Prebuilt model**](#prebuilt-model-invoice)
+* [**Prebuilt model**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
@@ -367,9 +367,8 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## Prebuilt model (invoice)
+## Prebuilt model
 
-##### Extract and analyze data from common document types using a pre-trained model.
 
 ### Choose the invoice prebuilt model ID
 
@@ -379,6 +378,8 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 * [**prebuilt-receipt**](../concept-receipt.md): extracts text and key information from receipts.
 * [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from U.S. drivers licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
+
+##### Extract and analyze data from common document types using a pre-trained model.
 
 > [!div class="checklist"]
 >
