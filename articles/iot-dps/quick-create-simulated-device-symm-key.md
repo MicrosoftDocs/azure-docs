@@ -186,7 +186,7 @@ In this section, you'll prepare a development environment that's used to build t
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
     ```
 
-3. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages.
+3. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages. This step can take several minutes to complete.
 
    ```cmd/sh
    cd azure-iot-sdk-java
