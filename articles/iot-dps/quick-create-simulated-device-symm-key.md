@@ -188,12 +188,6 @@ In this section, you'll prepare a development environment that's used to build t
 
 3. Go to the root `azure-iot-sdk-java` directory and build the project to download all needed packages.
 
-   ```console
-   cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
-   ```
-
-4. Install the _azure-iot-device_ library by running the following command.
-
    ```cmd/sh
    cd azure-iot-sdk-java
    mvn install -DskipTests=true
