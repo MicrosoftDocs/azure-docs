@@ -158,7 +158,7 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
     const { DefaultAzureCredential } = require("@azure/identity");
     
     // Your Azure Key Vault name and secret name
-    const keyVaultName = "vmkeyvaultdiberry";//"<your-unique-keyvault-name>";
+    const keyVaultName = "<your-unique-keyvault-name>";
     const keyVaultUri = `https://${keyVaultName}.vault.azure.net`;
     const secretName = "mySecret";
     
