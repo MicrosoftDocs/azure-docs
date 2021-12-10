@@ -153,6 +153,7 @@ The following table describes the drive statuses that result from a failed data 
 | Storage account not accessible    | Customer's storage account can't be accessed, and the data copy can't proceed. |
 | Unsupported data                  | The data copied to the disk doesn't conform to [Azure conventions](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata), or the data can't be exported because it doesn't conform to the requirements for an NTFS volume. For info about the NTFS requirements, see [Prepare the drives](storage-import-export-data-to-files.md?tabs=azure-portal#step-1-prepare-the-drives). |
 
+
 ### [Portal (Classic)](#tab/azure-portal-classic)
 
 The following tables describe the drive states for import and export jobs created in Azure Import/Export (the Classic experience).
