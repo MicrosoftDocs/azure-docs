@@ -14,12 +14,12 @@ Azure Files is updated regularly to offer new features and enhancements. This ar
 
 ## 2021 quarter 4 (October, November, December)
 ### Increased IOPS for premium file shares
-Premium Azure file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed at 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every premium file share will be able to burst up to 10,000 IOPS or more. 
+Premium Azure file shares now have additional included baseline IOPS and a higher minimum burst IOPS. The baseline IOPS included with a provisioned share was increased from 400 to 3,000, meaning that a 100 GiB share (the minimum share size) is guaranteed 3,100 baseline IOPS. Additionally, the floor for burst IOPS was increased from 4,000 to 10,000, meaning that every premium file share will be able to burst up to at least 10,000 IOPS. 
 
 Formula changes:
 
 | Item | Old value | New value
-|-|-|
+|-|-|-|
 | Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` | `MIN(3000 + 1 * ProvisionedGiB, 100000)` |
 | Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` | `MIN(MAX(10000, 3 * ProvisionedGiB), 100000)` |
 
@@ -42,7 +42,7 @@ Premium Azure file shares now support symmetric throughput provisioning, which e
 Formula changes:
 
 | Item | Old value | New value
-|-|-|
+|-|-|-|
 | Throughput (MiB/sec) | <ul><li>Ingress: `40 + CEILING(0.04 * ProvisionedGiB)`</li><li>Egress: `60 + CEILING(0.06 * ProvisionedGiB)`</li></ul> | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 For more information, see:
