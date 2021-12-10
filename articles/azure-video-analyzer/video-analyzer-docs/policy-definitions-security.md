@@ -23,7 +23,8 @@ The following built-in policy definitions are available for use with Video Analy
 
 Use the Azure portal to [create a policy assignment](../../governance/policy/assign-policy-portal.md) for your Video Analyzer account using the built-in policy definition. 
 
-<!-- To-do: Add screenshot for assigning a built-in policy -->
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/security-policy/built-in-policy.png" alt-text="Screenshot to assign a built-in policy for Video Analyzer.":::
 
 ## Identify non-compliant resources 
 
@@ -31,7 +32,8 @@ Use the Azure portal to [create a policy assignment](../../governance/policy/ass
 1. Choose the right **Scope**. Type "Video Analyzer" in the **Search** tab.
 1. If there are any existing resources that aren't compliant with this new assignment, they appear under **Non-compliant** resources.
 
-<!-- To-do: Add screenshot for Compliance tab -->
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/security-policy/compliance-check.png" alt-text="Screenshot to check for non-compliant resources.":::
 
 1. If you see a non-compliant resource, Click on the **Name** of the policy assignment to see more details including specific Video Analyzer account name, compliance reason, and last evaluated timestamp.
 
@@ -45,8 +47,9 @@ To remove the assignment created, follow these steps:
 1. Select **Compliance (or Assignments)** in the left side of the **Azure Policy** page and locate the policy assignment you created. 
 1. Right-click the policy assignment and select **Delete assignment**. 
 
-<!-- To-do: Add screenshot for delete assignment -->
+    > [!div class="mx-imgBorder"]
+    > :::image type="content" source="./media/security-policy/delete-assignment.png" alt-text="Screenshot to delete a policy assignment.":::
 
 ## See Also 
 
-Read more about [customer managed keys](customer-managed-keys.md)
+- Read more about [customer managed keys](customer-managed-keys.md).
