@@ -18,9 +18,15 @@ To stay up-to-date with the most recent Azure Video Analyzer for Media (former V
 * Bug fixes
 * Deprecated functionality
 
+## December 2021
+
+### Matched person detection capability
+
+When indexing a video through our advanced video settings, you can view the new matched person detection capability. If there are people observed  in your media file, you can now view the specific person who matched each of them through the media player. 
+
 ## November 2021
  
-### Public preview of Azure Video Analyzer for Media account management based on ARM
+### Public preview of Video Analyzer for Media account management based on ARM
 
 Azure Video Analyzer for Media introduces a public preview of Azure Resource Manager (ARM) based account management. You can leverage ARM-based APIs to create, edit, and delete an account from the Azure portal.
 

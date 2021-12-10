@@ -47,6 +47,8 @@
     href: detected-clothing.md
   - name: Audio effects detection
     href: audio-effects-detection.md
+  - name: Matched person
+    href: matched-person.md
   - name: Customizing content models
     items:
     - name: Overview
