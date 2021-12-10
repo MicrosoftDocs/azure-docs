@@ -304,7 +304,7 @@ Use this script to confirm the roles of each server.
 
 ## Fail over to the secondary server
 
-Use this script to failover to the secondary server.
+Use this script to failover to the secondary server and verify a successful failover.
 
 :::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="36-41":::
 
@@ -369,7 +369,7 @@ Use this script to delete the resource group.
    echo "Successfully removed resource group $resourceGroup..."
    ```
 
-## CLI reource group deletion reference
+## CLI resource group deletion reference
 
 This portion of the tutorial uses the following Azure CLI cmdlets:
 
