@@ -194,4 +194,4 @@ Now that you've granted proper permissions to the client application, you can ac
 In this article, you learned how to grant permissions to client applications using Azure CLI and REST API. For information on how to access Healthcare APIs, see 
 
 >[!div class="nextstepaction"]
->[Access using Rest Client](use-postman.md) 
+>[Access using Rest Client](using-rest-client.md) 
