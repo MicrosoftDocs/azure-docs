@@ -12,7 +12,7 @@ services: iot-edge
 
 # How to install IoT Edge on Kubernetes
 
-IoT Edge can be installed on Kubernetes by using [KubeVirt](https://www.cncf.io/projects/kubevirt/) technology. KubeVirt is an open source CNCF project that offers a Kubernetes virtualization API and runtime to define and manage virtual machines. 
+IoT Edge can be installed on Kubernetes by using [KubeVirt](https://www.cncf.io/projects/kubevirt/) technology. KubeVirt is an open source, Cloud Native Computing Foundation (CNCF) project that offers a Kubernetes virtualization API and runtime to define and manage virtual machines. 
 
 ## Architecture
 
@@ -21,8 +21,8 @@ IoT Edge can be installed on Kubernetes by using [KubeVirt](https://www.cncf.io/
 | Note | Description |
 |-|-|
 |  1 | Install KubeVirt Custom Resource Definitions (CRDs) into the Kubernetes cluster. Like the Kubernetes cluster, management and updates to KubeVirt components are outside the purview of IoT Edge. |
-|  2️ | A KubeVirt `VirtualMachine` custom resource is used to define a virtual machine of required resources and base operating system. A running *instance* of this VM template is created in a Kubernetes Pod using [KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) and [QEMU](https://wiki.qemu.org/Main_Page) technologies. |
-|  3️ | The environment inside the QEMU container is just like any other virtual machine. IoT Edge and its dependencies (like the Docker container engine) can be installed in it just like in any VM or bare metal system. |
+|  2️ | A KubeVirt `VirtualMachine` custom resource is used to define a Virtual Machine with required resources and base operating system. A running *instance* of this resouce is created in a Kubernetes Pod using [KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) and [QEMU](https://wiki.qemu.org/Main_Page) technologies. If your Kubernetes node itself is a Virtual Machine, you'll need to enable Nested Virtualization to use KubeVirt.|
+|  3️ | The environment inside the QEMU container is just like an OS environment. IoT Edge and its dependencies (like the Docker container engine) can be setup using standard installation instructions or a [cloud-init](https://github.com/Azure-Samples/IoT-Edge-K8s-KubeVirt-Deployment/blob/12e3192b66aa9b49157c8ee9f6b832b322659f2f/deployment/helm/templates/_helper.tpl#L31) script. |
 
 ## Sample
 A functional sample for running IoT Edge on Azure Kubernetes Service (AKS) using KubeVirt is available at [https://aka.ms/iotedge-kubevirt](https://aka.ms/iotedge-kubevirt). 
