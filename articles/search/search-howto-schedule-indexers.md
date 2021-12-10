@@ -98,4 +98,4 @@ The schedule is defined using the [IndexingSchedule](/dotnet/api/azure.search.do
 For indexers that run on a schedule, you can monitor operations by retrieving status from the search service, or obtain detailed information by enabling diagnostic logging.
 
 * [Monitor search indexer status](search-howto-monitor-indexers.md)
-* [Collect and analyze log data](search-monitor-logs.md)
+* [Collect and analyze log data](monitor-azure-cognitive-search.md)

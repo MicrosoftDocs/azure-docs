@@ -1,15 +1,15 @@
 ---
-title: Azure Traffic Manager endpoint monitoring | Microsoft Docs
+title: Azure Traffic Manager endpoint monitoring
 description: This article can help you understand how Traffic Manager uses endpoint monitoring and automatic endpoint failover to help Azure customers deploy high-availability applications
 services: traffic-manager
-author: duongau
+author: asudbring
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/22/2021
-ms.author: duau
+ms.date: 11/02/2021
+ms.author: allensu
 ---
 
 # Traffic Manager endpoint monitoring
@@ -129,8 +129,11 @@ The timeline in the following figure is a detailed description of the monitoring
 9. **Service comes back online**. The service becomes available. The endpoint keeps its Degraded status in Traffic Manager until the monitoring system does its next health check.
 10. **Traffic to service resumes**. Traffic Manager sends a GET request and receives a 200 OK status response. The service has returned to a healthy state. The Traffic Manager name servers are updated, and they begin to hand out the service's DNS name in DNS responses. Traffic returns to the endpoint as cached DNS responses that return other endpoints expire, and as existing connections to other endpoints are ending.
 
+    > [!IMPORTANT]
+    > Traffic manager deploys multiple probes from multiple locations for each endpoint. Multiple probes increase resiliency for endpoint monitoring. Traffic manager aggregates the average health of the probes rather than rely on a singular probe instance. The redundancy of the probing system is by design. Endpoint values should be looked at holistically and not per probe. The number displayed for probe health is an average. The status should only be a concern if less than 50% (0.5) of probes publish an **up** status.
+
     > [!NOTE]
-    > Because Traffic Manager works at the DNS level, it cannot influence existing connections to any endpoint. When it directs traffic between endpoints (either by changed profile settings, or during failover or failback), Traffic Manager directs new connections to available endpoints. However, other endpoints might continue to receive traffic via existing connections until those sessions are terminated. To enable traffic to drain from existing connections, applications should limit the session duration used with each endpoint.
+    > Because Traffic Manager works at the DNS level, it cannot influence existing connections to any endpoint. When it directs traffic between endpoints (either by changed profile settings, or during failover or failback), Traffic Manager directs new connections to available endpoints. Other endpoints might continue to receive traffic via existing connections until those sessions are terminated. To enable traffic to drain from existing connections, applications should limit the session duration used with each endpoint.
 
 ## Traffic-routing methods
 

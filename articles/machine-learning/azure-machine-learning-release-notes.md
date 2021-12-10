@@ -1,21 +1,47 @@
 ---
-title: What's new in the release?
+title: Python SDK release notes
 titleSuffix: Azure Machine Learning
-description: Learn about the latest updates to Azure Machine Learning and the machine learning and data prep Python SDKs.
+description: Learn about the latest updates to Azure Machine Learning Python SDK.
+services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 10/04/2021
+ms.date: 11/01/2021
 ---
 
-# Azure Machine Learning release notes
+# Azure Machine Learning Python SDK release notes
 
-In this article, learn about Azure Machine Learning releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro) reference page.
+In this article, learn about Azure Machine Learning Python SDK releases.  For the full SDK reference content, visit the Azure Machine Learning's [**main SDK for Python**](/python/api/overview/azure/ml/intro) reference page.
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+## 2021-11-08
+
+### Azure Machine Learning SDK for Python v1.36.0
+  + **azureml-automl-dnn-vision**
+    + Cleaned up minor typos on some error messages.
+  + **azureml-contrib-reinforcementlearning**
+    + Submitting Reinforcement Learning runs that use simulators is no longer supported.
+  + **azureml-core**
+    + Added support for partitioned premium blob.
+    + Specifying non-public clouds for Managed Identity authentication is no longer supported.
+    + User can migrate AKS web service to online endpoint and deployment which is managed by CLI (v2).
+    + The instance type for training jobs on Kubernetes compute targets can now be set via a RunConfiguration property: run_config.kubernetescompute.instance_type.
+  + **azureml-defaults**
+    + Removed redundant dependencies like gunicorn and werkzeug
+  + **azureml-interpret**
+    + azureml-interpret package updated to 0.21.* version of interpret-community
+  + **azureml-pipeline-steps**
+    + Deprecate MpiStep in favor of using CommandStep for running ML training (including distributed training) in pipelines.
+  + **azureml-train-automl-rutime**
+    + Update the AutoML model test predictions output format docs.
+    + Added docstring descriptions for Naive, SeasonalNaive, Average, and SeasonalAverage forecasting model.
+    + Featurization summary is now stored as an artifact on the run (check for a file named 'featurization_summary.json' under the outputs folder)
+    + Enable categorical indicators support for Tabnet Learner.
+    + Add downsample parameter to automl_setup_model_explanations to allow users to get explanations on all data without downsampling by setting this parameter to be false.
+    
 
 ## 2021-10-11
 
@@ -323,7 +349,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
     + Updated portal URIs to include tenant for authentication
     + Removed experiment name from run URIs to avoid redirects
     + Updated experiment URO to use experiment ID.
-    + Bug fixes for attaching remote compute using az cli
+    + Bug fixes for attaching remote compute using az CLI
     + Updated portal URIs to include tenant for authentication.
     + Added support to understand File Dataset partitions based on glob structure.
   + **azureml-interpret**
@@ -1384,7 +1410,7 @@ Get started [here](./how-to-run-jupyter-notebooks.md)
 + Accessibility and Localization improvements
 + Command Palette
 + Additional Keyboard Shortcuts
-+ Autosave
++ Auto save
 + Improved performance and reliability
 
 Access the following web-based authoring tools from the studio:
@@ -1911,7 +1937,7 @@ Access the following web-based authoring tools from the studio:
 ### Azure Machine Learning designer enhancements
 
 + Formerly known as the visual interface 
-+    11 new [modules](algorithm-module-reference/module-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
++    11 new [modules](component-reference/component-reference.md) including recommenders, classifiers, and training utilities including feature engineering, cross validation, and data transformation.
 
 ### R SDK 
  

@@ -85,7 +85,7 @@ Requests for `http://contoso.com` are routed to ContosoServerPool, `http://fabri
 
 Similarly, two subdomains of the same parent domain can be hosted on the same application gateway deployment. Examples of using subdomains could include `http://blog.contoso.com` and `http://app.contoso.com` hosted on a single application gateway deployment. For more information, see [Application Gateway multiple site hosting](multiple-site-overview.md).
 
-You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener (preview)](multiple-site-overview.md#wildcard-host-names-in-listener-preview).
+You can also define wildcard host names in a multi-site listener and up to 5 host names per listener. To learn more, see [wildcard host names in listener](multiple-site-overview.md#wildcard-host-names-in-listener).
 
 ## Redirection
 

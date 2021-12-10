@@ -31,7 +31,7 @@ In this mode, the extension requires the following properties:
 
 | Property                  | Environment variable template                       |Description                                | Example value |
 |---------------------------|-----------------------------------------------------|--------------------------------------------|---------|
-| Queue Service URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri`<sup>1</sup>  | The data plane URI of the queue service to which you are connecting. | <storage_account_name>.queue.core.windows.net |
+| Queue Service URI | `<CONNECTION_NAME_PREFIX>__queueServiceUri`<sup>1</sup>  | The data plane URI of the queue service to which you are connecting, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
 
 <sup>1</sup> `<CONNECTION_NAME_PREFIX>__serviceUri` can be used as an alias. If both forms are provided, the `queueServiceUri` form will be used. The `serviceUri` form cannot be used when the overall connection configuration is to be used across blobs, queues, and/or tables.
 

@@ -1,7 +1,7 @@
 ---
 title: Manage Azure Lab Services user lists from Teams
 description: Learn how to manage Azure Lab Services user lists from Teams. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 10/07/2020
 ---
 

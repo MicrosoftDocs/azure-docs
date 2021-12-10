@@ -4,7 +4,7 @@ description: This quickstart provides several Python code samples you can use to
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: [mvc, seo-python-october2019, devx-track-python]
+ms.custom: mvc, seo-python-october2019, devx-track-python, mode-other
 ms.devlang: python
 ms.topic: quickstart
 ms.date: 10/28/2020
@@ -68,6 +68,19 @@ Get the connection information you need to connect to Azure Database for MySQL f
    
    :::image type="content" source="./media/connect-python/azure-database-for-mysql-server-overview-name-login.png" alt-text="Azure Database for MySQL server name 2":::
 
+## Running the Python code samples
+
+For each code example in this article:
+
+1. Create a new file in a text editor.
+2. Add the code example to the file. In the code, replace the `<mydemoserver>`, `<myadmin>`, `<mypassword>`, and `<mydatabase>` placeholders with the values for your MySQL server and database.
+1. SSL is enabled by default on Azure Database for MySQL servers. You may need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment. Replace the `ssl_ca` value in the code with path to this file on your computer.
+1. Save the file in a project folder with a *.py* extension, such as *C:\pythonmysql\createtable.py* or */home/username/pythonmysql/createtable.py*.
+1. To run the code, open a command prompt or `bash` shell and change directory into your project folder, for example `cd pythonmysql`. Type the `python` command followed by the file name, for example `python createtable.py`, and press Enter. 
+   
+   > [!NOTE]
+   > On Windows, if *python.exe* is not found, you may need to add the Python path into your PATH environment variable, or provide the full path to *python.exe*, for example `C:\python27\python.exe createtable.py`.
+
 ## Step 1: Create a table and insert data
 
 Use the following code to connect to the server and database, create a table, and load data by using an **INSERT** SQL statement.The code imports the mysql.connector library, and uses the method:
@@ -76,29 +89,23 @@ Use the following code to connect to the server and database, create a table, an
 - [cursor.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-close.html) when you are done using a cursor.
 - [conn.close()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlconnection-close.html) to close the connection the connection.
 
-> [!IMPORTANT]
-> - SSL is enabled by default. You may need to download the [DigiCertGlobalRootG2 SSL certificate](https://cacerts.digicert.com/DigiCertGlobalRootG2.crt.pem) to connect from your local environment.
-> - Replace the `<mydemoserver>`, `<myadmin>`, `<mypassword>`, and `<mydatabase>` placeholders with the values for your MySQL server and database.
-
 ```python
 import mysql.connector
 from mysql.connector import errorcode
 
 # Obtain connection string information from the portal
 
-[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 config = {
   'host':'<mydemoserver>.mysql.database.azure.com',
   'user':'<myadmin>@<mydemoserver>',
   'password':'<mypassword>',
   'database':'<mydatabase>',
   'client_flags': [mysql.connector.ClientFlag.SSL],
-  'ssl_ca': '/var/wwww/html/DigiCertGlobalRootG2.crt.pem'
+  'ssl_ca': '<path-to-SSL-cert>/DigiCertGlobalRootG2.crt.pem'
 }
 
 # Construct connection string
 
-[!INCLUDE[applies-to-mysql-single-server](includes/applies-to-mysql-single-server.md)]
 try:
    conn = mysql.connector.connect(**config)
    print("Connection established")
@@ -144,6 +151,35 @@ Use the following code to connect and read the data by using a **SELECT** SQL st
 The code reads the data rows using the [fetchall()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-fetchall.html) method, keeps the result set in a collection row, and uses a `for` iterator to loop over the rows.
 
 ```python
+import mysql.connector
+from mysql.connector import errorcode
+
+# Obtain connection string information from the portal
+
+config = {
+  'host':'<mydemoserver>.mysql.database.azure.com',
+  'user':'<myadmin>@<mydemoserver>',
+  'password':'<mypassword>',
+  'database':'<mydatabase>',
+  'client_flags': [mysql.connector.ClientFlag.SSL],
+  'ssl_ca': '<path-to-SSL-cert>/DigiCertGlobalRootG2.crt.pem'
+}
+
+# Construct connection string
+
+try:
+   conn = mysql.connector.connect(**config)
+   print("Connection established")
+except mysql.connector.Error as err:
+  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+    print("Something is wrong with the user name or password")
+  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+    print("Database does not exist")
+  else:
+    print(err)
+else:
+  cursor = conn.cursor()
+
   # Read data
   cursor.execute("SELECT * FROM inventory;")
   rows = cursor.fetchall()
@@ -153,6 +189,11 @@ The code reads the data rows using the [fetchall()](https://dev.mysql.com/doc/co
   for row in rows:
   	print("Data row = (%s, %s, %s)" %(str(row[0]), str(row[1]), str(row[2])))
 
+  # Cleanup
+  conn.commit()
+  cursor.close()
+  conn.close()
+  print("Done.")
 ```
 
 ## Step 3: Update data
@@ -160,9 +201,44 @@ The code reads the data rows using the [fetchall()](https://dev.mysql.com/doc/co
 Use the following code to connect and update the data by using an **UPDATE** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
 ```python
+import mysql.connector
+from mysql.connector import errorcode
+
+# Obtain connection string information from the portal
+
+config = {
+  'host':'<mydemoserver>.mysql.database.azure.com',
+  'user':'<myadmin>@<mydemoserver>',
+  'password':'<mypassword>',
+  'database':'<mydatabase>',
+  'client_flags': [mysql.connector.ClientFlag.SSL],
+  'ssl_ca': '<path-to-SSL-cert>/DigiCertGlobalRootG2.crt.pem'
+}
+
+# Construct connection string
+
+try:
+   conn = mysql.connector.connect(**config)
+   print("Connection established")
+except mysql.connector.Error as err:
+  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+    print("Something is wrong with the user name or password")
+  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+    print("Database does not exist")
+  else:
+    print(err)
+else:
+  cursor = conn.cursor()
+
   # Update a data row in the table
-  cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (200, "banana"))
+  cursor.execute("UPDATE inventory SET quantity = %s WHERE name = %s;", (300, "apple"))
   print("Updated",cursor.rowcount,"row(s) of data.")
+
+  # Cleanup
+  conn.commit()
+  cursor.close()
+  conn.close()
+  print("Done.")
 ```
 
 ## Step 4: Delete data
@@ -170,10 +246,44 @@ Use the following code to connect and update the data by using an **UPDATE** SQL
 Use the following code to connect and remove data by using a **DELETE** SQL statement. The code imports the mysql.connector library, and uses [cursor.execute()](https://dev.mysql.com/doc/connector-python/en/connector-python-api-mysqlcursor-execute.html) method executes the SQL query against the MySQL database. 
 
 ```python
+import mysql.connector
+from mysql.connector import errorcode
+
+# Obtain connection string information from the portal
+
+config = {
+  'host':'<mydemoserver>.mysql.database.azure.com',
+  'user':'<myadmin>@<mydemoserver>',
+  'password':'<mypassword>',
+  'database':'<mydatabase>',
+  'client_flags': [mysql.connector.ClientFlag.SSL],
+  'ssl_ca': '<path-to-SSL-cert>/DigiCertGlobalRootG2.crt.pem'
+}
+
+# Construct connection string
+
+try:
+   conn = mysql.connector.connect(**config)
+   print("Connection established")
+except mysql.connector.Error as err:
+  if err.errno == errorcode.ER_ACCESS_DENIED_ERROR:
+    print("Something is wrong with the user name or password")
+  elif err.errno == errorcode.ER_BAD_DB_ERROR:
+    print("Database does not exist")
+  else:
+    print(err)
+else:
+  cursor = conn.cursor()
 
   # Delete a data row in the table
   cursor.execute("DELETE FROM inventory WHERE name=%(param1)s;", {'param1':"orange"})
   print("Deleted",cursor.rowcount,"row(s) of data.")
+  
+  # Cleanup
+  conn.commit()
+  cursor.close()
+  conn.close()
+  print("Done.")  
 ```
 
 ## Clean up resources

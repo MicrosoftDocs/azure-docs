@@ -3,11 +3,11 @@ title: Compare Azure Content Delivery Network (CDN) product features
 description: Learn about the features that each Azure Content Delivery Network (CDN) product supports.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: overview
 ms.date: 11/15/2019
-ms.author: allensu
+ms.author: duau
 ms.custom: mvc
 
 ---

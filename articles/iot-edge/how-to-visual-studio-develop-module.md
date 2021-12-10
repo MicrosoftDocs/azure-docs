@@ -158,6 +158,9 @@ To initialize the tool, provide an IoT Edge device connection string from IoT Hu
 
 Typically, you'll want to test and debug each module before running it within an entire solution with multiple modules.
 
+>[!TIP]
+>Make sure you have switched over to the correct Docker container mode, either Linux container mode or Windows container mode, depending on the type of IoT Edge module you are developing. From the Docker Desktop menu, you can toggle between the two types of modes. Select **Switch to Windows containers** to use Windows containers, or select **Switch to Linux containers** to use Linux containers. 
+
 1. In **Solution Explorer**, right-click the module folder and select **Set as StartUp Project** from the menu.
 
    ![Set Start-up Project](./media/how-to-visual-studio-develop-csharp-module/module-start-up-project.png)

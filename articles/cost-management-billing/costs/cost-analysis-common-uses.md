@@ -3,7 +3,7 @@ title: Common cost analysis uses in Azure Cost Management
 description: This article explains how you can get results for common cost analysis tasks in Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 10/13/2021
+ms.date: 12/02/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -98,6 +98,8 @@ Viewing invoice details, you can identify the service that has unexpected costs 
 ## View cost breakdown by Azure resource
 
 Your services are built with Azure resources. Reviewing costs based on resources can help you quickly identify your primary cost contributors. If a service has resources that are too expensive, consider making changes to reduce your costs.
+
+The view is only available for subscription and resource group scopes.
 
 1. In the Azure portal, navigate to cost analysis for your scope. For example: **Cost Management + Billing** > **Cost Management** > **Cost analysis**.
 1. Select **Cost by resource**.

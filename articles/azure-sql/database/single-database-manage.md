@@ -7,9 +7,9 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer:
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Create and manage servers and single databases in Azure SQL Database

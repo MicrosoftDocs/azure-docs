@@ -1,7 +1,7 @@
 ---
-title: Secure hybrid access with F5 VPN
+title: Configure F5 BIG-IP SSL-VPN solution in Azure AD
 titleSuffix: Azure AD
-description: Tutorial for Azure Active Directory Single Sign-on (SSO) integration with F5 BIG-IP for Password-less VPN 
+description: Tutorial to configure F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA) 
 services: active-directory
 author: davidmu1
 manager: martinco
@@ -15,11 +15,11 @@ ms.collection: M365-identity-device-management
 ms.reviewer: miccohen
 ---
 
-# Integrate F5 BIG-IP for Password-less VPN with Azure Active Directory
+# Configure F5 BIG-IP SSL-VPN solution in Azure AD
 
-In this tutorial, learn how to integrate F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA).
+In this tutorial, learn how to configure F5’s BIG-IP based  Secure socket layer Virtual private network (SSL-VPN) solution with Azure Active Directory (AD) for Secure Hybrid Access (SHA).
 
-Integrating a BIG-IP SSL-VPN with Azure AD provides [many key benefits](f5-aad-integration.md), including:
+Configuring a BIG-IP SSL-VPN with Azure AD provides [many key benefits](f5-aad-integration.md), including:
 
 - Improved Zero trust governance through [Azure AD pre-authentication and authorization](../../app-service/overview-authentication-authorization.md)
 
@@ -87,7 +87,7 @@ Setting up a SAML federation trust between the BIG-IP allows the Azure AD BIG-IP
 
    - In this configuration alone the application would operate in an IDP initiated mode, where Azure AD issues the user with a SAML assertion before redirecting to the BIG-IP SAML service. For apps that don’t support IDP initiated mode, specify the **Sign-on URL** for the BIG-IP SAML service. For example, `https://ssl-vpn.contoso.com`.
 
-   - For the Logout Url enter the BIG-IP APM Single logout (SLO) endpoint pre-pended by the host header of the service being published. For example, `https://ssl-vpn.contoso.com/saml/sp/profile/redirect/slr`
+   - For the Logout URL enter the BIG-IP APM Single logout (SLO) endpoint pre-pended by the host header of the service being published. For example, `https://ssl-vpn.contoso.com/saml/sp/profile/redirect/slr`
 
    Providing an SLO URL ensures a user session is terminated at both ends, the BIG-IP and Azure AD, after the user signs out. BIG-IP APM also provides an [option](https://support.f5.com/csp/article/K12056) for terminating all sessions when calling a specific application URL.
 
@@ -304,7 +304,7 @@ With all the settings in place, the APM now requires a front-end virtual server 
 
 ## Next steps
 
-Open a browser on a remote Windows client and browse to the url of the **BIG-IP VPN service**. After authenticating to Azure AD, you'll see the BIG-IP webtop portal and VPN launcher.
+Open a browser on a remote Windows client and browse to the URL of the **BIG-IP VPN service**. After authenticating to Azure AD, you'll see the BIG-IP webtop portal and VPN launcher.
 
 ![Image shows vpn launcher](media/f5-sso-vpn/vpn-launcher.png)
 

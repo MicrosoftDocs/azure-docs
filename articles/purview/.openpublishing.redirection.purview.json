@@ -39,6 +39,26 @@
         "source_path_from_root": "/articles/purview/catalog-private-link-ingestion.md",
         "redirect_url": "/azure/purview/catalog-private-link-end-to-end",
         "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/file-extension-insights.md",
+        "redirect_url": "/azure/purview/asset-insights",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-data-policies.md",
+        "redirect_url": "/azure/purview/how-to-access-policies-storage",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-self-service.md",
+        "redirect_url": "/azure/purview/overview",
+        "redirect_document_id": true
+      },
+      {
+        "source_path_from_root": "/articles/purview/concept-account-upgrade.md",
+        "redirect_url": "/azure/purview/catalog-permissions",
+        "redirect_document_id": true
       }
 ]
 }

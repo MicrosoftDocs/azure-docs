@@ -2,12 +2,11 @@
 title: Create an ILB ASE with ARM
 description: Learn how to create an App Service environment with an internal load balancer (ILB ASE) using Azure Resource Manager templates. Fully isolate your apps from the internet.
 author: madsd
-
 ms.assetid: 0f4c1fa4-e344-46e7-8d24-a25e247ae138
 ms.topic: quickstart
 ms.date: 09/16/2020
 ms.author: madsd
-ms.custom: mvc, seodec18
+ms.custom: mvc, seodec18, mode-other
 ---
 
 # Create and use an Internal Load Balancer App Service Environment 

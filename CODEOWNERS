@@ -46,7 +46,7 @@ articles/service-health @rboucher
 /articles/synapse-analytics/synapse-link/ @Rodrigossz @SnehaGunda @jovanpop-msft
 
 # Cognitive Services
-/articles/cognitive-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan
+/articles/cognitive-services/ @aahill @patrickfarley @nitinme @mrbullwinkle @laujan @eric-urban
 
 # DevOps
 /articles/ansible/ @TomArcherMsft
@@ -62,9 +62,6 @@ articles/service-health @rboucher
 /articles/service-fabric/ @sukanyamsft @mimckitt
 /articles/container-instances/ @macolso @mimckitt
 /articles/container-registry/ @dlepow @mimckitt
-
-# Requires Internal Review
-/articles/best-practices-availability-paired-regions.md @martinekuan @syntaxc4 @snoviking
 
 # Governance
 /articles/governance/ @DCtheGeek

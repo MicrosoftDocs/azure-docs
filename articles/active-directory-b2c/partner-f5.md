@@ -1,5 +1,5 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with F5 BIG-IP  
+title: Tutorial to extend Azure Active Directory B2C with F5 BIG-IP  
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with F5 BIG-IP for secure hybrid access 
 author: gargi-sinha
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 10/15/2021
 ---
 
-# Tutorial: Extend Azure Active Directory B2C to protect on-premises applications using F5 BIG-IP
+# Tutorial: Extend Azure Active Directory B2C using F5 BIG-IP
 
 In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [F5 BIG-IP Access Policy Manager (APM)](https://www.f5.com/services/resources/white-papers/easily-configure-secure-access-to-all-your-applications-via-azure-active-directory). This tutorial demonstrates how legacy applications can be securely exposed to the internet through BIG-IP security combined with Azure AD B2C pre-authentication, Conditional Access (CA), and Single sign-on (SSO).
 
@@ -44,14 +44,11 @@ To get started, you'll need:
 - [SSL certificate](../active-directory/manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS or use default while testing.
 
 ## Scenario description
+**The following scenario is header-based but you can also use these methods to achieve Kerberos SSO.**
 
-For this scenario, we have an internal application whose access relies on receiving HTTP authorization headers from a legacy broker system, enabling sales agents to be directed to their respective areas of content.
+For this scenario, we have an internal application whose access relies on receiving HTTP authorization headers from a legacy broker system, enabling sales agents to be directed to their respective areas of content. The service needs expanding to a broader consumer base, so the application either needs upgrading to offer a choice of consumer authentication options or replacing altogether with more suitable solution.
 
-The service needs expanding to a broader consumer base, so the application either needs upgrading to offer a choice of consumer authentication options or replacing altogether with more suitable solution.
-
-In an ideal world, the application would be upgraded to support being directly managed and governed through a modern control plane. But as it lacks any form of modern interop, it would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime.
-
-Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet our application is connected to will be used to gate access with Azure AD B2C for its extensive choice of sign-in and sign-up capabilities.
+In an ideal world, the application would be upgraded to support being directly managed and governed through a modern control plane. But as it lacks any form of modern interop, it would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime. Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet our application is connected to will be used to gate access with Azure AD B2C for its extensive choice of sign-in and sign-up capabilities.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD B2C pre-authentication and header-based SSO, significantly improving the overall security posture of the application, allowing the business to continue growing at pace, without interruption.
 
@@ -59,7 +56,7 @@ The secure hybrid access solution for this scenario is made up of the following 
 
 - **Application** - Backend service being protected by Azure AD B2C and BIG-IP secure hybrid access
 
-- **Azure AD B2C** - The IdP and Open ID Connect (OIDC) authorization server, responsible for verification of user credentials, multi-factor authentication (MFA), and SSO to the BIG-IP APM.
+- **Azure AD B2C** - The IdP and Open ID Connect (OIDC) authorization server, responsible for verification of user credentials, multifactor authentication (MFA), and SSO to the BIG-IP APM.
 
 - **BIG-IP** - As the reverse proxy for the application, the BIG-IP APM also becomes the OIDC client, delegating authentication to the OIDC authorization server, before performing header-based SSO to the backend service.
 
@@ -145,7 +142,7 @@ This tutorial is based on Guided Configuration v.7/8 but may also apply to previ
 ### SSL profiles
 
 Configuring your BIG-IP with a client SSL profile will allow you to secure the client-side traffic over TLS. To do this you'll need to import a certificate matching the domain name used by the public facing URL for your application. Where possible we recommend using a public certificate authority, but the built-in BIG-IP self-signed certificates can also be used while testing.
-[Add and manage certificates](https://techdocs.f5.com/kb/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-0-0.html) in the BIG-IP VE.
+[Add and manage certificates](https://techdocs.f5.com/kb/en-us/products/big-ip_ltm/manuals/product/bigip-ssl-administration-13-0-0.html) in the BIG-IP VE.
 
 ## Guided configuration
 
@@ -222,9 +219,9 @@ Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the G
 
   |Properties | Descriptions|
   |:---------|:---------|
-  | Client ID | The client ID of the application representing the BIG-IP in your Azure AD B2C tenant.|
+  | Client ID | The client ID of the application representing the BIG-IP in your Azure AD B2C tenant. |
   | Client secret | The application’s corresponding client secret. |
-  |Client-server SSL profile | Setting an SSL profile will ensure the APM communicates with the Azure AD B2C IdP over TLS. Select the default serverssl option.|
+  |Client-server SSL profile | Setting an SSL profile will ensure the APM communicates with the Azure AD B2C IdP over TLS. Select the default `serverssl` option. |
 
 - **OAuth request settings**
 
@@ -234,38 +231,38 @@ Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the G
 
   | Properties | Description |
   |:-----------|:------------|
-  |Choose OAuth request | Create new |
+  | Choose OAuth request | Create new |
   | HTTP method | POST |
-  |Enable headers| Unchecked |
+  | Enable headers| Unchecked |
   | Enable parameters | Checked |
 
   | Parameter type | Parameter name | Parameter value|
   |:---------|:---------------|:----------------|
-  | client-id| client-id | |
-  |nonce |nonce| |
+  | client-id | client-id | |
+  | nonce | nonce| |
   | redirect-uri | redirect-uri | |
   | scope | scope | |
-  | response-type |response-type | |
-  |client-secret| client-secret| |
+  | response-type | response-type | |
+  | client-secret | client-secret | |
   | custom | grant_type | authorization_code |
 
 - **Auth redirect request - Enabled**
 
   | Properties | Description |
   |:-----------|:------------|
-  |Choose OAuth request | Create new |
-  |HTTP method | GET |
-  |Prompt type | None |
-  |Enable headers | Unchecked |
-  |Enable parameters | Checked |
+  | Choose OAuth request | Create new |
+  | HTTP method | GET |
+  | Prompt type | None |
+  | Enable headers | Unchecked |
+  | Enable parameters | Checked |
 
   | Parameter type | Parameter name | Parameter value|
   |:---------|:---------------|:----------------|
-  | client-id| client-id | |
+  | client-id | client-id | |
   | redirect-uri | redirect-uri | |
   | response-type |response-type | |
   | scope | scope | |
-  |nonce| nonce| |
+  | nonce | nonce | |
 
 - **Token refresh request** - **Disabled** - Can be enabled and configured if necessary.
 
@@ -281,7 +278,7 @@ Here, we'll configure Azure AD B2C as the OAuth2 IdP. You’ll notice that the G
   | Service port | HTTPS |
   | Enable redirect port | Check to have users auto redirected from http to https |
   | Redirect port | HTTP |
-  | Client SSL profile | Swap the pre-defined clientssl profile with the one containing your SSL certificate. Testing with the default profile is also ok but will likely cause a browser alert.|
+  | Client SSL profile | Swap the predefined `clientssl` profile with the one containing your SSL certificate. Testing with the default profile is also ok but will likely cause a browser alert. |
 
 - **Pool properties**
 
@@ -428,4 +425,4 @@ Your application’s logs would then help understand if it received those attrib
   
   5. Finally, select the yellow **Apply Access Policy** option in the top left-hand corner, located next to the F5 logo. Apply those settings and select **Apply** again to refresh the access profile list.
 
-See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/bigip-16-1-0/big-ip-access-policy-manager-oauth-configuration/apm-oauth-client-and-resource-server.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)
+See F5’s guidance for more [OAuth client and resource server troubleshooting tips](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-sso-13-0-0/37.html#GUID-774384BC-CF63-469D-A589-1595D0DDFBA2)

@@ -1,11 +1,11 @@
 ---
 title: Use NFS Blob storage with Azure HPC Cache 
 description: Describes procedures and limitations when using ADLS-NFS blob storage with Azure HPC Cache
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 07/12/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Use NFS-mounted blob storage with Azure HPC Cache

@@ -1,6 +1,6 @@
 ---
 title: Deploy container group to Azure virtual network
-description: Learn how to deploy a container group to a new or existing Azure virtual network by using the Azure command-line interface.
+description: Learn how to deploy a container group to a new or existing Azure virtual network via the Azure CLI.
 ms.topic: article
 ms.date: 07/02/2020
 ms.custom: devx-track-js, devx-track-azurecli
@@ -136,7 +136,7 @@ Sample output:
 
 Once you have the network profile ID, copy the following YAML into a new file named *vnet-deploy-aci.yaml*. Under `networkProfile`, replace the `id` value with ID you just retrieved, then save the file. This YAML creates a container group named *appcontaineryaml* in your virtual network.
 
-```YAML
+```yaml
 apiVersion: '2019-12-01'
 location: westus
 name: appcontaineryaml

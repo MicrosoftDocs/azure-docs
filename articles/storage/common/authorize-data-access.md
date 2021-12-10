@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/16/2021
 ms.author: tamram
 ms.subservice: common
 ---
@@ -20,15 +20,15 @@ The following table describes the options that Azure Storage offers for authoriz
 
 | Azure artifact | Shared Key (storage account key) | Shared access signature (SAS) | Azure Active Directory (Azure AD) | On-premises Active Directory Domain Services | Anonymous public read access |
 |--|--|--|--|--|--|
-| Azure Blobs | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](authorize-data-access.md) | Not supported | [Supported](../blobs/anonymous-read-access-configure.md) |
+| Azure Blobs | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../blobs/authorize-access-azure-active-directory.md) | Not supported | [Supported](../blobs/anonymous-read-access-configure.md) |
 | Azure Files (SMB) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | Not supported | [Supported, only with AAD Domain Services](../files/storage-files-active-directory-overview.md) | [Supported, credentials must be synced to Azure AD](../files/storage-files-active-directory-overview.md) | Not supported |
 | Azure Files (REST) | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | Not supported | Not supported | Not supported |
-| Azure Queues | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](authorize-data-access.md) | Not Supported | Not supported |
+| Azure Queues | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../queues/authorize-access-azure-active-directory.md) | Not Supported | Not supported |
 | Azure Tables | [Supported](/rest/api/storageservices/authorize-with-shared-key/) | [Supported](storage-sas-overview.md) | [Supported](../tables/authorize-access-azure-active-directory.md) (preview) | Not supported | Not supported |
 
 Each authorization option is briefly described below:
 
-- **Azure Active Directory (Azure AD) integration** for authorizing requests to blob, queue, and table resources. Microsoft recommends using Azure AD credentials to authorize requests to data when possible for optimal security and ease of use. For more information about Azure AD integration, see [Authorize access to data in Azure Storage](authorize-data-access.md).
+- **Azure Active Directory (Azure AD) integration** for authorizing requests to blob, queue, and table resources. Microsoft recommends using Azure AD credentials to authorize requests to data when possible for optimal security and ease of use. For more information about Azure AD integration, see the articles for either [blob](../blobs/authorize-access-azure-active-directory.md), [queue](../queues/authorize-access-azure-active-directory.md), or [table](../tables/authorize-access-azure-active-directory.md) resources.
 
     You can use Azure role-based access control (Azure RBAC) to manage a security principal's permissions to blob, queue, and table resources in a storage account. You can additionally use Azure attribute-based access control (ABAC) to add conditions to Azure role assignments for blob resources. For more information about RBAC, see [What is Azure role-based access control (Azure RBAC)?](../../role-based-access-control/overview.md). For more information about ABAC, see [What is Azure attribute-based access control (Azure ABAC)? (preview)](../../role-based-access-control/conditions-overview.md).
 
@@ -48,7 +48,7 @@ Each authorization option is briefly described below:
 
 ## Next steps
 
-- [Authorize access to data in Azure Storage](authorize-data-access.md)
+- Authorize access with Azure Active Directory to either [blob](../blobs/authorize-access-azure-active-directory.md), [queue](../queues/authorize-access-azure-active-directory.md), or [table](../tables/authorize-access-azure-active-directory.md) resources.
 - [Authorize with Shared Key](/rest/api/storageservices/authorize-with-shared-key/)
 - [Grant limited access to Azure Storage resources using shared access signatures (SAS)](storage-sas-overview.md)
         

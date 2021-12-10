@@ -3,7 +3,7 @@ title: Create volume replication for Azure NetApp Files | Microsoft Docs
 description: Describes how to create volume replication peering for Azure NetApp Files to set up cross-region replication.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/14/2021
-ms.author: b-juche
+ms.date: 11/02/2021
+ms.author: b-hchen
 ---
 # Create volume replication for Azure NetApp Files
 
@@ -70,7 +70,7 @@ For the NFS protocol, ensure that the export policy rules satisfy the requiremen
 
 7. Under the **Tags** tab, create key/value pairs as necessary.  
 
-8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. Options for replication schedule include: every 10 minutes, hourly, daily, weekly and monthly.  
+8. Under the **Replication** tab, paste in the source volume resource ID that you obtained in [Locate the source volume resource ID](#locate-the-source-volume-resource-id), and then select the desired replication schedule. Options for replication schedule include: every 10 minutes, hourly, and daily.
 
     ![Create volume replication](../media/azure-netapp-files/cross-region-replication-create-volume-replication.png)
 

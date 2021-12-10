@@ -8,7 +8,7 @@ ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 09/27/2021
+ms.date: 10/22/2021
 ---
 
 # Enable Azure Active Directory authentication for Azure-SSIS integration runtime

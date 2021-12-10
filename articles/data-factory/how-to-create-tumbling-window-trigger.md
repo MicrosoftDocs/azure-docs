@@ -208,7 +208,7 @@ This section shows you how to use Azure PowerShell to create, start, and monitor
 
 - **Azure PowerShell**. Follow the instructions in [Install Azure PowerShell on Windows with PowerShellGet](/powershell/azure/install-az-ps). 
 
-- **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using PowerShell](/azure/data-factory/quickstart-create-data-factory-powershell) to create a data factory and a pipeline.
+- **Azure Data Factory**. Follow the instructions in [Create an Azure Data Factory using PowerShell](./quickstart-create-data-factory-powershell.md) to create a data factory and a pipeline.
 
 ### Sample Code
 
@@ -287,7 +287,7 @@ This section shows you how to use Azure CLI to create, start, and monitor a trig
 
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
 
-- Follow the instructions in [Create an Azure Data Factory using Azure CLI](/azure/data-factory/quickstart-create-data-factory-azure-cli) to create a data factory and a pipeline.
+- Follow the instructions in [Create an Azure Data Factory using Azure CLI](./quickstart-create-data-factory-azure-cli.md) to create a data factory and a pipeline.
 
 ### Sample Code
 

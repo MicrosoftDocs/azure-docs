@@ -22,7 +22,7 @@ Azure Purview can scan data sources in Azure or an on-premises environment by us
 
  - Blob private endpoint is linked to an Azure Purview managed storage account.
  - Queue private endpoint is linked to an Azure Purview managed storage account.
- - namespace private endpoint is linked to an Azure Purview managed event hub namespace.
+ - namespace private endpoint is linked to an Azure Purview managed Event Hub namespace.
 
   :::image type="content" source="media/catalog-private-link/purview-private-link-architecture.png" alt-text="Diagram that shows Azure Purview and Private Link architecture.":::
 
@@ -169,14 +169,14 @@ Once you deploy ingestion private endpoints for your Azure Purview, you need to 
 
 - All on-premises source types like Microsoft SQL Server, Oracle, SAP, and others are currently supported only via self-hosted IR-based scans. The self-hosted IR must run within your private network and then be peered with your virtual network in Azure. 
    
-- For all Azure source types like Azure Blob Storage and Azure SQL Database, you must explicitly choose to run the scan by using a self-hosted integration runtime that is deployed in the same VNet as Azure Purview ingestion private endpoint. 
+- For all Azure source types like Azure Blob Storage and Azure SQL Database, you must explicitly choose to run the scan by using a self-hosted integration runtime that is deployed in the same VNet as Azure Purview account and ingestion private endpoints. 
 
 Follow the steps in [Create and manage a self-hosted integration runtime](manage-integration-runtimes.md) to set up a self-hosted IR. Then set up your scan on the Azure source by choosing that self-hosted IR in the **Connect via integration runtime** dropdown list to ensure network isolation.
     
    :::image type="content" source="media/catalog-private-link/shir-for-azure.png" alt-text="Screenshot that shows running an Azure scan by using self-hosted IR.":::
 
 > [!IMPORTANT]
-> If you have created your Azure Purview account after 18th August 2021, make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
+> Make sure you download and install the latest version of self-hosted integration runtime from [Microsoft download center](https://www.microsoft.com/download/details.aspx?id=39717).
 
 ## Firewalls to restrict public access
 

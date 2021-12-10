@@ -6,6 +6,7 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 03/26/2021
 #Customer intent: As an developer familiar with how to use a browser but new to the LUIS service, I want to query the LUIS endpoint of a published model so that I can see the JSON prediction response.
+ms.custom: mode-other
 ---
 
 # How to query the prediction runtime with user text

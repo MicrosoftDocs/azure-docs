@@ -54,6 +54,8 @@ To migrate to Gen2, we recommend the following approach.
 
    Take this opportunity to clean up data sets that you no longer use. Unless you plan to migrate all of your data at one time, Take this time to identify logical groups of data that you can migrate in phases.
 
+   Perform an [Ageing Analysis](https://github.com/rukmani-msft/adlsgen1togen2migrationsamples/blob/master/src/Utilities/Ageing%20Analysis) (or similar) on your Gen1 account to identify which files or folders stay in inventory for a long time or are perhaps becoming obsolete.
+
 2. Determine the impact that a migration will have on your business.
 
    For example, consider whether you can afford any downtime while the migration takes place. These considerations can help you to identify a suitable migration pattern, and to choose the most appropriate tools.
@@ -222,5 +224,10 @@ Check out our sample code for the bidirectional sync pattern in our [Bidirection
 ## Next steps
 
 - Learn about the various parts of setting up security for a storage account. For more information, see [Azure Storage security guide](./security-recommendations.md).
-- Optimize the performance for your Data Lake Store. See [Optimize Azure Data Lake Storage Gen2 for performance](data-lake-storage-performance-tuning-guidance.md)
+- Optimize the performance for your Data Lake Store. See [Optimize Azure Data Lake Storage Gen2 for performance](./data-lake-storage-best-practices.md)
 - Review the best practices for managing your Data Lake Store. See [Best practices for using Azure Data Lake Storage Gen2](data-lake-storage-best-practices.md)
+
+## See also
+
+- [The Hitchhiker's Guide to the Data Lake](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
+- [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)

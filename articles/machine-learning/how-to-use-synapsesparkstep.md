@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.author: laobri
 author: lobrien
-ms.date: 03/04/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: synapse-azureml
 

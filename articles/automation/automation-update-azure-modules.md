@@ -31,11 +31,12 @@ If you develop your scripts locally, it's recommended to have the same module ve
 Currently, updating AZ modules is only available through the portal. Updates through PowerShell and ARM template will be available in the future. Only default Az modules will be updated when performing the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) and navigate to your Automation account.
-1. Under **Shared Resources**, select **PowerShell Modules**.
+1. Under **Shared Resources**, select **Modules**.
 1. Select **Update Az modules**.
 1. Select **Module to Update**. By default, it will show Az module.  
-1. From the drop-down list, select **Module Version**.
+1. From the drop-down list, select **Module Version** and **Runtype version**
 1. Select **Update** to update the Az module to the version that you’ve selected.
+   On the **Modules** page, you can view the list as shown below:
 
    :::image type="content" source="./media/automation-update-azure-modules/update-az-modules-portal.png" alt-text="Update AZ modules page with selections.":::
 

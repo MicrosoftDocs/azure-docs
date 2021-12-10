@@ -315,12 +315,12 @@
       href: /javascript/api/overview/azure/service-bus?view=azure-node--preview
     - name: azure/service-bus version 1 
       href: /javascript/api/overview/azure/service-bus
+  - name: Go
+    href: https://github.com/Azure/azure-sdk-for-go/tree/main/sdk/messaging/azservicebus      
   - name: PHP
     href: https://github.com/Azure/azure-sdk-for-php
   - name: Ruby
     href: https://github.com/Azure/azure-sdk-for-ruby
-  - name: Go
-    href: https://github.com/Azure/azure-service-bus-go
   - name: Azure CLI
     href: /cli/azure/servicebus
   - name: Azure PowerShell

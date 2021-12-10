@@ -290,7 +290,7 @@ org.apache.kafka.common.errors.SerializationException: Unknown magic byte!
 
 Kafka Connect supports a special structure of JSON messages containing both payload and schema as follows.
 
- ```json
+```json
 {
   "schema": {
     "type": "struct",

@@ -83,7 +83,7 @@ Not all information in the legacy identity provider should be migrated to your A
   - Sensitive data like credit card numbers, social security numbers (SSN), medical records, or other data regulated by government or industry compliance bodies.
   - Marketing or communication preferences, user behaviors, and insights.
 
-### Directory clean-up
+### Directory cleanup
 
 Before you start the migration process, take the opportunity to clean up your directory.
 

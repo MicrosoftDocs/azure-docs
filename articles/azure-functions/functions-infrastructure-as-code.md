@@ -208,7 +208,7 @@ If you do explicitly define your Consumption plan, you will need to set the `ser
 
 ### Create a function app
 
-The settings required by a function app running in Consumption plan defer between Windows and Linux.
+The settings required by a function app running in Consumption plan differ between Windows and Linux.
 
 #### Windows
 

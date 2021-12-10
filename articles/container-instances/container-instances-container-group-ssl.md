@@ -12,7 +12,7 @@ You set up an example container group consisting of two containers:
 * An application container that runs a simple web app using the public Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) image.
 * A sidecar container running the public [Nginx](https://hub.docker.com/_/nginx) image, configured to use TLS.
 
-In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container apps that listen on other ports.
+In this example, the container group only exposes port 443 for Nginx with its public IP address. Nginx routes HTTPS requests to the companion web app, which listens internally on port 80. You can adapt the example for container applications that listen on other ports.
 
 See [Next steps](#next-steps) for other approaches to enabling TLS in a container group.
 
@@ -140,7 +140,7 @@ code deploy-aci.yaml
 
 Enter the contents of the base64-encoded files where indicated under `secret`. For example, `cat` each of the base64-encoded files to see its contents. During deployment, these files are added to a [secret volume](container-instances-volume-secret.md) in the container group. In this example, the secret volume is mounted to the Nginx container.
 
-```YAML
+```yaml
 api-version: 2019-12-01
 location: westus
 name: app-with-ssl

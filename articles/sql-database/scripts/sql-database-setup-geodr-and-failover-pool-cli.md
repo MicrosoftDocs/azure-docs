@@ -7,8 +7,8 @@ ms.subservice: high-availability
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: BustosMSFT
-ms.author: robustos
+author: rothja
+ms.author: jroth
 ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
