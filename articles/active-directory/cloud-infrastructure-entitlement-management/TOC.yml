@@ -6,7 +6,9 @@
   - name: Integration
     expanded: true
     items:
-    - name: CloudKnox integration with the CloudKnox API
+    - name: Integration with other systems
+      href: cloudknox-product-integrations.md
+    - name: Integration with the CloudKnox API
       href: cloudknox-api.md
     - name: CloudKnox integration with ServiceNow
       href: cloudknox-product-dashboard.md
