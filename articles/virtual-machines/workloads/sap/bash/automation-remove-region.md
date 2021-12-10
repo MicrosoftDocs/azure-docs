@@ -4,7 +4,7 @@ schema: 2.0.0
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
-ms.date: 10/21/2021
+ms.date: 12/10/2021
 ms.topic: reference
 ms.service: virtual-machines-sap
 title: Remove_region.sh
