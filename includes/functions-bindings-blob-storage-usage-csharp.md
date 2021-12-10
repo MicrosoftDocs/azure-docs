@@ -6,6 +6,22 @@ ms.date: 12/02/2021
 ms.author: glenga
 ---
 
+# [In-process class library](#tab/in-process)
+
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/in-process)
+
+An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+   
+# [C# script](#tab/csharp-script)
+
+C# script is used primarily when creating C# functions in the Azure portal.
+
+---
+
+Choose a version to see usage details for the mode and version. 
+
 # [Extension 5.x and higher](#tab/extensionv5/in-process)
 
 The following parameter types are supported for all versions:
