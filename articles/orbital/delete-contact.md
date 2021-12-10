@@ -27,8 +27,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Delete a scheduled contact entry
 
-1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2. In the **Spacecraft** page, select the name of the spacecraft for the scheduled contact.
+1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
+2. In the **Spacecrafts** page, select the name of the spacecraft for the scheduled contact.
 3. Select **Contacts** from the left menu bar in the spacecraft’s overview page.
 
 :::image type="content" source="./media/orbital-eos-deletecontact.png" alt-text="Select a scheduled contact":::

@@ -29,6 +29,10 @@ landingContent:
   # Card
   - title: Get started with Earth Observation
     linkLists:
+      - linkListType: get-started
+        links:
+          - text: Onboard to the Azure Orbital Preview
+            url: orbital-preview.md
       - linkListType: quickstart
         links:
           - text: Register Spacecraft 
@@ -39,10 +43,6 @@ landingContent:
         links:
           - text: Schedule a Contact
             url: schedule-contact.md
-      - linkListType: concept
-        links:
-          - text: Understanding Azure Orbital for Earth Observation Services
-            url: concept-eos.md 
 
   # Card
   - title: Manage your resources
@@ -53,15 +53,3 @@ landingContent:
             url: update-tle.md
           - text: Cancel a Contact
             url: delete-contact.md
-
-  # Card
-  - title: About Global Communications
-    linkLists:
-      - linkListType: quickstart
-        links:
-          - text: Onboard a Ground Station
-            url: onboard-groundstation.md
-          - text: Onboard an Edge Site
-            url: onboard-edgesite.md
-          - text: Create a Layer 2 Connection
-            url: create-l2connection.md

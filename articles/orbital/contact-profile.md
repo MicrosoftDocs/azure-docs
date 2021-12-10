@@ -17,6 +17,9 @@ Configure a contact profile with Azure Orbital to save and reuse contact configu
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- To complete the onboarding process for the preview. [Onboard to the Azure Orbital Preview](orbital-preview.md)
+- To collect telemetry during the contact create an Event Hub. [Learn more about Event Hubs](../event-hubs/event-hubs-about.md)
+- An IP address (private or public) for data retrieval/delivery. [Create a VM and use its private IP](../virtual-machines/windows/quick-create-portal.md)
 
 ## Sign in to Azure
 

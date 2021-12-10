@@ -17,7 +17,7 @@ Update the TLE of an existing spacecraft resource.
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A registered spacecraft. Learn more on how to [register a spacecraft](register-spacecraft.md).
+- A registered spacecraft. Learn more on how to [register spacecraft](register-spacecraft.md).
 
 ## Sign in to Azure
 
@@ -25,8 +25,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Update the spacecraft TLE
 
-1.	In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results.
-2.	In the **Spacecraft** page, select the name of the spacecraft for which to update the ephemeris.
+1.	In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
+2.	In the **Spacecrafts** page, select the name of the spacecraft for which to update the ephemeris.
 3.	Select **Ephemeris** on the left menu bar of the spacecraft’s overview.
 4.	In Ephemeris, enter this information in each of the required fields:
 
@@ -42,5 +42,5 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
-- [Tutorial: Register a Spacecraft](register-spacecraft.md)
+- [Tutorial: Register Spacecraft](register-spacecraft.md)
 - [Tutorial: Onboard a Ground Station](onboard-groundstation.md)

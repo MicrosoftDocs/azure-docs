@@ -56,5 +56,6 @@ Azure Orbital offers two main services:
 
 ## Next steps
 
-- [Quickstart: Register a Spacecraft](register-spacecraft.md)
-- [Quickstart: Onboard a Ground Station](onboard-groundstation.md)
+- [Quickstart: Onboard to the Azure Orbital Preview](orbital-preview.md)
+- [Quickstart: Register Spacecraft](register-spacecraft.md)
+- [Quickstart: Configure a Contact Profile](contact-profile.md)

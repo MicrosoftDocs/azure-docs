@@ -9,18 +9,12 @@ items:
   items:
   - name: Earth Observation
     items:
-    - name: Register a Spacecraft
+    - name: Onboard to the Azure Orbital Preview
+      href: orbital-preview.md
+    - name: Register Spacecraft
       href: register-spacecraft.md
     - name: Configure a Contact Profile
       href: contact-profile.md
-  - name: Global Communications
-    items:
-    - name: Onboard a Ground Station
-      href: onboard-groundstation.md
-    - name: Onboard an Edge Site
-      href: onboard-edgesite.md
-    - name: Create a Layer 2 Connection
-      href: create-l2connection.md
 - name: Concepts
   items:
   - name: Understanding Azure Orbital for Earth Observation Services

@@ -17,6 +17,7 @@ To contact a satellite, it must be registered as a spacecraft resource with the 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+- Complete the onboarding process for the preview. [Onboard to the Azure Orbital Preview](orbital-preview.md)
 
 ## Sign in to Azure
 
@@ -25,8 +26,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Create spacecraft resource
 
 1. Select **Create a resource** in the upper left-hand corner of the portal.
-2. In the search box, enter **Spacecraft**. Select **Spacecraft** in the search results. 
-3. In the **Spacecraft** page, select Create.
+2. In the search box, enter **Spacecrafts*. Select **Spacecrafts** in the search results. 
+3. In the **Spacecrafts** page, select Create.
 4. In **Create spacecraft resource**, enter or select this information in the Basics tab:
 
 | **Field** | **Value** |
@@ -56,6 +57,24 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 7. Select the **Review + create** tab, or select the **Review + create** button.
 8. Select **Create**
+
+## Authorize the new spacecraft resource
+
+1. Access the Azure Orbital Spacecraft Authorization Form
+2. Provide the following information:
+
+    1. Spacecraft name
+    2. Contact info: name and email*
+    3. Azure Subscription ID*
+
+3. Submit the form
+4. Await a 'Spacecraft resource authorized' email from Azure Orbital
+ 
+## Confirm spacecraft is authorized
+
+1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results
+2. In the **Spacecrafts** page, select the newly registered spacecraft
+3. In the new spacecraft's overview page, check the **Authorization status** shows **Allowed**
 
 ## Next steps
 

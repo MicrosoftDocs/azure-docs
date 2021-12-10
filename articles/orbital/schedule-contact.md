@@ -17,7 +17,7 @@ Schedule a contact with the selected satellite for data retrieval/delivery on Az
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-- A registered spacecraft. Learn more on how to [register a spacecraft](register-spacecraft.md).
+- A registered spacecraft. Learn more on how to [register spacecraft](register-spacecraft.md).
 - A contact profile. Learn more on how to [configure a contact profile](contact-profile.md).
 
 ## Sign in to Azure
@@ -26,8 +26,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Select an available contact
 
-1. In the Azure portal search box, enter **Spacecraft**. Select **Spacecraft** in the search results
-2. In the **Spacecraft** page, select the spacecraft for the contact
+1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results
+2. In the **Spacecrafts** page, select the spacecraft for the contact
 3. Select **Schedule contact** on the top bar of the spacecraft’s overview
  
 :::image type="content" source="./media/orbital-eos-schedule.png" alt-text="Schedule a contact at spacecraft resource page":::
@@ -54,5 +54,5 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
-- [Quickstart: Register a Spacecraft](register-spacecraft.md)
+- [Quickstart: Register Spacecraft](register-spacecraft.md)
 - [Quickstart: Configure a contact profile](contact-profile.md)
