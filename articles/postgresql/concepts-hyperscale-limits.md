@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 12/10/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations
@@ -90,10 +90,11 @@ node and cluster sizes.
 ### Subscription vCore limits
 
 Azure enforces a vCore quota per subscription per region. There are two
-independently adjustable limits: vCores for coordinator nodes, and vCores for
+independently adjustable quotas: vCores for coordinator nodes, and vCores for
 worker nodes. The default quota should be more than enough to experiment with
 Hyperscale (Citus). If you do need more vCores for a region in your
-subscription, please open a support request.
+subscription, see how to [adjust compute
+quotas](howto-hyperscale-compute-quota.md).
 
 ## PostgreSQL
 

@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 12/10/2021
 ---
 
 # Scale a Hyperscale (Citus) server group
@@ -60,8 +60,8 @@ adjusted independently. Adjust the **vCores** slider under  **Configuration
 > [!NOTE]
 > There is a vCore quota per Azure subscription per region.  The default quota
 > should be more than enough to experiment with Hyperscale (Citus).  If you
-> need more vCores for a region in your subscription, see [subscription vCore
-> limits](concepts-hyperscale-limits.md#subscription-vcore-limits).
+> need more vCores for a region in your subscription, see how to [adjust
+> compute quotas](howto-hyperscale-compute-quota.md).
 
 ## Increase storage on nodes
 
