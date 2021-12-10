@@ -309,7 +309,7 @@ To update and run the provisioning sample with your device information:
 
 4. In Visual Studio's *Solution Explorer* window, go to the **Provision\_Samples** folder. Expand the sample project named **prov\_dev\_client\_sample**. Expand **Source Files**, and open **prov\_dev\_client\_sample.c**.
 
-5. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier.
+5. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied in step 2.
 
     ```c
     static const char* id_scope = "0ne00002193";
@@ -402,7 +402,11 @@ To update and run the provisioning sample with your device information:
 
 5. In the *SymmetricKeySample* folder, open *ProvisioningDeviceClientSample.cs* in a text editor. This file shows how the [SecurityProviderSymmetricKey](/dotnet/api/microsoft.azure.devices.shared.securityprovidersymmetrickey?view=azure-dotnet&preserve-view=true) class is used along with the [ProvisioningDeviceClient](/dotnet/api/microsoft.azure.devices.provisioning.client.provisioningdeviceclient?view=azure-dotnet&preserve-view=true) class to provision your simulated symmetric key device. Review the code in this file.  No changes are needed.
 
-6. Build and run the sample code using the following command. Replace `<id-scope>` with the ID Scope that you copied in step 2, `<registration-id>` with the registration ID of your device, and `<primarykey>` with the primary key of your device.
+6. Build and run the sample code using the following command:
+
+    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
+    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
+    * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```console
     dotnet run --s <id-scope> --i <registration-id> --p <primarykey>
@@ -473,7 +477,7 @@ To update and run the provisioning sample with your device information:
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
     * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
- 
+
     ```console
     set PROVISIONING_HOST=<provisioning-global-endpoint>
     ```
@@ -542,10 +546,15 @@ To update and run the provisioning sample with your device information:
 
     :::image type="content" source="./media/quick-create-simulated-device-symm-key/copy-id-scope-and-global-device-endpoint.png" alt-text="Extract Device Provisioning Service endpoint information":::
 
-3. In your command prompt, you'll now set the following environment variables (replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the global device endpoint URL of Device Provisioning Service):
+3. In your command prompt, run the following commands to set environment variables used by the sample:
+
+    * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
+    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
+    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
+    * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```console
-    set PROVISIONING_HOST=<provisioning-host>
+    set PROVISIONING_HOST=<provisioning-global-endpoint>
     ```
 
     ```console
@@ -634,11 +643,16 @@ To update and run the provisioning sample with your device information:
 
     `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
 
-4. Replace the value of the following variables for your DPS and device enrollment(replace `<id-scope>` with the ID Scope of your Device Provisioning Service ID Scope, `<registration-id>` with the registration ID of your device, `<primarykey>` with the primary key of your device, `<provisioning-host>` with the global device endpoint URL of Device Provisioning Service):
+4. Replace the value of the following variables for your DPS and device enrollment:
+
+    * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
+    * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
+    * Replace `<registration-id>` with the **Registration ID** that you copied from the device enrollment.
+    * Replace `<primarykey>` with the **Primary Key** that you copied from the device enrollment.
 
     ```java
     private static final String SCOPE_ID = "<id-scope>";
-    private static final String GLOBAL_ENDPOINT = "<provisioning-host>";
+    private static final String GLOBAL_ENDPOINT = "<provisioning-global-endpoint>";
     private static final String SYMMETRIC_KEY = "<primarykey>";
     private static final String REGISTRATION_ID = "<registration-id>";
     ```
