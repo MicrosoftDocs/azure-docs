@@ -18,7 +18,7 @@ ms.date: 12/06/2021
 > - East US 2
 > - West Europe 
 
-## Conceptual Overview
+## Conceptual overview
 
 This article describes how to configure managed virtual network and managed private endpoints for Azure Purview.
 
