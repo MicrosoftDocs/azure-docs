@@ -36,7 +36,7 @@ This quickstart demonstrates a solution for a Windows-based workstation. However
 
 * Install [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download) or later on your Windows-based machine. You can use the following command to check your version.
 
-    ```bash
+    ```cmd
     dotnet --info
     ```
 
@@ -86,7 +86,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 5. Open a command prompt or Git Bash shell. Run the following commands to clone the latest release of the [Azure IoT C SDK](https://github.com/Azure/azure-iot-sdk-c) GitHub repository(replace `<release-tag>` with the tag you copied in the previous step).
 
-    ```cmd/sh
+    ```cmd
     git clone -b <release-tag> https://github.com/Azure/azure-iot-sdk-c.git
     cd azure-iot-sdk-c
     git submodule update --init
@@ -96,7 +96,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 6. When the operation is complete, run the following commands from the `azure-iot-sdk-c` directory:
 
-    ```cmd/sh
+    ```cmd
     mkdir cmake
     cd cmake
     ```
@@ -112,7 +112,7 @@ In this section, you'll prepare a development environment that's used to build t
 
 8. When the build completes successfully, the last few output lines will look similar to the following output:
 
-    ```cmd/sh
+    ```output
     $ cmake -Dhsm_type_symm_key:BOOL=ON -Duse_prov_client:BOOL=ON  ..
     -- Building for: Visual Studio 16 2019
     -- Selecting Windows SDK version 10.0.19041.0 to target Windows 10.0.19042.
