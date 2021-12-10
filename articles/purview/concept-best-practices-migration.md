@@ -19,11 +19,6 @@ This article provides guidance on backup and recovery strategy when your organiz
 
 - The goal is to perform one time migration. If you wish to continuously "sync" assets between two accounts, there are other steps which will not be covered in detail by this article. You have to use [Azure Purview's Event Hub to subscribe and create entities to another account](manage-kafka-dotnet.md). However, Event Hub only has Atlas information. Azure Purview has added other capabilities such as **glossaries** and **contacts** which won't be available via Event Hub.
 
-## Intended audience
-* Data architecture team
-* Data governance and management teams
-* Data security team
-
 ## Identify key requirements
 Most of enterprise organizations have critical requirement for Azure Purview for capabilities such as Backup, Business Continuity, and Disaster Recovery (BCDR). To get into more details of this requirement, you need to differentiate between Backup, High Availability (HA), and Disaster recovery (DR).
 
