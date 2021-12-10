@@ -21,16 +21,26 @@ adobe-target-content: ./quickstart-java-uiex
 [Azure App Service](overview.md) provides a highly scalable, self-patching web hosting service.  This quickstart shows how to use the [Azure CLI](/cli/azure/get-started-with-azure-cli) with the [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin) to deploy a .jar file, or .war file. Use the tabs to switch between Java SE and Tomcat instructions.
 
 # [Java SE](#tab/javase)
+
 ![Spring app greetings in Azure App Service](./media/quickstart-java/java-se-greetings-in-browser.png)
+
 # [Tomcat](#tab/tomcat)
+
 ![Maven Hello World web app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
+
 # [JBoss EAP](#tab/jbosseap)
+
 ::: zone pivot="platform-windows"
+
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
 ::: zone-end
+
 ::: zone pivot="platform-linux"
 ![Maven Hello World web app running in Azure App Service](./media/quickstart-java/jboss-sample-in-app-service.png)
+
 ::: zone-end
+
 -----
 
 If Maven isn't your preferred development tool, check out our similar tutorials for Java developers:
@@ -309,6 +319,7 @@ mvn package azure-webapp:deploy
 mvn package azure-webapp:deploy
 ```
 # [JBoss EAP](#tab/jbosseap)
+
 ::: zone pivot="platform-windows"
 
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
@@ -328,16 +339,27 @@ mvn package azure-webapp:deploy -DskipTests
 Once deployment has completed, your application will be ready at `http://<appName>.azurewebsites.net/` (`http://helloworld-1590394316693.azurewebsites.net` in the demo). Open the url with your local web browser, you should see
 
 # [Java SE](#tab/javase)
+
 ![Spring app greetings in Azure App Service](./media/quickstart-java/java-se-greetings-in-browser.png)
+
 # [Tomcat](#tab/tomcat)
+
 ![Maven Hello World web app running in Azure App Service](./media/quickstart-java/java-hello-world-in-browser-azure-app-service.png)
+
 # [JBoss EAP](#tab/jbosseap)
+
 ::: zone pivot="platform-windows"
+
 JBoss EAP is only available on the Linux version of App Service. Select the **Linux** button at the top of this article to view the quickstart instructions for JBoss EAP.
+
 ::: zone-end
+
 ::: zone pivot="platform-linux"
+
 ![Maven Hello World web app running in Azure App Service](./media/quickstart-java/jboss-sample-in-app-service.png)
+
 ::: zone-end
+
 -----
 
 **Congratulations!** You've deployed your first Java app to App Service.
