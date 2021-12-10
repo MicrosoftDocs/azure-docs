@@ -95,15 +95,15 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
 1. On the **Create a new project page**, enter **console** in the search box. Choose the **Console Application** template, then choose **Next**.
 
-    :::image type="content" source="../media/quickstarts/create-new-project.png" alt-text="Screenshot: The Visual Studio create new project page.":::
+    :::image type="content" source="../media/quickstarts/create-new-project.png" alt-text="Screenshot: Visual Studio's create new project page.":::
 
 1. In the **Configure your new project** dialog window, enter `formRecognizer_quickstart` in the Project name box. Then choose Next.
 
-    :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Screenshot: The Visual Studio configure new project dialog window.":::
+    :::image type="content" source="../media/quickstarts/configure-new-project.png" alt-text="Screenshot: Visual Studio's configure new project dialog window.":::
 
 1. In the **Additional information** dialog window, select **.NET 6.0 (Long-term support)**, and then select **Create**.
 
-    :::image type="content" source="../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio additional information dialog window.":::
+    :::image type="content" source="../media/quickstarts/additional-information.png" alt-text="Screenshot: Visual Studio's additional information dialog window.":::
 
 ### Install the client library with NuGet
 
@@ -171,7 +171,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 #### General document model
 
-Extract text, tables, structure, key-value pairs and named entities from documents
+Extract text, tables, structure, key-value pairs, and named entities from documents
 
 > [!div class="checklist"]
 >
