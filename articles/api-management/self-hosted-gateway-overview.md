@@ -60,7 +60,7 @@ Self-hosted gateways require outbound TCP/IP connectivity to Azure on port 443. 
 
 ### FQDN dependencies
 
-To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with the API Management instance it's associated with:
+To operate properly, each self-hosted gateway needs outbound connectivity on port 443 to the following endpoints associated with its cloud-based API Management instance:
 
 * The public IP address of the API Management instance in its primary location
 * The instance's management endpoint: `<apim-service-name>.management.azure-api.net`
@@ -72,7 +72,7 @@ To operate properly, each self-hosted gateway needs outbound connectivity on por
 > * The associated storage account FQDNs are listed in the service's **Network connectivity status** page in the Azure portal.
 > * Public IP addresses underlying the associated storage accounts are dynamic and can change without notice.
 
-If integrated with your API Management instance, also enable outbound connectivity to public IP addresses, ports, and hostnames for:
+If integrated with your API Management instance, also enable outbound connectivity to the associated public IP addresses, ports, and hostnames for:
 
 * [Event Hubs](api-management-howto-log-event-hubs.md) 
 * [Application Insights](api-management-howto-app-insights.md)  
