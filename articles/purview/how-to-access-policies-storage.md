@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 12/10/2021
 ms.custom:
 ---
 
