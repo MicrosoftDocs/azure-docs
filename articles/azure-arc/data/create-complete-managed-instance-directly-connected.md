@@ -128,7 +128,7 @@ After the connect command completes successfully, you can view the shadow object
 1. In the Azure portal, locate the resource group. One way to find the resource group is to type the resource group name in search on the portal. The portal displays a link to the resource group below the search box. Click the resource group link.
 1. In the resource group, under **Overview** you can see the Kubernetes cluster, and the shadow object. See the following image:
 
-   :::image type="content" source="media/create-complete-managed-instance-directly-connected/azure-arc-resources.png" alt-text="Portal resource group." lightbox="media/create-complete-managed-instance-directly-connected/azure-arc-resources-expanded.png":::
+   :::image type="content" source="media/create-complete-managed-instance-directly-connected/azure-arc-resources.png" alt-text="The Kubernetes - Azure Arc item item type is the shadow resource." lightbox="media/create-complete-managed-instance-directly-connected/azure-arc-resources-expanded.png":::
 
    The shadow resource is the resource type **Kubernetes - Azure Arc** in the image above. The other resource is the **Kubernetes service** cluster. Both resources have the same name. 
 
