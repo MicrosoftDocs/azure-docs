@@ -14,13 +14,13 @@ ms.author: zxue
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to grant permissions to users and client application service principals to access Healthcare APIs using Azure Command-Line Interface (CLI) and REST API. This step is also referred to as "role assignment" or Azure 
-[role-based access control (Azure RBAC)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Healthcare APIs and for more information about application roles for the FHIR and DICOM services, see [Configure Azure RBAC](configure-azure-rbac.md).
+In this article, you'll learn how to grant permissions to client applications (and users) to access Healthcare APIs using Azure Command-Line Interface (CLI) and REST API. This step is referred to as "role assignment" or Azure 
+[role-based access control (Azure RBAC)](./../role-based-access-control/role-assignments-cli.md). To further your understanding about the application roles defined for Healthcare APIs, see [Configure Azure RBAC](configure-azure-rbac.md).
 
 You can view and download the [CLI scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-cli.http) and [REST API scripts](https://github.com/microsoft/healthcare-apis-samples/blob/main/src/scripts/role-assignment-using-rest-api.http) from [Healthcare APIs Samples](https://github.com/microsoft/healthcare-apis-samples).
 
 > [!Note] 
-> To perform role assignment operation, the user or the client application must be granted with proper permissions. Contact your Azure subscription administrators for assistance.
+> To perform role assignment operation, the user (or the client application) must be granted with RBAC permissions. Contact your Azure subscription administrators for assistance.
 
 ## Role assignments with CLI
 
@@ -36,7 +36,7 @@ az role definition list --name 58a3b984-7adf-4c20-983a-32417c86fbc8
 
 ### Healthcare APIs role assignment
 
-The role assignments for Healthcare APIs require the following key values.
+The role assignments for Healthcare APIs require the following values.
 
 - Application role name or GUID ID.
 - Service principal ID for the user or client application.
@@ -63,11 +63,11 @@ az role assignment create --assignee-object-id $spid --assignee-principal-type S
 az role assignment create --assignee-object-id $spid --assignee-principal-type ServicePrincipal --role "$dicomrole" --scope $dicomrolescope
 ```
 
-You can verify the role assignment status from the response or in the Azure portal.
+You can verify the role assignment status from the command line response or in the Azure portal.
 
 ### Azure API for FHIR role assignment
 
-Role assignments for Azure API for FHIR work similarly. The exception is that you define the scope with the FHIR service only. You also don't need a workspace name as only the FHIR service is supported in Azure API for FHIR.
+Role assignments for Azure API for FHIR work similarly. The difference is that the scope contains the FHIR service only and the workspace name is not required.
 
 ```
 #azure api for fhir role assignment
@@ -126,7 +126,7 @@ Accept: application/json
 }
 ```
 
-For Azure API for FHIR, the scope is defined slightly differently as it supports the FHIR service only, and no workspace is used.
+For Azure API for FHIR, the scope is defined slightly differently as it supports the FHIR service only, and no workspace name is required.
 
 ```
 ### Create a role assignment - Azure API for FHIR
@@ -155,7 +155,7 @@ Accept: application/json
 
 ## List service instances of Healthcare APIs
 
-Optionally, you can get a list of Healthcare APIs services, or Azure API for FHIR. Note that the API version is based on Healthcare APIs, not the version for the REST API.
+Optionally, you can get a list of Healthcare APIs services, or Azure API for FHIR. Note that the API version is based on Healthcare APIs, not the version for the role assignment REST API.
 
 For Healthcare APIs, specify the subscription ID, resource group name, workspace name, FHIR or DICOM services, and the API version.
 
@@ -187,11 +187,11 @@ Accept: application/json
 
 ```
 
-Now that you've granted proper permissions to the user or client application, you can access the Healthcare APIs in your applications.
+Now that you've granted proper permissions to the client application, you can access the Healthcare APIs in your applications.
 
 ## Next steps
 
-In this article, you learned how to grant permissions to users and client application service principals to access Healthcare APIs using Azure CLI and REST API. For information on how to grant permissions for Healthcare APIs, see 
+In this article, you learned how to grant permissions to client applications using Azure CLI and REST API. For information on how to access Healthcare APIs, see 
 
 >[!div class="nextstepaction"]
->[Configure RBAC for Healthcare APIs](configure-azure-rbac.md) 
+>[Access using Rest Client](use-postman.md) 
