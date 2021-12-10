@@ -200,7 +200,7 @@ az containerapp env create `
 
 Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
 
-As you deploy your app, you have the options:
+As you deploy your app, you have the option configure the following items:
 
 - Publicly expose the application by enabling `ingress`
 - Define environment variables
@@ -232,6 +232,15 @@ az containerapp create \
 ```
 
 # [PowerShell](#tab/powershell)
+
+```powershell
+$CONTAINER_IMAGE_NAME=<CONTAINER_IMAGE_NAME>
+$REGISTRY_LOGIN_SERVER=<REGISTRY_LOGIN_URL>
+$REGISTRY_USERNAME=<REGISTRY_USERNAME>
+$REGISTRY_PASSWORD=<REGISTRY_PASSWORD>
+```
+
+As you define these variables, replace the placeholders surrounded by `<>` with your values.
 
 ```powershell
 az containerapp create `
@@ -279,9 +288,10 @@ Before you run this command, replace `<REGISTRY_CONTAINER_URL>` with the URL to 
 
 Your container may need some additional configuration settings for a successful deployment.
 
-- **Environment variables**: If your container app requires environment variables, then you can pass in a key/value pair to the `--environment-variables` parameter.
+- **Environment variables**: If your container app requires environment variables, then pass in key/value pairs to the `--environment-variables` parameter.
 
 - **Ingress**: If your container app needs to be publicly accessible, then add the parameter `--ingress 'external'` and set `--target-port` equal to the public port for your app.
+
 
   - To return the fully qualified domain name of your ingress-enabled app, you can add `--query configuration.ingress.fqdn` to the `create` command.
 

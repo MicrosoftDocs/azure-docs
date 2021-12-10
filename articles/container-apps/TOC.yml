@@ -13,13 +13,13 @@
       expanded: true
       items:
         - name: With an example container
-        - items:
+          items:
           - name: Azure portal
             href: quickstart-portal.md
           - name: Azure CLI
             href: get-started.md
         - name: With your container
-        - items:
+          items:
           - name: Azure CLI
             href: get-started-existing-container.md
 - name: Concepts
