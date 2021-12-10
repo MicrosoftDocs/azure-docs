@@ -20,7 +20,7 @@ This article demonstrates how to:
 
 The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps. 
 
-For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -46,7 +46,7 @@ az group create --name $RESOURCE_GROUP_NAME --location eastus
 
 ## Create an ACR instance
 
-Use the [az acr create](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* is unique within Azure.
+Use the [az acr create](/cli/azure/acr#az_acr_create) command to create the ACR instance. The following example creates an ACR instance named *youruniqueacrname*. Make sure *youruniqueacrname* be unique within Azure.
 
 ```azurecli-interactive
 export REGISTRY_NAME=youruniqueacrname
@@ -77,14 +77,14 @@ You should see `Login Succeeded` at the end of command output if you have logged
 
 ## Create an AKS cluster
 
-Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. This will take several minutes to complete.
+Use the [az aks create](/cli/azure/aks#az_aks_create) command to create an AKS cluster. The following example creates a cluster named *myAKSCluster* with one node. The deployment will take several minutes to complete.
 
 ```azurecli-interactive
 CLUSTER_NAME=myAKSCluster
 az aks create --resource-group $RESOURCE_GROUP_NAME --name $CLUSTER_NAME --node-count 1 --generate-ssh-keys --enable-managed-identity
 ```
 
-After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following:
+After a few minutes, the command completes and returns JSON-formatted information about the cluster, including the following output:
 
 ```output
   "nodeResourceGroup": "MC_java-liberty-project_myAKSCluster_eastus",
@@ -127,7 +127,7 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 
 Follow the instructions below to set up an Azure SQL Database single database for connectivity.
 
-1. Create a single database in Azure SQL Database by following: [Quickstart: Create an Azure SQL Database single database](../azure-sql/database/single-database-create-quickstart)
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart)
     > [!NOTE]
     >
     > * At **Basics** step, write down **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**.
@@ -136,7 +136,7 @@ Follow the instructions below to set up an Azure SQL Database single database fo
     >   ![create-sql-database-networking](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
     > * At **Additional settings** step, set **Enable advanced data security** to **Not now**.
 
-2. Once your database is created, open **your SQL server** > **Firewalls and virtual networks** > Set **Minimal TLS Version** to **>1.0** > Click **Save**.
+2. Once your database is created, open **your SQL server** > **Firewalls and virtual networks** > Set **Minimal TLS Version** to **>1.0** > Select **Save**.
 
     ![sql-database-minimum-TLS-version](./media/howto-deploy-java-liberty-app/sql-database-minimum-TLS-version.png)
 
@@ -168,43 +168,89 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
 
 # [with DB connection](#tab/with-sql)
 
-1. Clone repo
-1. Change directory
-1. Run `mvn clean install`
-1. Configure environment variables
-    ```bash
-    export DB_SERVER_NAME=<Server name>.database.windows.net
-    export DB_PORT_NUMBER=1433
-    export DB_NAME=<Database name>
-    export DB_USER=<Server admin username>@<Database name>
-    export DB_PASSWORD=<Server admin password>
-    ```
-1. Run the following command to test the application:
-    ```bash
-    mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-local
-    ```
-You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Use `CTRL-C` to stop the application.
-1. Retrieve values for properties `artifactId` and `version` defined in the `pom.xml`.
+### We assume the application is:
+* Managed using Maven
+* Using the `liberty-maven-plugin` to configure DB connection
 
-   ```azurecli-interactive
-   artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
-   version=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
-   ```
-1. Run `cd target` to change directory to the build of the sample.
-1. Run one of the following commands to build the application image and push it to the ACR instance.
-   * Build with Open Liberty base image if you prefer to use Open Liberty as a lightweight open source Java™ runtime:
+### Check out the application
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are three samples in the repository, and we will use *javaee-app-db-using-actions/mssql*. The file structure is as follows:
+```
+javaee-app-db-using-actions/mssql
+├─ src/main/
+│  ├─ aks/
+│  │  ├─ db-secret.yaml
+│  │  ├─ openlibertyapplication.yaml
+│  ├─ docker/
+│  │  ├─ Dockerfile
+│  │  ├─ Dockerfile-local
+│  ├─ liberty/config/
+│  │  ├─ server.xml
+│  ├─ java/
+│  ├─ resources/
+│  ├─ webapp/
+├─ pom.xml
+```
 
-     ```azurecli-interactive
-     # Build and tag application image. This will cause the ACR instance to pull the necessary Open Liberty base images.
-     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME .
-     ```
+* Directory *java*, *resources*, and *webapp* contains the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-   * Build with WebSphere Liberty base image if you prefer to use a commercial version of Open Liberty:
+* In directory *aks* we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. *openlibertyapplication.yaml* is used to deploy the application image.
 
-     ```azurecli-interactive
-     # Build and tag application image. This will cause the ACR instance to pull the necessary WebSphere Liberty base images.
-     az acr build -t ${artifactId}:${version} -r $REGISTRY_NAME --file=target/Dockerfile .
-     ```
+* In directory *docker*, we place two Dockerfiles. *Dockerfile-local* is used for local debug and *Dockerfile* is used to build image for AKS deployment.
+
+* In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty cluster.
+
+### Build project
+Build your application.
+```bash
+cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+
+# The following variables will be used for deployment file generation
+export DB_SERVER_NAME=<Server name>.database.windows.net
+export DB_PORT_NUMBER=1433
+export DB_NAME=<Database name>
+export DB_USER=<Server admin username>@<Database name>
+export DB_PASSWORD=<Server admin password>
+
+mvn clean install
+```
+### Test your project locally
+Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
+We've prepared the *Dockerfile-local* for it in the sample application.
+
+* Start your local docker environment if you haven't done so already.
+  ```bash
+  sudo dockerd
+  ```
+* Start the application in `liberty:devc` mode
+  ```bash
+  cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_TYPE} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-local
+  ```
+* Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
+* Press `Ctrl+C` to stop `liberty:devc` mode.
+
+### Build image for AKS deployment
+Run the `docker build` command to build the image.
+```bash
+cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+
+# Fetch maven artifactId as image name, maven build version as image version
+IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
+
+cd <path-to-your-repo>/javaee-app-db-using-actions/mssql/target
+
+docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile .
+```
+
+### Upload image to ACR
+Now, we upload the built image to the ACR created in the offer.
+```bash
+docker tag ${IMAGE_NAME}:${IMAGE_VERSION} ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
+docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
+docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
+```
 
 # [without DB connection](#tab/without-sql)
 
@@ -257,8 +303,11 @@ You should see `The defaultServer server is ready to run a smarter planet.` in t
    export NAMESPACE=<NAMESPACE>
    export PULL_SECRET=<PULL_SECRET>
    ```
+1. Retrieve values for properties `artifactId` defined in the `pom.xml`.
 
-1. Verify the current working directory is `javaee-app-db-using-actions/mssql` of your local clone.
+   ```azurecli-interactive
+   artifactId=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
+   ```
 
 1. Apply DB secret and deployment file by running the following command:
    ```azurecli-interactive
@@ -296,7 +345,7 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
    ```
 
 1. Verify the current working directory is `javaee-app-simple-cluster/target` of your local clone.
-1. Run the following commands to deploy your Liberty application with 3 replicas to the AKS cluster. Command output is also shown inline.
+1. Run the following commands to deploy your Liberty application with three replicas to the AKS cluster. Command output is also shown inline.
 
    ```azurecli-interactive
    # Create OpenLibertyApplication "javaee-cafe-cluster"
@@ -319,6 +368,8 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
 
 1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, use `CTRL-C` to stop the `kubectl` watch process.
 
+---
+
 ### Test the application
 When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
 
@@ -339,8 +390,6 @@ Open a web browser to the external IP address of your service (`52.152.189.57` f
 
 >[!NOTE]
 > - Currently the application is not using HTTPS. It is recommended to [ENABLE TLS with your own certificates](ingress-own-tls.md).
-
----
 
 ## Clean up the resources
 
