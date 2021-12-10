@@ -96,7 +96,7 @@ foreach ($member in (Get-AzureADMSAdministrativeUnitMember -Id $adminUnitObj.Id)
     {
         Get-AzureADGroup -ObjectId $member.ObjectId
     }
-  }
+}
 ```
 
 ## Microsoft Graph API
