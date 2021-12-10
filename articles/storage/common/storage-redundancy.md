@@ -1,5 +1,6 @@
 ---
 title: Data redundancy 
+titleSuffix: Azure Storage
 description: Understand data redundancy in Azure Storage. Data in your Microsoft Azure Storage account is replicated for durability and high availability.
 services: storage
 author: tamram
@@ -21,7 +22,7 @@ When deciding which redundancy option is best for your scenario, consider the tr
 - Whether your data is replicated to a second region that is geographically distant to the primary region, to protect against regional disasters
 - Whether your application requires read access to the replicated data in the secondary region if the primary region becomes unavailable for any reason
 
-> [!NOTE]  
+> [!NOTE]
 > The features and regional availability described in this article are also available to accounts that have a hierarchical namespace (Azure Blob storage).
 
 The services that comprise Azure Storage are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy storage resources such as blob containers (Blob Storage), file shares (Azure Files), tables (Table Storage), or queues (Queue Storage).
@@ -121,7 +122,7 @@ Azure Storage offers two options for copying your data to a secondary region:
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
 
-> [!NOTE]  
+> [!NOTE]
 > The primary difference between GRS and GZRS is how data is replicated in the primary region. Within the secondary region, data is always replicated synchronously three times using LRS. LRS in the secondary region protects your data against hardware failures.
 
 With GRS or GZRS, the data in the secondary region isn't available for read or write access unless there is a failover to the secondary region. For read access to the secondary region, configure your storage account to use read-access geo-redundant storage (RA-GRS) or read-access geo-zone-redundant storage (RA-GZRS). For more information, see [Read access to data in the secondary region](#read-access-to-data-in-the-secondary-region).
@@ -137,7 +138,7 @@ Geo-redundant storage (GRS) copies your data synchronously three times within a 
 
 A write operation is first committed to the primary location and replicated using LRS. The update is then replicated asynchronously to the secondary region. When data is written to the secondary location, it's also replicated within that location using LRS.
 
-The following diagram shows how your data is replicated with GZRS or RA-GZRS:
+The following diagram shows how your data is replicated with GRS or RA-GRS:
 
 :::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS or RA-GRS":::
 
@@ -147,7 +148,7 @@ Geo-zone-redundant storage (GZRS) combines the high availability provided by red
 
 With a GZRS storage account, you can continue to read and write data if an availability zone becomes unavailable or is unrecoverable. Additionally, your data is also durable in the case of a complete regional outage or a disaster in which the primary region isn't recoverable. GZRS is designed to provide at least 99.99999999999999% (16 9's) durability of objects over a given year.
 
-The following diagram shows how your data is replicated with GZRS:
+The following diagram shows how your data is replicated with GZRS or RA-GZRS:
 
 :::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS or RA-GZRS":::
 
