@@ -1,5 +1,5 @@
 ---
-title: Detect motion, record video with Azure Video Analyzer
+title: Detect motion, record a video
 description: This quickstart shows how to use Azure Video Analyzer edge module in order to detect motion in a live video stream and record video to the Video Analyzer account.
 ms.topic: quickstart
 ms.date: 11/04/2021
@@ -1002,4 +1002,4 @@ You can examine the Video Analyzer video resource that was created by the live p
 ## Next steps
 
 * Learn how to [play back video recordings](../playback-recordings-how-to.md)
-* Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
+* Try [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md)

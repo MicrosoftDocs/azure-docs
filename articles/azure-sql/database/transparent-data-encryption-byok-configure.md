@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 06/23/2021
 ---
 
