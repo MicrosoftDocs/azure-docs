@@ -139,7 +139,7 @@ For steps, see [Manage storage account access keys](../storage/common/storage-ac
 
 ## Calling the backup and restore operations
 
-The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/2020-12-01/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/2020-12-01/api-management-service/restore).
+The REST APIs are [Api Management Service - Backup](/rest/api/apimanagement/current-ga/api-management-service/backup) and [Api Management Service - Restore](/rest/api/apimanagement/current-ga/api-management-service/restore).
 
 > [!NOTE]
 > Backup and restore operations can also be performed with PowerShell [_Backup-AzApiManagement_](/powershell/module/az.apimanagement/backup-azapimanagement) and [_Restore-AzApiManagement_](/powershell/module/az.apimanagement/restore-azapimanagement) commands respectively.

@@ -1,7 +1,6 @@
 ---
 title: Azure Active Directory breaking changes reference
 description: Learn about changes made to the Azure AD protocols that may impact your application.
-services: active-directory
 author: rwike77
 manager: CelesteDG
 
@@ -43,7 +42,7 @@ The authentication system alters and adds features on an ongoing basis to improv
 
 Today, when a user is sent to ADFS to authenticate, they will be silently signed into any account that already has a session with ADFS.  This silent sign-in occurs even if the user intended to sign into a different user account. To reduce the frequency of this incorrect sign in occurring, starting in December Azure AD will send the `prompt=login` parameter to ADFS if the Web Account Manager in Windows provides Azure AD a `login_hint` during sign-in, which indicates a specific user is desired for sign-in. 
 
-When the above requirements are met (WAM is used to send the user to Azure AD to sign in, a `login_hint` is included, and the [ADFS instance for the user's domain supports `prompt=login`](https://docs.microsoft.com/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)) the user will not be silently signed in, and instead asked to provide a username to continue signing into ADFS.  If they wish to sign into their existing ADFS session, they can select the "Continue as current user" option displayed below the login prompt. Otherwise, they can continue with the username that they intend to sign in with. 
+When the above requirements are met (WAM is used to send the user to Azure AD to sign in, a `login_hint` is included, and the [ADFS instance for the user's domain supports `prompt=login`](/windows-server/identity/ad-fs/operations/ad-fs-prompt-login)) the user will not be silently signed in, and instead asked to provide a username to continue signing into ADFS.  If they wish to sign into their existing ADFS session, they can select the "Continue as current user" option displayed below the login prompt. Otherwise, they can continue with the username that they intend to sign in with. 
 
 This change will be rolled out in December 2021 over the course of several weeks. It does not change sign in behavior for:
 * Applications that use IWA directly
@@ -208,7 +207,7 @@ When an authentication response is sent from login.microsoftonline.com to an app
 
 **Protocol impacted**: Anywhere POST is used ([client credentials](./v2-oauth2-client-creds-grant-flow.md), [authorization code redemption](./v2-oauth2-auth-code-flow.md), [ROPC](./v2-oauth-ropc.md), [OBO](./v2-oauth2-on-behalf-of-flow.md), and [refresh token redemption](./v2-oauth2-auth-code-flow.md#refresh-the-access-token))
 
-Starting the week of 9/2, authentication requests that use the POST method will be validated using stricter HTTP standards.  Specifically, spaces and double-quotes (“) will no longer be removed from request form values. These changes are not expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests.
+Starting the week of 9/2, authentication requests that use the POST method will be validated using stricter HTTP standards.  Specifically, spaces and double-quotes (") will no longer be removed from request form values. These changes are not expected to break any existing clients, and will ensure that requests sent to Azure AD are reliably handled every time. In the future (see above) we plan to additionally reject duplicate parameters and ignore the BOM within requests.
 
 Example:
 

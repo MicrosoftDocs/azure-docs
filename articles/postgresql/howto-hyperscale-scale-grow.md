@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 08/03/2021
+ms.date: 12/06/2021
 ---
 
 # Scale a Hyperscale (Citus) server group
@@ -78,3 +78,4 @@ adjusted independently. Adjust the **storage** slider under  **Configuration
   options](concepts-hyperscale-configuration-options.md).
 - [Rebalance distributed table shards](howto-hyperscale-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
+- See the sizes of distributed tables, and other [useful diagnostic quries](howto-hyperscale-useful-diagnostic-queries.md).

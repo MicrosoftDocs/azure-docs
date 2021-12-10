@@ -36,7 +36,7 @@ Parameters are case-sensitive.
 
 | Parameter Name | Description |
 |----------------|----------------------|
-| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md) |
+| `defaultLanguageCode` | (optional) The language code to apply to documents that don't specify language explicitly. <br/> See [Full list of supported languages](../cognitive-services/text-analytics/language-support.md). |
 
 ## Skill inputs 
 

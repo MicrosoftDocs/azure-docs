@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: batamig
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 12/01/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -595,7 +595,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | --- | --- |
 | **Data ingestion method** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | CitrixAnalytics_SAlerts_CL​ |
-| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Microsoft Sentinel](https://aka.ms/Sentinel-Citrix-Connector) |
+| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Microsoft Sentinel](https://docs.citrix.com/en-us/security-analytics/getting-started-security/siem-integration/azure-sentinel-integration.html) |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 | | |
 
@@ -925,6 +925,35 @@ end
 - Set the **syslog port** to **514** or the port set on the Syslog daemon on the forwarder.
 - To enable CEF format in early FortiOS versions, you might need to run the command set **csv disable**.
 
+
+## GitHub (Preview)
+
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** |[**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md)<br><br>Only available after installing the [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution. |
+| **Log Analytics table(s)** | GitHubAuditLogPolling_CL |
+| **API credentials** | GitHub access token |
+| **Connector deployment instructions** | [Extra configuration for the GitHub connector](#extra-configuration-for-the-github-connector) |
+| **Supported by** | Microsoft |
+| | |
+
+### Extra configuration for the GitHub connector
+
+**Prerequisite**: You must have a GitHub enterprise account and an accessible organization in order to connect to GitHub from Microsoft Sentinel.
+
+1. Install the **Continuous Threat Monitoring for GitHub** solution in your Microsoft Sentinel workspace. For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md).
+
+1. Create a GitHub personal access token for use in the Microsoft Sentinel connector. For more information, see the relevant [GitHub documentation](https://docs.github.com/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+1. In the Microsoft Sentinel **Data connectors** area, search for and locate the GitHub connector. On the right, select **Open connector page**.
+
+1. On the **Instructions** tab, in the **Configuration** area, enter the following details:
+
+    - **Organization Name**: Enter the name of the organization who's logs you want to connect to.
+    - **API Key**: Enter the GitHub personal access token you'd created earlier in this procedure.
+
+1. Select **Connect** to start ingesting your GitHub logs to Microsoft Sentinel.
 
 
 ## Google Workspace (G-Suite) (Preview)

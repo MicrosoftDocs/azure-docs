@@ -8,7 +8,7 @@ ms.subservice: data-movement
 author: LitKnd
 ms.custom: sqldbrb=2
 ms.author: kendralittle
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.date: 12/10/2021
 ms.topic: how-to
 ---
