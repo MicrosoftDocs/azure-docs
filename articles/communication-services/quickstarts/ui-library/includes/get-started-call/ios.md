@@ -131,7 +131,6 @@ The following classes and interfaces handle some of the major features of the Az
 | --------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
 | [CallComposite](#create-call-composite) | The composite renders a call experience with participant gallery and controls. |
 | [CallCompositeOptions](#create-call-composite) | Includes options such as the theme configuration and the events handler. |
-| [CallCompositeEventsHandler](#subscribe-to-events-from-callcomposite) | Allows you to receive events from composite. |
 | [GroupCallOptions](#group-call) | The options for joining a group call, such as groupId. |
 | [TeamsMeetingOptions](#teams-meeting) | The options for joining a Team's meeting, such as the meeting link. |
 | [ThemeConfiguration](#apply-theme-configuration) | Allows you to customize the theme. |
@@ -200,20 +199,15 @@ Call `launch` on the `CallComposite` instance inside the `startCallComposite` fu
 callComposite?.launch(with: options)
 ```
 
-### Subscribe to events from `CallComposite`
+### Subscribe to events
 
-You can implement the closures from `CallCompositeEventsHandler` to act on the events and pass the implementation to `CallCompositeOptions`. An event for when the composite ended with an error is an example.
-
-```swift
-let handler = CallCompositeEventsHandler(didFail: { error in
-            print("didFail with error:\(error)")
-        })
-```
+You can implement the closures to act on the events. An event for when the composite ended with an error is an example.
 
 ```swift
-let callCompositeOptions = CallCompositeOptions(callCompositeEventsHandler: handler)
+callComposite?.setTarget(didFail: { error in
+    print("didFail with error:\(error)")
+})
 ```
-
 ### Apply theme configuration
 
 You can customize the theme by creating a custom theme configuration that implements the ThemeConfiguration protocol. You then include an instance of that new class in your CallCompositeOptions.
