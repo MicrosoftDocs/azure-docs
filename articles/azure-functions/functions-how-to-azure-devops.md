@@ -354,7 +354,7 @@ The following YAML snippet shows how to deploy to a staging slot, and then swap 
 ```
 # [Classic](#tab/classic)
 
-You can configure the Azure Function App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
+You can configure your function app to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
 Use the option **Deploy to Slot** in the **Azure Function App Deploy** task to specify the slot to deploy to. You can swap the slots by using the **Azure App Service Manage** task.
 
