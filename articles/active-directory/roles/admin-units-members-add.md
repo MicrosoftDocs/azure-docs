@@ -50,7 +50,7 @@ You can add users or groups to administrative units using the Azure portal. You 
 
     ![Screenshot of the "Administrative units" pane for assigning a user to an administrative unit.](./media/admin-units-members-add/assign-users-individually.png)
 
-### Add users or groups to an administrative unit
+### Add users or groups to a single administrative unit
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 

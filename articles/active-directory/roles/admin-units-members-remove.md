@@ -50,7 +50,7 @@ You can remove users or groups from administrative units individually using the 
 
     ![Screenshot showing how to remove a user from an administrative unit from the user's profile pane.](./media/admin-units-members-remove/user-remove-admin-units.png)
 
-### Remove users or groups from an administrative unit
+### Remove users or groups from a single administrative unit
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -116,15 +116,11 @@ Use the [Remove a member](/graph/api/administrativeunit-delete-members) API to r
 
 ### Remove users from an administrative unit
 
-Request
-
 ```http
 DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{user-id}/$ref
 ```
 
 ### Remove groups from an administrative unit
-
-Request
 
 ```http
 DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/{group-id}/$ref

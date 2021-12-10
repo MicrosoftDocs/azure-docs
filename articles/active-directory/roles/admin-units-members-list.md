@@ -46,7 +46,7 @@ You can list the users or groups in administrative units using the Azure portal.
 
     ![Screenshot of the "Administrative units" pane, displaying a list administrative units that a group is assigned to.](./media/admin-units-members-list/list-group-au.png)
 
-### List the users or groups for an administrative unit
+### List the users or groups for a single administrative unit
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 
@@ -105,23 +105,17 @@ Use the [List members](/graph/api/administrativeunit-list-members) API to list u
 
 ### List the administrative units for a user
 
-Request
-
 ```http
 GET https://graph.microsoft.com/v1.0/users/{user-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ### List the administrative units for a group
 
-Request
-
 ```http
 GET https://graph.microsoft.com/v1.0/groups/{group-id}/memberOf/$/Microsoft.Graph.AdministrativeUnit
 ```
 
 ### List the groups for an administrative unit
-
-Request
 
 ```http
 GET https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-id}/members/$/microsoft.graph.group
