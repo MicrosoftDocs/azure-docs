@@ -1,6 +1,6 @@
 ---
 title: Deploy Service Fabric node types with managed data disks
-description: Learn how to create and deploy Service Fabric node types with attached managed data Disks
+description: Learn how to create and deploy Service Fabric node types with attached managed data disks.
 author: craftyhouse
 
 ms.topic: conceptual
@@ -9,34 +9,34 @@ ms.author: micraft
 
 ---
 
-# Deploy an Azure Service Fabric cluster node type with managed data disks (Preview)
+# Deploy an Azure Service Fabric cluster node type with managed data disks (preview)
 
 >[!NOTE]
-> Support for managed data disks is only in Preview right now, and should not be used with Production workloads.
+> Support for managed data disks is only in preview right now and should not be used with production workloads.
 
 
-Azure Service Fabric node types, by default, use the temporary disk on each virtual machine (VM) in the underlying virtual machine scale set for data storage. However, since the temporary disk is not persistent, and the size of the temporary disk is bound to a given VM SKU, this can be too restrictive for some scenarios. Azure managed data disks have a persistent data disk for which customers can specify the node-type size and performance that is separate from the VM SKU making managed data disks possibly more suitable for some scenarios.
+Azure Service Fabric node types, by default, use the temporary disk on each virtual machine (VM) in the underlying virtual machine scale set for data storage. However, because the temporary disk is not persistent, and the size of the temporary disk is bound to a given VM SKU, this can be too restrictive for some scenarios. Azure managed data disks have a persistent data disk for which customers can specify the node-type size and performance that is separate from the VM SKU, making managed data disks possibly more suitable for some scenarios.
 
-The following document provides the steps for how to use native support from Service Fabric to configure and use managed data disks as the default data path. Service Fabric will automatically configure managed data disks at node type creation and handle situations where VMs or the virtual machine scale set is reimaged.
+This article provides the steps for how to use native support from Service Fabric to configure and use managed data disks as the default data path. Service Fabric will automatically configure managed data disks at node type creation and handle situations where VMs or the virtual machine scale set is reimaged.
 
 ## Prerequisites
 
-* Required minimum disk size for the managed data disk is 50 GB.
-* In scenarios where more than one managed data disk is attached, customer needs to manage the data disks on their own.
+* The required minimum disk size for the managed data disk is 50 GB.
+* In scenarios where more than one managed data disk is attached, the customer needs to manage the data disks themselves.
 
-## Configuring the virtual machine scale set to use managed data disks in Service Fabric
+## Configure the virtual machine scale set to use managed data disks in Service Fabric
 To use managed data disks on a node type, configure the underlying virtual machine scale set resource with the following:
 
 * Add a managed disk in data disks section of the template for the virtual machine scale set. 
 * Update the Service Fabric extension with following settings: 
-    * For Windows - **useManagedDataDisk: true** and **dataPath: 'K:\\\\SvcFab'** .  Note, the drive letter "K" is just a representation. You can use any drive letter lexicographically greater than all the drive letters present in the virtual machine scale set SKU.
-    * For Linux - **useManagedDataDisk:true** and **dataPath: '\mnt\sfdataroot'** .
+    * For Windows: **useManagedDataDisk: true** and **dataPath: 'K:\\\\SvcFab'** .  Note, the drive K is just a representation. You can use any drive letter lexicographically greater than all the drive letters present in the virtual machine scale set SKU.
+    * For Linux: **useManagedDataDisk:true** and **dataPath: '\mnt\sfdataroot'** .
 
 >[!NOTE]
 > Support for managed data disks for Linux Service Fabric clusters is currently not available.
 
 
-### Service Fabric Extension Azure Resource Manager template
+Service Fabric Extension Azure Resource Manager template
 
 ```json
 {
@@ -84,9 +84,10 @@ To use managed data disks on a node type, configure the underlying virtual machi
 ```
 
 ## Migrate to using managed data disks for Service Fabric node types
-* For all migration scenarios, a new node type needs to be added which uses managed data disks as specified above.
-* Once new node types are added, migrate the workloads to the new node types.
-* Once the resources have finished deploying to the new node types, you can begin to disable the nodes that you want to remove from the original cluster.
+
+For all migration scenarios, you need to add a new node type that uses managed data disks as specified earlier. When the new node types are added, you can migrate the workloads to them. After the workload resources have finished deploying to the new node types, you can begin to disable the nodes you want to remove from the original cluster.
+
+
 
 ## Next steps 
 * [Service Fabric overview](service-fabric-reliable-services-introduction.md)
