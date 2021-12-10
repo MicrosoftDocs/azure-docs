@@ -19,13 +19,13 @@ ms.custom: aaddev
 
 # What are workload identities?
 
-A workload identity is an identity used by a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The terminology is inconsistent across the industry, but generally a workload identity is something you need for your software entity to authenticate with some system.  A workload identity could be a database account in a MongoDB database or a role in AWS that you need to access Amazon S3.
+A workload identity is an identity used by a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The terminology is inconsistent across the industry, but generally a workload identity is something you need for your software entity to authenticate with some system.  For example, a workload identity could be a database account in a MongoDB database or a role in AWS that you need to access Amazon S3.
 
 In Azure Active Directory (Azure AD), workload identities are apps, service principals, and managed identities.  Here are some ways that workload identities in Azure AD are used:
 
 - An app that enables a web app to access Microsoft Graph based on admin or user consent. This access could be either on behalf of the user or on behalf of the application.
 - A managed identity used by a developer to provision their service with access to an Azure resource such as Azure Key Vault or Azure Storage.
-- A service principal used by a developer to enable a CI/CD pipeline in GitHub Actions to deploy a web app to Azure App Service.
+- A service principal used by a developer to enable a CI/CD pipeline to deploy a web app from GitHub to Azure App Service.
 
 ## Workload identities, other machine identities, and human identities
 
