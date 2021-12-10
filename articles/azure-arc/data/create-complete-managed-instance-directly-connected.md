@@ -18,10 +18,10 @@ To deploy in indirectly connected mode, see [Quickstart: Deploy Azure Arc-enable
 
 When you complete the steps in this article, you will have:
 
-1. A Kubernetes cluster on Azure Kubernetes Services (AKS) in connected to Azure
-1. A data controller in directly connected mode
-1. An instance of Azure Arc-enabled SQL Managed Instance
-1. A connection to the instance with Azure Data Studio
+- A Kubernetes cluster on Azure Kubernetes Services (AKS) connected to Azure.
+- A data controller in directly connected mode.
+- An instance of Azure Arc-enabled SQL Managed Instance.
+- A connection to the instance with Azure Data Studio.
 
 Use these objects to experience Azure Arc-enabled data services. 
 
