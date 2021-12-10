@@ -248,7 +248,7 @@ trigger:
 variables:
   # Azure service connection established during pipeline creation
   azureSubscription: <Name of your Azure subscription>
-  appName: <Name of the Function app>
+  appName: <Name of the function app>
   # Agent VM image name
   vmImageName: 'ubuntu-latest'
 
