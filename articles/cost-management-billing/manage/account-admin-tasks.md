@@ -29,7 +29,7 @@ Accounts portal will retire and customers will be redirected to the Azure portal
 ## Navigate to your subscription's payment methods
 
 > [!NOTE]
-> The Reserve Bank of India has new regulations for storing credit card information that may impact credit card users in India. For more information, see [Reserve Bank of India](../understand/pay-bill#reserve-bank-of-india.md).
+> The Reserve Bank of India has new regulations for storing credit card information that may impact credit card users in India. For more information, see [Reserve Bank of India](../understand/pay-bill.md#reserve-bank-of-india).
 
 1. Sign in to the Azure portal as the Account Administrator.
 
