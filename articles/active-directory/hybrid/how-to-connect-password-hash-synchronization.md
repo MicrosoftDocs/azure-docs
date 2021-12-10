@@ -106,9 +106,9 @@ Continue with this operation?
 
 Once enabled, Azure AD does not go to each synchronized user to remove the `DisablePasswordExpiration` value from the PasswordPolicies attribute. Instead, the `DisablePasswordExpiration` value is removed from PasswordPolicies during the next password hash sync for each user, upon their next password change in on-premises AD.
 
-After EnforceCloudPasswordPolicyForPasswordSyncedUsers feature is enabled, new users will be provisioned without PasswordPolicies value.
+After the *EnforceCloudPasswordPolicyForPasswordSyncedUsers* feature is enabled, new users are provisioned without a PasswordPolicies value.
 
-It is recommended to enable EnforceCloudPasswordPolicyForPasswordSyncedUsers, prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
+It is recommended to enable *EnforceCloudPasswordPolicyForPasswordSyncedUsers* prior to enabling password hash sync, so that the initial sync of password hashes does not add the `DisablePasswordExpiration` value to the PasswordPolicies attribute for the users.
 
 The default Azure AD password policy requires users to change their passwords every 90 days. If your policy in AD is also 90 days, the two policies should match. However, if the AD policy is not 90 days, you can update the Azure AD password policy to match by using the Set-MsolPasswordPolicy PowerShell command.
 
@@ -119,7 +119,7 @@ Caveat: If there are synchronized accounts that need to have non-expiring passwo
 `Set-AzureADUser -ObjectID <User Object ID> -PasswordPolicies "DisablePasswordExpiration"`
 
 > [!NOTE]
-> Hybrid users that have PasswordPolicies value set to `DisablePassordExpiration`, will have this value switch to `None` after a password change is executed on-premises.
+> For hybrid users that have a PasswordPolicies value set to `DisablePassordExpiration`, this value switches to `None` after a password change is executed on-premises.
 
 > [!NOTE]
 > The Set-MsolPasswordPolicy PowerShell command will not work on federated domains. 
