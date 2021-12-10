@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 11/17/2021
+ms.date: 12/09/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -28,19 +28,19 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 | 10.0 | 01/2021 | 10/2021 |
 | 10.3 | 04/2021 | 01/2022 |
 | 10.5.2 | 10/2021 | 07/2022 |
-| 10.5.3 | 11/2021 | 08/2022 |
+| 10.5.3 | 10/2021 | 07/2022 |
 
 ## November 2021
 
 The following feature enhancements are available with version 10.5.3 of Microsoft Defender for IoT.
 
-- The sensors will now automatically delete archived alerts that are over 90 days old.
+- The on-premises management console, has a new [ServiceNow Integration API - “/external/v3/integration/ (Preview)](references-work-with-defender-for-iot-apis.md#servicenow-integration-api---externalv3integration-preview).
 
-- Improvements were made to alert exports, based on customer feedback.
+- Enhancements have been made to the network traffic analysis of multiple OT and ICS protocol dissectors.
 
-- Performance, and network traffic analysis improvements were made.
+- As part of our automated maintenance, archived alerts that are over 90 days old will now be automatically deleted.
 
-- A new [ServiceNow integration API](references-work-with-defender-for-iot-apis.md#service-now-integration-api---externalv3integration) has been added to the on-premise management console.
+- A number of enhancements have been made to the exporting of alert metadata based on customer feedback.
 
 ## October 2021
 

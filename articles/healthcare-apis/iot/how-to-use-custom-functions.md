@@ -5,7 +5,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
 ---
 
@@ -188,6 +188,9 @@ Examples:
 |--------------------------|---------------------------|-------------------------|
 | {"unix": 1626799080000}  | fromUnixTimestampMs(unix) | "2021-07-20T16:38:00+0" |
 | {"unix": 0}              | fromUnixTimestampMs(unix) | "1970-01-01T00:00:00+0" |
+
+> [!TIP]
+> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
 
 ## Next steps
 

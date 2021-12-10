@@ -46,7 +46,7 @@ In this scenario, the automation framework creates all Azure components, and use
 
 To test this scenario: 
 
-Clone the [SAP deployment automation framework](https://github.com/Azure/sap-hana/) repository and copy the sample files to your root folder for parameter files:
+Clone the [SAP deployment automation framework](https://github.com/Azure/sap-automation/) repository and copy the sample files to your root folder for parameter files:
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
@@ -74,7 +74,7 @@ appId=<appID>
 spn_secret=<password>
 tenant_id=<tenant>
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana/"
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation/"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
 $DEPLOYMENT_REPO_PATH/scripts/prepare_region.sh
@@ -221,7 +221,7 @@ appId=<appID>
 spn_secret=<password>
 tenant_id=<tenant>
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana/"
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation/"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
 $DEPLOYMENT_REPO_PATH/scripts/prepare_region.sh

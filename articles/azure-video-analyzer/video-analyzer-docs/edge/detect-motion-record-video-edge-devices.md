@@ -4,7 +4,7 @@ description: Use Azure Video Analyzer to analyze the live video feed from a (sim
 ms.topic: quickstart
 ms.date: 06/01/2021
 zone_pivot_groups: video-analyzer-programming-languages
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Detect motion and record video on edge devices
@@ -234,7 +234,7 @@ If you intend to try the other quickstarts, then keep the resources you created.
 
 ## Next steps
 
-- Follow the [Run Azure Video Analyzer with your own model](analyze-live-video-use-your-model-http.md) quickstart to apply AI to live video feeds.
+- Follow [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md) to apply AI to live video feeds.
 - Review additional challenges for advanced users:
 
   - Use an [IP camera](https://en.wikipedia.org/wiki/IP_camera) that supports RTSP instead of using the RTSP simulator. You can find IP cameras that support RTSP on the [ONVIF conformant products](https://www.onvif.org/conformant-products/) page. Look for devices that conform with profiles G, S, or T.

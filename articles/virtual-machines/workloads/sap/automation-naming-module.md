@@ -56,11 +56,11 @@ To prepare your Terraform environment for custom naming, you first need to creat
 
 1. Create a root-level folder in your Terraform environment. For example, `Azure_SAP_Automated_Deployment`.
 1. Navigate to your new root-level folder.
-1. Clone the [automation framework repository](https://github.com/Azure/sap-hana). This step creates a new folder `sap-hana`.
+1. Clone the [automation framework repository](https://github.com/Azure/sap-automation). This step creates a new folder `sap-automation`.
 1. Create a folder within the root-level folder called `Contoso_naming`.
-1. Navigate to the `sap-hana` folder.
+1. Navigate to the `sap-automation` folder.
 1. Check out the appropriate branch in git.
-1. Navigate to `\deploy\terraform\terraform-units\modules` within the `sap-hana` folder.
+1. Navigate to `\deploy\terraform\terraform-units\modules` within the `sap-automation` folder.
 1. Copy the folder `sap_namegenerator` to the `Contoso_naming` folder.
 
 The naming module is called from the root terraform folders:

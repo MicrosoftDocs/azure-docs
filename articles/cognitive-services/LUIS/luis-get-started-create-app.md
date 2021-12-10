@@ -6,7 +6,7 @@ ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/20/2021
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Build your app in LUIS portal
@@ -112,7 +112,7 @@ To add more entities to your app
 
 1. Select **Entities** in the left navigation menu.
 2. Select **Create**
-3. Enter the intent name, `HomeAutomation.DeviceAlias`, select machine learned from **type** and then select **Create**.
+3. Enter the entity name, `HomeAutomation.DeviceAlias`, select machine learned from **type** and then select **Create**.
 
 ### Add example utterances
 

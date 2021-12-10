@@ -3,7 +3,7 @@ title: Restore a snapshot to a new volume using Azure NetApp Files | Microsoft D
 description: Describes how to create a new volume from a snapshot by using Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 
 # Restore a snapshot to a new volume using Azure NetApp Files

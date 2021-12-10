@@ -30,6 +30,7 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 ### Install the package and dependencies with CocoaPods
 
 1. Create a Podfile in your project root directory by running `pod init`.
+    - If encounter error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to latest version
 2. Add the following to your Podfile:
 
 ```

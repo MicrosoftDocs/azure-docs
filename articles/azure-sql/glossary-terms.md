@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: reference
 author: MashaMSFT
 ms.author: mathoma
-ms.reviewer: 
-ms.date: 11/29/2021
+ms.reviewer: kendralittle
+ms.date: 12/15/2021
 ---
 # Azure SQL glossary of terms
 [!INCLUDE[appliesto-asf](./includes/appliesto-asf.md)] 

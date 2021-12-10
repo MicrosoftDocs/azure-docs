@@ -4,7 +4,7 @@ description: In this quickstart guide, you'll create and manage an Azure Databas
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-portal
 ms.topic: quickstart
 ms.date: 10/18/2020
 ---

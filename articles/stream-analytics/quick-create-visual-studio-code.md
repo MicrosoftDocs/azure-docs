@@ -6,7 +6,7 @@ author: su-jie
 ms.author: sujie
 ms.date: 01/18/2020
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-other
 #Customer intent: "As an IT admin/developer, I want to create a Stream Analytics job, configure input and output, and analyze data by using Visual Studio Code."
 ---
 
@@ -138,7 +138,7 @@ Before you define the Stream Analytics job, you should prepare the data that's l
    SELECT *
    INTO Output
    FROM Input
-   HAVING Temperature > 27
+   WHERE Temperature > 27
    ```
 
 ## Define a live input

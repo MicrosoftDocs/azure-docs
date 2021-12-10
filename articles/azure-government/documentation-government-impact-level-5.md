@@ -6,7 +6,7 @@ ms.topic: article
 ms.custom: references_regions
 author: stevevi
 ms.author: stevevi
-ms.date: 09/11/2021
+ms.date: 11/17/2021
 ---
 
 # Isolation guidelines for Impact Level 5 workloads
@@ -309,11 +309,11 @@ For Security services availability in Azure Government, see [Products available 
 
 - Configure encryption at rest of content in Azure Information Protection [using customer-managed keys in Azure Key Vault](/azure/information-protection/byok-price-restrictions).
 
-### [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/)
+### [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) (formerly Azure Sentinel)
 
 - Configure encryption at rest of content in Microsoft Sentinel by [using customer-managed keys in Azure Key Vault](../sentinel/customer-managed-keys.md).
 
-### [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security)
+### [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-defender-for-cloud-apps) (formerly Microsoft Cloud App Security)
 
 - Configure encryption at rest of content in Microsoft Defender for Cloud Apps [using customer-managed keys in Azure Key Vault](/cloud-app-security/cas-compliance-trust#security).
 
