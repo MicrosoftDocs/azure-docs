@@ -65,6 +65,25 @@ Aliases: `-l`
 
 Required: True
 ```
+
+### `--subscription`
+Sets the subscription which contains the SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
+
+```yaml
+Type: String
+Aliases: `-l`
+Required: True
+```
+
+### `--storage_account`
+Sets the storage account name of the tfstate storage account in SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
+
+```yaml
+Type: String
+Aliases: `-l`
+Required: True
+```
+
 ### `--help`
 Shows help for the script.
 
