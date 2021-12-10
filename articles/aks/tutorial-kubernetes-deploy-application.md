@@ -23,6 +23,9 @@ In later tutorials, this application is scaled out and updated.
 
 This quickstart assumes a basic understanding of Kubernetes concepts. For more information, see [Kubernetes core concepts for Azure Kubernetes Service (AKS)][kubernetes-concepts].
 
+> [!TIP]
+> AKS clusters can use GitOps for configuration management. This enables declarations of your cluster's state, which are pushed to source control, to be applied to the cluster automatically. To learn how to use GitOps to deploy an application with an AKS cluster, see the tutorial [Use GitOps with Flux v2][gitops-flux-tutorial] and follow the [prerequisites for Azure Kubernetes Service clusters][gitops-flux-tutorial-aks].
+
 ## Before you begin
 
 In previous tutorials, an application was packaged into a container image, this image was uploaded to Azure Container Registry, and a Kubernetes cluster was created.
@@ -160,3 +163,5 @@ Advance to the next tutorial to learn how to scale a Kubernetes application and 
 [kubernetes-service]: concepts-network.md#services
 [azure-powershell-install]: /powershell/azure/install-az-ps
 [get-azcontainerregistry]: /powershell/module/az.containerregistry/get-azcontainerregistry
+[gitops-flux-tutorial]: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md
+[gitops-flux-tutorial-aks]: ../azure-arc/kubernetes/tutorial-use-gitops-flux2.md#for-azure-kubernetes-service-clusters
