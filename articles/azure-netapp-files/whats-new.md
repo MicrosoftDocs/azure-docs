@@ -13,13 +13,23 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/19/2021
+ms.date: 12/09/2021
 ms.author: b-hchen
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## December 2021
+
+* Features that are now generally available (GA)  
+
+    The following features are now GA. You no longer need to register the features before using them.
+
+    * [Dual-protocol (NFSv4.1 and SMB) volume](create-volumes-dual-protocol.md)
+    * [ADDS LDAP over TLS](configure-ldap-over-tls.md)
+    * [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#smb3-encryption)
 
 ## November 2021
 
