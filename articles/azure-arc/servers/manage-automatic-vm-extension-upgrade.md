@@ -69,7 +69,7 @@ To check the status of Automatic Extension Upgrade (preview) for all extensions 
 az connectedmachine extension list --resource-group resourceGroupName --machine-name machineName --query "[].{Name:name, AutoUpgrade:properties.enableAutoUpgrade}" --output table
 ```
 
-To enable Automatic Extension Upgrade (preview) for an extension using Azure PowerShell, use the [Update-AzConnectedMachineExtension](az.connectedmachine/update-azconnectedmachineextension) cmdlet with the `-Name`, `-MachineName`, `-ResourceGroup`, and `-EnableAutomaticUpgrade` parameters.
+To enable Automatic Extension Upgrade (preview) for an extension using Azure PowerShell, use the [Update-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/update-azconnectedmachineextension) cmdlet with the `-Name`, `-MachineName`, `-ResourceGroup`, and `-EnableAutomaticUpgrade` parameters.
 
 ```azurepowershell
 Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name DependencyAgentLinux -EnableAutomaticUpgrade
@@ -106,7 +106,7 @@ az connectedmachine extension update \
 
 ### Using Azure PowerShell
 
-Use the [Update-AzConnectedMachineExtension](az.connectedmachine/update-azconnectedmachineextension) cmdlet with the `-Name`, `-MachineName`, `-ResourceGroup`, and `-EnableAutomaticUpgrade` parameters.
+Use the [Update-AzConnectedMachineExtension](/powershell/module/az.connectedmachine/update-azconnectedmachineextension) cmdlet with the `-Name`, `-MachineName`, `-ResourceGroup`, and `-EnableAutomaticUpgrade` parameters.
 
 ```azurepowershell
 Update-AzConnectedMachineExtension -ResourceGroup resourceGroupName -MachineName machineName -Name DependencyAgentLinux -EnableAutomaticUpgrade:$false
