@@ -22,7 +22,7 @@ IoT Edge can be installed on Kubernetes by using [KubeVirt](https://www.cncf.io/
 |-|-|
 |  1 | Install KubeVirt Custom Resource Definitions (CRDs) into the Kubernetes cluster. Like the Kubernetes cluster, management and updates to KubeVirt components are outside the purview of IoT Edge. |
 |  2️ | A KubeVirt `VirtualMachine` custom resource is used to define a virtual machine of required resources and base operating system. A running *instance* of this VM template is created in a Kubernetes Pod using [KVM](https://en.wikipedia.org/wiki/Kernel-based_Virtual_Machine) and [QEMU](https://wiki.qemu.org/Main_Page) technologies. |
-|  3️ | The environment inside the QEMU container is just like any other virtual machine. IoT Edge and its dependencies (like the Moby container engine) can be installed in it just like in any VM or baremetal system. |
+|  3️ | The environment inside the QEMU container is just like any other virtual machine. IoT Edge and its dependencies (like the Moby container engine) can be installed in it just like in any VM or bare metal system. |
 
 ## Sample
 A functional sample for running IoT Edge on Azure Kubernetes Service (AKS) using KubeVirt is available at [https://aka.ms/iotedge-kubevirt](https://aka.ms/iotedge-kubevirt). 
