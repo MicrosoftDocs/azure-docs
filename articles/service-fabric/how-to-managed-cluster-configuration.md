@@ -18,7 +18,7 @@ In addition to selecting the [Service Fabric managed cluster SKU](overview-manag
 * [Scale a node type](how-to-managed-cluster-modify-node-type.md#scale-a-node-type)
 * Enable [automatic OS image upgrades](how-to-managed-cluster-modify-node-type.md#enable-automatic-os-image-upgrades) on cluster node types
 * Modify the [OS image](how-to-managed-cluster-modify-node-type.md#modify-the-os-sku-for-a-node-type) used for a node type
-* Configure [placement properties](how-to-managed-cluster-modify-node-type.md#configure-placement-properties) for a node type
+* Configure [placement properties](how-to-managed-cluster-modify-node-type.md#configure-placement-properties-for-a-node-type) for a node type
 * Selecting the cluster [managed disk type](how-to-managed-cluster-managed-disk.md) SKU
 * Configuring cluster [upgrade options](how-to-managed-cluster-upgrades.md) for the runtime updates
 
