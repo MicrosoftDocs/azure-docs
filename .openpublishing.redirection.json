@@ -26519,9 +26519,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/storage/common/storage-enable-and-view-metrics.md",
-      "redirect_url": "/azure/storage/common/monitor-storage",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-faliure.md",
+      "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-metrics-in-azure-monitor.md",
@@ -26751,7 +26751,7 @@
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics.md",
       "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics-classic-portal.md",
