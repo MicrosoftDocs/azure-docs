@@ -635,9 +635,9 @@ To update and run the provisioning sample with your device information:
 
 3. Open the Java device sample code for editing. The full path to the device sample code is:
 
-    `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeySampleSample.java`
+    `azure-iot-sdk-java/provisioning/provisioning-samples/provisioning-symmetrickey-individual-sample/src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningSymmetricKeyIndividualEnrollmentSample.java`
 
-4. Replace the value of the following variables for your DPS and device enrollment:
+4. Set the value of the following variables for your DPS and device enrollment:
 
     * Replace `<id-scope>` with the **ID Scope** that you copied in step 2.
     * Replace `<provisioning-global-endpoint>` with the **Global device endpoint** that you copied in step 2.
