@@ -12,8 +12,8 @@ ms.topic: quickstart
 ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: arvinh
-# Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
 ---
 
 # Quickstart: View enterprise applications
