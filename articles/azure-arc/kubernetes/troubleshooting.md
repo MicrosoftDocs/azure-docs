@@ -214,6 +214,32 @@ Azure Monitor for containers requires its DaemonSet to be run in privileged mode
 juju config kubernetes-worker allow-privileged=true
 ```
 
+## Cluster connect
+
+### Old version of agents used
+
+Usage of older version of agents where Cluster Connect feature was not yet supported will result in the following error:
+
+```console
+$ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
+
+Hybrid connection for the target resource does not exist. Agent might not have started successfully.
+```
+
+When this occurs, ensure that you are using `connectedk8s` Azure CLI extension of version >= 1.2.0 and [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes. If your cluster is behind an outbound proxy or firewall, verify that websockets connections are enabled for `*.servicebus.windows.net` which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
+
+### Cluster Connect feature disabled
+
+If the Cluster Connect feature is disabled on the cluster, then `az connectedk8s proxy` will fail to establish a session with the cluster.
+
+```console
+$ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
+
+Cannot connect to the hybrid connection because no agent is connected in the target arc resource.
+```
+
+To resolve this error, [enable the Cluster Connect feature](cluster-connect.md#enable-cluster-connect-feature) on your cluster.
+
 ## Enable custom locations using service principal
 
 When you are connecting your cluster to Azure Arc or when you are enabling custom locations feature on an existing cluster, you may observe the following warning:
