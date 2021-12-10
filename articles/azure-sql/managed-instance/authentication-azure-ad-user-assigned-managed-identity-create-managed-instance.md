@@ -11,7 +11,7 @@ ms.reviewer: vanto
 ms.date: 12/15/2021
 ---
 
-# Create server with user-assigned managed identity
+# Create an Azure SQL Managed Instance with a user-assigned managed identity
 
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
@@ -72,7 +72,7 @@ This how-to guide outlines the steps to create an [Azure SQL Managed Instance](s
 
 # [The Azure CLI](#tab/azure-cli)
 
-The Azure CLI command `az sql mi create` is used to provision a new Azure SQL Managed Instance. The below command will provision a managed instance with a user-assigned managed identity, and also enable [Azure AD-only authentication](authentication-azure-ad-only-authentication.md).
+The Azure CLI command `az sql mi create` is used to provision a new Azure SQL Managed Instance. The below command will provision a managed instance with a user-assigned managed identity, and also enable [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md).
 
 > [!NOTE]
 > The script requires a virtual network and subnet be created as a prerequisite.
@@ -103,7 +103,7 @@ For more information, see [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create)
 
 # [PowerShell](#tab/azure-powershell)
 
-The PowerShell command `New-AzSqlInstance` is used to provision a new Azure SQL Managed Instance. The below command will provision a managed instance with a user-assigned managed identity, and also enable [Azure AD-only authentication](authentication-azure-ad-only-authentication.md).
+The PowerShell command `New-AzSqlInstance` is used to provision a new Azure SQL Managed Instance. The below command will provision a managed instance with a user-assigned managed identity, and also enable [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md).
 
 > [!NOTE]
 > The script requires a virtual network and subnet be created as a prerequisite.
@@ -140,7 +140,7 @@ The [Managed Instances - Create Or Update](/rest/api/sql/2020-11-01-preview/mana
 > [!NOTE]
 > The script requires a virtual network and subnet be created as a prerequisite.
 
-The script below will provision a managed instance with a user-assigned managed identity, set the Azure AD admin as `<AzureADAccount>`, and enable [Azure AD-only authentication](authentication-azure-ad-only-authentication.md). The instance SQL Administrator login will also be created automatically and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provisioning, the SQL Administrator login won't be used.
+The script below will provision a managed instance with a user-assigned managed identity, set the Azure AD admin as `<AzureADAccount>`, and enable [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md). The instance SQL Administrator login will also be created automatically and the password will be set to a random password. Since SQL Authentication connectivity is disabled with this provisioning, the SQL Administrator login won't be used.
 
 The Azure AD admin, `<AzureADAccount>` can be used to manage the instance when the provisioning is complete.
 

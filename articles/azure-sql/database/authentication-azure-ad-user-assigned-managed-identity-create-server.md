@@ -11,7 +11,7 @@ ms.reviewer: vanto
 ms.date: 12/15/2021
 ---
 
-# Create server with user-assigned managed identity
+# Create an Azure SQL Database server with a user-assigned managed identity
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
