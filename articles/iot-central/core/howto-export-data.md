@@ -31,7 +31,7 @@ To use data export features, you must have a [V3 application](howto-faq.yml#how-
 
 If you have a V2 application, see [Migrate your V2 IoT Central application to V3](howto-migrate.md).
 
-## Set up export destination
+## Set up an export destination
 
 Your export destination must exist before you configure your data export. The following destination types are currently available:
 
@@ -103,6 +103,18 @@ If you don't have an existing Event Hubs namespace to export to, follow these st
         3. Create a new key or choose an existing key that has **Send** permissions.
         4. Copy either the primary or secondary connection string
 
+To create the Event Hubs destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Event Hubs** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Event Hubs resource, and enter the case-sensitive event hub name if necessary.
+
+1. Select **Save**.
+
 # [Managed identity](#tab/managed-identity)
 
 If you don't have an existing Event Hubs namespace to export to, follow these steps:
@@ -130,6 +142,18 @@ To further secure your event hub and only allow access from trusted services wit
 - [Trusted Microsoft services](../../event-hubs/private-link-service.md#trusted-microsoft-services)
 - [Allow access to Azure Event Hubs namespaces from specific virtual networks](../../event-hubs/event-hubs-service-endpoints.md)
 
+To create the Event Hubs destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Event Hubs** as the destination type.
+
+1. Select **System-assigned managed identity** as the authorization type.
+
+1. Enter the host name of your Event Hubs resource. Then enter the case-sensitive event hub name. A host name looks like: `contoso-waste.servicebus.windows.net`.
+
+1. Select **Save**.
+
 ---
 
 ### Create a Service Bus queue or topic destination
@@ -153,6 +177,18 @@ If you don't have an existing Service Bus namespace to export to, follow these s
         2. Under **Settings**, select **Shared Access Policies**
         3. Create a new key or choose an existing key that has **Send** permissions.
         4. Copy either the primary or secondary connection string
+
+To create the Service Bus destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Service Bus resource, and enter the case-sensitive queue or topic name if necessary.
+
+1. Select **Save**.
 
 # [Managed identity](#tab/managed-identity)
 
@@ -181,6 +217,18 @@ To further secure your queue or topic and only allow access from trusted service
 - [Trusted Microsoft services](../../service-bus-messaging/private-link-service.md#trusted-microsoft-services)
 - [Allow access to Azure Service Bus namespace from specific virtual networks](../../service-bus-messaging/service-bus-service-endpoints.md)
 
+To create the Service Bus destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Service Bus Queue** or  **Azure Service Bus Topic** as the destination type.
+
+1. Select **System-assigned managed identity** as the authorization type.
+
+1. Enter the host name of your Service Bus resource. Then enter the case-sensitive queue or topic name. A host name looks like: `contoso-waste.servicebus.windows.net`.
+
+1. Select **Save**.
+
 ---
 
 ### Create an Azure Blob Storage destination
@@ -201,6 +249,18 @@ If you don't have an existing Azure storage account to export to, follow these s
 1. To create a container in your storage account, go to your storage account. Under **Blob Service**, select **Browse Blobs**. Select **+ Container** at the top to create a new container.
 
 1. Generate a connection string for your storage account by going to **Settings > Access keys**. Copy one of the two connection strings.
+
+To create the Blob Storage destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Blob Storage** as the destination type.
+
+1. Select **Connection string** as the authorization type.
+
+1. Paste in the connection string for your Blob Storage resource, and enter the case-sensitive container name if necessary.
+
+1. Select **Save**.
 
 # [Managed identity](#tab/managed-identity)
 
@@ -235,6 +295,18 @@ To further secure your blob container and only allow access from trusted service
 - [Use private endpoints for Azure Storage](../../storage/common/storage-private-endpoints.md)
 - [Authorize access to blob data with managed identities for Azure resources](../../storage/blobs/authorize-managed-identity.md)
 - [Configure Azure Storage firewalls and virtual networks](../../storage/common/storage-network-security.md?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json)
+
+To create the Blob Storage destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Blob Storage** as the destination type.
+
+1. Select **System-assigned managed identity** as the authorization type.
+
+1. Enter the endpoint URI for your storage account and the case-sensitive container name. An endpoint URI looks like: `https://contosowaste.blob.core.windows.net`.
+
+1. Select **Save**.
 
 ---
 
@@ -287,7 +359,13 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
         .alter table smartvitalspatch policy streamingingestion enable
         ```
 
-1. Add an Azure Data Explorer destination in IoT Central using your Azure Data Explorer cluster or pool URL, database name, and table name. The following table shows the service principal values to use for the authorization:
+To create the Azure Data Explorer destination in IoT Central on the **Create new destination** page:
+
+1. Enter a **Destination name**.
+
+1. Select **Azure Data Explorer** as the destination type.
+
+1. Enter your Azure Data Explorer cluster or pool URL, database name, and table name. The following table shows the service principal values to use for the authorization:
 
     | Service principal value | Destination configuration |
     | ----------------------- | ------------------------- |
@@ -305,55 +383,73 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
 You can export data to a publicly available HTTP webhook endpoint. You can create a test webhook endpoint using [RequestBin](https://requestbin.net/). RequestBin throttles request when the request limit is reached:
 
 1. Open [RequestBin](https://requestbin.net/).
-2. Create a new RequestBin and copy the **Bin URL**. You use this URL when you test your data export.
+1. Create a new RequestBin and copy the **Bin URL**. You use this URL when you test your data export.
 
-## Set up data export
+To create the Azure Data Explorer destination in IoT Central on the **Create new destination** page:
 
-# [Connection string](#tab/connection-string)
+1. Enter a **Destination name**.
 
-[!INCLUDE [iot-central-create-export](../../../includes/iot-central-create-export.md)]
+1. Select **Webhook** as the destination type.
 
-Configure the destination:
+1. Paste the callback URL for your webhook endpoint. You can optionally configure webhook authorization and add custom headers.
 
-1. Add a new destination or add a destination that you've already created. Select the **Create a new one** link and add the following information:
+    - For **OAuth2.0**, only the client credentials flow is supported. When you save the destination, IoT Central communicates with your OAuth provider to retrieve an authorization token. This token is attached to the `Authorization` header for every message sent to this destination.
+    - For **Authorization token**, you can specify a token value that's directly attached to the `Authorization` header for every message sent to this destination.
 
-    - **Destination name**: the display name of the destination in IoT Central.
-    - **Destination type**: choose the type of destination. If you haven't already set up your destination, see [Set up export destination](#set-up-export-destination).
-    - **Authorization**: Select **Connection string**.
-    - For Azure Event Hubs, Azure Service Bus queue or topic, paste the connection string for your resource, and enter the case-sensitive event hub, queue, or topic name if necessary.
-    - For Azure Blob Storage, paste the connection string for your resource and enter the case-sensitive container name if necessary.
-    - For Webhook, paste the callback URL for your webhook endpoint. You can optionally configure webhook authorization (OAuth 2.0 and Authorization token) and add custom headers. 
-        - For OAuth 2.0, only the client credentials flow is supported. When the destination is saved, IoT Central will communicate with your OAuth provider to retrieve an authorization token. This token will be attached to the `Authorization` header for every message sent to this destination.
-        - For Authorization token, you can specify a token value that will be directly attached to the `Authorization` header for every message sent to this destination.
-    - Select **Create**.
+1. Select **Save**.
 
-1. Select **+ Destination** and choose a destination from the dropdown. You can add up to five destinations to a single export.
+## Set up a data export
+
+Now that you have a destination to export your data to, set up data export in your IoT Central application:
+
+1. Sign in to your IoT Central application.
+
+1. In the left pane, select **Data export**.
+
+    > [!Tip]
+    > If you don't see **Data export** in the left pane, then you don't have permissions to configure data export in your app. Talk to an administrator to set up data export.
+
+1. Select **+ New export**.
+
+1. Enter a display name for your new export, and make sure the data export is **Enabled**.
+
+1. Choose the type of data to export. The following table lists the supported data export types:
+
+    | Data type | Description | Data format |
+    | :------------- | :---------- | :----------- |
+    |  Telemetry | Export telemetry messages from devices in near-real time. Each exported message contains the full contents of the original device message, normalized.   |  [Telemetry message format](#telemetry-format)   |
+    | Property changes | Export changes to device and cloud properties in near-real time. For read-only device properties, changes to the reported values are exported. For read-write properties, both reported and desired values are exported. | [Property change message format](#property-changes-format) |
+    | Device connectivity | Export device connected and disconnected events. | [Device connectivity message format](#device-connectivity-changes-format) |
+    | Device lifecycle | Export device registered, deleted, provisioned, enabled, disabled, displayNameChanged, and deviceTemplateChanged events. | [Device lifecycle changes message format](#device-lifecycle-changes-format) |
+    | Device template lifecycle | Export published device template changes including created, updated, and deleted. | [Device template lifecycle changes message format](#device-template-lifecycle-changes-format) |
+
+1. Optionally, add filters to reduce the amount of data exported. There are different types of filter available for each data export type:
+    <a name="DataExportFilters"></a>
+
+    | Type of data | Available filters|
+    |--------------|------------------|
+    |Telemetry|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain telemetry that meets the filter conditions</li><li>Filter stream to only contain telemetry from devices with properties matching the filter conditions</li><li>Filter stream to only contain telemetry that has *message properties* meeting the filter condition. *Message properties* (also known as *application properties*) are sent in a bag of key-value pairs on each telemetry message optionally sent by devices that use the device SDKs. To create a message property filter, enter the message property key you're looking for, and specify a condition. Only telemetry messages with properties that match the specified filter condition are exported. [Learn more about application properties from IoT Hub docs](../articles/iot-hub/iot-hub-devguide-messages-construct.md) </li></ul>|
+    |Property changes|<ul><li>Filter by device name, device ID, device template, and if the device is simulated</li><li>Filter stream to only contain property changes that meet the filter conditions</li></ul>|
+    |Device connectivity|<ul><li>Filter by device name, device ID, device template, organizations, and if the device is simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
+    |Device lifecycle|<ul><li>Filter by device name, device ID, device template, and if the device is provisioned, enabled, or simulated</li><li>Filter stream to only contain changes from devices with properties matching the filter conditions</li></ul>|
+    |Device template lifecycle|<ul><li>Filter by device template</li></ul>|
+
+1. Optionally, enrich exported messages with extra key-value pair metadata. The following enrichments are available for the telemetry, property changes, device connectivity, and device lifecycle data export types:
+<a name="DataExportEnrichmnents"></a>
+    - **Custom string**: Adds a custom static string to each message. Enter any key, and enter any string value.
+    - **Property**, which adds to each message:
+       - Device metadata such as device name, device template name, enabled, organizations, provisioned, and simulated.
+       - The current device reported property or cloud property value to each message. If the exported message is from a device that doesn't have the specified property, the exported message doesn't get the enrichment.
+
+Configure the export destination:
+
+1. Select **+ Destination** to add a destination that you've already created or select **Create a new one**.
+
+1. To transform your data before it's exported, select **+ Transform**. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md).
+
+1. Select **+ Destination** to add up to five destinations to a single export.
 
 1. When you've finished setting up your export, select **Save**. After a few minutes, your data appears in your destinations.
-
-# [Managed identity](#tab/managed-identity)
-
-[!INCLUDE [iot-central-create-export](../../../includes/iot-central-create-export.md)]
-
-Configure the destination:
-
-1. Add a new destination or add a destination that you've already created. Select the **Create a new one** link and add the following information:
-
-    - **Destination name**: the display name of the destination in IoT Central.
-    - **Destination type**: choose the type of destination. If you haven't already set up your destination, see [Set up export destination](#set-up-export-destination).
-    - **Authorization**: select **System-assigned managed identity**.
-    - For Azure Event Hubs and Azure Service Bus queue or topic, enter the host name for your resource. Then enter the case-sensitive event hub, queue, or topic name. A host name looks like: `contoso-waste.servicebus.windows.net`.
-    - For Azure Blob Storage, enter the endpoint URI for your storage account and the case-sensitive container name. An endpoint URI looks like: `https://contosowaste.blob.core.windows.net`.
-    - For Webhook, paste the callback URL for your webhook endpoint. You can optionally configure webhook authorization (OAuth 2.0 and Authorization token) and add custom headers.
-        - For OAuth 2.0, only the client credentials flow is supported. When the destination is saved, IoT Central will communicate with your OAuth provider to retrieve an authorization token. This token will be attached to the `Authorization` header for every message sent to this destination.
-        - For Authorization token, you can specify a token value that will be directly attached to the `Authorization` header for every message sent to this destination.
-    - Select **Create**.
-
-1. Select **+ Destination** and choose a destination from the dropdown. You can add up to five destinations to a single export.
-
-1. When you've finished setting up your export, select **Save**. After a few minutes, your data appears in your destinations.
-
----
 
 ## Monitor your export
 
