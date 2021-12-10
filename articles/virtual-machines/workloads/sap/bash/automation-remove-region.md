@@ -15,7 +15,7 @@ description: Removes the SAP Control Plane (Deployer, Library) using a shell scr
 
 ## Synopsis
 
-Removes the control plane, including the deployer VM and the SAP library.
+Removes the control plane, including the deployer VM and the SAP library. It is important to remove the deployed artifacts in the correct order to ensure that not artifacts are left behind.
 ## Syntax
 
 ```bash
@@ -76,7 +76,7 @@ Required: True
 ```
 
 ### `--storage_account`
-Sets the storage account name of the tfstate storage account in SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
+Sets the storage account name of the `tfstate` storage account in SAP library. For more information, see [Configuring the control plane](../automation-configure-control-plane.md#sap-library).
 
 ```yaml
 Type: String
