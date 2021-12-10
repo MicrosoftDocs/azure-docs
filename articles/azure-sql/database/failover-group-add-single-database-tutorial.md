@@ -1,6 +1,6 @@
 ---
 title: "Tutorial: Add a database to a failover group"
-description: Add a database in Azure SQL Database to an autofailover group using the Azure portal, PowerShell, or the Azure CLI.  
+description: Add a database in Azure SQL Database to an autofailover group using the Azure portal, PowerShell, or the Azure CLI.
 services: sql-database
 ms.service: sql-database
 ms.subservice: high-availability
@@ -10,9 +10,10 @@ ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 06/19/2019
+ms.date: 12/09/2021
 ---
 # Tutorial: Add an Azure SQL Database to an autofailover group
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 A [failover group](auto-failover-group-overview.md) is a declarative abstraction layer that allows you to group multiple geo-replicated databases. Learn to configure a failover group for an Azure SQL Database and test failover using either the Azure portal, PowerShell, or the Azure CLI.  In this tutorial, you'll learn how to:

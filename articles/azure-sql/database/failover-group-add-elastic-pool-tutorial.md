@@ -10,9 +10,10 @@ ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
 ms.reviewer: kendralittle, mathoma
-ms.date: 08/27/2019
+ms.date: 12/09/2021
 ---
 # Tutorial: Add an Azure SQL Database elastic pool to a failover group
+
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Configure a failover group for an Azure SQL Database elastic pool and test failover using the Azure portal.  In this tutorial, you will learn how to:
@@ -150,7 +151,7 @@ Create your failover group using the Azure portal.
 
        ![Create a secondary server for the failover group](./media/failover-group-add-elastic-pool-tutorial/create-secondary-failover-server.png)
 
-1. Select **Databases within the group** then select the elastic pool you created in section 2. A warning should appear, prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server. 
+1. Select **Databases within the group** then select the elastic pool you created in section 2. A warning should appear, prompting you to create an elastic pool on the secondary server. Select the warning, and then select **OK** to create the elastic pool on the secondary server.
 
    ![Add elastic pool to failover group](./media/failover-group-add-elastic-pool-tutorial/add-elastic-pool-to-failover-group.png)
 

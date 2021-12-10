@@ -19,6 +19,9 @@ This Azure CLI script example imports a database from a *.bacpac* file into a da
 
 If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
 
+> [!IMPORTANT]
+> When running Bash on Windows, run this script from within a Docker container.
+
 ## Sample script
 
 ### Sign in to Azure
