@@ -127,7 +127,7 @@ Parameter names are case-sensitive and are all optional.
 }
 ```
 
-The offsets returned for entities in the output of this skill are directly returned from the [Language Service APIs](../cognitive-services/language-service/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content. See [Multilingual and emoji support in Language service features](../cognitive-services/language-service/concepts/multilingual-emoji-support.md) for more information.
+The offsets returned for entities in the output of this skill are directly returned from the [Language Service APIs](../cognitive-services/language-service/overview.md), which means if you are using them to index into the original string, you should use the [StringInfo](/dotnet/api/system.globalization.stringinfo) class in .NET in order to extract the correct content. For more information, see [Multilingual and emoji support in Language service features](../cognitive-services/language-service/concepts/multilingual-emoji-support.md).
 
 ## Warning cases
 
