@@ -134,15 +134,15 @@ ResourceChanges
 | project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
 ```
 
-## Get the latest resource configurations for resources created in the last 7 days
+## Query the latest resource configuration for resources created in the last 7 days
 ```kusto
 ResourceChanges
-| extend targetResourceId = tostring(properties.targetResourceProperties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.changedAt)
+| extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp)
 | where changeTime > ago(7d) and changeType == "Create"
 | project  targetResourceId, changeType, changeTime
 | join ( Resources | extend targetResourceId=id) on targetResourceId
 | order by changeTime desc
-| project changeTime, id, resourceGroup, type, changeType, properties
+| project changeTime, changeType, id, resourceGroup, type, properties
 ```
 
 ## Next steps
