@@ -14,7 +14,7 @@ ms.date: 11/12/2021
 
 # Indexes in Azure Cognitive Search
 
-In Azure Cognitive Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, and filtered queries. An index is defined by a schema and saved to the search service, with data import following as a second step. This content exists within your search service, apart from your primary data stores, which is necessary for the millisecond response times expected in search operations. Except for specific indexing scenarios, the search service will never connect to or query your local data.
+In Azure Cognitive Search, a *search index* is your searchable content, available to the search engine for indexing, full text search, and filtered queries. An index is defined by a schema and saved to the search service, with data import following as a second step. This content exists within your search service, apart from your primary data stores, which is necessary for the millisecond response times expected in modern applications. Except for specific indexing scenarios, the search service will never connect to or query your local data.
 
 If you're creating and managing a search index, this article will help you understand the following:
 
@@ -72,7 +72,7 @@ Other elements are collapsed for brevity, but the following links can provide th
 
 ### Field definitions
 
-A search document is defined by the "fields" collection. You will need fields for document identification (keys), storing searchable text, and fields for supporting filters, facets, and sorts. You might also need fields for data that a user never sees. For example, you might want fields for profit margins or marketing promotions that you can use to modify search rank.
+A search document is defined by the "fields" collection in the body of [Create Index request](/rest/api/searchservice/create-index). You will need fields for document identification (keys), storing searchable text, and fields for supporting filters, facets, and sorts. You might also need fields for data that a user never sees. For example, you might want fields for profit margins or marketing promotions that you can use to modify search rank.
 
 If incoming data is hierarchical in nature, you can represent it within an index as a [complex type](search-howto-complex-data-types.md), used to represent nested structures. The built-in sample data set, Hotels, illustrates complex types using an Address (contains multiple sub-fields) that has a one-to-one relationship with each hotel, and a Rooms complex collection, where multiple rooms are associated with each hotel. 
 
@@ -100,45 +100,58 @@ Although you can add new fields at any time, existing field definitions are lock
 
 <a name="index-size"></a>
 
-## Physical representation
+## Physical structure and size
 
-In Azure Cognitive Search, the physical structure of an index is largely an internal implementation. You can access its schema, query its content, monitor its size, and manage capacity, but the clusters themselves (indices, shards, and other files and folders) are off limits and managed internally by Microsoft on your behalf.
+In Azure Cognitive Search, the physical structure of an index is largely an internal implementation. You can access its schema, query its content, monitor its size, and manage capacity, but the clusters themselves (indices, [shards](search-capacity-planning.md#concepts-search-units-replicas-partitions-shards), and other files and folders) are managed internally by Microsoft.
 
-The size of an index is determined by the quantity and composition of your documents, index configuration (such as whether you include suggesters), and the attributes on individual fields. You can monitor index size in the Indexes tab in the Azure portal, or by issuing a GET INDEX request against your search service.
+The size of an index is determined by:
+
++ Quantity and composition of your documents
++ Index configuration (specifically, whether you include suggesters)
++ Attributes on individual fields
+
+You can monitor index size in the Indexes tab in the Azure portal, or by issuing a [GET INDEX request](/rest/api/searchservice/get-index) against your search service.
 
 ### Factors influencing index size
 
 Document composition and quantity will be determined by what you choose to import. Remember that a search index should only contain searchable content. If source documents include binary fields, you would generally omit those fields from the index schema (unless you are using AI enrichment to crack and analyze the content to create text searchable information.)
 
-Index configuration can include other components besides documents, such as suggesters, customer analyzers, scoring profiles, CORS settings, and encryption key information. From the above list, the only component that has the potential for impacting index size is suggesters. Suggesters are constructs that support type-ahead or autocomplete queries. As such, when you include a suggester, the indexing process will create the data structures necessary for verbatim character matches. Suggesters are implemented at the field level, so only the contents of suggester-aware fields are included in these data structures.
+Index configuration can include other components besides documents, such as suggesters, customer analyzers, scoring profiles, CORS settings, and encryption key information. From the above list, the only component that has the potential for impacting index size is suggesters. [**Suggesters**](index-add-suggesters.md) are constructs that support type-ahead or autocomplete queries. As such, when you include a suggester, the indexing process will create the data structures necessary for verbatim character matches. Suggesters are implemented at the field level, so choose only those fields that are reasonable for type-ahead.
 
 Field attributes are the third consideration of index size. Attributes determine behaviors. To support those behaviors, the indexing process will create the supporting data structures. For example, "searchable" invokes [full text search](search-lucene-query-architecture.md), which scans inverted indices for the tokenized term. In contrast, a "filterable" or "sortable" attribute supports iteration over unmodified strings.
+
+### Example demonstrating the storage implications of attributes and suggesters
 
 The following screenshot illustrates index storage patterns resulting from various combinations of attributes. The index is based on the **real estate sample index**, which you can create easily using the Import data wizard and built-in sample data. Although the index schemas are not shown, you can infer the attributes based on the index name. For example, *realestate-searchable* index has the "searchable" attribute selected and nothing else, *realestate-retrievable* index has the "retrievable" attribute selected and nothing else, and so forth.
 
 ![Index size based on attribute selection](./media/search-what-is-an-index/realestate-index-size.png "Index size based on attribute selection")
 
-Although these index variants are somewhat artificial, we can refer to them for broad comparisons of how attributes affect storage. Does setting "retrievable" increase index size? No. Does adding fields to a **suggester** increase index size? Yes. 
+Although these index variants are somewhat artificial, we can refer to them for broad comparisons of how attributes affect storage:
 
-Making a field filterable or sortable also adds to storage consumption because filtered and sorted fields are not tokenized so that character sequences can be matched verbatim.
++ "retrievable" has no impact on index size.
++ "filterable", "sortable", "facetable" consume more storage.
++ **suggester** has a large potential for increasing index size, but not as much as the screenshot would indicate (all fields that could be made suggester-aware were selected, which isn't a likely scenario in most indexes).
 
 Also not reflected in the above table is the impact of [analyzers](search-analyzers.md). If you are using the edgeNgram tokenizer to store verbatim sequences of characters (a, ab, abc, abcd), the size of the index will be larger than if you used a standard analyzer.
 
-## Basic operations
+## Basic operations and interaction
 
 Now that you have a better idea of what an index is, this section introduces index run time operations, including connecting to and securing a single index.
 
-### Self-contained indexes 
+> [!NOTE]
+> When managing an index, be aware that there is no portal or API support for moving or copying an index. Instead, customers typically point their application deployment solution at a different search service (if using the same index name), or revise the name to create a copy on the current search service, and then build it.
+
+### Index isolation
   
-In Cognitive Search, each index is standalone. There is no concept of related indexes or the joining of independent indexes for either indexing or querying. There is no portal or API support for moving or copying an index. Instead, customers typically point their application deployment solution at a different search service (if using the same index name), or revise the name to create a copy on the current search service, and then build it.
+In Cognitive Search, you'll work with one index at a time, where all index-related operations target a single index. There is no concept of related indexes or the joining of independent indexes for either indexing or querying. 
 
 ### Continuously available
 
 An index is continuously available, with no ability to pause or take it offline. Because it's designed for continuous operation, any updates to its content, or additions to the index itself, happen in real time. As a result, queries might temporarily return incomplete results if a request coincides with a document update.
 
-Notice that query continuity exists for document operations (refreshing or deleting) or for modifications that don't impact the existing structure and integrity of the current index. If you need to make structural updates, those are typically managed using a drop-and-rebuild workflow in a development environment, or by creating a new version of the index on production service.
+Notice that query continuity exists for document operations (refreshing or deleting) and for modifications that don't impact the existing structure and integrity of the current index (such as adding new fields). If you need to make structural updates (changing existing fields), those are typically managed using a drop-and-rebuild workflow in a development environment, or by creating a new version of the index on production service.
 
-To avoid rebuilding, some customers who are making small changes choose to "version" a field by creating a new one that coexists alongside a previous version. Over time, this leads to orphaned content in the form of obsolete fields or obsolete custom analyzer definitions, especially in a production index that is expensive to replicate. You can address these issues on planned updates to the index as part of index lifecycle management.
+To avoid an [index rebuild](search-howto-reindex.md), some customers who are making small changes choose to "version" a field by creating a new one that coexists alongside a previous version. Over time, this leads to orphaned content in the form of obsolete fields or obsolete custom analyzer definitions, especially in a production index that is expensive to replicate. You can address these issues on planned updates to the index as part of index lifecycle management.
 
 ### Endpoint connection and security
 
@@ -146,8 +159,8 @@ All indexing and query requests target an index. Endpoints are usually one of th
 
 | Endpoint | Connection and access control |
 |----------|-------------------------------|
-| `<your-service>.search.windows.net/indexes` | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin API keys or a Search Contributor role. |
-| `<your-service>.search.windows.net/indexes/<your-index>/docs` | Targets the documents collection of a single index. Used when querying an index. Read rights are sufficient, and available through query API keys or a data reader role. |
+| `<your-service>.search.windows.net/indexes` | Targets the indexes collection. Used when creating, listing, or deleting an index. Admin rights are required for these operations, available through admin [API keys](search-security-api-keys.md) or a [Search Contributor role](search-security-rbac.md#built-in-roles-used-in-search). |
+| `<your-service>.search.windows.net/indexes/<your-index>/docs` | Targets the documents collection of a single index. Used when querying an index or data refresh. For queries, read rights are sufficient, and available through query API keys or a data reader role. For data refresh, admin rights are required. |
 
 ## Next steps
 

@@ -7,7 +7,7 @@ ms.date: 09/23/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-csharp, devx-track-azurepowershell
+ms.custom: devx-track-csharp, devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Azure Key Vault key client library for .NET (SDK v4)

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Perform a web search with C# - Bing Web Search REST API"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send requests to the Bing Web Search REST API using C#, and receive a JSON response.
+description: "Use this quickstart to send requests to the Bing Web Search REST API using C#, and receive a JSON response."
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,8 +10,8 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
-ms.custom: "seodec2018, devx-track-csharp"
-#Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#.
+ms.custom: seodec2018, devx-track-csharp, mode-other
+#Customer intent: "As a new developer, I want to make my first call to the Bing Web Search API and receive a response using C#."
 ---
 
 # Quickstart: Search the web using the Bing Web Search REST API and C#

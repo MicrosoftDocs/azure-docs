@@ -1,5 +1,5 @@
 ---
-title: Detect when objects cross a virtual line in a live video with Azure Video Analyzer
+title: Detect when objects cross a virtual line in a live video 
 description: This quickstart shows you how to use Azure Video Analyzer to detect when objects cross a line in a live video feed from a (simulated) IP camera.
 ms.topic: tutorial
 ms.date: 11/04/2021
@@ -77,7 +77,7 @@ In this tutorial, you will:
 
 When you set up the Azure resources, a short video of highway traffic is copied to the Linux VM in Azure that you're using as the IoT Edge device. This tutorial uses the video file to simulate a live stream.
 
-Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://lvamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
+Open an application such as [VLC media player](https://www.videolan.org/vlc/). Select Ctrl+N and then paste a link to [the highway intersection sample video](https://avamedia.blob.core.windows.net/public/camera-300s.mkv) to start playback. You see the footage of many vehicles moving in highway traffic.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LTY4]
 

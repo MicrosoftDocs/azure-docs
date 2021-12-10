@@ -16,7 +16,7 @@ ms.custom: it-pro
 ms.collection: M365-identity-device-management
 #customer intent: As an admin, I want to disable the way a user signs in for an application so that no user can sign in to it in Azure Active Directory.
 ---
-# Disable how a user signs in for an application in Azure Active Directory
+# Disable how a user signs in for an application
 
 In this article, you disable how a user signs in to an application in Azure Active Directory.
 

@@ -30,7 +30,7 @@ Before you can use custom NER, you will need to create an Azure Language resourc
     |Location | "West US 2" or "West Europe"         |
     |Pricing tier     | Standard (**S**) pricing tier        |
 
-2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](/azure/storage/common/storage-account-overview) you will want to use in production environments.
+2. In the **Custom Named Entity Recognition (NER) & Custom Classification (Preview)** section, select an existing storage account or select **Create a new storage account**. Note that these values are for this quickstart, and not necessarily the [storage account values](../../../../../storage/common/storage-account-overview.md) you will want to use in production environments.
 
     |Storage account value  |Recommended value  |
     |---------|---------|
@@ -57,6 +57,8 @@ Once your resource and storage container are configured, create a new conversati
 1. Sign into the [Language Studio portal](https://aka.ms/languageStudio). A window will appear to let you select your subscription and Language resource. Select the resource you created in the above step.
 
 2. Find the **Entity extraction** section, and select **Custom named entity recognition** from the available services.
+    
+    :::image type="content" source="../../media/select-custom-ner.png" alt-text="A screenshot showing the location of custom NER in the Language Studio landing page." lightbox="../../media/select-custom-ner.png":::
 
 3. Select **Create new project** from the top menu in your projects page. Creating a project will let you tag data, train, evaluate, improve, and deploy your models. 
 

@@ -1,5 +1,5 @@
 ---
-title: Deploy Azure Video Analyzer on Azure Stack Edge
+title: Deploy Video Analyzer on Azure Stack Edge
 description: This article discusses how to deploy Azure Video Analyzer on Azure Stack Edge.
 ms.topic: how-to
 ms.date: 11/04/2021
@@ -177,7 +177,7 @@ A deployment manifest is a JSON document that describes which modules to deploy,
 1. Select the **Module Settings** tab, provide a name for the module, and then specify the container image URI. For example:   
     
     * **IoT Edge Module Name**: rtspsim  
-    * **Image URI**: mcr.microsoft.com/lva-utilities/rtspsim-live555:1.2 
+    * **Image URI**: mcr.microsoft.com/ava-utilities/rtspsim-live555:1.2 
 
 1. Select the **Container Create Options** tab and then, in the box, paste the following JSON code:
     

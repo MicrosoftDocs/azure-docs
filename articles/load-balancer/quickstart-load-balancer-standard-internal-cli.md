@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 12/19/2020
 ms.author: allensu
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-other
 ---
 # Quickstart: Create an internal load balancer by using the Azure CLI
 

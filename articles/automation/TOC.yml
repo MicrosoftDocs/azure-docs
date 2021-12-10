@@ -15,13 +15,13 @@
     - name: Create Automation account - Azure portal
       href: quickstarts/create-account-portal.md
     - name: Enable managed identities - Azure portal
-      href: quickstarts/enable-managed-identity.md    
+      href: quickstarts/enable-managed-identity.md
     - name: Enable Desired State Configuration for a machine
       href: quickstarts/dsc-configuration.md
 - name: Tutorials
   items:
     - name: Create PowerShell runbook using managed identity
-      href: learn/powershell-runbook-managed-identity.md 
+      href: learn/powershell-runbook-managed-identity.md
     - name: Create a PowerShell Workflow runbook
       href: learn/automation-tutorial-runbook-textual.md
     - name: Create a Python 3 runbook
@@ -359,13 +359,13 @@
   - name: Azure CLI
     href: /cli/azure/automation
   - name: Azure PowerShell Az
-    href: /powershell/module/az.automation
+    href: /powershell/module/az.automation/
   - name: Azure PowerShell AzureRM
-    href: /powershell/module/azurerm.automation
+    href: /powershell/module/azurerm.automation/
   - name: .NET
     href: /dotnet/api/microsoft.azure.management.automation
   - name: REST
-    href: /rest/api/automation
+    href: /rest/api/automation/
   - name: Azure Policy built-ins
     displayName: samples, policies, definitions
     href: ./policy-reference.md
@@ -386,6 +386,6 @@
   - name: Service updates
     href: https://azure.microsoft.com/updates/?product=automation
   - name: Stack Overflow
-    href: http://stackoverflow.com/questions/tagged/azure-automation
+    href: https://stackoverflow.com/questions/tagged/azure-automation
   - name: Videos
     href: https://azure.microsoft.com/documentation/videos/index/?services=automation

@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/26/2021
+ms.custom: mode-portal
 ---
 # Quickstart: Create an Azure Cosmos account, database, container, and items from the Azure portal
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
@@ -18,7 +19,6 @@ ms.date: 08/26/2021
 > * [Java](create-sql-api-java.md)
 > * [Node.js](create-sql-api-nodejs.md)
 > * [Python](create-sql-api-python.md)
-> * [Xamarin](create-sql-api-xamarin-dotnet.md)
 >  
 
 Azure Cosmos DB is Microsoft's globally distributed multi-model database service. You can use Azure Cosmos DB to quickly create and query key/value databases, document databases, and graph databases, all of which benefit from the global distribution and horizontal scale capabilities at the core of Azure Cosmos DB. 

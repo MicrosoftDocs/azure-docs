@@ -6,6 +6,7 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/25/2021
+ms.custom: mode-other
 ---
 
 # Set up the Azure Percept Audio device

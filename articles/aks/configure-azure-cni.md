@@ -204,7 +204,7 @@ az provider register --namespace Microsoft.ContainerService
 
 When using this feature, planning is much simpler. Since the nodes and pods scale independently, their address spaces can also be planned separately. Since pod subnets can be configured to the granularity of a node pool, customers can always add a new subnet when they add a node pool. The system pods in a cluster/node pool also receive IPs from the pod subnet, so this behavior needs to be accounted for.
 
-The planning of IPs for K8S services and Docker bridge remain unchanged.
+The planning of IPs for Kubernetes services and Docker bridge remain unchanged.
 
 ### Maximum pods per node in a cluster with dynamic allocation of IPs and enhanced subnet support
 

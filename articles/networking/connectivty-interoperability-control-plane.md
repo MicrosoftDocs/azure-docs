@@ -103,7 +103,7 @@ See the [ExpressRoute FAQ][ExR-FAQ] to:
 [VPN]: ../vpn-gateway/vpn-gateway-about-vpngateways.md
 [VNet]: ../virtual-network/tutorial-connect-virtual-networks-portal.md
 [Configuration]: ./connectivty-interoperability-configuration.md
-[Control-Analysis]: /azure/networking/connectivty-interoperability-control-plane
+[Control-Analysis]: 
 [Data-Analysis]: ./connectivty-interoperability-data-plane.md
 [ExR-FAQ]: ../expressroute/expressroute-faqs.md
 [S2S-Over-ExR]: ../expressroute/site-to-site-vpn-over-microsoft-peering.md

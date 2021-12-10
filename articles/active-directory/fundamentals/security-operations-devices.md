@@ -75,7 +75,7 @@ Azure AD registered and Azure AD joined devices possess primary refresh tokens (
 
  | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: <br>Any device registered or joined without MFA |
+| Device registration or join completed without MFA| Medium| Sign-in logs| Activity: successful authentication to Device Registration Service. <br>And<br>No MFA required| Alert when: <br>Any device registered or joined without MFA<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Changes to the Device Registration MFA toggle in Azure AD| High| Audit log| Activity: Set device registration policies| Look for: <br>The toggle being set to off. There isn't audit log entry. Schedule periodic checks. |
 | Changes to Conditional Access policies requiring domain joined or compliant device.| High| Audit log| Changes to CA policies<br>| Alert when: <br><li> Change to any policy requiring domain joined or compliant.<li>Changes to trusted locations.<li> Accounts or devices added to MFA policy exceptions. |
 
@@ -102,7 +102,7 @@ It might not be possible to block access to all cloud and software-as-a-service 
 
 | What to monitor| Risk Level| Where| Filter/sub-filter| Notes |
 | - |- |- |- |- |
-| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant ==false| If requiring sign-in from compliant devices, alert when:<br><li> any sign in by non-compliant devices.<li> any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins. |
+| Sign-ins by non-compliant devices| High| Sign-in logs| DeviceDetail.isCompliant ==false| If requiring sign-in from compliant devices, alert when:<br><li> any sign in by non-compliant devices.<li> any access without MFA or a trusted location.<p>If working toward requiring devices, monitor for suspicious sign-ins.<br>[Azure Sentinel template](https://github.com/Azure/Azure-Sentinel/blob/master/Hunting%20Queries/SigninLogs/SuspiciousSignintoPrivilegedAccount.yaml) |
 | Sign-ins by unknown devices| Low| Sign-in logs| <li>DeviceDetail is empty<li>Single factor authentication<li>From a non-trusted location| Look for: <br><li>any access from out of compliance devices.<li>any access without MFA or trusted location |
 
 

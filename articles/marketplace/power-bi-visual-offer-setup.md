@@ -7,7 +7,7 @@ ms.reviewer: ""
 ms.service: powerbi
 ms.subservice: powerbi-custom-visuals
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 11/22/2021
 ---
 
 # Create a Power BI visual offer
@@ -22,10 +22,6 @@ Review [Plan a Power BI visual offer](marketplace-power-bi-visual.md). It will e
 
 ## Create a new offer
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 
 1. On the Home page, select the **Marketplace offers** tile.
@@ -35,16 +31,6 @@ Review [Plan a Power BI visual offer](marketplace-power-bi-visual.md). It will e
 1. On the Marketplace offers page, select **+ New offer** > **Power BI visual**.
 
     [ ![Shows the left pane menu options and the 'New offer' button.](media/power-bi-visual/new-offer-power-bi-visual-workspaces.png) ](media/power-bi-visual/new-offer-power-bi-visual-workspaces.png#lightbox)
-
-#### [Current view](#tab/current-view)
-
-1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
-1. In the left-nav menu, select **Commercial Marketplace** > **Overview**.
-1. On the Overview page, select **+ New offer** > **Power BI visual**.
-
-    :::image type="content" source="media/power-bi-visual/new-offer-power-bi-visual.png" alt-text="Shows the left pane menu options and the 'New offer' button.":::
-
----
 
 > [!IMPORTANT]
 > After an offer is published, any edits you make to it in Partner Center appear in AppSource only after you republish the offer. Be sure to always republish an offer after changing it.

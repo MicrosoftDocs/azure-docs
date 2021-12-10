@@ -75,6 +75,7 @@ def translate_speech_to_text():
             subscription=speech_key, region=service_region)
 
     # Source (input) language
+    from_language = "it-IT"
     translation_config.speech_recognition_language = from_language
 ```
 

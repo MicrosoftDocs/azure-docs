@@ -182,13 +182,13 @@ Use that version number in the Import Update step below.
 
 1. Go to the IoT Hub you previously connected to your Device Update instance.
 
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+2. Select the Updates option under Device Management from the left-hand navigation bar.
 
 3. Select the Groups tab at the top of the page. 
 
 4. Select the Add button to create a new group.
 
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+5. Select the IoT Hub tag you created in the previous step from the list. Select Create group.
 
    :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
 
