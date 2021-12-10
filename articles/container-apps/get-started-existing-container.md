@@ -14,7 +14,7 @@ zone_pivot_groups: container-apps-registry-types
 
 Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-This article demonstrates how to deploy 
+This article demonstrates how to deploy an existing container to Azure Container Apps.
 
 ## Prerequisites
 
