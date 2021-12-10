@@ -77,7 +77,7 @@ sections:
           > [!NOTE]
           > Revenue figures for subscription-based products are available in the same month of purchase.
 
-      - question: Can the revenue dashboard show information on who is the end-user customer, the reseller, and the distributor?
+      - question: Can the revenue dashboard show who is the end-user customer, the reseller, and the distributor?
         answer: |
           You can use the _Sales channel_ field to infer whether the customer was an end-customer or a cloud solution provider.
 
