@@ -18,7 +18,7 @@ ms.author: tchladek
 - [Node.js](https://nodejs.org/) Active LTS and Maintenance LTS versions (8.11.1 and 10.14.1 recommended).
 - An active Communication Services resource and connection string. [Create a Communication Services resource](../../create-communication-resource.md).
 
-## Final Code
+## Final code
 Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/access-tokens-quickstart).
 
 ## Set up your environment
