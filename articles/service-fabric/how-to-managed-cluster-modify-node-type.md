@@ -2,7 +2,7 @@
 title: Configure or modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
-ms.date: 10/25/2021 
+ms.date: 12/10/2021 
 ---
 
 # Service Fabric managed cluster node types
@@ -15,11 +15,13 @@ The rest of this document will cover how to adjust various settings from creatin
 > You will not be able to modify the node type while a change is in progress. It is recommended to let any requested change complete before doing another.
 
 
-## Add or remove a node type with portal
+## Add a node type
+You can add a node type to a Service Fabric managed cluster through Portal, an Azure Resource Manager template, or PowerShell. 
 
-In this walkthrough, you will learn how to add or remove a node type using portal.
+### With portal
+> [!NOTE]
+> You can only add secondary node types using Portal
 
-**To add a node type:**
 1) Log in to [Azure portal](https://portal.azure.com/)
 
 2) Navigate to your cluster resource Overview page. 
@@ -30,29 +32,14 @@ In this walkthrough, you will learn how to add or remove a node type using porta
 
 4) Click `Add` at the top, fill in the required information, then click Add at the bottom, that's it!
 
+5) Wait for the new node type addition to be completed
 
-**To remove a node type:**
-1) Log in to [Azure portal](https://portal.azure.com/)
-
-2) Navigate to your cluster resource Overview page. 
-![Sample Overview page][overview]
-
-3) Select `Node types` under the `Settings` section 
-![Node Types view][addremove]
-
-4) Select the `Node Type` you want to remove and click `Delete` at the top.
-
-> [!NOTE]
-> It is not possible to remove a primary node type if it is the only primary node type in the cluster.
-
-
-## Add a node type with a template
-
-**To add a node type using an ARM Template**
+### With an ARM template
 
 Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` with the required values and do a cluster deployment for the setting to take effect.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
+* Make sure to set `isPrimary` to `true` if you are intending to replace an existing primary node type.
 
 ```json
           {
@@ -76,6 +63,56 @@ Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` wi
            }
 ```
 For an example two node type configuration, see our [sample two node type ARM Template](https://github.com/Azure-Samples/service-fabric-cluster-templates/blob/master/SF-Managed-Standard-SKU-2-NT)
+
+### Add a node type using a cmdlet
+
+To create a new node type, you'll need to define three properties:
+
+* **Node Type Name**: Name that is unique from any existing node types in the cluster.
+* **Instance Count**: Initial number of nodes of the new node type.
+* **VM Size**: VM SKU for the nodes. If not specified, the default value *Standard_D2* is used.
+
+> [!NOTE]
+> If the node type being added is the first or only node type in the cluster, the Primary property must be used.
+
+```powershell
+$resourceGroup = "myResourceGroup"
+$clusterName = "mysfcluster"
+$nodeTypeName = "nt2"
+$vmSize = "Standard_D2_v2"
+
+New-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName -Name $nodeTypeName -InstanceCount 3 -vmSize $vmSize
+```
+
+
+## Remove a node type
+> [!NOTE]
+> To remove a primary node type from a Service Fabric managed cluster, you must use PowerShell and there must be more then one primary node type available.
+
+### With portal
+1) Log in to [Azure portal](https://portal.azure.com/)
+
+2) Navigate to your cluster resource Overview page. 
+![Sample Overview page][overview]
+
+3) Select `Node types` under the `Settings` section 
+![Node Types view][addremove]
+
+4) Select the `Node Type` you want to remove and click `Delete` at the top.
+
+### With PowerShell
+To remove a node type:
+
+```powershell
+$resourceGroup = "myResourceGroup"
+$clusterName = "myCluster"
+$nodeTypeName = "nt2"
+
+Remove-AzServiceFabricManagedNodeType -ResourceGroupName $resourceGroup -ClusterName $clusterName  -Name $nodeTypeName
+```
+> [!NOTE]
+> If removing a primary node type for scenarios such as upgrading the SKU it will take multiple hours and progress can be monitored by using SFX. Seed nodes will migrate one node per upgrade domain(UD) walk at a time.
+
 
 
 ## Scale a node type manually with portal
@@ -255,9 +292,9 @@ You can now use that [placement property to ensure that certain workloads run on
 ## Modify the VM SKU for a node type
 
 Service Fabric managed cluster does not support in-place modification of the VM SKU, but is simpler then classic. In order to accomplish this you'll need to do the following:
-* [Create a new node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal) with the required VM SKU.
+* [Create a new node type via portal, template, or cmdlet](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal) with the required VM SKU. You'll need to use a template or cmdlet for adding primary or stateless node type.
 * Migrate your workload over. One way is to use a [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
-* [Delete old node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal)
+* [Delete old node type via portal or cmdlet](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal). To remove a primary node type you will have to use cmdlet.
 
 
 
