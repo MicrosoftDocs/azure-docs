@@ -199,7 +199,7 @@ Azure creates the managed instance on the Azure Arc-enabled Kubernetes cluster.
 To know when the instance has been created, run:
 
 ```console
-kubectl get sqlmi -n <namespace>[
+kubectl get sqlmi -n <namespace>
 ```
 
 Once the state of the managed instance namespace is ‘READY’, then this step is completed. For example:
