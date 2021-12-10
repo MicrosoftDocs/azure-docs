@@ -3,11 +3,12 @@ title: Azure Quickstart - Create a blob in object storage using Go | Microsoft D
 description: In this quickstart, you create a storage account and a container in object (Blob) storage. Then you use the storage client library for Go to upload a blob to Azure Storage, download a blob, and list the blobs in a container.
 author: normesta
 ms.author: normesta
-ms.date: 11/14/2018
+ms.date: 12/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
 ms.custom: mode-other
+ms.devlang: golang #Tracking tag for Golang article performance
 ---
 
 # Quickstart: Upload, download, and list blobs using Go
@@ -20,10 +21,10 @@ In this quickstart, you learn how to use the Go programming language to upload, 
 
 Make sure you have the following additional prerequisites installed:
 
-- [Go 1.8 or above](https://golang.org/dl/)
-- [Azure Storage Blob SDK for Go](https://github.com/azure/azure-storage-blob-go/), using the following command:
+- [Go 1.17 or above](https://go.dev/dl/)
+- [Azure Storage Blob SDK for Go](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/storage/azblob/), using the following command:
 
-    `go get -u github.com/Azure/azure-storage-blob-go/azblob`
+    `go get -u github.com/Azure/azure-sdk-for-go/sdk/storage/azblob`
 
     > [!NOTE]
     > Make sure that you capitalize `Azure` in the URL to avoid case-related import problems when working with the SDK. Also capitalize `Azure` in your import statements.
