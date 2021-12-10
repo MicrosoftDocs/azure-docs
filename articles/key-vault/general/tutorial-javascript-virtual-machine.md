@@ -112,7 +112,7 @@ To log into a Linux VM, you can use the ssh command with the \<publicIpAddress\>
 ssh azureuser@<PublicIpAddress>
 ```
 
-## Install Node.js && npm libraries on the VM
+## Install Node.js and npm libraries on the VM
 
 On the virtual machine, install the two npm libraries we'll be using in our JavaScript script: [@azure/keyvault-secrets](https://www.npmjs.com/package/@azure/keyvault-secrets) and [@azure/identity](https://www.npmjs.com/package/@azure/identity).  
 
@@ -173,7 +173,7 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
     }
     
     getSecret("mySecret").then(secretValue => {
-        console.log(secretValue);
+        console.log(`The value of secret 'mySecret' in '${keyVaultName}' is: '${secretValue}'`);
     }).catch(err => {
         console.log(err);
     })
