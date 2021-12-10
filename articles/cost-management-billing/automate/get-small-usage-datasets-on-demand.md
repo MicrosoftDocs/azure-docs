@@ -26,11 +26,13 @@ Microsoft recommends the following best practices as you use the Generate Detail
 
 ### Request schedule
 
-We recommend that you make _no more than one request_ to the API per day. For more information about how often cost data is refreshed and how rounding is handled, see [Understand cost management data](../costs/understand-cost-mgt-data.md).
+If you want to get the latest cost data, we recommend you query at most once per day. Reports are refreshed every four hours. If you call more frequently than this you will receive identical data. Once you download your cost data for historical invoices, the charges will not change unless you are explicitly notified. We recommend caching your cost data in a queryable store on your side to prevent repeated calls for identical data.
 
-### Target top-level scopes without filtering
+### Chunk your requests 
 
-Use the API to get all the data you need at the highest-level scope available. Wait until all needed data is ingested before doing any filtering, grouping, or aggregated analysis. To learn more about scopes available in Cost Management, see [Understand and work with scopes](../costs/understand-work-scopes.md). Once you've downloaded the needed data for a scope, use Excel to analyze data further with filters and pivot tables.
+Chunk your calls into small date ranges to get more manageable files that you can download over the network. For example, we recommend chunking by day or by week if you have a large Azure usage file month-to-month. If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download. For more information about Cost Management scopes, see [Understand and work with scopes](../costs/understand-work-scopes.md). After you download the data, use Excel to analyze data further with filters and pivot tables.
+
+If your dataset is more than two GB month-to-month, consider using [Exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
 
 ### Latency and rate limits
 

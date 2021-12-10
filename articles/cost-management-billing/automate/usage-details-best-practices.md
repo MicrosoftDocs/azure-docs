@@ -22,7 +22,13 @@ To learn more about how to properly call the API and ingest usage details at sca
 
 ## Generate Detailed Cost Report API
 
-Consider using the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) if you have a small cost data set. If you have a large amount of cost data, you should request the smallest amount of usage data as possible for a period. To do so, specify either a small time range or use a filter in your request. For example, in a scenario where you need three years of cost data, the API does better when you make multiple calls for different time ranges rather than with a single call. From there, you can load the data into Excel for further analysis.
+Consider using the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml) if you have a small cost data set. Here are recommended best practices:
+
+- If you want to get the latest cost data, we recommend that you query at most once per day. Reports are refreshed every four hours. If you call more frequently, you'll receive identical data.
+- Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on to prevent repeated calls for identical data.
+- Chunk your calls into small date ranges to get more manageable files that you can download. For example, we recommend chunking by day or by week if you have large Azure usage files month-to-month. 
+- If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
+- If your dataset is more than 2 GB month-to-month, consider using [exports](tutorial-export-acm-data.md) as a more scalable solution.
 
 To learn more about how to properly call the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml), see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
 
