@@ -63,7 +63,7 @@ Use the Azure Monitor agent if you need to:
 
 Limitations of the Azure Monitor Agent include:
 
-- Cannot use the Log Analytics solutions in production (only available in preview, [see what's supported](./azure-monitor-agent-overview.md#supported-services-and-features)).
+- Not yet supported by all features in production. See [Supported services and features](./azure-monitor-agent-overview.md#supported-services-and-features).
 - No support yet for networking scenarios involving private links. 
 - No support yet collecting custom logs (files) or IIS log files. 
 - No support yet for Event Hubs and Storage accounts as destinations.
@@ -151,7 +151,7 @@ The following tables list the operating systems that are supported by the Azure 
 | Windows Server 2012 R2                                   | X | X | X | X |
 | Windows Server 2012                                      | X | X | X | X |
 | Windows Server 2008 R2 SP1                               | X | X | X | X |
-| Windows Server 2008 R2                                   |   |   | X | X |
+| Windows Server 2008 R2                                   |   |   |   | X |
 | Windows Server 2008 SP2                                   |   | X |  |  |
 | Windows 10 Enterprise<br>(including multi-session) and Pro<br>(Server scenarios only<sup>1</sup>)  | X | X | X | X |
 | Windows 8 Enterprise and Pro<br>(Server scenarios only<sup>1</sup>)  |   | X | X |   |
@@ -201,7 +201,7 @@ The following tables list the operating systems that are supported by the Azure 
 
 #### Dependency agent Linux kernel support
 
-Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
+Since the Dependency agent works at the kernel level, support is also dependent on the kernel version. As of Dependency agent version 9.10.* the agent supports * kernels.  The following table lists the major and minor Linux OS release and supported kernel versions for the Dependency agent.
 
 | Distribution | OS version | Kernel version |
 |:---|:---|:---|

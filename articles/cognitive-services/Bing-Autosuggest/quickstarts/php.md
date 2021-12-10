@@ -5,12 +5,12 @@ description: Learn how to quickly start suggesting search terms in real time wit
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
+ms.custom: mode-other
 ---
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and PHP

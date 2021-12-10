@@ -1,5 +1,6 @@
 ---
 title: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster
+recommendations: false
 description: Deploy a Java application with Open Liberty/WebSphere Liberty on an Azure Red Hat OpenShift 4 cluster.
 author: majguo
 ms.author: jiangma

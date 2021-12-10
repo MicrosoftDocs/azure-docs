@@ -107,12 +107,16 @@
       href: active-directory-licensing-whatis-azure-portal.md
     - name: Default user permissions
       href: users-default-permissions.md
+  - name: Custom security attributes
+    href: custom-security-attributes-overview.md
   - name: Architecture
     items:
     - name: Azure AD architecture
       href: active-directory-architecture.md
     - name: Integrating all your apps with Azure AD
       href: five-steps-to-full-application-integration-with-azure-ad.md
+    - name: Parallel identity options
+      href: azure-active-directory-parallel-identity-options.md
     - name: Multi-tenant user management
       items:
       - name: Multi-tenant user management introduction
@@ -278,6 +282,14 @@
       href: license-users-groups.md
     - name: Restore a deleted user
       href: active-directory-users-restore.md
+  - name: Custom security attributes
+    items:
+    - name: Add or deactivate attributes
+      href: custom-security-attributes-add.md
+    - name: Manage access to attributes
+      href: custom-security-attributes-manage.md
+    - name: Troubleshoot attributes
+      href: custom-security-attributes-troubleshoot.md
   - name: Scenarios
     items:
     - name: Using Azure Active Directory to secure access to SAP platforms and applications

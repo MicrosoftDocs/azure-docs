@@ -8,8 +8,7 @@ ms.subservice: cosmosdb-graph
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/21/2020
-ms.custom: devx-track-dotnet
-
+ms.custom: devx-track-dotnet, mode-other
 ---
 # Quickstart: Build a .NET Framework or Core application using the Azure Cosmos DB Gremlin API account
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]

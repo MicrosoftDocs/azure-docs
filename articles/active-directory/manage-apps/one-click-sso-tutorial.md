@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 ms.reviewer: ergreenl
 ---
 
-# One-click app configuration of single sign-on in Azure Active Directory
+# One-click app configuration of single sign-on
 
  In this tutorial, you learn how to perform one-click, single sign-on (SSO) configuration for SAML-supporting, Azure Active Directory (Azure AD) applications from the Azure Marketplace.
 

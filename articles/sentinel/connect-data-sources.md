@@ -1,18 +1,9 @@
 ---
 title: Microsoft Sentinel data connectors | Microsoft Docs
 description: Learn how to connect data sources like Microsoft 365 Defender (formerly Microsoft Threat Protection), Microsoft 365 and Office 365, Azure AD, ATP, and Defender for Cloud Apps to Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ---

@@ -37,7 +37,7 @@ Real-time detections may not show up in reporting for five to 10 minutes. Offlin
 
 ### User-linked detections
 
-Risky activity can be detected for a user that isn't linked to a specific malicious sign-in but to the user itself. These risk detections are calculated offline using Microsoft's internal and external threat intelligence sources, like security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
+Risky activity can be detected for a user that isn't linked to a specific malicious sign-in but to the user itself. 
 
 These risks are calculated offline using Microsoft's internal and external threat intelligence sources including security researchers, law enforcement professionals, security teams at Microsoft, and other trusted sources.
 

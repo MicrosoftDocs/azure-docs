@@ -30,6 +30,7 @@ Name the project `UILibraryQuickStart` and select `Storyboard` under the `Interf
 ### Install the package and dependencies with CocoaPods
 
 1. Create a Podfile in your project root directory by running `pod init`.
+    - If encounter error, update [CocoaPods](https://guides.cocoapods.org/using/getting-started.html) to latest version
 2. Add the following to your Podfile:
 
 ```
@@ -40,7 +41,15 @@ platform :ios, '13.0'
 
 target 'UILibraryQuickStart' do
     use_frameworks!
-    pod 'AzureCommunicationUI', '1.0.0-alpha.1'
+    pod 'AzureCommunicationUI', '1.0.0-alpha.2'
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+          config.build_settings['BUILD_LIBRARY_FOR_DISTRIBUTION'] = 'YES'
+      end
+    end
 end
 ```
 
@@ -76,7 +85,7 @@ Go to 'ViewController'. Here we'll drop the following code to initialize our Com
 ```swift
 import UIKit
 import AzureCommunicationCalling
-import CallingComposite
+import CallComposite
 
 class ViewController: UIViewController {
 
@@ -106,8 +115,8 @@ class ViewController: UIViewController {
         let communicationTokenCredential = try! CommunicationTokenCredential(token: "<USER_ACCESS_TOKEN>")
 
         let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                                       displayName: "<DISPLAY_NAME>",
-                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!)
+                                       groupId: UUID(uuidString: "<GROUP_CALL_ID>")!,
+                                       displayName: "<DISPLAY_NAME>")
         callComposite?.launch(with: options)
     }
 }
@@ -174,8 +183,8 @@ Initialize a `GroupCallOptions` instance inside the `startCallComposite` functio
 // let uuid = UUID() to create a new call
 let uuid = UUID(uuidString: "<GROUP_CALL_ID>")!
 let options = GroupCallOptions(communicationTokenCredential: communicationTokenCredential,
-                               displayName: "<DISPLAY_NAME>",
-                               groupId: uuid)
+                               groupId: uuid,
+                               displayName: "<DISPLAY_NAME>")
 ```
 
 #### Teams meeting
@@ -184,8 +193,8 @@ Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` func
 
 ```swift
 let options = TeamsMeetingOptions(communicationTokenCredential: communicationTokenCredential,
-                                  displayName: "<DISPLAY_NAME>",
-                                  meetingLink: "<TEAMS_MEETING_LINK>")
+                                  meetingLink: "<TEAMS_MEETING_LINK>",
+                                  displayName: "<DISPLAY_NAME>")
 ```
 
 #### Get a Microsoft Teams meeting link

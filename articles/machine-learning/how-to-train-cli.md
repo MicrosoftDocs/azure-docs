@@ -345,7 +345,7 @@ For more sweep options, see the [sweep job YAML syntax reference](reference-yaml
 
 Azure Machine Learning supports PyTorch, TensorFlow, and MPI-based distributed training. See the [distributed section of the command job YAML syntax reference](reference-yaml-job-command.md#distribution-configurations) for details.
 
-As an example, you can train a convolutional neural network (CNN) on the CIFAR-10 dataset using distributed PyTorch. The full script is [available in the examples repository](https://github.com/Azure/azureml-examples/tree/cli-preview/jobs/single-step/pytorch/cifar-distributed/).
+As an example, you can train a convolutional neural network (CNN) on the CIFAR-10 dataset using distributed PyTorch. The full script is [available in the examples repository](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/pytorch/cifar-distributed).
 
 The CIFAR-10 dataset in `torchvision` expects as input a directory that contains the `cifar-10-batches-py` directory. You can download the zipped source and extract into a local directory:
 

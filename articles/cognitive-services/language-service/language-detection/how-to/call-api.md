@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: sample
-ms.date: 11/02/2021
+ms.date: 12/03/2021
 ms.author: aahi
 ms.custom: language-service-language-detection, ignite-fall-2021
 ---
@@ -28,11 +28,7 @@ The Language Detection feature can detect a wide range of languages, variants, d
 
 ### Specify the language detection model
 
-By default, language detection will use the latest available AI model on your text. You can also configure your API requests to use a specific model version. The model you specify will be used to perform language detection operations.
-
-| Supported Versions | latest version |
-|--|--|
-|  `2019-10-01`, `2020-07-01`, `2020-09-01`, `2021-01-05` | `2021-01-05`   |
+By default, language detection will use the latest available AI model on your text. You can also configure your API requests to use a specific [model version](../../concepts/model-lifecycle.md).
 
 ### Input languages
 
@@ -49,7 +45,7 @@ Analysis is performed upon receipt of the request. For information on the size a
 
 Using the language detection feature synchronously is stateless. No data is stored in your account, and results are returned immediately in the response.
 
-When using this feature asynchronously, the API results are available for 24 hours from the time the request was ingested, and is indicated in the response. After this time period, the results are purged and are no longer available for retrieval.
+[!INCLUDE [asynchronous-result-availability](../../includes/async-result-availability.md)]
 
 
 ## Getting language detection results

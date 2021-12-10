@@ -117,15 +117,20 @@ Microsoft Defender for Cloud helps protect your hybrid cloud environment. By per
 
 Defender for Cloud's recommendations are based on the [Azure Security Benchmark](../benchmarks/introduction.md) - the Microsoft-authored, Azure-specific set of guidelines for security and compliance best practices based on common compliance frameworks. This widely respected benchmark builds on the controls from the [Center for Internet Security (CIS)](https://www.cisecurity.org/benchmark/azure/) and the [National Institute of Standards and Technology (NIST)](https://www.nist.gov/) with a focus on cloud centric security.
 
-Defender for Cloud's integrated cloud workload protection platform (CWPP), **Microsoft Defender for Cloud**, brings advanced, intelligent, protection of your Azure and hybrid resources and workloads. Enabling Microsoft Defender for Cloud brings a range of additional security features (see [Introduction to Microsoft Defender for Cloud](../../security-center/azure-defender.md)). The workload protection dashboard in Defender for Cloud provides visibility and control of the CWP features for your environment:
+Enabling Defender for Cloud's enhanced security features brings advanced, intelligent, protection of your Azure, hybrid and multi-cloud resources and workloads. Learn more in [Microsoft Defender for Cloud's enhanced security features](../../defender-for-cloud/enhanced-security-features-overview.md). 
 
-:::image type="content" source="../../security-center/media/azure-defender/sample-defender-dashboard.png" alt-text="An example of the workload protection dashboard" lightbox="../../security-center/media/azure-defender/sample-defender-dashboard.png":::
+The workload protection dashboard in Defender for Cloud provides visibility and control of the integrated cloud workload protection features provided by a range of **Microsoft Defender** plans:
+
+:::image type="content" source="../../defender-for-cloud/media/workload-protections-dashboard/sample-defender-dashboard-numbered.png" alt-text="An example of Defender for Cloud's workload protections dashboard." lightbox="../../defender-for-cloud/media/workload-protections-dashboard/sample-defender-dashboard-numbered.png":::
+
+> [!TIP]
+> Learn more about the numbered sections in [The workload protections dashboard](../../defender-for-cloud/workload-protections-dashboard.md).
 
 Microsoft security researchers are constantly on the lookout for threats. They have access to an expansive set of telemetry gained from Microsoft’s global presence in the cloud and on-premises. This wide-reaching and diverse collection of datasets enables Microsoft to discover new attack patterns and trends across its on-premises consumer and enterprise products, as well as its online services.
 
 Thus, Defender for Cloud can rapidly update its detection algorithms as attackers release new and increasingly sophisticated exploits. This approach helps you keep pace with a fast-moving threat environment.
 
-:::image type="content" source="../../security-center/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
+:::image type="content" source="../../defender-for-cloud/media/security-center-managing-and-responding-alerts/alerts-page.png" alt-text="Microsoft Defender for Cloud's security alerts list":::
 
 Microsoft Defender for Cloud automatically collects security information from your resources, the network, and connected partner solutions. It analyzes this information, correlating information from multiple sources, to identify threats.
 

@@ -5,7 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 05/26/2020
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Add questions and answer with QnA Maker portal

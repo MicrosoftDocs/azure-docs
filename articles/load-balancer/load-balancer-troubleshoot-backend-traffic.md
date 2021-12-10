@@ -11,13 +11,27 @@ ms.devlang: na
 ms.topic: troubleshooting
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/28/2020
+ms.date: 11/24/2021
 ms.author: allensu
 ---
 
 # Troubleshoot Azure Load Balancer backend traffic responses
 
 This page provides troubleshooting information for Azure Load Balancer questions.
+
+## VMs behind Load Balancer are receving uneven distribution of traffic
+If you suspect backend pool members are receiving traffic, it could be due to the following causes. Azure Load Balancer distributes traffic based on connections. Be sure to check traffic distribution per connection and not per packet. Verify using the **Flow Distribution** tab in your pre-configured [Load Balancer Insights dashboard](load-balancer-insights.md#flow-distribution).
+
+Note that Azure Load Balancer doesn't support true round robin load balancing but supports a hash based [distribution mode](distribution-mode-concepts.md). 
+
+## Cause 1: You have session persistence configured
+
+Using source persistence distribution mode can cause an uneven distribution of traffic. 
+If this is not desired, update session persistence to be **None** so traffic is distributed across all healthy instances in the backend pool. Learn more about [distribution modes for Azure Load Balancer](distribution-mode-concepts.md).
+
+## Cause 2: You have a proxy configured
+
+Clients that run behind proxies might be seen as one unique client application from the Load Balancer's point of view.
 
 ## VMs behind Load Balancer are not responding to traffic on the configured data port
 

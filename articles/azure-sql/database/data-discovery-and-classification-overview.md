@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: DavidTrigano
 ms.author: datrigan
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 08/24/2021
 tags: azure-synapse
 ---

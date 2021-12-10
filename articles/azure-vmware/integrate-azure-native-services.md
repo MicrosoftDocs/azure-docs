@@ -114,7 +114,7 @@ Extend Azure management to any infrastructure, including Azure VMware Solution, 
 
 ## Onboard hybrid Kubernetes clusters with Azure Arc-enabled Kubernetes
 
-Attach a Kubernetes cluster hosted in your Azure VMware Solution environment using Azure Arc enabled Kubernetes. For more information, see [Create an Azure Arc-enabled onboarding Service Principal](../azure-arc/kubernetes/create-onboarding-service-principal.md).
+Attach a Kubernetes cluster hosted in your Azure VMware Solution environment using Azure Arc enabled Kubernetes. For more information, see [Create an Azure Arc-enabled Kubernetes cluster](../azure-arc/kubernetes/quickstart-connect-cluster.md).
 
 
 ## Deploy the Log Analytics agent

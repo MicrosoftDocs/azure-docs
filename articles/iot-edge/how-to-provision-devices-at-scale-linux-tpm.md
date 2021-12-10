@@ -46,7 +46,7 @@ The tasks are as follows:
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
-### IoT Edge installation
+### Device requirements
 
 # [Physical device](#tab/physical-device)
 

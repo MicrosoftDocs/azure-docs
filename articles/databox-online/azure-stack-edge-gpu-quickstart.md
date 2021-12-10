@@ -3,13 +3,13 @@ title: Quickstart to configure and deploy Azure Stack Edge GPU | Microsoft Docs
 description: Get started with deploying Azure Stack Edge GPU after the device is received.
 services: databox
 author: alkohli
-
 ms.service: databox
 ms.subservice: edge
 ms.topic: quickstart
 ms.date: 06/09/2021
 ms.author: alkohli
-# Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure. 
+# Customer intent: As an IT admin, I need to understand how to prepare the portal to quickly deploy Azure Stack Edge so I can use it to transfer data to Azure.
+ms.custom: mode-other
 ---
 # Quickstart: Get started with Azure Stack Edge Pro with GPU 
 

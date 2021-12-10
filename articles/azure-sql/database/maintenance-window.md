@@ -7,9 +7,9 @@ ms.subservice: service-overview
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.custom: references_regions
-ms.date: 10/15/2021
+ms.date: 12/07/2021
 ---
 
 # Maintenance window (Preview)
@@ -33,7 +33,7 @@ The maintenance window can be configured on creation or for existing Azure SQL r
 
 ### Gain more predictability with maintenance window
 
-By default, Azure SQL maintenance policy blocks impactful updates during the period **8AM to 5PM local time every day** to avoid any disruptions during typical peak business hours. Local time is determined by the location of [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource and may observe daylight saving time in accordance with local time zone definition. 
+By default, Azure SQL maintenance policy blocks most impactful updates during the period **8AM to 5PM local time every day** to avoid any disruptions during typical peak business hours. Local time is determined by the location of [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) that hosts the resource and may observe daylight saving time in accordance with local time zone definition. 
 
 You can further adjust the maintenance updates to a time suitable to your Azure SQL resources by choosing from two additional maintenance window slots:
  
@@ -79,6 +79,7 @@ Choosing a maintenance window other than the default is currently available in t
 | Australia East | Yes | Yes | Yes |
 | Australia Southeast | Yes | Yes | |
 | Brazil South | Yes | Yes |  |
+| Brazil Southeast | Yes |  |  |
 | Canada Central | Yes | Yes | Yes |
 | Canada East | Yes | Yes | |
 | Central India | Yes | Yes | |
@@ -98,6 +99,8 @@ Choosing a maintenance window other than the default is currently available in t
 | Korea South | Yes | | |
 | North Central US | Yes | Yes | |
 | North Europe | Yes | Yes | Yes |
+| Norway East | Yes | | |
+| Norway West | Yes | | |
 | South Africa North | Yes | | | 
 | South Africa West | Yes | | | 
 | South Central US | Yes | Yes | Yes |
@@ -109,11 +112,15 @@ Choosing a maintenance window other than the default is currently available in t
 | UAE North | Yes | | |
 | UK South | Yes | Yes | Yes |
 | UK West | Yes | Yes | |
+| US Gov Arizona | Yes | | |
+| US Gov Texas| Yes | | | 
+| US Gov Virginia | Yes | | | 
 | West Central US | Yes | Yes | |
 | West Europe | Yes | Yes | Yes |
 | West India | Yes | | |
 | West US | Yes | Yes |  |
 | West US 2 | Yes | Yes | Yes |
+| West US 3 | Yes | | |
 | | | | | 
 
 ## Gateway maintenance for Azure SQL Database

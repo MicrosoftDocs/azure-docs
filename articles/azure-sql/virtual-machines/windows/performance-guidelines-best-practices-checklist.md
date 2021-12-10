@@ -24,6 +24,8 @@ This article provides a quick checklist as a series of best practices and guidel
 
 For comprehensive details, see the other articles in this series: [Checklist](performance-guidelines-best-practices-checklist.md), [VM size](performance-guidelines-best-practices-vm-size.md), [Storage](performance-guidelines-best-practices-storage.md), [Security](security-considerations-best-practices.md), [HADR configuration](hadr-cluster-best-practices.md), [Collect baseline](performance-guidelines-best-practices-collect-baseline.md). 
 
+Enable [SQL Assessment for SQL Server on Azure VMs](sql-assessment-for-sql-vm.md) and your SQL Server will be evaluated against known best practices and results shown on the [SQL VM management page](manage-sql-vm-portal.md) of the Azure portal.
+
 
 ## Overview
 
@@ -167,5 +169,7 @@ To learn more, see the other articles in this series:
 - [Collect baseline](performance-guidelines-best-practices-collect-baseline.md)
 
 For security best practices, see [Security considerations for SQL Server on Azure Virtual Machines](security-considerations-best-practices.md).
+
+Consider enabling [SQL Assessment for SQL Server on Azure VMs](sql-assessment-for-sql-vm.md).
 
 Review other SQL Server Virtual Machine articles at [SQL Server on Azure Virtual Machines Overview](sql-server-on-azure-vm-iaas-what-is-overview.md). If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).

@@ -1,8 +1,9 @@
 ---
 title: Monitor delegated resources at scale
 description: Azure Lighthouse helps you use Azure Monitor Logs in a scalable way across customer tenants.
-ms.date: 09/30/2021
+ms.date: 12/06/2021
 ms.topic: how-to
+ms.custom: devx-track-azurepowershell
 ---
 
 # Monitor delegated resources at scale
@@ -30,13 +31,13 @@ You can create a Log Analytics workspace by using the [Azure portal](../../azure
 >
 > ```powershell
 > $ManagingTenantId = "your-managing-Azure-AD-tenant-id"
-> 
+>
 > # Authenticate as a user with admin rights on the managing tenant
 > Connect-AzAccount -Tenant $ManagingTenantId
-> 
+>
 > # Register the Microsoft.Insights resource providers Application Ids
-> New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4
-> New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d 
+> New-AzADServicePrincipal -ApplicationId 1215fb39-1d15-4c05-b2e3-d519ac3feab4 -Role Contributor
+> New-AzADServicePrincipal -ApplicationId 6da94f3c-0d67-4092-a408-bb5d1cb08d2d -Role Contributor
 > ```
 
 ## Deploy policies that log data

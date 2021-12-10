@@ -1,16 +1,7 @@
 ---
 title: Automate incident handling in Microsoft Sentinel | Microsoft Docs
 description: This article explains how to use automation rules to automate incident handling, in order to maximize your SOC's efficiency and effectiveness in response to security threats.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin

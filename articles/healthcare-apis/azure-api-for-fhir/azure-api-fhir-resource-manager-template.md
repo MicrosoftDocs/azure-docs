@@ -5,7 +5,7 @@ author: matjazl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurepowershell
+ms.custom: subject-armqs, devx-track-azurepowershell, mode-other
 ms.author: zxue
 ms.date: 08/05/2021
 ---

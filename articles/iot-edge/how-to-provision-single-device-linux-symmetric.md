@@ -2,7 +2,6 @@
 title: Create and provision an IoT Edge device on Linux using symmetric keys - Azure IoT Edge | Microsoft Docs
 description: Create and provision a single IoT Edge device in IoT Hub for manual provisioning with symmetric keys
 author: kgremban
-ms.reviewer: v-tcassi
 ms.service: iot-edge
 services: iot-edge
 ms.topic: conceptual
@@ -44,7 +43,7 @@ This article covers registering your IoT Edge device and installing IoT Edge on 
 <!-- Device registration prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-register-device.md](../../includes/iot-edge-prerequisites-register-device.md)]
 
-### IoT Edge installation
+### Device requirements
 
 An X64, ARM32, or ARM64 Linux device.
 
@@ -109,18 +108,18 @@ You can quickly configure your IoT Edge device with symmetric key authentication
    sudo iotedge config mp --connection-string 'PASTE_DEVICE_CONNECTION_STRING_HERE'
    ```
 
-The `iotedge config mp` command creates a configuration file on the device, provides your connection string, and applies the configuration changes.
+   The `iotedge config mp` command creates a configuration file on the device and enters your connection string in the file.
+
+Apply the configuration changes.
+
+   ```bash
+   sudo iotedge config apply
+   ```
 
 If you want to see the configuration file, you can open it:
 
    ```bash
    sudo nano /etc/aziot/config.toml
-   ```
-
-If you make any changes to the configuration file, use the `iotedge config apply` command apply your changes:
-
-   ```bash
-   sudo iotedge config apply
    ```
 
 <!-- end 1.2 -->

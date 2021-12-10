@@ -8,6 +8,7 @@ ms.date: 07/27/2021
 ms.author: rogarana
 ms.subservice: files
 #Customer intent: As an IT admin new to Azure Files, I want to try out Azure file share so I can determine whether I want to subscribe to the service.
+ms.custom: mode-other
 ---
 
 # Quickstart: Create and manage Azure file shares with Windows virtual machines

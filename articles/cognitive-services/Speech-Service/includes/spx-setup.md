@@ -170,16 +170,3 @@ Follow these instructions to create a shortcut:
 > If you change the mounted directory that Docker is referencing, you need to update the function in `.bash_profile`.
 --->
 ***
-
-## Create subscription config
-
-To start using the Speech CLI, you need to enter your Speech subscription key and region identifier. 
-Get these credentials by following steps in [Try the Speech service for free](../overview.md#try-the-speech-service-for-free).
-Once you have your subscription key and region identifier (ex. `eastus`, `westus`), run the following commands.
-
-```console
-spx config @key --set SUBSCRIPTION-KEY
-spx config @region --set REGION
-```
-
-Your subscription authentication is now stored for future SPX requests. If you need to remove either of these stored values, run `spx config @region --clear` or `spx config @key --clear`.
