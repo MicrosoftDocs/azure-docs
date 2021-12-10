@@ -26751,7 +26751,7 @@
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics.md",
       "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics-classic-portal.md",
