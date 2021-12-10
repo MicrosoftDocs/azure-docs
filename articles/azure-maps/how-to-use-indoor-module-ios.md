@@ -9,7 +9,7 @@ ms.service: azure-maps
 services: azure-maps
 ---
 
-# Using indoor maps in the iOS SDK (Preview)
+# Indoor maps in the iOS SDK (Preview)
 
 The Azure Maps iOS SDK allows you to render indoor maps created in Azure Maps Creator services.
 
