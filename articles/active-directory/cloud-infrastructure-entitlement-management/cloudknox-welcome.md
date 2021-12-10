@@ -22,8 +22,9 @@ If you are new to Microsoft CloudKnox Permissions Management, our solution requi
 
 ## How to install Sentry as your cloud service provider
 
-- To open the Sentry installation page** for the appropriate cloud service provider, click:
+- For information on how to install Sentry as your cloud service provider, open the Sentry installation page for the appropriate cloud service provider.
 
+<!---
     <p>
     <a class="md-button sentry-install-button md-button-spacing aws-sentry-install-button" href="sentry-install-aws/">
         <span class="sentry-install-button__wrapper">
@@ -51,7 +52,7 @@ If you are new to Microsoft CloudKnox Permissions Management, our solution requi
     </p>
 
     <div class="hr hr-spacing"></div>
-
+--->
 ## What's new
 
 ### The CloudKnox dashboard
