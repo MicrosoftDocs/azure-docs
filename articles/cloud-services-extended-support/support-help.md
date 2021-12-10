@@ -20,7 +20,7 @@ For common issues and and workarounds, see [Azure Cloud Services troubleshooting
 
 ## Post a question on Microsoft Q&A
 
-Get answers to Service Fabric questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
+Get answers to Azure Cloud Services questions directly from Microsoft engineers, Azure Most Valuable Professionals (MVPs), and members of our expert community.
 
 [Microsoft Q&A](/answers/topics/azure-cloud-services-extended-support.html) is Azure's recommended source of community support.
 
