@@ -30,8 +30,8 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary and Detailed
 	- **Use cases:** 
-		1. The access key age and last rotation date along with last usage date is available in the summary report to help with key rotation. 
-		2. Granted task along with PCI score in order to take the action on the keys. 
+		- The access key age and last rotation date along with last usage date is available in the summary report to help with key rotation. 
+		- Granted task along with PCI score in order to take the action on the keys. 
 
 - **User entitlements and usage**: 
 	- **Summary of report:** Provides information about the identities' permissions - entitlement, usage, PCI, etc.
@@ -67,12 +67,12 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** No
 	- **Type of report:** Summary
 	- **Use cases:** 
-		1. Any identity permission change can be captured using this report. 
-		2. The **Identity Privilege Activity** report has the following main sections: **User Summary**, **Group Summary**, **Role Summary**, and **Delete Task Summary**. 
-		3. The **User** summary lists the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted users, users with PCI change, and High-risk active/inactive users. 
-		4. The **Group** summary lists the administrator level groups with the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted groups, groups with PCI change, and High-risk active/inactive groups.
-		5. The **Role summary** lists similar details as Group Summary. 
-		6. The **Delete Task summary** section lists the number of times the **Delete task** has been executed in the given time period. 
+		- Any identity permission change can be captured using this report. 
+		- The **Identity Privilege Activity** report has the following main sections: **User Summary**, **Group Summary**, **Role Summary**, and **Delete Task Summary**. 
+		- The **User** summary lists the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted users, users with PCI change, and High-risk active/inactive users. 
+		- The **Group** summary lists the administrator level groups with the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted groups, groups with PCI change, and High-risk active/inactive groups.
+		- The **Role summary** lists similar details as Group Summary. 
+		- The **Delete Task summary** section lists the number of times the **Delete task** has been executed in the given time period. 
 
 - **Permissions analytics report** 
 	- **Summary of report:** Provides information about the violation of key security best practices.
@@ -92,9 +92,9 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary, Detailed, and Dashboard
 	- **Use cases:** 
-		1.  The **Dashboard** report tracks the overall progress of the CIS benchmark, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
-		2. The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
-		3. The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
+		-  The **Dashboard** report tracks the overall progress of the CIS benchmark, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
+		- The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
+		- The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
 
 - **NIST 800-53** 
 	- **Summary of report:** Provides results of NIST 500-53 compliance controls.
@@ -103,9 +103,9 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary, Detailed, and Dashboard
 	- **Use cases:** 
-		1.  The **Dashboard** report tracks the overall progress of NIST 800-53, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
-		2. The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
-		3. The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
+		-  The **Dashboard** report tracks the overall progress of NIST 800-53, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
+		- The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
+		- The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
 
 - **Well-Architected Framework** 
 	- **Summary of report:** Provides results of Well-Architected Framework security pillar recommendations.
@@ -114,9 +114,9 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary, Detailed, and Dashboard
 	- **Use Cases:** 
-		1. The **Dashboard** report tracks the overall progress of the **Well-Architected Framework**, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
-		2. The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
-		3. The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
+		- The **Dashboard** report tracks the overall progress of the **Well-Architected Framework**, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
+		- The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
+		- The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
 
 - **Role/Policy Details**
 	- **Summary of report:** Provides information about roles and policies.
@@ -134,9 +134,9 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary, Detailed, and Dashboard
 	- **Use cases:** 
-		1. The **Dashboard** report tracks the overall progress of PCI DSS, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
-		2. The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
-		3. The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
+		- The **Dashboard** report tracks the overall progress of PCI DSS, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
+		- The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
+		- The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
 
 - **PCI History**
 	- **Summary of report:** Provides a report of PCI history.
@@ -165,13 +165,13 @@ The reports dashboard provides a table of information with both System Reports a
 - **Authorization System** - Displays which authorizations the custom report applies to.
 - **Format** - Displays the output format the report can be generated in, for example, CSV.
 
-    - To download the report, click the menu, click select **Download**, and then click the icon.
+    - To download the report, select the menu, select select **Download**, and then select the icon.
 
       The following message displays across the top of the screen in green if the download is successful: **Successfully Started to Generate On Demand Report**.
 
 ## How to view a custom report
 
-- To view the following information, click the **Custom Reports** tab:
+- To view the following information, select the **Custom Reports** tab:
      - **Report Name** - Displays the name of the report.
      - **Category** - Describes the type of report, for example, **Permission**, **Compliance**, etc.
      - **Authorization Systems** - Displays which authorizations the custom report applies to.
@@ -182,43 +182,43 @@ The reports dashboard provides a table of information with both System Reports a
 
 ## How to create a new custom report
 
-1. Click **New Custom Report**.
+1. Select **New Custom Report**.
 
  	The **New Custom Report** box opens.
 2. Enter a name for the new report in the **Report Name** box.
-3. Click an option from the **Report Based on** list.
+3. Select an option from the **Report Based on** list.
 
  	- To view which authorization systems the report applies to, hover over each report option.
-    - To view a description of the report, click the required option.
-4. Click **Next**.
+    - To view a description of the report, select the required option.
+4. Select **Next**.
 5. Under the **Authorization Systems** tab, select the appropriate authorization system type (AWS, Azure, GCP, and/or vCenter), and check or uncheck the appropriate authorization system under the applicable authorization system type.
 
 	Use **Search** to find an authorization system.
-6. To add specific users from each authorization system type, click the **Identities** tab.
+6. To add specific users from each authorization system type, select the **Identities** tab.
 
-     - To find users, click each authorization system type. 
-     - To find a specific user, click **Search** under **Users**, and add user names.
-7. Click the **Report Format** tab and check the following options, if applicable:
+     - To find users, select each authorization system type. 
+     - To find a specific user, select **Search** under **Users**, and add user names.
+7. Select the **Report Format** tab and check the following options, if applicable:
 	- **Detailed** - Check **CSV** for a detailed report.
 	- **Summary** - Check **CSV** and/or **PDF** for a summary of the report.
 	- **Dashboard** - Check **CSV** for a dashboard view of the report.
-8. Click the **Schedule** tab and choose from **None** up to **Monthly**.
+8. Select the **Schedule** tab and choose from **None** up to **Monthly**.
 
 	For **Hourly** and **Daily** options, you can set the start date by choosing from the **Calendar** dropdown, and can input a specific time of the day they want to receive the report. 
 
     In addition to date and time, the **Weekly** and **Biweekly** options you to select what day(s)of the week the report should repeat on.
 
 	When you select the time options for the schedule, the **Share With** option appears in the left side bar. 
-9. Click the **Share With** tab. 
+9. Select the **Share With** tab. 
 
 	The current user's email appears under **Email**, and other email addresses can be added by typing them into the **Search Email to add** box.
 
 	The **User Status** column displays the type of user the email address is associate with. 
-    - To remove them from the list, click the **X** to the right of the users name.
-10. Click **Save**.
+    - To remove them from the list, select the **X** to the right of the users name.
+10. Select **Save**.
 
       The following message displays across the top of the screen in green if the download is successful: **Report has been created**.
-11. To view the report, click **Custom Reports**.
+11. To view the report, select **Custom Reports**.
 
 ## How to make changes to a saved or scheduled report
 
@@ -231,7 +231,7 @@ The reports dashboard provides a table of information with both System Reports a
 		 Select this option to return to the Report interface as described in creating a new custom report. You can make any necessary updates and save the changes.
 
 	- To download a copy of the report, select the **Down arrow** icon.
-2. To perform actions to the report and select from the following options, click the ellipses (**...**) icon:
+2. To perform actions to the report and select from the following options, select the ellipses (**...**) icon:
 
 	 Reports that were not created by the current user, are listed as **Duplicate**.
 
@@ -241,15 +241,15 @@ The reports dashboard provides a table of information with both System Reports a
 
 	- **Duplicate** - Creates a duplicate of the report called **"Copy of XXX"**
 
-		 After clicking **Duplicate**, a pop-up box appears asking if the user is sure they want to create a duplicate. Click **Confirm**. **Report generated successfully** appears across the top of the screen in green if successfully duplicated.
+		 After selecting **Duplicate**, a pop-up box appears asking if the user is sure they want to create a duplicate. Select **Confirm**. **Report generated successfully** appears across the top of the screen in green if successfully duplicated.
 
 	- **API Settings** - Download the report using API.
 
-		 When this option is clicked, **API Settings** window opens and displays **Report ID** and **Secret Key**. Click **Generate New Key**.
+		 When this option is selected, **API Settings** window opens and displays **Report ID** and **Secret Key**. Select **Generate New Key**.
 
-	- **Delete** - Click this option to delete the report.
+	- **Delete** - Select this option to delete the report.
 
-		 After clicking **Delete**, a pop-up box appears asking if the user is sure they want to delete the report. Click **Confirm**. **Report is deleted successfully** appears across the top of the screen in green if successfully deleted.
+		 After selecting **Delete**, a pop-up box appears asking if the user is sure they want to delete the report. Select **Confirm**. **Report is deleted successfully** appears across the top of the screen in green if successfully deleted.
 
 	- **Unsubscribe** - Unsubscribe the user from receiving scheduled reports and notifications.
 

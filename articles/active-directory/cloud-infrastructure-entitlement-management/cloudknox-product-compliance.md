@@ -21,73 +21,73 @@ CloudKnox currently supports the Center for Internet Security (CIS) Benchmarks s
 
 All accounts for the selected **Authorization System Type** display on the main **Compliance** page.
 
-- To expand details about each compliance standard, click the toggle key.
+- To expand details about each compliance standard, select **View**.
 
      For more information about applying filters, see How to apply filters.
 
 **Center for Internet Security (CIS) Benchmarks**
 
-1. The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
 
      - To view the differentiators between the two levels, hover over the information **(i)** icon in the Level 1 and Level 2 boxes.
 
-      > [!NOTE]
-      > If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can click on the details in the boxes to view select details. For example, click the number under **Passed** to display only the recommendations in which a resource passed.
+  > [!NOTE]
+  > If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Passed** to display only the recommendations in which a resource passed.
 
-2. The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
 
-3. The last box on the dashboard displays the date range for which the information is displayed.
+- The last box on the dashboard displays the date range for which the information is displayed.
 
 **Amazon Web Services (AWS) Well-Architected Framework**
 
-1. The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
 
      > [!NOTE]
-     > If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can click on the details in this box to view select details. For example, click the number under **Passed** to display only the recommendations in which a resource passed.
+     > If the recommendation has been further categorized in the standard, a **Pass**/**Fail** status displays for that category. You can select on the details in this box to view select details. For example, select the number under **Passed** to display only the recommendations in which a resource passed.
 
-2. The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
 
-3. The last box on the dashboard displays the date range for which the information is displayed.
+- The last box on the dashboard displays the date range for which the information is displayed.
 
 **Next Generation Security and Privacy (NIST) 800-53**
 
-1. The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
 
      > [!NOTE]
-     > If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can click on the details in the boxes to view select details. For example, click the number under **Priority 1** to display only the recommendations in which a resource passed.
+     > If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to display only the recommendations in which a resource passed.
 
-2. The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
 
-3. The last box on the dashboard displays the date range for which the information is displayed.
+- The last box on the dashboard displays the date range for which the information is displayed.
 
 **Payment Card Industry/Data Security Standards (PCI DSS) Benchmarks**
 
-1. The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
 
-     If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can click on the details in the boxes to view select details. For example, click the number under **Priority 1** to view only the recommendations in which a resource passed.
+     If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to view only the recommendations in which a resource passed.
 
-2. The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
 
-3. The last box on the dashboard displays the date range for which the information is displayed.
+- The last box on the dashboard displays the date range for which the information is displayed.
 
 **Microsoft Azure Well-Architected Framework**
 
-1. The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
+- The first box displays a percentage and a rating that represents how many compliance recommendations were made for the selected compliance standard, and how many recommendations the account passed as of the current date shown.
 
-     If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can click on the details in the boxes to view select details. For example, click the number under **Priority 1** to view only the recommendations in which a resource passed.
+     If the recommendation has been further categorized in the standard, a **Priority** status displays for that category. You can select on the details in the boxes to view select details. For example, select the number under **Priority 1** to view only the recommendations in which a resource passed.
 
-2. The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
+- The middle box on the dashboard display is a graph displaying any changes to the recommendations that were passed in the last week.
 
-3. The last box on the dashboard displays the date range for which the information is displayed.
+- The last box on the dashboard displays the date range for which the information is displayed.
 
 ## How to view recommendation details by account
 
-1. Click the account name to view details on the recommendations:
+1. Select the account name to view details on the recommendations:
 
-     - **Ignore** – Users can toggle this option **On** or **Off** to ignore or view the recommendation.
-       - When the recommendation is toggled to **Off**, a pop-up box opens asking the user if they are sure they want to turn off the recommendation and requires the user to input a reason. Click **Confirm** once a reason has been entered.
+     - **Ignore** – Users can set this option **On** or **Off** to ignore or view the recommendation.
+       - When the recommendation is set to **Off**, a pop-up box opens asking the user if they are sure they want to turn off the recommendation and requires the user to input a reason. Select **Confirm** once a reason has been entered.
        - On the dashboard, the number of compliance recommendations will decrease by however many recommendations are switched to **Off.**
-       - When turning the recommendation back on, a pop-up box opens asking the user to confirm they want to turn on the recommendation. Click **Confirm**.
+       - When turning the recommendation back on, a pop-up box opens asking the user to confirm they want to turn on the recommendation. Select **Confirm**.
        - Some items may not have the ability to be ignored and will be marked in the column as **Manual** because there are no tests that can be run to give a result on the item.
        - Some items do not have the ability to be scored because they are test items and will be marked in the column as **Not Scored**. These items are not counted in the recommendations.
       - **Recommendation** – Displays the summary describing the recommendation. The **Recommendation** sections vary slightly depending on which compliance standard and authorization system is being viewed.
@@ -107,7 +107,7 @@ All accounts for the selected **Authorization System Type** display on the main 
 
 1. To view details about a recommendation, see How to view recommendation details by account.
 
-    - To navigate to the recommendation, click the recommendation name in the **Recommendation Name** column.
+    - To navigate to the recommendation, select the recommendation name in the **Recommendation Name** column.
 
 2. The top of the page displays the number of Resources are being tallied for this recommendation, and the number of resources that failed, passed, were not run, and were ignored.
 
@@ -115,7 +115,7 @@ All accounts for the selected **Authorization System Type** display on the main 
     - **Ignore** - You can check the box next to each line item to ignore the recommendation for a specific user or resource.
 
       - When the recommendation is checked, a pop-up box opens asking the user if they are sure they want to turn off the recommendation and requires the user to input a reason. 
-        - Click **Confirm** once a reason has been entered.
+        - Select **Confirm** once a reason has been entered.
         - Hover over the check mark in the Ignore column to view details of who ignored the resource, when they chose to ignore it, and the reason for ignoring it.
 
     - **Resources** – Displays the specific resource name captured under this recommendation.
@@ -126,20 +126,20 @@ All accounts for the selected **Authorization System Type** display on the main 
        - Hover over the **(!) Failed** for details on why the resource failed the recommendation.
 
     - **Remediate** – If a recommendation can be remediated, the action for remediation is listed in this column.
-        - Click the ellipses (**...**) to view available option for remediation, that is, disabling or deleting an access key.
-        - Click the **Download** icon to download the script for remediation.
+        - Select the ellipses (**...**) to view available option for remediation, that is, disabling or deleting an access key.
+        - Select the **Download** icon to download the script for remediation.
            - The **Script has been downloaded** message displays across the top of the screen if the download was successful.
 
-        - Click the **Duplicate** icon to copy the value of the script to the clipboard.
+        - Select the **Duplicate** icon to copy the value of the script to the clipboard.
              - The **Script copied to clipboard** message displays across the top of the screen if the value was copied successfully.
 
-4. Click the **Description** tab to view full details on how to read, use, and remediate a recommendation.
+4. Select the **Description** tab to view full details on how to read, use, and remediate a recommendation.
 
 ### How to apply filters
 
-There are several filtering options to choose from when filtering the recommendations. When you click a specific account, other filters (listed beginning on step 5) display. For more information, see How to view Recommendation details by account.
+There are several filtering options to choose from when filtering the recommendations. When you select a specific account, other filters (listed beginning on step 5) display. For more information, see How to view Recommendation details by account.
 
-1. Click the funnel icon to apply filter options.
+1. Select the funnel icon to apply filter options.
 
 2. From the **Compliance Standard**, choose between **CIS Benchmarks**, **AWS Well-Architected**,  **NIST 800-53**, **PCI-DSS Benchmarks**, and **Azure Well-Architected**.
 
@@ -159,9 +159,9 @@ There are several filtering options to choose from when filtering the recommenda
 
 ### How to search on the Compliance page
 
-1. Click in the **Search for Authorization Systems...** box at the top of the page, and then enter your criteria.
+1. Select in the **Search for Authorization Systems...** box at the top of the page, and then enter your criteria.
 
-2. To search for your criteria, press **Enter** or click **Search**. 
+2. To search for your criteria, press **Enter** or select **Search**. 
 
      The search results display on the screen. The top-right corner displays **Showing 1 of XX** to let you know how many pages of results have been found and which page is currently displayed.
 

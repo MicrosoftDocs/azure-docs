@@ -29,17 +29,17 @@ The CloudKnox dashboard contains the following information:
 ## How to navigate the dashboard
 
 1. From the first dropdown menu, select between **AWS**, **Azure**, **GCP**, or **VCENTER**. 
-2. From the **Authorization System** dropdown, select the appropriate authorization system and click **Apply** to view the metrics. 
+2. From the **Authorization System** dropdown, select the appropriate authorization system and select **Apply** to view the metrics. 
 
    The PCI chart is updated according to the selected authorization system. It displays the date and time it was last updated in the upper right-hand corner.
-3. To redirect the user to the **Usage Analytics** tab, under the **Privilege Creep Index** gauge, click the number next to **Users that contributed to your index**. 
+3. To redirect the user to the **Usage Analytics** tab, under the **Privilege Creep Index** gauge, select the number next to **Users that contributed to your index**. 
 
     For more information, see Usage Analytics for instructions on using this screen.
-4. To view the PCI chart view of the metrics, click the **Graph** icon from the middle section of the top of the screen.
+4. To view the PCI chart view of the metrics, select the **Graph** icon from the middle section of the top of the screen.
 
-    Or, click the **List** icon for a column view of number of identities in the Low, Medium, and High PCI categories. 
+    Or, select the **List** icon for a column view of number of identities in the Low, Medium, and High PCI categories. 
 5. The far right column displays **Highest PCI Change** for the last seven days and shows the Authorization system name with the PCI number and the change number, if applicable. 
-6. To view all authorization system changes, click **View All** at the bottom of the box.
+6. To view all authorization system changes, select **View All** at the bottom of the box.
 
 ## How to read the dashboard
 
@@ -61,7 +61,7 @@ The CloudKnox dashboard contains the following information:
 
    The distribution graph displays all the users who contribute to the PC. It displays how many users contribute to a particular score. For example, if the score from the PCI gauge is 14, the graph shows how many users have a score of 14.
 
-2. The PCI Trend graph shows you the historical trend of the PCI score over the last 90 days. To download the PCI History Report, click the **Download** icon.
+2. The PCI Trend graph shows you the historical trend of the PCI score over the last 90 days. To download the PCI History Report, select the **Download** icon.
 
 3. The **Usage Analytics Summary** section provides a snapshot of the following high-risk tasks or actions users have accessed, and displays the total number of users with the high-risk access, how many users are inactive or have unexecuted tasks, and how many users are active or have executed tasks:
 
@@ -77,8 +77,7 @@ The CloudKnox dashboard contains the following information:
 
 	- **Resources that Permit Delete Tasks** - Displays the total number of resources that permit delete tasks (Total), how many resources with delete tasks are not being utilized (Inactive), and how many resources with delete tasks are being used (Active).
 
-
-4. To view specific information about the following, click the number displayed on the heat map:
+4. To view specific information about the following, select the number displayed on the heat map:
 	- **Users** - Displays the total number of users and how many fall into the high, medium, and low categories.
 	- **Roles** - Displays the total number of roles and how many fall into the high, medium, and low categories.
 	- **Resources** - Displays the total number of resources and how many fall into the high, medium, and low categories.
@@ -86,7 +85,7 @@ The CloudKnox dashboard contains the following information:
 
 5. The **Identity** section below the heat map on the left side of the page shows all the relevant findings about identities, including roles that can access secret information, roles that are inactive, over provisioned active roles, and so on. 
 
-   - To expand the full list, click **All Findings**.
+   - To expand the full list, select **All Findings**.
 6. The **Resource** section below the heat map on the right side of the page shows all the relevant findings about resources. It includes unencrypted S3 buckets, open security groups, and so on.
 
 <!---## Next steps--->
