@@ -335,7 +335,7 @@ When you no longer need a workspace, delete it.
 
 [!INCLUDE [machine-learning-delete-workspace](../../includes/machine-learning-delete-workspace.md)]
 
-If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
+If you accidentally deleted your workspace, you may still be able to retrieve your notebooks. For details, see [Failover for business continuity and disaster recovery](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 # [Python](#tab/python)
 
@@ -400,3 +400,5 @@ Examples of creating a workspace:
 Once you have a workspace, learn how to [Train and deploy a model](tutorial-train-models-with-aml.md).
 
 To learn more about planning a workspace for your organization's requirements, see [Organize and set up Azure Machine Learning](/azure/cloud-adoption-framework/ready/azure-best-practices/ai-machine-learning-resource-organization).
+
+To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).

@@ -105,8 +105,8 @@ For the **orphaned object scenario**, only the single user **Joe Johnson** is pr
 This question checks an incoming conflicting user and the existing user object in Azure AD to see if they belong to the same user.  
 1. The conflicting object is newly synced to Azure Active Directory. Compare the objects' attributes:  
    - Display Name
-   - User Principal Name
-   - Object ID
+   - UserPrincipalName or SignInName
+   - ObjectID
 2. If Azure AD fails to compare them, check whether Active Directory has objects with the provided **UserPrincipalNames**. Answer **No** if you find both.
 
 In the following example, the two objects belong to the same user **Joe Johnson**.

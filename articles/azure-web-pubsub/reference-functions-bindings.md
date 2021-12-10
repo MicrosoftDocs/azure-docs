@@ -571,7 +571,7 @@ In weakly typed language like `javascript`, **`actionName`** is the key paramete
 > [!IMPORTANT]
 > The message data property in the send message related actions must be `string` if data type is set to `json` or `text` to avoid data conversion ambiguity. Please use `JSON.stringify()` to convert the json object in need. This is applied to any place using message property, for example, `UserEventResponse.Data` working with `WebPubSubTrigger`. 
 > 
-> When data type is set to `binary`, it's allowed to leverage binding naturally supported `dataType` as `binary` configured in the `function.json`, see [Trigger and binding definitions](/azure/azure-functions/functions-triggers-bindings?tabs=csharp#trigger-and-binding-definitions) for details.
+> When data type is set to `binary`, it's allowed to leverage binding naturally supported `dataType` as `binary` configured in the `function.json`, see [Trigger and binding definitions](../azure-functions/functions-triggers-bindings.md?tabs=csharp#trigger-and-binding-definitions) for details.
 
 ---
 

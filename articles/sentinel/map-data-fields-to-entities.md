@@ -1,17 +1,8 @@
 ---
 title: Map data fields to Microsoft Sentinel entities | Microsoft Docs
 description: Map data fields in tables to Microsoft Sentinel entities in analytics rules, for better incident information
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -80,4 +71,4 @@ The procedure detailed below is part of the analytics rule creation wizard. It's
 
 In this document, you learned how to map data fields to entities in Microsoft Sentinel analytics rules. To learn more about Microsoft Sentinel, see the following articles:
 - Get the complete picture on [scheduled query analytics rules](detect-threats-custom.md).
-- Learn more about [entities in Microsoft Sentinel](entities-in-azure-sentinel.md).
+- Learn more about [entities in Microsoft Sentinel](entities.md).

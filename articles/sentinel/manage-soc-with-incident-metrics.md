@@ -1,18 +1,9 @@
 ---
 title: Manage your SOC better with incident metrics in Microsoft Sentinel | Microsoft Docs
 description: Use information from the Microsoft Sentinel incident metrics screen and workbook to help you manage your Security Operations Center (SOC).
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ---

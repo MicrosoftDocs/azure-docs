@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 05/14/2021
+ms.date: 11/18/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -88,7 +88,7 @@ Replace the placeholder with test information and run the following command:
 Request
 
 ```http
-POST /administrativeUnits/{admin-unit-id}/members/$ref
+POST /directory/administrativeUnits/{admin-unit-id}/members/$ref
 ```
 
 Body

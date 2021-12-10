@@ -1,16 +1,8 @@
 ---
 title: Threat intelligence integration in Microsoft Sentinel | Microsoft Docs
 description: Learn about the different ways threat intelligence feeds are integrated with and used by Microsoft Sentinel.
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -66,6 +58,11 @@ To connect to TAXII threat intelligence feeds, follow the instructions to [conne
 
 - [Learn more about STIX and TAXII @ThreatConnect](https://threatconnect.com/stix-taxii/)
 - [TAXII Services documentation @ThreatConnect](https://docs.threatconnect.com/en/latest/rest_api/v2/taxii/taxii.html)
+
+### Sectrio
+
+- [Learn more about Sectrio integration](https://sectrio.com/threat-intelligence/)
+- [Step by step process for integrating Sectrio's TI feed into Microsoft Sentinel](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/microsoft-sentinel-bring-threat-intelligence-from-sectrio-using/ba-p/2964648)
 
 ## Integrated threat intelligence platform products
 

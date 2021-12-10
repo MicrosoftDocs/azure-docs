@@ -3,6 +3,7 @@ title: Investigate security recommendations
 description: Investigate security recommendations with the Defender for IoT security service.
 ms.topic: quickstart
 ms.date: 11/09/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Investigate security recommendations

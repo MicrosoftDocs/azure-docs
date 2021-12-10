@@ -1,15 +1,8 @@
 ---
 title: Configure multistage attack detection (Fusion) rules in Microsoft Sentinel
 description: Create and configure attack detection rules based on Fusion technology in Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

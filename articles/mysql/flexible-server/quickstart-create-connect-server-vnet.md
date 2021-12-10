@@ -4,7 +4,7 @@ description: This article walks you through using the Azure portal to create and
 author: mksuni
 ms.author: sumuth
 ms.service: mysql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 04/18/2021
 ---

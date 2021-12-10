@@ -4,10 +4,10 @@ description: Deploy your first application to Azure Container Apps Preview using
 services: container-apps
 author: cebundy
 ms.service: container-apps
-ms.topic:  quickstart
+ms.topic: quickstart
 ms.date: 11/09/2021
 ms.author: v-bcatherine
-ms.custom: 
+ms.custom: mode-portal
 ---
 
 # Quickstart: Deploy your first container app using the Azure portal
@@ -97,7 +97,7 @@ In the *App settings* tab, do the following actions:
 
 1. Select **Create**.
 
-    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message "Your deployment is complete".
+    A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message *Your deployment is complete*.
 
 ### View Your deployed application
 

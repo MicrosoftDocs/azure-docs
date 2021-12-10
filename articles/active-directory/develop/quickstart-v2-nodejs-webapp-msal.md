@@ -5,14 +5,13 @@ description: In this quickstart, you learn how to implement authentication with 
 services: active-directory
 author: mmacy
 manager: celested
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/22/2020
 ms.author: marsma
-ms.custom: aaddev, scenarios:getting-started, languages:js, devx-track-js
+ms.custom: aaddev, "scenarios:getting-started", "languages:js", devx-track-js, mode-other
 # Customer intent: As an application developer, I want to know how to set up authentication in a web application built using Node.js and MSAL Node.
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Perform a news search with C# - Bing News Search REST API"
 titleSuffix: Azure Cognitive Services
-description: Use this quickstart to send a request to the Bing News Search REST API using C#, and receive a JSON response.
+description: "Use this quickstart to send a request to the Bing News Search REST API using C#, and receive a JSON response."
 services: cognitive-services
 author: aahill
 manager: nitinme
@@ -10,7 +10,7 @@ ms.subservice: bing-news-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: "seodec2018, devx-track-csharp"
+ms.custom: seodec2018, devx-track-csharp, mode-other
 ---
 
 # Quickstart: Search for news using C# and the Bing News Search REST API

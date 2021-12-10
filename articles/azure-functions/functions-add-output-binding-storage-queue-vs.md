@@ -1,10 +1,10 @@
 ---
-title: Connect functions to Azure Storage using Visual Studio 
-description: Learn how to add an output binding to connect your C# class library functions to an Azure Storage queue using Visual Studio.
+title: Connect functions to Azure Storage using Visual Studio
+description: "Learn how to add an output binding to connect your C# class library functions to an Azure Storage queue using Visual Studio."
 ms.date: 05/30/2021
 ms.topic: quickstart
-ms.custom: mvc
-#Customer intent: As an Azure Functions developer, I want to connect my C# class library function to Azure Storage so that I can easily write data to a storage queue.
+ms.custom: mvc, mode-other
+#Customer intent: "As an Azure Functions developer, I want to connect my C# class library function to Azure Storage so that I can easily write data to a storage queue."
 ---
 
 # Connect functions to Azure Storage using Visual Studio

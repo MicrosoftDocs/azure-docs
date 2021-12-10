@@ -15,9 +15,9 @@ ms.custom: seodec18, references_regions
 > [!NOTE]
 > This article is about the App Service Environment v2, which is used with Isolated App Service plans.
 
-The App Service Environment (ASE) has a number of external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network (VNet). Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their VNet.
+The App Service Environment (ASE) has many external dependencies that it requires access to in order to function properly. The ASE lives in the customer Azure Virtual Network. Customers must allow the ASE dependency traffic, which is a problem for customers that want to lock down all egress from their virtual network.
 
-There are a number of inbound endpoints that are used to manage an ASE. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](./management-addresses.md) document. There is also a Service Tag named AppServiceManagement which can be used with Network Security Groups (NSGs) to secure inbound traffic.
+There are many inbound endpoints that are used to manage an ASE. The inbound management traffic cannot be sent through a firewall device. The source addresses for this traffic are known and are published in the [App Service Environment management addresses](./management-addresses.md) document. There is also a Service Tag named AppServiceManagement, which can be used with Network Security Groups (NSGs) to secure inbound traffic.
 
 The ASE outbound dependencies are almost entirely defined with FQDNs, which do not have static addresses behind them. The lack of static addresses means that Network Security Groups cannot be used to lock down the outbound traffic from an ASE. The addresses change often enough that one cannot set up rules based on the current resolution and use that to create NSGs.
 
@@ -54,7 +54,7 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
 
    ![select service endpoints][2]
 
-1. Create a subnet named AzureFirewallSubnet in the VNet where your ASE exists. Follow the directions in the [Azure Firewall documentation](../../firewall/index.yml) to create your Azure Firewall.
+1. Create a subnet named AzureFirewallSubnet in the virtual network where your ASE exists. Follow the directions in the [Azure Firewall documentation](../../firewall/index.yml) to create your Azure Firewall.
 
 1. From the Azure Firewall UI > Rules > Application rule collection, select Add application rule collection. Provide a name, priority, and set Allow. In the FQDN tags section, provide a name, set the source addresses to * and select the App Service Environment FQDN Tag and the Windows Update.
 
@@ -78,7 +78,7 @@ The steps to lock down egress from your existing ASE with Azure Firewall are:
 
 The steps to deploy your ASE behind a firewall are the same as configuring your existing ASE with an Azure Firewall except you will need to create your ASE subnet and then follow the previous steps. To create your ASE in a pre-existing subnet, you need to use a Resource Manager template as described in the document on [Creating your ASE with a Resource Manager template](./create-from-template.md).
 
-## Application traffic
+### Application traffic
 
 The above steps will allow your ASE to operate without problems. You still need to configure things to accommodate your application needs. There are two problems for applications in an ASE that is configured with Azure Firewall.  
 
@@ -87,11 +87,11 @@ The above steps will allow your ASE to operate without problems. You still need 
 
 If your applications have dependencies, they need to be added to your Azure Firewall. Create Application rules to allow HTTP/HTTPS traffic and Network rules for everything else.
 
-If you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is large or unspecified, then you can use a network appliance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](./integrate-with-application-gateway.md)
+When you know the address range that your application request traffic will come from, you can add that to the route table that is assigned to your ASE subnet. If the address range is large or unspecified, then you can use a network appliance like the Application Gateway to give you one address to add to your route table. For details on configuring an Application Gateway with your ILB ASE, read [Integrating your ILB ASE with an Application Gateway](./integrate-with-application-gateway.md)
 
 This use of the Application Gateway is just one example of how to configure your system. If you did follow this path, then you would need to add a route to the ASE subnet route table so the reply traffic sent to the Application Gateway would go there directly.
 
-## Logging
+### Logging
 
 Azure Firewall can send logs to Azure Storage, Event Hub, or Azure Monitor logs. To integrate your app with any supported destination, go to the Azure Firewall portal > Diagnostic Logs and enable the logs for your desired destination. If you integrate with Azure Monitor logs, then you can see logging for any traffic sent to Azure Firewall. To see the traffic that is being denied, open your Log Analytics workspace portal > Logs and enter a query like
 
@@ -101,14 +101,17 @@ AzureDiagnostics | where msg_s contains "Deny" | where TimeGenerated >= ago(1h)
 
 Integrating your Azure Firewall with Azure Monitor logs is useful when first getting an application working when you are not aware of all of the application dependencies. You can learn more about Azure Monitor logs from [Analyze log data in Azure Monitor](../../azure-monitor/logs/log-query-overview.md).
 
-## Dependencies
+<a name="dependencies"></a>
+## Configuring third-party firewall with your ASE
 
-The following information is only required if you wish to configure a firewall appliance other than Azure Firewall.
+The following information is only required if you wish to configure a firewall appliance other than Azure Firewall. For Azure Firewall see [the section above](#configuring-azure-firewall-with-your-ase).
+
+Consider the following dependencies when deploying a third-party firewall with your ASE:
 
 - Service Endpoint capable services should be configured with service endpoints.
 - IP Address dependencies are for non-HTTP/S traffic (both TCP and UDP traffic)
 - FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
-- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers.
+- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on many qualifiers.
 - Linux dependencies are only a concern if you are deploying Linux apps into your ASE. If you are not deploying Linux apps into your ASE, then these addresses do not need to be added to your firewall.
 
 ### Service Endpoint capable dependencies
@@ -233,7 +236,7 @@ With an Azure Firewall, you automatically get everything below configured with t
 
 | Endpoint |
 |----------|
-|gr-Prod-\*.cloudapp.net:443 |
+|gr-prod-\*.cloudapp.net:443 |
 | \*.management.azure.com:443 |
 | \*.update.microsoft.com:443 |
 | \*.windowsupdate.microsoft.com:443 |
@@ -276,15 +279,15 @@ With an Azure Firewall, you automatically get everything below configured with t
 |40.76.35.62:11371 |
 |104.215.95.108:11371 |
 
-## US Gov dependencies
+## Configuring a firewall with ASE in US Gov regions
 
 For ASEs in US Gov regions, follow the instructions in the [Configuring Azure Firewall with your ASE](#configuring-azure-firewall-with-your-ase) section of this document to configure an Azure Firewall with your ASE.
 
-If you want to use a device other than Azure Firewall in US Gov:
+When you want to use a third-party firewall in US Gov you need to consider the following dependencies:
 
 - Service Endpoint capable services should be configured with service endpoints.
 - FQDN HTTP/HTTPS endpoints can be placed in your firewall device.
-- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on a number of qualifiers.
+- Wildcard HTTP/HTTPS endpoints are dependencies that can vary with your ASE based on many qualifiers.
 
 Linux is not available in US Gov regions and is thus not listed as an optional configuration.
 
@@ -311,13 +314,10 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 | 13.82.184.151:80 | Needed to monitor and alert on ASE problems |
 | 13.82.184.151:443 | Needed to monitor and alert on ASE problems |
 
-### Dependencies
+### FQDN HTTP/HTTPS dependencies
 
 | Endpoint |
 |----------|
-| \*.ctldl.windowsupdate.com:80 |
-| \*.management.usgovcloudapi.net:80 |
-| \*.update.microsoft.com:80 |
 |admin.core.usgovcloudapi.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
 |azperfmerges.blob.core.windows.net:80 |
@@ -372,10 +372,6 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |www.microsoft.com:80 |
 |www.msftconnecttest.com:80 |
 |www.thawte.com:80 |
-|\*ctldl.windowsupdate.com:443 |
-|\*.management.usgovcloudapi.net:443 |
-|\*.update.microsoft.com:443 |
-|\*.prod.microsoftmetrics.com:443 |
 |admin.core.usgovcloudapi.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
 |azperfmerges.blob.core.windows.net:443 |
@@ -437,6 +433,18 @@ Linux is not available in US Gov regions and is thus not listed as an optional c
 |www.msftconnecttest.com:443 |
 |www.thawte.com:443 |
 |global-dsms.dsms.core.usgovcloudapi.net:443 |
+
+### Wildcard HTTP/HTTPS dependencies
+
+| Endpoint |
+|----------|
+|\*.ctldl.windowsupdate.com:80 |
+|\*.management.usgovcloudapi.net:80 |
+|\*.update.microsoft.com:80 |
+|\*ctldl.windowsupdate.com:443 |
+|\*.management.usgovcloudapi.net:443 |
+|\*.update.microsoft.com:443 |
+|\*.prod.microsoftmetrics.com:443 |
 
 <!--Image references-->
 [1]: ./media/firewall-integration/firewall-apprule.png

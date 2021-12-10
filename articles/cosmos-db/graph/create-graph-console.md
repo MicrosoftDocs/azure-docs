@@ -7,6 +7,7 @@ ms.topic: quickstart
 ms.date: 07/10/2020
 author: manishmsfte
 ms.author: mansha
+ms.custom: mode-other
 ---
 # Quickstart: Create, query, and traverse an Azure Cosmos DB graph database using the Gremlin console
 [!INCLUDE[appliesto-gremlin-api](../includes/appliesto-gremlin-api.md)]

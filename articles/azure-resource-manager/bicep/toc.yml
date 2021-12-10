@@ -12,10 +12,21 @@
   - name: Install Bicep tools
     href: install.md
     displayName: nightly
+  - name: Troubleshoot installation
+    href: installation-troubleshoot.md
 - name: Quickstarts
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: Use loops
+    displayName: multiple
+    href: quickstart-loops.md
+  - name: CI/CD
+    items:
+    - name: Bicep with pipelines
+      href: add-template-to-azure-pipelines.md
+    - name: Bicep with GitHub Actions
+      href: deploy-github-actions.md
 - name: Tutorials
   items:
   - name: Microsoft Learn - Bicep
@@ -59,6 +70,7 @@
       - name: Create private registry
         href: private-module-registry.md
     - name: Loops
+      displayName: multiple
       href: loops.md
     - name: Scopes
       items:
@@ -74,6 +86,8 @@
       - name: Tenant
         href: deploy-to-tenant.md
         displayName: assign role
+    - name: Deployment script
+      href: deployment-script-bicep.md
     - name: Linter
       items:
       - name: Linter
@@ -100,8 +114,20 @@
       items:
       - name: Configuration set
         href: patterns-configuration-set.md
+      - name: Logical parameter
+        href: patterns-logical-parameter.md
+      - name: Name generation
+        href: patterns-name-generation.md
       - name: Shared variable file
         href: patterns-shared-variable-file.md
+  - name: Scenarios
+    items:
+    - name: Access control
+      href: scenarios-rbac.md
+    - name: Secrets
+      href: scenarios-secrets.md
+    - name: Virtual networks
+      href: scenarios-virtual-networks.md
   - name: Deploy
     items:
     - name: Predeployment checks
@@ -124,12 +150,14 @@
       - name: Pass sensitive values
         displayName: key vault
         href: key-vault-parameter.md
-    - name: CI/CD
-      items:
-      - name: Bicep with pipelines
-        href: add-template-to-azure-pipelines.md
-      - name: Bicep with GitHub Actions
-        href: deploy-github-actions.md
+  - name: Configure settings
+    items:
+    - name: Bicep config file
+      href: bicep-config.md
+    - name: Linter settings
+      href: bicep-config-linter.md
+    - name: Module settings
+      href: bicep-config-modules.md
   - name: Migrate to Bicep
     items:
     - name: Recommended workflow
@@ -144,8 +172,6 @@
   - name: Data types
     href: data-types.md
     displayName: supported types,arrays,booleans,integers,objects,strings,secure
-  - name: Configuration file
-    href: bicep-config.md
   - name: Functions
     items:
     - name: All functions
@@ -188,6 +214,6 @@
     href: bicep-cli.md
     displayName: build,decompile,install,list-versions,list versions,upgrade,version
   - name: Azure PowerShell
-    href: /powershell/module/az.resources
+    href: /powershell/module/az.resources/
   - name: Azure CLI
     href: /cli/azure/resource

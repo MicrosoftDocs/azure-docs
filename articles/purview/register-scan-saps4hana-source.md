@@ -33,7 +33,7 @@ This article outlines how to register SAP S/4HANA, and how to authenticate and i
 * Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
     >[!NOTE]
-    >Scanning SAP S/4HANA is a memory intensive operation, you are recommended to install Self-hosted Integration Runtime on a machine with large memory e.g. 128 GB.
+    >Scanning SAP S/4HANA is a memory intensive operation, you are recommended to install Self-hosted Integration Runtime on a machine with at least 128GB RAM.
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
