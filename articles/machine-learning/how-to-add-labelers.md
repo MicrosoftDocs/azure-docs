@@ -20,15 +20,15 @@ This article shows how to add users to your data labeling project so that they c
 * An Azure subscription. If you don't have an Azure subscription [create a free account](https://azure.microsoft.com/free) before you begin.
 * An Azure Machine Learning workspace. See [Create an Azure Machine Learning workspace](how-to-manage-workspace.md).
 
-You'll need certain permission levels to follow the steps in this article. If you don't have the appropriate access, contact your administrator.
+You'll need certain permission levels to follow the steps in this article. If you can't follow one of the steps, contact your administrator to get the appropriate permissions.
 
 * To add a guest user, your organization's external collaboration settings must be configured to allow you to invite guests.
 * To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.md#user-access-administrator) or [Owner](../../articles/role-based-access-control/built-in-roles.md#owner).
-* To add users to your workspace, you must be an owner of the workspace.
+* To add users to your workspace, you must be an **Owner** of the workspace.
 
 ## Add custom role
 
-To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles.
+To add a custom role, you must have `Microsoft.Authorization/roleAssignments/write` permissions for your subscription, such as [User Access Administrator](../../articles/role-based-access-control/built-in-roles).
 
 1. Open your workspace in [Azure Machine Learning studio](https://ml.azure.com)
 1. Open the menu on the top right and select **View all properties in Azure Portal**.  You'll use Azure portal for all the rest of the steps in this article.
@@ -68,7 +68,9 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 
 ### Labeling team lead
 
-You may want to create a second role for a labeling team lead.  A labeling team lead can reject the labeled dataset and view labeling insights.  To add this custom role, repeat the above steps.  Use the name **Labeling Team Lead** and replace the two lines with:
+You may want to create a second role for a labeling team lead.  A labeling team lead can reject the labeled dataset and view labeling insights. In addition, this role also allows you to perform the role of a labeler. 
+
+To add this custom role, repeat the above steps. Use the name **Labeling Team Lead** and replace the two lines with:
 
 ```json
                 "actions": [
