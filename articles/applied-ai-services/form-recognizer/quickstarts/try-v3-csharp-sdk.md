@@ -30,7 +30,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 
 * [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model (invoice)**](#prebuilt-model-invoice) Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt model (invoice)**](#prebuilt-model-invoice) Analyze and extract common fields from invoices using a pre-trained invoice model.
 
 ## Prerequisites
 
