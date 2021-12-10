@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.date: 12/10/2021
 ---
 
-# Adjust compute quota in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal
+# Change compute quotas in Azure Database for PostgreSQL - Hyperscale (Citus) from the Azure portal
 
 Azure enforces a vCore quota per subscription per region. There are two
 independently adjustable limits: vCores for coordinator nodes, and vCores for
