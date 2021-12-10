@@ -1,5 +1,5 @@
 ---
-title: Pay your Microsoft Customer Agreement Azure bill
+title: Pay your Microsoft Customer Agreement or Microsoft Online Subscription Program Azure bill
 description: Learn how to pay your bill in the Azure portal. You must be a billing profile owner, contributor, or invoice manager to pay in the portal.
 keywords: billing, past due, balance, pay now,
 author: banders
@@ -8,19 +8,21 @@ tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 12/06/2021
+ms.date: 12/10/2021
 ms.author: banders
 ---
 
-# Pay your Microsoft Customer Agreement Azure and Microsoft  bill
+# Pay your Microsoft Customer Agreement Azure or Microsoft Online Subscription Program Azure bill
 
-This article applies to customers with a Microsoft Customer Agreement (MCA).
+This article applies to customers with a Microsoft Customer Agreement (MCA) and to customers who signed up for Azure through the Azure website (for an Microsoft Online Services Program account also called pay-as-you-go account).
 
 [Check your access to a Microsoft Customer Agreement](#check-access-to-a-microsoft-customer-agreement).
 
 There are two ways to pay for your bill for Azure. You can pay with the default payment method of your billing profile or you can make a one-time payment with **Pay now**.
 
 If you signed up for Azure through a Microsoft representative, then your default payment method will always be set to *check or wire transfer*. Automatic credit card payment isn't an option if you signed up for Azure through a Microsoft representative. Instead, you can [pay with a credit card for individual invoices](#pay-now-in-the-azure-portal).
+
+If you have a Microsoft Online Services Program account, your default payment method is credit card. Payments are normally automatically deducted from your credit card, but you can also make one-time payments manually by credit card.
 
 If you have Azure credits, they automatically apply to your invoice each billing period.
 
