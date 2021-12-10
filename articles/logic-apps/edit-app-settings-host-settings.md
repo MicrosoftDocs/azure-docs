@@ -148,6 +148,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobDefinitionsTable` | `4` job partitions | Sets the number of job partitions in the job definition table. This value controls how much execution throughput is affected by partition storage limits. |
+| `Jobs.StuckJobThreshold` | `00:60:00` <br>(60 minutes) | Sets the time duration before a job is declared as stuck. If you have an action that requires more than 60 minutes to run, you might need to increase this setting. |
 ||||
 
 <a name="run-duration-history"></a>
@@ -366,16 +367,6 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.Operation.MaximumRetryCount` | `90` retries | Sets the maximum number of retries in the retry policy definition for a workflow operation. |
 | `Runtime.Backend.Operation.MaximumRetryInterval` | `01:00:00:01` <br>(1 day and 1 sec) | Sets the maximum interval in the retry policy definition for a workflow operation. |
 | `Runtime.Backend.Operation.MinimumRetryInterval` | `00:00:05` <br>(5 sec) | Sets the minimum interval in the retry policy definition for a workflow operation. |
-||||
-
-
-<a name="jobs"></a>
-
-### Jobs
-
-| Setting | Default value | Description |
-|---------|---------------|-------------|
-| `Jobs.StuckJobThreshold` | `00:60:00` <br>(60 minutes) | Sets the time before a job being declared as stuck. If you have an action taking more than 60 minutes, you may need to increase this setting. |
 ||||
 
 <a name="manage-host-settings"></a>
