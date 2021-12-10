@@ -158,7 +158,7 @@
         - name: Traffic Manager integration
           href: web-sites-traffic-manager.md
         - name: Control outbound traffic with Azure Firewall
-          href: outbound-traffic-control-azfw.md
+          href: network-secure-outbound-traffic-azure-firewall.md
     - name: Local cache
       href: overview-local-cache.md
     - name: Diagnostics

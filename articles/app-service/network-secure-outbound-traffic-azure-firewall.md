@@ -50,12 +50,12 @@ To route outbound traffic to access Azure Services through Azure Firewall, disab
 Azure Firewall is a cloud-based network security service that protects your Azure Virtual Network resources. It's a fully stateful firewall as a service with built-in high availability and unrestricted cloud scalability. You can centrally create, enforce, and log application and network connectivity policies across subscriptions and virtual networks. To learn about Azure Firewall features, see [Azure Firewall features](../firewall/features.md).
 
 * Create an Azure Firewall in the Azure portal.
-:::image type="content" source="./media/outbound-traffic-control-azfw/create-azfw.png" alt-text="Screenshot of creating an Azure Firewall in the Azure portal.":::
+:::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/create-azfw.png" alt-text="Screenshot of creating an Azure Firewall in the Azure portal.":::
 
 * Get the private IP address of Azure Firewall
 
     After Azure Firewall is created, get the private IP address in the overview. The private IP address will be used as next hop address in the routing rule.
-    :::image type="content" source="./media/outbound-traffic-control-azfw/firewall-private-ip.png" alt-text="Screenshot of get Azure firewall private IP address.":::
+    :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/firewall-private-ip.png" alt-text="Screenshot of get Azure firewall private IP address.":::
 
 ## Configure traffic routing to Azure Firewall with route table (UDR)
 
@@ -66,18 +66,18 @@ To forward App Service outbound traffic to Azure Firewall, add a user-defined ro
 ### Create a route table
 
 1. Create a route table in the Azure portal
-:::image type="content" source="./media/outbound-traffic-control-azfw/create-route-table.png" alt-text="Screenshot of creating a routing route table in Azure portal.":::
+:::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/create-route-table.png" alt-text="Screenshot of creating a routing route table in Azure portal.":::
 1. Add a route with `0.0.0.0/0` as the address prefix, set next hop type to virtual appliance and set Azure Firewall private IP address as next hop address.
-:::image type="content" source="./media/outbound-traffic-control-azfw/add-route-rule.png" alt-text="Screenshot of adding a routing rule to a route table.":::
+:::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/add-route-rule.png" alt-text="Screenshot of adding a routing rule to a route table.":::
 1. Associate the route table to the App Service subnet.
-:::image type="content" source="./media/outbound-traffic-control-azfw/associate-route-table.png" alt-text="Screenshot of associate the route table to the App Service subnet.":::
+:::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/associate-route-table.png" alt-text="Screenshot of associate the route table to the App Service subnet.":::
 
 ### Configure Azure Firewall policies
 
 To control App Service outbound traffic in Azure Firewall, add an application rule to the Azure Firewall policy.
 
 In **Azure Firewall Policy**> **Application Rules**> **Add a rule collection** to add a network rule that allows the source address as App Service subnet. For testing purpose, we set `api.my-ip.io` as allowed destination FQDN.
-    :::image type="content" source="./media/outbound-traffic-control-azfw/config-azfw-policy-app-rule.png" alt-text="Screenshot of configure Azure Firewall policy rule.":::
+    :::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/config-azfw-policy-app-rule.png" alt-text="Screenshot of configure Azure Firewall policy rule.":::
 
 ### Verify the outbound traffic
 
@@ -88,10 +88,10 @@ We can use **curl** command from App Service SCM debug console to verify the out
 
 1. Open a browser and connect to the App Service SCM url: `https://<yourappname>.scm.azurewebsites.net`.
 1. Open the CMD debug console to verify an outbound connect match with the application rule, Use **curl -s https://api.my-ip.io/api** to get the App Service ip address. In this case, we can get the response from the api service.
-:::image type="content" source="./media/outbound-traffic-control-azfw/verify-outbound-traffic-fw-allow-rule.png" alt-text="Screenshot of verifying the success outbound traffic by using curl command in SCM debug console.":::
+:::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/verify-outbound-traffic-fw-allow-rule.png" alt-text="Screenshot of verifying the success outbound traffic by using curl command in SCM debug console.":::
 
 1. To verify an outbound connect that not matches the application rule. Use **curl -s https://api.ipify.org** to make an outbound connection. In this case, no response from the api service.
-:::image type="content" source="./media/outbound-traffic-control-azfw/verify-outbound-traffic-fw-no-rule.png" alt-text="Screenshot of sending outbound traffic by using curl command in SCM debug console.":::
+:::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/verify-outbound-traffic-fw-no-rule.png" alt-text="Screenshot of sending outbound traffic by using curl command in SCM debug console.":::
 
 1. Review the Azure Firewall application rule log. We can see these two access logs in query result.
-:::image type="content" source="./media/outbound-traffic-control-azfw/azfw-application-log.png" alt-text="Screenshot of SCM debug console to verify the failed outbound traffic by using curl command.":::
+:::image type="content" source="./media/network-secure-outbound-traffic-azure-firewall/azfw-application-log.png" alt-text="Screenshot of SCM debug console to verify the failed outbound traffic by using curl command.":::
