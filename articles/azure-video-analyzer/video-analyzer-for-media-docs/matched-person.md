@@ -8,28 +8,31 @@ ms.author: juliako
 
 # Matched person (preview)
 
-Video Analyzer for Media matches observed people that were detected in the video with the corresponding faces ("People" insight). To produce the matching algorithm, the bounding boxes for both the faces and the observed people are assigned spatially along the video. The API returns the confidence level of each matching.
+Azure Video Analyzer for Media matches observed people that were detected in the video with the corresponding faces ("People" insight). To produce the matching algorithm, the bounding boxes for both the faces and the observed people are assigned spatially along the video. The API returns the confidence level of each matching.
 
-Some scenarios where this feature could be useful:
+The following are some scenarios that benefit from this feature:
  
 * Improve efficiency when creating raw data for content creators, like video advertising, news, or sport games (for example, find all appearances of a specific person in a video archive).
 * Post-event analysis—detect and track specific person’s movement to better analyze an accident or crime post-event (for example, explosion, bank robbery, incident).
 * Create a summary out of a long video, to include the parts where the specific person appears. 
  
 The **Matched person** feature is available when indexing your file by choosing the
-**Advanced option** -> **Advanced video or Advanced video + audio preset** (under Video + audio indexing). Standard indexing will not include this advanced model.
+**Advanced** -> **Video + audio indexing** preset. 
+
+> [!NOTE]
+> Standard indexing does not include this advanced model.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/matched-person/index-matched-person-feature.png" alt-text="Advanced video or Advanced video + audio preset":::
 
-To view the Matched person on the Azure Video Analyzer for Media Website, go to View-> Show Insights and select the All option or View -> Custom View and select the Mapped Faces. 
+To view the Matched person on the [Video Analyzer for Media](https://www.videoindexer.ai/) website, go to **View** -> **Show Insights** -> select the **All** option or **View** -> **Custom View** -> **Mapped Faces**. 
 
-When you choose to see Insights of your video on the Azure Video Analyzer for Media website, the Matched person could be viewed from the Observed People tracing insight. When choosing a thumbnail of a person the Matched person became available.
+When you choose to see insights of your video on the [Video Analyzer for Media](https://www.videoindexer.ai/) website, the matched person could be viewed from the **Observed People tracing** insight. When choosing a thumbnail of a person the matched person became available.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/matched-person/from-observed-people.png" alt-text="View matched people from the Observed People insight":::
 
-If you are interested to view People's detected clothing in the Timeline of your video on the Video Indexer Website, go to **View** -> **Show Insights** and select the **All option** or **View** -> **Custom View** -> **Observed People**. 
+If you are interested to view People's detected clothing in the **Timeline** of your video on the [Video Indexer website](https://www.videoindexer.ai/), go to **View** -> **Show Insights** and select the **All option** or **View** -> **Custom View** -> **Observed People**. 
 
 Searching for a specific person by name, returning all the appearances of the specific person is enables using the search bar of the Insights of your video on the Video Analyzer for Media. 
 
