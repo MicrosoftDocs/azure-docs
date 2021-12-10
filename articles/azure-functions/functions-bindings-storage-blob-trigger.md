@@ -365,10 +365,6 @@ Metadata is available through the `$TriggerMetadata` parameter.
 
 The usage of the Blob trigger depends on the extension package version, and the C# modality used in your function app, which can be one of the following:
 
-* [In-process class library](functions-bindings-storage-blob-trigger.md?tabs=in-process&pivots=programming-language-csharp#usage): compiled C# function that runs in the same process as the Functions runtime. 
-* [Isolated process class library](functions-bindings-storage-blob-trigger.md?tabs=isolated-process&pivots=programming-language-csharp#usage): compiled C# function that runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.     
-* [C# script](functions-bindings-storage-blob-trigger.md?tabs=csharp-script&pivots=programming-language-csharp#usage): used primarily when creating C# functions in the Azure portal.
-
 [!INCLUDE [functions-bindings-blob-storage-usage-csharp](../../includes/functions-bindings-blob-storage-usage-csharp.md)]
 
 ::: zone-end  
