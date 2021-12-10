@@ -32,9 +32,11 @@ When you choose to see insights of your video on the [Video Analyzer for Media](
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/matched-person/from-observed-people.png" alt-text="View matched people from the Observed People insight":::
 
-If you are interested to view People's detected clothing in the **Timeline** of your video on the [Video Indexer website](https://www.videoindexer.ai/), go to **View** -> **Show Insights** and select the **All option** or **View** -> **Custom View** -> **Observed People**. 
+If you would like to view people's detected clothing in the **Timeline** of your video on the [Video Indexer website](https://www.videoindexer.ai/), go to **View** -> **Show Insights** and select the **All option** or **View** -> **Custom View** -> **Observed People**. 
 
 Searching for a specific person by name, returning all the appearances of the specific person is enables using the search bar of the Insights of your video on the Video Analyzer for Media. 
+
+## JSON code sample
 
 The following JSON response illustrates what Video Analyzer for Media returns when tracing observed people having Mapped person associated: 
 
@@ -93,7 +95,7 @@ It's important to note the limitations of Mapped person, to avoid or mitigate th
  
 **Precondition** for the matching is that the person that showing in the Observed person was detected and can be found in the People insight.  
 **Pose**: The tracks are optimized to handle observed people who most often appear on the front.  
-**Conclusions**: There may be miss matching between persons and observed people where there are occlusions (people or faces overlapping each other).
+**Occlusions**: There may be miss matching between persons and observed people where there are occlusions (people or faces overlapping each other).
 **Spatial allocation per frame**: There may be miss matching where different people appear in the same spatial position relatively to the frame in a short time.
 
 ## Next steps
