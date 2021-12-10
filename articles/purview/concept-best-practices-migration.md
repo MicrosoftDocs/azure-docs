@@ -30,22 +30,22 @@ Most of enterprise organizations have critical requirement for Azure Purview for
 While they are similar, HA will keep the service operational if there was a hardware fault, for example, but it would not protect you if someone accidentally or deliberately deleted all the records in your database. For that, you may need to restore the service from a backup. 
  
 ### Backup 
-You may need to create regular backups from a Purview account and use a backup in case a piece of data or configuration is accidentally or deliberately deleted from the Purview account by the users.
+You may need to create regular backups from an Azure Purview account and use a backup in case a piece of data or configuration is accidentally or deliberately deleted from the Azure Purview account by the users.
 
-The backup should allow saving a point in time copy of the following configurations from the Purview account:
+The backup should allow saving a point in time copy of the following configurations from the Azure Purview account:
 
-1.	Account information (for example, Friendly name)
-1.	Collection structure and role assignments
-1.	Custom Scan rule sets, classifications, and classification rules
-1.	Registered data sources
-1.	Scan information 
-1.	Create and maintain key vaults connections
-1.	Key vault connections and Credentials and relations with current scans
-1.	Registered SHIRs
-1.	Glossary terms templates 
-1.	Glossary terms 
-1.	Manual asset updates (including classification and glossary assignments)
-1.	ADF and Synapse connections and lineage
+* Account information (for example, Friendly name)
+* Collection structure and role assignments
+* Custom Scan rule sets, classifications, and classification rules
+* Registered data sources
+* Scan information 
+* Create and maintain key vaults connections
+* Key vault connections and Credentials and relations with current scans
+* Registered SHIRs
+* Glossary terms templates 
+* Glossary terms 
+* Manual asset updates (including classification and glossary assignments)
+* ADF and Synapse connections and lineage
 
 Backup strategy is determined by restore strategy, or more specifically how long it will take to restore things when a disaster occurs. To answer that, you may need to engage with the affected stakeholders (the business owners) and understand what the required recovery objectives are.
 
@@ -54,10 +54,10 @@ There are three main requirements to take into consideration:
 * **Recovery Point Objective (RPO)** – This defines the acceptable amount of data loss that is ok following a disaster. Normally this is expressed as a timeframe in hours or minutes.
 * **Recovery Level Object (RLO)** – This defines the granularity of the data being restored. It could be a SQL server, a set of databases, tables, records, etc.
 
-### High Availability
-In computing, the term availability is used to describe the period of time when a service is available, and the time required by a system to respond to a request made by a user. For Purview, high availability means ensuring that Purview instances are available in the case of a problem that is local to a data center or single region in the cloud region.
+### High availability
+In computing, the term availability is used to describe the period of time when a service is available, and the time required by a system to respond to a request made by a user. For Azure Purview, high availability means ensuring that Azure Purview instances are available in the case of a problem that is local to a data center or single region in the cloud region.
 
-#### Measuring Availability
+#### Measuring availability
 Availability is often expressed as a percentage indicating how much uptime is expected from a particular system or component in a given period of time, where a value of 100% would indicate that the system never fails. 
 
 These values are calculated based on several factors, including both scheduled and unscheduled maintenance periods, and the time to recover from a possible system failure.
@@ -70,17 +70,17 @@ These values are calculated based on several factors, including both scheduled a
 ### Resiliency
 The ability of a system to recover from failures and continue to function. It's not about avoiding failures but responding to failures in a way that avoids downtime or data loss. 
  
-### Business Continuity 
+### Business continuity 
 Business continuity means continuing your business in the event of a disaster, planning for recovery, and ensuring that your data map is highly available.
  
-### Disaster Recovery 
-Organizations need a failover mechanism for their Purview instances, so when the primary region experiences a catastrophic event like an earthquake or flood, the business must be prepared to have its systems come online elsewhere. 
+### Disaster recovery 
+Organizations need a failover mechanism for their Azure Purview instances, so when the primary region experiences a catastrophic event like an earthquake or flood, the business must be prepared to have its systems come online elsewhere. 
 
 > [!Note]
-> Not all Azure mirrored regions support deploying Purview accounts. For example, For a DR scenario, you cannot choose to deploy a new Purview account in Canada East if the primary region is Canada Central. Even with Customers managed DR, not all customer may able to trigger a DR.
+> Not all Azure mirrored regions support deploying Azure Purview accounts. For example, For a DR scenario, you cannot choose to deploy a new Azure Purview account in Canada East if the primary region is Canada Central. Even with Customers managed DR, not all customer may able to trigger a DR.
 
 ## Implementation steps
-This section provides high level guidance on required tasks to copy assets, glossaries, classifications & relationships across regions or subscriptions either using the Purview Studio or the REST APIs. The approach is to perform the tasks as programmatically as possible at scale.
+This section provides high level guidance on required tasks to copy assets, glossaries, classifications & relationships across regions or subscriptions either using the Azure Purview Studio or the REST APIs. The approach is to perform the tasks as programmatically as possible at scale.
 
 ### High-level task outline
 1.	Create the new account
@@ -93,7 +93,7 @@ This section provides high level guidance on required tasks to copy assets, glos
 1.  Assign contacts to assets
 
 ### Create the new account
-You will need to create a new Purview account by following below instruction:
+You will need to create a new Azure Purview account by following below instruction:
 * [Quickstart: Create an Azure Purview account in the Azure portal](https://docs.microsoft.com/azure/purview/create-catalog-portal)
 
 It’s crucial to plan ahead on configuration items that you cannot change later:
@@ -103,11 +103,11 @@ It’s crucial to plan ahead on configuration items that you cannot change later
 * Manage resource group name
 
 ### Migrate configuration items
-Below steps are referring to [Purview API documentation](https://docs.microsoft.com/rest/api/purview) so that you can programmatically stand up the backup account quickly:
+Below steps are referring to [Azure Purview API documentation](https://docs.microsoft.com/rest/api/purview) so that you can programmatically stand up the backup account quickly:
 
 |Task|Description|
 |-------------|-----------------|
-|**Account information**|Maintain Account information by granting access for the admin and/or service principle to the account at root level|
+|**Account information**|Maintain Account information by granting access for the admin and/or service principal to the account at root level|
 |**Collections**|Create and maintain Collections along with the association of sources with the Collections. You can call [List Collections API](/rest/api/purview/accountdataplane/collections/list-collections) and then get specific details of each collection via [Get Collection API](/rest/api/purview/accountdataplane/collections/get-collection.md)|
 |**Scan rule set**|Create and maintain custom scan rule sets. You need to call [List all custom scan rule sets API](/rest/api/purview/scanningdataplane/scan-rulesets/list-all) and get details by calling [Get scan rule set API](/rest/api/purview/scanningdataplane/scan-rulesets/get)|
 |**Manual classifications**|Get a list of all manual classifications by calling get classifications APIs and get details of each classification|
@@ -121,15 +121,15 @@ Below steps are referring to [Purview API documentation](https://docs.microsoft.
 ### Run scans
 This will populate all assets with default `typedef`. There are several reasons to run the scans again vs. exporting the existing assets and importing to the new account:
 
-1. There is a limit of 100,000 assets returned from the search query to export assets.
+* There is a limit of 100,000 assets returned from the search query to export assets.
 
-1. It's cumbersome to export assets with relationships. 
+* It's cumbersome to export assets with relationships. 
 
-1. When you rerun the scans, you will get all relationships and assets details up to date.
+* When you rerun the scans, you will get all relationships and assets details up to date.
  
-1. Azure Purview comes out with new features regularly so you can benefit from other features when running new scans.
+* Azure Purview comes out with new features regularly so you can benefit from other features when running new scans.
 
-Running the scans is the most effective way to get all assets of data sources that Purview is already supporting.
+Running the scans is the most effective way to get all assets of data sources that Azure Purview is already supporting.
 
 ### Migrate custom typedefs and custom assets
 
@@ -144,9 +144,9 @@ To export custom assets, you can search those custom assets and pass the proper 
 > You might have to break the search query so that it won’t return more than 100,000 records.
 
 There are several ways to scope down the search query to get a subset of assets:
-1.	**Using `Keyword`**: Pass the parent FQN such as `Keyword: "<Parent String>/*"`
+*	**Using `Keyword`**: Pass the parent FQN such as `Keyword: "<Parent String>/*"`
 
-1.	**Using `Filter`**: Include `assetType` with the specific custom `typedef` in your search such as `"assetType": "<custom_typedef>"`
+*	**Using `Filter`**: Include `assetType` with the specific custom `typedef` in your search such as `"assetType": "<custom_typedef>"`
 
 Here is an example of a search payload by customizing the `keywords` so that only assets in specific storage account (`exampleaccount`) are returned:
 
@@ -304,15 +304,15 @@ When you re-create the custom entities, you may need to prepare the payload prio
 > [!Note]
 > The initial goal is to migrate all entities without any relationships or mappings. This will avoid potential errors.
 
-1. All `timestamp` value must be null such as `updateTime`, `updateTime`, and `lastModifiedTS`.
+* All `timestamp` value must be null such as `updateTime`, `updateTime`, and `lastModifiedTS`.
 
-1. The `guid` cannot be regenerated exactly as before so you have to pass in a negative integer such as "-5000" to avoid error.
+* The `guid` cannot be regenerated exactly as before so you have to pass in a negative integer such as "-5000" to avoid error.
 
-1. The content of `relationshipAttributes` should not be a part of the payload to avoid errors since it's possible that the `guids` are not the same or have not been created yet. You have to turn `relationshipAttributes` into an empty array prior to submitting the payload. 
+* The content of `relationshipAttributes` should not be a part of the payload to avoid errors since it's possible that the `guids` are not the same or have not been created yet. You have to turn `relationshipAttributes` into an empty array prior to submitting the payload. 
 
-    1. `meanings` contains all glossary mappings, which will be updated in bulk after the entities are created.
+  * `meanings` contains all glossary mappings, which will be updated in bulk after the entities are created.
 
-1. Similarly, `classifications` needs to be an empty array as well when you submit the payload to create entities since you have to create classification mapping to bulk entities later using a different API.
+* Similarly, `classifications` needs to be an empty array as well when you submit the payload to create entities since you have to create classification mapping to bulk entities later using a different API.
 
 ### Migrate relationships
 
@@ -320,7 +320,7 @@ To complete the asset migration, you must remap the relationships. There are thr
 
 1. Call the [relationship API](/rest/api/purview/catalogdataplane/relationship/get) to get relationship information between entities by its `guid`
 
-1. Prepare the relationship payload so that there is no hard reference to old `guids` in the old Purview accounts. You need to update those `guids` to the new account's `guids`.
+1. Prepare the relationship payload so that there is no hard reference to old `guids` in the old Azure Purview accounts. You need to update those `guids` to the new account's `guids`.
 
 1. Finally, [Create a new relationship between entities](/rest/api/purview/catalogdataplane/relationship/create)
 
@@ -329,13 +329,13 @@ To complete the asset migration, you must remap the relationships. There are thr
 > [!Note]
 > Before migrating terms, you need to migrate the term templates. This step should be already covered in the custom `typedef` migration.
 
-#### Using Purview Portal
+#### Using Azure Purview Portal
 The quickest way to migrate glossary terms is to [export terms to a .csv file](https://review.docs.microsoft.com/azure/purview/how-to-create-import-export-glossary?branch=main). You can do this using the Purview Studio.
 
-#### Using Purview API
+#### Using Azure Purview API
 To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.
 
-The below sample response will provide the `guid` to use for subsequence API calls:
+The below sample response will provide the `guid` to use for subsequent API calls:
 
 ```json
 "guid": "c018ddaf-7c21-4b37-a838-dae5f110c3d8"
