@@ -148,7 +148,7 @@ Each service offered through Microsoft Graph has different limitations; service-
 ### Action to take
 When you implement error handling, use the HTTP error code 429 to detect throttling. The failed response includes the ```Retry-After``` response header. Backing off requests using the ```Retry-After``` delay is the fastest way to recover from throttling because Microsoft Graph continues to log resource usage while a client is being throttled.
 
-You can find more information on Microsoft Graph [throttling](/graph/throttling.md) limits in the [Microsoft Graph](/graph/overview) documentation.
+You can find more information on Microsoft Graph [throttling](/graph/throttling) limits in the [Microsoft Graph](/graph/overview) documentation.
 
 ## Network Traversal
 
