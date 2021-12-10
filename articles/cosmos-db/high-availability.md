@@ -75,7 +75,7 @@ In case of Cosmos DB accounts in multiple regions, data durability depends on th
 
 *T* = The time interval *"T"* since the last update.
 
-For multi-region accounts the minimum value of *K* and *T* is 100,000 write operations or 300 seconds. This defines the minimum RPO for data when using Bounded Staleness.
+For multi-region accounts, the minimum value of *K* and *T* is 100,000 write operations or 300 seconds. This defines the minimum RPO for data when using Bounded Staleness.
 
 Refer to [Consistency levels](./consistency-levels.md) for more information on the differences between consistency levels.
 
