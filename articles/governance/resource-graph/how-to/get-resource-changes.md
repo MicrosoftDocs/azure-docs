@@ -114,16 +114,6 @@ changedProperties = properties.changes, changeCount = properties.changeAttr
 | project changeTime, targetResourceId, changeType, correlationId, changeCount, changedProperties
 ```
 
-### All created resources
-```kusto
-ResourceChanges
-| extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
-changeType = tostring(properties.changeType), correlationId = properties.changeAttributes.correlationId
-| where changeType == "Create"
-| order by changeTime desc
-| project changeTime, targetResourceId, changeType, correlationId
-```
-
 ### Resources deleted in a specific resource group
 ```kusto
 ResourceChanges
@@ -142,6 +132,17 @@ ResourceChanges
 | where isnotempty(provisioningStateChange)and provisioningStateChange.newValue == "Succeeded"
 | order by changeTime desc
 | project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
+```
+
+## Get the latest resource configurations for resources created in the last 7 days
+```kusto
+ResourceChanges
+| extend targetResourceId = tostring(properties.targetResourceProperties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.changedAt)
+| where changeTime > ago(7d) and changeType == "Create"
+| project  targetResourceId, changeType, changeTime
+| join ( Resources | extend targetResourceId=id) on targetResourceId
+| order by changeTime desc
+| project changeTime, id, resourceGroup, type, changeType, properties
 ```
 
 ## Next steps
