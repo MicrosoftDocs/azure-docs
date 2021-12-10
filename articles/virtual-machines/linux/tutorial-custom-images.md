@@ -3,7 +3,7 @@ title: Tutorial - Create custom VM images with the Azure CLI
 description: In this tutorial, you learn how to use the Azure CLI to create a custom virtual machine image in Azure
 author: cynthn
 ms.service: virtual-machines
-ms.subservice: shared-image-gallery
+ms.subservice: gallery
 ms.topic: tutorial
 ms.workload: infrastructure
 ms.date: 05/04/2020
