@@ -368,6 +368,16 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Runtime.Backend.Operation.MinimumRetryInterval` | `00:00:05` <br>(5 sec) | Sets the minimum interval in the retry policy definition for a workflow operation. |
 ||||
 
+
+<a name="jobs"></a>
+
+### Jobs
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Jobs.StuckJobThreshold` | `00:60:00` <br>(60 minutes) | Sets the time before a job being declared as stuck. If you have an action taking more than 60 minutes, you may need to increase this setting. |
+||||
+
 <a name="manage-host-settings"></a>
 
 ## Manage host settings - host.json
