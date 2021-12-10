@@ -153,6 +153,8 @@ Sets the shared memory size (in bytes) when the Python worker is using shared me
 |---|------------|
 |DOCKER_SHM_SIZE|`268435456`|
 
+The value above sets a shared memory size of ~256 MB. 
+
 Requires that [FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED](#functions_worker_shared_memory_data_transfer_enabled) be set to `1`.
 
 ## FUNCTION\_APP\_EDIT\_MODE
