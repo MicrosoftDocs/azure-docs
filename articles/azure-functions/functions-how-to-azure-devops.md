@@ -24,7 +24,7 @@ YAML pipelines aren't available for Azure DevOps 2019 and earlier.
 
 * An ability to run pipelines on Microsoft-hosted agents. You can either purchase a [parallel job](/azure/devops/licensing/concurrent-jobs.md) or you can request a free tier. To request a free tier, follow the instructions in [this article](/azure/devops/licensing/concurrent-jobs.md). Note that it may take us 2-3 business days to grant access to the free tier.
 
-## Create your Function app
+## Create your function app
 
 This is a step-by-step guide to using Azure Pipelines with Azure Functions.
 # [.NET Core](#tab/dotnet-core)
