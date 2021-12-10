@@ -10,7 +10,7 @@ ms.author: glenga
 
 An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
  
-# [Isolated process](#tab/in-process)
+# [Isolated process](#tab/isolated-process)
 
 An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
    
