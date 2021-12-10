@@ -4,7 +4,7 @@ description: Deploy your first application with an existing container to Azure C
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.topic: how-to
+ms.topic: quickstart
 ms.date: 12/09/2021
 ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
