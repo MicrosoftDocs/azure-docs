@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/02/2021
+ms.date: 12/09/2021
 ms.author: tamram 
 ms.custom: devx-track-azurepowershell
 ---
@@ -85,7 +85,7 @@ Two access keys are assigned so that you can rotate your keys. Having two keys e
 > [!WARNING]
 > Regenerating your access keys can affect any applications or Azure services that are dependent on the storage account key. Any clients that use the account key to access the storage account must be updated to use the new key, including media services, cloud, desktop and mobile applications, and graphical user interface applications for Azure Storage, such as [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/).
 
-If you plan to manually rotate access keys, Microsoft recommends that you set a key expiration policy, and then use queries in Azure Monitor to determine when it's time to rotate an access key.
+If you plan to manually rotate access keys, Microsoft recommends that you set a key expiration policy, and then use Azure Policy to monitor whether a storage account's keys have been rotated within the recommended interval.
 
 ### Create a key expiration policy
 
@@ -184,25 +184,33 @@ az storage account show \
 
 ---
 
-### Query for policy violations
+### Check for key expiration policy violations
 
-If you create a diagnostic setting that [sends logs to Azure Log Analytics](../blobs/monitor-blob-storage.md#send-logs-to-azure-log-analytics) workspace, then you can use an Azure Monitor log query to determine whether a key has expired.
+You can monitor your storage accounts with Azure Policy to ensure that account keys have been rotated within the recommended period. Azure Storage provides a built-in policy for ensuring that storage account keys are not expired. For more information about the built-in policy, see **Storage account keys should not be expired** in [List of built-in policy definitions](../../governance/policy/samples/built-in-policies#storage).
 
-To determine if a key has expired, enter the following query in the **Log search** bar.
+Follow these steps to assign the built-in policy to the appropriate scope in the Azure portal:
 
-```kusto
-StorageBlobLogs | where KeyExpiryStatus startsWith "Policy Violated" 
-```
+1. In the Azure portal, search for *Policy* to display the Azure Policy dashboard.
+1. In the **Authoring** section, select **Assignments**.
+1. Choose **Assign policy**.
+1. On the **Basics** tab of the **Assign policy** page, in the **Scope** section, specify the scope for the policy assignment. Select the **More** button to choose the subscription and optional resource group.
+1. For the **Policy definition** field, select the **More** button, and enter *storage account keys* in the **Search** field. Select the policy definition named **Storage account keys should not be expired**.
 
-You can also create a query that helps you determine if a query is nearing expiration. The following query provides this information.
+    :::image type="content" source="media/storage-account-keys-manage/policy-definition-select-portal.png" alt-text="Screenshot showing how to select the built-in policy to monitor key expiration for your storage accounts":::
 
-```kusto
-StorageBlobLogs 
-| where type =~ 'microsoft.storage/storageAccounts'
-| extend days = datetime_diff('day', now(), todatetime(parse_json(properties).keyCreationTime))
-| extend KeyExpiryStatus = iff(days > 180, "Policy Violated", "")
-| project name, days, KeyExpiryStatus  
-```
+1. Select **Review + create** to map the policy definition to the specified scope.
+
+    :::image type="content" source="media/storage-account-keys-manage/policy-assignment-create.png" alt-text="Screenshot showing how to create the policy assignment":::
+
+To monitor your storage accounts for compliance with the key expiration policy, follow these steps:
+
+1. On the Azure Policy dashboard, locate the built-in policy definition for the scope that you specified in the policy assignment. You can search for *Storage account keys should not be expired* in the **Search** box to filter for the built-in policy.
+1. Select the policy name with the desired scope.
+1. On the **Policy assignment** page for the built-in policy, select **View compliance**. Any storage accounts in the specified subscription and resource group that do not meet the policy requirements appear in the compliance report.
+
+    :::image type="content" source="media/storage-account-keys-manage/policy-compliance-report-portal.png" alt-text="Screenshot showing how to view the compliance report for the key expiration built-in policy":::
+
+To bring a storage account into compliance, rotate the account access keys.
 
 ### Rotate access keys
 
