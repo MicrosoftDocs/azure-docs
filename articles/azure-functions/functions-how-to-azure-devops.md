@@ -319,7 +319,7 @@ The snippet pushes the Docker image to your Azure Container Registry. The **Azur
 
 # [Classic](#tab/classic/)
 
-The best way to deploy to an Azure Function App Container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md) in your release pipeline.
+The best way to deploy your function app as a container is to use the [Azure Function App on Container Deploy task](/azure/devops/pipelines/tasks/deploy/azure-rm-functionapp-containers.md) in your release pipeline.
 
 
 How you deploy your app depends on your app's programming language. Each language has a template with specific deploy steps. If you can't find a template for your language, select the generic **Azure App Service Deployment** template.
