@@ -1,6 +1,6 @@
 ---
-title: Deploy your first container app with an existing container
-description: Deploy your first application with an existing container to Azure Container Apps Preview.
+title: Deploy your first container app with an existing container image
+description: Deploy your first application with an existing container image to Azure Container Apps Preview.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -10,14 +10,19 @@ ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
 
-# Deploy your first container app with an existing container
+# Deploy your first container app with an existing container image
 
 Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
 This article demonstrates how to deploy an existing container to Azure Container Apps.
 
+> [!NOTE]
+> Private registry authorization is supported via registry username and password.
+
 ## Prerequisites
 
+- Azure account with an active subscription. 
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 - Install the [Azure CLI](/cli/azure/install-azure-cli).
 
 ## Setup
@@ -200,11 +205,17 @@ az containerapp env create `
 
 Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
 
-As you deploy your app, you have the option configure the following items:
+The example shown in this article demonstrates how use a custom container image with common commands. Your container image may need additional parameters including the following items:
 
-- Publicly expose the application by enabling `ingress`
-- Define environment variables
-- Define secrets
+- Setting the revision mode
+- Defining secrets
+- Defining environment variables
+- Setting container cpu and/or memory requirements
+- Enabling and configuring Dapr
+- Enabling ingress for internal and/or internal + external traffic
+- Providing minimum and maximum replica values and/or additional scale rules
+
+See the CLI documentation for guidance on providing these additional settings as you create your container app.
 
 ::: zone pivot="container-apps-private-registry"
 
