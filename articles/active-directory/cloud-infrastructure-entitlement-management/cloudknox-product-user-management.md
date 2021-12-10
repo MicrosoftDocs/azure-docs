@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management User Management
 
-In Microsoft CloudKnox Permissions Management, User Management is a key component of the product's interface. This allows system administrators to define and manage users, roles, and their access levels in the system. 
+In Microsoft CloudKnox Permissions Management, User Management is a key component of the product's interface. It allows system administrators to define and manage users, roles, and their access levels in the system. 
 
 ## The User Management dashboard
 
@@ -46,7 +46,7 @@ The CloudKnox User Management system encompasses the following components.
 
 ## How to manage users for customers without SAML integration
 
-Follow this process to invite users if the customer has not enabled SAML integration with the CloudKnox application.
+Follow this process to invite users if the customer hasn't enabled SAML integration with the CloudKnox application.
 
 ### How to invite a user to CloudKnox
 
@@ -62,7 +62,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
         1. Click **Next**.
         2. Select **Requestor for User** for each authorization system, if applicable.  
 
-           A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user does not exist in the authorization system, the option to select **Requestor for User** is unavailable (grayed out).
+           A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is unavailable (grayed out).
         3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
 
              For example, a user may have various roles in different authorization systems, so they can click the **Add** icon and the **Users** icon to request access for all their accounts. 
@@ -74,7 +74,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
         2. Click **Next**.
         3. Select **Requestor for User** for each authorization system, if applicable.    
       
-             The user must must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user does not exist in the authorization system, the option to select **Requestor for User** is grayed out.
+             The user must must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
         4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.   
 
              For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts.
@@ -91,7 +91,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
         1. Click **Next**.
         1. Click **Requestor for User** for each authorization system, if applicable.    
 
-            The user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user does not exist in the authorization system, the option to select **Requestor for User** is grayed out.
+            The user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
         5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
 
              For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
@@ -106,7 +106,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
 1. To view the invited user, click the **Invited** tab. The system administrator can view the following details: 
 
     - **Email Address** - Displays the email address of the invited user.
-    - **Permissions** - Displays each service account and whether or not the user has permissions as a **Viewer**, **Controller**, **Approver**, and/or **Requestor**.
+    - **Permissions** - Displays each service account and whether the user has permissions as a **Viewer**, **Controller**, **Approver**, and/or **Requestor**.
     - **Invited By** - Displays the email address of the person who sent the invitation.
     - **Sent** - Displays the date the invitation was sent to the user.
 2. To make changes to the following, click the ellipses **(...)** in the far right column:
@@ -114,7 +114,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
     - **View Permissions** - Displays a list of the accounts for which the user has permissions.
     - **Edit Permissions** - System administrators can edit which permissions a user has.
     - **Delete User** - System administrators can delete a user.
-    - **Reinvite** - System administrators can reinvite a user if the user did not receive the email invitation.
+    - **Reinvite** - System administrators can reinvite a user if the user didn't receive the email invitation.
 
     When a user registers with CloudKnox, their name moves from the **Invited** tab to the **Registered** tab.
 
@@ -158,7 +158,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
                A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**.    
 
-               If the user does not exist in the authorization system, the option to select **Requestor for User** is unavailable (grayed out).
+               If the user doesn't exist in the authorization system, the option to select **Requestor for User** is unavailable (grayed out).
 
             3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
 
@@ -173,7 +173,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
                A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**.   
 
-               If the user does not exist in the authorization system, the option to select **Requestor for User** is grayed out.
+               If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
 
             4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
 
@@ -192,7 +192,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
             4. Check **Requestor for User** for each authorization system, if applicable.   
 
                A user have an account with a valid email address in the authorization system to be able to select **Requestor for User**.              
-               If the user does not exist in the authorization system, the option to select **Requestor for User** is grayed out.
+               If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
             5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
 
                 For example, a user can have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
@@ -209,14 +209,14 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
 1. To view the created permission, click the **Pending** tab. The system administrator can view the following details:
     - **Email Address** - Displays the email address of the invited user.
-    - **Permissions** - Displays each service account and whether or not the user has permissions as a **Viewer**, **Controller**, **Approver**, and/or **Requestor**.
+    - **Permissions** - Displays each service account and whether the user has permissions as a **Viewer**, **Controller**, **Approver**, and/or **Requestor**.
      - **Invited By** - Displays the email address of the person who sent the invitation.
     - **Sent** - Displays the date the invitation was sent to the user.
 2. To make changes to the following, click the ellipses **(...)** in the far right column.
     - **View Permissions** - Displays the user's permissions.
     - **Edit Permissions** - System administrators can edit a user's permissions.
     - **Delete** - System administrators can delete a permission
-    - **Reinvite** - System administrator can reinvite the permission if the user did not receive the email invite
+    - **Reinvite** - System administrator can reinvite the permission if the user didn't receive the email invite
 
        When a user registers with CloudKnox, they move from the **Pending** tab to the **Registered** tab.
 
@@ -253,7 +253,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
             1. Click **Next**.
             2. Check **Requestor for User** for each authorization system, if applicable.    
 
-               A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user does not exist in the authorization system, the option to select **Requestor for User** is be grayed out.
+               A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is be grayed out.
             3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
 
                For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
@@ -265,7 +265,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
             2. Click **Next**.
             3. Check **Requestor for User** for each authorization system, if applicable.      
 
-                  A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user does not exist in the authorization system, the option to select **Requestor for User** is grayed out.
+                  A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
             4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
 
                For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
@@ -285,7 +285,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
             4. Check **Requestor for User** for each authorization system, if applicable.    
 
-                A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user does not exist in the authorization system, the option to select **Requestor for User** is grayed out.
+                A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
 
             5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
 
