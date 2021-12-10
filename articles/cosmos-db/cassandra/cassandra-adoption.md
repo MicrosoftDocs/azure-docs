@@ -24,7 +24,7 @@ While Cassandra API supports a large surface area of Apache Cassandra features, 
 
 ## Replication (migration)
 
-Although you can communicate with Cassandra API through the CQL Binary Protocol v4 wire protocol, Cosmos DB implements its own internal replication protocol. This means that live migration/replication cannot be achieved through the Cassandra gossip protocol. Review our article on how to [live migrate from Apache Cassandra to Cassandra API using dual-writes](migrate-data-dual-write-proxy.md). 
+Although you can communicate with Cassandra API through the CQL Binary Protocol v4 wire protocol, Cosmos DB implements its own internal replication protocol. This means that live migration/replication cannot be achieved through the Cassandra gossip protocol. Review our article on how to [live migrate from Apache Cassandra to Cassandra API using dual-writes](migrate-data-dual-write-proxy.md). For offline migration, review our article: [Migrate data from Cassandra to an Azure Cosmos DB Cassandra API account by using Azure Databricks](migrate-data-databricks.md)
 
 ## Replication (consistency)
 
@@ -48,7 +48,12 @@ Cassandra API is ultimately backed by Azure Cosmos DB, which is a document-orien
 
 Native Apache Cassandra is a multi-master system by default, and does not provide an option for single-master with multi-region replication for reads only. The concept of application-level failover to another region for writes is therefore redundant in Apache Cassandra as all nodes are independent and there is no single point of failure. However, Azure Cosmos DB provides the out-of-box ability to configure either single master, or multi-master regions for writes. One of the advantages of having a single master region for writes is the avoidance of cross-region conflict scenarios, and the option of maintaining strong consistency across multiple regions, while still maintaining a level of high availability. 
 
+> [!NOTE]
+> Strong consistency (RPO of zero) across regions is not possible for native Apache Cassandra as all nodes are capable of serving writes. Cosmos DB can be configured for strong consistency across regions in *single write region* configuration. However, as with native Apache Cassandra, Cosmos DB accounts configured with multiple write regions cannot be configured for strong consistency as it is not possible for a distributed system to provide an RPO of zero and an RTO of zero.
+
 We recommend reviewing the [Load balancing policy section](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java/#load-balancing-policy) from our blog [Cassandra API Recommendations for Java](https://devblogs.microsoft.com/cosmosdb/cassandra-api-java), and [failover scenarios](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4#failover-scenarios) in our official [code sample for the Cassandra Java v4 driver](https://github.com/Azure-Samples/azure-cosmos-cassandra-extensions-java-sample-v4), for more detail. 
+
+
 
 ## Request Units
 
@@ -75,9 +80,9 @@ Generally speaking, workloads with large periods of dormancy will benefit from s
 
 ## Partitioning
 
-Partitioning in Cosmos DB functions in a very similar way to Apache Cassandra. One of the main differences is that Cosmos DB is more optimized for *horizontal scale*. As such, there are limits placed on the amount of *vertical* capacity available in any given *physical partition*. The effect of this is most noticeable where there is significant data or throughput skew in an existing data model. 
+Partitioning in Cosmos DB functions in a very similar way to Apache Cassandra. One of the main differences is that Cosmos DB is more optimized for *horizontal scale*. As such, there are limits placed on the amount of *vertical throughput* capacity available in any given *physical partition*. The effect of this is most noticeable where there is significant throughput skew in an existing data model. 
 
-Take steps to ensure that your partition key design will result in a relatively uniform distribution of data and requests. We also recommend that you review our article on [Partitioning in Azure Cosmos DB Cassandra API](cassandra-partitioning.md) for more information on how logical and physical partitioning works, and limits on both storage and capacity (request units) per partition.
+Take steps to ensure that your partition key design will result in a relatively uniform distribution of requests. We also recommend that you review our article on [Partitioning in Azure Cosmos DB Cassandra API](cassandra-partitioning.md) for more information on how logical and physical partitioning works, and limits on throughput capacity (request units) per partition.
 
 ## Scaling
 

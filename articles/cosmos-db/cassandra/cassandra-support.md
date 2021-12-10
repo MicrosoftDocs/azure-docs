@@ -240,16 +240,16 @@ Azure Cosmos DB Cassandra API is a managed service platform. The platform does n
 
 :::image type="content" source="./media/cassandra-support/cqlsh.png" alt-text="Open CQLSH"::: -->
 
-You can connect to the Cassandra API in Azure Cosmos DB by using the CQLSH installed on a local machine. It comes with Apache Cassandra 3.1.1 and works out of the box by setting the environment variables. The following sections include the instructions to install, configure, and connect to Cassandra API in Azure Cosmos DB, on Windows or Linux using CQLSH.
+You can connect to the Cassandra API in Azure Cosmos DB by using the CQLSH installed on a local machine. It comes with Apache Cassandra 3.11 and works out of the box by setting the environment variables. The following sections include the instructions to install, configure, and connect to Cassandra API in Azure Cosmos DB, on Windows or Linux using CQLSH.
 
-> [!NOTE]
-> Connections to Azure Cosmos DB Cassandra API will not work with DataStax Enterprise (DSE) versions of CQLSH. Please ensure you use only the open source Apache Cassandra versions of CQLSH when connecting to Cassandra API. 
+> [!WARNING]
+> Connections to Azure Cosmos DB Cassandra API will not work with DataStax Enterprise (DSE) or Cassandra 4.0 versions of CQLSH. Please ensure you use only v3.11 open source Apache Cassandra versions of CQLSH when connecting to Cassandra API. 
 
 **Windows:**
 
 If using windows, we recommend you enable the [Windows filesystem for Linux](/windows/wsl/install-win10#install-the-windows-subsystem-for-linux). You can then follow the linux commands below.
 
-**Unix/Linux/Mac:**
+**Install on Unix/Linux/Mac:**
 
 ```bash
 # Install default-jre and default-jdk
@@ -266,14 +266,20 @@ echo "deb http://www.apache.org/dist/cassandra/debian 311x main" | sudo tee -a /
 curl https://downloads.apache.org/cassandra/KEYS | sudo apt-key add -
 sudo apt-get update
 sudo apt-get install cassandra
+```
 
+**Connect with Unix/Linux/Mac:**
+```bash
 # Export the SSL variables:
 export SSL_VERSION=TLSv1_2
 export SSL_VALIDATE=false
 
 # Connect to Azure Cosmos DB API for Cassandra:
 cqlsh <YOUR_ACCOUNT_NAME>.cassandra.cosmosdb.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
-
+```
+**Connect with Docker:**
+```bash
+docker run -it --rm -e SSL_VALIDATE=false -e SSL_VERSION=TLSv1_2 cassandra:3.11 cqlsh <account_name>.cassandra.cosmos.azure.com 10350 -u <YOUR_ACCOUNT_NAME> -p <YOUR_ACCOUNT_PASSWORD> --ssl
 ```
 
 All CRUD operations that are executed through a CQL v4 compatible SDK will return extra information about error and request units consumed. The DELETE and UPDATE commands should be handled with resource governance taken into consideration, to ensure the most efficient use of the provisioned throughput.
@@ -320,7 +326,7 @@ Cassandra API supports secondary indexes on all data types except frozen collect
 
 ## Usage of Cassandra retry connection policy
 
-Azure Cosmos DB is a resource governed system. You can do a certain number of operations in a given second based on the request units consumed by the operations. If an application exceeds that limit in a given second,  requests are rate-limited and exceptions will be thrown. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure that your application can intercept and retry requests in case of rate limitation, the [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and the [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) extensions are provided. See also Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) Datastax drivers, when connecting to Cassandra API in Azure Cosmos DB. If you use other SDKs to access Cassandra API in Azure Cosmos DB, create a connection policy to retry on these exceptions.
+Azure Cosmos DB is a resource governed system. You can do a certain number of operations in a given second based on the request units consumed by the operations. If an application exceeds that limit in a given second,  requests are rate-limited and exceptions will be thrown. The Cassandra API in Azure Cosmos DB translates these exceptions to overloaded errors on the Cassandra native protocol. To ensure that your application can intercept and retry requests in case of rate limitation, the [spark](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) and the [Java](https://github.com/Azure/azure-cosmos-cassandra-extensions) extensions are provided. See also Java code samples for [version 3](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) and [version 4](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample-v4) Datastax drivers, when connecting to Cassandra API in Azure Cosmos DB. If you use other SDKs to access Cassandra API in Azure Cosmos DB, create a retry policy to retry on these exceptions. Alternatively, [enable server-side retries](prevent-rate-limiting-errors.md) for Cassandra API. 
 
 ## Next steps
 
