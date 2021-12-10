@@ -179,8 +179,9 @@ string resourceId = "Your Resource ID";
 string aadToken = "Your Azure AD access token";
 string region =  "Your Speech Region";
 
-var speechToken = $"aad#{resourceId}#{aadToken}";
-var speechConfig = SpeechConfig.FromAuthorizationToken(speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+var authorizationToken = $"aad#{resourceId}#{aadToken}";
+var speechConfig = SpeechConfig.FromAuthorizationToken(authorizationToken, region);
 ```
 ::: zone-end
 
@@ -190,9 +191,9 @@ std::string resourceId = "Your Resource ID";
 std::string aadToken = "Your Azure AD access token";
 std::string region = "Your Speech Region";
 
-auto speechToken = "aad#" + resourceId + "#" + aadToken;
-
-auto speechConfig = SpeechConfig::FromAuthorizationToken(speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+auto authorizationToken = "aad#" + resourceId + "#" + aadToken;
+auto speechConfig = SpeechConfig::FromAuthorizationToken(authorizationToken, region);
 ```
 ::: zone-end
 
@@ -201,9 +202,9 @@ auto speechConfig = SpeechConfig::FromAuthorizationToken(speechToken, region);
 String resourceId = "Your Resource ID";
 String region = "Your Region";
 
-String speechToken = "aad#" + resourceId + "#" + token;
-
-SpeechConfig speechConfig = SpeechConfig.fromAuthorizationToken(speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+String authorizationToken = "aad#" + resourceId + "#" + token;
+SpeechConfig speechConfig = SpeechConfig.fromAuthorizationToken(authorizationToken, region);
 ```
 ::: zone-end
 
@@ -211,8 +212,9 @@ SpeechConfig speechConfig = SpeechConfig.fromAuthorizationToken(speechToken, reg
 ```Python
 resourceId = "Your Resource ID"
 region = "Your Region"
-speechToken = speechToken = "aad#" + resourceId + "#" + aadToken.token
-speechConfig = SpeechConfig(auth_token=speechToken, region=region)
+# You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+authorizationToken = "aad#" + resourceId + "#" + aadToken.token
+speechConfig = SpeechConfig(auth_token=authorizationToken, region=region)
 ```
 ::: zone-end
 
@@ -226,8 +228,9 @@ string resourceId = "Your Resource ID";
 string aadToken = "Your Azure AD access token";
 string region =  "Your Speech Region";
 
-var speechToken = $"aad#{resourceId}#{aadToken}";
-var speechConfig = SpeechTranslationConfig.FromAuthorizationToken(speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+var authorizationToken = $"aad#{resourceId}#{aadToken}";
+var speechConfig = SpeechTranslationConfig.FromAuthorizationToken(authorizationToken, region);
 ```
 ::: zone-end
 
@@ -237,9 +240,9 @@ std::string resourceId = "Your Resource ID";
 std::string aadToken = "Your Azure AD access token";
 std::string region = "Your Speech Region";
 
-auto speechToken = "aad#" + resourceId + "#" + aadToken;
-
-auto speechConfig = SpeechTranslationConfig::FromAuthorizationToken(speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+auto authorizationToken = "aad#" + resourceId + "#" + aadToken;
+auto speechConfig = SpeechTranslationConfig::FromAuthorizationToken(authorizationToken, region);
 ```
 ::: zone-end
 
@@ -248,9 +251,9 @@ auto speechConfig = SpeechTranslationConfig::FromAuthorizationToken(speechToken,
 String resourceId = "Your Resource ID";
 String region = "Your Region";
 
-String speechToken = "aad#" + resourceId + "#" + token;
-
-SpeechTranslationConfig translationConfig = SpeechTranslationConfig.fromAuthorizationToken(speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+String authorizationToken = "aad#" + resourceId + "#" + token;
+SpeechTranslationConfig translationConfig = SpeechTranslationConfig.fromAuthorizationToken(authorizationToken, region);
 ```
 ::: zone-end
 
@@ -258,8 +261,10 @@ SpeechTranslationConfig translationConfig = SpeechTranslationConfig.fromAuthoriz
 ```Python
 resourceId = "Your Resource ID"
 region = "Your Region"
-speechToken = speechToken = "aad#" + resourceId + "#" + aadToken.token
-translationConfig = SpeechTranslationConfig(auth_token=speechToken, region=region)
+
+# You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+authorizationToken = "aad#" + resourceId + "#" + aadToken.token
+translationConfig = SpeechTranslationConfig(auth_token=authorizationToken, region=region)
 ```
 ::: zone-end
 
@@ -274,8 +279,9 @@ string aadToken = "Your Azure AD access token";
 string region =  "Your Speech Region";
 string appId = "Your app ID";
 
-var speechToken = $"aad#{resourceId}#{aadToken}";
-var customCommandsConfig = CustomCommandsConfig.FromAuthorizationToken(appId, speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+var authorizationToken = $"aad#{resourceId}#{aadToken}";
+var customCommandsConfig = CustomCommandsConfig.FromAuthorizationToken(appId, authorizationToken, region);
 ```
 ::: zone-end
 
@@ -286,9 +292,9 @@ std::string aadToken = "Your Azure AD access token";
 std::string region = "Your Speech Region";
 std::string appId = "Your app Id";
 
-auto speechToken = "aad#" + resourceId + "#" + aadToken;
-
-auto customCommandsConfig = CustomCommandsConfig::FromAuthorizationToken(appId, speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+auto authorizationToken = "aad#" + resourceId + "#" + aadToken;
+auto customCommandsConfig = CustomCommandsConfig::FromAuthorizationToken(appId, authorizationToken, region);
 ```
 ::: zone-end
 
@@ -298,9 +304,9 @@ String resourceId = "Your Resource ID";
 String region = "Your Region";
 String appId = "Your AppId";
 
-String speechToken = "aad#" + resourceId + "#" + token;
-
-CustomCommandsConfig dialogServiceConfig = CustomCommandsConfig.fromAuthorizationToken(appId, speechToken, region);
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+String authorizationToken = "aad#" + resourceId + "#" + token;
+CustomCommandsConfig dialogServiceConfig = CustomCommandsConfig.fromAuthorizationToken(appId, authorizationToken, region);
 ```
 ::: zone-end
 
@@ -318,8 +324,10 @@ string hostName = $"https://{customDomainName}.cognitiveservices.azure.com/";
 string token = "Your Azure AD access token";
 
 var config =  SpeechConfig.FromHost(new Uri(hostName));
-var token = AzureSubscription.GetAzure ADToken().Result;
-config.AuthorizationToken = token;
+
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+var authorizationToken = $"aad#{resourceId}#{aadToken}";
+config.AuthorizationToken = authorizationToken;
 ```
 ::: zone-end
 
@@ -329,7 +337,10 @@ std::string customDomainName = "Your Custom Name";
 std::string aadToken = "Your Azure AD access token";
 
 auto speechConfig = SpeechConfig::FromHost("https://" + customDomainName + ".cognitiveservices.azure.com/");
-speechConfig->SetAuthorizationToken(aadToken);
+
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+auto authorizationToken = "aad#" + resourceId + "#" + aadToken;
+speechConfig->SetAuthorizationToken(authorizationToken);
 ```
 ::: zone-end
 
@@ -339,7 +350,11 @@ String aadToken = "Your Azure AD access token";
 String customDomainName = "Your Custom Name";
 String hostName = "https://" + customDomainName + ".cognitiveservices.azure.com/";
 SpeechConfig speechConfig = SpeechConfig.fromHost(new URI(hostName));
-speechConfig.setAuthorizationToken(aadToken);
+
+// You need to include the "aad#" prefix and the "#" (hash) separator between resource ID and AAD access token.
+String authorizationToken = "aad#" + resourceId + "#" + token;
+
+speechConfig.setAuthorizationToken(authorizationToken);
 ```
 ::: zone-end
 
