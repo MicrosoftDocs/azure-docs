@@ -204,6 +204,12 @@ When you connect multiple Azure Machine Learning workspaces to the same Log Anal
              by Workspace=tostring(split(_ResourceId, "/")[8]), ClusterName, ClusterType, VmSize, VmPriority
     ```
 
+### Create a workspace monitoring dashboard using template
+
+Dashboards are a focused and organized view of your cloud resources in the Azure portal. See [Create, view, and manage metric alerts using Azure Monitor](../azure-portal/azure-portal-dashboards.md) for details on creating Dashboards.
+
+You can use a publicly available template at https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.machinelearningservices/machine-learning-workspace-monitoring-dashboard to deploy a sample dashboard. This dashboard based on [Kusto queries](../machine-learning/monitor-azure-machine-learning.md#sample-kusto-queries), so you must enable [Log Analytics data collection](../machine-learning/monitor-azure-machine-learning.md#collection-and-routing) for Azure Machine Learning workspace before deploying the dashboard.
+
 ## Alerts
 
 You can access alerts for Azure Machine Learning by opening **Alerts** from the **Azure Monitor** menu. See [Create, view, and manage metric alerts using Azure Monitor](../azure-monitor/alerts/alerts-metric.md) for details on creating alerts.
