@@ -15,12 +15,12 @@ ms.custom: devx-track-java, devx-track-javaee, devx-track-javaee-liberty, devx-t
 
 This article demonstrates how to:  
 * Run your Java, Java EE, Jakarta EE, or MicroProfile application on the Open Liberty or WebSphere Liberty runtime with PostgreSQL DB connection.
-* Build the application Docker image using Open Liberty container images.
+* Build the application Docker image using Open Liberty or WebSphere Liberty container images.
 * Deploy the containerized application to an AKS cluster using the Open Liberty Operator.   
 
 The Open Liberty Operator simplifies the deployment and management of applications running on Kubernetes clusters. With Open Liberty Operator, you can also perform more advanced operations, such as gathering traces and dumps. 
 
-For more details on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more details on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
+For more information on Open Liberty, see [the Open Liberty project page](https://openliberty.io/). For more information on IBM WebSphere Liberty, see [the WebSphere Liberty product page](https://www.ibm.com/cloud/websphere-liberty).
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
@@ -32,16 +32,17 @@ For more details on Open Liberty, see [the Open Liberty project page](https://op
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
+  * Create a user-assigned managed identity and assign `Contributor` role to that identity following [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
 
 ## Create IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service using our offer
-With the following configuration, this offer will create a Azure Container Registry and a Azure Kubernetes Service cluster for the sample application.
-* Go to [Azure Marketplace](https://ms.portal.azure.com/), search for **IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service** and click **Create** to start.
+With the following configuration, this offer will create an Azure Container Registry and an Azure Kubernetes Service cluster for the sample application.
+* Go to [Azure Marketplace](https://ms.portal.azure.com/), search for **IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service** and select **Create** to start.
 * In **Basics** tab, create new Resource Group called *java-liberty-project-rg*.
 * Select *East US* as Region.
 * Select the user-assigned managed identity you created above.
-* Leave all other values to default and start create the cluster.
-* Go to the Azure Container Registry Access Keys page, save the *Login server*, *Username*, *password* somewhere for future use.
-* Go to the deployment output page, click on the deployment named like *ibm-usa-ny-armonk-hq-**, save *clusterName* and *appDeploymentTemplateYamlEncoded* for later use.
+* Leave all other values at the default and start creating the cluster.
+* Go to the Azure Container Registry Access Keys page, save the *Login server*, *Username*, and *Password* aside for later use in this article.
+* Go to the deployment output page, select on the deployment named like *ibm-usa-ny-armonk-hq-**, save *clusterName* and *appDeploymentTemplateYamlEncoded* aside for later use in this article.
 
 ## Create an Azure Database for PostgreSQL server
 ### Create via Azure CLI
@@ -58,7 +59,7 @@ With the following configuration, this offer will create a Azure Container Regis
 
 * Create the PostgreSQL server
 
-  Use the [az postgres server create](cli/azure/postgres/server#az_postgres_server_create) command to create the DB server. The following example creates an DB server named *youruniquedbname*. Make sure *youruniqueacrname* is unique within Azure.
+  Use the [az postgres server create](/cli/azure/postgres/server#az_postgres_server_create) command to create the DB server. The following example creates a DB server named *youruniquedbname*. Make sure *youruniqueacrname* be unique within Azure.
 
   ```bash
   export DB_NAME=youruniquedbname
@@ -66,10 +67,12 @@ With the following configuration, this offer will create a Azure Container Regis
   export DB_ADMIN_PASSWORD=<server_admin_password>
   az postgres server create --resource-group $RESOURCE_GROUP_NAME --name $DB_NAME  --location eastus --admin-user $DB_ADMIN_USERNAME --admin-password $DB_ADMIN_PASSWORD --sku-name GP_Gen5_2
   ```
-### Create through the Azure portal
-Alternatively, use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](../postgresql/quickstart-create-server-database-portal).
 
-### Allow access to Azure Service 
+Alternatively, use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal).
+
+### Allow Azure Services to access the database
+Allow Azure Services, such as our Open Liberty and WebSphere Liberty application, to access the Azure PostgreSQL server.
+
 * Via Azure CLI
   ```bash
   az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
@@ -78,23 +81,17 @@ Alternatively, use the Azure portal by following the steps in [Quickstart: Creat
                                           --start-ip-address "0.0.0.0" \
                                           --end-ip-address "0.0.0.0"
   ```
-* Via Azure portal
-Alternatively, use the Azure portal by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](../postgresql/concepts-firewall-rules#connecting-from-azure)
+Alternatively, use the Azure portal by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-firewall-rules#connecting-from-azure).
 
-## Configure and deploy sample application
-### We assumes the application is:
+## Configure and deploy the sample application
+### We assume the application is:
 * Managed using Maven
-* Using liberty-maven-plugin to configure DB connection
+* Using the `liberty-maven-plugin` to configure DB connection
 
-### Checkout the application
-You can find the sample project used in the documentation [here](https://github.com/Azure-Samples/open-liberty-on-aks). Checkout the repository using following command:
-```bash
-cd <path-to-your-repo>
-git clone git@github.com:Azure-Samples/open-liberty-on-aks.git
+### Check out the application
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks).
+There are three samples in the repository, and we will use *javaee-app-db-using-actions/postgres*. The file structure is as follows:
 ```
-There are three sample in the repository, and we will use *javaee-app-db-using-actions/postgres*. The file structure is as follows:
-```
-
 javaee-app-db-using-actions/postgres
 ├─ src/main/
 │  ├─ aks/
@@ -103,6 +100,8 @@ javaee-app-db-using-actions/postgres
 │  ├─ docker/
 │  │  ├─ Dockerfile
 │  │  ├─ Dockerfile-local
+│  │  ├─ Dockerfile-wlp
+│  │  ├─ Dockerfile-wlp-local
 │  ├─ liberty/config/
 │  │  ├─ server.xml
 │  ├─ java/
@@ -110,29 +109,29 @@ javaee-app-db-using-actions/postgres
 │  ├─ webapp/
 ├─ pom.xml
 ```
-* Directory *java*, *resources* and *webapp* are source code of the sample application, it declared and used a data source named `jdbc/JavaEECafeDB`.
+* Directory *java*, *resources*, and *webapp* contains the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-* In Directory *aks* we placed two deployment files, *db-secret.xml* is used to create [Kubernets Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. And *openlibertyapplication.yaml* is used to deploy the application image.
+* In directory *aks* we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. *openlibertyapplication.yaml* is used to deploy the application image.
 
-* In Directory *docker*, we place two Dockerfiles. *Dockerfile-local* is used for local debug and *Dockerfile* is used to build image for AKS deployment.
+* In directory *docker*, we place four Dockerfiles. *Dockerfile-local* is used for local debug and *Dockerfile* is used to build image for AKS deployment, they all work with Open Liberty. *Dockerfile-wlp-local* is used for local debug and *Dockerfile-wlp* is used to build image for AKS deployment, they all work with WebSphere Liberty.
 
-* In Directory *liberty/config*, the *server.xml* is used to configure the DB connection for OpenLiberty cluster.
+* In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
 ### Acquire necessary variables from AKS deployment
-Once the offer is successfully deployed, an AKS cluster with a namespace will be generated automatically. Besides, the AKS is wired up with ACR by pre-created a secret under the generated namespace. So before we get started with the application, we need to extract the namespace and the pull-secret name of the ACR configured for the AKS.
+Once the offer is successfully deployed, an AKS cluster with a namespace will be generated automatically. The AKS cluster is configured to connect to the ACR using a pre-created secret under the generated namespace. Before we get started with the application, we need to extract the namespace and the pull-secret name of the ACR configured for the AKS.
 
-* Run following command to print out the current deployment file, it contains all variables we need.
+* Run following command to print the current deployment file, using the `appDeploymentTemplateYamlEncoded` you saved above. The output contains all the variables we need.
   ```bash
   echo <appDeploymentTemplateYamlEncoded> | base64 -d
   ```
-* Save the `metadata#namespace` and `spec#pullSecret` somewhere for later use.
+* Save the `metadata.namespace` and `spec.pullSecret` from this yaml output aside for later use in this article.
 
 ### Build project
 Build your application.
 ```bash
 cd <path-to-your-repo>/javaee-app-db-using-actions/postgres
 
-# The following varaibles will be used for deployment file generation
+# The following variables will be used for deployment file generation
 export LOGIN_SERVER=<Azure_Container_Registery_Login_Server_URL>
 export REGISTRY_NAME=<Azure_Container_Registery_Name>
 export USER_NAME=<Azure_Container_Registery_Username>
@@ -148,10 +147,10 @@ export PULL_SECRET=<PULL_SECRET>
 mvn clean install
 ```
 ### Test your project locally
-Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. See the [related docs](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
-We've prepared the *Dockerfile-local* for it in the sample application.
+Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
+We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the sample application.
 
-* Start your local docker environment if not
+* Start your local docker environment if you haven't done so already.
   ```bash
   sudo dockerd
   ```
@@ -159,14 +158,17 @@ We've prepared the *Dockerfile-local* for it in the sample application.
   ```bash
   cd <path-to-your-repo>/javaee-app-db-using-actions/postgres
 
+  # If you are running with Open Liberty
   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_TYPE} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-local
+
+  # If you are running with WebSphere Liberty
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_TYPE} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-wlp-local
   ```
-* Verify the application works as expected
-Go to `http://localhost:9080/` and verify the application is accessible and all functions are working.
-* Press `Ctrl+C` to stop local debug.
+* Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
+* Press `Ctrl+C` to stop `liberty:devc` mode.
 
 ### Build image for AKS deployment
-Run docker command to build the image
+Run the `docker build` command to build the image.
 ```bash
 cd <path-to-your-repo>/javaee-app-db-using-actions/postgres
 
@@ -176,7 +178,11 @@ IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' -
 
 cd <path-to-your-repo>/javaee-app-db-using-actions/postgres/target
 
+# If you are running with Open Liberty
 docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile .
+
+# If you are running with WebSphere Liberty
+docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile-wlp .
 ```
 
 ### Upload image to ACR
@@ -187,30 +193,32 @@ docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
 docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
 ```
 
-### Connect to the AKS cluster
-```bash
-az aks get-credentials --resource-group java-liberty-project-rg --name <AKS_CLUSTER_NAME>
-```
-### Apply DB secret
-```bash
-kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/postgres/target/db-secret.yaml
-```
-### Apply deployment file
-```bash
-kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/postgres/target/openlibertyapplication.yaml
-```
-### Watch the pods to be restarted
-Watch all pods are restarted successfully using the following command
-```bash
-kubectl get pods -n $NAMESPACE --watch
-```
-### Verify the results
-* Get endpoint of the deployed service
-```bash
-kubectl get service -n $NAMESPACE
-```
-Save the `EXTERNAL-IP` for later use.
-* Go to `EXTERNAL-IP:9080` to test the application.
+### Deploy and test the application
+The steps in this section deploy and test the application.
+
+1. Connect to the AKS cluster
+    ```bash
+    az aks get-credentials --resource-group java-liberty-project-rg --name <AKS_CLUSTER_NAME>
+    ```
+2. Apply the DB secret
+    ```bash
+    kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/postgres/target/db-secret.yaml
+    ```
+3. Apply the deployment file
+    ```bash
+    kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/postgres/target/openlibertyapplication.yaml
+    ```
+4. Wait for the pods to be restarted
+Wait until all pods are restarted successfully using the following command.
+    ```bash
+    kubectl get pods -n $NAMESPACE --watch
+    ```
+5. Verify the results
+    * Get endpoint of the deployed service
+        ```bash
+        kubectl get service -n $NAMESPACE
+        ```
+    * Go to `EXTERNAL-IP:9080` to test the application.
 
 ## Clean up resources
 To avoid Azure charges, you should clean up unnecessary resources.  When the cluster is no longer needed, use the [az group delete](/cli/azure/group#az_group_delete) command to remove the resource group, container service, container registry, and all related resources.
@@ -221,7 +229,7 @@ az group delete --name <RESOURCE_GROUP_NAME> --yes --no-wait
 
 ## Next steps
 * [Azure Kubernetes Service](https://azure.microsoft.com/free/services/kubernetes-service/)
-* [Azure Database for PostgreSQL](https://azure.microsoft.com/en-us/services/postgresql/)
+* [Azure Database for PostgreSQL](https://azure.microsoft.com/services/postgresql/)
 * [Open Liberty](https://openliberty.io/)
 * [Open Liberty Operator](https://github.com/OpenLiberty/open-liberty-operator)
 * [Open Liberty Server Configuration](https://openliberty.io/docs/ref/config/)
