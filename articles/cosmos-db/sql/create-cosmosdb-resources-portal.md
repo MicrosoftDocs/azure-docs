@@ -1,8 +1,8 @@
 ---
 title: Quickstart - Create Azure Cosmos DB resources from the Azure portal
 description: This quickstart shows how to create an Azure Cosmos database, container, and items by using the Azure portal.
-author: SnehaGunda
-ms.author: sngun
+author: deborahc
+ms.author: dech
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
