@@ -42,4 +42,4 @@ Sign in to the [Azure portal](https://portal.azure.com).
 ## Next steps
 
 - [How-to: Schedule a contact](schedule-contact.md)
-- [Concept: Earth Observation Service](concept-eos.md)
+- [How-to: Update the spacecraft TLE](update-tle.md)

@@ -1,6 +1,6 @@
 ---
 title: Onboard to the Azure Orbital Preview
-description: Azure Orbital is a cloud-based Ground Station as a Service that allows you to streamline your operations by ingesting space data directly into Azure.
+description: Azure Orbital is in preview, to get access an Azure subscription must be onboarded.
 author: wamota
 ms.service: orbital
 ms.topic: quickstart

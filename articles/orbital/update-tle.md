@@ -42,5 +42,5 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
-- [Tutorial: Register Spacecraft](register-spacecraft.md)
-- [Tutorial: Onboard a Ground Station](onboard-groundstation.md)
+- [How-to: Schedule a contact](schedule-contact.md)
+- [How-to: Cancel a scheduled contact](delete-contact.md)
