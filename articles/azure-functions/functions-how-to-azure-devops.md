@@ -235,7 +235,7 @@ steps:
 
 ## Deploy your app
 
-You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app.md) task. The Azure Function App Deploy task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
+You'll deploy with the [Azure Function App Deploy](/azure/devops/pipelines/tasks/deploy/azure-function-app.md) task. This task requires an [Azure service connection](/azure/devops/pipelines/library/service-endpoints) as an input. An Azure service connection stores the credentials to connect from Azure Pipelines to Azure.
 
 # [YAML](#tab/yaml)
 
