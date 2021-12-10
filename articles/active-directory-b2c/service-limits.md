@@ -3,7 +3,7 @@ title: Azure AD B2C service limits and restrictions
 titleSuffix: Azure AD B2C
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
 services: active-directory-b2c
-author: msmimart
+author: kengaderdus
 manager: celestedg
 
 ms.service: active-directory
@@ -21,7 +21,7 @@ zone_pivot_groups: b2c-policy-type
 
 This article outlines the usage constraints and other service limits for the Azure Active Directory B2C (Azure AD B2C) service. These limits are in place to protect by effectively managing threats and ensuring a high level of service quality.
 
-## End user/consumption related limits
+## User/consumption related limits
 
 The amount of users able to authenticate through an Azure AD B2C tenant is gated through request limits. The below table illustrates the request limits for your Azure AD B2C tenant.
 
@@ -32,25 +32,27 @@ The amount of users able to authenticate through an Azure AD B2C tenant is gated
 
 ## Endpoint request usage
 
+Azure AD B2C is compliant with [OAuth 2.0](https://datatracker.ietf.org/doc/html/rfc6749), [OpenID Connect (OIDC)](https://openid.net/certification), and [SAML](http://saml.xml.org/saml-specifications) protocols. It provides user authentication and single sign-on (SSO) functionality, with the endpoints listed in the following table. 
+
 The frequency of requests made to Azure AD B2C endpoints determine the overall token issuance capability. Azure AD B2C exposes endpoints which consume a different number of requests. Review the [Authentication Protocols](./protocols-overview.md) article for more information on which endpoints are consumed by your application.
 
 |Endpoint                 |Endpoint type     |Requests consumed |
 |-----------------------------|---------|------------------|
+|/oauth2/v2.0/authorize       |Dynamic  |Varies<sup>1</sup>|
 |/oauth2/v2.0/token           |Static   |1                 |
 |/openid/v2.0/userinfo        |Static   |1                 |
 |/.well-known/openid-config   |Static   |1                 |
 |/discovery/v2.0/keys         |Static   |1                 |
 |/oauth2/v2.0/logout          |Static   |1                 |
-|/samlp/sso/logout            |Static   |1                 |
-|/oauth2/v2.0/authorize       |Dynamic  |Varies<sup>1</sup>|
 |/samlp/sso/login             |Dynamic  |Varies<sup>1</sup>|
+|/samlp/sso/logout            |Static   |1                 |
 
 ::: zone pivot="b2c-user-flow"
-<sup>1</sup> The type of User Flow determines the total number of requests consumed when using these endpoints.
+<sup>1</sup> The type of [User Flow](./user-flow-overview.md) determines the total number of requests consumed when using these endpoints.
 
 ::: zone-end
 ::: zone pivot="b2c-custom-policy"
-<sup>1</sup> The configuration of your Custom Policy determines the total number of requests consumed when using these endpoints.
+<sup>1</sup> The configuration of your [Custom Policy](./user-flow-overview.md) determines the total number of requests consumed when using these endpoints.
 ::: zone-end
 
 ## Token issuance rate
@@ -68,11 +70,11 @@ The token issuance rate of a User Flow is dependent on the number of requests co
 |Profile edit   |4   |
 |Phone Sign Up and Sign In   |6   |
 
-When you add more features to a User Flow, such as multi-factor authentication, more requests are consumed. The below table shows how many additional requests are consumed when a user interacts with one of these features.
+When you add more features to a User Flow, such as multifactor authentication, more requests are consumed. The below table shows how many additional requests are consumed when a user interacts with one of these features.
 
 |Feature |Additional requests consumed    |
 |---------|---------|
-|Azure multi-factor authentication          |2   |
+|Azure multifactor authentication          |2   |
 |Email one-time password      |2   |
 |Age gating     |2   |
 |Federated identity provider  |2   |
@@ -83,7 +85,7 @@ To obtain the token issuance rate per second for your User Flow:
 2. Add the number of requests expected at the static endpoints based on your application type.
 3. Use the formula below to calculate the token issuance rate per second.
 
-```m
+```
 Tokens/sec = 200/requests-consumed
 ```
 
@@ -109,7 +111,7 @@ To obtain the token issuance rate per second for a particular user journey:
 2. Add the number of requests expected at the static endpoints based on your application type.
 3. Use the formula below to calculate the token issuance rate per second.
 
-```m
+```
 Tokens/sec = 200/requests-consumed
 ```
 
@@ -131,7 +133,7 @@ To obtain the token issuance rate per second for your Custom Policy:
 2. Add the number of requests expected at the static endpoints based on your application type.
 3. Use the formula below to calculate the token issuance rate per second.
 
-```m
+```
 Tokens/sec = 200/requests-consumed
 ```
 
