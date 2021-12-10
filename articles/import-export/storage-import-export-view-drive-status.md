@@ -74,7 +74,9 @@ If you created your import or export job in Azure Import/Export (the Classic exp
   
 ## Job status descriptions
 
-XXX
+The Azure portal shows the current job status and the progression of an import or export job through job statuses. 
+
+The job statuses vary depending on whether you created the Import/Export Job in Azure Data Box (the Preview experience) or Azure Import/Export (the Classic experience).
 
 ### [Portal (Preview)](#tab/azure-portal-preview)
 
