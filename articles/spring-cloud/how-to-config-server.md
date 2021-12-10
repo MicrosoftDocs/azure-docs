@@ -295,7 +295,7 @@ When properties are changed, services consuming those properties need to be noti
 
 By default auto-refresh is set to false and the refresh-interval is set to 60 seconds.
 
-    ```yml
+    ```yaml
     spring:
       cloud:
         config:
