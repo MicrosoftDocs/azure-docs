@@ -329,7 +329,7 @@ How you deploy your app depends on your app's programming language. Each languag
 
 # [YAML](#tab/yaml)
 
-You can configure the Azure Function App to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
+You can configure your function app to have multiple slots. Slots allow you to safely deploy your app and test it before making it available to your customers.
 
 The following YAML snippet shows how to deploy to a staging slot, and then swap to a production slot:
 
