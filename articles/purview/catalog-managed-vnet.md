@@ -180,7 +180,7 @@ To scan a data source using a managed vnet runtime and Purview managed identity 
 1. Select **View details** > **+ New scan**, or use the **Scan** quick-action icon on the source tile.
 1. Provide a **Name** for the scan.
 1. Under **Connect via integration runtime**, select the newly created managed vnet runtime. 
-3. For **Credential** Select the managed identity, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**.
+1. For **Credential** Select the managed identity, choose the appropriate collection for the scan, and select **Test connection**. On a successful connection, select **Continue**.
 
     :::image type="content" source="media/catalog-managed-vnet\purview-managed-scan.png" alt-text="Screenshot that shows how to create a new scan using Managed VNet":::
 
