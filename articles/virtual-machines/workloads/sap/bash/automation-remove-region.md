@@ -30,9 +30,18 @@ Removes the SAP control plane, including the deployer VM and the SAP library.
 
 ### Example 1
 ```bash
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      
+```
+
+### Example 2
+```bash
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remove_region.sh                                                          \
+        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
+        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
+        --subscription xxxxxxxxxxx
+        --storage_account mgmtweeutfstate###
 ```
 
 ## Parameters
