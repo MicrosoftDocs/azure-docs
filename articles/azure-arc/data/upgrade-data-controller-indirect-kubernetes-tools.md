@@ -37,7 +37,7 @@ Prior to beginning the upgrade of the Azure Arc data controller, you will need:
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
 
-You need an indirectly connected data controller with the imageTag v1.0.0_2021-07-30 or greater.
+You need an indirectly connected data controller with the `imageTag: v1.0.0_2021-07-30` or greater.
 
 ### Install tools
 
