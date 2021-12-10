@@ -2,7 +2,7 @@
 title: Migrate hundreds of terabytes of data into Azure Cosmos DB 
 description: This doc describes how you can migrate 100s of terabytes of data into Cosmos DB
 author: anfeldma-ms
-ms.author: anfeldmas
+ms.author: anfeldma
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
