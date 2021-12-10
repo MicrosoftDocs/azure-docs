@@ -26,7 +26,7 @@ This article provides steps for troubleshooting and fixing IoT connector error m
 > [!NOTE]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for IoT connector, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
 
-## IoT Connector error messages and conditions
+## Error messages and conditions
 
 ### The operation being performed by IoT connector
 
