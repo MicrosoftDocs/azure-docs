@@ -1,6 +1,6 @@
 ---
 title: Data redundancy 
-description: Understand data redundancy for the Azure storage services. Data in your Microsoft Azure storage account is replicated for durability and high availability.
+description: Understand data redundancy in Azure Storage. Data in your Microsoft Azure Storage account is replicated for durability and high availability.
 services: storage
 author: tamram
 
@@ -11,9 +11,9 @@ ms.author: tamram
 ms.subservice: common
 ---
 
-# Azure storage service redundancy
+# Azure Storage redundancy
 
-Azure storage services such as Azure Blob storage, Azure Files, Azure Table storage, and Azure Queue storage store multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures.
+Azure Storage always stores multiple copies of your data so that it is protected from planned and unplanned events, including transient hardware failures, network or power outages, and massive natural disasters. Redundancy ensures that your storage account meets its availability and durability targets even in the face of failures.
 
 When deciding which redundancy option is best for your scenario, consider the tradeoffs between lower costs and higher availability. The factors that help determine which redundancy option you should choose include:
 
@@ -24,11 +24,13 @@ When deciding which redundancy option is best for your scenario, consider the tr
 > [!NOTE]  
 > The features and regional availability described in this article are also available to accounts that have a hierarchical namespace (Azure Blob storage).
 
-The Azure storage services are managed through a common Azure resource called a *storage account*. Storage accounts are top-level objects which can be deployed into resource groups. The storage account represents a shared pool of storage that can be used to deploy storage resources such as blob containers (Azure Blob storage), file shares (Azure Files), tables (Azure Table storage), or queues (Azure Queue storage). The redundancy setting for a storage account is shared for all storage resources, meaning that all storage resources deployed in the same storage account will have the same redundancy setting.
+The services that comprise Azure Storage are managed through a common Azure resource called a *storage account*. The storage account represents a shared pool of storage that can be used to deploy storage resources such as blob containers (Blob Storage), file shares (Azure Files), tables (Table Storage), or queues (Queue Storage).
+
+The redundancy setting for a storage account is shared for all storage resources, meaning that all storage resources deployed in the same storage account have the same redundancy setting.
 
 ## Redundancy in the primary region
 
-Data in a storage account is always replicated three times in the primary region. The Azure storage service platform offers two options for how your data is replicated in the primary region:
+Data in an Azure Storage account is always replicated three times in the primary region. Azure Storage offers two options for how your data is replicated in the primary region:
 
 - **Locally redundant storage (LRS)** copies your data synchronously three times within a single physical location in the primary region. LRS is the least expensive replication option, but is not recommended for applications requiring high availability or durability.
 - **Zone-redundant storage (ZRS)** copies your data synchronously across three Azure availability zones in the primary region. For applications requiring high availability, Microsoft recommends using ZRS in the primary region, and also replicating to a secondary region.
@@ -71,20 +73,22 @@ ZRS provides excellent performance, low latency, and resiliency for your data if
 
 For information about which regions support ZRS, see **Services support by region** in [What are Azure Availability Zones?](../../availability-zones/az-overview.md).
 
-#### Standard storage
+#### Standard storage accounts
 
-ZRS is supported on standard storage through the general-purpose version 2 storage account kind. It is supported by all Azure storage services inclusive of:
+ZRS is supported for all Azure Storage services through standard general-purpose v2 storage accounts, including:
 
-- Azure Blob storage (hot and cool block blobs, page blobs that are not unmanaged disks)
+- Azure Blob storage (hot and cool block blobs, non-disk page blobs)
 - Azure Files (all standard tiers: transaction optimized, hot, and cool)
 - Azure Table storage
 - Azure Queue storage
 
 [!INCLUDE [storage-redundancy-standard-zrs](../../../includes/storage-redundancy-standard-zrs.md)]
 
-#### Premium block blobs
+#### Premium block blob accounts
 
-ZRS is supported for premium block blobs (Azure Blob storage) through the `BlockBlobStorage` storage account kind. Premium block blobs are available in a subset of Azure regions:
+ZRS is supported for premium block blobs accounts. For more information about premium block blobs, see [Premium block blob storage accounts](../blobs/storage-blob-block-blob-premium.md).
+
+Premium block blobs are available in a subset of Azure regions:
 
 - East Asia
 - Southeast Asia
@@ -102,7 +106,7 @@ ZRS is supported for premium block blobs (Azure Blob storage) through the `Block
 <sup>1</sup> The archive tier is not currently supported for ZRS accounts.<br />
 <sup>2</sup> Azure unmanaged disks should also use LRS. It is possible to create a storage account for Azure unmanaged disks that uses GRS, but it is not recommended due to potential issues with consistency over asynchronous geo-replication. Unmanaged disks don't support ZRS or GZRS.
 
-ZRS is supported for premium file shares (Azure Files) through the `FileStorage` storage account kind. 
+ZRS is supported for premium file shares (Azure Files) through the `FileStorage` storage account kind.
 
 [!INCLUDE [storage-files-redundancy-premium-zrs](../../../includes/storage-files-redundancy-premium-zrs.md)]
 
@@ -112,7 +116,7 @@ For applications requiring high durability, you can choose to additionally copy 
 
 When you create a storage account, you select the primary region for the account. The paired secondary region is determined based on the primary region, and can't be changed. For more information about regions supported by Azure, see [Azure regions](https://azure.microsoft.com/global-infrastructure/regions/).
 
-Azure storage offers two options for copying your data to a secondary region:
+Azure Storage offers two options for copying your data to a secondary region:
 
 - **Geo-redundant storage (GRS)** copies your data synchronously three times within a single physical location in the primary region using LRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
 - **Geo-zone-redundant storage (GZRS)** copies your data synchronously across three Azure availability zones in the primary region using ZRS. It then copies your data asynchronously to a single physical location in the secondary region. Within the secondary region, your data is copied synchronously three times using LRS.
@@ -125,7 +129,7 @@ With GRS or GZRS, the data in the secondary region isn't available for read or w
 If the primary region becomes unavailable, you can choose to fail over to the secondary region. After the failover has completed, the secondary region becomes the primary region, and you can again read and write data. For more information on disaster recovery and to learn how to fail over to the secondary region, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
 > [!IMPORTANT]
-> Because data is replicated to the secondary region asynchronously, a failure that affects the primary region may result in data loss if the primary region cannot be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. The Azure storage platform typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
+> Because data is replicated to the secondary region asynchronously, a failure that affects the primary region may result in data loss if the primary region cannot be recovered. The interval between the most recent writes to the primary region and the last write to the secondary region is known as the recovery point objective (RPO). The RPO indicates the point in time to which data can be recovered. The Azure Storage platform typically has an RPO of less than 15 minutes, although there's currently no SLA on how long it takes to replicate data to the secondary region.
 
 ### Geo-redundant storage
 
@@ -133,7 +137,7 @@ Geo-redundant storage (GRS) copies your data synchronously three times within a 
 
 A write operation is first committed to the primary location and replicated using LRS. The update is then replicated asynchronously to the secondary region. When data is written to the secondary location, it's also replicated within that location using LRS.
 
-The following diagram shows how your data is replicated with GRS:
+The following diagram shows how your data is replicated with GZRS or RA-GZRS:
 
 :::image type="content" source="media/storage-redundancy/geo-redundant-storage.png" alt-text="Diagram showing how data is replicated with GRS or RA-GRS":::
 
@@ -147,9 +151,9 @@ The following diagram shows how your data is replicated with GZRS:
 
 :::image type="content" source="media/storage-redundancy/geo-zone-redundant-storage.png" alt-text="Diagram showing how data is replicated with GZRS or RA-GZRS":::
 
-Only standard storage accounts (storage accounts with the general-purpose v2 storage account kind) support GZRS. It is supported by all Azure storage services inclusive of:
+Only standard general-purpose v2 storage accounts support GZRS. GZRS is supported by all of the Azure Storage services, including:
 
-- Azure Blob storage (hot and cool block blobs, page blobs that are not unmanaged disks)
+- Azure Blob storage (hot and cool block blobs, non-disk page blobs)
 - Azure Files (all standard tiers: transaction optimized, hot, and cool)
 - Azure Table storage
 - Azure Queue storage
@@ -177,11 +181,11 @@ Because data is replicated to the secondary region asynchronously, the secondary
 
 To determine which write operations have been replicated to the secondary region, your application can check the **Last Sync Time** property for your storage account. All write operations written to the primary region prior to the last sync time have been successfully replicated to the secondary region, meaning that they are available to be read from the secondary. Any write operations written to the primary region after the last sync time may or may not have been replicated to the secondary region, meaning that they may not be available for read operations.
 
-You can query the value of the **Last Sync Time** property using Azure PowerShell, Azure CLI, or one of the Azure storage service client libraries. The **Last Sync Time** property is a GMT date/time value. For more information, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
+You can query the value of the **Last Sync Time** property using Azure PowerShell, Azure CLI, or one of the Azure Storage client libraries. The **Last Sync Time** property is a GMT date/time value. For more information, see [Check the Last Sync Time property for a storage account](last-sync-time-get.md).
 
 ## Summary of redundancy options
 
-The tables in the following sections summarize the redundancy options available for the Azure storage services.
+The tables in the following sections summarize the redundancy options available for Azure Storage.
 
 ### Durability and availability parameters
 
@@ -207,7 +211,7 @@ The following table indicates whether your data is durable and available in a gi
 
 <sup>1</sup> Account failover is required to restore write availability if the primary region becomes unavailable. For more information, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
 
-### Supported Azure storage services
+### Supported Azure Storage services
 
 | LRS | ZRS | GRS | RA-GRS | GZRS | RA-GZRS |
 |---|---|---|---|---|---|
@@ -223,21 +227,20 @@ The following table shows which redundancy options are supported by each type of
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)</li><li>Premium block blobs (`BlockBlobStorage`)</li><li>Premium file shares (`FileStorage`)</li></ul>Legacy:<ul><li>Standard/general-purpose v1 (`Storage`)</li><li>Legancy blob (`BlobStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)<li>Premium block blobs (`BlockBlobStorage`)</li><li>Premium file shares (`FileStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)</li></ul>Legacy:<ul><li>Standard/general-purpose v1 (`Storage`)</li><li>Legancy blob (`BlobStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)</li></ul> |
+| Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)</li><li>Premium block blobs (`BlockBlobStorage`)</li><li>Premium file shares (`FileStorage`)</li></ul>Legacy:<ul><li>Standard/general-purpose v1 (`Storage`)</li><li>Legacy blob (`BlobStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)<li>Premium block blobs (`BlockBlobStorage`)</li><li>Premium file shares (`FileStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)</li></ul>Legacy:<ul><li>Standard/general-purpose v1 (`Storage`)</li><li>Legacy blob (`BlobStorage`)</li></ul> | Recommended: <ul><li>Standard/general-purpose v2 (`StorageV2`)</li></ul> |
 
 ## Data integrity
 
-The Azure storage platform regularly verifies the integrity of data stored using cyclic redundancy checks (CRCs). If data corruption is detected, it is repaired using redundant data. Azure Storage also calculates checksums on all network traffic to detect corruption of data packets when storing or retrieving data.
+Azure Storage regularly verifies the integrity of data stored using cyclic redundancy checks (CRCs). If data corruption is detected, it is repaired using redundant data. Azure Storage also calculates checksums on all network traffic to detect corruption of data packets when storing or retrieving data.
 
 ## See also
 
 - [Change the redundancy option for a storage account](redundancy-migration.md)
-- Pricing
-    - [Azure Blob storage](https://azure.microsoft.com/pricing/details/storage/blobs) 
-    - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)
-    - [Tables](https://azure.microsoft.com/pricing/details/storage/tables/)
-    - [Queues](https://azure.microsoft.com/pricing/details/storage/queues/)
 - Geo replication (GRS/GZRS/RA-GRS/RA-GZRS)
     - [Check the Last Sync Time property for a storage account](last-sync-time-get.md)
-    - [Use geo-redundancy to design highly available applications](geo-redundant-design.md)
     - [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md)
+- Pricing
+    - [Blob Storage](https://azure.microsoft.com/pricing/details/storage/blobs)
+    - [Azure Files](https://azure.microsoft.com/pricing/details/storage/files/)
+    - [Table Storage](https://azure.microsoft.com/pricing/details/storage/tables/)
+    - [Queue Storage](https://azure.microsoft.com/pricing/details/storage/queues/)
