@@ -30,22 +30,26 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
 
 ## Topology 
 
-You can set new key encryptions at any time without service interruption, including Microsoft KEK to customer KEK or from customer KEK to Microsoft KEK. The existing data doesn't get re-encrypted. Instead, a shallow rekey and re-encryption is done to KEKs, and then the data is tagged with the customer-managed key version. Don't delete old keys because they're needed to read data. 
+<!-- New content from Rahi to go here -->
 
 :::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png" alt-text="Diagram showing the customer managed keys topology." border="false"lightbox="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png":::
 
+
+## Prerequisites
+
+
+
+## Azure VMware Solution CMK workflow
+
+You can set new key encryptions at any time without service interruption, including Microsoft KEK to customer KEK or from customer KEK to Microsoft KEK. The existing data doesn't get re-encrypted. Instead, a shallow rekey and re-encryption is done to KEKs, and then the data is tagged with the customer-managed key version. Don't delete old keys because they're needed to read data. 
+
+:::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-generation-flow.png" alt-text="Diagram showing the customer managed keys workflow." border="false"lightbox="media/configure-customer-managed-keys/customer-managed-keys-generation-flow.png":::
 If a shallow rekey gets initiated from vCenter, the old keys aren't useful. Key Management Interoperability Protocol (KMIP) doesn't have control over which keys vCenter wants to use. If vCenter asks to delete keys, KMIP proxy deletes them. You can keep a record of old keys if that's a compliance requirement. Key Vault doesn't support KMIP, and vCenter doesn't support the Key Vault REST interface. For this reason, a proxy service is in place that enables translation between the two.
 
 Expired KEKs can still be used for rotation flow as the previous key. They unwrap the old data encryption keys so a new encryption key can wrap them. Version checks are done regularly to ensure that Azure VMware Solution always wraps the keys with the latest version. 
 
 >[!IMPORTANT]
 >After encrypting CMKs, only new data gets encrypted while all previous data stays encrypted with Microsoft-managed keys (MMKs).
-
-## Prerequisites
-
-
-## Azure VMware Solution CMK workflow
-
 
 ## Set up CMK with system-assigned identity 
 
