@@ -71,7 +71,7 @@ landingContent:
       - linkListType: reference
         links:
           - text: Frequently asked questions
-            url: faq.md  
+            url: faq.yml  
           - text: REST
             url: /rest/api/attestation/ 
           - text: Troubleshoot issues

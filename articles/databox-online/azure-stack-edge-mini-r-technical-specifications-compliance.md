@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 05/12/2021
+ms.date: 06/29/2021
 ms.author: alkohli
 ---
 # Azure Stack Edge Mini R technical specifications
@@ -133,10 +133,10 @@ This section lists the specifications related to the enclosure environment, such
 
 |     Specifications             |     Description                                                          |
 |--------------------------------|--------------------------------------------------------------------------|
-|     Temperature range          |     0 – 43° C (operational)                                              |
+|     Temperature range          |     0 – 40° C (operational)                                              |
 |     Vibration                  |     MIL-STD-810 Method 514.7*<br> Procedure I CAT 4, 20                  |
 |     Shock                      |     MIL-STD-810 Method 516.7*<br> Procedure IV, Logistic                 |
-|     Altitude                   |     Operational:   10,000 feet<br> Non-operational: 40,000 feet          |
+|     Altitude                   |     Operational:   15,000 feet<br> Non-operational: 40,000 feet          |
 
 **All references are to MIL-STD-810G Change 1 (2014)*
 

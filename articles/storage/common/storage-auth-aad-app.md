@@ -1,5 +1,5 @@
 ---
-title: Acquire a token from Azure AD for authorizing requests from a client application
+title: Authorize access to blob or queue data from a native or web application
 titleSuffix: Azure Storage
 description: Use Azure Active Directory to authenticate from within a client application, acquire an OAuth 2.0 token, and authorize requests to Azure Blob storage and Queue storage.
 services: storage
@@ -7,13 +7,13 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/07/2020
+ms.date: 10/11/2021
 ms.author: tamram
 ms.subservice: common
 ms.custom: "devx-track-csharp"
 ---
 
-# Acquire a token from Azure AD for authorizing requests from a client application
+# Authorize access to blob or queue data from a native or web application
 
 A key advantage of using Azure Active Directory (Azure AD) with Azure Blob storage or Queue storage is that your credentials no longer need to be stored in your code. Instead, you can request an OAuth 2.0 access token from the Microsoft identity platform. Azure AD authenticates the security principal (a user, group, or service principal) running the application. If authentication succeeds, Azure AD returns the access token to the application, and the application can then use the access token to authorize requests to Azure Blob storage or Queue storage.
 
@@ -31,7 +31,7 @@ To authenticate a security principal from your Azure Storage application, first 
 
 ## Register your application with an Azure AD tenant
 
-The first step in using Azure AD to authorize access to storage resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com). When you register your client application, you supply information about the application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md). 
+The first step in using Azure AD to authorize access to storage resources is registering your client application with an Azure AD tenant from the [Azure portal](https://portal.azure.com). When you register your client application, you supply information about the application to Azure AD. Azure AD then provides a client ID (also called an *application ID*) that you use to associate your application with Azure AD at runtime. To learn more about the client ID, see [Application and service principal objects in Azure Active Directory](../../active-directory/develop/app-objects-and-service-principals.md). To register your Azure Storage application, follow the steps shown in [Quickstart: Register an application with the Microsoft identity platform](../../active-directory/develop/quickstart-configure-app-access-web-apis.md).
 
 The following image shows common settings for registering a web application. Note that in this example, the redirect URI is set to `http://localhost:5000/signin-oidc` for testing the sample application in the development environment. You can modify this setting later under the **Authentication** setting for your registered application in the Azure portal:
 
@@ -136,7 +136,7 @@ When your application accesses Azure Storage, it does so on the user's behalf, m
 
 A completed sample web application that acquires a token and uses it to create a blob in Azure Storage is available on [GitHub](https://aka.ms/aadstorage). Reviewing and running the completed sample may be helpful for understanding the code examples. For instructions about how to run the completed sample, see the section titled [View and run the completed sample](#view-and-run-the-completed-sample).
 
-#### Add references and using statements  
+#### Add references and using statements
 
 From Visual Studio, install the Azure Storage client library. From the **Tools** menu, select **NuGet Package Manager**, then **Package Manager Console**. Type the following commands into the console window to install the necessary packages from the Azure Storage client library for .NET:
 
@@ -290,4 +290,4 @@ https://<storage-account>.blob.core.windows.net/<container>/Blob1.txt
 
 - [Microsoft identity platform](../../active-directory/develop/index.yml)
 - [Assign an Azure role for access to blob data](../blobs/assign-azure-role-data-access.md)
-- [Authenticate access to blobs and queues with Azure Active Directory and managed identities for Azure Resources](storage-auth-aad-msi.md)
+- [Authorize access to blob data with managed identities for Azure resources](../blobs/authorize-managed-identity.md)

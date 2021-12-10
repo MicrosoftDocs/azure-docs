@@ -16,6 +16,8 @@ ms.author: pafarley
 
 # Define and use moderation workflows
 
+[!INCLUDE [deprecation notice](../includes/tool-deprecation.md)]
+
 In this guide, you'll learn how to set up and use [workflows](../review-api.md#workflows) on the [Review tool](https://contentmoderator.cognitive.microsoft.com) website. Workflows are cloud-based customized filters that you can use to handle content more efficiently. Workflows can connect to a variety of services to filter content in different ways and then take the appropriate action. This guide shows you how to use the Content Moderator connector (which is included by default) to filter content and set up human reviews in a typical moderation scenario.
 
 ## Create a new workflow

@@ -1,0 +1,24 @@
+{
+    "redirections": [
+    {
+        "source_path_from_root": "/articles/data-catalog/data-catalog-prerequisites.md",
+        "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/data-catalog/data-catalog-release-notes.md",
+        "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/data-catalog/data-catalog-whats-new.md",
+        "redirect_url": "/azure/data-catalog/data-catalog-get-started",
+        "redirect_document_id": false
+      },
+      {
+        "source_path_from_root": "/articles/data-catalog/data-catalog-what-is-data-catalog.md",
+        "redirect_url": "/azure/data-catalog/overview",
+        "redirect_document_id": true
+      }
+]
+}

@@ -77,7 +77,7 @@ To update or add  libraries to a Spark pool:
 >
 > If this setting is unchecked, then you  will have to wait for the current Spark session to end or stop it manually. Once the session has ended, you will need to let the pool restart.
 
-#### Track installation progress (preview)
+#### Track installation progress 
 A system reserved Spark job is initiated each time a pool is updated with a new set of libraries. This Spark job helps monitor the status of the library installation. If the installation fails due to library conflicts or other issues, the Spark pool will revert to its previous or default state. 
 
 In addition, users can also inspect the installation logs to identify dependency conflicts or see which libraries were installed during the pool update.

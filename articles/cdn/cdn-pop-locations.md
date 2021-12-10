@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/18/2021
-ms.author: allensu
+ms.author: duau
 ms.custom: references_regions
 
 ---
@@ -26,7 +26,7 @@ ms.custom: references_regions
 >
 
 
-This article lists current metros containing point-of-presence (POP) locations, sorted by region, for Azure Content Delivery Network (CDN) products. Each metro may contain more than one POP. For example, Azure CDN from Microsoft has 116 POPs across 100 metro cities. 
+This article lists current metros containing point-of-presence (POP) locations, sorted by region, for Azure Content Delivery Network (CDN) products. Each metro may contain more than one POP. For example, Azure CDN from Microsoft has 118 POPs across 100 metro cities. 
 
 > [!IMPORTANT]
 > Each Azure CDN product has a distinct way of building its CDN infrastructures, hence Microsoft recommends against using POP locations to decide which Azure CDN product to use. Instead, you should consider its features and end-user performance. Test the performance with each Azure CDN product to choose the right product for your users. 
@@ -50,9 +50,9 @@ This article lists current metros containing point-of-presence (POP) locations, 
 | Africa | Johannesburg, South Africa <br/> Nairobi, Kenya | South Africa |
 | Middle East | Muscat, Oman<br />Fujirah, United Arab Emirates | Qatar<br />United Arab Emirates |
 | India | Bengaluru (Bangalore), India<br />Chennai, India<br />Mumbai, India<br />New Delhi, India<br /> | India |
-| Asia | Hong Kong<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Seoul, South Korea<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
+| Asia | Hong Kong<br />Jakarta, Indonesia<br />Osaka, Japan<br />Tokyo, Japan<br />Singapore<br />Kaohsiung, Taiwan<br />Taipei, Taiwan <br />Manila, Philippines | Hong Kong<br />Indonesia<br />Israel<br />Japan<br />Macau<br />Malaysia<br />Philippines<br />Singapore<br />South Korea<br />Taiwan<br />Thailand<br />Turkey<br />Vietnam |
 | Australia and New Zealand | Melbourne, Australia<br />Sydney, Australia<br />Auckland, New Zealand | Australia<br />New Zealand |
 
 ## Next steps
 
-* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/cdn/edgenodes).
+* To get the latest IP addresses for allow listing, see the [Azure CDN Edge Nodes API](/rest/api/cdn/edge-nodes/list).

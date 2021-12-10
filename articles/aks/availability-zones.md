@@ -27,19 +27,25 @@ AKS clusters can currently be created using availability zones in the following 
 * Australia East
 * Brazil South
 * Canada Central
+* Central India
 * Central US
+* East Asia
 * East US 
 * East US 2
 * France Central
 * Germany West Central
 * Japan East
+* Korea Central
 * North Europe
+* Norway East
 * Southeast Asia
 * South Central US
+* Sweden Central
 * UK South
 * US Gov Virginia
 * West Europe
 * West US 2
+* West US 3
 
 The following limitations apply when you create an AKS cluster using availability zones:
 
@@ -58,7 +64,7 @@ Kubernetes is aware of Azure availability zones since version 1.12. You can depl
 
 When *creating* an AKS cluster, if you explicitly define a [null value in a template][arm-template-null] with syntax such as `"availabilityZones": null`, the Resource Manager template treats the property as if it doesn't exist, which means your cluster won’t have availability zones enabled. Also, if you create a cluster with a Resource Manager template that omits the availability zones property, availability zones are disabled.
 
-You can't update settings for availability zones on an existing cluster, so the behavior is different when updating am AKS cluster with Resource Manager templates.  If you explicitly set a null value in your template for availability zones and *update* your cluster, there are no changes made to your cluster for availability zones. However, if you omit the availability zones property with syntax such as `"availabilityZones": []`, the deployment attempts to disable availability zones on your existing AKS cluster and **fails**.
+You can't update settings for availability zones on an existing cluster, so the behavior is different when updating an AKS cluster with Resource Manager templates.  If you explicitly set a null value in your template for availability zones and *update* your cluster, there are no changes made to your cluster for availability zones. However, if you omit the availability zones property with syntax such as `"availabilityZones": []`, the deployment attempts to disable availability zones on your existing AKS cluster and **fails**.
 
 ## Overview of availability zones for AKS clusters
 

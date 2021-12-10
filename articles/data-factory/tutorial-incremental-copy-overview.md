@@ -4,6 +4,7 @@ description: These tutorials show you how to incrementally copy data from a sour
 author: dearandyxu
 ms.author: yexu
 ms.service: data-factory
+ms.subservice: tutorials
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 02/18/2021
@@ -18,7 +19,7 @@ In a data integration solution, incrementally (or delta) loading data after an i
 ## Delta data loading from database by using a watermark
 In this case, you define a watermark in your source database. A watermark is a column that has the last updated time stamp or an incrementing key. The delta loading solution loads the changed data between an old watermark and a new watermark. The workflow for this approach is depicted in the following diagram: 
 
-![Workflow for using a watermark](media/tutorial-incremental-copy-overview/workflow-using-watermark.png)
+:::image type="content" source="media/tutorial-incremental-copy-overview/workflow-using-watermark.png" alt-text="Workflow for using a watermark":::
 
 For step-by-step instructions, see the following tutorials: 
 - [Incrementally copy data from one table in Azure SQL Database to Azure Blob storage](tutorial-incremental-copy-powershell.md)
@@ -32,13 +33,13 @@ Change Tracking technology is a lightweight solution in SQL Server and Azure SQL
 
 The workflow for this approach is depicted in the following diagram:
 
-![Workflow for using Change Tracking](media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png)
+:::image type="content" source="media/tutorial-incremental-copy-overview/workflow-using-change-tracking.png" alt-text="Workflow for using Change Tracking":::
 
 For step-by-step instructions, see the following tutorial: <br/>
 - [Incrementally copy data from Azure SQL Database to Azure Blob storage by using Change Tracking technology](tutorial-incremental-copy-change-tracking-feature-powershell.md)
 
 ## Loading new and changed files only by using LastModifiedDate
-You can copy the new and changed files only by using LastModifiedDate to the destination store. ADF will scan all the files from the source store, apply the file filter by their LastModifiedDate, and only copy the new and updated file since last time to the destination store.  Please be aware if you let ADF scan huge amounts of files but only copy a few files to destination, you would still expect the long duration due to file scanning is time consuming as well.   
+You can copy the new and changed files only by using LastModifiedDate to the destination store. ADF will scan all the files from the source store, apply the file filter by their LastModifiedDate, and only copy the new and updated file since last time to the destination store.  Please be aware that if you let ADF scan huge amounts of files but you only copy a few files to the destination, this will still take a long time because of the file scanning process.   
 
 For step-by-step instructions, see the following tutorial: <br/>
 - [Incrementally copy new and changed files based on LastModifiedDate from Azure Blob storage to Azure Blob storage](tutorial-incremental-copy-lastmodified-copy-data-tool.md)

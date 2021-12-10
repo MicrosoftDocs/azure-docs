@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 06/14/2021
 
 ms.author: justinha
 author: justinha
@@ -28,6 +28,7 @@ The sign-ins report provides you with information about the usage of managed app
 
 - Was the sign-in challenged with MFA?
 - How did the user complete MFA?
+- Which authentication methods were used during a sign-in?
 - Why was the user unable to complete MFA?
 - How many users are challenged for MFA?
 - How many users are unable to complete the MFA challenge?
@@ -40,13 +41,39 @@ To view the sign-in activity report in the [Azure portal](https://portal.azure.c
 1. Under *Activity* from the menu on the left-hand side, select **Sign-ins**.
 1. A list of sign-in events is shown, including the status. You can select an event to view more details.
 
-    The *Authentication Details* or *Conditional Access* tab of the event details shows you the status code or which policy triggered the MFA prompt.
+    The **Authentication Details** or **Conditional Access** tab of the event details shows you the status code or which policy triggered the MFA prompt.
 
     [![Screenshot of example Azure Active Directory sign-ins report in the Azure portal](media/howto-mfa-reporting/sign-in-report-cropped.png)](media/howto-mfa-reporting/sign-in-report.png#lightbox)
 
 If available, the authentication is shown, such as text message, Microsoft Authenticator app notification, or phone call.
 
-The following details are shown on the *Authentication Details* window for a sign-in event that show if the MFA request was satisfied or denied:
+The **Authentication Details** tab provides the following information, for each authentication attempt:
+
+- A list of authentication policies applied (such as Conditional Access, per-user MFA, Security Defaults)
+- The sequence of authentication methods used to sign-in
+- Whether or not the authentication attempt was successful
+- Detail about why the authentication attempt succeeded or failed
+
+This information allows admins to troubleshoot each step in a user’s sign-in, and track:
+
+- Volume of sign-ins protected by multi-factor authentication 
+- Usage and success rates for each authentication method 
+- Usage of passwordless authentication methods (such as Passwordless Phone Sign-in, FIDO2, and Windows Hello for Business) 
+- How frequently authentication requirements are satisfied by token claims (where users are not interactively prompted to enter a password, enter an SMS OTP, and so on)
+
+While viewing the sign-ins report, select the **Authentication Details** tab: 
+
+![Screenshot of the Authentication Details tab](media/howto-mfa-reporting/auth-details-tab.png)
+
+>[!NOTE]
+>**OATH verification code** is logged as the authentication method for both OATH hardware and software tokens (such as the Microsoft Authenticator app).
+
+>[!IMPORTANT]
+>The **Authentication details** tab can initially show incomplete or inaccurate data, until log information is fully aggregated. Known examples include: 
+>- A **satisfied by claim in the token** message is incorrectly displayed when sign-in events are initially logged. 
+>- The **Primary authentication** row is not initially logged. 
+
+The following details are shown on the **Authentication Details** window for a sign-in event that show if the MFA request was satisfied or denied:
 
 * If MFA was satisfied, this column provides more information about how MFA was satisfied.
    * completed in the cloud
@@ -160,6 +187,7 @@ The following table can help troubleshoot events using the downloaded version of
 | FAILED_AUTH_RESULT_TIMEOUT | Auth Result Timeout | The user took too long to complete the Multi-Factor Authentication attempt. |
 | FAILED_AUTHENTICATION_THROTTLED | Authentication Throttled | The Multi-Factor Authentication attempt was throttled by the service. |
 
+
 ## Additional MFA reports
 
 The following additional information and reports are available for MFA events, including those for MFA Server:
@@ -170,6 +198,7 @@ The following additional information and reports are available for MFA events, i
 | Usage for on-premises components | Azure AD > Security > MFA > Activity Report | Provides information on overall usage for MFA Server through the NPS extension, ADFS, and MFA Server. |
 | Bypassed User History | Azure AD > Security > MFA > One-time bypass | Provides a history of MFA Server requests to bypass MFA for a user. |
 | Server status | Azure AD > Security > MFA > Server status | Displays the status of MFA Servers associated with your account. |
+
 
 ## Next steps
 

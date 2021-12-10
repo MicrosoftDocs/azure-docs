@@ -2,16 +2,17 @@
 title: Quickstart - Join a Teams meeting from an Android app
 description: In this tutorial, you learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Android
 author: chpalm
-ms.author: mikben
+ms.author: rifox
 ms.date: 03/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: mode-other
 ---
 
 In this quickstart, you'll learn how to join a Teams meeting using the Azure Communication Services Calling SDK for Android.
 
-> [!NOTE]
-> Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/join-call-to-teams-meeting)
+## Sample Code
+Find the finalized code for this quickstart on [GitHub](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/join-call-to-teams-meeting).
 
 ## Prerequisites
 

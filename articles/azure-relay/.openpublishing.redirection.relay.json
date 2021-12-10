@@ -1,0 +1,164 @@
+{
+  "redirections": [
+  {
+    "source_path_from_root": "/articles/azure-relay/service-bus-relay-security-controls.md",
+    "redirect_url": "/azure/service-bus-messaging/security-baseline",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/diagnostic-logs.md",
+    "redirect_url": "/azure/azure-relay/diagnostic-logs",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/index.yml",
+    "redirect_url": "/azure/azure-relay/",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/ip-firewall-virtual-networks.md",
+    "redirect_url": "/azure/azure-relay/ip-firewall-virtual-networks",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/network-security.md",
+    "redirect_url": "/azure/azure-relay/network-security",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/private-link-service.md",
+    "redirect_url": "/azure/azure-relay/private-link-service",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-api-overview.md",
+    "redirect_url": "/azure/azure-relay/relay-api-overview",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-authentication-and-authorization.md",
+    "redirect_url": "/azure/azure-relay/relay-authentication-and-authorization",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-create-namespace-portal.md",
+    "redirect_url": "/azure/azure-relay/relay-create-namespace-portal",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-exceptions.md",
+    "redirect_url": "/azure/azure-relay/relay-exceptions",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-faq.md",
+    "redirect_url": "/azure/azure-relay/relay-faq",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-hybrid-connections-dotnet-api-overview.md",
+    "redirect_url": "/azure/azure-relay/relay-hybrid-connections-dotnet-api-overview",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-hybrid-connections-dotnet-get-started.md",
+    "redirect_url": "/azure/azure-relay/relay-hybrid-connections-dotnet-get-started",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-hybrid-connections-http-requests-dotnet-get-started.md",
+    "redirect_url": "/azure/azure-relay/relay-hybrid-connections-http-requests-dotnet-get-started",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-hybrid-connections-http-requests-node-get-started.md",
+    "redirect_url": "/azure/azure-relay/relay-hybrid-connections-http-requests-node-get-started",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-hybrid-connections-node-get-started.md",
+    "redirect_url": "/azure/azure-relay/relay-hybrid-connections-node-get-started",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-hybrid-connections-node-ws-api-overview.md",
+    "redirect_url": "/azure/azure-relay/relay-hybrid-connections-node-ws-api-overview",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-hybrid-connections-protocol.md",
+    "redirect_url": "/azure/azure-relay/relay-hybrid-connections-protocol",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-metrics-azure-monitor.md",
+    "redirect_url": "/azure/azure-relay/relay-metrics-azure-monitor",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-migrate-acs-sas.md",
+    "redirect_url": "/azure/azure-relay/relay-migrate-acs-sas",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-port-settings.md",
+    "redirect_url": "/azure/azure-relay/relay-port-settings",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-wcf-dotnet-get-started.md",
+    "redirect_url": "/azure/azure-relay/azure-relay-tutorial",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/relay-what-is-it.md",
+    "redirect_url": "/azure/azure-relay/relay-what-is-it",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-dotnet-how-to-use-relay.md",
+    "redirect_url": "/azure/azure-relay/relay-wcf-dotnet-get-started",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay.md",
+    "redirect_url": "/azure/azure-relay/service-bus-dotnet-hybrid-app-using-service-bus-relay",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-relay-overview.md",
+    "redirect_url": "/azure/azure-relay/relay-what-is-it",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-relay-port-settings.md",
+    "redirect_url": "/azure/azure-relay/relay-port-settings",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-relay-rest-tutorial.md",
+    "redirect_url": "/azure/azure-relay/service-bus-relay-rest-tutorial",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-relay-samples.md",
+    "redirect_url": "https://github.com/Azure/azure-relay/tree/master/samples",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-relay-security-attributes.md",
+    "redirect_url": "/azure/azure-relay/azure-relay-security-controls",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-relay-security-controls.md",
+    "redirect_url": "/azure/azure-relay/service-bus-relay-security-controls",
+    "redirect_document_id": false
+  },
+  {
+    "source_path_from_root": "/articles/service-bus-relay/service-bus-relay-tutorial.md",
+    "redirect_url": "/azure/azure-relay/service-bus-relay-tutorial",
+    "redirect_document_id": false
+  }
+]
+}

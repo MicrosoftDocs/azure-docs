@@ -3,7 +3,7 @@ title: Azure API Management overview and key concepts | Microsoft Docs
 description: Learn about APIs, products, roles, groups, and other API Management key concepts.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
  
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: overview
 ms.date: 11/15/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc
 ---
 
@@ -55,17 +55,6 @@ The system is made up of the following components:
   * Try out an API via the interactive console.
   * Create an account and subscribe to get API keys.
   * Access analytics on their own usage.
-
-For more information, see the [Cloud-based API Management: Harnessing the Power of APIs](https://j.mp/ms-apim-whitepaper) PDF whitepaper. This introductory whitepaper on API Management by CITO Research covers: 
- 
- * Common API requirements and challenges
- * Decoupling APIs and presenting facades
- * Getting developers up and running quickly
- * Securing access
- * Analytics and metrics
- * Gaining control and insight with an API Management platform
- * Using cloud vs on-premises solutions
- * Azure API Management
  
 ## <a name="apis"> </a>APIs and operations
 APIs are the foundation of an API Management service instance. Each API represents  a set of operations available to developers. Each API contains a reference to the back-end service that implements the API, and its operations map to the operations implemented by the back-end service. Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. Rate limit, quotas, and IP restriction policies can also be implemented at the API or individual operation level.
@@ -101,7 +90,7 @@ Policies are a powerful capability of API Management that allow the Azure portal
 Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./api-management-advanced-policies.md#choose) and [Set variable](./api-management-advanced-policies.md#set-variable) policies are based on policy expressions. For more information, see [Advanced policies](./api-management-advanced-policies.md#AdvancedPolicies) and [Policy expressions](./api-management-policy-expressions.md).
 
 
-For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How create and configure advanced product settings][How create and configure advanced product settings].
+For a complete list of API Management policies, see [Policy reference][Policy reference]. For more information on using and configuring policies, see [API Management policies][API Management policies]. For a tutorial on creating a product with rate limit and quota policies, see [How to create and configure advanced product settings][How to create and configure advanced product settings].
 
 
 ## <a name="developer-portal"> </a> Developer portal
@@ -109,13 +98,6 @@ The developer portal is where developers can learn about your APIs, view and cal
 
 You can customize the look and feel of your developer portal by adding custom content, customizing styles, and adding your branding.
 
-## API Management and the API economy
-
-To learn more about API Management, watch the following presentation from the Microsoft Ignite 2017 conference.
-
-> [!VIDEO https://channel9.msdn.com/Events/Ignite/Microsoft-Ignite-Orlando-2017/BRK2186/player]
-> 
-> 
 
 ## Next steps
 
@@ -136,7 +118,7 @@ Complete the following quickstart and start using Azure API Management:
 [How to create and publish a product]: api-management-howto-add-products.md
 [How to create and use groups]: api-management-howto-create-groups.md
 [How to associate groups with developers]: api-management-howto-create-groups.md#associate-group-developer
-[How create and configure advanced product settings]: transform-api.md
+[How to create and configure advanced product settings]: transform-api.md
 [How to create or invite developers]: api-management-howto-create-or-invite-developers.md
 [Policy reference]: ./api-management-policies.md
 [API Management policies]: api-management-howto-policies.md

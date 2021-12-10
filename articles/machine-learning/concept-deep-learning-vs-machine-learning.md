@@ -52,13 +52,13 @@ The following table compares the two techniques in more detail:
 |  **Execution time** | Takes comparatively little time to train, ranging from a few seconds to a few hours. | Usually takes a long time to train because a deep learning algorithm involves many layers. |
 |  **Output** | The output is usually a numerical value, like a score or a classification. | The output can have multiple formats, like a text, a score or a sound. |
 
-## What is transfer learning
+## What is transfer learning?
 
 Training deep learning models often requires large amounts of training data, high-end compute resources (GPU, TPU), and a longer training time. In scenarios when you don't have any of these available to you, you can shortcut the training process using a technique known as *transfer learning.*
 
 Transfer learning is a technique that applies knowledge gained from solving one problem to a different but related problem.
 
-Due to the structure of neural networks, the first set of layers usually contain lower-level features, whereas the final set of layers contains higher-level feature that are closer to the domain in question. By repurposing the final layers for use in a new domain or problem, you can significantly reduce the amount of time, data, and compute resources needed to train the new model. For example, if you already have a model that recognizes cars, you can repurpose that model using transfer learning to also recognize trucks, motorcycles, and other kinds of vehicles.
+Due to the structure of neural networks, the first set of layers usually contains lower-level features, whereas the final set of layers contains higher-level features that are closer to the domain in question. By repurposing the final layers for use in a new domain or problem, you can significantly reduce the amount of time, data, and compute resources needed to train the new model. For example, if you already have a model that recognizes cars, you can repurpose that model using transfer learning to also recognize trucks, motorcycles, and other kinds of vehicles.
 
 Learn how to apply transfer learning for image classification using an open-source framework in Azure Machine Learning : [Train a deep learning PyTorch model using transfer learning](./how-to-train-pytorch.md?WT.mc_id=docs-article-lazzeri).
 
@@ -128,7 +128,7 @@ Transformers are a model architecture that is suited for solving problems contai
 
 Transformers have been used to solve natural language processing problems such as translation, text generation, question answering, and text summarization.
 
-Some well known implementations of transformers are:
+Some well-known implementations of transformers are:
 
 - Bidirectional Encoder Representations from Transformers (BERT)
 - Generative Pre-trained Transformer 2 (GPT-2)

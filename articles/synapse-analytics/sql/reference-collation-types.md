@@ -18,6 +18,9 @@ You can change the default database collation from the Azure portal when you cre
 
 You can specify the default serverless SQL pool database collation at creation time using CREATE DATABASE statement.
 
+> [!NOTE]
+> In Azure Synapse Analytics, query text (including variables, constants, etc.) is always handled using the database-level collation, and not the server-level collation as in other SQL Server offerings.
+
 ## Change collation
 To change the default collation for dedicated SQL pool database, update to the Collation field in the provisioning experience. For example, if you wanted to change the default collation to case sensitive, you would rename the Collation from SQL_Latin1_General_CP1_CI_AS to SQL_Latin1_General_CP1_CS_AS. 
 

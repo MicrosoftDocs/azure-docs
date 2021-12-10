@@ -3,12 +3,12 @@ title: How to use named values in Azure API Management policies
 description: Learn how to use named values in Azure API Management policies. Named values can contain literal strings, policy expressions, and secrets stored in Azure Key Vault.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 
 ms.service: api-management
 ms.topic: article
 ms.date: 02/09/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # Use named values in Azure API Management policies
@@ -29,7 +29,7 @@ ms.author: apimpm
 
 Plain values or secrets can contain [policy expressions](./api-management-policy-expressions.md). For example, the expression `@(DateTime.Now.ToString())` returns a string containing the current date and time.
 
-For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/2020-06-01-preview/namedvalue/createorupdate).
+For details about the named value attributes, see the API Management [REST API reference](/rest/api/apimanagement/2021-04-01-preview/named-value/create-or-update).
 
 ## Key vault secrets
 
@@ -202,4 +202,3 @@ To delete a named value, select the name and then select **Delete** from the con
     -   [Policy expressions](./api-management-policy-expressions.md)
 
 [api-management-send-results]: ./media/api-management-howto-properties/api-management-send-results.png
-

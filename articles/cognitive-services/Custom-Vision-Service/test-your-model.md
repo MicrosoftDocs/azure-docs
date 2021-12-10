@@ -1,7 +1,7 @@
 ---
 title: Test and retrain a model - Custom Vision Service
 titleSuffix: Azure Cognitive Services
-description: This article will show you how to test an image and then use it to retrain your model in the Custom Vision service.
+description: Learn how to test an image and then use it to re-train your model in the Custom Vision service.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -9,13 +9,13 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/21/2019
+ms.date: 10/27/2021
 ms.author: pafarley
 ---
 
 # Test and retrain a model with Custom Vision Service
 
-After you train your model, you can quickly test it using a locally stored image or an online image. The test uses the most recently trained iteration.
+After you train your model, you can quickly test it using a locally stored image or an online image. The test uses the most recently trained iteration of your model.
 
 ## Test your model
 

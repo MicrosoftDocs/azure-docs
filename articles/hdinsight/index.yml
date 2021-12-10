@@ -165,16 +165,6 @@ landingContent:
           - text: Apache Phoenix best practices
             url: ./hbase/apache-hbase-phoenix-performance.md
 
-# Card
-  - title: ML Services
-    linkLists:
-      - linkListType: get-started
-        links:
-          - text: What is ML Services on HDInsight?
-            url:  ./r-server/r-server-overview.md
-          - text: Execute an R script on an ML Services cluster
-            url: ./r-server/machine-learning-services-quickstart-job-rstudio.md
-
   # Card
   - title: Apache Storm
     linkLists:

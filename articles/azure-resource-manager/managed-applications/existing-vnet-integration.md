@@ -8,13 +8,14 @@ ms.date: 05/11/2020
 ms.author: tomfitz
 
 ---
+
 # Use existing virtual network with Azure Managed Applications
 
 This article shows you how to define an Azure Managed Application that integrates with an existing virtual network in the consumer's subscription. The managed application lets the consumer decide whether to create a new virtual network or use an existing one. The existing virtual network can be outside of the managed resource group.
 
 ## Main template
 
-First, let's look at the **mainTemplate.json** file. The whole template for deploying a virtual machine and its associated resources is shown below. Later, you'll examine more closely the parts of the template that are related to using an existing virtual network.
+First, let's look at the _mainTemplate.json_ file. The whole template for deploying a virtual machine and its associated resources is shown below. Later, you'll examine more closely the parts of the template that are related to using an existing virtual network.
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/mainTemplate.json":::
 
@@ -34,7 +35,7 @@ The network interface is set to the subnet ID variable.
 
 ## UI definition
 
-Now, let's look at the **createUiDefinition.json** file. The whole file is:
+Now, let's look at the _createUiDefinition.json_ file. The whole file is:
 
 :::code language="json" source="~/resourcemanager-templates/managed-app-existing-vnet/createUiDefinition.json":::
 

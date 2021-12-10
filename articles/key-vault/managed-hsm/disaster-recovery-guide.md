@@ -2,13 +2,13 @@
 title: What to do if there if an Azure service disruption that affects Managed HSM - Azure Key Vault | Microsoft Docs
 description: Learn what to do f there is an Azure service disruption that affects Managed HSM.
 services: key-vault
-author: amitbapat
+author: mbaldwin
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/15/2020
-ms.author: ambapat
+ms.author: mbaldwin
 ---
 
 # Managed HSM disaster recovery
@@ -44,11 +44,11 @@ You must provide the following inputs to create a Managed HSM resource:
 - The Azure location.
 - A list of initial administrators.
 
-The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **East US 2** location, with **the current signed in user** as the only administrator.
+The example below creates an HSM named **ContosoMHSM**, in the resource group  **ContosoResourceGroup**, residing in the **Central US** location, with **the current signed in user** as the only administrator.
 
 ```azurecli-interactive
 oid=$(az ad signed-in-user show --query objectId -o tsv)
-az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGroup" --location "East US 2" --administrators $oid
+az keyvault create --hsm-name "ContosoMHSM2" --resource-group "ContosoResourceGroup" --location "centralus" --administrators $oid
 ```
 
 > [!NOTE]
@@ -57,7 +57,7 @@ az keyvault create --hsm-name "ContosoMHSM" --resource-group "ContosoResourceGro
 The output of this command shows properties of the Managed HSM that you've created. The two most important properties are:
 
 * **name**: In the example, the name is ContosoMHSM. You'll use this name for other Key Vault commands.
-* **hsmUri**: In the example, the URI is 'https://contosohsm.managedhsm.azure.net.' Applications that use your HSM through its REST API must use this URI.
+* **hsmUri**: In the example, the URI is 'https://contosomhsm2.managedhsm.azure.net.' Applications that use your HSM through its REST API must use this URI.
 
 Your Azure account is now authorized to perform any operations on this Managed HSM. As of yet, nobody else is authorized.
 

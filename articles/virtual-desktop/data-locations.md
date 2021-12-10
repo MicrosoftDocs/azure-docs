@@ -4,13 +4,13 @@ description: A brief overview of which locations Azure Virtual Desktop's data an
 author: Heidilohr
 ms.topic: conceptual
 ms.custom: references_regions
-ms.date: 06/08/2021
+ms.date: 06/30/2021
 ms.author: helohr
 manager: femila
 ---
 # Data locations for Azure Virtual Desktop
 
-Azure Virtual Desktop is currently available for all geographical locations. Administrators can choose the location to store user data when they create the host pool virtual machines and associated services, such as file servers. Learn more about Azure geographies at the [Azure datacenter map](https://azuredatacentermap.azurewebsites.net/).
+Azure Virtual Desktop is currently available for all geographical locations. Administrators can choose the location to store user data when they create the host pool virtual machines and associated services, such as file servers. Learn more about Azure geographies at [Data residency in Azure](https://azure.microsoft.com/global-infrastructure/data-residency/#overview).
 
 >[!NOTE]
 >Microsoft doesn't control or limit the regions where you or your users can access your user and app-specific data.
@@ -43,7 +43,8 @@ We currently support storing the aforementioned data in the following locations:
 
 - United States (US) (generally available)
 - Europe (EU) (generally available)
-- United Kingdom (UK) (public preview)
+- United Kingdom (UK) (generally available)
+- Canada (CA) (generally available)
 
 More geographies will be added as the service grows. The stored information is encrypted at rest, and geo-redundant mirrors are maintained within the geography. Customer data, such as app settings and user data, resides in the location the customer chooses and isn't managed by the service.
 

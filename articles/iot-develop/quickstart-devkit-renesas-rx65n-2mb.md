@@ -7,6 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/04/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Connect a Renesas Starter Kit+ for RX65N-2MB to IoT Central
@@ -26,7 +27,7 @@ You will complete the following tasks:
 
 ## Prerequisites
 
-* A PC running Microsoft Windows 10
+* A PC running Windows 10
 * [Git](https://git-scm.com/downloads) for cloning the repository
 * Hardware
 
@@ -162,7 +163,7 @@ To connect the Renesas RX65N to Azure, you'll modify a configuration file for Wi
 
 You can use the **Termite** app to monitor communication and confirm that your device is set up correctly.
 > [!TIP]
-> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+> If you have issues getting your device to initialize or connect after flashing, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 1. Start **Termite**.
 1. Select **Settings**.
@@ -258,7 +259,7 @@ Select **About** tab from the device page.
 
 ## Troubleshoot
 
-If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](https://github.com/azure-rtos/getting-started/blob/master/docs/troubleshooting.md).
+If you experience issues building the device code, flashing the device, or connecting, see [Troubleshooting](troubleshoot-embedded-device-quickstarts.md).
 
 ## Clean up resources
 
@@ -281,4 +282,3 @@ As a next step, explore the following articles to learn more about using the IoT
 
 > [!IMPORTANT]
 > Azure RTOS provides OEMs with components to secure communication and to create code and data isolation using underlying MCU/MPU hardware protection mechanisms. However, each OEM is ultimately responsible for ensuring that their device meets evolving security requirements.
-

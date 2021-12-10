@@ -141,15 +141,15 @@ Ensuring that your organization has implemented processes to prevent dangling DN
 
 Some Azure services offer features to aid in creating preventative measures and are detailed below. Other methods to prevent this issue must be established through your organization’s best practices or standard operating procedures.
 
-### Enable Azure Defender for App Service
+### Enable Microsoft Defender for App Service
 
-Azure Security Center's integrated cloud workload protection platform (CWPP), Azure Defender, offers a range of plans to protect your Azure, hybrid, and multi-cloud resources and workloads.
+Microsoft Defender for Cloud's integrated cloud workload protection platform (CWPP), Microsoft Defender for Cloud, offers a range of plans to protect your Azure, hybrid, and multi-cloud resources and workloads.
 
-The **Azure Defender for App Service** plan includes dangling DNS detection. With this plan enabled, you'll get security alerts if you decommission an App Service website but don't remove its custom domain from your DNS registrar.
+The **Microsoft Defender for App Service** plan includes dangling DNS detection. With this plan enabled, you'll get security alerts if you decommission an App Service website but don't remove its custom domain from your DNS registrar.
 
-Azure Defender's dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
+Microsoft Defender for Cloud's dangling DNS protection is available whether your domains are managed with Azure DNS or an external domain registrar and applies to App Service on both Windows and Linux.
 
-Learn more about this and other benefits of this Azure Defender plan in [Introduction to Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md).
+Learn more about this and other benefits of this Microsoft Defender plans in [Introduction to Microsoft Defender for App Service](../../security-center/defender-for-app-service-introduction.md).
 
 ### Use Azure DNS alias records
 
@@ -208,7 +208,7 @@ It's often up to developers and operations teams to run cleanup processes to avo
 
 To learn more about related services and Azure features you can use to defend against subdomain takeover, see the following pages.
 
-- [Enable Azure Defender for App Service](../../security-center/defender-for-app-service-introduction.md) - to receive alerts when dangling DNS entries are detected
+- [Enable Microsoft Defender for App Service](../../security-center/defender-for-app-service-introduction.md) - to receive alerts when dangling DNS entries are detected
 
 - [Prevent dangling DNS records with Azure DNS](../../dns/dns-alias.md#prevent-dangling-dns-records)
 

@@ -13,6 +13,8 @@ ms.custom: devx-track-azurepowershell
 ---
 # Set up Key Vault for virtual machines using Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+
 [!INCLUDE [learn-about-deployment-models](../../../includes/learn-about-deployment-models-rm-include.md)]
 
 In Azure Resource Manager stack, secrets/certificates are modeled as resources that are provided by the resource provider of Key Vault. To learn more about Key Vault, see [What is Azure Key Vault?](../../key-vault/general/overview.md)
@@ -70,4 +72,4 @@ While you use a template, you need to set the `enabledForDeployment` property to
 }
 ```
 
-For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://azure.microsoft.com/documentation/templates/101-key-vault-create/).
+For other options that you can configure when you create a key vault by using templates, see [Create a key vault](https://azure.microsoft.com/resources/templates/key-vault-create/).

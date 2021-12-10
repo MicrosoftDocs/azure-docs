@@ -15,10 +15,14 @@ StorSimple 1200 series is a virtual appliance that is run in an on-premises data
 
 StorSimple 1200 series will reach its [end-of-life](https://support.microsoft.com/en-us/lifecycle/search?alpha=StorSimple%201200%20Series) in December 2022.  It is important to begin planning your migration as soon as possible. This article provides the necessary background knowledge and migrations steps for a successful migration to Azure File Sync. 
 
-## Azure File Sync
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![Yes](../media/icons/yes-icon.png) | ![No](../media/icons/no-icon.png) |
 
-> [!IMPORTANT]
-> Microsoft is committed to assist customers in their migration. Email AzureFilesMigration@microsoft .com for a customized migration plan or assistance during the migration.
+## Azure File Sync
 
 Azure File Sync is a Microsoft cloud service, based on two main components:
 
@@ -161,6 +165,12 @@ You can also run into other Azure File Sync issues.
 As unlikely as they may be, if that happens, take a look at the **LINK Azure File Sync troubleshooting guide**.
 
 [!INCLUDE [storage-files-migration-robocopy-optimize](../../../includes/storage-files-migration-robocopy-optimize.md)]
+
+---
+
+> [!NOTE]
+> Still have questions or encountered any issues?</br>
+> We're here to help: :::image type="content" source="media/storage-files-migration-storsimple-8000/storage-files-migration-storsimple-8000-migration-email.png" alt-text="Email address in one word: Azure Files migration at microsoft dot com":::
 
 ## Relevant links
 

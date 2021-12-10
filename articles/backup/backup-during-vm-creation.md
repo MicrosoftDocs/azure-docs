@@ -2,7 +2,10 @@
 title: Enable backup when you create an Azure VM
 description: Describes how to enable backup when you create an Azure VM with Azure Backup.
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 11/09/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Enable backup when you create an Azure VM
@@ -25,6 +28,9 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
 
 2. In Azure Marketplace, select **Compute**, and then select a VM image.
 
+   >[!Note]
+   >To create a VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, remove the plan information from the VM. This helps in seamless VM restore.
+
 3. Set up the VM in accordance with the [Windows](../virtual-machines/windows/quick-create-portal.md) or [Linux](../virtual-machines/linux/quick-create-portal.md) instructions.
 
 4. On the **Management** tab, in **Enable backup**, select **On**.
@@ -44,7 +50,7 @@ If you aren't already signed in to your account, sign in to the [Azure portal](h
       ![Default backup policy](./media/backup-during-vm-creation/daily-policy.png)
 
 >[!NOTE]
->[SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
+> [SSE and PMK are the default encryption methods](backup-encryption.md) for Azure VMs. Azure Backup supports backup and restore of these Azure VMs.
 
 ## Azure Backup resource group for Virtual Machines
 
@@ -83,7 +89,7 @@ After the VM is created, do the following:
 
 ## Use a Resource Manager template to deploy a protected VM
 
-The previous steps explain how to use the Azure portal to create a virtual machine and protect it in a Recovery Services vault. To quickly deploy one or more VMs and protect them in a Recovery Services vault, see the template [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/101-recovery-services-create-vm-and-configure-backup/).
+The previous steps explain how to use the Azure portal to create a virtual machine and protect it in a Recovery Services vault. To quickly deploy one or more VMs and protect them in a Recovery Services vault, see the template [Deploy a Windows VM and enable backup](https://azure.microsoft.com/resources/templates/recovery-services-create-vm-and-configure-backup/).
 
 ## Next steps
 

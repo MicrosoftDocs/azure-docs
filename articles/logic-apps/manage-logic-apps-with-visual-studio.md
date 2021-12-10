@@ -124,7 +124,7 @@ To build logic apps for business-to-business (B2B) enterprise integration scenar
 
 1. In Visual Studio, open the Azure Resource Group project that contains your logic app.
 
-1. In Solution Explorer, open the **<logic-app-name>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
+1. In Solution Explorer, open the **\<logic-app-name\>.json** file's shortcut menu, and select **Open With Logic App Designer**. (Keyboard: Ctrl + L)
 
    ![Open logic app's .json file with Logic App Designer](./media/manage-logic-apps-with-visual-studio/open-logic-app-designer.png)
 
@@ -157,7 +157,7 @@ To change your logic app's location type or location, you have to open your logi
 > [!IMPORTANT]
 > Changing the location type from **Region** to 
 > [**Integration Service Environment**](connect-virtual-network-vnet-isolated-environment-overview.md) 
-> affects your logic app's [pricing model](logic-apps-pricing.md#fixed-pricing) that's used for billing, 
+> affects your logic app's [pricing model](logic-apps-pricing.md#ise-pricing) that's used for billing, 
 > [limits](logic-apps-limits-and-config.md#integration-account-limits), [integration account support](connect-virtual-network-vnet-isolated-environment-overview.md#ise-skus), and so on. 
 > Before you select a different location type, make sure that you understand the resulting impact on your logic app.
 

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 02/09/2021
+ms.date: 06/07/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-csharp, devx-track-azurepowershell
@@ -18,8 +18,6 @@ ms.custom: devx-track-csharp, devx-track-azurepowershell
 You can enable Blob storage versioning to automatically maintain previous versions of a blob when it is modified or deleted. When blob versioning is enabled, then you can restore an earlier version of a blob to recover your data if it is erroneously modified or deleted.
 
 This article shows how to enable or disable blob versioning for the storage account by using the Azure portal or an Azure Resource Manager template. To learn more about blob versioning, see [Blob versioning](versioning-overview.md).
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Enable blob versioning
 

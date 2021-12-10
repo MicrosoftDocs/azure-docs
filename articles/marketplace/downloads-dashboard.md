@@ -4,25 +4,44 @@ description: Learn how to access download requests for your marketplace offers.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 08/21/2020
 author: shganesh-dev
 ms.author: shganesh
+ms.reviewer: sroy
+ms.date: 09/27/2021
 ---
 
 # Downloads dashboard in commercial marketplace analytics
 
 This article provides information on the Downloads dashboard in Partner Center. This dashboard displays a list of your download requests over the last 30 days.
 
-To access the Downloads dashboard, open the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** dashboard under the commercial marketplace.
-
 >[!NOTE]
-> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.md).
+> For detailed definitions of analytics terminology, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).
 
 ## Downloads dashboard
 
-The **Downloads** dashboard of the **Analyze** menu displays requests for any downloads that contain over 1000 rows of customer or order data.
+The [Downloads dashboard](https://go.microsoft.com/fwlink/?linkid=2165766) displays requests for any downloads that contain over 1000 rows of customer or order data.
 
 You will receive a pop-up notification containing a link to the **Downloads** dashboard whenever you request a download with over 1000 rows of data. These data downloads will be available for a 30-day period and then removed.
+
+## Access the Downloads dashboard
+
+[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. On the Home page, select the **Insights** tile.
+
+    [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
+
+1. In the left menu, select **Downloads**.
+
+#### [Current view](#tab/current-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
+1. In the left-nav, select **Commercial Marketplace** > **Analyze** > **Downloads**.
+
+---
 
 ## Lifetime export of commercial marketplace Analytics reports
 
@@ -42,9 +61,17 @@ Support for Lifetime Export Capability of Analytics reports:
 | Usage | ![Black X mark](media/downloads-dashboard/check-black-no.png) | Maximum of one year |
 |
 
-A user can schedule asynchronous downloads of reports from the Downloads section:
+A user can schedule asynchronous downloads of reports from the Downloads dashboard.
+
+#### [Workspaces view](#tab/workspaces-view)
+
+[![scheduling asynchronous downloads of reports from the Downloads page](media/downloads-dashboard/download-reports-workspaces.png)](media/downloads-dashboard/download-reports.png#lightbox)
+
+#### [Current view](#tab/current-view)
 
 [![scheduling asynchronous downloads of reports from the Downloads section](media/downloads-dashboard/download-reports.png)](media/downloads-dashboard/download-reports.png#lightbox)
+
+---
 
 ## Next steps
 
@@ -54,4 +81,4 @@ A user can schedule asynchronous downloads of reports from the Downloads section
 - For Virtual Machine (VM) offers usage and metered billing metrics, see [Usage Dashboard in commercial marketplace analytics](usage-dashboard.md).
 - For detailed information about your customers, including growth trends, see [Customer Dashboard in commercial marketplace analytics](customer-dashboard.md).
 - To see a consolidated view of customer feedback for offers on Azure Marketplace and AppSource, see [Ratings and reviews dashboard in commercial marketplace analytics](ratings-reviews.md).
-- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.md).
+- For frequently asked questions about commercial marketplace analytics and for a comprehensive dictionary of data terms, see [Frequently asked questions and terminology for commercial marketplace analytics](analytics-faq.yml).

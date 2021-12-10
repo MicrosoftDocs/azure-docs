@@ -5,12 +5,13 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
-ms.custom: "devx-track-js, devx-track-csharp"
+ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
 
 
 # Accept active learning suggested questions in the knowledge base
 
+[!INCLUDE [Custom question answering](../includes/new-version.md)]
 
 <a name="accept-an-active-learning-suggestion-in-the-knowledge-base"></a>
 
@@ -18,7 +19,7 @@ Active Learning alters the Knowledge Base or Search Service after you approve th
 
 ## Turn on active learning
 
-In order to see suggested questions, you must [turn on active learning](../concepts/active-learning-suggestions.md) for your QnA Maker resource.
+In order to see suggested questions, you must [turn on active learning](../index.yml) for your QnA Maker resource.
 
 ## View suggested questions
 
@@ -139,7 +140,7 @@ When the client application (such as a chat bot) receives the response, the top 
 
 Your client application displays the questions with an option for the user to select _the single question_ that most represents their intention.
 
-Once the user selects one of the existing questions, the client application sends the user's choice as feedback using QnA Maker's Train API. This feedback completes the active learning feedback loop.
+Once the user selects one of the existing questions, the client application sends the user's choice as feedback using the QnA Maker Train API. This feedback completes the active learning feedback loop.
 
 ## Train API
 
@@ -222,7 +223,7 @@ An example JSON body looks like:
 Your bot framework code needs to call the Train API, if the user's query should be used for active learning. There are two pieces of code to write:
 
 * Determine if query should be used for active learning
-* Send query back to QnA Maker's Train API for active learning
+* Send query back to the QnA Maker Train API for active learning
 
 In the [Azure Bot sample](https://github.com/microsoft/BotBuilder-Samples), both of these activities have been programmed.
 

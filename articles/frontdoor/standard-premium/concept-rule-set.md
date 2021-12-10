@@ -65,7 +65,7 @@ For more quota limit, refer to [Azure subscription and service limits, quotas an
 
 ## ARM template support
 
-Rule Sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/201-front-door-standard-premium-rule-set). You can customize the behavior by using the JSON or Bicep snippets included in the documentation examples for [match conditions](concept-rule-set-match-conditions.md) and [actions](concept-rule-set-actions.md).
+Rule Sets can be configured using Azure Resource Manager templates. [See an example template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.network/front-door-standard-premium-rule-set). You can customize the behavior by using the JSON or Bicep snippets included in the documentation examples for [match conditions](concept-rule-set-match-conditions.md) and [actions](concept-rule-set-actions.md).
 
 ## Next steps
 

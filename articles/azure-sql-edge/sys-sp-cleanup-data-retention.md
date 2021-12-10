@@ -15,34 +15,34 @@ ms.date: 09/22/2020
 
 **Applies to:** Azure SQL Edge
 
-Performs cleanup of obsolete records from tables that have data retention policies enabled. For more information, see [Data Retention](data-retention-overview.md). 
+Performs cleanup of obsolete records from tables that have data retention policies enabled. For more information, see [Data Retention](data-retention-overview.md).
 
-## Syntax 
+## Syntax
 
-```sql
-sys.sp_cleanup_data_retention   
-    { [@schema_name = ] 'schema_name' },  
-    { [@table_name = ] 'table_name' },   
-    [ [@rowcount =] rowcount OUTPUT ]    
+```syntaxsql
+sys.sp_cleanup_data_retention
+    { [@schema_name = ] 'schema_name' },
+    { [@table_name = ] 'table_name' },
+    [ [@rowcount =] rowcount OUTPUT ]
 
 ```
 
-## Arguments  
-`[ @schema_name = ] schema_name`    
+## Arguments
+`[ @schema_name = ] schema_name`
  Is the name of the owning schema for the table on which cleanup needs to be performed. *schema_name* is a required parameter of type **sysname**.
-  
-`[ @table_name = ] 'table_name'`    
+
+`[ @table_name = ] 'table_name'`
  Is the name of the table on which cleanup operation needs to be performed. *table_name* is a required parameter of type **sysname**.
 
-## Output parameter  
+## Output parameter
 
-`[ @rowcount = ] rowcount OUTPUT`   
+`[ @rowcount = ] rowcount OUTPUT`
  rowcount is an optional OUTPUT parameter that represents the number of records cleanup from the table. *rowcount* is int.
-  
-## Permissions    
+
+## Permissions
  Requires db_owner permissions.
 
 ## Next steps
 - [Data Retention and Automatic Data Purging](data-retention-overview.md)
-- [Manage historical data with retention policy](data-retention-cleanup.md) 
+- [Manage historical data with retention policy](data-retention-cleanup.md)
 - [Enable and disable data retention](data-retention-enable-disable.md)

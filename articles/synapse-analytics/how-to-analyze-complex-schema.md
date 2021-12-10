@@ -215,5 +215,6 @@ There are two different types of operations:
 
 ## Next steps
 
-* [Learn how to query Synapse Link for Azure Cosmos DB with Spark](./synapse-link/how-to-query-analytical-store-spark.md)
+* [Learn how to query Synapse Link for Azure Cosmos DB with Spark 3](./synapse-link/how-to-query-analytical-store-spark-3.md)
+* [Learn how to query Synapse Link for Azure Cosmos DB with Spark 2](./synapse-link/how-to-query-analytical-store-spark.md)
 * [Query Parquet nested types](./sql/query-parquet-nested-types.md)

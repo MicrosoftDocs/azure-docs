@@ -73,7 +73,7 @@ Once the resources are created, add the following environment variables. These w
 
 1. Click on `Create` to create the event subscription.
 
-1. Click on `Event Subscriptions` in the `Events` pane to validated that the subscription was created successfully.
+1. Click on `Event Subscriptions` in the `Events` pane to validate that the subscription was created successfully.
 
     ![App Configuration event subscriptions](./media/event-subscription-view.png)
 

@@ -78,7 +78,7 @@ Response:
 
 ## Filtering, ordering, paging
 
-See [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md).
+See [Filtering, ordering, paging of Media Services entities](filter-order-page-entities-how-to.md).
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Monitoring Azure Service Bus data reference
 description: Important reference material needed when you monitor Azure Service Bus. 
 ms.topic: reference
 ms.custom: subject-monitoring
-ms.date: 05/18/2021
+ms.date: 10/29/2021
 ---
 
 
@@ -16,13 +16,16 @@ This section lists all the automatically collected platform metrics collected fo
 ### Request metrics
 Counts the number of data and management operations requests.
 
-| Metric Name | Description |
-| ------------------- | ----------------- |
-| Incoming Requests| The number of requests made to the Service Bus service over a specified period. <br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
-|Successful Requests|The number of successful requests made to the Service Bus service over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
-|Server Errors|The number of requests not processed because of an error in the Service Bus service over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
-|User Errors |The number of requests not processed because of user errors over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
-|Throttled Requests|The number of requests that were throttled because the usage was exceeded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
+| ---------- | ---------- | ----- | --- | --- | --- | 
+| Incoming Requests| Yes | Count | Total | The number of requests made to the Service Bus service over a specified period. | EntityName | 
+|Successful Requests| No | Count | Total | The number of successful requests made to the Service Bus service over a specified period. | Entity name<br/>OperationResult|
+|Server Errors| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/>OperationResult|
+|User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name|
+|Throttled Requests| No | Count | Total | <p>The number of requests that were throttled because the usage was exceeded.</p><p>MessagingErrorSubCode dimension has the following possible values: <br/><ul><li><b>CPU:</b> CPU throttling</li><li><b>Storage:</b>It indicates throttle because of pending checkpoint operations</li><li><b>Namespace:</b>Namespace operations throttling.</li><li><b>Unknown:</b> Other resource throttling.</li></p> |  Entity name<br/>MessagingErrorSubCode |
+| Pending Checkpoint Operations Count | No | count | Average | The number of pending checkpoint operations on the namespace. Service starts to throttle when the pending checkpoint count exceeds limit of (500,000 + (500,000 * messaging units)) operations. This metric applies only to namespaces using the **premium** tier. | MessagingErrorSubCode | 
+| Server Send Latency | No | milliseconds | Average | The time taken by the Service Bus service to complete the request. | Entity name |
+
 
 The following two types of errors are classified as **user errors**:
 
@@ -32,28 +35,28 @@ The following two types of errors are classified as **user errors**:
 
 ### Message metrics
 
-| Metric Name | Description |
-| ------------------- | ----------------- |
-|Incoming Messages|The number of events or messages sent to Service Bus over a specified period. This metric doesn't include messages that are auto forwarded.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
-|Outgoing Messages|The number of events or messages received from Service Bus over a specified period.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
-| Messages| Count of messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
-| Active Messages| Count of active messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
-| Dead-lettered messages| Count of dead-lettered messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/>Dimension: Entity name |
-| Scheduled messages| Count of scheduled messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average  <br/> Dimension: Entity name |
-| Completed Messages| Count of completed messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
-| Abandoned Messages| Count of abandoned messages in a queue/topic. <br/><br/> Unit: Count <br/> Aggregation Type: Average <br/> Dimension: Entity name |
-| Size | Size of an entity (queue or topic) in bytes. <br/><br/>Unit: Count <br/>Aggregation Type: Average <br/>Dimension: Entity name | 
+| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
+| ---------- | ---------- | ----- | --- | --- | --- | 
+|Incoming Messages| Yes | Count | Total | The number of events or messages sent to Service Bus over a specified period. This metric doesn't include messages that are auto forwarded. | Entity name|
+|Outgoing Messages| Yes | Count | Total | The number of events or messages received from Service Bus over a specified period. | Entity name|
+| Messages| No | Count | Average | Count of messages in a queue/topic. | Entity name |
+| Active Messages| No | Count | Average | Count of active messages in a queue/topic. | Entity name |
+| Dead-lettered messages| No | Count | Average | Count of dead-lettered messages in a queue/topic.  | Entity name |
+| Scheduled messages| No | Count | Average | Count of scheduled messages in a queue/topic. | Entity name |
+|Completed Messages| Yes | Count | Total | The number of messages completed over a specified period. | Entity name|
+| Abandoned Messages| Yes | Count | Total | The number of messages abandoned over a specified period. | Entity name|
+| Size | No | Bytes | Average | Size of an entity (queue or topic) in bytes. | Entity name | 
 
 > [!NOTE]
 > Values for messages, active, dead-lettered, scheduled, completed, and abandoned messages are point-in-time values. Incoming messages that were consumed immediately after that point-in-time may not be reflected in these metrics. 
 
 ### Connection metrics
 
-| Metric Name | Description |
-| ------------------- | ----------------- |
-|Active Connections|The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
-|Connections Opened |The number of open connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
-|Connections Closed |The number of closed connections.<br/><br/> Unit: Count <br/> Aggregation Type: Total <br/> Dimension: Entity name|
+| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
+| ---------- | ---------- | ----- | --- | --- | --- | 
+|Active Connections| No | Count | Total | The number of active connections on a namespace and on an entity in the namespace. Value for this metric is a point-in-time value. Connections that were active immediately after that point-in-time may not be reflected in the metric. | |
+|Connections Opened | No | Count | Average | The number of open connections. | Entity name|
+|Connections Closed | No | Count | Average | The number of closed connections. | Entity name|
 
 ### Resource usage metrics
 
@@ -64,10 +67,16 @@ The following two types of errors are classified as **user errors**:
 > 
 > The other metric you could monitor is: **throttled requests**. It shouldn't be an issue though as long as the namespace stays within its memory, CPU, and brokered connections limits. For more information, see [Throttling in Azure Service Bus Premium tier](service-bus-throttling.md#throttling-in-azure-service-bus-premium-tier)
 
-| Metric Name | Description |
-| ------------------- | ----------------- |
-|CPU usage per namespace|The percentage CPU usage of the namespace.<br/><br/> Unit: Percent <br/> Aggregation Type: Maximum <br/> Dimension: Entity name|
-|Memory size usage per namespace|The percentage memory usage of the namespace.<br/><br/> Unit: Percent <br/> Aggregation Type: Maximum <br/> Dimension: Entity name|
+| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions | 
+| ---------- | ---------- | ----- | --- | --- | --- | 
+|CPU usage per namespace| No | CPU | Percent | The percentage CPU usage of the namespace. | Replica |
+|Memory size usage per namespace| No | Memory Usage | Percent | The percentage memory usage of the namespace. | Replica |
+
+### Error metrics
+| Metric Name |  Exportable via diagnostic settings | Unit | Aggregation type |  Description | Dimensions |
+| ------------------- | ----------------- | --- | --- | --- | --- | 
+|Server Errors| No | Count | Total | The number of requests not processed because of an error in the Service Bus service over a specified period. | Entity name<br/><br/>Operation Result |
+|User Errors | No | Count | Total | The number of requests not processed because of user errors over a specified period. | Entity name<br/><br/>Operation Result|
 
 ## Metric dimensions
 
