@@ -15,7 +15,7 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
-This article provides steps for troubleshooting IoT connector Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings error messages and conditions. 
+This article provides the validation steps IoT connector performs on the Device and Fast Healthcare Interoperability Resources (FHIR&#174;) destination mappings and can be used for troubleshooting mappings error messages and conditions. 
 
 > [!IMPORTANT]
 > Having access to IoT connector Metrics is essential for monitoring and troubleshooting.  IoT connector assists you to do these actions through [Metrics](./how-to-display-metrics.md).
@@ -28,7 +28,7 @@ This article provides steps for troubleshooting IoT connector Device and Fast He
 
 ## Device and FHIR destination mappings validations
 
-This section describes the validation process that IoT connector does. The validation process validates the Device and FHIR destination mappings before allowing them to be saved for use. These elements are required in the Device and FHIR destination mappings.
+This section describes the validation process that IoT connector performs. The validation process validates the Device and FHIR destination mappings before allowing them to be saved for use. These elements are required in the Device and FHIR destination mappings.
 
 **Device mappings**
 
@@ -59,7 +59,7 @@ This section describes the validation process that IoT connector does. The valid
 
 ## Next steps
 
-In this article, you learned how to troubleshoot Device and FHIR destination mappings. To learn how to troubleshoot IoT connector errors and conditions, see
+In this article, you learned the validation process that IoT connector performs on the Device and FHIR destination mappings. To learn how to troubleshoot IoT connector errors and conditions, see
 
 >[!div class="nextstepaction"]
 >[Troubleshoot IoT connector error messages and conditions](iot-troubleshoot-error-messages-and-conditions.md)

@@ -14,6 +14,8 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability. 
 
+This article provides guides and resources to troubleshoot IoT connector.
+
 > [!IMPORTANT]
 > Having access to IoT connector Metrics is essential for monitoring and troubleshooting.  IoT connector assists you to do these actions through [Metrics](./how-to-display-metrics.md).
 
@@ -22,8 +24,6 @@ ms.author: jasteppe
 
 > [!NOTE]
 > When opening an [Azure Technical Support](https://azure.microsoft.com/support/create-ticket/) ticket for IoT connector, include [copies of your Device and FHIR destination mappings](./how-to-create-mappings-copies.md) to assist in the troubleshooting process.
-
-This article provides guides and resources to troubleshoot IoT connector.
 
 ## IoT connector troubleshooting guides
 
