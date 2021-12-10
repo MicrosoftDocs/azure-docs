@@ -186,6 +186,8 @@
     href: howto-password-smart-lockout.md
   - name: Certificate-based authentication
     items:
+    - name: Configure certificate-based authentication
+      href: how-to-certificate-based-authentication.md
     - name: Get started with certificate auth
       href: active-directory-certificate-based-authentication-get-started.md
       items:
