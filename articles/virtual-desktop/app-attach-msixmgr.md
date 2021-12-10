@@ -67,7 +67,7 @@ msixmgr.exe -Unpack -packagePath "C:\Users\ssa\Desktop\packageName_3.51.1.0_x64_
 ```
 
 >[!NOTE]
-> Please avoid package names longer than 128 characters and inclusion of space in the MSIX image name.
+>This command doesn't support package names that are longer than 128 characters or MSIX image names with spaces between characters.
 
 ## Next steps
 
