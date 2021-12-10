@@ -16,7 +16,7 @@ This article describes how to use data export in Azure IoT Central. Use this fea
 
 For example, you can:
 
-- Continuously export telemetry, property changes, device connectivity, device lifecycle, and device template lifecycle data in JSON format in near-real time.
+- Continuously export telemetry, property changes, device connectivity, device lifecycle, and device template lifecycle data in JSON format in near real time.
 - Filter the data streams to export data that matches custom conditions.
 - Enrich the data streams with custom values and property values from the device.
 - Transform the data streams to modify their shape and content.
@@ -35,16 +35,38 @@ If you have a V2 application, see [Migrate your V2 IoT Central application to V3
 
 Your export destination must exist before you configure your data export. The following destination types are currently available:
 
-- Azure Event Hubs
-- Azure Service Bus queue
-- Azure Service Bus topic
-- Azure Blob Storage
-- Azure Data Explorer
-- Webhook
+### Azure Blob Storage
+
+IoT Central exports data once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
+
+- Telemetry: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
+- Property changes: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
+
+To browse the exported files in the Azure portal, navigate to the file and select **Edit blob**.
+
+### Azure Event Hubs and Azure Service Bus
+
+Both queues and topics are supported for Azure Service Bus destinations.
+
+IoT Central exports data in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
+
+The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
+
+### Azure Data Explorer
+
+You can use an [Azure Data Explorer cluster](/azure/data-explorer/data-explorer-overview) or an [Azure Synapse Data Explorer pool](../../synapse-analytics/data-explorer/data-explorer-overview.md). To learn more, see [What is the difference between Azure Synapse Data Explorer and Azure Data Explorer?](../..//synapse-analytics/data-explorer/data-explorer-compare.md).
+
+IoT Central exports data in near real time to a database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform](howto-transform-data-internally.md) in IoT Central to export data that matches the table schema.
+
+To query the exported data in the Azure Data Explorer portal, navigate to the database and select **Query**.
+
+### Webhook
+
+For webhooks destinations, IoT Central exports data in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
 
 ### Connection options
 
-For the Azure service destinations, you can choose to configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities are more secure because:
+Blob Storage, Event Hubs, and Service Bus destinations, let you configure the connection with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities are more secure because:
 
 - You don't store the credentials for your resource in a connection string in your IoT Central application.
 - The credentials are automatically tied to the lifetime of your IoT Central application.
@@ -218,9 +240,12 @@ To further secure your blob container and only allow access from trusted service
 
 ### Create an Azure Data Explorer destination
 
-If you don't have an existing [Azure Data Explorer](/azure/data-explorer/data-explorer-overview) cluster and database to export to, follow these steps:
+If you don't have an existing Azure Data Explorer database to export to, follow these steps:
 
-1. Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the name of the database you create, you need this value in the following steps.
+1. You have two choices to create an Azure Data Explorer database:
+
+    - Create a new Azure Data Explorer cluster and database. To learn more, see the [Azure Data Explorer quickstart](/azure/data-explorer/create-cluster-database-portal). Make a note of the cluster URI and the name of the database you create, you need these values in the following steps.
+    - Create a new Azure Synapse Data Explorer pool and database. To learn more, see the [Azure Data Explorer quickstart](../../synapse-analytics/get-started-analyze-data-explorer.md). Make a note of the pool URI the name of the database you create, you need these values in the following steps.
 
 1. Create a service principal that you can use to connect your IoT Central application to Azure Data Explorer. Use the Azure Cloud Shell to run the following command:
 
@@ -262,13 +287,16 @@ If you don't have an existing [Azure Data Explorer](/azure/data-explorer/data-ex
         .alter table smartvitalspatch policy streamingingestion enable
         ```
 
-1. Add an Azure Data Explorer destination in IoT Central using your Azure Data Explorer cluster URL, database name, and table name. The following table shows the service principal values to use for the authorization:
+1. Add an Azure Data Explorer destination in IoT Central using your Azure Data Explorer cluster or pool URL, database name, and table name. The following table shows the service principal values to use for the authorization:
 
     | Service principal value | Destination configuration |
     | ----------------------- | ------------------------- |
     | appId                   | ClientID                  |
     | tenant                  | Tenant ID                 |
     | password                | Client secret             |
+
+    > [!TIP]
+    > The cluster URL for a standalone Azure Data Explorer looks like `https://<ClusterName>.<AzureRegion>.kusto.windows.net`. The cluster URL for an Azure Synapse Data Explorer pool looks like `https://<DataExplorerPoolName>.<SynapseWorkspaceName>.kusto.azuresynapse.net`.
 
     :::image type="content" source="media/howto-export-data/export-destination.png" alt-text="Screenshot of Azure Data Explorer export destination.":::
 
@@ -329,41 +357,14 @@ Configure the destination:
 
 ## Monitor your export
 
-You can check the status of your exports in IoT Central. You can also use [Azure Monitor](../../azure-monitor/overview.md) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal, with a REST API, or with queries in PowerShell or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
+In IoT Central, the **Data export** page lets you check the status of your exports. You can also use [Azure Monitor](../../azure-monitor/overview.md) to see how much data you're exporting and any export errors. You can access export and device health metrics in charts in the Azure portal, with a REST API, or with queries in PowerShell or the Azure CLI. Currently, you can monitor the following data export metrics in Azure Monitor:
 
 - Number of messages incoming to export before filters are applied.
 - Number of messages that pass through filters.
 - Number of messages successfully exported to destinations.
-- Number of errors encountered.
+- Number of errors found.
 
 To learn more, see [Monitor application health](howto-manage-iot-central-from-portal.md#monitor-application-health).
-
-## Destinations
-
-### Azure Blob Storage destination
-
-Data is exported once per minute, with each file containing the batch of changes since the previous export. Exported data is saved in JSON format. The default paths to the exported data in your storage account are:
-
-- Telemetry: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
-- Property changes: _{container}/{app-id}/{partition_id}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}_
-
-To browse the exported files in the Azure portal, navigate to the file and select **Edit blob**.
-
-### Azure Event Hubs and Azure Service Bus destinations
-
-Data is exported in near real time. The data is in the message body and is in JSON format encoded as UTF-8.
-
-The annotations or system properties bag of the message contains the `iotcentral-device-id`, `iotcentral-application-id`, `iotcentral-message-source`, and `iotcentral-message-type` fields that have the same values as the corresponding fields in the message body.
-
-### Azure Data Explorer destination
-
-Data is exported in near real time to a specified database table in the Azure Data Explorer cluster. The data is in the message body and is in JSON format encoded as UTF-8. You can add a [Transform](howto-transform-data-internally.md) in IoT Central to export data that matches the table schema.
-
-To query the exported data in the Azure Data Explorer portal, navigate to the database and select **Query**.
-
-### Webhook destination
-
-For webhooks destinations, data is also exported in near real time. The data in the message body is in the same format as for Event Hubs and Service Bus.
 
 ## Telemetry format
 
@@ -419,7 +420,7 @@ The following example shows an exported telemetry message:
 
 ### Message properties
 
-Telemetry messages have properties for metadata in addition to the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System Properties of D2C IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
+Telemetry messages have properties for metadata as well as the telemetry payload. The previous snippet shows examples of system messages such as `deviceId` and `enqueuedTime`. To learn more about the system message properties, see [System Properties of D2C IoT Hub messages](../../iot-hub/iot-hub-devguide-messages-construct.md#system-properties-of-d2c-iot-hub-messages).
 
 You can add properties to telemetry messages if you need to add custom metadata to your telemetry messages. For example, you need to add a timestamp when the device creates the message.
 
