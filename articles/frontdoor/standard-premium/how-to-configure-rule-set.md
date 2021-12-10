@@ -46,6 +46,13 @@ This article shows how to create a Rule Set and your first set of rules in the A
 
    :::image type="content" source="../media/how-to-configure-rule-set/front-door-rule-set-change-orders.png" alt-text="Screenshot of rule set priority." lightbox="../media/how-to-configure-rule-set/front-door-rule-set-change-orders-expanded.png":::
 
+    > [!TIP]
+    > If you like to verify when the changes are propagated to Azure Front Door, you can create a custom response header in the rule using the example below. You can add a response header `_X-<RuleName>-Version_`  and change the value each time rule is updated.
+    >  
+    > :::image type="content" source="./../media/front-door-rules-engine/rules-version.png" alt-text="Screenshot of custom version header rule." lightbox="./../media/front-door-rules-engine/rules-version-expanded.png":::
+    > After the changes are updated, you can go to the URL to confirm the rule version being invoked: 
+    > :::image type="content" source="./../media/front-door-rules-engine/version-output.png" alt-text="Screenshot of custom header version output.":::
+
 1. Once you've created one or more rules select **Save** to complete the creation of your Rule Set.
 
 1. Now associate the Rule Set to a Route so it can take effect. You can associate the Rules Set through Rule Set page or you can go to Endpoint Manager to create the association.
