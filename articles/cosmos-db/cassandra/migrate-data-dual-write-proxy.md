@@ -34,7 +34,7 @@ The following image illustrates the pattern. The dual-write proxy is used to cap
 
 * Review the [supported features in the Azure Cosmos DB Cassandra API](cassandra-support.md) to ensure compatibility.
 
-* [Use cqlsh or hosted shell for validation](cassandra-support.md#hosted-cql-shell-preview).
+* [Use cqlsh for validation](cassandra-support.md#cql-shell).
 
 * Ensure you have network connectivity between your source cluster and target Cassandra API endpoint.
 
