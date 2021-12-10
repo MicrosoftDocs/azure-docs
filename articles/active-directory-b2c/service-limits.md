@@ -117,7 +117,7 @@ Tokens/sec = 200/requests-consumed
 
 ## Calculate the token issuance capability of your Custom Policy
 
-When you create your own Custom Policy, each feature which a user traverses through, contributes to the number of requests consumed at the dynamic endpoint. The below table shows how many requests are consumed for each feature in your Custom Policy.
+When you create your own Custom Policy, the number of requests consumed at the dynamic endpoint depends on which features a user traverses through. The below table shows how many requests are consumed for each feature in your Custom Policy.
 
 |Feature                                          |Requests consumed|
 |-------------------------------------------------|-----------------|
