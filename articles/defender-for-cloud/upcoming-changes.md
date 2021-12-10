@@ -113,7 +113,7 @@ There'll be no change to subscriptions that already have Defender for Kubernetes
 
 When we release Microsoft Defender for Containers for general availability, new subscriptions won't have the option to use the deprecated plans.
 
-Learn more about [Container security in Microsoft Defender for Cloud](container-security.md).
+Learn more about [Container security in Microsoft Defender for Cloud](defender-for-containers-introduction.md).
 
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases

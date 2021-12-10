@@ -7,7 +7,6 @@ ms.date: 07/29/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: cpendle
 ms.custom: codepen, devx-track-js
 ---
 

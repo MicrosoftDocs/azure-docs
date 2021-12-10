@@ -131,7 +131,7 @@ git clone https://github.com/Azure/sap-automation.git
 cd ~/Azure_SAP_Automated_Deployment/sap-automation
 ```
 
-Optionally, validate the version of Terraform, and the Azure Command-Line Interface (Azure CLI) available on your instance of the Cloud Shell.
+Optionally, validate the versions of Terraform and the Azure CLI available on your instance of the Cloud Shell.
 
 ```bash
 deploy/scripts/helpers/check_workstation.sh
@@ -734,5 +734,3 @@ Verify that all resources are cleaned up.
 
 > [!div class="nextstepaction"]
 > [Configure control plane](automation-configure-control-plane.md)
-
-
