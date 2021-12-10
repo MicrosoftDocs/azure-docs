@@ -125,9 +125,27 @@ If your OU enforces password expiration, you must update the password before the
 
 Keep the SID of the newly created identity, you'll need it for the next step. The identity you've created that represent the storage account doesn't need to be synced to Azure AD.
 
+### Enable the feature on your storage account
+
+Now you can enable the feature on your storage account. Provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
+
+```PowerShell
+# Set the feature flag on the target storage account and provide the required AD domain information
+Set-AzStorageAccount `
+        -ResourceGroupName "<your-resource-group-name-here>" `
+        -Name "<your-storage-account-name-here>" `
+        -EnableActiveDirectoryDomainServicesForFile $true `
+        -ActiveDirectoryDomainName "<your-domain-name-here>" `
+        -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" `
+        -ActiveDirectoryForestName "<your-forest-name-here>" `
+        -ActiveDirectoryDomainGuid "<your-guid-here>" `
+        -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
+        -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
+```
+
 #### (Optional) Enable AES256 encryption
 
-If you want to enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, you can skip this section.
+If you want to enable AES 256 encryption, follow the steps in this section. If you plan to use RC4, skip this section.
 
 The domain object that represents your storage account must meet the following requirements:
 - The storage account name cannot exceed 15 characters.
@@ -151,24 +169,6 @@ $KerbKey = $KerbKeys | Where-Object {$_.KeyName -eq $KeyName} | Select-Object -E
 $NewPassword = ConvertTo-SecureString -String $KerbKey -AsPlainText -Force
 
 Set-ADAccountPassword -Identity <domain-object-identity> -Reset -NewPassword $NewPassword
-```
-
-### Enable the feature on your storage account
-
-Now you can enable the feature on your storage account. Provide some configuration details for the domain properties in the following command, then run it. The storage account SID required in the following command is the SID of the identity you created in your AD DS in [the previous section](#create-an-identity-representing-the-storage-account-in-your-ad-manually).
-
-```PowerShell
-# Set the feature flag on the target storage account and provide the required AD domain information
-Set-AzStorageAccount `
-        -ResourceGroupName "<your-resource-group-name-here>" `
-        -Name "<your-storage-account-name-here>" `
-        -EnableActiveDirectoryDomainServicesForFile $true `
-        -ActiveDirectoryDomainName "<your-domain-name-here>" `
-        -ActiveDirectoryNetBiosDomainName "<your-netbios-domain-name-here>" `
-        -ActiveDirectoryForestName "<your-forest-name-here>" `
-        -ActiveDirectoryDomainGuid "<your-guid-here>" `
-        -ActiveDirectoryDomainsid "<your-domain-sid-here>" `
-        -ActiveDirectoryAzureStorageSid "<your-storage-account-sid>"
 ```
 
 ### Debugging
