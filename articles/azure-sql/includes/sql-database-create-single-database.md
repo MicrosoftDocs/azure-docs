@@ -213,7 +213,7 @@ Use this script to create a firewall rule with the [az sql server firewall-rule 
 
 ## Create a single database using Azure CLI
 
-Use this script to create a database with the [az sql db create](/cli/azure/sql/db) command in the [vCore service tier](service-tiers-sql-database-vcore.md).
+Use this script to create a database with the [az sql db create](/cli/azure/sql/db) command in the [vCore service tier](..database/service-tiers-sql-database-vcore.md).
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="28-30":::
 
