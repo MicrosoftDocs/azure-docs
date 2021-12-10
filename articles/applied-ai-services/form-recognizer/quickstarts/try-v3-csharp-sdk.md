@@ -157,17 +157,17 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ### Select one of the following code samples to copy and paste into your application Program.cs file:
 
-<!-- * [**General document**](#general-documenttabgeneral-document-model)
+* [**General document model**](#general-document)
 
 * [**Layout model**](#layout-model)
 
-* [**Prebuilt model (invoice)**](#prebuilt-model-invoice) -->
+* [**Prebuilt model**](#prebuilt-model-invoice)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, _see_ the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article.
 
-## [General document model](#tab/general-document-model)
+## General document model
 
 #### Extract text, tables, structure, key-value pairs, and named entities from documents
 
@@ -282,7 +282,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## [Layout model](#tab/layout-model)
+## Layout model
 
 #### Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
 
@@ -367,7 +367,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ```
 
-## [Prebuilt model](#tab/prebuilt-invoice-model)
+## Prebuilt model (invoice)
 
 #### Extract and analyze data from common document types using a pre-trained model.
 
@@ -489,8 +489,6 @@ for (int i = 0; i < result.Documents.Count; i++)
 }
 
 ```
-
----
 
 ## Run your application
 
