@@ -102,7 +102,7 @@ If you have an existing Azure Stack Edge resource to manage your physical device
 
 ### [Azure Edge Hardware Center](#tab/azure-edge-hardware-center)
 
-Azure Edge Hardware Center (Preview) lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
+Azure Edge Hardware Center lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
 
 When you place an order through the Azure Edge Hardware Center, you can order multiple devices, to be shipped to more than one address, and you can reuse ship to addresses from other orders.
 
