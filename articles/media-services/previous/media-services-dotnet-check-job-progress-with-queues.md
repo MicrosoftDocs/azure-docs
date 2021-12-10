@@ -242,47 +242,44 @@ namespace JobNotification
 
                 foreach (QueueMessage message in _queue.ReceiveMessages(maxMessages: 10).Value)
                 {
-                    using (Stream stream = message.Body.ToStream())
+                    DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
+                    settings.UseSimpleDictionaryFormat = true;
+                    DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(EncodingJobMessage), settings);
+                    EncodingJobMessage encodingJobMsg = (EncodingJobMessage)ser.ReadObject(message.Body.ToStream);
+
+                    Console.WriteLine();
+
+                    // Display the message information.
+                    Console.WriteLine("EventType: {0}", encodingJobMsg.EventType);
+                    Console.WriteLine("MessageVersion: {0}", encodingJobMsg.MessageVersion);
+                    Console.WriteLine("ETag: {0}", encodingJobMsg.ETag);
+                    Console.WriteLine("TimeStamp: {0}", encodingJobMsg.TimeStamp);
+                    foreach (var property in encodingJobMsg.Properties)
                     {
-                        DataContractJsonSerializerSettings settings = new DataContractJsonSerializerSettings();
-                        settings.UseSimpleDictionaryFormat = true;
-                        DataContractJsonSerializer ser = new DataContractJsonSerializer(typeof(EncodingJobMessage), settings);
-                        EncodingJobMessage encodingJobMsg = (EncodingJobMessage)ser.ReadObject(stream);
+                        Console.WriteLine("    {0}: {1}", property.Key, property.Value);
+                    }
 
-                        Console.WriteLine();
-
-                        // Display the message information.
-                        Console.WriteLine("EventType: {0}", encodingJobMsg.EventType);
-                        Console.WriteLine("MessageVersion: {0}", encodingJobMsg.MessageVersion);
-                        Console.WriteLine("ETag: {0}", encodingJobMsg.ETag);
-                        Console.WriteLine("TimeStamp: {0}", encodingJobMsg.TimeStamp);
-                        foreach (var property in encodingJobMsg.Properties)
+                    // We are only interested in messages
+                    // where EventType is "JobStateChange".
+                    if (encodingJobMsg.EventType == "JobStateChange")
+                    {
+                        string JobId = (String)encodingJobMsg.Properties.Where(j => j.Key == "JobId").FirstOrDefault().Value;
+                        if (JobId == jobId)
                         {
-                            Console.WriteLine("    {0}: {1}", property.Key, property.Value);
-                        }
-
-                        // We are only interested in messages
-                        // where EventType is "JobStateChange".
-                        if (encodingJobMsg.EventType == "JobStateChange")
-                        {
-                            string JobId = (String)encodingJobMsg.Properties.Where(j => j.Key == "JobId").FirstOrDefault().Value;
-                            if (JobId == jobId)
-                            {
-                                string oldJobStateStr = (String)encodingJobMsg.Properties.
+                            string oldJobStateStr = (String)encodingJobMsg.Properties.
                                                             Where(j => j.Key == "OldState").FirstOrDefault().Value;
-                                string newJobStateStr = (String)encodingJobMsg.Properties.
+                            string newJobStateStr = (String)encodingJobMsg.Properties.
                                                             Where(j => j.Key == "NewState").FirstOrDefault().Value;
 
-                                JobState oldJobState = (JobState)Enum.Parse(typeof(JobState), oldJobStateStr);
-                                JobState newJobState = (JobState)Enum.Parse(typeof(JobState), newJobStateStr);
+                            JobState oldJobState = (JobState)Enum.Parse(typeof(JobState), oldJobStateStr);
+                            JobState newJobState = (JobState)Enum.Parse(typeof(JobState), newJobStateStr);
 
-                                if (newJobState == (JobState)expectedState)
-                                {
-                                    Console.WriteLine("job with Id: {0} reached expected state: {1}",
-                                        jobId, newJobState);
-                                    jobReachedExpectedState = true;
-                                    break;
-                                }
+                            if (newJobState == (JobState)expectedState)
+                            {
+                                Console.WriteLine("job with Id: {0} reached expected state: {1}",
+                                    jobId, newJobState);
+                                jobReachedExpectedState = true;
+                                break;
                             }
                         }
                     }
