@@ -124,5 +124,5 @@ GET https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-unit-i
 
 ## Next steps
 
-- [Assign a role to an administrative unit](admin-units-assign-roles.md)
-- [Manage users in an administrative unit](admin-units-add-manage-users.md)
+- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)

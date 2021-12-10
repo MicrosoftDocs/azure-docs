@@ -87,11 +87,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Add and remove administrative units
+          - text: Create or delete administrative units
             url: admin-units-manage.md
-          - text: Assign users to units
-            url: admin-units-add-manage-users.md
-          - text: Assign groups to units  
-            url: admin-units-add-manage-groups.md
-          - text: Assign groups with scope  
+          - text: Add members
+            url: admin-units-members-add.md
+          - text: Assign roles with scope
             url: admin-units-assign-roles.md

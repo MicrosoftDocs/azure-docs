@@ -164,5 +164,5 @@ Example
 
 ## Next steps
 
-- [Assign a role to an administrative unit](admin-units-assign-roles.md)
-- [Add groups to an administrative unit](admin-units-add-manage-groups.md)
+- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
+- [Remove users or groups from an administrative unit](admin-units-members-remove.md)

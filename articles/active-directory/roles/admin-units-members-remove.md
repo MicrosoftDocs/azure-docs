@@ -128,5 +128,5 @@ DELETE https://graph.microsoft.com/v1.0/directory/administrativeUnits/{admin-uni
 
 ## Next steps
 
-- [Assign a role to an administrative unit](admin-units-assign-roles.md)
-- [Add groups to an administrative unit](admin-units-add-manage-groups.md)
+- [Add users or groups to an administrative unit](admin-units-members-add.md)
+- [Assign Azure AD roles with administrative unit scope](admin-units-assign-roles.md)
