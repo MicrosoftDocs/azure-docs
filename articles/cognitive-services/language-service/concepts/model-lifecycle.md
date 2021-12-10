@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: conceptual
-ms.date: 10/29/2021
+ms.date: 12/10/2021
 ms.author: aahi
 ---
 
@@ -22,17 +22,25 @@ As new models and new functionality become available and older, less accurate mo
 
 New Language AI models are being released every few months. So, an expiration of any publicly available model is six months after a deprecation notice is issued followed by new model-version release. 
 
-Model-version retirement period is defined from a release of a newer model-version for the capability until a specific older version is deprecated. This period is defined as six months for stable model versions, and three months for previews. For example, a stable model-version `2021-01-01` will be deprecated six months after a successor model-version `2021-07-01` is released, on January 1, 2022. Note, that preview capabilities in preview APIs do not maintain a minimum retirement period and can be deprecated at any time.
+Model-version retirement period is defined from a release of a newer model-version for the capability until a specific older version is deprecated. This period is defined as six months for stable model versions, and three months for previews. For example, a stable model-version `2021-01-01` will be deprecated six months after a successor model-version `2021-07-01` is released, on January 1, 2022. Preview capabilities in preview APIs do not maintain a minimum retirement period and can be deprecated at any time.
 
 After model-version deprecation, API calls to deprecated model-versions will return an error. 
 
 ## Choose the model-version used on your data
 
-By default, API requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model used in your API requests. To use preview versions, you must specify this parameter. For example: 
+By default, API requests will use the latest Generally Available model. You can use an optional parameter to select the version of the model to be used. To use preview versions, you must specify this parameter. 
 
-`<resource-url>/text/analytics/v3.1/sentiment?2021-10-01-preview`. 
+> [!TIP] 
+> If you’re using the SDK for C#, Java, JavaScript or Python, see the reference documentation for information on the appropriate model-version parameter.
 
+For synchronous endpoints, use the `model-version` query parameter. For example:
+
+POST `<resource-url>/text/analytics/v3.1/sentiment?model-version=2021-10-01-preview`.
+
+For asynchronous endpoints, use the `model-version` property in the request body under task properties. 
+ 
 The model-version used in your API request will be included in the response object.
+
 
 ## Available versions
 
