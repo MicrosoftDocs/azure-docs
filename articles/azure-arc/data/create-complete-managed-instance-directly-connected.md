@@ -6,7 +6,7 @@ ms.author: mikeray
 services: azure-arc
 ms.service: azure-arc-data
 ms.topic: quickstart 
-ms.date: 12/06/2021
+ms.date: 12/09/2021
 ms.custom: template-quickstart 
 ---
 
@@ -44,7 +44,7 @@ In addition, because this deployment is on Azure Kubernetes Service, you need th
 
 ## Access your Kubernetes cluster
 
-After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](FIX LINK /cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
+After installing the client tools, you need access to a Kubernetes cluster. You can create  Kubernetes cluster with [`az aks create`](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create), or you can follow the steps below to create the cluster in the Azure portal.  
 
 ### Create a cluster
 

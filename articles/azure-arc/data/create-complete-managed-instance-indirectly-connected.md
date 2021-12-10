@@ -6,7 +6,7 @@ ms.author: mikeray
 services: azure-arc
 ms.service: azure-arc-data
 ms.topic: quickstart 
-ms.date: 12/06/2021
+ms.date: 12/09/2021
 ms.custom: template-quickstart 
 ---
 
