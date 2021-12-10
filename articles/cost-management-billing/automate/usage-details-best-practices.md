@@ -28,7 +28,7 @@ Consider using the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml)
 - Once you download your cost data for historical invoices, the charges won't change unless you're explicitly notified. We recommend caching your cost data in a queryable store on to prevent repeated calls for identical data.
 - Chunk your calls into small date ranges to get more manageable files that you can download. For example, we recommend chunking by day or by week if you have large Azure usage files month-to-month. 
 - If you have scopes with a large amount of usage data (for example a Billing Account), consider placing multiple calls to child scopes so you get more manageable files that you can download.
-- If your dataset is more than 2 GB month-to-month, consider using [exports](tutorial-export-acm-data.md) as a more scalable solution.
+- If your dataset is more than 2 GB month-to-month, consider using [exports](../costs/tutorial-export-acm-data.md) as a more scalable solution.
 
 To learn more about how to properly call the [Generate Detailed Cost Report API-UNPUBLISHED](../index.yml), see [Get small usage data sets on demand](get-small-usage-datasets-on-demand.md).
 
