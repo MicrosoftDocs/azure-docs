@@ -344,7 +344,7 @@ The response contains the list of all unprotected databases and contains all inf
 After the relevant database is *identified* with the friendly name:
 
 1. Select the policy to protect.
-1. [List existing policies in the vault, see with list Policy API](/api/backup/backup-policies/list).
+1. [List existing policies in the vault, see with list Policy API](/rest/api/backup/backup-policies/list).
 1. Select the [relevant policy](/rest/api/backup/protection-policies/get) by referring to the policy name.
 1. [Create policy tutorial](./backup-azure-arm-userestapi-createorupdatepolicy.md).
 
