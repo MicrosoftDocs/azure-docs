@@ -10,7 +10,7 @@ ms.devlang: ruby
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 05/29/2020
 ---
 # Quickstart: Use Ruby to query a database in Azure SQL Database or Azure SQL Managed Instance

@@ -11,7 +11,7 @@ ms.topic: how-to
 author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: mathoma, bonova, srbozovi, wiassaf
-ms.date: 06/14/2021
+ms.date: 12/06/2021
 ---
 # Determine required subnet size and range for Azure SQL Managed Instance
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
@@ -42,7 +42,7 @@ Size your subnet according to your future needs for instance deployment and scal
 - Each scaling request temporarily allocates an additional number of addresses.
 
 > [!IMPORTANT]
-> It's not possible to change the subnet address range if any resource exists in the subnet. It's also not possible to move managed instances from one subnet to another. Consider using bigger subnets rather than smaller ones to prevent issues in the future.
+> It's not possible to change the subnet address range if any resource exists in the subnet. Consider using bigger subnets rather than smaller ones to prevent issues in the future.
 
 GP = general purpose; 
 BC = business critical; 
