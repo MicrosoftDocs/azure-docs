@@ -24,7 +24,7 @@ This article describes how to configure managed virtual network and managed priv
 
 ### Managed virtual network
 
-You can deploy an Azure Integration Runtime (IR) within Azure Purview Managed Virtual Network (VNET), the integration runtime will be provisioned with the managed Virtual Network and will leverage private endpoints to securely connect to supported data sources for scanning purposes. 
+You can deploy an Azure Integration Runtime (IR) within an Azure Purview Managed Virtual Network (VNET). From there, the IR will leverage private endpoints to securely connect to supported data sources during scanning.
 
 Creating an Azure IR within managed Virtual Network ensures that data integration process is isolated and secure. 
 
