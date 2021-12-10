@@ -61,7 +61,7 @@ Standard BS Family vCPUs                  0               100
 
 For PowerShell, use the [Get-AzVMUsage](/powershell/module/az.compute/get-azvmusage) cmdlet to find virtual machine quotas.
 
-```powershell
+```azurepowershell
 Get-AzVMUsage -Location "West US"
 ```
 
