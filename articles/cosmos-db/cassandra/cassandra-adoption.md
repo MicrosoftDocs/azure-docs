@@ -24,7 +24,7 @@ While Cassandra API supports a large surface area of Apache Cassandra features, 
 
 ## Replication (migration)
 
-Although you can communicate with Cassandra API through the CQL Binary Protocol v4 wire protocol, Cosmos DB implements its own internal replication protocol. This means that live migration/replication cannot be achieved through the Cassandra gossip protocol. Review our article on how to [live migrate from Apache Cassandra to Cassandra API using dual-writes](migrate-data-dual-write-proxy.md). For offline migration, review our article: [Migrate data from Cassandra to an Azure Cosmos DB Cassandra API account by using Azure Databricks](migrate-data-databricks.md)
+Although you can communicate with Cassandra API through the CQL Binary Protocol v4 wire protocol, Cosmos DB implements its own internal replication protocol. This means that live migration/replication cannot be achieved through the Cassandra gossip protocol. Review our article on how to [live migrate from Apache Cassandra to Cassandra API using dual-writes](migrate-data-dual-write-proxy.md). For offline migration, review our article: [Migrate data from Cassandra to an Azure Cosmos DB Cassandra API account by using Azure Databricks](migrate-data-databricks.md).
 
 ## Replication (consistency)
 
