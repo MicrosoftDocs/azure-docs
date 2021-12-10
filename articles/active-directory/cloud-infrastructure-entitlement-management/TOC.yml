@@ -10,6 +10,13 @@
       href: cloudknox-product-integrations.md
     - name: Integration with the CloudKnox API
       href: cloudknox-api.md
+    - name: Integration with HashiCorp Terraform
+      href: cloudknox-hashicorp-terraform.md
+    - name: Integration with Saviynt
+      href: cloudknox-saviynt.md
+    - name: Integration with Securonix
+      href: cloudknox-securonix.md
+    - name: Integration with Splunk
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
     - name: Install CloudKnox with AWS role
@@ -21,6 +28,8 @@
   - name: User management
     expanded: true
     items:
+    - name: User management
+      href: cloudknox-product-user-management.md
     - name: View usage analytics about users
       href: cloudknox-product-usage-analytics.md
     - name: Adjust permissions with the Just Enough Privilege Controller

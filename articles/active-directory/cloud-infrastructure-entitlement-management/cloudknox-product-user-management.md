@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 12/10/2021
 ms.author: v-ydequadros
 ---
 
@@ -29,16 +29,16 @@ It also provides the functionality to invite or delete a user, edit, view, and c
 ### The User Management dashboard components
 The CloudKnox User Management system encompasses the following components.
 
-- **CloudKnox Administrator** - The person(s) who is designated to manage the CloudKnox application.
+- **CloudKnox Administrator** - The person(s) who manages the CloudKnox application.
 - **Users** - The consumers who interact with the CloudKnox application through their organization. The CloudKnox administrator must assign appropriate permissions to the users to allow them to use CloudKnox.
-- **Permissions** - A delegation of authority given to users by a CloudKnox administrator system so they may perform specific actions within the application or system.
+- **Permissions** - A delegation of authority given to users by a CloudKnox administrator system so they can perform specific actions within the application or system.
 - **Roles** - A grouping of privileges that a CloudKnox administrator can assign to one or more users or groups who perform the same or similar functions. CloudKnox supports the following roles:
 - **Viewer**: Allows view access only, excluding privileges on-demand (POD).
 
     > [!NOTE]
     > POD allows the organization to grant users elevated rights in individual applications while still maintaining least privileges
 
-- **Controller** - Allows create, update, and delete capabilities across various functions, including users, permissions, roles, sentry, authorization systems, etc., excluding POD.
+- **Controller** - Allows create, update, and delete capabilities across various functions, including users, permissions, roles, sentry, and authorization systems; and excluding POD.
 - **Approver** - Allowed to approve JEP POD for various authorization systems.
 - **Requestor** - Allowed to request permissions for various authorization systems.
 - **Groups** - A group of users who interact with the CloudKnox application through their organization. The organization must create the groups.
@@ -52,64 +52,64 @@ Follow this process to invite users if the customer hasn't enabled SAML integrat
 
 Inviting a user to CloudKnox adds the user to the system and allows system administrators to assign permissions to those users. Follow the steps below to invite a user to CloudKnox.
 
-1. To invite a user to CloudKnox, click the down caret icon next to the **User** icon on the right of the screen, and then select **User Management**.
-2. From the **Users** tab, click **Invite User**.
+1. To invite a user to CloudKnox, select the down caret icon next to the **User** icon on the right of the screen, and then select **User Management**.
+2. From the **Users** tab, select **Invite User**.
 3. From the **Set User Permission** window, in the **User** text box, enter the user's email address.
 4. Under **Permission**, select the applicable option. 
 
     - **Admin for All Authorization System Types** - **View**, **Control**, and **Approve** permissions for all Authorization System Types.
 
-        1. Click **Next**.
+        1. Select **Next**.
         2. Select **Requestor for User** for each authorization system, if applicable.  
 
-           A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is unavailable (grayed out).
-        3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
+           A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
+        3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.    
 
-             For example, a user may have various roles in different authorization systems, so they can click the **Add** icon and the **Users** icon to request access for all their accounts. 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+             For example, a user may have various roles in different authorization systems, so they can select the **Add** icon and the **Users** icon to request access for all their accounts. 
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
     
     - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
     
-        1. Select **Viewer**, **Controller**, and/or **Approver** for the appropriate authorization system(s).  
-        2. Click **Next**.
+        1. Select **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
+        2. Select **Next**.
         3. Select **Requestor for User** for each authorization system, if applicable.    
       
-             The user must must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
-        4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.   
+             A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
+        4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.   
 
-             For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts.
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+             For example, a user may have various roles in different authorization systems, so they can select **Add** and then select **Users** to request access for all their accounts.
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
     
     - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
     
-        1. Click **Next**.    
+        1. Select **Next**.    
 
             The default view displays the **List** section.
-        2. Click the appropriate boxes for **Viewer**, **Controller**, and/or **Approver**. 
+        2. Select the appropriate boxes for **Viewer**, **Controller**, or **Approver**. 
 
-             For access to all authorization system types, click **All (Current and Future)**.  
-        1. Click **Next**.
-        1. Click **Requestor for User** for each authorization system, if applicable.    
+             For access to all authorization system types, select **All (Current and Future)**.  
+        1. Select **Next**.
+        1. Select **Requestor for User** for each authorization system, if applicable.    
 
-            The user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
-        5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
+            A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
+        5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.    
 
-             For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+             For example, a user may have various roles in different authorization systems, so they can select **Add** and then select **Users** to request access for all their accounts. 
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
-5. Click **Save**. 
+5. Select **Save**. 
 
     The following message displays in green at the top of the screen: **New User Has Been Invited Successfully**.
 
 ### How to use the Invited tab
 
-1. To view the invited user, click the **Invited** tab. The system administrator can view the following details: 
+1. To view the invited user, select the **Invited** tab. The system administrator can view the following details: 
 
     - **Email Address** - Displays the email address of the invited user.
-    - **Permissions** - Displays each service account and whether the user has permissions as a **Viewer**, **Controller**, **Approver**, and/or **Requestor**.
+    - **Permissions** - Displays each service account and if the user has permissions as a **Viewer**, **Controller**, **Approver**, or **Requestor**.
     - **Invited By** - Displays the email address of the person who sent the invitation.
     - **Sent** - Displays the date the invitation was sent to the user.
-2. To make changes to the following, click the ellipses **(...)** in the far right column:
+2. To make changes to the following, select the ellipses **(...)** in the far right column:
 
     - **View Permissions** - Displays a list of the accounts for which the user has permissions.
     - **Edit Permissions** - System administrators can edit which permissions a user has.
@@ -130,10 +130,10 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
     - The **Joined On** column displays when the user registered for CloudKnox.
     - The **Recent Activity** column displays when a user last performed an activity.
     - **Search** allows a system administrator to search for a user by name and all users who match the criteria are displayed.
-    - The **Filters** option allows a system administrator to filter by specific details. When the filter option is clicked, the **Authorization System** box displays. 
+    - The **Filters** option allows a system administrator to filter by specific details. When the filter option is selected, the **Authorization System** box displays. 
 
-2. To display all authorization system accounts, click **All**. Then select the appropriate boxes for the accounts that need to be viewed.
-3. To make changes to the following, click the ellipses **(...)** in the far right column:
+2. To display all authorization system accounts, select **All**. Then select the appropriate boxes for the accounts that need to be viewed.
+3. To make changes to the following, select the ellipses **(...)** in the far right column:
     - **View Permissions** - This displays the accounts for which the user has permissions.
     - **Edit Permissions** - System administrators can edit which permissions a user has.
     - **Delete User** - System administrators can delete user.
@@ -146,60 +146,55 @@ Follow this process to invite users if the customer has enabled SAML integration
 
 Creating a permission directly in CloudKnox allows system administrators to assign permissions to specific users. The following steps help you to create a permission.
 
-- On the right side of the screen, click the down caret icon next to **User** and then select **User Management**.
+- On the right side of the screen, select the down caret icon next to **User** and then select **User Management**.
 
 - For **Users**:
-    1. To create permissions for a specific user, click the **Users** tab, and then click **Permission.**
+    1. To create permissions for a specific user, select the **Users** tab, and then select **Permission.**
     2. From the **Set User Permission** window, enter the user's email address in the **User** text box.
     3. Under **Permission**, select the applicable button. Then expand menu to view instructions for each option. 
         - **Admin for All Authorization System Types** - **View**, **Control**, and **Approve** permissions for all Authorization System Types.
-            1. Click **Next**.
+            1. Select **Next**.
             2. Check **Requestor for User** for each authorization system, if applicable.    
 
-               A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**.    
+             A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
 
-               If the user doesn't exist in the authorization system, the option to select **Requestor for User** is unavailable (grayed out).
+            3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.    
 
-            3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
+                For example, a user may have various roles in different authorization systems, so they can select **Add** and then select **Users** to request access for all their accounts.    
 
-                For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts.    
-
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
         - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
-            1. Check **Viewer**, **Controller**, and/or **Approver** for the appropriate authorization system(s).  
-            2. Click **Next**.
+            1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
+            2. Select **Next**.
             3. Check **Requestor for User** for each authorization system, if applicable.     
 
-               A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**.   
+               A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
 
-               If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
+            4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.    
 
-            4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
-
-                 For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+                 For example, a user may have various roles in different authorization systems, so they can select **Add** and then select **Users** to request access for all their accounts. 
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
         - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
 
-            1. Click **Next**.     
+            1. Select **Next**.     
 
                The default view displays the **List** tab, which displays individual authorization systems. 
-                 - To view groups of authorization systems organized into folder, click the **Folder** tab.
-            2. Check the appropriate boxes for **Viewer**, **Controller**, and/or **Approver**.    
+                 - To view groups of authorization systems organized into folder, select the **Folder** tab.
+            2. Check the appropriate boxes for **Viewer**, **Controller**, or **Approver**.    
 
-                 For access to all authorization system types, click **All (Current and Future)**.
-            3. Click **Next**.
+                 For access to all authorization system types, select **All (Current and Future)**.
+            3. Select **Next**.
             4. Check **Requestor for User** for each authorization system, if applicable.   
 
-               A user have an account with a valid email address in the authorization system to be able to select **Requestor for User**.              
-               If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
-            5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
+               A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
+            5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.    
 
-                For example, a user can have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
+                For example, a user can have various roles in different authorization systems, so they can select **Add** and then select **Users** to request access for all their accounts. 
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
-    4. Click **Save**. 
+    4. Select **Save**. 
      
        The following message displays in green at the top of the screen:
  **New User Has Been Created Successfully**.  
@@ -207,12 +202,12 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
 ### How to use the Pending tab
 
-1. To view the created permission, click the **Pending** tab. The system administrator can view the following details:
+1. To view the created permission, select the **Pending** tab. The system administrator can view the following details:
     - **Email Address** - Displays the email address of the invited user.
-    - **Permissions** - Displays each service account and whether the user has permissions as a **Viewer**, **Controller**, **Approver**, and/or **Requestor**.
+    - **Permissions** - Displays each service account and if the user has permissions as a **Viewer**, **Controller**, **Approver**, or **Requestor**.
      - **Invited By** - Displays the email address of the person who sent the invitation.
     - **Sent** - Displays the date the invitation was sent to the user.
-2. To make changes to the following, click the ellipses **(...)** in the far right column.
+2. To make changes to the following, select the ellipses **(...)** in the far right column.
     - **View Permissions** - Displays the user's permissions.
     - **Edit Permissions** - System administrators can edit a user's permissions.
     - **Delete** - System administrators can delete a permission
@@ -232,16 +227,16 @@ Creating a permission directly in CloudKnox allows system administrators to assi
          - The **Joined On** column records when the user registered for CloudKnox.
          - The **Recent Activity** column displays when a user last performed an activity.
          - The **Search** button allows a system administrator to search for a user by name and all users who match the criteria displays.
-         - The **Filters** option allows a system administrator to filter by specific details. When the filter option is clicked, the **Authorization System** box displays.    
+         - The **Filters** option allows a system administrator to filter by specific details. When the filter option is selected, the **Authorization System** box displays.    
 
-          To display all authorization system accounts,Click **All**. Then select the appropriate boxes for the accounts that need to be viewed.
-    2. To make the changes to the following changes, click the ellipses **(...)** in the far right column:
+          To display all authorization system accounts,Select **All**. Then select the appropriate boxes for the accounts that need to be viewed.
+    2. To make the changes to the following changes, select the ellipses **(...)** in the far right column:
         - **View Permissions** - Displays a list of accounts for which the user has permissions.
         - **Edit Permissions** - System administrators can edit the accounts for which a user has permissions.
         - **Remove Permissions** - System administrators can remove permissions from a user.
         
 - For **Groups**:
-    1. To create permissions for a specific user, click the **Groups** tab, and then click **Permission**.
+    1. To create permissions for a specific user, select the **Groups** tab, and then select **Permission**.
     2. From the **Set Group Permission** window, enter the name of the group in the **Group Name** box.    
 
          Groups are created by the identity provider.    
@@ -250,50 +245,50 @@ Creating a permission directly in CloudKnox allows system administrators to assi
     3. Under **Permission**, select the applicable button and expand the menu to view instructions for each option. 
 
         - **Admin for All Authorization System Types** - **View**, **Control**, and **Approve** permissions for all Authorization System Types.
-            1. Click **Next**.
+            1. Select **Next**.
             2. Check **Requestor for User** for each authorization system, if applicable.    
 
-               A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is be grayed out.
-            3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
+                A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
+            3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.    
 
-               For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
+               For example, a user may have various roles in different authorization systems, so they can select **Add** and then select **Users** to request access for all their accounts. 
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
         - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
-            1. Check **Viewer**, **Controller**, and/or **Approver** for the appropriate authorization system(s).  
-            2. Click **Next**.
+            1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
+            2. Select **Next**.
             3. Check **Requestor for User** for each authorization system, if applicable.      
 
-                  A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
-            4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
+                 A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
+            4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.    
 
-               For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
+               For example, a user may have various roles in different authorization systems, so they can select **Add** and then select **Users** to request access for all their accounts. 
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
        
         - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in Auth System Types.
-            1. Click **Next**.   
+            1. Select **Next**.   
 
                The default view displays the **List** section.
 
-            2. Check the appropriate boxes for **Viewer**, **Controller**, and/or **Approver.    
+            2. Check the appropriate boxes for **Viewer**, **Controller**, or **Approver.    
 
-                 For access to all authorization system types, click **All (Current and Future)**.
+                 For access to all authorization system types, select **All (Current and Future)**.
 
-            3. Click **Next**.
+            3. Select **Next**.
 
             4. Check **Requestor for User** for each authorization system, if applicable.    
 
-                A user must have an account with a valid email address in the authorization system to be able to select **Requestor for User**. If the user doesn't exist in the authorization system, the option to select **Requestor for User** is grayed out.
+                 A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
 
-            5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, click **Add** and then click **Users**.    
+            5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add** and then select **Users**.    
 
-               For example, a user may have various roles in different authorization systems, so they can click **Add** and then click **Users** to request access for all their accounts. 
+               For example, a user may have various roles in different authorization systems, so they can select **Add** and then select **Users** to request access for all their accounts. 
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then click **Add**.
+             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
-    4. Click **Save**. 
+    4. Select **Save**. 
     
        The following message displays in green at the top of the screen: **New Group Has Been Created Successfully**. 
 
@@ -312,11 +307,11 @@ Creating a permission directly in CloudKnox allows system administrators to assi
     - The **Modified By** column records the email address of the person who created the group.
     - The **Modified On** column records the date the group was last modified on.
      - The **Search** button allows a system administrator to search for a group by name and all groups who match the criteria displays.
-    - The **Filters** option allows a system administrator to filter by specific details. When the filter option is clicked, the **Authorization System** box displays.    
+    - The **Filters** option allows a system administrator to filter by specific details. When the filter option is selected, the **Authorization System** box displays.    
 
-        To display all authorization system accounts, click **All**. Then select the appropriate boxes for the accounts that need to be viewed.
+        To display all authorization system accounts, select **All**. Then select the appropriate boxes for the accounts that need to be viewed.
         
-    2. To make changes to the following, click the ellipses **(...)** in the far right column:
+    2. To make changes to the following, select the ellipses **(...)** in the far right column:
         - **View Permissions** - Displays a list of the accounts for which the group has permissions.
         - **Edit Permissions** - System administrators can edit a group's permissions.
         - **Duplicate** - System administrators can duplicate permissions from one group to another.

@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 12/10/2021
 ms.author: v-ydequadros
 ---
 
@@ -18,15 +18,15 @@ This topic describes how to configure the Saviynt integration with Microsoft Clo
 
 ## How to configure the Saviynt integration
 
-- On the **Integrations** page, click the **Saviynt** box.
+- On the **Integrations** page, select **Saviynt**.
 
 ## How to use the Saviynt tab
 
-- For information about Saviynt integration, click the link on the **Integrations** page.
+- For information about Saviynt integration, select the link on the **Integrations** page.
 
 ## How to use the Integrations tab
 
-1. Click the **Integrations** tab. 
+1. Select the **Integrations** tab. 
 
     The following information is displayed:
 
@@ -37,11 +37,11 @@ This topic describes how to configure the Saviynt integration with Microsoft Clo
       - **Access Key** - This box is pre-populated with the access key code.
       - **Secret Key** - Lists as **hidden**. It should be reserved for future use.
 
-2. Click **Generate New Key**.
+2. Select **Generate New Key**.
 3. On the **Validate OTP To Generate New Keys**, a message displays asking you to check your email for a code that was sent to the email address on file.
 
-      If you don't receive the email, click **Resend OTP**, and then check your email again.
+      If you don't receive the email, select **Resend OTP**, and then check your email again.
 4. In the **Enter OTP box**, enter the code from the email.
-5. Click **Verify**.
+5. Select **Verify**.
 
 <!---## Next steps--->

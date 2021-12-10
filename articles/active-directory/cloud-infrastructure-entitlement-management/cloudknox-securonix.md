@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 12/10/2021
 ms.author: v-ydequadros
 ---
 
@@ -18,15 +18,15 @@ This topic describes how to configure Securonix integration with Microsoft Cloud
 
 ## How to configure the Securonix integration
 
-- On the **Integrations** page, click **Securonix**.
+- On the **Integrations** page, select **Securonix**.
 
 ## How to use the Securonix tab
 
-- For information about Securonix integration, click the link on the **Integrations** page.
+- For information about Securonix integration, select the link on the **Integrations** page.
 
 ## How to use the Integration tab
 
-1. Click the **Integration** tab. 
+1. Select the **Integration** tab. 
 
    View the following information on the tab:
 
@@ -36,11 +36,11 @@ This topic describes how to configure Securonix integration with Microsoft Cloud
     - **Service Account ID** - This box is pre-populated with the ID for the given connected service account.
     - **Access Key** - This box is pre-populated with the access key code.
     - **Secret Key** - Lists the secret key code as *hidden*. Reserve this key only for future use.
-2. Click **Generate New Key**.
+2. Select **Generate New Key**.
 3. On the **Validate OTP To Generate New Keys**, a message displays asking you to check your email for a code that was sent to the email address on file.
 
-    If you don't receive the email, click **Resend OTP**, and then check your email again.
+    If you don't receive the email, select **Resend OTP**, and then check your email again.
 4. In the **Enter OTP box**, enter the code from the email you received.
-5. Click **Verify**.
+5. Select **Verify**.
 
 <!---## Next steps--->
