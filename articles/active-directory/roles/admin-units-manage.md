@@ -1,6 +1,6 @@
 ---
-title: Add and remove administrative units - Azure Active Directory | Microsoft Docs
-description: Use administrative units to restrict the scope of role permissions in Azure Active Directory.
+title: Add or delete administrative units - Azure Active Directory
+description: Add administrative units to restrict the scope of role permissions in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: rolyon
@@ -16,10 +16,11 @@ ms.custom: oldportal;it-pro;
 ms.collection: M365-identity-device-management
 ---
 
-# Manage administrative units in Azure Active Directory
+# Add or delete administrative units
 
-For more granular administrative control in Azure Active Directory (Azure AD), you can assign users to an Azure AD role with a scope that's limited to one or more administrative units.
+Administrative units let you subdivide your organization into any unit that you want, and then assign specific administrators that can manage only the members of that unit. For example, you could use administrative units to delegate permissions to administrators of each school at a large university, so they could control access, manage users, and set policies only in the School of Engineering.
 
+This article describes how to add or delete administrative units to restrict the scope of role permissions in Azure Active Directory (Azure AD).
 
 ## Prerequisites
 
@@ -33,7 +34,7 @@ For more information, see [Prerequisites to use PowerShell or Graph Explorer](pr
 
 ## Add an administrative unit
 
-You can add an administrative unit by using either the Azure portal or PowerShell.
+You can add an administrative unit by using either the Azure portal, PowerShell or Microsoft Graph.
 
 ### Azure portal
 
@@ -75,9 +76,9 @@ Body
 }
 ```
 
-## Remove an administrative unit
+## Delete an administrative unit
 
-In Azure AD, you can remove an administrative unit that you no longer need as a unit of scope for administrative roles.
+In Azure AD, you can delete an administrative unit that you no longer need as a unit of scope for administrative roles.
 
 ### Azure portal
 

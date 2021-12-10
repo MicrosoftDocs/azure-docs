@@ -74,8 +74,14 @@
       href: quickstart-app-registration-limits.md
   - name: Administrative units
     items:
-    - name: Add and manage
+    - name: Add or delete administrative units
       href: admin-units-manage.md
+    - name: Add members
+      href: admin-units-members-add.md
+    - name: list members
+      href: admin-units-members-list.md
+    - name: Remove members
+      href: admin-units-members-remove.md
     - name: Add and manage users
       href: admin-units-add-manage-users.md
     - name: Add and manage groups
