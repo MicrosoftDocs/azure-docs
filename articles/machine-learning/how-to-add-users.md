@@ -13,7 +13,7 @@ ms.date: 11/05/2021
 
 # Add users to your data labeling project
 
-This article shows how to add users to your data labeling project so that they can label data, but not see the rest of your workspace.  You can use these steps to add anyone to your project, whether or not they are from [data labeling vendor company](how-to-outsource-data-labeling.md).
+This article shows how to add users to your data labeling project so that they can label data, but not see the rest of your workspace.  You can use these steps to add anyone to your project, whether or not they are from a [data labeling vendor company](how-to-outsource-data-labeling.md).
   
 ## Prerequisites
 
@@ -44,7 +44,7 @@ To add a custom role, you must have `Microsoft.Authorization/roleAssignments/wri
 1. In the **JSON** tab, above the edit box, select **Edit**.
 1. Select lines starting with **"actions:"** and **"notActions:"**.
 
-    :::image type="content" source="media/how-to-add-labeler/replace-lines.png" alt-text="Create custom role: select lines to replace them in the editor.":::
+    :::image type="content" source="media/how-to-add-users/replace-lines.png" alt-text="Create custom role: select lines to replace them in the editor.":::
 
 1. Replace these two lines with:
     
@@ -96,7 +96,7 @@ To add a guest user, your organization's external collaboration settings must be
 
 1. In [Azure portal](https://portal.azure.com), in the top-left corner, expand the menu and select **Azure Active Directory**.
 
-    :::image type="content" source="media/how-to-add-labeler/menu-active-directory.png" alt-text="Select Azure Active Directory from the menu.":::
+    :::image type="content" source="media/how-to-add-users/menu-active-directory.png" alt-text="Select Azure Active Directory from the menu.":::
 
 1. On the left, select **Users**.
 1. At the top, select **New guest user**.
@@ -104,7 +104,7 @@ To add a guest user, your organization's external collaboration settings must be
 1. Add a message for the new user.
 1. At the bottom of the page, select **Invite**.
 
-    :::image type="content" source="media/how-to-add-labeler/invite-user.png" alt-text="Invite guest user from Azure Active Directory.":::
+    :::image type="content" source="media/how-to-add-users/invite-user.png" alt-text="Invite guest user from Azure Active Directory.":::
 
 Repeat for each of your labelers.  Or use the link at the bottom of the **Invite user** box to invite multiple users in bulk.
 
@@ -125,7 +125,7 @@ To add users to your workspace, you must be an owner of the workspace.
 1. On the left, select **Access control (IAM)**.
 1. At the top, select **+ Add > Add role assignment**.
 
-    :::image type="content" source="media/how-to-add-labeler/add-role-assignment.png" alt-text="Add role assignment from your workspace.":::
+    :::image type="content" source="media/how-to-add-users/add-role-assignment.png" alt-text="Add role assignment from your workspace.":::
 
 1. Select the **Labeler** or **Labeling Team Lead** role in the list.  Use **Search** if necessary to find it.
 1. Select **Next**.
