@@ -54,7 +54,8 @@ Microsoft will indicate to you via the Azure Communication Services API that rec
 - Communication Services users cannot interact with poll or Q&A apps in meetings.
 - Communication Services won't have access to all chat features supported by Teams. They can send and receive text messages, use typing indicators, read receipts and other features supported by Chat SDK. However features like file sharing, reply or react to a message are not supported for Communication Services users.   
 - The Calling SDK does not currently support closed captions for Teams meetings.
-- Communication Services users cannot join [Teams live events](/microsoftteams/teams-live-events/what-are-teams-live-events)
+- Communication Services users are not included in the [Real-Time Analytics](/microsoftteams/use-real-time-telemetry-to-troubleshoot-poor-meeting-quality).
+- Communication Services users cannot join [Teams live events](/microsoftteams/teams-live-events/what-are-teams-live-events).
 - [Teams activity handler events](/microsoftteams/platform/bots/bot-basics?tabs=csharp) for bots do not fire when Communication Services users join a Teams meeting.
 
 ## Next steps

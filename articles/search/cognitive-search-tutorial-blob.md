@@ -540,7 +540,7 @@ Indexing and enrichment commence as soon as you submit the Create Indexer reques
 
 Warnings are common in some scenarios and do not always indicate a problem. For example, if a blob container includes image files, and the pipeline doesn't handle images, you'll get a warning stating that images were not processed.
 
-In this sample, there is a PNG file that contains no text. All five of the text-based skills (language detection, entity recognition of locations, organizations, and people, and key phrase extraction) fail to execute on this file. The resulting notification shows up in execution history.
+In this sample, there is a PNG file that contains no text. All five of the text-based skills (language detection, entity recognition of locations, organizations, people, and key phrase extraction) fail to execute on this file. The resulting notification shows up in execution history.
 
 ## 5 - Search
 
