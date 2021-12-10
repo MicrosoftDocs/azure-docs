@@ -1,6 +1,6 @@
 ---
 title: Upgrade indirect mode Azure Arc-enabled Managed Instance - Kubernetes
-description: Upgrade indirect mode Azure Arc-enabled Managed Instance using Kubernetes
+description: Describes how to upgrade indirect mode Azure Arc-enabled Managed Instance using Kubernetes
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
