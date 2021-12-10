@@ -8,7 +8,7 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 09/26/2021
 ms.author: daberry
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Build a Table API app with .NET SDK and Azure Cosmos DB
@@ -182,8 +182,8 @@ az cosmosdb keys list \
 To get the primary table storage connection string using Azure PowerShell, use the [Get-AzCosmosDBAccountKey](/powershell/module/az.cosmosdb/get-azcosmosdbaccountkey) cmdlet.
 
 ```azurepowershell
-# This gets the primary Table connection string  
- $(Get-AzCosmosDBAccountKey `
+# This gets the primary Table connection string
+$(Get-AzCosmosDBAccountKey `
     -ResourceGroupName $resourceGroupName `
     -Name $cosmosAccountName `
     -Type "ConnectionStrings")."Primary Table Connection String"
