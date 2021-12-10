@@ -95,7 +95,7 @@ The API requires the following values:
 
 - Assignment ID, which is a GUID value that uniquely identifies the transaction. You can use tools such as Visual Studio or Visual Studio Code extension to get a GUID value. Also, you can use online tools such as [UUID Generator](https://www.uuidgenerator.net/api/guid) to get it.
 - API version that is supported by the API.
-- Scope for the Healthcare APIs to which you grant access permissions. It includes subscriptionid, resource group name, and the FHIR or DICOM service instance name.
+- Scope for the Healthcare APIs to which you grant access permissions. It includes subscription id, resource group name, and the FHIR or DICOM service instance name.
 - Role definition ID for roles such as "FHIR Data Contributor" or "DICOM Data Owner". Use `az role definition list --name "<role name>"` to list the role definition IDs.
 - Service principal ID for the user or the client application.
 - Azure AD access token to the [management resource](https://management.azure.com/), not the Healthcare APIs. You can get the access token using an existing tool or using Azure CLI command, `az account get-access-token --resource  "https://management.azure.com/"`
