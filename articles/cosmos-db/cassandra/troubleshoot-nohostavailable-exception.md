@@ -45,7 +45,6 @@ We recommend using either of the following options:
 If the primary contact point cannot be reached, client sees a different exception. This error is specific to when the client is set to connect to a different region other than what the primary contact point region. The error is seen during the initial a few seconds upon start-up.
 #### Recommendation
 - Java v3: We advise using the CosmosLoadBalancingPolicy in [Azure Cosmos Cassandra extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
--  C# v3: Workaround is to open a support ticket so we can enable the server-side private preview feature (blocking region cache initialization).
 
 > [!NOTE]
 > Currently, our C# extension does not include CosmosLoadBalancingPolicy. 
@@ -64,11 +63,6 @@ We recommend the following steps:
 -	If you are unable to do this, it would appear the account may not have been provisioned correctly. 
 -	If the account is brand new, recreate an account else open a support ticket.
 - Review the connection string, [firewall](../how-to-configure-firewall.md) and private link settings.
-
-### ArgumentException
-This is because the regional endpoint cache is asynchronous, the peers would not contain the remote regions during a cold restart. It usually takes a few seconds for the update. The C# drivers do not have a retry like the Java drivers hence the exception.
-#### Recommendation
-See code sample implementation below on how to use the CosmosLoadBalancingPolicy to route the primary endpoint while the specified local data center is unavailable or reach out to our support team to enable RegionalEndpointsIsInitialRefreshBlocking
 
 
 > [!NOTE]
