@@ -169,7 +169,7 @@ On the virtual machine, install the two npm libraries we'll be using in our Java
     // Get Secret with Azure SDK for JS
     const getSecret = async (secretName) => {
     
-        return await client.getSecret(secretName);
+        return (await client.getSecret(secretName)).value;
     }
     
     getSecret("mySecret").then(secretValue => {
