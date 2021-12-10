@@ -147,6 +147,7 @@ Now run `Connect-AzAccount` to create a connection with Azure.
 
 
 ```azurepowershell
+Connect-AzAccount
 $subscriptionId = "Your Azure subscription Id"
 $resourceGroup = "Resource group name where Speech resource is located"
 $speechResourceName = "Your Speech resource name"
