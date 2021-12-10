@@ -12,13 +12,13 @@
     - name: Deploy your first container app
       expanded: true
       items:
-      - name: With an example container
+      - name: With a sample container image
         items:
         - name: Azure portal
           href: quickstart-portal.md
         - name: Azure CLI
           href: get-started.md
-      - name: With your container
+      - name: With a custom container image
         items:
         - name: Azure CLI
           href: get-started-existing-container.md
