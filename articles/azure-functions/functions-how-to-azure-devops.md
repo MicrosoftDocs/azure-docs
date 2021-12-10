@@ -315,7 +315,7 @@ variables:
     imageName: $(containerRegistry)/$(imageRepository):$(tag)
 ```
 
-The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task will pull the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploy the image.
+The snippet pushes the Docker image to your Azure Container Registry. The **Azure Function App on Container Deploy** task pulls the appropriate Docker image corresponding to the `BuildId` from the repository specified, and then deploys the image.
 
 # [Classic](#tab/classic/)
 
