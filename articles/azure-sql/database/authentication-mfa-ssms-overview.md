@@ -1,17 +1,16 @@
 ---
 title: Using multi-factor Azure Active Directory authentication
 description: Azure SQL Database, Azure SQL Managed Instance, and Azure Synapse Analytics support connections from SQL Server Management Studio (SSMS) using Active Directory Universal Authentication.
-services: sql-database
 ms.service: sql-db-mi
 ms.subservice: security
 titleSuffix: Azure SQL Database & SQL Managed Instance & Azure Synapse Analytics 
-ms.custom: seoapril2019, has-adal-ref, sqldbrb=1
+ms.custom: seoapril2019, sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 09/28/2020
+ms.date: 12/15/2021
 tags: azure-synapse
 ---
 
@@ -80,7 +79,7 @@ After the database user or user group is created, then the user `steve@gmail.com
 - SSMS version 17.2 provides DacFx Wizard support for Export/Extract/Deploy Data database. Once a specific user is authenticated through the initial authentication dialog using Universal Authentication, the DacFx Wizard functions the same way it does for all other authentication methods.
 - The SSMS Table Designer does not support Universal Authentication.
 - There are no additional software requirements for Active Directory Universal Authentication except that you must use a supported version of SSMS.  
-- See the following link for the latest Active Directory Authentication Library (ADAL) version for Universal authentication: [Microsoft.IdentityModel.Clients.ActiveDirectory](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/).  
+- See the following link for the latest Microsoft Authentication Library (MSAL) version for Universal authentication: [Overview of the Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview#languages-and-frameworks).  
 
 ## Next steps
 
@@ -93,5 +92,4 @@ After the database user or user group is created, then the user `steve@gmail.com
 - [SQLPackage.exe](/sql/tools/sqlpackage)  
 - [Import a BACPAC file to a new database](database-import.md)  
 - [Export a database to a BACPAC file](database-export.md)  
-- C# interface [IUniversalAuthProvider Interface](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)  
-- When using **Azure Active Directory- Universal with MFA** authentication, ADAL tracing is available beginning with [SSMS 17.3](/sql/ssms/download-sql-server-management-studio-ssms). Off by default, you can turn on ADAL tracing by using the **Tools**, **Options** menu, under **Azure Services**, **Azure Cloud**, **ADAL Output Window Trace Level**, followed by enabling **Output**  in the **View** menu. The traces are available in the output window when selecting **Azure Active Directory option**.
+- C# interface [IUniversalAuthProvider Interface](/dotnet/api/microsoft.sqlserver.dac.iuniversalauthprovider)

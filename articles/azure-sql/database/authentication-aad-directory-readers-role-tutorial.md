@@ -73,7 +73,7 @@ For subsequent steps, the Global Administrator or Privileged Role Administrator 
    :::image type="content" source="media/authentication-aad-directory-readers-role/azure-ad-add-managed-instance-service-principal.png" alt-text="Screenshot of the Members page for an Azure Active Directory resource with the options highlighted for adding an SQL Managed instance as a new member.":::
 
 > [!NOTE]
-> It can take a few minutes to propagate the service principal permissions through the Azure system, and allow access to Azure AD Graph API. You may have to wait a few minutes before you provision an Azure AD admin for SQL Managed Instance.
+> It can take a few minutes to propagate the service principal permissions through the Azure system, and allow access to Microsoft Graph API. You may have to wait a few minutes before you provision an Azure AD admin for SQL Managed Instance.
 
 ### Remarks
 
