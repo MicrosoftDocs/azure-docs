@@ -1360,6 +1360,8 @@
         href: mozy-enterprise-tutorial.md
       - name: MS Azure SSO Access for Ethidex Compliance Office™
         href: ms-azure-sso-access-for-ethidex-compliance-office-tutorial.md
+      - name: Mural Identity
+        href: mural-identity-tutorial.md  
       - name: MVISION Cloud Azure AD SSO Configuration
         href: skyhighnetworks-tutorial.md
       - name: MyAryaka
