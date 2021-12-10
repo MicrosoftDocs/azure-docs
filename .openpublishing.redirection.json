@@ -26519,14 +26519,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/storage/common/storage-designing-ha-apps-with-ragrs.md",
-      "redirect_url": "/azure/storage/common/geo-redundant-design",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-faliure.md",
       "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-metrics-in-azure-monitor.md",
