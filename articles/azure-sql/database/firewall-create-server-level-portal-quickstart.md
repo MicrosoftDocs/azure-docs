@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: quickstart
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: mathoma, vanto
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 02/11/2019
 ---
 # Quickstart: Create a server-level firewall rule using the Azure portal
