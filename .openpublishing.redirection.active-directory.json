@@ -10615,6 +10615,11 @@
             "source_path": "articles/active-directory/verifiable-credentials/get-started-verifiable-credentials.md",
             "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-types.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-list",
+            "redirect_document_id": false
         }
  
          
