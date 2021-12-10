@@ -34,7 +34,7 @@ This client-side error indicates that the maximum number of request connections 
 Instead of tuning the `max requests per connection`, we advise making sure the `connections per host` is set to a minimum of 10. See the code section.
 
 ### TooManyRequest(429)
-OverloadException is thrown when the request rate is too large. Which may be because of insufficient throughput being provisioned for the table and the RU budget being exceeded. Learn more about [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large)
+OverloadException is thrown when the request rate is too large. Which may be because of insufficient throughput being provisioned for the table and the RU budget being exceeded. Learn more about [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large) and [server-side retry](prevent-rate-limiting-errors.md)
 #### Recommendation
 We recommend using either of the following options:
 1. Increase RU provisioned for the table or database if the throttling is consistent.
