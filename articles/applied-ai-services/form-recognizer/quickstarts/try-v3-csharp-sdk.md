@@ -30,7 +30,7 @@ In this quickstart, you'll use following features to analyze and extract data an
 
 * [**Layout model**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt model**](#prebuilt-model-invoice) Analyze and extract common fields from invoices using a pre-trained invoice model.
+* [**Prebuilt model**](#prebuilt-model-invoice)—Analyze and extract common fields from specific document types using a pre-trained invoice model.
 
 ## Prerequisites
 
@@ -115,9 +115,9 @@ This version of the client library defaults to the 2021-09-30-preview version of
 
      :::image type="content" source="../media/quickstarts/azure-nuget-package.png" alt-text="Screenshot: select-form-recognizer-package.png":::
 
- 1. Choose the **Include prerelease** checkbox.
+ 1. Choose the **Include prerelease** checkbox and select version **4.0.0-beta.*** from the dropdown menu.
 
- 1. Select version **4.0.0-beta.*** from the dropdown menu and select **Install**.
+ 1. Select **Install**.
 
      :::image type="content" source="../media/quickstarts/prerelease-nuget-package.png" alt-text="{alt-text}":::
 
@@ -149,9 +149,9 @@ To interact with the Form Recognizer service, you'll need to create an instance 
     string apiKey = "<your-apiKey>";
     AzureKeyCredential credential = new AzureKeyCredential(apiKey);
     DocumentAnalysisClient client = new DocumentAnalysisClient(new Uri(endpoint), credential);
-    `
+    ```
 
-1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the **Try It** code samples to the file:
+1. Delete the line, `Console.Writeline("Hello World!");` , and add one of the code sample scripts to the file:
 
     :::image type="content" source="../media/quickstarts/add-code-here.png" alt-text="Screenshot: add the sample code to the Main method.":::
 
@@ -169,16 +169,16 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ## General document model
 
-#### Extract text, tables, structure, key-value pairs, and named entities from documents
+##### Extract text, tables, structure, key-value pairs, and named entities from documents
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * For this example, you'll need a **form document file from a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
 > * To analyze a given file at a URI, you'll use the `StartAnalyzeDocumentFromUri` method. The returned value is an `AnalyzeResult` object containing data about the submitted document.
-> * We've added the file URI value to the `string fileUri` variable at the top of the Main method.
+> * We've added the file URI value to the `Uri fileUri` variable at the top of the script.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-### Add the following code to the Program.cs file:
+#### Add the following code to the Program.cs file:
 
 ```csharp
 
@@ -284,15 +284,15 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ## Layout model
 
-#### Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
+##### Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file at a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * We've added the file URI value to the `string fileUri` variable at the top Program.cs file.
+> * For this example, you'll need a **form document file from a URI**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * We've added the file URI value to the `Uri fileUri` variable at the top of the script.
 > * To extract the layout from a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-layout` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
 
-### Add the following code to the Program.cs file:
+#### Add the following code to the Program.cs file:
 
 ```csharp
 
@@ -369,14 +369,7 @@ for (int i = 0; i < result.Tables.Count; i++)
 
 ## Prebuilt model (invoice)
 
-#### Extract and analyze data from common document types using a pre-trained model.
-
-> [!div class="checklist"]
->
-> * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-> * We've added the file URI value to the `string fileUri` variable at the top of the Program.cs file.
-> * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
-> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
+##### Extract and analyze data from common document types using a pre-trained model.
 
 ### Choose the invoice prebuilt model ID
 
@@ -384,10 +377,17 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 
 * [**prebuilt-invoice**](../concept-invoice.md): extracts text, selection marks, tables, key-value pairs, and key information from invoices.
 * [**prebuilt-receipt**](../concept-receipt.md): extracts text and key information from receipts.
-* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
+* [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from U.S. drivers licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
-### Add the following code to your Program.cs file:
+> [!div class="checklist"]
+>
+> * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * We've added the file URI value to the `Uri fileUri` variable at the top of the Program.cs file.
+> * To analyze a given file at a URI, use the `StartAnalyzeDocumentFromUri` method and pass `prebuilt-invoice` as the model ID. The returned value is an `AnalyzeResult` object containing data from the submitted document.
+> * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
+
+#### Add the following code to your Program.cs file:
 
 ```csharp
 // sample invoice document
@@ -508,7 +508,9 @@ Choose the green **Start** button next to formRecognizer_quickstart to build and
 
 <!-- --- -->
 
-Congratulations! In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+That's it, congratulations!
+
+In this quickstart, you used the Form Recognizer C# SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
 ## Next steps
 
