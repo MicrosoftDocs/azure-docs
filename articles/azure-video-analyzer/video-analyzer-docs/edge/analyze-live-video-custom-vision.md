@@ -60,7 +60,7 @@ Read through the following articles before you begin:
 
 ## Review the sample video
 
-This tutorial uses a [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://lvamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck.
+This tutorial uses a [toy car inference video](https://avamedia.blob.core.windows.net/public/t2.mkv) file to simulate a live stream. You can examine the video via an application such as [VLC media player](https://www.videolan.org/vlc/). Select **Ctrl+N**, and then paste a link to the [toy car inference video](https://avamedia.blob.core.windows.net/public/t2.mkv) to start playback. As you watch the video, note that at the 36-second marker a toy truck appears in the video. The custom model has been trained to detect this specific toy truck.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LPwK]
 
@@ -85,7 +85,7 @@ To build a toy truck detector, follow the steps in [Quickstart: Build an object 
 
 Additional notes:
 
-- For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://lvamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) in the [quickstart](../../../cognitive-services/custom-vision-service/get-started-build-detector.md).
+- For this tutorial, don't use the sample images provided in the quickstart article's [Prerequisites section](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#prerequisites). Instead, we've used a certain image set to build a toy detector Custom Vision model. Use [these images](https://avamedia.blob.core.windows.net/public/ToyCarTrainingImages.zip) when you're asked to [choose your training images](../../../cognitive-services/custom-vision-service/get-started-build-detector.md#choose-training-images) in the [quickstart](../../../cognitive-services/custom-vision-service/get-started-build-detector.md).
 - In the tagging image section of the quick start, ensure that you're tagging the toy truck seen in the picture with the tag "delivery truck."
 - Ensure to select General(compact) as the option for Domains when creating the Custom Vision project
 

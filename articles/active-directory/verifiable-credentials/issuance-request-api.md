@@ -161,7 +161,7 @@ The Request Service REST API generates several events to the callback endpoint. 
 |---------|---------|---------|
 | `url` | string| URI to the callback endpoint of your application. |
 | `state` | string| Associates with the state passed in the original payload. |
-| `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The headers should only include the `api-key` or any header required for authorization.|
+| `headers` | string| Optional. You can include a collection of HTTP headers required by the receiving end of the POST message. The current supported header values are the `api-key` or the `Authorization` headers. Any other header will throw an invalid callback header error|
 
 ## Successful response
 

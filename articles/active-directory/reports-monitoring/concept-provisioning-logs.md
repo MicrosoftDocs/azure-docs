@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 4/25/2021
+ms.date: 12/02/2021
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -268,8 +268,6 @@ Here are some tips and considerations for provisioning reports:
 - You can use the change ID attribute as unique identifier. This is helpful when you're interacting with product support, for example.
 
 - You might see skipped events for users who are not in scope. This is expected, especially when the sync scope is set to all users and groups. The service will evaluate all the objects in the tenant, even the ones that are out of scope. 
-
-- The provisioning logs are currently unavailable in the government cloud. If you can't access the provisioning logs, use the audit logs as a temporary workaround. 
 
 - The provisioning logs don't show role imports (applies to AWS, Salesforce, and Zendesk). You can find the logs for role imports in the audit logs. 
 

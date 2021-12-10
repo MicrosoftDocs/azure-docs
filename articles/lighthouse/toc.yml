@@ -101,7 +101,7 @@
       - name: Deploy a policy that can be remediated
         displayName: deployIfNotExists, modify, managed identities, managed identity
         href: ./how-to/deploy-policy-remediation.md
-    - name: Azure Sentinel integration
+    - name: Microsoft Sentinel integration
       href: ./how-to/manage-sentinel-workspaces.md
 - name: Reference
   items:

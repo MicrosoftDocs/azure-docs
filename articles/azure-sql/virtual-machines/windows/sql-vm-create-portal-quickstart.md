@@ -7,13 +7,13 @@ author: bluefooted
 tags: azure-resource-manager
 ms.service: virtual-machines-sql
 ms.subservice: deployment
-
 ms.topic: quickstart
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
 ms.date: 07/11/2019
 ms.author: pamela
 ms.reviewer: mathoma
+ms.custom: mode-portal
 ---
 
 # Quickstart: Create SQL Server 2017 on a Windows virtual machine in the Azure portal

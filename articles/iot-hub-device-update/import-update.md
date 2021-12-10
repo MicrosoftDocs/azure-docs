@@ -33,7 +33,7 @@ If your organization already creates software for the devices you use, that same
 
 ## Create a Device Update import manifest
 
-If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md).
+If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md), and try out an [image-based](device-update-raspberry-pi.md) or [package-based](device-update-ubuntu-agent.md) tutorial first.
 
 1. Ensure that your update file(s) are located in a directory accessible from PowerShell.
 
@@ -73,7 +73,7 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
 
 ## Review the generated import manifest
 
-An example manifest output is below. If you have questions about any of the items, view the complete [import manifest schema](import-schema.md). 
+An example manifest output is below. For this example, there are two files that comprise this update: a .json file and a .zip file. If you have questions about any of the items, view the complete [import manifest schema](import-schema.md). 
 ```json
 {
   "updateId": {

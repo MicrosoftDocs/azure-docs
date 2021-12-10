@@ -29,7 +29,7 @@ This article lists the curated environments with latest framework versions in Az
 The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211029.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.1-cudnn8-ubuntu18.04:20211111.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/pytorch-1.10
 
@@ -56,10 +56,10 @@ RUN pip install 'matplotlib>=3.3,<3.4' \
                 'scipy>=1.5,<1.8' \
                 'numpy>=1.10,<1.22' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.35.0.post1' \
-                'azureml-defaults==1.35.0' \
-                'azureml-mlflow==1.35.0' \
-                'azureml-telemetry==1.35.0' \
+                'azureml-core==1.36.0.post2' \
+                'azureml-defaults==1.36.0' \
+                'azureml-mlflow==1.36.0' \
+                'azureml-telemetry==1.36.0' \
                 'tensorboard==2.6.0' \
                 'tensorflow-gpu==2.6.0' \
                 'onnxruntime-gpu>=1.7,<1.10' \
@@ -85,7 +85,7 @@ Other available PyTorch environments:
 The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211029.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211111.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/lightgbm
 
@@ -112,10 +112,10 @@ RUN HOROVOD_WITH_TENSORFLOW=1 \
                 'dask-ml~=1.9.0' \
                 'adlfs~=0.7.0' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.35.0.post1' \
-                'azureml-defaults==1.35.0' \
-                'azureml-mlflow==1.35.0' \
-                'azureml-telemetry==1.35.0'
+                'azureml-core==1.36.0.post2' \
+                'azureml-defaults==1.36.0' \
+                'azureml-mlflow==1.36.0' \
+                'azureml-telemetry==1.36.0'
 
 # This is needed for mpi to locate libpython
 ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
@@ -128,7 +128,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211029.v1
+FROM mcr.microsoft.com/azureml/openmpi3.1.2-ubuntu18.04:20211111.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/sklearn-0.24.1
 
@@ -147,10 +147,10 @@ RUN pip install 'matplotlib>=3.3,<3.4' \
                 'scipy>=1.5,<1.6' \
                 'numpy>=1.10,<1.20' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.35.0.post1' \
-                'azureml-defaults==1.35.0' \
-                'azureml-mlflow==1.35.0' \
-                'azureml-telemetry==1.35.0' \
+                'azureml-core==1.36.0.post2' \
+                'azureml-defaults==1.36.0' \
+                'azureml-mlflow==1.36.0' \
+                'azureml-telemetry==1.36.0' \
                 'scikit-learn==0.24.1'
 
 # This is needed for mpi to locate libpython
@@ -165,7 +165,7 @@ ENV LD_LIBRARY_PATH $AZUREML_CONDA_ENVIRONMENT_PATH/lib:$LD_LIBRARY_PATH
 The following Dockerfile can be customized for your personal workflows.
 
 ```dockerfile
-FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211029.v1
+FROM mcr.microsoft.com/azureml/openmpi4.1.0-cuda11.0.3-cudnn8-ubuntu18.04:20211111.v1
 
 ENV AZUREML_CONDA_ENVIRONMENT_PATH /azureml-envs/tensorflow-2.4
 
@@ -185,10 +185,10 @@ RUN HOROVOD_WITH_TENSORFLOW=1 \
                 'scipy>=1.5,<1.6' \
                 'numpy>=1.10,<1.20' \
                 'ipykernel~=6.0' \
-                'azureml-core==1.35.0.post1' \
-                'azureml-defaults==1.35.0' \
-                'azureml-mlflow==1.35.0' \
-                'azureml-telemetry==1.35.0' \
+                'azureml-core==1.36.0.post2' \
+                'azureml-defaults==1.36.0' \
+                'azureml-mlflow==1.36.0' \
+                'azureml-telemetry==1.36.0' \
                 'tensorboard==2.4.0' \
                 'tensorflow-gpu==2.4.1' \
                 'tensorflow-datasets==4.3.0' \

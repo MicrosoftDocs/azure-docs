@@ -19,7 +19,6 @@ ms.custom: devx-track-dotnet
 > * [Java](sql-api-java-application.md)
 > * [Node.js](sql-api-nodejs-application.md)
 > * [Python](./create-sql-api-python.md)
-> * [Xamarin](mobile-apps-with-xamarin.md)
 
 This tutorial shows you how to use Azure Cosmos DB to store and access data from an ASP.NET MVC application that is hosted on Azure. In this tutorial, you use the .NET SDK V3. The following image shows the web page that you'll build by using the sample in this article:
 

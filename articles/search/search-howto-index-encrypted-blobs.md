@@ -1,5 +1,5 @@
 ---
-title: Search over encrypted Azure Blob Storage content
+title: Index encrypted Azure Blob Storage content
 titleSuffix: Azure Cognitive Search
 description: Learn how to index and extract text from encrypted documents in Azure Blob Storage with Azure Cognitive Search.
 
@@ -9,12 +9,12 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 11/19/2021
 ---
 
 # How to index encrypted blobs using blob indexers and skillsets in Azure Cognitive Search
 
-This article shows you how to use [Azure Cognitive Search](search-what-is-azure-search.md) to index documents that have been previously encrypted within [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) using [Azure Key Vault](../key-vault/general/overview.md). Normally, an indexer cannot extract content from encrypted files because it doesn't have access to the encryption key. However, by leveraging the [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) custom skill followed by the [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), you can provide controlled access to the key to decrypt the files and then have content extracted from them. This unlocks the ability to index these documents without compromising the encryption status of your stored documents.
+This article shows you how to use [Azure Cognitive Search](search-what-is-azure-search.md) to index documents that have been previously encrypted within [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) using [Azure Key Vault](../key-vault/general/overview.md). Normally, an indexer cannot extract content from encrypted files because it doesn't have access to the encryption key. However, by leveraging the [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) custom skill, followed by the [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), you can provide controlled access to the key to decrypt the files and then have content extracted from them. This unlocks the ability to index these documents without compromising the encryption status of your stored documents.
 
 Starting with previously encrypted whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage, this guide uses Postman and the Search REST APIs to perform the following tasks:
 

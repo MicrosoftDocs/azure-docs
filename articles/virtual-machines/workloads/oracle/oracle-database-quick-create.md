@@ -8,7 +8,7 @@ ms.collection: linux
 ms.topic: quickstart
 ms.date: 10/05/2020
 ms.author: kegorman
-
+ms.custom: mode-other
 ---
 
 # Create an Oracle Database in an Azure VM

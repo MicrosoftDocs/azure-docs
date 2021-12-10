@@ -33,7 +33,7 @@ In this article, learn how to create and manage Azure ML environments using the 
 
 To run the training examples, first clone the examples repository and change into the `cli` directory:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="git_clone":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="git_clone":::
 
 Note that `--depth 1` clones only the latest commit to the repository which reduces time to complete the operation.
 
@@ -63,7 +63,7 @@ To define an environment from a Docker image, provide the image URI of the image
 
 The following example is a YAML specification file for an environment defined from a Docker image. An image from the official PyTorch repository on Docker Hub is specified via the `image` property in the YAML file.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image.yml":::
 
 To create the environment:
 
@@ -84,7 +84,7 @@ The following example is a YAML specification file for an environment defined fr
 
 In this example, the build context contains a Dockerfile named `Dockerfile` and a `requirements.txt` file that is referenced within the Dockerfile for installing Python packages.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-context.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-context.yml":::
 
 To create the environment:
 
@@ -98,11 +98,11 @@ Azure ML will start building the image from the build context when the environme
 
 You can define an environment using a standard conda YAML configuration file that includes the dependencies for the conda environment. See [Creating an environment manually](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html#creating-an-environment-file-manually) for information on this standard format.
 
-You must also specify a base Docker image for this environment. Azure ML will build the conda environment on top of the Docker image provided.
+You must also specify a base Docker image for this environment. Azure ML will build the conda environment on top of the Docker image provided. If you install some Python dependencies in your Docker image, those packages will not exist in the execution environment thus causing runtime failures. By default, Azure ML will build a Conda environment with dependencies you specified, and will execute the run in that environment instead of using any Python libraries that you installed on the base image.
 
 The following example is a YAML specification file for an environment defined from a conda specification. Here the relative path to the conda file from the Azure ML environment YAML file is specified via the `conda_file` property. You can alternatively define the conda specification inline using the `conda_file` property, rather than defining it in a separate file.
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/assets/environment/docker-image-plus-conda.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/assets/environment/docker-image-plus-conda.yml":::
 
 To create the environment:
 

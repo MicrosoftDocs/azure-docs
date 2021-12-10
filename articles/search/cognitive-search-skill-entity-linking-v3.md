@@ -7,7 +7,7 @@ manager: jennmar
 author: ayokande
 ms.author: aakande
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 

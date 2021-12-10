@@ -4,7 +4,7 @@ description: This quickstart provides a Ruby code sample you can use to connect 
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019

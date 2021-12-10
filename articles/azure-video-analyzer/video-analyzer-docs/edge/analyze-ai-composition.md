@@ -39,9 +39,9 @@ After completing the steps in this guide, you'll be able to run a simulated live
 
 Since you have already completed the quickstart specified in the prerequisite section, you will have an edge device already created. This edge device will have the following input folder - /home/localedgeuser/samples/input- that includes certain video files. Log into the IoT Edge device, change to the directory to: /home/localedgeuser/samples/input/ and run the following command to get the input file we will be using for this how to guide.
 
-wget https://lvamedia.blob.core.windows.net/public/co-final.mkv
+wget https://avamedia.blob.core.windows.net/public/co-final.mkv
 
-Additionally, if you like, on your machine that has [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N and then paste a link to [sample video (.mkv)](https://lvamedia.blob.core.windows.net/public/co-final.mkv) to start playback. You see the footage of cars on a freeway.
+Additionally, if you like, on your machine that has [VLC media player](https://www.videolan.org/vlc/), select Ctrl+N and then paste a link to [sample video (.mkv)](https://avamedia.blob.core.windows.net/public/co-final.mkv) to start playback. You see the footage of cars on a freeway.
 
 ## Create and deploy the pipeline
 

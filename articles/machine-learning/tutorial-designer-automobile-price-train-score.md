@@ -192,7 +192,7 @@ Splitting data is a common task in machine learning. You will split your data in
 1. Connect the left port of the **Clean Missing Data** component to the **Split Data** component.
 
     > [!IMPORTANT]
-    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the the cleaned data. The right port contains the discarded data.
+    > Be sure that the left output ports of **Clean Missing Data** connects to **Split Data**. The left port contains the cleaned data. The right port contains the discarded data.
 
 1. Select the **Split Data** component.
 
@@ -217,9 +217,9 @@ Train the model by giving it a dataset that includes the price. The algorithm co
 1. Connect the output of the **Linear Regression** component to the left input of the **Train Model** component.
 
 1. Connect the training data output (left port) of the **Split Data** component to the right input of the **Train Model** component.
-    
+
     > [!IMPORTANT]
-    > Be sure that the left output ports of **Split Data** connects to **Train Model**. The left port contains the the training set. The right port contains the test set.
+    > Be sure that the left output ports of **Split Data** connects to **Train Model**. The left port contains the training set. The right port contains the test set.
 
     :::image type="content" source="./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png" alt-text="Screenshot showing the correct configuration of the Train Model component. The Linear Regression component connects to left port of Train Model component and the Split Data component connects to right port of Train Model.":::
 

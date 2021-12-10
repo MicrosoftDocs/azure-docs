@@ -61,7 +61,7 @@ If you register a file dataset, the output port type of the dataset is **AnyDire
 - Currently you can only visualize tabular dataset in the designer. If you register a file dataset outside designer, you cannot visualize it in the designer canvas.
 - Currently the designer only supports preview outputs which are stored in **Azure blob storage**. You can check and change your output datastore in the **Output settings** under **Parameters** tab in the right panel of the component.
 - If your data is stored in virtual network (VNet) and you want to preview, you need to enable workspace managed identity of the datastore.
-    1. Go the the related datastore and click **Update authentication**
+    1. Go the related datastore and click **Update authentication**
     :::image type="content" source="./media/resource-known-issues/datastore-update-credential.png" alt-text="Update Credentials":::
     1. Select **Yes** to enable workspace managed identity.
     :::image type="content" source="./media/resource-known-issues/enable-workspace-managed-identity.png" alt-text="Enable Workspace Managed Identity":::

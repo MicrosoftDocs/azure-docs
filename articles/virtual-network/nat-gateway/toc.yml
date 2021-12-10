@@ -23,7 +23,7 @@ items:
   expanded: true
 - name: Concepts
   items:
-  - name: Resource
+  - name: Resources
     href: nat-gateway-resource.md
   - name: Metrics and alerts
     href: nat-metrics.md
@@ -78,3 +78,5 @@ items:
     href: https://azure.microsoft.com/pricing/calculator/
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-virtual-network
+  - name: FAQ
+    href: faq.yml

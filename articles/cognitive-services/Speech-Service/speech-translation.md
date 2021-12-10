@@ -38,7 +38,7 @@ See the [quickstart](get-started-speech-translation.md) to get started with spee
 
 ## Sample code
 
-Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and single-shot recognition/translation, and working with custom models.
+Sample code for the Speech SDK is available on GitHub. These samples cover common scenarios like reading audio from a file or stream, continuous and at-start recognition/translation, and working with custom models.
 
 * [Speech-to-text and translation samples (SDK)](https://github.com/Azure-Samples/cognitive-services-speech-sdk)
 

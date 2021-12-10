@@ -6,7 +6,7 @@ ms.subservice: dsc
 keywords: dsc, configuration, automation
 ms.date: 09/01/2021
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ---
 
 # Configure a VM with Desired State Configuration

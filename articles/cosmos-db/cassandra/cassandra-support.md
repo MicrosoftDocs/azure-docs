@@ -182,11 +182,11 @@ Azure Cosmos DB supports the following database commands on Cassandra API accoun
 | Component  |Supported |
 |---------|---------|
 | DELETE IF EXISTS | Yes |
-| DELETE conditions | No |
+| DELETE conditions | Yes |
 | INSERT IF NOT EXISTS | Yes |
 | UPDATE IF EXISTS | Yes |
 | UPDATE IF NOT EXISTS | Yes |
-| UPDATE conditions | No |
+| UPDATE conditions | Yes |
 
 > [!NOTE]
 > Lightweight transactions currently aren't supported for accounts that have multi-region writes enabled.

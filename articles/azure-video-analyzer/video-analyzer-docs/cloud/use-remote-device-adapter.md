@@ -101,7 +101,7 @@ To list all of the remote device adapters that are set, invoke the **remoteDevic
 
 ## Create pipeline topology in the Video Analyzer service
 
-When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology. See an example of such a [pipeline topology](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/topologies/cloud-record-camera-behind-firewall).  
+When creating a cloud pipeline topology to ingest from a camera behind a firewall, tunneling must be enabled on the RTSP source node of the pipeline topology. See an example of such a [pipeline topology](https://github.com/Azure/video-analyzer/tree/main/pipelines/live/cloud-topologies/cloud-record-camera-behind-firewall).
 
 
 The following values, based on the IoT device created in the previous instructions, are required to enable tunneling on the RTSP source node:

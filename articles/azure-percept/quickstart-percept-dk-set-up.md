@@ -6,7 +6,7 @@ ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: quickstart
 ms.date: 03/17/2021
-ms.custom: template-quickstart 
+ms.custom: template-quickstart, mode-other
 ---
 
 # Set up the Azure Percept DK device
@@ -59,7 +59,7 @@ To verify if your Azure account is an “owner” or “contributor” within th
     > [!WARNING]
     > While connected to the Azure Percept DK's Wi-Fi access point, your host computer will temporarily lose its connection to the Internet. Active video conference calls, web streaming, or other network-based experiences will be interrupted.
 
-1. Once connected to the dev kit’s Wi-Fi access point, the host computer will automatically launch the setup experience in a new browser window with **your.new.device/** in the address bar. If the tab does not open automatically, launch the setup experience by going to [http://10.1.1.1](http://10.1.1.1) in a web browser. Make sure your browser is signed in with the same Azure account credentials you intend to use with Azure Percept.
+1. Once connected to the dev kit’s Wi-Fi access point, the host computer should automatically launch the setup experience in a new browser window with **your.new.device/** in the address bar. If the tab does not open automatically, launch the setup experience by going to [http://10.1.1.1](http://10.1.1.1) in a web browser. Make sure your browser is signed in with the same Azure account credentials you intend to use with Azure Percept.
 
     :::image type="content" source="./media/quickstart-percept-dk-setup/main-welcome.png" alt-text="Welcome page.":::
 
