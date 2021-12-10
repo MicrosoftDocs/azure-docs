@@ -45,7 +45,7 @@ The Azure API for FHIR supports the following query parameters. All of these par
 
 ## Processing patient links
 
-On a patient resource, there's an element called link, which links a patient to other patients or related persons. These linked patients help give a holistic view of the original patient. The link reference can be used when a patient is replacing another patient or when two patient resources have complimentary information. One use case for links is when an ADT 38 or 39 HL7v2 message comes. The ADT38/39 describe an update to a patient. This update can be stored as a reference between two patients in the link element.
+On a patient resource, there's an element called link, which links a patient to other patients or related persons. These linked patients help give a holistic view of the original patient. The link reference can be used when a patient is replacing another patient or when two patient resources have complementary information. One use case for links is when an ADT 38 or 39 HL7v2 message comes. The ADT38/39 describe an update to a patient. This update can be stored as a reference between two patients in the link element.
 
 The FHIR specification has a detailed overview of the different types of [patient links](https://www.hl7.org/fhir/valueset-link-type.html#expansion), but below is a high-level summary:
 
