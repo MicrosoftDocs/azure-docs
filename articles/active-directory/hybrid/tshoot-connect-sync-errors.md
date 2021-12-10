@@ -200,9 +200,9 @@ When an attribute exceeds the allowed size limit, length limit or count limit se
 * thumbnailPhoto
 * proxyAddresses
 
-Except for a hard-coded limit of 15 certificates in UserCertificate attribute, there are no limits per attribute imposed by Azure AD. There is however a size limit for the whole object so when Azure AD Connect tries to synchronize an object that exceeds this object size limit, an export error is thrown.
-All attributes contribute to the object final size and some attributes have different weight multipliers due to additional processing overhead (e.g., indexed values). Additionally, different cloud services, service plans and licenses may be assigned to the account which consumes even more attributes that also contribute to the overall size of the object. 
-Therefore, it's not possible to determine exactly how many entries can an attribute hold in Azure AD (for example, how many smtp addresses can fit in ProxyAddresses), because that depends on the size and multiplying factors of all the attributes populated in the object.
+Azure AD does not impose limits per attribute, except for a hard-coded limit of 15 certificates in UserCertificate attribute and up to 100 attributes for [Directory extensions](how-to-connect-sync-feature-directory-extensions.md) with a maximum of 250 characters for each directory extension. However, there is a size limit for the whole object so when Azure AD Connect tries to synchronize an object that exceeds this object size limit, an export error is thrown.
+All attributes contribute to the object's final size and some attributes have different weight multipliers due to additional processing overhead (e.g., indexed values). Additionally, different cloud services, service plans, and licenses may be assigned to the account which consumes even more attributes that also contribute to the overall size of the object. 
+Therefore, it's not possible to determine exactly how many entries can an attribute hold in Azure AD (for example, how many SMTP addresses can fit in ProxyAddresses), because that depends on the size and multiplying factors of all the attributes populated in the object.
 
 ### Possible Scenarios
 
