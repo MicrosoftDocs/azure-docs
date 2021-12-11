@@ -43,7 +43,7 @@ In this tutorial you will learn how to:
    sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
    ```
    
-1. Enter your IoT device's module (or device, depending on how you (provisioned the device with Device Update)[device-update-agent-provisioning.md]) primary connection string in the configuration file by running the command below.
+1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md) primary connection string in the configuration file by running the command below.
 
    ```markdown
    /etc/adu/du-config.json
@@ -54,8 +54,7 @@ In this tutorial you will learn how to:
    ```sh
    sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>
 
-   # For example
-   # sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
+   # For example sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
    ```
 
 1. Restart the Device Update agent by running the command below.
@@ -71,7 +70,7 @@ Device Update for Azure IoT Hub software is subject to the following license ter
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
 
 > [!NOTE] 
-> After your testing with the simulator run the below command to invoke the APT handler and (deploy over-the-air Package Updates)[device-update-ubuntu-agent.md]
+> After your testing with the simulator run the below command to invoke the APT handler and [deploy over-the-air Package Updates](device-update-ubuntu-agent.md)
 
 ```sh
 # sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
@@ -97,22 +96,22 @@ Start Device Update Agent on your new Software Devices.
 1. Start Ubuntu.
 2. Run the Device Update Agent and specify the device connection string from the previous section wrapped with apostrophes:
 
-Replace `<device connection string>` with your connection string
-```shell
-sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
-```
+   Replace `<device connection string>` with your connection string
+   ```shell
+   sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
+   ```
 
-or
+   or
 
-```shell
-./AducIotAgentSim-microsoft-apt -c '<device connection string>'
-```
+   ```shell
+   ./AducIotAgentSim-microsoft-apt -c '<device connection string>'
+   ```
 
 3. Scroll up and look for the string indicating that the device is in "Idle" state. An "Idle" state signifies that the device is ready for service commands:
 
-```markdown
-Agent running. [main]
-```
+   ```markdown
+   Agent running. [main]
+   ```
 
 ## Add a tag to your device
 
@@ -124,11 +123,11 @@ Agent running. [main]
 
 4. Add a new Device Update tag value as shown below.
 
-```JSON
-    "tags": {
-            "ADUGroup": "<CustomTagValue>"
-            }
-```
+   ```JSON
+       "tags": {
+               "ADUGroup": "<CustomTagValue>"
+               }
+   ```
 
 ## Import update
 
@@ -147,7 +146,7 @@ Agent running. [main]
 
 7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
   
-  :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
+   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 
 8. Select "Submit" to start the import process.
 
