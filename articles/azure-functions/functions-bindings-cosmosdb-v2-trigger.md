@@ -265,20 +265,8 @@ Here's the Python code:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-# [C#](#tab/csharp)
-
 Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute to define the function. C# script instead uses a function.json configuration file.
 
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
-
--->
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDBTrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.CosmosDB/Trigger/CosmosDBTriggerAttribute.cs) attribute.
 
 The attribute's constructor takes the database name and collection name. For information about those settings and other properties that you can configure, see [Trigger - configuration](#configuration).
@@ -592,10 +580,10 @@ The following table explains the binding configuration properties that you set i
 |**type** | Must be set to `cosmosDBTrigger`. |
 |**direction** | Must be set to `in`. This parameter is set automatically when you create the trigger in the Azure portal. |
 |**name** | The variable name used in function code that represents the list of documents with changes. |
-|**connectionStringSetting** <br> or <br> **connection** <br> **ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account being monitored. See [Connections](#connections) <br><br> In [version 4.x of the extension] this property is called `connection`. |
+|**connectionStringSetting** <br> or <br> **connection** <br> **ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account being monitored. <br><br> In [version 4.x of the extension] this property is called `connection`. |
 |**databaseName** <br> **DatabaseName**  | The name of the Azure Cosmos DB database with the collection being monitored. |
 |**collectionName** <br> or <br> **containerName** <br> **CollectionName** <br> or <br> **ContainerName** | The name of the collection being monitored. <br><br> In [version 4.x of the extension] this property is called `ContainerName`. |
-|**leaseConnectionStringSetting** <br> or <br> **leaseConnection** <br> **LeaseConnectionStringSetting** <br> or <br> **LeaseConnection** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease collection. See [Connections](#connections) <br><br> When not set, the `connectionStringSetting` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases collection must have write permissions. <br><br> In [version 4.x of the extension] this property is called `leaseConnection`, and if not set the `connection` value will be used. |
+|**leaseConnectionStringSetting** <br> or <br> **leaseConnection** <br> **LeaseConnectionStringSetting** <br> or <br> **LeaseConnection** | (Optional) The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account that holds the lease collection. <br><br> When not set, the `connectionStringSetting` value is used. This parameter is automatically set when the binding is created in the portal. The connection string for the leases collection must have write permissions. <br><br> In [version 4.x of the extension] this property is called `leaseConnection`, and if not set the `connection` value will be used. |
 |**leaseDatabaseName** or **LeaseDatabaseName** | (Optional) The name of the database that holds the collection used to store leases. When not set, the value of the `databaseName` setting is used. This parameter is automatically set when the binding is created in the portal. |
 |**leaseCollectionName** <br> or <br> **leaseContainerName** <br> **LeaseCollectionName** <br> or <br> **LeaseContainerName** | (Optional) The name of the collection used to store leases. When not set, the value `leases` is used. <br><br> In [version 4.x of the extension] this property is called `LeaseContainerName`. |
 |**createLeaseCollectionIfNotExists** <br> or <br> **createLeaseContainerIfNotExists** <br> **CreateLeaseCollectionIfNotExists** <br> or <br> **CreateLeaseContainerIfNotExists** | (Optional) When set to `true`, the leases collection is automatically created when it doesn't already exist. The default value is `false`. <br><br> In [version 4.x of the extension] this property is called `CreateLeaseContainerIfNotExists`. |
@@ -624,6 +612,7 @@ The trigger requires a second collection that it uses to store _leases_ over the
 > If multiple functions are configured to use a Cosmos DB trigger for the same collection, each of the functions should use a dedicated lease collection or specify a different `LeaseCollectionPrefix` for each function. Otherwise, only one of the functions will be triggered. For information about the prefix, see the [Configuration section](#configuration).
 
 The trigger doesn't indicate whether a document was updated or inserted, it just provides the document itself. If you need to handle updates and inserts differently, you could do that by implementing timestamp fields for insertion or update.
+::: zone-end 
 
 ## Next steps
 

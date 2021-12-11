@@ -894,12 +894,29 @@ The following table explains the binding configuration properties for C# script 
 |**type**     | Must be set to `cosmosDB`. |
 |**name**     | Name of the binding parameter that represents the document in the function.  |
 |**databaseName** | The database containing the collection where the document is created.     |
-|**connectionStringSetting** <br> or <br> **connection**   **ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account. See [Connections](#connections) <br><br> In [version 4.x of the extension] this property is called `connection`. |
+|**connectionStringSetting** <br> or <br> **connection**   **ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account. <br><br> In [version 4.x of the extension] this property is called `connection`. |
 
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
+# [Java](#tab/java)
+
+The `CosmosDBOutput` annotation is available to write data to Cosmos DB. You can apply the annotation to the function or to an individual function parameter. When used on the function method, the return value of the function is what is written to Cosmos DB. If you use the annotation with a parameter, the parameter's type must be declared as an `OutputBinding<T>` where `T` a native Java type or a POJO.
+
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
+
+---
 ## Annotations
 
 The `CosmosDBOutput` annotation is available to write data to Cosmos DB. You can apply the annotation to the function or to an individual function parameter. When used on the function method, the return value of the function is what is written to Cosmos DB. If you use the annotation with a parameter, the parameter's type must be declared as an `OutputBinding<T>` where `T` a native Java type or a POJO.
@@ -919,7 +936,7 @@ The following table explains the binding configuration properties that you set i
 |**createIfNotExists**  **CreateIfNotExists**    | A boolean value to indicate whether the collection is created when it doesn't exist. The default is *false* because new collections are created with reserved throughput, which has cost implications. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/cosmos-db/).  |
 |**partitionKey** <br> **PartitionKey** |When `CreateIfNotExists` is true, it defines the partition key path for the created collection.|
 |**collectionThroughput** <br> or <br> **containerThroughput** **CollectionThroughput** <br> or <br> **ContainerThroughput**| When `CreateIfNotExists` is true, it defines the [throughput](../cosmos-db/set-throughput.md) of the created collection. <br><br> In [version 4.x of the extension] this property is called `ContainerThroughput`. |
-|**connectionStringSetting** <br> or <br> **connection**   **ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account. See [Connections](#connections) <br><br> In [version 4.x of the extension] this property is called `connection`. |
+|**connectionStringSetting** <br> or <br> **connection**   **ConnectionStringSetting** <br> or <br> **Connection**| The name of an app setting or setting collection that specifies how to connect to the Azure Cosmos DB account. <br><br> In [version 4.x of the extension] this property is called `connection`. |
 |**preferredLocations** **PreferredLocations**| (Optional) Defines preferred locations (regions) for geo-replicated database accounts in the Azure Cosmos DB service. Values should be comma-separated. For example, "East US,South Central US,North Europe". |
 |**useMultipleWriteLocations** **UseMultipleWriteLocations**| (Optional) When set to `true` along with `PreferredLocations`, it can leverage [multi-region writes](../cosmos-db/how-to-manage-database-account.md#configure-multiple-write-regions) in the Azure Cosmos DB service. <br><br> This property is not available in [version 4.x of the extension]. |
 ::: zone-end  
