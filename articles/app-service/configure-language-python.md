@@ -1,10 +1,10 @@
 ---
 title: Configure Linux Python apps
-description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI. 
+description: Learn how to configure the Python container in which web apps are run, using both the Azure portal and the Azure CLI.
 ms.topic: quickstart
 ms.date: 06/11/2021
 ms.reviewer: astay; kraigb
-ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli
+ms.custom: mvc, seodec18, devx-track-python, devx-track-azurecli, mode-other
 ---
 
 # Configure a Linux Python app for Azure App Service

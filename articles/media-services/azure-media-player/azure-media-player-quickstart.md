@@ -6,6 +6,7 @@ ms.author: inhenkel
 ms.service: media-services
 ms.topic: quickstart
 ms.date: 04/05/2021
+ms.custom: mode-other
 ---
 
 # Azure Media Player quickstart

@@ -5,13 +5,13 @@ description: Learn how to manage identities and access tokens using the Azure Co
 author: tomaschladek
 manager: nmurav
 services: azure-communication-services
-
 ms.author: tchladek
 ms.date: 11/17/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: identity
 zone_pivot_groups: acs-js-csharp-java-python
+ms.custom: mode-other
 ---
 
 # Quickstart: Create and manage access tokens
@@ -58,6 +58,10 @@ Successfully revoked all access tokens for identity with ID: 8:acs:4ccc92c8-9815
 Deleted the identity with ID: 8:acs:4ccc92c8-9815-4422-bddc-ceea181dc774_00000006-19e0-2727-80f5-8b3a0d003502
 ```
 <!---cSpell:enable --->
+
+## Using identity for monitoring and metrics
+
+The user ID is intended to act as a primary key for logs and metrics collected through Azure Monitor. If you'd like to get a view of all of a specific user's calls, for example, you should set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a singular user. Learn more about [authentication concepts](../concepts/authentication.md), call diagnostics through [log analytics](../concepts/analytics/log-analytics.md), and [metrics](../concepts/metrics.md) available to you.
 
 ## Clean up resources
 

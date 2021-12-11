@@ -31,7 +31,7 @@ Symmetric key attestation is a simple approach to authenticating a device with a
 <!-- Cloud resources prerequisites H3 and content -->
 [!INCLUDE [iot-edge-prerequisites-at-scale-cloud-resources.md](../../includes/iot-edge-prerequisites-at-scale-cloud-resources.md)]
 
-### IoT Edge installation
+### Device requirements
 
 A physical or virtual Linux device to be the IoT Edge device.
 

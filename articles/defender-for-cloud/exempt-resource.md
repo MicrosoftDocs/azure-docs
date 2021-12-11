@@ -1,13 +1,8 @@
 ---
 title: Exempt a Microsoft Defender for Cloud recommendation from a resource, subscription, management group, and secure score
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
-author: memildin
-ms.author: memildin
-ms.date: 11/18/2021
 ms.topic: how-to
-ms.service: defender-for-cloud
-manager: rkarlin
-
+ms.date: 11/18/2021
 ---
 
 # Exempting resources and recommendations from your secure score 
@@ -30,7 +25,7 @@ In such cases, you can create an exemption for a recommendation to:
 
 | Aspect                          | Details                                                                                                                                                                                                                                                                                                                            |
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
+| Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Pricing:                        | This is a premium Azure Policy capability that's offered at no additional cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.                                                                                                                                                                 |
 | Required roles and permissions: | **Owner** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
 | Limitations:                    | Exemptions can be created only for recommendations included in Defender for Cloud's default initiative, [Azure Security Benchmark](/security/benchmark/azure/introduction), or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives cannot be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |

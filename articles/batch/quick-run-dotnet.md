@@ -1,9 +1,9 @@
 ---
-title: Quickstart - Run your first Azure Batch job with the .NET API 
-description: In this quickstart, you run an Azure Batch sample job and tasks from a C# application with the Batch .NET client library.
+title: Quickstart - Run your first Azure Batch job with the .NET API
+description: "In this quickstart, you run an Azure Batch sample job and tasks from a C# application with the Batch .NET client library."
 ms.topic: quickstart
 ms.date: 05/25/2021
-ms.custom: "mvc, devx-track-csharp"
+ms.custom: mvc, devx-track-csharp, mode-other
 ---
 
 # Quickstart: Run your first Azure Batch job with the .NET API

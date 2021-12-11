@@ -6,7 +6,7 @@ ms.author: mbaldwin
 ms.date: 04/27/2021
 ms.service: confidential-ledger
 ms.topic: quickstart
-ms.custom: "devx-track-python, devx-track-azurepowershell"
+ms.custom: devx-track-python, devx-track-azurepowershell, mode-other
 ---
 
 # Quickstart: Microsoft Azure confidential ledger client library for Python
@@ -198,6 +198,7 @@ The print function will return "Hello world!", as that is the message in the led
 ## Full sample code
 
 ```python
+import time
 from azure.identity import DefaultAzureCredential
 
 ## Import control plane sdk
@@ -209,6 +210,7 @@ from azure.mgmt.confidentialledger.models import ConfidentialLedger
 
 from azure.confidentialledger import ConfidentialLedgerClient
 from azure.confidentialledger.identity_service import ConfidentialLedgerIdentityServiceClient
+from azure.confidentialledger import TransactionState
 
 # Set variables
 
@@ -217,7 +219,7 @@ ledger_name = "<unique-ledger-name>"
 subscription_id = "<azure-subscription-id>"
 
 identity_url = "https://identity.confidential-ledger.core.azure.com"
-ledger_url = "https://" + ledger_name + ".eastus.cloudapp.azure.com"
+ledger_url = "https://" + ledger_name + ".confidential-ledger.azure.com"
 
 # Authentication
 
@@ -249,6 +251,9 @@ ledger_properties = ConfidentialLedger(**properties)
 # Create a ledger
 
 foo = confidential_ledger_mgmt.ledger.begin_create(rg, ledger_name, ledger_properties)
+  
+# wait until ledger is created
+foo.wait()
 
 # Get the details of the ledger you just created
 
@@ -284,6 +289,14 @@ ledger_client = ConfidentialLedgerClient(
 # Write to the ledger
 append_result = ledger_client.append_to_ledger(entry_contents="Hello world!")
 print(append_result.transaction_id)
+  
+# Wait until transaction is committed on the ledger
+while True:
+    commit_result = ledger_client.get_transaction_status(append_result.transaction_id)
+    print(commit_result.state)
+    if (commit_result.state == TransactionState.COMMITTED):
+        break
+    time.sleep(1)
 
 # Read from the ledger
 entry = ledger_client.get_ledger_entry(transaction_id=append_result.transaction_id)

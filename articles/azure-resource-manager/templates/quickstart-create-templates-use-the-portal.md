@@ -5,8 +5,7 @@ author: mumian
 ms.date: 04/27/2021
 ms.topic: quickstart
 ms.author: jgao
-ms.custom: contperf-fy21q3
-
+ms.custom: contperf-fy21q3, mode-portal
 #Customer intent: As a developer new to Azure deployment, I want to learn how to use the Azure portal to create and edit Resource Manager templates, so I can use the templates to deploy Azure resources.
 ---
 

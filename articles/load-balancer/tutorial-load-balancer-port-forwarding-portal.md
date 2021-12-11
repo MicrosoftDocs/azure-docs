@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: load-balancer
 ms.topic: tutorial
-ms.date: 8/26/2021
+ms.date: 12/06/2021
 ms.custom: template-tutorial
 ---
 
@@ -15,6 +15,8 @@ ms.custom: template-tutorial
 # Tutorial: Configure port forwarding in Azure Load Balancer using the Azure portal
 
 Port forwarding lets you connect to virtual machines (VMs) in an Azure virtual network by using an Azure Load Balancer public IP address and port number. 
+
+For more information about Azure Load Balancer rules, see [Manage rules for Azure Load Balancer using the Azure portal](manage-rules-how-to.md).
 
 In this tutorial, you learn how to:
 
@@ -103,6 +105,8 @@ A virtual network and subnet is required for the resources in the tutorial. In t
 ## Create NAT gateway
 
 In this section, you'll create a NAT gateway for outbound internet access for resources in the virtual network. 
+
+For more information about outbound connections and Azure Virtual Network NAT, see [Using Source Network Address Translation (SNAT) for outbound connections](load-balancer-outbound-connections.md) and [What is Virtual Network NAT?](../virtual-network/nat-gateway/nat-overview.md).
 
 1. In the search box at the top of the portal, enter **NAT gateway**. Select **NAT gateways** in the search results.
 
@@ -234,6 +238,8 @@ You'll create a load balancer in this section. The frontend IP, backend pool, lo
     | TCP reset | Select **Enabled**. |
     | Floating IP | Select **Disabled**. |
     | Outbound source network address translation (SNAT) | Leave the default of **(Recommended) Use outbound rules to provide backend pool members access to the internet.** |
+
+    For more information about load-balancing rules, see [Load-balancing rules](manage-rules-how-to.md#load-balancing-rules).
 
 25. Select **Add**.
 

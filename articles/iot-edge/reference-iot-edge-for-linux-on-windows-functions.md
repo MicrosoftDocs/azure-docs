@@ -45,6 +45,45 @@ If you don't have the **AzureEflow** folder in your PowerShell directory, use th
    Set-ExecutionPolicy -ExecutionPolicy AllSigned -Force
    ```
 
+## Add-EflowNetwork
+
+The **Add-EflowNetwork** command adds a new network to the EFLOW virtual machine. This command takes two parameters. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+| vswitchType | **Internal** or **External** | Type of the virtual switch assigned to the EFLOW VM. |
+
+It returns an object that contains four properties:
+
+* Name
+* AllocationMethod
+* Cidr
+* Type
+
+For more information, use the command `Get-Help Add-EflowNetwork -full`.
+
+## Add-EflowVmEndpoint
+
+The **Add-EflowVmEndpoint** command adds a new network endpoint to the EFLOW virtual machine. Use the optional parameters to set a Static IP.
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+| vendpointName | Name of the virtual endpoint | Name of the virtual endpoint assigned to the EFLOW VM. |
+| ip4Address | IPv4 Address in the range of the DCHP Server Scope | Static Ipv4 address of the EFLOW VM. |
+| ip4PrefixLength | IPv4 Prefix Length of the subnet | Ipv4 subnet prefix length, only valid when static Ipv4 address is specified. |
+| ip4GatewayAddress | IPv4 Address of the subnet gateway | Gateway Ipv4 address, only valid when static Ipv4 address is specified. |
+
+It returns an object that contains four properties:
+
+* Name
+* MacAddress
+* HealthStatus
+* IpConfiguration
+
+For more information, use the command `Get-Help Add-EflowVmEndpoint -full`.
+
 ## Connect-EflowVm
 
 The **Connect-EflowVm** command connects to the virtual machine using SSH. The only account allowed to SSH to the virtual machine is the user that created it.
@@ -55,7 +94,7 @@ For more information, use the command `Get-Help Connect-EflowVm -full`.
 
 ## Copy-EflowVmFile
 
-The **Copy-EflowVmFile** command copies file to or from the virtual machine using SCP. Use the optional parameters to specify the source and destination file paths as well as the direction of the copy.
+The **Copy-EflowVmFile** command copies file to or from the virtual machine using SCP. Use the optional parameters to specify the source and destination file paths and the direction of the copy.
 
 The user **iotedge-user** must have read permission to any origin directories or write permission to any destination directories on the virtual machine.
 
@@ -106,11 +145,29 @@ The **Get-EflowLogs** command collects and bundles logs from the IoT Edge for Li
 
 For more information, use the command `Get-Help Get-EflowLogs -full`.
 
+## Get-EflowNetwork
+
+The **Get-EflowNetwork** command returns a list of the networks assigned to the EFLOW virtual machine. Use the optional parameter to get a specific network. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+
+It returns a list of objects that contains four properties:
+
+* Name
+* AllocationMethod
+* Cidr
+* Type
+
+For more information, use the command `Get-Help Get-EflowNetwork -full`.
+
 ## Get-EflowVm
 
 The **Get-EflowVm** command returns the virtual machine's current configuration. This command takes no parameters. It returns an object that contains four properties:
 
 * VmConfiguration
+* VmPowerState
 * EdgeRuntimeVersion
 * EdgeRuntimeStatus
 * SystemStatistics
@@ -128,6 +185,25 @@ For more information, use the command `Get-Help Get-EflowVm -full`.
 The **Get-EflowVmAddr** command is used to query the virtual machine's current IP and MAC address. This command exists to account for the fact that the IP and MAC address can change over time.
 
 For additional information, use the command `Get-Help Get-EflowVmAddr -full`.
+
+
+## Get-EflowVmEndpoint
+
+The **Get-EflowVmEndpoint** command returns a list of the network endpoints assigned to the EFLOW virtual machine. Use the optional parameter to get a specific network endpoint. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+
+It returns a list of objects that contains four properties:
+
+* Name
+* MacAddress
+* HealthStatus
+* IpConfiguration
+
+For more information, use the command `Get-Help Get-EflowVmEndpoint -full`.
+
 
 ## Get-EflowVmFeature
 
@@ -190,6 +266,27 @@ The **Provision-EflowVm** command adds the provisioning information for your IoT
 | identityPrivKeyPath | Directory path | Absolute source path of the identity private key on your Windows host machine (**ManualX509**, **DpsX509**). |
 
 For more information, use the command `Get-Help Provision-EflowVm -full`.
+
+## Remove-EflowNetwork
+
+The **Remove-EflowNetwork** command removes an existing network attached to the EFLOW virtual machine. This command takes one parameter. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vswitchName | Name of the virtual switch |  Name of the virtual switch assigned to the EFLOW VM. |
+
+For more information, use the command `Get-Help Remove-EflowNetwork -full`.
+
+## Remove-EflowVmEndpoint
+
+The **Remove-EflowVmEndpoint** command removes an existing network endpoint attached to the EFLOW virtual machine. This command takes one parameter. 
+
+| Parameter | Accepted values | Comments |
+| --------- | --------------- | -------- |
+| vendpointName | Name of the virtual endpoint | Name of the virtual endpoint assigned to the EFLOW VM. |
+
+For more information, use the command `Get-Help Remove-EflowVmEndpoint -full`.
+
 
 ## Set-EflowVM
 

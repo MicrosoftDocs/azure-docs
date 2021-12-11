@@ -122,7 +122,7 @@ If you choose to stream your logs to an event hub, you'll pay for the volume of 
    > [!div class="mx-imgBorder"]
    > ![Diagnostic settings page event hub](media/monitor-blob-storage/diagnostic-logs-settings-pane-event-hub.png)
 
-3. Click the **OK** button, and then select the **Save** button.
+3. Select the **Save** button.
 
 #### Send logs to Azure Log Analytics
 
