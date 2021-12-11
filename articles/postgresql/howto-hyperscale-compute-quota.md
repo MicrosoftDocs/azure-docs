@@ -17,20 +17,20 @@ worker nodes.
 
 ## Request quota increase
 
-* Select **New support request** in the Azure portal menu for your Hyperscale
-  (Citus) server group.
-* Fill out **Summary** with the quota increase request for your region, for
-  example "Quota increase in West Europe region."
-* These fields should be autoselected, but verify:
+1. Select **New support request** in the Azure portal menu for your Hyperscale
+   (Citus) server group.
+2. Fill out **Summary** with the quota increase request for your region, for
+   example "Quota increase in West Europe region."
+3. These fields should be autoselected, but verify:
    * **Issue Type** should be "Technical + your subscription"
    * **Service type** should be "Azure Database for PostgreSQL"
-* Select "Create, Update, and Drop Resources" for **Problem type**.
-* Select "Node compute or storage scaling" for **Problem subtype**.
-* Select **Next: Solutions >>** then **Next: Details >>**
-* In the problem description include two pieces of information:
-   1. The region where you want the quota(s) increased
-   2. Quota increase details, for example "Need to increase worker node quota
-	  in West Europe to 512 vCores"
+4. Select "Create, Update, and Drop Resources" for **Problem type**.
+5. Select "Node compute or storage scaling" for **Problem subtype**.
+6. Select **Next: Solutions >>** then **Next: Details >>**
+7. In the problem description include two pieces of information:
+   * The region where you want the quota(s) increased
+   * Quota increase details, for example "Need to increase worker node quota
+     in West Europe to 512 vCores"
 
 ![support request in Azure portal](media/howto-hyperscale-compute-quota/support-request.png)
 
