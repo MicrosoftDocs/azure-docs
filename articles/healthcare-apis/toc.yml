@@ -41,10 +41,16 @@ items:
              href: register-application.md
            - name: Register a client application using scripts
              href: register-application-cli-rest.md  
+        
+    - name: Grant access permissions
+      expanded: true
+      items:
         - name: Grant access permissions using the portal
           href: configure-azure-rbac.md
-        - name: Get an Access Token
-          href: get-access-token.md
+        - name: Grant access permissions using CLI and REST API
+          href: configure-azure-rbac-using-scripts.md
+    - name: Get an Access Token
+      href: get-access-token.md
     - name: Access using Postman
       href: use-postman.md  
     - name: Access using cURL

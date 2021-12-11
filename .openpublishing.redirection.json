@@ -26519,7 +26519,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-faliure.md",
+      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
       "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
       "redirect_document_id": false
     },
