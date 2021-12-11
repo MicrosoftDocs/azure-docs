@@ -11,19 +11,19 @@ This article lists significant changes to Azure Monitor documentation.
 
 ## November, 2021
 
-## General
+### General
 
 **Updated articles**
 
 - [What is monitored by Azure Monitor?](monitor-reference.md)
 
-## Agents
+### Agents
 
 **Updated articles**
 
 - [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md)
 
-## Alerts
+### Alerts
 
 **Updated articles**
 
@@ -31,7 +31,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [How to update alert rules or alert processing rules when their target resource moves to a different Azure region](alerts/alerts-resource-move.md)
 - [Alert processing rules (preview)](alerts/alerts-action-rules.md)
 
-## Application Insights
+### Application Insights
 
 **Updated articles**
 
@@ -45,7 +45,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Supported languages](app/platforms.md)
 - [What is Distributed Tracing?](app/distributed-tracing.md)
 
-## Containers
+### Containers
 
 **New articles**
 
@@ -55,13 +55,13 @@ This article lists significant changes to Azure Monitor documentation.
 
 - [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](containers/container-insights-enable-arc-enabled-clusters.md)
 
-## Essentials
+### Essentials
 
 **Updated articles**
 
 - [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](essentials/diagnostic-settings.md)
 
-## Insights
+### Insights
 
 **New articles**
 
@@ -72,7 +72,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Enable SQL insights (preview)](insights/sql-insights-enable.md)
 - [Troubleshoot SQL insights (preview)](insights/sql-insights-troubleshoot.md)
 
-## Logs
+### Logs
 
 **Updated articles**
 
@@ -83,7 +83,7 @@ This article lists significant changes to Azure Monitor documentation.
 - [Query data in Azure Monitor using Azure Data Explorer](logs/azure-data-explorer-monitor-proxy.md)
 - [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md)
 
-## Virtual Machines
+### Virtual Machines
 
 **Updated articles**
 
