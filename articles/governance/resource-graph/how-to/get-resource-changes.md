@@ -103,7 +103,7 @@ Each change resource has the following properties:
 
 With Resource Graph, you can query the **ResourceChanges** table to filter or sort by any of the change resource properties:
 
-### All changes in the past 1 day
+### All changes in the past one day
 ```kusto
 ResourceChanges
 | extend changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId),
@@ -134,7 +134,7 @@ ResourceChanges
 | project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
 ```
 
-## Query the latest resource configuration for resources created in the last 7 days
+## Query the latest resource configuration for resources created in the last seven days
 ```kusto
 ResourceChanges
 | extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp)
