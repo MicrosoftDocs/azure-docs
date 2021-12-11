@@ -12,7 +12,7 @@ ms.date: 12/10/2021
 ms.author: v-ydequadros
 ---
 
-# Welcome to the Microsoft CloudKnox Permissions Management installation 
+# Install Microsoft CloudKnox Permissions Management Sentry 
 
 Microsoft CloudKnox Permissions Management Sentry collects the privileges and activity data of all unique identities that can touch the infrastructure from each cloud platform and uploads the data to the Software as a Service (SaaS) portal.
 

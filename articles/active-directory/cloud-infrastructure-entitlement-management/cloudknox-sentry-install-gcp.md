@@ -41,7 +41,7 @@ Inbound traffic to the Sentry is only received on port 9000, and is used for con
 
 | Traffic      | Port | Description                                                                                               |
 | ------------ | ---- | --------------------------------------------------------------------------------------------------------- |
-| TCP Inbound  | 9000 | Configuration. </p>Request this information from the administrators source IP only when you're configuring your system. |
+| TCP Inbound  | 9000 | Configuration. </p>Request this information from the administrators' source IP only when you're configuring your system. |
 | TCP Outbound | 443  | API Calls to AWS, CloudKnox, and identity provider (IDP) integration.                                              |
 
 ## Multi-account collection from one Sentry instance
