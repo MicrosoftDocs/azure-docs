@@ -84,4 +84,5 @@ adjusted independently. Adjust the **storage** slider under  **Configuration
   options](concepts-hyperscale-configuration-options.md).
 - [Rebalance distributed table shards](howto-hyperscale-scale-rebalance.md)
   so that all worker nodes can participate in parallel queries
-- See the sizes of distributed tables, and other [useful diagnostic quries](howto-hyperscale-useful-diagnostic-queries.md).
+- See the sizes of distributed tables, and other [useful diagnostic
+  queries](howto-hyperscale-useful-diagnostic-queries.md).
