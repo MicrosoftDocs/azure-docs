@@ -172,7 +172,7 @@ console.log(`\nSuccessfully revoked all access tokens for identity with ID: ${id
 
 ## Delete an identity
 
-By deleting an identity, you revoke all active access tokens and prevent the further issuance of access tokens for the identity. Doing so also removes all persisted content that's associated with the identity.
+When you delete an identity, you revoke all active access tokens and prevent the further issuance of access tokens for the identity. Doing so also removes all persisted content that's associated with the identity.
 
 ```javascript
 await identityClient.deleteUser(identityResponse);
