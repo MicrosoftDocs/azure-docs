@@ -1,6 +1,6 @@
 ---
 title: Data access policy provisioning for Azure Storage
-description: Step-by-step guide on how to integrate Azure Storage into Azure Purview access policies and allow data owners to build access policies.
+description: Step-by-step guide on how to integrate Azure Storage with Azure Purview to enable data owners to create access policies.
 author: ePpnqeqR
 ms.author: vlrodrig
 ms.service: purview
@@ -82,11 +82,11 @@ If you would like to use a data source to create access policies in Purview, ena
 > - Moving data sources to a different resource group or subscription is not yet supported. If want to do that, de-register the data source in Purview before moving it and then register it again after that happens.
 
 ### Data use governance best practices
-- We highly encourage registering data sources for *Data use governance* and managing all associated access policies from a single Azure Purview account.
-- However, in case you need to have multiple Purview accounts, be aware that all the data sources belonging to a subscription can only be registered for *Data use governance* in a single Purview account. That Purview account itself could be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples follow in the diagram below:
-    - **Case 1** shows a valid configuration where a Storage account is being registered in a Purview account in the same subscription.
-    - **Case 2** shows a valid configuration where a Storage account is being registered in a Purview account in a different subscription. 
-    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are being registered to different Purview accounts. 
+- We highly encourage registering data sources for *Data use governance* and managing all associated access policies in a single Azure Purview account.
+- Should you have multiple Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a single Purview account. That Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
+    - **Case 1** shows a valid configuration where a Storage account is registered in a Purview account in the same subscription.
+    - **Case 2** shows a valid configuration where a Storage account is registered in a Purview account in a different subscription. 
+    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Purview accounts. In that case, the *Data use governance* toggle will only work in the Purview account that wins and registers first a data source in Subscription 3. The toggle will be greyed out for the other data source. 
 
 :::image type="content" source="./media/how-to-access-policies-storage/valid-and-invalid configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Purview accounts to manage policies.":::
 
