@@ -93,7 +93,7 @@ This property provides the name for a specific error. Below is the list of all e
 |Ancestor resources must be fully provisioned before a child resource can be provisioned.|API|The parent workspace is still provisioning.|Wait until the parent workspace provisioning has completed and submit the provisioning request again.
 |`Location` property of child resources must match the `Location` property of parent resources.|API|The IoT connector provisioning request `location` property is different from the parent workspace `location` property.|Set the `location` property of the IoT connector in the provisioning request to the same value as the parent workspace `location` property.
 
-### Destination Resource
+### Destination resource
 
 |Message|Displayed|Condition|Fix| 
 |-------|---------|---------|---|
