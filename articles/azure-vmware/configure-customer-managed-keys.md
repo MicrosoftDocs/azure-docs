@@ -37,13 +37,148 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
 
 ## Prerequisites
 
+# [Portal](#tab/azure-portal)
 
+1. Login to Azure portal.
+    1. Navigate to **Azure VMware Solution** and locate your SDDC.
+    <!-- New image from Rahi to go here -->
+1. Click **Identity** 
+    1. In **System Assigned** check **Enable** and click **Save**.
+     <!-- New image from Rahi to go here -->
+    1. **System Assigned identity** should now be enabled.
+1. To validate, click the **Overview** tab of SDDC.
+1. Find **JSON View** in the upper right corner and select it.
+1. In the **Resource JSON** window, use the **API version** drop down menu to find and select the appropriate API version.
+
+# [Azure CLI](#tab/azure-cli)
+
+Using the JSON file provided below, use the following command to enable MSI on existing SDDC.
+
+- `az deployment group create --name <deployment name> --resource-group <RG Name> --template-file ./filename.json`
+
+    ```json   
+    {
+            "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+            "contentVersion": "1.0.0.0",
+            "variables": {
+                    "name": "SDDC Name",
+                    "location": "eastasia",
+                    "sku": "av36"
+            },
+            "resources": [{
+                    "type": "Microsoft.AVS/privateClouds",
+                    "apiVersion": "2021-12-01",
+                    "name": "[variables('name')]",
+                    "location": "[variables('location')]",
+                    "sku": {
+                            "name": "[variables('sku')]"
+                    },
+                    "properties": {
+                            "managementCluster": {
+                                    "clusterSize": <Number of hosts in a Cluster>
+                            },
+                            "internet": "enabled"
+                            },
+    		"identity": {
+    			"type": "SystemAssigned"
+    			}
+    
+                    }]
+    
+    }
+    ```
+
+# [Windows on ARM](#tab/windows)
+
+Use the JSON file provided below to create an ARM template and enable MSI on pre-existing SDDC or while deploying a new SDDC.
+
+```json
+    {
+        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+        "contentVersion": "1.0.0.0",
+        "parameters": {
+            "apiVersion": {
+                "type": "String",
+                "metadata": {
+                    "description": "Must be 2021-12-01"
+                }
+            },
+            "name": {
+                "type": "String",
+                "metadata": {
+                    "description": "Name of the SDDC"
+                }
+            },
+            "location": {
+                "type": "String",
+                "metadata": {
+                    "description": "Region of SDDC"
+                }
+            },
+            "sku": {
+                "type": "String",
+                "metadata": {
+                    "description": "SKU value of the SDDC"
+                }
+            },
+            "hosts": {
+                "type": "Int",
+                "metadata": {
+                    "description": "Number of hosts in the management cluster"
+                }
+            },
+            "networkBlock": {
+                "type": "String"
+            },
+    
+            "internet": {
+                "type": "String",
+                "allowedValues": [
+                    "enabled",
+                    "disabled"
+                ],
+                "metadata": {
+                    "description": "Internet status"
+                }
+            },
+            "identityType": {
+                "type": "String",
+                "allowedValues": [
+                    "SystemAssigned",
+                    "None"
+                ]
+            }
+        },
+        "resources": [{
+            "type": "Microsoft.AVS/privateClouds",
+            "apiVersion": "[parameters('apiVersion')]",
+            "name": "[parameters('name')]",
+            "location": "[parameters('location')]",
+            "sku": {
+                "name": "[parameters('sku')]"
+            },
+            "properties": {
+                "managementCluster": {
+                    "clusterSize": "[parameters('hosts')]"
+                },
+                "internet": "[parameters('internet')]",
+                "networkBlock": "[parameters('networkBlock')]"
+            },
+            "identity": {
+                "type": "[parameters('identityType')]"
+            }
+        }]
+    }
+     
+```
+---
 
 ## Azure VMware Solution CMK workflow
 
 You can set new key encryptions at any time without service interruption, including Microsoft KEK to customer KEK or from customer KEK to Microsoft KEK. The existing data doesn't get re-encrypted. Instead, a shallow rekey and re-encryption is done to KEKs, and then the data is tagged with the customer-managed key version. Don't delete old keys because they're needed to read data. 
 
 :::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-generation-flow.png" alt-text="Diagram showing the customer managed keys workflow." border="false"lightbox="media/configure-customer-managed-keys/customer-managed-keys-generation-flow.png":::
+
 If a shallow rekey gets initiated from vCenter, the old keys aren't useful. Key Management Interoperability Protocol (KMIP) doesn't have control over which keys vCenter wants to use. If vCenter asks to delete keys, KMIP proxy deletes them. You can keep a record of old keys if that's a compliance requirement. Key Vault doesn't support KMIP, and vCenter doesn't support the Key Vault REST interface. For this reason, a proxy service is in place that enables translation between the two.
 
 Expired KEKs can still be used for rotation flow as the previous key. They unwrap the old data encryption keys so a new encryption key can wrap them. Version checks are done regularly to ensure that Azure VMware Solution always wraps the keys with the latest version. 
