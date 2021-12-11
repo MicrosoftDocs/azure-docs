@@ -215,6 +215,8 @@ After the private endpoint is created, confirm its DNS settings in the portal:
 
 Connect to a virtual machine you set up in the virtual network.
 
+[Need to add step/tip to enable autoregistration in the virtual network link in the private zone configuration.]
+
 Run a utility such as `nslookup` or `dig` to look up the IP address of your default Gateway endpoint over Private Link. For example:
 
 ```
