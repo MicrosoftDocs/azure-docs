@@ -264,9 +264,9 @@ Here is a list of the data sources and/or configurations that have special condi
 
 + If you're viewing your data source's networking page in the Azure portal and you select a private endpoint that you created for your Azure Cognitive Search service to access this data source, you may receive a *No Access* error. This is expected. You can change the status of the connection request via the target service's portal page but to further manage the shared private link resource you need to view the shared private link resource in your search service's network page in the Azure portal.
 
-[Quotas and limits](search-limits-quotas-capacity.md) determine how many shared private link resources can be created and depend on the SKU of the search service.
+  [Quotas and limits](search-limits-quotas-capacity.md) determine how many shared private link resources can be created and depend on the SKU of the search service.
 
-+ If you are experiencing errors after you have followed all the steps listed in [Set up indexer connection through private endpoint](#set-up-indexer-connection-through-private-endpoint), check [Configurations with specific Shared Private Link Resources requirements](#configurations-with-specific-shared-private-link-resources-requirements) in case you are missing a necessary managed outbound private endpoints for your setup.
++ If you are experiencing errors after you have followed all the steps listed in [Set up indexer connection through private endpoint](#set-up-indexer-connection-through-private-endpoint), check [Additional Configuration requirements](#additional-configuration-requirements) in case you are missing a necessary managed outbound private endpoints for your setup.
 
 ## Alternative secure connection method to Azure Storage  
 
