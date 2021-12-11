@@ -527,6 +527,29 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
         - Library resource group -> state storage account -> containers -> tfstate -> Copy the **name** of the Deployer state file.
         - Following from the example above, the name of the blob will be: *MGMT-NOEU-DEP00-INFRASTRUCTURE.terraform.tfstate*
 
+1. If required, register the SPN
+
+    > [!IMPORTANT]
+    > First Time.
+
+    ```bash
+    export subscriptionID="<subscriptionID>"
+    export         spn_id="<appID>"
+    export     spn_secret="<password>"
+    export      tenant_id="<tenant>"
+    export      key_vault="<vaultID>"
+    export       env_code="DEV"
+    export    region_code="NOEU"
+
+    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/set_secrets.sh     \
+        --environment "${env_code}"                           \
+        --region "${region_code}"                             \
+        --vault  "${key_vault}"                               \
+        --subscription "${subscriptionID}"                    \
+        --spn_id "${spn_id}"                                  \
+        --spn_secret "${spn_secret}"                          \
+        --tenant_id "${tenant_id}"
+    ```
 
 ## Prepare the Workload Zone deployment
 
