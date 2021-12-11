@@ -530,7 +530,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 1. If required, register the SPN
 
     > [!IMPORTANT]
-    > First Time.
+    > The first time an Environment is instantiated, a SPN must be registered. In this tutorial the Control Plane is in the MGMT environment, and the Workload Zone is in DEV, therefore an SPN must be registered for DEV at this time.
 
     ```bash
     export subscriptionID="<subscriptionID>"
@@ -571,6 +571,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     cp -Rp ../../sap-automation/training-materials/WORKSPACES/LANDSCAPE/DEV-[REGION]-SAP01-INFRASTRUCTURE .
     ```
 
+
 ## Deploy the Workload Zone
 
 
@@ -600,34 +601,40 @@ Use the [install_workloadzone](bash/automation-install_workloadzone.md) script t
 
     ```bash
 
-    export subscriptionID="<subscriptionID>"
-    export spn_id="<appID>"
-    export spn_secret="<password>"
-    export tenant_id="<tenant>"
     export storage_account="<storageaccountName>"
-    export statefile_subscription="<subscriptionID>"
-    export env_code="DEV"
+    export dep_env_code="MGMT"
+    export sap_env_code="DEV"
     export region_code="NOEU"
     export key_vault=<vaultID>
 
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                          \
-        --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                    \
-        --deployer_environment "MGMT"                                                       \
-        --deployer_tfstate_key "MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate" \
-        --keyvault "${key_vault}"                                                           \
-        --storageaccountname "${storage_account}"                                           \
-        --state_subscription "${statefile_subscription}"                                    \
-        --subscription "${subscriptionID}"                                                  \
-        --spn_id "${spn_id}"                                                                \
-        --spn_secret "${spn_secret}"                                                        \
-        --tenant_id "${tenant_id}"
+    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                     \
+        --parameterfile ./${sap_env_code}-${region_code}-SAP01-INFRASTRUCTURE.tfvars                   \
+        --deployer_environment "${dep_env_code}"                                                       \
+        --deployer_tfstate_key "${dep_env_code}-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate" \
+        --keyvault "${key_vault}"                                                                      \
+        --storageaccountname "${storage_account}"                                                      \
+        --auto-approve
     ```
 
     The workload zone deployment should start automatically.
 
     Wait for the deployment to finish. The new resource group appears in the Azure portal.
+
+
+## Prepare to deploy the SAP system infrastructure
+
+1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
+
+1. Go into the *WORKSPACES/SYSTEM* folder and copy the sample configuration files that you will be using from from the repository.
+
+    ```bash
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM
+
+    cp -Rp ../../sap-automation/training-materials/WORKSPACES/SYSTEM/DEV-[REGION]-SAP01-X00 .
+    ```
+
 
 ## Deploy SAP system infrastructure
 
@@ -641,32 +648,32 @@ The SAP system deploys:
 - The application tier, which deploys the VMs and their disks.
 - The web dispatcher tier.
 
-Deploy the SAP system.
+1. Deploy the SAP system.
 
-```bash
+    ```bash
 
-export region_code="NOEU"
+    export region_code="NOEU"
 
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
-  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
-  --type sap_system                                      \
-  --auto-approve
-```
-  
-The deployment command for the `northeurope` example will look like:
+    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
+      --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+      --type sap_system                                      \
+      --auto-approve
+    ```
+      
+    The deployment command for the `northeurope` example will look like:
 
-```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
+    ```bash
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-NOEU-SAP01-X00
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
-  --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
-  --type sap_system                                  \
-  --auto-approve
-```
+    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh  \
+      --parameterfile DEV-NOEU-SAP01-X00.tfvars          \
+      --type sap_system                                  \
+      --auto-approve
+    ```
 
-Check that the system resource group is now in the Azure portal.
+    Check that the system resource group is now in the Azure portal.
 
 ## SAP application installation
 
