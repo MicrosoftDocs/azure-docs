@@ -101,7 +101,7 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
-## ** General document model
+## General document model
 
 ##### Extract text, tables, structure, key-value pairs, and named entities from documents.
 
