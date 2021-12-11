@@ -31,14 +31,14 @@ This article provides steps for creating copies of your IoT connector's Device a
 
 2. Select the name of the **IoT connector** that you'll be copying the Device and FHIR destination mappings from.
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="IoT connector2" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-connector-with-box.png" alt-text="Select the IoT connector that you will be making mappings copies from" lightbox="media/iot-troubleshoot/map-files-select-connector-with-box.png":::
 
    > [!NOTE]
-   > This process may also be used for copying and saving the contents of the **"Destination"** FHIR destination mapping.
+   > This process may also be used for copying and saving the contents of the **"Destination"** FHIR destination mappings.
 
 3. Select the contents of the JSON and do a copy operation (for example: Press **Ctrl + C**). 
 
-   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="IoT connector4" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
+   :::image type="content" source="media/iot-troubleshoot/map-files-select-device-json-with-box.png" alt-text="Select and copy contents of mappings" lightbox="media/iot-troubleshoot/map-files-select-device-json-with-box.png":::
 
 4. Do a paste operation (for example: Press **Ctrl + V**) into a new file within an editor like Microsoft Visual Studio Code or Notepad. Ensure to save the file with the **.json** extension.
 
