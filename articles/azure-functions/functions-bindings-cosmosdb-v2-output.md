@@ -904,6 +904,8 @@ The following table explains the binding configuration properties for C# script 
 
 The `CosmosDBOutput` annotation is available to write data to Cosmos DB. You can apply the annotation to the function or to an individual function parameter. When used on the function method, the return value of the function is what is written to Cosmos DB. If you use the annotation with a parameter, the parameter's type must be declared as an `OutputBinding<T>` where `T` a native Java type or a POJO.
 
+::: zone-end  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"
 # [JavaScript](#tab/javascript)
 
 Attributes are not supported by JavaScript.
@@ -920,8 +922,7 @@ Attributes are not supported by Python.
 ## Annotations
 
 The `CosmosDBOutput` annotation is available to write data to Cosmos DB. You can apply the annotation to the function or to an individual function parameter. When used on the function method, the return value of the function is what is written to Cosmos DB. If you use the annotation with a parameter, the parameter's type must be declared as an `OutputBinding<T>` where `T` a native Java type or a POJO.
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
+
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file. 
