@@ -20,6 +20,7 @@ items:
     href: quick-create-net.md
   - name: Node.js
     href: quick-create-node.md
+    displayName: az ad sp create-for-rbac, az keyvault set-policy
   - name: Python
     href: quick-create-python.md
   - name: Java
@@ -30,6 +31,8 @@ items:
 
 - name: Tutorials
   items:
+  - name: Configure key auto-rotation (preview)
+    href: how-to-configure-key-rotation.md
   - name: Import HSM-protected keys (overview)
     href: hsm-protected-keys.md
   - name: Import HSM-protected keys (BYOK)
@@ -47,6 +50,11 @@ items:
   items:
   - name: Key types, algorithms, and operations
     href: about-keys-details.md
+
+- name: How-to guides
+  items:
+  - name: Configure automated key rotation (preview)
+    href: how-to-configure-key-rotation.md
 
 - name: Reference
   items:

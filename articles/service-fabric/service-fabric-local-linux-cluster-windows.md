@@ -125,7 +125,7 @@ To set up a local Docker container and have a Service Fabric cluster running on 
  The following are known limitations of the local cluster running in a container for Mac's: 
  
  * DNS service does not run and is currently not supported within the container. [Issue #132](https://github.com/Microsoft/service-fabric/issues/132)
- * Running container-based apps requires running SF on a Linux host. Nested container apps are currently not supported.
+ * Running container-based apps requires running SF on a Linux host. Nested container applications are currently not supported.
 
 ## Next steps
 * [Create and deploy your first Service Fabric Java application on Linux using Yeoman](service-fabric-create-your-first-linux-application-with-java.md)

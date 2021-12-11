@@ -123,6 +123,17 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
 
     At this point, MACsec is enabled on the ExpressRoute Direct ports on Microsoft side. If you haven't configured it on your edge devices, you can proceed to configure them with the same MACsec secrets and cipher.
 
+3. (Optional) You can enable Secure Channel Identifier (SCI) on the ports.
+
+    ```azurepowershell-interactive
+    $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
+    $erDirect.Links[0].MacSecConfig.SciState = "Enabled"
+    $erDirect.Links[1].MacSecConfig.SciState = "Enabled"
+    Set-AzExpressRoutePort -ExpressRoutePort $erDirect
+    ```
+    
+    At this point, SCI is enabled on the ExpressRoute Direct ports.
+    
 ### To disable MACsec
 
 If MACsec is no longer desired on your ExpressRoute Direct instance, you can run the following commands to disable it.

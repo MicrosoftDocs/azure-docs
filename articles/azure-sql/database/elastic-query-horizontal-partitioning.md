@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/03/2019
 ---
 # Reporting across scaled-out cloud databases (preview)

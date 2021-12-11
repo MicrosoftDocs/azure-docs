@@ -61,6 +61,7 @@ This preview is available in the following Azure Regions.
 - West Europe
 - West US
 - West US 2
+- West US 3
 
 > [!NOTE]
 > Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).

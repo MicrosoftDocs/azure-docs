@@ -138,7 +138,7 @@ Before you define the Stream Analytics job, you should prepare the data that's l
    SELECT *
    INTO Output
    FROM Input
-   HAVING Temperature > 27
+   WHERE Temperature > 27
    ```
 
 ## Define a live input
