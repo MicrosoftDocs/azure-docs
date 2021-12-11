@@ -125,7 +125,7 @@ changeType = tostring(properties.changeType), correlationId = properties.ch
 | project changeTime, resourceGroup, targetResourceId, changeType, correlationId
 ```
 
-## Changes to a specific property value
+### Changes to a specific property value
 ```kusto
 ResourceChanges
 | extend provisioningStateChange = properties.changes["properties.provisioningState"], changeTime = todatetime(properties.changeAttributes.timestamp), targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType)
@@ -134,7 +134,7 @@ ResourceChanges
 | project changeTime, targetResourceId, changeType, provisioningStateChange.previousValue, provisioningStateChange.newValue
 ```
 
-## Query the latest resource configuration for resources created in the last seven days
+### Query the latest resource configuration for resources created in the last seven days
 ```kusto
 ResourceChanges
 | extend targetResourceId = tostring(properties.targetResourceId), changeType = tostring(properties.changeType), changeTime = todatetime(properties.changeAttributes.timestamp)
