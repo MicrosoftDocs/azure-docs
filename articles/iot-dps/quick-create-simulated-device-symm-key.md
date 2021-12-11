@@ -651,15 +651,20 @@ To update and run the provisioning sample with your device information:
     cd azure-iot-sdk-java\provisioning\provisioning-samples\provisioning-symmetrickey-individual-sample
     ```
 
-6. Build the sample then navigate to the `target` folder to execute the created `.jar` file.
+6. Build the sample.
 
     ```cmd
     mvn clean install
+    ```
+
+7. Go to the `target` folder and execute the created `.jar` file. In the `java` command, replace the `{version}` placeholder with the version in the `.jar` filename on your machine.
+
+    ```cmd
     cd target
     java -jar ./provisioning-symmetrickey-individual-sample-{version}-with-deps.jar
     ```
 
-7. You should now see something similar to the following output.
+8. You should now see something similar to the following output.
 
     ```output
     Starting...
