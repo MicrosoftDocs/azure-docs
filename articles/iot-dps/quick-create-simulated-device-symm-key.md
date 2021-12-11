@@ -648,7 +648,7 @@ To update and run the provisioning sample with your device information:
 5. Open a command prompt for building. Go to the provisioning sample project folder of the Java SDK repository.
 
     ```cmd
-    cd azure-iot-sdk-python\azure-iot-device\samples\async-hub-scenarios
+    cd azure-iot-sdk-java\provisioning\provisioning-samples\provisioning-symmetrickey-individual-sample
     ```
 
 6. Build the sample then navigate to the `target` folder to execute the created `.jar` file.
@@ -656,20 +656,28 @@ To update and run the provisioning sample with your device information:
     ```cmd
     mvn clean install
     cd target
-    java -jar ./provisioning-symmetrickey-sample-{version}-with-deps.jar
+    java -jar ./provisioning-symmetrickey-individual-sample-{version}-with-deps.jar
     ```
 
 7. You should now see something similar to the following output.
 
-     ```output
-      Starting...
-      Beginning setup.
-      Waiting for Provisioning Service to register
-      IotHUb Uri : <Your DPS Service Name>.azure-devices.net
-      Device ID : java-device-007
-      Sending message from device to IoT Hub...
-      Press any key to exit...
-      Message received! Response status: OK_EMPTY
+    ```output
+    Starting...
+    Beginning setup.
+    Initialized a ProvisioningDeviceClient instance using SDK version 1.11.0
+    Starting provisioning thread...
+    Waiting for Provisioning Service to register
+    Opening the connection to device provisioning service...
+    Connection to device provisioning service opened successfully, sending initial device registration message
+    Authenticating with device provisioning service using symmetric key
+    Waiting for device provisioning service to provision this device...
+    Current provisioning status: ASSIGNING
+    Device provisioning service assigned the device successfully
+    IotHUb Uri : <Your IoT hub name>.azure-devices.net
+    Device ID : java-device-007
+    Sending message from device to IoT Hub...
+    Press any key to exit...
+    Message received! Response status: OK_EMPTY
     ```
 
 ::: zone-end
