@@ -27,7 +27,7 @@ In this quickstart, you deploy a Python web app to [App Service on Linux](overvi
 
 1. On the upper right of the GitHub page, select **Fork** to make a copy of the repository in your own GitHub account:
 
-    ![Github fork command](media/quickstart-python-portal/github-fork-command.png)
+    ![GitHub fork command](media/quickstart-python-portal/github-fork-command.png)
 
     Azure requires that you have access to the GitHub organization that contains the repository. By forking the sample to your own GitHub account, you automatically have the necessary access and can also make changes to the code.
 
