@@ -86,7 +86,7 @@ If you would like to use a data source to create access policies in Purview, ena
 - Should you have multiple Purview accounts, be aware that **all** data sources belonging to a subscription must be registered for *Data use governance* in a single Purview account. That Purview account can be in any subscription in the tenant. The *Data use governance* toggle will become greyed out when there are invalid configurations. Some examples of valid and invalid configurations follow in the diagram below:
     - **Case 1** shows a valid configuration where a Storage account is registered in a Purview account in the same subscription.
     - **Case 2** shows a valid configuration where a Storage account is registered in a Purview account in a different subscription. 
-    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Purview accounts. In that case, the *Data use governance* toggle will only work in the Purview account that wins and registers first a data source in that subscription. The toggle will then be greyed out for the other data source.
+    - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Purview accounts. In that case, the *Data use governance* toggle will only work in the Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
 
 :::image type="content" source="./media/how-to-access-policies-storage/valid-and-invalid configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Purview accounts to manage policies.":::
 
@@ -116,9 +116,9 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Effect** button and choose Allow from the drop-down list.
 
-1. Select the **Data Resources** button to bring up the options to provide the data asset path
+1. Select the **Data Resources** button to bring up the options to provide the data asset path, which will open on the right.
 
-1. In the **Assets** box, enter the **Data Source Type** and select the **Name** of a previously registered data source.
+1. Use the **Assets** box if you scanned the data source, otherwise use the **Data sources** box above. Assuming the first, in the **Assets** box, enter the **Data Source Type** and select the **Name** of a previously registered data source.
 
     :::image type="content" source="./media/how-to-access-policies-storage/select-data-source-type-storage.png" alt-text="Image shows how a data owner can select a Data Resource when editing a policy statement.":::
 
