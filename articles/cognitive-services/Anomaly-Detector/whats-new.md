@@ -15,6 +15,9 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Release notes
 
+### November 2021
+* Multivariate Anomaly Detector available in six more regions: UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West. Now in total 26 regions are supported.
+
 ### September 2021
 * Anomaly Detector (univariate) available in Jio India West.
 * Multivariate anomaly detection APIs deployed in five more regions: East Asia, West US, Central India, Korea Central, Germany West Central.

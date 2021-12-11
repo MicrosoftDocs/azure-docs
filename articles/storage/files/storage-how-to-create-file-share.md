@@ -166,7 +166,7 @@ az storage account create \
 ---
 
 ### Enable large files shares on an existing account
-Before you create an Azure file share on an existing account, you may want to enable it for large file shares if you haven't already. Standard storage accounts with LRS and ZRS or ZRS can be upgraded to support large file shares. If you have a GRS, GZRS, RA-GRS, or RA-GZRS account, you will need to convert it to an LRS account before proceeding.
+Before you create an Azure file share on an existing account, you may want to enable it for large file shares if you haven't already. Standard storage accounts using either LRS or ZRS can be upgraded to support large file shares. If you have a GRS, GZRS, RA-GRS, or RA-GZRS account, you will need to convert it to an LRS account before proceeding.
 
 # [Portal](#tab/azure-portal)
 1. Open the [Azure portal](https://portal.azure.com), and navigate to the storage account where you want to enable large file shares.
@@ -328,7 +328,7 @@ $storageAccountName = "<YourStorageAccountName>"
 $shareName="<YourStorageAccountFileShareName>"
 
 # update quota
-Set-AzRmStorageShare `
+Update-AzRmStorageShare `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName `
     -Name $shareName `

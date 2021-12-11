@@ -5,14 +5,13 @@ description: In this quickstart, learn how a Python web app can sign in users, g
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
+ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-other
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Python web app

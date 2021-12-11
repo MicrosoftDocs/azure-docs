@@ -4,7 +4,7 @@ description: This quickstart provides a Go programming language sample you can u
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: go
 ms.topic: quickstart
 ms.date: 5/6/2019

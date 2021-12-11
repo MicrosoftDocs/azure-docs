@@ -1,5 +1,5 @@
 ---
-title: Troubleshoot Azure Video Analyzer service
+title: Troubleshooting the service
 description: This article covers troubleshooting steps for Azure Video Analyzer service.
 ms.topic: troubleshooting
 ms.date: 11/04/2021
@@ -8,7 +8,10 @@ ms.custom: ignite-fall-2021
 
 # Troubleshoot Azure Video Analyzer service
 
-[!INCLUDE [header](includes/cloud-env.md)]
+![cloud icon](media/env-icon/cloud.png)  
+Alternatively, check out [troubleshoot on the edge](../edge/troubleshoot.md).
+
+---
 
 This article covers troubleshooting steps for common error scenarios you might see while using the service.
 

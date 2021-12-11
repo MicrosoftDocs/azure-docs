@@ -1,12 +1,13 @@
 ---
 title: Deploy IoT connector in the Azure portal - Azure Healthcare APIs
-description: In this article, you'll learn how to deploy IoT connector in the Azure portal. 
+description: In this article, you'll learn how to deploy IoT connector in the Azure portal.
 author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: quickstart
-ms.date: 10/19/2021
+ms.date: 11/10/2021
 ms.author: jasteppe
+ms.custom: mode-portal
 ---
 
 # Deploy IoT connector in the Azure portal
@@ -25,7 +26,6 @@ It's important that you have the following prerequisites completed before you be
 * [Event Hubs namespace and Event Hub deployed in the Azure portal](../../event-hubs/event-hubs-create.md)
 * [Workspace deployed in Azure Healthcare APIs](../healthcare-apis-quickstart.md)  
 * [FHIR service deployed in Azure Healthcare APIs](../fhir/fhir-portal-quickstart.md) 
-
 
 ## Deploy IoT connector 
 
@@ -220,7 +220,7 @@ For more information about authoring access to Event Hubs resources, see [Author
 
    ![Screenshot of FHIR service added role assignment message.](media/fhir-service-added-role-assignment.png#lightbox)
 
-   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC for the FHIR service](../fhir/configure-azure-rbac-for-fhir.md).
+   For more information about assigning roles to the FHIR service, see [Configure Azure RBAC](.././configure-azure-rbac.md).
 
 ## Next steps
 

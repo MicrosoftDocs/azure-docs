@@ -1,9 +1,9 @@
 ---
-title: How to get started with your individual VSS Azure Dev/Test credit subscription
-description: Covers two options for an individual to access an Azure Credit subscription.
+title: Start using individual Azure Dev/Test credit
+description: As a Visual Studio subscriber, learn how to access an Azure Credit subscription.
 author: jamestramel
 ms.author: jametra
-ms.date: 10/20/2021
+ms.date: 11/24/2021
 ms.topic: how-to
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
@@ -33,7 +33,7 @@ If you sign in with your organization’s account, you'll be added as a user wit
 Once you receive a my.visualstudio.com license, you can sign in via my.visualstudio.com or portal.azure.com.
 Remember, the account you sign in with will dictate what tenant your directory will be under.  
 
-### Sign-In through [Visual Studio](https://my.visualstudio.com/benefits) - myvisualstudio.com/benefits
+### Sign-In through [Visual Studio](https://my.visualstudio.com/benefits) - my.visualstudio.com/benefits
 
 1. Locate the Azure tile in the Tools section on the Benefits page and select 'Activate' to access the appropriate subscription  
 

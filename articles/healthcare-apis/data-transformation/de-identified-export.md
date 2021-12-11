@@ -13,8 +13,41 @@ ms.author: ranku
 > [!Note] 
 > Results when using the de-identified export will vary based on factors such as data inputted, and functions selected by the customer. Microsoft is unable to evaluate the de-identified export outputs or determine the acceptability for customer's use cases and compliance needs. The de-identified export is not guaranteed to meet any specific legal, regulatory, or compliance requirements.
 
-The $export command can also be used to export de-identified data from the FHIR server. It uses the anonymization engine from [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization), and takes anonymization config details in query parameters. You can create your own anonymization config file or use the [sample config file](https://github.com/microsoft/FHIR-Tools-for-Anonymization#sample-configuration-file-for-hipaa-safe-harbor-method) for HIPAA Safe Harbor method as a starting point. 
+The $export command can also be used to export de-identified data from the FHIR server. It uses the anonymization engine from [FHIR tools for anonymization](https://github.com/microsoft/FHIR-Tools-for-Anonymization), and takes anonymization config details in query parameters. You can create your own anonymization config file or use the [sample config file](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#sample-configuration-file) for HIPAA Safe Harbor method as a starting point. 
 
+## Configuration file
+
+The anonymization engine comes with a sample configuration file to help meet the requirements of HIPAA Safe Harbor Method. The configuration file is a JSON file with 4 sections: `fhirVersion`, `processingErrors`, `fhirPathRules`, `parameters`. 
+* `fhirVersion` specifies the FHIR version for the anonymization engine.
+* `processingErrors` specifies what action to take for the processing errors that may arise during the anonymization. You can _raise_ or _keep_ the exceptions based on your needs.
+* `fhirPathRules` specifies which anonymization method is to be used. The rules are executed in the order of appearance in the configuration file.
+* `parameters` sets rules for the anonymization behaviors specified in _fhirPathRules_.
+
+Here is a sample configuration file for R4:
+
+```json
+{
+  "fhirVersion": "R4",
+  "processingError":"raise",
+  "fhirPathRules": [
+    {"path": "nodesByType('Extension')", "method": "redact"},
+    {"path": "Organization.identifier", "method": "keep"},
+    {"path": "nodesByType('Address').country", "method": "keep"},
+    {"path": "Resource.id", "method": "cryptoHash"},
+    {"path": "nodesByType('Reference').reference", "method": "cryptoHash"},
+    {"path": "Group.name", "method": "redact"}
+  ],
+  "parameters": {
+    "dateShiftKey": "",
+    "cryptoHashKey": "",
+    "encryptKey": "",
+    "enablePartialAgesForRedact": true
+  }
+}
+```
+
+For more detailed information on each of these 4 sections of the configuration file, please check [here](https://github.com/microsoft/Tools-for-Health-Data-Anonymization/blob/master/docs/FHIR-anonymization.md#configuration-file-format).
+## Using $export command for the de-identified data
  `https://<<FHIR service base URL>>/$export?_container=<<container_name>>&_anonymizationConfig=<<config file name>>&_anonymizationConfigEtag=<<ETag on storage>>`
 
 > [!Note] 

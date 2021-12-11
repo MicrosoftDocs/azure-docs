@@ -1,9 +1,9 @@
 ---
 title: Create an Azure Cognitive Services resource with commitment tier pricing
-description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing. 
+description: Learn how to sign up for commitment tier pricing, which is different than pay-as-you-go pricing.
 author: aahill
 ms.author: aahi
-ms.custom: subject-cost-optimization
+ms.custom: subject-cost-optimization, mode-other
 ms.service: cognitive-services
 ms.topic: quickstart
 ms.date: 11/04/2021
@@ -92,7 +92,7 @@ If you need a larger commitment plan than any of the ones offered, contact `csga
 
 ## End a commitment plan
 
-If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You will be able to continue using the Azure resource to make API calls, and you would be charged at pay-as-you-go pricing.
+If you decide that you don't want to continue purchasing a commitment plan, you can set your resource's auto-renewal to **Do not auto-renew**. Your commitment plan will expire on the displayed commitment end date. After this date, you won't be charged for the commitment plan. You will be able to continue using the Azure resource to make API calls, charged at pay-as-you-go pricing. You have until midnight (UTC) on the last day of each month to end a commitment plan, and not be charged for the following month. 
 
 ## See also
 

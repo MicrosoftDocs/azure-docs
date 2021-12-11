@@ -6,8 +6,8 @@ author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 10/20/2020
-ms.author: rohink 
-ms.custom: devx-track-azurecli
+ms.author: rohink
+ms.custom: devx-track-azurecli, mode-api
 #Customer intent: As an experienced network administrator I want to create an  Azure private DNS zone, so I can resolve host names on my private virtual networks.
 ---
 
@@ -205,4 +205,3 @@ az group delete --name MyAzureResourceGroup
 
 > [!div class="nextstepaction"]
 > [Azure DNS Private Zones scenarios](private-dns-scenarios.md)
-

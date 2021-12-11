@@ -1,7 +1,7 @@
 ---
 title: Horizon API
 description: This guide describes commonly used Horizon methods.
-ms.date: 1/5/2021
+ms.date: 11/09/2021
 ms.topic: article
 ---
 

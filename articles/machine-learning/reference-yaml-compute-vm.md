@@ -44,7 +44,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/resources/compute/vm-attach.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/resources/compute/vm-attach.yml":::
 
 ## Next steps
 

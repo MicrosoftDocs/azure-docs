@@ -3,8 +3,8 @@ title: 'Quickstart: Create a Python app in the Azure portal'
 description: Get started with Azure App Service by deploying your first Python app to a Linux container in App Service by using the Azure portal.
 ms.topic: quickstart
 ms.date: 04/01/2021
-ms.custom: devx-track-python
-robots: noindex
+ms.custom: devx-track-python, mode-other
+ROBOTS: noindex
 ---
 
 # Quickstart: Create a Python app using Azure App Service on Linux (Azure portal)

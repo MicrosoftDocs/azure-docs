@@ -1,7 +1,6 @@
 ---
-title: What is this offer?
-titleSuffix: Azure Dev/Test offer
-description: Accelerate and manage machine learning project life cycles with the cloud service Azure Dev/Test offer.  
+title: What is Azure Dev/Test offer?
+description: Use the Azure Dev/Test offer to get Azure credits for Visual Studio subscribers.
 ms.topic: overview
 ms.prod: visual-studio-windows
 ms.author: jametra
