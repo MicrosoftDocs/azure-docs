@@ -160,7 +160,8 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
 You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
 
-## Additional details: The reset-demo-components.sh command above will perform the following steps on your behalf. 
+## Additional details
+The reset-demo-components.sh command above will perform the following steps on your behalf 
 
 1. Add /usr/local/contoso-devices/components-inventory.json
 
