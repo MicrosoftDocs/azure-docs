@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: how-to
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/18/2021
+ms.date: 12/13/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
@@ -87,6 +87,8 @@ You can add users or groups to administrative units using the Azure portal. You 
     Add one user principal name (UPN) in each row. Don't remove the first two rows of the template.
 
 1. Save your changes and upload the CSV file.
+
+   ![Screenshot of an edited CSV file for adding users to an administrative unit in bulk.](./media/admin-units-members-add/bulk-user-entries.png)
 
 1. Select **Submit**.
 
