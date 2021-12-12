@@ -30,6 +30,8 @@ Learn about this plan in [Overview of Microsoft Defender for Containers](defende
 
 You can enable the containers plan and deploy all of the relevant components from the Azure portal, the REST API, or with a Resource Manager template. For detailed steps, select the relevant tab.
 
+The Defender security profile is a preview feature. [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]
+
 ### [**Azure portal**](#tab/aks-deploy-portal)
 
 ### Use the Defender plans or auto provisioning pages to enable all necessary components
