@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 11/19/2021
+ms.date: 11/30/2021
 ms.custom: devx-track-python, ignite-fall-2021
 ---
 
@@ -339,13 +339,17 @@ Also, use the information in the [inbound configuration](#inbound-configuration)
 
 For information on restricting access to models deployed to AKS, see [Restrict egress traffic in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
-**Support diagnostics**
+**Monitoring, metrics, and diagnostics**
 
-For Microsoft Support to be able to diagnose any problems you run into with your workspace, you must allow outbound traffic to the following hosts:
+To support logging of metrics and other monitoring information to Azure Monitor and Application Insights, allow outbound traffic to the following hosts:
+
+> [!NOTE]
+> The information logged to these hosts is also used by Microsoft Support to be able to diagnose any problems you run into with your workspace.
 
 * **dc.applicationinsights.azure.com**
 * **dc.applicationinsights.microsoft.com**
 * **dc.services.visualstudio.com**
+* **.in.applicationinsights.azure.com**
 
 For a list of IP addresses for these hosts, see [IP addresses used by Azure Monitor](../azure-monitor/app/ip-addresses.md).
 

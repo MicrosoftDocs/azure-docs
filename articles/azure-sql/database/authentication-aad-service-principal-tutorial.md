@@ -6,7 +6,7 @@ ms.subservice: security
 ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 10/21/2021 
 ms.custom: devx-track-azurepowershell
 ---

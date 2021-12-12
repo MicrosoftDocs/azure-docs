@@ -31,6 +31,8 @@ To complete this quickstart, make sure you have:
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
+## Create an Object Anchors account
+
 [!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 
 ## Get the sample project
