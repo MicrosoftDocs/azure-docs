@@ -2,7 +2,7 @@
 title: What's new in Azure Defender for IoT for device builders
 description: Learn about the latest releases, and the newest features for Defender for IoT device builders.
 ms.topic: overview
-ms.date: 11/09/2021
+ms.date: 12/12/2021
 ---
 
 # What's new in Azure Defender for IoT for device builders?  
@@ -16,6 +16,22 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 ## Versioning and support for Azure Defender for IoT
 
 Listed below are the support, breaking change policies for Defender for IoT, and the versions of Azure Defender for IoT that are currently available.
+
+## November
+
+**Version 3.13.1**:
+
+- DNS network activity on managed devices is now supported. This extends the Microsoft threat intelligence security graph, to detect suspicious activity based on DNS traffic.
+
+- There is now an enhanced integration with IoT Edge. The Leaf Device Proxying: enhances the connectivity between the agent, and the cloud using leaf device proxying.
+
+## October
+
+**Version 3.12.2**:
+
+- Supporting additional CIS benchmark checks for Debian 9: Now supporting additional CIS benchmarks for Debian 9 devices, allowing you to make sure your network is compliant with CIS best practices for protecting against pervasive cyber threats.
+
+- Twin configurations: The micro agent’s behavior is configured by a set of module twin properties, now supporting all fields described here. You can configure the micro agent to best suit your needs.
 
 ## September 2021
 
