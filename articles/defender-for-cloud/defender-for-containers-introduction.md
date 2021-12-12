@@ -34,8 +34,7 @@ Defender for Containers helps with the core aspects of container security:
 
 - **Vulnerability assessment scanning** - Vulnerability assessment and management tools for images **stored** in ACR registries and **running** in Azure Kubernetes Service. Learn more in [Vulnerability assessment](#vulnerability-assessment).
 
-- **Run-time threat protection for nodes and clusters** - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities. Learn more in [Run-time protection for Kubernetes nodes and clusters](#run-time-protection-for-kubernetes-nodes-and-clusters).
-
+- **Run-time threat protection for nodes and clusters** - Threat protection for clusters and Linux nodes generates security alerts for suspicious activities. Learn more in [Run-time protection for Kubernetes nodes, clusters, and hosts](#run-time-protection-for-kubernetes-nodes-clusters-and-hosts).
 
 ## Architecture overview
 
