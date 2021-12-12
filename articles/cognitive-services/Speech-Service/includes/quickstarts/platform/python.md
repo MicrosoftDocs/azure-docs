@@ -21,7 +21,7 @@ The Python Speech SDK package is available for these operating systems:
 
 Before you install the Python Speech SDK, make sure you have the following prerequisites.
 
-- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170) for your platform. Installing this for the first time may require a restart.
+- On Windows, you need the [Microsoft Visual C++ Redistributable for Visual Studio 2015, 2017, 2019, or 2022](https://docs.microsoft.com/cpp/windows/latest-supported-vc-redist?view=msvc-170) for your platform. Installing this package for the first time may require a restart.
 
 - On Linux, see the [system requirements and setup instructions](~/articles/cognitive-services/speech-service/speech-sdk.md#get-the-speech-sdk).
 
@@ -32,13 +32,11 @@ Before you install the Python Speech SDK, make sure you have the following prere
 
 ## Install the Speech SDK from PyPI
 
-Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-python) above.
-
 [!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
 
 ## Install the Speech SDK using Visual Studio Code
 
-Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-python) above.
+Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md#prerequisites?pivots=programming-language-python) above.
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**, find the **Python extension for Visual Studio Code** published by Microsoft, and then select **Install**.
@@ -53,10 +51,20 @@ For more information about Visual Studio Code and Python, see [Visual Studio Cod
 ## Support and updates
 
 Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/speech-service/releasenotes.md).
-If a new version is available, you can update to it with the command `pip install --upgrade azure-cognitiveservices-speech`.
-Check which version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable.
 
-If you have a problem, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
+To upgrade to the latest Speech SDK, run this command in a terminal.
+
+```console
+pip install --upgrade azure-cognitiveservices-speech
+```
+
+You can check which Python Speech SDK version is currently installed by inspecting the `azure.cognitiveservices.speech.__version__` variable. For example, run this command in a terminal.
+
+```console
+pip list
+```
+
+If you run across any issues, or you're missing a feature, see [Support and help options](../../../../cognitive-services-support-options.md?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext%253fcontext%253d%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext).
 
 ## Next steps
 
