@@ -43,7 +43,7 @@ In this tutorial you will learn how to:
    sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
    ```
    
-1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md) primary connection string in the configuration file by running the command below.
+1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
 
    ```markdown
    /etc/adu/du-config.json
