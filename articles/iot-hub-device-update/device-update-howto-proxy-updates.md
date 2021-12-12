@@ -160,6 +160,21 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
 You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
 
+## Additional details: The reset-demo-components.sh command above will perform the following steps on your behalf. 
+
+1. Add /usr/local/contoso-devices/components-inventory.json
+
+   - Copy [components-inventory.json](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/demo-devices/contoso-devices/components-inventory.json) to **/usr/local/contoso-devices** folder
+
+ 2. Register Contoso Components Enumerator extension
+
+    - Copy libcontoso-component-enumerator.so from Assets folder [here](https://github.com/Azure/iot-hub-device-update/releases) to /var/lib/adu/extensions/sources folder
+    - Register the extension
+
+    ```sh
+    sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-component-enumerator.so
+    ```
+   		
 ## Clean up resources
 
 When no longer needed, clean up your device update account, instance, IoT Hub, and IoT device. 
@@ -175,18 +190,3 @@ You can use the following tutorials for a simple demonstration of Device Update 
 - [Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent](device-update-simulator.md)
 
 - [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
- 
-## Additional details: The reset-demo-components.sh command above will perform the following steps on your behalf. 
-
-1. Add /usr/local/contoso-devices/components-inventory.json
-
- - Copy [components-inventory.json](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/demo-devices/contoso-devices/components-inventory.json) to **/usr/local/contoso-devices** folder
-
- 2. Register Contoso Components Enumerator extension
-
- - Copy libcontoso-component-enumerator.so from Assets folder [here](https://github.com/Azure/iot-hub-device-update/releases) to /var/lib/adu/extensions/sources folder
- - Register the extension
-
-   ```sh
-   sudo /usr/bin/AducIotAgent -E /var/lib/adu/extensions/sources/libcontoso-component-enumerator.so
-   ```
