@@ -18,12 +18,10 @@ To deploy in indirectly connected mode, see [Quickstart: Deploy Azure Arc-enable
 
 When you complete the steps in this article, you will have:
 
-- A Kubernetes cluster on Azure Kubernetes Services (AKS) connected to Azure.
+- An Arc-enabled Azure Kubernetes cluster.
 - A data controller in directly connected mode.
 - An instance of Azure Arc-enabled SQL Managed Instance.
 - A connection to the instance with Azure Data Studio.
-
-Use these objects to experience Azure Arc-enabled data services. 
 
 Azure Arc allows you to run Azure data services on-premises, at the edge, and in public clouds via Kubernetes. Deploy SQL Managed Instance and PostgreSQL Hyperscale data services (preview) with Azure Arc. The benefits of using Azure Arc include staying current with constant service patches, elastic scale, self-service provisioning, unified management, and support for disconnected mode.  
 
@@ -36,7 +34,7 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 * Azure CLI 
 * `arcdata` extension for Azure CLI.
 
-In addition, because this deployment is on Azure Kubernetes Service, you need the following additional extensions:
+In addition, you need the following additional extensions to connect the cluster to Azure:
 
 * connectedk8s
 * k8s-extension
@@ -61,7 +59,7 @@ To quickly create a Kubernetes cluster, use Azure Kubernetes Services (AKS).
     1. Specify a region
     1. Under **Availability zones**, select **None**.
     1. Verify the Kubernetes version. For minimum supported version, see [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md).
-    1. Under **Node size**, Azure Arc-enabled data services generally requires a larger node size. **Standard D8s v3** is recommended for this purpose. 
+    1. Under **Node size**, select a node size for your cluster based on the [Sizing guidance](sizing-guidance.md).
     1. For **Scale method**, select **Manual**.
 1. Click **Review + create**.
 1. Click **Create**.
@@ -115,9 +113,11 @@ After creating the cluster, connect to the cluster through the Azure CLI.
    aks-agentpool-37241625-vmss000002   Ready    agent   3h9m    v1.20.9
    ```
 
-### Connect cluster to Azure
+### Arc enable the Kubernetes cluster
 
-Now that the cluster is running, we need to connect our cluster to Azure. This can be done through the Azure CLI command: 
+Now that the cluster is running, connect the cluster to Azure. When you connect a cluster to Azure, you Arc enable it. Arc enabling your cluster allow you to view and manage the cluster, and deploy and manage additional services such as Arc-enabled data services on the cluster directly from Azure portal. 
+
+Use `az connectedk8s connect` to connect the cluster to Azure: 
 
 ```azurecli
 az connectedk8s connect --resource-group <resource group> --name <cluster name> 
@@ -195,6 +195,20 @@ NAME          STATE
 1. Click **Create**. 
 
 Azure creates the managed instance on the Azure Arc-enabled Kubernetes cluster. 
+
+To know when the instance has been created, run:
+
+```console
+kubectl get sqlmi -n <namespace>
+```
+
+Once the state of the managed instance namespace is ‘READY’, then this step is completed. For example:
+
+```output
+NAME          STATE
+<namespace>   Ready
+```
+
 
 ## Connect with Azure Data Studio
 

@@ -36,13 +36,6 @@ First, install the [client tools](install-client-tools.md) needed on your machin
 * Azure CLI 
 * `arcdata` extension for Azure CLI
 
-In addition, because this deployment is on Azure Kubernetes Service, you need the following additional extensions:
-
-* connectedk8s
-* k8s-extension
-
-
-
 ## Set metrics and logs service credentials
 
 Azure Arc-enabled data services provides:
@@ -96,10 +89,12 @@ Follow the steps below to deploy the cluster from the Azure CLI.
 
    Create the cluster in the resource group that you created previously.
 
+   Select a node size that meets your requirements. See [Sizing guidance](sizing-guidance.md).
+
    The following example creates a three node cluster, with monitoring enabled, and generates public and private key files if missing.
 
    ```azurecli
-   az aks create --resource-group <resource_group_name> --name <cluster_name> --node-count 3 --enable-addons monitoring --generate-ssh-keys --node-vm-size Standard_D8s_v3
+   az aks create --resource-group <resource_group_name> --name <cluster_name> --node-count 3 --enable-addons monitoring --generate-ssh-keys --node-vm-size <node size>
    ```
 
    For command details, see [az aks create](/cli/azure/aks?view=azure-cli-latest&preserve-view=true#az_aks_create).
@@ -143,6 +138,28 @@ The CLI command to create the data controller is:
 az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace <namespace> --name <data controller name> --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --use-k8s
 ```
 
+### Monitor deployment
+
+You can also monitor the creation of the data controller with the following command: 
+
+```console
+kubectl get datacontroller --namespace <namespace>
+```
+
+The command returns the state of the data controller. For example, the following results indicate that the deployment is in progress:
+
+```output
+NAME          STATE
+<namespace>   DeployingMonitoring
+```
+
+Once the state of the data controller is ‘READY’, then this step is completed. For example:
+
+```output
+NAME          STATE
+<namespace>   Ready
+```
+
 ## Create Azure Arc-enabled SQL Managed Instance
 
 Now, we can create the Azure MI for indirectly connected mode with the following command: 
@@ -150,6 +167,20 @@ Now, we can create the Azure MI for indirectly connected mode with the following
 ```azurecli
 az sql mi-arc create -n <instanceName> --k8s-namespace <namespace> --use-k8s 
 ```
+
+To know when the instance has been created, run:
+
+```console
+kubectl get sqlmi -n <namespace>[
+```
+
+Once the state of the managed instance namespace is ‘READY’, then this step is completed. For example:
+
+```output
+NAME          STATE
+<namespace>   Ready
+```
+
 
 ## Connect to managed instance on Azure Data Studio
 
