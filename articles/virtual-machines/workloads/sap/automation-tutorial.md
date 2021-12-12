@@ -228,7 +228,7 @@ The SAP automation deployment framework uses service principals for deployment. 
     | South Africa North | SANO        |
     | Southeast Asia     | SOEA        |
     | UK South           | UKSO        |
-    | West US 2          | WES2        |
+    | West US 2          | WUS2        |
 
     Find the Terraform variable files in the appropriate subfolder. For example, the **DEPLOYER** terraform variable file might look like:
 
@@ -262,7 +262,7 @@ For example, choose **North Europe** as the deployment location, with the four-c
 
 The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in the `~/Azure_SAP_Automated_Deployment/WORKSPACES/LIBRARY/MGMT-NOEU-SAP_LIBRARY` folder.
 
-1. Create the Deployer and the SAP Library. Also add the Service Principal details to the deployment key vault.
+1. Create the Deployer and the SAP Library and add the Service Principal details to the deployment key vault.
 
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
@@ -288,7 +288,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
     ```
 
     > [!NOTE]
-    > If you run into authentication issues,  run `az logout` to log out. Clear `token-cache`, then run `az login` to reauthenticate.
+    > If you run into authentication issues,  run `az logout` to log out and clear the `token-cache`, then run `az login` to reauthenticate.
 
     Wait for the automation framework to run the Terraform operations `plan`, and `apply`.
 
@@ -301,9 +301,9 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
     #########################################################################################
     #                                                                                       #
     #  Please save these values:                                                            #
-    #     - Key Vault: MKDC0EUS2DEP00user39B                                                #
+    #     - Key Vault: MGMTNOEUDEP00user39B                                                 #
     #     - Deployer IP: x.x.x.x                                                            #
-    #     - Storage Account: mkdc0eus2tfstate53e                                            #
+    #     - Storage Account: mgmtnoeutfstate53e                                             #
     #                                                                                       #
     #########################################################################################
     ```
@@ -319,7 +319,7 @@ The sample SAP Library configuration file `MGMT-NOEU-SAP_LIBRARY.tfvars` is in t
         
     :::image type="content" source="media/automation-tutorial/sap-library-resource-group.png" alt-text="Library resources":::
 
-    The Terraform state file is now in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. The contents of the 'tfstate' container after a successful control plane deployment can be seen below.
+    The Terraform state file is now placed in the storage account whose name contains 'tfstate'. The storage account has a container named 'tfstate' with the deployer and library state files. The contents of the 'tfstate' container after a successful control plane deployment can be seen below.
         
     :::image type="content" source="media/automation-tutorial/terraform-state-files.png" alt-text="Control plane tfstate files":::
 
@@ -360,45 +360,45 @@ Make sure you can connect to your deployer VM:
 
 1. Select or search for **Key vaults**.
 
-1. On the **Key vault** page, find the deployer key vault. The name starts with `MGMT[REGION]DEP00user`. Filter by the **Resource group** if necessary.
+1. On the **Key vault** page, find the deployer key vault. The name starts with `MGMT[REGION]DEP00user`. Filter by the **Resource group** or **Location** if necessary.
 
-1. On the key vault's menu in the left pane, under **Settings**, select **Secrets**.
+1. Select **Secrets** from the **Settings** section in the left pane.
 
-1. Find and select the **sshkey**. It might look like this: `MGMT-[REGION]-DEP00-sshkey`
+1. Find and select the secret containing **sshkey**. It might look like this: `MGMT-[REGION]-DEP00-sshkey`
 
 1. On the secret's page, select the current version. Then, copy the **Secret value**.
 
 1. Open a plain text editor. Copy in the secret value. 
  
-1. Save the file where you keep SSH keys. For example, `C:\\Users\\<your-username>\\.ssh`.
+1. Save the file where you keep SSH keys. For example, `C:\\Users\\<your-username>\\.ssh`. 
  
 1. Save the file. If you're prompted to **Save as type**, select **All files** if **SSH** isn't an option. For example, use `deployer.ssh`.
 
-1. Connect to the deployer VM through any SSH client. Use the public IP address you noted earlier, and the SSH key you downloaded. If you're using PuTTY, convert the SSH key file first using PuTTYGen. 
+1. Connect to the deployer VM through any SSH client such as VSCode. Use the public IP address you noted earlier, and the SSH key you downloaded. If you're using PuTTY, convert the SSH key file first using PuTTYGen. 
 
 > [!NOTE] 
 >The default username is *azureadm*
 
-- Once connected to the deployer VM, you can now get the SAP software using the BOM
+- Once connected to the deployer VM, you can now download the SAP software using the Bill of Materials (BOM).
 
 
 > [!IMPORTANT]
 > The rest of the tasks need to be executed on the Deployer
 
-## Get SAP software using the BOM
+## Get SAP software using the Bill of Materials (BOM)
 
-The Automation Framework gives you tools to download the SAP Bill Of Materials (BOM). The SAP library acts as the archive for all media required to deploy SAP.
+The Automation Framework gives you tools to download software from SAP using the SAP Bill Of Materials (BOM). The software will be downloaded to the SAP library which acts as the archive for all media required to deploy SAP.
 
-The SAP Bill of Materials (BOM) mimics the SAP maintenance planner. There are relevant product identifiers and a package of download URLs. The deployer VM reads the processed BOM and downloads files from the storage account to SAP Central Services (SCS) for installation.
+The SAP Bill of Materials (BOM) mimics the SAP maintenance planner. There are relevant product identifiers and a set of download URLs. 
 
 A sample extract of a BOM file looks like:
 
 ```yaml
 
 ---
-name:    'S41909SPS03_v0006ms'
+name:    'S41909SPS03_v0007ms'
 target:  'S/4 HANA 1909 SPS 03'
-version: 6
+version: 7
 
 product_ids:
   dbl:       NW_ABAP_DB:S4HANA1909.CORE.HDB.ABAP
@@ -414,7 +414,7 @@ product_ids:
 
 materials:
   dependencies:
-    - name:     HANA_2_00_055_v0004ms
+    - name:     HANA_2_00_055_v0005ms
 
   media:
     # SAPCAR 7.22
@@ -446,7 +446,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 1. Add a secret with the password for your SAP user account. Replace `<vaultID>` with your deployer key vault name, and `<sap-password>` with your SAP password.
 
     > [!NOTE]
-    > The use of single quotes when setting `sap_user_password` is important. The use of special characters in the password can cause unpredictable results!
+    > The use of single quotes when setting `sap_user_password` is important. The use of special characters in the password can otherwise cause unpredictable results!
 
     ```bash
     sap_user_password='<sap-password>'
@@ -476,7 +476,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```
     
-1. Ensure `check_storage_account` is present and set to `false`
+1. Ensure `check_storage_account` is present and set to `false`. This value controls if the SAP Library will be checked for the file before downloading it from SAP.
   
     Your file should look similar to the following example configuration:
 
@@ -544,7 +544,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     ${DEPLOYMENT_REPO_PATH}/deploy/scripts/set_secrets.sh     \
         --environment "${env_code}"                           \
         --region "${region_code}"                             \
-        --vault  "${key_vault}"                               \
+        --vault "${key_vault}"                                \
         --subscription "${subscriptionID}"                    \
         --spn_id "${spn_id}"                                  \
         --spn_secret "${spn_secret}"                          \
@@ -555,7 +555,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
 1. Connect to your deployer VM for the following steps. A copy of the repo is now there.
 
-1. Go to the **sap-automation** folder and refresh the repository. 
+1. Go to the **sap-automation** folder and optionally refresh the repository. 
   
     ```bash
     cd ~/Azure_SAP_Automated_Deployment/sap-automation/
@@ -652,12 +652,13 @@ The SAP system deploys:
 
     ```bash
 
+    export sap_env_code="DEV"
     export region_code="NOEU"
 
     cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
 
     ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
-      --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+      --parameterfile "${sap_env_code}-${region_code}-SAP01-X00.tfvars"  \
       --type sap_system                                      \
       --auto-approve
     ```
@@ -757,12 +758,13 @@ Before you begin, log in to your Azure account. Then, check that you're in the c
 Navigate to the `DEV-NOEU-SAP01-X00` subfolder inside the `SYSTEM` folder. Then, run this command:
   
 ```bash
-export region_code="NOEU"
+export sap_env_code="DEV"
+export  region_code="NOEU"
 
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-SAP01-X00
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh        \
-  --parameterfile "DEV-${region_code}-SAP01-X00.tfvars"  \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh                   \
+  --parameterfile "${sap_env_code}-${region_code}-SAP01-X00.tfvars" \
   --type sap_system
 ```
 
@@ -772,12 +774,13 @@ Navigate to the `DEV-XXXX-SAP01-INFRASTRUCTURE` subfolder inside the `LANDSCAPE`
 
 ```bash
 
-export region_code="NOEU"
+export sap_env_code="DEV"
+export  region_code="NOEU"
 
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-SAP01-INFRASTRUCTURE
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh          \
-      --parameterfile DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars           \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/remover.sh                                \
+      --parameterfile ${sap_env_code}-${region_code}-SAP01-INFRASTRUCTURE.tfvars \
       --type sap_landscape
 ```
 
