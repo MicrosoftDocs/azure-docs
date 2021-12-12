@@ -2,7 +2,7 @@
 title: Container security with Microsoft Defender for Cloud
 description: Learn about Microsoft Defender for Containers
 ms.topic: overview
-ms.date: 12/08/2021
+ms.date: 12/12/2021
 ---
 # Overview of Microsoft Defender for Containers
 
@@ -10,7 +10,7 @@ ms.date: 12/08/2021
 
 Microsoft Defender for Containers is the cloud-native solution for securing your containers.
 
-This plan merges the capabilities of two existing Microsoft Defender plans, "Defender for Kubernetes" and "Defender for Container registries", and provides new and improved features without deprecating any of the functionality from those plans.
+This plan merges the capabilities of two existing Microsoft Defender plans, "Defender for Kubernetes" and "Defender for Container registries", and provides new and improved features without deprecating any of the functionality from those plans. 
 
 On this page, You'll learn how how you can use Defender for Containers to improve, monitor, and maintain the security of your clusters, containers, and their applications.
 
@@ -162,20 +162,21 @@ Defender for Cloud filters and classifies findings from the scanner. When an ima
 
 ### Scanning images at runtime
 
-Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities.
+Defender for Containers expands on the registry scanning features of the Defender for container registries plan by introducing the **preview feature** of run-time visibility of vulnerabilities powered by the Defender profile.
 
 The new recommendation, **Vulnerabilities in running images should be remediated (powered by Qualys)** groups running images that have vulnerabilities and provides details about the issues discovered and how to remediate them.
 
 :::image type="content" source="media/defender-for-containers/running-image-vulnerabilities-recommendation.png" alt-text="test":::
 
-## Run-time protection for Kubernetes nodes and clusters
+## Run-time protection for Kubernetes nodes, clusters, and hosts
 
 Defender for Cloud provides real-time threat protection for your containerized environments and generates alerts for suspicious activities. You can use this information to quickly remediate security issues and improve the security of your containers.
 
-Threat protection at the cluster level is achieved by analyzing the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts. For a list of the cluster level alerts, see the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
+Threat protection at the cluster level is provided by the Defender profile and analysis of the Kubernetes audit logs. Examples of events at this level include exposed Kubernetes dashboards, creation of high privileged roles, and the creation of sensitive mounts.
 
-Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered.
+In addition, our threat detection goes beyond the Kubernetes management layer. Defender for Containers includes **host-level threat detection** with over sixty Kubernetes-aware analytics, AI, and anomaly detections based on your runtime workload. Our global team of security researchers constantly monitor the threat landscape. They add container-specific alerts and vulnerabilities as they're discovered. Together, this solution monitors the growing attack surface of multi-cloud Kubernetes deployments and tracks the [MITRE ATT&CK® matrix for Containers](https://www.microsoft.com/security/blog/2021/04/29/center-for-threat-informed-defense-teams-up-with-microsoft-partners-to-build-the-attck-for-containers-matrix/), a framework that was developed by the [Center for Threat-Informed Defense](https://mitre-engenuity.org/ctid/) in close partnership with Microsoft and others.
 
+The full list of available alerts can be found in the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
 ## FAQ - Defender for Containers
 
