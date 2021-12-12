@@ -19,7 +19,7 @@ Azure Load Balancer supports the following distribution modes for routing connec
 | Overview | Traffic from the same client IP routed to any healthy instance in the backend pool | Traffic from the same client IP is routed to the same backend instance | Traffic from the same client IP and protocol is routed to the same backend instance |
 | Tuples | 5 tuple | 2 tuple | 3 tuple |
 | Azure portal configuration | Session persistence: **None** | Session persistence: **Client IP** | Session persistence: **Client IP and protocol** |
-| [REST API](https://docs.microsoft.com/rest/api/load-balancer/load-balancers/create-or-update#loaddistribution) |  ```"loadDistribution":"Default"```| ```"loadDistribution":SourceIP```	| ```"loadDistribution":SourceIPProtocol```	|
+| [REST API](/rest/api/load-balancer/load-balancers/create-or-update#loaddistribution) |  ```"loadDistribution":"Default"```| ```"loadDistribution":SourceIP```    | ```"loadDistribution":SourceIPProtocol```    |
 
 ## Hash based
 
@@ -35,7 +35,9 @@ The five tuple is consists of:
 The hash is used to route traffic to healthy backend instances within the backend pool. The algorithm provides stickiness only within a transport session. When the client starts a new session from the same source IP, the source port changes and causes the traffic to go to a different backend instance.
 In order to configure hash based distribution, you must select session persistence to be **None** in the Azure portal. This specifies that successive requests from the same client may be handled by any virtual machine.
 
-![Five-tuple hash-based distribution mode](./media/distribution-mode-concepts/load-balancer-distribution.png)
+![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
+
+*Figure: Default 5 tuple hash based distribution*
 
 
 ## Session persistence 

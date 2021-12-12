@@ -175,6 +175,8 @@ We recommend that you perform this procedure after you have a key vault ready wi
     # env.list template for Credentials
     SAPADMUSER=<SET_SAPCONTROL_USER>
     SAPADMPASSWORD=<SET_SAPCONTROL_PASS>
+    LOGWSID=<SET SENTINEL WORKSPACE id>
+    LOGWSPUBLICKEY=<SET SENTINEL WORKSPACE KEY>
     ABAPUSER=SET_ABAP_USER>
     ABAPPASS=<SET_ABAP_PASS>
     JAVAUSER=<SET_JAVA_OS_USER>

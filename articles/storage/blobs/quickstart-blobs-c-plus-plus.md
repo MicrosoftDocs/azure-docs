@@ -185,4 +185,4 @@ In this quickstart, you learned how to upload, download, and list blobs using C+
 To see a C++ Blob Storage sample, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Blob Storage SDK v12 for C++ sample](https://github.com/Azure/azure-sdk-for-cpp/tree/master/sdk/storage/azure-storage-blobs/sample)
+> [Azure Blob Storage SDK v12 for C++ sample](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-blobs/samples)

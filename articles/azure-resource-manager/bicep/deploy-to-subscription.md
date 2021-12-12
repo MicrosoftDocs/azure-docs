@@ -66,7 +66,7 @@ For managing your subscription, use:
 
 For monitoring, use:
 
-* [diagnosticSettings](/templates/microsoft.insights/diagnosticsettings)
+* [diagnosticSettings](/azure/templates/microsoft.insights/diagnosticsettings)
 * [logprofiles](/azure/templates/microsoft.insights/logprofiles)
 
 For security, use:

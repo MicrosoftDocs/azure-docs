@@ -9,7 +9,7 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 07/13/2020
+ms.date: 11/29/2021
 ms.author: allensu
 
 ---
@@ -32,18 +32,6 @@ The hash includes:
 - **Destination port**
 - **IP protocol number to map flows to available servers**
 
-## Session persistence
-
-Packets of the same flow will arrive on the same backend pool instance. However, when a client starts a new flow from the same source IP, the source port changes. As a result, the five-tuple hash might cause the traffic to go to a different backend endpoint. 
-
-Session persistence to a source IP address is created by using a two or three-tuple hash. When session persistence is enabled, successive requests from the same client IP address will be handled by the same virtual machine. For more information on load balancer distribution modes, see [Configure the distribution mode for Azure Load Balancer](./load-balancer-distribution-mode.md).
-
-The following image displays the hash-based distribution:
-
-![Hash-based distribution](./media/load-balancer-overview/load-balancer-distribution.png)
-
-*Figure: Hash-based distribution*
-
 ## Application independence and transparency
 
 Load balancer supports any TCP/UDP application scenario and doesn't close or originate flows. Load balancer also doesn't interact with the payload of any flow. 
@@ -62,6 +50,7 @@ A response to an inbound flow is always a response from a virtual machine. When 
 ## Next steps
 
 - Learn about the [components](components.md) that make up Azure Load Balancer.
+- Learn about Azure Load Balancer's traffic [distribution modes](distribution-mode-concepts.md)
 - See [Create a public Standard Load Balancer](quickstart-load-balancer-standard-public-portal.md) to get started with using a Load Balancer: create one, create VMs with a custom IIS extension installed, and load balance the web app between the VMs.
 - Learn about [Azure Load Balancer outbound connections](load-balancer-outbound-connections.md).
 - Learn more about [Azure Load Balancer](load-balancer-overview.md).

@@ -222,7 +222,7 @@ Now let's use Azure Web PubSub SDK to publish a message to the connected client.
     <dependency>
         <groupId>com.azure</groupId>
         <artifactId>azure-messaging-webpubsub</artifactId>
-        <version>1.0.0-beta.6</version>
+        <version>1.0.0</version>
     </dependency>
     ```
 
