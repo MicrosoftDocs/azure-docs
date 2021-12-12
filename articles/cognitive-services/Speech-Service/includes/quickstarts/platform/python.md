@@ -36,7 +36,7 @@ Before you install the Python Speech SDK, make sure you have the following prere
 
 ## Install the Speech SDK using Visual Studio Code
 
-Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md#prerequisites?pivots=programming-language-python) above.
+Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-python#prerequisites) above.
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
 1. Run Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**, find the **Python extension for Visual Studio Code** published by Microsoft, and then select **Install**.

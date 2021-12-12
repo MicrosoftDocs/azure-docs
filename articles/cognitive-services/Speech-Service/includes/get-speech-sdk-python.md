@@ -8,7 +8,7 @@ ms.author: eur
 
 The Python Speech SDK is available as a Python Package Index (PyPI) module. For more information, see <a href="https://pypi.org/project/azure-cognitiveservices-speech/" target="_blank">azure-cognitiveservices-speech </a>. The Python Speech SDK is compatible with Windows, Linux, and macOS.
 
-Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md#prerequisites?pivots=programming-language-python).
+Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md?pivots=programming-language-python#prerequisites).
 
 To install the Speech SDK, run this command in a terminal.
 
