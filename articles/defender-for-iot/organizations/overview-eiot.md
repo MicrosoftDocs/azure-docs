@@ -23,7 +23,7 @@ Once this integration has been enabled, any devices discovered on the network by
 
 To learn how to integrate Microsoft Defender for Endpoint with your Microsoft Defender for IoT solution, see Microsoft Defender for Endpoint documentation.
 
-## Automatic 3T discovery for IT, IoT, and OT
+## Automatic discovery for IT, IoT, and OT
 
 Use passive agentless network monitoring to gain insight into your complete inventory of all your IT, IoT, and OT devices. The discovery process continuously identifies and classifies devices in your network, and resolves all device details. The discovery process is performed with zero impact to the network.  
 
