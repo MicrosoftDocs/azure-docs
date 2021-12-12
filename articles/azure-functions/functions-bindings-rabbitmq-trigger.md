@@ -292,7 +292,7 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 
 # [Isolated process](#tab/isolated-process)
 
-<!--We need to find out from Anthony Chu what kind of usage we have for isolated. -->
+The RabbitMQ bindings currently support only string and serializable object types when running in an isolated process.
 
 # [C# script](#tab/csharp-script)
 
