@@ -180,6 +180,8 @@ In addition, our threat detection goes beyond the Kubernetes management layer. D
 
 The full list of available alerts can be found in the [Reference table of alerts](alerts-reference.md#alerts-k8scluster).
 
+:::image type="content" source="media/defender-for-containers/sample-containers-plan-alerts.png" alt-text="Screenshot of Defender for Cloud's alerts page showing alerts for multi-cloud Kubernetes resources." lightbox="./media/defender-for-containers/sample-containers-plan-alerts.png":::
+
 ## FAQ - Defender for Containers
 
 - [What happens to subscriptions with Microsoft Defender for Kubernetes or Microsoft Defender for container registries enabled?](#what-happens-to-subscriptions-with-microsoft-defender-for-kubernetes-or-microsoft-defender-for-container-registries-enabled)
