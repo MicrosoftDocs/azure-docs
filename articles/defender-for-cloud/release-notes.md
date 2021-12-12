@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 12/11/2021
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -27,9 +27,9 @@ Updates in December include:
 
 ### Microsoft Defender for Containers plan released for general availability (GA)
 
-Over two years ago, we introduced "Defender for Kubernetes" and "Defender for container registries" as part of the Azure Defender offering within Microsoft Defender for Cloud.
+Over two years ago, we introduced [Defender for Kubernetes](defender-for-kubernetes-introduction.md) and [Defender for container registries](defender-for-container-registries-introduction.md) as part of the Azure Defender offering within Microsoft Defender for Cloud.
 
-With the release of **Microsoft Defender for Containers**, we're merging these two existing Defender plans. 
+With the release of [Microsoft Defender for Containers](defender-for-containers-introduction.md), we're merging these two existing Defender plans. 
 
 The new plan:
 
