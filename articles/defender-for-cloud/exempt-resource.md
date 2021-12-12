@@ -2,7 +2,7 @@
 title: Exempt a Microsoft Defender for Cloud recommendation from a resource, subscription, management group, and secure score
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 12/11/2021
 ---
 
 # Exempting resources and recommendations from your secure score 
@@ -67,7 +67,7 @@ To create an exemption rule:
             > When you exempt a recommendation as mitigated, you aren't given points towards your secure score. But because points aren't *removed* for the unhealthy resources, the result is that your score will increase.
 
         - **Risk accepted (waiver)** – if you’ve decided to accept the risk of not mitigating this recommendation
-    1. Optionally, enter a description.
+    1. Enter a description.
     1. Select **Create**.
 
     :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group.":::
