@@ -39,18 +39,18 @@ Before you install the Python Speech SDK, make sure you have the following prere
 Before you install the Python Speech SDK, make sure to satisfy the [system requirements and prerequisites](~/articles/cognitive-services/speech-service/quickstarts/setup-platform.md#prerequisites?pivots=programming-language-python) above.
 
 1. Download and install [Visual Studio Code](https://code.visualstudio.com/Download).
-1. Open Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**, find the **Python extension for Visual Studio Code** published by Microsoft, and then select **Install**.
+1. Run Visual Studio Code and install the Python extension. Select **File** > **Preferences** > **Extensions** from the menu. Search for **Python**, find the **Python extension for Visual Studio Code** published by Microsoft, and then select **Install**.
 
    ![Install the Python extension](~/articles/cognitive-services/speech-service/media/sdk/qs-python-vscode-python-extension.png)
 
-1. Open a terminal (from the drop-down menus, Select **Terminal** > **New Terminal** to open a terminal within Visual Studio Code. 
+1. Select **Terminal** > **New Terminal** to open a terminal within Visual Studio Code. 
 1. At the terminal prompt, run the command `python -m pip install azure-cognitiveservices-speech` to install the Speech SDK Python package. 
 
 For more information about Visual Studio Code and Python, see [Visual Studio Code Documentation](https://code.visualstudio.com/docs) and the [Visual Studio Code Python tutorial](https://code.visualstudio.com/docs/python/python-tutorial).
 
 ## Support and updates
 
-Updates to the Speech SDK Python package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/speech-service/releasenotes.md).
+Updates to the Python Speech SDK package are distributed via PyPI and announced in the [Release notes](~/articles/cognitive-services/speech-service/releasenotes.md).
 
 To upgrade to the latest Speech SDK, run this command in a terminal.
 
