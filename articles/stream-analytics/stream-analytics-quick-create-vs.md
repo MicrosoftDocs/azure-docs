@@ -150,7 +150,7 @@ Notice the elements that are included in an Azure Stream Analytics project.
    SELECT *
    INTO Output
    FROM Input
-   HAVING Temperature > 27
+   WHERE Temperature > 27
    ```
 
 ## Submit a Stream Analytics query to Azure

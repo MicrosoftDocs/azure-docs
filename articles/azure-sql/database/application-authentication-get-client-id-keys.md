@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 # Get the required values for authenticating an application to access Azure SQL Database from code

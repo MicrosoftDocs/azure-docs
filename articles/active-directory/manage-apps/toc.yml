@@ -206,8 +206,8 @@
       href: admin-consent-workflow-faq.md
     - name: App Management certificates FAQ
       href: application-management-certs-faq.md
-    - name: Reasons apps appear in Enterprise Applications
-      href: application-types.md
+    - name: Application list
+      href: application-list.md
     - name: Reasons users are assigned to an app
       href: ways-users-get-assigned-to-applications.md
     - name: Methods of removing user access to an app

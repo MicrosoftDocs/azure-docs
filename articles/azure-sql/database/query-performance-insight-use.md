@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: NikaKinska
 ms.author: nnikolic
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 1/14/2021
 ---
 # Query Performance Insight for Azure SQL Database
