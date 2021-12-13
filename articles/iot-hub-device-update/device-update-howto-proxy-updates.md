@@ -56,12 +56,12 @@ If you haven't already done so, review [Using Proxy Updates with Device Update f
    ```
    
   
-3. Go to IoT Hub and copy your IoT device's Device Update module (or device) primary connection string. Replace any default value for the "connectionData" field with the primary connection string in the du-config.json file. To make changes to the du-config.json file on your VM open the file using the following command             
+3. Go to IoT Hub and copy your IoT device's Device Update module (or device) primary connection string. Replace any default value for the "connectionData" field with the primary connection string in the du-config.json file. See below command for how to make changes to the du-config.json file.            
    ```sh
       sudo nano /etc/adu/du-config.json  
    ```
        
-4. Ensure that /ect/adu/du-diagnostics-config.json contain correct settings for log collection as well. For example. 
+4. Ensure that /ect/adu/du-diagnostics-config.json contain correct settings for log collection as well. For example, 
 
    ```sh
    {
@@ -95,7 +95,7 @@ For testing and demonstration purposes, we'll be creating following mock compone
 - "rootfs"
 
 > [!IMPORTANT]
-> This components configuration depends on the implementation of an example Component Enumerator extension called libcontoso-component-enumerator.so, which requires a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
+> This components configuration depends on the implementation of an example Component Enumerator extension called libcontoso-component-enumerator.so. It requires a mock component inventory data file `/usr/local/contoso-devices/components-inventory.json`
 
 1. Copy the folder [`demo`](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo) folder to your home directory on the test VM and then run the following command to copy required files to the right locations.
 
@@ -122,7 +122,7 @@ If you haven't already done so, create a [Device Update account and instance](cr
 4. Select '+ Import New Update'.
 5. Select '+ Select from storage container' and then choose your Storage account and Container. 
 6. Select 'Upload' to add the files you downloaded in (1).
-7. Upload the parent import manifest, child import manifest and payload files to your container. The example below shows sample files uploaded to update cameras connected to a smart vacuum cleaner device. It also includes a pre-install script to turn-off the cameras before the over-the-air update. The parent import manifest  is "contoso.Virtual-Vacuum-virtual-camera.1.4.importmanifest.json" and child import manifest with details for how update the camera is "Contoso.Virtual-Vacuum.3.3.importmanifest.json". Note both manifest file names follow the required format and end with *.importmanifest.json. 
+7. Upload the parent import manifest, child import manifest, and payload files to your container. The example below shows sample files uploaded to update cameras connected to a smart vacuum cleaner device. It also includes a pre-install script to turn-off the cameras before the over-the-air update. The parent import manifest  is "contoso.Virtual-Vacuum-virtual-camera.1.4.importmanifest.json".The child import manifest with details for updating the camera is "Contoso.Virtual-Vacuum.3.3.importmanifest.json". Note both manifest file names follow the required format and end with *.importmanifest.json. 
 
    :::image type="content" source="media/understand-device-update/Two containers.png" alt-text="Containers" lightbox="media/understand-device-update/Two containers.png":::
 
@@ -142,13 +142,13 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
 1. Select the 'Groups and Deployments' tab at the top of the page. 
 
-2. Select the '+ Add Group' button to create a new group or deploy the update that was just imported to IoT devices to an existing Group. If creating a new Group, select the IoT Hub tag you created in the previous step from the list. Then select 'Create group'.
+2. Select the '+ Add Group' button to create a new group by selecting the IoT Hub tag. Then select 'Create group'. Note, you can also deploy the update to an existing Group.
 
 [Learn more](create-update-group.md) about adding tags and creating update groups
 
 ## Deploy update
 
-1. In the 'Groups and Deployments' view, you should see a new update available for your device group and next to it a link to 'deploy'. You may need to Refresh once. For the example Smart Vacuum device you should see the below view:
+1. In the 'Groups and Deployments' view, you should see the new update available for your device group with a link to 'deploy'. You may need to Refresh once. For the example Smart Vacuum device you should see the below view:
 
 :::image type="content" source="media/understand-device-update/Five groups.png" alt-text="Groups" lightbox="media/understand-device-update/Five groups.png":::
 
@@ -170,10 +170,10 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
 2. Click on the Group you created to view the deployment details.
 
-You have now completed a successful end-to-end proxy update using Device Update for IoT Hub. 
+This completes a successful end-to-end proxy update using Device Update for IoT Hub. 
 
-## Additional details
-The reset-demo-components.sh command above will perform the following steps on your behalf 
+## More details
+The reset-demo-components.sh command above will do the following steps on your behalf 
 
 1. Add /usr/local/contoso-devices/components-inventory.json
 
