@@ -34,7 +34,7 @@ For this scenario, you will configure a critical line of business (LOB) applicat
 
 To integrate the application directly with Azure AD, it’d need to support some form of federation-based protocol such as Security Assertion Markup Language (SAML), or better. But as modernizing the application introduces risk of potential downtime, there are other options.
 
-To access the application remotely, you can use [Azure AD Application Proxy](./app-proxy/application-proxy), while using Kerberos Constrained Delegation (KCD) for SSO. In this arrangement, you can achieve the protocol transitioning required to bridge the legacy application to the modern identity control plane. 
+To access the application remotely, you can use [Azure AD Application Proxy](./app-proxy/application-proxy.md), while using Kerberos Constrained Delegation (KCD) for SSO. In this arrangement, you can achieve the protocol transitioning required to bridge the legacy application to the modern identity control plane. 
 
 Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC), enabling overlay of the application with Azure AD pre-authentication and KCD SSO, significantly improving the overall Zero Trust posture of the application.
 
@@ -70,7 +70,7 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
 * An Azure AD free subscription or above
 
-* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide)
+* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](../manage-apps/f5-bigip-deployment-guide.md)
 
 * Any of the following F5 BIG-IP license offers
 
@@ -82,11 +82,11 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
   * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
 
-*   User identities [synchronized](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) from an on-premises directory to Azure AD or created directly within Azure AD and flowed back to your on-premises directory
+*   User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD or created directly within Azure AD and flowed back to your on-premises directory
 
-*   An account with Azure AD Application admin [permissions](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-assign-admin-roles)
+*   An account with Azure AD Application admin [permissions](../users-groups-roles/directory-assign-admin-roles.md)
 
-*   Web server [certificate](https://docs.microsoft.com/azure/active-directory/manage-apps/f5-bigip-deployment-guide) for publishing services over HTTPS or use default BIG-IP certs while testing
+*   Web server [certificate](../manage-apps/f5-bigip-deployment-guide.md) for publishing services over HTTPS or use default BIG-IP certs while testing
 
 * An existing Kerberos application or [setup an IIS (Internet Information Services) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO
 
@@ -144,7 +144,7 @@ Next, configure the BIG-IP registration to fulfil SAML tokens requested by the B
 
 6. In the **SAML Signing Certificate** pane, select the **Download** button to save the **Federation Metadata XML** file to your computer.
 
-    ![Screenshot for editing basic SAML configuration](./media/f5-big-ip-kerbesos-advanced/edit-saml-signing-certificate.png)
+    ![Edit SAML signing certificate](./media/f5-big-ip-kerbesos-advanced/edit-saml-signing-certificate.png)
 
 SAML signing certificates created by Azure AD have a lifespan of 3 years. For more information, see [Managed certificates for federated single sign-on](./manage-certificates-for-federated-single-sign-on.md).
 
@@ -224,7 +224,7 @@ If the **web_svc_account** service runs in context of a computer account:
 ```Set-ADComputer -Identity web_svc_account -PrincipalsAllowedToDelegateToAccount $big-ip```
 ```Get-ADComputer web_svc_account -Properties PrincipalsAllowedToDelegateToAccount```
 
-For more information, see [Kerberos Constrained Delegation across domains](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
+For more information, see [Kerberos Constrained Delegation across domains](../previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11).md).
 ## BIG-IP advanced configuration
 
 Now we can proceed with setting up the BIG-IP configurations.
@@ -239,7 +239,7 @@ These settings define the SAML SP properties that the APM will use for overlayin
 
     ![Create local service SAML service provider](./media/f5-big-ip-kerbesos-advanced/create-local-services-saml-service-provider.png)
 
-3. Provide a **Name** and the **Entity ID** saved when you [configured SSO for Azure AD](#_Enable_SSO_) earlier.
+3. Provide a **Name** and the **Entity ID** saved when you configured SSO for Azure AD earlier.
 
     ![Create a new SAML SP service](./media/f5-big-ip-kerbesos-advanced/create-new-saml-sp-service.png)
 
@@ -269,7 +269,7 @@ A SAML IdP connector defines the settings required for the BIG-IP APM to trust A
 
 ### Configure Kerberos SSO
 
-In this section, you create an APM SSO object for performing KCD SSO to backend applications. You will need the [APM delegation account](#_Create_a_BIG-IP) created earlier to complete this step.
+In this section, you create an APM SSO object for performing KCD SSO to backend applications. You will need the [APM delegation account] created earlier to complete this step.
 
 Select **Access > Single Sign-on > Kerberos > Create** and provide the following:
 
