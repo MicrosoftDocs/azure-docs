@@ -95,7 +95,7 @@ After doing the above, the Update Content Handler can install and apply the upda
   - Receives update information from Azure IoT Hub (via Device Twin or Module Twin)
   - Invokes **Steps Handler** to process the Proxy Update intended for one or more components on the device
     - For each Child Update (in this example, there are two updates, `host-fw-1.1` and `motors-fw-1.1`), Parent **Steps Handler** invokes Child **Steps Handler** to enumerate all components that match the **Compatibilities** properties specified in Child Update Manifest file. Next the handler downloads, installs and applies the Child Update to all targeted components.
-    - To get the matching components, the Child Update will call a `SelectComponents` API provided by the **Component Enumerator**. <br/> [!NOTE] If there are no matching components, the Child Update will be skipped.
+    - To get the matching components, the Child Update will call a `SelectComponents` API provided by the **Component Enumerator**. <br/> If there are no matching components, the Child Update will be skipped.
   - Collects all update results from Parent and Child Update(s) and reports it to the Azure IoT Hub.
 - Child **Steps Handler**
   - Iterate through a list of **instances of component** that are compatible with the **Child Update** content.
