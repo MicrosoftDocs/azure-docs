@@ -7,9 +7,6 @@ ms.author: zehangzheng
 ---
 [!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 
-## Sample Code
-You can download this quickstart as a sample on [GitHub](https://github.com/Azure-Samples/communication-services-javascript-quickstarts/tree/main/add-1-on-1-phone-calling)
-
 ## Prerequisites
 
 - A working [Communication Services calling web app](./pstn-call-js.md).
@@ -63,9 +60,7 @@ Replace the code in **index.html** with following snippet. It will add a new but
 ## Emergency test call to phone 
 Specify the ISO code of the country where the caller is located. If the ISO code is not provided, the IP address will be used to determine the callers location.  Microsoft uses the ISO 3166-1 alpha-2 standard for country ISO codes, supported ISO codes are listed on the concept page for emergency calling. 
 
-In your **client.js**, replace your imports with the following for emergency calls:
-
-Add the following code to retrieve the emergency button you've created in index.html.
+In your **client.js**, add the following code to retrieve the emergency button you've created in index.html.
 
 ```javascript
 const emergencyButton = document.getElementById("emergency-button");
