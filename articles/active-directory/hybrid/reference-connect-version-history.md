@@ -25,7 +25,7 @@ You can upgrade your Azure AD Connect server from all supported versions with th
 
  - If you're using *Windows Server 2016 or newer*, use *Azure AD Connect V2.0*. You can download the latest version of Azure AD Connect 2.0 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=47594). See the [release notes for the latest V2.0 release](reference-connect-version-history.md#20280).
  - If you're still using an *older version of Windows Server*, use *Azure AD Connect V1.6*. You can download the latest version of Azure AD Connect V1 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=103336). See the [release notes for the latest V1.6 release](reference-connect-version-history.md#16160).
- - We're only applying critical changes to the V1.x versions going forward. You might not find some of the features and fixes for V2.0 in the V1.x releases. For this reason, upgrade to the V2.0 version as soon as possible. Most notably, there's an issue with the 1.16.4.2 build, where upgrading to this V1.6 build or any newer builds resets the group limit to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
+ - We're only applying critical changes to the V1.x versions going forward. You might not find some of the features and fixes for V2.0 in the V1.x releases. For this reason, upgrade to the V2.0 version as soon as possible. Most notably, there's an issue with the 1.16.4.2 build. When you upgrade to this V1.6 build or any newer builds, the group limit resets to 50,000. When you upgrade a server to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
 
 This table is a list of related topics:
 
@@ -65,11 +65,11 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 Don't install this release on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31, 2022. You need to upgrade your server OS and Azure AD Connect version before that date.
 
-There's an issue where upgrading to this V1.6 build or any newer builds resets the group membership limit to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
+When you upgrade to this V1.6 build or any newer builds, the group membership limit resets to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
 
 ### Release status
 
-10/13/2021: Released for download and auto-upgrade.
+10/13/2021: Released for download and auto-upgrade
 
 ### Bug fixes
 
@@ -78,7 +78,7 @@ There's an issue where upgrading to this V1.6 build or any newer builds resets t
 
 ### Known issues
 
-There's an issue where upgrading to this V1.6 build or any newer builds resets the group membership limit to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
+When you upgrade to this V1.6 build or any newer builds, the group membership limit resets to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
 
 ## 2.0.28.0
 
@@ -108,11 +108,11 @@ A change was made that allows a user to deselect objects and attributes from the
 
 We'll begin auto-upgrading eligible tenants when this version is available for download. Auto-upgrade will take a few weeks to complete.
 
-There's an issue where upgrading to this V1.6 build or any newer builds resets the group membership limit to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
+When you upgrade to this V1.6 build or any newer builds, the group membership limit resets to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
 
 ### Release status
 
-9/21/2021: Released for download and auto-upgrade.
+9/21/2021: Released for download and auto-upgrade
 
 ### Functional changes
 
@@ -127,7 +127,7 @@ There's an issue where upgrading to this V1.6 build or any newer builds resets t
 ## 2.0.25.1
 
 > [!NOTE]
-> This release is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. It fixes a security issue that's present in version 2.0 of Azure AD Connect and also includes other bug fixes.
+> This release is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. It fixes a security issue that's present in version 2.0 of Azure AD Connect and includes other bug fixes.
 
 ### Release status
 
@@ -138,7 +138,7 @@ There's an issue where upgrading to this V1.6 build or any newer builds resets t
  - We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
  - We fixed an import configuration issue with writeback enabled when you use the existing Azure AD Connector account.
  - We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from 1.6 because of an invalid inheritance type.
- - We fixed an issue with the cmdlet we published in a previous release to set the TLS version. The cmdlet overwrote the keys, which destroyed any values that were in them. Now a new key is created only if one doesn't already exist. A warning is also added to let users know the TLS registry changes aren't exclusive to Azure AD Connect and might affect other applications on the same server.
+ - We fixed an issue with the cmdlet we published in a previous release to set the TLS version. The cmdlet overwrote the keys, which destroyed any values that were in them. Now a new key is created only if one doesn't already exist. We added a warning to let users know the TLS registry changes aren't exclusive to Azure AD Connect and might affect other applications on the same server.
  - We added a check to enforce auto-upgrade for V2.0 to require Windows Server 2016 or newer.
  - We added the Replicating Directory Changes permission in the Set-ADSyncBasicReadPermissions cmdlet.
  - We made a change to prevent UseExistingDatabase and import configuration from being used together because they could contain conflicting configuration settings.
@@ -166,7 +166,7 @@ There's an issue where upgrading to this V1.6 build or any newer builds resets t
 
 ### Known issues
 
-Under certain circumstances, the installer for this version displays an error mentioning that TLS 1.2 isn't enabled and stops the installation. This issue occurs because of an error in the code that verifies the registry setting for TLS 1.2. We'll correct this issue in a future release. If you see this issue, follow the instructions for enabling TLS 1.2 in [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
+Under certain circumstances, the installer for this version displays an error that states TLS 1.2 isn't enabled and stops the installation. This issue occurs because of an error in the code that verifies the registry setting for TLS 1.2. We'll correct this issue in a future release. If you see this issue, follow the instructions for enabling TLS 1.2 in [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
 
 ### Bug fixes
 
@@ -237,7 +237,7 @@ There are no functional changes in this release.
 ## 2.0.3.0
 
 > [!NOTE]
-> This release is a major release of Azure AD Connect. For more details, see [Introduction to Azure AD Connect V2.0](whatis-azure-ad-connect-v2.md).
+> This release is a major release of Azure AD Connect. For more information, see [Introduction to Azure AD Connect V2.0](whatis-azure-ad-connect-v2.md).
 
 ### Release status
 
@@ -261,7 +261,7 @@ To sync an expired password from Active Directory to Azure AD, use the feature i
 
    You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it, as needed. TLS 1.2 must be enabled on the server for the installation or Azure AD Connect to succeed.
 
-- We revamped ADSyncTools with several new and improved cmdlets. For more details about these cmdlets, see [Azure AD Connect: ADSyncTools PowerShell](reference-connect-adsynctools.md).
+- We revamped ADSyncTools with several new and improved cmdlets. For more information about these cmdlets, see [Azure AD Connect: ADSyncTools PowerShell](reference-connect-adsynctools.md).
   The following cmdlets were added or updated:
 
     - Clear-ADSyncToolsMsDsConsistencyGuid
@@ -350,7 +350,7 @@ This release fixes a bug that occurred in version 1.6.2.4. After upgrade to that
 ## 1.6.2.4
 
 > [!IMPORTANT]
-> Update per March 30, 2021: We've discovered an issue in this build. After installation of this build, the Health services aren't registered. We recommend not installing this build. We'll release a hotfix shortly.
+> Update per March 30, 2021: We've discovered an issue in this build. After installation of this build, the Health services aren't registered. We recommend that you not install this build. We'll release a hotfix shortly.
 > If you already installed this build, you can manually register the Health services by using the cmdlet, as shown in [Azure AD Connect Health agent installation](./how-to-connect-health-agent-install.md#manually-register-azure-ad-connect-health-for-sync).
 
 - This release will be made available for download only.
@@ -458,4 +458,4 @@ This is a bug fix release. There are no functional changes in this release.
 
 ## Next steps
 
-Learn more about [Integrating your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
+Learn more about how to [integrate your on-premises identities with Azure Active Directory](whatis-hybrid-identity.md).
