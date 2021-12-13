@@ -17,7 +17,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 - A phone number acquired in your Communication Services resource. [how to get a phone number](../get-phone-number.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 
-[!INCLUDE [Calling with JavaScript](../../voice-video-calling/get-started/get-started-javascript-setup.md)]
+[!INCLUDE [Calling with JavaScript](../../voice-video-calling/includes/get-started/get-started-javascript-setup.md)]
 
 Here's the code:
 
