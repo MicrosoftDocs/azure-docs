@@ -212,6 +212,8 @@ landingContent:
             url: ecosystem-migration-vms.md
           - text: Security solutions for Azure VMware Solution
             url: ecosystem-security-solutions.md
+          - text: Application performance monitoring and troubleshooting solutions
+            url: ecosystem-app-monitoring-solutions.md
           - text: Bitnami appliance deployment
             url: bitnami-appliances-deployment.md
 

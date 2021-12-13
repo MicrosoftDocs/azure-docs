@@ -212,7 +212,7 @@ No. Virtual WAN does not require ExpressRoute from each site. Your sites may be 
 
 ### Is there a network throughput or connection limit when using Azure Virtual WAN?
 
-Network throughput is per service in a virtual WAN hub. While you can have as many virtual WANs as you like, each Virtual WAN allows 1 hub per region. In each hub, the VPN Aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is  up to 20 Gbps and the User VPN/Point-to-site VPN aggregate throughput is up to 20 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub. This [limit](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) can be increased opening an online customer support request. For cost implication, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page. 
+Network throughput is per service in a virtual WAN hub. In each hub, the VPN aggregate throughput is up to 20 Gbps, the ExpressRoute aggregate throughput is up to 20 Gbps and the User VPN/Point-to-site VPN aggregate throughput is up to 20 Gbps. The router in virtual hub supports up to 50 Gbps for VNet-to-VNet traffic flows and assumes a total of 2000 VM workload across all VNets connected to a single virtual hub. This [limit](../azure-resource-manager/management/azure-subscription-service-limits.md#virtual-wan-limits) can be increased opening an online customer support request. For cost implication, see *Routing Infrastructure Unit* cost in the [Azure Virtual WAN Pricing](https://azure.microsoft.com/pricing/details/virtual-wan/) page. 
 
 When VPN sites connect into a hub, they do so with connections. Virtual WAN supports up to 1000 connections or 2000 IPsec tunnels per virtual hub. When remote users connect into virtual hub, they connect to the P2S VPN gateway, which supports up to 100,000 users depending on the scale unit(bandwidth) chosen for the P2S VPN gateway in the virtual hub.
 
@@ -278,7 +278,7 @@ When an ExpressRoute circuit is connected to virtual hub, the Microsoft edge rou
 
 For any reason, if the VPN connection becomes the primary medium for the virtual hub to learn routes from (e.g failover scenarios between ExpressRoute and VPN), unless the VPN Site has a longer AS Path length, the virtual hub will continue to share VPN learned routes with the ExpressRoute gateway. This causes the Microsoft edge routers to prefer VPN routes over on-premises routes.
 
-### When two hubs (hub 1 and 2) are connected and there is an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
+### <a name="expressroute-bow-tie"></a>When two hubs (hub 1 and 2) are connected and there is an ExpressRoute circuit connected as a bow-tie to both the hubs, what is the path for a VNet connected to hub 1 to reach a VNet connected in hub 2?
 
 The current behavior is to prefer the ExpressRoute circuit path over hub-to-hub for VNet-to-VNet connectivity. However, this is not encouraged in a Virtual WAN setup. To resolve this, you can do one of two things:
 

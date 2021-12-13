@@ -1,8 +1,8 @@
 ---
-title: Archive of what's new in Defender for Cloud
-description: A description of what's new and changed in Defender for Cloud from six months ago and earlier.
+title: Archive of what's new in Microsoft Defender for Cloud
+description: A description of what's new and changed in Microsoft Defender for Cloud from six months ago and earlier.
 ms.topic: reference
-ms.date: 12/07/2021
+ms.date: 12/09/2021
 ---
 # Archive for what's new in Defender for Cloud?
 
@@ -235,7 +235,7 @@ The following recommendations allow you to further harden your Kubernetes cluste
 - **Kubernetes clusters should disable automounting API credentials** - To prevent a potentially compromised Pod resource from running API commands against Kubernetes clusters, disable automounting API credentials.
 - **Kubernetes clusters should not grant CAPSYSADMIN security capabilities**
 
-Learn how Security Center can protect your containerized environments in [Container security in Security Center](container-security.md).
+Learn how Security Center can protect your containerized environments in [Container security in Security Center](defender-for-containers-introduction.md).
 
 ### Assessments API expanded with two new fields
 
@@ -511,7 +511,7 @@ Security Center includes a built-in vulnerability scanner to help you discover, 
 
 If you have an organizational need to ignore a finding, rather than remediate it, you can optionally disable it. Disabled findings don't impact your secure score or generate unwanted noise.
 
-Learn more in [Disable specific findings](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings-preview).
+Learn more in [Disable specific findings](defender-for-sql-on-machines-vulnerability-assessment.md#disable-specific-findings).
 
 
 
@@ -648,7 +648,7 @@ When the Azure Policy add-on for Kubernetes is installed on your Azure Kubernete
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 > [!NOTE]
 > While the recommendations were in preview, they didn't render an AKS cluster resource unhealthy, and they weren't included in the calculations of your secure score. with this GA announcement these will be included in the score calculation. If you haven't remediated them already, this might result in a slight impact on your secure score. Remediate them wherever possible as described in [Remediate recommendations in Azure Security Center](implement-security-recommendations.md).
@@ -1460,7 +1460,7 @@ This option is available from the recommendations details pages for:
 - **Vulnerabilities in Azure Container Registry images should be remediated**
 - **Vulnerabilities in your virtual machines should be remediated**
 
-Learn more in [Disable specific findings for your container images](defender-for-container-registries-usage.md#disable-specific-findings-preview) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings-preview).
+Learn more in [Disable specific findings for your container images](defender-for-container-registries-usage.md#disable-specific-findings) and [Disable specific findings for your virtual machines](remediate-vulnerability-findings-vm.md#disable-specific-findings).
 
 
 ### Exempt a resource from a recommendation
@@ -1491,7 +1491,7 @@ When you've installed the Azure Policy add-on for Kubernetes on your AKS cluster
 
 For example, you can mandate that privileged containers shouldn't be created, and any future requests to do so will be blocked.
 
-Learn more in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control).
+Learn more in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control).
 
 
 ### Vulnerability assessment findings are now available in continuous export
@@ -1763,10 +1763,10 @@ To improve the clarity and guidance regarding Azure Security Center's container 
 
 Learn more about Security Center's container security in the following articles:
 
-- [Overview of Security Center's container security features](container-security.md)
+- [Overview of Security Center's container security features](defender-for-containers-introduction.md)
 - [Details of the integration with Azure Container Registry](defender-for-container-registries-introduction.md)
 - [Details of the integration with Azure Kubernetes Service](defender-for-kubernetes-introduction.md)
-- [How-to scan your registries and harden your Docker hosts](container-security.md)
+- [How-to scan your registries and harden your Docker hosts](defender-for-containers-introduction.md)
 - [Security alerts from the threat protection features for Azure Kubernetes Service clusters](alerts-reference.md#alerts-k8scluster)
 - [Security recommendations for containers](recommendations-reference.md#recs-compute)
 
@@ -2145,7 +2145,7 @@ The Security Center defense includes:
 
 Learn more about [Azure Kubernetes Services' integration with Security Center](defender-for-kubernetes-introduction.md).
 
-Learn more about [the container security features in Security Center](container-security.md).
+Learn more about [the container security features in Security Center](defender-for-containers-introduction.md).
 
 
 ### Improved just-in-time experience
