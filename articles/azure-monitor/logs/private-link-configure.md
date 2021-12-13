@@ -93,9 +93,6 @@ So far we covered the configuration of your network, but you should also conside
 Go to the Azure portal. In your resource's menu, there's a menu item called **Network Isolation** on the left-hand side. This page controls both which networks can reach the resource through a Private Link, and whether other networks can reach it or not.
 
 
-> [!NOTE]
-> Starting September 2021, Network Isolation will be strictly enforced. Resources set to block queries from public networks, and that aren't connected to any private network (through an AMPLS) will stop accepting queries from any network.
-
 ![LA Network Isolation](./media/private-link-security/ampls-network-isolation.png)
 
 ### Connected Azure Monitor Private Link scopes
