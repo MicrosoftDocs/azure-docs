@@ -8,27 +8,28 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 12/13/2021
 ms.author: v-ydequadros
 ---
 
 # Microsoft CloudKnox Permissions Management Permissions Analytics report
 
-This topic describes how to use the Permissions Analytics report in Microsoft CloudKnox Permissions Management.
+This topic describes how to use the Permissions Analytics report at Microsoft CloudKnox Permissions Management.
 
-> [!NOTE] This topic applies only to Amazon Web Services (AWS) users.
+> [!NOTE]
+> This topic applies only to Amazon Web Services (AWS) users.
 
 ## How to use the Permissions Analytics report 
 
-1. From the **Systems Reports** tab, under **Report Name**, click **Permissions Analytics Report**.
-2. To view the Privilege Creep Index and Identities statistics, click the right caret icon next to **Summary**. 
+1. From the **Systems Reports** tab, under **Report Name**, select **Permissions Analytics Report**.
+2. To view the Privilege Creep Index and Identities statistics, select the right arrow next to **Summary**. 
 
-    Or, under the **Findings** column on the left, click **Summary**.
+    Or, under the **Findings** column on the left, select **Summary**.
 
 	> [!NOTE]
     > The summary only appears for one authorization system at a time. If you select more than one authorization system, CloudKnox does not display a summary.
 
-3. Click the right caret icon next to one of the following categories.
+3. Select the right arrow next to one of the following categories.
 
     Or, select the required category under the **Findings** column.
 
@@ -75,7 +76,7 @@ This topic describes how to use the Permissions Analytics report in Microsoft Cl
 			- Roles That Allow All Identities
 		- Hygiene: MFA Enforcement
 		- Hygiene: IAM Access Key Age
-		- Hygiene: Unised IAM Access Keys 
+		- Hygiene: Unused IAM Access Keys
 		- Exclude From Reports
 			- Users
 			- Roles
@@ -86,42 +87,41 @@ This topic describes how to use the Permissions Analytics report in Microsoft Cl
 			- S3 Buckets
 
 <!---Do we need to list all these options?--->
-<!---Is Unised a typo?--->
 
-4. View the following columns of information once a category has been selected:
+4. Select a category and view the following columns of information:
 
-	- User, Role, Resource, Serverless Function, etc. name - lists the name of the identity.
+	- User, Role, Resource, Serverless Function name - Displays the name of the identity.
 	- Authorization System - Displays the authorization system the identity belongs to.
-	- Domain - Lists the domain name the identity belongs to.
-	- Privileges - Lists the maximum number of privileges the identity has.
-		- Used - Shows how many privileges the identity has used.
-		- Granted - Shows how many privileges the identity has been granted.
-	- PCI - Lists the privilege creep index score of the identity.
-	- Date Last Active On - Lists the date the identity was last active.
-	- Date Created On - Lists the date in which the identity was created.
+	- Domain - Displays the domain name the identity belongs to.
+	- Privileges - Displays the maximum number of privileges the identity has.
+		- Used - Displays how many privileges the identity has used.
+		- Granted - Displays how many privileges the identity has been granted.
+	- PCI - Displays the privilege creep index score of the identity.
+	- Date Last Active On - Displays the date the identity was last active.
+	- Date Created On - Displays the date in which the identity was created.
 
 
 ## How to add and remove tags from the Permissions Analytics report
 
-1. Click the **Tags** icon.
+1. Select **Tags**.
 
-2. Click one of the categories from the **Permissions Analytics Report**.
+2. Select one of the categories from the **Permissions Analytics Report**.
 
      <!---For more information, see [How to use the Permissions Analytics Report](cloudknox-prod-reports.md#how-to-use-the-Permissions-Analytics-Report).--->
 
 3. Select the identity name to which you want to add a tag. Then, select the checkbox at the top to select all identities.
 
-4. Click the **Add Tag** icon with the plus sign at the top.
+4. Select **Add Tag**.
 
 5. In the **Tag** column: 
-    - To select from the available options from the list, click **Select a Tag**.
+    - To select from the available options from the list, select **Select a Tag**.
     - To search for a tag, enter the tag name.
-    - To create a new custom tag, click  **New Custom Tag**.
-    - To create a new tag, enter a name for the tag and click **Create**.
-    - To remove a tag, click **Delete**.
+    - To create a new custom tag, select  **New Custom Tag**.
+    - To create a new tag, enter a name for the tag and select **Create**.
+    - To remove a tag, select **Delete**.
 
-6. In the **Value (optional)** box, enter a value, if required.
+6. In the **Value (optional)** box, enter a value, if necessary.
 
-7. Click **Save**.
+7. Select **Save**.
  
 <!---## Next steps--->
