@@ -6,7 +6,7 @@ author: asudbring
 ms.author: allensu
 ms.service: traffic-manager
 ms.topic: how-to
-ms.date: 12/02/2021
+ms.date: 12/13/2021
 ms.custom: template-how-to
 ---
 
@@ -71,7 +71,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
     :::image type="content" source="./media/how-to-add-endpoint-existing-profile-template/traffic-manager-arm-powershell-output.png" alt-text="Azure Traffic Manager Resource Manager template PowerShell deployment output":::
 
-Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
+    Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
 ## Validate the deployment
 
