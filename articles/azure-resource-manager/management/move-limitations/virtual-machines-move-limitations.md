@@ -39,7 +39,7 @@ Virtual machines created from Marketplace resources with plans attached can't be
 1. Get information about the plan.
 
    ```azurepowershell
-   $vm = get-azvm -ResourceGroupName demoRG -Name myVm1
+   $vm = get-AzVM -ResourceGroupName demoRG -Name myVm1
    $vm.Plan
    ```
 
@@ -71,7 +71,7 @@ Virtual machines created from Marketplace resources with plans attached can't be
 
    Or, you can create a new instance of a virtual machine with the plan through the portal. You can delete the virtual machine after accepting the terms in the new subscription.
 
-1. In the destination subscription, recreate the virtual machine from the cloned OS disk using PowerShell, CLI, or an Azure Resource Manager template. Include the marketplace plan that's attached to the disk. The information about the plan should match the plan you purchased in the new subscription. For more information, see [Create the VM](../../virtual-machines/marketplace-images.md#create-the-vm).
+1. In the destination subscription, recreate the virtual machine from the cloned OS disk using PowerShell, CLI, or an Azure Resource Manager template. Include the marketplace plan that's attached to the disk. The information about the plan should match the plan you purchased in the new subscription. For more information, see [Create the VM](../../../virtual-machines/marketplace-images.md#create-the-vm).
 
 ## Virtual machines with Azure Backup
 
