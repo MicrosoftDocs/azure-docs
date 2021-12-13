@@ -24,7 +24,7 @@ If your environment meets the prerequisites and you're familiar with using ARM t
 
 - If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-- An existing Azure Traffic Manager profile. More more information on creating an Azure Traffic Manager profile, see [Quickstart: Create a Traffic Manager profile using an ARM template](quickstart-create-traffic-manager-profile-template.md).
+- An existing Azure Traffic Manager profile. For more information on creating an Azure Traffic Manager profile, see [Quickstart: Create a Traffic Manager profile using an ARM template](quickstart-create-traffic-manager-profile-template.md).
 
 ## Review the template
 
