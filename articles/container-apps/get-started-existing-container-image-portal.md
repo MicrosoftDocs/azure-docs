@@ -79,11 +79,10 @@ In the *App settings* tab, do the following actions:
 | Image source | Select your container image repository source. If your container is hosted in a registry other than **Azure Container Registry**, select **Docker Hub or other registries**. |
 | Registry login server | Enter the domain (including subdomain) of your container registry. |
 | Image type | Select **Private**. |
-| Registry login server |  |
-| Registry user name |  |
-| Registry password |  |
-| Image and tag |  |
-| Image and tag | Enter **/azuredocs/containerapps-helloworld:latest**. |
+| Registry login server | Enter the domain (including subdomain) of your container registry. |
+| Registry user name | Enter your user name for the registry. |
+| Registry password | Enter your password for the registry. |
+| Image and tag | Enter the image name, including tag. |
 ::: zone-end
 
 ::: zone pivot="container-apps-public-registry"
@@ -94,7 +93,7 @@ In the *App settings* tab, do the following actions:
 | Image source | Select your container image repository source. If your container is hosted in a registry other than **Azure Container Registry**, select **Docker Hub or other registries**. |
 | Registry login server | Enter the domain (including subdomain) of your container registry. |
 | Image type | Select **Public**. |
-| Image and tag | Enter **/azuredocs/containerapps-helloworld:latest**. |
+| Image and tag | Enter the image name, including tag. |
 ::: zone-end
 
 #### Application ingress settings
@@ -124,9 +123,10 @@ If you enabled ingress, configure the following settings:
 
 ### View Your deployed application
 
-Select **Go to resource** to view your new container app.  Select the link next to *Application URL* to view your application. You'll see the following message in your browser.
-
-:::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
+1. Select **Go to resource** to view your new container app.
+1. Select **Logs** under the *Monitoring* header.
+1. Under *All Queries*, select **Containers**.
+1. Select the example query labeled *Image inventory*, and select **Run**
 
 ## Clean up resources
 
