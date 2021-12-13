@@ -11,7 +11,7 @@ ms.devlang:
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 05/29/2020
 ---
 # Quickstart: Use Visual Studio Code to connect and query 

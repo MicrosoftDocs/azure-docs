@@ -61,12 +61,23 @@ items:
       href: how-to-use-fhir-mappings.md
     - name: Display Metrics
       href: how-to-display-metrics.md
+    - name: Create copies of mappings templates
+      href: how-to-create-mappings-copies.md
+
 - name: Resources
   expanded: true
   items:
-  - name: FAQs
-    href: iot-connector-faqs.md
-  - name: Open-source projects
-    href: iot-git-projects.md
-  - name: Troubleshooting guide
-    href: iot-troubleshoot-guide.md
+    - name: FAQs
+      href: iot-connector-faqs.md
+    - name: Open-source projects
+      href: iot-git-projects.md
+    - name: Troubleshooting
+      expanded: true
+      items:
+      - name: Troubleshooting guide  
+        href: iot-troubleshoot-guide.md
+      - name: Device and FHIR destination mappings
+        href: iot-troubleshoot-mappings.md
+      - name: Errors and conditions
+        href: iot-troubleshoot-error-messages-and-conditions.md
+           

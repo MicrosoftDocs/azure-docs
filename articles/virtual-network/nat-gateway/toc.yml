@@ -23,7 +23,7 @@ items:
   expanded: true
 - name: Concepts
   items:
-  - name: Resource
+  - name: Resources
     href: nat-gateway-resource.md
   - name: Metrics and alerts
     href: nat-metrics.md

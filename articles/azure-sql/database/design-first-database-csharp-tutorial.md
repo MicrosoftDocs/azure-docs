@@ -6,8 +6,8 @@ ms.service: sql-database
 ms.subservice: development
 ms.custom: "seo-lt-2019, sqldbrb=1, devx-track-csharp"
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer: mathoma
 ms.date: 07/29/2019
 ---

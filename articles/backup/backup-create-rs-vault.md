@@ -87,7 +87,7 @@ To configure your vault to encrypt with customer-managed keys, these steps must 
 
 1. Assign the encryption key to the Recovery Services vault
 
-Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
+Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-using-customer-managed-keys).
 
 ## Modifying default settings
 

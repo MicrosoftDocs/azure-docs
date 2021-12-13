@@ -47,7 +47,7 @@ The first of those two commands, require Azure Active Directory credentials. The
 
 ## Create service principals
 
-Next, we need to create the [AD2AAD application/ service principal](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http&preserve-view=true)
+Next, we need to create the [AD2AAD application/ service principal](/graph/api/applicationtemplate-instantiate)
 
 You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The displayName is the AD domain URL, if used in the portal (for example, contoso.com), but it may be named something else.
 

@@ -5,15 +5,15 @@ author: manoskow
 manager: chpalm
 services: azure-communication-services
 
-ms.author: manoskow
-ms.date: 06/30/2021
+ms.author: prakulka
+ms.date: 11/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
 ---
 
 # Troubleshooting in Azure Communication Services
 
-This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/telephony-sms/handle-sms-events.md) to capture SMS delivery details.
+This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
 ## Getting help
 
@@ -24,6 +24,7 @@ To help you troubleshoot certain types of issues, you may be asked for any of th
 * **MS-CV ID**: This ID is used to troubleshoot calls and messages.
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
+* **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
 Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
@@ -139,6 +140,11 @@ async function main() {
 console.log(result); // your message ID will be in the result
 }
 ```
+---
+## Access your short code program brief ID
+The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
+
+:::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
 ---
 
 ## Enable and access call logs
@@ -258,6 +264,28 @@ The Azure Communication Services Chat SDK uses the following error codes to help
 | 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
 | 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
 | 503 | Service Unavailable | File a support request through the Azure portal. |
+
+## SMS error codes
+
+The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the "DeliveryStatusDetails" field in the SMS delivery report. 
+
+| Error code | Description | Action to take |
+| -------- | ---------------| ---------------|
+| 2000 | Message Delivered Successfully |  |
+| 4000 | Message is rejected due to fraud detection | Ensure you are not exceeding the maximum number of messages allowed for your number|
+| 4001 | Message is rejected due to invalid Source/From number format| Ensure the To number is in E.164 format and From number format is in E.164 or Short code format |
+| 4002 | Message is rejected due to invalid Destination/To number format| Ensure the To number is in E.164 format |
+| 4003 | Message failed to deliver due to unsupported destination| Check if the destination you are trying to send to is supported |
+| 4004 | Message failed to deliver since Destination/To number does not exist| Ensure the To number you are sending to is valid |
+| 4005 | Message is blocked by Destination carrier|  |
+| 4006 | The Destination/To number is not reachable| Try re-sending the message at a later time |
+| 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
+| 4008 | You have exceeded the maximum number of messages allowed for your profile| Ensure you are not exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
+| 5000 | Message failed to deliver, Please reach out Microsoft support team for more details| File a support request through the Azure portal |
+| 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
+| 5002 | Message Delivery Timeout|  Try re-sending the message |
+| 9999 | Message failed to deliver due to unknown error/failure|  Try re-sending the message |
+
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)

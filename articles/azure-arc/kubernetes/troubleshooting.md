@@ -3,7 +3,7 @@ title: "Troubleshoot common Azure Arc-enabled Kubernetes issues"
 services: azure-arc
 ms.service: azure-arc
 #ms.subservice: azure-arc-kubernetes coming soon
-ms.date: 05/21/2021
+ms.date: 12/07/2021
 ms.topic: article
 description: "Troubleshooting common issues with Azure Arc-enabled Kubernetes clusters."
 keywords: "Kubernetes, Arc, Azure, containers"
@@ -148,21 +148,29 @@ To recover from this issue, follow these steps:
 3. [Install a stable version](https://helm.sh/docs/intro/install/) of Helm 3 on your machine instead of the release candidate version.
 4. Run the `az connectedk8s connect` command with the appropriate values to connect the cluster to Azure Arc.
 
-## Configuration management
+## GitOps management
 
 ### General
-To help troubleshoot issues with configuration resource, run az commands with `--debug` parameter specified.
+
+To help troubleshoot issues with `sourceControlConfigurations` resource (Flux v1), run these az commands with `--debug` parameter specified:
 
 ```console
 az provider show -n Microsoft.KubernetesConfiguration --debug
 az k8s-configuration create <parameters> --debug
 ```
 
+To help troubleshoot issues with `fluxConfigurations` resource (Flux v2), run these az commands with `--debug` parameter specified:
+
+```console
+az provider show -n Microsoft.KubernetesConfiguration --debug
+az k8s-configuration flux create <parameters> --debug
+```
+
 ### Create configurations
 
 Write permissions on the Azure Arc-enabled Kubernetes resource (`Microsoft.Kubernetes/connectedClusters/Write`) are necessary and sufficient for creating configurations on that cluster.
 
-### Configuration remains `Pending`
+### `sourceControlConfigurations` remains `Pending` (Flux v1)
 
 ```console
 kubectl -n azure-arc logs -l app.kubernetes.io/component=config-agent -c config-agent
@@ -206,6 +214,56 @@ metadata:
   selfLink: ""
 ```
 
+### Installing the `microsoft.flux` extension (Flux v2)
+
+If the `microsoft.flux` extension is in a failed state, you can run a script to investigate.  The cluster-type parameter can be set to `connectedClusters` for Arc cluster or `managedClusters` for AKS cluster. The name of the `microsoft.flux` extension will be "flux" if the extension was installed automatically during creation of a `fluxConfigurations` resource. Look in the "statuses" object for information.
+
+One example:
+
+```console
+az k8s-extension show --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters -n flux
+
+...
+"statuses": [
+    {
+      "code": "InstallationFailed",
+      "displayStatus": null,
+      "level": null,
+      "message": "unable to add the configuration with configId {extension:flux} due to error: {error while adding the CRD configuration: error {Operation cannot be fulfilled on extensionconfigs.clusterconfig.azure.com \"flux\": the object has been modified; please apply your changes to the latest version and try again}}",
+      "time": null
+    }
+  ]
+```
+
+Another example:
+
+```console
+az k8s-extension show --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters -n flux
+
+"statuses": [
+    {
+      "code": "InstallationFailed",
+      "displayStatus": null,
+      "level": null,
+      "message": "Error: {failed to install chart from path [] for release [flux]: err [cannot re-use a name that is still in use]} occurred while doing the operation : {Installing the extension} on the config",
+      "time": null
+    }
+  ]
+```
+
+In both of these cases, delete the `flux-system` namespace and uninstall the Helm release. This should resolve the extension installation issue.
+
+```console
+kubectl delete namespaces flux-system -A
+helm uninstall flux -n -flux-system
+```
+
+If that doesn't resolve the issue, you can delete the extension. After deleting the extension, you can either [re-create a flux configuration](./tutorial-use-gitops-flux2.md) which will install the flux extension automatically or you can re-install the flux extension manually.
+
+```console
+az k8s-extension delete --resource-group RESOURCE_GROUP --cluster-name CLUSTER_NAME --cluster-type connectedClusters –name flux
+```
+
 ## Monitoring
 
 Azure Monitor for containers requires its DaemonSet to be run in privileged mode. To successfully set up a Canonical Charmed Kubernetes cluster for monitoring, run the following command:
@@ -213,6 +271,32 @@ Azure Monitor for containers requires its DaemonSet to be run in privileged mode
 ```console
 juju config kubernetes-worker allow-privileged=true
 ```
+
+## Cluster connect
+
+### Old version of agents used
+
+Usage of older version of agents where Cluster Connect feature was not yet supported will result in the following error:
+
+```console
+$ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
+
+Hybrid connection for the target resource does not exist. Agent might not have started successfully.
+```
+
+When this occurs, ensure that you are using `connectedk8s` Azure CLI extension of version >= 1.2.0 and [connect your cluster again](quickstart-connect-cluster.md) to Azure Arc. Also, verify that you've met all the [network prerequisites](quickstart-connect-cluster.md#meet-network-requirements) needed for Arc-enabled Kubernetes. If your cluster is behind an outbound proxy or firewall, verify that websocket connections are enabled for `*.servicebus.windows.net` which is required specifically for the [Cluster Connect](cluster-connect.md) feature.
+
+### Cluster Connect feature disabled
+
+If the Cluster Connect feature is disabled on the cluster, then `az connectedk8s proxy` will fail to establish a session with the cluster.
+
+```console
+$ az connectedk8s proxy -n AzureArcTest -g AzureArcTest
+
+Cannot connect to the hybrid connection because no agent is connected in the target arc resource.
+```
+
+To resolve this error, [enable the Cluster Connect feature](cluster-connect.md#enable-cluster-connect-feature) on your cluster.
 
 ## Enable custom locations using service principal
 
@@ -542,3 +626,9 @@ kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v
 
 kubectl apply -f https://raw.githubusercontent.com/openservicemesh/osm/release-v0.8.2/charts/osm/crds/split.yaml
 ```
+
+### 13. Troubleshoot Certificate Management
+Information on how OSM issues and manages certificates to Envoy proxies running on application pods can be found on the [OSM docs site](https://docs.openservicemesh.io/docs/guides/certificates/).
+
+### 14. Upgrade Envoy
+When a new pod is created in a namespace monitored by the add-on, OSM will inject an [envoy proxy sidecar](https://docs.openservicemesh.io/docs/guides/app_onboarding/sidecar_injection/) in that pod. If the envoy version needs to be updated, steps to do so can be found in the [Upgrade Guide](https://docs.openservicemesh.io/docs/getting_started/upgrade/#envoy) on the OSM docs site.
