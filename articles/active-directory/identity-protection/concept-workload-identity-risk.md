@@ -17,6 +17,11 @@ ms.collection: M365-identity-device-management
 ---
 # Securing workload identities with Identity Protection
 
+Identities that run your organizations applications are not immune from risk. Applications, service principals, and Managed 
+
+> [!IMPORTANT]
+> In public preview, you can secure workload identities with Identity Protection and Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
+
 A key component to any organization’s Zero Trust approach must include securing identities for users and applications. This new capability builds upon Identity Protection’s foundation in detecting identity-based threats and expands that foundation to include threat detection for applications, service principals, and Managed Identities. We refer to these accounts as workload identities.
 
 Organizations can now view risky application or service principal accounts and risk detection events using two new Graph API collections:
@@ -175,6 +180,7 @@ Once you determine if the application was compromised, call the API to dismiss t
 1.	Inventory credentials assigned to the Risky Service Principal.
    1. Execute a Microsoft Graph call using GET ~/application/{id} where the **id** passed is the application object ID.
 1.	Parse the output for credentials. The output may contain passwordCredentials or keyCredentials. Record the keyIds for all. For example: 
+
       ```json
       "keyCredentials": [],
       "parentalControlSettings": {
