@@ -31,7 +31,8 @@ You need to have a Translator subscription key associated with your workspace to
 If you don't have a subscription, follow the steps below:
 
 1. Subscribe to create a Translator resource. Follow [How to sign up for Translator](../translator-how-to-signup.md) to subscribe and acquire a Translator key.
-2. Note the key for your Translator subscription. Either of the  Key1 or Key2 are acceptable.
+2. Note the key for your Translator subscription. Either Key1 or Key2 is acceptable.
+
 3. Navigate back to the Custom Translator portal.
 
 ## Create a new workspace
