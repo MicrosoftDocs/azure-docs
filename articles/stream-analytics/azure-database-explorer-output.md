@@ -54,7 +54,7 @@ Partitioning needs to enabled and is based on the PARTITION BY clause in the que
 
 * Analytical Engine - On-demand/ Interactive real-time analytics
 * Streaming data ingestion into persistent data store along with querying capabilities
-* Ingest from Event Hub, IoT Hub, Blob, Data Lake, Kafka, Logstash, Spark, ADF, …
+* Ingest data from Event Hub, IoT Hub, Blob, Data Lake, Kafka, Logstash, Spark, ADF.
 * 10 seconds to 5 minutes latency for high throughput workloads
 * Simple data transformation can be done with update policy during ingestion
 
