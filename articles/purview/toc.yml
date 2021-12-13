@@ -61,7 +61,9 @@ items:
       - name: Scanning best practices 
         href: concept-best-practices-scanning.md
       - name: Security best practices
-        href: concept-best-practices-security.md        
+        href: concept-best-practices-security.md  
+      - name: Backup, recovery and migration best practices
+        href: concept-best-practices-migration.md
   - name: Azure Purview permissions
     href: catalog-permissions.md
   - name: Data map
