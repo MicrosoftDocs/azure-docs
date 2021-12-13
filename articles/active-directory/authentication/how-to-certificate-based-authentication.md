@@ -41,8 +41,73 @@ To configure certificate-based authentication, the following requirements must b
 
 - Native certificate-based authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
-## Step 1: 
+## Step 1: Configure the certificate authorities
 
+To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
+
+- The public portion of the certificate, in .cer format
+- The internet-facing URLs where the Certificate Revocation Lists (CRLs) reside
+
+  The schema for a certificate authority looks as follows:
+
+    ```
+    class TrustedCAsForPasswordlessAuth    {       CertificateAuthorityInformation[] certificateAuthorities;    }     class CertificateAuthorityInformation     {        CertAuthorityType authorityType;        X509Certificate trustedCertificate;        string crlDistributionPoint;        string deltaCrlDistributionPoint;        string trustedIssuer;        string trustedIssuerSKI;    }     enum CertAuthorityType    {        RootAuthority = 0,        IntermediateAuthority = 1    } 
+    ```
+
+For the configuration, you can use the [Azure Active Directory PowerShell Version 2](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2):
+
+1. Start Windows PowerShell with administrator privileges.
+1. Install the Azure AD module version [2.0.0.33](https://www.powershellgallery.com/packages/AzureAD/2.0.0.33) or higher:
+
+   ```powershell
+   Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
+   ``` 
+
+As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete, and modify the trusted certificate authorities that are defined in your directory.
+
+### Connect 
+
+To establish a connection with your tenant, use the [Connect-AzureAD](https://docs.microsoft.com/powershell/module/azuread/connect-azuread) cmdlet:
+
+```powershell
+Connect-AzureAD
+```  
+
+### Retrieve
+
+To retrieve the trusted certificate authorities that are defined in your directory, use the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet:
+
+```powershell
+Get-AzureADTrustedCertificateAuthority
+```  
+
+### Add
+
+To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/new-azureadtrustedcertificateauthority) cmdlet and set the crlDistributionPoint attribute to a correct value:
+
+```powershell
+$cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation    $new_ca.AuthorityType=0    $new_ca.TrustedCertificate=$cert    $new_ca.crlDistributionPoint="<CRL Distribution URL>"    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca  
+```
+
+>[!NOTE] 
+>If the crlDistributionPoint is not set or set to an empty value in the above command there will not be any CRL checking, and revocation of certificates is not possible.
+
+Only one crlDistributionPoint is supported per CA and it needs to be an http url only.
+  
+### Remove
+
+To remove a trusted certificate authority, use the [Remove-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/remove-azureadtrustedcertificateauthority) cmdlet:
+    
+```powershell
+$c=Get-AzureADTrustedCertificateAuthority    Remove-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[2]
+``` 
+ 
+### Modify
+To modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
+
+```powershell
+$c=Get-AzureADTrustedCertificateAuthority    $c[0].AuthorityType=1    Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0]	   
+```   
 
 ## Step 2: Configure Authentication methods policy 
 
