@@ -505,6 +505,11 @@ This script uses the following commands. Each command in the table links to comm
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="4-60":::
 
+stuff
+
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="4-47":::
+
+
 # [Portal](#tab/azure-portal)
 
 There are no scripts available for the Azure portal.
