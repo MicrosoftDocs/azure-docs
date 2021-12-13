@@ -1,7 +1,7 @@
 ---
 title: Add an external endpoint to an existing profile - Azure Template
 titlesuffix: Azure Traffic Manager
-description: Learn how to add an external endpoint to an existing Azure Traffic Manager profile using a Azure Template.
+description: Learn how to add an external endpoint to an existing Azure Traffic Manager profile using an Azure Template.
 author: asudbring
 ms.author: allensu
 ms.service: traffic-manager
@@ -60,7 +60,7 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
 1. Enter the values.
 
-    The template deployment adds an additional endpoint based on your inputs to an existing profile. 
+    The template deployment adds another endpoint based on your inputs to an existing profile. 
 
     The resource group name is the project name with **rg** appended.
 
@@ -75,7 +75,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 ## Validate the deployment
 
-1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the additional endpoint was added to the profile.
+1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that another endpoint was added to the profile.
 
     ```azurepowershell-interactive
     Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name ExternalEndpointExample | Select Endpoints
@@ -86,7 +86,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 ## Clean up resources
 
-When you no longer need the Traffic Manager profile, delete the resource group. This removes the Traffic Manager profile and all the related resources.
+When you no longer need the Traffic Manager profile, delete the resource group. This command removes the Traffic Manager profile and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
@@ -96,7 +96,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you added a endpoint to an existing Traffic Manager profile.
+In this quickstart, you added an endpoint to an existing Traffic Manager profile.
 
 To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
