@@ -116,12 +116,9 @@ In this section, you will connect to your Azure VPN gateway from AWS. These sect
 
 ### <a name ="create-vpc"></a> Create a VPC
 Create a VPC using the values below and the [most recent AWS documentation](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/gsg_create_vpc.html#create_vpc).
-
-VPC settings
 * **Name**: VPC1
-* **CIDR block**: 10.2.0.0/24 (can't overlap with Azure VNet)
+* **CIDR block**: 10.2.0.0/16 (can't overlap with Azure VNet)
 
-Steps
 1.	Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/).
 2.	In the navigation pane, click **VPC Dashboard**, then **Launch VPC Wizard**.
 3.	Select the second option, **VPC with a Single Public Subnet**, and then click **Select**.
@@ -131,13 +128,10 @@ Steps
 
 ### <a name ="create-vpg"></a> Create a virtual private gateway
 Create a virtual private gateway using the values below and the [most recent AWS documentation](https://docs.aws.amazon.com/directconnect/latest/UserGuide/virtualgateways.html#create-virtual-private-gateway).
-
-Virtual private gateway settings
 * **Name**: AzureGW
 * **ASN**: Amazon default ASN (64512)
 * **VPC**: Attached to VPC1
 
-Steps
 1.	In the navigation pane, click **Virtual Private Gateways**, **Create virtual private gateway**.
 2.	Enter a name for your virtual private gateway.
 3.	For **ASN**, leave the default selection to use the **Amazon default ASN**. If you choose to have a custom ASN, it must be different than the ASN you used on Azure.
@@ -150,7 +144,6 @@ Steps
 ### <a name ="enable-route-propagation"></a> Enable route propagation
 Enable route propagation on your VPC using the [most recent AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html#EnableDisableRouteProp).
 
-Steps
 1. In the navigation pane, choose **Route Tables**, and then select the route table for the VPC you created.
 2. Choose **Actions** then **Edit route propagation**.
 3. Select the **Enable** check box next to the virtual private gateway, and then choose **Save**.
@@ -172,14 +165,13 @@ Customer gateway 2 settings
 * **BGP ASN**: 65000 (the ASN for your Azure VPN gateway)
 * **IP Address**: the second public IP address of you Azure VPN gateway
 
-Steps
 1.	In the navigation pane, choose **Customer Gateways**, and then **Create customer gateway**.
 2.	Enter a name for your customer gateway.
 3.	For **Routing**, select **Dynamic**.
 4.	For **BGP ASN**, enter the ASN you used in Azure.
-5.	For **IP Address**, enter your first public IP address for your VPN gateway. You can locate your **Public IP address** on Azure in the **Configuration** section of your **virtual network gateway**, under **Public IP Address**.
+5.	For **IP Address**, enter your first public IP address for your VPN gateway. You can locate your **Public IP address** on Azure in the **Configuration** section of your virtual network gateway, under **Public IP Address**.
 6.	Leave the rest of the fields as default and select **Create Customer Gateway**.
-7.	Create a **second customer gateway** by **repeating steps 1 to 6** with your second public IP address. You can locate your **Second Public IP address** on Azure in the **Configuration** section of your **virtual network gateway**, under **Second Public IP Address**.
+7.	Create a **second customer gateway** by **repeating steps 1 to 6** with your second public IP address. You can locate your **Second Public IP address** on Azure in the **Configuration** section of your virtual network gateway, under **Second Public IP Address**.
 
 :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/aws-cgw.png" alt-text="Create a customer gateway" border="false":::
 
@@ -198,6 +190,8 @@ Site-to-site connection 1 settings
 * **Pre-Shared Key for Tunnel 1**: choose a secure key
 * **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.1 use the APIPA configuration you [chose]((#apipa-config)
 * **Pre-Shared Key for Tunnel 2**: choose a secure key
+* **Startup Action**: Start
+
 
 Site-to-site connection 2 settings
 * **Name**: ToAzureInstance1
@@ -211,8 +205,8 @@ Site-to-site connection 2 settings
 * **Pre-Shared Key for Tunnel 1**: choose a secure key
 * **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.6 use the APIPA configuration you [chose]((#apipa-config) 
 * **Pre-Shared Key for Tunnel 2**: choose a secure key
+* **Startup Action**: Start
 
-Steps
 1.	In the navigation pane, choose **Site-to-Site VPN Connections**, **Create VPN Connection**.
 2.	Enter a name for your site-to-site VPN connection.
 3.	For **Target Gateway Type**, choose **virtual private gateway**. Then choose the virtual private gateway you created.
@@ -238,7 +232,11 @@ Steps
 ## <a name ="part-3"></a> Part 3: Connect to your AWS customer gateways from Azure
 Next, you will connect your AWS tunnels to Azure. For each of the four tunnels, you will have both a local network gateway and a site-to-site connection. You should have the AWS **outside IP address** for each of these four tunnels from step 11 of the previous section.
 
-Repeat the following sections for **each of your four AWS tunnels**, using their respective **outside IP address**:
+   >
+   > [!IMPORTANT]
+   >
+   > Repeat the following sections for **each of your four AWS tunnels**, using their respective **outside IP address**
+   >
 
 ### <a name ="create-local-network-gateways"></a> Create local network gateways
 1. In the Azure portal, navigate to the **Local network gateway** resource from the Marketplace, and select **Create**.
