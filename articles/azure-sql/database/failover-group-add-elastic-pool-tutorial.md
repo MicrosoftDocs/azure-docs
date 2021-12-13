@@ -40,7 +40,7 @@ To complete the tutorial, make sure you have the following items:
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - [Azure PowerShell](/powershell/azure/)
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 To complete the tutorial, make sure you have the following items:
 
@@ -57,7 +57,7 @@ To complete the tutorial, make sure you have the following items:
 
 In this step, you will create an elastic pool and add your database to it.
 
-# [Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 Create your elastic pool using the Azure portal.
 
@@ -136,7 +136,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [New-AzSqlElasticPool](/powershell/module/az.sql/new-azsqlelasticpool) | Creates an elastic database pool for an Azure SQL Database.|
 | [Set-AzSqlDatabase](/powershell/module/az.sql/set-azsqldatabase) | Sets properties for a database, or moves an existing database into an elastic pool. |
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 In this step, you create your elastic pool and add your database to the elastic pool using the Azure CLI.
 
@@ -169,7 +169,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 In this step, you will create a [failover group](auto-failover-group-overview.md) between an existing server and a new server in another region. Then add the elastic pool to the failover group.
 
-# [Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 Create your failover group using the Azure portal.
 
@@ -284,7 +284,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more Azure SQL databases to a failover group. |
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 In this step, you create your failover server, failover group, elastic pool, and add database to failover group using the Azure CLI.
 
@@ -338,7 +338,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 In this step, you'll fail your failover group over to the faijlover server, and then fail back using the Azure portal.
 
-# [Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 Test failover of your failover group using the Azure portal.
 
@@ -434,7 +434,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executes a failover of an Azure SQL Database failover group. |
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Test failover using the Azure CLI.
 
@@ -471,7 +471,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 Clean up resources by deleting the resource group.
 
-# [Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 1. Navigate to your resource group in the [Azure portal](https://portal.azure.com).
 1. Select  **Delete resource group** to delete all the resources in the group, as well as the resource group itself.
@@ -497,7 +497,7 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group |
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ## Delete the resource group by using the Azure CLI.
 
@@ -553,8 +553,7 @@ stuff
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="4-47":::
 
-
-# [Portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 There are no scripts available for the Azure portal.
 

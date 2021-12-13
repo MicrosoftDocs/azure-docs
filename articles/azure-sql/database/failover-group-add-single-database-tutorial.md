@@ -26,7 +26,7 @@ A [failover group](auto-failover-group-overview.md) is a declarative abstraction
 
 ## Prerequisites
 
-# [The portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 To complete this tutorial, make sure you have:
 
@@ -39,7 +39,7 @@ To complete the tutorial, make sure you have the following items:
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
 - [Azure PowerShell](/powershell/azure/)
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 To complete the tutorial, make sure you have the following items:
 
@@ -56,7 +56,7 @@ To complete the tutorial, make sure you have the following items:
 
 In this step, you' will create a [failover group](auto-failover-group-overview.md) between an existing server and a new server in another region. Then add the sample database to the failover group.
 
-# [The portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 Create your failover group and add your database to it using the Azure portal.
 
@@ -167,7 +167,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [Get-AzSqlDatabase](/powershell/module/az.sql/get-azsqldatabase) | Gets one or more databases in Azure SQL Database. |
 | [Add-AzSqlDatabaseToFailoverGroup](/powershell/module/az.sql/add-azsqldatabasetofailovergroup) | Adds one or more databases to a failover group in Azure SQL Database. |
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 In this step, you create your failover group and add your database to it using the Azure CLI.
 
@@ -208,7 +208,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 In this step, you'll fail your failover group over to the failover server, and then fail back using the Azure portal.
 
-# [The portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 Test failover using the Azure portal.
 
@@ -292,7 +292,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [Get-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/get-azsqldatabasefailovergroup) | Gets or lists Azure SQL Database failover groups. |
 | [Switch-AzSqlDatabaseFailoverGroup](/powershell/module/az.sql/switch-azsqldatabasefailovergroup)| Executes a failover of an Azure SQL Database failover group. |
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 Test failover using the Azure CLI.
 
@@ -329,7 +329,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 Clean up resources by deleting the resource group.
 
-# [The portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 Delete the resource group using the Azure portal.
 
@@ -357,7 +357,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 |---|---|
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group |
 
-# [The Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 ## Delete the resource group by using the Azure CLI.
 
@@ -421,7 +421,7 @@ This script uses the following commands. Each command in the table links to comm
 | [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Set the primary of the failover group by failing over all databases from the current primary server. |
 | [az group delete](/cli/azure/vm/extension#az_vm_extension_set) | Deletes a resource group including all nested resources. |
 
-# [The portal](#tab/azure-portal)
+# [Azure portal](#tab/azure-portal)
 
 There are no scripts available for the Azure portal.
 
