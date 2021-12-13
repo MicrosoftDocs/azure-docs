@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 12/13/2021
 
 ms.author: justinha
 author: justinha
@@ -118,7 +118,7 @@ You can configure the Authentication methods policy two different ways:
 
 ### Using the Azure portal
 
-To enable the certificate-based authentication and configure user bindings , complete the following steps:
+To enable the certificate-based authentication and configure user bindings in the Azure portal, complete the following steps:
 
 1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
 1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
@@ -180,13 +180,106 @@ To enable the certificate-based authentication and configure user bindings , com
 
 ### Using Graph API
 
+To enable the certificate-based authentication and configure user bindings using Graph API, complete the following steps:
+
+1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
+1. Click **Sign into Graph Explorer** and log in with your tenant.
+1. Click **Settings** > **Select permission**.
+1. Enter "auth" in the search bar and consent all related permissions.
+1. GET all authentication methods
+   GET - [https://graph.microsoft.com/beta/policies/authenticationmethodspolicy](https://graph.microsoft.com/beta/policies/authenticationmethodspolicy) 
+
+1. GET X509Certificate authentication method
+   GET - [https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate](https://graph.microsoft.com/beta/policies/authenticationmethodspolicy/authenticationMetHodConfigurations/X509Certificate) 
+1. PATCH X509Certificate strong auth with sample authentication rules with certificate user bindings and certificate rules.
+    
+    Request Body:
+
+    ```json
+    {"@odata.context": https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#authenticationMethodConfigurations/$entity,	"@odata.type": "#microsoft.graph.x509CertificateAuthenticationMethodConfiguration",	"id": "X509Certificate",	"state": "disabled",	"certificateUserBindings": [{			"x509CertificateField": "PrincipalName",			"userProperty": "onPremisesUserPrincipalName",			"priority": 1		},		{			"x509CertificateField": "RFC822Name",			"userProperty": "userPrincipalName",			"priority": 2		}	],	"authenticationModeConfiguration": {		"x509CertificateAuthenticationDefaultMode": "x509CertificateSingleFactor",		"rules": [{				"x509CertificateRuleType": "issuerSubject",				"identifier": "CN=Microsoft Corp Enterprise CA",				"x509CertificateAuthenticationMode": "x509CertificateMultiFactor"			},			{				"x509CertificateRuleType": "policyOID",				"identifier": "1.2.3.4",				"x509CertificateAuthenticationMode": "x509CertificateMultiFactor"			}		]	},	includeTargets@odata.context: https://graph.microsoft-ppe.com/testppebetatestx509certificatestrongauth/$metadata#policies/authenticationMethodsPolicy/authenticationMethodConfigurations('X509Certificate')/microsoft.graph.x509CertificateAuthenticationMethodConfiguration/includeTargets,	"includeTargets": [{		"targetType": "group",		"id": "all_users",		"isRegistrationRequired": false	}]} 
+    ```
+
+   You will get a 204 response and sending a GET command should show the set policies.
+
+1. Test sign in works according to the policies.
+ 
 ## Step 3: Test your configuration
+
+### Testing your certificate
+
+As a first configuration test, you should try to sign in to Outlook Web Access or SharePoint Online using your on-device browser.
+If your sign-in is successful, then you know that:
+
+- The user certificate has been provisioned to your test device
+- Azure Active Directory is configured correctly with trusted CA’s
+- User Binding is configured correctly, and user can be found and authenticated.
+ 
+### Testing strong authentication
+
+1. Create a policy OID rule, with protection level as **Multi-factor authentication** and value set to one of the policy OID’s in your certificate.
+1. Configure User to have a Multi-factor authentication.
+1. Navigate to an application that authenticates with the test tenant. Enter your UPN.
+1. Click **Next**. Select **Signin with a certificate**.
+1. A certificate dialog prompts for the user to select a certificate. Certificates are expected to be on the device.
+1. Click **OK** and Policy in the certificate will satisfy multi-factor authentication and user will be authenticated into the application.
+1. If you also have other Authentication Methods enabled in your tenant, users may see the following UI experience instead of the link to ‘Sign in with a Certificate’ and authenticate.
+
+### Sign-in logs
+ 
+Sign-in logs provides information about sign-in and how your resources are used by your users. For more information about sign-in logs, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-all-sign-ins.md).
+ 
+There are several entries logged into the sign-in logs for an authentication request.
+
+1. The first entry is logged to note the Certificate request. Authentication details tab will show more detail.
+1. The second entry will have status of interrupted which is an expected part of the login flow, where a user is asked if they want to remain signed into this browser to make further logins easier. 
+   The **Additional details** tab provides more details.
+1. If the sign-in is successful, you will see messages about the login success.
+
+### Audit logs
+Any user management changes will be
 
 ## Configure manual revocation
 
+To revoke a client certificate, Azure Active Directory fetches the certificate revocation list (CRL) from the URLs uploaded as part of certificate authority information and caches it. The last publish timestamp (Effective Date property) in the CRL is used to ensure the CRL is still valid. The CRL is periodically referenced to revoke access to certificates that are a part of the list.
+
+If a more instant revocation is required (for example, if a user loses a device), the authorization token of the user can be invalidated. To invalidate the authorization token, set the StsRefreshTokenValidFrom field for this user using Windows PowerShell. You must update the StsRefreshTokenValidFrom field for each user you want to revoke access for. 
+
+To ensure that the revocation persists, you must set the Effective Date of the CRL to a date after the value set by StsRefreshTokenValidFrom and ensure the certificate in question is in the CRL.
+
+The following steps outline the process for updating and invalidating the authorization token by setting the StsRefreshTokenValidFrom field.
+
+1. Connect with admin credentials to the MSOL service:
+
+   ```powershell
+   $msolcred = get-credential         connect-msolservice -credential $msolcred
+   ``` 
+1. Retrieve the current StsRefreshTokensValidFrom value for a user:
+
+   ```powershell
+   $user = Get-MsolUser -UserPrincipalName test@yourdomain.com`        $user.StsRefreshTokensValidFrom
+   ```
+         
+1. Configure a new StsRefreshTokensValidFrom value for the user equal to the current timestamp:
+
+   ```powershell
+   Set-MsolUser -UserPrincipalName test@yourdomain.com -StsRefreshTokensValidFrom ("03/05/2016")
+   ``` 
+
+The date you set must be in the future. If the date is not in the future, the StsRefreshTokensValidFrom property is not set. If the date is in the future, StsRefreshTokensValidFrom is set to the current time (not the date indicated by Set-MsolUser command).
+
 ## Confirm certificate revocation checks
 
+Run the [Get-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/get-azureadtrustedcertificateauthority) cmdlet and make sure the CA has a valid http url set in the certificateDistributionPoint attribute.
+
 ## Turn certificate revocation checking on or off for a particular CA
+
+We highly recommend not to disable CRL checking as you will not have the revocation ability for the certificates. 
+
+However, to disable CRL checking if there are issues with CRL for a particular CA you can modify a trusted certificate authority, use the [Set-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/set-azureadtrustedcertificateauthority) cmdlet:
+
+```powershell
+$c=Get-AzureADTrustedCertificateAuthority    	$c[0]. crlDistributionPoint =””   	 Set-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $c[0] 
+```
 
 ## Frequently asked questions
 
