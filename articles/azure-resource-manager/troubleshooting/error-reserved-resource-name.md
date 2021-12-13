@@ -2,7 +2,7 @@
 title: Reserved resource name errors
 description: Describes how to resolve errors when providing a resource name that includes a reserved word.
 ms.topic: troubleshooting
-ms.date: 11/02/2021
+ms.date: 12/13/2021
 ---
 # Resolve reserved resource name errors
 
@@ -64,6 +64,11 @@ The following words can't be used as either a whole word or a substring in the n
 
 * MICROSOFT
 * WINDOWS
+
+The following words can't be used at the start of a resource name, but can be used later in the name:
+
+* LOGIN
+* XBOX
 
 ## Solution
 

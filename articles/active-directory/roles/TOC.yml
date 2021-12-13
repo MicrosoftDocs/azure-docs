@@ -80,7 +80,7 @@
       href: admin-units-add-manage-users.md
     - name: Add and manage groups
       href: admin-units-add-manage-groups.md
-    - name: Assign a role with scope
+    - name: Assign roles with scope
       href: admin-units-assign-roles.md
   - name: Delegate
     items:
