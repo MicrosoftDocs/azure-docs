@@ -52,10 +52,6 @@ Devices that are Azure AD joined benefit from [SSO to your organization's on-pre
 
 Getting devices in to Azure AD can be done in a self-service manner or a controlled process managed by administrators.
 
-## License requirements
-
-[!INCLUDE [Active Directory P1 license](../../../includes/active-directory-p1-license.md)]
-
 ## Next steps
 
 - Learn more about [Azure AD registered devices](concept-azure-ad-register.md)

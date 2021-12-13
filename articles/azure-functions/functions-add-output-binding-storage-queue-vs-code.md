@@ -3,9 +3,9 @@ title: Connect Azure Functions to Azure Storage using Visual Studio Code
 description: Learn how to connect Azure Functions to a Azure Queue Storage by adding an output binding to your Visual Studio Code project.
 ms.date: 02/07/2020
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-js, mode-other
-#Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
+ms.custom: devx-track-python, devx-track-js, mode-ui
 zone_pivot_groups: programming-languages-set-functions
+#Customer intent: As an Azure Functions developer, I want to connect my function to Azure Storage so that I can easily write data to a storage queue.
 ---
 
 # Connect Azure Functions to Azure Storage using Visual Studio Code

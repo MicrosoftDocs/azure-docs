@@ -10,7 +10,7 @@ ms.subservice: language-service
 ms.topic: quickstart
 ms.date: 11/02/2021
 ms.author: aahi
-ms.custom: language-service-ner, ignite-fall-2021, mode-other
+ms.custom: language-service-ner, ignite-fall-2021, mode-api
 keywords: text mining, key phrase
 zone_pivot_groups: programming-languages-text-analytics
 ---

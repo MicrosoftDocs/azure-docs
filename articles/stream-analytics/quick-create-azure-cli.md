@@ -206,7 +206,7 @@ az stream-analytics transformation create \
     --job-name streamanalyticsjob \
     --name Transformation \
     --streaming-units "6" \
-    --transformation-query "SELECT * INTO asabloboutput FROM asaiotinput HAVING Temperature > 27"
+    --transformation-query "SELECT * INTO asabloboutput FROM asaiotinput WHERE Temperature > 27"
 ```
 ## Run the IoT simulator
 
