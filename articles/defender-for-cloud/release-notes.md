@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 12/11/2021
+ms.date: 12/13/2021
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -122,6 +122,17 @@ For more information, see:
 - [Threat matrix for storage services](https://www.microsoft.com/security/blog/2021/04/08/threat-matrix-for-storage/)
 - [Introduction to Microsoft Defender for Storage](defender-for-storage-introduction.md)
 - [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
+
+
+### 'PortSweeping' alert removed from network layer alerts
+
+The following alert was removed from our network layer alerts due to inefficiencies:
+
+| Alert (alert type)                                                                                                                                               | Description     | MITRE tactics<br>([Learn more](#intentions)) | Severity      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|---------------|
+| **Possible outgoing port scanning activity detected**<br>(PortSweeping) | Network traffic analysis detected suspicious outgoing traffic from %{Compromised Host}. This traffic may be a result of a port scanning activity. When the compromised resource is a load balancer or an application gateway, the suspected outgoing traffic has been originated from to one or more of the resources in the backend pool (of the load balancer or application gateway). If this behavior is intentional, please note that performing port scanning is against Azure Terms of service. If this behavior is unintentional, it may mean your resource has been compromised. | Discovery | Medium   |
+||||
+
 
 
 ## November 2021
