@@ -28,7 +28,7 @@ This article shows you how to connect to the Azure Media Services v3 Python SDK 
 - Download Python from [python.org](https://www.python.org/downloads/)
 - Make sure to set the `PATH` environment variable
 - [Create a Media Services account](./account-create-how-to.md). Be sure to remember the resource group name and the Media Services account name.
-- Follow the steps in the [Access APIs](./access-api-howto.md) topic, selecting the Service principal authentication method. Record the subscription ID (`SubscriptionId`), application client ID (`AadClientId`), the authentication key (`AadSecret`), and the tenant ID (`AadTenantId`) that you need in the later steps.
+- Follow the steps in the [Access APIs](./access-api-howto.md) topic, selecting the Service principal authentication method. Record the subscription ID, application client ID, the authentication key, and the tenant ID that you need in the later steps.
 
 > [!IMPORTANT]
 > Review [naming conventions](media-services-apis-overview.md#naming-conventions).
@@ -37,15 +37,20 @@ This article shows you how to connect to the Azure Media Services v3 Python SDK 
 
 To work with Azure Media Services using Python, you need to install these modules.
 
-* The `azure-mgmt-resource` module, which includes Azure modules for Active Directory.
+* The `azure-identity` module, which includes Azure modules for Active Directory.
 * The `azure-mgmt-media` module, which includes the Media Services entities.
 
     Make sure to get [the latest version of the Media Services SDK for Python](https://pypi.org/project/azure-mgmt-media/).
 
 Open a command-line tool and use the following commands to install the modules.
 
+<<<<<<< HEAD
 ```
 pip3 install azure-mgmt-resource
+=======
+```cmd
+pip3 install azure-identity
+>>>>>>> 7eb65dcd15f97658dfe5c683665d27a397955cf2
 pip3 install azure-mgmt-media
 ```
 
@@ -53,6 +58,7 @@ pip3 install azure-mgmt-media
 
 1. Create a file with a `.py` extension
 1. Open the file in your favorite editor
+<<<<<<< HEAD
 1. Add the code that follows to the file. The code imports the required modules and creates the Active Directory credentials object you need to connect to Media Services.
 
       Set the variables' values to the values you got from [Access APIs](./access-api-howto.md). Update the `ACCOUNT_NAME` and `RESOUCE_GROUP_NAME` variables to the Media Services account name and Resource Group names used when creating those resources.
@@ -84,6 +90,46 @@ pip3 install azure-mgmt-media
         for i, r in enumerate(assets):
         print(r)
       ```
+=======
+1. Add the the following code to the file. The code imports the required modules and creates the Active Directory credentials object you need to connect to Media Services.
+
+      Set the variables' values to the values you got from [Access APIs](./access-api-howto.md). Update the `ACCOUNT_NAME` and `RESOURCE_GROUP_NAME` variables to the Media Services account name and Resource Group names used when creating those resources.
+
+    ```python
+    from azure.identity import ClientSecretCredential 
+    from azure.mgmt.media import AzureMediaServices
+    
+    # Tenant ID for your Azure Subscription
+    TENANT_ID = "(update-this-value)"
+
+    # Your Application Client ID of your Service Principal
+    CLIENT_ID = "(update-this-value)"
+
+    # Your Service Principal secret key
+    CLIENT_SECRET = "(update-this-value)"
+
+    # Your Azure Subscription ID
+    SUBSCRIPTION_ID = "(update-this-value)"
+
+    # Your Resource Group name
+    RESOURCE_GROUP_NAME = "(update-this-value)"
+    
+    # Your Azure Media Service account name
+    ACCOUNT_NAME = "(update-this-value)"
+
+    credentials = ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET)
+    
+    # The Azure Media Services Client
+    client = AzureMediaServices(credentials, SUBSCRIPTION_ID)
+    
+    # Now that you are authenticated, you can manipulate the entities.
+    # For example, list assets in your Media Services account
+    assets = client.assets.list(RESOURCE_GROUP_NAME, ACCOUNT_NAME)
+    
+    for i, r in enumerate(assets):
+        print(r)
+    ```
+>>>>>>> 7eb65dcd15f97658dfe5c683665d27a397955cf2
 
 1. Run the file
 

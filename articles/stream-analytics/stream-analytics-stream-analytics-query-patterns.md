@@ -861,7 +861,7 @@ SELECT *
 FROM input TIMESTAMP BY time OVER ATM_id
 MATCH_RECOGNIZE (
 	LIMIT DURATION(minute, 1)
-	PARTITON BY ATM_id
+	PARTITION BY ATM_id
 	MEASURES
 		First(Warning.ATM_id) AS ATM_id,
 		First(Warning.Operation_Id) AS First_Warning_Operation_id,
