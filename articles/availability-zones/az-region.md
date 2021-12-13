@@ -135,6 +135,7 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | [Azure Site Recovery](../site-recovery/azure-to-azure-how-to-enable-zone-to-zone-disaster-recovery.md)  | ![An icon that signifies this service is zonal](media/icon-zonal.svg)  |
 | Azure SQL: [Virtual Machine](../azure-sql/database/high-availability-sla.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg) |
 | [Azure Web Application Firewall](../firewall/deploy-availability-zone-powershell.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
+| [Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Network Watcher: [Traffic Analytics](../network-watcher/frequently-asked-questions.yml)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Power BI Embedded](/power-bi/admin/service-admin-failover#what-does-high-availability)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | [Premium Blob Storage](../storage/common/storage-account-overview.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
@@ -150,7 +151,6 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Virtual Machines: [Ev4-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | Virtual Machines: [Fsv2-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | Virtual Machines: [M-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
-| [Azure Virtual WAN](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Virtual WAN: [Azure ExpressRoute](../virtual-wan/virtual-wan-faq.md#how-are-availability-zones-and-resiliency-handled-in-virtual-wan)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Virtual WAN: [Point-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 | Virtual WAN: [Site-to-site VPN Gateway](../vpn-gateway/about-zone-redundant-vnet-gateways.md)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
