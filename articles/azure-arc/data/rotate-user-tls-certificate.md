@@ -25,18 +25,19 @@ Examples in this article use OpenSSL. [OpenSSL](https://www.openssl.org/) is an 
 
 If the managed instance uses a self-signed certificate, make sure sure all needed Subject Alternative Names (SANs) are added. The SAN is an extension to X.509 that allows various values to be associated with a security certificate using a `subjectAltName` field, the SAN field lets you specify additional host names (sites, IP addresses, common names, and etc.) to be protected by a single SSL certificate, such as a multi-domain SAN or extended validation multi-domain SSL certificate.
 
-To generate certificate on your own, you need to create a certificate signing request (CSR). Verify the configuration for the certificate has a common name with required SANs and has a CA issuer with the following command :    
+To generate certificate on your own, you need to create a certificate signing request (CSR). Verify the configuration for the certificate has a common name with required SANs and has a CA issuer. For example:
 
 ```console
 openssl req -newkey rsa:2048 -keyout your-private-key.key -out your-csr.csr
 ```
 
-Run the following command to check the required SANs :
+Run the following command to check the required SANs:
 
 ```console
 openssl req -noout -text -in <cert-name>
 ```
-The output would look like the following : 
+
+The command returns: 
 
 ```output
 X509v3 Subject Alternative Name:
@@ -51,7 +52,7 @@ DNS:<SQLMI name>-svc, DNS:<SQLMI name>-svc.<namespace>.svc.cluster.local, DNS:<S
    base64 /<path>/<file> > cert.txt 
    ```
 
-1. Add the base64 encoded cert and private key to the yaml specification file to create a Kubernetes secret :
+1. Add the base64 encoded cert and private key to the yaml specification file to create a Kubernetes secret:
 
    ```yaml
    apiVersion: v1
@@ -72,7 +73,7 @@ Use the following command by providing Kubernetes secret that you created previo
 az sql mi-arc update -n <managed instance name> -k <arc> --use-k8s --service-cert-secret <your-cert-secret>
 ```
 
-The following is an example of above command with a service cert secret named `mymi-cert-secret`.
+For example:
 
 ```console
 az sql mi-arc update -n mysqlmi -k <arc> --use-k8s --service-cert-secret mymi-cert-secret
@@ -84,7 +85,8 @@ Use the following command to rotate the certificate with the PEM formatted certi
 az sql mi-arc update -n <managed instance name> -k arc --use-k8s --cert-public-key-file <path-to-my-cert-public-key> --cert-private-key-file <path-to-my-cert-private-key> 
 ```
 
-The following is an example of above command :
+For example:
+
 ```console
 az sql mi-arc update -n mysqlmi -k arc --use-k8s --cert-public-key-file ./mi1-1-cert --cert-private-key-file ./mi1-1-pvt
 ```
@@ -95,7 +97,7 @@ You can also provide a Kubernetes service cert secret name for `--service-cert-s
 az sql mi-arc update -n <managed instance name> -k <arc> --use-k8s --cert-public-key-file <path-to-my-cert-public-key> --cert-private-key-file <path-to-my-cert-private-key> --service-cert-secret <path-to-mymi-cert-secret>
 ```
 
-The following is an example of above command :
+For example:
 
 ```console
 az sql mi-arc update -n mysqlmi -k arc --use-k8s --cert-public-key-file ./mi1-1-cert --cert-private-key-file ./mi1-1-pvt --service-cert-secret mi1-12-1-cert-secret
@@ -111,7 +113,7 @@ Once you created the Kubernetes secret, you can bind it to the SQL Managed Insta
     serviceCertificateSecret: <your-cert-secret>
 ```
 
-The following is an example to rotate the service certificate in SQL instance named `mysqlmi`, update the spec with a Kubernetes secret named `my-service-cert`:
+The following `.yaml` file is an example to rotate the service certificate in SQL instance named `mysqlmi`, update the spec with a Kubernetes secret named `my-service-cert`:
 
 ```yaml
 apiVersion: sql.arcdata.microsoft.com/v1
