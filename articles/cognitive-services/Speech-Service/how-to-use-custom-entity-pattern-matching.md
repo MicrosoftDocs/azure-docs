@@ -316,5 +316,4 @@ RECOGNIZED: Text = Take me to floor 7.
 NO INTENT RECOGNIZED!
 ```
 
-The Intent Id is empty because 7 was not in our list.
-
+The Intent ID is empty because 7 was not in our list.

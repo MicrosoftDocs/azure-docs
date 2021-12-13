@@ -25,15 +25,15 @@ A pattern is a phrase that contains a marked entity. Entities are marked with "{
 
 ### Outline of a PatternMatchingModel
 
-The ``PatternMatchingModel`` contains an Id to reference that model by, a list of ``PatternMatchingIntent`` objects, and a list of ``PatternMatchingEntity`` objects.
+The ``PatternMatchingModel`` contains an ID to reference that model by, a list of ``PatternMatchingIntent`` objects, and a list of ``PatternMatchingEntity`` objects.
 
 #### Pattern Matching Intents
 
-``PatternMatchingIntent`` objects represent a collection of phrases that will be used to evaluate speech or text in the ``IntentRecognizer``. If the phrases are matched, the ``IntentRecognitionResult`` returned will have the Id of the ``PatternMatchingIntent`` that was matched.
+``PatternMatchingIntent`` objects represent a collection of phrases that will be used to evaluate speech or text in the ``IntentRecognizer``. If the phrases are matched, the ``IntentRecognitionResult`` returned will have the ID of the ``PatternMatchingIntent`` that was matched.
 
 #### Pattern Matching Entities
 
-``PatternMatchingEntity`` objects represent an individual entity and its corresponding properties that tell the ``IntentRecognizer`` how to treat it. All ``PatternMatchingEntity`` objects must have an Id that is present in a phrase or else it will never be matched.
+``PatternMatchingEntity`` objects represent an individual entity and its corresponding properties that tell the ``IntentRecognizer`` how to treat it. All ``PatternMatchingEntity`` objects must have an ID that is present in a phrase or else it will never be matched.
 
 ### Types of Entities
 
@@ -61,7 +61,7 @@ Let's assume we have a list of floors for our elevator. Since we are dealing wit
 
 > "1", "2", "3", "lobby", "ground floor", "one", "two", "three"
 
-When an entity with an Id is of type "List" and is in "Strict" mode, the engine will only match if the text in the slot appears in the list.
+When an entity with an ID is of type "List" and is in "Strict" mode, the engine will only match if the text in the slot appears in the list.
 
 > "take me to floor one" will match.</br> "take me to floor 5" will not.
 
