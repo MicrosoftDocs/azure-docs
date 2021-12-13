@@ -19,14 +19,13 @@ A directory is a shared information infrastructure, that is used for locating, m
 
 Inter-directory provisioning is provisioning an identity between two different directory services systems.   The most common scenario for inter-directory provisioning is when a user already in Active Directory is provisioned into Azure AD. This provisioning can be accomplished by agents such as Azure AD Connect sync or Azure AD Connect cloud provisioning.
 
-Inter-directory provisioning allows us to create [hybrid identity](../hybrid/whatis-hybrid-identity.md) environments.
-
+Inter-directory provisioning allows us to create [hybrid identity](whatis-hybrid-identity.md) environments.
 
 ## What types of inter-directory provisioning does Azure AD support
 
 Azure AD currently supports three methods for accomplishing inter-directory provisioning. These methods are:
 
-- [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Azure AD.
+- [Azure AD Connect](whatis-azure-ad-connect.md) - the Microsoft tool designed to meet and accomplish your hybrid identity, including inter-directory provisioning from Active Directory to Azure AD.
 
 - [Azure AD Connect Cloud Provisioning](../cloud-sync/what-is-cloud-sync.md) -a new Microsoft agent designed to meet and accomplish your hybrid identity goals.  It is provides a light-weight inter -directory provisioning experience between Active Directory and Azure AD.
 
@@ -36,15 +35,14 @@ Azure AD currently supports three methods for accomplishing inter-directory prov
 
 This capability of inter-directory provisioning offers the following significant business benefits:
 
-- [Password hash synchronization](../hybrid/whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
-- [Pass-through authentication](../hybrid/how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
-- [Federation integration](../hybrid/how-to-connect-fed-whatis.md) - can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
-- [Synchronization](../hybrid/how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
-- [Health Monitoring](../hybrid/whatis-azure-ad-connect.md) - can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
-
+- [Password hash synchronization](whatis-phs.md) - A sign-in method that synchronizes a hash of a users on-premises AD password with Azure AD.
+- [Pass-through authentication](how-to-connect-pta.md) - A sign-in method that allows users to use the same password on-premises and in the cloud, but doesn't require the additional infrastructure of a federated environment.
+- [Federation integration](how-to-connect-fed-whatis.md) - can be used to configure a hybrid environment using an on-premises AD FS infrastructure. It also provides AD FS management capabilities such as certificate renewal and additional AD FS server deployments.
+- [Synchronization](how-to-connect-sync-whatis.md) - Responsible for creating users, groups, and other objects.  As well as, making sure identity information for your on-premises users and groups is matching the cloud.  This synchronization also includes password hashes.
+- [Health Monitoring](whatis-azure-ad-connect.md) - can provide robust monitoring and provide a central location in the Azure portal to view this activity. 
 
 ## Next steps 
-- [What is identity lifecycle management](what-is-identity-lifecycle-management.md)
-- [What is provisioning?](what-is-provisioning.md)
-- [What is HR driven provisioning?](what-is-hr-driven-provisioning.md)
-- [What is app provisioning?](what-is-app-provisioning.md)
+- [What is identity lifecycle management](../governance/what-is-identity-lifecycle-management.md)
+- [What is provisioning?](../governance/what-is-provisioning.md)
+- [What is HR driven provisioning?](../app-provisioning/what-is-hr-driven-provisioning.md)
+- [What is app provisioning?](../app-provisioning/user-provisioning.md)
