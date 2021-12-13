@@ -198,9 +198,9 @@ The following image shows a sample flow of exported data into an Azure Storage, 
 
     - Create a dataset from Azure Storage. For more information, see [Datasets in Azure Data Factory](../data-factory/concepts-datasets-linked-services.md).
 
-    - Create a data pipeline with a copy activity, based on when the blobs where last modified properties (this step requires deeper Azure Data Factory knowledge).
+    - Create a data pipeline with a copy activity, based on when the blob properties were last modified. 
 
-        For more information, see [Copy activity in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/copy-activity-overview).
+        This step requires an extra understanding of Azure Data Factory. For more information, see [Copy activity in Azure Data Factory and Azure Synapse Analytics](/azure/data-factory/copy-activity-overview).
 
 ---
 
