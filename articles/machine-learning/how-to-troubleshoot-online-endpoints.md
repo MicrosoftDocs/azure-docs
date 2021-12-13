@@ -105,6 +105,7 @@ Below is a list of common deployment errors that are reported as part of the dep
 Below is a list of common resources that might run out of quota when using Azure services:
 
 * [CPU](#cpu-quota)
+* [Disk](#disk-quota)
 * [Role assignments](#role-assignment-quota)
 * [Endpoints](#endpoint-quota)
 * [Kubernetes](#kubernetes-quota)
@@ -115,6 +116,10 @@ Below is a list of common resources that might run out of quota when using Azure
 Before deploying a model, you need to have enough compute quota. This quota defines how much virtual cores are available per subscription, per workspace, per SKU, and per region. Each deployment subtracts from available quota and adds it back after deletion, based on type of the SKU.
 
 A possible mitigation is to check if there are unused deployments that can be deleted. Or you can submit a [request for a quota increase](how-to-manage-quotas.md#request-quota-increases).
+
+#### Disk quota
+
+This issue happens when the size of the model is larger than the available disk space and the model is not able to be downloaded. Try an SKU with more disk space.
 
 #### Role assignment quota
 
