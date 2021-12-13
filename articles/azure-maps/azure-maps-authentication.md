@@ -79,6 +79,9 @@ Authorization: Bearer eyJ0e….HNIVN
 For information about viewing your client ID, see [View authentication details](./how-to-manage-authentication.md#view-authentication-details).
 
 > [!TIP]
+>
+> **Getting the Client ID programmatically**
+>
 > When using PowerShell, the Client ID is stored as the `UniqueId` Property in the `IMapsAccount` object. You retrieve this property using `Get-AzMapsAccount`, for example:
 >
 > ```powershell
