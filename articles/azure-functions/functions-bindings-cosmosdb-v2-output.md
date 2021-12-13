@@ -756,13 +756,11 @@ def main(req: func.HttpRequest, doc: func.Out[func.Document]) -> func.HttpRespon
     return 'OK'
 ```
 
-::: zone-end  
+::: zone-end 
+::: zone pivot="programming-language-csharp" 
 ## Attributes
 
 Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/test/WebJobs.Extensions.CosmosDB.Tests) attribute to define the function. C# script instead uses a function.json configuration file.
-
-::: zone pivot="programming-language-csharp"
-# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [CosmosDB](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/dev/test/WebJobs.Extensions.CosmosDB.Tests) attribute.
 
