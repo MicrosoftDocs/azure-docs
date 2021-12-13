@@ -32,6 +32,13 @@ In this tutorial, you deploy the same applications from the Dapr [Hello World](h
 ## Prerequisites
 
 * [Azure CLI](/cli/azure/install-azure-cli)
+
+::: zone pivot="container-apps-bicep"
+
+* [Bicep](/azure-resource-manager/bicep/install)
+
+::: zone-end
+
 * An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
 ## Before you begin
@@ -161,7 +168,7 @@ az group create \
 # [PowerShell](#tab/powershell)
 
 ```powershell
-  New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
+New-AzResourceGroup -Name $RESOURCE_GROUP -Location $LOCATION
 ```
 
 ---
@@ -188,9 +195,9 @@ az monitor log-analytics workspace create \
 
 ```powershell
 New-AzOperationalInsightsWorkspace `
--Location $LOCATION `
--Name $LOG_ANALYTICS_WORKSPACE `
--ResourceGroupName $RESOURCE_GROUP
+  -Location $LOCATION `
+  -Name $LOG_ANALYTICS_WORKSPACE `
+  -ResourceGroupName $RESOURCE_GROUP
 ```
 
 ---
@@ -202,11 +209,11 @@ Next, retrieve the Log Analytics Client ID and client secret.
 Make sure to run each query separately to give enough time for the request to complete.
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
 ```
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv`
+LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv `
 ```
 
 # [PowerShell](#tab/powershell)
@@ -270,9 +277,9 @@ az storage account create \
 
 ```powershell
 New-AzStorageAccount -ResourceGroupName $RESOURCE_GROUP `
-    -Name $STORAGE_ACCOUNT `
-    -Location $LOCATION `
-    -SkuName Standard_RAGRS
+  -Name $STORAGE_ACCOUNT `
+  -Location $LOCATION `
+  -SkuName Standard_RAGRS
 ```
 
 ---
@@ -618,18 +625,18 @@ az deployment group create \
 
 ```powershell
 $params = @{
-      environment_name = $CONTAINERAPPS_ENVIRONMENT
-      location = $LOCATION
-      storage_account_name =  $STORAGE_ACCOUNT
-      storage_account_key = $STORAGE_ACCOUNT_KEY
-      storage_container_name = $STORAGE_ACCOUNT_CONTAINER
+  environment_name = $CONTAINERAPPS_ENVIRONMENT
+  location = $LOCATION
+  storage_account_name =  $STORAGE_ACCOUNT
+  storage_account_key = $STORAGE_ACCOUNT_KEY
+  storage_container_name = $STORAGE_ACCOUNT_CONTAINER
 }
 
 New-AzResourceGroupDeployment `
--ResourceGroupName $RESOURCE_GROUP `
--TemplateParameterObject $params `
--TemplateFile ./serviceapp.json `
--SkipTemplateParameterPrompt 
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateParameterObject $params `
+  -TemplateFile ./serviceapp.json `
+  -SkipTemplateParameterPrompt 
 ```
 
 ::: zone-end
@@ -656,18 +663,18 @@ az deployment group create \
 
 ```powershell
 $params = @{
-      environment_name = $CONTAINERAPPS_ENVIRONMENT
-      location = $LOCATION
-      storage_account_name =  $STORAGE_ACCOUNT
-      storage_account_key = $STORAGE_ACCOUNT_KEY
-      storage_container_name = $STORAGE_ACCOUNT_CONTAINER
+  environment_name = $CONTAINERAPPS_ENVIRONMENT
+  location = $LOCATION
+  storage_account_name =  $STORAGE_ACCOUNT
+  storage_account_key = $STORAGE_ACCOUNT_KEY
+  storage_container_name = $STORAGE_ACCOUNT_CONTAINER
 }
 
 New-AzResourceGroupDeployment `
--ResourceGroupName $RESOURCE_GROUP `
--TemplateParameterObject $params `
--TemplateFile ./serviceapp.bicep `
--SkipTemplateParameterPrompt 
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateParameterObject $params `
+  -TemplateFile ./serviceapp.bicep `
+  -SkipTemplateParameterPrompt 
 ```
 
 ::: zone-end
@@ -688,23 +695,23 @@ Run the command below to deploy the client container app.
 az deployment group create --resource-group "$RESOURCE_GROUP" \
   --template-file ./clientapp.json \
   --parameters \
-    environment_name="$CONTAINERAPPS_ENVIRONMENT" \
-    location="$LOCATION"
+      environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+      location="$LOCATION"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
 $params = @{
-      environment_name = $CONTAINERAPPS_ENVIRONMENT
-      location = $LOCATION
+  environment_name = $CONTAINERAPPS_ENVIRONMENT
+  location = $LOCATION
 }
 
 New-AzResourceGroupDeployment `
--ResourceGroupName $RESOURCE_GROUP `
--TemplateParameterObject $params `
--TemplateFile ./clientapp.json `
--SkipTemplateParameterPrompt 
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateParameterObject $params `
+  -TemplateFile ./clientapp.json `
+  -SkipTemplateParameterPrompt 
 ```
 
 ::: zone-end
@@ -717,23 +724,23 @@ New-AzResourceGroupDeployment `
 az deployment group create --resource-group "$RESOURCE_GROUP" \
   --template-file ./clientapp.bicep \
   --parameters \
-    environment_name="$CONTAINERAPPS_ENVIRONMENT" \
-    location="$LOCATION"
+      environment_name="$CONTAINERAPPS_ENVIRONMENT" \
+      location="$LOCATION"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
 $params = @{
-      environment_name = $CONTAINERAPPS_ENVIRONMENT
-      location = $LOCATION
+  environment_name = $CONTAINERAPPS_ENVIRONMENT
+  location = $LOCATION
 }
 
 New-AzResourceGroupDeployment `
--ResourceGroupName $RESOURCE_GROUP `
--TemplateParameterObject $params `
--TemplateFile ./clientapp.bicep `
--SkipTemplateParameterPrompt 
+  -ResourceGroupName $RESOURCE_GROUP `
+  -TemplateParameterObject $params `
+  -TemplateFile ./clientapp.bicep `
+  -SkipTemplateParameterPrompt 
 ```
 
 ::: zone-end
@@ -809,7 +816,7 @@ Once you are done, clean up your Container App resources by running the followin
 
 ```azurecli
 az group delete \
-    --resource-group $RESOURCE_GROUP
+  --resource-group $RESOURCE_GROUP
 ```
 
 # [PowerShell](#tab/powershell)
