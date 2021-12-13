@@ -69,11 +69,9 @@ After you're prepared the infrastructure, deploy Azure Arc-enabled data services
 > [!CAUTION]
 > Some of the data services tiers and modes are in [general availability (GA)](release-notes.md), and some are in preview. We recommend that you don't mix GA and preview services on the same data controller. If you mix GA and preview services on the same data controller, you can't upgrade in place. In that scenario, when you want to upgrade, you must remove and re-create the data controller and data services.
 
-## Overview: Create an Azure Arc-enabled data controller
+## Deployment requirements
 
-You can create Azure Arc-enabled data services on various types of Kubernetes clusters, and you can create managed Kubernetes services by various approaches.
-
-Currently, the validated list of Kubernetes services and distributions includes:
+You can deploy Azure Arc-enabled data services on various types of Kubernetes clusters. Currently, the validated list of Kubernetes services and distributions includes:
 
 - Amazon Elastic Kubernetes Service (Amazon EKS)
 - Azure Kubernetes Service (AKS)
@@ -89,6 +87,8 @@ Currently, the validated list of Kubernetes services and distributions includes:
 > * If you're using Azure Kubernetes Service, your cluster's worker node virtual machine (VM) size should be at least Standard_D8s_v3 and use Premium Disks. 
 > * The cluster should not span multiple availability zones. 
 > * For more information, see the "Known issues" section of [Release notes&nbsp;- Azure Arc-enabled data services](./release-notes.md#known-issues).
+
+## Deployment information
 
 When you're creating Azure Arc-enabled data services, regardless of the service or distribution option you choose, you'll need to provide the following information:
 
@@ -111,6 +111,8 @@ When you're creating Azure Arc-enabled data services, regardless of the service 
 - `gcp`
 - `onpremises`
 - `other`
+
+- **Container runtime**: Use `containerd` runtime for the container runtime. Azure Arc-enabled data services does not support Docker runtime.
 
 ## Additional concepts for direct connectivity mode
 

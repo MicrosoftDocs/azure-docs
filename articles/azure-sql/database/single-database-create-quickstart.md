@@ -4,7 +4,7 @@ description: Create a single database in Azure SQL Database using the Azure port
 services: sql-database
 ms.service: sql-database
 ms.subservice: deployment-configuration
-ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mode-other
+ms.custom: contperf-fy21q1, devx-track-azurecli, devx-track-azurepowershell, mode-ui
 ms.topic: quickstart
 author: LitKnd
 ms.author: kendralittle
