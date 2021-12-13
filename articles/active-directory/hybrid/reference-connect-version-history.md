@@ -87,13 +87,13 @@ There's an issue where upgrading to this V1.6 build or any newer builds resets t
 
 ### Release status
 
-9/30/2021: Released for download only. Not available for auto-upgrade.
+9/30/2021: Released for download only, not available for auto-upgrade
 
 ### Bug fixes
 
- - On the **Group Writeback Permissions** page in the wizard, we removed a download button for a PowerShell script. We also changed the text on the wizard page to include a **Learn More** link that links to an online article where the PowerShell script can be found.
+ - We removed a download button for a PowerShell script on the **Group Writeback Permissions** page in the wizard. We also changed the text on the wizard page to include a **Learn More** link that links to an online article where the PowerShell script can be found.
  - We fixed a bug where the wizard was incorrectly blocking the installation when the .NET version on the server was greater than 4.6 because of missing registry keys. Those registry keys aren't required and should only block installation if they're intentionally set to false.
- - We fixed a bug where an error would be thrown if phantom objects were found during the initialization of a sync step. This bug blocked the sync step or removed transient objects. The phantom objects are now ignored.
+ - We fixed a bug where an error was thrown if phantom objects were found during the initialization of a sync step. This bug blocked the sync step or removed transient objects. The phantom objects are now ignored.
 
    A phantom object is a placeholder for an object that isn't there or hasn't been seen yet. For example, if a source object has a reference for a target object that isn't there, we create the target object as a phantom.
 
@@ -121,7 +121,7 @@ There's an issue where upgrading to this V1.6 build or any newer builds resets t
 
 ### Bug fixes
 
- - We fixed a bug where the desktop single sign-on (SSO) settings weren't persisted after upgrade from a previous version.
+ - We fixed a bug where the desktop single sign-on settings weren't persisted after upgrade from a previous version.
  - We fixed a bug that caused the Set-ADSync\*Permission cmdlets to fail.
 
 ## 2.0.25.1
@@ -131,14 +131,14 @@ There's an issue where upgrading to this V1.6 build or any newer builds resets t
 
 ### Release status
 
-9/14/2021: Released for download only. Not available for auto-upgrade.
+9/14/2021: Released for download only, not available for auto-upgrade
 
 ### Bug fixes
 
  - We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
  - We fixed an import configuration issue with writeback enabled when you use the existing Azure AD Connector account.
  - We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from 1.6 because of an invalid inheritance type.
- - The cmdlet we published in a previous release to set the TLS version had an issue where it overwrote the keys, which destroyed any values that were in them. We fixed this issue by only creating a new key if one doesn't already exist. A warning is also added to let users know the TLS registry changes aren't exclusive to Azure AD Connect and might affect other applications on the same server.
+ - We fixed an issue with the cmdlet we published in a previous release to set the TLS version. The cmdlet overwrote the keys, which destroyed any values that were in them. Now a new key is created only if one doesn't already exist. A warning is also added to let users know the TLS registry changes aren't exclusive to Azure AD Connect and might affect other applications on the same server.
  - We added a check to enforce auto-upgrade for V2.0 to require Windows Server 2016 or newer.
  - We added the Replicating Directory Changes permission in the Set-ADSyncBasicReadPermissions cmdlet.
  - We made a change to prevent UseExistingDatabase and import configuration from being used together because they could contain conflicting configuration settings.
@@ -155,14 +155,14 @@ There's an issue where upgrading to this V1.6 build or any newer builds resets t
 ## 2.0.10.0
 
 ### Release status
-8/19/2021: Released for download only. Not available for auto-upgrade.
+8/19/2021: Released for download only, not available for auto-upgrade
 
 > [!NOTE]
 > This is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. This hotfix addresses an issue that's present in version 2.0 and in Azure AD Connect version 1.6. If you're running Azure AD Connect on an older Windows server, install the [1.6.13.0](#16130) build instead.
 
 ### Release status
 
-8/19/2021: Released for download only. Not available for auto-upgrade.
+8/19/2021: Released for download only, not available for auto-upgrade
 
 ### Known issues
 
@@ -170,18 +170,18 @@ Under certain circumstances, the installer for this version displays an error me
 
 ### Bug fixes
 
-We fixed a bug where, when a domain was renamed, Password Hash Sync failed with an error indicating "a specified cast is not valid" in the Event log. This regression is from earlier builds.
+We fixed a bug that occurred when a domain was renamed, and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
 
 ## 1.6.13.0
 
 > [!NOTE]
 > This release is a hotfix update release of Azure AD Connect. It's intended to be used by customers who are running Azure AD Connect on a server with Windows Server 2012 or 2012 R2.
 
-8/19/2021: Released for download only. Not available for auto-upgrade.
+8/19/2021: Released for download only, not available for auto-upgrade
 
 ### Bug fixes
 
-We fixed a bug where, when a domain was renamed, Password Hash Sync failed with an error indicating "a specified cast is not valid" in the Event log. This regression is from earlier builds.
+We fixed a bug that occurred when a domain was renamed, and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
 
 ### Functional changes
 
@@ -191,14 +191,14 @@ There are no functional changes in this release.
 
 ### Release status
 
-8/17/2021: Released for download only. Not available for auto-upgrade.
+8/17/2021: Released for download only, not available for auto-upgrade
 
 ### Bug fixes
 
 > [!NOTE]
 > This release is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. It addresses an issue that's present in version 2.0.8.0. This issue isn't present in Azure AD Connect version 1.6.
 
-We fixed a bug where, when you were syncing a large number of Password Hash Sync transactions, the Event log entry length exceeded the maximum-allowed length for a Password Hash Sync event entry. We now split the lengthy log entry into multiple entries.
+We fixed a bug that occurred when you synced a large number of Password Hash Sync transactions, the Event log entry length exceeded the maximum-allowed length for a Password Hash Sync event entry. We now split the lengthy log entry into multiple entries.
 
 ## 2.0.8.0
 
@@ -211,7 +211,7 @@ To download the latest version of Azure AD Connect 2.0, see the [Microsoft Downl
 
 ### Release status
 
-8/10/2021: Released for download only. Not available for auto-upgrade.
+8/10/2021: Released for download only, not available for auto-upgrade
 
 ### Functional changes
 
@@ -228,7 +228,7 @@ To download the latest version of Azure AD Connect 1.6, see the [Microsoft Downl
 
 ### Release status
 
-8/10/2021: Released for download only. Not available for auto-upgrade.
+8/10/2021: Released for download only, not available for auto-upgrade
 
 ### Functional changes
 
@@ -241,7 +241,7 @@ There are no functional changes in this release.
 
 ### Release status
 
-7/20/2021: Released for download only. Not available for auto-upgrade.
+7/20/2021: Released for download only, not available for auto-upgrade
 
 ### Functional changes
 
@@ -250,7 +250,7 @@ There are no functional changes in this release.
  - In this release, we enforce the use of TLS 1.2. If you enabled your Windows Server for TLS 1.2, Azure AD Connect uses this protocol. If TLS 1.2 isn't enabled on the server, you'll see an error message when you attempt to install Azure AD Connect. The installation won't continue until you've enabled TLS 1.2. You can use the new Set-ADSyncToolsTls12 cmdlets to enable TLS 1.2 on your server.
  - With this release, you can use the Hybrid Identity Administrator role to authenticate when you install Azure AD Connect. You no longer need to use the Global Administrator role.
  - We upgraded the Visual C++ runtime library to version 14 as a prerequisite for SQL Server 2019.
- - This release uses the Microsoft Authentication Library for authentication. We removed the older Azure AD Authentication Library, which will be retired in 2022.
+ - We updated this release to use the Microsoft Authentication Library for authentication. We removed the older Azure AD Authentication Library, which will be retired in 2022.
  - We no longer apply permissions on AdminSDHolders following Windows security guidance. We changed the parameter SkipAdminSdHolders to IncludeAdminSdHolders in the ADSyncConfig.psm1 module.
  - Passwords are now reevaluated when an expired password is "unexpired," no matter if the password itself is changed. If the password is set to "Must change password at next logon" for a user, and this flag is cleared (which "unexpires" the password), the unexpired status and the password hash are synced to Azure AD. When the user attempts to sign in in Azure AD, they can use the unexpired password.
 To sync an expired password from Active Directory to Azure AD, use the feature in Azure AD Connect to [synchronize temporary passwords](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon). You need to enable password writeback to use this feature so that the password the user updates is also written back to Active Directory.
@@ -287,7 +287,7 @@ To sync an expired password from Active Directory to Azure AD, use the feature i
 
      - employeeType
      - employeeHireDate
--  This release requires PowerShell version 5.0 or newer to be installed on the Windows Server. This version is part of Windows Server 2016 and newer.
+- This release requires PowerShell version 5.0 or newer to be installed on the Windows Server. This version is part of Windows Server 2016 and newer.
 - We increased the group sync membership limits to 250,000 with the new V2 endpoint.
 - We updated the Generic LDAP Connector and the Generic SQL Connector to the latest versions. To learn more about these connectors, see the reference documentation for:
 
@@ -303,17 +303,17 @@ To sync an expired password from Active Directory to Azure AD, use the feature i
 - We updated the Azure AD Connect Health agent version to 3.1.110.0 to fix an installation failure.
 - We're seeing an issue with nondefault attributes from exported configurations where directory extension attributes are configured. In the process of importing these configurations to a new server or installation, the attribute inclusion list is overridden by the directory extension configuration step. As a result, after import, only default and directory extension attributes are selected in the sync service manager. Nondefault attributes aren't included in the installation, so the user must manually reenable them from the sync service manager if they want their imported sync rules to work. We now refresh the Azure AD Connector before configuring the directory extension to keep existing attributes from the attribute inclusion list.
 - We fixed an accessibility issue where the page header's font weight was set as Light. The font weight is now set to Bold for the page title, which applies to all page headers.
-- The function Get-AdObject in ADSyncSingleObjectSync.ps1 has been renamed to Get-AdDirectoryObject to prevent ambiguity with the Active Directory cmdlet.
-- The SQL function mms_CheckSynchronizationRuleHasUniquePrecedence allowed duplicates precedence on outbound sync rules on different connectors. We removed the condition that allows duplicate rule precedence.
+- We renamed the function Get-AdObject in ADSyncSingleObjectSync.ps1 to Get-AdDirectoryObject to prevent ambiguity with the Active Directory cmdlet.
+- We removed the condition that allowed duplicate rule precedence. The SQL function mms_CheckSynchronizationRuleHasUniquePrecedence had allowed duplicates precedence on outbound sync rules on different connectors.
 - We fixed a bug where the Single Object Sync cmdlet fails if the attribute flow data is null. An example is on exporting a delete operation.
 - We fixed a bug where the installation fails because the ADSync bootstrap service can't be started. We now add Sync Service Account to the Local Builtin User Group before starting the bootstrap service.
 - We fixed an accessibility issue where the active tab on the Azure AD Connect wizard wasn't showing the correct color on the High Contrast theme. The selected color code was being overwritten because of a missing condition in the normal color code configuration.
 - We addressed an issue where you were allowed to deselect objects and attributes used in sync rules by using the UI and PowerShell. We now show friendly error messages if you try to deselect any attribute or object that's used in any sync rules.
 - We made some updates to the "migrate settings code" to check and fix backward compatibility issues when the script runs on an older version of Azure AD Connect.
-- We fixed a bug where, when PHS tried to look up an incomplete object, it didn't use the same algorithm to resolve the DC as it used originally to fetch the passwords. In particular, it ignored affinitized DC information. The Incomplete object lookup should use the same logic to locate the DC in both instances.
+- We fixed a bug that occurred when PHS tried to look up an incomplete object. It didn't use the same algorithm to resolve the DC as it used originally to fetch the passwords. In particular, it ignored affinitized DC information. The Incomplete object lookup should use the same logic to locate the DC in both instances.
 - We fixed a bug where Azure AD Connect can't read Application Proxy items by using Microsoft Graph because of a permissions issue with calling Microsoft Graph directly based on the Azure AD Connect client ID. To fix this issue, we removed the dependency on Microsoft Graph and instead use Azure AD PowerShell to work with the App Proxy Application objects.
 - We removed the writeback member limit from the Out to AD - Group SOAInAAD Exchange sync rule.
-- We fixed a bug where, when you changed connector account permissions, if an object came in scope that hadn't changed since the last delta import, a delta import wouldn't import it. We now display a warning to alert you of the issue.
+- We fixed a bug that occurred when you changed connector account permissions. If an object came in scope that hadn't changed since the last delta import, a delta import wouldn't import it. We now display a warning to alert you of the issue.
 - We fixed an accessibility issue where the screen reader wasn't reading the radio button position. We added positional text to the radio button accessibility text field.
 - We updated the Pass-Thru Authentication Agent bundle. The older bundle didn't have the correct reply URL for the HIP's first-party application in US Government.
 - We fixed a bug where a "stopped-extension-dll-exception" error on Azure AD Connector exported after clean installing the Azure AD Connect version 1.6.X.X, which defaulted to using DirSyncWebServices API V2, by using an existing database. Previously, the setting export version to V2 was only being done for upgrades. We changed it so that it's also set on clean install.
@@ -341,11 +341,11 @@ To sync an expired password from Active Directory to Azure AD, use the feature i
 
 ### Release status
 
-3/31/2021: Released for download only. Not available for auto-upgrade.
+3/31/2021: Released for download only, not available for auto-upgrade
 
 ### Bug fixes
 
-This release fixes a bug in version 1.6.2.4 where, after upgrade to that release, the Azure AD Connect Health feature wasn't registered correctly and didn't work. If you deployed build 1.6.2.4, update your Azure AD Connect server with this build to register the Health feature correctly.
+This release fixes a bug that occurred in version 1.6.2.4. After upgrade to that release, the Azure AD Connect Health feature wasn't registered correctly and didn't work. If you deployed build 1.6.2.4, update your Azure AD Connect server with this build to register the Health feature correctly.
 
 ## 1.6.2.4
 
@@ -452,7 +452,7 @@ This is a bug fix release. There are no functional changes in this release.
 
 ### Fixed issues
 
-- We fixed an issue where admin can't enable Seamless Single Sign-On if the AZUREADSSOACC computer account is already present in the Active Directory.
+- We fixed an issue where admin can't enable seamless single sign-on if the AZUREADSSOACC computer account is already present in the Active Directory.
 - We fixed an issue that caused a staging error during V2 API delta import for a conflicting object that was repaired via the health portal.
 - We fixed an issue in the import/export configuration where a disabled custom rule was imported as enabled.
 
