@@ -15,10 +15,27 @@ This article outlines the process to register an Azure Blob Storage account in A
 
 ## Supported capabilities
 
-
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|**Data Share**|
 |---|---|---|---|---|---|---|---|
 | [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy)  | Limited** |[Yes](#data-share)|
+
+\** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
+
+For file types such as csv, tsv, psv, ssv, the schema is extracted when the following logics are in place:
+
+* First row values are non-empty
+* First row values are unique
+* First row values are not a date or a number
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWPdqG]
+
+## Prerequisites
+
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+
+* An active [Purview resource](create-catalog-portal.md).
+
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -54,7 +71,7 @@ It is important to register the data source in Azure Purview prior to setting up
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
-1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Azure Blob Storage account name** and the **collection** and select **Apply**
+1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Azure Blob Storage account name** and the **collection** and select **Apply**. Leave the **Data use governance** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-access-policies-storage.md).
 
    :::image type="content" source="media/register-scan-azure-blob-storage-source/register-blob-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
@@ -81,7 +98,7 @@ The following options are supported:
 
 - **System-assigned managed identity (Recommended)** - As soon as the Azure Purview Account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to perform the scans.
 
-- **User-assigned managed identity** (preview) - Similar to a system managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
+- **User-assigned managed identity** (preview) - Similar to a system-managed identity, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. For more information, you can see our [User-assigned managed identity guide](manage-credentials.md#create-a-user-assigned-managed-identity).
 
 - **Account Key** - Secrets can be created inside an Azure Key Vault to store credentials in order to enable access for Azure Purview to scan data sources securely using the secrets. A secret can be a storage account key, SQL login password, or a password.
 

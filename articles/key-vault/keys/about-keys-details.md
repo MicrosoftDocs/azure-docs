@@ -66,9 +66,6 @@ Following table shows a summary of key types and supported algorithms.
 - **AES-GCM** - AES encryption in Galois Counter Mode ([NIST SP 800-38d](https://csrc.nist.gov/publications/sp800))
 - **AES-CBC** - AES encryption in Cipher Block Chaining Mode ([NIST SP 800-38a](https://csrc.nist.gov/publications/sp800))
 
-> [!NOTE] 
-> Current AES-GCM implementation and the corresponding APIs are experimental. The implementation and the APIs may change substantially in the future iterations. 
-
 ##  Key operations
 
 Key Vault, including Managed HSM, supports the following operations on key objects:  

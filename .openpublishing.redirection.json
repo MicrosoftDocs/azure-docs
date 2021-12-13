@@ -5914,6 +5914,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/create-aks-cluster-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/create-complete-managed-instance-indirectly-connected",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/how-to-apply-security-context-constraint.md",
       "redirect_url": "/azure/azure-arc/data",
       "redirect_document_id": false
@@ -7610,8 +7615,8 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/model-versioning.md",
-      "redirect_url": "/azure/cognitive-services/language-service/overview",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/model-lifecycle",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-external-community.md",
@@ -26514,9 +26519,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/storage/common/storage-enable-and-view-metrics.md",
-      "redirect_url": "/azure/storage/common/monitor-storage",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
+      "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-metrics-in-azure-monitor.md",
@@ -26746,7 +26751,7 @@
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics.md",
       "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics-classic-portal.md",
@@ -40007,6 +40012,46 @@
       "source_path_from_root": "/articles/cognitive-services/Speech-Service/quickstarts/intent-recognition.md",
       "redirect_url": "/azure/cognitive-services/Speech-Service/get-started-intent-recognition",
       "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/index-devices.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": true
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/get-speech-devices-sdk.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-quickstart.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-troubleshooting.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/how-to-devices-microphone-array-configuration.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-roobo-v1.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/cognitive-services/Speech-Service/speech-devices-sdk-roobo-v2.md",
+      "redirect_url": "/azure/cognitive-services/Speech-Service/speech-devices",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/cognitive-services/entitylinking/GettingStarted.md",
