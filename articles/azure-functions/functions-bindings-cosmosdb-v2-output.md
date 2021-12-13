@@ -909,6 +909,9 @@ Attributes are not supported by PowerShell.
 Attributes are not supported by Python.
 
 ---
+
+::: zone-end
+
 ## Annotations
 
 The `CosmosDBOutput` annotation is available to write data to Cosmos DB. You can apply the annotation to the function or to an individual function parameter. When used on the function method, the return value of the function is what is written to Cosmos DB. If you use the annotation with a parameter, the parameter's type must be declared as an `OutputBinding<T>` where `T` a native Java type or a POJO.
