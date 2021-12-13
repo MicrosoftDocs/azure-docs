@@ -15,7 +15,7 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Configure managed identities for Azure resources on a VM using the Azure portal
