@@ -60,7 +60,7 @@ Once the UMI is created, some permissions are needed to allow the UMI to read fr
 The following is a sample PowerShell script that will grant the necessary permissions for UMI or SMI.
 
 ```powershell
-# Script to assign permissions to the UMI “umiservertest”
+# Script to assign permissions to the UMI "umiservertest"
 
 import-module AzureAD
 $tenantId = '<tenantId>' # Your Azure AD tenant ID
@@ -137,25 +137,41 @@ To set the identity for the SQL server or SQL managed instance in the [Azure por
 
 The Azure CLI 2.26.0 (or higher) is required to run these commands with UMI.
 
+#### Azure SQL Database
+
 - To provision a new server with UMI, use the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command.
 - To obtain the UMI server information, use the [az sql server show](/cli/azure/sql/server#az_sql_server_show) command. 
-- To update UMI server setting, use the [az sql server update](/cli/azure/sql/server#az_sql_server_update) command.
+- To update the UMI server setting, use the [az sql server update](/cli/azure/sql/server#az_sql_server_update) command.
+
+#### Azure SQL Managed Instance
+
+- To provision a new managed instance with UMI, use the [az sql mi create](/cli/azure/sql/mi#az_sql_mi_create) command.
+- To obtain the UMI managed instance information, use the [az sql server show](/cli/azure/sql/mi#az_sql_mi_show) command.
+- To update the UMI managed instance setting, use the [az sql mi update](/cli/azure/sql/mi#az_sql_mi_update) command.
 
 ### Create or set a managed identity using PowerShell
 
 [Az.Sql module 3.4](https://www.powershellgallery.com/packages/Az.Sql/3.4.0) or greater is required when using PowerShell with UMI.
 
+#### Azure SQL Database
+
 - To provision a new server with UMI, use the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) command.
 - To obtain the UMI server information, use the [Get-AzSqlServer](/powershell/module/az.sql/get-azsqlserver) command.
-- To update UMI server setting, use the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command.
+- To update the UMI server setting, use the [Set-AzSqlServer](/powershell/module/az.sql/set-azsqlserver) command.
+
+#### Azure SQL Managed Instance
+
+- To provision a new managed instance with UMI, use the [New-AzSqlInstance](/powershell/module/az.sql/new-azsqlinstance) command.
+- To obtain the UMI managed instance information, use the [Get-AzSqlInstance](/powershell/module/az.sql/get-azsqlinstance) command.
+- To update the UMI managed instance setting, use the [Set-AzSqlInstance](/powershell/module/az.sql/set-azsqlinstance) command.
 
 ### Create or set a managed identity using REST API
 
-The REST API provisioning script used in [Creating an Azure SQL logical server using a user-assigned managed identity](authentication-azure-ad-user-assigned-managed-identity-create-server.md) can also be used to update the UMI settings for the server. Re-run the provisioning command in the guide with the updated user-assigned managed identity property that you want to update.
+The REST API provisioning script used in [Creating an Azure SQL logical server using a user-assigned managed identity](authentication-azure-ad-user-assigned-managed-identity-create-server.md) or [Create an Azure SQL Managed Instance with a user-assigned managed identity](../managed-instance/authentication-azure-ad-user-assigned-managed-identity-create-managed-instance.md) can also be used to update the UMI settings for the server. Re-run the provisioning command in the guide with the updated user-assigned managed identity property that you want to update.
 
 ### Create or set a managed identity using an ARM template
 
-The ARM template used in [Creating an Azure SQL logical server using a user-assigned managed identity](authentication-azure-ad-user-assigned-managed-identity-create-server.md) can also be used to update the UMI settings for the server. Re-run the provisioning command in the guide with the updated user-assigned managed identity property that you want to update.
+The ARM template used in [Creating an Azure SQL logical server using a user-assigned managed identity](authentication-azure-ad-user-assigned-managed-identity-create-server.md) or [Create an Azure SQL Managed Instance with a user-assigned managed identity](../managed-instance/authentication-azure-ad-user-assigned-managed-identity-create-managed-instance.md) can also be used to update the UMI settings for the server. Re-run the provisioning command in the guide with the updated user-assigned managed identity property that you want to update.
 
 > [!NOTE]
 > You can't change the SQL server administrator or password, nor the Azure AD admin by re-running the provisioning command for the ARM template.
@@ -171,3 +187,6 @@ The ARM template used in [Creating an Azure SQL logical server using a user-assi
 
 > [!div class="nextstepaction"]
 > [Create an Azure SQL logical server using a user-assigned managed identity](authentication-azure-ad-user-assigned-managed-identity-create-server.md)
+
+> [!div class="nextstepaction"]
+> [Create an Azure SQL Managed Instance with a user-assigned managed identity](../managed-instance/authentication-azure-ad-user-assigned-managed-identity-create-managed-instance.md)

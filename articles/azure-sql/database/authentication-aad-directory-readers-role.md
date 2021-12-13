@@ -17,9 +17,12 @@ ms.date: 12/15/2021
 
 Azure Active Directory (Azure AD) has introduced [using Azure AD groups to manage role assignments](../../active-directory/roles/groups-concept.md). This allows for Azure AD roles to be assigned to groups.
 
-When enabling a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics, the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) role must be assigned to the identity to allow read access to the [Microsoft Graph API](/graph/overview). The managed identity of SQL Database and Azure Synapse is referred to as the server identity. The managed identity of SQL Managed Instance is referred to as the managed instance identity, and is automatically assigned when the instance is created. For more information on assigning a server identity to SQL Database or Azure Synapse, see [Enable service principals to create Azure AD users](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+> [!NOTE]
+> With the introduction of user-assigned managed identities as the server or managed instance identity, the Directory Readers role can be replaced with using lower level permissions. For more information, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md).
 
-The **Directory Readers** role is necessary to:
+When enabling a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) for Azure SQL Database, Azure SQL Managed Instance, or Azure Synapse Analytics, the Azure AD [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) role can be assigned to the identity to allow read access to the [Microsoft Graph API](/graph/overview). The managed identity of SQL Database and Azure Synapse is referred to as the server identity. The managed identity of SQL Managed Instance is referred to as the managed instance identity, and is automatically assigned when the instance is created. For more information on assigning a server identity to SQL Database or Azure Synapse, see [Enable service principals to create Azure AD users](authentication-aad-service-principal.md#enable-service-principals-to-create-azure-ad-users).
+
+The **Directory Readers** role can be used as the server or instance identity to help:
 
 - Create Azure AD logins for SQL Managed Instance
 - Impersonate Azure AD users in Azure SQL

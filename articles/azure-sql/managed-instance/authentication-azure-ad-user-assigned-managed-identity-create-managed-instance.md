@@ -16,7 +16,7 @@ ms.date: 12/15/2021
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
 > [!NOTE]
-> User-assigned managed identity for Azure SQL is in **public preview**. 
+> User-assigned managed identity for Azure SQL is in **public preview**. If you are looking for a guide on Azure SQL Database, see [Create an Azure SQL logical server using a user-assigned managed identity](../database/authentication-azure-ad-user-assigned-managed-identity-create-server.md)
 
 This how-to guide outlines the steps to create an [Azure SQL Managed Instance](sql-managed-instance-paas-overview.md) with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). For more information on the benefits of using a user-assigned managed identity for the server identity in Azure SQL Database, see [User-assigned managed identity in Azure AD for Azure SQL](../database/authentication-azure-ad-user-assigned-managed-identity.md).
 
@@ -204,6 +204,8 @@ Invoke-RestMethod -Uri https://management.azure.com/subscriptions/$subscriptionI
 To provision a new managed instance with a user-assigned managed identity, virtual network and subnet, with an Azure AD admin set for the instance and Azure AD-only authentication enabled, use the following template.
 
 Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/Microsoft.Template), and **Build your own template in the editor**. Next, **Save** the configuration once you pasted in the example.
+
+To get your user-assigned managed identity **Resource ID**, search for **Managed Identities** in the [Azure portal](https://portal.azure.com). Find your managed identity, and go to **Properties**.
 
 ```json
 {
@@ -498,3 +500,4 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
 ## See also
 
 - [User-assigned managed identity in Azure AD for Azure SQL](../database/authentication-azure-ad-user-assigned-managed-identity.md)
+- [Create an Azure SQL logical server using a user-assigned managed identity](../database/authentication-azure-ad-user-assigned-managed-identity-create-server.md)

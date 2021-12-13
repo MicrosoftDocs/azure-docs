@@ -16,7 +16,7 @@ ms.date: 12/15/2021
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 > [!NOTE]
-> User-assigned managed identity for Azure SQL is in **public preview**. 
+> User-assigned managed identity for Azure SQL is in **public preview**. If you are looking for a guide on Azure SQL Managed Instance, see [Create an Azure SQL Managed Instance with a user-assigned managed identity](../managed-instance/authentication-azure-ad-user-assigned-managed-identity-create-managed-instance.md).
 
 This how-to guide outlines the steps to create a [logical server](logical-servers.md) for Azure SQL Database with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview#managed-identity-types). For more information on the benefits of using a user-assigned managed identity for the server identity in Azure SQL Database, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md).
 
@@ -236,11 +236,13 @@ $responce.content
 
 # [ARM Template](#tab/arm-template)
 
-Here's an example of an ARM template that creates an Azure SQL logical server with a user-assigned managed identity and customer-managed TDE. The template also adds an Azure AD admin set for the server and enables [Azure AD-only authentication](authentication-azure-ad-only-authentication.md), but this can be removed from the template example.
+Here's an example of an ARM template that creates an Azure SQL logical server with a user-assigned managed identity. The template also adds an Azure AD admin set for the server and enables [Azure AD-only authentication](authentication-azure-ad-only-authentication.md), but this can be removed from the template example.
 
 For more information and ARM templates, see [Azure Resource Manager templates for Azure SQL Database & SQL Managed Instance](arm-templates-content-guide.md).
 
 Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/Microsoft.Template), and **Build your own template in the editor**. Next, **Save** the configuration once you pasted in the example.
+
+To get your user-assigned managed identity **Resource ID**, search for **Managed Identities** in the [Azure portal](https://portal.azure.com). Find your managed identity, and go to **Properties**.
 
 ```json
 {
@@ -248,10 +250,18 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
     "contentVersion": "1.0.0.1",
     "parameters": {
         "server": {
-            "type": "String"
+            "type": "string",
+            "defaultValue": "[uniqueString('sql', resourceGroup().id)]",
+            "metadata": {
+                "description": "The name of the logical server."
+            }
         },
         "location": {
-            "type": "String"
+            "type": "string",
+            "defaultValue": "[resourceGroup().location]",
+            "metadata": {
+                "description": "Location for all resources."
+            }
         },
         "aad_admin_name": {
             "type": "String",
@@ -289,14 +299,7 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
             "defaultValue": "",
             "type": "String",
             "metadata": {
-                "description": "The Object ID of the user-assigned managed identity."
-            }
-        },
-        "keyvault_url": {
-            "defaultValue": "",
-            "type": "String",
-            "metadata": {
-                "description": "The key vault URI."
+                "description": "The Resource ID of the user-assigned managed identity, in the form of /subscriptions/<subscriptionId>/resourceGroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<managedIdentity>."
             }
         },
         "AdminLogin": {
@@ -323,7 +326,6 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
                 "administratorLogin": "[parameters('AdminLogin')]",
                 "administratorLoginPassword": "[parameters('AdminLoginPassword')]",
                 "PrimaryUserAssignedIdentityId": "[parameters('user_identity_resource_id')]",
-                "KeyId": "[parameters('keyvault_url')]",
                 "administrators": {
                     "login": "[parameters('aad_admin_name')]",
                     "sid": "[parameters('aad_admin_objectid')]",
@@ -343,3 +345,4 @@ Use a [Custom deployment in the Azure portal](https://portal.azure.com/#create/M
 ## See also
 
 - [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md)
+- [Create an Azure SQL Managed Instance with a user-assigned managed identity](../managed-instance/authentication-azure-ad-user-assigned-managed-identity-create-managed-instance.md).

@@ -8,7 +8,7 @@ ms.topic: tutorial
 author: GithubMirek
 ms.author: mireks
 ms.reviewer: kendralittle, vanto, mathoma
-ms.date: 07/30/2021
+ms.date: 12/15/2021
 ---
 
 # Tutorial: Assign Directory Readers role to an Azure AD group and manage role assignments
@@ -20,6 +20,9 @@ This article guides you through creating a group in Azure Active Directory (Azur
 This tutorial uses the feature introduced in [Use Azure AD groups to manage role assignments](../../active-directory/roles/groups-concept.md). 
 
 For more information on the benefits of assigning the Directory Readers role to an Azure AD group for Azure SQL, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
+
+> [!NOTE]
+> With the introduction of user-assigned managed identities as the server or managed instance identity, the Directory Readers role can be replaced with using lower level permissions. For more information, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md).
 
 ## Prerequisites
 
