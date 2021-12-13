@@ -60,7 +60,7 @@ Partitioning needs to enabled and is based on the PARTITION BY clause in the que
 
 You can significantly grow the scope of real time analytics by leveraging ASA and ADX together. Below are a few scenarios:
 
-* Stream Analytics identifies anomalies in real time and Data Explorer helps determine how/why it occurred through interactive exploration
+* Stream Analytics identifies anomalies in real time and Data Explorer helps determine how and why it occurred through interactive exploration
 * Stream Analytics deserializes incoming data stream for use in Data Explorer (E.g. ingest Protobuff format by using custom deserializer, custom binaries formats etc.)
 * Stream Analytics can perform aggregates, filters, enrich, and transform incoming data streams for use in Data Explorer
 
