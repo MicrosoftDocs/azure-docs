@@ -2,7 +2,7 @@
 title: Create an Azure Batch pool without public IP addresses
 description: Learn how to create a pool without public IP addresses
 ms.topic: how-to
-ms.date: 12/9/2020
+ms.date: 12/13/2021
 ms.custom: references_regions
 ---
 

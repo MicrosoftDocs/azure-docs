@@ -1,7 +1,7 @@
 ---
 title: Rendering overview
 description: Introduction of using Azure for rendering and an overview of Azure Batch rendering capabilities
-ms.date: 01/14/2021
+ms.date: 12/13/2021
 ms.topic: how-to
 ---
 

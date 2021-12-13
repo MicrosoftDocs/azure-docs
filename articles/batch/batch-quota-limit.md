@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 ms.topic: conceptual
-ms.date: 07/20/2021
+ms.date: 12/13/2021
 ms.custom: seodec18
 ---
 
