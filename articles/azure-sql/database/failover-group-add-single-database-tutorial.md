@@ -181,7 +181,7 @@ Change the failover location as appropriate for your environment.
 
 ## Create the failover server
 
-Use this script to create a failover server.
+Use this script to create a failover server with the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command.
 > [!NOTE]
 > The server login and firewall settings must match that of your primary server.
 
@@ -189,7 +189,7 @@ Use this script to create a failover server.
 
 ## Create the failover group
 
-Use this script to create a failover group.
+Use this script to create a failover group with the [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="30-32":::
 
@@ -201,6 +201,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 |---|---|
 | [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a server that hosts databases and elastic pools. |
 | [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Creates a failover group. |
+| [az sql failover-group update](/cli/azure/sql/failover-group?view=azure-cli-latest#az_sql_failover_group_update) | Updates a failover group.|
 
 ---
 
@@ -296,21 +297,21 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 Test failover using the Azure CLI.
 
-## Verify which server is the secondary
+## Verify the roles of each server
 
-Use this script to confirm the roles of each server.
+Use this script to confirm the roles of each server with the [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="33-35":::
 
 ## Fail over to the secondary server
 
-Use this script to failover to the failover server and verify a successful failover.
+Use this script to failover to the failover server and verify a successful failover with the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) and [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) commands.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="36-41":::
 
 ## Revert failover group back to the primary server
 
-Use this script to fail back to the primary server.
+Use this script to fail back to the primary server with the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="42-44":::
 
@@ -361,12 +362,12 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 ## Delete the resource group by using the Azure CLI.
 
-Use this script to delete the resource group.
+Use this script to delete the resource group with the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command.
 
    ```azurecli
    echo "Cleaning up resources by removing the resource group..."
    az group delete --name $resourceGroup -y
-   echo "Successfully removed resource group $resourceGroup..."
+
    ```
 
 ## CLI resource group deletion reference
