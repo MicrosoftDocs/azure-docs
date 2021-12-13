@@ -206,7 +206,7 @@ To review log entries for a specific app during the build process, run the follo
 
 ```sql
 AppPlatformBuildLogs
-| where TimeGenerated > ago(1h) and PodName contains "{AppName}"
+| where TimeGenerated > ago(1h) and PodName contains "<app-name>"
 | sort by TimeGenerated
 ```
 
@@ -216,7 +216,7 @@ To review log entries for a specific app in a specific build stage, run the foll
 
 ```sql
 AppPlatformBuildLogs
-| where TimeGenerated > ago(1h) and PodName contains "{AppName}" and ContainerName == "prepare"
+| where TimeGenerated > ago(1h) and PodName contains "<app-name>" and ContainerName == "<build-stage>"
 | sort by TimeGenerated
 ```
 
