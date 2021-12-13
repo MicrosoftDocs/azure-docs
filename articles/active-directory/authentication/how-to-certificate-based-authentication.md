@@ -236,9 +236,11 @@ There are several entries logged into the sign-in logs for an authentication req
 1. The second entry will have status of interrupted which is an expected part of the login flow, where a user is asked if they want to remain signed into this browser to make further logins easier. 
    The **Additional details** tab provides more details.
 1. If the sign-in is successful, you will see messages about the login success.
+1. If the sign-in failed, there will be a message with the failure reason.
 
 ### Audit logs
-Any user management changes will be
+
+Any user management changes will be logged in the audit logs.
 
 ## Configure manual revocation
 
