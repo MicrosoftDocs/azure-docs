@@ -215,7 +215,7 @@ The example shown in this article demonstrates how use a custom container image 
 - Enabling ingress for internal and/or internal + external traffic
 - Providing minimum and maximum replica values and/or additional scale rules
 
-See the CLI documentation for guidance on providing these additional settings as you create your container app.
+For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help`.
 
 ::: zone pivot="container-apps-private-registry"
 
