@@ -60,7 +60,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Authorize the new spacecraft resource
 
-1. Access the Azure Orbital Spacecraft Authorization Form
+1. Access the [Azure Orbital Spacecraft Authorization Form](https://forms.office.com/r/QbUef0Cmjr)
 2. Provide the following information:
 
     1. Spacecraft name

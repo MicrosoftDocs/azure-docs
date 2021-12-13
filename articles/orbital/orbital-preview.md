@@ -32,7 +32,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Submit the Azure Orbital Preview Onboarding Form
 
-1. Access the Azure Orbital Preview Onboarding Form
+1. Access the [Azure Orbital Preview Onboarding Form](https://forms.office.com/r/fk32xNmDyx)
 2. Provide the following information:
 
     1. Company name
