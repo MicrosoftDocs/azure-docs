@@ -91,25 +91,37 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 
 There are a few different types of DNS configurations available for an application.
 
-# [Root domain](#tab/rootdomain)
+## 4. Create the DNS records
 
-ipedia.org/wiki/List_of_DNS_record_types#A)
+1. Sign in to the website of your domain provider.
 
-- To map the root domain (example: `contoso.com`, `example.co.uk`), use an [A record](https://en.wik. Don't use CNAME for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)).
-- For a root domain like `contoso.com`, create two records according to the following table:
+    > [!NOTE]
+    > If you like, you can use Azure DNS to manage DNS records for your domain and configure a custom DNS name for Azure App Service. For more information, see [Tutorial: Host your domain in Azure DNS](../dns/dns-delegate-domain-azure-dns.md).
 
-    | Record type | Host | Value | Comments |
-    | - | - | - |
-    | A | `@` | IP address from [Copy the app's IP address](#3-get-a-domain-verification-id) | The domain mapping itself (`@` typically represents the root domain). |
-    | TXT | `asuid` | [The verification ID you got earlier](#3-get-a-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. For the root domain, use `asuid`. |
+1. Find the page for managing DNS records. 
+
+    > [!NOTE]
+    > Every domain provider has its own DNS records interface, so consult the provider's documentation. Look for areas of the site labeled **Domain Name**, **DNS**, or **Name Server Management**.
+    >
+    > Often, you can find the DNS records page by viewing your account information and then looking for a link such as **My domains**. Go to that page, and then look for a link that's named something like **Zone file**, **DNS Records**, or **Advanced configuration**.
+
+   The following screenshot is an example of a DNS records page:
+
+   ![Screenshot that shows an example DNS records page.](../../includes/media/app-service-web-access-dns-records-no-h/example-record-ui.png)
+
+1. Select **Add** or the appropriate widget to create a record. 
+
+1. Select the type of record to create and follow the instructions. You can use either a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record) or an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A) to map a custom DNS name to App Service.
+
+    > [!NOTE]
+    > **Which record to choose**
+    > 
+    > * To map the root domain (for example, `contoso.com`), use an [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A). Don't use the CNAME record for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)).
+    > * To map a subdomain (for example, `www.contoso.com`), use a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record).
+    > * You can map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change.
+    > * To map a [wildcard domain](https://en.wikipedia.org/wiki/Wildcard_DNS_record) (for example, `*.contoso.com`), use a CNAME record.
     
-    ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
-    
-# [Subdomain](#tab/subdomain)
-
-`www.mydomain.com`, `foo.mydomain.com`
-
- To map a subdomain, use a [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can also map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change.
+# [CNAME](#tab/cname)
 
 For a subdomain like `www` in `www.contoso.com`, create two records according to the following table:
 
@@ -119,17 +131,26 @@ For a subdomain like `www` in `www.contoso.com`, create two records according to
 | TXT | `asuid.<subdomain>` (for example, `asuid.www`) | [The verification ID you got earlier](#3-get-a-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. |
 
 ![Screenshot that shows the portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/cname-record.png)
+    
+# [A](#tab/a)
 
+- For a root domain like `contoso.com`, create two records according to the following table:
+
+    | Record type | Host | Value | Comments |
+    | - | - | - |
+    | A | `@` | IP address from [Copy the app's IP address](#3-get-a-domain-verification-id) | The domain mapping itself (`@` typically represents the root domain). |
+    | TXT | `asuid` | [The verification ID you got earlier](#3-get-a-domain-verification-id) | App Service accesses the `asuid.<subdomain>` TXT record to verify your ownership of the custom domain. For the root domain, use `asuid`. |
+    
+    ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record.png)
+    
 - To map a subdomain like `www.contoso.com` with an A record instead of a recommended CNAME record, your A record and TXT record should look like the following table instead:
 
     |Record type|Host|Value|
     |--- |--- |--- |
     |A|\<subdomain\> (for example, www)|IP address from Copy the app's IP address|
     |TXT|asuid.\<subdomain\> (for example, asuid.www)|The verification ID you got earlier|
-        
-# [Wildcard](#tab/wildcard)
-
-To map a [wildcard domain](https://en.wikipedia.org/wiki/Wildcard_DNS_record), use a CNAME record.
+    
+# [Wildcard (CNAME)](#tab/wildcard)
 
 For a wildcard name like `*` in `*.contoso.com`, create two records according to the following table:
 
@@ -163,7 +184,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     ![Screenshot that shows the Add host name item.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-# [Subdomain](#tab/subdomain)
+# [CNAME](#tab/cname)
 
 3. Type the fully qualified domain name that you added a CNAME record for, such as `www.contoso.com`.
 
@@ -184,7 +205,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     ![Screenshot that shows a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-# [Root domain](#tab/rootdomain)
+# [A](#tab/a)
 
 3. Type the fully qualified domain name that you configured the A record for, such as `contoso.com`. 
 
@@ -205,7 +226,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
     
     ![Screenshot showing a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error.png)
     
-# [Wildcard](#tab/wildcard)
+# [Wildcard (CNAME)](#tab/wildcard)
 
 3. Type a fully qualified domain name that matches the wildcard domain. For example, for the example `*.contoso.com`, you can use `sub1.contoso.com`, `sub2.contoso.com`, `*.contoso.com`, or any other string that matches the wildcard pattern. Then, select **Validate**.
 
@@ -222,6 +243,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 -----
 
+
 ## 6. Test in a browser
 
 Browse to the DNS names that you configured earlier.
@@ -234,6 +256,7 @@ If you receive an HTTP 404 (Not Found) error when you browse to the URL of your 
 
 * The custom domain configured is missing an A record or a CNAME record. You may have deleted the DNS record after you've enabled the mapping in your app. Check if the DNS records are properly configured using an <a href="https://www.nslookup.io/">online DNS lookup</a> tool.
 * The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
+
 
 ## Next steps
 
