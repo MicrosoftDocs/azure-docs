@@ -34,7 +34,7 @@ Sign in to the Azure portal at https://portal.azure.com.
 
 1. Under **Instance details**, type *myVM* for the **Virtual machine name** and choose *Windows Server 2019 Datacenter - Gen2* for the **Image**. Leave the other defaults.
 
-    ![Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size](./media/quick-create-portal/instance-details.png)
+    :::image type="content" source="media/quick-create-portal/instance-details.png" alt-text="Screenshot of the Instance details section where you provide a name for the virtual machine and select its region, image and size.":::
 
 1. Under **Administrator account**,  provide a username, such as *azureuser* and a password. The password must be at least 12 characters long and meet the [defined complexity requirements](faq.yml#what-are-the-password-requirements-when-creating-a-vm-).
 
