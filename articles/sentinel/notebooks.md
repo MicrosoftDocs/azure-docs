@@ -419,6 +419,7 @@ We welcome feedback, suggestions, requests for features, contributed notebooks, 
 
 For more information, see:
 
+- [Create your first Microsoft Sentinel notebook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/creating-your-first-microsoft-sentinel-notebook/ba-p/2977745) (Blog series)
 - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
 - [Tutorial: Microsoft Sentinel notebooks - Getting started](https://www.youtube.com/results?search_query=azazure+sentinel+notebooks) (Video)
 - [Tutorial: Edit and run Jupyter notebooks without leaving Azure ML studio](https://www.youtube.com/watch?v=AAj-Fz0uCNk) (Video)

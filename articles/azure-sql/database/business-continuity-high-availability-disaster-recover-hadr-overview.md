@@ -11,7 +11,7 @@ ms.devlang:
 ms.topic: conceptual
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/18/2021
 ---
 # Overview of business continuity with Azure SQL Database & Azure SQL Managed Instance

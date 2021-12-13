@@ -243,7 +243,7 @@ items:
       href: web-sdk-best-practices.md
   - name: Develop with the Android SDK
     items:
-    - name: Getting started with Android map control
+    - name: The Android map control
       href: how-to-use-android-map-control-library.md
     - name: Change the style of the map
       href: set-android-map-styles.md
@@ -279,7 +279,7 @@ items:
       href: android-map-events.md
   - name: Develop with the iOS SDK
     items:
-    - name: Getting started with iOS map control
+    - name: The iOS map control
       href: how-to-use-ios-map-control-library.md
     - name: Change the style of a map
       href: set-map-style-ios-sdk.md
@@ -317,8 +317,8 @@ items:
       href: how-to-use-indoor-module-ios.md
   - name: Use Azure Maps in Power BI
     items: 
-    - name: Getting started
-      href: power-bi-visual-getting-started.md
+    - name: The Azure Maps Power BI visual
+      href: power-bi-visual-get-started.md
     - name: Understanding layers
       href: power-bi-visual-understanding-layers.md
     - name: Add a bubble layer

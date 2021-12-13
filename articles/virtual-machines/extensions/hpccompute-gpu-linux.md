@@ -92,6 +92,33 @@ All settings are optional. The default behavior is to not update the kernel if n
 
 
 ## Deployment
+### Azure portal
+
+You can deploy Azure Nvidia VM extensions in the Azure portal.
+
+1. In a browser, go to the [Azure portal](https://portal.azure.com).
+
+2. Go to the virtual machine on which you want to install the driver.
+
+3. In the left menu, select **Extensions**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/extensions-menu-linux.png" alt-text="Screenshot that shows selecting Extensions in the Azure portal menu.":::
+
+4. Select **Add**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/add-extension-linux.png" alt-text="Screenshot that shows adding a V M extension for the selected V M.":::
+
+5. Scroll to find and select **NVIDIA GPU Driver Extension**, and then select **Next**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension-linux.png" alt-text="Screenshot that shows selecting NVIDIA G P U driver.":::
+
+6. Select **Review + create** and then click **Create**, wait a few minutes for the driver to be deployed.
+
+    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension-linux.png" alt-text="Screenshot that shows selecting the review and create button.":::
+  
+7. Verify that the extension is added to the list of installed extensions.
+
+    :::image type="content" source="./media/nvidia-ext-portal/verify-extension-linux.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
 
 
 ### Azure Resource Manager Template 
@@ -150,7 +177,7 @@ az vm extension set \
   --version 1.6 
 ```
 
-The following example also adds two optional custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the '--settings' are optional and default. Note that updating the kernel may increase the extension installation times. Also choosing a specific (older) CUDA tolkit version may not always be compatible with newer kernels.
+The following example also adds two optional custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the '--settings' are optional and default. Note that updating the kernel may increase the extension installation times. Also choosing a specific (older) CUDA toolkit version may not always be compatible with newer kernels.
 
 ```azurecli
 az vm extension set \

@@ -7,8 +7,8 @@ ms.subservice: machine-learning
 ms.topic: quickstart
 ms.reviewer: jrasnick, garye, negust
 ms.date: 03/23/2021
-author: rothja
-ms.author: jroth
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.custom: mode-other
 ---
 

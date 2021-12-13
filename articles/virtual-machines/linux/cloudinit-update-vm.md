@@ -47,7 +47,7 @@ Now, create a VM with [az vm create](/cli/azure/vm) and specify the cloud-init f
 az vm create \
   --resource-group myResourceGroup \
   --name centos74 \
-  --image OpenLogic:CentOS:7-CI:latest \
+  --image OpenLogic:CentOS:7.5:latest \
   --custom-data cloud_init_upgrade.txt \
   --generate-ssh-keys 
 ```

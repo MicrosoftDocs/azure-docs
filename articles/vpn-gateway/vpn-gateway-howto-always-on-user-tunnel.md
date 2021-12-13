@@ -15,6 +15,8 @@ ms.author: cherylmc
 
 [!INCLUDE [intro](../../includes/vpn-gateway-vwan-always-on-intro.md)]
 
+This article helps you configure an Always On VPN user tunnel. For information about configuring a device tunnel, see [Configure an Always On VPN device tunnel](vpn-gateway-howto-always-on-device-tunnel.md).
+
 ## Configure the gateway
 
  Use the instructions in the [Configure a Point-to-Site VPN connection](vpn-gateway-howto-point-to-site-resource-manager-portal.md) article to configure the VPN gateway to use IKEv2 and certificate-based authentication.

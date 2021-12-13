@@ -1,5 +1,5 @@
 ---
-title: Manage retention policy with Azure Video Analyzer
+title: Manage retention policy 
 description: This topic explains how to manage retention policy with Azure Video Analyzer.
 ms.service: azure-video-analyzer
 ms.topic: how-to

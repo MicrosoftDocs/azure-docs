@@ -77,7 +77,7 @@ Check the template for the parameter's allowed values, and use an allowed value 
 
 <a id="too-many-resource-groups"></a>
 
-## Solution 4 - Too many target resource groups
+## Solution 4 - too many target resource groups
 
 You may see this error in earlier deployments because you were limited to five target resource groups in a single deployment. In May 2020, that limit was increased to 800 resource groups. For more information, see how to deploy to multiple resource groups for [Bicep](../bicep/deploy-to-resource-group.md#deploy-to-multiple-resource-groups) or [ARM templates](../templates/deploy-to-resource-group.md#deploy-to-multiple-resource-groups).
 
