@@ -21,7 +21,7 @@ Change detection and details are valuable for the following example scenarios:
 - Keeping a Configuration Management Database, known as a CMDB, up-to-date. Instead of refreshing
   all resources and their full property sets on a scheduled frequency, only get what changed.
 - Understanding what other properties may have been changed when a resource changed compliance
-  state. Evaluation of these additional properties can provide insights into other properties that
+  state. Evaluation of these extra properties can provide insights into other properties that
   may need to be managed via an Azure Policy definition.
 
 This article shows how to query Resource configuration changes through Resource Graph. To see this
@@ -82,7 +82,7 @@ Each change resource has the following properties:
 - **targetResourceId** - The resourceID of the resource on which the change occurred.
  - **targetResourceType** - The resource type of the resource on which the change occurred.
 - **changeType** - Describes the type of change detected for the entire change record. Values are: _Create_, _Update_, and _Delete_. The
-  **changes** property dictionary is only included when **changeType** is _Update_. In the case of _Delete_, the change resource will still be maintained as an extension of the deleted resource for 14 days, even in the case of Resource group delete. This will not block deletions or impact any existing delete behavior.
+  **changes** property dictionary is only included when **changeType** is _Update_. For the _Delete_ case, the change resource will still be maintained as an extension of the deleted resource for 14 days, even if the entire Resource group has been deleted. The change resource will not block deletions or impact any existing delete behavior.
 
 
 - **changes** - Dictionary of the resource properties (with property name as the key) that were updated as part of the change:
