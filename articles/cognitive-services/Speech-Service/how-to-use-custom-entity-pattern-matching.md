@@ -1,7 +1,7 @@
 ---
-title: How to use simple language pattern matching with the C++ Speech SDK
+title: How to use custom entity pattern matching with the C++ Speech SDK
 titleSuffix: Azure Cognitive Services
-description: In this guide, you learn how to recognize intents and entities from simple patterns.
+description: In this guide, you learn how to recognize intents and custom entities from simple patterns.
 services: cognitive-services
 author: chschrae
 manager: travisw
@@ -13,18 +13,18 @@ ms.author: chschrae
 ms.custom: devx-track-cpp
 ---
 
-# How to use simple language pattern matching with the C++ Speech SDK
+# How to use custom entity pattern matching with the C++ Speech SDK
 
 The Cognitive Services [Speech SDK](speech-sdk.md) has a built-in feature to provide **intent recognition** with **simple language pattern matching**. An intent is something the user wants to do: close a window, mark a checkbox, insert some text, etc.
 
-In this guide, you use the Speech SDK to develop a C++ console application that derives intents from user utterances through your device's microphone. You'll learn how to:
+In this guide, you use the Speech SDK to develop a C++ console application that derives intents from speech utterances spoken through your device's microphone. You'll learn how to:
 
 > [!div class="checklist"]
 >
 > - Create a Visual Studio project referencing the Speech SDK NuGet package
 > - Create a speech configuration and get an intent recognizer
 > - Add intents and patterns via the Speech SDK API
-> - Recognize speech from a microphone
+> - Add custom entities via the Speech SDK API
 > - Use asynchronous, event-driven continuous recognition
 
 ## When should you use this?
@@ -32,7 +32,7 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 Use this sample code if: 
 * You are only interested in matching very strictly what the user said. These patterns match more aggressively than LUIS.
 * You do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents. This can be helpful since it is embedded within the SDK.
-* You cannot or do not want to create a [LUIS](../LUIS/index.yml) app but you still want some voice-commanding capability.
+* You cannot or do not want to create a LUIS app but you still want some voice-commanding capability.
 
 If you do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents, this can be helpful since it is embedded within the SDK.
 
@@ -44,33 +44,13 @@ Be sure you have the following items before you begin this guide:
 - A [Cognitive Services Azure resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices) or a [Unified Speech resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesSpeechServices)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/downloads/) (any edition).
 
-## Speech and simple patterns
+## Pattern Matching Model overview
 
-The simple patterns are a feature of the Speech SDK and need a Cognitive Services resource or a Unified Speech resource.
-
-A pattern is a phrase that includes an Entity somewhere within it. An Entity is defined by wrapping a word in curly brackets. For example:
-
-```
-    Take me to the {floorName}
-```
-
-This defines an Entity with the ID "floorName" which is case sensitive.
-
-All other special characters and punctuation will be ignored.
-
-Intents will be added using calls to the IntentRecognizer->AddIntent() API.
+[!INCLUDE [Pattern Matching Overview](includes/pattern-matching-overview.md)]
 
 ## Create a speech project in Visual Studio
 
 [!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
-
-Open your project in Visual Studio
-Next, open your project in Visual Studio.
-
-Launch Visual Studio 2019.
-Load your project and open helloworld.cpp.
-Start with some boilerplate code
-Let's add some code that works as a skeleton for our project. Make note that you've created an async method called recognizeIntent().
 
 ## Open your project in Visual Studio
 
@@ -100,7 +80,7 @@ Let's add some code that works as a skeleton for our project.
 
 ## Create a Speech configuration
 
-Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and location for your Cognitive Services prediction resource.
+Before you can initialize an `IntentRecognizer` object, you need to create a configuration that uses the key and Azure region for your Cognitive Services prediction resource.
 
 * Replace `"YOUR_SUBSCRIPTION_KEY"` with your Cognitive Services prediction key.
 * Replace `"YOUR_SUBSCRIPTION_REGION"` with your Cognitive Services resource region.
@@ -117,17 +97,37 @@ Now create an `IntentRecognizer`. Insert this code right below your Speech confi
 
 ## Add some intents
 
-You need to associate some patterns with the `IntentRecognizer` by calling `AddIntent()`.
-We will add 2 intents with the same ID for changing floors, and another intent with a separate ID for opening and closing doors.
+You need to associate some patterns with a `PatternMatchingModel` and apply it to the `IntentRecognizer`.
+We will start by creating a `PatternMatchingModel` and adding a few intents to it. A PatternMatchingIntent is a struct so we will just use the in-line syntax.
+
+> [!Note]
+> We can add multiple patterns to an `Intent`.
 
 ```cpp
-    intentRecognizer->AddIntent("Take me to floor {floorName}.", "ChangeFloors");
-    intentRecognizer->AddIntent("Go to floor {floorName}.", "ChangeFloors");
-    intentRecognizer->AddIntent("{action} the door.", "OpenCloseDoor");
+    auto model = PatternMatchingModel::FromId("myNewModel");
+    
+    model->Intents.push_back({"Take me to floor {floorName}.", "Go to floor {floorName}."} , "ChangeFloors");
+    model->Intents.push_back({"{action} the door."}, "OpenCloseDoor");
 ```
 
-> [!NOTE]
-> There is no limit to the number of entities you can declare, but they will be loosely matched. If you add a phrase like "{action} door" it will match any time there is text before the word "door". Intents are evaluated based on their number of entities. If two patterns would match, the one with more defined entities is returned.
+## Add some custom entities
+
+To take full advantage of the pattern matcher you can customize your entities. We will make "floorName" a list of the available floors.
+
+```cpp
+    model->Entities.push_back({ "floorName" , Intent::EntityType::List, Intent::EntityMatchMode::Strict, {"one","two", "lobby", "ground floor"} });
+```
+
+## Apply our model to the Recognizer
+
+Now it is necessary to apply the model to the `IntentRecognizer`. It is possible to use multiple models at once so the API takes a collection of models.
+
+```cpp
+    std::vector<std::shared_ptr<LanguageUnderstandingModel>> collecton;
+    
+    collection.push_back(model);
+    intentRecognizer->ApplyLanguageModels(collection);
+```
 
 ## Recognize an intent
 
@@ -219,9 +219,17 @@ int main()
     auto config = SpeechConfig::FromSubscription("YOUR_SUBSCRIPTION_KEY", "YOUR_SUBSCRIPTION_REGION");
     auto intentRecognizer = IntentRecognizer::FromConfig(config);
 
-    intentRecognizer->AddIntent("Take me to floor {floorName}.", "ChangeFloors");
-    intentRecognizer->AddIntent("Go to floor {floorName}.", "ChangeFloors");
-    intentRecognizer->AddIntent("{action} the door.", "OpenCloseDoor");
+    auto model = PatternMatchingModel::FromId("myNewModel");
+    
+    model->Intents.push_back({"Take me to floor {floorName}.", "Go to floor {floorName}."} , "ChangeFloors");
+    model->Intents.push_back({"{action} the door."}, "OpenCloseDoor");
+    
+    model->Entities.push_back({ "floorName" , Intent::EntityType::List, Intent::EntityMatchMode::Strict, {"one","two", "lobby", "ground floor"} });
+
+    std::vector<std::shared_ptr<LanguageUnderstandingModel>> collecton;
+    
+    collection.push_back(model);
+    intentRecognizer->ApplyLanguageModels(collection);
 
     std::cout << "Say something ..." << std::endl;
 
@@ -291,16 +299,21 @@ Now you're ready to build your app and test our speech recognition using the Spe
 2. **Start your app** - From the menu bar, choose **Debug** > **Start Debugging** or press <kbd>F5</kbd>.
 3. **Start recognition** - It will prompt you to say something. The default language is English. Your speech is sent to the Speech service, transcribed as text, and rendered in the console.
 
-For example if you say "Take me to floor 7", this should be the output:
+For example if you say "Take me to floor 2", this should be the output:
+
+```
+Say something ...
+RECOGNIZED: Text = Take me to floor 2.
+  Intent Id = ChangeFloors
+  Floor name: = 2
+```
+
+Another example if you say "Take me to floor 7", this should be the output:
 
 ```
 Say something ...
 RECOGNIZED: Text = Take me to floor 7.
-  Intent Id = ChangeFloors
-  Floor name: = 7
+NO INTENT RECOGNIZED!
 ```
 
-## Next steps
-
-> Improve your pattern matching by using [custom entities](how-to-use-custom-entity-pattern-matching.md).
-
+The Intent ID is empty because 7 was not in our list.
