@@ -201,7 +201,9 @@ AppPlatformIngressLogs
 ```
 
 ### Show build log entries for a specific app
+
 To review log entries for a specific app during the build process, run the following query:
+
 ```sql
 AppPlatformBuildLogs
 | where TimeGenerated > ago(1h) and PodName contains "{AppName}"
