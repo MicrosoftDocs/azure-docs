@@ -121,6 +121,5 @@ private void emergencyCall() {
 > 933 is a test emergency call service, used to test emergency calling services without interrupting live production emergency calling handling 911 services.  911 must be dialled in actual emergency situations.
 
 ## Launch the app
-:::image type="content" source="media/emergency-calling/emergency-calling-android-app.png" alt-text="Screenshot of the completed Android Application.":::
 
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). You can place a call to 933 by clicking the **933 Test Call** button.
