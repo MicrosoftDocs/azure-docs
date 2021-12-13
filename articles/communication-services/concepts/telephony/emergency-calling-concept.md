@@ -1,5 +1,5 @@
 ---
-title: Emergency Calling - Azure Communication Services
+title: Emergency calling - Azure Communication Services
 description: Learn how to implement Emergency Calling for PSTN in your Azure Communication Services application.
 author: boris-bazilevskiy
 manager: rcole

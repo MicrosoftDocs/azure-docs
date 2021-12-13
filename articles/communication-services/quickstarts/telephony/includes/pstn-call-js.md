@@ -14,7 +14,7 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
 - A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
-- A phone number acquired in your Communication Services resource. [how to get a phone number](../telephony/get-phone-number.md).
+- A phone number acquired in your Communication Services resource. [how to get a phone number](../get-phone-number.md).
 - A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
 
 [!INCLUDE [Calling with JavaScript](../../voice-video-calling/get-started/get-started-javascript-setup.md)]
@@ -125,7 +125,7 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to `http://localhost:8080/`. You should see the following:
 
-:::image type="content" source="../media/pstn-calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
+:::image type="content" source="../media/pstn-call/pstn-calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 You can place a call to a real phone number by providing a phone number in the added text field and clicking the **Start Phone Call** button.
 
