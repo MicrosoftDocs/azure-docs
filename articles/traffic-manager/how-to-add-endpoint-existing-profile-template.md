@@ -78,29 +78,7 @@ Azure PowerShell is used to deploy the template. In addition to Azure PowerShell
 
 ## Validate the deployment
 
-1. Determine the DNS name of the Traffic Manager profile using [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile).
-
-    ```azurepowershell-interactive
-    Get-AzTrafficManagerProfile -Name ExternalEndpointExample -ResourceGroupName $resourceGroupName | Select RelativeDnsName
-    ```
-
-    Copy the **RelativeDnsName** value. The DNS name of your Traffic Manager profile is `<relativednsname>.trafficmanager.net`.
-
-1. From a local PowerShell run the following command by replacing the **{relativeDNSname}** variable with `<relativednsname>.trafficmanager.net`.
-
-    ```powershell
-    Resolve-DnsName -Name {relativeDNSname} | Select-Object NameHost | Select -First 1
-    ```
-
-    You should get a NameHost of either `www.microsoft.com` or `docs.microsoft.com` depending on which region is closer to you.
-
-1. To check if you can resolve to the other endpoint, disable the endpoint for the target you got in the last step. Replace the **{endpointName}** with either **endpoint1** or **endpoint2** to disable the target for `www.microsoft.com` or `docs.microsoft.com` respectively.
-
-    ```azurepowershell-interactive
-    Disable-AzTrafficManagerEndpoint -Name {endpointName} -Type ExternalEndpoints -ProfileName ExternalEndpointExample -ResourceGroupName $resourceGroupName -Force
-    ```
-
-1. Run the command from Step 2 again in a local PowerShell. This time you should get the other NameHost for the other endpoint.
+1. 
 
 ## Clean up resources
 
@@ -114,7 +92,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you created a Traffic Manager profile.
+In this quickstart, you add a endpoint to an existing Traffic Manager profile.
 
 To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
