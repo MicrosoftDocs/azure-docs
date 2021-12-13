@@ -95,7 +95,7 @@ To receive a message from a Queue (or its DeadLetter subqueue)
 
     :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
 
-3. Select either **Queue** or **Deadletter**.
+3. Select either **Queue** or **DeadLetter**.
 
     :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 
@@ -115,7 +115,7 @@ With the peek functionality, you can use the Service Bus Explorer to view the to
 2. Check the metrics to see if there are **Active Messages** or **Dead-lettered Messages** to peek.
 
     :::image type="content" source="./media/service-bus-explorer/queue-after-send-metrics.png" alt-text="QueueAfterSendMetrics":::
-3. Then select either **Queue** or **Deadletter** subqueue.
+3. Then select either **Queue** or **DeadLetter** subqueue.
 
     :::image type="content" source="./media/service-bus-explorer/queue-or-deadletter.png" alt-text="QueueOrDeadLetter":::
 4. Select ***Peek***. 
