@@ -249,7 +249,7 @@ To set up a scan using Account Key or SQL Authentication follow these steps:
 
 1. [Grant Azure Purview access to your Azure Key Vault](manage-credentials.md#grant-azure-purview-access-to-your-azure-key-vault).
    
-2. [Create a new credential in Azure Purview](purview/manage-credentials.md#create-a-new-credential).
+2. [Create a new credential in Azure Purview](manage-credentials.md#create-a-new-credential).
    
 3. Navigate to **Management**, and select **Managed private endpoints**.
    
@@ -301,4 +301,4 @@ To set up a scan using Account Key or SQL Authentication follow these steps:
 
 ## Next steps
 
-- [Manage data sources in Azure Purview](manage-data-source.md)
+- [Manage data sources in Azure Purview](manage-data-sources.md)
