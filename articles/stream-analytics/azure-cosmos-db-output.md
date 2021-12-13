@@ -33,7 +33,7 @@ The following table describes the properties for creating an Azure Cosmos DB out
 
 
 > [!Note]
-> CosmosDB Output for Azure Stream Analytics uses .NET V3 SDK. When writing to multiple regions, the SDK automatically picks the best region available.  
+> Cosmos DB Output for Azure Stream Analytics uses .NET V3 SDK. When writing to multiple regions, the SDK automatically picks the best region available.  
   
 ## Partitioning
 
