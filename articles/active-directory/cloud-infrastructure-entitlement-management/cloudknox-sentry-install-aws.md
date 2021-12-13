@@ -20,7 +20,7 @@ This topic describes how to install the Microsoft CloudKnox Permissions Manageme
 
 ## CloudKnox summary
 
-The CloudKnox Sentry is an agent packaged in a virtual appliance that gathers information on users, their privileges, activity, and resources for any monitored Amazon Web Services (AWS) accounts. It can be deployed in two ways:
+The CloudKnox Sentry is an agent packaged in a virtual appliance. It gathers information on users, their privileges, activity, and resources for any monitored Amazon Web Services (AWS) accounts. It can be deployed in two ways:
 
 - *Read only* (controller disabled), which only collects information about the account.  
 - *Controller enabled*, which allows the CloudKnox Sentry to make changes to identity and access management (IAM) roles, policies, and users.
@@ -50,7 +50,7 @@ Inbound traffic to the Sentry is only received on port 9000, and is used for con
 
 ### Multi-account collection from one Sentry
 
-For AWS organizations with multiple AWS accounts, you can set up one Sentry to collect from multiple AWS accounts by allowing the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. You must configure a trust relationship to allow cross-account access.
+For AWS organizations with multiple AWS accounts, you can set up one Sentry to collect data from multiple AWS accounts. Allow the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. To allow cross-account access, configure a trust relationship.
 
 **Explanation and diagram**
 
@@ -60,11 +60,11 @@ For AWS organizations with multiple AWS accounts, you can set up one Sentry to c
 
 If you set up the Sentry in Account B to collect entitlement, resource, and activity data from Account A:
 
-1. Every hour, a job initiates a collection by assuming the role passed to it.
+1. Every hour, Sentry starts a data collection job by assuming the role passed to it.
 
 2. The role then assumes a cross-account role to Account A.
 
-3. The cross-account role then collects information about user privileges, groups, resources, configuration, and activity from native AWS services via API and return it the data to the CloudKnox Sentry.
+3. The cross-account role then collects information about user privileges, groups, resources, configuration, and activity from native AWS services through the API. It then returns the data to the CloudKnox Sentry.
 
 ### Sentry installation video
 
@@ -74,9 +74,9 @@ If you set up the Sentry in Account B to collect entitlement, resource, and acti
 
 If your AWS organization stores multiple CloudTrails in a centralized S3 bucket, you can configure CloudKnox to collect appropriate CloudTrails using a cross-account role. 
 
-The Sentry first collects entitlement and resource information from the target AWS account, and then assumes a separate cross-account role in the AWS account that holds the S3 bucket that stores the CloudTrails. 
+The Sentry first collects entitlement and resource information from the target AWS account. It then assumes a separate cross-account role in the AWS account that holds the S3 bucket and stores the CloudTrails. 
 
-During Sentry configuration, you must specify the AWS AccountID and IAM Role in that account that the Sentry assumes. You must configure a trust relationship to allow cross-account access.
+During Sentry configuration, you must specify the AWS AccountID and IAM Role in that account that the Sentry assumes. To allow cross-account access, configure a trust relationship.
 
 <!---**Explanation and diagram**--->
 
@@ -147,7 +147,7 @@ The Sentry's CloudFormation template uses the CloudKnox Sentry AMI to create an 
 
 ## Multi-account collection from one Sentry configuration
 
-The Sentry automatically collects data from the account in which it is deployed. To collect data from other AWS accounts, you must configure the Sentry to allow it to assume a role in which it can collect the target account's information.
+The Sentry automatically collects data from the account in which it's deployed. To collect data from other AWS accounts, you must configure the Sentry to allow it to assume a role in which it can collect the target account's information.
 
 ### Cross-account collection configuration (For multi-account collection from one Sentry)
 
@@ -161,7 +161,7 @@ Create a cross-account role that allows the Sentry's EC2 instance to assume the 
      - In **Account ID**, enter the Account ID of the AWS Account in which the Sentry was deployed.
      - In **Attach policy**, enter *SecurityAudit*.
 
-         Optional: If you want to enable the **Privilege On Demand** feature, also create and attach the PrivilegeOnDemand.json policy to the IAM role. This allows the Sentry to modify IAM permissions.
+         Optional: To allow the Sentry to modify IAM permissions, enable the **Privilege On Demand** feature. Then create and attach the PrivilegeOnDemand.json policy to the IAM role.
 
      - In **Role Name**, enter `IAM_R_KNOX_SECURITY_XA` (This value is configurable.)
   
@@ -356,11 +356,11 @@ Follow the instructions below to configure the Sentry in CloudKnox console.
 
 3. When the following question appears:
 
-    *Are you upgrading a Sentry 1.0 Installation (Y/N):*
+    *Are you upgrading a Sentry 1.0 Installation? (Y/N)*
 
-    Enter **Y** to upgrade from sentry v1.0. Otherwise, enter **N**.
+    To upgrade from sentry v1.0, enter **Y**. Otherwise, enter **N**.
 
-4. Enter **Y** to collect automatically accounts listed from from master account role. (Also do steps 5-6.). 
+4. To automatically collect accounts listed in the master account role, enter **Y**. 
 
 5. If you configured CloudKnox with autodetect in step 4, and if you're doing the configuration without a master account, enter each account ID and role name to collect data manually:
 
@@ -422,6 +422,9 @@ Initial collection may take up to 24 hours depending on the activity in the acco
 | [CFT for sentry install](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203/Policy%20Library%208bf8f80041cf458189416d38a706bf8a/CFT%20for%20sentry%20install%20b3a30900f55945c982ecf97435d689ed.html)| AWS account where sentry is deployed. | CloudFormation template to create the CloudKnox Sentry. | https://knox-software.s3.amazonaws.com/cloud-formation/cloudknox-sentry-prod.yaml  |
 | [Untitled](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203/Policy%20Library%208bf8f80041cf458189416d38a706bf8a/Untitled%2069f81b8a656b49da896741e7d0d1a15b.html)| CFT for upgrade from sentry V1.0. | CloudFormation template to create the CloudKnox Sentry. | https://knox-software.s3.amazonaws.com/cloud-formation/sentry-upgrade.yaml  |
 | [CFT CrossAccountMember yaml](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203/Policy%20Library%208bf8f80041cf458189416d38a706bf8a/CFT%20CrossAccountMember%20yaml%20b0b0cf4be80a48a387f93a135bcbfcc8.html)| AWS Account without a Sentry from which you want to collect data. | You can use this CloudFormation template to create a cross-account role that allows the Sentry to collect from other AWS accounts. You may have to make other modifications.| https://knox-software.s3.amazonaws.com/cloud-formation/member-account.yaml  |
-| [Controller enabled policy](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203/Policy%20Library%208bf8f80041cf458189416d38a706bf8a/Controller%20enabled%20policy%2064f2c8589316442aa1e4f3460dde95cb.html)| Enabled controller mode in CloudKnox role turns on the JEP controller and the POD feature.| { "Version": "2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": [ "iam:PutUserPermissionsBoundary", "iam:AttachUserPolicy", "iam:DeleteUserPolicy", "iam:DeletePolicy", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:CreatePolicy", "iam:DetachRolePolicy", "iam:AttachGroupPolicy", "iam:DeleteRolePolicy", "iam:PutUserPolicy", "iam:DetachGroupPolicy", "iam:CreatePolicyVersion", "iam:DetachUserPolicy", "iam:DeleteGroupPolicy", "iam:DeletePolicyVersion", "iam:PutGroupPolicy", "iam:SetDefaultPolicyVersion" ], "Resource": "*" } ] }|    |
+| [Controller enabled policy](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203/Policy%20Library%208bf8f80041cf458189416d38a706bf8a/Controller%20enabled%20policy%2064f2c8589316442aa1e4f3460dde95cb.html)| Enabled controller mode in CloudKnox role turns on the JEP controller and the POD feature.|     |           |
 
+
+<!--- Last row, third column
+{ "Version": "2012-10-17", "Statement": [ { "Sid": "VisualEditor0", "Effect": "Allow", "Action": [ "iam:PutUserPermissionsBoundary", "iam:AttachUserPolicy", "iam:DeleteUserPolicy", "iam:DeletePolicy", "iam:AttachRolePolicy", "iam:PutRolePolicy", "iam:CreatePolicy", "iam:DetachRolePolicy", "iam:AttachGroupPolicy", "iam:DeleteRolePolicy", "iam:PutUserPolicy", "iam:DetachGroupPolicy", "iam:CreatePolicyVersion", "iam:DetachUserPolicy", "iam:DeleteGroupPolicy", "iam:DeletePolicyVersion", "iam:PutGroupPolicy", "iam:SetDefaultPolicyVersion" ], "Resource": "*" } ] }--->
 <!---## Next steps--->

@@ -59,7 +59,7 @@ For AWS organizations with multiple AWS accounts, you can set up one Sentry to c
 
 If the Sentry in Account B needs to collect entitlement, resource, and activity data from Account A:
 
-1. Every hour, a job initiates a collection by assuming the role passed to it.
+1. Every hour, Sentry starts a data collection job by assuming the role passed to it.
 
 2. The role assumes a cross-account role to Account A.
 
