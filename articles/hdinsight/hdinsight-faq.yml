@@ -339,7 +339,7 @@ sections:
           * https://`<cluster dnsname>`.azurehdinsight.net/api/v1/clusters/testclusterdem/stack_versions/1/repository_versions/1 
           
       - question: |
-          How do I use Ambari Restful API to monitor YARN performance?
+          How do I use Ambari RESTful to monitor YARN performance?
         answer: |
           If you call the Curl command in the same virtual network or a peered virtual network, the command is:
           

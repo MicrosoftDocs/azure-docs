@@ -1,5 +1,5 @@
 ---
-title: 'Virtual WAN and SD-WAN connectivity architectures'
+title: 'Architecture: Virtual WAN and SD-WAN connectivity'
 titleSuffix: Azure Virtual WAN
 description: Learn about interconnecting a private SD-WAN with Azure Virtual WAN.
 services: virtual-wan
@@ -68,5 +68,5 @@ In this architecture model, enterprises can leverage a managed SD-WAN service of
 
 ## Additional Information
 
-* [Include FAQ](virtual-wan-faq.md)
+* [Azure Virtual WAN FAQ](virtual-wan-faq.md)
 * [Solving Remote Connectivity](work-remotely-support.md)

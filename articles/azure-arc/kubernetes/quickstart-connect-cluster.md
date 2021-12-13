@@ -6,13 +6,13 @@ ms.author: magoedte
 ms.service: azure-arc
 ms.topic: quickstart
 ms.date: 09/09/2021
-ms.custom: template-quickstart
+ms.custom: template-quickstart, mode-other
 keywords: "Kubernetes, Arc, Azure, cluster"
 ---
 
 # Quickstart: Connect an existing Kubernetes cluster to Azure Arc
 
-In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes and how to connect an existing Kubernetes cluster to Azure Arc. For a conceptual look at connecting clusters to Azure Arc, see the [Azure Arc-enabled Kubernetes Agent Architecture article](./conceptual-agent-architecture.md).
+In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes and how to connect an existing Kubernetes cluster to Azure Arc. For a conceptual look at connecting clusters to Azure Arc, see the [Azure Arc-enabled Kubernetes Agent Architecture article](./conceptual-agent-overview.md).
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -20,13 +20,17 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
 
 ### [Azure CLI](#tab/azure-cli)
 
-* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
+* [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
 
-* Install the **connectedk8s** Azure CLI extension of version >= 1.0.0:
+* Install the **connectedk8s** Azure CLI extension of version >= 1.2.0:
 
   ```console
   az extension add --name connectedk8s
   ```
+
+* [Log in to Azure CLI](/cli/azure/authenticate-azure-cli) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
+    * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+    * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
 
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
     * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
@@ -42,9 +46,6 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
 
 * A `kubeconfig` file and context pointing to your cluster.
-* 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
-
-* Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -60,6 +61,10 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
     > While the **Az.ConnectedKubernetes** PowerShell module is in preview, you must install it separately using
     > the `Install-Module` cmdlet.
 
+* [Log in to Azure PowerShell](/powershell/azure/authenticate-azureps) using the identity (user or service principal) that you want to use for connecting your cluster to Azure Arc.
+    * The identity used needs to at least have 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
+    * The [Kubernetes Cluster - Azure Arc Onboarding built-in role](../../role-based-access-control/built-in-roles.md#kubernetes-cluster---azure-arc-onboarding) is useful for at-scale onboarding as it has the granular permissions required to only connect clusters to Azure Arc. This role doesn't have the permissions to update, delete, or modify any other clusters or other Azure resources.
+
 * An up-and-running Kubernetes cluster. If you don't have one, you can create a cluster using one of these options:
     * [Kubernetes in Docker (KIND)](https://kind.sigs.k8s.io/)
     * Create a Kubernetes cluster using Docker for [Mac](https://docs.docker.com/docker-for-mac/#kubernetes) or [Windows](https://docs.docker.com/docker-for-windows/#kubernetes)
@@ -74,27 +79,27 @@ In this quickstart, you'll learn the benefits of Azure Arc-enabled Kubernetes an
     > The cluster needs to have at least one node of operating system and architecture type `linux/amd64`. Clusters with only `linux/arm64` nodes aren't yet supported.
 
 * A `kubeconfig` file and context pointing to your cluster.
-* 'Read' and 'Write' permissions on the Azure Arc-enabled Kubernetes resource type (`Microsoft.Kubernetes/connectedClusters`).
 
-* Install the [latest release of Helm 3](https://helm.sh/docs/intro/install).
+* Install [Helm 3](https://helm.sh/docs/intro/install). Ensure that the Helm 3 version is &lt; 3.7.0.
 
 ---
 
 ## Meet network requirements
 
 > [!IMPORTANT]
-> Azure Arc agents require both of the following protocols/ports/outbound URLs to function:
-> * TCP on port 443: `https://:443`
+> Azure Arc agents require the following outbound URLs on `https://:443` to function.
+> For `*.servicebus.windows.net`, websockets need to be enabled for outbound access on firewall and proxy.
 
 | Endpoint (DNS) | Description |
 | ----------------- | ------------- |
 | `https://management.azure.com` (for Azure Cloud), `https://management.usgovcloudapi.net` (for Azure US Government) | Required for the agent to connect to Azure and register the cluster. |
 | `https://<region>.dp.kubernetesconfiguration.azure.com` (for Azure Cloud), `https://<region>.dp.kubernetesconfiguration.azure.us` (for Azure US Government) | Data plane endpoint for the agent to push status and fetch configuration information. |
 | `https://login.microsoftonline.com`, `login.windows.net` (for Azure Cloud), `https://login.microsoftonline.us` (for Azure US Government) | Required to fetch and update Azure Resource Manager tokens. |
-| `https://mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
-| `https://gbl.his.arc.azure.com` |  Required to get the regional endpoint for pulling system-assigned Managed Service Identity (MSI) certificates. |
-| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Service Identity (MSI) certificates. |
+| `https://mcr.microsoft.com`, `https://*.data.mcr.microsoft.com` | Required to pull container images for Azure Arc agents.                                                                  |
+| `https://gbl.his.arc.azure.com` (for Azure Cloud), `https://gbl.his.arc.azure.us` (for Azure US Government) |  Required to get the regional endpoint for pulling system-assigned Managed Identity certificates. |
+| `https://*.his.arc.azure.com` (for Azure Cloud), `https://usgv.his.arc.azure.us` (for Azure US Government) |  Required to pull system-assigned Managed Identity certificates. |
 |`*.servicebus.windows.net`, `guestnotificationservice.azure.com`, `*.guestnotificationservice.azure.com`, `sts.windows.net` | For [Cluster Connect](cluster-connect.md) and for [Custom Location](custom-locations.md) based scenarios. |
+|`https://k8connecthelm.azureedge.net` | `az connectedk8s connect` uses Helm 3 to deploy Azure Arc agents on the Kubernetes cluster. This endpoint is needed for Helm client download to facilitate deployment of the agent helm chart. |
 
 ## 1. Register providers for Azure Arc-enabled Kubernetes
 
@@ -177,6 +182,9 @@ Run the following command:
 az connectedk8s connect --name AzureArcTest1 --resource-group AzureArcTest
 ```
 
+> [!NOTE]
+> If you are logged into Azure CLI using a service principal, an [additional parameter](troubleshooting.md#enable-custom-locations-using-service-principal) needs to be set for enabling the custom location feature on the cluster.
+
 Output:
 <pre>
 Helm release deployment succeeded
@@ -216,9 +224,6 @@ Helm release deployment succeeded
 > [!TIP]
 > The above command without the location parameter specified creates the Azure Arc-enabled Kubernetes resource in the same location as the resource group. To create the Azure Arc-enabled Kubernetes resource in a different location, specify either `--location <region>` or `-l <region>` when running the `az connectedk8s connect` command.
 
-> [!NOTE]
-> If you are logged into Azure CLI using a service principal, an [additional parameter](troubleshooting.md#enable-custom-locations-using-service-principal) needs to be set for enabling the custom location feature on the cluster.
-
 ### [Azure PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
@@ -242,21 +247,11 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc-
 
 1. Set the environment variables needed for Azure CLI to use the outbound proxy server:
 
-    * If you are using bash, run the following command with appropriate values:
-
-        ```bash
-        export HTTP_PROXY=<proxy-server-ip-address>:<port>
-        export HTTPS_PROXY=<proxy-server-ip-address>:<port>
-        export NO_PROXY=<cluster-apiserver-ip-address>:<port>
-        ```
-
-    * If you are using PowerShell, run the following command with appropriate values:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```bash
+    export HTTP_PROXY=<proxy-server-ip-address>:<port>
+    export HTTPS_PROXY=<proxy-server-ip-address>:<port>
+    export NO_PROXY=<cluster-apiserver-ip-address>:<port>
+    ```
 
 2. Run the connect command with proxy parameters specified:
 
@@ -267,6 +262,7 @@ If your cluster is behind an outbound proxy server, Azure CLI and the Azure Arc-
     > [!NOTE]
     > * Some network requests such as the ones involving in-cluster service-to-service communication need to be separated from the traffic that is routed via the proxy server for outbound communication. The `--proxy-skip-range` parameter can be used to specify the CIDR range and endpoints in a comma-separated way so that any communication from the agents to these endpoints do not go via the outbound proxy. At a minimum, the CIDR range of the services in the cluster should be specified as value for this parameter. For example, let's say `kubectl get svc -A` returns a list of services where all the services have ClusterIP values in the range `10.0.0.0/16`. Then the value to specify for `--proxy-skip-range` is `10.0.0.0/16,kubernetes.default.svc,.svc.cluster.local,.svc`.
     > * `--proxy-http`, `--proxy-https`, and `--proxy-skip-range` are expected for most outbound proxy environments. `--proxy-cert` is *only* required if you need to inject trusted certificates expected by proxy into the trusted certificate store of agent pods.
+    > * The outbound proxy has to be configured to allow websocket connections.
 
 ### [Azure PowerShell](#tab/azure-powershell)
 
@@ -274,13 +270,11 @@ If your cluster is behind an outbound proxy server, Azure PowerShell and the Azu
 
 1. Set the environment variables needed for Azure PowerShell to use the outbound proxy server:
 
-    * Run the following command with appropriate values:
-
-        ```powershell
-        $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
-        $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
-        ```
+    ```powershell
+    $Env:HTTP_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:HTTPS_PROXY = "<proxy-server-ip-address>:<port>"
+    $Env:NO_PROXY = "<cluster-apiserver-ip-address>:<port>"
+    ```
 
 2. Run the connect command with the proxy parameter specified:
 
@@ -340,24 +334,32 @@ Azure Arc-enabled Kubernetes deploys a few operators into the `azure-arc` namesp
     Output:
     <pre>
 
-    NAME                                        READY      UP-TO-DATE  AVAILABLE  AGE
-    deployment.apps/cluster-metadata-operator     1/1             1        1      16h
-    deployment.apps/clusteridentityoperator       1/1             1        1      16h
-    deployment.apps/config-agent                  1/1             1        1      16h
-    deployment.apps/controller-manager            1/1             1        1      16h
-    deployment.apps/flux-logs-agent               1/1             1        1      16h
-    deployment.apps/metrics-agent                 1/1             1        1      16h
-    deployment.apps/resource-sync-agent           1/1             1        1      16h
+    NAME                                        READY   UP-TO-DATE   AVAILABLE   AGE
+    deployment.apps/cluster-metadata-operator   1/1     1            1           13d
+    deployment.apps/clusterconnect-agent        1/1     1            1           13d
+    deployment.apps/clusteridentityoperator     1/1     1            1           13d
+    deployment.apps/config-agent                1/1     1            1           13d
+    deployment.apps/controller-manager          1/1     1            1           13d
+    deployment.apps/extension-manager           1/1     1            1           13d
+    deployment.apps/flux-logs-agent             1/1     1            1           13d
+    deployment.apps/kube-aad-proxy              1/1     1            1           13d
+    deployment.apps/metrics-agent               1/1     1            1           13d
+    deployment.apps/resource-sync-agent         1/1     1            1           13d
 
-    NAME                                           READY    STATUS   RESTART AGE
-    pod/cluster-metadata-operator-7fb54d9986-g785b  2/2     Running  0       16h
-    pod/clusteridentityoperator-6d6678ffd4-tx8hr    3/3     Running  0       16h
-    pod/config-agent-544c4669f9-4th92               3/3     Running  0       16h
-    pod/controller-manager-fddf5c766-ftd96          3/3     Running  0       16h
-    pod/flux-logs-agent-7c489f57f4-mwqqv            2/2     Running  0       16h
-    pod/metrics-agent-58b765c8db-n5l7k              2/2     Running  0       16h
-    pod/resource-sync-agent-5cf85976c7-522p5        3/3     Running  0       16h
+    NAME                                            READY   STATUS    RESTARTS   AGE
+    pod/cluster-metadata-operator-9568b899c-2stjn   2/2     Running   0          13d
+    pod/clusterconnect-agent-576758886d-vggmv       3/3     Running   0          13d
+    pod/clusteridentityoperator-6f59466c87-mm96j    2/2     Running   0          13d
+    pod/config-agent-7cbd6cb89f-9fdnt               2/2     Running   0          13d
+    pod/controller-manager-df6d56db5-kxmfj          2/2     Running   0          13d
+    pod/extension-manager-58c94c5b89-c6q72          2/2     Running   0          13d
+    pod/flux-logs-agent-6db9687fcb-rmxww            1/1     Running   0          13d
+    pod/kube-aad-proxy-67b87b9f55-bthqv             2/2     Running   0          13d
+    pod/metrics-agent-575c565fd9-k5j2t              2/2     Running   0          13d
+    pod/resource-sync-agent-6bbd8bcd86-x5bk5        2/2     Running   0          13d
     </pre>
+
+A conceptual overview of these agents is available [here](conceptual-agent-overview.md).
 
 ## 7. Clean up resources
 

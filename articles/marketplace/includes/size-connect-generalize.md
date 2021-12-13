@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: include
 author: mingshen-ms
 ms.author: krsh
-ms.date: 04/16/2021
+ms.date: 11/10/2021
 ---
 
 ## Generalize the image
 
-All images in the Azure Marketplace must be reusable in a generic fashion. To achieve this, the operating system VHD must be generalized, an operation that removes all instance-specific identifiers and software drivers from a VM.
+All images in Azure Marketplace must be reusable in a generic fashion. To achieve this, the operating system VHD must be generalized, an operation that removes all instance-specific identifiers and software drivers from a VM.
 
 ### For Windows
 
@@ -34,13 +34,13 @@ Windows OS disks are generalized with the [sysprep](/windows-hardware/manufactur
 ### Capture image
 
 > [!NOTE]
-> The Azure subscription containing the SIG must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing SIG.
+> The Azure subscription containing the Azure Compute Gallery must be under the same tenant as the publisher account in order to publish. Also, the publisher account must have at least Contributor access to the subscription containing Azure Compute Gallery.
 
-Once your VM is ready, you can capture it in a Azure shared image gallery. Follow the below steps to capture:
+Once your VM is ready, you can capture it in an Azure Compute Gallery (formerly know as Shared Image Gallery). Follow the below steps to capture:
 
 1. On [Azure portal](https://ms.portal.azure.com/), go to your Virtual Machine’s page.
 2. Select **Capture**.
-3. Under **Share image to Shared image gallery**, select **Yes, share it to a gallery as an image version**.
+3. Under **Share image to Azure Compute Gallery**, select **Yes, share it to a gallery as an image version**.
 4. Under **Operating system state** select Generalized.
 5. Select a Target image gallery or **Create New**.
 6. Select a Target image definition or **Create New**.
@@ -50,7 +50,7 @@ Once your VM is ready, you can capture it in a Azure shared image gallery. Follo
 
 ## Set the right permissions
 
-If your Partner Center account is the owner of the subscription hosting Shared Image Gallery, nothing further is needed for permissions.
+If your Partner Center account is the owner of the subscription hosting an Azure Compute Gallery, nothing further is needed for permissions.
 
 If you only have read access to the subscription, use one of the following two options.
 
@@ -58,7 +58,7 @@ If you only have read access to the subscription, use one of the following two o
 
 Steps for the owner to grant owner permission:
 
-1. Go to the Shared Image Gallery (SIG).
+1. Go to the Azure Compute Gallery.
 2. Select **Access control** (IAM) on the left panel.
 3. Select **Add**, then **Add role assignment**.<br>
     :::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
@@ -69,7 +69,7 @@ Steps for the owner to grant owner permission:
 
 ### Option Two – Run a command
 
-Ask the owner to run either one of these commands (in either case, use the SusbscriptionId of the subscription where you created the Shared image gallery).
+Ask the owner to run either one of these commands (in either case, use the SusbscriptionId of the subscription where you created the Azure Compute Gallery).
 
 ```azurecli
 az login
@@ -83,4 +83,4 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> You don’t need to generate SAS URIs as you can now publish a SIG Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).
+> You don’t need to generate SAS URIs as you can now publish an Azure Compute Gallery Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).

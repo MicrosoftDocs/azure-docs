@@ -1,12 +1,12 @@
 ﻿---
 title: Understand Azure IoT Hub direct methods | Microsoft Docs
 description: Developer guide - use direct methods to invoke code on your devices from a service app.
-author: robinsh
+author: eross-msft
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
-ms.author: robinsh
+ms.author: lizross
 ms.custom: [amqp, mqtt,'Role: Cloud Development', 'Role: IoT Device']
 ---
 
@@ -80,7 +80,7 @@ This example will allow you to securely initiate a request to invoke a Direct Me
 To begin, use the [Microsoft Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension) to create a SharedAccessSignature.
 
 ```bash
-az iot hub generate-sas-token -n <iothubName> -du <duration>
+az iot hub generate-sas-token -n <iothubName> --du <duration>
 ```
 
 Next, replace the Authorization header with your newly generated SharedAccessSignature, then modify the `iothubName`, `deviceId`, `methodName` and `payload` parameters to match your implementation in the example `curl` command below.  

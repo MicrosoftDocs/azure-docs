@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 02/10/2021
-ms.custom: devx-track-js
+ms.custom: devx-track-js, mode-other
 ---
 # Quickstart: Build a Cassandra app with Node.js SDK and Azure Cosmos DB
 [!INCLUDE[appliesto-cassandra-api](../includes/appliesto-cassandra-api.md)]

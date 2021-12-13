@@ -8,7 +8,7 @@ ms.date: 11/20/2020
 
 This tutorial shows you how to build a sample IoT Plug and Play device application with components, connect it to your IoT hub, and use the Azure IoT explorer tool to view the information it sends to the hub. The sample application is written for Node.js and is included in the Azure IoT Hub Device SDK for Node.js. A solution builder can use the Azure IoT explorer tool to understand the capabilities of an IoT Plug and Play device without the need to view any device code.
 
-[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples/pnp)
+[![Browse code](../articles/iot-central/core/media/common/browse-code.svg)](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples)
 
 In this tutorial, you:
 
@@ -53,11 +53,11 @@ This will install the relevant npm files required to run the samples in the fold
 
 ## Review the code
 
-Navigate to the *azure-iot-sdk-node\device\samples\pnp* folder.
+Navigate to the *azure-iot-sdk-node\device\samples\javascript* folder.
 
-The *azure-iot-sdk-node\device\samples\pnp* folder contains the sample code for the IoT Plug and Play temperature controller device.
+The *azure-iot-sdk-node\device\samples\javascript* folder contains the sample code for the IoT Plug and Play temperature controller device.
 
-The code in the *pnpTemperatureController.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
+The code in the *pnp_temperature_controller.js* file implements an IoT Plug and Play temperature controller device. The model this sample implements uses [multiple components](../articles/iot-develop/concepts-modeling-guide.md). The [Digital Twins definition language (DTDL) model file for the temperature device](https://github.com/Azure/opendigitaltwins-dtdl/blob/master/DTDL/v2/samples/TemperatureController.json) defines the telemetry, properties, and commands the device implements.
 
 Open the *pnpTemperatureController.js* file in a code editor of your choice. The sample code shows how to:
 
@@ -105,12 +105,12 @@ Open the *pnpTemperatureController.js* file in a code editor of your choice. The
 
 [!INCLUDE [iot-pnp-environment](iot-pnp-environment.md)]
 
-To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/master/device/samples/pnp/readme.md).
+To learn more about the sample configuration, see the [sample readme](https://github.com/Azure/azure-iot-sdk-node/blob/main/device/samples/readme.md#iot-plug-and-play-device-samples).
 
 Now that you've seen the code, use the following command to run the sample:
 
 ```cmd\sh
-node pnpTemperatureController.js
+node pnp_temperature_controller.js
 ```
 
 You see the following output, indicating the device has begun sending telemetry data to the hub, and is now ready to receive commands and property updates.

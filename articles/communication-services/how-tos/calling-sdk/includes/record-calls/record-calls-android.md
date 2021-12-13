@@ -14,10 +14,10 @@ ms.author: rifox
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Android SDK
 
-Call recording is an extended feature of the core `Call` API. You first need to obtain the recording feature API object:
+Call recording is an extended feature of the core `Call` object. You first need to obtain the recording feature object:
 
 ```java
-RecordingFeature callRecordingFeature = call.api(RecordingFeature.class);
+RecordingCallFeature callRecordingFeature = call.feature(Features.RECORDING);
 ```
 
 Then, to check if the call is being recorded, inspect the `isRecordingActive` property of `callRecordingFeature`. It returns `boolean`.

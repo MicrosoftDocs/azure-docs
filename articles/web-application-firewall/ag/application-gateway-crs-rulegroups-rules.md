@@ -5,14 +5,14 @@ description: This page provides information on web application firewall CRS rule
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 08/23/2021
+ms.date: 09/02/2021
 ms.author: victorh
 ms.topic: conceptual
 ---
 
 # Web Application Firewall CRS rule groups and rules
 
-Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.2, 3.1, 3.0, or 2.2.9. These rules can be disabled on a rule-by-rule basis. This article contains the current rules and rule sets offered.
+Application Gateway web application firewall (WAF) protects web applications from common vulnerabilities and exploits. This is done through rules that are defined based on the OWASP core rule sets 3.2, 3.1, 3.0, or 2.2.9. These rules can be disabled on a rule-by-rule basis. This article contains the current rules and rule sets offered. In the rare occasion that a published ruleset needs to be updated, it will be documented here.
 
 ## Core rule sets
 
@@ -800,7 +800,7 @@ The following rule groups and rules are available when using Web Application Fir
 
 # [OWASP 2.2.9](#tab/owasp2)
 
-## <a name="owasp229"></a> 2.9 rule sets
+## <a name="owasp229"></a> 2.2.9 rule sets
 
 ### <a name="crs20"></a> crs_20_protocol_violations
 

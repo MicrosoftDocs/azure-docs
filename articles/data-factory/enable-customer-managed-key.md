@@ -6,8 +6,9 @@ ms.author: weetok
 ms.service: data-factory
 ms.subservice: security
 ms.topic: quickstart
-ms.date: 05/08/2020
+ms.date: 10/22/2021
 ms.reviewer: mariozi
+ms.custom: mode-other
 ---
 # Encrypt Azure Data Factory with customer-managed keys
 
@@ -145,7 +146,7 @@ By default, CMK configuration is not included in the factory Azure Resource Mana
 
   :::image type="content" source="media/enable-customer-managed-key/07-include-in-template.png" alt-text="Screenshot of including customer managed key setting in ARM template.":::
 
-The following settings will be added in ARM template. These properties can be parameterized in Continuous Integration and Delivery pipelines by editing the [Azure Resource Manager parameters configuration](continuous-integration-deployment.md#use-custom-parameters-with-the-resource-manager-template)
+The following settings will be added in ARM template. These properties can be parameterized in Continuous Integration and Delivery pipelines by editing the [Azure Resource Manager parameters configuration](continuous-integration-delivery-resource-manager-custom-parameters.md)
 
   :::image type="content" source="media/enable-customer-managed-key/08-template-with-customer-managed-key.png" alt-text="Screenshot of including customer managed key setting in Azure Resource Manager template.":::
 

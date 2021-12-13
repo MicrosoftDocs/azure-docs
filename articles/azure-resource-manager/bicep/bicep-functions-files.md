@@ -2,7 +2,7 @@
 title: Bicep functions - files
 description: Describes the functions to use in a Bicep file to load content from a file.
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 09/30/2021
 ---
 
 # File functions for Bicep
@@ -13,7 +13,9 @@ This article describes the Bicep functions for loading content from external fil
 
 `loadFileAsBase64(filePath)`
 
-Loads the file as a base64 string. 
+Loads the file as a base64 string.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -38,6 +40,8 @@ The file as a base64 string.
 `loadTextContent(filePath, [encoding])`
 
 Loads the content of the specified file as a string. 
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 

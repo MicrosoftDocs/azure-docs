@@ -8,7 +8,7 @@ ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 09/20/2021
+ms.date: 12/15/2021
 ---
 # Create server configured with user-assigned managed identity and customer-managed TDE
 

@@ -4,7 +4,7 @@ description: This quickstart provides several Node.js code samples you can use t
 author: savjani
 ms.author: pariks
 ms.service: mysql
-ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js
+ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019, devx-track-js, mode-other
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 12/11/2020

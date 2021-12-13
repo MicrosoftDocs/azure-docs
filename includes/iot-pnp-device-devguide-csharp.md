@@ -27,7 +27,7 @@ The new `ClientOptions` overload is available in all `DeviceClient` methods used
 
 ## DPS payload
 
-Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload.
+Devices using the [Device Provisioning Service (DPS)](../articles/iot-dps/about-iot-dps.md) can include the `modelId` to be used during the provisioning process using the following JSON payload:
 
 ```json
 {
@@ -41,7 +41,7 @@ As described in [Understand components in IoT Plug and Play models](../articles/
 
 ## Telemetry
 
-A default component doesn't require any special property.
+A default component doesn't require any special property added to the telemetry message.
 
 When using nested components, devices must set a message property with the component name:
 
@@ -66,7 +66,7 @@ reportedProperties["maxTemperature"] = 38.7;
 await client.UpdateReportedPropertiesAsync(reportedProperties);
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -76,7 +76,7 @@ The device twin is updated with the next reported property:
 }
 ```
 
-When using nested components, properties must be created within the component name:
+When using nested components, properties must be created within the component name and include a marker:
 
 ```csharp
 TwinCollection reportedProperties = new TwinCollection();
@@ -87,7 +87,7 @@ reportedProperties["thermostat1"] = component;
 await client.UpdateReportedPropertiesAsync(reportedProperties);
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -103,6 +103,8 @@ The device twin is updated with the next reported property:
 ## Writable properties
 
 These properties can be set by the device or updated by the solution. If the solution updates a property, the client receives a notification as a callback in the `DeviceClient` or `ModuleClient`. To follow the IoT Plug and Play conventions, the device must inform the service that the property was successfully received.
+
+If the property type is `Object`, the service must send a complete object to the device even if it's only updating a subset of the object's fields. The acknowledgment the device sends must also be a complete object.
 
 ### Report a writable property
 
@@ -121,7 +123,7 @@ reportedProperties["targetTemperature"] = ackProps;
 await client.UpdateReportedPropertiesAsync(reportedProperties);
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -152,7 +154,7 @@ reportedProperties["thermostat1"] = component;
 await client.UpdateReportedPropertiesAsync(reportedProperties);
 ```
 
-The device twin is updated with the next reported property:
+The device twin is updated with the following reported property:
 
 ```json
 {
@@ -172,7 +174,7 @@ The device twin is updated with the next reported property:
 
 ### Subscribe to desired property updates
 
-Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties, including the version number identifying the update. Devices must respond with the same `ack` message as reported properties.
+Services can update desired properties that trigger a notification on the connected devices. This notification includes the updated desired properties, including the version number identifying the update. Devices must include this version number in the  `ack` message sent back to the service.
 
 A default component sees the single property and creates the reported `ack` with the received version:
 
@@ -194,7 +196,7 @@ await client.SetDesiredPropertyUpdateCallbackAsync(async (desired, ctx) =>
 }, null);
 ```
 
-The device twin shows the property in the desired and reported sections:
+The device twin for a nested component shows the desired and reported sections as follows:
 
 ```json
 {

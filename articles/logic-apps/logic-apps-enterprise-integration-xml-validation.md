@@ -1,18 +1,20 @@
 ---
-title: Validate XML for B2B enterprise integration
-description: Validate XML using schemas in Azure Logic Apps with the Enterprise Integration Pack.
+title: Validate XML in enterprise integration workflows
+description: Validate XML using schemas in workflows using Azure Logic Apps and the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/25/2021
+ms.date: 09/15/2021
 ---
 
-# Validate XML for workflows in Azure Logic Apps
+# Validate XML in workflows with Azure Logic Apps
 
-Often in enterprise integration business-to-business (B2B) scenarios, the trading partners in an agreement need to make sure that the messages they exchange are valid before any data processing can start. You can validate documents against a predefined schema by using the **XML Validation** action in Azure Logic Apps.
+In enterprise integration business-to-business (B2B) scenarios, the trading partners in an agreement often have to make sure that the messages they exchange are valid before any data processing can start. Your logic app workflow can validate XML messages and documents by using the **XML Validation** action and a predefined [schema](logic-apps-enterprise-integration-schemas.md).
+
+If you're new to logic apps, review [What is Azure Logic Apps](logic-apps-overview.md)? For more information about B2B enterprise integration, review [B2B enterprise integration workflows with Azure Logic Apps and Enterprise Integration Pack](logic-apps-enterprise-integration-overview.md).
 
 ## Prerequisites
 
@@ -22,27 +24,25 @@ Often in enterprise integration business-to-business (B2B) scenarios, the tradin
 
   If you have a blank workflow, use any trigger you want. This example uses the Request trigger.
 
-  If you're new to logic apps, review the following documentation:
-
-  * [What is Azure Logic Apps](logic-apps-overview.md)
-
-  * [Quickstart: Create your first logic app workflow](quickstart-create-first-logic-app-workflow.md)
-
-  * [Create single-tenant logic app workflows](create-single-tenant-workflows-azure-portal.md)
-
-  * [Usage metering, billing, and pricing models for Azure Logic Apps](logic-apps-pricing.md)
-
-* If you're using the **Logic App (Consumption)** resource type, you need to have an [integration account](logic-apps-enterprise-integration-create-integration-account.md) that meets the following requirements:
+* An [integration account resource](logic-apps-enterprise-integration-create-integration-account.md) where you define and store artifacts, such as trading partners, agreements, certificates, and so on, for use in your enterprise integration and B2B workflows. This resource has to meet the following requirements:
 
   * Is associated with the same Azure subscription as your logic app resource.
 
-  * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML Validation** action.
+  * Exists in the same location or Azure region as your logic app resource where you plan to use the **XML Validation*** action.
 
-  * Is [linked](logic-apps-enterprise-integration-create-integration-account.md#link-account) to the logic app resource.
+  * If you're using the [**Logic App (Consumption)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), your integration account requires the following items:
 
-  * Contains the [schema](logic-apps-enterprise-integration-schemas.md) to use for validating XML content.
+    * The [schema](logic-apps-enterprise-integration-schemas.md) to use for validating XML content.
 
-  If you're using the **Logic App (Standard)** resource type, you don't need to link an integration account. However, you still have to add the [schema](logic-apps-enterprise-integration-schemas.md) to use for validating XML content to your logic app resource. You can complete this task on your logic app resource's menu, under **Settings**, in the **Schemas** section.
+    * A [link to your logic app resource](logic-apps-enterprise-integration-create-integration-account.md#link-account).
+
+  * If you're using the [**Logic App (Standard)** resource type](logic-apps-overview.md#resource-type-and-host-environment-differences), you don't store schemas in your integration account. Instead, you can [directly add schemas to your logic app resource](logic-apps-enterprise-integration-schemas.md) using either the Azure portal or Visual Studio Code. You can then use these schemas across multiple workflows within the *same logic app resource*.
+
+    You still need an integration account to store other artifacts, such as partners, agreements, and certificates, along with using the [AS2](logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md), and [EDIFACT](logic-apps-enterprise-integration-edifact.md) operations. However, you don't need to link your logic app resource to your integration account, so the linking capability doesn't exist. Your integration account still has to meet other requirements, such as using the same Azure subscription and existing in the same location as your logic app resource.
+
+    > [!NOTE]
+    > Currently, only the **Logic App (Consumption)** resource type supports [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations. 
+    > The **Logic App (Standard)** resource type doesn't include [RosettaNet](logic-apps-enterprise-integration-rosettanet.md) operations.
 
 ## Add XML validation action
 
@@ -91,6 +91,8 @@ Often in enterprise integration business-to-business (B2B) scenarios, the tradin
    You're now finished setting up your **XML Validation** action. In a real world app, you might want to store the validated data in a line-of-business (LOB) app such as SalesForce. To send the validated output to Salesforce, add a Salesforce action.
 
 1. To test your validation action, trigger and run your workflow. For example, for the Request trigger, send a request to the trigger's endpoint URL.
+
+   The **XML Validation** action runs after your workflow is triggered and when XML content is available for validation.
 
 ## Next steps
 

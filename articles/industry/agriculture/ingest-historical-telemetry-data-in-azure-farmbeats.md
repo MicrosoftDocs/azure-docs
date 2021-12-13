@@ -187,7 +187,7 @@ access_token = token_response.get('access_token')
 Here are the most common request headers that must be specified when you make an API call to FarmBeats Datahub:
 
 - **Content-Type**: application/json
-- **Authorization**: Bearer <Access-Token>
+- **Authorization**: Bearer \<Access-Token\>
 - **Accept**: application/json
 
 ### Input payload to create metadata

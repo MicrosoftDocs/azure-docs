@@ -4,8 +4,8 @@ description: Learn how to create a backup of your Azure Red Hat OpenShift cluste
 ms.service: azure-redhat-openshift
 ms.topic: article
 ms.date: 06/22/2020
-author: troy0820
-ms.author: b-trconn
+author: georgewallace
+ms.author: gwallace
 keywords: aro, openshift, az aro, red hat, cli
 ms.custom: mvc, devx-track-azurecli
 #Customer intent: As an operator, I need to create an Azure Red Hat OpenShift cluster application backup

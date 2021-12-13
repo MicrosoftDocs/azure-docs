@@ -1,5 +1,5 @@
 ---
-title: Encrypt an Azure storage account used by a lab in Azure DevTest Labs
+title: Encrypt an Azure storage account used by a lab
 description: Learn how to configure encryption of an Azure storage used by a lab in Azure DevTest Labs 
 ms.topic: how-to
 ms.date: 07/29/2020

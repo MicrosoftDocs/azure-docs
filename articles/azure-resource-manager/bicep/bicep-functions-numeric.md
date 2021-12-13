@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to work with numbers
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/30/2021
 ---
 
 # Numeric functions for Bicep
@@ -18,6 +18,8 @@ Some of the Azure Resource Manager JSON numeric functions are replaced with [Bic
 `int(valueToConvert)`
 
 Converts the specified value to an integer.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -50,6 +52,8 @@ The output from the preceding example with the default values is:
 `max (arg1)`
 
 Returns the maximum value from an array of integers or a comma-separated list of integers.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 
@@ -90,6 +94,8 @@ The output from the preceding example with the default values is:
 `min (arg1)`
 
 Returns the minimum value from an array of integers or a comma-separated list of integers.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 

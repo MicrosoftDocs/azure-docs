@@ -1,5 +1,5 @@
 ---
-title: Monitor Apache Spark applications with Azure Log Analytics (preview)
+title: Monitor Apache Spark applications with Azure Log Analytics
 description: Learn how to enable the Synapse Studio connector for collecting and sending the Apache Spark application metrics and logs to your Log Analytics workspace.
 services: synapse-analytics 
 author: jejiang
@@ -11,7 +11,7 @@ ms.subservice: spark
 ms.date: 03/25/2021
 ms.custom: references_regions
 ---
-# Monitor Apache Spark applications with Azure Log Analytics (preview)
+# Monitor Apache Spark applications with Azure Log Analytics
 
 In this tutorial, you learn how to enable the Synapse Studio connector that's built in to Log Analytics. You can then collect and send Apache Spark application metrics and logs to your [Log Analytics workspace](../../azure-monitor/logs/quick-create-workspace.md). Finally, you can use an Azure Monitor workbook to visualize the metrics and logs.
 
@@ -26,7 +26,7 @@ Consult one of the following resources to create this workspace:
 - [Create a workspace with Azure CLI](../../azure-monitor/logs/resource-manager-workspace.md)
 - [Create and configure a workspace in Azure Monitor by using PowerShell](../../azure-monitor/logs/powershell-workspace-configuration.md)
 
-### Step 2: Prepare a Apache Spark configuration file
+### Step 2: Prepare an Apache Spark configuration file
 
 Use any of the following options to prepare the file.
 
@@ -46,7 +46,7 @@ spark.synapse.logAnalytics.secret <LOG_ANALYTICS_WORKSPACE_KEY>
 #### Option 2: Configure with Azure Key Vault
 
 > [!NOTE]
-> You need to grant read secret permission to the users who will submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md).
+> You need to grant read secret permission to the users who will submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md). When you enable this feature in a Synapse pipeline, you need to use **Option 3**. This is necessary to obtain the secret from Azure Key Vault with workspace managed identity.
 
 To configure Azure Key Vault to store the workspace key, follow these steps:
 
@@ -76,7 +76,7 @@ spark.synapse.logAnalytics.keyVault.key.secret <AZURE_KEY_VAULT_SECRET_KEY_NAME>
 #### Option 3. Configure with a linked service
 
 > [!NOTE]
-> You need to grant read secret permission to the users who will submit Apache Spark applications. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md).
+> In this option, you need to grant read secret permission to workspace managed identity. For more information, see [Provide access to Key Vault keys, certificates, and secrets with an Azure role-based access control](../../key-vault/general/rbac-guide.md).
 
 To configure a Key Vault linked service in Synapse Studio to store the workspace key, follow these steps:
 
@@ -124,7 +124,7 @@ spark.synapse.logAnalytics.keyVault.linkedServiceName <LINKED_SERVICE_NAME>
 [uri_suffix]: ../../azure-monitor/logs/data-collector-api.md#request-uri
 
 
-### Step 3: Upload your Apache Spark configuration to a Apache Spark pool
+### Step 3: Upload your Apache Spark configuration to an Apache Spark pool
 You can upload the configuration file to your Azure Synapse Analytics Apache Spark pool. In Synapse Studio:
 
    1. Select **Manage** > **Apache Spark pools**.
@@ -140,13 +140,13 @@ You can upload the configuration file to your Azure Synapse Analytics Apache Spa
 >
 > All the Apache Spark applications submitted to the Apache Spark pool will use the configuration setting to push the Apache Spark application metrics and logs to your specified workspace.
 
-## Submit a Apache Spark application and view the logs and metrics
+## Submit an Apache Spark application and view the logs and metrics
 
 Here's how:
 
-1. Submit a Apache Spark application to the Apache Spark pool configured in the previous step. You can use any of the following ways to do so:
+1. Submit an Apache Spark application to the Apache Spark pool configured in the previous step. You can use any of the following ways to do so:
     - Run a notebook in Synapse Studio. 
-    - In Synapse Studio, submit an Apache Spark batch job through a Apache Spark job definition.
+    - In Synapse Studio, submit an Apache Spark batch job through an Apache Spark job definition.
     - Run a pipeline that contains Apache Spark activity.
 
 1. Go to the specified Log Analytics workspace, and then view the application metrics and logs when the Apache Spark application starts to run.
@@ -240,20 +240,20 @@ Users can query to evaluate metrics and logs at a set frequency, and fire an ale
 
 After the Synapse workspace is created with [data exfiltration protection](../security/workspace-data-exfiltration-protection.md) enabled.
 
-when you want to enabled this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](../../azure-monitor/logs/private-link-security.md) in the workspace’s approved Azure AD tenants.
+When you want to enabled this feature, you need to create managed private endpoint connection requests to [Azure Monitor private link scopes (AMPLS)](../../azure-monitor/logs/private-link-security.md) in the workspace’s approved Azure AD tenants.
 
 You can follow below steps to create a managed private endpoint connection to Azure Monitor private link scopes (AMPLS):
 
-1. If there is no existing AMPLS, please follow [Azure Monitor Private Link connection setup](../../azure-monitor/logs/private-link-security.md) to create one.
+1. If there is no existing AMPLS, you can follow [Azure Monitor Private Link connection setup](../../azure-monitor/logs/private-link-security.md) to create one.
 2. Navigate to your AMPLS in Azure portal, on the **Azure Monitor Resources** page, click **Add** to add connection to your Azure Log Analytics workspace.
-3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes** and **continue**.
+3. Navigate to **Synapse Studio > Manage > Managed private endpoints**, click **New** button, select **Azure Monitor Private Link Scopes**, and **continue**.
    > [!div class="mx-imgBorder"]
    > ![Create AMPLS managed private endpoint 1](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-1.png)
-4. Choose your Azure Monitor Private Link Scope you just created, and click **Create** button.
+4. Choose your Azure Monitor Private Link Scope you created, and click **Create** button.
    > [!div class="mx-imgBorder"]
    > ![Create AMPLS managed private endpoint 2](./media/apache-spark-azure-log-analytics/create-ampls-private-endpoint-2.png)
 5. Wait a few minutes for private endpoint provisioning.
-6. Navigate to your AMPLS in Azure portal again, on the **Private Endpoint connections** page, select the connection just provisioned and **Approve**.
+6. Navigate to your AMPLS in Azure portal again, on the **Private Endpoint connections** page, select the connection provisioned and **Approve**.
 
 > [!NOTE] 
 >  - The AMPLS object has a number of limits you should consider when planning your Private Link setup. See [AMPLS limits](../../azure-monitor/logs/private-link-security.md) for a deeper review of these limits. 

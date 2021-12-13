@@ -15,7 +15,7 @@ Soft delete helps mitigate the impact of accidentally deleting critical data. Th
 
 ## Configuring delete retention policy
 
-You can configure the delete retention policy for each storage account in Storage Explorer. Open the context menu for any "Blob Containers" node under the storage account and choose **Configure Soft Delete Policy...**. 
+You can configure the delete retention policy for each storage account in Storage Explorer. Open the context menu for any "Blob Containers" node under the storage account and choose **Configure Soft Delete Policy...**.
 
 Setting a new policy may take up to 30 seconds for it to take effect. Deleting data without waiting for the new policy to take effect may result in unexpected behavior. Storage Explorer waits 30 seconds before reporting a successfully configured policy in the Activity Log.
 
@@ -56,7 +56,7 @@ You can also undelete blobs recursively under a directory. If an active director
 
 In HNS enabled blob containers, undeleting a blob will fail if an active blob with the same name already exists.
 
-> [!Note]
+> [!NOTE]
 > Soft-deleted snapshots can only undeleted by undeleting the base blob. There is no way to undelete individual snapshots.
 
 ## Undelete blobs by date range
@@ -69,5 +69,5 @@ To undelete blobs by date range, select the soft-deleted blobs you want to undel
 
 ## See Also
 
-* [Azure Storage Explorer blob versioning guide](./storage-explorer-blob-versioning.md)
-* [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)
+- [Azure Storage Explorer blob versioning guide](./storage-explorer-blob-versioning.md)
+- [Soft delete for blobs](../blobs/soft-delete-blob-overview.md)

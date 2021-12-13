@@ -56,7 +56,7 @@ Give the app created in the previous step *Monitoring Metrics Publisher* permiss
 
 Prepare your Diagnostics extension configuration file. This file dictates which logs and performance counters the Diagnostics extension should collect for your cloud service. Following is a sample Diagnostics configuration file:  
 
-```XML
+```xml
 <?xml version="1.0" encoding="utf-8"?> 
 <DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
@@ -98,7 +98,7 @@ Prepare your Diagnostics extension configuration file. This file dictates which 
 
 In the "SinksConfig" section of your diagnostics file, define a new Azure Monitor sink: 
 
-```XML
+```xml
   <SinksConfig> 
     <Sink name="AzMonSink"> 
     <AzureMonitor> 
@@ -120,7 +120,7 @@ In the section of your configuration file where you list the performance counter
 
 Finally, in the private configuration, add an *Azure Monitor Account* section. Enter the service principal client ID and secret that you created earlier. 
 
-```XML
+```xml
 <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration"> 
   <StorageAccount name="" endpoint="" /> 
     <AzureMonitorAccount> 

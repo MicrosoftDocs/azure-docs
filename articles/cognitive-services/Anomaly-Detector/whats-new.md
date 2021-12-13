@@ -15,6 +15,13 @@ We've also added links to some user-generated content. Those items will be marke
 
 ## Release notes
 
+### November 2021
+* Multivariate Anomaly Detector available in six more regions: UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West. Now in total 26 regions are supported.
+
+### September 2021
+* Anomaly Detector (univariate) available in Jio India West.
+* Multivariate anomaly detection APIs deployed in five more regions: East Asia, West US, Central India, Korea Central, Germany West Central.
+
 ### August 2021
 
 * Multivariate anomaly detection APIs deployed in five more regions: West US 3, Japan East, Brazil South, Central US, Norway East. Now in total 15 regions are supported.
@@ -65,9 +72,6 @@ We've also added links to some user-generated content. Those items will be marke
 * August 20, 2019 [Bring Anomaly Detector on-premises with containers support](https://channel9.msdn.com/Shows/AI-Show/Bring-Anomaly-Detector-on-premise-with-containers-support) - AI Show with Qun Ying and Seth Juarez
 * August 13, 2019 [Introducing Azure Anomaly Detector](https://channel9.msdn.com/Shows/AI-Show/Introducing-Azure-Anomaly-Detector?WT.mc_id=ai-c9-niner) - AI Show with Qun Ying and Seth Juarez
 
-## Open-source projects
-
-* June 3, 2019 **[UGC]** [Jupyter notebook demonstrating Anomaly Detection and streaming to Power BI](https://github.com/marvinbuss/MS-AnomalyDetector) - Marvin Buss
 
 ## Service updates
 

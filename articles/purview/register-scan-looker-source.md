@@ -1,156 +1,132 @@
 ---
-title: Register Looker and setup scans in Azure Purview
-description: This article outlines how to register a Looker source in Azure Purview and set up a scan.
-author: chandrakavya
-ms.author: kchandra
+title: Connect to and manage Looker
+description: This guide describes how to connect to  Looker  in Azure Purview, and use Purview's features to scan and manage your Looker source.
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
-ms.subservice: purview-data-catalog
-ms.topic: overview
-ms.date: 7/16/2021
+ms.subservice: purview-data-map
+ms.topic: how-to
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
 ---
-# Register and Scan Looker(Preview)
 
-This article outlines how to register a Looker Server in Purview and set
-up a scan.
+# Connect to and manage Looker in Azure Purview (Preview)
+
+This article outlines how to register Looker, and how to authenticate and interact with Looker in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+
+> [!IMPORTANT]
+> Looker as a source is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 ## Supported capabilities
 
-The Looker source supports Full scan to extract metadata from a Looker
-server. It imported metadata from a Looker server, including database
-connections, LookML Models and associated reports (Looks and
-Dashboards). This data source also fetches Lineage between data assets.
+|**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| [Yes](how-to-lineage-looker.md)|
 
-> [!Note]
-> Looker as a source is currently supported in private preview. Register this source and setup your scans in your non-production Purview accounts and provide us your feedback.
+> [!Important]
+> Supported Looker server version is 7.2
 
 ## Prerequisites
 
-1.  Set up the latest [self-hosted integration
-    runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see 
-    [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
+* An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-2.  Make sure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on your virtual machine where self-hosted integration
-    runtime is installed.
+* An active [Purview resource](create-catalog-portal.md).
 
-3.  Make sure \"Visual C++ Redistributable 2012 Update 4\" is installed
-    on the VM where self-hosted integration runtime is running. If you
-    don\'t have it installed, download it from
-    [here](https://www.microsoft.com/download/details.aspx?id=30679).
+* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-4.  Supported Looker server version is 7.2
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
 
-## Setting up authentication for a scan
+* Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
-An API3 key is required to connect to the Looker server. The API3 key
-consists in a public client_id and a private client_secret and follows
-an OAuth2 authentication pattern.
+* Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-## Register a Looker server
+## Register
+
+This section describes how to register Looker in Azure Purview using the [Purview Studio](https://web.purview.azure.com/).
+
+### Authentication for registration
+
+An API3 key is required to connect to the Looker server. The API3 key consists in a public client_id and a private client_secret and follows an OAuth2 authentication pattern.
+
+### Steps to register
 
 To register a new Looker server in your data catalog, do the following:
 
 1. Navigate to your Purview account.
-2. Select **Data Map** on the left navigation.
-3. Select **Register.**
-4. On Register sources, select **Looker**. Select **Continue.**
-    :::image type="content" source="media/register-scan-looker-source/register-sources.png" alt-text="register looker source" border="true":::
+1. Select **Data Map** on the left navigation.
+1. Select **Register.**
+1. On Register sources, select **Looker**. Select **Continue.**
 
+:::image type="content" source="media/register-scan-looker-source/register-sources.png" alt-text="register looker source" border="true":::
 
 On the Register sources (Looker) screen, do the following:
 
-1. Enter a **Name** that the data source will be listed within the
-    Catalog.
+1. Enter a **Name** that the data source will be listed within the Catalog.
 
-2. Enter the Looker API URL in the **Server API URL** field. The
-    default port for API requests is port 19999. Also, all Looker API
-    endpoints require an HTTPS connection. For example,
-    'https://azurepurview.cloud.looker.com'
+1. Enter the Looker API URL in the **Server API URL** field. The default port for API requests is port 19999. Also, all Looker API endpoints require an HTTPS connection. For example: 'https://azurepurview.cloud.looker.com'
 
-3. Select a collection or create a new one (Optional)
+1. Select a collection or create a new one (Optional)
 
-4. Finish to register the data source.
+1. Finish to register the data source.
 
     :::image type="content" source="media/register-scan-looker-source/scan-source.png" alt-text="scan looker source" border="true":::
 
-## Creating and running a scan
+## Scan
+
+Follow the steps below to scan Looker to automatically identify assets and classify your data. For more information about scanning in general, see our [introduction to scans and ingestion](concept-scans-and-ingestion.md)
+
+### Create and run scan
 
 To create and run a new scan, do the following:
 
-1. In the Management Center, click on Integration runtimes. If it is
-    not set up, use the steps mentioned
-    [here](./manage-integration-runtimes.md)
-    to setup a self-hosted integration runtime
+1. In the Management Center, select Integration runtimes. Make sure a self-hosted integration runtime is set up on the VM where erwin Mart instance is running. If it is not set up, use the steps mentioned [here](./manage-integration-runtimes.md) to set up a self-hosted integration runtime.
 
-2. Navigate to **Sources**.
+1. Navigate to **Sources**.
 
-3. Select the registered **Looker** server.
+1. Select the registered **Looker** server.
 
-4. Select **+ New scan**.
+1. Select **+ New scan**.
 
-5. Provide the below details:
+1. Provide the below details:
 
-    a.  **Name**: The name of the scan
+    1. **Name**: The name of the scan
 
-    b.  **Connect via integration runtime**: Select the configured
-        self-hosted integration runtime.
+    1. **Connect via integration runtime**: Select the configured self-hosted integration runtime.
 
-    c.  **Server API URL** is auto populated based on the value entered
-        during registration.
+    1. **Server API URL** is auto populated based on the value entered during registration.
 
-    d.  **Credential:** While configuring Looker credential, make sure
-        to:
+    1. **Credential:** While configuring Looker credential, make sure to:
 
-    - Select **Basic Authentication** as the Authentication method
-    - Provide your Looker API3 key's client ID in the User name field
-    - Save your Looker API3 key's client secret in the key vault's secret.
+        * Select **Basic Authentication** as the Authentication method
+        * Provide your Looker API3 key's client ID in the User name field
+        * Save your Looker API3 key's client secret in the key vault's secret.
 
-    **Note:** To access client ID and client secret, navigate to Looker -\>Admin -\> Users -\> Click on **Edit** on an user -\> Click on **EditKeys** -\> Use the Client ID and Client Secret or create a new one.
-    :::image type="content" source="media/register-scan-looker-source/looker-details.png" alt-text="get looker details" border="true":::
-    
+        To access client ID and client secret, navigate to Looker -\>Admin -\> Users -\> Select **Edit** on a user -\> Select **EditKeys** -\> Use the Client ID and Client Secret or create a new one.
 
-    To understand more on credentials, refer to the link [here](manage-credentials.md)
+        :::image type="content" source="media/register-scan-looker-source/looker-details.png" alt-text="get looker details" border="true":::
 
-    e.  **Project filter** -- Scope your scan by providing a semi colon
-    separated list of Looker projects. This option is used to select
-    looks and dashboards by their parent project.
+        To understand more on credentials, refer to the link [here](manage-credentials.md)
 
-    f.  **Maximum memory available**: Maximum memory (in GB) available on
-    customer's VM to be used by scanning processes. This is dependent on
-    the size of erwin Mart to be scanned.
+    1. **Project filter** -- Scope your scan by providing a semicolon separated list of Looker projects. This option is used to select looks and dashboards by their parent project.
 
-    :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="trigger scan" border="true":::
+    1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of erwin Mart to be scanned.
 
-6. Click on **Test connection.**
+        :::image type="content" source="media/register-scan-looker-source/setup-scan.png" alt-text="trigger scan" border="true":::
 
-7. Click on **Continue**.
+1. Select **Test connection.**
 
-8. Choose your **scan trigger**. You can set up a schedule or ran the
-    scan once.
+1. Select **Continue**.
 
-9. Review your scan and click on **Save and Run**.
+1. Choose your **scan trigger**. You can set up a schedule or ran the scan once.
 
-## Viewing your scans and scan runs
+1. Review your scan and select on **Save and Run**.
 
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section.
-
-2. Select the desired data source. You will see a list of existing scans on that data source.
-
-3. Select the scan whose results you are interested to view.
-
-4. This page will show you all of the previous scan runs along with metrics and status for each scan run. It will also display whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan, and the total scan duration.
-
-## Manage your scans
-
-To manage or delete a scan, do the following:
-
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section then select on the desired data source.
-
-2. Select the scan you would like to manage. You can edit the scan by selecting **Edit**.
-
-3. You can delete your scan by selecting **Delete**.
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
+Now that you have registered your source, follow the below guides to learn more about Purview and your data.
+
+- [Data insights in Azure Purview](concept-insights.md)
+- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Search Data Catalog](how-to-search-catalog.md)

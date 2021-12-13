@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to retrieve, update, and delete individual twins and relationships.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/21/2020
+ms.date: 9/13/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -41,14 +41,13 @@ To create a twin, you use the `CreateOrReplaceDigitalTwinAsync()` method on the 
 :::code language="csharp" source="~/digital-twins-docs-samples/sdks/csharp/twin_operations_sample.cs" id="CreateTwinCall":::
 
 To create a digital twin, you need to provide:
-* The desired ID for the digital twin, which you are defining at this stage
+* An ID value you want to assign to the digital twin (you're defining that ID when the twin is created)
 * The [model](concepts-models.md) you want to use
-
-Optionally, you can provide initial values for all properties of the digital twin. Properties are treated as optional and can be set later, but **they won't show up as part of a twin until they've been set.**
-
->[!NOTE]
->While twin properties don't have to be initialized, any [components](concepts-models.md#elements-of-a-model) on the twin **do** need to be set when the twin is created. They can be empty objects, but the components themselves must exist.
-
+* Any desired initialization of twin data, including...
+    - Properties (optional to initialize): You can set initial values for properties of the digital twin if you want. Properties are treated as optional and can be set later, but note that **they won't show up as part of a twin until they've been set**.
+    - Telemetry (recommended to initialize): You can also set initial values for telemetry fields on the twin. Although initializing telemetry isn't required, telemetry fields also won't show up as part of a twin until they've been set. This means that **you'll be unable to edit telemetry values for a twin unless they've been initialized first**.
+    - Components (required to initialize if present on twin): If your twin contains any [components](concepts-models.md#elements-of-a-model), these must be initialized when the twin is created. They can be empty objects, but the components themselves have to exist.
+    
 The model and any initial property values are provided through the `initData` parameter, which is a JSON string containing the relevant data. For more information on structuring this object, continue to the next section.
 
 > [!TIP]
@@ -147,7 +146,7 @@ You can read more about the serialization helper classes like `BasicDigitalTwin`
 
 ## View all digital twins
 
-To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+To view all of the digital twins in your instance, use a [query](how-to-query-graph.md). You can run a query with the [Query APIs](/rest/api/digital-twins/dataplane/query) or the [CLI commands](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_query).
 
 Here is the body of the basic query that will return a list of all digital twins in the instance:
 

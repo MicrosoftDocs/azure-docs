@@ -1,7 +1,6 @@
 ---
-title: Rewrite HTTP headers and URL with Azure Application Gateway | Microsoft Docs
+title: Rewrite HTTP headers and URL with Azure Application Gateway
 description: This article provides an overview of rewriting HTTP headers and URL in Azure Application Gateway
-services: application-gateway
 author: azhar2005
 ms.service: application-gateway
 ms.topic: conceptual
@@ -92,7 +91,7 @@ If you want to use the whole value, you should not mention the number. Simply us
 
 ## Server variables
 
-Application Gateway uses server variables to store useful information about the server, the connection with the client, and the current request on the connection. Examples of information stored include the client’s IP address and the web browser type. Server variables change dynamically, for example, when a new page loads or when a form is posted. You can use these variables to evaluate rewrite conditions and rewrite headers. In order to use the value of server variables to rewrite headers, you will need to specify these variables in the syntax {var_*serverVariableName*}
+Application Gateway uses server variables to store useful information about the server, the connection with the client, and the current request on the connection. Examples of information stored include the client's IP address and the web browser type. Server variables change dynamically, for example, when a new page loads or when a form is posted. You can use these variables to evaluate rewrite conditions and rewrite headers. In order to use the value of server variables to rewrite headers, you will need to specify these variables in the syntax {var_*serverVariableName*}
 
 Application gateway supports the following server variables:
 
@@ -118,7 +117,7 @@ Application gateway supports the following server variables:
 | sent_bytes                | The number of bytes sent to a client.                        |
 | server_port               | The port of the server that accepted a request.              |
 | ssl_connection_protocol   | The protocol of an established TLS connection.               |
-| ssl_enabled               | “On” if the connection operates in TLS mode. Otherwise, an   empty string. |
+| ssl_enabled               | "On" if the connection operates in TLS mode. Otherwise, an   empty string. |
 | uri_path                  | Identifies the specific resource in the host that the web   client wants to access. This is the part of the request URI without the   arguments. Example: In the request `http://contoso.com:8080/article.aspx?id=123&title=fabrikam`,   uri_path value will be `/article.aspx` |
 
 ### Mutual authentication server variables (Preview)
@@ -134,7 +133,7 @@ Application Gateway supports the following server variables for mutual authentic
 | client_certificate_serial | The serial number of the client certificate for an established SSL connection.  |
 | client_certificate_start_date| The start date of the client certificate. |
 | client_certificate_subject| The "subject DN" string of the client certificate for an established SSL connection. |
-| client_certificate_verification| The result of the client certificate verification: *SUCCESS*, *FAILED:<reason>*, or *NONE* if a certificate was not present. | 
+| client_certificate_verification| The result of the client certificate verification: *SUCCESS*, *FAILED:\<reason\>*, or *NONE* if a certificate was not present. | 
 
 ## Rewrite configuration
 

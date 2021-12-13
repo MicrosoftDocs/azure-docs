@@ -3,15 +3,16 @@ title: Azure AD B2C service limits and restrictions
 titleSuffix: Azure AD B2C
 description: Reference for service limits and restrictions for Azure Active Directory B2C service.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/02/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
+ms.custom: "b2c-support"
 ---
 
 # Azure Active Directory B2C service limits and restrictions
@@ -42,8 +43,8 @@ The following table lists the administrative configuration limits in the Azure A
 |String Limit per Attribute      |250 Chars          |
 |Number of B2C tenants per subscription      |20         |
 |Levels of [inheritance](custom-policy-overview.md#inheritance-model) in custom policies     |10         |
-|Number of policies per Azure AD B2C tenant      |200          |
-|Maximum policy file size      |400 KB          |
+|Number of policies per Azure AD B2C tenant (user flows + custom policies)     |200          |
+|Maximum policy file size      |1024 KB          |
 
 <sup>1</sup> See also [Azure AD service limits and restrictions](../active-directory/enterprise-users/directory-service-limits-restrictions.md).
 

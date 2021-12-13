@@ -38,7 +38,7 @@ You must have the following resource installed:
 To use the Cloud Controller Manager feature, you must enable the `EnableCloudControllerManager` feature flag on your subscription. 
 
 ```azurecli
-az feature register –name EnableCloudControllerManager --namespace Microsoft.ContainerService
+az feature register --name EnableCloudControllerManager --namespace Microsoft.ContainerService
 ```
 You can check on the registration status by using the [az feature list][az-feature-list] command:
 
@@ -50,6 +50,16 @@ When ready, refresh the registration of the *Microsoft.ContainerService* resourc
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
+```
+
+### Install the aks-preview CLI extension
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
 ```
 
 ## Create an AKS cluster with Cloud Controller Manager
@@ -66,7 +76,7 @@ az aks create -n aks -g myResourceGroup --aks-custom-headers EnableCloudControll
 To upgrade a cluster to use the Cloud Controller Manager, pass `EnableCloudControllerManager=True` as a customer header to the Azure API using the Azure CLI.
 
 ```azurecli-interactive
-az aks upgrade -n aks -g myResourceGroup --aks-custom-headers EnableCloudControllerManager=True
+az aks upgrade -n aks -g myResourceGroup -k <version> --aks-custom-headers EnableCloudControllerManager=True
 ```
 
 ## Next steps

@@ -1,13 +1,8 @@
 ---
 title: Audio effects detection  
-titleSuffix: Azure Video Analyzer
 description: Audio Effects Detection is one of Azure Video Analyzer for Media AI capabilities. It can detects a various of acoustics events and classify them into different acoustic categories (such as Gunshot, Screaming, Crowd Reaction and more).
-author: Juliako
-manager: femila
 
-ms.service: azure-video-analyzer
-ms.subservice: azure-video-analyzer-media
-ms.topic: article
+ms.topic: conceptual
 ms.date: 05/12/2021
 ms.author: juliako
 ---

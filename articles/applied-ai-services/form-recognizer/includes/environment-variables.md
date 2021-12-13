@@ -1,7 +1,6 @@
 ---
 title: "Environment variables"
 description: set environment variables
-services: cognitive-services
 author: laujan
 manager: nitinme
 ms.service: applied-ai-services

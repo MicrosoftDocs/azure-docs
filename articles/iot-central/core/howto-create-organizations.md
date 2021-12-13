@@ -44,7 +44,7 @@ To reassign an organization to a new parent, select **Edit** and choose a new pa
 To delete an organization, you must delete or move to another organization any associated items such as dashboards, devices, users, device groups, and jobs.
 
 > [!TIP]
-> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/1.1-preview/organizations).
+> You can also use the REST API to [create and manage organizations](/rest/api/iotcentral/1.1-previewdataplane/organizations).
 
 ## Assign devices
 
@@ -109,6 +109,10 @@ You can assign the same user to multiple organizations. The user can have a diff
 | ---- | ---- | ------------ |
 | user1@contoso.com | Org Administrator | Contoso Inc/Lamna Health |
 | user1@contoso.com | Org Viewer | Contoso Inc/Adatum Solar |
+
+When you invite a new user, you need to share the application URL with them and ask them to sign in. After the user has signed in for the first time, the application appears on the user's [My apps](https://apps.azureiotcentral.com/myapps) page.
+
+To access the application for the first time, an invited user must first navigate to the application using the link they receive from the administrator. The application isn't visible on the [My apps](https://apps.azureiotcentral.com/myapps) page on the Azure IoT Central site until then.
 
 ## Use organizations
 

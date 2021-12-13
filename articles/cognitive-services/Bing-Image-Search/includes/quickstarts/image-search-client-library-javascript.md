@@ -53,13 +53,15 @@ The source code for this sample is available on [GitHub](https://github.com/Azur
 ## Create an asynchronous helper function
 
 1. Create a function to call the client asynchronously, and return the response from the Bing Image Search service.
+
     ```javascript
-    //a helper function to perform an async call to the Bing Image Search API
+    // a helper function to perform an async call to the Bing Image Search API
     const sendQuery = async () => {
         return await imageSearchApiClient.imagesOperations.search(searchTerm);
     };
     ```
-   ## Send a query and handle the response
+
+## Send a query and handle the response
 
 1. Call the helper function and handle its `promise` to parse the image results returned in the response.
 

@@ -1,13 +1,8 @@
 ---
 title: Customize a Brands model in Azure Video Analyzer for Media (formerly Video Indexer) - Azure  
-titleSuffix: Azure Video Analyzer for Media
 description: This article gives an overview of what is a Brands model in Azure Video Analyzer for Media (formerly Video Indexer) and how to customize it. 
-services: azure-video-analyzer
-author: Juliako
-manager: femila
 
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: juliako
 ---
@@ -20,11 +15,11 @@ Brand detection is useful in a wide variety of business scenarios such as conten
 
 ## Out of the box detection example
 
-In the "Microsoft Build 2017 Day 2" presentation, the brand "Microsoft Windows" appears multiple times. Sometimes in the transcript, sometimes as visual text and never as verbatim. Video Analyzer for Media detects with high precision that a term is indeed brand based on the context, covering over 90k brands out of the box, and constantly updating. At 02:25, Video Analyzer for Media detects the brand from speech and then again at 02:40 from visual text, which is part of the windows logo.
+In the "Microsoft Build 2017 Day 2" presentation, the brand "Microsoft Windows" appears multiple times. Sometimes in the transcript, sometimes as visual text and never as verbatim. Video Analyzer for Media detects with high precision that a term is indeed brand based on the context, covering over 90k brands out of the box, and constantly updating. At 02:25, Video Analyzer for Media detects the brand from speech and then again at 02:40 from visual text, which is part of the Windows logo.
 
 ![Brands overview](./media/content-model-customization/brands-overview.png)
 
-Talking about windows in the context of construction will not detect the word "Windows" as a brand, and same for Box, Apple, Fox, etc., based on advanced Machine Learning algorithms that know how to disambiguate from context. Brand Detection works for all our supported languages.  
+Talking about Windows in the context of construction will not detect the word "Windows" as a brand, and same for Box, Apple, Fox, etc., based on advanced Machine Learning algorithms that know how to disambiguate from context. Brand Detection works for all our supported languages.
 
 ## Next steps
 

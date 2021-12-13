@@ -37,7 +37,7 @@ Click **Add**, and then provide values for the following options:
         ![Create Log Analytics resource blade](media/quick-create-workspace/create-workspace.png)  
 
 
-Click **Review + create** to review the settings and then **Create** to create the workspace. This will select a default pricing tier of Pay-as-you-go which will not incur any changes until you start collecting a sufficient amount of data. For more information about other pricing tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
+Click **Review + create** to review the settings and then **Create** to create the workspace. This will select a default pricing tier of Pay-as-you-go which will not incur any charges until you start collecting a sufficient amount of data. For more information about other pricing tiers, see [Log Analytics Pricing Details](https://azure.microsoft.com/pricing/details/log-analytics/).
 
 
 

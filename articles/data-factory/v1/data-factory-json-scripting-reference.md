@@ -5,8 +5,9 @@ author: dcstwh
 ms.author: weetok
 ms.reviewer: jburchel
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018 
+ms.date: 10/22/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -14,6 +15,7 @@ ms.custom: devx-track-azurepowershell
 > [!NOTE]
 > This article applies to version 1 of Data Factory.
 
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
 
 This article provides JSON schemas and examples for defining Azure Data Factory entities (pipeline, activity, dataset, and linked service).
 
@@ -4924,7 +4926,10 @@ The following table provides descriptions for the properties used in the Azure J
 }
 ```
 
-## ML Studio (classic)
+## ML Studio (classic) 
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)] 
+
 You create an ML Studio (classic) linked service to register a Studio (classic) batch scoring endpoint with a data factory. Two data transformation activities that can run on this linked service: [ML Studio (classic) Batch Execution Activity](#ml-studio-classic-batch-execution-activity), [ML Studio (classic) Update Resource Activity](#ml-studio-classic-update-resource-activity).
 
 ### Linked service
@@ -5340,6 +5345,9 @@ Note the following points:
 For more information about the activity, see [Spark Activity](data-factory-spark.md) article.
 
 ## ML Studio (classic) Batch Execution Activity
+
+[!INCLUDE[ML Studio (classic) retirement](../../../includes/machine-learning-studio-classic-deprecation.md)]
+
 You can specify the following properties in an ML Studio (classic) Batch Execution Activity JSON definition. The type property for the activity must be: **AzureMLBatchExecution**. You must create a Studio (classic) linked service first and specify the name of it as a value for the **linkedServiceName** property. The following properties are supported in the **typeProperties** section when you set the type of activity to AzureMLBatchExecution:
 
 Property | Description | Required

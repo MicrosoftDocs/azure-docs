@@ -1,9 +1,9 @@
 ---
 title: Configure Redis clustering - Premium Azure Cache for Redis
 description: Learn how to create and manage Redis clustering for your Premium tier Azure Cache for Redis instances
-author: yegu-ms
+author: curib
 
-ms.author: yegu
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021
@@ -85,7 +85,7 @@ For sample code on working with clustering with the StackExchange.Redis client, 
 
 To change the cluster size on a running premium cache with clustering enabled, select **Cluster Size** from the **Resource menu**.
 
-![Redis cluster size][redis-cache-redis-cluster-size]
+:::image type="content" source="media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png" alt-text="Redis cluster size":::
 
 To change the cluster size, use the slider or type a number between 1 and 10 in the **Shard count** text box. Then, select **OK** to save.
 
@@ -196,11 +196,3 @@ If you're using StackExchange.Redis and receive `MOVE` exceptions when using clu
 Learn more about Azure Cache for Redis features.
 
 * [Azure Cache for Redis Premium service tiers](cache-overview.md#service-tiers)
-
-<!-- IMAGES -->
-
-[redis-cache-clustering]: ./media/cache-how-to-premium-clustering/redis-cache-clustering.png
-
-[redis-cache-clustering-selected]: ./media/cache-how-to-premium-clustering/redis-cache-clustering-selected.png
-
-[redis-cache-redis-cluster-size]: ./media/cache-how-to-premium-clustering/redis-cache-redis-cluster-size.png

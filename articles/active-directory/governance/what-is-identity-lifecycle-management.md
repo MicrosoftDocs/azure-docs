@@ -35,7 +35,7 @@ The typical process for establishing identity lifecycle management in an organiz
 
 2. Connect those systems of record with one or more directories and databases used by applications, and resolve any inconsistencies between the directories and the systems of record. For example, a directory may have obsolete data, such as an account for a former employee, that is no longer needed. 
 
-3. Determine what processes can be used to supply authoritative information in the absence of a system of record.  For example, if there are digital identities but visitors, but the organization has no database for visitors, then it may be necessary to find an alternate way to determine when an digital identity for a visitor is no longer needed.
+3. Determine what processes can be used to supply authoritative information in the absence of a system of record.  For example, if there are digital identities but visitors, but the organization has no database for visitors, then it may be necessary to find an alternate way to determine when a digital identity for a visitor is no longer needed.
 
 4. Configure that changes from the system of record or other processes are replicated to each of the directories or databases that require an update.
 

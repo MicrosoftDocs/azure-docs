@@ -3,8 +3,7 @@ title: 'Quickstart: Create a blueprint in the portal'
 description: In this quickstart, you use Azure Blueprints to create, define, and deploy artifacts through the Azure portal.
 ms.date: 08/17/2021
 ms.topic: quickstart
-ms.custom:
-  - mode-portal
+ms.custom: mode-portal
 ---
 # Quickstart: Define and assign a blueprint in the portal
 
@@ -284,7 +283,7 @@ is saved to a subscription, it can only be assigned to that subscription.
 1. For **Assignment name**, provide a unique name for this assignment.
 
 1. In **Location**, select a region for the managed identity and subscription deployment object to
-   be created in. Azure Blueprint uses this managed identity to deploy all artifacts in the assigned
+   be created in. Azure Blueprints uses this managed identity to deploy all artifacts in the assigned
    blueprint. To learn more, see
    [Managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md).
 

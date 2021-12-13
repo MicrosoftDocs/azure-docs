@@ -3,14 +3,14 @@ title: ContentDefinitions
 titleSuffix: Azure AD B2C
 description: Specify the ContentDefinitions element of a custom policy in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/12/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -75,7 +75,7 @@ The **ContentDefinition** element contains the following elements:
 
 The **LoadUri** element is used to specify the URL of the HTML5 page for the content definition. The Azure AD B2C [custom policy starter-packs](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack) come with content definitions that use Azure AD B2C HTML pages. The **LoadUri** starts with `~`, which is a relative path to your Azure AD B2C tenant.
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>~/tenant/templates/AzureBlue/unified.cshtml</LoadUri>
   ...
@@ -84,12 +84,12 @@ The **LoadUri** element is used to specify the URL of the HTML5 page for the con
 
 You can [customize the user interface with HTML templates](customize-ui-with-html.md). When using HTML templates, provide an absolute URL. The following example illustrates a content definition with HTML template:
 
-```XML
+```xml
 <ContentDefinition Id="api.signuporsignin">
   <LoadUri>https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html</LoadUri>
   ...
 </ContentDefinition>
-``` 
+```
 
 ### DataUri
 
@@ -98,8 +98,8 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 | Page identifier | Description |
 | ----- | ----------- |
 | `globalexception` | Displays an error page when an exception or an error is encountered. |
-| `providerselection`, `idpselection` |	Lists the identity providers that users can choose from during sign-in.  |
-| `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the “keep me sign-in functionality” and “Forgot your password?” link. |
+| `providerselection`, `idpselection` | Lists the identity providers that users can choose from during sign-in.  |
+| `unifiedssp` | Displays a form for signing in with a local account that's based on an email address or a user name. This value also provides the "keep me sign-in functionality" and "Forgot your password?" link. |
 | `unifiedssd` | Displays a form for signing in with a local account that's based on an email address or a username. This page identifier is deprecated. Use the `unifiedssp` page identifier instead.  |
 | `multifactor` | Verifies phone numbers by using text or voice during sign-up or sign-in. |
 | `selfasserted` | Displays a form to collect data from a user. For example, enables users to create or update their profile. |
@@ -108,7 +108,7 @@ The **DataUri** element is used to specify the page identifier. Azure AD B2C use
 
 You can enable [JavaScript client-side code](javascript-and-page-layout.md) by inserting `contract` between `elements` and the page type. For example, `urn:com:microsoft:aad:b2c:elements:contract:page-name:version`.
 
-The [version](page-layout.md) part of the `DataUri` specifies the package of content containing HTML, CSS, and JavaScript for the user interface elements in your  policy. If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version. Doing so ensures that all content definitions you’ve based your JavaScript on are immutable. Even if you don’t intend to enable JavaScript, you still need to specify the page layout version for your pages.
+The [version](page-layout.md) part of the `DataUri` specifies the package of content containing HTML, CSS, and JavaScript for the user interface elements in your  policy. If you intend to enable JavaScript client-side code, the elements you base your JavaScript on must be immutable. If they're not immutable, any changes could cause unexpected behavior on your user pages. To prevent these issues, enforce the use of a page layout and specify a page layout version. Doing so ensures that all content definitions you've based your JavaScript on are immutable. Even if you don't intend to enable JavaScript, you still need to specify the page layout version for your pages.
 
 The following example shows the **DataUri** of `selfasserted` version `1.2.0`:
 
@@ -146,7 +146,7 @@ To migrate from the old **DataUri** value (without page contract) to page layout
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.0.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
 | `urn:com:microsoft:aad:b2c:elements:multifactor:1.1.0` | `urn:com:microsoft:aad:b2c:elements:contract:multifactor:1.2.5` |
 
-The following example shows the content definition identifiers and the corresponding **DataUri** with [latest page version](page-layout.md): 
+The following example shows the content definition identifiers and the corresponding **DataUri** with [latest page version](page-layout.md):
 
 ```xml
 <!-- 

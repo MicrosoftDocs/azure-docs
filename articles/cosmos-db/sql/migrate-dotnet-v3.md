@@ -6,7 +6,7 @@ ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 10/19/2021
 ---
 
 # Migrate your application to use the Azure Cosmos DB .NET SDK v3
@@ -50,8 +50,7 @@ Most of the networking, retry logic, and lower levels of the SDK remain largely 
 ## Why migrate to the .NET v3 SDK
 
 In addition to the numerous usability and performance improvements, new feature investments made in the latest SDK will not be back ported to older versions.
-
-While there are no immediate plans to [retire support for the 2.0 SDKs](sql-api-sdk-dotnet.md), the SDKs will be replaced by newer versions in the future and the SDK will go into maintenance mode. For the best development experience, we recommend always starting with the latest supported version of SDK.
+The v2 SDK is currently in maintenance mode. For the best development experience, we recommend always starting with the latest supported version of SDK.
 
 ## Major name changes from v2 SDK to v3 SDK
 
@@ -191,8 +190,19 @@ Some settings in `ConnectionPolicy` have been renamed or replaced:
 | .NET v2 SDK | .NET v3 SDK |
 |-------------|-------------|
 |`EnableEndpointRediscovery`|`LimitToEndpoint` - The value is now inverted, if `EnableEndpointRediscovery` was being set to `true`, `LimitToEndpoint` should be set to `false`. Before using this setting, you need to understand [how it affects the client](troubleshoot-sdk-availability.md).|
-|`ConnectionProtocol`|Removed. Protocol is tied to the Mode, either it's Gateway (HTTPS) or Direct (TCP).|
+|`ConnectionProtocol`|Removed. Protocol is tied to the Mode, either it's Gateway (HTTPS) or Direct (TCP). Direct mode with HTTPS protocol is no longer supported on V3 SDK and the recommendation is to use TCP protocol. |
 |`MediaRequestTimeout`|Removed. Attachments are no longer supported.|
+
+### Indexing policy
+
+In the indexing policy, it is not possible to configure these properties. When not specified, these properties will now always have the following values:
+
+| **Property Name**     | **New Value (not configurable)** |
+| ----------------------- | -------------------------------- |
+| `Kind`   | `range` |
+| `dataType`    | `String` and `Number` |
+
+See [this section](how-to-manage-indexing-policy.md#indexing-policy-examples) for indexing policy examples for including and excluding paths. Due to improvements in the query engine, configuring these properties, even if using an older SDK version, has no impact on performance.
 
 ### Session token
 

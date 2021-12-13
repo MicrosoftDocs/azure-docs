@@ -56,7 +56,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 In your new function, select **Get function URL** at the top right, select default (**Function key**), and then select **Copy**. You will use the function URL value later in the tutorial.
 
 > [!NOTE]
-> Refer to the [Azure Functions](../../azure-functions/functions-overview.md) documentation for more samples and tutorials on reacting to events an using EventGrid event triggers.
+> Refer to the [Azure Functions](../../azure-functions/functions-overview.md) documentation for more samples and tutorials on reacting to events and using EventGrid event triggers.
 
 ## Create a topic
 

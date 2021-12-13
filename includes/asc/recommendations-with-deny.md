@@ -1,8 +1,8 @@
 ---
 author: memildin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 09/05/2021
+ms.date: 12/08/2021
 ms.author: memildin
 ms.custom: generated
 ---
@@ -26,9 +26,9 @@ ms.custom: generated
 - Key vaults should have purge protection enabled
 - Key vaults should have soft delete enabled
 - Least privileged Linux capabilities should be enforced for containers
-- Only secure connections to your Redis Cache should be enabled
 - Overriding or disabling of containers AppArmor profile should be restricted
 - Privileged containers should be avoided
+- Redis Cache should allow access only via SSL
 - Running containers as root user should be avoided
 - Secure transfer to storage accounts should be enabled
 - Service Fabric clusters should have the ClusterProtectionLevel property set to EncryptAndSign

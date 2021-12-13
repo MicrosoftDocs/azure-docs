@@ -2,9 +2,8 @@
 title: Publish service catalog managed app
 description: Shows how to create an Azure managed application that is intended for members of your organization.
 author: tfitzmac
-
 ms.topic: quickstart
-ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps
+ms.custom: subject-armqs, devx-track-azurecli, devx-track-azurepowershell, subject-rbac-steps, mode-other
 ms.date: 08/16/2021
 ms.author: tomfitz
 ---

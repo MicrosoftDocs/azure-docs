@@ -4,7 +4,7 @@ description: Learn about Azure integration using Logz.io in Azure Marketplace.
 author: tfitzmac
 ms.topic: conceptual
 ms.service: partner-services
-ms.date: 07/28/2021
+ms.date: 10/25/2021
 ms.author: tomfitz
 ---
 

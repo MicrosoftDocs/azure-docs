@@ -59,6 +59,36 @@ The following shows a function app configured to run from a .zip file hosted in 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
 
+## Example workflow for manually uploading a package hosted in Azure Storage
+
+To deploy a zipped package when using the URL option, you must create a .zip compressed deployment package and upload it to the destination. This example uses a Blob Storage container. 
+
+1. Create a .zip package for your project using the utility of your choice.
+
+1. In the [Azure portal](https://portal.azure.com), search for your storage account name or browse for it in storage accounts.
+ 
+1. In the storage account, select **Containers** under **Data storage**.
+
+1. Select **+ Container** to create a new Blob Storage container in your account.
+
+1. In the **New container** page, provide a **Name** (for example, "deployments"), make sure the **Public access level** is **Private**, and select **Create**.
+
+1. Select the container you created, select **Upload**, browse to the location of the .zip file you created with your project, and select **Upload**.
+
+1. After the upload completes, choose your uploaded blob file, and copy the URL. You may need to generate a SAS URL if you are not [using an identity](#fetch-a-package-from-azure-blob-storage-using-a-managed-identity)
+
+1. Search for your function app or browse for it in the **Function App** page. 
+
+1. In your function app, select **Configurations** under **Settings**.
+
+1. In the **Application Settings** tab, select **New application setting**
+
+1. Enter the value `WEBSITE_RUN_FROM_PACKAGE` for the **Name**, and paste the URL of your package in Blob Storage as the **Value**.
+
+1. Select **OK**. Then select  **Save** > **Continue** to save the setting and restart the app.
+
+Now you can run your function in Azure to verify that deployment has succeeded using the deployment package .zip file.
+
 ## Troubleshooting
 
 - Run From Package makes `wwwroot` read-only, so you will receive an error when writing files to this directory.

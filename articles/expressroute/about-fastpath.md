@@ -30,11 +30,6 @@ To configure FastPath, the virtual network gateway must be either:
 * Ultra Performance
 * ErGw3AZ
 
-> [!IMPORTANT]
-> If you plan to use FastPath with IPv6-based private peering over ExpressRoute, make sure to select ErGw3AZ for **SKU**. Note that this is only available for circuits using ExpressRoute Direct.
-> 
->
-
 ## Limitations
 
 While FastPath supports most configurations, it doesn't support the following features:
@@ -50,6 +45,27 @@ While FastPath supports most configurations, it doesn't support the following fe
 The following FastPath features are in Public preview:
 
 **VNet Peering** - FastPath will send traffic directly to any VM deployed in a virtual network peered to the one connected to ExpressRoute, bypassing the ExpressRoute virtual network gateway.
+
+**Private Link** - Private Link traffic sent over ExpressRoute FastPath will bypass the ExpressRoute virtual network gateway in the data path.
+This preview is available in the following Azure Regions.
+- Australia East
+- East Asia
+- East US
+- East US 2
+- North Central US
+- North Europe
+- South Central US
+- South East Asia
+- UK South
+- West Central US
+- West Europe
+- West US
+- West US 2
+- West US 3
+
+> [!NOTE]
+> Private Link pricing will not apply to traffic sent over ExpressRoute FastPath during Public preview. For more information about pricing, check out the [Private Link pricing page](https://azure.microsoft.com/pricing/details/private-link/).
+> 
 
 See [How to enroll in ExpressRoute FastPath features](expressroute-howto-linkvnet-arm.md#enroll-in-expressroute-fastpath-features-preview).
 

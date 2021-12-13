@@ -1,8 +1,9 @@
 ---
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: include
-ms.date: 11/09/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 ---
 Azure Data Factory supports the following transformation activities that can be added to pipelines either individually or chained with another activity.

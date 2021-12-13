@@ -4,7 +4,7 @@ titleSuffix: Azure Digital Twins
 description: This article shows processes for exporting and deleting personal data in Azure Digital Twins.
 author: baanders
 ms.author: baanders
-ms.date: 05/05/2020
+ms.date: 9/14/2021
 ms.topic: conceptual
 ms.service: digital-twins
 services: digital-twins
@@ -26,7 +26,7 @@ To view, export, and delete personal data that may be referenced in a data subje
 
 Azure Digital Twins considers *personal data* to be data associated with its administrators and users. 
 
-Azure Digital Twins stores the [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) *object ID* of users with access to the environment. Azure Digital Twins in the Azure portal displays user email addresses, but these email addresses are not stored within Azure Digital Twins. They are dynamically looked up in Azure Active Directory, using the Azure Active Directory object ID.
+Azure Digital Twins stores the [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) **object ID** of users with access to the environment. Azure Digital Twins in the Azure portal displays user email addresses, but these email addresses are not stored within Azure Digital Twins. They are dynamically looked up in Azure Active Directory, using the Azure Active Directory object ID.
 
 ## Deleting customer data
 
