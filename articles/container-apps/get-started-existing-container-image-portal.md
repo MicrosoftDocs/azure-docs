@@ -1,25 +1,28 @@
 ---
-title: 'Quickstart: Deploy your first container app using the Azure portal'
-description: Deploy your first application to Azure Container Apps Preview using the Azure portal.
+title: Deploy your first container app with an existing container image
+description: Deploy your first application with an existing container image to Azure Container Apps Preview.
 services: container-apps
-author: cebundy
+author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 12/13/2021
-ms.author: v-bcatherine
-ms.custom: mode-portal
+ms.date: 12/09/2021
+ms.author: cshoe
+zone_pivot_groups: container-apps-registry-types
 ---
 
-# Quickstart: Deploy your first container app using the Azure portal
+# Deploy your first container app with an existing container image
 
 Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-In this quickstart, you create a secure Container Apps environment and deploy your first container app using the Azure portal.
+This article demonstrates how to deploy an existing container to Azure Container Apps using the Azure portal.
+
+> [!NOTE]
+> Private registry authorization is supported via registry username and password.
 
 ## Prerequisites
 
-An Azure account with an active subscription is required. If you don't already have one, you can [create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
-
+- Azure account with an active subscription.
+  - If you don't have one, you [can create one for free](https://azure.microsoft.com/free/).
 ## Setup
 
 Begin by signing in to the [Azure portal](https://portal.azure.com).
@@ -53,6 +56,50 @@ In the *Basics* tab, do the following actions.
     |---|---|
     | Environment name | Enter **my-environment**. |
     | Region | Select **Canada Central**. |
+
+1. Select the **Monitoring** tab to create a Log Analytics workspace.
+1. Select **Create new** in the *Log Analytics workspace* field.
+1. Enter **my-container-apps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
+  
+    The *Location* field is pre-filled with *Canada Central* for you.
+
+1. Select **OK**.
+1. Select the **Create** button at the bottom of the *Create Container App Environment* page.
+1. Select the **Next: App settings** button at the bottom of the page.
+
+### App Settings Tab
+
+In the *App settings* tab, do the following actions:
+
+| Setting | Action |
+|---|---|
+| Use quickstart image | **Uncheck** the checkbox. |
+| Name | Enter **my-portal-app**. |
+| Image source | Select your container image repository source. If your container is hosted in a registry other than **Azure Container Registry**, select **Docker Hub or other registries**. |
+| Registry login server | Enter the domain (including subdomain) of your container registry. |
+::: zone pivot="container-apps-private-registry"
+| Image type | Select **Private**. |
+| Registry login server |  |
+| Registry user name |  |
+| Registry password |  |
+| Image and tag |  |
+::: zone-end
+::: zone pivot="container-apps-public-registry"
+| Image type | Select **Public**. |
+::: zone-end
+| Image and tag | Enter **/azuredocs/containerapps-helloworld:latest**. |
+
+#### Application ingress settings
+
+| Setting | Action |
+|---|---|
+| Ingress | Select **Enabled** or **Disabled**. |
+
+    If you enabled ingress, configure the following settings:
+
+    | Setting | Action |
+    | Ingress visibility | Select **Internal** to only allow ingress from other apps in the same virtual network, and select **External** to publicly expose your container app. |
+    | Target port | Enter the port you want to expose your container app. |
 
 ### Deploying the Container App
 

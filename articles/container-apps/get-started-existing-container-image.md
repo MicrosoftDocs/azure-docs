@@ -297,14 +297,7 @@ Before you run this command, replace `<REGISTRY_CONTAINER_URL>` with the URL to 
 
 ::: zone-end
 
-Your container may need some additional configuration settings for a successful deployment.
-
-- **Environment variables**: If your container app requires environment variables, then pass in key/value pairs to the `--environment-variables` parameter.
-
-- **Ingress**: If your container app needs to be publicly accessible, then add the parameter `--ingress 'external'` and set `--target-port` equal to the public port for your app.
-
-
-  - To return the fully qualified domain name of your ingress-enabled app, you can add `--query configuration.ingress.fqdn` to the `create` command.
+If you have enabled ingress on your container app, you can add `--query configuration.ingress.fqdn` to the `create` command to return the app's public URL.
 
 ## Verify deployment
 
