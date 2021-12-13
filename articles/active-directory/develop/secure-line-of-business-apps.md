@@ -1,5 +1,5 @@
 ---
-title: Secure line-of-business applications with Zero Trust
+title: Secure line-of-business applications using Zero Trust principles
 titleSuffix: Microsoft identity platform
 description: Learn our recommended approach for securing Identity in the line of business applications you develop using a Zero Trust approach.
 services: active-directory
@@ -18,7 +18,7 @@ ms.reviewer: cchiedo, kylemar, stsoneff
 # Customer intent: I am a technical decision maker (dev or IT pro) creating or maintaining a server-side LOB app. I want architecture-level recommendations on how I can protect my server-side LOB apps using a Zero Trust strategy for Identity
 ---
 
-# Secure identity in line-of-business applications using a Zero Trust approach
+# Secure line-of-business applications using Zero Trust principles
 
 Zero Trust is a framework for organizational security that supports the move from traditional perimeter-based security to one that supports modern work scenarios like remote collaboration and working from home. App developers can adopt Zero Trust principles to improve their app security and ensure the app is ready to be deployed by IT or customers who want secure solutions for modern hybrid work environments. This guidance explains how app developers can implement a Zero Trust strategy in line of business apps with respect to managing identities and access.
 
