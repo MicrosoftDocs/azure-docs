@@ -1,5 +1,5 @@
 ---
-title: Azure Video Analyzer quotas and limitations 
+title: Quotas and limitations 
 description: This article describes Azure Video Analyzer quotas and limitations.
 ms.service: azure-video-analyzer
 ms.topic: conceptual

@@ -7,6 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 11/24/2021
 ms.author: zxue
+ms.custom: mode-api
 ---
 
 # Get started with the FHIR service
@@ -86,7 +87,7 @@ Optionally, you can convert [HL7 v2](../data-transformation/convert-data.md) and
 
 Optionally, you can create Power BI dashboard reports with FHIR data.
 
-- [Power Query connector for FHIR](https://docs.microsoft.com/power-query/connectors/fhir/fhir)
+- [Power Query connector for FHIR](/power-query/connectors/fhir/fhir)
 - [IoT connector and Microsoft Power BI](../iot/iot-connector-power-bi.md)
 
 ## Next steps

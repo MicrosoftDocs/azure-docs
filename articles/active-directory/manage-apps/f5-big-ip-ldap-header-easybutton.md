@@ -1,6 +1,6 @@
 ---
-title: Integrate Azure Active Directory with F5 BIG-IP for Single Sign-on to header-based and LDAP applications
-description: Learn to integrate F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
+title: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO 
+description: Learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -13,11 +13,11 @@ ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Integrate Azure Active Directory with F5 BIG-IP for Single Sign-on to header-based and LDAP applications
+# Tutorial: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO
 
-In this tutorial, you’ll learn to integrate F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
+In this tutorial, you’ll learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 
-Integrating BIG-IP published applications with Azure AD provides many benefits, including:
+Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
 * Improved zero-trust governance through Azure AD pre-authentication and authorization
 
@@ -97,7 +97,7 @@ Prior BIG-IP experience isn't necessary, but you'll need:
 
 There are many methods to deploy BIG-IP for this scenario including a template-driven Guided Configuration wizard, or the manual advanced configuration. This tutorial covers the latest Guided Configuration 16.1 offering an Easy Button template.
 
-With the **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for secure hybrid access. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Multi-Factor Authentication (MFA), without management overhead of having to do on a per app basis. 
+With the **Easy Button**, admins no longer go back and forth between Azure AD and a BIG-IP to enable services for secure hybrid access. The end-to-end deployment and policy management is handled directly between the APM’s Guided Configuration wizard and Microsoft Graph. This rich integration between BIG-IP APM and Azure AD ensures applications can quickly, easily support identity federation, SSO, and Azure AD Multi-Factor Authentication (MFA), without management overhead of having to do on a per app basis. 
 
 For scenarios where the Guided Configuration lacks the flexibility to achieve a particular set of requirements, see the [Advanced deployment](#advanced-deployment) at the end of this tutorial.
 
@@ -265,7 +265,7 @@ In the **Additional User Attributes tab**, you can enable session augmentation r
 
 2. Check the **LDAP Attributes** check box
     
-3. Choose **Create New** in Choose Authenication Server
+3. Choose **Create New** in Choose Authentication Server
 
 4. Depending on your setup, select either **Use pool** or **Direct** Server Connection mode to provide the **Server Address** of the target LDAP service. If using a single LDAP server, choose *Direct*
 

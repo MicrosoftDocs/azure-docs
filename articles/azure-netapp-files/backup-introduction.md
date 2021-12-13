@@ -3,7 +3,7 @@ title: Understand Azure NetApp Files backup | Microsoft Docs
 description: Describes what Azure NetApp Files backup does, supported regions, and the cost model.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/13/2021
-ms.author: b-juche
+ms.author: b-hchen
 ms.custom: references_regions
 ---
 # Understand Azure NetApp Files backup

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.date: 09/19/2018
 ---
 # Manage schema in a SaaS application using the database-per-tenant pattern with Azure SQL Database

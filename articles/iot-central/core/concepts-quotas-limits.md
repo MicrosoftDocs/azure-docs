@@ -32,14 +32,14 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of property updates per second | 100 | This is a soft limit. IoT Central autoscales the application as needed <sup>1</sup>. |
+| Number of property updates per second | 100 | This is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
 | Maximum size of a property | 32 KB | This value is set by the IoT Hub service. |
 
 ## Commands
 
 | Item | Quota or limit | Notes |
 | ---- | -------------- | ----- |
-| Number of command executions per second | 20 | This is a soft limit. IoT Central autoscales the application as needed <sup>1</sup>. |
+| Number of command executions per second | 20 | This is a soft limit. IoT Central autoscales the application as needed<sup>1</sup>. |
 
 ## REST API calls
 
@@ -105,7 +105,7 @@ There are various quotas and limits that apply to IoT Central applications. IoT 
 | Maximum organizations per application| 200 | |
 | Maximum organization hierarchy depth | 5 | |
 
-<sup>1</sup>IoT Central doesn't limit the amount of device-to-cloud, cloud-to-device, property, or command traffic. It has variable throttles based on the application's load profile. If your application starts sending more traffic, IoT Central autoscales to best suit the load profile. You might notice throttling messages for a short period of time until IoT Central completes the autoscale process.
+<sup>1</sup> IoT Central doesn't limit the amount of device-to-cloud, cloud-to-device, property, or command traffic. It has variable throttles based on the application's load profile. If your application starts sending more traffic, IoT Central autoscales to best suit the load profile. You might notice throttling messages for a short period of time until IoT Central completes the autoscale process.
 
 ## Next steps
 
