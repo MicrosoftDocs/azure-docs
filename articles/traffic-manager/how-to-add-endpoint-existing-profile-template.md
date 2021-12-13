@@ -43,13 +43,10 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 1. Select **Try it** from the following code block to open Azure Cloud Shell, and then follow the instructions to sign in to Azure.
 
     ```azurepowershell-interactive
-    $projectName = Read-Host -Prompt "Enter a project name that is used for generating resource names"
-    $location = Read-Host -Prompt "Enter the location (i.e. centralus)"
     $templateUri = "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.network/traffic-manager-add-external-endpoint/azuredeploy.json"
 
-    $resourceGroupName = "${projectName}rg"
+    $resourceGroupName = Read-Host -Prompt "Enter name of resource group of existing traffic manager profile"
 
-    New-AzResourceGroup -Name $resourceGroupName -Location "$location"
     New-AzResourceGroupDeployment -ResourceGroupName $resourceGroupName -TemplateUri $templateUri
 
     Read-Host -Prompt "Press [ENTER] to continue ..."
@@ -92,7 +89,7 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-In this quickstart, you add a endpoint to an existing Traffic Manager profile.
+In this quickstart, you added a endpoint to an existing Traffic Manager profile.
 
 To learn more about routing traffic, continue to the Traffic Manager tutorials.
 
