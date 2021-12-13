@@ -55,7 +55,7 @@ Partitioning needs to enabled and is based on the PARTITION BY clause in the que
 * Analytical Engine - On-demand/ Interactive real-time analytics
 * Streaming + Persistent Store + Query Engine
 * Ingest from Event Hub, IoT Hub, Blob, Data Lake, Kafka, Logstash, Spark, ADF, …
-* 10sec-5 min latency – recommended for high throughput workload
+* 10 seconds to 5 minutes latency for high throughput workloads
 * Simple data transformation can be done with update policy during ingestion
 
 You can significantly grow the scope of real time analytics by leveraging ASA and ADX together. Below are a few scenarios:
