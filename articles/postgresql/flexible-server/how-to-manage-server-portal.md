@@ -5,14 +5,13 @@ author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 11/15/2021
+ms.date: 11/30/2021
 ms.custom: mvc
 ---
 
 # Manage an Azure Database for PostgreSQL - Flexible Server using the Azure portal
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 This article shows you how to manage your Azure Database for PostgreSQL - Flexible Server. Management tasks include compute and storage scaling, admin password reset, and viewing server details.
 

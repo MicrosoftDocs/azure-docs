@@ -6,7 +6,7 @@ author: michalmar
 ms.service: data-science-vm
 
 ms.author: mimarusa
-ms.date: 10/11/2021
+ms.date: 12/06/2021
 ms.topic: reference
 ---
 
@@ -15,6 +15,23 @@ ms.topic: reference
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
+
+## December 3, 2021
+
+New image for [Windows Server 2019](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.dsvm-win-2019?tab=Overview).
+
+Version: 21.12.03
+
+Main changes:
+
+- Updated pytorch to version 1.10.0
+- Updated tensorflow to version 2.7.0
+- Fix for Azure Machine Learning SDK & AutoML environment
+- Windows Security update
+- Improvement of stability and minor bug fixes 
+
+
+
 
 ## November 4, 2021
 

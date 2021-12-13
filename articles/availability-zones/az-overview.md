@@ -34,7 +34,7 @@ You can build high availability into your application architecture by using Azur
 
 Azure *availability zones-enabled services* are designed to provide the right level of resiliency and flexibility. They can be configured in two ways. They can be either *zone redundant*, with automatic replication across zones, or *zonal*, with instances pinned to a specific zone. You can also combine these approaches.
 
-Some organizations require high availability of availability zones and protection from large-scale phenomena and regional disasters. Azure regions are designed to offer protection against localized disasters with availability zones and protection from regional or large geography disasters with disaster recovery, by making use of another region. To learn more about business continuity, disaster recovery, and cross-region replication, see [Cross-region replication in Azure](../best-practices-availability-paired-regions.md).
+Some organizations require high availability of availability zones and protection from large-scale phenomena and regional disasters. Azure regions are designed to offer protection against localized disasters with availability zones and protection from regional or large geography disasters with disaster recovery, by making use of another region. To learn more about business continuity, disaster recovery, and cross-region replication, see [Cross-region replication in Azure](../availability-zones/cross-region-replication-azure.md).
 
 ![Image showing availability zones that protect against localized disasters and regional or large geography disasters by using another region.](media/availability-zones-region-geography.png)
 
@@ -45,7 +45,7 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | Americas | Europe | Africa | Asia Pacific |
 |--------------------|----------------------|---------------------|----------------|
 | Brazil South | France Central | South Africa North | Australia East |
-| Canada Central | Germany West Central | | Central India\* |
+| Canada Central | Germany West Central | | Central India |
 | Central US | North Europe | | Japan East |
 | East US | Norway East | | Korea Central |
 | East US 2 | UK South | | Southeast Asia |
@@ -53,8 +53,6 @@ Azure provides the most extensive global footprint of any cloud provider and is 
 | US Gov Virginia | Sweden | | |
 | West US 2 | | | |
 | West US 3 | | | |
-
-\* To learn more about availability zones and available services support in these regions, contact your Microsoft sales or customer representative. For the upcoming regions that will support availability zones, see [Azure geographies](https://azure.microsoft.com/global-infrastructure/geographies/).
 
 ## Next steps
 

@@ -33,7 +33,7 @@ To add or deactivate custom security attributes, you must have:
 
 ## Add an attribute set
 
-An attribute set is a group of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
+An attribute set is a collection of related attributes. All custom security attributes must be part of an attribute set. Attribute sets cannot be renamed or deleted.
 
 1. Sign in to the [Azure portal](https://portal.azure.com) or [Azure AD admin center](https://aad.portal.azure.com).
 

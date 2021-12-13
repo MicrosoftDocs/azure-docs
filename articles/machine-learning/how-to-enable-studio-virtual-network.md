@@ -51,7 +51,8 @@ In this article, you learn how to:
 > * [Secure the inference environment](how-to-secure-inferencing-vnet.md)
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
-
+>
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 ## Prerequisites
 
@@ -66,12 +67,6 @@ In this article, you learn how to:
 ## Limitations
 
 ### Azure Storage Account
-
-* There's a known issue where the default file store does not automatically create the `azureml-filestore` folder, which is required to submit AutoML experiments. This problem occurs when users bring an existing file store to set as the default file store during workspace creation.
-
-    To avoid this issue, you have two options: 1) Use the default file store, which is automatically created for you doing workspace creation. 2) To bring your own file store, make sure the file store is outside of the VNet during workspace creation. After the workspace is created, add the storage account to the virtual network.
-
-    To resolve this issue, remove the file store account from the virtual network then add it back to the virtual network.
 
 * When the storage account is in the VNet, there are extra validation requirements when using studio:
 

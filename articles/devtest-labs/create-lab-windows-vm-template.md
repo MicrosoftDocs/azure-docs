@@ -2,8 +2,8 @@
 title: Create a lab in Azure DevTest Labs by using an Azure Resource Manager template
 description: In this quickstart, you create a lab in Azure DevTest Labs by using an Azure Resource Manager template (ARM template). A lab admin sets up a lab, creates VMs in the lab, and configures policies.
 ms.topic: quickstart
-ms.custom: subject-armqs
-ms.date: 10/29/2021
+ms.custom: subject-armqs, mode-arm
+ms.date: 12/10/2021
 ---
 
 # Quickstart: Use an ARM template to create a lab in DevTest Labs
