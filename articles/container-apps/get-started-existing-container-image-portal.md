@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 12/09/2021
+ms.date: 12/13/2021
 ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
@@ -35,7 +35,7 @@ To create your container app, start at the Azure portal home page.
 1. Select **Container Apps** in the search results.
 1. Select the **Create** button.
 
-### Basics Tab
+### Basics tab
 
 In the *Basics* tab, do the following actions.
 
@@ -47,7 +47,7 @@ In the *Basics* tab, do the following actions.
 | Resource group | Select **Create new** and enter **my-container-apps**. |
 | Container app name |  Enter **my-container-app**. |
 
-#### Create an Environment
+#### Create an environment
 
 1. In the *Create Container App environment* field, select **Create new**.
 1. In the *Create Container App Environment* page on the *Basics* tab, enter the following values:
@@ -67,7 +67,7 @@ In the *Basics* tab, do the following actions.
 1. Select the **Create** button at the bottom of the *Create Container App Environment* page.
 1. Select the **Next: App settings** button at the bottom of the page.
 
-### App Settings Tab
+### App settings tab
 
 In the *App settings* tab, do the following actions:
 
@@ -77,7 +77,6 @@ In the *App settings* tab, do the following actions:
 | Use quickstart image | **Uncheck** the checkbox. |
 | Name | Enter **my-portal-app**. |
 | Image source | Select your container image repository source. If your container is hosted in a registry other than **Azure Container Registry**, select **Docker Hub or other registries**. |
-| Registry login server | Enter the domain (including subdomain) of your container registry. |
 | Image type | Select **Private**. |
 | Registry login server | Enter the domain (including subdomain) of your container registry. |
 | Registry user name | Enter your user name for the registry. |
@@ -109,7 +108,7 @@ If you enabled ingress, configure the following settings:
 | Ingress visibility | Select **Internal** to only allow ingress from other apps in the same virtual network, and select **External** to publicly expose your container app. |
 | Target port | Enter the port you want to expose your container app. |
 
-### Deploying the Container App
+### Deploy the container app
 
 1. Select the **Review and create** button at the bottom of the page.  
 
@@ -121,12 +120,19 @@ If you enabled ingress, configure the following settings:
 
     A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message: *Your deployment is complete*.
 
-### View Your deployed application
+### Verify deployment
 
 1. Select **Go to resource** to view your new container app.
 1. Select **Logs** under the *Monitoring* header.
-1. Under *All Queries*, select **Containers**.
-1. Select the example query labeled *Image inventory*, and select **Run**
+1. Select **Run** from any of the cards.
+1. Replace the generated code with the following query:
+
+    ```text
+    ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated
+    ```
+
+1. Select the **Run** button.
+1. Inspect the results in the table.
 
 ## Clean up resources
 

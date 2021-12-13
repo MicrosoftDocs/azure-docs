@@ -32,7 +32,7 @@ To create your container app, start at the Azure portal home page.
 1. Select **Container Apps** in the search results.
 1. Select the **Create** button.
 
-### Basics Tab
+### Basics tab
 
 In the *Basics* tab, do the following actions.
 
@@ -44,7 +44,7 @@ In the *Basics* tab, do the following actions.
 | Resource group | Select **Create new** and enter **my-container-apps**. |
 | Container app name |  Enter **my-container-app**. |
 
-#### Create an Environment
+#### Create an environment
 
 1. In the *Create Container App environment* field, select **Create new**.
 1. In the *Create Container App Environment* page on the *Basics* tab, enter the following values:
@@ -54,7 +54,9 @@ In the *Basics* tab, do the following actions.
     | Environment name | Enter **my-environment**. |
     | Region | Select **Canada Central**. |
 
-### Deploying the Container App
+Now that can deploy the container app using the sample container image.
+
+### Deploy the container app
 
 1. Select the **Review and create** button at the bottom of the page.  
 
@@ -66,7 +68,7 @@ In the *Basics* tab, do the following actions.
 
     A page with the message *Deployment is in progress* is displayed.  Once the deployment is successfully completed, you'll see the message: *Your deployment is complete*.
 
-### View Your deployed application
+### Verify deployment
 
 Select **Go to resource** to view your new container app.  Select the link next to *Application URL* to view your application. You'll see the following message in your browser.
 

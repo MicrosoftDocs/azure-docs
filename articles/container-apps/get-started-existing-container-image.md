@@ -236,10 +236,9 @@ az containerapp create \
   --resource-group $RESOURCE_GROUP \
   --image $CONTAINER_IMAGE_NAME \
   --environment $CONTAINERAPPS_ENVIRONMENT \
-  --secrets registrypassword=$REGISTRY_PASSWORD \
   --registry-login-server $REGISTRY_LOGIN_SERVER \
   --registry-username $REGISTRY_USERNAME \
-  --registry-password registrypassword 
+  --registry-password $REGISTRY_PASSWORD
 ```
 
 # [PowerShell](#tab/powershell)
@@ -259,10 +258,9 @@ az containerapp create `
   --resource-group $RESOURCE_GROUP `
   --image $CONTAINER_IMAGE_NAME `
   --environment $CONTAINERAPPS_ENVIRONMENT `
-  --secrets mypassword=verysecurepassword `
   --registry-login-server $REGISTRY_LOGIN_SERVER `
   --registry-username $REGISTRY_USERNAME `
-  --registry-password registrypassword 
+  --registry-password $REGISTRY_PASSWORD 
 ```
 
 ---
@@ -312,7 +310,7 @@ Use the following CLI command to view logs for your container app.
 ```azurecli
 az monitor log-analytics query \
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" \
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated" \
   --out table
 ```
 
@@ -321,23 +319,11 @@ az monitor log-analytics query \
 ```azurecli
 az monitor log-analytics query `
   --workspace $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
-  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'nodeapp' and (Log_s contains 'persisted' or Log_s contains 'order') | project ContainerAppName_s, Log_s, TimeGenerated | take 5" `
+  --analytics-query "ContainerAppConsoleLogs_CL | where ContainerAppName_s == 'my-container-app' | project ContainerAppName_s, Log_s, TimeGenerated" `
   --out table
 ```
 
 ---
-
-The following output demonstrates the type of response to expect from the CLI command.
-
-```console
-ContainerAppName_s    Log_s                            TableName      TimeGenerated
---------------------  -------------------------------  -------------  ------------------------
-nodeapp               Got a new order! Order ID: 61    PrimaryResult  2021-10-22T21:31:46.184Z
-nodeapp               Successfully persisted state.    PrimaryResult  2021-10-22T21:31:46.184Z
-nodeapp               Got a new order! Order ID: 62    PrimaryResult  2021-10-22T22:01:57.174Z
-nodeapp               Successfully persisted state.    PrimaryResult  2021-10-22T22:01:57.174Z
-nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22T22:45:44.618Z
-```
 
 ## Clean up resources
 
