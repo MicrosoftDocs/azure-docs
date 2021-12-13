@@ -60,7 +60,7 @@ pip install azure-ai-formrecognizer==3.2.0b2
 
 ### Create a new Python application
 
-Create a new Python application called **form_recognizer_quickstart.py** in your preferred editor or IDE. Then import the following libraries:
+Create a new Python file called **form_recognizer_quickstart.py** in your preferred editor or IDE. Then import the following libraries:
 
 ```python
 import os
@@ -69,7 +69,7 @@ from azure.ai.formrecognizer import DocumentAnalysisClient
 from azure.core.credentials import AzureKeyCredential
 ```
 
-### Create variables for your Azure resource endpoint and key
+### Create variables for your Azure resource API endpoint and key
 
 ```python
 endpoint = "YOUR_FORM_RECOGNIZER_ENDPOINT"
@@ -99,7 +99,7 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 > [!IMPORTANT]
 >
-> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
+> Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. For more information, *see* Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md).
 
 ## General document model
 
@@ -107,9 +107,9 @@ key = "YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY"
 
 > [!div class="checklist"]
 >
-> * For this example, you'll need a **form document file from a URl**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * To analyze a given file at a URI, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-document` as the model Id. The returned value is a `result` object containing data about the submitted document.
-> * We've added the file URI value to the `docUrl` variable in the `analyze_general_documents` function.
+> * For this example, you'll need a **form document file from a URL**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
+> * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-document` as the model Id. The returned value is a `result` object containing data about the submitted document.
+> * We've added the file URL value to the `docUrl` variable in the `analyze_general_documents` function.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
 ##### Add the following code to your general document application on a line below the `key` variable
@@ -244,8 +244,8 @@ if __name__ == "__main__":
 > [!div class="checklist"]
 >
 > * For this example, you'll need a **form document file from a URL**. You can use our [sample form document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf) for this quickstart.
-> * We've added the file URI value to the `formUrl` variable in the `analyze_layout` function.
-> * To analyze a given file at a URI, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
+> * We've added the file URL value to the `formUrl` variable in the `analyze_layout` function.
+> * To analyze a given file at a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-layout` as the model Id. The returned value is a `result` object containing data about the submitted document.
 
 ### Add the following code to your layout application on the line below the `key` variable
 
@@ -364,7 +364,7 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 > [!div class="checklist"]
 >
 > * For this example, we wll analyze an invoice document using a prebuilt model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
-> * We've added the file URl value to the `invoiceUrl` variable to the `analyze_invoice` function.
+> * We've added the file URL value to the `invoiceUrl` variable to the `analyze_invoice` function.
 > * To analyze a given file from a URL, you'll use the `begin_analyze_document_from_url` method and pass in `prebuilt-invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
@@ -656,7 +656,9 @@ if __name__ == "__main__":
 python form_recognizer_quickstart.py
 ```
 
-Congratulations! In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn more about Form Recognizer v3.0 API.
+That's it, congratulations! 
+
+In this quickstart, you used the Form Recognizer Python SDK to analyze various forms in different ways. Next, explore the reference documentation to learn more about Form Recognizer v3.0 API.
 
 ## Next steps
 
