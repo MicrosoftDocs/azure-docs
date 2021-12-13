@@ -98,6 +98,8 @@ In the Product Catalog, always-available services are listed as "non-regional" s
 | Virtual Machines: [FS-Series](../virtual-machines/windows/create-powershell-availability-zone.md)  | ![An icon that signifies this service is zonal.](media/icon-zonal.svg)  |
 | Virtual Machines: [Shared Image Gallery](../virtual-machines/shared-image-galleries.md#make-your-images-highly-available)  | ![An icon that signifies this service is zone redundant.](media/icon-zone-redundant.svg)  |
 
+\*VMs that support availability zones: AV2-series, B-series, DSv2-series, DSv3-series, Dv2-series, Dv3-series, ESv3-series, Ev3-series, F-series, FS-series, FSv2-series, and M-series.\*
+
 ### ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream services
 
 | **Products**   | **Resiliency**   |
