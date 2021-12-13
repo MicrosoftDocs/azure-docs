@@ -97,7 +97,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
 | - | - | - | - |
 | Root domain | contoso.com | [A record](https://en.wikipedia.org/wiki/List_of_DNS_record_types#A). Don't use the CNAME record for the root record (for information, see [RFC 1912 Section 2.4](https://datatracker.ietf.org/doc/html/rfc1912#section-2.4)). |
 | Subdomain | www.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). You can map a subdomain to the app's IP address directly with an A record, but it's possible for [the IP address to change](overview-inbound-outbound-ips.md#when-inbound-ip-changes). The CNAME maps to the app's default hostname instead, which is less susceptible to change. | 
-| Wildcard | *.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). [The verification ID you got earlier](#3-get-a-domain-verification-id) |
+| Wildcard | *.contoso.com | [CNAME record](https://en.wikipedia.org/wiki/CNAME_record). |
 # [A](#tab/a)
 
 - For a root domain like `contoso.com`, create two records according to the following table:
