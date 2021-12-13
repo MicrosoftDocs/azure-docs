@@ -86,7 +86,7 @@ The first time you use Cloud Shell in the portal, select **Bash** in the **Welco
 
 ## Sign in to Azure
 
-Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription. Sign in to Azure using the appropriate subscription.
+Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription, replacing `<Subscription ID>` with your Azure Subscription ID.
 
 ```azurecli-interactive
 subscription="<subscriptionId>" # add subscription here
@@ -154,7 +154,7 @@ The first time you use Cloud Shell in the portal, select **Bash** in the **Welco
 
 ## Sign in to Azure
 
-Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription. Sign in to Azure using the appropriate subscription. In the code, replace `<Subscription ID>` with your Azure Subscription ID.
+Cloud Shell is automatically authenticated under the initial account signed-in with. Sign in to Azure using the appropriate subscription. In the code, replace  `<Subscription ID>` with your Azure Subscription ID.
 
 ```azurecli-interactive
 subscription="<subscriptionId>" # add subscription here
@@ -166,7 +166,9 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 
 ## Set parameter values
 
-The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
+The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
+
+Change the location as appropriate for your environment. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-18":::
 
@@ -198,14 +200,14 @@ This command creates and configures a [logical server](logical-servers.md) for A
 2. A server firewall rule is automatically created. If the server declines your IP address, create a new firewall rule using the `az sql server firewall-rule create` command and specifying appropriate start and end IP addresses.
 
     ```azurecli
-    startIP=0.0.0.0
-    endIP=0.0.0.0
+    startIp=0.0.0.0
+    endIp=0.0.0.0
     az sql server firewall-rule create \
         --resource-group $resourceGroup \
         --server $server \
         -n AllowYourIp \
-        --start-ip-address $startip \
-        --end-ip-address $endip
+        --start-ip-address $startIp \
+        --end-ip-address $endIp
 
     ```
 
