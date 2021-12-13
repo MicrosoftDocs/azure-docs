@@ -20,8 +20,8 @@ The Microsoft CloudKnox Permissions Management Sentry is an agent for monitored 
 
 CloudKnox can be deployed in two ways:
 
-- *Read Only* (Controller Disabled), which only collects information about the account.
-- *Controller Enabled*, which allows the CloudKnox Sentry to make changes to identity and access management (IAM) roles, policies, and users.
+- *Read only* (controller disabled), which only collects information about the account.
+- *Controller enabled*, which allows the CloudKnox Sentry to collect information and make changes to identity and access management (IAM) roles, policies, and users.
 
 To provide visibility and insights, the CloudKnox Sentry collects information from a many sources. To help list resource information, for example, to catalog ec2 instances and s3 buckets, it uses *Read*, *List*, and *Describe* privileges.
 
@@ -48,7 +48,7 @@ Outbound traffic is only received on port 443, and makes API calls to AWS, Cloud
 | Traffic      | Port | Description                                                                                               |
 | ------------ | ---- | --------------------------------------------------------------------------------------------------------- |
 | TCP Inbound  | 9000 | Used for configuration. </p>Request this information from the administrators' source IP only when you're configuring your system. |
-| TCP Outbound | 443  | Used for API Calls to AWS and CloudKnox, and for identity provider (IDP) integration.                                              |
+| TCP Outbound | 443  | Used for API calls to AWS and CloudKnox, and for identity provider (IDP) integration.                            |
 
 ## Multi-account collection from one Sentry instance
 

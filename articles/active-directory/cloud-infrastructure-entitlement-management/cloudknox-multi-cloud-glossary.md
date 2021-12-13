@@ -31,7 +31,7 @@ This glossary provides a list of some of the commonly used multi-cloud terms at 
 | IGAM	                | Identity Governance and Access Management      |
 | JEP	                | Just Enough Permissions      |
 | JEP Controller	    | The Just Enough Privilege (JEP) Controller tab. It contains all the permission management features.    |
-| JIT	                | Just in time    |
+| JIT	                | Just in Time    |
 | Multi-cloud	        | Multi-cloud is a phrase often said in the “tech world”, and it’s here to stay, at least for the foreseeable future. Embracing and learning the multi-cloud lingo is beneficial for practitioners, c-levels, and everyone in-between.      |
 | Multi-tenant	        | Multi-tenancy means that a single instance of the software and its supporting infrastructure serves multiple customers. Each customer shares the software application and also shares a single database.	                |
 | PAM	                | Privileged Access Management     |
