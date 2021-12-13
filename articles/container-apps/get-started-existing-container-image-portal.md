@@ -1,6 +1,6 @@
 ---
-title: Deploy your first container app with an existing container image
-description: Deploy your first application with an existing container image to Azure Container Apps Preview.
+title: Deploy your first container app with an existing container image in the Azure portal
+description: Deploy your first application with an existing container image to Azure Container Apps Preview using the Azure portal.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
@@ -10,7 +10,7 @@ ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
 
-# Deploy your first container app with an existing container image
+# Deploy your first container app with an existing container image in the Azure portal
 
 Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
@@ -71,23 +71,31 @@ In the *Basics* tab, do the following actions.
 
 In the *App settings* tab, do the following actions:
 
+::: zone pivot="container-apps-private-registry"
 | Setting | Action |
 |---|---|
 | Use quickstart image | **Uncheck** the checkbox. |
 | Name | Enter **my-portal-app**. |
 | Image source | Select your container image repository source. If your container is hosted in a registry other than **Azure Container Registry**, select **Docker Hub or other registries**. |
 | Registry login server | Enter the domain (including subdomain) of your container registry. |
-::: zone pivot="container-apps-private-registry"
 | Image type | Select **Private**. |
 | Registry login server |  |
 | Registry user name |  |
 | Registry password |  |
 | Image and tag |  |
-::: zone-end
-::: zone pivot="container-apps-public-registry"
-| Image type | Select **Public**. |
-::: zone-end
 | Image and tag | Enter **/azuredocs/containerapps-helloworld:latest**. |
+::: zone-end
+
+::: zone pivot="container-apps-public-registry"
+| Setting | Action |
+|---|---|
+| Use quickstart image | **Uncheck** the checkbox. |
+| Name | Enter **my-portal-app**. |
+| Image source | Select your container image repository source. If your container is hosted in a registry other than **Azure Container Registry**, select **Docker Hub or other registries**. |
+| Registry login server | Enter the domain (including subdomain) of your container registry. |
+| Image type | Select **Public**. |
+| Image and tag | Enter **/azuredocs/containerapps-helloworld:latest**. |
+::: zone-end
 
 #### Application ingress settings
 
@@ -95,11 +103,11 @@ In the *App settings* tab, do the following actions:
 |---|---|
 | Ingress | Select **Enabled** or **Disabled**. |
 
-    If you enabled ingress, configure the following settings:
+If you enabled ingress, configure the following settings:
 
-    | Setting | Action |
-    | Ingress visibility | Select **Internal** to only allow ingress from other apps in the same virtual network, and select **External** to publicly expose your container app. |
-    | Target port | Enter the port you want to expose your container app. |
+| Setting | Action |
+| Ingress visibility | Select **Internal** to only allow ingress from other apps in the same virtual network, and select **External** to publicly expose your container app. |
+| Target port | Enter the port you want to expose your container app. |
 
 ### Deploying the Container App
 
