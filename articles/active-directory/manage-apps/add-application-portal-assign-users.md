@@ -12,8 +12,8 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-# Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.
 ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.
 ---
 
 # Quickstart: Create and assign a user account
