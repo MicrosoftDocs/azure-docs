@@ -82,7 +82,7 @@ Each change resource has the following properties:
 - **targetResourceId** - The resourceID of the resource on which the change occurred.
  - **targetResourceType** - The resource type of the resource on which the change occurred.
 - **changeType** - Describes the type of change detected for the entire change record. Values are: _Create_, _Update_, and _Delete_. The
-  **changes** property dictionary is only included when **changeType** is _Update_.
+  **changes** property dictionary is only included when **changeType** is _Update_. In the case of _Delete_, the change resource will still be maintained as an extension of the deleted resource for 14 days, even in the case of Resource group delete. This will not block deletions or impact any existing delete behavior.
 
 
 - **changes** - Dictionary of the resource properties (with property name as the key) that were updated as part of the change:
