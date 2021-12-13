@@ -153,6 +153,8 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 ## 5. Enable the mapping in your app
 
+# [A](#tab/a)
+
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
 
     ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
@@ -161,9 +163,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     ![Screenshot that shows the Add host name item.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-# [A](#tab/a)
-
-3. Type the fully qualified domain name that you configured the A record for, such as `contoso.com`. 
+1. Type the fully qualified domain name that you configured the A record for, such as `contoso.com`. 
 
 1. Select **Validate**. The **Add custom domain** page is shown.
 
@@ -184,7 +184,15 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 # [CNAME](#tab/cname)
 
-3. Type the fully qualified domain name that you added a CNAME record for, such as `www.contoso.com`.
+1. In the left pane of the app page in the Azure portal, select **Custom domains**.
+
+    ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+
+1. Select **Add custom domain**.
+
+    ![Screenshot that shows the Add host name item.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+
+1. Type the fully qualified domain name that you added a CNAME record for, such as `www.contoso.com`.
 
 1. Select **Validate**. The **Add custom domain** page appears.
 
@@ -206,7 +214,15 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
     
 # [Wildcard (CNAME)](#tab/wildcard)
 
-3. Type a fully qualified domain name that matches the wildcard domain. For example, for the example `*.contoso.com`, you can use `sub1.contoso.com`, `sub2.contoso.com`, `*.contoso.com`, or any other string that matches the wildcard pattern. Then, select **Validate**.
+1. In the left pane of the app page in the Azure portal, select **Custom domains**.
+
+    ![Screenshot that shows the Custom domains menu.](./media/app-service-web-tutorial-custom-domain/custom-domain-menu.png)
+
+1. Select **Add custom domain**.
+
+    ![Screenshot that shows the Add host name item.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
+
+1. Type a fully qualified domain name that matches the wildcard domain. For example, for the example `*.contoso.com`, you can use `sub1.contoso.com`, `sub2.contoso.com`, `*.contoso.com`, or any other string that matches the wildcard pattern. Then, select **Validate**.
 
     The **Add custom domain** button is activated.
 
