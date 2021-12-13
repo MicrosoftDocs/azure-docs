@@ -40,7 +40,7 @@ Monitor.
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> Resource configuration changes is in Public Preview.
+> Resource configuration changes is in Public Preview and only supports changes to resoruce types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Management groups, Subscriptions, and Resource groups.
 
 ## Find detected change events and view change details
 
@@ -90,7 +90,7 @@ Each change resource has the following properties:
     Values are: _Insert_, _Update_, _Remove_.
   - **previousValue** - The value of the resource property in the previous snapshot. Value is _null_ when **changeType** is _Insert_.
   - **newValue** - The value of the resource property in the new snapshot. Value is _null_ when **changeType** is _Remove_.
-  - **changeCategory** - Describes the property and the category of changes it accepts. Values are: _System_ and _User_.
+  - **changeCategory** - Describes if the property change was the result of a change in value (_User_) or a difference in referenced API versions (_System_). Values are: _System_ and _User_.
 
 - **changeAttributes** - Array of metadata related to the change:
   - **changesCount** - The number of properties changed as part of this change record.
