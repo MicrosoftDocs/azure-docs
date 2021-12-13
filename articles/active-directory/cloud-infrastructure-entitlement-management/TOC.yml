@@ -37,6 +37,7 @@
       href: cloudknox-product-data-sources.md
   - name: Reports 
     expanded: true
+    items: 
     - name: The Permissions Analytics report
       href: cloudknox-product-permissions-analytics-reports.md
   #- name: Concepts
