@@ -79,7 +79,7 @@ It's important to note the limitations of Observed People Tracing, to avoid or m
 * The recommended frame rate —at least 30 FPS. 
 * Recommended video input should contain up to 10 people in a single frame. The feature could work with more people in a single frame, but the detection result retrieves up to 10 people in a frame with the detection highest confidence. 
 * People with similar clothes (for example, people wear uniforms, players in sport games) could be detected as the same person with the same ID number. 
-* Occlusions – there maybe errors where there are occlusions (scene/self or occlusions by other people).
+* Abstructions – there maybe errors where there are abstructions (scene/self or abstructions by other people).
 * Pose: The tracks may be split due to different poses (back/front)       
 
 ## Next steps
