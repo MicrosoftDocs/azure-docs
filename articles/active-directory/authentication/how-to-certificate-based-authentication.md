@@ -148,7 +148,7 @@ To enable the certificate-based authentication and configure user bindings in th
  
    Default binding (use if no binding explicitly configured) 
    - SAN Principal Name -> User Principal Name 
- 
+
  
 1. To create a rule by Policy OID, make sure to select **Policy OID**.
    1. Enter a value for **Policy OID**.
@@ -292,7 +292,7 @@ No, CDP supports only http URLs.
 
 **Why do I get an error dialog “Your account or password is incorrect” when I try to do Certificate-based authentication?**
 
-This error happens when we are not able to find a unique user from the certificate fields. Please make sure user bindings are set correctly.
+This error happens when we are not able to find a unique user from the certificate fields. Make sure user bindings are set correctly.
 
 **Why do I get an error dialog “Sign-in was blocked due to User Credential Policy” when I use the correct certificate?**
 
