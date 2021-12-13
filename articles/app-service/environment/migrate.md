@@ -25,6 +25,8 @@ At this time, ASE migrations to v3 are supported for both [Internal Load Balance
 - UK South
 - Germany West Central
 - East Asia
+- Australia East
+- Australia Southeast
 
 You can find the version of your ASE by navigating to your ASE in the [Azure portal](https://portal.azure.com) and selecting **Configuration** under **Settings** on the left-hand side. You can also use [Azure Resource Explorer](https://resources.azure.com/) and review the value of the `kind` property for your ASE.
 
