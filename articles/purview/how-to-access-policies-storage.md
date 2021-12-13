@@ -112,9 +112,9 @@ This section describes the steps to create a new policy in Azure Purview.
 
     :::image type="content" source="./media/how-to-access-policies-storage/create-new-policy.png" alt-text="Image shows how a data owner can create a new policy statement.":::
 
-1. Select the **Effect** button and choose Allow from the drop-down list.
+1. Select the **Effect** button and choose *Allow* from the drop-down list.
 
-1. Select the **Action** button and choose Read or Modify from the drop-down list.
+1. Select the **Action** button and choose *Read* or *Modify* from the drop-down list.
 
 1. Select the **Data Resources** button to bring up the options to provide the data asset path, which will open on the right.
 
