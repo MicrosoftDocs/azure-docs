@@ -128,7 +128,7 @@ While you're in the *index.ts* file, select the F5 key to open the debugger.
 
 To speed up the polling of long running operations from the default of 30s down to a couple of seconds, you need to set the *longRunningOperationUpdateIntervalMs* and pass this value to the *updateIntervaleInMs* property of the options parameter on createAndWait() operations when using liveEvents. This can be seen throughout the sample.  This sample uses a value of 2000 ms (2 seconds). This change reduces the time it takes to poll for the status of a long-running operation on the Azure Resource Manager endpoint. It will shorten the time to complete major operations like creating live events, starting, and stopping, which are all asynchronous calls. We recommend a value of 2 seconds for most scenarios that are time sensitive.
 
-[!code-typescript[Main](../../../media-services-v3-node-tutorials/Live/Stnadard_Passthrough_Live_Event/index.ts#LongRunningOperation)]
+[!code-typescript[Main](../../../media-services-v3-node-tutorials/Live/Standard_Passthrough_Live_Event/index.ts#LongRunningOperation)]
 
 ### Create a live event
 
