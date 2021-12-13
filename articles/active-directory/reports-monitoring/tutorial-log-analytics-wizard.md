@@ -1,5 +1,5 @@
 ---
-title: Configure the log analytics wizard in Azure AD | Microsoft Docs
+title: Configure a log A=analytics workspace in Azure AD | Microsoft Docs
 description: Learn how to configure log analytics.
 
 services: active-directory
