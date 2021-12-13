@@ -44,13 +44,8 @@ To work with Azure Media Services using Python, you need to install these module
 
 Open a command-line tool and use the following commands to install the modules.
 
-<<<<<<< HEAD
-```
-pip3 install azure-mgmt-resource
-=======
 ```cmd
 pip3 install azure-identity
->>>>>>> 7eb65dcd15f97658dfe5c683665d27a397955cf2
 pip3 install azure-mgmt-media
 ```
 
@@ -58,39 +53,6 @@ pip3 install azure-mgmt-media
 
 1. Create a file with a `.py` extension
 1. Open the file in your favorite editor
-<<<<<<< HEAD
-1. Add the code that follows to the file. The code imports the required modules and creates the Active Directory credentials object you need to connect to Media Services.
-
-      Set the variables' values to the values you got from [Access APIs](./access-api-howto.md). Update the `ACCOUNT_NAME` and `RESOUCE_GROUP_NAME` variables to the Media Services account name and Resource Group names used when creating those resources.
-
-      ```python
-        # Tenant ID for your Azure Subscription
-        TENANT_ID = "(redacted)"
-        # Your Client ID of your Service Principal application
-        CLIENT_ID = "(redacted)"
-        # Your Service Principal secret key
-        CLIENT_SECRET = "(redacted)"
-        # Your Azure Subscription ID
-        SUBSCRIPTION_ID = "(redacted)"
-        # Your Azure Media Service account name
-        ACCOUNT_NAME = "(redacted)"
-        # Your Resource Group name
-        RESOURCE_GROUP_NAME = "(redacted)"
-
-        credentials = ClientSecretCredential(TENANT_ID, CLIENT_ID, CLIENT_SECRET)
-
-        # The Azure Media Services Client
-
-        client = AzureMediaServices(credentials, SUBSCRIPTION_ID)
-
-        # Now that you are authenticated, you can manipulate the entities.
-        # For example, list assets in your Media Services account
-        assets = client.assets.list(RESOURCE_GROUP_NAME, ACCOUNT_NAME)
-
-        for i, r in enumerate(assets):
-        print(r)
-      ```
-=======
 1. Add the the following code to the file. The code imports the required modules and creates the Active Directory credentials object you need to connect to Media Services.
 
       Set the variables' values to the values you got from [Access APIs](./access-api-howto.md). Update the `ACCOUNT_NAME` and `RESOURCE_GROUP_NAME` variables to the Media Services account name and Resource Group names used when creating those resources.
@@ -129,7 +91,6 @@ pip3 install azure-mgmt-media
     for i, r in enumerate(assets):
         print(r)
     ```
->>>>>>> 7eb65dcd15f97658dfe5c683665d27a397955cf2
 
 1. Run the file
 

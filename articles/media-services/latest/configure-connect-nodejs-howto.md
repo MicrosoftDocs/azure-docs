@@ -55,7 +55,7 @@ For this example, you will use the following packages in the `package.json` file
 |Package|Description|
 |---|---|
 |`@azure/arm-mediaservices`|Azure Media Services SDK. <br/>To make sure you are using the latest Azure Media Services package, check [npm install @azure/arm-mediaservices](https://www.npmjs.com/package/@azure/arm-mediaservices).|
-|`@azure/identity` | Required for AAD authentication using Service Principal or Managed Identity|
+|`@azure/identity` | Required for Azure AD authentication using Service Principal or Managed Identity|
 |`@azure/storage-blob`|Storage SDK. Used when uploading files into assets.|
 |`@azure/abort-controller`| Used along with the storage client to time out long running download operations|
 
@@ -96,7 +96,7 @@ AADCLIENTID="00000000-0000-0000-0000-000000000000"
 AADSECRET="00000000-0000-0000-0000-000000000000"
 AADTENANTID="00000000-0000-0000-0000-000000000000"
 
-# Change this to match your AAD Tenant domain name. 
+# Change this to match your Azure AD Tenant domain name. 
 AADTENANTDOMAIN="microsoft.onmicrosoft.com"
 
 # Set this to your Media Services Account name, resource group it is contained in, and location

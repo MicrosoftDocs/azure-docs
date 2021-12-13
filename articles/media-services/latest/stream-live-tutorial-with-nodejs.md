@@ -133,7 +133,7 @@ To speed up the polling of long running operations from the default of 30s down 
 ### Create a live event
 
 This section shows how to create a standard *pass-through* type of live event (`LiveEventEncodingType` set to `PassthroughStandard`). For information about the available types, see [Live event types](live-event-outputs-concept.md#live-event-types). In addition to basic or standard pass-through, you can use a live encoding event for 720p or 1080p adaptive bitrate cloud encoding.
-Examples of each of these types of events is available in the *Live* folder of the sample repository. In addition, a sample demonstrating how to listen to Event Grid events through an Azure Event Hub is also included. 
+Examples of each of these types of events is available in the *Live* folder of the sample repository. In addition, a sample demonstrating how to listen to Event Grid events through Event Hubs is also included.
 
 You might want to specify the following things when you're creating the live event:
 
