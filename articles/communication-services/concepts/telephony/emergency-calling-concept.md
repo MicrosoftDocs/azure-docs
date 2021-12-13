@@ -23,7 +23,7 @@ Calls to 911 are routed over the Microsoft network. Microsoft assigns a temporar
 
 The service is available for Microsoft phone numbers. It requires that the Azure resource from where the 911 call originates has a Microsoft-issued phone number enabled with outbound dialing (also referred to as ‘make calls').  
 
-ACS direct routing is currently in public preview and not intended for production workloads. So E911 dialing is out of scope for ACS Direct Routing.
+ACS direct routing is currently in public preview and not intended for production workloads. So E911 dialing is out of scope for ACS direct routing.
 
 ## The call flow
 
@@ -44,7 +44,7 @@ Emergency dialing is automatically enabled for all users of the Azure Communicat
 
 1. Use the APIs in the calling SDK to set the country code of the user
 
-    1. Microsoft uses the ISO 3166-1 alpha 2 standard
+    1. Microsoft uses the ISO 3166-1 alpha-2 standard
 
     1. Microsoft supports a country US and PR ISO codes for 911 dialing
 
@@ -66,5 +66,5 @@ The Emergency service is temporarily free to use for ACS customers within reason
 
 ### Quickstarts
 
-- [Call to Phone](../../quickstarts/voice-video-calling/pstn-call.md)
-- [Add Emergency Calling to your app](../../quickstarts/voice-video-calling/pstn-call.md)
+- [Call to Phone](../../quickstarts/telephony/pstn-call.md)
+- [Add Emergency Calling to your app](../../quickstarts/telephony/pstn-call.md)
