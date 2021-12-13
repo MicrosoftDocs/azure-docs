@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/03/2021
+ms.date: 12/13/2021
 ms.author: b-hchen
 ---
 # Solution architectures using Azure NetApp Files
