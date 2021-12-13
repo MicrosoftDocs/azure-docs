@@ -24,7 +24,7 @@ This topic describes how to install the Microsoft CloudKnox Permissions Manageme
 The CloudKnox Sentry is an agent packaged in a virtual appliance. It gathers information on users, their privileges, activity, and resources for any monitored Amazon Web Services (AWS) account(s). It can be deployed in two ways:
 
 - *Read only* (controller disabled), which only collects information about the account.
-- *Controller enabled*, which allows the CloudKnox Sentry to collects information and make changes to identity and access management (IAM) roles, policies, and users.
+- *Controller enabled*, which allows the CloudKnox Sentry to collect information and make changes to identity and access management (IAM) roles, policies, and users.
 
 To provide visibility and insights, the CloudKnox Sentry collects information from many sources. It uses *Read*, *List*, and *Describe* privileges, for example, to help CloudKnox display resource information to catalog ec2 instances and s3 buckets.
 
@@ -49,7 +49,7 @@ Inbound traffic to the Sentry is only received on port 22, and is used for confi
 
 ### Multi-account collection from one Sentry
 
-For AWS organizations with multiple AWS accounts, you can set up one Sentry to collect from multiple AWS accounts by allowing the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. You must configure a trust relationship to allow cross-account access.
+For AWS organizations with multiple AWS accounts, you can set up one Sentry to collect from multiple AWS accounts by allowing the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. To allow cross-account, configure a trust relationship.
 
 **Explanation and diagram**
 
@@ -195,14 +195,13 @@ The following information guides you through the installation and configuration 
     1. In the **Role** box, enter *Reader*.
     2. In the **Assign access to** box, enter the Azure AD user, group, or service principal.
     3. Select **Search**, enter the Azure Application you created previously, and then select **Save**.
-    4. Optional: To enable the Controller functionality (to enable the JEP controller and rivilege On Demand) assign the role.
-
-         - From **Role**, select **User Access Administrator**.
+    4. Optional:  To enable Controller functionality (that is, to enable JEP controller and Privilege On Demand), assign the following role:
+       - In the **Role** box, enter *User Access Administrator*.
 4. Repeat step 3 for each Azure subscription from which you want CloudKnox to collect data.
 
 ### Creating the CloudKnox Sentry from the image
 
-After you create a **Resource** group in CloudKnox, you will use it to install CloudKnox sentry VM.
+After you create a **Resource** group in CloudKnox, you'll use it to install CloudKnox sentry VM.
 
 1. Create a VM using the following image as a reference.
 
@@ -232,7 +231,7 @@ After you create a **Resource** group in CloudKnox, you will use it to install C
     <!---Add screenshot.--->
 3. Select **Next**.
 4. Enter the appliance DNS name or IP of the Sentry that you deployed in Azure, and then select **Next**.
-5. Make a note of the email and PIN. You will need it when you configure the Sentry in next step.
+5. Make a note of the email and PIN. You'll need it when you configure the Sentry in the next procedure.
 
     <!---Add screenshot.--->
 
@@ -242,7 +241,7 @@ After you create a **Resource** group in CloudKnox, you will use it to install C
 2. Run the following script to configure Azure Sentry:
 
     `sudo /opt/cloudknox/sentrysoftwareservice/bin/runAzureConfigCLI.sh`
-3. Enter the email address from the CloudKnox console which generated the PIN.
+3. Enter the email address from the CloudKnox console that generated the PIN.
 4. Enter the PIN you obtained earlier.
 5. Enter the tenant name or ID in next prompt: *Azure AD tenant* or *tenantID*.
 6. Specify if the service principal with the Reader role for CloudKnox data collection is a managed identity or app registration.
