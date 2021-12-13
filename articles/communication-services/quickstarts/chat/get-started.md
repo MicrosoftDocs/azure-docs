@@ -63,3 +63,5 @@ You may also want to:
 
  - Learn about [chat concepts](../../concepts/chat/concepts.md)
  - Familiarize yourself with [Chat SDK](../../concepts/chat/sdk-features.md)
+ - Using [Chat SDK in your React Native](./react-native.md) application.
+
