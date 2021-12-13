@@ -1,5 +1,5 @@
 ---
-title: Azure Policy for Video Analyzer
+title: Azure policies for Video Analyzer
 description: Azure Video Analyzer provides several built-in Azure Policy definitions to help enforce organizational standards and compliance at-scale. This article explains how to assign policies for a Video Analyzer account. 
 ms.topic: how-to
 ms.date: 12/02/2021

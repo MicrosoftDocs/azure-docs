@@ -9,7 +9,7 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: conceptual
-  ms.date: 10/26/2021
+  ms.date: 12/9/2021
   ms.author: kengaderdus
   ms.subservice: B2C
     
@@ -140,6 +140,18 @@ sections:
           * **Sign-in reports** provide a record of each sign-in with reduced details.
           * **Audit reports** include both admin activity as well as application activity.
           * **Usage reports** include the number of users, number of logins, and volume of MFA.
+
+      - question: |
+          Can end users use a time-based one-time password (TOTP) with an authenticator app to authenticate to my Azure AD B2C app?
+        answer: |
+          Yes. End users need to download any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app) (recommended). For details see, [verification methods](multi-factor-authentication.md#verification-methods).
+          
+          This feature is in public preview.
+      - question: |
+          Why are my TOTP authenticator app codes not working?
+        answer: |
+          If the TOTP authenticator app codes aren't working with your Android or iPhone mobile phone or device, your device's clock time might be incorrect. In your device's settings, select the option to use the network-provided time or to set the time automatically.
+          This feature is in public preview.
           
       - question: |
           Can I localize the UI of pages served by Azure AD B2C? What languages are supported?
