@@ -83,8 +83,8 @@ Auditors can use Azure Monitor to review key vault AuditEvent logs, if logging i
 > [!IMPORTANT]
 > Both Soft-delete and Purge protection must be enabled on the key vault(s) for servers being configured with customer-managed TDE, as well as existing servers using customer-managed TDE.
 
-- Grant the server or managed instance access to the key vault (*get*, *wrapKey*, *unwrapKey*) using its Azure Active Directory identity. When using the Azure portal, the Azure AD identity gets automatically created when the server is created. When using PowerShell or Azure CLI, the Azure AD identity must be explicitly created and should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
-    - Depending on the permission model of the key vault (access policy or Azure RBAC), key vault access can be granted either by creating an access policy on the key vault, or by creating a new Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](../../key-vault/general/rbac-guide.md#azure-built-in-roles-for-key-vault-data-plane-operations).
+- Grant the server or managed instance access to the key vault (*get*, *wrapKey*, *unwrapKey*) using its Azure Active Directory identity. The server identity can be a system-assigned managed identity or a user-assigned managed identity assigned to the server. When using the Azure portal, the Azure AD identity gets automatically created when the server is created. When using PowerShell or Azure CLI, the Azure AD identity must be explicitly created and should be verified. See [Configure TDE with BYOK](transparent-data-encryption-byok-configure.md) and [Configure TDE with BYOK for SQL Managed Instance](../managed-instance/scripts/transparent-data-encryption-byok-powershell.md) for detailed step-by-step instructions when using PowerShell.
+    - Depending on the permission model of the key vault (access policy or Azure RBAC), key vault access can be granted either by creating an access policy on the key vault, or by creating a new Azure RBAC role assignment with the role [Key Vault Crypto Service Encryption User](/azure/key-vault/general/rbac-guide#azure-built-in-roles-for-key-vault-data-plane-operations).
 
 - When using firewall with AKV, you must enable option *Allow trusted Microsoft services to bypass the firewall*.
 
@@ -215,8 +215,6 @@ To avoid issues while establishing or during geo-replication due to incomplete k
 - All key vaults involved must contain identical key material. It applies not just to the current TDE protector, but to the all previous TDE protectors that may be used in the backup files.
 
 - Both initial setup and rotation of the TDE protector must be done on the secondary first, and then on primary.
-
-Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region. The server and key vault do not have to be co-located in the same region. With this, for simplicity, the primary and secondary servers can be connected to the same key vault (in any region). This will help avoid scenarios where key material may be out of sync if separate key vaults are used for both the servers. Azure Key Vault has multiple layers of redundancy in place to make sure that your keys and key vaults remain available in case of service or region failures. [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md)
 
 ![Failover groups and geo-dr](./media/transparent-data-encryption-byok-overview/customer-managed-tde-with-bcdr.png)
 
