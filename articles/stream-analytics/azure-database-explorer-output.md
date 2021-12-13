@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 12/13/2021
 ---
 
 # Azure Data Explorer output for Azure Stream Analytics (Preview)
@@ -39,6 +39,31 @@ The following table lists the property names and their description for creating 
 ## Partitioning
 
 Partitioning needs to enabled and is based on the PARTITION BY clause in the query. When the Inherit Partitioning option is enabled, it follows the input partitioning for [fully parallelizable queries](stream-analytics-scale-jobs.md). 
+
+
+## When to use Azure Data Explorer or/and Azure Stream Analytics
+
+### Azure Stream Analytics:
+
+* Stream Processing Engine - Continuous/ Streaming real-time analytics
+* Job based
+* ASA has a lookback window period of 1ms to 7 days for in-memory temporal analytics/stream processing
+* Ingest from Event Hub, IoTHub with sub-second latency
+
+### Azure Data Explorer:
+
+* Analytical Engine - On-demand/ Interactive real-time analytics
+* Streaming + Persistent Store + Query Engine
+* Ingest from Event Hub, IoT Hub, Blob, Data Lake, Kafka, Logstash, Spark, ADF, …
+* 10sec-5 min latency – recommended for high throughput workload
+* Simple data transformation can be done with update policy during ingestion
+
+You can significantly grow the scope of real time analytics by leveraging ASA and ADX together. Below are a few scenarios:
+
+* Stream Analytics identifies anomalies in real time and Data Explorer helps determine how/why it occurred through interactive exploration
+* Stream Analytics deserializes incoming data stream for use in Data Explorer (E.g. ingest Protobuff format by using custom deserializer, custom binaries formats etc.)
+* Stream Analytics aggregates/filters/enrich/transform incoming data streams for use in Data Explorer
+
 
 ## Limitation
 
