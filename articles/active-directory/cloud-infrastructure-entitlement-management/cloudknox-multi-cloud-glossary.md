@@ -8,20 +8,20 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/10/2021
+ms.date: 12/13/2021
 ms.author: v-ydequadros
 ---
 
 # Microsoft CloudKnox Permissions Management multi-cloud glossary 
 
-This glossary provides a list of some of the commonly used multi-cloud terms at Microsoft CloudKnox Permissions Management. It is intended to help users navigate through cloud-specific terms such as Microsoft Azure roles or Amazon Web Services identities, and cloud-generic terms such as cloud permissions management.
+This glossary provides a list of some of the commonly used multi-cloud terms at Microsoft CloudKnox Permissions Management. It's intended to help users navigate through cloud-specific terms such as Microsoft Azure roles, Amazon Web Services identities, and cloud-generic terms like cloud permissions management.
 
 | Term                  | Definition                                          |
 |-----------------------|-----------------------------------------------------|
 | Cloud security        | Cloud security is a form of cybersecurity that protects data stored online on cloud computing platforms from theft, leakage, and deletion. </p>Methods of providing cloud security include firewalls, penetration testing, obfuscation, tokenization, virtual private networks (VPN), and avoiding public internet connections.     |
 | Cloud storage         | Cloud storage is a service model in which data is maintained, managed, backed up remotely. It's available to users over a network.                |
 | CIAM                 | Cloud Infrastructure Access Management     |
-| CIEM                 | Cloud Infrastructure Entitlement Management, pronounced “Kim”      |
+| CIEM                 | Cloud Infrastructure Entitlement Management, pronounced “Kim”.      |
 | CIS                  | Cloud infrastructure security      |
 | CSPM                 | Cloud Security Posture Management (automated view of standards and compliance status)      |
 | Delete task          | A high-risk task that allows users to permanently delete a resource.     |
@@ -35,7 +35,7 @@ This glossary provides a list of some of the commonly used multi-cloud terms at 
 | Multi-cloud	        | Multi-cloud is a phrase often said in the “tech world”, and it’s here to stay, at least for the foreseeable future. Embracing and learning the multi-cloud lingo is beneficial for practitioners, c-levels, and everyone in-between.      |
 | Multi-tenant	        | Multi-tenancy means that a single instance of the software and its supporting infrastructure serves multiple customers. Each customer shares the software application and also shares a single database.	                |
 | PAM	                | Privileged Access Management     |
-| PCI or Privilege Creep Index	| A number from 0 to 100 that represents the incurred risk of users with access to high-risk privileges. It is a function of users who have access to high-risk privileges but aren't actively using them (for example, the capability to modify or delete contents within the authorization system). It is also a function of the number of resources a user has access to, also  known as their resource reach.</p> PCI measures the number of unused high-risk privileges that have been granted to all unique identities. It also takes into account the number of resources that an identity has access to but hasn't touched over the last 90 days.</p> PCI is an indicator of an organization's level of exposure to insider threat risks and their ability to enforce the Principle of Least Privilege (POLP), which is one of the most fundamental and essential concepts in security.</p> PCI scores of 100 represent the highest risk to the organization. They indicate a high percentage of identities with excessive high-risk privileges and broad but unnecessary access to cloud resources. A zero score represents the lowest risk.    |
+| Privilege Creep Index (PCI)	| A number from 0 to 100 that represents the incurred risk of users with access to high-risk privileges. PCI is a function of users who have access to high-risk privileges but aren't actively using them. For example, the capability to modify or delete contents within the authorization system. It's also a function of the number of resources a user has access to, also  known as their resource reach.</p> PCI measures the number of unused high-risk privileges that have been granted to all unique identities. It also takes into account the number of resources that an identity has access to but hasn't touched over the last 90 days.</p> PCI is an indicator of an organization's level of exposure to insider threat risks and their ability to enforce the Principle of Least Privilege (POLP). POLP is one of the most fundamental and essential concepts in security.</p> PCI scores of 100 represent the highest risk to the organization. They indicate a high percentage of identities with excessive high-risk privileges and broad, perhaps unnecessary, access to cloud resources. A zero score represents the lowest risk.    |
 | Permission	        | Rights and privileges. Details given by users or network administrators that define access rights to files on a network.              |
 | PIM	                | Privileged Identity management     |  
 | POD	                | Permissions on Demand     |

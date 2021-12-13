@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 12/13/2021
 ms.author: v-ydequadros
 ---
 
@@ -23,7 +23,7 @@ CloudKnox can be deployed in two ways:
 - *Read Only* (Controller Disabled), which only collects information about the account.
 - *Controller Enabled*, which allows the CloudKnox Sentry to make changes to identity and access management (IAM) roles, policies, and users.
 
-To provide visibility and insights, the CloudKnox Sentry collects information from a many sources. To help enumerate resource information, for example, to catalog ec2 instances and s3 buckets, it uses *Read*, *List*, and *Describe* privileges.
+To provide visibility and insights, the CloudKnox Sentry collects information from a many sources. To help list resource information, for example, to catalog ec2 instances and s3 buckets, it uses *Read*, *List*, and *Describe* privileges.
 
 To gain insight into activity within the AWS account, CloudKnox gathers CloudTrail event logs and ties them to individual identities.
 
@@ -35,7 +35,9 @@ The CloudKnox Sentry is a Linux Photon based appliance that:
 - Uses an IAM role to read identity entitlements, resource information, and CloudTrail data on an hourly basis.
 - Uploads the collected data to CloudKnox's SaaS Application for processing.
 
-Inbound traffic to the Sentry is only received on port 9000, and is used for configuration by the administrator of CloudKnox. We recommend only allowing traffic from any observable source IP addresses your administrator may be configuring. Outbound traffic is 443 to make API calls to AWS, CloudKnox, and identity provider (IDP) integration.
+Inbound traffic to the Sentry is only received on port 9000, and is used for configuration by the administrator of CloudKnox. We recommend only allowing traffic from observable source IP addresses that your administrator has configured. 
+
+Outbound traffic is only received on port 443, and makes API calls to AWS, CloudKnox, and identity provider (IDP) integration.
 
 <!---![Sentry Architecture AWS](sentry-architecture-AWS.png)--->
 
@@ -45,12 +47,12 @@ Inbound traffic to the Sentry is only received on port 9000, and is used for con
 
 | Traffic      | Port | Description                                                                                               |
 | ------------ | ---- | --------------------------------------------------------------------------------------------------------- |
-| TCP Inbound  | 9000 | Configuration. </p>Request this information from the administrators' source IP only when you're configuring your system. |
-| TCP Outbound | 443  | API Calls to AWS, CloudKnox, and identity provider (IDP) integration.                                              |
+| TCP Inbound  | 9000 | Used for configuration. </p>Request this information from the administrators' source IP only when you're configuring your system. |
+| TCP Outbound | 443  | Used for API Calls to AWS and CloudKnox, and for identity provider (IDP) integration.                                              |
 
 ## Multi-account collection from one Sentry instance
 
-For AWS organizations with multiple AWS accounts, you can set up one Sentry to collect from multiple AWS accounts. To do this, allow the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. To allow multi-account data collection, configure a *trust relationship*.
+For AWS organizations with multiple AWS accounts, you can set up one Sentry instance to collect data from multiple AWS accounts. To set up this collection, allow the Sentry's IAM role to assume a cross-account role in the account from which you want to collect data. To allow multi-account data collection, configure a *trust relationship*.
 
 <!---**Explanation and diagram**--->
 
