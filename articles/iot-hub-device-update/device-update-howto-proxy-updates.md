@@ -116,7 +116,7 @@ If you haven't already done so, create a [Device Update account and instance](cr
 1. Download the Proxy Updates import manifests and images from the [latest Device Update release](https://github.com/Azure/iot-hub-device-update/releases) under Assets. 
 2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Updates option under Device Management from the left-hand navigation bar.
 
-:::image type="content" source="media/understand-device-update/One import.png" alt-text="Start import." lightbox="media/understand-device-update/One import.png":::
+   :::image type="content" source="media/understand-device-update/One import.png" alt-text="Start import." lightbox="media/understand-device-update/One import.png":::
 
 3. Select the Updates tab.
 4. Select '+ Import New Update'.
@@ -124,54 +124,53 @@ If you haven't already done so, create a [Device Update account and instance](cr
 6. Select 'Upload' to add the files you downloaded in (1).
 7. Upload the parent import manifest, child import manifest and payload files to your container. The example below shows sample files uploaded to update cameras connected to a smart vacuum cleaner device. It also includes a pre-install script to turn-off the cameras before the over-the-air update. The parent import manifest  is "contoso.Virtual-Vacuum-virtual-camera.1.4.importmanifest.json" and child import manifest with details for how update the camera is "Contoso.Virtual-Vacuum.3.3.importmanifest.json". Note both manifest file names follow the required format and end with *.importmanifest.json. 
 
-:::image type="content" source="media/understand-device-update/Two containers.png" alt-text="Containers" lightbox="media/understand-device-update/Two containers.png":::
+   :::image type="content" source="media/understand-device-update/Two containers.png" alt-text="Containers" lightbox="media/understand-device-update/Two containers.png":::
 
 8. Then choose 'Select' to go to the next step.
 9. The UI now shows the list of files that will be imported to Device Update. Select 'Import update'
 
-:::image type="content" source="media/understand-device-update/Three confirm import.png" alt-text="Import" lightbox="media/understand-device-update/Three confirm import.png":::
+   :::image type="content" source="media/understand-device-update/Three confirm import.png" alt-text="Import" lightbox="media/understand-device-update/Three confirm import.png":::
 
 10. The import process begins, and the screen changes to the 'Import History' section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, the import may complete in a few minutes but could take longer.
 11. When the Status column indicates the import has succeeded, select the 'Available Updates' header. You should see your imported update in the list now.
 
-:::image type="content" source="media/understand-device-update/Four update added.png" alt-text="Update Added" lightbox="media/understand-device-update/Four update added.png":::
+   :::image type="content" source="media/understand-device-update/Four update added.png" alt-text="Update Added" lightbox="media/understand-device-update/Four update added.png":::
 
 [Learn more](import-update.md) about importing updates.
 
 ## Create update group
 
-1. Go to the IoT Hub you previously connected to your Device Update instance.
+1. Select the 'Groups and Deployments' tab at the top of the page. 
 
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
-
-3. Select the Groups tab at the top of the page. 
-
-4. Select the Add button to create a new group.
-
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+2. Select the '+ Add Group' button to create a new group or deploy the update that was just imported to IoT devices to an existing Group. If creating a new Group, select the IoT Hub tag you created in the previous step from the list. Then select 'Create group'.
 
 [Learn more](create-update-group.md) about adding tags and creating update groups
 
-
 ## Deploy update
 
-1. Once the group is created, you should see a new update available for your device group, with a link to the update under Pending Updates. You may need to Refresh once. 
+1. In the 'Groups and Deployments' view, you should see a new update available for your device group and next to it a link to 'deploy'. You may need to Refresh once. For the example Smart Vacuum device you should see the below view:
 
-2. Click on the available update.
+:::image type="content" source="media/understand-device-update/Five groups.png" alt-text="Groups" lightbox="media/understand-device-update/Five groups.png":::
 
-3. Confirm the correct group is selected as the target group. Schedule your deployment, then select Deploy update.
+2. Click on 'Deploy'
+
+3. Confirm the correct group is selected as the target group. Schedule your deployment or start immediately, then select 'Create'.
+
+:::image type="content" source="media/understand-device-update/Six deploy.png" alt-text="Deploy" lightbox="media/understand-device-update/Six deploy.png":::
 
 4. View the compliance chart. You should see the update is now in progress. 
 
 5. After your device is successfully updated, you should see your compliance chart and deployment details update to reflect the same. 
 
+:::image type="content" source="media/understand-device-update/Seven results.png" alt-text="Results" lightbox="media/understand-device-update/Seven results.png":::
+
 ## Monitor an update deployment
 
 1. Select the 'Groups and Deployments' tab at the top of the page.
 
-2. Select the Group you created to view the deployment details.
+2. Click on the Group you created to view the deployment details.
 
-You have now completed a successful end-to-end image update using Device Update for IoT Hub on a Raspberry Pi 3 B+ device. 
+You have now completed a successful end-to-end proxy update using Device Update for IoT Hub. 
 
 ## Additional details
 The reset-demo-components.sh command above will perform the following steps on your behalf 
