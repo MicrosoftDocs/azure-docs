@@ -1,6 +1,6 @@
 ---
 title: Data processing and residency
-description: 
+description: Microsoft Defender for IoT data processing, and residency can occur in regions that are different than the IoT Hub's region.
 ms.date: 12/13/2021
 ms.topic: conceptual
 ---
