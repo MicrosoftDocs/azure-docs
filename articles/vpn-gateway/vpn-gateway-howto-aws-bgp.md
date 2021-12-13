@@ -194,9 +194,9 @@ Site-to-site connection 1 settings
 * **Customer Gateway**: ToAzureInstance0
 * **Routing Options**: Dynamic (requires BGP)
 * **Tunnel Inside Ip Version**: IPv4
-* **Inside IPv4 CIDR for Tunnel 1**: 169.254.21.1 (use the APIPA configuration you [chose]((#apipa-config))
+* **Inside IPv4 CIDR for Tunnel 1**: 169.254.21.1 use the APIPA configuration you [chose]((#apipa-config)
 * **Pre-Shared Key for Tunnel 1**: choose a secure key
-* **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.1 (use the APIPA configuration you [chose]((#apipa-config))
+* **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.1 use the APIPA configuration you [chose]((#apipa-config)
 * **Pre-Shared Key for Tunnel 2**: choose a secure key
 
 Site-to-site connection 2 settings
@@ -207,9 +207,9 @@ Site-to-site connection 2 settings
 * **Customer Gateway**: ToAzureInstance1
 * **Routing Options**: Dynamic (requires BGP)
 * **Tunnel Inside Ip Version**: IPv4
-* **Inside IPv4 CIDR for Tunnel 1**: 169.254.21.6 (use the APIPA configuration you [chose]((#apipa-config))
+* **Inside IPv4 CIDR for Tunnel 1**: 169.254.21.6 use the APIPA configuration you [chose]((#apipa-config)
 * **Pre-Shared Key for Tunnel 1**: choose a secure key
-* **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.6 (use the APIPA configuration you [chose]((#apipa-config))
+* **Inside IPv4 CIDR for Tunnel 2**: 169.254.22.6 use the APIPA configuration you [chose]((#apipa-config) 
 * **Pre-Shared Key for Tunnel 2**: choose a secure key
 
 Steps
