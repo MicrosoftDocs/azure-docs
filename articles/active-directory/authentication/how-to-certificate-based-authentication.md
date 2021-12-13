@@ -63,7 +63,7 @@ For the configuration, you can use the [Azure Active Directory PowerShell Versio
    Install-Module -Name AzureAD –RequiredVersion 2.0.0.33
    ``` 
 
-As a first configuration step, you need to establish a connection with your tenant. As soon as a connection to your tenant exists, you can review, add, delete, and modify the trusted certificate authorities that are defined in your directory.
+As a first configuration step, you need to establish a connection with your tenant. After you establish a connection to your tenant, you can review, add, delete, and modify the trusted certificate authorities that are defined in your directory.
 
 ### Connect 
 
@@ -111,7 +111,72 @@ $c=Get-AzureADTrustedCertificateAuthority    $c[0].AuthorityType=1    Set-AzureA
 
 ## Step 2: Configure Authentication methods policy 
 
+You can configure the Authentication methods policy two different ways:
+
+- [Using the Azure portal](#using-the-azure-portal)
+- [Using Graph API](#using-graph-api)
+
 ### Using the Azure portal
+
+To enable the certificate-based authentication and configure user bindings , complete the following steps:
+
+1. Sign in to the [Azure portal](https://portal.azure.com) as a Global Administrator.
+1. Search for and select **Azure Active Directory**, then choose **Security** from the menu on the left-hand side.
+1. Under **Manage**, select **Authentication methods** > **Certificate-based Authentication**.
+1. Under **Basics**, click **On** to enable certificate-based authentication.
+1. Certificate-based authentication can be enabled for a targeted set of users.
+   1. Click **All Users** to enable for all users.
+   1. Click on **Select Users** to enable for a set of users or group. Click **+ Add users**, select specific users and groups, and click **Select** to add them.
+
+   After certificate-based authentication is enabled, all users will see the link to sign in with a certificate. Only users who are enabled for certificate-based authentication will be able to authenticate with this method.
+
+1. Click **Configure** to set up authentication binding and username binding.
+1. The protection level attribute has a default value of **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA. The protection level value will be used if no custom rules are added. If custom rules are added, then the protection level defined at the rule level will be honored instead.
+
+1. To add custom rules, click on **Add rule**.
+   1. To create a rule by Certificate issuer, make sure to select ‘Certificate issuer’.
+   1. Select a **Certificate issuer identifier** from the list box.
+   1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA.
+ 
+
+ 
+There can be only one binding for each certificate field
+Supported set of bindings:
+1.	SAN Principal Name -> User Principal Name 
+2.	SAN Principal Name -> onPremiseUserPrincipalName  
+3.	RFC822Name -> User Principal Name 
+4.	RFC822Name -> onPremiseUserPrincipalName 
+ 
+Default binding (use if no binding explicitly configured) 
+1.	SAN Principal Name -> User Principal Name 
+ 
+ 
+11.	To create a rule by Policy OID, make sure to select ‘Policy OID’.
+a.	Enter a value for ‘Policy OID’.
+b.	Protection level default value is ‘Single-factor authentication’. Please select ‘Multi-factor authentication’ for default value for the rule to be MFA.
+ 
+
+ 
+Strong Authentication binding rules: 
+1.	Exact match is used for Strong authentication via policy OID.
+If you have a certificate A with policy OID “1.2.3.4.5” and a derived credential B based on that certificate has a policy OID “1.2.3.4.5.6” and the rule is defined as “Policy OID” with value “1.2.3.4.5” with Multi-factor authentication, only the certificate A will satisfy Multi-factor authentication and credential B will satisfy only Single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA,  user will be asked for a second factor for successful authentication.
+2.	Policy OID rules will take precedence over Certificate issuer rules. If a certificate has both policy OID and Issuer, we always check the policy OID first and if no policy rule is found then we check the issuer subject bindings. Policy OID has a higher strongAuth binding priority than the issuer. 
+3.	If one CA binds to two-factor auth, all user certs that this CA issue qualify as two-factor auth. (same logic applies for single-factor auth) 
+4.	If one policy OID binds to two-factor auth, all user certs that include this policy OID as one of the OIDs (A user cert could have multiple policy OIDs), qualify as multiple-factor authentication.  
+5.	If there is a conflict between multiple policy OIDs (I.e., A cert has two policy OIDs, one binds to single-factor auth and the other binds to two-factor auth, then treat the cert as a single-factor auth.
+6.	One cert could only have one valid strong auth binding. (i.e., cert could not bind to both single-factor and two-factor.) 
+ 
+12.	Create Username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
+
+The way multiple user bindings are processed is as follows. Use the highest priority(lowest number) binding.  
+If the X.509 certificate field is on the presented certificate. Attempt to look the user up using the value in the specified field. 
+o	If a unique user is found, authenticate the user. 
+o	If a unique user is not found, authentication fails. 
+If the X.509 certificate field is not on the presented certificate move to the next priority binding. 
+If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails.  Azure AD doesn’t try the next binding in the list.   
+Only if the X.509 certificate field is not on the certificate does it attempt to the next priority.
+13.	Click ‘Save’ to save the changes. 
+
 
 ### Using Graph API
 
