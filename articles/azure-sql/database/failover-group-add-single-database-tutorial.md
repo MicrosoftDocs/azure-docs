@@ -177,7 +177,7 @@ These additional parameter values are used in creating the failover group, in ad
 
 Change the failover location as appropriate for your environment.
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="12-15":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="12-15":::
 
 ## Create the failover server
 
@@ -185,13 +185,13 @@ Use this script to create a failover server.
 > [!NOTE]
 > The server login and firewall settings must match that of your primary server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="27-29":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="27-29":::
 
 ## Create the failover group
 
 Use this script to create a failover group
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="30-32":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="30-32":::
 
 ## CLI failover group creation reference
 
@@ -300,19 +300,19 @@ Test failover using the Azure CLI.
 
 Use this script to confirm the roles of each server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="33-35":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="33-35":::
 
 ## Fail over to the secondary server
 
 Use this script to failover to the secondary server and verify a successful failover.
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="36-41":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="36-41":::
 
 ## Revert failover group back to the primary server
 
 Use this script to fail back to the primary server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="42-44":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="42-44":::
 
 ## CLI failover group management reference
 
@@ -405,12 +405,7 @@ This script uses the following commands. Each command in the table links to comm
 
 # [Azure CLI](#tab/azure-cli)
 
-stuff
-
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="4-47":::
-
-
-:::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="3-150":::
 
 This script uses the following commands. Each command in the table links to command specific documentation.
 

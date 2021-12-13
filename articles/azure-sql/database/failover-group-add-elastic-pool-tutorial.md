@@ -142,15 +142,15 @@ In this step, you create your elastic pool and add your database to the elastic 
 
 ## Set parameter values
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="12-13":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="12-13":::
 
 ## Create elastic pool on primary server
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="29-31":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="29-31":::
 
 ## Add database to elastic pool
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="32-34":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="32-34":::
 
 ---
 
@@ -279,23 +279,23 @@ In this step, you create your failover server, failover group, elastic pool, and
 
 ## Set parameter values
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="14-17":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="14-17":::
 
 ## Create failover server
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="35-37":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="35-37":::
 
 ## Create elastic pool on failover server
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="38-40":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="38-40":::
 
 ## Create failover group
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="41-43":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="41-43":::
 
 ## Add database to failover group
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="44-48":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="44-48":::
 
 ---
 
@@ -407,19 +407,19 @@ In this step,
 
 Use this script to confirm the roles of each server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="49-51":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="49-51":::
 
 ## Fail over to the secondary server
 
 Use this script to failover to the secondary server and verify a successful failover.
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="52-57":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="52-57":::
 
 ## Revert failover group back to the primary server
 
 Use this script to fail back to the primary server.
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="58-60":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="58-60":::
 
 ---
 
@@ -503,7 +503,7 @@ This script uses the following commands. Each command in the table links to comm
 
 # [Azure CLI](#tab/azure-cli)
 
-:::code language="azurecli" source="~/azure_cli_scripts/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="4-60":::
+:::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="4-60":::
 
 # [Portal](#tab/azure-portal)
 
