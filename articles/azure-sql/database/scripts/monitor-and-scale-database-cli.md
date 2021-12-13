@@ -25,7 +25,7 @@ If you choose to install and use the Azure CLI locally, this article requires th
 
 ### Sign in to Azure
 
-Sign in to Azure using the appropriate subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription. Sign in to Azure using the appropriate subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 subscription="<subscriptionId>" # add subscription here

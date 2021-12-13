@@ -158,7 +158,12 @@ Use this script to add a database to an elastic pool.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="32-34":::
 
----
+This portion of the tutorial uses the following Azure CLI cmdlets:
+
+| Command | Notes |
+|---|---|
+| [az sql elastic-pool create](/cli/azure/sql/elastic-poolt#az_sql_elastic_pool_create) | Creates an elastic pool. |
+| [az sql db update](/cli/azure/sql/db#az_sql_db_update) | Updates a database|
 
 ## 3 - Create the failover group
 
@@ -316,6 +321,16 @@ Use this script to create a failover group.
 Use this script to add a database to the failover group.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="44-48":::
+
+## CLI failover group creation reference
+
+This portion of the tutorial uses the following Azure CLI cmdlets:
+
+| Command | Notes |
+|---|---|
+| [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a server that hosts databases and elastic pools. |
+| [az sql elastic-pool create](/cli/azure/sql/elastic-poo#az_sql_elastic_pool_create) | Creates an elastic pool.|
+| [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Creates a failover group. |
 
 ---
 
