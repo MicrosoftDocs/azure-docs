@@ -1,6 +1,6 @@
 ---
 title: Securing workload identities with Azure AD Identity Protection
-description: Workload identity risk in Azure AD Identity Protection
+description: Workload identity risk in Azure Active Directory Identity Protection
 
 services: active-directory
 ms.service: active-directory
@@ -17,65 +17,48 @@ ms.collection: M365-identity-device-management
 ---
 # Securing workload identities with Identity Protection
 
-Identities that run your organizations applications are not immune from risk. Applications, service principals, and Managed 
+Our organization's applications aren't immune from risk. Applications, service principals, and Managed Identities need securing too. Extending the already familiar concept of user identity risk to these "workload identities" is a new capability in Azure AD Identity Protection. This capability is key to the Zero Trust approach as the application must be secured not just the user consuming it. 
 
 > [!IMPORTANT]
 > In public preview, you can secure workload identities with Identity Protection and Azure Active Directory Premium P2 edition active in your tenant. After general availability, additional licenses might be required.
 
-A key component to any organization’s Zero Trust approach must include securing identities for users and applications. This new capability builds upon Identity Protection’s foundation in detecting identity-based threats and expands that foundation to include threat detection for applications, service principals, and Managed Identities. We refer to these accounts as workload identities.
+## Prerequisites
 
-Organizations can now view risky application or service principal accounts and risk detection events using two new Graph API collections:
+To make use of workload identity risk, including the new **Risky workload identities (preview)** blade and the **Workload identity detections** tab in the **Risk detections** blade, in the Azure portal you must have the following.
 
-1.	One new detection, entitled Suspicious Sign-ins. This risk detection indicates sign-in properties or patterns that are unusual for this service principal and may be an indicator of compromise. The detection baselines sign-in behavior between 2 and 60 days, and fires if one or more of the following unfamiliar properties occur during a later sign-in:
-    1. IP address / ASN
-    1. Target resource
-    1. User agent
-    1. Hosting/non-hosting IP change
-    1. IP country
-    1. Credential type
+- Azure AD Premium P2 licensing
+- One of the following administrator roles assigned
+   - Global administrator
+   - Security administrator
+   - Security reader
+
+## Workload identity risk detections
+
+There are three detections that may trigger for workload identities in your organization. 
+
+| Detection name | Description |
+| --- | --- |
+| Azure AD threat intelligence | This risk detection indicates some activity that is consistent with known attack patterns based on Microsoft's internal and external threat intelligence sources. |
+| Suspicious Sign-ins | This risk detection indicates sign-in properties or patterns that are unusual for this service principal. <br><br> The detection baselines sign-in behavior between 2 and 60 days, and fires if one or more of the following unfamiliar properties appear during a later sign-in: IP address / ASN, target resource, user agent, hosting/non-hosting IP change, IP country, credential type. |
+| Leaked Credentials | This risk detection indicates that the account's valid credentials have been leaked. |
 
       > [!IMPORTANT]
       > We mark accounts at high risk when this detection fires because this can indicate account takeover for the subject application. Legitimate changes to an application’s configuration sometimes trigger this detection. 
 
-1.	Conditional Access for workload identities: This feature allows you to block access for specific accounts you choose when Identity Protection marks them “at risk.” Enforcement through Conditional Access is currently limited to single-tenant apps only. Multi-tenant apps and services using a Managed Identity aren't in scope. 
+## Identify risky workload identities
 
-## Configuration
+Organizations can find workload identities that have been flagged for risk in one of two locations:
 
-### Required permissions
+1. Navigate to the [Azure portal](https://portal.azure.com).
+1. Browse to **Azure Active Directory** > **Security** > **Risky workload identities (preview)**.
+1. Or browse to **Azure Active Directory** > **Security** > **Risk detections**.
+   1. Select the **Workload identity detections** tab.
 
-You must be assigned the security reader, security administrator, or global administrator role or have the following permissions delegated to interact with service principal risk detections.
+:::image type="content" source="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png" alt-text="Screenshot showing risks detected against workload identities in the report." lightbox="media/concept-workload-identity-risk/workload-identity-detections-in-risk-detections-report.png":::
 
-| Permission | Display String | Description | Admin Consent Required | Microsoft Account supported |
-| --- |  --- |  --- |  --- |  --- | 
-| IdentityRiskyUser.Read.All <br><br> Roles granted access: Global Administrator, Security Administrator, or Security Reader. | Read identity service principal risk information | Allows the app to read identity service principal risk information for all service principals in your organization on behalf of the signed-in user. | Yes | No |
-| IdentityRiskyUser.ReadWrite.All <br><br> Roles granted access: Global Administrator, Security Administrator. | Read and update identity service principal risk information | Allows the app to read and update identity service principal risk information for all service principals in your organization on behalf of the signed-in user. | Yes | No |
+### Graph APIs
 
-Application permissions
-
-| Permission | Display String | Description | Admin Consent Required |
-| --- |  --- |  --- |  --- |
-| IdentityRiskyUser.Read.All <br><br> Roles granted access: Global Administrator, Security Administrator, or Security Reader. | Read identity service principal risk information | Allows the app to read identity service principal risk information for all service principals in your organization without a signed-in user. | Yes |
-| IdentityRiskyUser.ReadWrite.All <br><br> Roles granted access: Global Administrator, Security Administrator. | Read and update identity service principal risk information | Allows the app to read and update identity service principal risk information for all service principals in your organization without a signed-in user. | Yes |
-
-You must be assigned the Conditional Access administrator, security reader, security administrator, or global administrator role or have the following permissions delegated to interact with any associated Conditional Access policies.
-
-| Permission type | Permissions (all three permissions below are required for read and write operations) |
-| --- |  --- | 
-| Delegated (work or school account) | Policy.Read.All, Policy.ReadWrite.ConditionalAccess, and Application.Read.All | 
-| Application | Policy.Read.All, Policy.ReadWrite.ConditionalAccess, and Application.Read.All |
-
-One of the following permissions is required to call the read API. To learn more, including how to choose permissions, see the article Microsoft Graph permissions reference.
-
-| Permission type | Permissions |
-| --- | --- | 
-| Delegated (work or school account) | Policy.Read.All |
-| Application | Policy.Read.All |
-
-## Using the API
-
-This article assumes you're familiar with [using the Microsoft Graph API](/graph/use-the-api). 
-
-### Sample API call
+You can also query risky workload identities [using the Microsoft Graph API](/graph/use-the-api).
 
 ```msgraph-interactive
 GET https://canary.graph.microsoft.com/testprodbetasppp/identityProtection/servicePrincipalRiskDetections
@@ -106,40 +89,15 @@ The sample should return a response like the following JSON:
 "location": null
 ```
 
-### Get servicePrincipalRiskDetection
+For more informaion see the API DOCS THAT ARE PUBLSHED
 
-For this sample, you must enter your own event ID in the request.
+## Conditional Access policies
 
-```msgraph-interactive
-GET https://canary.graph.microsoft.com/testprodbetasppp/identityProtection/servicePrincipalRiskDetections/<eventIDGoesHere>
-```
+Using [Conditional Access for workload identities](../conditional-access/workload-identity.md) you can block access for specific accounts you choose when Identity Protection marks them “at risk.” Enforcement through Conditional Access is currently limited to single-tenant apps only. Multi-tenant apps and services using a Managed Identity aren't in scope. 
 
-Example response
+## Investigate risky workload identities
 
-```json
-"id": "6a5874ca-abcd-9d82-5ad39bd71600",
-"requestId": null,
-"correlationId": null,
-"riskEventType": "azureADThreatIntelligence",
-"riskState": "dismissed",
-"riskLevel": "none",
-"riskDetail": "none",
-"source": "IdentityProtection",
-"detectionTimingType": "offline",
-"activity": "servicePrincipal",
-"ipAddress": null,
-"activityDateTime": "2021-03-01T02:52:30.4663029Z",
-"detectedDateTime": "2021-03-01T02:52:30.4663029Z",
-"lastUpdatedDateTime": "2021-04-05T21:34:27.5786837Z",
-"servicePrincipalId": "99fb9703-b586-4438-9160-302f6302b799",
-"servicePrincipalDisplayName": "test application",
-"appId": "00000013-0000-0000-c000-000000000000",
-"keyIds": [],
-"additionalInfo": null,
-"location": null
-```
-
-## Investigate risky service principals
+Organizations may use the following framework to begin their investigation into any risky workload identities. 
 
 1. Investigate sign-in activity:
    1. Information can be found in the Azure AD sign-in logs under **Service Principal sign-ins** and **Managed Identity sign-ins** You must enable the Sign-ins preview to view these tabs.
@@ -173,7 +131,9 @@ Example response
 1.	Check for unverified commercial apps:
    1. Check if commercial gallery applications are being used.
 
-Once you determine if the application was compromised, call the API to dismiss the risk or confirm compromise.
+Once you determine if the application was compromised, dismiss the risk or confirm compromise in the **Risky workload identities (preview)** report.
+
+:::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk in the Azure portal." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
 
 ## Remediation
 
