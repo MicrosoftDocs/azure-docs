@@ -238,7 +238,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Fusion detection for ransomware](/azure/sentinel/fusion#fusion-for-ransomware) | Public Preview | Not Available |
 | - [Fusion for emerging threats](/azure/sentinel/fusion#fusion-for-emerging-threats) | Public Preview |Not Available |
 | - [Anomalous Windows File Share Access Detection](../../sentinel/fusion.md)  | Public Preview | Not Available |
-| - [Anomalous RDP Login Detection](/azure/sentinel/data-connectors-reference.md#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
+| - [Anomalous RDP Login Detection](/azure/sentinel/data-connectors-reference#configure-the-security-events--windows-security-events-connector-for-anomalous-rdp-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | - [Anomalous SSH login detection](../../sentinel/connect-syslog.md#configure-the-syslog-connector-for-anomalous-ssh-login-detection)<br>Built-in ML detection | Public Preview | Not Available |
 | **Azure service connectors** |  |  |
 | - [Azure Activity Logs](../../sentinel/data-connectors-reference.md#azure-activity) | GA | GA |
