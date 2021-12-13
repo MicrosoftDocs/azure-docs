@@ -333,7 +333,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 | [az sql server create](/cli/azure/sql/server#az_sql_server_create) | Creates a server that hosts databases and elastic pools. |
 | [az sql elastic-pool create](/cli/azure/sql/elastic-poo#az_sql_elastic_pool_create) | Creates an elastic pool.|
 | [az sql failover-group create](/cli/azure/sql/failover-group#az_sql_failover_group_create) | Creates a failover group. |
-| [az sql failover-group update](/cli/azure/sql/failover-group?view=azure-cli-latest#az_sql_failover_group_update) | Updates a failover group.|
+| [az sql failover-group update](/cli/azure/sql/failover-group#az_sql_failover_group_update) | Updates a failover group.|
 
 ---
 
