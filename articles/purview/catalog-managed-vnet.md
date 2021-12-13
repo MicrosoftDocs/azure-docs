@@ -48,7 +48,7 @@ Additionally, you can deploy managed private endpoints for your Azure Key Vault 
 
 A Managed Virtual Network in Azure Purview is a virtual network which is deployed and managed by Azure inside the same region as Purview account to allow scanning Azure data sources inside a managed network, without having to deploy and manage any self-hosted integration runtime virtual machines by the customer in Azure.
 
-:::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet-architecture.png" alt-text="Purview Managed Virtual Network architecture"":::
+:::image type="content" source="media/catalog-managed-vnet/purview-managed-vnet-architecture.png" alt-text="Purview Managed Virtual Network architecture":::
 
 You can deploy an Azure Managed Integration Runtime within an Azure Purview Managed Virtual Network. From there, the Managed VNet Runtime will leverage private endpoints to securely connect to and scan supported data sources.
 
@@ -72,7 +72,7 @@ A Managed VNet is created for your Azure Purview account when you create a Manag
 
 Managed private endpoints are private endpoints created in the Azure Purview Managed Virtual Network establishing a private link to Purview and Azure resources. Azure Purview manages these private endpoints on your behalf. 
 
-:::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-2.png" alt-text="Purview Managed private endpoint"":::
+:::image type="content" source="media/catalog-managed-vnet/purview-managed-pe-list-2.png" alt-text="Purview Managed private endpoint":::
 
 Azure Purview supports private links. Private link enables you to access Azure (PaaS) services (such as Azure Storage, Azure Cosmos DB, Azure Synapse Analytics).
 
@@ -247,9 +247,9 @@ You can also use other supported options to scan data sources using Purview Mana
 
 To set up a scan using Account Key or SQL Authentication follow these steps:
 
-1. [Grant Azure Purview access to your Azure Key Vault](manage-credentials#grant-azure-purview-access-to-your-azure-key-vault).
+1. [Grant Azure Purview access to your Azure Key Vault](manage-credentials.md#grant-azure-purview-access-to-your-azure-key-vault).
    
-2. [Create a new credential in Azure Purview](purview/manage-credentials#create-a-new-credential).
+2. [Create a new credential in Azure Purview](purview/manage-credentials.md#create-a-new-credential).
    
 3. Navigate to **Management**, and select **Managed private endpoints**.
    
@@ -301,4 +301,4 @@ To set up a scan using Account Key or SQL Authentication follow these steps:
 
 ## Next steps
 
-- [Manage data sources in Azure Purview](./manage-data-source.md)
+- [Manage data sources in Azure Purview](manage-data-source.md)
