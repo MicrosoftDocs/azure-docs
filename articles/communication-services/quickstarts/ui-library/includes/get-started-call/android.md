@@ -10,6 +10,8 @@ ms.service: azure-communication-services
 
 [!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
 
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
+
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
@@ -17,9 +19,8 @@ ms.service: azure-communication-services
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md) 
 
-## Setting up
 
-### Sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/ui-library-quickstart/ui-library-quick-start).
+## Setting up
 
 ### Creating an Android app with an empty activity
 
@@ -32,13 +33,6 @@ Click the `Next` button and name the project `UILibraryQuickStart`, set language
 ![Screenshot showing the 'Finish' button selected in Android Studio.](../../media/composite-android-new-project-finish.png)
 
 Click `Finish`.
-
-## Maven repository credentials
-
-- You need to provide your personal access token(PAT) that has `read:packages` scope selected.
-- You might need to have `SSO enabled` for that PAT.
-- Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
-- Personal access token can be generated: [here](https://github.com/settings/tokens
 
 ## Install the packages
 
@@ -57,7 +51,7 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.2'
+    implementation 'com.azure.android:azure-communication-ui:+'
     ...
 }
 ```
@@ -68,20 +62,13 @@ If you are using old versions of `Android Studio (4.*)` then the `repositories` 
 
 ```groovy
 repositories {
-        ...
-        maven {
-            url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
-        }
-        maven {
-            name='github'
-            url = 'https://maven.pkg.github.com/Azure/communication-preview'
-            credentials {
-                username '<your GitHub user name>'
-                password '<your personal access token>'
-            }
-        }
-        ...
+    ...
+    mavenCentral()
+    maven {
+        url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
     }
+    ...
+}
 ```
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
 
@@ -142,6 +129,7 @@ class MainActivity : AppCompatActivity() {
     private fun startCallComposite() {
         val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions({ fetchToken() }, true)
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
+
         val options = GroupCallOptions(
             this,
             communicationTokenCredential,
@@ -189,17 +177,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startCallComposite() {
-        CallComposite callComposite = new CallCompositeBuilder().build();
-
         CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
                 new CommunicationTokenRefreshOptions(this::fetchToken, true);
-        CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
-        GroupCallOptions options = new GroupCallOptions(this,
+        CommunicationTokenCredential communicationTokenCredential = 
+                new CommunicationTokenCredential(communicationTokenRefreshOptions);
+
+        GroupCallOptions options = new GroupCallOptions(
+                this,
                 communicationTokenCredential,
                 UUID.fromString("GROUP_CALL_ID"),
                 "DISPLAY_NAME");
 
+        CallComposite callComposite = new CallCompositeBuilder().build();
         callComposite.launch(options);
     }
 
@@ -270,9 +260,10 @@ val communicationTokenCredential = CommunicationTokenCredential(communicationTok
 CallComposite callComposite = new CallCompositeBuilder().build();
 
 CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
-                new CommunicationTokenRefreshOptions(this::fetchToken, true);
+        new CommunicationTokenRefreshOptions(this::fetchToken, true);
 
-CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(communicationTokenRefreshOptions);
+CommunicationTokenCredential communicationTokenCredential = 
+        new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
 ```
 
@@ -372,23 +363,19 @@ To receive events, inject a handler to the `CallCompositeBuilder`.
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val callComposite: CallComposite =
-            CallCompositeBuilder()
-                .onException { 
-                    //...
-                }
-                .build()
+val callComposite: CallComposite = CallCompositeBuilder().build()
+callComposite.setOnErrorHandler { errorEvent ->
+    //...
+}
 ```
 
 #### [Java](#tab/java)
 
 ```java
-CallComposite callComposite =
-                new CallCompositeBuilder()
-                        .onException(eventArgs -> {
-                            //...
-                        })
-                        .build();
+CallComposite callComposite = new CallCompositeBuilder().build();
+callComposite.setOnErrorHandler(errorEvent -> {
+    //...
+});
 ```
 
 -----
