@@ -86,7 +86,7 @@ Get-AzureADTrustedCertificateAuthority
 To create a trusted certificate authority, use the [New-AzureADTrustedCertificateAuthority](https://docs.microsoft.com/powershell/module/azuread/new-azureadtrustedcertificateauthority) cmdlet and set the crlDistributionPoint attribute to a correct value:
 
 ```powershell
-$cert=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation    $new_ca.AuthorityType=0    $new_ca.TrustedCertificate=$cert    $new_ca.crlDistributionPoint="<CRL Distribution URL>"    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca  
+$certificate=Get-Content -Encoding byte "[LOCATION OF THE CER FILE]"    $new_ca=New-Object -TypeName Microsoft.Open.AzureAD.Model.CertificateAuthorityInformation    $new_ca.AuthorityType=0    $new_ca.TrustedCertificate=$certificate    $new_ca.crlDistributionPoint="<CRL Distribution URL>"    New-AzureADTrustedCertificateAuthority -CertificateAuthorityInformation $new_ca  
 ```
 
 >[!NOTE] 
@@ -138,44 +138,44 @@ To enable the certificate-based authentication and configure user bindings , com
    1. Select a **Certificate issuer identifier** from the list box.
    1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA.
  
+   There can be only one binding for each certificate field.
 
+   Supported set of bindings:
+   - SAN Principal Name -> User Principal Name 
+   - SAN Principal Name -> onPremisesUserPrincipalName  
+   - RFC822Name -> User Principal Name 
+   - RFC822Name -> onPremisesUserPrincipalName 
  
-There can be only one binding for each certificate field
-Supported set of bindings:
-1.	SAN Principal Name -> User Principal Name 
-2.	SAN Principal Name -> onPremiseUserPrincipalName  
-3.	RFC822Name -> User Principal Name 
-4.	RFC822Name -> onPremiseUserPrincipalName 
- 
-Default binding (use if no binding explicitly configured) 
-1.	SAN Principal Name -> User Principal Name 
+   Default binding (use if no binding explicitly configured) 
+   - SAN Principal Name -> User Principal Name 
  
  
-11.	To create a rule by Policy OID, make sure to select ‘Policy OID’.
-a.	Enter a value for ‘Policy OID’.
-b.	Protection level default value is ‘Single-factor authentication’. Please select ‘Multi-factor authentication’ for default value for the rule to be MFA.
+1. To create a rule by Policy OID, make sure to select **Policy OID**.
+   1. Enter a value for **Policy OID**.
+   1. Protection level default value is **Single-factor authentication**. Select **Multi-factor authentication** to change the default value to MFA.
  
+      Strong Authentication binding rules: 
+      - Exact match is used for Strong authentication via policy OID.
+        If you have a certificate A with policy OID **1.2.3.4.5** and a derived credential B based on that certificate has a policy OID **1.2.3.4.5.6** and the rule is defined as **Policy OID** with value **1.2.3.4.5** with Multi-factor authentication, only the certificate A will satisfy Multi-factor authentication and credential B will satisfy only Single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA, the user will be asked for a second factor for successful authentication.
+      - Policy OID rules will take precedence over Certificate issuer rules. If a certificate has both policy OID and Issuer, the policy OID is always checked first and if no policy rule is found then the issuer subject bindings are checked. Policy OID has a higher strongAuth binding priority than the issuer. 
+      - If one CA binds to two-factor authentication, all user certs that this CA issue qualify as two-factor authentication. The same logic applies for single-factor authentication. 
+      - If one policy OID binds to two-factor authentication, all user certs that include this policy OID as one of the OIDs (A user certificate could have multiple policy OIDs) qualify as multiple-factor authentication.  
+      - If there is a conflict between multiple policy OIDs (such as when a certificate has two policy OIDs, one binds to single-factor authentication and the other binds to two-factor authentication) then treat the certificate as a single-factor authentication.
+      - One certificate could only have one valid strong authentication binding (that is, a certificate could not bind to both single-factor and two-factor authentication).
+ 
+1. Create the Username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
 
- 
-Strong Authentication binding rules: 
-1.	Exact match is used for Strong authentication via policy OID.
-If you have a certificate A with policy OID “1.2.3.4.5” and a derived credential B based on that certificate has a policy OID “1.2.3.4.5.6” and the rule is defined as “Policy OID” with value “1.2.3.4.5” with Multi-factor authentication, only the certificate A will satisfy Multi-factor authentication and credential B will satisfy only Single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA,  user will be asked for a second factor for successful authentication.
-2.	Policy OID rules will take precedence over Certificate issuer rules. If a certificate has both policy OID and Issuer, we always check the policy OID first and if no policy rule is found then we check the issuer subject bindings. Policy OID has a higher strongAuth binding priority than the issuer. 
-3.	If one CA binds to two-factor auth, all user certs that this CA issue qualify as two-factor auth. (same logic applies for single-factor auth) 
-4.	If one policy OID binds to two-factor auth, all user certs that include this policy OID as one of the OIDs (A user cert could have multiple policy OIDs), qualify as multiple-factor authentication.  
-5.	If there is a conflict between multiple policy OIDs (I.e., A cert has two policy OIDs, one binds to single-factor auth and the other binds to two-factor auth, then treat the cert as a single-factor auth.
-6.	One cert could only have one valid strong auth binding. (i.e., cert could not bind to both single-factor and two-factor.) 
- 
-12.	Create Username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
+   The way multiple user bindings are processed is as follows. Use the highest priority (lowest number) binding.  
+   - If the X.509 certificate field is on the presented certificate. Attempt to look the user up using the value in the specified field. 
+     - If a unique user is found, authenticate the user. 
+     - If a unique user is not found, authentication fails. 
+   - If the X.509 certificate field is not on the presented certificate move to the next priority binding. 
+   
+   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails.  Azure AD doesn’t try the next binding in the list.   
 
-The way multiple user bindings are processed is as follows. Use the highest priority(lowest number) binding.  
-If the X.509 certificate field is on the presented certificate. Attempt to look the user up using the value in the specified field. 
-o	If a unique user is found, authenticate the user. 
-o	If a unique user is not found, authentication fails. 
-If the X.509 certificate field is not on the presented certificate move to the next priority binding. 
-If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails.  Azure AD doesn’t try the next binding in the list.   
-Only if the X.509 certificate field is not on the certificate does it attempt to the next priority.
-13.	Click ‘Save’ to save the changes. 
+   Only if the X.509 certificate field is not on the certificate does it attempt the next priority.
+
+1. Click **Save** to save the changes. 
 
 
 ### Using Graph API
@@ -452,9 +452,9 @@ Use Microsoft Graph and Microsoft Graph explorer to configure tenant CBA setting
 
    ![Screenshot showing how to select permissions](media/how-to-certificate-based-authentication/select-permissions.png)
 
-1. Type "auth" in the search bar and select everything from the list.
+1. Type "authentication" in the search bar and select everything from the list.
 
-   ![Screenshot showing how to search for authentication methods](media/how-to-certificate-based-authentication/search-auth.png) 
+   ![Screenshot showing how to search for authentication methods](media/how-to-certificate-based-authentication/search-authentication.png) 
 
 1. At the bottom, click **Consent**. 
 
