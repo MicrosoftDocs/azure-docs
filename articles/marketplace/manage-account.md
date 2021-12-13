@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 09/27/2021
+ms.date: 12/03/2021
 ---
 
 # Manage a commercial marketplace account in Partner Center
@@ -220,7 +220,7 @@ The device management settings apply only to universal windows platform (UWP) pu
 
 ## Create a billing profile
 
-If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) offer, you need to complete your *billing profile*.
+If you are publishing a [Dynamics 365 apps on Dataverse and Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) or [Dynamics 365 Operations Apps](./partner-center-portal/create-new-operations-offer.md) offer, you need to complete your *billing profile*.
 
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are required for some countries and optional for others. The country/region name and company name cannot be edited.
 

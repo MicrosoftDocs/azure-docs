@@ -6,7 +6,7 @@ services: storage
 author: tamram
 
 ms.service: storage
-ms.date: 06/01/2021
+ms.date: 12/01/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
@@ -30,7 +30,7 @@ To enable infrastructure encryption for a storage account, you must configure a 
 
 # [Azure portal](#tab/portal)
 
-To use PowerShell to create a storage account with infrastructure encryption enabled, follow these steps:
+To use the Azure portal to create a storage account with infrastructure encryption enabled, follow these steps:
 
 1. In the Azure portal, navigate to the **Storage accounts** page.
 1. Choose the **Add** button to add a new general-purpose v2 storage account.

@@ -23,6 +23,18 @@ Web Activity can be used to call a custom REST endpoint from an Azure Data Facto
 > [!NOTE]
 > The maximum supported output response payload size is 4 MB.  
 
+## Create a Web activity with UI
+
+To use a Web activity in a pipeline, complete the following steps:
+
+1. Search for _Web_ in the pipeline Activities pane, and drag a Web activity to the pipeline canvas.
+1. Select the new Web activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-web-activity/web-activity.png" alt-text="Shows the UI for a Web activity.":::
+
+1. Specify a URL, which can be a literal URL string, or any combination of dynamic [expressions, functions](control-flow-expression-language-functions.md), [system variables](control-flow-system-variables.md), or [outputs from other activities](how-to-expression-language-functions.md#examples-of-using-parameters-in-expressions).  Provide other details to be submitted with the request.
+1. Use the output from the activity as the input to any other activity, and reference the output anywhere dynamic content is supported in the destination activity.
+
 ## Syntax
 
 ```json
