@@ -15,7 +15,7 @@ Customers can deploy select Network Virtual Appliances directly into the Virtual
 
 ## Key benefits
 
-When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as a SD-WAN gateway, Firewall or a combination of both.  
+When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as an SD-WAN gateway, Firewall or a combination of both.  
 
 Deploying Network Virtual Appliances into the Virtual WAN Hub allows customers to enjoy the following benefits:
 

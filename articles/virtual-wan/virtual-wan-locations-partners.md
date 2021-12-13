@@ -17,7 +17,7 @@ This article provides information on Virtual WAN supported regions and partners 
 
 There are two types of offerings that make connecting to Azure easier for customers:
 
-1. **Network Virtual Appliances deployed  in the Virtual WAN Hub**: Customers can deploy Network Virtual Appliances directly into the Virtual WAN hub. This solution  is jointly managed by Microsoft Azure and third-party Network Virtual Appliance solution providers. To learn more about NVA's deployed in the Virtual WAN Hub please reference the following [article](about-nva-hub.md).
+1. **Network Virtual Appliances deployed  in the Virtual WAN Hub**: Customers can deploy Network Virtual Appliances directly into the Virtual WAN hub. This solution  is jointly managed by Microsoft Azure and third-party Network Virtual Appliance solution providers. To learn more about NVA's deployed in the Virtual WAN Hub reference the following [article](about-nva-hub.md).
 1. **Branch IPsec connectivity automation**: Customers can automatically configure and connect their branch devices to the Azure Virtual WAN Site-to-site VPN Gateway using IPsec tunnels. This is typically set up in the device-management UI (or equivalent).
 
 ## Partners with integrated Virtual Hub offerings
