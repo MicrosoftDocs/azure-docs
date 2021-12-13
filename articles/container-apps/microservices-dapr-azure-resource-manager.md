@@ -188,9 +188,9 @@ az monitor log-analytics workspace create \
 
 ```powershell
 New-AzOperationalInsightsWorkspace `
--Location $LOCATION `
--Name $LOG_ANALYTICS_WORKSPACE `
--ResourceGroupName $RESOURCE_GROUP
+  -Location $LOCATION `
+  -Name $LOG_ANALYTICS_WORKSPACE `
+  -ResourceGroupName $RESOURCE_GROUP
 ```
 
 ---
