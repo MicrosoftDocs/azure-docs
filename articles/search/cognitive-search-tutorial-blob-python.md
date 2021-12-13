@@ -29,7 +29,7 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Overview
 
-This tutorial uses Python and the [**azure-search-documents** client library](/python/api/overview/azure/search-documents-readme?view=azure-python) to create a data source, index, indexer, and skillset.
+This tutorial uses Python and the [**azure-search-documents** client library](/python/api/overview/azure/search-documents-readme) to create a data source, index, indexer, and skillset.
 
 The indexer connects to sample data in a blob container that's specified in the data source object, and sends all enriched content to a search index.
 
@@ -107,7 +107,7 @@ If possible, create both in the same region and resource group for proximity and
 
 ### Cognitive Services
 
-AI enrichment is backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment is backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
 Since this tutorial only uses 7 transactions, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services for 20 free transactions per indexer run. The free allocation is sufficient. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md).
 

@@ -170,10 +170,6 @@ The following table describes each state that each drive in a job may pass throu
 | CompletedMoreInfo | A drive moves to the **CompletedMoreInfo** state when the service has experienced issues while copying data from or to the drive. The information can include errors, warnings, or informational messages about overwriting blobs. |
 | ShippedBack | A drive moves to the **ShippedBack** state when it has been shipped from the datacenter back to the return address. |
 
-<!--MOVING THE SCREENSHOT UP TO THE "VIEW" SECTION. - This image from the Azure portal displays the drive state of an example job.
-
-![Screenshot showing drive state for an Azure Import Export order in the Azure portal. The Drive ID, Drive State, Copy Status, and Percent Complete for the drive are highlighted.](./media/storage-import-export-view-drive-status/drive-state.png)-->
-
 The following table describes drive failure states and the actions taken for each state.
 
 | Drive state | Event | Resolution / Next step |

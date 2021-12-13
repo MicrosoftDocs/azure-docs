@@ -67,6 +67,9 @@ At the end of each execution of the automatic sync process, your transactional d
 > [!NOTE]
 > Your transactional data will be synchronized to analytical store even if your transactional TTL is smaller than 2 minutes. 
 
+> [!NOTE]
+> Please note that if you delete your container, analytical store is also deleted.
+
 ## Scalability & elasticity
 
 By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in auto-sync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
@@ -184,7 +187,7 @@ df = spark.read\
      .load()  
 ```
 
-* Azure Synapse Spark now supports properties with whitespaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
+* Azure Synapse Spark now supports properties with white spaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
 
 ```Python
 df = spark.read\
@@ -209,6 +212,7 @@ df = spark.read\
 
 * SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. Please consider this information when designing your data architecture and modeling your transactional data.
 
+* If you rename a property, in one or many documents, it will be considered a new column. If you execute the same rename in all documents in the collection, all data will be migrated to the new column and the old column will be represented with `NULL` values.
 
 ### Schema representation
 
@@ -419,6 +423,7 @@ Some points to consider:
 *	While transactional TTL can be set at the container or item level, analytical TTL can only be set at the container level currently.
 *	You can achieve longer retention of your operational data in the analytical store by setting analytical TTL >= transactional TTL at the container level.
 *	The analytical store can be made to mirror the transactional store by setting analytical TTL = transactional TTL.
+*	If you have analytical TTL bigger than transactional TTL, at some point in time you will have data that only exists in analytical store. This data is read only.
 
 How to enable analytical store on a container:
 
