@@ -62,7 +62,7 @@ You can significantly grow the scope of real time analytics by leveraging ASA an
 
 * Stream Analytics identifies anomalies in real time and Data Explorer helps determine how/why it occurred through interactive exploration
 * Stream Analytics deserializes incoming data stream for use in Data Explorer (E.g. ingest Protobuff format by using custom deserializer, custom binaries formats etc.)
-* Stream Analytics aggregates/filters/enrich/transform incoming data streams for use in Data Explorer
+* Stream Analytics can perform aggregates, filters, enrich, and transform incoming data streams for use in Data Explorer
 
 
 ## Limitation
