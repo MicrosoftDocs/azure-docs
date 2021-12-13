@@ -19,7 +19,8 @@ Within the Custom Translator settings page, you can share your workspace, modify
 To access the settings page:
 
 1. Sign in to the [Custom Translator](https://portal.customtranslator.azure.ai/) portal.
-2. On Custom Translator portal, Select the gear icon in the sidebar.
+2. On Custom Translator portal, select the gear icon in the sidebar.
+
 
     ![Setting Link](media/how-to/how-to-settings.png)
 
