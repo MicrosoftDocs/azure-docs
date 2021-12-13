@@ -92,7 +92,7 @@ For information about viewing your client ID, see [View authentication details](
 > When using the Azure CLI use the `az maps account show` command with the `--query` parameter, for example:
 >
 > ```azurecli
-> az maps account show --name {Azure-Maps_Account-Name} --resource-group {Resource-Group-Name} --subscription {SubscriptionId} --query properties.uniqueId
+> $ClientId = az maps account show --name {Azure-Maps_Account-Name} --resource-group {Resource-Group-Name} --subscription {SubscriptionId} --query properties.uniqueId
 >```
 
 ## Authorization with role-based access control
