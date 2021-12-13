@@ -140,15 +140,21 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 In this step, you create your elastic pool and add your database to the elastic pool using the Azure CLI.
 
-## Set parameter values
+## Set additional parameter values to create elastic pool
+
+Set these additional parameter values for use in creating the an elastic pool.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="12-13":::
 
 ## Create elastic pool on primary server
 
+Use this script to create an elastic pool.
+
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="29-31":::
 
 ## Add database to elastic pool
+
+Use this script to add a database to an elastic pool.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="32-34":::
 
@@ -277,23 +283,37 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 In this step, you create your failover server, failover group, elastic pool, and add database to failover group using the Azure CLI.
 
-## Set parameter values
+## Set additional parameter values to create failover group
+
+Set these additional parameter values for use in creating the failover group, in addition to the values defined in the preceding script that created the primary resource group and server.
+
+Change the failover location as appropriate for your environment.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="14-17":::
 
 ## Create failover server
 
+Use this script to create a failover server.
+> [!NOTE]
+> The server login and firewall settings must match that of your primary server.
+
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="35-37":::
 
 ## Create elastic pool on failover server
+
+Use this script to create an elastic pool on the failover server.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="38-40":::
 
 ## Create failover group
 
+Use this script to create a failover group.
+
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="41-43":::
 
 ## Add database to failover group
+
+Use this script to add a database to the failover group.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="44-48":::
 
@@ -301,7 +321,7 @@ In this step, you create your failover server, failover group, elastic pool, and
 
 ## 4 - Test failover
 
-In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal.
+In this step, you'll fail your failover group over to the faijlover server, and then fail back using the Azure portal.
 
 # [Portal](#tab/azure-portal)
 
@@ -401,9 +421,9 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 # [The Azure CLI](#tab/azure-cli)
 
-In this step, 
+Test failover using the Azure CLI.
 
-## ## Verify which server is the secondary
+## Verify which server is the secondary
 
 Use this script to confirm the roles of each server.
 
@@ -411,7 +431,7 @@ Use this script to confirm the roles of each server.
 
 ## Fail over to the secondary server
 
-Use this script to failover to the secondary server and verify a successful failover.
+Use this script to failover to the failover server and verify a successful failover.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="52-57":::
 
@@ -420,6 +440,15 @@ Use this script to failover to the secondary server and verify a successful fail
 Use this script to fail back to the primary server.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="58-60":::
+
+## CLI failover group management reference
+
+This portion of the tutorial uses the following Azure CLI cmdlets:
+
+| Command | Notes |
+|---|---|
+| [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) | Gets the failover groups in a server. |
+| [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) | Set the primary of the failover group by failing over all databases from the current primary server. |
 
 ---
 

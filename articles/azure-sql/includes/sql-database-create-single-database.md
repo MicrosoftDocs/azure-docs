@@ -185,9 +185,9 @@ az account set -s $subscription # ...or use 'az login'
 
 For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
-## Set parameter values
+## Set parameter values to create resources
 
-The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
+Set the parameter values for use in creating the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
 
 Change the location as appropriate for your environment. Replace `0.0.0.0` with the in the ip address range to match your specific environment. Use the public IP address of the computer you're using to restrict access to the server to only your IP address.
 
@@ -213,7 +213,7 @@ Use this script to create a firewall rule with the [az sql server firewall-rule 
 
 ## Create a single database using Azure CLI
 
-Use this script to create a database with the [az sql db create](/cli/azure/sql/db) command in the [vCore service tier](..database/service-tiers-sql-database-vcore.md).
+Use this script to create a database with the [az sql db create](/cli/azure/sql/db) command in the [vCore service tier](../database/service-tiers-sql-database-vcore.md).
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="28-30":::
 

@@ -171,9 +171,9 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 In this step, you create your failover group and add your database to it using the Azure CLI.
 
-## Set parameter values
+## Set additional parameter values to create failover group
 
-These additional parameter values are used in creating the failover group, in addition to the values defined in the preceding script that created the primary resource group and server.
+Set these additional parameter values for use in creating the failover group, in addition to the values defined in the preceding script that created the primary resource group and server.
 
 Change the failover location as appropriate for your environment.
 
@@ -189,7 +189,7 @@ Use this script to create a failover server.
 
 ## Create the failover group
 
-Use this script to create a failover group
+Use this script to create a failover group.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="30-32":::
 
@@ -206,7 +206,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 ## 3 - Test failover
 
-In this step, you'll fail your failover group over to the secondary server, and then fail back using the Azure portal.
+In this step, you'll fail your failover group over to the failover server, and then fail back using the Azure portal.
 
 # [The portal](#tab/azure-portal)
 
@@ -304,7 +304,7 @@ Use this script to confirm the roles of each server.
 
 ## Fail over to the secondary server
 
-Use this script to failover to the secondary server and verify a successful failover.
+Use this script to failover to the failover server and verify a successful failover.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="36-41":::
 
