@@ -86,7 +86,7 @@ The file reference object can be generated one of three ways:
 | Output name	 | Description |
 |--------------|-------------|
 | `content` | The textual content of the document. |
-| `normalized_images`	| When the `imageAction` is set to a value other then `none`, the new *normalized_images* field will contain an array of images. See [Extract text and information from images](cognitive-search-concept-image-scenarios.md) for more details on the output format. |
+| `normalized_images`	| When the `imageAction` is set to a value other than `none`, the new *normalized_images* field will contain an array of images. See [Extract text and information from images](cognitive-search-concept-image-scenarios.md) for more details on the output format. |
 
 ## Sample definition
 
