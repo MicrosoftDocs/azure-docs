@@ -57,11 +57,15 @@ To learn more about different authentication methods, check out [Azure authentic
 
 ## Run the sample
 
-This sample creates a test file in the current folder, uploads the test file to Blob storage, lists the blobs in the container, and downloads the file into a buffer.
+This sample creates creates an Azure storage container, uploads a blob, lists the blobs in the container, then downloads the blob data into a buffer.
 
-To run the sample, issue the following command:
+Before you run the sample, open the `storage-quickstart.go` file. Replace `<StorageAccountName>` with the name of your Azure storage account.
 
-`go run storage-quickstart.go`
+Then run the application with the `go run` command:
+
+```azurecli
+go run storage-quickstart.go
+```
 
 The following output is an example of the output returned when running the application:
 
