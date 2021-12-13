@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: mokabiru
 ms.author: mokabiru
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 02/13/2019
 ---
 # New DBA in the cloud – Managing Azure SQL Database after migration

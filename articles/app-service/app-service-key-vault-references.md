@@ -85,7 +85,7 @@ Alternatively:
 
 ## Rotation
 
-If a version is not specified in the reference, then the app will use the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within 24 hours. The delay is because App Service caches the values of the key vault references and refetches it every 24 hours. Any configuration changes to the app causes an immediate refetch of all referenced secrets.
+If a version is not specified in the reference, then the app will use the latest version that exists in the key vault. When newer versions become available, such as with a rotation event, the app will automatically update and begin using the latest version within 24 hours. The delay is because App Service caches the values of the key vault references and refetches it every 24 hours. Any configuration changes to the app that results in a site restart causes an immediate refetch of all referenced secrets.
 
 ## Source Application Settings from Key Vault
 

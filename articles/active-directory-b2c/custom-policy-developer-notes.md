@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 11/02/2021
+ms.date: 12/09/2021
 ms.custom: project-no-code
 ms.author: kengaderdus
 ms.subservice: B2C
@@ -154,6 +154,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
+| [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | Preview |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
 | [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
 | [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | Preview |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |

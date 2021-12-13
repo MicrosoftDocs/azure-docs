@@ -56,4 +56,4 @@ Currently, IoT Edge devices can't move between IoT hubs.
 
 ## Next steps
 
-Now that you've learned about the scalability and high availability of Azure IoT Central, the suggested next step is to learn about [device connectivity](concepts-get-connected.md) in Azure IoT Central.
+Now that you've learned about the scalability and high availability of Azure IoT Central, the suggested next step is to learn about [Quotas and limits](concepts-quotas-limits.md) in Azure IoT Central.

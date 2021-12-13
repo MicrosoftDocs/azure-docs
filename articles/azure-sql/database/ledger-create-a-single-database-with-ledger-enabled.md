@@ -4,9 +4,9 @@ description: Create a single database in Azure SQL Database with ledger enabled 
 ms.service: sql-database
 ms.subservice: security
 ms.topic: quickstart
-author: rothja
-ms.author: jroth
-ms.reviewer: vanto
+author: VanMSFT
+ms.author: vanto
+ms.reviewer: kendralittle, mathoma
 ms.date: "09/09/2021"
 ms.custom: mode-other
 ---
