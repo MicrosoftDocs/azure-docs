@@ -157,4 +157,6 @@ Send the following to your labelers, after filling in your workspace and project
 
 ## Next steps
 
-Learn more about [working with a data labeling vendor company](how-to-outsource-data-labeling.md)
+* Learn more about [working with a data labeling vendor company](how-to-outsource-data-labeling.md)
+* [Create an image labeling project and export labels](how-to-create-image-labeling-projects.md)
+* [Create a text labeling project and export labels (preview)](how-to-create-text-labeling-projects.md)
