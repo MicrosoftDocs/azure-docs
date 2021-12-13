@@ -115,5 +115,6 @@ npx webpack-dev-server --entry ./client.js --output bundle.js --debug --devtool 
 
 Open your browser and navigate to `http://localhost:8080/`. You should see the following:
 
+:::image type="content" source="media/emergency-calling/emergency-calling-javascript-app.png" alt-text="Screenshot of the completed JavaScript Application.":::
 
 You can place a call to 933 by clicking the **933 Test Call** button.
