@@ -133,5 +133,5 @@ landingContent:
         url: cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
         url: marketplace-geo-availability-currencies.md
-      - text: Troubleshooting Private Plans in Commercial Marketplace
+      - text: Troubleshoot Private Plans
         url: azure-private-plan-troubleshooting.md
