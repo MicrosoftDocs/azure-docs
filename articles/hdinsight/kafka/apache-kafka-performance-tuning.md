@@ -8,7 +8,7 @@ ms.date: 12/19/2019
 
 # Performance optimization for Apache Kafka HDInsight clusters
 
-This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer, broker and consumer configuration. Sometimes, you also need to adjust OS settings to tune the performance with heavey workload. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
+This article gives some suggestions for optimizing the performance of your Apache Kafka workloads in HDInsight. The focus is on adjusting producer, broker and consumer configuration. Sometimes, you also need to adjust OS settings to tune the performance with heavy workload. There are different ways of measuring performance, and the optimizations that you apply will depend on your business needs.
 
 ## Architecture overview
 
@@ -76,13 +76,13 @@ For more information on replication, see [Apache Kafka: replication](https://kaf
 
 The following section will highlight some of the important generic configurations to optimize the performance of your Kafka consumers. For a detailed explanation of all configurations, see [Apache Kafka documentation on consumer configurations](https://kafka.apache.org/documentation/#consumerconfigs).
 
-### Number of Consumers
+### Number of consumers
 
 It is a good practice to have the number of partitions equal to the number of consumers. If the number of consumers is less than the number of partitions then a few of the consumers will read from multiple partitions, increasing consumer latency. 
 
 If the number of consumers is greater than the number of partitions, then you will be wasting your consumer resources since those consumers will be idle. 
 
-### Avoid Frequent Consumer Rebalance
+### Avoid frequent consumer rebalance
 
 Consumer rebalance is triggered by partition ownership change  (i.e., consumers scales out or scales down), a broker crash (since brokers are group coordinator for consumer groups), a consumer crash, adding a new topic or adding new partitions. During rebalancing, consumers cannot consume, hence increasing the latency.
 
@@ -99,13 +99,13 @@ Like producers, we can add batching for consumers. The amount of data consumers 
 
 ## Linux OS tuning with heavy workload
 
-### Memory Maps
+### Memory maps
 
 `vm.max_map_count` defines maximum number of mmap a process can have. By default, on HDInsight Apache Kafka cluster linux VM, the value is 65535. 
 
 In Apache Kafka, each log segment requires a pair of index/timeindex files, and each of these files consumes 1 mmap. In other words, each log segment uses 2 mmap. Thus, if each partition hosts a single log segment, it requires minimum 2 mmap. The number of log segments per partition varies depending on the **segment size, load intensity, retention policy, rolling period** and, generally tends to be more than one. `Mmap value = 2*((partition size)/(segment size))*(partitions)`
 
-If required mmap value exceeds the `vm.max_map_count`, broker would rais **"Map failed"** exception.
+If required mmap value exceeds the `vm.max_map_count`, broker would raise **"Map failed"** exception.
 
 To avoid this exception, use the below commands to check the size for mmap in vm and increase the size if needed on each worker node.
 
