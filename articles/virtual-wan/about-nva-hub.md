@@ -23,8 +23,8 @@ Deploying Network Virtual Appliances into the Virtual WAN Hub allows customers t
 1. **Built-in availability and resiliency**: Virtual WAN Network Virtual Appliance deployments Availability Zone (AZ) aware and are automatically configured to be high available.
 1. **No-hassle provisioning and boot-strapping**: A Managed Application is pre-qualified for provisioning and boot-strapping for the Virtual WAN platform. This Managed Application is available through the Azure Marketplace link.
 1. **Simplified routing** Leverage Virtual WAN's intelligent routing systems. NVA solutions peer with the Virtual WAN Hub router and participate in the Virtual WAN routing decision process similarly to Microsoft Gateways.
-1. **Integrated Support**: Partners have a special support agreement with Microsoft Azure Virtual WAN to quickly diagnose and resolve any customer problems.
-1. **Platform-provided Lifecycle Management**: Upgrades and patches are a part of the Azure Virtual WAN service. This takes away the complexity of lifecycle management from a customer deploying Virtual Appliance solutions.
+1. **Integrated support**: Partners have a special support agreement with Microsoft Azure Virtual WAN to quickly diagnose and resolve any customer problems.
+1. **Platform-provided lifecycle management**: Upgrades and patches are a part of the Azure Virtual WAN service. This takes away the complexity of lifecycle management from a customer deploying Virtual Appliance solutions.
 1. **Integrated with platform features**: Transit connectivity with Microsoft gateways and Virtual Networks, Encrypted ExpressRoute (SD-WAN overlay running over an ExpressRoute circuit), Virtual Hub route tables etc. interact seamlessly.
 
 
@@ -54,7 +54,7 @@ Customers can deploy a Azure Firewall along side their connectivity-based Networ
 
 Customers can also deploy Network Virtual Appliances into the Virtual WAN Hub that perform both SD-WAN connectivity and Next-Generation Firewall capabilities. Customers can connect on-premises devices to the Network Virtual Appliance in the hub and also use the same appliance to inspect all North-South, East-West and Internet-bound traffic. Routing to enable these scenarios can be configured via [Routing Intent and Routing Policies](./how-to-routing-policies.md).
 
-Partners that support these traffic flows are listed in the [Partners section](#partner).
+Partners that support these traffic flows are listed as **dual-role SD-WAN connectivity and security (Next-Generation Firewall) Network Virtual Appliances** in the [Partners section](#partner).
 
   
 :::image type="content" source="./media/about-nva-hub/global-transit-ngfw.png" alt-text="Global transit architecture with third-party NVA." lightbox="./media/about-nva-hub/global-transit-ngfw.png":::

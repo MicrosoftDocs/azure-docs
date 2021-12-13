@@ -24,7 +24,7 @@ There are two types of offerings that make connecting to Azure easier for custom
 
 Some partners offer Network Virtual Appliances (NVAs) that can be deployed directly into the Azure Virtual WAN hub through a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance solution providers.
 
-When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as a SD-WAN gateway, Firewall or a combination of both. For more information about the benfits of deploying a NVA into the Virtual WAN hub, please reference this [article](about-nva-hub.md).
+When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as a SD-WAN gateway, Firewall or a combination of both. For more information about the benefits of deploying a NVA into the Virtual WAN hub, please reference this [article](about-nva-hub.md).
 
 
 [!INCLUDE [NVA PARTNERS](../../includes/virtual-wan-nva-hub-partners.md)]
