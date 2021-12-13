@@ -106,6 +106,7 @@ In the *App settings* tab, do the following actions:
 If you enabled ingress, configure the following settings:
 
 | Setting | Action |
+|---|---|
 | Ingress visibility | Select **Internal** to only allow ingress from other apps in the same virtual network, and select **External** to publicly expose your container app. |
 | Target port | Enter the port you want to expose your container app. |
 
