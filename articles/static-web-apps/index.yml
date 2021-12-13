@@ -10,7 +10,7 @@ metadata:
   ms.service: static-web-apps
   author: craigshoemaker
   ms.author: cshoe
-  ms.date: 05/07/2021
+  ms.date: 11/19/2021
 
 landingContent:
   - title: About Static Web Apps
@@ -37,11 +37,15 @@ landingContent:
             url: /learn/modules/publish-app-service-static-web-app-api
           - text: Publish an API
             url: /learn/modules/publish-static-web-app-api-preview-url
+          - text: Create and deploy a Gatsby app 
+            url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
+          - text: Publish a Blazor WebAssembly app and .NET API
+            url: /learn/modules/publish-app-service-static-web-app-api-dotnet
       - linkListType: video
         links:
           - text: Build and deploy a static web app
             url: https://channel9.msdn.com/Shows/Docs-Azure/Building-and-Deploying-a-Static-Web-App/
-  - title: Deploy from a framework/library
+  - title: Build and deploy
     linkLists:
       - linkListType: tutorial
         links:
@@ -59,29 +63,25 @@ landingContent:
             url: deploy-nextjs.md
           - text: Nuxt.js
             url: deploy-nuxtjs.md
-          - text: Gatsby
-            url: /learn/modules/create-deploy-static-webapp-gatsby-app-service
-          - text: Blazor
-            url: /learn/modules/publish-app-service-static-web-app-api-dotnet
   - title: Key concepts
     linkLists:
       - linkListType: concept
         links:
           - text: Configuration
             url: configuration-overview.md
-          - text: Public APIs
+          - text: Serverless API endpoints
             url: apis.md
           - text: Staging environments
             url: review-publish-pull-requests.md
-          - text: Restrict access
+          - text: Authentication and authorization
             url: authentication-authorization.md
           - text: Build configuration with GitHub Actions
             url: publish-devops.md?tabs=github-actions
           - text: Build configuration with Azure DevOps
             url: publish-devops.md?tabs=azure-devops
-  - title: Software as a service
+  - title: Infrastructure as code
     linkLists:
      - linkListType: tutorial
        links:
-         - text: Deploy with an ARM template
+         - text: Create an Azure Static Web App using an ARM template 
            url: publish-azure-resource-manager.md  

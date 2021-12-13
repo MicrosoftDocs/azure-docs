@@ -9,7 +9,7 @@ items:
   - name: Language support
     href: language-support.md
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/cognitive-services/form-recognizer/
+    href: https://azure.microsoft.com/pricing/details/form-recognizer/
   - name: Service limits
     href: service-limits.md
   - name: What's new
@@ -19,7 +19,7 @@ items:
    - name: Form Recognizer v2.1
      items: 
      - name: Sample Labeling tool
-       href: quickstarts/try-sample-label-tool.md      
+       href: quickstarts/try-sample-label-tool.md
      - name: Client libraries and REST API
        href: quickstarts/get-started-sdk-rest-api.md
    - name: "Form Recognizer v3.0 | Preview"
@@ -41,7 +41,7 @@ items:
   - name: Migrate to Form Recognizer v3.0 (preview)
     href: v3-migration-guide.md
   - name: Use the SDKs and REST API (v2.1)
-    href: how-to-guides/try-sdk-rest-api.md  
+    href: how-to-guides/try-sdk-rest-api.md
   - name: Generate SAS tokens for Azure Blob containers
     href:  generate-sas-tokens.md
   - name: Custom models
@@ -81,15 +81,15 @@ items:
     - name: Use customer-managed keys
       href: encrypt-data-at-rest.md
     - name: Use Azure AD authentication
-      href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context         
+      href: ../../cognitive-services/authentication.md?context=/azure/applied-ai-services/form-recognizer/context/context
 - name: Samples
   items:
   - name: "C#/.NET"
-    href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples
+    href: /samples/azure/azure-sdk-for-net/azure-form-recognizer-client-sdk-samples/
   - name: "Java"
     href: /java/api/overview/azure/ai-formrecognizer-readme?view=azure-java-stable#examples
   - name: "Python"
-    href: /samples/azure/azure-sdk-for-python/formrecognizer-samples
+    href: /samples/azure/azure-sdk-for-python/formrecognizer-samples/
   - name: "JavaScript"
     href: /samples/azure/azure-sdk-for-js/ai-form-recognizer-javascript/
 - name: Responsible use of AI

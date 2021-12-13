@@ -127,7 +127,7 @@ Now let's create a web application using the `json.webpubsub.azure.v1` subprotoc
         <dependency>
             <groupId>com.azure</groupId>
             <artifactId>azure-messaging-webpubsub</artifactId>
-            <version>1.0.0-beta.6</version>
+            <version>1.0.0</version>
         </dependency>
         <!-- https://mvnrepository.com/artifact/io.javalin/javalin -->
         <dependency>

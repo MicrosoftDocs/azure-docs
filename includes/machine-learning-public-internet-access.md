@@ -5,7 +5,7 @@ author: lobrien
 ms.service: machine-learning
 services: machine-learning
 ms.topic: include
-ms.date: 11/05/2021
+ms.date: 11/30/2021
 ms.author: larryfr
 ms.custom: include file
 ---
@@ -16,6 +16,7 @@ Azure Machine Learning requires both inbound and outbound access to the public i
 | ----- |:-----:| ----- | ----- |
 | Inbound | 29876-29877 | BatchNodeManagement | Create, update, and delete of Azure Machine Learning compute instance and compute cluster. |
 | Inbound | 44224 | AzureMachineLearning | Create, update, and delete of Azure Machine Learning compute instance. |
+| Outbound | 443 | AzureMonitor | Used to log monitoring and metrics to App Insights and Azure Monitor. |
 | Outbound | 80, 443 | AzureActiveDirectory | Authentication using Azure AD. |
 | Outbound | 443 | AzureMachineLearning | Using Azure Machine Learning services. |
 | Outbound | 443 | AzureResourceManager | Creation of Azure resources with Azure Machine Learning. |

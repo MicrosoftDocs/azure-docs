@@ -15,6 +15,10 @@ items:
   items:
     - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
+    - name: Directly connected | Azure portal example
+      href: create-complete-managed-instance-directly-connected.md
+    - name: Indirectly connected | Azure CLI example
+      href: create-complete-managed-instance-indirectly-connected.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -51,7 +55,7 @@ items:
             href: create-data-controller-direct-prerequisites.md
           - name: Azure portal
             href: create-data-controller-direct-azure-portal.md
-          - name: az CLI
+          - name: Azure CLI
             href: create-data-controller-direct-cli.md
     - name: Common experiences across Azure Arc-enabled data services
       items:
@@ -245,7 +249,5 @@ items:
       href: ./reference/reference-az-sql-midb-arc.md
 - name: Resources
   items:
-    - name: Plan for deployment
-      href: plan-azure-arc-data-services.md
     - name: Azure Arc jumpstart
       href: https://azurearcjumpstart.io

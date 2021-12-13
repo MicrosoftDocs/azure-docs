@@ -4,10 +4,10 @@ description: This article provides information on append-only ledger table schem
 ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
+author: VanMSFT
+ms.author: vanto
 ---
 
 # Azure SQL Database append-only ledger tables

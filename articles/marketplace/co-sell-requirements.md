@@ -7,7 +7,7 @@ ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
 ms.reviewer: stmummer
-ms.date: 10/21/2021
+ms.date: 12/03/2021
 ---
 
 # Co-sell requirements
@@ -21,7 +21,7 @@ This table shows all possible co-sell statuses:
 | Not co-sell ready | The minimum [requirements for Co-sell ready status](#requirements-for-co-sell-ready-status) have not been met. |
 | Co-sell ready | All [requirements for Co-sell ready status](#requirements-for-co-sell-ready-status) have been met. |
 | Azure IP Co-sell incentive | Co-sell ready requirements have been met in addition to [these additional requirements](#requirements-for-azure-ip-co-sell-incentive-status). |
-| Business Applications Co-sell incentive | This status applies to Dynamics 365 and Power Apps offers in the [Microsoft Business Applications ISV Connect Program](business-applications-isv-program.md) and indicates that all [requirements for this status](#requirements-for-business-applications-co-sell-incentive-status) have been met. |
+| Business Applications Co-sell incentive | This status applies to _Dynamics 365 apps on Dataverse and Power Apps_ offers in the [Microsoft Business Applications ISV Connect Program](business-applications-isv-program.md) and indicates that all [requirements for this status](#requirements-for-business-applications-co-sell-incentive-status) have been met. |
 |||
 
 ## Requirements for Co-sell ready status
@@ -44,7 +44,7 @@ For an offer to achieve co-sell ready status, you must meet the following requir
 
 **Business Applications ISVs**:
 
-- Dynamics 365 & Power Apps (except Dynamics 365 Business Central) solutions require ISV Connect enrollment.
+- Dynamics 365 apps on Dataverse and Power Apps and Dynamics 365 Operations Apps solutions require ISV Connect enrollment.
 
 ### Complete the Co-sell with Microsoft tab
 
@@ -83,7 +83,7 @@ Requirement 3 – Provide a reference architecture diagram:
 
 ## Requirements for Business Applications Co-sell incentive status
 
-This status applies to IP-based solutions built on Dynamics 365 or Power Apps (except for Dynamics 365 Business Central) that are enrolled in the ISV Connect program. However, offers must also complete the requirements for Co-sell ready status (described above) in order for Microsoft sellers to be able to Co-sell the offer with you.
+This status applies to IP-based solutions built on Dynamics 365 apps on Dataverse and Power Apps and Dynamics 365 Operations Apps that are enrolled in the ISV Connect program. However, offers must also complete the requirements for Co-sell ready status (described above) in order for Microsoft sellers to be able to Co-sell the offer with you.
 
 ## Next steps
 

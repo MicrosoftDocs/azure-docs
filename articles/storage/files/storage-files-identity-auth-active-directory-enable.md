@@ -24,7 +24,7 @@ If you are new to Azure file shares, we recommend reading our [planning guide](s
 
 ## Supported scenarios and restrictions
 
-- AD DS Identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD. Password hash synchronization is optional. 
+- AD DS Identities used for Azure Files on-premises AD DS authentication must be synced to Azure AD or use a default share-level permission. Password hash synchronization is optional. 
 - Supports Azure file shares managed by Azure File Sync.
 - Supports Kerberos authentication with AD with RC4-HMAC and [AES 256 encryption](./storage-troubleshoot-windows-file-connection-problems.md#azure-files-on-premises-ad-ds-authentication-support-for-aes-256-kerberos-encryption). AES 256 encryption support is currently limited to storage accounts with names <= 15 characters in length. AES 128 Kerberos encryption is not yet supported.
 - Supports single sign-on experience.
@@ -50,7 +50,7 @@ Before you enable AD DS authentication for Azure file shares, make sure you have
 
 - Select or create your [AD DS environment](/windows-server/identity/ad-ds/get-started/virtual-dc/active-directory-domain-services-overview) and [sync it to Azure AD](../../active-directory/hybrid/how-to-connect-install-roadmap.md) with Azure AD Connect. 
 
-    You can enable the feature on a new or existing on-premises AD DS environment. Identities used for access must be synced to Azure AD. The Azure AD tenant and the file share that you are accessing must be associated with the same subscription.
+    You can enable the feature on a new or existing on-premises AD DS environment. Identities used for access must be synced to Azure AD or use a default share-level permission. The Azure AD tenant and the file share that you are accessing must be associated with the same subscription.
 
 - Domain-join an on-premises machine or an Azure VM to on-premises AD DS. For information about how to domain-join, refer to [Join a Computer to a Domain](/windows-server/identity/ad-fs/deployment/join-a-computer-to-a-domain).
 
@@ -92,7 +92,7 @@ The following diagram illustrates the end-to-end workflow for enabling Azure AD 
 
 ![Files AD workflow diagram](media/storage-files-active-directory-domain-services-enable/diagram-files-ad.png)
 
-Identities used to access Azure file shares must be synced to Azure AD to enforce share level file permissions through the [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) model. [Windows-style DACLs](/previous-versions/technet-magazine/cc161041(v=msdn.10)) on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD DS environment. As you replace on-prem file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
+Identities used to access Azure file shares must be synced to Azure AD to enforce share level file permissions through the [Azure role-based access control (Azure RBAC)](../../role-based-access-control/overview.md) model. Alternatively, you can use a default share-level permission. [Windows-style DACLs](/previous-versions/technet-magazine/cc161041(v=msdn.10)) on files/directories carried over from existing file servers will be preserved and enforced. This offers seamless integration with your enterprise AD DS environment. As you replace on-prem file servers with Azure file shares, existing users can access Azure file shares from their current clients with a single sign-on experience, without any change to the credentials in use.  
 
 ## Next steps
 

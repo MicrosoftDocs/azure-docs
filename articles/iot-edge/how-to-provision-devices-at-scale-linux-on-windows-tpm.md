@@ -92,7 +92,7 @@ IoT Edge for Linux on Windows provides a PowerShell script to help retrieve this
 1. Run the command.
 
    ```powershell
-   Get-EflowVmTpmProvisioningInfo
+   Get-EflowVmTpmProvisioningInfo | Format-List
    ```
 
 # [Simulated TPM](#tab/simulated-tpm)

@@ -1,9 +1,6 @@
 ---
 title: include
-author: memildin
-ms.author: memildin
 ms.date: 11/09/2021
-ms.service: defender-for-cloud
 ms.topic: include
 ---
 

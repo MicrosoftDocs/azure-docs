@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: tutorial
-ms.date: 10/06/2021
+ms.date: 11/29/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: "tutorial, devx-track-azurepowershell, devx-track-azurecli, contperf-fy21q3"
@@ -39,13 +39,7 @@ Before you create an import job to transfer data into Azure Files, carefully rev
 - Download the current release of the Azure Import/Export version 2 tool, for files, on the Windows system:
   1. [Download WAImportExport version 2](https://aka.ms/waiev2). The current version is 2.2.0.300.
   1. Unzip to the default folder `WaImportExportV2`. For example, `C:\WaImportExportV2`.
-- Have a FedEx/DHL account. If you want to use a carrier other than FedEx/DHL, contact Azure Data Box Operations team at `adbops@microsoft.com`.
-    - The account must be valid, should have balance, and must have return shipping capabilities.
-    - Generate a tracking number for the export job.
-    - Every job should have a separate tracking number. Multiple jobs with the same tracking number are not supported.
-    - If you don't have a carrier account, go to:
-        - [Create a FedEx account](https://www.fedex.com/en-us/create-account.html), or
-        - [Create a DHL account](http://www.dhl-usa.com/en/express/shipping/open_account.html).
+- [!INCLUDE [storage-import-export-shipping-prerequisites.md](../../includes/storage-import-export-shipping-prerequisites.md)]
 
 
 ## Step 1: Prepare the drives
@@ -80,9 +74,6 @@ Do the following steps to prepare the drives.
            "F:\MyFolder1\MyFile1.txt","MyAzureFileshare1/MyFile1.txt",file
            "F:\MyFolder2\","MyAzureFileshare1/",file
        ```
-
-<!--ARCHIVED ARTICLE -Learn more about [preparing the dataset CSV file](/previous-versions/azure/storage/common/storage-import-export-tool-preparing-hard-drives-import).-->
-
 
 4. Modify the *driveset.csv* file in the root folder where the tool is. Add entries in the *driveset.csv* file similar to the following examples. The driveset file has the list of disks and corresponding drive letters so that the tool can correctly pick the list of disks to be prepared.
 
@@ -125,66 +116,14 @@ For additional samples, go to [Samples for journal files](#samples-for-journal-f
 
 ## Step 2: Create an import job
 
-### [Portal](#tab/azure-portal)
+### [Portal (Preview)](#tab/azure-portal-preview)
 
-Do the following steps to create an import job in the Azure portal.
-1. Log on to https://portal.azure.com/.
-2. Search for **import/export jobs**.
+[!INCLUDE [storage-import-export-preview-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
 
-    ![Search on import/export jobs](./media/storage-import-export-data-to-blobs/import-to-blob-1.png)
+### [Portal (Classic)](#tab/azure-portal-classic)
 
-3. Select **+ New**.
+[!INCLUDE [storage-import-export-classic-import-steps.md](../../includes/storage-import-export-preview-import-steps.md)]
 
-    ![Select New to create a new ](./media/storage-import-export-data-to-blobs/import-to-blob-2.png)
-
-4. In **Basics**:
-
-   1. Select a subscription.
-   1. Select a resource group, or select **Create new** and create a new one.
-   1. Enter a descriptive name for the import job. Use the name to track the progress of your jobs.
-       * The name may contain only lowercase letters, numbers, and hyphens.
-       * The name must start with a letter, and may not contain spaces.
-   1. Select **Import into Azure**.
-
-    ![Create import job - Step 1](./media/storage-import-export-data-to-blobs/import-to-blob-3.png)
-
-   Select **Next: Job details >** to proceed.
-
-5. In **Job details**:
-
-   1. Upload the journal files that you created during the preceding [Step 1: Prepare the drives](#step-1-prepare-the-drives).
-   1. Select the destination Azure region for the order.
-   1. Select the storage account for the import.
-
-      The dropoff location is automatically populated based on the region of the storage account selected.
-
-   1. If you don't want to save a verbose log, clear the **Save verbose log in the 'waimportexport' blob container** option.
-
-
-   ![Create import job - Step 2](./media/storage-import-export-data-to-blobs/import-to-blob-4.png)
-
-   Select **Next: Shipping >** to proceed.
-
-6. In **Shipping**:
-
-    1. Select the carrier from the drop-down list. If you want to use a carrier other than FedEx/DHL, choose an existing option from the dropdown. Contact Azure Data Box Operations team at `adbops@microsoft.com`  with the information about the carrier you plan to use.
-    1. Enter a valid carrier account number that you have created with that carrier. Microsoft uses this account to ship the drives back to you once your import job is complete.
-    1. Provide a complete and valid contact name, phone, email, street address, city, zip, state/province and country/region.
-
-        > [!TIP]
-        > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
-
-    ![Create import job - Step 3](./media/storage-import-export-data-to-blobs/import-to-blob-5.png)
-
-   Select **Review + create** to proceed.
-
-7. In the order summary:
-
-   1. Review the **Terms**, and then select "I acknowledge that all the information provided is correct and agree to the terms and conditions." Validation is then performed.
-   1. Review the job information provided in the summary. Make a note of the job name and the Azure datacenter shipping address to ship disks back to Azure. This information is used later on the shipping label.
-   1. Select **Create**.
-
-        ![Create import job - Step 4](./media/storage-import-export-data-to-blobs/import-to-blob-6.png)
 
 ### [Azure CLI](#tab/azure-cli)
 
@@ -249,7 +188,7 @@ Use the following steps to create an import job in the Azure CLI.
     ```
 
    > [!TIP]
-   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+   > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
 
 1. Use the [az import-export list](/cli/azure/import-export#az_import_export_list) command to see all the jobs for the myierg resource group:
@@ -349,7 +288,7 @@ Install-Module -Name Az.ImportExport
    ```
 
    > [!TIP]
-   > Instead of specifying an email address for a single user, provide a group email. This ensures that you receive notifications even if an admin leaves.
+   > Instead of specifying an email address for a single user, provide a group email to ensure that you receive notifications even if an admin leaves.
 
 1. Use the [Get-AzImportExport](/powershell/module/az.importexport/get-azimportexport) cmdlet to see all the jobs for the myierg resource group:
 
