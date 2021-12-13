@@ -33,7 +33,7 @@ The Azure AD Kerberos functionality is only available on the following operating
   - Windows 10 Enterprise single or multi-session, versions 2004 or later with the latest cumulative updates installed, especially the [KB5007253 - 2021-11 Cumulative Update Preview for Windows 10](https://support.microsoft.com/topic/november-22-2021-kb5007253-os-builds-19041-1387-19042-1387-19043-1387-and-19044-1387-preview-d1847be9-46c1-49fc-bf56-1d469fc1b3af).
   - Windows Server, version 2022 with the latest cumulative updates installed, especially the [KB5007254 - 2021-11 Cumulative Update Preview for Microsoft server operating system version 21H2](https://support.microsoft.com/topic/november-22-2021-kb5007254-os-build-20348-380-preview-9a960291-d62e-486a-adcc-6babe5ae6fc1).
 
-The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need Active Directory Domain Services (AD DS) and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD.
+The user accounts must be [hybrid user identities](../active-directory/hybrid/whatis-hybrid-identity.md), which means you'll also need Active Directory Domain Services (AD DS) and Azure AD Connect. You must create these accounts in Active Directory and sync them to Azure AD. Environments where users are managed in Azure AD, and optionally synced to Azure AD Directory Services are not currently supported.
 
 To assign Azure Role-Based Access Control (RBAC) permissions for the Azure file share to a user group, you must create the group in Active Directory and sync it to Azure AD.
 
@@ -68,6 +68,8 @@ Follow the instructions in the following sections to configure Azure AD authenti
 - Set variables for both storage account name and resource group name by running the following PowerShell cmdlets, replacing the values with the ones relevant to your environment.
 
     ```powershell
+    $TenantId = "<MyTenantId>"
+    $SubscriptionId = "<MySubscriptionId>"
     $resourceGroupName = "<MyResourceGroup>"
     $storageAccountName = "<MyStorageAccount>"
     ```
@@ -75,11 +77,10 @@ Follow the instructions in the following sections to configure Azure AD authenti
 - Enable Azure AD authentication on your storage account by running the following PowerShell cmdlets:
 
     ```powershell
-    Connect-AzAccount
-    $Subscription =  $(Get-AzContext).Subscription.Id;
+    Connect-AzAccount -Tenant $TenantId -SubscriptionId $SubscriptionId
     $ApiVersion = '2021-04-01'
 
-    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version={3}' -f $Subscription, $ResourceGroupName, $StorageAccountName, $ApiVersion);
+    $Uri = ('https://management.azure.com/subscriptions/{0}/resourceGroups/{1}/providers/Microsoft.Storage/storageAccounts/{2}?api-version={3}' -f $SubscriptionId, $ResourceGroupName, $StorageAccountName, $ApiVersion);
     
     $json = 
        @{properties=@{azureFilesIdentityBasedAuthentication=@{directoryServiceOptions="AADKERB"}}};
@@ -163,7 +164,7 @@ To enable Azure AD authentication on a storage account, you need to create an Az
     '@
     $now = [DateTime]::UtcNow
     $json = $json -replace "<STORAGEACCOUNTSTARTDATE>", $now.AddDays(-1).ToString("s")
-	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(12).ToString("s")
+	$json = $json -replace "<STORAGEACCOUNTENDDATE>", $now.AddMonths(6).ToString("s")
     $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password
     $Headers = @{'authorization' = "Bearer $($Token)"}
     try {
@@ -175,6 +176,9 @@ To enable Azure AD authentication on a storage account, you need to create an Az
       Write-Host "StatusDescription: " $_.Exception.Response.StatusDescription
     }
     ```
+
+    > [!IMPORTANT]
+    > The password expires every 6 months and must be updated by following the steps in Update the service principal's password.
 
 ### Set the API permissions on the newly created application
 
@@ -229,6 +233,7 @@ To configure your storage account:
 1. On a device that's domain-joined to the Active Directory, install the [ActiveDirectory PowerShell module](/powershell/module/activedirectory/?view=windowsserver2019-ps&preserve-view=true) if you haven't already.
 
 2. Set the storage account's ActiveDirectoryProperties to support the Shell experience. Because Azure AD doesn't currently support configuring ACLs in Shell, it must instead rely on Active Directory. To configure Shell, run the following command in PowerShell:
+
     ```powershell
     function Set-StorageAccountAadKerberosADProperties {
         [CmdletBinding()]
@@ -337,6 +342,7 @@ Next, make sure you can retrieve a Kerberos Ticket Granting Ticket (TGT) by foll
     ```
     klist purge
     klist get krbtgt
+    klist
     ```
 
 5. Confirm you have a Kerberos TGT by looking for an item with a server property of `krbtgt/KERBEROS.MICROSOFTONLINE.COM @ KERBEROS.MICROSOFTONLINE.COM`.
@@ -395,6 +401,177 @@ Finally, test the profile to make sure that it works:
 5. Select the file share you configured to store the profiles.
 
 6. If everything's set up correctly, you should see a directory with a name that's formatted like this: `<user SID>_<username>`.
+
+## Update the service principal's password
+
+Import-Module Az.Storage 
+
+Import-Module AzureAD 
+
+Connect-AzAccount 
+
+Connect-AzureAD 
+
+Copy/Paste the below function 
+
+Call the function like in this example: 
+
+Update-AzStorageAccountAzureADKerberosPassword -RotateToKerbKey kerb2 -ResourceGroupName "<resource group name>" -StorageAccountName “<storageaccountname>” 
+
+This will set a password that will be valid for 2 years.  To change that value, use the parameter “PasswordExpiryInDays” 
+
+```powershell
+function Update-AzStorageAccountAzureADKerberosPassword {
+    [CmdletBinding(SupportsShouldProcess, ConfirmImpact="High")]
+    param(
+        [Parameter(Mandatory=$true, Position=0)]
+        [ValidateSet("kerb1", "kerb2")]
+        [string]$RotateToKerbKey,
+
+        [Parameter(Mandatory=$true, Position=1, ParameterSetName="StorageAccountName")]
+        [string]$ResourceGroupName,
+
+        [Parameter(Mandatory=$true, Position=2, ParameterSetName="StorageAccountName")]
+        [string]$StorageAccountName,
+
+        [Parameter( Mandatory=$true, Position=1, ValueFromPipeline=$true, ParameterSetName="StorageAccount")]
+        [Microsoft.Azure.Commands.Management.Storage.Models.PSStorageAccount]$StorageAccount,
+
+        [Parameter(Mandatory=$false)]
+        [int]$PasswordExpiryInDays = 730,
+
+        [Parameter(Mandatory=$false)]
+        [switch]$SkipKeyRegeneration,
+
+        [Parameter(Mandatory=$false)]
+
+        [switch]$SkipShouldProcess
+    ) 
+
+    process {
+        if ($PSCmdlet.ParameterSetName -eq "StorageAccountName") {
+            Write-Verbose -Message "Get storage account object for StorageAccountName=$StorageAccountName."
+            $StorageAccount = Get-AzStorageAccount -ResourceGroupName $ResourceGroupName -Name $StorageAccountName -ErrorAction Stop
+        }
+
+        if ($StorageAccount.AzureFilesIdentityBasedAuth.DirectoryServiceOptions -ne "AADKERB") {
+            Write-Error -Message ("Storage account " + $StorageAccount.StorageAccountName + " has not configured for Azure AD Kerberos.") -ErrorAction Stop
+        }
+
+        switch ($RotateToKerbKey) {
+            "kerb1" {
+                $otherKerbKeyName = "kerb2"
+            }
+
+            "kerb2" {
+                $otherKerbKeyName = "kerb1"
+            }
+        }
+
+        $application = Get-AzureADApplication -Filter "DisplayName eq '$($StorageAccountName)'" -ErrorAction Stop;
+        $servicePrincipal = Get-AzureADServicePrincipal | Where-Object {$_.AppId -eq $($application.AppId)}
+
+        $caption = ("Set password on AAD servicePrincipal " + $servicePrincipal.DisplayName + `
+        " for " + $StorageAccount.StorageAccountName + " to value of $RotateToKerbKey.")
+
+        $verboseConfirmMessage = ("This action will change the password for the indicated AAD object " + `
+            "from $otherKerbKeyName to $RotateToKerbKey. This is intended to be a two-stage " + `
+            "process: rotate from kerb1 to kerb2 (kerb2 will be regenerated on the storage " + `
+            "account before being set), wait several hours, and then rotate back to kerb1 " + `
+            "(this cmdlet will likewise regenerate kerb1).");
+
+            if ($SkipShouldProcess -or $PSCmdlet.ShouldProcess($verboseConfirmMessage, $verboseConfirmMessage, $caption)) {
+                Write-Verbose -Message "Desire to rotate password confirmed."
+                Write-Verbose -Message ("Regenerate $RotateToKerbKey on " + $StorageAccount.StorageAccountName)
+
+                if (!$SkipKeyRegeneration.ToBool()) {
+                    $kerbKeys = New-AzStorageAccountKey `
+                        -ResourceGroupName $StorageAccount.ResourceGroupName `
+                        -Name $StorageAccount.StorageAccountName `
+                        -KeyName $RotateToKerbKey `
+                        -ErrorAction Stop | `
+                    Select-Object -ExpandProperty Keys
+                } else {
+                    $kerbKeys = Get-AzStorageAccountKerbKeys `
+                        -ResourceGroupName $StorageAccount.ResourceGroupName `
+                        -StorageAccountName $StorageAccount.StorageAccountName `
+                        -ErrorAction Stop
+                }
+
+                $kerbKey = $kerbKeys | `
+                    Where-Object { $_.KeyName -eq $RotateToKerbKey } | `
+                    Select-Object -ExpandProperty Value
+
+                <# Set the Password on the Azure AD Service Principal #>
+                $azureAdPasswordBuffer = [System.Linq.Enumerable]::Take([System.Convert]::FromBase64String($kerbKey), 32);
+                $password = "kk:" + [System.Convert]::ToBase64String($azureAdPasswordBuffer);
+
+                $Token = ([Microsoft.Open.Azure.AD.CommonLibrary.AzureSession]::AccessTokens['AccessToken']).AccessToken;
+
+                try {
+                    $azureAdTenantDetail = Get-AzureADTenantDetail;
+                }
+                catch {
+                    $context = Get-AzContext
+                    Connect-AzureAD `
+                            -TenantId $context.Tenant.Id `
+                            -AccountId $context.Account.Id `
+                            -AzureEnvironmentName $context.Environment.Name | `
+                        Out-Null
+
+                    $azureAdTenantDetail = Get-AzureADTenantDetail;
+                }
+
+                $azureAdPrimaryDomain = ($azureAdTenantDetail.VerifiedDomains | Where-Object {$_._Default -eq $true}).Name;
+
+                $apiVersion = '1.6'
+                $Uri = ('https://graph.windows.net/{0}/{1}/{2}?api-version={3}' -f $azureAdPrimaryDomain, 'servicePrincipals', $servicePrincipal.ObjectId, $apiVersion);
+
+                $startDate = Get-Date -Format "yyyy-MM-ddTHH:mm:ss.fffffffZ";
+                $endDate = (Get-Date).AddDays($PasswordExpiryInDays).ToString("yyyy-MM-ddTHH:mm:ss.fffffffZ")
+
+                $json = @"
+                {
+                    "passwordCredentials": [
+                    {
+                        "customKeyIdentifier": null,
+                        "endDate": "<ENDDATE>",
+                        "value": "<STORAGEACCOUNTPASSWORD>",
+                        "startDate": "<STARTDATE>"
+                    }]
+                }
+                "@
+ 
+                $json = $json -replace "<STORAGEACCOUNTPASSWORD>", $password;
+                $json = $json -replace "<ENDDATE>", $endDate;
+                $json = $json -replace "<STARTDATE>", $startDate;
+
+                $Headers = @{
+                    'authorization' = "Bearer $($Token)"
+                }
+
+                try {
+                    Invoke-RestMethod -Uri $Uri -ContentType 'application/json' -Method Patch -Headers $Headers -Body $json
+                    Write-Verbose "Success: Password is set for $storageAccountName"
+                } catch {
+                    Write-Host $_.Exception.ToString()
+                    Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__
+                    Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+                }
+            } else {
+                Write-Verbose -Message ("Password for " + $servicePrincipal.DisplayName + " for storage account " + `
+                    $StorageAccount.StorageAccountName + " not changed.")
+            }
+    }
+}
+```
+
+3. Call the function by running the following PowerShell cmdlets:
+
+    ```powershell
+    Update-AzStorageAccountAzureADKerberosPassword -RotateToKerbKey kerb2 -ResourceGroupName "<resource group name>" -StorageAccountName “<storageaccountname>”
+    ```
+
 
 ## Next steps
 
