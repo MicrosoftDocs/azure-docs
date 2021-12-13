@@ -120,7 +120,7 @@ To interact with your Azure Cognitive Search service you will need the service U
 
 1. In **Settings** > **Keys**, get an admin key for full rights on the service. You can copy either the primary or secondary key.
 
-   ![Get the service name and admin and query keys](media/search-get-started-javascript/service-name-and-keys.png)
+   ![Get the service name and admin key](media/search-get-started-javascript/service-name-and-keys.png)
 
 All HTTP requests to a search service require an API key. A valid key establishes trust, on a per request basis, between the application sending the request and the service that handles it.
 
