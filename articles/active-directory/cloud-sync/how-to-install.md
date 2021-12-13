@@ -7,7 +7,7 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/19/2021
+ms.date: 12/13/2021
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
@@ -109,7 +109,7 @@ To use password writeback and enable the SSPR service to detect the cloud sync a
    Set-AADCloudSyncPasswordWritebackConfiguration -Enable $true -Credential $(Get-Credential)
   ```
 
-For more information on using password writeback with Azure AD Connect cloud sync, see.
+For more information on using password writeback with Azure AD Connect cloud sync, see [Tutorial: Enable cloud sync self-service password reset writeback to an on-premises environment (preview)](../../authentication/tutorial-enable-cloud-sync-sspr-writeback.md).
 
 
 ## Next steps 
