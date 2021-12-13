@@ -95,9 +95,11 @@ It's important to note the limitations of Mapped person, to avoid or mitigate th
  
 **Precondition** for the matching is that the person that showing in the Observed person was detected and can be found in the People insight.  
 **Pose**: The tracks are optimized to handle observed people who most often appear on the front.  
-**Occlusions**: There may be miss matching between persons and observed people where there are occlusions (people or faces overlapping each other).
+**Abstractions**: There may be miss matching between persons and observed people where there are occlusions (people or faces overlapping each other).  
 **Spatial allocation per frame**: There may be miss matching where different people appear in the same spatial position relatively to the frame in a short time.
+
+See the limitations of Observed people: [Trace observed people in a video](observed-people-tracing.md)
 
 ## Next steps
 
-See the limitations of Observed people: [Trace observed people in a video](observed-people-tracing.md)
+[Overview](video-indexer-overview.md)
