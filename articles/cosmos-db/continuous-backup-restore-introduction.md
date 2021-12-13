@@ -20,13 +20,13 @@ Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such
 * To restore a deleted account, database, or a container.
 * To restore into any region (where backups existed) at the restore point in time.
 
-Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. The following image shows how a container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](high-availability.md#availability-zone-support) enabled  then the backup is stored in Zone-Redundant storage accounts.
+Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. The following image shows how a container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](/azure/architecture/reliability/architect) enabled  then the backup is stored in Zone-Redundant storage accounts.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB data backup to the Azure Blob Storage." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
 The available time window for restore (also known as retention period) is the lower value of the following two: *30 days back in past from now* or *up to the resource creation time*. The point in time for restore can be any timestamp within the retention period. In strong consistency mode, backup taken in the write region is more up to date when compared to the read regions. Read regions can lag behind due to network or other transient issues. While doing restore, you can [get latest restorable timestamp](get-latest-restore-timestamp.md) for a given resource in that region to ensure that the resource has taken backups up to the given timestamp and can restore in that region.
 
-Currently, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account using [Azure portal](restore-account-continuous-backup.md#restore-account-portal), [Azure Command Line Interface](restore-account-continuous-backup.md#restore-account-cli) (az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or the [Azure Resource Manager](restore-account-continuous-backup.md#restore-arm-template).
+Currently, you can restore the Azure Cosmos DB account for SQL API or MongoDB contents point in time to another account via the [Azure portal](restore-account-continuous-backup.md#restore-account-portal), the [Azure CLI](restore-account-continuous-backup.md#restore-account-cli) (az CLI), [Azure PowerShell](restore-account-continuous-backup.md#restore-account-powershell), or [Azure Resource Manager templates](restore-account-continuous-backup.md#restore-arm-template).
 
 ## Backup storage redundancy
 
@@ -39,7 +39,7 @@ In a steady state, all mutations performed on the source account (which includes
 You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The duration of restore will depend on the amount of data that needs to be restored.
 
 > [!NOTE]
-> With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has [availability zone](high-availability.md#availability-zone-support) feature enabled for that region. The restore action always restores data into a new account.
+> With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has [availability zone](/azure/architecture/reliability/architect) feature enabled for that region. The restore action always restores data into a new account.
 
 ## What is not restored?
 
@@ -51,6 +51,10 @@ The following configurations aren't restored after the point-in-time recovery:
 * Stored procedures, triggers, UDFs.
 
 You can add these configurations to the restored account after the restore is completed.
+
+## Restorable timestamp for live accounts
+
+To restore Azure Cosmos DB live accounts that are not deleted, it is a best practice to always identify the [latest restorable timestamp](get-latest-restore-timestamp.md) for the container. You can then use this timestamp to restore the account to it's latest version.
 
 ## Restore scenarios
 

@@ -34,7 +34,7 @@ Once Dapr is installed on your AKS cluster, your application services now have t
 
 ## Supported Kubernetes versions
 
-The Dapr extension uses the same support window as AKS. For more, see the [Kubernetes version support policy][k8s-version-support-policy].
+The Dapr extension uses support window similar to AKS, but instead of N-2, Dapr supports N-1. For more, see the [Kubernetes version support policy][k8s-version-support-policy].
 
 ## Prerequisites 
 
@@ -70,7 +70,7 @@ az provider register --namespace Microsoft.KubernetesConfiguration
 az provider register --namespace Microsoft.ContainerService
 ```
 
-### Setup the Azure CLI extension for cluster extensions
+### Set up the Azure CLI extension for cluster extensions
 
 You will also need the `k8s-extension` Azure CLI extension. Install this by running the following commands:
   

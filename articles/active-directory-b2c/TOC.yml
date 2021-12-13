@@ -265,6 +265,9 @@
       href: identity-provider-salesforce.md
     - name: Salesforce (SAML)
       href: identity-provider-salesforce-saml.md
+    - name: SwissID
+      href:  identity-provider-swissid.md
+      displayName: Swiss ID      
     - name: Twitter
       href: identity-provider-twitter.md
     - name: WeChat
@@ -308,10 +311,13 @@
       items:
       - name: Multi-factor authentication
         href: multi-factor-authentication.md
+        displayName: TOTP, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
       - name: Partner integration
         items:
         - name: BlokSec
           href: partner-bloksec.md
+        - name: Haventec
+          href: partner-haventec.md
         - name: HYPR
           href: partner-hypr.md
         - name: IDEMIA
@@ -534,6 +540,8 @@
         items:
         - name: Verification
           href: display-control-verification.md
+        - name: Time-based one-time password (TOTP)
+          href: display-control-time-based-one-time-password.md
     - name: ClaimsProviders
       href: claimsproviders.md
       items:
