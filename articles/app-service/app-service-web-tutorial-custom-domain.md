@@ -163,7 +163,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     ![Screenshot that shows the Add host name item.](./media/app-service-web-tutorial-custom-domain/add-host-name-cname.png)
 
-# [CNAME](#tab/cname)
+# [Subdomain](#tab/subdomain)
 
 3. Type the fully qualified domain name that you added a CNAME record for, such as `www.contoso.com`.
 
@@ -184,7 +184,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
     ![Screenshot that shows a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error-cname.png)
 
-# [A](#tab/a)
+# [Root domain](#tab/rootdomain)
 
 3. Type the fully qualified domain name that you configured the A record for, such as `contoso.com`. 
 
@@ -205,7 +205,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
     
     ![Screenshot showing a verification error.](./media/app-service-web-tutorial-custom-domain/verification-error.png)
     
-# [Wildcard (CNAME)](#tab/wildcard)
+# [Wildcard](#tab/wildcard)
 
 3. Type a fully qualified domain name that matches the wildcard domain. For example, for the example `*.contoso.com`, you can use `sub1.contoso.com`, `sub2.contoso.com`, `*.contoso.com`, or any other string that matches the wildcard pattern. Then, select **Validate**.
 
