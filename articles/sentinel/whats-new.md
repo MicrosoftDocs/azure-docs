@@ -172,7 +172,7 @@ The following list includes highlights of new, out-of-the-box solutions added to
       - Imperva Cloud FAW
    :::column-end:::
    :::column span="":::
-      - Insiders Risk Management
+      - Insider Risk Management (IRM)
       - IronNet CyberSecurity Iron Defense
       - Lookout
       - McAfee Network Security Platform

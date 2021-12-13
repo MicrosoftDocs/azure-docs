@@ -20,7 +20,7 @@ Azure Cosmos DB's point-in-time restore feature helps in multiple scenarios such
 * To restore a deleted account, database, or a container.
 * To restore into any region (where backups existed) at the restore point in time.
 
-Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. The following image shows how a container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](high-availability.md#availability-zone-support) enabled  then the backup is stored in Zone-Redundant storage accounts.
+Azure Cosmos DB performs data backup in the background without consuming any extra provisioned throughput (RUs) or affecting the performance and availability of your database. Continuous backups are taken in every region where the account exists. The following image shows how a container with write region in West US, read regions in East and East US 2 is backed up to a remote Azure Blob Storage account in the respective regions. By default, each region stores the backup in Locally Redundant storage accounts. If the region has [Availability zones](/azure/architecture/reliability/architect) enabled  then the backup is stored in Zone-Redundant storage accounts.
 
 :::image type="content" source="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" alt-text="Azure Cosmos DB data backup to the Azure Blob Storage." lightbox="./media/continuous-backup-restore-introduction/continuous-backup-restore-blob-storage.png" border="false":::
 
@@ -39,7 +39,7 @@ In a steady state, all mutations performed on the source account (which includes
 You can choose to restore any combination of provisioned throughput containers, shared throughput database, or the entire account. The restore action restores all data and its index properties into a new account. The restore process ensures that all the data restored in an account, database, or a container is guaranteed to be consistent up to the restore time specified. The duration of restore will depend on the amount of data that needs to be restored.
 
 > [!NOTE]
-> With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has [availability zone](high-availability.md#availability-zone-support) feature enabled for that region. The restore action always restores data into a new account.
+> With the continuous backup mode, the backups are taken in every region where your Azure Cosmos DB account is available. Backups taken for each region account are Locally redundant by default and Zone redundant if your account has [availability zone](/azure/architecture/reliability/architect) feature enabled for that region. The restore action always restores data into a new account.
 
 ## What is not restored?
 

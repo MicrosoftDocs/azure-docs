@@ -53,7 +53,7 @@ Register a data source in Azure Purview enables you to set up scans for the data
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
-1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and select **Apply**
+1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and select **Apply**. Leave the **Data use governance** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-access-policies-storage.md).
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
