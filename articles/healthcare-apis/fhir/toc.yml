@@ -81,6 +81,7 @@ items:
       href: fhir-service-diagnostic-logs.md
 
 - name: Concepts
+  expanded: true
   items:
   - name: FHIR service autoscale
     href: fhir-service-autoscale.md
@@ -88,6 +89,7 @@ items:
     href: fhir-rest-api-capabilities.md
 
 - name: Resources
+  expanded: true
   items:
   - name: FAQs
     href: fhir-faq.md
