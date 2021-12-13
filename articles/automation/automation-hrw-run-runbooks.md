@@ -376,6 +376,16 @@ When starting a runbook using PowerShell, use the `RunOn` parameter with the [St
 Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Test-Runbook" -RunOn "MyHybridGroup"
 ```
 
+## Run V1 and V2 Hybrid Workers on Same Machine
+You can have **Agent based (V1)** and **Extension based (V2)** either in the same worker group or in a different worker group and as per your requirement, both the **Agent based (V1)** and **Extension based (V2)** can connect to another worker group and an automation account to run in parallel.
+
+To create both **Agent based (V1)** and **Extension based (V2)** on same Virtual Machine:
+1. In **Process Automation**, **Hybrid Workers groups**, select an existing Hybrid Worker Group.
+1. In the Hybrid Worker Group page, click **+Add** to select a **Agent based (V1)** hybrid worker.
+
+> [!NOTE]
+> You can have two hybrid worker instances; **Agent based (V1)** and **Extension based (V2)** for the same virtual machine in the same Hybrid Worker Group.
+
 ## Logging
 
 To help troubleshoot issues with your runbooks running on a hybrid runbook worker, logs are stored locally in the following location:
