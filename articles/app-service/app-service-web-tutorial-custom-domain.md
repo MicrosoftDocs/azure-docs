@@ -222,7 +222,6 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 -----
 
-
 ## 6. Test in a browser
 
 Browse to the DNS names that you configured earlier.
@@ -235,48 +234,6 @@ If you receive an HTTP 404 (Not Found) error when you browse to the URL of your 
 
 * The custom domain configured is missing an A record or a CNAME record. You may have deleted the DNS record after you've enabled the mapping in your app. Check if the DNS records are properly configured using an <a href="https://www.nslookup.io/">online DNS lookup</a> tool.
 * The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
-
-
-## Migrate an active domain
-
-
-
-<a name="virtualdir" aria-hidden="true"></a>
-
-
-
-## Automate with scripts
-
-You can automate management of custom domains with scripts by using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
-
-#### Azure CLI
-
-The following command adds a configured custom DNS name to an App Service app.
-
-```azurecli 
-az webapp config hostname add \
-    --webapp-name <app-name> \
-    --resource-group <resource_group_name> \
-    --hostname <fully_qualified_domain_name>
-``` 
-
-For more information, see [Map a custom domain to a web app](scripts/cli-configure-custom-domain.md).
-
-#### Azure PowerShell
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-The following command adds a configured custom DNS name to an App Service app.
-
-```powershell  
-Set-AzWebApp `
-    -Name <app-name> `
-    -ResourceGroupName <resource_group_name> ` 
-    -HostNames @("<fully_qualified_domain_name>","<app-name>.azurewebsites.net")
-```
-
-For more information, see [Assign a custom domain to a web app](scripts/powershell-configure-custom-domain.md).
-
 
 ## Next steps
 
