@@ -223,7 +223,7 @@ def main(msg: func.ServiceBusMessage):
         'to': msg.to,
         'user_properties': msg.user_properties,
         'metadata' : msg.metadata
-    })
+    }, default=str)
 
     logging.info(result)
 ```
