@@ -37,13 +37,13 @@ To configure certificate-based authentication, the following requirements must b
 - A client certificate for client authentication must have been issued to your client.
  
 >[!IMPORTANT]
->The maximum size of a CRL for Azure Active Directory to successfully download and cache is 40MB, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentication using certificates issued by the corresponding CA will fail. As a best practice to ensure CRL files are within size constraints, keep certificate lifetimes to within reasonable limits and clean up expired certificates.
+>The maximum size of a CRL for Azure Active Directory to successfully download and cache is 40MB, and the time required to download the CRL must not exceed 10 seconds. If Azure Active Directory can't download a CRL, certificate-based authentication using certificates issued by the corresponding certificate authority (CA) will fail. As a best practice to ensure CRL files are within size constraints, keep certificate lifetimes to within reasonable limits and clean up expired certificates.
 
 - Native certificate-based authentication is supported as part of a public preview. For more information about previews, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Step 1: Configure the certificate authorities
 
-To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following:
+To configure your certificate authorities in Azure Active Directory, for each certificate authority, upload the following items:
 
 - The public portion of the certificate, in .cer format
 - The internet-facing URLs where the Certificate Revocation Lists (CRLs) reside
@@ -158,32 +158,31 @@ To enable the certificate-based authentication and configure user bindings in th
       - Exact match is used for Strong authentication via policy OID.
         If you have a certificate A with policy OID **1.2.3.4.5** and a derived credential B based on that certificate has a policy OID **1.2.3.4.5.6** and the rule is defined as **Policy OID** with value **1.2.3.4.5** with Multi-factor authentication, only the certificate A will satisfy Multi-factor authentication and credential B will satisfy only Single-factor authentication. If the user used derived credential during sign-in and was configured to have MFA, the user will be asked for a second factor for successful authentication.
       - Policy OID rules will take precedence over Certificate issuer rules. If a certificate has both policy OID and Issuer, the policy OID is always checked first and if no policy rule is found then the issuer subject bindings are checked. Policy OID has a higher strongAuth binding priority than the issuer. 
-      - If one CA binds to two-factor authentication, all user certs that this CA issue qualify as two-factor authentication. The same logic applies for single-factor authentication. 
-      - If one policy OID binds to two-factor authentication, all user certs that include this policy OID as one of the OIDs (A user certificate could have multiple policy OIDs) qualify as multiple-factor authentication.  
+      - If one CA binds to two-factor authentication, all user certificates that this CA issues qualify as two-factor authentication. The same logic applies for single-factor authentication. 
+      - If one policy OID binds to two-factor authentication, all user certificates that include this policy OID as one of the OIDs (A user certificate could have multiple policy OIDs) qualify as multiple-factor authentication.  
       - If there is a conflict between multiple policy OIDs (such as when a certificate has two policy OIDs, one binds to single-factor authentication and the other binds to two-factor authentication) then treat the certificate as a single-factor authentication.
       - One certificate could only have one valid strong authentication binding (that is, a certificate could not bind to both single-factor and two-factor authentication).
  
 1. Create the Username binding by selecting one of the X.509 certificate fields to bind with one of the user attributes. The username binding order represents the priority level of the binding. The first one has the highest priority and so on.
 
    The way multiple user bindings are processed is as follows. Use the highest priority (lowest number) binding.  
-   - If the X.509 certificate field is on the presented certificate. Attempt to look the user up using the value in the specified field. 
+   - If the X.509 certificate field is on the presented certificate, attempt to look up the user by using the value in the specified field. 
      - If a unique user is found, authenticate the user. 
      - If a unique user is not found, authentication fails. 
-   - If the X.509 certificate field is not on the presented certificate move to the next priority binding. 
+   - If the X.509 certificate field is not on the presented certificate, move to the next priority binding. 
    
-   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails.  Azure AD doesn’t try the next binding in the list.   
+   If the specified X.509 certificate field is found on the certificate, but Azure AD doesn’t find a user object using that value, the authentication fails. Azure AD doesn’t try the next binding in the list.
 
    Only if the X.509 certificate field is not on the certificate does it attempt the next priority.
 
 1. Click **Save** to save the changes. 
-
 
 ### Using Graph API
 
 To enable the certificate-based authentication and configure user bindings using Graph API, complete the following steps:
 
 1. Go to [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer).
-1. Click **Sign into Graph Explorer** and log in with your tenant.
+1. Click **Sign into Graph Explorer** and log in to your tenant.
 1. Click **Settings** > **Select permission**.
 1. Enter "auth" in the search bar and consent all related permissions.
 1. GET all authentication methods
@@ -226,7 +225,7 @@ If your sign-in is successful, then you know that:
 
 ### Sign-in logs
  
-Sign-in logs provides information about sign-in and how your resources are used by your users. For more information about sign-in logs, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-all-sign-ins.md).
+Sign-in logs provide information about sign-in and how your resources are used by your users. For more information about sign-in logs, see [Sign-in logs in Azure Active Directory](../reports-monitoring/concept-all-sign-ins.md).
  
 There are several entries logged into the sign-in logs for an authentication request.
 
