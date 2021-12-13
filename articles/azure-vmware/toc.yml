@@ -164,6 +164,8 @@
       href: ecosystem-migration-vms.md
     - name: Security solutions for Azure VMware Solution
       href: ecosystem-security-solutions.md
+    - name: Application performance monitoring solutions for Azure VMware Solution
+      href: ecosystem-app-monitoring-solutions.md
     - name: Bitnami appliance deployment
       href: bitnami-appliances-deployment.md
   - name: VMware solutions

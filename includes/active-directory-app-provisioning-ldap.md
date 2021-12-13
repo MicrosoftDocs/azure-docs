@@ -361,6 +361,8 @@ This file is used to automate and create an instance of AD LDS.
 
 >[!IMPORTANT]
 > This script uses the local administrator for the AD LDS service account and has its password hard-coded in the answers.  This action is for **testing only** and should never be used in a production environment.
+>
+> If you are installing AD LDS on a domain joined server and not a standalone server, you will need to change the LocalLDAPPortToListenOn and LocalSSLPortToListonOn to something other than the well-known ports for LDAP and LDAP over SSL.  For example, LocalLDAPPortToListenOn=51300 and LocalSSLPortToListenOn=51301.
 
 ```
  [ADAMInstall]
