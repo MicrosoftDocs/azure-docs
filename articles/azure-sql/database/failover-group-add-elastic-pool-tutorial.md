@@ -165,6 +165,8 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 | [az sql elastic-pool create](/cli/azure/sql/elastic-poolt#az_sql_elastic_pool_create) | Creates an elastic pool. |
 | [az sql db update](/cli/azure/sql/db#az_sql_db_update) | Updates a database|
 
+---
+
 ## 3 - Create the failover group
 
 In this step, you will create a [failover group](auto-failover-group-overview.md) between an existing server and a new server in another region. Then add the elastic pool to the failover group.
