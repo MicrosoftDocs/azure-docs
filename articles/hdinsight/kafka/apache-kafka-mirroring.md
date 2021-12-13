@@ -164,17 +164,17 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
 ## Configure mirroring
 
-1. Connect to the **secondary** cluster using a different SSH session:
+1. Connect to the **secondary** cluster by using a different SSH session:
 
     ```bash
     ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Replace **sshuser** with the SSH user name used when creating the cluster. Replace **SECONDARYCLUSTER** with the name used when creating the cluster.
+    Replace `sshuser` with the SSH user name used when creating the cluster. Replace `SECONDARYCLUSTER` with the name used when creating the cluster.
 
-    For information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
+    For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. A `consumer.properties` file is used to configure communication with the **primary** cluster. To create the file, use the following command:
+1. Use a `consumer.properties` file to configure communication with the **primary** cluster. To create the file, use the following command:
 
     ```bash
     nano consumer.properties
@@ -187,11 +187,11 @@ Configure IP advertising to enable a client to connect by using broker IP addres
     group.id=mirrorgroup
     ```
 
-    Replace **PRIMARY_BROKERHOSTS** with the Broker host IP Addresses from the **primary** cluster.
+    Replace `PRIMARY_BROKERHOSTS` with the broker host IP addresses from the **primary** cluster.
 
-    This file describes the consumer information to use when reading from the primary Kafka cluster. For more information consumer configuration, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at kafka.apache.org.
+    This file describes the consumer information to use when reading from the primary Kafka cluster. For more information, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at `kafka.apache.org`.
 
-    To save the file, use **Ctrl + X**, **Y**, and then **Enter**.
+    To save the file, press Ctrl+X, press Y, and then press Enter.
 
 1. Before configuring the producer that communicates with the secondary cluster, set up a variable for the broker IP addresses of the **secondary** cluster. Use the following commands to create this variable:
 
@@ -203,7 +203,7 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-1. A `producer.properties` file is used to communicate the **secondary** cluster. To create the file, use the following command:
+1. Use a `producer.properties` file to communicate the **secondary** cluster. To create the file, use the following command:
 
     ```bash
     nano producer.properties
@@ -216,18 +216,18 @@ Configure IP advertising to enable a client to connect by using broker IP addres
     compression.type=none
     ```
 
-    Replace **SECONDARY_BROKERHOSTS** with the broker IP addresses used in the previous step.
+    Replace `SECONDARY_BROKERHOSTS` with the broker IP addresses used in the previous step.
 
-    For more information producer configuration, see [Producer Configs](https://kafka.apache.org/documentation#producerconfigs) at kafka.apache.org.
+    For more information, see [Producer Configs](https://kafka.apache.org/documentation#producerconfigs) at `kafka.apache.org`.
 
-1. Use the following commands to create an environment variable with the IP addresses of the Zookeeper hosts for the secondary cluster:
+1. Use the following commands to create an environment variable with the IP addresses of the zookeeper hosts for the secondary cluster:
 
     ```bash
     # get the zookeeper hosts for the secondary cluster
     export SECONDARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
-1. The default configuration for Kafka on HDInsight doesn't allow the automatic creation of topics. You must use one of the following options before starting the Mirroring process:
+1. The default configuration for Kafka on HDInsight doesn't allow the automatic creation of topics. You must use one of the following options before starting the mirroring process:
 
     * **Create the topics on the secondary cluster**: This option also allows you to set the number of partitions and the replication factor.
 
@@ -239,17 +239,17 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
         Replace `testtopic` with the name of the topic to create.
 
-    * **Configure the cluster for automatic topic creation**: This option allows MirrorMaker to automatically create topics, however it may create them with a different number of partitions or replication factor than the primary topic.
+    * **Configure the cluster for automatic topic creation**: This option allows MirrorMaker to automatically create topics. Note that it might create them with a different number of partitions or a different replication factor than the primary topic.
 
         To configure the secondary cluster to automatically create topics, perform these steps:
 
         1. Go to the Ambari dashboard for the secondary cluster: `https://SECONDARYCLUSTERNAME.azurehdinsight.net`.
-        1. Click **Services** > **Kafka**. Click the **Configs** tab.
+        1. Select **Services** > **Kafka**. Then select the **Configs** tab.
         1. In the __Filter__ field, enter a value of `auto.create`. This filters the list of properties and displays the `auto.create.topics.enable` setting.
-        1. Change the value of `auto.create.topics.enable` to true, and then select __Save__. Add a note, and then select __Save__ again.
+        1. Change the value of `auto.create.topics.enable` to `true`, and then select __Save__. Add a note, and then select __Save__ again.
         1. Select the __Kafka__ service, select __Restart__, and then select __Restart all affected__. When prompted, select __Confirm restart all__.
 
-        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="kafka enable auto create topics" border="true":::
+        :::image type="content" source="./media/apache-kafka-mirroring/kafka-enable-auto-create-topics.png" alt-text="Screenshot that shows how to enable auto create topics in the kafka service." border="true":::
 
 ## Start MirrorMaker
 
@@ -266,22 +266,22 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
     |Parameter |Description |
     |---|---|
-    |--consumer.config|Specifies the file that contains consumer properties. These properties are used to create a consumer that reads from the *primary* Kafka cluster.|
-    |--producer.config|Specifies the file that contains producer properties. These properties are used to create a producer that writes to the *secondary* Kafka cluster.|
-    |--whitelist|A list of topics that MirrorMaker replicates from the primary cluster to the secondary.|
-    |--num.streams|The number of consumer threads to create.|
+    |`--consumer.config`|Specifies the file that contains consumer properties. You use these properties to create a consumer that reads from the primary Kafka cluster.|
+    |`--producer.config`|Specifies the file that contains producer properties. You use these properties to create a producer that writes to the secondary Kafka cluster.|
+    |`--whitelist`|A list of topics that MirrorMaker replicates from the primary cluster to the secondary.|
+    |`--num.streams`|The number of consumer threads to create.|
 
     The consumer on the secondary node is now waiting to receive messages.
 
-2. From the SSH connection to the **primary** cluster, use the following command to start a producer and send messages to the topic:
+1. From the SSH connection to the **primary** cluster, use the following command to start a producer and send messages to the topic:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $PRIMARY_BROKERHOSTS --topic testtopic
     ```
 
-     When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **primary** cluster. When done, use **Ctrl + C** to end the producer process.
+     When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **primary** cluster. When done, press Ctrl+C to end the producer process.
 
-3. From the SSH connection to the **secondary** cluster, use **Ctrl + C** to end the MirrorMaker process. It may take several seconds to end the process. To verify that the messages were replicated to the secondary, use the following command:
+1. From the SSH connection to the **secondary** cluster, press Ctrl+C to end the MirrorMaker process. It might take several seconds to end the process. To verify that the messages were replicated to the secondary, use the following command:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_BROKERHOSTS --topic testtopic --from-beginning
@@ -293,14 +293,14 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
 [!INCLUDE [delete-cluster-warning](../includes/hdinsight-delete-cluster-warning.md)]
 
-The steps in this document created clusters in different Azure resource groups. To delete all of the resources created, you can delete the two resource groups created: **kafka-primary-rg** and **kafka-secondary_rg**. Deleting the resource groups removes all of the resources created by following this document, including clusters, virtual networks, and storage accounts.
+The steps in this article created clusters in different Azure resource groups. To delete all of the resources created, you can delete the two resource groups created: **kafka-primary-rg** and **kafka-secondary_rg**. Deleting the resource groups removes all of the resources created by following this article, including clusters, virtual networks, and storage accounts.
 
 ## Next steps
 
-In this document, you learned how to use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
+In this article, you learned how to use [MirrorMaker](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) to create a replica of an [Apache Kafka](https://kafka.apache.org/) cluster. Use the following links to discover other ways to work with Kafka:
 
 * [Apache Kafka MirrorMaker documentation](https://cwiki.apache.org/confluence/pages/viewpage.action?pageId=27846330) at cwiki.apache.org.
-* [Kafka Mirror Maker Best Practices](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
+* [Kafka Mirror Maker best practices](https://community.cloudera.com/t5/Community-Articles/Kafka-Mirror-Maker-Best-Practices/ta-p/249269)
 * [Get started with Apache Kafka on HDInsight](apache-kafka-get-started.md)
 * [Use Apache Spark with Apache Kafka on HDInsight](../hdinsight-apache-spark-with-kafka.md)
-* [Connect to Apache Kafka through an Azure Virtual Network](apache-kafka-connect-vpn-gateway.md)
+* [Connect to Apache Kafka through an Azure virtual network](apache-kafka-connect-vpn-gateway.md)
