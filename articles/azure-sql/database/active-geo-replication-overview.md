@@ -22,7 +22,7 @@ Active geo-replication is designed as a business continuity solution that lets y
 > Active geo-replication for Azure SQL Hyperscale is [now in public preview](https://aka.ms/hsgeodr). Current limitations include: 
 > - Primary can have only one geo-secondary replica.
 > - Restore or database copy from geo-secondary is not supported.
-> - Cannot use geo-secondary as a source for geo-replication to another database
+> - Can't use geo-secondary as a source for geo-replication to another database.
 
 
 > [!NOTE]
