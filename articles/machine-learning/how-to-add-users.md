@@ -153,7 +153,7 @@ Send the following to your labelers, after filling in your workspace and project
 1. Use the dropdown to select the workspace **\<workspace-name\>**.  
 1. Select the project **\<project-name\>**.
 1. Select **Start labeling** at the bottom of the page.
-1. For more information about how to create labels, see [Labeling images and text documents](how-to-label-data.md).
+1. For more information about how to label data, see [Labeling images and text documents](how-to-label-data.md).
 
 ## Next steps
 
