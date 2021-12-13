@@ -69,13 +69,20 @@ To find more templates that are related to Azure Traffic Manager, see [Azure Qui
 
     It takes a few minutes to deploy the template. When completed, the output is similar to:
 
-    :::image type="content" source="./media/quickstart-create-traffic-manager-profile/traffic-manager-arm-powershell-output.png" alt-text="Azure Traffic Manager Resource Manager template PowerShell deployment output":::
+    :::image type="content" source="./media/how-to-add-endpoint-existing-profile-template/traffic-manager-arm-powershell-output.png" alt-text="Azure Traffic Manager Resource Manager template PowerShell deployment output":::
 
 Azure PowerShell is used to deploy the template. In addition to Azure PowerShell, you can also use the Azure portal, Azure CLI, and REST API. To learn other deployment methods, see [Deploy templates](../azure-resource-manager/templates/deploy-portal.md).
 
 ## Validate the deployment
 
-1. 
+1. Use [Get-AzTrafficManagerProfile](/powershell/module/az.trafficmanager/get-aztrafficmanagerprofile) to verify that the additional endpoint was added to the profile.
+
+    ```azurepowershell-interactive
+    Get-AzTrafficManagerProfile -ResourceGroupName myResourceGroup -Name ExternalEndpointExample | Select Endpoints
+    ```
+    The output is similar to:
+
+    :::image type="content" source="./media/how-to-add-endpoint-existing-profile-template/validation-output.png" alt-text="Output of validation command":::
 
 ## Clean up resources
 
