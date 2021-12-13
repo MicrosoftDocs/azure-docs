@@ -4,7 +4,7 @@ description: This tutorial shows you how to send messages to and receive message
 ms.date: 02/13/2021
 ms.topic: quickstart
 ms.devlang: Java
-ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Send messages to and receive messages from Azure Service Bus queues (Java)
