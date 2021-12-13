@@ -34,7 +34,7 @@ For this scenario, you will configure a critical line of business (LOB) applicat
 
 To integrate the application directly with Azure AD, it’d need to support some form of federation-based protocol such as Security Assertion Markup Language (SAML), or better. But as modernizing the application introduces risk of potential downtime, there are other options.
 
-To access the application remotely, you can use [Azure AD Application Proxy](./app-proxy/application-proxy.md), while using Kerberos Constrained Delegation (KCD) for SSO. In this arrangement, you can achieve the protocol transitioning required to bridge the legacy application to the modern identity control plane. 
+To access the application remotely, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md), while using Kerberos Constrained Delegation (KCD) for SSO. In this arrangement, you can achieve the protocol transitioning required to bridge the legacy application to the modern identity control plane. 
 
 Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC), enabling overlay of the application with Azure AD pre-authentication and KCD SSO, significantly improving the overall Zero Trust posture of the application.
 
@@ -224,7 +224,7 @@ If the **web_svc_account** service runs in context of a computer account:
 ```Set-ADComputer -Identity web_svc_account -PrincipalsAllowedToDelegateToAccount $big-ip```
 ```Get-ADComputer web_svc_account -Properties PrincipalsAllowedToDelegateToAccount```
 
-For more information, see [Kerberos Constrained Delegation across domains](../previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11).md).
+For more information, see [Kerberos Constrained Delegation across domains](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/hh831477(v=ws.11)).
 ## BIG-IP advanced configuration
 
 Now we can proceed with setting up the BIG-IP configurations.
@@ -273,17 +273,17 @@ In this section, you create an APM SSO object for performing KCD SSO to backend 
 
 Select **Access > Single Sign-on > Kerberos > Create** and provide the following:
 
-* **Name:** The SSO APM object can be re-used by other published applications, so use a descriptive name for the config. For example, *Contoso_KCD_sso*
+* **Name:** You can use a descriptive name. Once created, the Kerberos SSO APM object can be used by other published applications as well. For example, *Contoso_KCD_sso* can be used for multiple published applications for the entire Contoso domain, whereas *MyExpenses_KCD_sso* can be used for a single application only.
 
-* **Username Source:** Specifies the preferred username to cache for SSO. You can give any session variable as the source of the user ID, but session.saml.last.identity tends to work best as it holds the Azure AD claim containing the logged in user ID
+* **Username Source:** Specifies the preferred source of user ID. You can specify any APM session variable as the source, but *session.saml.last.identity* is typically best as it contains the logged in user ID derived from the Azure AD claim.
 
-* **User Realm Source:** This is required if the user domain is different to the BIG-IP’s Kerberos realm. If it is required, it would be in case APM session variable contains the logged in user domain. For example, session.saml.last.attr.name.domain
+* **User Realm Source:** Required in scenarios where the user domain is different to the Kerberos realm that will be used for KCD. If users were in a separate trusted domain, then you make the APM aware by specifying the APM session variable containing the logged-in user domain. For example, session.saml.last.attr.name.domain. You would also do this in scenarios where UPN of users is based on an alternative suffix.
 
-* **Kerberos Realm:** Users domain suffix in uppercase
+* **Kerberos Realm:** Enter users domain suffix in uppercase
 
 * **KDC:** IP of a Domain Controller (Or FQDN if DNS is configured and efficient)
 
-* **UPN Support:** Enable for APM to use the UPN for Kerberos ticketing 
+* **UPN Support:** Enable if specified source of username is in UPN format, such as if using session.saml.last.identity variable
 
 * **Account Name and Account Password:** APM service account credentials to perform KCD
 
@@ -429,7 +429,7 @@ For more details, see this F5 article on [Configuring automatic session terminat
 
 ## Summary
 
-Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals. The application should also be visible as a target resource in [Azure AD Conditional Access](./conditional-access/concept-conditional-access-policies.md). 
+Your application should now be published and accessible via SHA, either directly via its URL or through Microsoft’s application portals. The application should also be visible as a target resource in [Azure AD Conditional Access](../conditional-access/concept-conditional-access-policies.md). 
 
 For increased security, organizations using this pattern could also consider blocking all direct access to the application, forcing a strict path through the BIG-IP.
 
@@ -454,7 +454,7 @@ There can be many reasons for failure to access a SHA protected application, inc
 * Ensure there are no duplicate SPNs in your environment by executing the following query at the command line: setspn -q HTTP/my_target_SPN
 
 > [!NOTE]
-> You can refer to our [App Proxy guidance to validate an IIS application ](./app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md)is configured appropriately for KCD. F5’s article on [how the APM handles Kerberos SSO](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html) is also a valuable resource.
+> You can refer to our [App Proxy guidance to validate an IIS application ](../app-proxy/application-proxy-back-end-kerberos-constrained-delegation-how-to.md)is configured appropriately for KCD. F5’s article on [how the APM handles Kerberos SSO](https://techdocs.f5.com/en-us/bigip-15-1-0/big-ip-access-policy-manager-single-sign-on-concepts-configuration/kerberos-single-sign-on-method.html) is also a valuable resource.
 
 ### Authentication and SSO issues
 
