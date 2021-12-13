@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 12/13/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
@@ -138,12 +138,12 @@ The following table describes the drive statuses that result from a failed data 
 
 | Drive status                      | Description   |
 |:----------------------------------|:------------------------------------------|
-| Disk not received at datacenter   | The disk hasn't been received at the datacenter.</li><ul> |
+| Disk not received at datacenter   | The disk wasn't received at the datacenter. The drive may not have been included in the package. |
 |Failed                             | Issues faced while processing the job. [Contact Microsoft Support](storage-import-export-contact-microsoft-support.md) for more info.|
 | Manifest file error               | Issues in the manifest file or its format. |
 | Export blob list format invalid   | For an export job, the blob list doesn't conform to the required format. An XML file with valid blob paths and prefixes is required. See [Valid blob path prefixes](../databox/data-box-deploy-export-ordered.md#valid-blob-path-prefixes) for more information. |
 | Blob access forbidden             | For an export job, access to the export blob list in the storage account was denied. This might be caused by an invalid storage account key or container SAS. |
-| Unsupported disk                  | Disk type not supported by Azure Import/Export service. See [Supported disk types](storage-import-export-requirements.md#supported-disks) for more information. |
+| Unsupported disk                  | Disk type not supported by the Azure Import/Export service. See [Supported disk types](storage-import-export-requirements.md#supported-disks) for more information. |
 | Disk corrupted                    | Data on the disk is corrupted. |
 | BitLocker unlock volume failed    | Attempt to unlock the BitLocker volume failed. |
 | BitLocker volume not found        | Disk doesn't contain a BitLocker-enabled volume. |
@@ -151,7 +151,7 @@ The following table describes the drive statuses that result from a failed data 
 | Hardware error                    | Disk has reported a media failure. |
 | NTFS volume not found             | The first data volume on the disk is not in NTFS format. |
 | Storage account not accessible    | Customer's storage account can't be accessed, and the data copy can't proceed. |
-| Unsupported data                  | The data copied to the disk doesn't conform to [Azure conventions](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata), or the data can't be exported because it doesn't conform to the requirements for an NTFS volume. For info about the NTFS requirements, see [Prepare the drives](storage-import-export-data-to-files.md?tabs=azure-portal#step-1-prepare-the-drives). |
+| Unsupported data                  | The data copied to the disk doesn't conform to [Azure conventions](/rest/api/storageservices/naming-and-referencing-shares--directories--files--and-metadata), or the data can't be exported because it doesn't conform to the requirements for an NTFS volume. |
 
 
 ### [Portal (Classic)](#tab/azure-portal-classic)
