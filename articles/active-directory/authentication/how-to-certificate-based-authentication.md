@@ -1,6 +1,6 @@
 ---
 title: Native certificate-based authentication without federation - Azure Active Directory
-description: Learn how to configure certificate-based authentication in AZure Active Directory
+description: Learn how to configure native certificate-based authentication in Azure Active Directory
 
 services: active-directory
 ms.service: active-directory
