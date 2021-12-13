@@ -164,6 +164,8 @@ adminClient.CreateOrUpdateIndex(definition);
 To see an example of creating a semantic configuration and using it to issue a semantic query, check out the
 [semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
 
+---
+
 ### Allowed data types
 
 When selecting fields for your semantic configuration, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
@@ -176,8 +178,6 @@ When selecting fields for your semantic configuration, choose only fields of the
 
 > [!NOTE]
 > Subfields of Collection(Edm.ComplexType) fields are not currently supported by semantic search and won't be used for semantic ranking, captions, or answers.
-
----
 
 ## Query using REST
 
