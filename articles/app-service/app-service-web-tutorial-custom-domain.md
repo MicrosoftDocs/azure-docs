@@ -240,4 +240,5 @@ If you receive an HTTP 404 (Not Found) error when you browse to the URL of your 
 
 > [!div class="nextstepaction"]
 > [Secure a custom DNS name with a TLS/SSL binding in Azure App Service](configure-ssl-bindings.md)
-> [Migrate a live site and its DNS domain name to App Service with no downtime](manage-custom-dns-migrate-domain.md).
+>
+> [Migrate a live site and its DNS domain name to App Service with no downtime](manage-custom-dns-migrate-domain.md)
