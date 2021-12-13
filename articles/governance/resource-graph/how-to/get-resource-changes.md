@@ -40,7 +40,7 @@ Monitor.
 > [Guest Configuration for VMs](../../policy/concepts/guest-configuration.md).
 
 > [!IMPORTANT]
-> Resource configuration changes is in Public Preview and only supports changes to resoruce types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Management groups, Subscriptions, and Resource groups.
+> Resource configuration changes is in Public Preview and only supports changes to resource types from the [Resources table](..//reference/supported-tables-resources.md#resources) in Resource Graph. This does not yet include changes to the resource container resources, such as Management groups, Subscriptions, and Resource groups.
 
 ## Find detected change events and view change details
 
