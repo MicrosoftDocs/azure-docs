@@ -23,7 +23,8 @@ The supported pairs are:
 - Local <-> Azure Blob (either SAS or OAuth authentication can be used)
 - Azure Blob <-> Azure Blob (Source must include a SAS or is publicly accessible; either SAS or OAuth authentication can be used for destination)
 - Azure File <-> Azure File (Source must include a SAS or is publicly accessible; SAS authentication should be used for destination)
-- Local/Blob <-> Azure File 
+- Local <-> Azure File 
+- Azure Blob <-> Azure File
 
 The sync command differs from the copy command in several ways:
 
