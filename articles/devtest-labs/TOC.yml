@@ -77,6 +77,8 @@
     items:
     - name: Create a network isolated lab
       href: network-isolation.md
+    - name: Create or modify labs using ARM templates
+      href: devtest-lab-use-arm-and-powershell-for-lab-resources.md
     - name: Specify resource group for lab virtual machines
       href: resource-group-control.md
     - name: Add support info to a lab
