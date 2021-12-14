@@ -223,6 +223,10 @@ Consider the sample checklist to define the user experience (UX) requirements:
 
 - If you expect high UX customization such as pixel to pixel, you may need a front-end developer to help you.
 
+- Azure AD B2C provides good capabilities for customizing HTML and CSS, but has stricter requirements for JavaScript. This means you are limited to vanilla JavaScript and parts of JQuery. Accordingly you should not plan for using other JavaScript libraries or frameworks for your UI customization.
+
+- An embedded experience can be implemented using iframe support (currently in preview), but this will likely lead to longer implementation timelines due to increased complexity.
+
 ## Monitor an Azure AD B2C solution
 
 This phase includes the following capabilities:
