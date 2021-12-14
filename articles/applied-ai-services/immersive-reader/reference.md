@@ -341,7 +341,7 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 | preferences | String | String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader. See [Settings Parameters](#settings-parameters) and [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
 | onPreferencesChanged | Function | Executes when the user's preferences have changed. See [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
 | disableTranslation | Boolean | Disable the word and document translation experience. |
-| disableGrammar | Boolean | Disable the Grammar experience. |
+| disableGrammar | Boolean | Disable the Grammar experience. This option will also disable Syllables, Parts of Speech as well as Picture Dictionary, which depends on Parts of Speech. |
 | disableLanguageDetection | Boolean | Disable Language Detection to ensure the Immersive Reader only uses the language which is explicitly specified on the [Content](#content)/[Chunk[]](#chunk). This option should be used sparingly, primarily in situations where language detection may not be working correctly (for instance, this can happen more readily with short passages of less than 100 characters). You should be certain about the language you are sending, as text-to-speech will not have the correct voice, and Syllables, Parts of Speech and Picture Dictionary will not work correctly if the language is not correct. |
 
 ##### `uiLang`
