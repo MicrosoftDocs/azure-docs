@@ -31,9 +31,9 @@ This document describes how to configure external tools to use the SAP Deploymen
 
 1. Create a new file in VS Code and copy in the secret value. 
  
-1. Save the file where you keep SSH keys. For example, `C:\\Users\\<your-username>\\weeu_deployer.ssh`. Make sure that you save the file without an extension.
+1. Save the file where you keep SSH keys. For example, `C:\\Users\\<your-username>\\.ssh\weeu_deployer.ssh`. Make sure that you save the file without an extension.
 
-Once you have downloaded the ssh key for the deployer you can use it to connect to the Deployer virtual machine.
+Once you have downloaded the ssh key for the deployer, you can use it to connect to the Deployer virtual machine.
 
 ### Get the public IP of the deployer
 
@@ -60,8 +60,19 @@ Once you have downloaded the ssh key for the deployer you can use it to connect 
 
 1. Choose "Add New SSH Host"
 
-1. Type "ssh -i `C:\\Users\\<your-username>\\weeu_deployer.ssh` azureadm@<IP_Address>. Replace the <IP_Address> with the Deployer's IP address.
+```bash
+ssh -i `C:\\Users\\<your-username>\\weeu_deployer.ssh` azureadm@<IP_Address>
+```
+> [!NOTE] 
+>Change the <IP_Address> to reflect the Deployer IP.
 
 1. Click Connect, choose Linux when prompted for the target operating system, accept the remaining dialogues (key, trust etc.)
 
 1. When connected choose Open Folder and open the "/Azure_SAP_Automated_Deployment" folder.
+
+## Next step
+
+> [!div class="nextstepaction"]
+> [Configure SAP Workload Zone](automation-deploy-workload-zone.md)
+
+
