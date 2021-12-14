@@ -35,9 +35,9 @@ To use an HDInsight MapReduce activity to a pipeline, complete the following ste
 
    :::image type="content" source="media/transform-data-using-hadoop-map-reduce/map-reduce-activity.png" alt-text="Shows the UI for a MapReduce activity.":::
 
-1. Select the **Jar** tab to select or create a new Jar linked service, a class name to be executed there, and a file path within the storage location, which will host the script.  You can also configure advanced details including a Jar libs location, debugging configuration, and arguments and parameters to be passed to the script.
+1. Select the **Jar** tab to select or create a new Jar linked service to an Azure Storage account that will host your script.  Specify a class name to be executed there, and a file path within the storage location.  You can also configure advanced details including a Jar libs location, debugging configuration, and arguments and parameters to be passed to the script.
 
-   :::image type="content" source="media/transform-data-using-hadoop-map-reduce/map-reduce-script-configuration.png" alt-text="Shows the UI for the Script tab for a MapReduce activity.":::
+   :::image type="content" source="media/transform-data-using-hadoop-map-reduce/map-reduce-script-configuration.png" alt-text="Shows the UI for the Jar tab for a MapReduce activity.":::
 
 ## Syntax
 
