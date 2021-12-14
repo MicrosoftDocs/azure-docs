@@ -54,7 +54,8 @@ Data formats available for text data:
     :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
 
     * Choose **Text Classification Multi-class (Preview)** for projects when you want to apply only a *single label* from a set of labels to each piece of text.
-    * Choose **Text Classification Multi-label (Preview)** for projects when you want to apply *one or more* labels from a set of labels to each piece of text.
+    * Choose **Text Classification Multi-label (Preview)** for projects when you want to apply *one or more* labels from a set of labels to each piece of text. 
+    * Choose **Text Named Entity Recognition (Preview)** for projects when you want to apply labels to individual or multiple words of text in each entry.
 
 1. Select **Next** when you're ready to continue.
 
@@ -62,7 +63,7 @@ Data formats available for text data:
 
 [!INCLUDE [outsource](../../includes/machine-learning-data-labeling-outsource.md)]
 
-## Specify the data to label
+## Select or create a dataset
 
 If you already created a dataset that contains your data, select it from the **Select an existing dataset** drop-down list. Or, select **Create a dataset** to use an existing Azure datastore or to upload local files.
 

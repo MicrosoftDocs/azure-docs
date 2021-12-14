@@ -180,15 +180,32 @@ When tagging text, use the toolbar to:
 
 If you realize that you made a mistake after you assign a tag, you can fix it. Select the "**X**" on the label that's displayed below the text to clear the tag.
 
-There are two text project types:
+There are three text project types:
 
-
-|Project type  |Tagging  |
-|---------|---------|
-| Classification Multi-Class | Assign a single tag to the entire text item.  You can only select one tag for each text item.   |
-| Classification Multi-Label     | Assign one *or more* tags to each text item.  You can select multiple tags for each text item.       |
+ Classification Multi-Class | Assign a single tag to the entire text entry.  You can only select one tag for each text item.  Select a tag and then select **Submit** to move to the next entry.  |
+| Classification Multi-Label     | Assign one *or more* tags to each text entry.  You can select multiple tags for each text item.   Select all the tags that apply and then select **Submit** to move to the next entry.    |
+| Named entity recognition | Tag different words or phrases in each text entry.  See directions in the section below.
 
 To see the project-specific directions, select **Instructions** and go to **View detailed instructions**.
+
+### Tag words and phrases
+
+If your project is set up for named entity recognition, you tag different words or phrases in each text item. To label text: 
+
+1. Select the label or type the number corresponding to the appropriate label
+1. Double-click on a word, or use your mouse to select multiple words.
+
+:::image type="content" source="media/how-to-label-data/named-entity-labeling.png" alt-text="Screenshot: Named entity recognition.":::
+
+To change a label, you can:
+
+* Delete the label and start again.
+* Change the value for all or some of a specific label in your current item:
+    * Click on the label itself, which will select all instances of that label.  
+    * Click again on the instances of this label to unselect any instances you don't want to change.  
+    * Finally, select a new label to change all the labels that are still selected.
+
+When you've tagged all the items in an entry, select **Submit** to move to the next entry.
 
 ## Finish up
 
