@@ -47,28 +47,30 @@ Azure services are presented in the following tables by category. Note that some
 > | Azure Backup                           | Azure App Configuration                           | 
 > | Azure Cosmos DB                        | Azure App Service                                 | 
 > | Azure Event Hubs                       | Azure Active Directory Domain Services            | 
-> | Azure ExpressRoute                     | Azure Bastion                                     |
-> | Azure Key Vault                        | Azure Batch                                       | 
-> | Azure Load Balancer                    | Azure Cache for Redis                             | 
-> | Azure Public IP                        | Azure Cognitive Search                            | 
-> | Azure Resource Manager                 | Azure Container Registry                          | 
-> | Azure Service Bus                      | Azure Container Instances                         |
-> | Azure Service Fabric                   | Azure Data Explorer                               |  
-> | Azure Site Recovery                    | Azure Data Factory                                | 
-> | Azure SQL                              | Azure Database for MySQL                          | 
-> | Azure Storage: Disk Storage            | Azure Database for PostgreSQL                     | 
-> | Azure Storage Accounts                 | Azure DDoS Protection                             | 
-> | Azure Storage: Blob Storage            | Azure Event Grid                                  | 
-> | Azure Storage Data Lake Storage        | Azure Firewall                                    | 
-> | Azure Virtual Machines                 | Azure Firewall Manager                            |
-> | Azure Virtual Machine Scale Sets       | Azure Functions                                   |
-> | Virtual Machines: Av2-series           | Azure HDInsight                                   |   
-> | Virtual Machines: Bs-series            | Azure IoT Hub                                     | 
-> | Virtual Machines: Dv2 and DSv2-series  | Azure Kubernetes Service (AKS)                    | 
-> | Virtual Machines: Dv3 and DSv3-series  | Azure Logic Apps                                  | 
-> | Virtual Machines: ESv3 abd ESv3-series | Azure Media Services                              | 
-> | Azure Virtual Network                  | Azure Monitor: Application Insights               | 
-> | Azure VPN Gateway                      | Azure Monitor: Log Analytics                      | 
+> | Azure ExpressRoute                     | Azure Active Directory Domain Services            |
+> | Azure Key Vault                        | Azure Bastion                                     | 
+> | Azure Load Balancer                    | Azure Batch                                       | 
+> | Azure Public IP                        | Azure Cache for Redis                             | 
+> | Azure Resource Manager                 | Azure Cognitive Search                            | 
+> | Azure Service Bus                      | Azure Container Registry                          |
+> | Azure Service Fabric                   | Azure Container Instances                         |  
+> | Azure Site Recovery                    | Azure Data Explorer                               | 
+> | Azure SQL                              | Azure Data Factory                                | 
+> | Azure Storage: Disk Storage            | Azure Database for MySQL                          | 
+> | Azure Storage Accounts                 | Azure Database for PostgreSQL                     | 
+> | Azure Storage: Blob Storage            | Azure DDoS Protection                             | 
+> | Azure Storage Data Lake Storage        | Azure Event Grid                                  | 
+> | Azure Virtual Machines                 | Azure Firewall                                    |
+> | Azure Virtual Machine Scale Sets       | Azure Firewall Manager                            |
+> | Virtual Machines: Av2-series           | Azure Functions                                   |   
+> | Virtual Machines: Bs-series            | Azure HDInsight                                   | 
+> | Virtual Machines: Dv2 and DSv2-series  | Azure IoT Hub                                     | 
+> | Virtual Machines: Dv3 and DSv3-series  | Azure Kubernetes Service (AKS)                    | 
+> | Virtual Machines: ESv3 abd ESv3-series | Azure Logic Apps                                  | 
+> | Azure Virtual Network                  | Azure Media Services                              | 
+> | Azure VPN Gateway                      | Azure Monitor: Application Insights               | 
+> |                                        | Azure Monitor: Application Insights               | 
+> |                                        | Azure Monitor: Log Analytics                      | 
 > |                                        | Azure Network Watcher                             | 
 > |                                        | Azure Notification Hubs                           | 
 > |                                        | Azure Private Link                                |     
