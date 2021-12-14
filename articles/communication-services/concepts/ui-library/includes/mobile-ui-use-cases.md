@@ -6,7 +6,7 @@ author: jorgegarc
 
 ms.author: jorgegarc
 ms.date: 09/14/2021
-ms.topic: conceptual
+ms.topic: include
 ms.service: azure-communication-services
 ---
 

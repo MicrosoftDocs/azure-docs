@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: dademath
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: include
 ms.service: azure-communication-services
 ---
 

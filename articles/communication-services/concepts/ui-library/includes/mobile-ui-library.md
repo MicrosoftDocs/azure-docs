@@ -6,7 +6,7 @@ author: jorgegarc
 
 ms.author: jorgegarc
 ms.date: 09/14/2021
-ms.topic: conceptual
+ms.topic: include
 ms.service: azure-communication-services
 ---
 
@@ -67,7 +67,7 @@ Details about the feature availability in the [UI Library is available here](../
 > [!div class="nextstepaction"]
 > [Quickstart guides](../../../quickstarts/ui-library/get-started-composites.md)
 
-## Know issues
+## Known issues
 
-- [iOS know issues](https://github.com/Azure/communication-ui-toolkit-ios-pr/wiki/Known-Issues)
-- [Android know issues](https://github.com/Azure/communication-ui-toolkit-android-pr/wiki/Known-Issues)
+- [iOS known issues](https://github.com/Azure/communication-ui-toolkit-ios-pr/wiki/Known-Issues)
+- [Android known issues](https://github.com/Azure/communication-ui-toolkit-android-pr/wiki/Known-Issues)

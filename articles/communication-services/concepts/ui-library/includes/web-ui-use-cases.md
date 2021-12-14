@@ -8,7 +8,7 @@ services: azure-communication-services
 
 ms.author: dademath
 ms.date: 06/30/2021
-ms.topic: conceptual
+ms.topic: include
 ms.service: azure-communication-services
 ---
 
@@ -26,7 +26,7 @@ To take full advantage of these capabilities, we recommend using the UI Componen
 | Area                | Use Cases                                              |
 | ------------------- | ------------------------------------------------------ |
 | Call Types          | Join Teams Meeting                                     |
-|                     | Join Azure Communication Services call with Group Id   |
+|                     | Join Azure Communication Services call with Group ID   |
 | [Teams Interop](../../teams-interop.md)      | Call Lobby                                             |
 |                     | Transcription and recording alert banner               |
 | Call Controls       | Mute/unmute call                                       |
