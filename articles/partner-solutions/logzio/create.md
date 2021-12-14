@@ -1,11 +1,8 @@
 ---
 title: Create a Logz.io resource - Azure partner solutions
 description: Quickstart article that describes how to create a Logz.io resource in Azure.
-author: tfitzmac
 ms.topic: conceptual
-ms.service: partner-services
 ms.date: 10/25/2021
-ms.author: tomfitz
 ms.custom: references_regions
 ---
 

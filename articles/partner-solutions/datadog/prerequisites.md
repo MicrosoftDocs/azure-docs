@@ -1,11 +1,8 @@
 ---
 title: Prerequisites for Datadog on Azure - Azure partner solutions
 description: This article describes how to configure your Azure environment to create an instance of Datadog.
-ms.service: partner-services
 ms.topic: conceptual
 ms.date: 05/28/2021
-author: tfitzmac
-ms.author: tomfitz
 ---
 
 # Configure environment before Datadog deployment
