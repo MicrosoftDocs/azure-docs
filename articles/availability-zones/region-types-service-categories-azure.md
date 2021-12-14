@@ -71,11 +71,11 @@ Azure services are presented in the following tables by category. Note that some
 > |                                        | Azure Monitor: Log Analytics                      | 
 > |                                        | Azure Network Watcher                             | 
 > |                                        | Azure Private Link                                |  
-> |                                        | Azure Site Recovery                               | 
+> |                                        | Azure Site Recovery                               |
+> |                                        | Azure Storage: Files Storage                               |
 > |                                        | Azure Synapse Analytics                           | 
 > |                                        | Azure Virtual WAN                                 | 
-> |                                        | Premium Blob Storage                              | 
-> |                                        | Premium Files Storage                             | 
+> |                                        | Premium Blob Storage                              |  
 > |                                        | Virtual Machines: Ddsv4-series                    | 
 > |                                        | Virtual Machines: Ddv4-series                     | 
 > |                                        | Virtual Machines: Dsv4-series                     | 
