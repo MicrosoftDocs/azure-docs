@@ -16,7 +16,7 @@ Microsoft Defender for Cloud protects workloads in Azure, Amazon Web Services (A
 
 To protect your AWS-based resources, you can connect an account with one of two mechanisms:
 
-- **Classic cloud connectors experience** - As part of the initial multi-cloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP accounts. If you've already configured an AWS connector through the classic cloud connectors experience, we recommend deleting your 'legacy' connector (as explained in [Remove 'legacy' connectors](#remove-legacy-connectors)), and connecting the account again using the newer mechanism. When you've added your account through the environment settings page, remove the old connector to avoid seeing duplicate recommendations.
+- **Classic cloud connectors experience** - As part of the initial multi-cloud offering, we introduced these cloud connectors as a way to connect your AWS and GCP accounts. If you've already configured an AWS connector through the classic cloud connectors experience, we recommend deleting these connectors (as explained in [Remove classic connectors](#remove-classic-connectors)), and connecting the account again using the newer mechanism. If you don't do this before creating the new connector through the environment settings page, do so afterwards to avoid seeing duplicate recommendations.
 
 - **Environment settings page (in preview)** (recommended) - This preview page provides a greatly improved, simpler, onboarding experience (including auto provisioning). This mechanism also extends Defender for Cloud's enhanced security features to your AWS resources:
 
