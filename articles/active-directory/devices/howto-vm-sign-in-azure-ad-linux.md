@@ -209,7 +209,7 @@ The following example uses [az role assignment create](/cli/azure/role/assignmen
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
-vm=$(az vm show --resource-group AzureADLinuxVMPreview --name myVM --query id -o tsv)
+vm=$(az vm show --resource-group AzureADLinuxVM --name myVM --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \

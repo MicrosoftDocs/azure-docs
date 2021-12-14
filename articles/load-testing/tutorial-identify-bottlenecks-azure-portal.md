@@ -114,7 +114,7 @@ In this section, you'll update the Apache JMeter script with the URL of the samp
 1. Replace the value with the URL of the newly deployed sample application:
 
    ```xml
-   <stringProp name="HTTPSampler.domain">yourappname.azurewebsites.net</stringProp>
+   <stringProp name="HTTPSampler.domain">your-app-name.azurewebsites.net</stringProp>
    ```
 
    Update the value in all three places. Don't include the `https://` prefix.  

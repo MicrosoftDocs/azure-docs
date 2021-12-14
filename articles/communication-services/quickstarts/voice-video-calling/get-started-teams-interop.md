@@ -14,8 +14,6 @@ ms.custom: mode-other
 
 # Quickstart: Join your calling app to a Teams meeting
 
-[!INCLUDE [Public Preview](../../includes/public-preview-include-document.md)]
-
 ::: zone pivot="platform-web"
 [!INCLUDE [Calling with JavaScript](./includes/teams-interop/teams-interop-javascript.md)]
 ::: zone-end
@@ -32,13 +30,6 @@ ms.custom: mode-other
 [!INCLUDE [Calling with iOS](./includes/teams-interop/teams-interop-ios.md)]
 ::: zone-end
 
-Functionality described in this document uses the General Availability version of the Communication Services SDKs. Teams Interoperability requires the Beta version of the Communication Services SDKs. The Beta SDKs can be explored on the [release notes page](https://github.com/Azure/Communication/tree/master/releasenotes).
-
-When executing the "Install package" step with the Beta SDKs, modify the version of your package to the latest Beta release by specifying version `@1.0.0-beta.10` (version at the moment of writing this article) in the `communication-calling` package name. You don't need to modify the `communication-common` package command. For example:
-
-```console
-npm install @azure/communication-calling@1.0.0-beta.10 --save
-```
 
 ## Clean up resources
 

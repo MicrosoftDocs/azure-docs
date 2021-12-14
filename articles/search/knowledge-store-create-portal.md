@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/28/2021
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a knowledge store in the Azure portal
