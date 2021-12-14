@@ -14,9 +14,9 @@ ms.topic: reference
 
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
 
-Due to the rapidly evolving Data Science needs and packages available, the Azure Data Science Virtual Machine tries to transition for a bi-monthly to monthly release cadence. So, every other month to each month updated version of Windows and Ubuntu offering is available. 
+Due to the rapidly evolving needs and packages updates, we target to release new Azure Data Science Virtual Machine for Windows and Ubuntu images every month.
 
-Azure Portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or ARM users, we keep images of individual offering (e.g. Windows 2019 or Ubuntu 18.04) available for six months. After that period, particular version of image is no longer available for provisioning.
+Azure portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or ARM users, we keep images of individual versions available for twelve months. After that period, particular version of image is no longer available for provisioning.
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
