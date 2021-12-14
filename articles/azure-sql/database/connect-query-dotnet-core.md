@@ -10,7 +10,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 author: dzsquared
 ms.author: drskwier
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 05/29/2020
 ---
 # Quickstart: Use .NET Core (C#) to query a database

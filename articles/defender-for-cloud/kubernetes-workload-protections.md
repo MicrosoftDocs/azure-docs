@@ -2,7 +2,7 @@
 title: Workload protections for your Kubernetes workloads
 description: Learn how to use Microsoft Defender for Cloud's set of Kubernetes workload protection security recommendations
 ms.topic: how-to
-ms.date: 11/09/2021
+ms.date: 12/12/2021
 ---
 
 # Protect your Kubernetes workloads
@@ -11,16 +11,12 @@ ms.date: 11/09/2021
 
 This page describes how to use Microsoft Defender for Cloud's set of security recommendations dedicated to Kubernetes workload protection.
 
-Learn more about these features in [Workload protection best-practices using Kubernetes admission control](container-security.md#workload-protection-best-practices-using-kubernetes-admission-control)
+Learn more about these features in [Workload protection best-practices using Kubernetes admission control](defender-for-containers-introduction.md#workload-protection-best-practices-using-kubernetes-admission-control)
 
-Defender for Cloud offers more container security features if you enable Microsoft Defender for Kubernetes. Specifically:
-
-- Scan your container registries for vulnerabilities with [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
-- Get real-time threat detection alerts for your K8s clusters [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
+Defender for Cloud offers more container security features if you enable Microsoft Defender for Containers. Learn more in [Overview of Microsoft Defender for Containers](defender-for-containers-introduction.md)
 
 > [!TIP]
-> For a list of *all* security recommendations that might appear for Kubernetes clusters and nodes, see the [compute section](recommendations-reference.md#recs-compute) of the recommendations reference table.
-
+> For a list of the security recommendations that might appear for Kubernetes clusters and nodes, see the [Container recommendations](recommendations-reference.md#container-recommendations) of the recommendations reference table.
 
 
 ## Availability
@@ -28,7 +24,7 @@ Defender for Cloud offers more container security features if you enable Microso
 | Aspect                          | Details                                                                                                                                      |
 |---------------------------------|:---------------------------------------------------------------------------------------------------------------------------------------------|
 | Release state:                  | General availability (GA)                                                                                                                    |
-| Pricing:                        | Free                                                                                                                                         |
+| Pricing:                        | Free for AKS workloads<br>For Azure Arc-enabled Kubernetes or EKS, it's billed according to the Microsoft Defender for Containers plan       |
 | Required roles and permissions: | **Owner** or **Security admin** to edit an assignment<br>**Reader** to view the recommendations                                              |
 | Environment requirements:       | Kubernetes v1.14 (or higher) is required<br>No PodSecurityPolicy resource (old PSP model) on the clusters<br>Windows nodes are not supported |
 | Clouds:                         | :::image type="icon" source="./media/icons/yes-icon.png"::: Commercial clouds<br>:::image type="icon" source="./media/icons/yes-icon.png"::: National (Azure Government, Azure China 21Vianet) |

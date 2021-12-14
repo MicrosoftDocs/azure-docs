@@ -4,7 +4,6 @@ description: This quickstart shows how to use Azure Front Door Standard/Premium 
 services: frontdoor
 author: duongau
 manager: KumudD
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
@@ -12,7 +11,8 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/16/2021
 ms.author: duau
-ms.custom: mode-other
+ms.custom: mode-ui
+#Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create an Azure Front Door Standard/Premium profile - Azure portal

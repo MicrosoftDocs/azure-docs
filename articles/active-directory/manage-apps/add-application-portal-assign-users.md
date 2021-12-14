@@ -12,8 +12,8 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: alamaral
-# Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.
 ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to assign a user to an enterprise application.
 ---
 
 # Quickstart: Create and assign a user account
@@ -61,7 +61,7 @@ To assign a user account to an enterprise application:
 
 ## Clean up resources
 
-If you are planning to complete the next quickstart, keep the application that you created. Otherwise, you can consider deleting it to clean up your tenant. For more information, see [Delete an application](delete-application-portal.md).
+If you are planning to complete the next quickstart, keep the application that you created. Otherwise, you can consider deleting it to clean up your tenant.
 
 ## Next steps
 

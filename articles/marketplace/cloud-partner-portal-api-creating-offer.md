@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 author: mingshen-ms
 ms.author: mingshen
-ms.date: 07/29/2020
+ms.date: 12/03/2021
 ---
 
 # Create or modify an offer
@@ -387,9 +387,9 @@ These categories and their respective keys are applicable for Azure apps, Virtua
 
 ### Microsoft AppSource categories
 
-These categories and their respective keys are applicable for SaaS, Power BI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Items in bold italic (like ***analytics***) are categories and standard text items (like advanced-analytics) are subcategories below them. Use the exact key values, without changing spacing or capitalization.
+These categories and their respective keys are applicable for SaaS, Power BI app, Dynamics 365 Business Central, Dynamics 365 apps on Dataverse and Power Apps, and Dynamics 365 Operations Apps offer types. Items in bold italic (like ***analytics***) are categories and standard text items (like advanced-analytics) are subcategories below them. Use the exact key values, without changing spacing or capitalization.
 
-| Category | SaaS keys | Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation keys | Power BI app keys |
+| Category | SaaS keys | Dynamics 365 Business Central, Dynamics 365 apps on Dataverse and Power Apps, Dynamics 365 Operations Apps keys | Power BI app keys |
 | --- | --- | --- | --- |
 | ***Analytics*** | ***analytics*** | ***Analytics*** | ***Analytics*** |
 | Advanced Analytics | advanced-analytics | advanced-analytics | advanced-analytics |
@@ -489,9 +489,9 @@ These categories and their respective keys are applicable for SaaS, Power BI app
 
 ### Microsoft AppSource industries
 
-These industries and their respective keys are applicable for SaaS, Power BI app, Dynamics 365 business central, Dynamics 365 for customer engagement, and Dynamics 365 for operation offer types. Items in bold italic (like ***Automotive***) are categories and standard text items (like AutomotiveL2) are subcategories below them. Use the exact key values, without changing spacing or capitalization.
+These industries and their respective keys are applicable for SaaS, Power BI app, Dynamics 365 Business Central, Dynamics 365 apps on Dataverse and Power Apps, and Dynamics 365 Operations Apps offer types. Items in bold italic (like ***Automotive***) are categories and standard text items (like AutomotiveL2) are subcategories below them. Use the exact key values, without changing spacing or capitalization.
 
-| Industry | SaaS, Dynamics 365 business central, Dynamics 365 for customer engagement, Dynamics 365 for operation keys | Power BI apps keys |
+| Industry | SaaS, Dynamics 365 Business Central, Dynamics 365 apps on Dataverse and Power Apps, Dynamics 365 Operations Apps keys | Power BI apps keys |
 | --- | --- | --- |
 | ***Automotive*** | ***Automotive*** | ***automotive*** |
 | Automotive | AutomotiveL2 | AutomotiveL2 |

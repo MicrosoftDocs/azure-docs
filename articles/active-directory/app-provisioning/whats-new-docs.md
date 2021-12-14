@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application provisioning"
 description: "New and updated documentation for the Azure Active Directory application provisioning."
-ms.date: 11/04/2021
+ms.date: 12/02/2021
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.topic: reference
@@ -14,6 +14,25 @@ manager: karenh444
 # Azure Active Directory application provisioning: What's new
 
 Welcome to what's new in Azure Active Directory application provisioning documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the provisioning service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## November 2021
+
+### New articles
+
+- [Troubleshoot HR attribute retrieval issues](hr-attribute-retrieval-issues.md)
+- [Troubleshoot HR manager update issues](hr-manager-update-issues.md)
+- [Troubleshoot HR user update issues](hr-user-update-issues.md)
+- [Troubleshoot HR write back issues](hr-writeback-issues.md)
+- [Troubleshoot HR user creation issues](hr-user-creation-issues.md)
+
+### Updated articles
+
+- [Troubleshoot HR attribute retrieval issues](hr-attribute-retrieval-issues.md)
+- [Troubleshoot HR manager update issues](hr-manager-update-issues.md)
+- [Troubleshoot HR user update issues](hr-user-update-issues.md)
+- [Troubleshoot HR write back issues](hr-writeback-issues.md)
+- [Reference for writing expressions for attribute mappings in Azure Active Directory](functions-for-customizing-application-data.md)
+
 
 ## October 2021
 
