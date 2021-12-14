@@ -62,7 +62,7 @@ Each SSML document is created with SSML elements (or tags). These elements are u
 
 ## Choose a voice for Text-to-Speech
 
-The `voice` element is required. It is used to specify the voice that is used for Text-to-Speech.
+The `voice` element is required. It's used to specify the voice that is used for Text-to-Speech.
 
 **Syntax**
 
@@ -116,7 +116,7 @@ Within the `speak` element, you can specify multiple voices for Text-to-Speech o
 
 ## Adjust speaking styles
 
-By default, the Text-to-Speech service synthesizes text using a neutral speaking style for neural voices. You can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like customer service, newscasting and voice assistant, using the `mstts:express-as` element. This is an optional element unique to the Speech service.
+By default, the Text-to-Speech service synthesizes text using a neutral speaking style for neural voices. You can adjust the speaking style to express different emotions like cheerfulness, empathy, and calm, or optimize the voice for different scenarios like customer service, newscast, and voice assistant, using the `mstts:express-as` element. This is an optional element unique to the Speech service.
 
 Currently, speaking style adjustments are supported for the following neural voices:
 * `en-US-AriaNeural`
@@ -137,7 +137,7 @@ Currently, speaking style adjustments are supported for the following neural voi
 
 The intensity of speaking style can be further changed to better fit your use case. You can specify a stronger or softer style with `styledegree` to make the speech more expressive or subdued. Currently, speaking style adjustments are supported for Chinese (Mandarin, Simplified) neural voices.
 
-Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name will not be changed. Currently, role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
+Apart from adjusting the speaking styles and style degree, you can also adjust the `role` parameter so that the voice will imitate a different age and gender. For example, a male voice can raise the pitch and change the intonation to imitate a female voice, but the voice name won't be changed. Currently, role adjustments are supported for these Chinese (Mandarin, Simplified) neural voices:
 * `zh-CN-XiaomoNeural`
 * `zh-CN-XiaoxuanNeural`
 
@@ -162,14 +162,14 @@ Above changes are applied at the sentence level, and styles and role-plays vary 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `style` | Specifies the speaking style. Currently, speaking styles are voice-specific. | Required if adjusting the speaking style for a neural voice. If using `mstts:express-as`, then style must be provided. If an invalid value is provided, this element will be ignored. |
-| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1 which means the predefined style intensity. The minimum unit is 0.01 which results in a slightly tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional (At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices.)|
-| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name will not be changed.  | Optional (At the moment, `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.)|
+| `styledegree` | Specifies the intensity of speaking style. **Accepted values**: 0.01 to 2 inclusive. The default value is 1, which means the predefined style intensity. The minimum unit is 0.01, which results in a slight tendency for the target style. A value of 2 results in a doubling of the default style intensity.  | Optional (At the moment, `styledegree` only supports Chinese (Mandarin, Simplified) neural voices.)|
+| `role` | Specifies the speaking role-play. The voice will act as a different age and gender, but the voice name won't be changed.  | Optional (At the moment, `role` only supports zh-CN-XiaomoNeural and zh-CN-XiaoxuanNeural.)|
 
 Use this table to determine which speaking styles are supported for each neural voice.
 
 | Voice                   | Style                     | Description                                                 |
 |-------------------------|---------------------------|-------------------------------------------------------------|
-| `en-US-AriaNeural`      | `style="newscast-formal"` | Expresses a formal, confident and authoritative tone for news delivery |
+| `en-US-AriaNeural`      | `style="newscast-formal"` | Expresses a formal, confident, and authoritative tone for news delivery |
 |                         | `style="newscast-casual"` | Expresses a versatile and casual tone for general news delivery        |
 |                         | `style="narration-professional"` | Express a professional, objective tone for content reading        |
 |                         | `style="customerservice"` | Expresses a friendly and helpful tone for customer support  |
@@ -349,7 +349,7 @@ Use this table to determine which speaking languages are supported for each neur
 
 **Example**
 
-This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX` and `de-DE`.
+This SSML snippet shows how to use `<lang xml:lang>` to change the speaking languages to `en-US`, `es-MX`, and `de-DE`.
 
 ```xml
 <speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis"
@@ -385,7 +385,7 @@ Use the `break` element to insert pauses (or breaks) between words, or prevent p
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `strength` | Specifies the relative duration of a pause using one of the following values:<ul><li>none</li><li>x-weak</li><li>weak</li><li>medium (default)</li><li>strong</li><li>x-strong</li></ul> | Optional |
-| `time` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000ms. Examples of valid values are `2s` and `500ms` | Optional |
+| `time` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Optional |
 
 | Strength                      | Description |
 |-------------------------------|-------------|
@@ -424,7 +424,7 @@ Use the `mstts:silence` element to insert pauses before or after text, or betwee
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
 | `type` | Specifies the location of silence be added: <ul><li>`Leading` – at the beginning of text </li><li>`Tailing` – in the end of text </li><li>`Sentenceboundary` – between adjacent sentences </li></ul> | Required |
-| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000ms. Examples of valid values are `2s` and `500ms` | Required |
+| `Value` | Specifies the absolute duration of a pause in seconds or milliseconds,this value should be set less than 5000 ms. Examples of valid values are `2s` and `500ms` | Required |
 
 **Example**
 In this example, `mtts:silence` is used to add 200 ms of silence between two sentences.
@@ -489,7 +489,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 | Attribute | Description | Required / Optional |
 |-----------|-------------|---------------------|
-| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you can specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet </a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Universal Phone Set</a></li></ul><br>The alphabet applies only to the `phoneme` in the element.. | Optional |
+| `alphabet` | Specifies the phonetic alphabet to use when synthesizing the pronunciation of the string in the `ph` attribute. The string specifying the alphabet must be specified in lowercase letters. The following are the possible alphabets that you can specify.<ul><li>`ipa` &ndash; <a href="https://en.wikipedia.org/wiki/International_Phonetic_Alphabet" target="_blank">International Phonetic Alphabet </a></li><li>`sapi` &ndash; [Speech service phonetic alphabet](speech-ssml-phonetic-sets.md)</li><li>`ups` &ndash;<a href="https://documentation.help/Microsoft-Speech-Platform-SDK-11/17509a49-cae7-41f5-b61d-07beaae872ea.htm" target="_blank"> Universal Phone Set</a></li></ul><br>The alphabet applies only to the `phoneme` in the element.| Optional |
 | `ph` | A string containing phones that specify the pronunciation of the word in the `phoneme` element. If the specified string contains unrecognized phones, the Text-to-Speech (TTS) service rejects the entire SSML document and produces none of the speech output specified in the document. | Required if using phonemes. |
 
 **Examples**
@@ -520,7 +520,7 @@ Phonetic alphabets are composed of phones, which are made up of letters, numbers
 
 ## Use custom lexicon to improve pronunciation
 
-Sometimes the Text-to-Speech service cannot accurately pronounce a word. For example, the name of a company, a medical term or an emoji. Developers can define how single entities are read in SSML using the `phoneme` and `sub` tags. However, if you need to define how multiple entities are read, you can create a custom lexicon using the `lexicon` tag.
+Sometimes the Text-to-Speech service can't accurately pronounce a word. For example, the name of a company, a medical term or an emoji. Developers can define how single entities are read in SSML using the `phoneme` and `sub` tags. However, if you need to define how multiple entities are read, you can create a custom lexicon using the `lexicon` tag.
 
 > [!NOTE]
 > Custom lexicon currently supports UTF-8 encoding.
@@ -543,7 +543,7 @@ Sometimes the Text-to-Speech service cannot accurately pronounce a word. For exa
 
 **Usage**
 
-To define how multiple entities are read, you can create a custom lexicon, which is stored as an .xml or .pls file. The following is a sample .xml file.
+To define how multiple entities are read, you can create a custom lexicon, which is stored as an .xml or .pls file. Below is a sample .xml file.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -628,14 +628,14 @@ When using this custom lexicon, "BTW" will be read as "By the way". "Benigni" wi
 Since it's easy to make mistakes in custom lexicon, Microsoft has provided [validation tool for custom lexicon](https://github.com/jiajzhan/Custom-Lexicon-Validation). It provides detailed error messages that help you find errors. Before you send SSML with custom lexicon to the Speech service, you should check your custom lexicon with this tool. 
 
 **Limitations**
-- File size: custom lexicon file size maximum limit is 100KB, if beyond this size, synthesis request will fail.
+- File size: custom lexicon file size maximum limit is 100 KB, if beyond this size, synthesis request will fail.
 - Lexicon cache refresh: custom lexicon will be cached with URI as key on TTS Service when it's first loaded. Lexicon with same URI won't be reloaded within 15 mins, so custom lexicon change needs to wait at most 15 mins to take effect.
 
 **Speech service phonetic sets**
 
-In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it is the international standard. For some IPA characters, they have the 'precomposed' and 'decomposed' version when being represented with Unicode. Custom lexicon only support the decomposed unicodes.
+In the sample above, we're using the International Phonetic Alphabet, also known as the IPA phone set. We suggest developers use the IPA, because it is the international standard. For some IPA characters, they have the 'precomposed' and 'decomposed' version when being represented with Unicode. Custom lexicon only supports the decomposed Unicode.
 
-Considering that the IPA is not easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
+Considering that the IPA isn't easy to remember, the Speech service defines a phonetic set for seven languages (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`, and `zh-TW`).
 
 You can use the `x-microsoft-sapi` as the value for the `alphabet` attribute with custom lexicons as demonstrated below:
 
@@ -664,7 +664,7 @@ For more information on the detailed Speech service phonetic alphabet, see the [
 
 The `prosody` element is used to specify changes to pitch, contour, range, rate, duration, and volume for the Text-to-Speech output. The `prosody` element can contain text and the following elements: `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`, and `s`.
 
-Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. The Text-to-Speech service limits or substitutes values that are not supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
+Because prosodic attribute values can vary over a wide range, the speech recognizer interprets the assigned values as a suggestion of what the actual prosodic values of the selected voice should be. The Text-to-Speech service limits or substitutes values that aren't supported. Examples of unsupported values are a pitch of 1 MHz or a volume of 120.
 
 **Syntax**
 
@@ -778,7 +778,7 @@ The following are the supported content types for the `interpret-as` and `format
 | `ordinal` | | The text is spoken as an ordinal number. The speech synthesis engine pronounces:<br /><br />`Select the <say-as interpret-as="ordinal">3rd</say-as> option`<br /><br />As "Select the third option". |
 | `telephone` | | The text is spoken as a telephone number. The `format` attribute can contain digits that represent a country code. For example, "1" for the United States or "39" for Italy. The speech synthesis engine can use this information to guide its pronunciation of a phone number. The phone number might also include the country code, and if so, takes precedence over the country code in the `format`. The speech synthesis engine pronounces:<br /><br />`The number is <say-as interpret-as="telephone" format="1">(888) 555-1212</say-as>`<br /><br />As "My number is area code eight eight eight five five five one two one two." |
 | `time` | hms12, hms24 | The text is spoken as a time. The `format` attribute specifies whether the time is specified using a 12-hour clock (hms12) or a 24-hour clock (hms24). Use a colon to separate numbers representing hours, minutes, and seconds. The following are valid time examples: 12:35, 1:14:32, 08:15, and 02:50:45. The speech synthesis engine pronounces:<br /><br />`The train departs at <say-as interpret-as="time" format="hms12">4:00am</say-as>`<br /><br />As "The train departs at four A M." |
-| `name` | | The text is spoken as a person name. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />as [æd]. <br />In Chinese names, some characters pronounce differently when they appear in a family name. For example, the speech synthesis engine says 仇 in <br /><br />`<say-as interpret-as="address">仇先生</say-as>`<br /><br /> as [qiú] instead of [chóu]. |
+| `name` | | The text is spoken as a person name. The speech synthesis engine pronounces:<br /><br />`<say-as interpret-as="name">ED</say-as>`<br /><br />as [æd]. <br />In Chinese names, some characters pronounce differently when they appear in a family name. For example, the speech synthesis engine says 仇 in <br /><br />`<say-as interpret-as="name">仇先生</say-as>`<br /><br /> as [qiú] instead of [chóu]. |
 
 **Usage**
 
@@ -801,16 +801,14 @@ The speech synthesis engine speaks the following example as "Your first request 
 
 ## Add recorded audio
 
-`audio` is an optional element that allows you to insert MP3 audio into an SSML document. The body of the audio element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. Additionally, the `audio` element can contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
+`audio` is an optional element that allows you to insert pre-recorded audio into an SSML document. The body of the audio element can contain plain text or SSML markup that's spoken if the audio file is unavailable or unplayable. Additionally, the `audio` element can contain text and the following elements: `audio`, `break`, `p`, `s`, `phoneme`, `prosody`, `say-as`, and `sub`.
 
 Any audio included in the SSML document must meet these requirements:
 
-* The MP3 must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the MP3 file must present a valid, trusted TLS/SSL certificate.
-* The MP3 must be a valid MP3 file (MPEG v2).
-* The bit rate must be 48 kbps.
-* The sample rate must be 16,000 Hz.
-* The combined total time for all text and audio files in a single response cannot exceed ninety (90) seconds.
-* The MP3 must not contain any customer-specific or other sensitive information.
+* The audio must be hosted on an Internet-accessible HTTPS endpoint. HTTPS is required, and the domain hosting the file must present a valid, trusted TLS/SSL certificate. We recommend putting the audio file into a Blob Storage in the same Azure region as the TTS (Text-to-Speech) endpoint for minimizing the latency. 
+* The audio file must be valid *.mp3, *.wav, *.opus, *.ogg, *.flac, or *.wma files.
+* The combined total time for all text and audio files in a single response cannot exceed 600 seconds.
+* The audio must not contain any customer-specific or other sensitive information.
 
 **Syntax**
 
@@ -876,12 +874,7 @@ Only one background audio file is allowed per SSML document. However, you can in
 
 ## Bookmark element
 
-The bookmark element allows you to insert custom markers in SSML to get the offset of each marker in the audio stream.
-We will not read out the bookmark elements.
-The bookmark element can be used to reference a specific location in the text or tag sequence.
-
-> [!NOTE]
-> `bookmark` element only works for `en-US-AriaNeural` voice for now.
+The bookmark element allows you to insert custom markers in SSML to get the offset of each marker in the audio stream. We will not read out the bookmark elements. The bookmark element can be used to reference a specific location in the text or tag sequence. Bookmark is available for all languages and voices.
 
 **Syntax**
 
