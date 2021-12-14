@@ -141,7 +141,7 @@ We recommend having a single tenant in Azure AD for an organization. Before you 
 <img src="./media/plan-connect-topologies/multi-tenant-1.png" alt="drawing" width="480"/>
 
 > [!NOTE]
-> This topology is currently in Public Preview. As the supported scnearios may still change we recommend not deploying this topology in a production environment.
+> This topology is currently in Public Preview. As the supported scenarios may still change, we recommend not deploying this topology in a production environment.
 
 This topology implements the following use cases:
 
@@ -153,8 +153,6 @@ This topology implements the following use cases:
 *	It is not supported to use the same custom domain name in more than one Azure AD tenant, with one exception: it is supported to use a custom domain name in the Azure Commercial environment and use that same domain name in the Azure GCCH environment. Note that the custom domain name MUST exist in Commercial before it can be verified in the GCCH environment.
 *	It is not supported to configure hybrid experiences such as Seamless SSO and Hybrid Azure AD Join on more than one tenant. Doing so would overwrite the configuration of the other tenant and would make it unusable. 
 *	You can synchronize device objects to more than one tenant but only one tenant can be configured to trust a device.
-* A maximum of 5 Azure Active Directory tenants can have Exchange Hybrid with the on-premises Active Directory instance. This scenario is described in [September 2020 Hybrid Configuration Wizard Update](https://techcommunity.microsoft.com/t5/exchange-team-blog/september-2020-hybrid-configuration-wizard-update/ba-p/1687698).
-* Exchange Server running Hybrid Configuration Wizard should be either 2016 CU18 or 2019 CU7 or later.
 * Each Azure AD Connect instance should be running on a domain-joined machine.
 * 
 >[!NOTE]
