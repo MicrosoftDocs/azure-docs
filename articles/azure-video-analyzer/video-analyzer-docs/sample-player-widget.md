@@ -1,5 +1,5 @@
 ---
-title: The Azure Video Analyzer player widget sample
+title: The Video Analyzer player widget sample
 description: This reference article gives a brief overview of the Video Analyzer player widget sample application
 ms.service: azure-video-analyzer
 ms.topic: how-to
