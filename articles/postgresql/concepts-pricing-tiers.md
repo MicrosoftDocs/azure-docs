@@ -6,6 +6,7 @@ ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/14/2020
+ms.custom: references_regions
 ---
 
 # Pricing tiers in Azure Database for PostgreSQL - Single Server
