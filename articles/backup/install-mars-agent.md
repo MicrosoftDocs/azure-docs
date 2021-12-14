@@ -2,7 +2,7 @@
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: conceptual
-ms.date: 12/14/2021
+ms.date: 12/15/2021
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
