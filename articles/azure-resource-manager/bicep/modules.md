@@ -61,7 +61,7 @@ Like resources, modules are deployed in parallel unless they depend on other mod
 
 ## Path to module
 
-The file for the module can be either a local file or an external file. The external file can be in template spec or a Bicep module registry. All fo these options are shown below.
+The file for the module can be either a local file or an external file. The external file can be in template spec or a Bicep module registry. All of these options are shown below.
 
 ### Local file
 
