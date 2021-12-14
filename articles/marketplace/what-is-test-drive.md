@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 10/26/2021
+ms.date: 12/03/2021
 ---
 
 # What is a test drive?
@@ -35,9 +35,9 @@ There are different test drives available on the commercial marketplace for sele
     - SaaS
     - Virtual Machines
 - Hosted test drive
-    - Dynamics 365 for Business Central (currently not supported)
-    - Dynamics 365 for Customer Engagement
-    - Dynamics 365 for Operations
+    - Dynamics 365 Business Central (currently not supported)
+    - Dynamics 365 apps on Dataverse and Power Apps
+    - Dynamics 365 Operations Apps
 - Logic app (in support mode only)
 - Power BI
 
@@ -58,8 +58,8 @@ This deployment template contains all the Azure resources that comprise your sol
 
 A hosted test drive removes the complexity of setup by letting Microsoft host and maintain the service that performs the test drive user provisioning, and de-provisioning. If you have an offer on Microsoft AppSource, build your test drive to connect with a Dynamics AX/CRM instance. You can use the following AppSource offers types:
 
-- Use [Dynamics 365 for Customer Engagement and Power Apps](dynamics-365-customer-engage-offer-setup.md) for a Customer Engagement system such as sales, service, project service, and field service.
-- Use [Dynamics 365 for Operations](./dynamics-365-operations-offer-setup.md) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
+- Use [Dynamics 365 apps on Dataverse and Power Apps](dynamics-365-customer-engage-offer-setup.md) for a Customer Engagement system such as sales, service, project service, and field service.
+- Use [Dynamics 365 Operations Apps](./dynamics-365-operations-offer-setup.md) for a Finance and Operations enterprise resource planning system such as finance, operations, and manufacturing, supply chain.
 
 ### Logic app test drive
 

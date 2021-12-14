@@ -79,7 +79,8 @@ This section walks you though creating a resource group in the West US region. Y
 If you want to use a different region for this tutorial, these factors might limit your choices:
 
 * Ensure that you use a [supported Azure region](regions.md#voice-assistants).
-* The Direct Line Speech channel uses the text-to-speech service, which has neural and standard voices. Neural and standard voices are available at [these Azure regions](regions.md#neural-and-standard-voices).
+
+* The Direct Line Speech channel uses the text-to-speech service, which has neural and standard voices. Neural voices are used at [these Azure regions](regions.md#prebuilt-neural-voices), and standard voices (retiring) are used at [these Azure regions](how-to-migrate-to-prebuilt-neural-voice.md).
 
 For more information about regions, see [Azure locations](https://azure.microsoft.com/global-infrastructure/locations/).
 
@@ -337,7 +338,7 @@ If you get an error message in your main app window, use this table to identify 
 |Error (AuthenticationFailure) : WebSocket Upgrade failed with an authentication error (401). Check for correct subscription key (or authorization token) and region name| On the **Settings** page of the app, make sure that you entered the subscription key and its region correctly. |
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: We could not connect to the bot before sending a message | Make sure that you [selected the Enable Streaming Endpoint checkbox](#register-the-direct-line-speech-channel) and/or [turned on web sockets](#enable-web-sockets).<br>Make sure that Azure App Service is running. If it is, try restarting it.|
 |Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1002. Error details: The server returned status code '503' when status code '101' was expected | Make sure that you [selected the Enable Streaming Endpoint checkbox](#register-the-direct-line-speech-channel) box and/or [turned on web sockets](#enable-web-sockets).<br>Make sure that Azure App Service is running. If it is, try restarting it.|
-|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in the [speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field of its output activity, but the Azure region associated with your subscription key does not support neural voices. See [Neural and standard voices](./regions.md#neural-and-standard-voices).|
+|Error (ConnectionFailure) : Connection was closed by the remote host. Error code: 1011. Error details: Response status code does not indicate success: 500 (InternalServerError)| Your bot specified a neural voice in the [speak](https://github.com/microsoft/botframework-sdk/blob/master/specs/botframework-activity/botframework-activity.md#speak) field of its output activity, but the Azure region associated with your subscription key does not support neural voices. See [neural voices](./regions.md#prebuilt-neural-voices) and [standard voices](how-to-migrate-to-prebuilt-neural-voice.md).|
 
 If the actions in the table don't address your problem, see [Voice assistants: Frequently asked questions](faq-voice-assistants.yml). If you still can't resolve your problem after following all the steps in this tutorial, please enter a new issue on the [Voice Assistant GitHub page](https://github.com/Azure-Samples/Cognitive-Services-Voice-Assistant/issues).
 
@@ -447,7 +448,7 @@ You can choose from any of the languages mentioned in the [speech-to-text](langu
 
 You can select the text-to-speech voice and control pronunciation if the bot specifies the reply in the form of a [Speech Synthesis Markup Language](speech-synthesis-markup.md) (SSML) instead of simple text. The echo bot doesn't use SSML, but you can easily modify the code to do that. 
 
-The following example adds SSML to the echo bot reply so that the German voice Stefan Apollo (a male voice) is used instead of the default female voice. See the [list of standard voices](language-support.md#standard-voices) and [list of neural voices](language-support.md#neural-voices) that are supported for your language.
+The following example adds SSML to the echo bot reply so that the German voice Stefan Apollo (a male voice) is used instead of the default female voice. See the [list of standard voices](how-to-migrate-to-prebuilt-neural-voice.md) and [list of neural voices](language-support.md#prebuilt-neural-voices) that are supported for your language.
 
 1. Open **samples\csharp_dotnetcore\02.echo-bot\echo-bot.cs**.
 1. Find these lines:
@@ -497,7 +498,7 @@ If you're not going to continue using the echo bot deployed in this tutorial, yo
 ## See also
 
 * [Deploy to an Azure region near you](https://azure.microsoft.com/global-infrastructure/locations/) to see the improvement in bot response time.
-* [Deploy to an Azure region that supports high-quality neural text-to-speech voices](./regions.md#neural-and-standard-voices).
+* [Deploy to an Azure region that supports high-quality neural text-to-speech voices](./regions.md#prebuilt-neural-voices).
 * Get pricing associated with the Direct Line Speech channel:
   * [Bot Service pricing](https://azure.microsoft.com/pricing/details/bot-service/)
   * [Speech service](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/)

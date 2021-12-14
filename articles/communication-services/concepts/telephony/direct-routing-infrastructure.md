@@ -119,7 +119,7 @@ The FQDNs – sip.pstnhub.microsoft.com, sip2.pstnhub.microsoft.com, and sip3.ps
 - `52.112.0.0/14 (IP addresses from 52.112.0.1 to 52.115.255.254)`
 - `52.120.0.0/14 (IP addresses from 52.120.0.1 to 52.123.255.254)`
 
-Open firewall ports for all these IP address ranges to allow incoming and outgoing traffic to and from the addresses for signaling. If your firewall supports DNS names, the FQDN `sip-all.pstnhub.microsoft.com` resolves to all these IP addresses. 
+Open firewall ports for all these IP address ranges to allow incoming and outgoing traffic to and from the addresses for signaling.
 
 ## SIP Signaling: Ports
 

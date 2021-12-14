@@ -1,25 +1,25 @@
 ---
-title: Create Dynamics 365 for Customer Engagement & Power Apps plans on Microsoft AppSource (Azure Marketplace).
-description: Configure Dynamics 365 for Customer Engagement & Power Apps offer plans if you chose to enable your offer for third-party app management.
+title: Create Dynamics 365 apps on Dataverse and Power Apps plans on Microsoft AppSource (Azure Marketplace).
+description: Configure Dynamics 365 apps on Dataverse and Power Apps offer plans if you chose to enable your offer for third-party app management.
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 09/27/2021
+ms.date: 12/03/2021
 ---
 
-# Create Dynamics 365 for Customer Engagement & Power Apps plans
+# Create Dynamics 365 apps on Dataverse and Power Apps plans
 
-If you enabled app license management for your offer, the **Plans overview** tab appears as shown in the following screenshot. Otherwise, go to [Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration](dynamics-365-customer-engage-technical-configuration.md).
+If you enabled app license management for your offer, the **Plans overview** tab appears as shown in the following screenshot. Otherwise, go to [Set up Dynamics 365 apps on Dataverse and Power Apps offer technical configuration](dynamics-365-customer-engage-technical-configuration.md).
 
 #### [Workspaces view](#tab/workspaces-view)
 
-[ ![Screenshot of the Plan overview tab for a Dynamics 365 for Customer Engagement & Power Apps offer that's been enabled for third-party app licensing.](./media/third-party-license/plan-tab-d365-workspaces.png) ](./media/third-party-license/plan-tab-d365-workspaces.png#lightbox)
+[ ![Screenshot of the Plan overview tab for a Dynamics 365 apps on Dataverse and Power Apps offer that's been enabled for third-party app licensing.](./media/third-party-license/plan-tab-d365-workspaces.png) ](./media/third-party-license/plan-tab-d365-workspaces.png#lightbox)
 
 #### [Current view](#tab/current-view)
 
-:::image type="content" source="./media/third-party-license/plan-tab.png" alt-text="Screenshot of the Plan overview tab for a Dynamics 365 for Customer Engagement & Power Apps offer that's been enabled for third-party app licensing.":::
+:::image type="content" source="./media/third-party-license/plan-tab.png" alt-text="Screenshot of the Plan overview tab for a Dynamics 365 apps on Dataverse and Power Apps offer that's been enabled for third-party app licensing.":::
 
 ---
 
@@ -83,4 +83,4 @@ You need to copy the Service ID of each plan you created so you can map them to 
 
 ## Next steps
 
-- Go to [Set up Dynamics 365 for Customer Engagement & Power Apps offer technical configuration](dynamics-365-customer-engage-technical-configuration.md) to upload the solution package to your offer.
+- Go to [Set up Dynamics 365 apps on Dataverse and Power Apps offer technical configuration](dynamics-365-customer-engage-technical-configuration.md) to upload the solution package to your offer.

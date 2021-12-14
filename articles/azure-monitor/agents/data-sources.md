@@ -134,7 +134,7 @@ Install the Log Analytics agent for comprehensive monitoring and management of y
 
 | Destination | Description | Reference |
 |:---|:---|:---|
-| Azure Monitor Logs | Stores data about processes and dependencies on the agent. | [Using VM insights (preview) Map to understand application components](../vm/vminsights-maps.md) |
+| Azure Monitor Logs | Stores data about processes and dependencies on the agent. | [Using VM insights Map to understand application components](../vm/vminsights-maps.md) |
 
 
 

@@ -12,7 +12,7 @@ ms.author: jgao
 
 # Use deployment scripts in Bicep
 
-Learn how to use deployment scripts in Bicep. With [`Microsoft.Resources/deploymentScripts`](/azure/templates/microsoft.resources/deploymentscripts.md?tabs=bicep), users can execute scripts in Bicep deployments and review execution results. These scripts can be used for performing custom steps such as:
+Learn how to use deployment scripts in Bicep. With [Microsoft.Resources/deploymentScripts](/azure/templates/microsoft.resources/deploymentscripts), users can execute scripts in Bicep deployments and review execution results. These scripts can be used for performing custom steps such as:
 
 - add users to a directory
 - perform data plane operations, for example, copy blobs or seed database
@@ -101,7 +101,7 @@ resource runPowerShellInline 'Microsoft.Resources/deploymentScripts@2020-10-01' 
       storageAccountName: 'myStorageAccount'
       storageAccountKey: 'myKey'
     }
-    azPowerShellVersion: '3.0' // or azCliVersion: '2.0.80'
+    azPowerShellVersion: '6.4' // or azCliVersion: '2.28.0'
     arguments: '-name \\"John Dole\\"'
     environmentVariables: [
       {
@@ -159,7 +159,7 @@ Property value details:
   replace(string(parameters('tables')), '"', '\\"')
   ```
 
-  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/master/deployment-script/deploymentscript-jsonEscape.bicep).
+  For more information, see the [sample Bicep file](https://raw.githubusercontent.com/Azure/azure-docs-bicep-samples/main/samples/deployment-script/deploymentscript-jsonEscape.bicep).
 
 - `environmentVariables`: Specify the environment variables to pass over to the script. For more information, see [Develop deployment scripts](#develop-deployment-scripts).
 - `scriptContent`: Specify the script content. To run an external script, use `primaryScriptUri` instead. For examples, see [Use inline script](#use-inline-scripts) and [Use external script](#use-external-scripts).
