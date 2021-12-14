@@ -6,7 +6,7 @@ services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 12/07/2021
+ms.date: 12/14/2021
 
 ms.author: justinha
 author: justinha
@@ -28,7 +28,7 @@ This topic covers Azure AD feature availability in Azure Government.
 | **Authentication, single sign-on and multifactor authentication (MFA)** |   | 
 | - Cloud authentication (Pass-through authentication, password hash synchronization) | ● |
 | - Federated authentication (Active Directory Federation Services or federation with other identity providers) | ● |
-| - Single sign-on (SSO) unlimited |  | 
+| - Single sign-on (SSO) unlimited | ● | 
 | - Multifactor authentication (MFA) | Hardware OATH tokens are not available. Instead, use Conditional Access policies with named locations to establish when multifactor authentication should and should not be required based off the user's current IP address. Authenticator app only shows GUID and not UPN for compliance reasons. | 
 | - Passwordless (Windows Hello for Business, Microsoft Authenticator, FIDO2 security key integrations) | ● | 
 | - Service-level agreement | ● | 
@@ -43,7 +43,8 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Conditional Access  | ● | 
 | - SharePoint limited access | ● | 
 | - Session lifetime management | ● | 
-| - Identity Protection (Risky sign-ins, risky users, risk-based conditional access) | See [Identity protection](#identity-protection). | 
+| - Identity Protection (vulnerabilities and risky accounts) | See [Identity protection](#identity-protection) below. | 
+| - Identity Protection (risk events investigation, SIEM connectivity) | See [Identity protection](#identity-protection) below. | 
 | **Administration and hybrid identity** |   |
 | - User and group management | ● | 
 | - Advanced group management (Dynamic groups, naming policies, expiration, default classification) | ● | 
@@ -76,9 +77,9 @@ This topic covers Azure AD feature availability in Azure Government.
 | - Identity Protection: vulnerabilities and risky accounts | ● |
 | - Identity Protection: risk events investigation, SIEM connectivity | ● |
 | **Frontline workers** |  |
-| - SMS sign-in | ● |
+| - SMS sign-in |  |
 | - Shared device sign-out | Enterprise state roaming for Windows 10 devices is not available. |
-| - Delegated user management portal (My Staff) | ● |
+| - Delegated user management portal (My Staff) |  |
 
 
 
@@ -93,8 +94,8 @@ The following table shows the available risk detections.
 |Azure AD threat intelligence |  |
 |Anonymous IP address | ● | 
 |Atypical travel | ● |
-|Anomalous Token | Pending Deployment |
-|Token Issuer Anomaly| Pending Deployment |
+|Anomalous Token |  |
+|Token Issuer Anomaly|  |
 |Malware linked IP address | ● |
 |Suspicious browser | ● |
 |Unfamiliar sign-in properties | ● |
@@ -114,13 +115,16 @@ The following table shows the available risk detections.
 
 The following table shows the available HR-provisioning apps.
 
+[!div class="mx-tdCol2BreakAll"]
 | HR-provisioning app | Availability |
 |----------------|:--------------------:|
-|Workday to Azure AD User Provisioning | Available and provisioning works. |
-|Workday Writeback | Available and provisioning works. |
-|SuccessFactors to Azure AD User Provisioning | Available and provisioning works. | 
-|SuccessFactors to Writeback | Available and provisioning works. |
-|Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br>
-`AADConnectProvisioningAgent.Installer.exe ENVIRONMENTNAME=AzureUSGovernment`|
+|Workday to Azure AD User Provisioning | ● |
+|Workday Writeback | ● |
+|SuccessFactors to Azure AD User Provisioning | ● | 
+|SuccessFactors to Writeback | ● |
+|Provisioning agent configuration and registration with Gov cloud tenant| Works with special undocumented command-line invocation:<br> AADConnectProvisioningAgent.Installer.exe ENVIRONMENTNAME=AzureUSGovernment |
+
+
+
 
 
