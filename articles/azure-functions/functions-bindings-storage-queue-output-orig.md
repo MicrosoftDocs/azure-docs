@@ -2,11 +2,11 @@
 title: Azure Queue storage output binding for Azure Functions
 description: Learn to create Azure Queue storage messages in Azure Functions.
 author: craigshoemaker
+
 ms.topic: reference
-ms.date: 12/18/2021
+ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Queue storage output bindings for Azure Functions
@@ -17,13 +17,7 @@ For information on setup and configuration details, see the [overview](./functio
 
 ## Example
 
-::: zone pivot="programming-language-csharp"
-
-<!--Optional intro text goes here, followed by the C# modes include.-->
-
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that creates a queue message for each HTTP request received.
 
@@ -40,13 +34,6 @@ public static class QueueFunctions
     }
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:-->
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="9-31":::
-
 
 # [C# Script](#tab/csharp-script)
 
@@ -109,12 +96,9 @@ public static void Run(
 }
 ```
 
----
+# [Java](#tab/java)
 
-::: zone-end
-::: zone pivot="programming-language-java"
-
-The following example shows a Java function that creates a queue message for when triggered by an  HTTP request.
+ The following example shows a Java function that creates a queue message for when triggered by an  HTTP request.
 
 ```java
 @FunctionName("httpToQueue")
@@ -130,8 +114,7 @@ The following example shows a Java function that creates a queue message for whe
 
 In the [Java functions runtime library](/java/api/overview/azure/functions/runtime), use the `@QueueOutput` annotation on parameters whose value would be written to Queue storage.  The parameter type should be `OutputBinding<T>`, where `T` is any native Java type of a POJO.
 
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+# [JavaScript](#tab/javascript)
 
 The following example shows an HTTP trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function creates a queue item for each HTTP request received.
 
@@ -182,8 +165,7 @@ module.exports = function(context) {
 };
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+# [PowerShell](#tab/powershell)
 
 The following code examples demonstrate how to output a queue message from an HTTP-triggered function. The configuration section with the `type` of `queue` defines the output binding.
 
@@ -256,8 +238,7 @@ Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
 })
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-python"  
+# [Python](#tab/python)
 
 The following example demonstrates how to output single and multiple values to storage queues. The configuration needed for *function.json* is the same either way.
 
@@ -320,24 +301,11 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
     return 'OK'
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-csharp"
-## Attributes
+---
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+## Attributes and annotations
 
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
-
--->
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the [QueueAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Queues/QueueAttribute.cs).
 
@@ -367,21 +335,11 @@ For a complete example, see [Output example](#example).
 
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
 
-# [Isolated process](#tab/isolated-process)
-
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
--->
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="13-17":::
-
-# [C# script](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 Attributes are not supported by C# Script.
----
 
-::: zone-end  
-::: zone pivot="programming-language-java"  
-## Annotations
+# [Java](#tab/java)
 
 The `QueueOutput` annotation allows you to write a message as the output of a function. The following example shows an HTTP-triggered function that creates a queue message.
 
@@ -411,8 +369,21 @@ public class HttpTriggerQueueOutput {
 |`connection` | Points to the storage account connection string. |
 
 The parameter associated with the `QueueOutput` annotation is typed as an [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) instance.
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-csharp,programming-language-java"  
+
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
+
+---
+
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `Queue` attribute.
@@ -428,16 +399,10 @@ The following table explains the binding configuration properties that you set i
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
 [!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
-::: zone-end  
-
-See the [Example section](#example) for complete examples.
 
 ## Usage
 
-::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 ### Default
 
@@ -464,12 +429,7 @@ Apps using the [5.0.0 or higher version of the Storage extension](./functions-bi
 
 For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
-
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# script](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 ### Default
 
@@ -496,43 +456,33 @@ Apps using the [5.0.0 or higher version of the Storage extension](./functions-bi
 
 For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
----
+# [Java](#tab/java)
 
-::: zone-end  
-<!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot="programming-language-java"
 There are two options for outputting an Queue message from a function by using the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation:
 
 - **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Queue message.
 
 - **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Queue message.
-- ::: zone-end  
-::: zone pivot="programming-language-javascript"  
+
+# [JavaScript](#tab/javascript)
+
 The output queue item is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+
+# [PowerShell](#tab/powershell)
+
 Output to the queue message is available via `Push-OutputBinding` where you pass arguments that match the name designated by binding's `name` parameter in the *function.json* file.
-::: zone-end   
-::: zone pivot="programming-language-python"  
+
+# [Python](#tab/python)
+
 There are two options for outputting an Queue message from a function:
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Queue storage message.
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as a Queue storage message.
-- ::: zone-end  
 
-<!---## Extra sections
+---
 
-Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. 
--->
-
-## host.json settings
-
-<!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
-
-## Next steps
-
-<!--Use the next step links from the original article.-->## Exceptions and return codes
+## Exceptions and return codes
 
 | Binding |  Reference |
 |---|---|

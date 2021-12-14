@@ -2,11 +2,11 @@
 title: Azure Queue storage trigger for Azure Functions
 description: Learn to run an Azure Function as Azure Queue storage data changes.
 author: craigshoemaker
+
 ms.topic: reference
-ms.date: 12/18/2021
+ms.date: 02/18/2020
 ms.author: cshoe
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Queue storage trigger for Azure Functions
@@ -19,13 +19,9 @@ Functions expect a *base64* encoded string. Any adjustments to the encoding type
 
 ## Example
 
-::: zone pivot="programming-language-csharp"
-
 Use the queue trigger to start a function when a new item is received on a queue. The queue message is provided as input to the function.
 
-[!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 The following example shows a [C# function](functions-dotnet-class-library.md) that polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -41,10 +37,6 @@ public static class QueueFunctions
     }
 }
 ```
-
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="9-31":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -101,10 +93,7 @@ public static void Run(CloudQueueMessage myQueueItem,
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
 
----
-
-::: zone-end
-::: zone pivot="programming-language-java"
+# [Java](#tab/java)
 
 The following Java example shows a storage queue trigger function, which logs the triggered message placed into queue `myqueuename`.
 
@@ -120,8 +109,7 @@ public void run(
 }
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+# [JavaScript](#tab/javascript)
 
 The following example shows a queue trigger binding in a *function.json* file and a [JavaScript function](functions-reference-node.md) that uses the binding. The function polls the `myqueue-items` queue and writes a log each time a queue item is processed.
 
@@ -166,8 +154,7 @@ module.exports = async function (context, message) {
 
 The [usage](#usage) section explains `myQueueItem`, which is named by the `name` property in function.json.  The [message metadata section](#message-metadata) explains all of the other variables shown.
 
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+# [PowerShell](#tab/powershell)
 
 The following example demonstrates how to read a queue message passed to a function via a trigger.
 
@@ -203,8 +190,7 @@ Write-Host "Pop receipt: $($TriggerMetadata.PopReceipt)"
 Write-Host "Dequeue count: $($TriggerMetadata.DequeueCount)"
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-python"  
+# [Python](#tab/python)
 
 The following example demonstrates how to read a queue message passed to a function via a trigger.
 
@@ -252,14 +238,11 @@ def main(msg: func.QueueMessage):
     logging.info(result)
 ```
 
-::: zone-end  
-::: zone pivot="programming-language-csharp"
-## Attributes
+ ---
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+## Attributes and annotations
 
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a queue trigger:
 
@@ -315,19 +298,11 @@ The storage account to use is determined in the following order:
 * The `StorageAccount` attribute applied to the class.
 * The "AzureWebJobsStorage" app setting.
 
-# [Isolated process](#tab/isolated-process)
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="13-17":::
-
-# [C# script](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 Attributes are not supported by C# Script.
 
----
-
-::: zone-end  
-::: zone pivot="programming-language-java"  
-## Annotations
+# [Java](#tab/java)
 
 The `QueueTrigger` annotation gives you access to the queue that triggers the function. The following example makes the queue message available to the function via the `message` parameter.
 
@@ -354,8 +329,20 @@ public class QueueTriggerDemo {
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
 
-::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-java,programming-language-csharp"  
+# [JavaScript](#tab/javascript)
+
+Attributes are not supported by JavaScript.
+
+# [PowerShell](#tab/powershell)
+
+Attributes are not supported by PowerShell.
+
+# [Python](#tab/python)
+
+Attributes are not supported by Python.
+
+---
+
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
@@ -372,16 +359,9 @@ The following table explains the binding configuration properties that you set i
 
 [!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 
-::: zone-end  
-
-See the [Example section](#example) for complete examples.
-
 ## Usage
 
-::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
-
-# [In-process](#tab/in-process)
+# [C#](#tab/csharp)
 
 ### Default
 
@@ -402,11 +382,7 @@ Apps using the [5.0.0 or higher version of the Storage extension](./functions-bi
 
 For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
-# [Isolated process](#tab/isolated-process)
-
-<!--If available, call out any usage information from the linked example in the worker repo. -->
-
-# [C# script](#tab/csharp-script)
+# [C# Script](#tab/csharp-script)
 
 ### Default
 
@@ -426,22 +402,24 @@ Apps using the [5.0.0 or higher version of the Storage extension](./functions-bi
 - [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
 
 For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
----
 
-::: zone-end  
-<!--Any of the below pivots can be combined if the usage info is identical.-->
-::: zone pivot="programming-language-java"
+# [Java](#tab/java)
+
 The [QueueTrigger](/java/api/com.microsoft.azure.functions.annotation.queuetrigger) annotation gives you access to the queue message that triggered the function.
-::: zone-end  
-::: zone pivot="programming-language-javascript"  
+
+# [JavaScript](#tab/javascript)
+
 The queue item payload is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. If the payload is JSON, the value is deserialized into an object.
-::: zone-end  
-::: zone pivot="programming-language-powershell"  
+
+# [PowerShell](#tab/powershell)
+
 Access the queue message via string parameter that matches the name designated by binding's `name` parameter in the *function.json* file.
-::: zone-end   
-::: zone pivot="programming-language-python"  
+
+# [Python](#tab/python)
+
 Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
-::: zone-end  
+
+---
 
 ## Message metadata
 
