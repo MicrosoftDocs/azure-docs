@@ -141,7 +141,7 @@ We recommend having a single tenant in Azure AD for an organization. Before you 
 <img src="./media/plan-connect-topologies/multi-tenant-1.png" alt="drawing" width="480"/>
 
 > [!NOTE]
-> This functionality is currently in Public Preview. As the supported scnearios may still change we recommend not deploying this topology in a production environment.
+> This topology is currently in Public Preview. As the supported scnearios may still change we recommend not deploying this topology in a production environment.
 
 This topology implements the following use cases:
 
