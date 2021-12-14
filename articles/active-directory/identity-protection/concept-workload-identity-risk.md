@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 11/29/2021
+ms.date: 12/14/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -89,11 +89,7 @@ The sample should return a response like the following JSON:
 "location": null
 ```
 
-For more informaion see the API DOCS THAT ARE PUBLSHED
-
-## Conditional Access policies
-
-Using [Conditional Access for workload identities](../conditional-access/workload-identity.md) you can block access for specific accounts you choose when Identity Protection marks them “at risk.” Enforcement through Conditional Access is currently limited to single-tenant apps only. Multi-tenant apps and services using a Managed Identity aren't in scope. 
+For more information see the API DOCS THAT ARE PUBLSHED
 
 ## Investigate risky workload identities
 
@@ -107,31 +103,30 @@ Organizations may use the following framework to begin their investigation into 
          1. Is the application active at the wrong times of day?
          1. Are sign-ins made from an unrecognized IP address?
       1. You may need to confer with the application's development team or owner for more detail. 
-1.	Check for abnormal credential changes:
-   1. The required information can be found in the Azure AD audit logs.
-      1. Filter for “Category” by “Application Management” and “Activity” by “Update Application - Certificates and secrets management”.
-      1. Check to see if there was an unauthorized change to credentials on the account.
-      1. Check if there are more credentials than required assigned to the service principal.
-      1. When checking for credentials, check both the application and any associated service principal objects. 
-1. Search for anomalous configuration changes:
-   1. Check the Azure AD audit logs filter “Activity” by “Update Application” or “Update Service Principal”.
+1.	Check for abnormal credential changes by reviewing the Azure AD audit logs:
+   1. Filter for “Category” by “Application Management” and “Activity” by “Update Application - Certificates and secrets management”.
+   1. Check to see if there was an unauthorized change to credentials on the account.
+   1. Check if there are more credentials than required assigned to the service principal.
+   1. When checking for credentials, check both the application and any associated service principal objects. 
+1. Search for anomalous configuration changes by reviewing the Azure AD audit logs:
+   1. Filter for “Activity” by “Update Application” or “Update Service Principal”.
    1. Confirm that the connection strings are consistent and if the sign-out URL has been modified.
    1. Confirm the domains in the URI are in-line with those domains registered.
    1.	Determine if anyone has added an unauthorized redirect URI.
    1. Confirm ownership of the redirect URI that you own to ensure it didn't expire and was claimed by an adversary.
-1. Check application consent for the flagged application.
-   1. Check the Azure AD audit logs filter “Activity” by “Consent to application” to see all consent grants to that application.
+1. Check application consent for the flagged application by reviewing the Azure AD audit logs:
+   1. Filter for “Activity” by “Consent to application” to see all consent grants to that application.
    1. Determine if there was suspicious end-user consent to the app.
    1. Check the Azure AD audit logs to find if the permissions granted are too broad, like tenant-wide or admin-consented.
    1. Check if consent was granted by user identities that shouldn't be able, or if the actions were done at strange dates and times.
-1. Check for suspicious app roles.
-   1. This information can be investigated using the Azure AD audit logs filter “Activity” by “Add app role assignment to service principal”.
+1. Check for suspicious app roles by reviewing the Azure AD audit logs:
+   1. Filter for “Activity” by “Add app role assignment to service principal”.
    1. Confirm if the assigned roles have high privilege.
    1. Confirm if the assigned privileges are necessary.
 1.	Check for unverified commercial apps:
    1. Check if commercial gallery applications are being used.
 
-Once you determine if the application was compromised, dismiss the risk or confirm compromise in the **Risky workload identities (preview)** report.
+Once you determine if the workload identity was compromised, dismiss the risk or confirm compromise in the **Risky workload identities (preview)** report.
 
 :::image type="content" source="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png" alt-text="Confirm workload identity compromise or dismiss the risk in the Azure portal." lightbox="media/concept-workload-identity-risk/confirm-compromise-or-dismiss-risk.png":::
 
@@ -181,22 +176,10 @@ Remediate any KeyVault secrets that the Service Principal has access to by rotat
 
 ## Enable a risk-based Conditional Access policy
 
-Organizations can choose to enable Conditional Access for workload identities to block service principals at risk.
-
-This feature is currently limited to single-tenant applications. Multi-tenant applications and services using a Managed Identity are not yet in scope. For general guidance on using Graph to configure Conditional Access polices, please see our existing documentation. 
-1.	Confirm the test account is at risk using Graph API and note the specific “id” of the SP account. See above step.
-
-2.	Set a risk-based CA policy to be enforced against that same account, specifying it under “includeServicePrincipals” per the example below. Provide a name for the policy. The sample below will block on all risk levels, low through high. 
-
-In Graph Explorer, POST to beta with the following URL and query in the request body:
-
-https://canary.graph.microsoft.com/testprodbetaserviceprincipalrisk/identity/conditionalAccess/policies 
-
-{"displayName":"Test policy on service principals with risk condition","state":"disabled","conditions":{"applications":{"includeApplications":["All"],"excludeApplications":[],"includeUserActions":[],"includeAuthenticationContextClassReferences":[],"applicationFilter":null},"userRiskLevels":[],"signInRiskLevels":[],"clientApplications":{"includeServicePrincipals":["784b3082-c56d-48ed-8c2b-588aa9543e66"],"excludeServicePrincipals":[]},"servicePrincipalRiskLevels":["low" , “medium” , “high”]},"grantControls":{"operator":"and","builtInControls":["block"],"customAuthenticationFactors":[],"termsOfUse":[]}}
-
+Using [Conditional Access for workload identities](../conditional-access/workload-identity.md) you can block access for specific accounts you choose when Identity Protection marks them “at risk”. Enforcement through Conditional Access is currently limited to single-tenant apps only. Multi-tenant apps and services using a Managed Identity aren't in scope. 
 
 ## Next steps
 
-Conditional Access for workload identities
+[Conditional Access for workload identities](../conditional-access/workload-identity.md)
 
 Microsoft Graph API
