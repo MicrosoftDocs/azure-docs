@@ -68,7 +68,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. In Foundry, download the **SAML integration metadata XML** file and save it on your computer.
 
-   ![Download Foundry metadata filef from Foundry](media/palantir-foundry-tutorial/TODO.png)
+   ![Download Foundry metadata file from Foundry](media/palantir-foundry-tutorial/download-metadata.png)
 
 1. In the Azure portal, on the **Set up single sign-on with SAML** page, click **Upload metadata file** to upload the Palantir Foundry's XML metadata, then **Save**.
 
@@ -106,7 +106,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 To configure single sign-on on **Palantir Foundry** side, upload Azure's XML metadata downloaded from **Federation Metadata XML** into **Palantir Foundry Control Panel**.
 
-   ![Upload Azure metadata file in Foundyr](media/palantir-foundry-tutorial/TODO.png)
+   ![Upload Azure metadata file in Foundyr](media/palantir-foundry-tutorial/upload-metadata.png)
 
 ### Create Palantir Foundry test user
 
