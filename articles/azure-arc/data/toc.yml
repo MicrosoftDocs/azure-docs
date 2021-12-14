@@ -97,6 +97,8 @@ items:
       items:
         - name: Guide
           href: troubleshoot-guide.md
+        - name: Troubleshoot deployment (Active Directory)
+          href: troubleshoot-ad-deployment.md
         - name: Get logs
           href: troubleshooting-get-logs.md
 - name: Azure Arc-enabled PostgreSQL Hyperscale (preview) 
