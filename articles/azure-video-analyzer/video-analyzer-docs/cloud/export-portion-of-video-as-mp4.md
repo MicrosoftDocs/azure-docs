@@ -134,8 +134,8 @@ In this tab, learn how to export a portion of recorded video as an MP4 file usin
 
 Complete the following prerequisites to run the [C# SDK sample code](https://github.com/Azure-Samples/video-analyzer-csharp).
 
-1. Get your Azure Active Directory [Tenant Id](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
-1. Register an application with Microsoft identity platform to get app registration [Client Id](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
+1. Get your Azure Active Directory [Tenant ID](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
+1. Register an application with Microsoft identity platform to get app registration [Client ID](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
 1. [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions -
     * [Azure IoT Tools](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-tools)
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
@@ -151,11 +151,11 @@ Complete the following prerequisites to run the [C# SDK sample code](https://git
 
 | Variable       | Description                                |
 |----------------------|--------------------------------------------|
-| SubscriptionId | Provide Azure subscription Id    |
+| SubscriptionId | Provide Azure subscription ID    |
 | ResourceGroup | Provide resource group name |
 | AccountName | Provide Video Analyzer account name |
-| TenantId | Provide tenant id |
-| ClientId | Provide app registration client id |
+| TenantId | Provide tenant ID |
+| ClientId | Provide app registration client ID |
 | Secret | Provide app registration client secret |
 | AuthenticationEndpoint | Provide authentication end point (example: https://login.microsoftonline.com) |
 | ArmEndPoint | Provide ARM end point (example: https://management.azure.com) |
