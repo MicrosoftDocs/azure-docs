@@ -38,6 +38,7 @@ At a high level, there are two types of identities: human and machine/non-human 
 Here are some ways you can use workload identities:
 - Review service principals and applications that are assigned to privileged directory roles in Azure AD using [access reviews for service principals](/azure/active-directory/privileged-identity-management/pim-create-azure-ad-roles-and-resource-roles-review).
 - Access Azure AD protected resources without needing to manage secrets (for supported scenarios) using [workload identity federation](workload-identity-federation.md).
+- Apply Conditional Access policies to service principals owned by your organization using [Conditional Access for workload identities](/azure/active-directory/conditional-access/workload-identity).
 
 ## Next steps
 Learn how to choose the right workload identity for your application.
