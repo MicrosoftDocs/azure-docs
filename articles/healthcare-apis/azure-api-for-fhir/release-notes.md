@@ -20,7 +20,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 ### **Features and enhancements**
 
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
-|------------------- | --------------- |
+| :------------------- | ---------------: |
 |Process Patient-everything links  |We've expanded the Patient-everything capabilities to process patient links [#2305](https://github.com/microsoft/fhir-server/pull/2305). For more information, see [Patient-everything in FHIR](../../healthcare-apis/fhir/patient-everything.md#processing-patient-links) documentation.  |
 |Added software name and version to capability statement |In the capability statement, the software name now distinguishes if you're using Azure API for FHIR or Azure Healthcare APIs. The software version will now specify which open source [release package](https://github.com/microsoft/fhir-server/releases) is live in the managed service [#2294](https://github.com/microsoft/fhir-server/pull/2294). Addresses: [#1778](https://github.com/microsoft/fhir-server/issues/1778) and [#2241](https://github.com/microsoft/fhir-server/issues/2241) |
 |Log 500's to `RequestMetric` |Previously, 500s or any unknown/unhandled errors were not getting logged in `RequestMetric`. They're now getting logged [#2240](https://github.com/microsoft/fhir-server/pull/2240). For more information, see [Enable diagnostic settings in Azure API for FHIR](../../healthcare-apis/azure-api-for-fhir/enable-diagnostic-logging.md) |
@@ -38,7 +38,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 ### **Bug fixes**
 
 | Infinite loop bug | Related information          |
-| ----------------- | ----------------------------: |
+| :----------------- | ----------------------------: |
 |Fixed issue where [Conditional Delete](./././../azure-api-for-fhir/fhir-rest-api-capabilities.md#conditional-delete) could result in an infinite loop. | [#2269](https://github.com/microsoft/fhir-server/pull/2269) |
 
 ## September 2021 
@@ -46,20 +46,20 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 ### **Features and enhancements**
 
 |Enhancements &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; |Related information |
-|------------------- | --------------- |
+| :------------------- | ---------------: |
 
 |Added support for conditional patch | [Conditional patch](././../azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-and-conditional-patch)|
-| ----------------------------------- | ------: |
+| :----------------------------------- | ------: |
 |Conditional patch |[#2163](https://github.com/microsoft/fhir-server/pull/2163) |
 |Added conditional patch audit event. |[#2213](https://github.com/microsoft/fhir-server/pull/2213) |
 
 |Allow JSON patch in bundles | [JSON patch in bundles](././../azure-api-for-fhir/fhir-rest-api-capabilities.md#patch-in-bundles)|
-| ----------------------------------- | ------: |
+| :----------------------------------- | ------: |
 |Allows for search history bundles with Patch requests. |[#2156](https://github.com/microsoft/fhir-server/pull/2156) | 
 |Enabled JSON patch in bundles using Binary resources. |[#2143](https://github.com/microsoft/fhir-server/pull/2143) |
 
 |New audit event sub-types |Related information |
-| ----------------------------------- | ---------------: |
+| :----------------------------------- | ---------------: |
 |Added new audit [OperationName subtypes](././../azure-api-for-fhir/enable-diagnostic-logging.md#audit-log-details).| [#2170](https://github.com/microsoft/fhir-server/pull/2170) |
 
 |[Reindex improvements](how-to-run-a-reindex.md) |Related information |
@@ -84,19 +84,19 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 |Provides better exception if there's a bad expression in search parameter. |[#2157](https://github.com/microsoft/fhir-server/pull/2157)|
 
 |Resolved retry 503 error |Related information |
-| ----------------------------------- | ---------------: |
+| :----------------------------------- | ---------------: |
 |Retry 503 error from Cosmos DB. |[#2106](https://github.com/microsoft/fhir-server/pull/2106)|
 |Fixes processing 429s from StoreProcedures. |[#2165](https://github.com/microsoft/fhir-server/pull/2165)|
 
 |GitHub issues closed |Related information |
-| ----------------------------------- | ---------------: |
+| :----------------------------------- | ---------------: |
 |Unable to create custom search parameter for the CarePlan medical device. |[#2146](https://github.com/microsoft/fhir-server/issues/2146) |
 |Unclear error message for conditional create with no ID. | [#2168](https://github.com/microsoft/fhir-server/issues/2168)|
 
 ### IoT connector for FHIR (preview)
 
 |Bug fixes &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|Related information |
-| ----------------------------------- | ---------------: |
+| :----------------------------------- | ---------------: |
 |Fixed broken link.| Updated link to the IoT connector Azure documentation in the Azure API for FHIR portal. |
 
 ## Next steps
