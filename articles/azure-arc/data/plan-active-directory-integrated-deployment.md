@@ -1,6 +1,6 @@
 ---
-title: Plan Azure Arc-enabled data services in Active Directory manual authentication mode 
-description: Plan Azure Arc-enabled data services in Active Directory manual authentication mode 
+title: Prepare bring your own keytab Azure Arc-enabled data services in Active Directory authentication mode 
+description: Prepare Azure Arc-enabled data services in Active Directory manual authentication mode 
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -59,7 +59,7 @@ Register the SPNs under the AD account created in the previous step. Use the fol
 setspn -S <SPN> <Account>
 ```
 
-For example, if the user name is `arcuser` and the AD domain is `contoso.local`, the SPNs are:
+For example, if the user name is `arcuser` and the AD domain is `contoso.local`, the SPNs are, and SQL Server external service is exposed on the port 31433  :
  
 ```console
 MSSQLSvc/arcuser.contoso.local@CONTOSO.LOCAL
