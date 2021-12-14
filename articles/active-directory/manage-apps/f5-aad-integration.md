@@ -146,6 +146,8 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [F5 BIG-IP for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
 
+- [F5 BIG-IP APM for Kerberos authentication](f5-big-ip-kerberos-advanced.md)
+
 ## Additional resources
 
 - [The end of passwords, go passwordless](https://www.microsoft.com/security/business/identity/passwordless)
