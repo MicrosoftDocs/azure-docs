@@ -280,7 +280,7 @@ This example uses the Azure Cosmos DB built-in action named **Delete an item (pr
 
 1. In the action that you previously added, you can access data from the query action output. Click inside any of the input fields in that action so that the dynamic content list appears. Select any of the available response items or select **See more** for more options.
 
-This example uses the **Response Item Id** in the **Item Id** field to populate ids based on the query results.
+This example uses the **Response Item Id** in the **Item Id** field to populate IDs based on the query results.
 
    :::image type="content" source="./media/connectors-create-api-cosmos-db/standard-query-output.png" alt-text="Screenshot showing the designer for a Standard logic app workflow with the Azure Cosmos DB **Query items** action dynamic content outputs.":::
 
