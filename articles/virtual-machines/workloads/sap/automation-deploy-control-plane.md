@@ -65,19 +65,19 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 az logout
 az login
-
-export subscriptionID=<subscriptionID>
-export appId=<appID>
-export spn_secret=<password>
-export tenant_id=<tenant>
+export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
+export       subscriptionID=<subscriptionID>
+export               spn_id=<appID>
+export           spn_secret=<password>
+export            tenant_id=<tenant>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
         --subscription $subscriptionID                                                                           \
-        --spn_id $appID                                                                                          \
-        --spn_secret  $spn_secret                                                                                \
-        --tenant_id $tenant_id
+        --spn_id "${spn_id}"                                                                                     \
+        --spn_secret "${spn_secret}"                                                                             \
+        --tenant_id "${tenant_id}"
 ```
 
 # [Windows](#tab/windows)
@@ -111,7 +111,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
+> Replace the `<spn_ID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
 
 ## Next step
 
