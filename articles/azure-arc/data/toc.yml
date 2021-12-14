@@ -190,7 +190,7 @@ items:
         - name: Active Directory
           items:
             - name: Plan
-              href: plan-active-directory-manual-mode.md
+              href: plan-active-directory-integrated-deployment.md
             - name: deploy
               href: deploy-active-directory-manual-mode.md
             - name: Connect (Active Directory)
@@ -208,7 +208,7 @@ items:
             - name: Reserved capacity
               href: reserved-capacity-overview.md
             - name: Rotate certificates (Active Directory)
-              href: deploy-active-directory-manual-mode.md
+              href: rotate-user-tls-certificate.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Upgrade
