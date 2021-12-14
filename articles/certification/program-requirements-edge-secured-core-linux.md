@@ -21,6 +21,7 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 >[!Note]
 > Hardware must support TPM v2.0, SRTM, Secure-boot or UBoot.
 > Firmware will be submitted to Microsoft for vulnerability and configuration evaluation.
+
 ---
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|
