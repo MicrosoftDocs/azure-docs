@@ -56,9 +56,9 @@ Create a new `room` with default properties using the code snippet below:
 
 ```csharp
 CreateRoomRequest createRoomRequest = new CreateRoomRequest();
-Response<RoomResult> createRoomResponse = await roomsClient.CreateRoomAsync(createRoomRequest);
-RoomResult createRoomResult = createRoomResponse.Value;
-string roomId = createRoomResult.Id;
+Response<CommunicationRoom> createRoomResponse = await roomsClient.CreateRoomAsync(createRoomRequest);
+CommunicationRoom createCommunicationRoom = createRoomResponse.Value;
+string roomId = createCommunicationRoom.Id;
 ```
 
 Since `rooms` are server-side entities, you may want to keep track of and persist the `roomId` in the storage medium of choice. You can reference the `roomId` to view or update the properties of a `room` object. 
@@ -68,9 +68,9 @@ Since `rooms` are server-side entities, you may want to keep track of and persis
 Retrieve the details of an existing `room` by referencing the `roomId`:
 
 ```csharp
-Response<RoomResult> getRoomResponse = await roomsClient.GetRoomAsync(
+Response<CommunicationRoom> getRoomResponse = await roomsClient.GetRoomAsync(
     createdRoomId: "<roomId>")
-RoomResult getRoomResult = getRoomResponse.Value;
+CommunicationRoom getCommunicationRoom = getRoomResponse.Value;
 ```
 
 ### Update the lifetime of a room
@@ -86,8 +86,8 @@ UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
                                  new TimeSpan(1, 0, 0))
     } 
  };
-Response<RoomResult> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
-RoomResult updateRoomResult = updateRoomResponse.Value;
+Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
+CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ``` 
 
 ### Add new participants 
@@ -104,8 +104,8 @@ UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
         { "<ParticipantId4>", new {} }
     } 
  };
-Response<RoomResult> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
-RoomResult updateRoomResult = updateRoomResponse.Value;
+Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
+CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ```
 
 Participants that have been added to a `room` become eligible to join calls.
@@ -121,8 +121,8 @@ UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
         { "<ParticipantId", null }
     } 
  };
-Response<RoomResult> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
-RoomResult updateRoomResult = updateRoomResponse.Value;
+Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
+CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ```
 
 ### Join a room call
