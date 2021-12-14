@@ -240,7 +240,6 @@ Edit the following as needed:
 - **dockerRegistry**: The image pull secret to use to pull the images from a private container registry if required.
 - **repository**: The default repository on the Microsoft Container Registry is `arcdata`.  If you are using a private container registry, enter the path the folder/repository containing the Azure Arc-enabled data services container images.
 - **imageTag**: the current latest version tag is defaulted in the template, but you can change it if you want to use an older version.
-- **logs
 
 The following example shows a completed data controller yaml file. Update the example for your environment, based on your requirements, and the information above.
 
