@@ -57,7 +57,7 @@ Code: 403 Response:
     }
 ```
 
-Details: the token is malformed or otherwise invalid. This can occur if you manually copy-paste the token and add or cut characters to the payload. Verify that the token is exactly as received from AAD.
+Details: the token is malformed or otherwise invalid. This can occur if you manually copy-paste the token and add or cut characters to the payload. Verify that the token is exactly as received from Azure AD.
 
 ## Invalid Token Audience
 
@@ -106,7 +106,7 @@ Code: 403 Response:
     }
 ```
 
-Details: The token you have presented for authorization belongs to a user who does not have sufficient access to this privilege. Verify your workspace GUID and your token request are correct, and if necessary grant IAM privileges in your workspace to the AAD Application you created as Contributor.
+Details: The token you have presented for authorization belongs to a user who does not have sufficient access to this privilege. Verify your workspace GUID and your token request are correct, and if necessary grant IAM privileges in your workspace to the Azure AD Application you created as Contributor.
 
 ## Bad Authorization Code
 
@@ -123,7 +123,7 @@ Code: 403 Response:
     }
 ```
 
-Details: The authorization code submitted in the token request was either stale or previously used. Reauthorize via the AAD authorize endpoint to get a new code.
+Details: The authorization code submitted in the token request was either stale or previously used. Reauthorize via the Azure AD authorize endpoint to get a new code.
 
 ## Path Not Found
 

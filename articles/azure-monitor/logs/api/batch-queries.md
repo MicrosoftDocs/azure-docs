@@ -140,7 +140,7 @@ Under these conditions, the shape of the response will be different from the nor
 
 This list is a non-exhaustive list of examples of possible errors and their meanings.
 
-1.  400 - Malformed request. The outer request object was not valid JSON.
+- 400 - Malformed request. The outer request object was not valid JSON.
 
 ```
     {
@@ -162,7 +162,7 @@ This list is a non-exhaustive list of examples of possible errors and their mean
     }
 ```
 
-2.  403 - Forbidden. The token provided does not have access to the resource you are trying to access. Make sure that your token request has the correct resource, and you have granted permissions for your Azure AD application.
+-  403 - Forbidden. The token provided does not have access to the resource you are trying to access. Make sure that your token request has the correct resource, and you have granted permissions for your Azure AD application.
 
 ```
     {
@@ -177,7 +177,7 @@ This list is a non-exhaustive list of examples of possible errors and their mean
     }
 ```
 
-3.  204 - Not Placed. You have no data for the API to pull in the backing store. As a 2xx this is technically a successful request, however in a batch it is useful to note the error.
+-  204 - Not Placed. You have no data for the API to pull in the backing store. As a 2xx this is technically a successful request. However, in a batch, it's useful to note the error.
 
 ```
     {
@@ -195,7 +195,7 @@ This list is a non-exhaustive list of examples of possible errors and their mean
     }
 ```
 
-4.  404 - Not found. The query path does not exist. This error can also occur in a batch if you specify an invalid HTTP method in the individual request.
+-  404 - Not found. The query path does not exist. This error can also occur in a batch if you specify an invalid HTTP method in the individual request.
 
 ```
     {
@@ -214,7 +214,7 @@ This list is a non-exhaustive list of examples of possible errors and their mean
     }
 ```
 
-5.  400 - Failed to resolve resource. The GUID representing the workspace is incorrect.
+-  400 - Failed to resolve resource. The GUID representing the workspace is incorrect.
 
 ```
     {
