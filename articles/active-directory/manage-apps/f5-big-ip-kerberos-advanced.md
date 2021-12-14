@@ -48,7 +48,7 @@ The secure hybrid access solution for this scenario is made up of the following:
 
 The following image illustrates the SAML SP initiated flow for this scenario, but IdP initiated flow is also supported.
 
-![Scenario architecture](./media/f5-big-ip-kerbesos-advanced/scenario-architecture.png)
+![Scenario architecture](./media/f5-big-ip-kerberos-advanced/scenario-architecture.png)
 
 | Steps| Description |
 | -------- |-------|
@@ -129,7 +129,7 @@ Next, configure the BIG-IP registration to fulfill SAML tokens requested by the 
 
    4. For the **Logout URI**, enter the BIG-IP APM single logout (SLO) endpoint pre-pended by the host header of the service being published. It ensures the user’s BIG-IP APM session is also terminated after being signed out of Azure AD. 
 
-    ![Screenshot for editing basic SAML configuration](./media/f5-big-ip-kerbesos-advanced/edit-basic-saml-configuration.png)
+    ![Screenshot for editing basic SAML configuration](./media/f5-big-ip-kerberos-advanced/edit-basic-saml-configuration.png)
 
     > [!NOTE]
     > From TMOS v16 the SAML SLO endpoint has changed to **/saml/sp/profile/redirect/slo**
@@ -140,7 +140,7 @@ Next, configure the BIG-IP registration to fulfill SAML tokens requested by the 
 
 6. In the **SAML Signing Certificate** pane, select the **Download** button to save the **Federation Metadata XML** file to your computer.
 
-    ![Edit SAML signing certificate](./media/f5-big-ip-kerbesos-advanced/edit-saml-signing-certificate.png)
+    ![Edit SAML signing certificate](./media/f5-big-ip-kerberos-advanced/edit-saml-signing-certificate.png)
 
 SAML signing certificates created by Azure AD have a lifespan of 3 years. For more information, see [Managed certificates for federated single sign-on](./manage-certificates-for-federated-single-sign-on.md).
 
@@ -150,7 +150,7 @@ By default, Azure AD will issue tokens only for users that have been granted acc
 
 1. In the **F5 BIG-IP application’s overview** blade, select **Assign Users and groups**
 
-    ![Screenshot for assigning users and groups](./media/f5-big-ip-kerbesos-advanced/authorize-users-groups.png)
+    ![Screenshot for assigning users and groups](./media/f5-big-ip-kerberos-advanced/authorize-users-groups.png)
 
 2. Select **+ Add user/group** to add the groups authorized to access the internal application followed by **Select > Assign** to assign the users/ groups to your application
 
@@ -233,11 +233,11 @@ These settings define the SAML SP properties that the APM will use for overlayin
 
 2. Select **Access > Federation > SAML Service Provider > Local SP Services > Create**
 
-    ![Create local service SAML service provider](./media/f5-big-ip-kerbesos-advanced/create-local-services-saml-service-provider.png)
+    ![Create local service SAML service provider](./media/f5-big-ip-kerberos-advanced/create-local-services-saml-service-provider.png)
 
 3. Provide a **Name** and the **Entity ID** saved when you configured SSO for Azure AD earlier.
 
-    ![Create a new SAML SP service](./media/f5-big-ip-kerbesos-advanced/create-new-saml-sp-service.png)
+    ![Create a new SAML SP service](./media/f5-big-ip-kerberos-advanced/create-new-saml-sp-service.png)
 
 4. You need not specify  **SP Name Settings** if the SAML entity ID is an exact match with the URL for the published application. For example, if the entity ID were urn:myexpenses:contosoonline then you would need to provide the **Scheme** and **Host** as https myexpenses.contoso.com. Whereas if the entity ID was [https://myexpenses.contoso.com](https://myexpenses.contoso.com/) then not.
 
@@ -247,19 +247,19 @@ A SAML IdP connector defines the settings required for the BIG-IP APM to trust A
 
 1. Scroll down to select the new SAML SP object and select **Bind/Unbind IdP Connectors**
 
-     ![Screenshot for select new SAML object](./media/f5-big-ip-kerbesos-advanced/bind-unbind-idp-connectors.png)
+     ![Screenshot for select new SAML object](./media/f5-big-ip-kerberos-advanced/bind-unbind-idp-connectors.png)
 
 2. Select **Create New IdP Connector**, choose **From Metadata**
 
-     ![Screenshot for creating new IdP connector from metadata](./media/f5-big-ip-kerbesos-advanced/create-new-idp-connector-from-metadata.png)
+     ![Screenshot for creating new IdP connector from metadata](./media/f5-big-ip-kerberos-advanced/create-new-idp-connector-from-metadata.png)
 
 3. Browse to the federation metadata XML file you downloaded earlier and provide an **Identity Provider Name** for the APM object that’ll represent the external SAML IdP. For example, MyExpenses_AzureAD
 
-     ![Screenshot for browse to federation metadata XML](./media/f5-big-ip-kerbesos-advanced/browse-federation-metadata-xml.png)
+     ![Screenshot for browse to federation metadata XML](./media/f5-big-ip-kerberos-advanced/browse-federation-metadata-xml.png)
 
 4. Select **Add New Row** to choose the new **SAML IdP Connector**, and then select **Update**
 
-     ![Screenshot to choose new IdP connector](./media/f5-big-ip-kerbesos-advanced/choose-new-saml-idp-connector.png)
+     ![Screenshot to choose new IdP connector](./media/f5-big-ip-kerberos-advanced/choose-new-saml-idp-connector.png)
 
 5. Select **OK** to save the settings
 
@@ -287,7 +287,7 @@ Select **Access > Single Sign-on > Kerberos > Create** and provide the following
 
 * **Send Authorization:** Disable for applications that prefer negotiating authentication, instead of receiving the Kerberos token in the first request. For example, *Tomcat*.
 
-     ![Screenshot to configure kerberos sso](./media/f5-big-ip-kerbesos-advanced/configure-kerbesos-sso.png)
+     ![Screenshot to configure kerberos sso](./media/f5-big-ip-kerberos-advanced/configure-kerberos-sso.png)
 
 You can leave *KDC** undefined if the user realm is different to the backend server realm. This applies for multi-domain realm scenarios as well. When left blank, BIG-IP will attempt to discover a Kerberos realm through a DNS lookup of SRV records for the backend server’s domain, so it expects the domain name to be the same as the realm name. If the domain name is different from the realm name, it must be specified in the [/etc/krb5.conf](https://support.f5.com/csp/article/K17976428) file.
 
@@ -311,27 +311,27 @@ An *Access Profile* binds many APM elements managing access to BIG-IP virtual se
 
  * **Accepted Language:** Add at least one language
 
-     ![Screenshot to create new access profile](./media/f5-big-ip-kerbesos-advanced/create-new-access-profile.png)
+     ![Screenshot to create new access profile](./media/f5-big-ip-kerberos-advanced/create-new-access-profile.png)
 
 2. Select **Edit** for the per-session profile you just created 
 
-    ![Screenshot to edit per session profile](./media/f5-big-ip-kerbesos-advanced/edit-per-session-profile.png)
+    ![Screenshot to edit per session profile](./media/f5-big-ip-kerberos-advanced/edit-per-session-profile.png)
 
 3. Once the Visual Policy Editor (VPE) has launched, select the **+** sign next to the fallback
 
-    ![Select plus sign next to fallback](./media/f5-big-ip-kerbesos-advanced/select-plus-fallback.png)
+    ![Select plus sign next to fallback](./media/f5-big-ip-kerberos-advanced/select-plus-fallback.png)
 
 4. In the pop-up select **Authentication > SAML Auth > Add Item**
 
-    ![Screenshot popup to add Saml authentication item](./media/f5-big-ip-kerbesos-advanced/add-item-saml-auth.png)
+    ![Screenshot popup to add Saml authentication item](./media/f5-big-ip-kerberos-advanced/add-item-saml-auth.png)
 
 5. In the **SAML authentication SP** configuration, set the **AAA Server** option to use the SAML SP object you created earlier
 
-    ![Screenshot to configure AAA server](./media/f5-big-ip-kerbesos-advanced/configure-aaa-server.png)
+    ![Screenshot to configure AAA server](./media/f5-big-ip-kerberos-advanced/configure-aaa-server.png)
 
 6. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**
 
-    ![Change successful branch to allow](./media/f5-big-ip-kerbesos-advanced/select-allow-successful-branch.png)
+    ![Change successful branch to allow](./media/f5-big-ip-kerberos-advanced/select-allow-successful-branch.png)
 
 ### Configure Attribute Mappings
 
@@ -341,13 +341,13 @@ Although optional, adding a *LogonID_Mapping configuration* enables the BIG-IP a
 
 2. In the pop-up select **Assignment > Variable Assign > Add Item**
 
-    ![Screenshot to configure variable assign](./media/f5-big-ip-kerbesos-advanced/configure-variable-assign.png)
+    ![Screenshot to configure variable assign](./media/f5-big-ip-kerberos-advanced/configure-variable-assign.png)
 
 3. Enter **Name**. 
 
 4. In the **Variable Assign** pane, select **Add new entry > change.** For example, *LogonID_Mapping*
 
-    ![Screenshot to add new entry for variable assign](./media/f5-big-ip-kerbesos-advanced/add-new-entry-variable-assign.png)
+    ![Screenshot to add new entry for variable assign](./media/f5-big-ip-kerberos-advanced/add-new-entry-variable-assign.png)
 
 5. Set both variables. 
 
@@ -360,7 +360,7 @@ Although optional, adding a *LogonID_Mapping configuration* enables the BIG-IP a
 
 8. Commit those settings by selecting **Apply Access Policy** and close the visual policy editor
 
-    ![Screenshot to commit apply access policy](./media/f5-big-ip-kerbesos-advanced/apply-access-policy.png)
+    ![Screenshot to commit apply access policy](./media/f5-big-ip-kerberos-advanced/apply-access-policy.png)
 
 ### Configure Backend Pool
 
@@ -368,7 +368,7 @@ For the BIG-IP to know where to forward client traffic, you need to create a BIG
 
 1. Select **Local Traffic > Pools > Pool List > Create** and provide a name for a server pool object. For example *MyApps_VMs*
 
-    ![Screenshot to create new advanced backend pool](./media/f5-big-ip-kerbesos-advanced/create-new-backend-pool.png)
+    ![Screenshot to create new advanced backend pool](./media/f5-big-ip-kerberos-advanced/create-new-backend-pool.png)
 
 2. Add a pool member object with the following resource details:
 
@@ -376,7 +376,7 @@ For the BIG-IP to know where to forward client traffic, you need to create a BIG
    * **Address:** IP address of the server hosting the application
    * **Service Port:** The HTTP/S port the application is listening on
 
-    ![Screenshot to add a pool member object](./media/f5-big-ip-kerbesos-advanced/add-pool-member-object.png)
+    ![Screenshot to add a pool member object](./media/f5-big-ip-kerberos-advanced/add-pool-member-object.png)
 
 
 > [!NOTE]
@@ -389,25 +389,25 @@ A *Virtual Server* is a BIG-IP data plane object represented by a virtual IP add
 
 2. Provide the virtual sever with a **Name** and IP IPv4/IPv6 that isn’t already allocated to an existing BIG-IP object or device on the connected network. The IP will be dedicated to receiving client traffic for the published backend application. Then set the **Service Port** to **443**
 
-    ![Screenshot to configure new virtual server](./media/f5-big-ip-kerbesos-advanced/configure-new-virtual-server.png)
+    ![Screenshot to configure new virtual server](./media/f5-big-ip-kerberos-advanced/configure-new-virtual-server.png)
 
 3. Set the HTTP Profile: to **http** 
 
 4. Enable a virtual server for Transport Layer Security (TLS), allowing services to be published over HTTPS. Select the **client SSL profile** you created as part of the prerequisites or leave the default if testing
 
-    ![Screenshot to update http profile client](./media/f5-big-ip-kerbesos-advanced/update-http-profile-client.png)
+    ![Screenshot to update http profile client](./media/f5-big-ip-kerberos-advanced/update-http-profile-client.png)
 
 5. Change the **Source Address Translation** to **Auto Map**
 
-    ![Screenshot to change source address translation](./media/f5-big-ip-kerbesos-advanced/change-auto-map.png)
+    ![Screenshot to change source address translation](./media/f5-big-ip-kerberos-advanced/change-auto-map.png)
 
 6. Under **Access Policy**, set the **Access Profile** created earlier. This binds the Azure AD SAML pre-authentication profile & KCD SSO policy to the virtual server.
 
-    ![Screenshot to set access profile for access policy](./media/f5-big-ip-kerbesos-advanced/set-access-profile-for-access-policy.png)
+    ![Screenshot to set access profile for access policy](./media/f5-big-ip-kerberos-advanced/set-access-profile-for-access-policy.png)
 
 7. Finally, set the **Default Pool** to use the backend pool objects created in the previous section, then select **Finished**.
 
-   ![Screenshot to set default pool](./media/f5-big-ip-kerbesos-advanced/set-default-pool-use-backend-object.png)
+   ![Screenshot to set default pool](./media/f5-big-ip-kerberos-advanced/set-default-pool-use-backend-object.png)
 
 ### Configure Session Management settings
 
@@ -433,7 +433,7 @@ For increased security, organizations using this pattern could also consider blo
 
 As a user, launch a browser and connect to the application’s external URL. You can also select the application’s icon from the [Microsoft MyApps portal](https://myapps.microsoft.com/). Once you authenticate against your Azure AD tenant, you will be redirected to the BIG-IP endpoint for the application and automatically signed in via SSO.
 
-   ![Screenshot of app view](./media/f5-big-ip-kerbesos-advanced/app-view.png)
+   ![Screenshot of app view](./media/f5-big-ip-kerberos-advanced/app-view.png)
 
 ### Azure AD B2B guest access
 
