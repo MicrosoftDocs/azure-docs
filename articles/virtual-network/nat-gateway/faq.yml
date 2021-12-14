@@ -42,7 +42,7 @@ sections:
         answer: |
           No. Virtual Network NAT can't be associated with a [gateway](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpn-gateway-settings#gwsub) subnet.
 
-      - question: How does Virtual Network NAT gateway work with Availability zones?   
+      - question: How does Virtual Network NAT gateway work with availability zones?   
         answer: |
           Virtual Network NAT can be non-zonal or zonal only.  
 
@@ -72,7 +72,7 @@ sections:
 
       - question: Can I use Virtual Network NAT gateway with Azure Firewall?
         answer: |
-          Yes. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](https://docs.microsoft.com/en-us/azure/firewall/integrate-with-nat-gateway).
+          Yes. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](https://docs.microsoft.com/azure/firewall/integrate-with-nat-gateway).
           
 additionalContent: 
   ## Next steps
