@@ -199,6 +199,8 @@ items:
               href: managed-instance-high-availability.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
+            - name: Rotate certificates
+              href: rotate-user-tls-certificate.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Upgrade
