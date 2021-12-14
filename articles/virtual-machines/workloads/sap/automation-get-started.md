@@ -47,7 +47,6 @@ export ARM_SUBSCRIPTION_ID=<subscriptionID>
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your information.
 
-
 # [Windows](#tab/windows)
 
 ```powershell
