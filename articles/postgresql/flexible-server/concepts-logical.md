@@ -130,7 +130,7 @@ Here is an example of configuring pglogical at the provider database server and 
    SELECT pglogical.replication_set_add_all_tables('myreplicationset', '{public}'::text[]);
    ```
 
-   As an alternate method, ou can also add tables from a specific schema (for example, testUser) to a default replication set.
+   As an alternate method, you can also add tables from a specific schema (for example, testUser) to a default replication set.
    ```SQL
    SELECT pglogical.replication_set_add_all_tables('default', ARRAY['testUser']);
    ```
