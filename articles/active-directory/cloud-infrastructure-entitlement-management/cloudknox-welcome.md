@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/14/2021
 ms.author: v-ydequadros
 ---
 
@@ -72,8 +72,10 @@ These metrics enable CloudKnox administrators to quickly and easily identify are
 
 The PCI is an indicator of an organization's level of exposure to insider threat risks and their ability to enforce the **Principle of least privilege (POLP)**, which is one of the most fundamental and essential concepts in security.  
 
-PCI measures the number of unused high-risk privileges that have been granted to all unique identities. It also takes into account the number of resources that an identity has access to but hasn't touched over the last 90 days.   
+PCI measures the number of unused high-risk privileges that have been granted to all unique identities. It also takes into account the number of resources that an identity has access to but hasn't touched over the last 90 days.
 
-PCI scores of 100 represent the highest risk to the organization. A high risk means that a high percentage of identities have excessive high-risk privileges and broad, perhaps unnecessary, access to cloud resources. A zero score represents the lowest risk.
+PCI scores of 100 represent the highest risk to the organization. They indicate a high percentage of identities with excessive high-risk privileges and broad access to cloud resources, some of which may be unnecessary to the user.
+
+A zero score represents the lowest risk.
 
 <!---## Next steps--->

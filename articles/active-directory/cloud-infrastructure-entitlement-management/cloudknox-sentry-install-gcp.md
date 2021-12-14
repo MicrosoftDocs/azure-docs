@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/14/2021
 ms.author: v-ydequadros
 ---
 
@@ -23,7 +23,7 @@ CloudKnox can be deployed in two ways:
 - *Read only* (controller disabled), which only collects information about the account.
 - *Controller enabled*, which allows the CloudKnox Sentry to collect information and make changes to identity and access management (IAM) roles, policies, and users.
 
-To provide visibility and insights, the CloudKnox Sentry collects information from a many sources. To help list resource information, for example, to catalog ec2 instances and s3 buckets, it uses *Read*, *List*, and *Describe* privileges.
+To provide visibility and insights, the CloudKnox Sentry collects information from a many sources. For example, it uses *Read*, *List*, and *Describe* privileges to list resource information and catalog ec2 instances and s3 buckets.
 
 To gain insight into activity within the AWS account, CloudKnox gathers CloudTrail event logs and ties them to individual identities.
 
@@ -64,6 +64,6 @@ If you set up the Sentry in Account B to collect entitlement, resource, and acti
 
 1. Every hour, a job begins a data collection by assuming the role passed to it.
 2. The role assumes a cross-account role to Account A.
-3. The cross-account role collects information about user privileges, groups, resources, configuration, and activity from native AWS services via API and returns the data to the CloudKnox Sentry.
+3. Through the API, the cross-account role collects information about user privileges, groups, resources, configuration, and activity from native AWS services. Then cross-account role returns the data to the CloudKnox Sentry.
 
 <!---## Next steps---> 

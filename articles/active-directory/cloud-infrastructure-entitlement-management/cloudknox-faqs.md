@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: faq
-ms.date: 12/10/2021
+ms.date: 12/14/2021
 ms.author: v-ydequadros
 ---
 
 
 # Microsoft CloudKnox Permissions Management FAQs (For internal users and existing CloudKnox users)
 
-This section answers frequently asked questions from internal users and existing Microsoft CloudKnox Permissions Management users only.
+This section answers frequently asked questions (FAQs) from internal users and existing Microsoft CloudKnox Permissions Management users only.
 
 ## Now that Microsoft has bought CloudKnox, will it drop multi-cloud support or reduce Ping, Okta, and other IDP integration?
 
@@ -27,7 +27,7 @@ In February 2022, we'll publicly announce an internal preview of the first Micro
 
 ## What is the CloudKnox pricing model?
 
-The pricing model for (C-CIEM) is about $100 per resource per year. (A *resource* is defined as anything that uses CPU). We'll announce the (M-CIEM) pricing plan after we release our Public Preview in early February 2022. 
+The pricing model for CloudKnox Cloud Infrastructure Entitlement Management (C-CIEM) is about $100 per resource per year. (A *resource* is defined as anything that uses CPU). We'll announce the Microsoft CloudKnox Cloud Infrastructure Entitlement Management (M-CIEM) pricing plan after we release our Public Preview in early February 2022. 
 
 ## Does CloudKnox support Oracle?
 
@@ -39,11 +39,11 @@ Not yet, we're currently working on Infrastructure as Code (IaC) first; then weâ
 
 ## Has anyone from Identity and Network Access (IDNA) joined the CloudKnox team to help them with integration?
 
-Steve Ball now reports direct to CloudKnox CEO Balaji Parimi as the first Product Manager on the team. Steve is rapidly ramping up on the domain and product. He's also focusing on efficient integration and shipping.
+Steve Ball now reports direct to CloudKnox CEO Balaji Parimi as the first Product Manager on the team. Steve is rapidly ramping up on the domain and product and focusing on efficient integration and shipping.
 
 ## How can I learn more about the CloudKnox team and technologies?
 
-The [CloudKnox website](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcloudknox.io%2Fwp-content%2Fuploads%2F2019%2F12%2FCloudKnox-Customer-Success-Story-Horsley-Bridge-Partners.pdf&data=04%7C01%7Cstevebal%40microsoft.com%7Ca98b4790ed7146eca57208d988ee444f%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637691379216326312%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=D%2BIHpRNqA2d92rMn6RhOdo3LSXcSH7U4XxWUV9iqBXI%3D&reserved=0) has a rich set of resources available for customers interested in continuing to purchase the current product as we work toward releasing an official Microsoft SKU. 
+The [CloudKnox website](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcloudknox.io%2Fwp-content%2Fuploads%2F2019%2F12%2FCloudKnox-Customer-Success-Story-Horsley-Bridge-Partners.pdf&data=04%7C01%7Cstevebal%40microsoft.com%7Ca98b4790ed7146eca57208d988ee444f%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637691379216326312%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=D%2BIHpRNqA2d92rMn6RhOdo3LSXcSH7U4XxWUV9iqBXI%3D&reserved=0) has a rich set of resources available for customers who are interested in continuing to purchase the current product as we work toward releasing an official Microsoft SKU. 
 
 We're also working on an internal SharePoint site to host details about product planning, customer tracking, rhythm of business, dashboards, licensing data, engineering, ActiveX Data Object (ADO) links, competitive landscapes, FAQs, and other resources for learning. 
 
@@ -62,9 +62,9 @@ We're continuing to deliver support for CloudKnox's multi-IaaS.  We're  onboardi
 
 If you have customer scenarios or ideas for other integrations, contact Steve and Balaji so they can consider them in future roadmap considerations.  
 
-## What is the plan for selling the Public Preview version to customers in Europe?
+<!---## What is the plan for selling the Public Preview version to customers in Europe?--->
 
-Text to come.
+<!---Text to come.--->
 
 ## Where can I learn more about CloudKnox and cloud security?
 
@@ -74,7 +74,7 @@ We have a rich set of learning assets on the web, so it may be best to begin her
 - [Risk Assessment trial: No Cost, No Obligation Cloud Security Assessment - CloudKnox](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcloudknox.io%2Frisk-assessment%2F&data=04%7C01%7Cstevebal%40microsoft.com%7Ca98b4790ed7146eca57208d988ee444f%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637691379216336270%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=9hluz9JOhE%2BQ2XypUzaYu1erEbhVbd80QPNUtrXGp9g%3D&reserved=0)
 - [Customer case studies: CloudKnox-Customer-Success-Story-Horsley-Bridge-Partners.pdf](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcloudknox.io%2Fwp-content%2Fuploads%2F2019%2F12%2FCloudKnox-Customer-Success-Story-Horsley-Bridge-Partners.pdf&data=04%7C01%7Cstevebal%40microsoft.com%7Ca98b4790ed7146eca57208d988ee444f%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637691379216336270%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=omFhGtkTrpnskXLrSI1kI4zeHvTq1Rw7D0wMaLNeuHE%3D&reserved=0)
 
-Throughout FY22 Q2, we'll share learning resources through a learning series and interactive sessions that are designed to help you meet the team and learn more about the CloudKnox (M-CIEM!) product and roadmap.
+Throughout FY22 Q2, we'll share learning resources through a learning series and interactive sessions. These resources are designed to help you meet the team and learn more about the M-CIEM product and roadmap.
 
 ## Recommended content
 
