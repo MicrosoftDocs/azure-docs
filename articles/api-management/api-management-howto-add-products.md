@@ -5,11 +5,12 @@ description: In this tutorial, you create and publish a product in Azure API Man
 author: dlepow
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 02/09/2021
+ms.date: 12/14/2021
 ms.author: danlep
+ms.custom: devdivchpfy22
 
 ---
-# Tutorial: Create and publish a product  
+# Tutorial: Create and publish a product
 
 In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. Once a product is published, developers can subscribe to the product and begin to use the product's APIs.  
 
