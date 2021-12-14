@@ -2,7 +2,7 @@
 title: Connect your AWS account to Microsoft Defender for Cloud
 description: Defend your AWS resources with Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 12/13/2021
+ms.date: 12/14/2021
 zone_pivot_groups: connect-aws-accounts
 ms.custom: mode-other
 ---
@@ -62,15 +62,15 @@ Follow the steps below to create your AWS cloud connector.
 
 ### Remove 'legacy' connectors
 
-1. If you have any existing connectors created with the classic cloud connectors experience, remove them first:
+If you have any existing connectors created with the classic cloud connectors experience, remove them first:
 
-    1. From Defender for Cloud's menu, open **Environment settings** and select the option to switch back to the classic connectors experience.
+1. From Defender for Cloud's menu, open **Environment settings** and select the option to switch back to the classic connectors experience.
 
-        :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::From Defender for Cloud's menu, open **Environment settings**.
+    :::image type="content" source="media/quickstart-onboard-gcp/classic-connectors-experience.png" alt-text="Switching back to the classic cloud connectors experience in Defender for Cloud.":::From Defender for Cloud's menu, open **Environment settings**.
 
-    1. For each connector, select the “…” at the end of the row, and select **Delete**.
+1. For each connector, select the “…” at the end of the row, and select **Delete**.
 
-    1. On AWS, delete the role ARN or the credentials created for the integration.
+1. On AWS, delete the role ARN or the credentials created for the integration.
 
 ### Create a new connector
 
