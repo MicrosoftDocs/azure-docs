@@ -3,7 +3,7 @@ title: Configure CI/CD with GitHub Actions
 description: Learn how to deploy your code to Azure App Service from a CI/CD pipeline with GitHub Actions. Customize the build tasks and execute complex deployments.
 ms.devlang: na
 ms.topic: article
-ms.date: 09/14/2020
+ms.date: 12/14/2021
 ms.author: jafreebe
 ms.reviewer: ushan
 ms.custom: devx-track-python, github-actions-azure, devx-track-azurecli
@@ -99,6 +99,51 @@ In the example above, replace the placeholders with your subscription ID, resour
 > [!IMPORTANT]
 > It is always a good practice to grant minimum access. The scope in the previous example is limited to the specific App Service app and not the entire resource group.
 
+# [OpenID Connect](#tab/openid)
+
+To set up OpenID Connect and use it in a GitHub Actions workflow, you'll need:
+
+* An [Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription.
+* An Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. 
+
+
+1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). Create the Active Directory application.
+
+    ```azurecli-interactive
+    az ad app create --display-name myApp
+    ```
+
+    This command will output JSON with an `appId` that is your `client-id`. The `objectId` is `APPLICATION-OBJECT-ID` and when creating federated credentials with Graph API calls.
+
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `objectId` will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+
+    ```azurecli-interactive
+     az ad sp create --id $appId
+    ```
+
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID and `$assigneeObjectId` with generated `assignee-object-id`.
+
+    ```azurecli-interactive
+    az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal
+    ```
+
+1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
+
+1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
+
+* Replace `APPLICATION-OBJECT-ID` with the **objectId (generated while creating app)** for your Active Directory application.
+* Set a value for `CREDENTIAL-NAME` to reference later.
+* Set the `subject`. The value of this is defined by GitHub depending on your workflow:
+  * Jobs in your GitHub Actions environment: `repo:< Organization/Repository >:environment:< Name >`
+  * For Jobs not tied to an environment, include the ref path for branch/tag based on the ref path used for triggering the workflow: `repo:< Organization/Repository >:ref:< ref path>`.  For example, `repo:n-username/ node_express:ref:refs/heads/my-branch` or `repo:n-username/ node_express:ref:refs/tags/my-tag`.
+  * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
+
+```azurecli
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+```
+
+To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
+
 ---
 
 ## Configure the GitHub secret
@@ -131,6 +176,22 @@ When you configure the workflow file later, you use the secret for the input `cr
   with:
     creds: ${{ secrets.AZURE_CREDENTIALS }}
 ```
+
+# [OpenID Connect](#tab/openid)
+
+You need to provide your application's **Client ID**, **Tenant ID** and **Subscription ID** to the login action. These values can either be provided directly in the workflow or can be stored in GitHub secrets and referenced in your workflow. Saving the values as GitHub secrets is the more secure option.
+
+1. Open your GitHub repository and go to **Settings**.
+
+1. Create secrets for `AZURE_CLIENT_ID`, `AZURE_TENANT_ID`, and `AZURE_SUBSCRIPTION_ID`. Use these values from your Active Directory application for your GitHub secrets:
+
+    |GitHub Secret  | Active Directory Application  |
+    |---------|---------|
+    |AZURE_CLIENT_ID     |      Application (client) ID   |
+    |AZURE_TENANT_ID     |     Directory (tenant) ID    |
+    |AZURE_SUBSCRIPTION_ID     |     Subscription ID    |
+
+1. Save each secret by selecting **Add secret**.
 
 ---
 
@@ -725,6 +786,252 @@ jobs:
         az logout
 ```
 
+# [OpenID Connect](#tab/openid)
+
+### .NET Core 
+
+Build and deploy a .NET Core app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+
+
+```yaml
+name: .NET Core
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  DOTNET_VERSION: '3.1.x'           # set this to the dot net version to use
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checkout the repo
+      - uses: actions/checkout@main
+      - uses: azure/login@v1
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      
+      # Setup .NET Core SDK
+      - name: Setup .NET Core
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }} 
+      
+      # Run dotnet build and publish
+      - name: dotnet build and publish
+        run: |
+          dotnet restore
+          dotnet build --configuration Release
+          dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp' 
+          
+      # Deploy to Azure Web apps
+      - name: 'Run Azure webapp deploy action using publish profile credentials'
+        uses: azure/webapps-deploy@v2
+        with: 
+          app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+          package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp'
+      
+      - name: logout
+        run: |
+          az logout
+```
+
+### ASP.NET
+
+Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+
+```yaml
+name: Deploy ASP.NET MVC App deploy to Azure Web App
+
+on: [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app    # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
+  NUGET_VERSION: '5.3.x'           # set this to the dot net version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: windows-latest
+    steps:
+
+    # checkout the repo
+    - uses: actions/checkout@main
+    
+    - uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    - name: Install Nuget
+      uses: nuget/setup-nuget@v1
+      with:
+        nuget-version: ${{ env.NUGET_VERSION}}
+    - name: NuGet to restore dependencies as well as project-specific tools that are specified in the project file
+      run: nuget restore
+  
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+
+    - name: Run MSBuild
+      run: msbuild .\SampleWebApplication.sln
+       
+    - name: 'Run Azure webapp deploy action using publish profile credentials'
+      uses: azure/webapps-deploy@v2
+      with: 
+        app-name: ${{ env.AZURE_WEBAPP_NAME }} # Replace with your app name
+        package: '${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/SampleWebApplication/'
+  
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
+```
+
+### Java 
+
+Build and deploy a Java Spring app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+
+```yaml
+name: Java CI with Maven
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+    - name: Set up JDK 1.8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 1.8
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+      working-directory: complete
+    - name: Azure WebApp
+      uses: Azure/webapps-deploy@v2
+      with:
+        app-name: my-app-name
+        package: my/target/*.jar
+
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
+```
+
+### JavaScript 
+
+Build and deploy a Node.js app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+
+
+```yaml
+name: JavaScript CI
+
+on: [push]
+
+name: Node.js
+
+env:
+  AZURE_WEBAPP_NAME: my-app   # set this to your application's name
+  NODE_VERSION: '14.x'                # set this to the node version to use
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+    # checkout the repo
+    - name: 'Checkout GitHub Action' 
+      uses: actions/checkout@main
+   
+    - uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+        
+    - name: Setup Node ${{ env.NODE_VERSION }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ env.NODE_VERSION }}
+    
+    - name: 'npm install, build, and test'
+      run: |
+        npm install
+        npm run build --if-present
+        npm run test --if-present
+      working-directory:  my-app-path
+               
+    # deploy web app using Azure credentials
+    - uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+
+    # Azure logout 
+    - name: logout
+      run: |
+        az logout
+```
+
+### Python 
+
+Build and deploy a Python app to Azure using an Azure service principal. The example uses GitHub secrets for the `client-id`, `tenant-id`, and `subscription-id` values. You can also pass these values directly in the login action.
+
+```yaml
+name: Python application
+
+on:
+  [push]
+
+env:
+  AZURE_WEBAPP_NAME: my-app # set this to your application's name
+  AZURE_WEBAPP_PACKAGE_PATH: '.' # set this to the path to your web app project, defaults to the repository root
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    
+    - uses: azure/login@v1
+      with:
+        client-id: ${{ secrets.AZURE_CLIENT_ID }}
+        tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+        subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+    - name: Set up Python 3.x
+      uses: actions/setup-python@v2
+      with:
+        python-version: 3.x
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+    - name: Deploy web App using GH Action azure/webapps-deploy
+      uses: azure/webapps-deploy@v2
+      with:
+        app-name: ${{ env.AZURE_WEBAPP_NAME }}
+        package: ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}
+    - name: logout
+      run: |
+        az logout
+```
 
 ---
 
