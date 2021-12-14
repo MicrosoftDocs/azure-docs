@@ -8,7 +8,7 @@ ms.topic: quickstart
 ms.service: virtual-machines
 ms.subservice: automanage
 ms.workload: infrastructure
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Enable Azure Automanage for virtual machines in the Azure portal
