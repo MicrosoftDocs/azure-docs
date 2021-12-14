@@ -13,25 +13,31 @@ ms.author: IriaOsara
 # Troubleshooting NoHostAvailableException and NoNodeAvailableException
 The NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with cluster, connection settings or one or more Cassandra nodes is unavailable. Here we explore possible reasons for this exception along with details specific to the client driver being used.
 
+## Driver Settings
+One of the most common cause of a NoHostAvailableException is due to the default driver settings. We advised the following settings.
+
+1. The default connections per host set to 1 is not recommended for CosmosDB, a minimum value of 10 is advised. While more aggregated RUs are provisioned, increase connection count. The general guideline is 10 connections per 200k RU.
+2. Use cosmos retry policy to handle intermittent throttling responses, please reference cosmosdb extension library while using Java drivers.
+3. For multi-region account, CosmosDB load balancing policy should be used.
+4. When Server Side Retry is enabled, read timeout should be set greater than 1 minute. Java driver v4 defaults to 2 seconds which should be changed to 12 seconds like driver v3.
+
 ## Exception Messages
-Review the exception messages below, if your error log contains any of these messages and follow the recommended ways to handle it.
-
-### Connection has been closed
-This message is common with using Datastax client Java v3 driver. The default number of connections per host is set to 1, with a single connection value, all requests get sent to a single node. Sample exception message below: 
-
-`Exception in thread main [2021-05-20 11:24:14,083] ERROR - [Control connection] Cannot connect to any host, scheduling retry in 1000 milliseconds (com.datastax.driver.core.ControlConnection)
-com.datastax.driver.core.exceptions.TransportException: [127.0.0.1:15350] Connection has been closed.`
-
-If DataStax driver logs are collected, the error below:
-`ERROR - [Control connection] Cannot connect to any host, scheduling retry in 1000 milliseconds (com.datastax.driver.core.ControlConnection)`
-
-#### Recommendation
-We advise setting the `PoolingOptions` to a minimum of 10. See code reference section for guidance.
+If exception still persists after the recommended settings, please review the exception messages below. Follow the recommendation, if your error log contains any of these messages.
 
 ### BusyPoolException
-This client-side error indicates that the maximum number of request connections for a host has been reached. If unable to remove, request from the queue, you might see this error if the current driver is Datastax client Java v3 or C# v3.
+This client-side error indicates that the maximum number of request connections for a host has been reached. If unable to remove, request from the queue, you might see this error. If the connection per host has been set to minimum of 10, this could be caused by high server side latency.
+
+```
+Java driver v3  exception:
+All host(s) tried for query failed (tried: :10350 (com.datastax.driver.core.exceptions.BusyPoolException: [:10350] Pool is busy (no available connection and the queue has reached its max size 256)))
+All host(s) tried for query failed (tried: :10350 (com.datastax.driver.core.exceptions.BusyPoolException: [:10350] Pool is busy (no available connection and timed out after 5000 MILLISECONDS)))
+```
+```dotnetcli
+C# driver 3:
+All hosts tried for query failed (tried :10350: BusyPoolException 'All connections to host :10350 are busy, 2048 requests are in-flight on each 10 connection(s)')
+```
 #### Recommendation
-Instead of tuning the `max requests per connection`, we advise making sure the `connections per host` is set to a minimum of 10. See the code section.
+Instead of tuning the `max requests per connection`, we advise making sure the `connections per host` is set to a minimum of 10. See the [code sample section](#code-sample).
 
 ### TooManyRequest(429)
 OverloadException is thrown when the request rate is too large. Which may be because of insufficient throughput being provisioned for the table and the RU budget being exceeded. Learn more about [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large) and [server-side retry](prevent-rate-limiting-errors.md)
@@ -39,39 +45,25 @@ OverloadException is thrown when the request rate is too large. Which may be bec
 We recommend using either of the following options:
 1. Increase RU provisioned for the table or database if the throttling is consistent.
 2. If throttling is persistent, we advise using CosmosRetryPolicy in our [Azure Cosmos Cassandra extensions]( https://github.com/Azure/azure-cosmos-cassandra-extensions)
-3. Where the extension cannot be referenced or the client sire retry policy cannot be used in any way, [enable server side retry](prevent-rate-limiting-errors.md).
+3. If throttling is intermittent, [enable server side retry](prevent-rate-limiting-errors.md).
 
 ### All hosts tried for query failed
 If the primary contact point cannot be reached, client sees a different exception. This error is specific to when the client is set to connect to a different region other than what the primary contact point region. The error is seen during the initial a few seconds upon start-up.
+ 
+Exception message with a Java v3 driver: ``` Exception in thread "main" com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)at cassandra.driver.core@3.10.2/com.datastax.driver.core.exceptions.NoHostAvailableException.copy(NoHostAvailableException.java:83)```
+
+Exception message with a C# v3 driver: ```All hosts tried for query failed (tried 127.0.0.1:15350) at Cassandra.Requests.RequestHandler.GetNextValidHost(Dictionary`2 triedHosts)```
+
 #### Recommendation
-- Java v3: We advise using the CosmosLoadBalancingPolicy in [Azure Cosmos Cassandra extensions](https://github.com/Azure/azure-cosmos-cassandra-extensions). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
+We advise using the CosmosLoadBalancingPolicy in [Java driver v3](https://github.com/Azure/azure-cosmos-cassandra-extensions) and [Java driver v4](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
 
 > [!NOTE]
-> Currently, our C# extension does not include CosmosLoadBalancingPolicy. 
-
-
-### IllegalArgumentException (driver 3) / AllNodesFailedException (driver 4)
-1. If the contact point also known as the global endpoint URL is unreachable an UnknownHostException or NoHostAvailableException is thrown depending on the Datastax driver, you are using.
-`Exception in thread "main" com.datastax.oss.driver.api.core.AllNodesFailedException: Could not reach any contact point, make sure you've provided valid addresses (showing first 1 nodes, use getAllErrors() for more)`
-2. The account name or key is incorrect.
-``Exception in thread "main" com.datastax.oss.driver.api.core.AllNodesFailedException: Could not reach any contact point, make sure you've provided valid addresses (showing first 1 nodes, use getAllErrors() for more)``
-3. The account server's firewall setting has a blocked client.
-4.  Account server's private link configuration has a blocked client.
-#### Recommendation
-We recommend the following steps:
--	Confirm you can access the account and carryout data operations via the Azure Cosmos DB portal. 
--	If you are unable to do this, it would appear the account may not have been provisioned correctly. 
--	If the account is brand new, recreate an account else open a support ticket.
-- Review the connection string, [firewall](../how-to-configure-firewall.md) and private link settings.
-
-
-> [!NOTE]
-> Please reach out to Azure Cosmos DB support with details around - error observed, time of the failures, consistent/one-time failure, failing keyspace and table, request type that failed, SDK version if none of the above recommendations help resolve your issue."
+> Please reach out to Azure Cosmos DB support with details around - exception message, exception stacktrace, datastax driver log, universal time of failure, consistent or intermittent failures, failing keyspace and table, request type that failed, SDK version if none of the above recommendations help resolve your issue.
 
 
 ## Code Sample
 
-#### PoolingOptions
+#### C# v3 Driver Settings
 ```dotnetcli
     PoolingOptions poolingOptions = PoolingOptions.Create()
         .SetCoreConnectionsPerHost(HostDistance.Local, 10) // default 2
@@ -93,23 +85,13 @@ We recommend the following steps:
         .WithSSL(sslOptions);
 ```
 
-#### CosmosRetryPolicy
-```java
-    // cosmos retry policy
-    CosmosRetryPolicy retryPolicy = CosmosRetryPolicy.builder()
-        .withFixedBackOffTimeInMillis(1000)
-        .withGrowingBackOffTimeInMillis(1000)
-        .withMaxRetryCount(10)
-        .build();
-```
-
-#### CosmosDBLoadBalancingPolicy 
+#### Java v3 Driver Settings
 ``` java
    // socket options with default values
     // https://docs.datastax.com/en/developer/java-driver/3.6/manual/socket_options/
     SocketOptions socketOptions = new SocketOptions()
         .setConnectTimeoutMillis(5000)
-        .setReadTimeoutMillis(60000); // default 12000
+        .setReadTimeoutMillis(12000); // Set to 75000 when SSR is enabled.
     
     // connection pooling options (default values are 1s)
     // https://docs.datastax.com/en/developer/java-driver/3.6/manual/pooling/
@@ -120,6 +102,7 @@ We recommend the following steps:
         .setMaxConnectionsPerHost(HostDistance.REMOTE, 10); //default 1
     
     // cosmos load balancing policy
+    String Region = "West US";
     CosmosLoadBalancingPolicy cosmosLoadBalancingPolicy = CosmosLoadBalancingPolicy.builder()
         .withWriteDC(Region)
         .withReadDC(Region)
@@ -131,12 +114,41 @@ We recommend the following steps:
         .withSSL(sslOptions)
         .withSocketOptions(socketOptions)
         .withPoolingOptions(poolingOptions)
-        //.withLoadBalancingPolicy(nativeLoadBalancingPolicy)
         .withLoadBalancingPolicy(cosmosLoadBalancingPolicy)
         .withRetryPolicy(retryPolicy)
         .build();
+    
+    // cosmos retry policy
+    CosmosRetryPolicy retryPolicy = CosmosRetryPolicy.builder()
+        .withFixedBackOffTimeInMillis(1000)
+        .withGrowingBackOffTimeInMillis(1000)
+        .withMaxRetryCount(10)
+        .build();
 ```
 
+#### Java v4 Driver Settings
+```java
+    // driver configurations
+    // https://docs.datastax.com/en/developer/java-driver/4.6/manual/core/configuration/
+    ProgrammaticDriverConfigLoaderBuilder configBuilder = DriverConfigLoader.programmaticBuilder();
+        
+    // connection settings
+    // https://docs.datastax.com/en/developer/java-driver/4.6/manual/core/pooling/
+    configBuilder
+        .withInt(DefaultDriverOption.CONNECTION_POOL_LOCAL_SIZE, 10) // default 1
+        .withInt(DefaultDriverOption.CONNECTION_POOL_REMOTE_SIZE, 10) // default 1
+        .withDuration(DefaultDriverOption.REQUEST_TIMEOUT, Duration.ofSeconds(12)) // default 2. Set to 75 seconds when server side retry is enabled.
+        .withClass(DefaultDriverOption.RECONNECTION_POLICY_CLASS, ConstantReconnectionPolicy.class) // default ExponentialReconnectionPolicy
+        .withBoolean(DefaultDriverOption.METADATA_TOKEN_MAP_ENABLED, false); // default true
+        
+    CqlSession session = CqlSession.builder()
+        .withSslContext(sc)
+        .addContactPoint(new InetSocketAddress(EndPoint, Port))
+        .withAuthCredentials(UserName, Password)
+        .withLocalDatacenter(Region)
+        .withConfigLoader(configBuilder.build())
+        .build();
+```
 
 ## Next steps
 * [Server-side diagnostics](error-codes-solution.md) to understand different error codes and their meaning.
