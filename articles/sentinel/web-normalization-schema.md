@@ -130,7 +130,7 @@ The following ASIM Network Session schema have specific guidelines when used for
 - The alias IpAddr should preferably alias [SrcNatIpAddr](network-normalization-schema.md#srcnatipaddr) rather than [SrcIpAddr](network-normalization-schema.md#srcipaddr).
 - The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
 - The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
-- For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](normalization-about-schemas.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
+- For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](network-normalization-schema.m#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
 
 ### <a name="Intermediary"></a>Intermediary device fields
 
