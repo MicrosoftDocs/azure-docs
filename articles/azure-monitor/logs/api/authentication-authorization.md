@@ -1,6 +1,6 @@
 ---
 title: Request an authorization token
-description: Set up authentication and authorization for the Azure Monitor Log Anaytics API.
+description: Set up authentication and authorization for the Azure Monitor Log Analytics API.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/22/2021
@@ -11,7 +11,7 @@ ms.topic: article
 To set up authentication and authorization for the Azure Monitor Log Analytics API:
 
 ## Set Up Authentication
-1. Use [these instructions](../../../active-directory/develop/quickstart-create-new-tenant.md) to set up AAD, using these settings at the relevant steps:
+1. Use [these instructions](../../../active-directory/develop/quickstart-create-new-tenant.md) to set up Azure Active Directory, using these settings at the relevant steps:
      - When asked for the API to connect to, select **APIs my organization uses** and then search for "Log Analytics API".
      - For the API permissions, select **Delegated permissions**.
 1. After completing the Active Directory setup, request an authorization token as described in the section below.
@@ -19,17 +19,17 @@ To set up authentication and authorization for the Azure Monitor Log Analytics A
 ## Request an Authorization Token
 
 Before beginning, make sure you have all the values required to make OAuth2 calls successfully. All requests require:
-- Your AAD tenant
+- Your Azure AD tenant
 - Your workspace ID
-- Your client ID for the AAD app
-- A client secret for the AAD app (referred to as "keys" in the AAD App menu bar).
+- Your client ID for the Azure AD app
+- A client secret for the Azure AD app (referred to as "keys" in the Azure AD App menu bar).
 
 
 ### Client Credentials Flow
 
-In the client credentials flow, the token is used with the ARM endpoint. A single request is made to receive a token, using the application permissions provided during the AAD application setup.
+In the client credentials flow, the token is used with the ARM endpoint. A single request is made to receive a token, using the application permissions provided during the Azure AD application setup.
 The resource requested is: <https://management.azure.com/>. 
-You can also use this flow to request a token to [https://api.loganalytics.io](https://api.loganalytics.io/), simply replace the "resource" in the example.
+You can also use this flow to request a token to [https://api.loganalytics.io](https://api.loganalytics.io/. Replace the "resource" in the example.
 
 #### Client Credentials Token URL (POST request)
 
@@ -115,14 +115,14 @@ The main OAuth2 flow supported is through [authorization codes](/azure/active-di
 #### Authorization Code URL (GET request):
 
 ```
-    GET https://login.microsoftonline.com/YOUR_AAD_TENANT/oauth2/authorize?
+    GET https://login.microsoftonline.com/YOUR_Azure AD_TENANT/oauth2/authorize?
     client_id=YOUR_CLIENT_ID
     &response_type=code
     &redirect_uri=YOUR_REDIRECT_URI
     &resource=https://api.loganalytics.io
 ```
 
-When making a request to the Authorize URL, the client\_id is the Application ID from your AAD App, copied from the App's properties menu. The redirect\_uri is the home page/login URL from the same AAD App. Upon successful request, this endpoint will redirect to the login page you provided at signup with the authorization code appended to the URL. See following for example:
+When making a request to the Authorize URL, the client\_id is the Application ID from your Azure AD App, copied from the App's properties menu. The redirect\_uri is the home page/login URL from the same Azure AD App. When a request is successful, this endpoint redirects you to the login page you provided at sign-up with the authorization code appended to the URL. See the following example:
 
 ```
     http://YOUR_REDIRECT_URI/?code=AUTHORIZATION_CODE&session_state=STATE_GUID
@@ -133,7 +133,7 @@ At this point you will have obtained an authorization code, which you need now t
 #### Authorization Code Token URL (POST request)
 
 ```
-    POST /YOUR_AAD_TENANT/oauth2/token HTTP/1.1
+    POST /YOUR_Azure AD_TENANT/oauth2/token HTTP/1.1
     Host: https://login.microsoftonline.com
     Content-Type: application/x-www-form-urlencoded
     
@@ -145,7 +145,7 @@ At this point you will have obtained an authorization code, which you need now t
     &client_secret=YOUR_CLIENT_SECRET
 ```
 
-All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. We now combine it with the key we previously obtained from our AAD App, or if you did not save the key you can delete it and create a new one from the keys tab of the AAD App menu. The response is a JSON string containing the token with the following schema. Exact values are indicated where they should not be changed. Types are indicated for the token values.
+All values are the same as before, with some additions. The authorization code is the same code you received in the previous request after a successful redirect. We now combine it with the key we previously obtained from our Azure AD App, or if you did not save the key you can delete it and create a new one from the keys tab of the Azure AD App menu. The response is a JSON string containing the token with the following schema. Exact values are indicated where they should not be changed. Types are indicated for the token values.
 
 Response example:
 
@@ -214,7 +214,7 @@ This access\_token can be used as the `Authorization: Bearer` header value when 
 
 ## Authenticating with an API key
 
-To quickly explore the API without needing to use AAD authentication, use the demonstration workspace with sample data, which supports API key authentication.
+To quickly explore the API without needing to use Azure AD authentication, use the demonstration workspace with sample data, which supports API key authentication.
 
 To authenticate and run queries against the sample workspace, use `DEMO_WORKSPACE` as the {workspace-id} and pass in the API key `DEMO_KEY`.
 

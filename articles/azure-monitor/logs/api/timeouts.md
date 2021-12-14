@@ -20,7 +20,7 @@ You may want to customize the timeout for the query. The default timeout is 3 mi
 
 To set the timeout, use the `Prefer` header in the HTTP request, using the standard `wait` preference, see [here](https://tools.ietf.org/html/rfc7240#section-4.3) for details. The `Prefer` header puts an upper limit, in seconds, on how long the client will wait for the service to process the query.
 
-### Response
+## Response
 
 If a query takes longer than the specified timeout (or default timeout, if unspecified), it will fail with a status code of 504 Gateway Timeout.
 

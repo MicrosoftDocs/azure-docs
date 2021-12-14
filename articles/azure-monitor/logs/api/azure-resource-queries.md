@@ -1,20 +1,20 @@
 ---
-title: Querying Logs for Azure Resources
+title: Querying logs for Azure resources
 description: In Log Analytics, queries typically execute in the context of a workspace. A workspace may contain data for many resources, making it difficult to isolate data for a particular resource.
 author: bwren
 ms.author: bwren
 ms.date: 12/07/2021
 ms.topic: article
 ---
-# Querying Logs for Azure Resources
+# Querying logs for Azure resources
 
-In Azure Monitor Log Analytics, queries typically execute in the context of a workspace. A workspace may contain data for many resources, making it difficult to isolate data for a particular resource. Resources may additionally send data to multiple workspaces. To simplify this experience, The REST API permits querying Azure resources directly for their logs.
+In Azure Monitor Log Analytics, queries typically execute in the context of a workspace. A workspace may contain data for many resources, making it difficult to isolate data for a particular resource. Resources may additionally send data to multiple workspaces. To simplify this experience, the REST API permits querying Azure resources directly for their logs.
 
-## Response Format
+## Response format
 
 Azure resource queries produce the [same response shape](response-format.md) as queries targeting a Log Analytics workspace.
 
-## URL Format
+## URL format
 
 Consider an Azure resource with a fully qualified identifier:
 
@@ -36,9 +36,9 @@ A query to the same resource via ARM would use the following URL:
 
 Essentially, this URL is the fully qualified Azure resource plus the extension provider: `/providers/microsoft.insights/logs`.
 
-## Table Access and RBAC
+## Table access and RBAC
 
-The `microsoft.insights` resource provider exposes a new set of operations for controlling access to logs at the table leve. These operations have the following format for a table named `tableName`.
+The `microsoft.insights` resource provider exposes a new set of operations for controlling access to logs at the table level. These operations have the following format for a table named `tableName`.
 
 ```
     microsoft.insights/logs/<tableName>/read 
@@ -46,17 +46,19 @@ The `microsoft.insights` resource provider exposes a new set of operations for c
 
 This permission can be added to roles using the ‘actions’ property to allow specified tables and the ‘notActions’ property to disallow specified tables.
 
-## Workspace Access Control
+## Workspace access control
 
 Today, Azure resource queries look over Log Analytics workspaces as possible data sources. However, administrators may have locked down access to the workspace via RBAC roles. By default, the API only returns results from workspaces the user has permissions to access.
 
-Workspace administrators may with to utilize Azure resource queries without breaking existing RBAC. This creates a scenario where a user may have access to read the logs for an Azure resource, but may not have permission to query the workspace containing those logs. Workspace administrators resource, to view logs via a boolean property on the workspace. This allows users to access the logs pertaining to the target Azure resource in a particular workspace, so long as the user has access to read the logs for the target Azure resource. The action for scoping access to Tables at the workspace level is the following:
+Workspace administrators may want to utilize Azure resource queries without breaking existing RBAC, creating a scenario where a user may have access to read the logs for an Azure resource, but may not have permission to query the workspace containing those logs. Workspace administrators resource, to view logs via a boolean property on the workspace. This allows users to access the logs pertaining to the target Azure resource in a particular workspace, so long as the user has access to read the logs for the target Azure resource. 
+
+This is the action for scoping access to Tables at the workspace level:
 
 ```
     microsoft.operationalinsights/workspaces/query/<tableName>/read 
 ```
 
-## Error Responses
+## Error responses
 
 Below is a brief listing of common failure scenarios when querying Azure resources along with a description of symptomatic behavior.
 
@@ -71,8 +73,7 @@ Below is a brief listing of common failure scenarios when querying Azure resourc
         }
     }
 ```
-
-### No Access to Resource
+### No access to resource
 
 ```
     HTTP/1.1 403 Forbidden 
@@ -87,7 +88,7 @@ Below is a brief listing of common failure scenarios when querying Azure resourc
     }
 ```
 
-### No logs from resource, or no permission to workspace containing those logs.
+### No logs from resource, or no permission to workspace containing those logs
 
 Depending on the precise combination of data and permissions, the response will either contain a 200 with no resulting data or will throw a syntax error (4xx error).
 

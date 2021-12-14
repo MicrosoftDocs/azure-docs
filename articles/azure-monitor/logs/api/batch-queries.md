@@ -1,16 +1,16 @@
 ---
-title: Batch Queries
+title: Batch queries
 description: The Azure Monitor Log Analytics API supports batching.
 author: AbbyMSFT
 ms.author: abbyweisberg
 ms.date: 11/22/2021
 ms.topic: article
 ---
-# Batch Queries
+# Batch queries
 
 The Azure Monitor Log Analytics API supports batching queries together. Batch queries currently require AAD authentication.
 
-## Request Format
+## Request format
 To batch queries, use the API endpoint, adding $batch at the end of the URL: <https://api.loganalytics.io/v1/$batch>.
 
 If no method is included, batching defaults to the GET method. On GET requests, the API ignores the body parameter of the request object.
@@ -70,7 +70,7 @@ Example:
     }
 ```
 
-## Response Format
+## Response format
 
 The response format is a similar array of objects. Each object contains:
  - The id
@@ -126,17 +126,17 @@ Example
     }
 ```
 
-## Behavior and Errors
+## Behavior and Eerrors
 The order of responses inside the returned object isn't related to the order in the request. It is determined by time it takes each individual query to complete. Use IDs to map the query response objects to the original requests. Don't assume that the query responses are in order.
 
 An entire batch request only fails if:
 
-1.  The JSON format of the outer payload isn't valid.
-2.  Authentication fails: The user doesn't provide an authentication token, or the token is invalid.
-3.  Individual request objects in the batch don't have required properties, or there are duplicate IDs.
+ - The JSON format of the outer payload isn't valid.
+ - Authentication fails: The user doesn't provide an authentication token, or the token is invalid.
+ - Individual request objects in the batch don't have required properties, or there are duplicate IDs.
 
 Under these conditions, the shape of the response will be different from the normal container. The objects contained within the batch object may each fail or succeed independently. See below for an example. 
-## Example Errors
+## Example errors
 
 This list is a non-exhaustive list of examples of possible errors and their meanings.
 
@@ -162,7 +162,7 @@ This list is a non-exhaustive list of examples of possible errors and their mean
     }
 ```
 
-2.  403 - Forbidden. The token provided does not have access to the resource you are trying to access. Make sure that your token request has the correct resource, and you have granted permissions for your AAD application.
+2.  403 - Forbidden. The token provided does not have access to the resource you are trying to access. Make sure that your token request has the correct resource, and you have granted permissions for your Azure AD application.
 
 ```
     {
@@ -195,7 +195,7 @@ This list is a non-exhaustive list of examples of possible errors and their mean
     }
 ```
 
-4.  404 - Not found. The query path does not exist. This can also occur in a batch if you specify an invalid HTTP method in the individual request.
+4.  404 - Not found. The query path does not exist. This error can also occur in a batch if you specify an invalid HTTP method in the individual request.
 
 ```
     {

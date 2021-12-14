@@ -1,27 +1,27 @@
 ---
-title: Cross Workspace Queries
+title: Cross workspace queries
 description: The API supports the ability to query across multiple workspaces.
 author: bwren
 ms.author: bwren
 ms.date: 08/18/2021
 ms.topic: article
 ---
-# Cross Workspace Queries
+# Cross workspace queries
 
 The API allows you to query across multiple workspaces. There are two ways to execute these queries: implicit and explicit. The implicit method performs an automatic union over data in the requested workspace, while the explicit method allows more precision and control over how to access data from each workspace.
 
 The maximum number of resources in any cross-resource query is limited to 10.
 
-## Resource Identifiers
+## Resource identifiers
 
 For either implicit or explicit cross-workspace queries, you need to specify the resources you will be accessing. There are four types of identifiers:
 
-1.  Name - human-readable string \<workspaceName\> of the OMS workspace
-2.  Qualified Name - string with format \<subscriptionName\>/\<resourceGroup\>/\<workspaceName\>
-3.  Workspace ID - GUID string
-4.  Azure Resource ID - string with format /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroup\>/providers/  microsoft.operationalinsights/workspaces/\<workspaceName\>
+ - Name - human-readable string \<workspaceName\> of the OMS workspace
+ - Qualified Name - string with format \<subscriptionName\>/\<resourceGroup\>/\<workspaceName\>
+ - Workspace ID - GUID string
+ - Azure Resource ID - string with format /subscriptions/\<subscriptionId\>/resourceGroups/\<resourceGroup\>/providers/  microsoft.operationalinsights/workspaces/\<workspaceName\>
 
-## Implicit Cross Workspace Queries
+## Implicit cross workspace queries
 
 For implicit syntax, specify the workspaces that you want to include in your query scope. The API performs a single query over each application provided in your list. The syntax for a cross-workspace POST is:
 
@@ -51,9 +51,9 @@ The same request as a GET (line breaks for readability of query parameters):
 
 This query would run over AIFabrikamDemo1, AIFabrikamDemo2, and the workspace represented by the GUID 00000000-0000-0000-0000-000000000000, returning the union of the results. In the GET version, the workspaces query parameters is a comma-separated list of resources to query.
 
-## Explicit Cross Workspace Queries
+## Explicit cross workspace queries
 
-In some cases, you might want the query to operate over a more targeted subset of the data in the workspaces of interest, combining data from multiple workspaces. For these scenarios, explicitly mention a workspace and table in the query, similar to making cross-cluster or cross-database queries or joins between tables.
+In some cases, you might want the query to operate over a more targeted subset of the data in the workspaces of interest, combining data from multiple workspaces. In these cases, explicitly mention a workspace and table in the query, similar to making cross-cluster or cross-database queries or joins between tables.
 
 The syntax to reference another application is: workspace('identifier').table.
 
@@ -69,7 +69,7 @@ Example:
     }
 ```
 
-Similar to the implicit syntax, you can also URL encode this query and make it a GET request. In this case, there is no query parameter for other workspaces since the workspaces will get referenced from inside the query itself.
+You can also URL encode this query and make it a GET request. In this case, there is no query parameter for other workspaces since the workspaces will get referenced from inside the query.
 
 ## Throttling
 
