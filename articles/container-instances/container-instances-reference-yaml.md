@@ -349,9 +349,9 @@ The following tables describe the values you need to set in the schema.
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  workspaceId | string | Yes | The workspace id for log analytics |
+|  workspaceId | string | Yes | The workspace ID for log analytics |
 |  workspaceKey | string | Yes | The workspace key for log analytics |
-|  workspaceResourceId | string | No | The workspace resource id for log analytics |
+|  workspaceResourceId | string | No | The workspace resource ID for log analytics |
 |  logType | enum | No | The log type to be used. - ContainerInsights or ContainerInstanceLogs |
 |  metadata | object | No | Metadata for log analytics. |
 
