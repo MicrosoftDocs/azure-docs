@@ -1,39 +1,72 @@
 ---
 title: Extract text from images
 titleSuffix: Azure Cognitive Search
-description: Process and extract text and other information from images in Azure Cognitive Search pipelines.
+description: Use Optical Character Recognition (OCR) and image analysis to extract text, layout, captions, and tags from image files in Azure Cognitive Search pipelines.
 
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 09/24/2021
+ms.topic: how-to
+ms.date: 12/14/2021
 ms.custom: devx-track-csharp
 ---
-# Extract text and information from images in AI enrichment scenarios
 
-Azure Cognitive Search has several capabilities for working with images and image files. During [document cracking](search-indexer-overview.md#document-cracking), you can use the *imageAction* parameter to extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
+# Extract text and information from images in AI enrichment
 
-This article covers image processing in more detail and provides guidance for working with images in an AI enrichment pipeline.
+Through it's [AI enrichment](cognitive-search-concept-intro.md) capabilities, Azure Cognitive Search has several options for working with images, including Optical Character Recognition (OCR) and image analysis that extracts text, layout, captions, and tags. You can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
+
+Input can be embedded images or standalone image files. Output is always text that's ingested into a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md) for data mining scenarios.
+
+This article explains how to work with images in an AI enrichment pipeline. To work with image content, you'll need:
+
++ Supported inputs
++ Indexer configuration having an imageAction parameter
++ Built-in or custom skills that invoke OCR or image analysis
+
+## Inputs to image analysis
+
+Image analysis is indexer-driven, which means that raw data must be a supported file type (as determined by the skills you choose), in a [supported data source](search-indexer-overview.md#supported-data-sources). OCR supports JPEG, PNG, GIF, TIF, and BMP. Image analysis supports JPEG, PNG, GIF, and BMP. Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. 
+
+The location of image files and connection information is specified in an indexer data source object. As with any indexer, the connection will be made using either key-based authentication or Azure Active Directory.
+
+In addition to connections to external data, Cognitive Search calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to include multi-service key to a Cognitive Services resource in the same region as your Cognitive Search service.
+
+### Standalone image files
+
+Standalone images files contain binary data. Recall that OCR only recognizes text in the files that provide it. If you run OCR over images having no text, you will get "Could not execute skill" messages on each occurrence. In contrast, image analysis will analyze for characteristics and metadata, and can typically produce text descriptions or captions from pure imagery. 
+
+The generated text, layout information, captions, and tags are captured as strings or string collections in an enriched document, for downstream consumption by indexing or projection.
+
+### Embedded images in documents
+
+PDF, DOCX, RTF, and Microsoft Office application files support embedded images. During document cracking, image and text components of a file are separated and queued up for respective processing, which often runs in parallel.
+
+Typically, image processing output is inserted in the same location as where the image was located (for example, in the body of a document). You will need to include a Text Merge skill if you want to insert the generated output back into the document. You can also work with the generated content independently, using the same fields as if the image was standalone.
+
+## Indexer configuration for image processing
+
+Indexer configuration is required for image processing. The parameters you specify in an indexer will be used to:
+
++ Specify image normalization.
++ Set the parsingMode, applicable when working with embedded image content.
++ Specify output field mappings, necessary for any indexer that includes a skillset.
 
 <a name="get-normalized-images"></a>
 
-## Get normalized images
+### Enable image normalization
 
-As part of document cracking, there are a new set of indexer configuration parameters for handling image files or images embedded in files. These parameters are used to normalize images for further downstream processing. Normalizing images makes them more uniform. Large images are resized to a maximum height and width to make them consumable. For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image. 
+Image processing requires image normalization to makes images more uniform for downstream processing. 
 
-You cannot turn off image normalization. Skills that iterate over images expect normalized images. Enabling image normalization on an indexer requires that a skillset be attached to that indexer.
++ Large images are resized to a maximum height and width to make them consumable.
++ For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image. 
+
+You cannot turn off image normalization. Skills that iterate over images expect normalized images.
 
 | Configuration Parameter | Description |
-|--------------------|-------------|
-| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. <br/>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking.<br/>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types.<br/>For any option that is not "none", the images will be exposed in the *normalized_images* field. <br/>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." <br/>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
+|-------------------------|-------------|
+| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. </p>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking. </p>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types. </p>For any option that is not "none", the images will be exposed in the *normalized_images* field. </p>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." </p>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
 |  normalizedImageMaxWidth | The maximum width (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000. | 
 |  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.|
-
-> [!NOTE]
-> If you set the *imageAction* property to anything other than "none", you'll not be able to set the *parsingMode* property to anything other than "default".  You may only set one of these two properties to a non-default value in your indexer configuration.
-
-Set the **parsingMode** parameter to `json` (to index each blob as a single document) or `jsonArray` (if your blobs contain JSON arrays and you need each element of an array to be treated as a separate document).
 
 The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). The [OCR skill](cognitive-search-skill-ocr.md) supports a maximum width and height of 4200 for non-English languages, and 10000 for English.  If you increase the maximum limits, processing could fail on larger images depending on your skillset definition and the language of the documents. 
 
@@ -67,6 +100,7 @@ When the *imageAction* is set to a value other then "none", the new *normalized_
 | pageNumber | If the image was extracted or rendered from a PDF, this field contains the page number in the PDF it was extracted or rendered from, starting from 1.  If the image was not from a PDF, this field will be 0.  |
 
  Sample value of *normalized_images*:
+
 ```json
 [
   {
@@ -81,6 +115,16 @@ When the *imageAction* is set to a value other then "none", the new *normalized_
   }
 ]
 ```
+
+### Check the parsingMode
+
+If you set the **imageAction** to anything other than "none", **parsingMode** must be "default", which sets up a one-to-one correspondence between a source document and a search document in an index. The parsing mode will have no effect on standalone image files, but it is relevant when working with PDFs and other files that contain embedded images. 
+
+The parsing mode you specify will apply equally to all files in the data source. If files include pure text content that you want to prase as JSON or JSON arrays, you will need to separate that content into a separate data source so that you can index it with the appropriate parsing mode.
+
+### Set the output field mappings
+
+TBD
 
 ## Image related skills
 
@@ -184,44 +228,44 @@ Since the OCR step is performed on the normalized images, the layout coordinates
 As a helper, if you need to transform normalized coordinates to the original coordinate space, you could use the following algorithm:
 
 ```csharp
-        /// <summary>
-        ///  Converts a point in the normalized coordinate space to the original coordinate space.
-        ///  This method assumes the rotation angles are multiples of 90 degrees.
-        /// </summary>
-        public static Point GetOriginalCoordinates(Point normalized,
-                                    int originalWidth,
-                                    int originalHeight,
-                                    int width,
-                                    int height,
-                                    double rotationFromOriginal)
-        {
-            Point original = new Point();
-            double angle = rotationFromOriginal % 360;
+/// <summary>
+///  Converts a point in the normalized coordinate space to the original coordinate space.
+///  This method assumes the rotation angles are multiples of 90 degrees.
+/// </summary>
+public static Point GetOriginalCoordinates(Point normalized,
+                            int originalWidth,
+                            int originalHeight,
+                            int width,
+                            int height,
+                            double rotationFromOriginal)
+{
+    Point original = new Point();
+    double angle = rotationFromOriginal % 360;
 
-            if (angle == 0 )
-            {
-                original.X = normalized.X;
-                original.Y = normalized.Y;
-            } else if (angle == 90)
-            {
-                original.X = normalized.Y;
-                original.Y = (width - normalized.X);
-            } else if (angle == 180)
-            {
-                original.X = (width -  normalized.X);
-                original.Y = (height - normalized.Y);
-            } else if (angle == 270)
-            {
-                original.X = height - normalized.Y;
-                original.Y = normalized.X;
-            }
+    if (angle == 0 )
+    {
+        original.X = normalized.X;
+        original.Y = normalized.Y;
+    } else if (angle == 90)
+    {
+        original.X = normalized.Y;
+        original.Y = (width - normalized.X);
+    } else if (angle == 180)
+    {
+        original.X = (width -  normalized.X);
+        original.Y = (height - normalized.Y);
+    } else if (angle == 270)
+    {
+        original.X = height - normalized.Y;
+        original.Y = normalized.X;
+    }
 
-            double scalingFactor = (angle % 180 == 0) ? originalHeight / height : originalHeight / width;
-            original.X = (int) (original.X * scalingFactor);
-            original.Y = (int)(original.Y * scalingFactor);
+    double scalingFactor = (angle % 180 == 0) ? originalHeight / height : originalHeight / width;
+    original.X = (int) (original.X * scalingFactor);
+    original.Y = (int)(original.Y * scalingFactor);
 
-            return original;
-        }
+    return original;
+}
 ```
 
 ## Passing images to custom skills
