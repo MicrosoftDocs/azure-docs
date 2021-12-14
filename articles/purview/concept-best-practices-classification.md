@@ -17,7 +17,7 @@ When you classify data assets, you make them easier to understand, search, and g
  
 Azure Purview provides automated classification capability while you scan your data sources. You get more than 200 system built-in classifications and the ability to create custom classifications for your data. You can classify assets automatically, when they're configured as part of a scan, or you can edit them manually in Azure Purview Studio after they're scanned and ingested.  
  
-## Why do you need to adopt classification? 
+## Why classification is a good idea 
 
 Classification is the process of organizing data into *logical categories* that make the data easy to retrieve, sort, and identify for future use. This can be particularly important for data governance. Among other reasons, classifying data assets is important because it helps you: 
 * Narrow down the search for data assets that you're interested in.
