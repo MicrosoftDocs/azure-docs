@@ -35,9 +35,8 @@ For information on Microsoft Identity Manager and the systems it supports see th
 [!INCLUDE [active-directory-hr-provisioning.md](../../../includes/active-directory-hr-provisioning.md)]
 
 
-
 ## Next steps 
-- [What is identity lifecycle management](what-is-identity-lifecycle-management.md)
-- [What is provisioning?](what-is-provisioning.md)
-- [What is app provisioning?](what-is-app-provisioning.md)
-- [What is inter-directory provisioning?](what-is-inter-directory-provisioning.md)
+- [What is identity lifecycle management](../governance/what-is-identity-lifecycle-management.md)
+- [What is provisioning?](../governance/what-is-provisioning.md)
+- [What is app provisioning?](../app-provisioning/user-provisioning.md)
+- [What is inter-directory provisioning?](../hybrid/what-is-inter-directory-provisioning.md)
