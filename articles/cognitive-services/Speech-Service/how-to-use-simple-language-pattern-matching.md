@@ -8,7 +8,7 @@ manager: travisw
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/14/2021
+ms.date: 11/15/2021
 ms.author: chschrae
 ms.custom: devx-track-cpp
 ---
@@ -24,17 +24,17 @@ In this guide, you use the Speech SDK to develop a C++ console application that 
 > - Create a Visual Studio project referencing the Speech SDK NuGet package
 > - Create a speech configuration and get an intent recognizer
 > - Add intents and patterns via the Speech SDK API
-> - Recognize speech from a file
+> - Recognize speech from a microphone
 > - Use asynchronous, event-driven continuous recognition
 
 ## When should you use this?
 
 Use this sample code if: 
 * You are only interested in matching very strictly what the user said. These patterns match more aggressively than LUIS.
-* You do not have access to a LUIS app, but still want intents. This can be helpful since it is embedded within the SDK.
-* You cannot or do not want to create a LUIS app but you still want some voice commanding capability.
+* You do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents. This can be helpful since it is embedded within the SDK.
+* You cannot or do not want to create a [LUIS](../LUIS/index.yml) app but you still want some voice-commanding capability.
 
-If you do not have access to a LUIS app, but still want intents, this can be helpful since it is embedded within the SDK.
+If you do not have access to a [LUIS](../LUIS/index.yml) app, but still want intents, this can be helpful since it is embedded within the SDK.
 
 
 ## Prerequisites
@@ -147,14 +147,16 @@ When the recognition result is returned by the Speech service, let's just print 
 Insert this code below `auto result = intentRecognizer->RecognizeOnceAsync().get();`:
 
 ```cpp
-auto entities = result->GetEntities();
-
 switch (result->Reason)
 {
 case ResultReason::RecognizedSpeech:
+        std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
+        std::cout << "NO INTENT RECOGNIZED!" << std::endl;
+        break;
 case ResultReason::RecognizedIntent:
     std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
     std::cout << "  Intent Id = " << result->IntentId.c_str() << std::endl;
+    auto entities = result->GetEntities();
     if (entities.find("floorName") != entities.end())
     {
         std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
@@ -224,14 +226,17 @@ int main()
     std::cout << "Say something ..." << std::endl;
 
     auto result = intentRecognizer->RecognizeOnceAsync().get();
-    auto entities = result->GetEntities();
 
     switch (result->Reason)
     {
     case ResultReason::RecognizedSpeech:
+        std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
+        std::cout << "NO INTENT RECOGNIZED!" << std::endl;
+        break;
     case ResultReason::RecognizedIntent:
         std::cout << "RECOGNIZED: Text = " << result->Text.c_str() << std::endl;
         std::cout << "  Intent Id = " << result->IntentId.c_str() << std::endl;
+        auto entities = result->GetEntities();
         if (entities.find("floorName") != entities.end())
         {
             std::cout << "  Floor name: = " << entities["floorName"].c_str() << std::endl;
@@ -292,5 +297,10 @@ For example if you say "Take me to floor 7", this should be the output:
 Say something ...
 RECOGNIZED: Text = Take me to floor 7.
   Intent Id = ChangeFloors
-  Floor name: = seven
+  Floor name: = 7
 ```
+
+## Next steps
+
+> Improve your pattern matching by using [custom entities](how-to-use-custom-entity-pattern-matching.md).
+

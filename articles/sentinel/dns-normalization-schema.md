@@ -111,8 +111,8 @@ The following filtering parameters are available:
 | **srcipaddr** | string | Filter only DNS queries from this source IP address. |
 | **domain_has_any**| dynamic | Filter only DNS queries where the `domain` (or `query`) has any of the listed domain names, including as part of the event domain.
 | **responsecodename** | string | Filter only DNS queries for which the response code name matches the provided value. <br>For example: `NXDOMAIN` |
-| **response_has_ipv4** | string | Filter only DNS queries in which the response field starts with the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results are not returned for sources that do not provide a response.|
-| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field starts with any of the listed IP addresses or IP address prefixes. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results are not returned for sources that do not provide a response. |
+| **response_has_ipv4** | string | Filter only DNS queries in which the response field includes the provided IP address or IP address prefix. Use this parameter when you want to filter on a single IP address or prefix. <br><br>Results are not returned for sources that do not provide a response.|
+| **response_has_any_prefix** | dynamic| Filter only DNS queries in which the response field includes any of the listed IP addresses or IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. <br><br>Use this parameter when you want to filter on a list of IP addresses or prefixes. <br><br>Results are not returned for sources that do not provide a response. |
 | **eventtype**| string | Filter only DNS queries of the specified type. If no value is specified, only lookup queries are returned. |
 | | | |
 

@@ -67,7 +67,7 @@ $token=$(az account get-access-token --resource=https://dicom.healthcareapis.azu
 curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
 ```
 
-## Next Steps
+## Next steps
 
 - [Access FHIR using Postman](use-postman.md)
 - [Access FHIR sing Rest Client](using-rest-client.md)

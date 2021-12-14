@@ -9,7 +9,7 @@ ms.devlang: PowerShell
 ms.topic: sample
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/16/2019
 ---
 

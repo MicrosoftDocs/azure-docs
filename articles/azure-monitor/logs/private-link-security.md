@@ -24,9 +24,7 @@ With Private Link you can:
 
 For more information, see  [Key Benefits of Private Link](../../private-link/private-link-overview.md#key-benefits).
 
-## How it works
-
-### Overview
+## How it works: main principles
 An Azure Monitor Private Link connects a Private Endpoint to a set of Azure Monitor resources - Log Analytics workspaces and Application Insights resources. That set is called an Azure Monitor Private Link Scope (AMPLS).
 
 ![Diagram of basic resource topology](./media/private-link-security/private-link-basic-topology.png)
@@ -37,7 +35,7 @@ An Azure Monitor Private Link connects a Private Endpoint to a set of Azure Moni
 * Control networks access to your Azure Monitor resources - configure each of your workspaces or components to accept or block traffic from public networks. You can apply different settings for ingestion and query requests.
 
 
-### Azure Monitor Private Links rely on your DNS
+## Azure Monitor Private Links rely on your DNS
 When you set up a Private Link connection, your DNS zones map Azure Monitor endpoints to private IPs in order to send traffic through the Private Link. Azure Monitor uses both resource-specific endpoints and shared global / regional endpoints to reach the workspaces and components in your AMPLS. 
 
 > [!WARNING]
@@ -46,7 +44,7 @@ When you set up a Private Link connection, your DNS zones map Azure Monitor endp
 The use of shared endpoints also means you should use a single AMPLS for all networks that share the same DNS. Creating multiple AMPLS resources will cause Azure Monitor DNS zones to override each other, and break existing environments. See [Plan by network topology](./private-link-design.md#plan-by-network-topology) to learn more.
 
 
-#### Shared global and regional endpoints
+### Shared global and regional endpoints
 When configuring Private Link even for a single resource, traffic to the below endpoints will be sent through the allocated Private IPs.
 
 * All Application Insights endpoints - endpoints handling ingestion, live metrics, profiler, debugger etc. to Application Insights endpoints are global.
@@ -57,14 +55,14 @@ When configuring Private Link even for a single resource, traffic to the below e
 > Creating a Private Link affects traffic to **all** monitoring resources, not only resources in your AMPLS. Effectively, it will cause all query requests as well as ingestion to Application Insights components to go through private IPs. However, it does not mean the Private Link validation applies to all these requests.</br>
 > Resources not added to the AMPLS can only be reached if the AMPLS access mode is 'Open' and the target resource accepts traffic from public networks. While using the private IP, **Private Link validations don't apply to resources not in the AMPLS**. See [Private Link access modes](#private-link-access-modes-private-only-vs-open) to learn more.
 
-#### Resource-specific endpoints
+### Resource-specific endpoints
 Log Analytics endpoints are workspace-specific, except for the query endpoint discussed earlier. As a result, adding a specific Log Analytics workspace to the AMPLS will send ingestion requests to this workspace over the Private Link, while ingestion to other workspaces will continue to use the public endpoints.
 
 > [!IMPORTANT]
 > Starting December 1, 2021, the Private Endpoints DNS configuration will use the Endpoint Compression mechanism, which allocates a single private IP address for all workspaces in the same region. This improves the supported scale (up to 300 workspaces and 1000 components per AMPLS) and  reduces the total number of IPs taken from the network's IP pool.  
 
 
-### Private Link access modes: Private Only vs Open
+## Private Link access modes: Private Only vs Open
 As discussed in [Azure Monitor Private Link relies on your DNS](#azure-monitor-private-links-rely-on-your-dns), only a single AMPLS resource should be created for all networks that share the same DNS. As a result, organizations that use a single global or regional DNS in fact have a single Private Link to manage traffic to all Azure Monitor resources, across all global, or regional networks.
 
 For Private Links created before September 2021, that means - 
