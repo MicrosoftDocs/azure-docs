@@ -15,23 +15,21 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 # [Windows](#tab/Windows)
 
 > [!IMPORTANT]
-> The following versions of ASP.NET Core are supported for auto-instrumentation on Windows: ASP.NET Core 3.1, and 5.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
+> The following versions of ASP.NET Core are supported for auto-instrumentation on Windows: ASP.NET Core 3.1, 5.0 and 6.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
 
-Targeting the full framework from ASP.NET Core is **not supported** in Windows. Use [manual instrumentation](./asp-net-core.md) via code instead.
-
-In Windows, only [Framework dependent deployment](/dotnet/core/deploying/#publish-framework-dependent) is supported and [self-contained deployment](/dotnet/core/deploying/#publish-self-contained) isn't supported.
+[Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
 See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
 
 # [Linux](#tab/Linux)
 
 > [!IMPORTANT]
-> Only ASP.NET Core 6.0 (preview) is supported for auto-instrumentation on Linux.
+> Only ASP.NET Core 6.0 is supported for auto-instrumentation on Linux.
 
 > [!NOTE]
 > Linux auto-instrumentation App Services portal enablement is in Public Preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
- In Linux, [Framework-dependent deployment](/dotnet/core/deploying/#publish-framework-dependent) and [self-contained deployment](/dotnet/core/deploying/#publish-self-contained) are supported. 
+[Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
 See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
 
@@ -115,6 +113,9 @@ Starting with version 2.8.9 the pre-installed site extension is used. If you're 
 If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).
 
 ## Troubleshooting
+
+> [!NOTE]
+> When you create a web app with the `ASP.NET Core` runtimes in Azure App Services it deploys a single static HTML page as a starter website. It is **not** recommended to troubleshoot an issue with default template. Deploy an application before troubleshooting an issue.
 
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET Core based applications running on Azure App Services.
 

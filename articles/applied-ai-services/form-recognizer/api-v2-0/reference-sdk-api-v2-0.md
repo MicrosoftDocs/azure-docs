@@ -18,7 +18,7 @@ keywords: forms processing, automated data processing
 
 >[!IMPORTANT]
 >
-> * This guide is based on Azure Form Recognizer SDK v3.0.0  and  REST API v2.0. Documentation and code samples for the latest version can be found in our **[Quickstarts](../quickstarts/client-library.md)** article.
+> * This guide is based on Azure Form Recognizer SDK v3.0.0  and  REST API v2.0. Documentation and code samples for the latest version can be found in our **[Quickstarts](../quickstarts/try-sdk-rest-api.md)** article.
 >
 >* For simplicity, the code in this article uses synchronous methods and unsecured credentials storage. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 

@@ -1,11 +1,11 @@
 ---
 title: Use and manage an App Service Environment
 description: Learn how to create, publish, and scale apps in an App Service Environment. Find all the common tasks in this article.
-author: ccompy
+author: madsd
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 8/5/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
 ---
 # Use an App Service Environment
@@ -291,6 +291,6 @@ For more specific examples, use: az find "az appservice ase"
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md
+[ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md

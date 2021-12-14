@@ -50,7 +50,10 @@ sections:
           You can also import and export settings between App Service and App Configuration. This capability allows you to quickly set up a new App Configuration store based on existing App Service settings. You can also share configuration with an existing app that relies on App Service settings.
           
       - question: Are there any size limitations on keys and values stored in App Configuration?
-        answer: There's a limit of 10 KB for a single key-value item.
+        answer: |
+          There's a limit of 10 KB for a single key-value, including attributes such as label, content-type, tags, and other metadata.
+
+          This limit should be sufficient for a single setting in most applications. If you find that your setting is larger than this limit, you may consider storing your data elsewhere and [add a reference of that data](./howto-best-practices.md#references-to-external-data) in App Configuration.
 
       - question: How should I store configurations for multiple environments (test, staging, production, and so on)?
         answer: |
@@ -67,7 +70,7 @@ sections:
           There are two pricing tiers:
           
           - Free tier
-          - Standard tier.
+          - Standard tier
           
           If you created a store prior to the introduction of the Standard tier, it automatically moved to the Free tier upon general availability. You can choose to upgrade to the Standard tier or remain on the Free tier.
           
@@ -145,7 +148,7 @@ sections:
 
           The App Configuration store cannot be created in a different subscription/resource group until the retention period has elapsed. However, the resource can be recreated in the original subscription/resource group and then moved to a new subscription/resource group by following [these instructions](../azure-resource-manager/management/move-resource-group-and-subscription.md#use-the-portal).
 
-          Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` command detailed [here](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
+          Recreating an App Configuration store during the retention period is currently only supported by the Azure CLI using the `az appconfig create` [command](/cli/azure/appconfig?view=azure-cli-latest#az_appconfig_create).
 
       - question: How can I restore an App Configuration store that I deleted mistakenly?
         answer: |

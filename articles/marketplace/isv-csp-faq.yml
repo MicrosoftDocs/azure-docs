@@ -54,7 +54,7 @@ sections:
 
       - question: If an ISV searches for but can't find a partner to provide a margin to, can they be added?
         answer: |
-          No. Partners must be part of Microsoft's CSP program and need to be a Direct CSP or Indirect provider to be provided a margin. If a partner does not return in the search, it is likely they are either not part of Microsoft’s CSP program or they are an indirect reseller. CSP partners can review information on how to enroll in the program at [Enroll in the Cloud Solution Provider program](/partner-center/enrolling-in-the-csp-program.md).
+          No. Partners must be part of Microsoft's CSP program and need to be a Direct CSP or Indirect provider to be provided a margin. If a partner does not return in the search, it is likely they are either not part of Microsoft’s CSP program or they are an indirect reseller. CSP partners can review information on how to enroll in the program at [Enroll in the Cloud Solution Provider program](/partner-center/enrolling-in-the-csp-program).
 
       - question: If an ISV works with an indirect reseller who purchases through a Distributor/Indirect provider, how can an ISV sell their offer via the Indirect Reseller?
         answer: |

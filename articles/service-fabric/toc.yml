@@ -403,6 +403,12 @@
     items:
     - name: Configure your managed cluster
       href: how-to-managed-cluster-configuration.md
+    - name: Connect to your managed cluster
+      href: how-to-managed-cluster-connect.md
+    - name: Configure autoscaling on a managed cluster
+      href: how-to-managed-cluster-autoscale.md
+    - name: Configure node types on a managed cluster
+      href: how-to-managed-cluster-modify-node-type.md
     - name: Add a VM scale set extension to a managed cluster node type
       href: how-to-managed-cluster-vmss-extension.md
     - name: Configure managed cluster network settings
@@ -410,7 +416,7 @@
     - name: Configure managed cluster Availability Zone spanning
       href: how-to-managed-cluster-availability-zones.md
     - name: Enable disk encryption for managed cluster nodes
-      href: how-to-enable-managed-cluster-disk-encryption.md
+      href: how-to-managed-cluster-enable-disk-encryption.md
     - name: Select managed disk types for managed cluster nodes
       href: how-to-managed-cluster-managed-disk.md
     - name: Configure managed cluster upgrade options
@@ -499,6 +505,8 @@
           href: service-fabric-cross-availability-zones.md
         - name: Deploy an Azure Service Fabric cluster with stateless node types
           href: service-fabric-stateless-node-types.md
+        - name: Deploy an Azure Service Fabric cluster with Managed data disks
+          href: service-fabric-managed-disk.md
         - name: Set up Azure Active Directory authentication
           href: service-fabric-cluster-creation-setup-aad.md
         - name: Create a custom cluster template

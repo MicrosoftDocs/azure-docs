@@ -44,9 +44,6 @@ Beyond the built-in roles, you can assign custom roles to users, and reference t
 
 To add a user to a role, you generate invitations that allow you to associate users to specific roles. Roles are defined and maintained in the _staticwebapp.config.json_ file.
 
-> [!NOTE]
-> You may choose to [register a custom Azure Active Directory provider](./authentication-custom.md) to avoid issuing invitations for group management.
-
 <a name="invitations" id="invitations"></a>
 
 #### Create an invitation

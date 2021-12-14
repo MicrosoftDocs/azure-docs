@@ -60,7 +60,7 @@ Throttling could occur temporarily when you generate a burst of image pull or pu
 
 ## Show registry usage
 
-Use the [az acr show-usage](/cli/az/acr#az_acr_show_usage) command, or the [List Usages](/rest/api/containerregstry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
+Use the [az acr show-usage](/cli/azure/acr#az_acr_show_usage) command, or the [List Usages](/rest/api/containerregistry/registries/list-usages) REST API, to get a snapshot of your registry's current consumption of storage and other resources, compared with the limits for that registry's service tier. Storage usage also appears on the registry's **Overview** page in the portal.
 
 Usage information helps you make decisions about [changing the service tier](#changing-tiers) when your registry nears a limit. This information also helps you [manage consumption](container-registry-best-practices.md#manage-registry-size). 
 
@@ -120,7 +120,7 @@ Submit and vote on new feature suggestions in [ACR UserVoice][container-registry
 <!-- LINKS - External -->
 [acr-roadmap]: https://aka.ms/acr/roadmap
 [container-registry-pricing]: https://azure.microsoft.com/pricing/details/container-registry/
-[container-registry-uservoice]: https://feedback.azure.com/forums/903958-azure-container-registry
+[container-registry-uservoice]: https://feedback.azure.com/d365community/forum/180a533d-0d25-ec11-b6e6-000d3a4f0858
 
 <!-- LINKS - Internal -->
 [az-acr-update]: /cli/azure/acr#az_acr_update

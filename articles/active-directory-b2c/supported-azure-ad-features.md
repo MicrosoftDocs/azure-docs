@@ -3,7 +3,7 @@ title: Supported Azure AD features
 description: Learn about Azure AD features, which are still supported in Azure AD B2C.
 services: active-directory-b2c
 author: kengaderdus
-manager: celestedg
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity

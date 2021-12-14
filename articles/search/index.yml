@@ -101,11 +101,11 @@ landingContent:
       - linkListType: concept
         links:
           - text: Skillsets
-            url: cognitive-search-defining-skillset.md
+            url: cognitive-search-working-with-skillsets.md
           - text: Knowledge stores
             url: knowledge-store-concept-intro.md
           - text: Projections
-            url: knowledge-store-projections-examples.md
+            url: knowledge-store-projection-overview.md
       - linkListType: how-to-guide
         links:
           - text: Attach Cognitive Services

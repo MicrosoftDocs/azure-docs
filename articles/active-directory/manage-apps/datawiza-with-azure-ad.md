@@ -46,7 +46,7 @@ Datawiza integration includes the following components:
 
 - Datawiza Access Broker (DAB) - The service user sign on and transparently passes identity to applications through HTTP headers.
 
-- Datawiza Cloud Management Console (DCMC) - A centralized management console that manages DAB. DCMC provides UI and Restful APIs for administrators to manage the configurations of DAB and its access control policies.
+- Datawiza Cloud Management Console (DCMC) - A centralized management console that manages DAB. DCMC provides UI and RESTful APIs for administrators to manage the configurations of DAB and its access control policies.
 
 The following architecture diagram shows the implementation.
 
@@ -82,7 +82,7 @@ Instead, if you want to use an existing web application in your Azure AD tenant,
 1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. [Configure DAB and SSO
 integration](https://docs.datawiza.com/step-by-step/step3.html). [Deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html). A sample docker image `docker-compose.yml` file is provided for you to download and use. [Log in to the container registry](https://docs.datawiza.com/step-by-step/step3.html#important-step) to download the images of DAB and the header-based application.
 
-    ```YML
+    ```yaml
     services:
       datawiza-access-broker:
       image: registry.gitlab.com/datawiza/access-broker

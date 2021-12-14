@@ -1,23 +1,21 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/27/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
-When developing for macOS, there are three Speech SDKs available.
+When developing for macOS, the following Speech SDKs are available.
 
-- The Objective-C Speech SDK is available natively as a CocoaPod package
-- The .NET Speech SDK could be used with **Xamarin.Mac** as it implements .NET Standard 2.0
-- The Python Speech SDK is available as a PyPI module
-
-> [!TIP]
-> For details using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift </a>.
+- The Objective-C/Swift Speech SDK is available natively as a CocoaPod package for Mac x64 and ARM based silicons. For details about using the Objective-C Speech SDK with Swift, see <a href="https://developer.apple.com/documentation/swift/imported_c_and_objective-c_apis/importing_objective-c_into_swift" target="_blank">Importing Objective-C into Swift </a>.
+- The .NET Speech SDK is available via NuGet package and could be used with **Xamarin.Mac** and **Unity** application frameworks.
+- The Python Speech SDK is available as a PyPI module for Python versions 3.7 and higher.
+- The Java Speech SDK is available via the Maven repository as a JAR package.
 
 ### System requirements
 
-- A macOS version 10.13 or later
+- A macOS version 10.14 or later
 
 # [Xcode](#tab/mac-xcode)
 
@@ -34,7 +32,7 @@ When developing for macOS, there are three Speech SDKs available.
 :::row-end:::
 
 ```
-platform :ios, '9.3'
+platform :osx, 10.14
 use_frameworks!
 
 target 'MyApp' do

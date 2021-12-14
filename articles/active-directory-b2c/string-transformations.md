@@ -3,14 +3,14 @@ title: String claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: String claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 07/20/2021
-ms.author: mimart
+ms.date: 12/9/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -82,6 +82,50 @@ The self-asserted technical profile calls the validation **login-NonInteractive*
   - **stringComparison**:  ordinalIgnoreCase
 - Result: Error thrown
 
+## BuildUri
+
+Create the TOTP URI. The URI is a combination of the user's unique identifier, such as email address, and a secret key. The URI is later converted into a QR code that is presented to the user.
+
+| Item | TransformationClaimType | Data Type | Notes |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | path | string | The user's unique identifier, such as email address, username, or phone number. |
+| InputClaim|  query.secret| string | The TOTP secret key. |
+|InputParameter | scheme| string| The scheme part of the URI. For example, `otpauth`.| 
+|InputParameter | host| string| The scheme part of the URI. For example, `totp`.|
+|InputParameter | query.issuer| string| The issuer part of the URI. For example, `{AuthenticatorIssuer}`.|
+| OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
+
+Use this claims transformation to generate a TOTP URI that will be displayed in the QR Code, or deep link.
+
+```xml
+<ClaimsTransformation Id="CreateUriString" TransformationMethod="BuildUri">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="uriLabel" TransformationClaimType="path" />
+    <InputClaim ClaimTypeReferenceId="secretKey" TransformationClaimType="query.secret" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="scheme" DataType="string" Value="otpauth" />
+    <InputParameter Id="host" DataType="string" Value="totp" />
+    <InputParameter Id="query.issuer" DataType="string" Value="{AuthenticatorIssuer}" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="qrCodeContent" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Input claims:
+  - **path**: emily@fabrikam.com
+  - **query.secret**: `fay2lj7ynpntjgqa`
+- Input parameters:
+    - **scheme**: `otpauth`
+    - **host**: `totp`
+    - **query.issuer**: `{AuthenticatorIssuer}`
+- Output claims:
+  - **outputClaim**: `otpauth://totp/Contoso%20demo:emily@fabrikam.com?secret=fay2lj7ynpntjgqa&issuer=Contoso+demo`
+
 ## ChangeCase
 
 Changes the case of the provided claim to lower or upper case depending on the operator.
@@ -145,6 +189,30 @@ Use this claims transformation to set a string ClaimType value.
     - **value**: Contoso terms of service...
 - Output claims:
     - **createdClaim**: The TOS ClaimType contains the "Contoso terms of service..." value.
+
+## CreateOtpSecret
+
+Creates a TOTP string claim. The output of this claims transformation is a TOTP secret that is later stored in the Azure AD B2C user's account and shared with the Microsoft Authenticator app. The authenticator app uses the key to generate TOTP codes when the user needs to go through MFA. Your policy uses the key to validate the TOTP code provided by the user.
+
+| Item | TransformationClaimType | Data Type | Notes |
+|----- | ----------------------- | --------- | ----- |
+| OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked, with the generated TOTP code. |
+
+Use this claims transformation to create a secret for the TOTP multi-factor authenticator.
+
+```xml
+<ClaimsTransformation Id="CreateSecret" TransformationMethod="CreateOtpSecret">
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="secretKey" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### Example
+
+- Output claims:
+    - **outputClaim**: `hmlcmd4ph6fph64c`
+
 
 ## CopyClaimIfPredicateMatch
 
@@ -231,7 +299,7 @@ Determines whether a claim value is equal to the input parameter value.
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | string | The claim's type, which is to be compared. |
 | InputParameter | operator | string | Possible values: `EQUAL` or `NOT EQUAL`. |
-| InputParameter | compareTo | string | string comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
+| InputParameter | compareTo | string | String comparison, one of the values: Ordinal, OrdinalIgnoreCase. |
 | InputParameter | ignoreCase | boolean | Specifies whether this comparison should ignore the case of the strings being compared. |
 | OutputClaim | outputClaim | boolean | The ClaimType that is produced after this claims transformation has been invoked. |
 
@@ -288,6 +356,7 @@ Following example generates a global unique ID. This claims transformation is us
   </OutputClaims>
 </ClaimsTransformation>
 ```
+
 ### Example
 
 - Input parameters:
@@ -437,8 +506,8 @@ Format two claims according to the provided format string. This transformation u
 
 | Item | TransformationClaimType | Data Type | Notes |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputClaim |string | The ClaimType that acts as string format {0} parameter. |
-| InputClaim | inputClaim | string | The ClaimType that acts as string format {1} parameter. |
+| InputClaim | inputClaim1 |string | The ClaimType that acts as string format {0} parameter. |
+| InputClaim | inputClaim2 | string | The ClaimType that acts as string format {1} parameter. |
 | InputParameter | stringFormat | string | The string format, including the {0} and {1} parameters. This input parameter supports [string claims transformation expressions](string-transformations.md#string-claim-transformations-expressions).   |
 | OutputClaim | outputClaim | string | The ClaimType that is produced after this claims transformation has been invoked. |
 
@@ -490,7 +559,7 @@ To use the GetLocalizedStringsTransformation claims transformation:
 
 ![GetLocalizedStringsTransformation](./media/string-transformations/get-localized-strings-transformation.png)
 
-The following example looks up the email subject, body, your code message, and the signature of the email, from localized strings. These claims later used by custom email verification template.
+The following example looks up the email subject, body, your code message, and the signature of the email, from localized strings. The claims later used by custom email verification template.
 
 Define localized strings for English (default) and Spanish.
 
@@ -1066,11 +1135,11 @@ The following example takes a string collection of user roles, and converts it t
 ### Example
 
 - Input claims:
-  - **inputClaim**: [ "Admin", "Author", "Reader" ]
+  - **inputClaim**: `[ "Admin", "Author", "Reader" ]`
 - Input parameters:
   - **delimiter**: ","
 - Output claims:
-  - **outputClaim**: "Admin,Author,Reader"
+  - **outputClaim**: `"Admin,Author,Reader"`
 
 
 ## StringSplit

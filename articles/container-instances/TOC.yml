@@ -78,6 +78,8 @@
       href: container-instances-encrypt-data.md
     - name: Deploy on dedicated hosts
       href: container-instances-dedicated-hosts.md
+    - name: Deploy in availability zones (preview)
+      href: availability-zones.md
     - name: Use Logic Apps connector
       href: ../connectors/connectors-create-api-container-instances.md?toc=/azure/container-instances/toc.json&bc=/azure/container-instances/breadcrumb/toc.json
   - name: Container scenarios
@@ -172,7 +174,7 @@
   - name: Roadmap
     href: https://azure.microsoft.com/roadmap/
   - name: Provide product feedback
-    href: https://feedback.azure.com/forums/602224-azure-container-instances
+    href: https://feedback.azure.com/d365community/forum/1e5d6956-0c25-ec11-b6e6-000d3a4f0858
   - name: Stack Overflow
     href: https://stackoverflow.com/questions/tagged/azure-container-instances
   - name: Videos

@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
-ms.date: 06/14/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
@@ -112,7 +112,7 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 | Number of deployments per subscription | 200 |
 | Number of deployments per endpoint | 20 |
 | Number of instances per deployment | 20 |
-| Max request time out at endpoint level  | 60 seconds |
+| Max request time out at endpoint level  | 90 seconds |
 | Total requests per second at endpoint level for all deployments  | 500 <sup>2</sup> |
 | Total connections per second at endpoint level for all deployments  | 500 <sup>2</sup> |
 | Total connections active at endpoint level for all deployments  | 500 <sup>2</sup> |
@@ -203,4 +203,4 @@ When you're requesting a quota increase, select the service that you have in min
 
 + [Plan and manage costs for Azure Machine Learning](concept-plan-manage-cost.md)
 + [Service limits in Azure Machine Learning](resource-limits-quotas-capacity.md)
-+ [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md)
++ [Troubleshooting managed online endpoints deployment and scoring (preview)](./how-to-troubleshoot-online-endpoints.md)

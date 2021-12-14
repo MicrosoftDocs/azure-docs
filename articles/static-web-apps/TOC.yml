@@ -130,3 +130,5 @@
       href: https://azure.microsoft.com/pricing/details/app-service/static/
     - name: Quotas
       href: quotas.md
+    - name: Frequently asked questions
+      href: faq.yml

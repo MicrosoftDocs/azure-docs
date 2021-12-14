@@ -3,15 +3,14 @@ title: Manage resources with Microsoft Graph
 titleSuffix: Azure AD B2C
 description: How to manage resources in an Azure AD B2C tenant by calling the Microsoft Graph API and using an application identity to automate the process.
 services: B2C
-author: msmimart
-manager: celestedg
-
+author: kengaderdus
+manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 10/08/2021
-ms.custom: project-no-code
-ms.author: mimart
+ms.date: 12/09/2021
+ms.custom: "project-no-code, ignite-fall-2021, b2c-support"
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 # Manage Azure AD B2C with Microsoft Graph
@@ -19,7 +18,7 @@ ms.subservice: B2C
 Microsoft Graph allows you to manage resources in your Azure AD B2C directory. The following Microsoft Graph API operations are supported for the management of Azure AD B2C resources, including users, identity providers, user flows, custom policies, and policy keys. Each link in the following sections targets the corresponding page within the Microsoft Graph API reference for that operation. 
 
 > [!NOTE]
-> You can also programmatically create an Azure AD B2C directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [B2C Tenants - Create](/rest/api/activedirectory/b2ctenants/create).
+> You can also programmatically create an Azure AD B2C directory itself, along with the corresponding Azure resource linked to an Azure subscription. This functionality isn't exposed through the Microsoft Graph API, but through the Azure REST API. For more information, see [B2C Tenants - Create](/rest/api/activedirectory/b2c-tenants/create).
 
 Watch this video to learn about Azure AD B2C user migration using Microsoft Graph API.
 
@@ -30,6 +29,9 @@ Watch this video to learn about Azure AD B2C user migration using Microsoft Grap
 To use MS Graph API, and interact with resources in your Azure AD B2C tenant, you need an application registration that grants the permissions to do so. Follow the steps in the [Manage Azure AD B2C with Microsoft Graph](microsoft-graph-get-started.md) article to create an application registration that your management application can use. 
 
 ## User management
+> [!NOTE]
+> Azure AD B2C currently does not support advanced query capabilities on directory objects. This means that there is no support for `$count`, `$search` query parameters and Not (`not`), Not equals (`ne`), and Ends with (`endsWith`) operators in `$filter` query parameter. For more information, see [query parameters in Microsoft Graph](/graph/query-parameters) and [advanced query capabilities in Microsoft Graph](/graph/aad-advanced-queries).
+
 
 - [List users](/graph/api/user-list)
 - [Create a consumer user](/graph/api/user-post-users)
@@ -39,7 +41,7 @@ To use MS Graph API, and interact with resources in your Azure AD B2C tenant, yo
 
 ## User phone number management (beta)
 
-A phone number that can be used by a user to sign-in using [SMS or voice calls](sign-in-options.md#phone-sign-in), or [multi-factor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
+A phone number that can be used by a user to sign-in using [SMS or voice calls](sign-in-options.md#phone-sign-in), or [multifactor authentication](multi-factor-authentication.md). For more information, see [Azure AD authentication methods API](/graph/api/resources/phoneauthenticationmethod).
 
 - [Add](/graph/api/authentication-post-phonemethods)
 - [List](/graph/api/authentication-list-phonemethods)
@@ -63,6 +65,14 @@ An email address that can be used by a [username sign-in account](sign-in-option
 - [Get](/graph/api/emailauthenticationmethod-get)
 - [Update](/graph/api/emailauthenticationmethod-update)
 - [Delete](/graph/api/emailauthenticationmethod-delete)
+
+## Software OATH token authentication method (beta)
+
+ A software OATH token is a software-based number generator that uses the OATH time-based one-time password (TOTP) standard for multifactor authentication via an authenticator app. Use the Microsoft Graph API to manage a software OATH token registered to a user:
+
+- [List](/graph/api/authentication-list-softwareoathmethods)
+- [Get](/graph/api/softwareoathauthenticationmethod-get)
+- [Delete](/graph/api/softwareoathauthenticationmethod-delete)
 
 ## Identity providers
 
@@ -248,4 +258,4 @@ public static async Task ListUsers(GraphServiceClient graphClient)
 <!-- LINK -->
 
 [graph-objectIdentity]: /graph/api/resources/objectidentity
-[graph-user]: (https://docs.microsoft.com/graph/api/resources/user)
+[graph-user]: /graph/api/resources/user

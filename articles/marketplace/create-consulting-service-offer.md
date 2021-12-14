@@ -1,6 +1,6 @@
 ---
-title: How to create a consulting service offer in the Microsoft commercial marketplace 
-description: Learn how to create a new consulting service offer for Microsoft AppSource or Azure Marketplace using the commercial marketplace program in Microsoft Partner Center. 
+title: Create a consulting service offer for the commercial marketplace
+description: Create a consulting service offer for Microsoft AppSource or Azure Marketplace using Partner Center. 
 author: Microsoft-BradleyWright
 ms.author: brwrigh
 ms.reviewer: anbene
@@ -10,15 +10,15 @@ ms.topic: how-to
 ms.date: 09/27/2021
 ---
 
-# How to create a consulting service offer in the commercial marketplace
+# Create a consulting service offer
 
-This article explains how to create a consulting service offer for the Microsoft commercial marketplace using Partner Center.
+This article explains how to create a consulting service offer for the commercial marketplace using Partner Center.
 
 ## Before you begin
 
-To publish a consulting service offer, you must meet certain eligibility requirements to demonstrate expertise in your field. If you haven’t already done so, read [Plan a consulting service offer for the commercial marketplace](./plan-consulting-service-offer.md). It describes the prerequisites for a consulting service, and the assets you’ll need when you create the offer with Partner Center.
+To publish a consulting service offer, you must meet certain eligibility requirements to demonstrate expertise in your field. If you haven’t already done so, read [Plan a consulting service offer](./plan-consulting-service-offer.md). It describes the prerequisites and  assets you’ll need on hand to create a consulting service offer in Partner Center.
 
-## Create a new consulting service offer
+## Create a consulting service offer
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 

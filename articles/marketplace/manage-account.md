@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: varsha-sarah
 ms.author: vavargh
-ms.date: 09/27/2021
+ms.date: 12/03/2021
 ---
 
 # Manage a commercial marketplace account in Partner Center
@@ -110,7 +110,7 @@ To create GUIDs for tracking, you should use a GUID generator. The Azure Storage
 
 We recommend that you create a unique GUID for every offer and distribution channel for each product. You can opt to use a single GUID for the product's multiple distribution channels if you do not want reporting to be split.
 
-If you deploy a product by using a template and it is available on both the Azure Marketplace and on GitHub, you can create and register two distinct GUIDs:
+If you deploy a product by using a template and it is available on both Azure Marketplace and GitHub, you can create and register two distinct GUIDs:
 
 - Product A in Azure Marketplace
 - Product A on GitHub
@@ -220,7 +220,7 @@ The device management settings apply only to universal windows platform (UWP) pu
 
 ## Create a billing profile
 
-If you are publishing a [Dynamics 365 for Customer Engagement & Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) or [Dynamics 365 for Operations](./partner-center-portal/create-new-operations-offer.md) offer, you need to complete your *billing profile*.
+If you are publishing a [Dynamics 365 apps on Dataverse and Power Apps](./partner-center-portal/create-new-customer-engagement-offer.md) or [Dynamics 365 Operations Apps](./partner-center-portal/create-new-operations-offer.md) offer, you need to complete your *billing profile*.
 
 The billing address is pre-populated from your legal entity, and you can update this address later. The TAX and VAT ID fields are required for some countries and optional for others. The country/region name and company name cannot be edited.
 
@@ -229,7 +229,7 @@ The billing address is pre-populated from your legal entity, and you can update 
 
 ## Multi-user account management
 
-Partner Center uses [Azure Active Directory](/azure/active-directory/fundamentals/active-directory-whatis) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
+Partner Center uses [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) (Azure AD) for multi-user account access and management. Your organization's Azure AD is automatically associated with your Partner Center account as part of the enrollment process.
 
 ## Next steps
 

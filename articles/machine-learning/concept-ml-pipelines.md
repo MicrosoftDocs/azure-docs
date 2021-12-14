@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.topic: conceptual
 ms.author: laobri
 author: lobrien
-ms.date: 02/26/2021
+ms.date: 10/21/2021
 ms.custom: devx-track-python
 ---
 

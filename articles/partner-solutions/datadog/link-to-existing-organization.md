@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 05/28/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.custom: references_regions
+ms.custom: references_regions, mode-other
 ---
 
 # QuickStart: Link to existing Datadog organization

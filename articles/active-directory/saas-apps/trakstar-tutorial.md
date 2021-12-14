@@ -71,16 +71,18 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-4. On the **Basic SAML Configuration** section, perform the following steps:
+4. In the **Basic SAML Configuration** section, enter the following values in the corresponding input fields:
 
-	a. In the **Sign on URL** textbox, copy the value found in the **ACS (Consumer) URL** within Trakstar (Settings > Authentication & SSO) in the format: `https://app.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>`
-
-    b. In the **Identifier (Entity ID)** text box, leave the default:
-    `https://app.trakstar.com`
-
+	| Field name | Value | Note | 
+	| ---------------------- | ----- | ---- |
+	| **Reply URL (Assertion Consumer Service URL)** | `https://perform.trakstar.com/auth/saml/callback?namespace=<YOUR_NAMESPACE>` | Replace `<YOUR_NAMESPACE>` with a real value, which is visible in the **ACS (Consumer) URL** field in Trakstar Perform. See the note that appears after this table. |
+	| **Sign on URL** | `https://perform.trakstar.com/auth/saml/?namespace=<YOUR_NAMESPACE>` | This URL is _similar_ to the preceding URL, but it doesn't have the `/callback` portion. |
+	| **Identifier (Entity ID)** | `https://perform.trakstar.com` | |
+	
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Sign On URL. Sign into Trakstar as an Administrator to get these values.
-	> If you don't see the "Authentication & SSO" tab within Settings, you might not have the feature. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are only examples. You must use the values that are specific to your namespace in Trakstar Perform, which are visible by signing into the application and going to **Settings** > **Authentication & SSO** > **SAML 2.0** > **Configure**.
+	> 
+	> If you don't see the **Authentication & SSO** tab in **Settings**, you might not have the feature, and you should contact Trakstar customer support. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 5. On the **Set up Single Sign-On with SAML** page, in the **SAML Signing Certificate** section, click **Download** to download the **Certificate (Base64)** from the given options as per your requirement and save it on your computer.
 
@@ -134,4 +136,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Trakstar you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Trakstar you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/22/2021
+ms.date: 12/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ---
@@ -22,14 +22,14 @@ For more information about immutability policies for Blob Storage, see [Store bu
 
 A legal hold policy can be configured at either of the following scopes:
 
-- Version-level policy (preview): A legal hold can be configured on an individual blob version level for granular management of sensitive data.
+- Version-level policy: A legal hold can be configured on an individual blob version level for granular management of sensitive data.
 - Container-level policy: A legal hold that is configured at the container level applies to all blobs in that container. Individual blobs cannot be configured with their own immutability policies.
 
-### Version-level policy scope (preview)
+### Version-level policy scope
 
-To configure a legal hold on a blob version, you must first enable version-level immutability on the parent container. Version-level immutability cannot be disabled after it is enabled. For more information, see [Enable support for version-level immutability on a container](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability-on-a-container).
+To configure a legal hold on a blob version, you must first enable version-level immutability on the storage account or the parent container. Version-level immutability cannot be disabled after it is enabled. For more information, [Enable support for version-level immutability](immutable-policy-configure-version-scope.md#enable-support-for-version-level-immutability).
 
-After version-level immutability is enabled for a container, a legal hold can no longer be set at the container level. Legal holds must be applied to individual blob versions. A legal hold may be configured for the current version or a previous version of a blob.
+After version-level immutability is enabled for a storage account or a container, a legal hold can no longer be set at the container level. Legal holds must be applied to individual blob versions. A legal hold may be configured for the current version or a previous version of a blob.
 
 Version-level legal hold policies require that blob versioning is enabled for the storage account. To learn how to enable blob versioning, see [Enable and manage blob versioning](versioning-enable.md). Keep in mind that enabling versioning may have a billing impact. For more information, see the **Pricing and billing** section in [Blob versioning](versioning-overview.md#pricing-and-billing).
 
@@ -67,5 +67,5 @@ The following limits apply to container-level legal holds:
 - [Data protection overview](data-protection-overview.md)
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
-- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)
+- [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md)
 - [Configure immutability policies for containers](immutable-policy-configure-container-scope.md)

@@ -18,17 +18,17 @@ Blob storage now supports the Network File System (NFS) 3.0 protocol. This artic
 
 Azure Blob Storage scales linearly until it reaches the maximum storage account egress and ingress limit. Therefore, your applications can achieve higher throughput by using more clients. To view storage account egress and ingress limits, see [Scalability and performance targets for standard storage accounts](../common/scalability-targets-standard-account.md).
 
-The following chart shows how bandwidth increases as you add more clients. In this chart, a client is a Virtual Machine (VM) and the account uses the standard performance tier.
+The following chart shows how bandwidth increases as you add more clients. In this chart, a client is a Virtual Machine (VM) and with a standard general-purpose v2 storage account.
 
 > [!div class="mx-imgBorder"]
 > ![Standard performance](./media/network-file-system-protocol-support-performance/standard-performance-tier.png)
 
-The following chart shows this same effect when applied to an account that uses the premium performance tier.
+The following chart shows this same effect when applied to a premium block blob storage account.
 
 > [!div class="mx-imgBorder"]
 > ![Premium performance](./media/network-file-system-protocol-support-performance/premium-performance-tier.png)
 
-## Use premium performance tier for small scale applications
+## Use premium block blob storage accounts for small scale applications
 
 Not all applications can scale up by adding more clients. For those applications, [Azure premium block blob storage account](../common/storage-account-create.md) offers consistent low-latency and high transaction rates. The premium block blob storage account can reach maximum bandwidth with fewer threads and clients. For example, with a single client, a premium block blob storage account can achieve **2.3x** bandwidth compared to the same setup used with a standard performance general purpose v2 storage account.
 

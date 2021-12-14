@@ -17,6 +17,17 @@ ms.date: 09/09/2021
 
 Use the Data Flow activity to transform and move data via mapping data flows. If you're new to data flows, see [Mapping Data Flow overview](concepts-data-flow-overview.md)
 
+## Create a Data Flow activity with UI
+
+To use a Data Flow activity in a pipeline, complete the following steps:
+
+1. Search for _Data Flow_ in the pipeline Activities pane, and drag a Data Flow activity to the pipeline canvas.
+1. Select the new Data Flow activity on the canvas if it is not already selected, and its  **Settings** tab, to edit its details.
+
+   :::image type="content" source="media/control-flow-execute-data-flow-activity/data-flow-activity.png" alt-text="Shows the UI for a Data Flow activity.":::
+
+1. Select an existing data flow or create a new one using the New button.  Select other options as required to complete your configuration.
+
 ## Syntax
 
 ```json
@@ -102,11 +113,11 @@ The grouping feature in data flows allow you to both set the order of execution 
 
 The default behavior of data flow sinks is to execute each sink sequentially, in a serial manner, and to fail the data flow when an error is encountered in the sink. Additionally, all sinks are defaulted to the same group unless you go into the data flow properties and set different priorities for the sinks.
 
+:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Sink properties":::
+
 ### First row only
 
 This option is only available for data flows that have cache sinks enabled for "Output to activity". The output from the data flow that is injected directly into your pipeline is limited to 2MB. Setting "first row only" helps you to limit the data output from data flow when injecting the data flow activity output directly to your pipeline.
-
-:::image type="content" source="media/data-flow/sink-properties.png" alt-text="Sink properties":::
 
 ## Parameterizing Data Flows
 

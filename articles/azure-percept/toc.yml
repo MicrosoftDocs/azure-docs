@@ -89,8 +89,6 @@
           href: how-to-determine-your-update-strategy.md
         - name: Set up Azure IoT Hub to deploy over-the-air updates
           href: how-to-set-up-over-the-air-updates.md
-        - name: Select your Azure Percept DK update package
-          href: how-to-select-update-package.md
         - name: Update Azure Percept DK over-the-air
           href: how-to-update-over-the-air.md
         - name: Update Azure Percept DK over a USB-C connection
@@ -102,7 +100,20 @@
         - name: Set up advanced network settings on the Azure Percept DK
           href: how-to-set-up-advanced-network-settings.md
         - name: Connect Azure Percept over 5G or LTE networks
-          href: connect-over-cellular.md
+          items:
+            - name: Connect Azure Percept over 5G or LTE networks 
+              href: connect-over-cellular.md
+              items:
+                - name: Connect using USB modem 
+                  href: connect-over-cellular-usb.md
+                - name: Connect using cellular gateway 
+                  href: connect-over-cellular-gateway.md
+                - name: Connect using Vodafone Connect 4G vs USB modem 
+                  href: connect-over-cellular-usb-vodafone.md                
+                - name: Connect using Multitech USB modem 
+                  href: connect-over-cellular-usb-multitech.md 
+                - name: Connect using Quectel 5G Developer Kit
+                  href: connect-over-cellular-usb-quectel.md
         - name: Connect to Azure Percept DK over SSH
           href: how-to-ssh-into-percept-dk.md
         - name: Connect to Azure Percept DK over serial

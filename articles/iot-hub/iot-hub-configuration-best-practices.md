@@ -1,8 +1,8 @@
 ---
 title: Device configuration best practices for Azure IoT Hub | Microsoft Docs 
 description: Learn about best practices for using automatic device management to minimize repetitive and complex tasks involved in managing IoT devices at scale.
-author: robinsh
-ms.author: robinsh
+author: eross-msft
+ms.author: lizross
 ms.date: 06/28/2019
 ms.topic: conceptual
 ms.service: iot-hub
@@ -85,4 +85,4 @@ The following are best practices for IoT solution operators who using an IoT sol
 
 * Walk through the steps to create, update, or delete an automatic device configuration in [Configure and monitor IoT devices at scale](./iot-hub-automatic-device-management.md).
 
-* Implement a firmware update pattern using device twins and automatic device configurations in [Tutorial: Implement a device firmware update process](tutorial-firmware-update.md).
+* Learn how to complete an end-to-end image-based update in  [Device Update for Azure IoT Hub tutorial using the Raspberry Pi 3 B+ Reference Image](../iot-hub-device-update/device-update-raspberry-pi.md).

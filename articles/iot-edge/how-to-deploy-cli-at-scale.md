@@ -15,7 +15,7 @@ services: iot-edge
 
 [!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
-Create an [Azure IoT Edge automatic deployment](module-deployment-monitoring.md) by using the Azure command-line interface to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](../iot-hub/iot-hub-automatic-device-management.md) feature of Azure IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
+Create an [Azure IoT Edge automatic deployment](module-deployment-monitoring.md) by using the Azure CLI to manage ongoing deployments for many devices at once. Automatic deployments for IoT Edge are part of the [automatic device management](../iot-hub/iot-hub-automatic-device-management.md) feature of Azure IoT Hub. Deployments are dynamic processes that enable you to deploy multiple modules to multiple devices, track the status and health of the modules, and make changes when necessary.
 
 In this article, you set up the Azure CLI and the IoT extension. You then learn how to deploy modules to a set of IoT Edge devices and monitor the progress by using the available CLI commands.
 
@@ -157,7 +157,7 @@ Here's a basic layered deployment manifest with one module as an example:
 The previous example showed the layered deployment setting `properties.desired` for a module. If this layered deployment targeted a device where the same module was already applied, it would overwrite any existing desired properties. To update desired properties instead of overwriting them, you can define a new subsection. For example:
 
 ```json
-"SimulatedTEmperatureSensor": {
+"SimulatedTemperatureSensor": {
   "properties.desired.layeredProperties": {
     "SendData": true,
     "SendInterval": 5
@@ -168,7 +168,7 @@ The previous example showed the layered deployment setting `properties.desired` 
 The same can also be expressed with:
 
 ```json
-"SimulatedTEmperatureSensor": {
+"SimulatedTemperatureSensor": {
   "properties.desired.layeredProperties.SendData" : true,
   "properties.desired.layeredProperties.SendInterval": 5
 }

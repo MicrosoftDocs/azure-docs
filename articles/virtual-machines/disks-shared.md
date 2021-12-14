@@ -45,8 +45,8 @@ Some popular applications running on WSFC include:
 
 - [Create an FCI with Azure shared disks (SQL Server on Azure VMs)](../azure-sql/virtual-machines/windows/failover-cluster-instance-azure-shared-disks-manually-configure.md)
     - [Migrate your failover cluster instance to SQL Server on Azure VMs with shared disks](../azure-sql/migration-guides/virtual-machines/sql-server-failover-cluster-instance-to-sql-on-azure-vm.md)
-- Scale-out File Server (SoFS) [template] (https://aka.ms/azure-shared-disk-sofs-template)
-- SAP ASCS/SCS [template] (https://aka.ms/azure-shared-disk-sapacs-template)
+- Scale-out File Server (SoFS) [template](https://aka.ms/azure-shared-disk-sofs-template)
+- SAP ASCS/SCS [template](https://aka.ms/azure-shared-disk-sapacs-template)
 - File Server for General Use (IW workload)
 - Remote Desktop Server User Profile Disk (RDS UPD)
 
@@ -147,44 +147,6 @@ The following is an example of a 4-node Linux cluster with a single writer and t
 #### Ultra pricing
 
 Ultra shared disks are priced based on provisioned capacity, total provisioned IOPS (diskIOPSReadWrite + diskIOPSReadOnly) and total provisioned Throughput MBps (diskMBpsReadWrite + diskMBpsReadOnly). There is no extra charge for each additional VM mount. For example, an ultra shared disk with the following configuration (diskSizeGB: 1024, DiskIOPSReadWrite: 10000, DiskMBpsReadWrite: 600, DiskIOPSReadOnly: 100, DiskMBpsReadOnly: 1) is charged with 1024 GiB, 10100 IOPS, and 601 MBps regardless of whether it is mounted to two VMs or five VMs.
-
-## Frequently asked questions
-
-**Q: Is the shared disks feature supported for unmanaged disks or page blobs?**
-
-**A:** No. The feature is supported only for ultra disks and Premium SSD managed disks.
-
-**Q: Which regions support shared disks?**
-
-**A:** For regional information, see our [conceptual article](/azure/virtual-machines/disks-shared).
-
-**Q: Can shared disks be used as an OS disk?**
-
-**A:** No. Shared disks are only supported for data disks.
-
-**Q: Which disk sizes support shared disks?**
-
-**A:** For supported sizes, see our [conceptual article](/azure/virtual-machines/disks-shared).
-
-**Q: If I have an existing disk, can I enable shared disks on it?**
-
-**A:** All managed disks that are created by using API version 2019-07-01 or a later version can enable shared disks. To do this, you have to unmount the disk from all VMs that it is attached to. Next, edit the maxShares property on the disk.
-
-**Q: If I no longer want to use a disk in shared mode, how do I disable it?**
-
-**A:** Unmount the disk from all VMs that it is attached to. Then change the maxShare property on the disk to **1**.
-
-**Q: Can I resize a shared disk?**
-
-**A:** Yes.
-
-**Q: Can I enable write accelerator on a disk that also has shared disks enabled?**
-
-**A:** No. You can't enable write accelerator on a disk that also has shared disks enabled.
-
-**Q: Can I enable host caching for a disk that has shared disks enabled?**
-
-**A:** The only supported host caching option is **None**.
 
 ## Next steps
 

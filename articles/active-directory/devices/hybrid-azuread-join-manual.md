@@ -53,17 +53,18 @@ Azure AD Connect:
 
 Make sure that the following URLs are accessible from computers inside your organization's network for registration of computers to Azure AD:
 
-* `https://enterpriseregistration.windows.net`
-* `https://login.microsoftonline.com`
-* `https://device.login.microsoftonline.com`
-* Your organization's STS (for federated domains), which should be included in the user's local intranet settings
+- `https://enterpriseregistration.windows.net`
+- `https://login.microsoftonline.com`
+- `https://device.login.microsoftonline.com`
+- Your organization's Security Token Service (STS) (For federated domains)
+- `https://autologon.microsoftazuread-sso.com` (If you use or plan to use seamless SSO)
 
 > [!WARNING]
-> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to 'https://device.login.microsoftonline.com' is excluded from TLS break-and-inspect. Failure to exclude 'https://device.login.microsoftonline.com' may cause interference with client certificate authentication, causing issues with device registration and device-based Conditional Access.
+> If your organization uses proxy servers that intercept SSL traffic for scenarios like data loss prevention or Azure AD tenant restrictions, ensure that traffic to these URLs are excluded from TLS break-and-inspect. Failure to exclude these URLs may cause interference with client certificate authentication, cause issues with device registration, and device-based Conditional Access.
 
-If your organization plans to use Seamless SSO, the following URL needs to be reachable from the computers inside your organization. It must also be added to the user's local intranet zone.
+If your organization plans to use Seamless SSO, the following URL must be added to the user's local intranet zone.
 
-* `https://autologon.microsoftazuread-sso.com`
+- `https://autologon.microsoftazuread-sso.com`
 
 Also, the following setting should be enabled in the user's intranet zone: "Allow status bar updates via script."
 
@@ -566,7 +567,7 @@ Here are 3 ways to locate and verify the device state:
 ### Using the Azure portal
 
 1. Go to the devices page using a [direct link](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices).
-2. Information on how to locate a device can be found in [How to manage device identities using the Azure portal](./device-management-azure-portal.md#manage-devices).
+2. Information on how to locate a device can be found in [Manage device identities using the Azure portal](./device-management-azure-portal.md).
 3. If the **Registered** column says **Pending**, then Hybrid Azure AD Join has not completed. In federated environments, this can happen only if it failed to register and AAD connect is configured to sync the devices.
 4. If the **Registered** column contains a **date/time**, then Hybrid Azure AD Join has completed.
 

@@ -1,11 +1,11 @@
 ---
 # Mandatory fields.
-title: Understand your resource health
+title: "Troubleshooting: Resource health"
 titleSuffix: Azure Digital Twins
-description: See how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
+description: Learn how to use Azure Resource Health to check the health of your Azure Digital Twins instance.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/27/2021
+ms.date: 10/7/2021
 ms.topic: how-to
 ms.service: digital-twins
 ms.custom: contperf-fy22q1
@@ -48,7 +48,7 @@ For more information on using Azure Service Health, see [Service Health overview
 
 ## Use Azure status
 
-The [Azure status](../service-health/azure-status-overview.md) page provides a global view of the health of Azure services and regions. It's not as personalized as Azure Service Health or Azure Resource Health, and can be useful to understand incidents with ride-ranging impact.
+The [Azure status](../service-health/azure-status-overview.md) page provides a global view of the health of Azure services and regions. While Azure Service Health and Azure Resource Health are personalized to your specific resource, Azure status has a larger scope and can be useful to understand incidents with wide-ranging impact.
 
 To check Azure status, navigate to the [Azure status](https://status.azure.com/status/) page. The page displays a table of Azure services along with health indicators per region. You can view Azure Digital Twins by searching for its table entry on the page.
 
@@ -57,6 +57,6 @@ For more information on using the Azure status page, see [Azure status overview]
 ## Next steps
 
 Read about other ways to monitor your Azure Digital Twins instance in the following articles:
-* [Troubleshooting: View metrics with Azure Monitor](troubleshoot-metrics.md)
-* [Troubleshooting: Set up diagnostics](troubleshoot-diagnostics.md).
-* [Troubleshooting: Set up alerts](troubleshoot-alerts.md)
+* [Troubleshooting: Metrics](troubleshoot-metrics.md)
+* [Troubleshooting: Diagnostics logs](troubleshoot-diagnostics.md).
+* [Troubleshooting: Alerts](troubleshoot-alerts.md)

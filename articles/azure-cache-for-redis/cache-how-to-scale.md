@@ -45,6 +45,10 @@ Choose a pricing tier on the right and then choose **Select**.
 
 :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
 
+> [!NOTE]
+> Scaling is currently not avaialble with Enterprise Tier.
+>
+
 You can scale to a different pricing tier with the following restrictions:
 
 - You can't scale from a higher pricing tier to a lower pricing tier.
