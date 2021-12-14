@@ -19,8 +19,8 @@ You can specify these certificates when you deploy the data controller. This art
 
 - Azure `az` CLI `arcdata` extension
 - Kubernetes native deployment
-- 
-- ## Specify during CLI deployment
+
+## Specify during deployment with CLI
 
 1. Generate a certificate/private key for each endpoint. 
 
@@ -32,6 +32,15 @@ You can specify these certificates when you deploy the data controller. This art
    - `--logs-ui-private-key-file <path\file to logs private key file>`
    - `--metrics-ui-public-key-file <path\file to metrics public key file>`
    - `--metrics-ui-private-key-file <path\file to metrics private key file>`
+
+   For example:
+
+   ```azurecli
+   az arcdata dc create --profile-name azure-arc-aks-default-storage --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --logs-ui-public-key-file <path\file to logs public key file> --logs-ui-private-key-file <path\file to logs private key file> --metrics-ui-public-key-file <path\file to metrics public key file> --metrics-ui-private-key-file <path\file to metrics private key file>
+
+   #Example:
+   #az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --logs-ui-public-key-file logsuipublickeyfile --logs-ui-private-key-file logsuiprivatekeyfile --metrics-ui-public-key-file metricsuipublickeyfile --metrics-ui-private-key-file metricsuiprivatekeyfile
+   ```
 
 ## Specify during Kubernetes native tools deployment
 
