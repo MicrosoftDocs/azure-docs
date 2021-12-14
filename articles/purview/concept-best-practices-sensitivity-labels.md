@@ -23,7 +23,7 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 
 ## Azure Purview Labeling best practices and considerations
 
-### Getting started
+### Get started
 
 - Enabling sensitivity labeling in Azure Purview can be accomplished using the steps defined in [How to automatically apply sensitivity labels to your data in Azure Purview](./how-to-automatically-label-your-content.md).
 - Required licensing and helpful answers to other questions can be found in the [Sensitivity labels in Azure Purview FAQ](./sensitivity-labels-frequently-asked-questions.yml).
@@ -45,7 +45,8 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 
 :::image type="content" source="media/concept-best-practices/label-detection-criteria.png" alt-text="Screenshot that shows detection criteria for a label.":::
 
-[!NOTE] Microsoft 365 Trainable classifiers are not used by Azure Purview
+> [!NOTE] 
+> Microsoft 365 Trainable classifiers are not used by Azure Purview
 
 - For consistency in labeling across your data estate, if you are using autolabeling rules for files, it is recommended that you use the same sensitive information types for autolabeling database columns.
 
