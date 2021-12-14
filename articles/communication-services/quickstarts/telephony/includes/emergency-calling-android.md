@@ -122,6 +122,6 @@ private void emergencyCall() {
 
 ## Launch the app
 
-:::image type="content" source="../media/emergency-calling/emergency-calling-android-app.png" alt-text="Screenshot of the completed Android Application.":::
+:::image type="content" source="../media/emergency-calling/emergency-calling-android-app.png" alt-text="Screenshot of the completed Android application.":::
 
 The app can now be launched using the "Run App" button on the toolbar (Shift+F10). You can place a call to 933 by clicking the **933 Test Call** button.

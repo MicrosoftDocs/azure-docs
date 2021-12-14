@@ -109,6 +109,6 @@ func emergencyCall() {
 
 ## Launch the app
 
-:::image type="content" source="../media/emergency-calling/emergency-calling-ios-app.png" alt-text="Screenshot of the completed Android Application.":::
+:::image type="content" source="../media/emergency-calling/emergency-calling-ios-app.png" alt-text="Screenshot of the completed iOS application.":::
 
 Build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut. You can place a call to 933 by clicking the **933 Test Call** button.
