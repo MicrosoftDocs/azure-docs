@@ -33,7 +33,7 @@ To use a Jar activity for Azure Databricks in a pipeline, complete the following
 
 1. Select the **Settings** tab and specify a class name to be executed on Azure Databricks, optional parameters to be passed to the Jar, and libraries to be installed on the cluster to execute the job.
 
-   :::image type="content" source="media/transform-data-databricks-jar/jar-settings.png" alt-text="Shows the UI for the Settings tab for a Custom activity.":::
+   :::image type="content" source="media/transform-data-databricks-jar/jar-settings.png" alt-text="Shows the UI for the Settings tab for a Jar activity.":::
 
 ## Databricks Jar activity definition
 
