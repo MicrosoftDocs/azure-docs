@@ -7,8 +7,8 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 
-author: FrancescaLazzeri
-ms.author: lazzeri
+author: lgayhardt
+ms.author: lagayhar
 ms.date: 10/21/2021
 adobe-target: true
 ---
