@@ -94,83 +94,83 @@ Using the JSON file provided below, use the following command to enable MSI on e
 Below is the JSON file used to create an Azure Resource Manager (ARM) template and enable MSI on pre-existing SDDC or while deploying a new SDDC.
 
 ```json
-    {
-        "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
-        "contentVersion": "1.0.0.0",
-        "parameters": {
-            "apiVersion": {
-                "type": "String",
-                "metadata": {
-                    "description": "Must be 2021-12-01"
-                }
-            },
-            "name": {
-                "type": "String",
-                "metadata": {
-                    "description": "Name of the SDDC"
-                }
-            },
-            "location": {
-                "type": "String",
-                "metadata": {
-                    "description": "Region of SDDC"
-                }
-            },
-            "sku": {
-                "type": "String",
-                "metadata": {
-                    "description": "SKU value of the SDDC"
-                }
-            },
-            "hosts": {
-                "type": "Int",
-                "metadata": {
-                    "description": "Number of hosts in the management cluster"
-                }
-            },
-            "networkBlock": {
-                "type": "String"
-            },
-    
-            "internet": {
-                "type": "String",
-                "allowedValues": [
-                    "enabled",
-                    "disabled"
-                ],
-                "metadata": {
-                    "description": "Internet status"
-                }
-            },
-            "identityType": {
-                "type": "String",
-                "allowedValues": [
-                    "SystemAssigned",
-                    "None"
-                ]
-            }
-        },
-        "resources": [{
-            "type": "Microsoft.AVS/privateClouds",
-            "apiVersion": "[parameters('apiVersion')]",
-            "name": "[parameters('name')]",
-            "location": "[parameters('location')]",
-            "sku": {
-                "name": "[parameters('sku')]"
-            },
-            "properties": {
-                "managementCluster": {
-                    "clusterSize": "[parameters('hosts')]"
-                },
-                "internet": "[parameters('internet')]",
-                "networkBlock": "[parameters('networkBlock')]"
-            },
-            "identity": {
-                "type": "[parameters('identityType')]"
-            }
-        }]
+   {
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "apiVersion": {
+      "type": "String",
+      "metadata": {
+        "description": "Must be 2021-12-01"
+      }
+    },
+    "name": {
+      "type": "String",
+      "metadata": {
+        "description": "Name of the SDDC"
+      }
+    },
+    "location": {
+      "type": "String",
+      "metadata": {
+        "description": "Region of SDDC"
+      }
+    },
+    "sku": {
+      "type": "String",
+      "metadata": {
+        "description": "SKU value of the SDDC"
+      }
+    },
+    "hosts": {
+      "type": "Int",
+      "metadata": {
+        "description": "Number of hosts in the management cluster"
+      }
+    },
+    "networkBlock": {
+      "type": "String"
+    },
+    "internet": {
+      "type": "String",
+      "allowedValues": [
+        "enabled",
+        "disabled"
+      ],
+      "metadata": {
+        "description": "Internet status"
+      }
+    },
+    "identityType": {
+      "type": "String",
+      "allowedValues": [
+        "SystemAssigned",
+        "None"
+      ]
     }
-     
+  },
+  "resources": [
+    {
+      "type": "Microsoft.AVS/privateClouds",
+      "apiVersion": "[parameters('apiVersion')]",
+      "name": "[parameters('name')]",
+      "location": "[parameters('location')]",
+      "sku": {
+        "name": "[parameters('sku')]"
+      },
+      "properties": {
+        "managementCluster": {
+          "clusterSize": "[parameters('hosts')]"
+        },
+        "internet": "[parameters('internet')]",
+        "networkBlock": "[parameters('networkBlock')]"
+      },
+      "identity": {
+        "type": "[parameters('identityType')]"
+      }
+    }
+  ]
+}
 ```
 ---
 
