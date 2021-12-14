@@ -5,7 +5,7 @@ ms.topic: how-to
 manager: nitinme
 ms.author: lajanuar
 author: laujan
-ms.date: 09/16/2021
+ms.date: 12/06/2021
 ---
 
 # Generate SAS tokens for your storage containers
@@ -25,7 +25,7 @@ In this article, you'll learn how to create shared access signature (SAS) tokens
 
 1. Open the Azure Storage Explorer app on your local machine and navigate to your connected **Storage Accounts**.
 1. Expand the Storage Accounts node and select **Blob Containers**.
-1. Expand the Blob Containers node and right-click on a storage **container** node or to display the options menu.
+1. Expand the Blob Containers node and right-click a storage **container** node to display the options menu.
 1. Select **Get Shared Access Signature...** from options menu.
 1. In the **Shared Access Signature** window, make the following selections:
     * Select your **Access policy** (the default is none).
