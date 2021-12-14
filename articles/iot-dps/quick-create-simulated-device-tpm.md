@@ -291,7 +291,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
    * A security client that works with TPM: `azure-iot-security-tpm`
    * A transport for the device to connect to the Device Provisioning Service: either `azure-iot-provisioning-device-http` or `azure-iot-provisioning-device-amqp`
    * A client to use the transport and security client: `azure-iot-provisioning-device`
-   * the device client: `azure-iot-device`
+   * The device client: `azure-iot-device`
    * A transport: any of `azure-iot-device-amqp`, `azure-iot-device-mqtt`, or `azure-iot-device-http`
    * The security client that you already installed: `azure-iot-security-tpm`
 
