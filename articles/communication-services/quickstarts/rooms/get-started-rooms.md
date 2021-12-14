@@ -68,8 +68,7 @@ Since `rooms` are server-side entities, you may want to keep track of and persis
 Retrieve the details of an existing `room` by referencing the `roomId`:
 
 ```csharp
-Response<CommunicationRoom> getRoomResponse = await roomsClient.GetRoomAsync(
-    createdRoomId: "<roomId>")
+Response<CommunicationRoom> getRoomResponse = await roomsClient.GetRoomAsync(roomId)
 CommunicationRoom getCommunicationRoom = getRoomResponse.Value;
 ```
 
@@ -85,7 +84,7 @@ UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest();
 updateRoomRequest.ValidFrom = validFrom;
 updateRoomRequest.ValidUntil = validUntil;
 
-Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
+Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(roomId, updateRoomRequest);
 CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ``` 
 
@@ -103,7 +102,7 @@ updateRoomRequest.Participants.Add(communicationUser1, new RoomParticipant());
 updateRoomRequest.Participants.Add(communicationUser2, new RoomParticipant());
 updateRoomRequest.Participants.Add(communicationUser3, new RoomParticipant());
 
-Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
+Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(roomId, updateRoomRequest);
 CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ```
 
@@ -123,7 +122,7 @@ updateRoomRequest.Participants.Add(communicationUser1, null);
 updateRoomRequest.Participants.Add(communicationUser2, null);
 updateRoomRequest.Participants.Add(communicationUser3, null);
 
-Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
+Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(roomId, updateRoomRequest);
 CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ```
 
@@ -143,7 +142,7 @@ const call = callAgent.join(context);
 If you wish to disband an existing `room`, you may issue an explicit delete request. All `rooms` and their associated resources are automatically deleted at the end of their validity plus a grace period. 
 
 ```csharp
-Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(createdRoomId)
+Response deleteRoomResponse = await roomsClient.DeleteRoomAsync(roomId)
 ```
 
 ## Object model
