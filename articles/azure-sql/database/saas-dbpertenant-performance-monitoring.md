@@ -9,8 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
-
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 01/25/2019
 ---
 # Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app

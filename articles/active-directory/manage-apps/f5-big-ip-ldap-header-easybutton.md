@@ -1,6 +1,6 @@
 ---
-title: F5 BIG-IP Easy Button for Header and LDAP Single Sign-on
-description: Learn to integrate F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
+title: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO 
+description: Learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -13,11 +13,11 @@ ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: F5 BIG-IP Easy Button for Header and LDAP Single Sign-on
+# Tutorial: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO
 
-In this tutorial, you’ll learn to integrate F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
+In this tutorial, you’ll learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
 
-Integrating BIG-IP published applications with Azure AD provides many benefits, including:
+Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
 * Improved zero-trust governance through Azure AD pre-authentication and authorization
 
@@ -33,7 +33,7 @@ For this scenario, we have a legacy application using HTTP authorization headers
 
 Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introduce inevitable costs, and risk potential downtime.
 
-Instead, a BIG-IP Virtual Edition (VE) deployed between the internet and the internal Azure VNet application is connected and will be used to gate inbound access, along with Azure AD for its extensive choice of authentication and authorization capabilities.
+Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet application is connected and will be used to gate inbound access to the application, along with Azure AD for its extensive choice of authentication and authorization capabilities.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO. It significantly improves the overall security posture of the application, and allows the business to continue operating at pace, without interruption.
 
@@ -425,7 +425,7 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 
  ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=partners,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
 
-For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
+For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
 
  
 
