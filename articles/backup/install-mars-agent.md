@@ -34,7 +34,7 @@ The data that's available for backup depends on where the agent is installed.
 * Review [what's supported and what you can back up](backup-support-matrix-mars-agent.md) by the MARS agent.
 * Make sure that you have an Azure account if you need to back up a server or client to Azure. If you don't have an account, you can create a [free one](https://azure.microsoft.com/free/) in just a few minutes.
 * Verify internet access on the machines that you want to back up.
-* Ensure the user performing the installation and configuration of the MARS agent has local administrator privileges on the server to be protected.
+* Ensure the user installing and configuring the MARS agent has local administrator privileges on the server to be protected.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -67,7 +67,7 @@ To modify the storage replication type:
 
 Download the MARS agent so that you can install it on the machines that you want to back up.
 
-If you've already installed the agent on any machines, make sure that you're running the latest version of the agent. Find the latest version in the portal, or go directly to the [download](https://aka.ms/azurebackup_agent).
+If you've already installed the agent on any machines, ensure you're running the latest agent version. Find the latest version in the portal, or [download from here](https://aka.ms/azurebackup_agent).
 
 1. In the vault, under **Getting Started**, select **Backup**.
 
@@ -112,7 +112,7 @@ If you've already installed the agent on any machines, make sure that you're run
 
     ![Add vault credentials by using the Register Server Wizard](./media/backup-configure-vault/register1.png)
 
-1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine. [See here](backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-) for more information on allowed passphrase characters.
+1. On the **Encryption Setting** page, specify a passphrase that will be used to encrypt and decrypt backups for the machine. [Learn more](backup-azure-file-folder-backup-faq.yml#what-characters-are-allowed-for-the-passphrase-) about the allowed passphrase characters.
 
     * Save the passphrase in a secure location. You need it to restore a backup.
     * If you lose or forget the passphrase, Microsoft can't help you recover the backup data.
