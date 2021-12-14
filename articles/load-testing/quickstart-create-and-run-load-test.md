@@ -82,7 +82,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
               <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
                 <collectionProp name="Arguments.arguments"/>
               </elementProp>
-              <stringProp name="HTTPSampler.domain">{your-endpoint-url}</stringProp>
+              <stringProp name="HTTPSampler.domain">your-endpoint-url</stringProp>
               <stringProp name="HTTPSampler.port"></stringProp>
               <stringProp name="HTTPSampler.protocol">https</stringProp>
               <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -106,7 +106,7 @@ In this section, you'll create a sample Apache JMeter script that you'll use in 
 
     This sample Apache JMeter script simulates a load test of five virtual users simultaneously accessing a web endpoint. It takes less than two minutes to complete.
 
-1. In the file, replace the placeholder text `{your-endpoint-url}` (including the curly braces) with your own endpoint URL.
+1. In the file, replace the placeholder text `your-endpoint-url` with your own endpoint URL.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the endpoint URL.
