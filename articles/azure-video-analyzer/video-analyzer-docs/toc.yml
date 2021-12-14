@@ -8,6 +8,8 @@
     href: ../video-analyzer-for-media-docs/video-indexer-overview.md
   - name: Terminology
     href: terminology.md
+  - name: Live pipeline topologies
+    href: live-pipeline-topologies.md
   - name: What's new
     items:
     - name: Release notes
