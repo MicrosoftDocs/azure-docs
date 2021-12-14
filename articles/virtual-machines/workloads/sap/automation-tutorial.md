@@ -4,7 +4,7 @@ description: Hands-on lab for the SAP deployment automation framework on Azure.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 12/14/2021
 ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---
@@ -484,6 +484,16 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     az keyvault secret set --name "S-Password" --vault-name "${key_vault}" --value "${sap_user_password}";
     ```
 
+1. Check the version number of the S/4 1909 SPS03 BOM for the active version.
+  
+    Record the results.
+
+    ```bash
+
+    ls -d ${DEPLOYMENT_REPO_PATH}/deploy/ansible/BOM-catalog/S41909SPS03* | xargs basename
+
+    ```
+
 1. Configure your SAP parameters file for the download process. Then, download the SAP software using Ansible playbooks. Execute the following commands:
 
     ```bash
@@ -494,15 +504,24 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     vi sap-parameters.yaml
     ```
   
+1. Update the `bom_base_name` with the name BOM previously identified.
+  
+    Your file should look similar to the following example configuration:
+
+    ```yaml
+
+    bom_base_name:                 S41909SPS03_v0007ms
+
+    ```
+    
 1. Replace `<Deployer KeyVault Name>` with the name of the deployer resource group key vault
   
     Your file should look similar to the following example configuration:
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0006ms
+    bom_base_name:                 S41909SPS03_v0007ms
     kv_name:                       <Deployer KeyVault Name> 
-    check_storage_account:         false
 
     ```
     
@@ -512,7 +531,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
 
     ```yaml
 
-    bom_base_name:                 S41909SPS03_v0006ms
+    bom_base_name:                 S41909SPS03_v0007ms
     kv_name:                       <Deployer KeyVault Name> 
     check_storage_account:         false
 
@@ -569,7 +588,7 @@ For this example configuration, the resource group is `MGMT-NOEU-DEP00-INFRASTRU
     export      tenant_id="<tenant>"
     export      key_vault="<vaultID>"
     export       env_code="DEV"
-    export    region_code="NOEU"
+    export    region_code="<region_code>"
 
     ${DEPLOYMENT_REPO_PATH}/deploy/scripts/set_secrets.sh     \
         --environment "${env_code}"                           \
@@ -631,20 +650,20 @@ Use the [install_workloadzone](bash/automation-install_workloadzone.md) script t
 
     ```bash
 
-    export storage_account="<storageaccountName>"
-    export dep_env_code="MGMT"
-    export sap_env_code="DEV"
-    export region_code="NOEU"
-    export key_vault=<vaultID>
+    export tfstate_storage_account="<storageaccountName>"
+    export       deployer_env_code="MGMT"
+    export            sap_env_code="DEV"
+    export             region_code="<region_code>"
+    export               key_vault="<vaultID>"
 
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/${sap_env_code}-${region_code}-SAP01-INFRASTRUCTURE
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                     \
-        --parameterfile ./${sap_env_code}-${region_code}-SAP01-INFRASTRUCTURE.tfvars                   \
-        --deployer_environment "${dep_env_code}"                                                       \
-        --deployer_tfstate_key "${dep_env_code}-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate" \
-        --keyvault "${key_vault}"                                                                      \
-        --storageaccountname "${storage_account}"                                                      \
+    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                                          \
+        --parameterfile ./${sap_env_code}-${region_code}-SAP01-INFRASTRUCTURE.tfvars                        \
+        --deployer_environment "${deployer_env_code}"                                                       \
+        --deployer_tfstate_key "${deployer_env_code}-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate" \
+        --keyvault "${key_vault}"                                                                           \
+        --storageaccountname "${tfstate_storage_account}"                                                   \
         --auto-approve
     ```
 
@@ -683,13 +702,13 @@ The SAP system deploys:
     ```bash
 
     export sap_env_code="DEV"
-    export region_code="NOEU"
+    export  region_code="<region_code>"
 
-    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/DEV-${region_code}-SAP01-X00
+    cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/SYSTEM/${sap_env_code}-${region_code}-SAP01-X00
 
-    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh      \
+    ${DEPLOYMENT_REPO_PATH}/deploy/scripts/installer.sh                  \
       --parameterfile "${sap_env_code}-${region_code}-SAP01-X00.tfvars"  \
-      --type sap_system                                      \
+      --type sap_system                                                  \
       --auto-approve
     ```
       
