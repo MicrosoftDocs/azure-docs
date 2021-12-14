@@ -14,7 +14,7 @@ ms.author: jburchel
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
-This article describes how to deploy linked ARM templates with Visual Studio Team Services (VSTS).
+This article describes how to deploy linked Azure Resource Manager (ARM) templates with Visual Studio Team Services (VSTS).
 
 ## Overview
 
@@ -31,12 +31,12 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
 1. Log in to the Azure portal and create an Azure Storage account following the steps documented [here](/storage/common/storage-account-create?tabs=azure-portal).
 1. Once deployment is complete, navigate to the storage account and select **Shared access signature**.  Select Service, Container, and Object for the **Allowed resource types**.  Then select **Generate SAS and connection string**. Copy the SAS token and keep it available since we will use it later.
 
-   :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\storage-account-generate-sas-token.png" alt-text="Shows an Azure Storage Account in the Azure portal with &nbsp;Shared access signature&nbsp; selected.":::
+   :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\storage-account-generate-sas-token.png" alt-text="Shows an Azure Storage Account in the Azure portal with Shared access signature selected." lightbox="media\deploy-linked-arm-templates-with-vsts\storage-account-generate-sas-token.png":::
 
 1. Select the storage account Containers page and create a new Container.
 1. Select the new Container properties. 
    
-   :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\container-properties.png" alt-text="Shows an Azure Storage Account in the Azure portal with &nbsp;Containers&nbsp; selected.  There is a container with its &nbsp;Container properties&nbsp; menu selected.":::
+   :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\container-properties.png" alt-text="Shows an Azure Storage Account in the Azure portal with Containers selected.  There is a container with its Container properties menu selected.":::
 
 1. Copy the URL field and keep it handy.  We will need it later along with the SAS token from above.
 
@@ -66,7 +66,7 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
 1. A few changes are required from the above steps in order to use a linked ARM template deployment: 
    - Under the release, link the variable group created earlier:
    
-     :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\link-variable-group.png" alt-text="Shows the pipeline Variables tab highlighting the &nbsp;Link variable group&nbsp; button.":::
+     :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\link-variable-group.png" alt-text="Shows the pipeline Variables tab highlighting the Link variable group button.":::
 
    - Linked ARM template:
       - For Template, point to ArmTemplate_master.json instead of ArmTemplateForFactory.json
@@ -77,7 +77,7 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
 
 1. Save the release pipeline and trigger a release.
 
-## Next Steps
+## Next steps
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)
 
 
