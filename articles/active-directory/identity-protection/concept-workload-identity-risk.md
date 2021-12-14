@@ -42,8 +42,8 @@ There are three detections that may trigger for workload identities in your orga
 | Suspicious Sign-ins | This risk detection indicates sign-in properties or patterns that are unusual for this service principal. <br><br> The detection baselines sign-in behavior between 2 and 60 days, and fires if one or more of the following unfamiliar properties appear during a later sign-in: IP address / ASN, target resource, user agent, hosting/non-hosting IP change, IP country, credential type. |
 | Leaked Credentials | This risk detection indicates that the account's valid credentials have been leaked. |
 
-      > [!IMPORTANT]
-      > We mark accounts at high risk when this detection fires because this can indicate account takeover for the subject application. Legitimate changes to an application’s configuration sometimes trigger this detection. 
+> [!IMPORTANT]
+> We mark accounts at high risk when the **Suspicious Sign-ins** detection fires because this can indicate account takeover for the subject application. Legitimate changes to an application’s configuration sometimes trigger this detection. 
 
 ## Identify risky workload identities
 
