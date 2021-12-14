@@ -2,7 +2,7 @@
 title: Microsoft Defender for Cloud's features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 12/12/2021
+ms.date: 12/14/2021
 ms.custom: references_regions
 ---
 
@@ -104,6 +104,7 @@ For information about when recommendations are generated for each of these solut
 | - [Auto provisioning for agents and extensions](./enable-data-collection.md)                                                                                  | GA             | GA                             | GA                             |
 | - [Asset inventory](./asset-inventory.md)                                                                                                                     | GA             | GA                             | GA                             |
 | - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                               | GA             | GA                             | GA                             |
+| - [Integration with Microsoft Defender for Cloud](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps-)                | GA             | Not Available                  | Not Available                  |
 | **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |                                |
 | - [Microsoft Defender for servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
 | - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
@@ -112,7 +113,7 @@ For information about when recommendations are generated for each of these solut
 | - [Microsoft Defender for container registries scanning of images in CI/CD workflows](./defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available                  |
 | - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA                             |
 | - [Microsoft Defender for Containers](./defender-for-containers-introduction.md) <sup>[10](#footnote4)</sup>                                                  | GA             | GA                             | GA                             |
-| - [Defender extension for Azure Arc-enabled Kubernetes clusters](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                           | Public Preview | Not Available                  | Not Available                  |
+| - [Defender extension for Azure Arc-enabled Kubernetes clusters, servers or data services](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup> | Public Preview | Not Available                  | Not Available                  |
 | - [Microsoft Defender for Azure SQL database servers](./defender-for-sql-introduction.md)                                                                     | GA             | GA                             | GA  <sup>[9](#footnote9)</sup> |
 | - [Microsoft Defender for SQL servers on machines](./defender-for-sql-introduction.md)                                                                        | GA             | GA                             | Not Available                  |
 | - [Microsoft Defender for open-source relational databases](./defender-for-databases-introduction.md)                                                         | GA             | Not Available                  | Not Available                  |
