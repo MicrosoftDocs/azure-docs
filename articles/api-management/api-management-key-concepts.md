@@ -8,7 +8,7 @@ editor: ''
  
 ms.service: api-management
 ms.topic: overview
-ms.date: 12/13/2021
+ms.date: 12/14/2021
 ms.author: danlep
 ms.custom: mvc
 ---
@@ -94,11 +94,12 @@ API Management integrates with many complementary Azure services, including:
 * [Virtual networks](virtual-network-concepts.md) and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
 * Azure Active Directory for [developer authentication](api-management-howto-aad.md) and [request authorization](api-management-howto-protect-backend-with-aad.md)​
 * [Event Hub](api-management-howto-log-event-hubs.md) for streaming events​
-* Several Azure compute offerings commonly used to build and hosting APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others.​
+* Several Azure compute offerings commonly used to build and host APIs on Azure, including [Functions](import-function-app-as-api.md), [Logic Apps](import-logic-app-as-api.md), [Web Apps](import-app-service-as-api.md), [Service Fabric](how-to-configure-service-fabric-backend.md), and others.​
 
 ## Key concepts
 
 ### APIs
+
 APIs are the foundation of an API Management service instance. Each API represents a set of *operations* available to developers. Each API contains a reference to the backend service that implements the API, and its operations map to backend operations. 
 
 Operations in API Management are highly configurable, with control over URL mapping, query and path parameters, request and response content, and operation response caching. Rate limit, quotas, and other policies can also be implemented at the API or individual operation level.
@@ -109,14 +110,15 @@ More information:
 
 ### Products
 
-Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be **Open** or **Protected**. Protected products must be subscribed to before they can be used, while open products can be used without a subscription. 
+Products are how APIs are surfaced to developers. Products in API Management have one or more APIs, and can be *open* or *protected*. Protected products require a subscription, while open products can be used without a subscription. 
 
-When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require administrator approval or be automatic.
+When a product is ready for use by developers, it can be published. Once published, it can be viewed or subscribed to by developers. Subscription approval is configured at the product level and can either require an administrator's approval or be automatic.
 
 More information:
 * [Create and publish a product][How to create and publish a product]
 
 ### Groups
+
 Groups are used to manage the visibility of products to developers. API Management has the following built-in groups:
 
 * **Administrators** -  Manage API Management service instances and create the APIs, operations, and products that are used by developers.
@@ -127,7 +129,7 @@ Groups are used to manage the visibility of products to developers. API Manageme
 
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access the APIs from a product containing a subset of APIs. A user can be a member of more than one group.
+Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access a specific subset of APIs in a product. A user can belong to more than one group.
 
 More information: 
 * [How to create and use groups][How to create and use groups]
@@ -136,14 +138,14 @@ More information:
 
 Developers represent the user accounts in an API Management service instance. Developers can be created or invited to join by administrators, or they can sign up from the [developer portal][Developer portal]. Each developer is a member of one or more groups, and can subscribe to the products that grant visibility to those groups.
 
-When developers subscribe to a product, they are granted the primary and secondary key for the product. This key is used when calling the product's APIs.
+When developers subscribe to a product, they are granted the primary and secondary key for the product for use when calling the product's APIs.
 
 More information:
 * [How to manage user accounts][How to create or invite developers]
 
 ### Policies
 
-With [policies][API Management policies], an API publisher can change the behavior of an API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call rate limiting to restrict the number of incoming calls from a developer. For a complete list, see [API Management policies][Policy reference].
+With [policies][API Management policies], an API publisher can change the behavior of an API through configuration. Policies are a collection of statements that are executed sequentially on the request or response of an API. Popular statements include format conversion from XML to JSON and call-rate limiting to restrict the number of incoming calls from a developer. For a complete list, see [API Management policies][Policy reference].
 
 Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./api-management-advanced-policies.md#choose) and [Set variable](./api-management-advanced-policies.md#set-variable) policies are based on policy expressions. 
 
