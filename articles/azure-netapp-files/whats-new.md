@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 12/09/2021
+ms.date: 12/14/2021
 ms.author: b-hchen
 ---
 
@@ -22,6 +22,10 @@ ms.author: b-hchen
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
 ## December 2021
+
+* [Single-file snapshot restore](snapshots-restore-file-single.md) (Preview)
+
+    Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [How Azure NetApp Files snapshots work](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations are not time and resource efficient, especially with large data sets. If you do not want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you now have the option to use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy using an external client. This approach will drastically reduce RTO and network resource usage when restoring large files.
 
 * Features that are now generally available (GA)  
 
