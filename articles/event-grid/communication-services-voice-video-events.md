@@ -198,8 +198,8 @@ This section contains an example of what that data would look like for each even
 ]
 ```
 
-## Limiations:
-Calling events are only available for ACS VoIP users. PSTN, bots, echo bot and Teams users events are exluded.
+## Limitations
+Calling events are only available for ACS VoIP users. PSTN, bots, echo bot and Teams users events are excluded.
 No calling events will be available for ACS - Teams meeting interop call.
 
 
