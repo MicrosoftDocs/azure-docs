@@ -35,7 +35,7 @@ A secure identity solution means that an app only provides access to authenticat
 
 These are explained in more detail below.
 
-**Cloud-hosted solution**
+### Cloud-hosted solution
 
 Using a cloud hosted solution can provide modern authentication without needing to implement any lines of code. For example, [Microsoft 365](/microsoft-365/enterprise/about-microsoft-365-identity), Dynamics 365 and [Power Apps](/powerapps/maker/portals/configure/use-simplified-authentication-configuration) allow you to secure access with Azure Active Directory – giving you single sign-on and multi-factor authentication for free.
 
@@ -43,7 +43,7 @@ If you are building your own application, Azure App Service has [built in authen
 
 We recommend this approach because it is easy and leaves the least room for error. For example, if you use Azure App Service to host your app you can focus on implementing the business logic of the app. [Registration with Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) can be done automatically. However, you do have the flexibility to customize the authentication logic and choose an alternative identity provider if you want.
 
-**Zero Trust network access solution**
+### Zero Trust network access solution**
 
 Zero Trust network access solutions provide secure remote access to individual on-premises applications. Azure AD works with partners to enable scalable Zero Trust network access that supports a variety of authentication protocols. You can find a list of partners and integrations on the [secure hybrid access docs page](/azure/active-directory/manage-apps/secure-hybrid-access).
 
@@ -51,7 +51,7 @@ Zero Trust network access solutions provide secure remote access to individual o
 
 :::image type="content" source="./media/secure-line-of-business-apps/secure-hybrid-access.png" alt-text="Illustration of Secure Hybrid Access partner integrations and Application Proxy providing access to legacy and on-premises applications after authentication with Azure AD." border="false":::
 
-**Custom built – hosted anywhere**
+### Custom built – hosted anywhere
 
 Finally, you can implement secure authentication and authorization in your application using a trusted authentication library and Azure Active Directory. Our [Microsoft Authentication Library (MSAL)](/azure/active-directory/develop/msal-overview) is designed to make it easy to implement authentication and authorization – you implement minimal logic in your own app and the library handles the details of authentication for you. Using this approach makes sense if you have already implemented authentication logic in the app and are looking to update it to modern auth.
 
