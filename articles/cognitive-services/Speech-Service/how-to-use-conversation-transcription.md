@@ -22,7 +22,6 @@ The Speech SDK's **ConversationTranscriber** API allows you to transcribe meetin
 
 * Only available in the following subscription regions: `centralus`, `eastasia`, `eastus`, `westeurope`
 * Requires a 7-mic circular multi-microphone array. The microphone array should meet [our specification](./speech-sdk-microphone.md).
-* The [Speech Devices SDK](speech-devices-sdk.md) provides suitable devices and a sample app demonstrating Conversation Transcription.
 
 ## Prerequisites
 

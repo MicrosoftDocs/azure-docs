@@ -27,10 +27,10 @@ mkdir calling-quickstart && cd calling-quickstart
 ### Install the package
 Use the `npm install` command to install the Azure Communication Services Calling SDK for JavaScript.
 > [!IMPORTANT]
-> This quickstart uses the Azure Communication Services Calling SDK version `1.1.0-beta.1`. 
+> This quickstart uses the Azure Communication Services Calling SDK version `1.3.2-beta.1`. 
 ```console
 npm install @azure/communication-common --save
-npm install @azure/communication-calling@1.1.0-beta.1 --save
+npm install @azure/communication-calling@1.3.2 --save
 ```
 ### Set up the app framework
 
