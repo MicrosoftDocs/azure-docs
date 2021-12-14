@@ -19,9 +19,9 @@ Form Recognizer service is updated on an ongoing basis. Bookmark this page to st
 
 ## November 2021
 
- The beta.2 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
+### Form Recognizer v3.0 preview SDK release update (beta.2)
 
-### Form Recognizer v3.0 preview release (beta.2)
+ The beta.2 version of the Azure Form Recognizer SDKs has been released. This new beta release incorporates bug fixes and minor feature updates.
 
 ### [**C#**](#tab/csharp)
 
