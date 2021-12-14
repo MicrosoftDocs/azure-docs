@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
-description: learn how to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+description: Learn how to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -287,11 +287,11 @@ Select **Access > Single Sign-on > Kerberos > Create** and provide the following
 
 * **Send Authorization:** Disable for applications that prefer negotiating authentication, instead of receiving the Kerberos token in the first request. For example, *Tomcat*.
 
-     ![Screenshot to configure kerberos sso](./media/f5-big-ip-kerberos-advanced/configure-kerberos-sso.png)
+     ![Screenshot to configure kerberos S S O](./media/f5-big-ip-kerberos-advanced/configure-kerberos-sso.png)
 
-You can leave *KDC** undefined if the user realm is different to the backend server realm. This applies for multi-domain realm scenarios as well. When left blank, BIG-IP will attempt to discover a Kerberos realm through a DNS lookup of SRV records for the backend server’s domain, so it expects the domain name to be the same as the realm name. If the domain name is different from the realm name, it must be specified in the [/etc/krb5.conf](https://support.f5.com/csp/article/K17976428) file.
+You can leave *KDC* undefined if the user realm is different to the backend server realm. This applies for multi-domain realm scenarios as well. When left blank, BIG-IP will attempt to discover a Kerberos realm through a DNS lookup of SRV records for the backend server’s domain, so it expects the domain name to be the same as the realm name. If the domain name is different from the realm name, it must be specified in the [/etc/krb5.conf](https://support.f5.com/csp/article/K17976428) file.
 
-Kerberos SSO processing is as fastest when a KDC is specified by IP, slower when specified by host name, and due to additional DNS queries, even slower when left undefined. For this reason, you should ensure your DNS is performing optimally before moving a proofs of concept (POC) into production. Note that if backend servers are in multiple realms, you must create a separate SSO configuration object for each realm.
+Kerberos SSO processing is fastest when a KDC is specified by IP, slower when specified by host name, and due to additional DNS queries, even slower when left undefined. For this reason, you should ensure your DNS is performing optimally before moving a proofs of concept (POC) into production. Note that if backend servers are in multiple realms, you must create a separate SSO configuration object for each realm.
 
 You can inject headers as part of the SSO request to the backend application. Simply change **General Properties** setting from **Basic** to **Advanced**. 
 
@@ -303,13 +303,13 @@ An *Access Profile* binds many APM elements managing access to BIG-IP virtual se
 
 1. Select **Access > Profiles / Policies > Access Profiles (Per-Session Policies) > Create** and provide these general properties:
 
- * **Name:** For example, MyExpenses
+   * **Name:** For example, MyExpenses
 
- * **Profile Type:** All
+   * **Profile Type:** All
 
- * **SSO Configuration:** The KCD SSO configuration object you just created
+   * **SSO Configuration:** The KCD SSO configuration object you just created
 
- * **Accepted Language:** Add at least one language
+   * **Accepted Language:** Add at least one language
 
      ![Screenshot to create new access profile](./media/f5-big-ip-kerberos-advanced/create-new-access-profile.png)
 
@@ -327,7 +327,7 @@ An *Access Profile* binds many APM elements managing access to BIG-IP virtual se
 
 5. In the **SAML authentication SP** configuration, set the **AAA Server** option to use the SAML SP object you created earlier
 
-    ![Screenshot to configure AAA server](./media/f5-big-ip-kerberos-advanced/configure-aaa-server.png)
+    ![Screenshot to configure A A A server](./media/f5-big-ip-kerberos-advanced/configure-aaa-server.png)
 
 6. Select the link in the upper **Deny** box to change the **Successful** branch to **Allow**
 
@@ -335,7 +335,7 @@ An *Access Profile* binds many APM elements managing access to BIG-IP virtual se
 
 ### Configure Attribute Mappings
 
-Although optional, adding a *LogonID_Mapping configuration* enables the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This is useful  when you analyze logs , or while troubleshooting.
+Although optional, adding a *LogonID_Mapping configuration* enables the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This is useful  when you analyze logs, or while troubleshooting.
 
 1. Click the **+** symbol for the SAML Auth Successful branch 
 
@@ -387,7 +387,7 @@ A *Virtual Server* is a BIG-IP data plane object represented by a virtual IP add
 
 1. Select **Local Traffic > Virtual Servers > Virtual Server List > Create**
 
-2. Provide the virtual sever with a **Name** and IP IPv4/IPv6 that isn’t already allocated to an existing BIG-IP object or device on the connected network. The IP will be dedicated to receiving client traffic for the published backend application. Then set the **Service Port** to **443**
+2. Provide the virtual server with a **Name** and IP IPv4/IPv6 that isn’t already allocated to an existing BIG-IP object or device on the connected network. The IP will be dedicated to receiving client traffic for the published backend application. Then set the **Service Port** to **443**
 
     ![Screenshot to configure new virtual server](./media/f5-big-ip-kerberos-advanced/configure-new-virtual-server.png)
 
