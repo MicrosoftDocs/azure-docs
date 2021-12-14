@@ -47,7 +47,7 @@ Create a new `RoomsClient` object that will be used to create new `rooms` and ma
 ```csharp
 // Find your Communication Services resource in the Azure portal
 var connectionString = "<connection_string>"; 
-RoomsClient client = new RoomsClient(connectionString);
+RoomsClient roomsClient = new RoomsClient(connectionString);
 ```
 
 ### Create a room
