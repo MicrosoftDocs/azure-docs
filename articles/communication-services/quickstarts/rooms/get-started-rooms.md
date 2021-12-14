@@ -78,14 +78,13 @@ CommunicationRoom getCommunicationRoom = getRoomResponse.Value;
 The lifetime of a `room` can be modified by issuing an update request for the `ValidFrom` and `ValidUntil` parameters.
 
 ```csharp
-UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
-{
-    ValidFrom = new DateTimeOffset(2021, 12, 1, 8, 6, 32,
-                                 new TimeSpan(1, 0, 0)),
-    ValidUntil = new DateTimeOffset(2021, 12, 2, 8, 6, 32,
-                                 new TimeSpan(1, 0, 0))
-    } 
- };
+var validFrom = new DateTime(2022, 05, 01, 00, 00, 00, DateTimeKind.Utc);
+var validUntil = validFrom.AddDays(1);
+
+UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest();
+updateRoomRequest.ValidFrom = validFrom;
+updateRoomRequest.ValidUntil = validUntil;
+
 Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
 CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ``` 
@@ -95,15 +94,15 @@ CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 To add new participants to a `room`, issue an update request on the room's `Participants`:
 
 ```csharp
+var communicationUser1 = "<ParticipantId1>";
+var communicationUser2 = "<ParticipantId2>";
+var communicationUser3 = "<ParticipantId3>";
+
 UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
-{
-    Participants = {
-        { "<ParticipantId1>", new {} }
-        { "<ParticipantId2>", new {} }
-        { "<ParticipantId3>", new {} }
-        { "<ParticipantId4>", new {} }
-    } 
- };
+updateRoomRequest.Participants.Add(communicationUser1, new RoomParticipant());
+updateRoomRequest.Participants.Add(communicationUser2, new RoomParticipant());
+updateRoomRequest.Participants.Add(communicationUser3, new RoomParticipant());
+
 Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
 CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ```
@@ -115,12 +114,15 @@ Participants that have been added to a `room` become eligible to join calls.
 To remove a participant from a `room` and revoke their access, update the `Participants` list:
 
 ```csharp
+var communicationUser1 = "<ParticipantId1>";
+var communicationUser2 = "<ParticipantId2>";
+var communicationUser3 = "<ParticipantId3>";
+
 UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
-{
-    Participants = {
-        { "<ParticipantId", null }
-    } 
- };
+updateRoomRequest.Participants.Add(communicationUser1, null);
+updateRoomRequest.Participants.Add(communicationUser2, null);
+updateRoomRequest.Participants.Add(communicationUser3, null);
+
 Response<CommunicationRoom> updateRoomResponse = await roomsClient.UpdateRoomAsync(createdRoomId, updateRoomRequest);
 CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 ```
