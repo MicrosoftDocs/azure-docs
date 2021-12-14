@@ -47,15 +47,6 @@ export ARM_SUBSCRIPTION_ID=<subscriptionID>
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your information.
 
-You can copy the sample configuration files to start testing the deployment automation framework.
-
-```bash
-cd ~/Azure_SAP_Automated_Deployment
-
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
-
-```
-
 
 # [Windows](#tab/windows)
 
@@ -70,7 +61,7 @@ git clone https://github.com/Azure/sap-automation.git
 Import the PowerShell module
 
 ```powershell
-Import-Module             C:\Azure_SAP_Automated_Deployment\sap-automation\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilitiespsd1
+Import-Module C:\Azure_SAP_Automated_Deployment\sap-automation\deploy\scripts\pwsh\SAPDeploymentUtilities\Output\SAPDeploymentUtilities\SAPDeploymentUtilities.psd1
 ```
 
 ---
@@ -87,7 +78,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/samples/WORKSPACES WORKSPACES
 ```
 # [Windows](#tab/windows)
 
@@ -95,7 +86,7 @@ cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
 cd C:\Azure_SAP_Automated_Deployment
 mkdir WORKSPACES
 
-xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+xcopy /E sap-automation\samples\WORKSPACES WORKSPACES
 ```
 
 ---
