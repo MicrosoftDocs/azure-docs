@@ -110,7 +110,7 @@ This section describes how to manage log alerts using the cross-platform [Azure 
 > Azure CLI support is only available for the scheduledQueryRules API version `2020-08-01` and later. Previous API versions can use the Azure Resource Manager CLI with templates as described below. If you use the legacy [Log Analytics Alert API](./api-alerts.md), you will need to switch to use CLI. [Learn more about switching](./alerts-log-api-switch.md).
 
 
-1. Go to Azure portal, select **Cloud Shell**.
+1. In the [portal](https://portal.azure.com/), select **Cloud Shell**.
 1. At the prompt, you can use commands with ``--help`` option to learn more about the command and how to use it. For example, the following command shows you the list of commands available for creating, viewing, and managing log alerts:
     ```azurecli
     az monitor scheduled-query --help
