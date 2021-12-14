@@ -69,10 +69,10 @@ Update the Apache JMeter script with the URL of your sample web app:
 1. Replace all three instances of the value with the URL of your sample web app: 
 
    ```xml
-   <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
+   <stringProp name="HTTPSampler.domain">your-app-name.azurewebsites.net</stringProp>
    ```
 
-    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow in the subsequent steps. For now, replace the placeholder text `{your-app-name}` in the previous XML snippet with a unique name that you want to provide to the App Service web app. You'll then use this same name to create the web app.
+    You'll deploy the sample application to an Azure App Service web app by using the GitHub Actions workflow in the subsequent steps. For now, replace the placeholder text `your-app-name` in the previous XML snippet with a unique name that you want to provide to the App Service web app. You'll then use this same name to create the web app.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the sample application's URL.

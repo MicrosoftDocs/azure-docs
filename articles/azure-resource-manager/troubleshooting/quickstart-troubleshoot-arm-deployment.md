@@ -3,7 +3,7 @@ title: Troubleshoot ARM template JSON deployments
 description: Learn how to troubleshoot Azure Resource Manager template (ARM template) JSON deployments.
 ms.date: 12/08/2021
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell, mode-other
+ms.custom: devx-track-azurepowershell, mode-arm
 ---
 
 # Quickstart: Troubleshoot ARM template JSON deployments
