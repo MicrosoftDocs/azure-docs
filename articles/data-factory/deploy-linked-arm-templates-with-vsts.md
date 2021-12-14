@@ -18,17 +18,17 @@ This article describes how to deploy linked ARM templates with Visual Studio Tea
 
 ## Overview
 
-When dealing with deploying a large number of components in Azure, a single ARM template might be challenging to manage and maintain.  ARM linked templates allow you to make your deployment more modular and makes the templates easier to manage.  When dealing with large deployments, it is highly recommended to consider breaking down your deployment into a main template and multiple linked templates representing different components of your deployment.
+When dealing with deploying many components in Azure, a single ARM template might be challenging to manage and maintain.  ARM linked templates allow you to make your deployment more modular and makes the templates easier to manage.  When dealing with large deployments, it is highly recommended to consider breaking down your deployment into a main template and multiple linked templates representing different components of your deployment.
 
-Deploying ARM templates can be performed using a number of methods such as using PowerShell, Azure CLI and Azure Portal.  A recommended approach however is to adopt one of DevOps practices, namely continuous deployment.  VSTS is an application lifecycle management tool hosted in the cloud and offered as a service.  One of the capabilities VSTS offers is release management.
+Deploying ARM templates can be performed using several different methods such as using PowerShell, Azure CLI, and Azure portal.  A recommended approach however is to adopt one of DevOps practices, namely continuous deployment.  VSTS is an application lifecycle management tool hosted in the cloud and offered as a service.  One of the capabilities VSTS offers is release management.
 
-This article describes how you can deploy linked ARM templates using the release management feature of VSTS. In order for the linked templates to be deployed properly, they will need to be stored in a location that can be reached by the Azure Resource Manager, such as Azure Storage; so we will show how Azure Storage can be used to stage the ARM template files.  We will also show some recommended practices around keeping secrets protected leveraging Azure Key Vault.
+This article describes how you can deploy linked ARM templates using the release management feature of VSTS. In order for the linked templates to be deployed properly, they will need to be stored in a location that can be reached by the Azure Resource Manager, such as Azure Storage; so we will show how Azure Storage can be used to stage the ARM template files.  We will also show some recommended practices around keeping secrets protected using Azure Key Vault.
 
-The scenario we  walk through here is to deploy VNet with a Network Security Group (NSG) structured as linked templates.  We will use VSTS to show how continuous deployment can be setup to enable teams to continuously update Azure with new changes each time there is a modification to the template.
+The scenario we  walk through here is to deploy VNet with a Network Security Group (NSG) structured as linked templates.  We will use VSTS to show how continuous deployment can be set up to enable teams to continuously update Azure with new changes each time there is a modification to the template.
 
 ## Create an Azure Storage account
 
-1. Login to the Azure portal and create an Azure Storage account following the steps documented [here](/storage/common/storage-account-create?tabs=azure-portal).
+1. Log in to the Azure portal and create an Azure Storage account following the steps documented [here](/storage/common/storage-account-create?tabs=azure-portal).
 1. Once deployment is complete, navigate to the storage account and select **Shared access signature**.  Select Service, Container, and Object for the **Allowed resource types**.  Then select **Generate SAS and connection string**. Copy the SAS token and keep it available since we will use it later.
 
    :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\storage-account-generate-sas-token.png" alt-text="Shows an Azure Storage Account in the Azure portal with &nbsp;Shared access signature&nbsp; selected.":::
@@ -38,19 +38,19 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
    
    :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\container-properties.png" alt-text="Shows an Azure Storage Account in the Azure portal with &nbsp;Containers&nbsp; selected.  There is a container with its &nbsp;Container properties&nbsp; menu selected.":::
 
-1. Copy the URL field and keep it handy.  We will need it later as well as the SAS token from above.
+1. Copy the URL field and keep it handy.  We will need it later along with the SAS token from above.
 
 ## Protect secrets with Azure Key Vault
 
 1. In the Azure portal, create an Azure Key Vault resource.
-1. Select the Azure Key Vault you just created and then select Secrets.
+1. Select the Azure Key Vault you created above and then select Secrets.
 1. Select Generate/Import to add the SAS Token.
 1. For the Name property, enter `StorageSASToken` and then provide the Azure Storage shared access signature key you copied in a previous step for the Value.
 1. Select Create.
 
 ## Link Azure Key Vault to VSTS
 
-1. Login to your VSTS account and navigate to your project.
+1. Log in to your Azure DevOps organization and navigate to your project.
 1. Go to **Library** under **Pipelines** in the navigation pane.
 
    :::image type="content" source="media\deploy-linked-arm-templates-with-vsts\vsts-libraries.png" alt-text="Shows the navigation pane in VSTS with Pipelines selected and the Library option highlighted.":::
@@ -58,7 +58,7 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
 1. Under **Variable group**, create a new group and for **Variable group name** enter `AzureKeyVaultSecrets`.
 1. Toggle **Link secrets from an Azure key vault as variables**.
 1. Select your Azure subscription and then the Azure Key Vault you created earlier, and then select Authorize.
-1. Once authorization is successful you can add variables by clicking **Add** and will be presented with the option to add references to the secrets in the Azure Key Vault. Add a reference to the `StorageSASToken` created above, and save it.
+1. Once authorization is successful, you can add variables by clicking **Add** and will be presented with the option to add references to the secrets in the Azure Key Vault. Add a reference to the `StorageSASToken` created above, and save it.
 
 ## Setup continuous deployment using VSTS
 
@@ -71,7 +71,7 @@ The scenario we  walk through here is to deploy VNet with a Network Security Gro
    - Linked ARM template:
       - For Template, point to ArmTemplate_master.json instead of ArmTemplateForFactory.json
       - For Template Parameters, point to 'ArmTemplateParamter_master.json' instead of 'ArmTemplateParametersForFactory.json'
-   - Under override Template parameters update 2 additional parameters
+   - Under override Template parameters update two additional parameters
       - **containerUri** – Paste the URL of container created above.
       - **containerSasToken** - If the secret's name is 'StorageSASToken', enter '$(StorageSASToken)' for this value.
 
