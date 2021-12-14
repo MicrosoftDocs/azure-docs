@@ -48,37 +48,37 @@ Azure services are presented in the following tables by category. Note that some
 > | Azure Backup                           | Azure App Service                                 | 
 > | Azure Cosmos DB                        | Azure Automation                                  | 
 > | Azure Data Lake Storage Gen2           | Azure Active Directory Domain Services            | 
-> | Azure ExpressRoute                     | Azure Bastion                                     | 
-> | Azure public IP                        | Azure Cache for Redis                             | 
-> | Azure SQL Database                     | Azure Cognitive Services                          | 
-> | Azure SQL Managed Instance             | Azure Cognitive Services: Computer Vision         | 
-> | Disk storage                           | Azure Cognitive Services: Content Moderator       | 
-> | Azure Event Hubs                       | Azure Cognitive Services: Face                    | 
-> | Azure Key Vault                        | Azure Cognitive Services: Text Analytics          | 
-> | Azure Load Balancer                    | Azure Data Explorer                               | 
-> | Azure Service Bus                      | Azure Database for MySQL                          | 
-> | Azure Service Fabric                   | Azure Database for PostgreSQL                     | 
-> | Azure Storage: Hot/cool Blob Storage tiers   | Azure DDoS Protection                       | 
-> | Storage: Managed Disks                 | Azure Firewall                                    | 
-> | Azure Virtual Machine Scale Sets       | Azure Firewall Manager                            | 
-> | Azure Virtual Machines                 | Azure Functions                                   | 
-> | Virtual Machines: Azure Dedicated Host | Azure IoT Hub                                     | 
-> | Virtual Machines: Av2-series           | Azure Kubernetes Service (AKS)                    | 
-> | Virtual Machines: Bs-series            | Azure Monitor: Application Insights               | 
-> | Virtual Machines: DSv2-series          | Azure Monitor: Log Analytics                      | 
-> | Virtual Machines: DSv3-series          | Azure Private Link                                | 
-> | Virtual Machines: Dv2-series           | Azure Site Recovery                               | 
-> | Virtual Machines: Dv3-series           | Azure Synapse Analytics                           |     
-> | Virtual Machines: ESv3-series          | Azure Batch                                       | 
-> | Virtual Machines: Ev3-series           | Azure Cloud Service: M-series                     | 
-> | Azure Virtual Network                  | Azure Container Instances                         | 
-> | Azure VPN Gateway                      | Azure Container Registry                          | 
-> |                                        | Azure Data Factory                                | 
-> |                                        | Azure Event Grid                                  | 
-> |                                        | Azure HDInsight                                   |  
-> |                                        | Azure Logic Apps                                  | 
-> |                                        | Azure Media Services                              | 
+> | Azure ExpressRoute                     | Azure Batch                                       | 
+> | Azure public IP                        | Azure Bastion                                     | 
+> | Azure SQL Database                     | Azure Cache for Redis                             | 
+> | Azure SQL Managed Instance             | Azure Cloud Service: M-series                     | 
+> | Disk storage                           | Azure Cognitive Services                          | 
+> | Azure Event Hubs                       | Azure Cognitive Services: Computer Vision         | 
+> | Azure Key Vault                        | Azure Cognitive Services: Content Moderator       | 
+> | Azure Load Balancer                    | Azure Cognitive Services: Face                    | 
+> | Azure Service Bus                      | Azure Cognitive Services: Text Analytics          | 
+> | Azure Service Fabric                   | Azure Container Instances                         | 
+> | Azure Storage: Hot/cool Blob Storage tiers   | Azure Container Registry                    | 
+> | Storage: Managed Disks                 | Azure Database for MySQL                          | 
+> | Azure Virtual Machine Scale Sets       | Azure Database for PostgreSQL                     | 
+> | Azure Virtual Machines                 | Azure Data Factory                                | 
+> | Virtual Machines: Azure Dedicated Host | Azure DDoS Protection                             | 
+> | Virtual Machines: Av2-series           | Azure Event Grid                                  | 
+> | Virtual Machines: Bs-series            | Azure Firewall                                    | 
+> | Virtual Machines: DSv2-series          | Azure Firewall Manager                            | 
+> | Virtual Machines: DSv3-series          | Azure Functions                                   | 
+> | Virtual Machines: Dv2-series           | Azure HDInsight                                   | 
+> | Virtual Machines: Dv3-series           | Azure IoT Hub                                     | 
+> | Virtual Machines: ESv3-series          | Azure Kubernetes Service (AKS)                    | 
+> | Virtual Machines: Ev3-series           | Azure Logic Apps                                  | 
+> | Azure Virtual Network                  | Azure Monitor: Application Insights               | 
+> | Azure VPN Gateway                      | Azure Media Services                              |
+> |                                        | Azure Monitor: Log Analytics                      | 
 > |                                        | Azure Network Watcher                             | 
+> |                                        | Azure Private Link                                |  
+> |                                        | Azure Site Recovery                               | 
+> |                                        | Azure Synapse Analytics                           | 
+> |                                        | Azure Virtual WAN                                 | 
 > |                                        | Premium Blob Storage                              | 
 > |                                        | Premium Files Storage                             | 
 > |                                        | Virtual Machines: Ddsv4-series                    | 
@@ -91,7 +91,6 @@ Azure services are presented in the following tables by category. Note that some
 > |                                        | Virtual Machines: Ev4-series                      | 
 > |                                        | Virtual Machines: Fsv2-series                     | 
 > |                                        | Virtual Machines: M-series                        | 
-> |                                        | Azure Virtual WAN                                 | 
 
 ### Strategic Services
 As mentioned previously, Azure classifies services into three categories: foundational, mainstream, and strategic. Service categories are assigned at general availability. Often, services start their lifecycle as a strategic service and as demand and utilization increases may be promoted to mainstream or foundational. The following table lists strategic services. 
