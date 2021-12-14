@@ -21,7 +21,7 @@ This is the basic template format:
 ```json
   { 
     "type": "Microsoft.VirtualMachineImages/imageTemplates", 
-    "apiVersion": "2020-02-14", 
+    "apiVersion": "2021-10-01", 
     "location": "<region>", 
     "tags": {
       "<name>": "<value>",
@@ -49,11 +49,11 @@ This is the basic template format:
 
 ## Type and API version
 
-The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2020-02-14"` for now.
+The `type` is the resource type, which must be `"Microsoft.VirtualMachineImages/imageTemplates"`. The `apiVersion` will change over time as the API changes, but should be `"2021-10-01"` for now.
 
 ```json
     "type": "Microsoft.VirtualMachineImages/imageTemplates",
-    "apiVersion": "2020-02-14",
+    "apiVersion": "2021-10-01",
 ```
 
 ## Location
@@ -527,7 +527,7 @@ runOutputName=<runOutputName>
 
 az resource show \
         --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
-        --api-version=2020-02-14
+        --api-version=2021-10-01
 ```
 
 Output:
@@ -666,7 +666,7 @@ az resource show \
 To start a build, you need to invoke 'Run' on the Image Template resource, examples of `run` commands:
 
 ```PowerShell
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Run -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Run -Force
 ```
 
 
@@ -687,7 +687,7 @@ The build can be cancelled any time. If the distribution phase has started you c
 Examples of `cancel` commands:
 
 ```powerShell
-Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2020-02-14" -Action Cancel -Force
+Invoke-AzResourceAction -ResourceName $imageTemplateName -ResourceGroupName $imageResourceGroup -ResourceType Microsoft.VirtualMachineImages/imageTemplates -ApiVersion "2021-10-01" -Action Cancel -Force
 ```
 
 ```bash
