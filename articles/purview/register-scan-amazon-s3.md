@@ -87,8 +87,8 @@ Ensure that you've performed the following prerequisites before adding your Amaz
 > * [Create a new AWS role for use with Purview](#create-a-new-aws-role-for-purview)
 > * [Create a Purview credential for your AWS bucket scan](#create-a-purview-credential-for-your-aws-s3-scan)
 > * [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets), if relevant
+> * Make sure that your bucket policy does not block the connection. For more information, see [Bucket policy requirements](#confrim-your-bucket-policy-access) and [SCP policy requirements](#confirm-your-scp-policy-access). For these items, you may need to consult with an AWS expert to ensure that your policies allow required access.
 > * When adding your buckets as Purview resources, you'll need the values of your [AWS ARN](#retrieve-your-new-role-arn), [bucket name](#retrieve-your-amazon-s3-bucket-name), and sometimes your [AWS account ID](#locate-your-aws-account-id).
-> * Make sure that your bucket policy does not block the connection. For more information, see [Bucket policy requirements](#check-bucket-policy) and [SCP policy requirements](#scp-policy-issues).
 
 
 ### Create a Purview account
@@ -258,6 +258,25 @@ AWS buckets support multiple encryption types. For buckets that use **AWS-KMS** 
         The **Summary** page is updated, with your new policy attached to your role.
 
         ![View an updated Summary page with the new policy attached to your role.](./media/register-scan-amazon-s3/attach-policy-role.png)
+
+### Confirm your bucket policy access
+
+Make sure that the S3 bucket [policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) does not block the connection:
+
+1. In AWS, navigate to your S3 bucket, and then select the **Permissions** tab > **Bucket policy**.
+1. Check the policy details to make sure that it doesn't block the connection from the Purview scanner service.
+
+### Confirm your SCP policy access
+
+Make sure that there is no [SCP policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that blocks the connection to the S3 bucket. 
+
+For example, your SCP policy might block read API calls from the [AWS scanning region](#storage-and-scanning-regions). 
+
+- Required API calls, which must be allowed by your SCP policy, include: `AssumeRole`, `GetBucketLocation`, `GetObject`, `ListBucket`, `GetBucketPublicAccessBlock`. 
+- Your SCP policy must also allow calls to the **us-east-1** AWS scanning region, as this region has global API endpoints that are required for the AssumeRole and API calls.
+
+Follow the [SCP documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_create.html), review your organization’s SCP policies, and make sure all the [permissions required for the Purview scanner](#create-a-new-aws-role-for-purview) are available.
+
 
 ### Retrieve your new Role ARN
 
@@ -537,6 +556,11 @@ Configuration errors in the role can lead to connection failure. This section de
 
 If all of the items described in the following sections are properly configured, and scanning S3 buckets still fails with errors, contact Microsoft support.
 
+> [!NOTE]
+> For policy access issues, make sure that neither your bucket policy, nor your SCP policy are blocking access to your S3 bucket from Purview.
+>
+>For more information, see [Confirm your bucket policy access](#confirm-your-bucket-policy-access) and [Confirm your SCP policy access](#confirm-your-scp-policy-access).
+>
 ### Bucket is encrypted with KMS
 
 Make sure that the AWS role has **KMS Decrypt** permissions. For more information, see [Configure scanning for encrypted Amazon S3 buckets](#configure-scanning-for-encrypted-amazon-s3-buckets).
@@ -565,18 +589,6 @@ Make sure that the S3 bucket URL is properly defined:
 1. In AWS, navigate to your S3 bucket, and copy the bucket name.
 1. In Purview, edit the Amazon S3 data source, and update the bucket URL to include your copied bucket name, using the following syntax: `s3://<BucketName>`
 
-### Check bucket policy
-
-Make sure that the S3 bucket [policy](https://docs.aws.amazon.com/AmazonS3/latest/userguide/using-iam-policies.html) does not block the connection:
-
-1. In AWS, navigate to your S3 bucket, and then select the **Permissions** tab > **Bucket policy**.
-1. Check the policy details to make sure that it doesn't block the connection from the Purview scanner service.
-
-### SCP policy issues
-
-Make sure that there is no [SCP policy](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps.html) that blocks the connection to the S3 bucket. For example, an SCP policy blocks read API calls from the [AWS scanning region](#storage-and-scanning-regions).
-
-Follow the [SCP documentation](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_scps_create.html), review your organization’s SCP policies, and make sure all the [permissions required for the Purview scanner](#create-a-new-aws-role-for-purview) are available.
 
 ## Next steps
 
