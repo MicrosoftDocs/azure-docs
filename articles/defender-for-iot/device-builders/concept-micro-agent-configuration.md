@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 11/09/2021
+ms.date: 12/14/2021
 ms.topic: conceptual
 ---
 
@@ -27,7 +27,7 @@ These configurations include process, and network activity collectors.
 | **Cache size** | cycle FIFO | The number of events collected in between the data is sent. | 256 |
 | **Disable collector** | True, or False | Whether or not the collector is operational. | False |
 
-## Trigger based collectors configurations
+## Trigger-based collectors configurations
 
 These configurations include system information, and baseline collectors.
 
@@ -35,6 +35,12 @@ These configurations include system information, and baseline collectors.
 |--|--|--|--|
 | **Interval** | High, Medium, or Low | The frequency in which data is sent. | Low |
 | **Disable collector** | True, or False | Whether or not the collector is operational. | False |
+
+## Network activity collector specific settings
+
+| Setting Name | Setting option | Description | Default setting |
+|--|--|--|--|
+| Devices | A list of the network devices separated by a comma. For example, “eth0,eth1” | The list of network devices (interfaces) that the agent will use to monitor the traffic. If a network device is not listed, the Network Raw events will not be recorded for the missing device.| “eth0” |
 
 ## General configuration
 
@@ -47,6 +53,41 @@ Define the frequency in which messages are sent for each priority level. The def
 | High | 30 (.5 hours) |
 
 To reduce the number of messages sent to cloud, each priority should be set as a multiple of the one below it. For example, High: 60 minutes, Medium: 120 minutes, Low: 480 minutes.
+
+## Micro agent configuration
+
+To view and update the micro agent twin configuration:
+
+1. Navigate to the [Azure portal](http://ms.portal.azure.com).
+
+1. In the searchbar, search for, and select **IoT Hub**.
+
+1. Select your device from the list.
+
+1. Under the Device management section and select **Devices**.
+
+    :::image type="content" source="media/concept-micro-agent-configuration/devices.png" alt-text="Creenshot of the Device management section of the IoT hub.":::
+
+1. Select your device from the list.
+
+1. Select the module ID.
+
+    :::image type="content" source="media/concept-micro-agent-configuration/module-id.png" alt-text="Screenshot of the device's module ID selection screen.":::
+
+1. In the Module Identity Details screen select **Module Identity Twin**.
+
+    :::image type="content" source="media/concept-micro-agent-configuration/module-identity-twin.png" alt-text="Screenshot of the Module Identoty Details screen.":::
+
+1. Change the value of any field by selecting it and entering the change.
+
+    :::image type="content" source="media/concept-micro-agent-configuration/sample-module-identity-twin.png" alt-text="Screenshot of the sample output of the module identity twin.":::
+
+    The agent successfully set the new configuration if the value of `“latest_state”`, under the `“reported”` section will show `“success”`.
+
+    :::image type="content" source="media/concept-micro-agent-configuration/reported-success.png" alt-text="Screenshot of a successful configuration change.":::
+
+    If the agent fails to set the new configuration, the value of `“latest_state”`, under the `“reported”` section will show `”failed”`. If this occurs, the `“latest_invalid_fields”` will contain a list of the fields that failed to update.
+
 
 ## Next steps
 
