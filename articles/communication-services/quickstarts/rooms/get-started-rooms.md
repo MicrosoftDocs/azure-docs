@@ -94,9 +94,9 @@ CommunicationRoom updateCommunicationRoom = updateRoomResponse.Value;
 To add new participants to a `room`, issue an update request on the room's `Participants`:
 
 ```csharp
-var communicationUser1 = "<ParticipantId1>";
-var communicationUser2 = "<ParticipantId2>";
-var communicationUser3 = "<ParticipantId3>";
+var communicationUser1 = "<CommunicationUserId1>";
+var communicationUser2 = "<CommunicationUserId2>";
+var communicationUser3 = "<CommunicationUserId3>";
 
 UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
 updateRoomRequest.Participants.Add(communicationUser1, new RoomParticipant());
@@ -114,9 +114,9 @@ Participants that have been added to a `room` become eligible to join calls.
 To remove a participant from a `room` and revoke their access, update the `Participants` list:
 
 ```csharp
-var communicationUser1 = "<ParticipantId1>";
-var communicationUser2 = "<ParticipantId2>";
-var communicationUser3 = "<ParticipantId3>";
+var communicationUser1 = "<CommunicationUserId1>";
+var communicationUser2 = "<CommunicationUserId2>";
+var communicationUser3 = "<CommunicationUserId3>";
 
 UpdateRoomRequest updateRoomRequest = new UpdateRoomRequest()
 updateRoomRequest.Participants.Add(communicationUser1, null);
