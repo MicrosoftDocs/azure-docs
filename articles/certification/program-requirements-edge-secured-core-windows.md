@@ -1,10 +1,10 @@
 ---
-title: Edge Secured-core Certification Requirements
-description: Edge Secured-core Certification program requirements
+title: Winodws Edge Secured-core Certification Requirements
+description: Windows Edge Secured-core Certification program requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
-ms.date: 05/16/2021
+ms.date: 12/14/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 ---
@@ -17,7 +17,12 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 ## Windows IoT Hardware/Firmware Requirements
 > [!Note]
-> Hardware must support TPM v2.0, DRTM, TXT and Secure boot within the BIOS.
+> Hardware must support the following...
+> * Intel or AMD virtualization extensions
+> * Trusted Platform Module (TPM) 2.0
+> * On Intel: DRTM/TXT support in the BIOS, and SINIT ACM driver package must be included in the Windows system image
+> * On AMD: SKINIT package must be integrated in the Windows system image
+> * Kernel DMA Protection (also known as Memory Access Protection)
 
 ---
 </br>

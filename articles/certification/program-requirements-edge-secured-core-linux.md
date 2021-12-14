@@ -1,10 +1,10 @@
 ---
-title: Edge Secured-core Certification Requirements
-description: Edge Secured-core Certification program requirements
+title: Linux Edge Secured-core Certification Requirements
+description: Linux Edge Secured-core Certification program requirements
 author: cbroad
 ms.author: cbroad
 ms.topic: conceptual 
-ms.date: 05/15/2022
+ms.date: 12/14/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 ---
@@ -19,8 +19,8 @@ Edge Secured-core validation on Linux based devices is executed through a contai
 
 ## Linux Hardware/Firmware Requirements
 >[!Note]
-> Hardware must support TPM v2.0, SRTM, Secure-boot or UBoot.
-> Firmware will be submitted to Microsoft for vulnerability and configuration evaluation.
+> * Hardware must support TPM v2.0, SRTM, Secure-boot or UBoot.
+> * Firmware will be submitted to Microsoft for vulnerability and configuration evaluation.
 
 ---
 |Name|SecuredCore.Hardware.Identity|
