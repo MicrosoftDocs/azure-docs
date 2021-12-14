@@ -17,14 +17,14 @@ This article provides information on Virtual WAN supported regions and partners 
 
 There are two types of offerings that make connecting to Azure easier for customers:
 
-1. **Network Virtual Appliances (NVAs) deployed  in the Virtual WAN Hub**: Customers can deploy Network Virtual Appliances directly into the Virtual WAN hub. This solution  is jointly managed by Microsoft Azure and third-party Network Virtual Appliance solution providers. To learn more about NVAs deployed in the Virtual WAN Hub reference the following [article](about-nva-hub.md).
-1. **Branch IPsec connectivity automation**: Customers can automatically configure and connect their branch devices to the Azure Virtual WAN Site-to-site VPN Gateway using IPsec tunnels. These configurations are typically set up in the device-management UI (or equivalent).
+* **Network Virtual Appliances (NVAs) deployed  in the Virtual WAN Hub**: Customers can deploy Network Virtual Appliances directly into the Virtual WAN hub. This solution  is jointly managed by Microsoft Azure and third-party Network Virtual Appliance solution providers. To learn more about NVAs deployed in the Virtual WAN Hub reference [About NVA in the Virtual WAN Hub](about-nva-hub.md).
+* **Branch IPsec connectivity automation**: Customers can automatically configure and connect their branch devices to the Azure Virtual WAN Site-to-site VPN Gateway using IPsec tunnels. These configurations are typically set up in the device-management UI (or equivalent).
 
 ## Partners with integrated Virtual Hub offerings
 
 Some partners offer Network Virtual Appliances (NVAs) that can be deployed directly into the Azure Virtual WAN hub through a solution that is jointly managed by Microsoft Azure and third-party Network Virtual Appliance solution providers.
 
-When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as an SD-WAN gateway, Firewall or a combination of both. For more information about the benefits of deploying a NVA into the Virtual WAN hub, reference this [article](about-nva-hub.md).
+When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can serve as a third-party gateway with various functionalities. It could serve as an SD-WAN gateway, Firewall or a combination of both. For more information about the benefits of deploying a NVA into the Virtual WAN hub, reference this [About NVA in the Virtual WAN Hub](about-nva-hub.md).
 
 
 [!INCLUDE [NVA PARTNERS](../../includes/virtual-wan-nva-hub-partners.md)]

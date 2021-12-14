@@ -19,13 +19,13 @@ When a Network Virtual Appliance is deployed into the Virtual WAN hub, it can se
 
 Deploying Network Virtual Appliances into the Virtual WAN Hub allows customers to enjoy the following benefits:
 
-1. **Pre-defined and pre-tested selection of infrastructure choices ([NVA Infrastructure Units](#units))**: Microsoft and the partner work together to validate throughput and bandwidth limits prior to solution being made available to customers.
-1. **Built-in availability and resiliency**: Virtual WAN Network Virtual Appliance deployments Availability Zone (AZ) aware and are automatically configured to be high available.
-1. **No-hassle provisioning and boot-strapping**: A Managed Application is pre-qualified for provisioning and boot-strapping for the Virtual WAN platform. This Managed Application is available through the Azure Marketplace link.
-1. **Simplified routing** Leverage Virtual WAN's intelligent routing systems. NVA solutions peer with the Virtual WAN Hub router and participate in the Virtual WAN routing decision process similarly to Microsoft Gateways.
-1. **Integrated support**: Partners have a special support agreement with Microsoft Azure Virtual WAN to quickly diagnose and resolve any customer problems.
-1. **Platform-provided lifecycle management**: Upgrades and patches are a part of the Azure Virtual WAN service. This takes away the complexity of lifecycle management from a customer deploying Virtual Appliance solutions.
-1. **Integrated with platform features**: Transit connectivity with Microsoft gateways and Virtual Networks, Encrypted ExpressRoute (SD-WAN overlay running over an ExpressRoute circuit), Virtual Hub route tables etc. interact seamlessly.
+* **Pre-defined and pre-tested selection of infrastructure choices ([NVA Infrastructure Units](#units))**: Microsoft and the partner work together to validate throughput and bandwidth limits prior to solution being made available to customers.
+* **Built-in availability and resiliency**: Virtual WAN Network Virtual Appliance deployments are Availability Zone (AZ) aware and are automatically configured to be highly available.
+* **No-hassle provisioning and boot-strapping**: A Managed Application is pre-qualified for provisioning and boot-strapping for the Virtual WAN platform. This Managed Application is available through the Azure Marketplace link.
+* **Simplified routing**: Leverage Virtual WAN's intelligent routing systems. NVA solutions peer with the Virtual WAN Hub router and participate in the Virtual WAN routing decision process similarly to Microsoft Gateways.
+* **Integrated support**: Partners have a special support agreement with Microsoft Azure Virtual WAN to quickly diagnose and resolve any customer problems.
+* **Platform-provided lifecycle management**: Upgrades and patches are a part of the Azure Virtual WAN service. This takes away the complexity of lifecycle management from a customer deploying Virtual Appliance solutions.
+* **Integrated with platform features**: Transit connectivity with Microsoft gateways and Virtual Networks, Encrypted ExpressRoute (SD-WAN overlay running over an ExpressRoute circuit) and Virtual Hub route tables interact seamlessly.
 
 
 ## <a name ="partner"></a> Partners
