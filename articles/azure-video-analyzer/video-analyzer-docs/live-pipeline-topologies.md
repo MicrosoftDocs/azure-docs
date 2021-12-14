@@ -7,9 +7,9 @@ ms.date: 12/13/2021
 
 # Live pipeline topologies
 
-The tables that follow list the [live pipeline topologies](terminology.md#pipeline-topology) supported by Azure Video Analyzer. The table also provides 
+The tables that follow list the [live pipeline topologies](terminology.md#pipeline-topology) supported by Azure Video Analyzer. The tables also provide 
 
-* A short description, 
+* A short description,
 * Topology's corresponding sample tutorial(s), and 
 * The corresponding pipeline topology name of the Visual Studio Code (VSCode) Video Analyzer extension. 
 
