@@ -34,7 +34,7 @@ This will return the definition for the metrics schema. Notably, this schema inc
 | Dimension Name | Description |
 | ------------------- | ----------------- |
 | **ResourceUri** | The full Resource ID for a particular resource. |
-| **RequestRegion** | The Azure Resource Manager region where your control plane requests land, like "EastUS2". This is not the same as your resource's location. |
+| **RequestRegion** | The Azure Resource Manager region where your control plane requests land, like "EastUS2". This region is not the resource's location. |
 | **StatusCode** | Response type from Azure Resource Manager for your control plane request. Possible values are (but not limited to): <br/>- 0<br/>- 200<br/>- 201<br/>- 400<br/>- 404<br/>- 429<br/>- 500<br/>- 502|
 | **StatusCodeClass** | The class for the status code returned from Azure Resource Manager. Possible values are: <br/>- 2xx<br/>- 4xx<br/>- 5xx|
 | **Namespace** | The namespace for the Resource Provider, in all caps, like "MICROSOFT.COMPUTE"|
@@ -70,7 +70,7 @@ curl --location --request GET "https://management.azure.com/subscriptions/000000
 --header "Authorization: bearer {{bearerToken}}"
 ```
 
-In the case of Azure Resource Manager metrics, you can actually retrieve the traffic count by simply using the Latency metric and including the 'count' aggregation. You'll see the JSON response for the request below:
+In the case of Azure Resource Manager metrics, you can retrieve the traffic count by using the Latency metric and including the 'count' aggregation. You'll see the JSON response for the request below:
 
 ```Json
 {
@@ -112,14 +112,14 @@ In the case of Azure Resource Manager metrics, you can actually retrieve the tra
 }
 ```
 
-As seen above, you actually get the traffic count included in the Latency metric by including 'count' as part of the aggregation. If you want to retrieve only the traffic count, then you can utilize the Traffic metric with the 'count' aggregation:
+If you want to retrieve only the traffic count, then you can utilize the Traffic metric with the 'count' aggregation:
 
 ```bash
 curl --location --request GET 'https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Traffic&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
-The response for this will look similar but notice the **only** difference is in the *unit* property:
+The response for the request is:
 
 ```Json
 {
@@ -165,27 +165,27 @@ If you want to look at the number of requests made in your subscription for Netw
 
 ### Examining Throttled Requests
 
-To view only your throttled requests, you need to filter for 429 status code responses only. For REST API calls, this is accomplished via the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCode dimension by appending: $filter=StatusCode eq '429' as seen at the end of the request in the following snippet:
+To view only your throttled requests, you need to filter for 429 status code responses only. For REST API calls, filtering is accomplished via the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCode dimension by appending: $filter=StatusCode eq '429' as seen at the end of the request in the following snippet:
 
 ```bash
 curl --location --request GET 'https://management.azure.com/subscriptions/dff2e75b-8fe7-4dc7-8360-9247be413c9b/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&$filter=StatusCode%20eq%20%27429%27' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
-You can also do this directly in portal:
+You can also filter directly in portal:
 :::image type="content" source="./media/view-arm-monitor-metrics/throttling-filter-portal.png" alt-text="Filter HTTP Status Code to 429 responses only":::
 
 
 ### Examining Server Errors
 
-Similar to looking at throttled requests, you view *all* requests that returned a server error response code by filtering 5xx responses only. For REST API calls, this is accomplished via the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCodeClass dimension by appending: $filter=StatusCodeClass eq '5xx' as seen at the end of the request in the following snippet:
+Similar to looking at throttled requests, you view *all* requests that returned a server error response code by filtering 5xx responses only. For REST API calls, filtering is accomplished via the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCodeClass dimension by appending: $filter=StatusCodeClass eq '5xx' as seen at the end of the request in the following snippet:
 
 ```bash
 curl --location --request GET 'https://management.azure.com/subscriptions/dff2e75b-8fe7-4dc7-8360-9247be413c9b/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&$filter=StatusCodeClass%20eq%20%275xx%27' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
-You can also accomplish generic server errors filtering within portal by setting the filter property to 'StatusCodeClass' and the value to '5xx', similar to what was in the throttling example above.
+You can also accomplish generic server errors filtering within portal by setting the filter property to 'StatusCodeClass' and the value to '5xx', similar to what was done in the throttling example above.
 
 ## Next steps
 
