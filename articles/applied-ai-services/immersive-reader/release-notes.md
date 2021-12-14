@@ -23,7 +23,6 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 
 * Add option to set the theme to light or dark
 * Add option to set the parent node where the iframe/webview container is placed
-* Add play and pause functionality for mobile experiences
 * Add option to disable the Grammar experience
 * Add option to disable the Translation experience
 * Add option to disable Language Detection
@@ -42,7 +41,8 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 
 #### Fixes
 
-* Fix multiple security vulnerabilities by upgrading TypeScript packages
+* Fixes multiple security vulnerabilities by upgrading TypeScript packages
+* Fixes bug where renderButton rendered a duplicate icon and label in the button
 
 <br>
 

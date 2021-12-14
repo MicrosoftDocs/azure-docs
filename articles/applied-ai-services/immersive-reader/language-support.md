@@ -124,7 +124,6 @@ This article lists supported human languages for Immersive Reader features.
 | Turkish | tr |
 | Turkish (Turkey) | tr-TR |
 | Ukrainian | ur-PK |
-| Urdu | ur-PK |
 | Vietnamese | vi |
 | Vietnamese (Vietnam) | vi-VN |
 | Welsh | Cy-GB |
@@ -140,7 +139,6 @@ This article lists supported human languages for Immersive Reader features.
 | Arabic (Egyptian) | ar-EG |
 | Arabic (Saudi Arabia) | ar-SA |
 | Armenian | hy |
-| Assamese | as |
 | Azerbaijani | az |
 | Afrikaans | af |
 | Bangla | bn |
