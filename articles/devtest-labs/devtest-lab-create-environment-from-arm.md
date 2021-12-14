@@ -2,7 +2,7 @@
 title: Use ARM templates to create multi-VM environments and PaaS resources
 description: Learn how to use Azure Resource Manager (ARM) templates to create multi-VM, platform-as-a-service (PaaS) environments and resources in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 11/30/2021
+ms.date: 12/14/2021
 ---
 
 # Use ARM templates to create multi-VM DevTest Labs environments
@@ -37,6 +37,7 @@ There are two methods for creating VMs in DevTest Labs. Each method is used for 
 
 This article discusses using `Microsoft.Compute/virtualmachines` to create environment VMs.
 
+<a name="configure-your-own-template-repositories"></a>
 ## Public and private environment template repositories
 
 Azure DevTest Labs has a [public ARM template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) that includes environment templates for Azure Web Apps, an Azure Service Fabric cluster, and development SharePoint farms. You can configure your lab to use these templates in the Azure portal without having to connect to the external GitHub repository. For more information and instructions, see [Configure and use public environments in DevTest Labs](devtest-lab-configure-use-public-environments.md).
