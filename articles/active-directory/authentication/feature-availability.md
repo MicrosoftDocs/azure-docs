@@ -115,7 +115,6 @@ The following table shows the available risk detections.
 
 The following table shows the available HR-provisioning apps.
 
-[!div class="mx-tdCol2BreakAll"]
 | HR-provisioning app | Availability |
 |----------------|:--------------------:|
 |Workday to Azure AD User Provisioning | ● |
