@@ -118,9 +118,6 @@ Azure Key Vault Managed HSM is a fully managed, highly available, single-tenant,
 > [!NOTE]
 > To allow greater flexibility in configuring customer-managed TDE, Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region. The server and key vault do not have to be co-located in the same region. 
 
-> [!NOTE]
-> To allow greater flexibility in configuring customer-managed TDE, Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region. The server and key vault do not have to be co-located in the same region. 
-
 ### Recommendations when configuring TDE protector
 
 - Keep a copy of the TDE protector on a secure place or escrow it to the escrow service.
@@ -221,6 +218,29 @@ To avoid issues while establishing or during geo-replication due to incomplete k
 To test a failover, follow the steps in [Active geo-replication overview](active-geo-replication-overview.md). Testing failover should be done regularly to validate that SQL Database has maintained access permission to both key vaults.
 
 **Azure SQL Database server and Managed Instance in one region can now be linked to key vault in any other region.** The server and key vault do not have to be co-located in the same region. With this, for simplicity, the primary and secondary servers can be connected to the same key vault (in any region). This will help avoid scenarios where key material may be out of sync if separate key vaults are used for both the servers. Azure Key Vault has multiple layers of redundancy in place to make sure that your keys and key vaults remain available in case of service or region failures. [Azure Key Vault availability and redundancy](../../key-vault/general/disaster-recovery-guidance.md)
+
+## Azure Policy for customer-managed TDE
+
+Azure Policy can be used to enforce customer-managed TDE during the creation or update of an Azure SQL Database server or Azure SQL Managed Instance. With this policy in place, any attempts to create or update a [logical server in Azure](logical-servers.md) or managed instance will fail if it isn't configured with a customer-managed key.
+The Azure Policy can be applied to the whole Azure subscription, or just within a resource group.
+
+For more information on Azure Policy, see [What is Azure Policy?](../../governance/policy/overview.md) and [Azure Policy definition structure](../../governance/policy/concepts/definition-structure.md).
+
+Following two built-in policies are supported for customer-managed TDE in Azure Policy:
+- SQL server should use customer-managed keys to encrypt data at rest
+- SQL managed instances should use customer-managed keys to encrypt data at rest
+
+
+The customer-managed TDE policy can be managed by going to the [Azure portal](https://portal.azure.com), and searching for the **Policy** service. Under **Definitions**, search for customer-managed key.
+
+There are three effects for these policies:
+- **Audit** - The default setting, and will only capture an audit report in the Azure Policy activity logs
+- **Deny** - Prevents logical server or managed instance creation or update without a customer-managed key configured
+- **Disabled** - Will disable the policy, and won't restrict users from creating/updating a logical server or managed instance without customer-managed TDE enabled
+If the Azure Policy for customer-managed TDE is set to **Deny**, Azure SQL logical server or managed instance creation will fail. The details of this failure will be recorded in the **Activity log** of the resource group.
+
+> [!IMPORTANT]
+> Earlier versions of built-in policies for customer-managed TDE containing the AuditIfNotExist effect have been deprecated. Existing policy assignments using the deprecated policies are not impacted and will continue to work as before.
 
 ## Next steps
 
