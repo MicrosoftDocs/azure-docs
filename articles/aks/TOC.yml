@@ -293,6 +293,8 @@
           items:
             - name: Use kubenet
               href: configure-kubenet.md
+            - name: Use kubenet with dual-stack networking
+              href: configure-kubenet-dualstack.md
             - name: Use Azure-CNI
               href: configure-azure-cni.md
         - name: Create an internal load balancer
