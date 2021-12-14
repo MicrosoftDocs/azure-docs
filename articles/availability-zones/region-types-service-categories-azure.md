@@ -69,38 +69,6 @@ Azure services are presented in the following tables by category. Note that some
 > | Virtual Machines: ESv3 abd ESv3-series | Azure Logic Apps                                  | 
 > | Azure Virtual Network                  | Azure Media Services                              | 
 > | Azure VPN Gateway                      | Azure Monitor: Application Insights               | 
-=======
-> | Azure storage accounts                 | Azure API Management                              | 
-> | Azure Application Gateway              | Azure App Configuration                           | 
-> | Azure Backup                           | Azure App Service                                 | 
-> | Azure Cosmos DB                        | Azure Automation                                  | 
-> | Azure Data Lake Storage Gen2           | Azure Active Directory Domain Services            | 
-> | Azure ExpressRoute                     | Azure Batch                                       | 
-> | Azure public IP                        | Azure Bastion                                     | 
-> | Azure SQL Database                     | Azure Cache for Redis                             | 
-> | Azure SQL Managed Instance             | Azure Cloud Service: M-series                     | 
-> | Disk storage                           | Azure Cognitive Services                          | 
-> | Azure Event Hubs                       | Azure Cognitive Services: Computer Vision         | 
-> | Azure Key Vault                        | Azure Cognitive Services: Content Moderator       | 
-> | Azure Load Balancer                    | Azure Cognitive Services: Face                    | 
-> | Azure Service Bus                      | Azure Cognitive Services: Text Analytics          | 
-> | Azure Service Fabric                   | Azure Container Instances                         | 
-> | Azure Storage: Hot/cool Blob Storage tiers   | Azure Container Registry                    | 
-> | Storage: Managed Disks                 | Azure Database for MySQL                          | 
-> | Azure Virtual Machine Scale Sets       | Azure Database for PostgreSQL                     | 
-> | Azure Virtual Machines                 | Azure Data Factory                                | 
-> | Virtual Machines: Azure Dedicated Host | Azure DDoS Protection                             | 
-> | Virtual Machines: Av2-series           | Azure Event Grid                                  | 
-> | Virtual Machines: Bs-series            | Azure Firewall                                    | 
-> | Virtual Machines: DSv2-series          | Azure Firewall Manager                            | 
-> | Virtual Machines: DSv3-series          | Azure Functions                                   | 
-> | Virtual Machines: Dv2-series           | Azure HDInsight                                   | 
-> | Virtual Machines: Dv3-series           | Azure IoT Hub                                     | 
-> | Virtual Machines: ESv3-series          | Azure Kubernetes Service (AKS)                    | 
-> | Virtual Machines: Ev3-series           | Azure Logic Apps                                  | 
-> | Azure Virtual Network                  | Azure Monitor: Application Insights               | 
-> | Azure VPN Gateway                      | Azure Media Services                              |
->>>>>>> 0b7047edecd7e50702982687bb97cc1a3d25cc9c
 > |                                        | Azure Monitor: Log Analytics                      | 
 > |                                        | Azure Network Watcher                             | 
 > |                                        | Azure Private Link                                |  
