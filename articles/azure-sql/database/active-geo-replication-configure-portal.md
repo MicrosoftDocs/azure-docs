@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 08/20/2021
 ---
 # Tutorial: Configure active geo-replication and failover (Azure SQL Database)

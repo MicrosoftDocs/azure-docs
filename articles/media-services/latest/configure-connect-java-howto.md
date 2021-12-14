@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: quickstart
 ms.date: 11/17/2020
-ms.custom: devx-track-java, mode-other
+ms.custom: devx-track-java, mode-api
 ms.author: inhenkel
 ---
 # Connect to Media Services v3 API - Java

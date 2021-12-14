@@ -26,6 +26,8 @@ You'll learn how to:
 
 [!INCLUDE [Unity quickstart prerequisites](../../../includes/object-anchors-quickstart-unity-prerequisites.md)]
 
+## Create an Object Anchors account
+
 [!INCLUDE [Create Account](../../../includes/object-anchors-get-started-create-account.md)]
 
 [!INCLUDE [Unity device setup](../../../includes/object-anchors-quickstart-unity-device-setup.md)]

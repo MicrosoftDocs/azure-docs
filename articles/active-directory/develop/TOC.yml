@@ -21,13 +21,7 @@
       displayName: permissions, scp, scp claims
       href: quickstart-configure-app-access-web-apis.md
   - name: Single-page app (SPA)
-    items:
-    - name: Angular
-      href: quickstart-v2-javascript-auth-code-angular.md
-    - name: JavaScript
-      href: quickstart-v2-javascript-auth-code.md
-    - name: React
-      href: quickstart-v2-javascript-auth-code-react.md
+    href: single-page-app-quickstart.md
   - name: Web app
     items:
     - name: ASP.NET
@@ -330,6 +324,8 @@
       href: test-setup-environment.md
     - name: Throttling and service limits
       href: test-throttle-service-limits.md
+    - name: Run automated integration tests as a user
+      href: test-automate-integration-testing.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:
