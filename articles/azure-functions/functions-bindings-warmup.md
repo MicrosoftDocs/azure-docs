@@ -178,40 +178,15 @@ def main(warmupContext: func.Context) -> None:
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `WarmupTrigger` attribute to define the function. C# script instead uses a *function.json* configuration file.
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**warmupContext** |Warmup context.|
-|**context** | Function context.|
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the `WarmupTriggerAttribute` to define the function. C# script instead uses a *function.json* configuration file.
 
 # [In-process](#tab/in-process)
 
-This example demonstrates how to use the [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) attribute.
-
-Your function must be called `Warmup` and there can only be one warmup function per app.
-
-```csharp
- [FunctionName("Warmup")]
-        public static void Run(
-            [WarmupTrigger()] WarmupContext context, ILogger log)
-        {
-            ...
-        }
-```
-
-For a complete example, see the [example](#tabpanel_1_in-process).
+Use the `WarmupTriggerAttribute` to define the function. This attributes has no parameters.   
 
 # [Isolated process](#tab/isolated-process)
 
-This example demonstrates how to use the [warmup](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions/Extensions/Warmup/Trigger/WarmupTriggerAttribute.cs) attribute.
-
-Your function must be called `Warmup` and there can only be one warmup function per app.
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Warmup/Warmup.cs" range="11-12":::
-
+Use the `WarmupTriggerAttribute` to define the function. This attributes has no parameters.
 
 # [C# script](#tab/csharp-script)
 
@@ -219,16 +194,11 @@ C# script uses a function.json file for configuration instead of attributes.
 
 The following table explains the binding configuration properties for C# script that you set in the *function.json* file. 
 
-
-The following table explains the binding configuration properties that you set in the *function.json* file and the `WarmupTrigger` attribute.
-
 |function.json property |Description |
 |---------|----------------------|
 | **type** | Required - must be set to `warmupTrigger`. |
 | **direction** | Required - must be set to `in`. |
-| **name** | Required - the variable name used in function code.|
-|**warmupContext** |Warmup context.|
-|**context** | Function context.|
+| **name** | Required - the name of the binding parameter, which is usually `warmupContext`. |
 
 ---
 
@@ -236,7 +206,8 @@ The following table explains the binding configuration properties that you set i
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-The warmup trigger is not supported in Java as an attribute.
+Annotations aren't required by a warmup trigger. Just use a name of `warmup` (case-insensitive) for the `FunctionName` annotation.
+
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
@@ -247,7 +218,7 @@ The following table explains the binding configuration properties that you set i
 |---------|----------------------|
 | **type** | Required - must be set to `warmupTrigger`. |
 | **direction** | Required - must be set to `in`. |
-| **name** | Required - the variable name used in function code.|
+| **name** | Required - the variable name used in function code. A `name` of `warmupContext` is recommended for the binding parameter.|
 
 ::: zone-end  
 
@@ -256,22 +227,25 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The following considerations apply to C# warmup functions:
+The following considerations apply to using a warmup function in C#:
 
 # [In-process](#tab/in-process)
 
 - Your function must be named `warmup` (case-insensitive) using the `FunctionNameAttribute`.
 - A return value attribute isn't required.
 - You must be using version `3.0.5` of the `Microsoft.Azure.WebJobs.Extensions` package, or a later version. 
+- You can pass a `WarmupContext` instance to the function.
 
 # [Isolated process](#tab/isolated-process)
 
 - Your function must be named `warmup` (case-insensitive) using the `FunctionNameAttribute`.
 - A return value attribute isn't required.
+- You can pass an object instance to the function.
 
 # [C# script](#tab/csharp-script)
 
 Not supported for version 1.x of the Functions runtime.
+
 ---
 
 ::: zone-end  
