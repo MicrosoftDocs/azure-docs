@@ -19,7 +19,7 @@ ms.custom: has-adal-ref
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]
 
-This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure Command Line Interface (CLI) and Python.
+This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Python and the Azure API.
 
 ## VM deployment workflow
 
