@@ -247,62 +247,6 @@ The following example shows a completed data controller yaml file. Update the ex
 
 :::code language="yaml" source="~/azure_arc_sample/arc_data_services/deploy/yaml/data-controller.yaml":::
 
-```yml
-OLD EXAMPLE
-
-apiVersion: v1
-kind: ServiceAccount
-metadata:
-  name: sa-arc-controller
----
-apiVersion: arcdata.microsoft.com/v1
-kind: DataController
-metadata:
-  generation: 1
-  name: arc-dc
-spec:
-  credentials:
-    controllerAdmin: controller-login-secret
-    dockerRegistry: arc-private-registry #Create a registry secret named 'arc-private-registry' if you are going to pull from a private registry instead of MCR.
-    serviceAccount: sa-arc-controller
-  docker:
-    imagePullPolicy: Always
-    imageTag: v1.1.0_2021-11-02
-    registry: mcr.microsoft.com
-    repository: arcdata
-  infrastructure: other #Must be a value in the array [alibaba, aws, azure, gcp, onpremises, other]
-  security:
-    allowDumps: true #Set this to false if deploying on OpenShift
-    allowNodeMetricsCollection: true #Set this to false if deploying on OpenShift
-    allowPodMetricsCollection: true #Set this to false if deploying on OpenShift
-  services:
-  - name: controller
-    port: 30080
-    serviceType: LoadBalancer # Modify serviceType based on your Kubernetes environment
-  settings:
-    ElasticSearch:
-      vm.max_map_count: "-1"
-    azure:
-      connectionMode: indirect
-      location: eastus # Choose a different Azure location if you want
-      resourceGroup: <your resource group>
-      subscription: <your subscription GUID>
-    controller:
-      displayName: arc-dc
-      enableBilling: "True"
-      logs.rotation.days: "7"
-      logs.rotation.size: "5000"
-  storage:
-    data:
-      accessMode: ReadWriteOnce
-      className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-      size: 15Gi
-    logs:
-      accessMode: ReadWriteOnce
-      className: default # Use default configured storage class or modify storage class based on your Kubernetes environment
-      size: 10Gi
-```
-
 Save the edited file on your local computer and run the following command to create the data controller:
 
 ```console
