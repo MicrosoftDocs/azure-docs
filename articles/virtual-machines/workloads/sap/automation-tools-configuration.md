@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Configuring external tools to use SAP Deployment Automation Framework
+# Configuring external tools to use with the SAP Deployment Automation Framework
 
 This document describes how to configure external tools to use the SAP Deployment Automation Framework.
 
