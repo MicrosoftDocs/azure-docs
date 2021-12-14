@@ -22,7 +22,7 @@ Now, you provision the Confluent Cloud resources through a resource provider nam
 
 The deep integration between Confluent Cloud and Azure enables the following capabilities:
 
-- Provision a new Confluent Cloud organization resource from the Azure portal with fully managed infrastructure or link to an existing Confluent Cloud Organization.
+- Provision a new Confluent Cloud organization resource from the Azure portal with fully managed infrastructure or link to an existing Confluent Cloud organization.
 - Streamline single sign-on (SSO) from Azure to Confluent Cloud with Azure Active Directory (Azure AD). No separate authentication is needed from the Confluent Cloud portal.
 - Get unified billing of Confluent Cloud consumption through Azure subscription invoicing.
 - Manage Confluent Cloud resources from the Azure portal, and track them in the **All resources** page with your other Azure resources.
