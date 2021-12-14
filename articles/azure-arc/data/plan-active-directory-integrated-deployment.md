@@ -28,9 +28,9 @@ Azure Arc-enabled data services support Active Directory (AD) for identity and a
 
 ## Prerequisites
 
-* Latest [Azure CLI](/cli/azure/install-azure-cli) with [Arcdata extension](install-arcdata-extension.md) 
+* Latest [Azure CLI](/cli/azure/install-azure-cli) with [`arcdata` extension](install-arcdata-extension.md) 
 * On-premises AD domain controller
-* A shell-based terminal of any Linux distribution, Azure CloudShell, WSL 2.0 
+* A shell-based terminal of any Linux distribution, Azure Cloud Shell, or WSL 2.0 
 
 ## Create an AD deployment user account
 
@@ -44,7 +44,7 @@ Make sure this user has **Domain Users** permission to start with, you can check
 
 ![Check domain user permission](./media/active-directory-deployment/arc-user-permissions.png)
 
-## Create service prinicpal names (SPNs) for the SQL endpoint
+## Create service principal names (SPNs) for the SQL endpoint
 
 SQL Managed Instance needs two service principal names that are derived from the chosen DNS domain name for the endpoint and the chosen port number for the endpoint. For example:
 
@@ -78,7 +78,7 @@ New-ADOrganizationalUnit -Name "<name>" -Path "<Distinguished name of the direct
 
 ## Verify your AD Domain Controller and DNS Server 
 
-SQL requires  a canonical name. Run a by running a forward and DNS lookup when logins are being created for AD accounts. You need to configure an A record and a PTR record on the DNS server. 
+Create a canonical name based on the domain name. Configure an A record and a PTR record on the DNS server. 
 
 * An **A record** maps a domain to the physical IP address of the computer hosting that domain.
 * A **PTR record** is the opposite of the 'A' record, it provides the IP address associated with a domain name. DNS PTR records are used in reverse DNS lookups.
@@ -96,7 +96,7 @@ To verify the domain name:
 
 ![Check DNS entries](./media/active-directory-deployment/check-dns-entries.png)
 
-## Preparing the MSSQL keytab file 
+## Prepare the MSSQL keytab file 
 
 Use `adutil` to prepare the `sqlkeytab` file, then use it to create the Kubernetes secret. `adutil` is a command-line interface (CLI) utility for interacting and managing Active Directory domains. You can use this tool to simplify Active Directory (AD) authentication configuration for both SQL Server on Linux and Linux-based SQL containers. For an AD user named `arcuser` from `contoso.local` domain, this user can use the following command to authenticate:
 

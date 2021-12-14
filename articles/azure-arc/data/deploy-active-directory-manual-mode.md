@@ -27,15 +27,15 @@ To deploy an AD integrated arc data services, complete the following steps:
 Before you proceed, verify that you have:
 
 * Validated Kubernetes distributions mentioned here
-* Latest [Azure CLI](/cli/azure/install-azure-cli) with [Arcdata extension](install-arcdata-extension.md) 
+* Latest [Azure CLI](/cli/azure/install-azure-cli) with [`arcdata` extension](install-arcdata-extension.md) 
 * On-premises AD domain controller 
 * An Active Directory (AD) user account and service principal names (SPNs) for the endpoint DNS names from the prerequisite article
 * MSSQL keytab file created from the prerequisite article
-* Azure CloudShell, Windows Terminal, WSL 2.0 or any Linux distribution terminal
+* Azure Cloud Shell, Windows Terminal, WSL 2.0, or any Linux distribution terminal
 
 ## Deploy the data controller
 
-From a domain-joined machine which meets all the prerequisites, use the following command to deploy a data controller: 
+From a domain-joined machine that meets all the prerequisites, use the following command to deploy a data controller: 
 
 ```azurecli
 az arcdata dc create --path ./arc-k8s-custom  --k8s-namespace k8s-arc-ns --use-k8s --name <data controller name> --subscription <azure subscription> --resource-group my-resource-group --location <your-cloud-region> --connectivity-mode indirect --infrastructure onpremises
@@ -73,7 +73,7 @@ kubectl apply –f ActiveDirectoryConnector.yaml
 
 ## Create Kubernetes secret for MSSQL keytab
 
-Create a Kubernetes secret definition file named `mssqlkeytab.yaml`. The following example describes a secret definition file. Use the same kubectl apply -f command to deploy it : 
+Create a Kubernetes secret definition file named `mssqlkeytab.yaml`. The following example describes a secret definition file. 
 
 ```yaml
 apiVersion: v1
@@ -86,7 +86,7 @@ data:
   keytab: <your-MSSQL keytab>
 ```
 
-Use the same kubectl apply -f command to deploy it : 
+Deploy with `kubectl apply -f`. For example: 
 
 ```console
 kubectl apply –f mssqlkeytab.yaml
