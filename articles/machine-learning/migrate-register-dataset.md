@@ -8,7 +8,7 @@ ms.topic: how-to
 
 author: xiaoharper
 ms.author: zhanxia
-ms.date: 02/04/2021
+ms.date: 10/21/2021
 ---
 
 # Migrate a Studio (classic) dataset to Azure Machine Learning

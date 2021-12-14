@@ -63,7 +63,6 @@ The following are unsupported:
 - Connectivity method cannot be changed after creating the server. If the server is created with *Private access (VNet Integration)*, it cannot be changed to *Public access (allowed IP addresses)* after create, and vice versa
 
 ### Stop/start operation
-- Not supported with zone redundant HA configurations (both primary and standby).
 - Not supported with read replica configurations (both source and replicas).
 
 ### Scale operations

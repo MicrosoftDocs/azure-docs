@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: core
 author: SimranArora904
 ms.author: siarora
-ms.date: 06/14/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: troubleshooting,contperf-fy20q4, contperf-fy21q2
 ---
@@ -114,8 +114,8 @@ To determine the current usage for an endpoint, [view the metrics](how-to-monito
 | Number of instances per deployment | 20 |
 | Max request time out at endpoint level  | 90 seconds |
 | Total requests per second at endpoint level for all deployments  | 500 <sup>2</sup> |
-| Total connections per second at endpoint level for all deployments  | 100 <sup>2</sup> |
-| Total connections active at endpoint level for all deployments  | 100 <sup>2</sup> |
+| Total connections per second at endpoint level for all deployments  | 500 <sup>2</sup> |
+| Total connections active at endpoint level for all deployments  | 500 <sup>2</sup> |
 | Total bandwidth at endpoint level for all deployments  | 5 MBPS <sup>2</sup> |
 
 <sup>1</sup> Single dashes like, `my-endpoint-name`, are accepted in endpoint and deployment names.

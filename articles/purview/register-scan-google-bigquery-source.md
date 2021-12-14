@@ -10,7 +10,7 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Connect to and manage Google BigQuery projects in Azure Purview
+# Connect to and manage Google BigQuery projects in Azure Purview (Preview)
 
 This article outlines how to register Google BigQuery projects, and how to authenticate and interact with Google BigQuery in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
@@ -34,7 +34,7 @@ This article outlines how to register Google BigQuery projects, and how to authe
 
 * You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [the create and configure a self-hosted integration runtime guide](manage-integration-runtimes.md).
 
 * Ensure [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the virtual machine where the self-hosted integration runtime is installed.
 
@@ -93,8 +93,8 @@ Follow the steps below to scan a Google BigQuery project to automatically identi
     1. **Credential**: While configuring BigQuery credential, make sure to:
 
         * Select **Basic Authentication** as the Authentication method
-        * Provide the email ID of the service account in the User name field. For example, xyz\@developer.gserviceaccount.com
-        * Save your Private key file of the service account in the JSON format in the key vault's secret
+        * Provide the email ID of the service account in the User name field. For example, `xyz\@developer.gserviceaccount.com`
+        * Follow below steps to generate the private key, copy the JSON then store it as the value of a Key Vault secret.
 
         To create a new private key from Google's cloud platform:
         1. In the navigation menu, select IAM & Admin -\> Service Accounts -\> Select a project -\> 

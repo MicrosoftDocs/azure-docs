@@ -1,8 +1,8 @@
 ---
 title: How to pause and resume dedicated SQL pools with Synapse Pipelines 
 description: Learn to automate pause and resume for a dedicated SQL pool with Synapse Pipelines in Azure Synapse Analytics. 
-author: julieMSFT
-ms.author: jrasnick
+author: kromerm
+ms.author: makromer
 ms.service: synapse-analytics
 ms.reviewer: wiassaf
 ms.subservice: sql
@@ -219,6 +219,6 @@ To schedule your pipeline, select **Add trigger** at the top of your pipeline. F
 
 Further details on Managed Identity for Azure Synapse, and how Managed Identity is added to your dedicated SQL pool can be found here:
 
-[Azure Synapse workspace managed identity](../security/synapse-workspace-managed-identity.md)
+[Azure Synapse workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)
 
 [Grant permissions to workspace managed identity](../security/how-to-grant-workspace-managed-identity-permissions.md)

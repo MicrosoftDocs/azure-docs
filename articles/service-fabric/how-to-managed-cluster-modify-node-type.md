@@ -1,5 +1,5 @@
 ---
-title: Modify a Service Fabric managed cluster node type
+title: Configure or modify a Service Fabric managed cluster node type
 description: This article walks through how to modify a managed cluster node type
 ms.topic: how-to
 ms.date: 10/25/2021 
@@ -7,7 +7,7 @@ ms.date: 10/25/2021
 
 # Service Fabric managed cluster node types
 
-Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters, you make any required changes through the Service Fabric managed cluster resource provider. All of the underlying resources for the cluster are created and abstracted by the managed cluster provider on your behalf. This helps to simplify cluster node type deployment and management, prevent operation errors such as deleting a seed node, and application of best practices such as validating a VM SKU is safe to use.
+Each node type in a Service Fabric managed cluster is backed by a virtual machine scale set. With managed clusters, you make any required changes through the Service Fabric managed cluster resource provider. All of the underlying resources for the cluster are created and abstracted by the managed cluster provider on your behalf. Having the resource provider manage the resources helps to simplify cluster node type deployment and management, prevent operation errors such as deleting a seed node, and application of best practices such as validating a VM SKU is safe to use.
 
 The rest of this document will cover how to adjust various settings from creating a node type, adjusting node type instance count, enable automatic OS image upgrades, change the OS Image, and configuring placement properties. This document will also focus on using Azure portal or Azure Resource Manager Templates to make changes.
 
@@ -50,7 +50,7 @@ In this walkthrough, you will learn how to add or remove a node type using porta
 
 **To add a node type using an ARM Template**
 
-Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` with the required values and do a cluster deployment for the setting to take affect.
+Add another resource type `Microsoft.ServiceFabric/managedclusters/nodetypes` with the required values and do a cluster deployment for the setting to take effect.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -100,7 +100,7 @@ In this walkthrough, you will learn how to modify the node count for a node type
 
 ## Scale a node type manually with a template
 
-To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take affect.
+To adjust the node count for a node type using an ARM Template, adjust the `vmInstanceCount` property with the new value and do a cluster deployment for the setting to take effect.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -186,7 +186,7 @@ In this walkthrough, you will learn how to modify the OS image for a node type u
 
 ## Modify the OS image for a node type with a template
 
-To modify the OS image used for a node type using an ARM Template, adjust the `vmImageSku` property with the new value and do a cluster deployment for the setting to take affect. The managed cluster provider will re-image each instance by upgrade domain.
+To modify the OS image used for a node type using an ARM Template, adjust the `vmImageSku` property with the new value and do a cluster deployment for the setting to take effect. The managed cluster provider will reimage each instance by upgrade domain.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -231,7 +231,7 @@ You can now use that [placement property to ensure that certain workloads run on
 
 ## Configure placement properties for a node type with a template
 
-To adjust the placement properties for a node type using an ARM Template, adjust the `placementProperties` property with the new value(s) and do a cluster deployment for the setting to take affect. The below sample shows three values being set for a node type.
+To adjust the placement properties for a node type using an ARM Template, adjust the `placementProperties` property with the new value(s) and do a cluster deployment for the setting to take effect. The below sample shows three values being set for a node type.
 
 * The Service Fabric managed cluster resource apiVersion should be **2021-05-01** or later.
 
@@ -254,11 +254,62 @@ You can now use that [placement property to ensure that certain workloads run on
 
 ## Modify the VM SKU for a node type
 
-Service Fabric managed cluster does not support in-place modification of the VM SKU, but is still very simple. In order to accomplish this you'll need to do the following:
+Service Fabric managed cluster does not support in-place modification of the VM SKU, but is simpler then classic. In order to accomplish this you'll need to do the following:
 * [Create a new node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal) with the required VM SKU.
 * Migrate your workload over. One way is to use a [placement property to ensure that certain workloads run only on certain types of nodes in the cluster](./service-fabric-cluster-resource-manager-cluster-description.md#node-properties-and-placement-constraints). 
 * [Delete old node type](how-to-managed-cluster-modify-node-type.md#add-or-remove-a-node-type-with-portal)
 
+
+
+## Configure multiple managed disks (preview)
+Service Fabric managed clusters by default configure one managed disk. By configuring the following optional property and values, you can add more managed disks to node types within a cluster. You are able to specify the drive letter, disk type, and size per disk.
+
+Configure more managed disks by declaring `additionalDataDisks` property and required parameters in your Resource Manager template as follows:
+
+**Feature Requirements**
+* Lun must be unique per disk and can not use reserved lun 0
+* Disk letter cannot use reserved letters C or D and cannot be modified once created. S will be used as default if not specified.
+* Must specify a [supported disk type](how-to-managed-cluster-managed-disk.md)
+* The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
+
+```json
+     {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
+            "properties": {
+                "additionalDataDisks": {
+                    "lun": "1",
+                    "diskSizeGB": "50",
+                    "diskType": "Standard_LRS",
+                    "diskLetter": "S" 
+            }
+        }
+     }
+```
+
+See [full list of parameters available](/azure/templates/microsoft.servicefabric/2021-11-01-preview/managedclusters)
+
+## Configure the Service Fabric data disk drive letter (preview)
+Service Fabric managed clusters by default configure a Service Fabric data disk and automatically configure the drive letter on all nodes of a node type. By configuring this optional property and value, you can specify and retrieve the Service Fabric data disk letter if you have specific requirements for drive letter mapping.
+
+**Feature Requirements**
+* Disk letter cannot use reserved letters C or D and cannot be modified once created. S will be used as default if not specified.
+* The Service Fabric managed cluster resource apiVersion must be **2021-11-01-preview** or later.
+
+```json
+     {
+            "apiVersion": "[variables('sfApiVersion')]",
+            "type": "Microsoft.ServiceFabric/managedclusters/nodetypes",
+            "name": "[concat(parameters('clusterName'), '/', parameters('nodeTypeName'))]",
+            "location": "[resourcegroup().location]",
+            "properties": {
+                "dataDiskLetter": "S"      
+            }
+        }
+     }
+```
 
 ## Next steps
 

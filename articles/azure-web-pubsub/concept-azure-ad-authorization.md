@@ -4,7 +4,7 @@ description: This article provides information on authorizing access to Azure We
 author: terencefan
 
 ms.author: tefa
-ms.date: 09/06/2021
+ms.date: 11/08/2021
 ms.service: azure-web-pubsub
 ms.topic: conceptual
 ---
@@ -26,7 +26,7 @@ When a security principal attempts to access a Web PubSub resource, the request 
 
 ### Client-side authentication while using Azure AD
 
-When using Access Key, the key is shared between your negotiation server (or Function App) and the Web PubSub resource, which means the Web PubSub service could authenticate the client connection request with the shared key. However, there is no shared key when using Azure AD to authorize. 
+When using Access Key, the key is shared between your negotiation server (or Function App) and the Web PubSub resource, which means the Web PubSub service could authenticate the client connection request with the shared key. However, there is no access key when using Azure AD to authorize. 
 
 To solve this problem, we provided a REST API for generating the client token that can be used to connect to the Azure Web PubSub service.
 

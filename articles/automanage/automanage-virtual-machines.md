@@ -127,7 +127,7 @@ Custom profiles allow you to customize the services and settings that you want t
 > If you want to change the configuration profile of a machine, you can simply reenable it with the desired configuration profile. However, if your machine status is "Needs Upgrade" then you will need to disable first and then reenable Automanage. 
 
 For the complete list of participating Azure services and if they support preferences, see here:
-- [Automanage for Linux](automanage-windows-server.md)
+- [Automanage for Linux](automanage-linux.md)
 - [Automanage for Windows Server](automanage-windows-server.md)
 
 

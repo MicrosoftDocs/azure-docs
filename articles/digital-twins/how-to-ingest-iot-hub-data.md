@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Ingest telemetry from IoT Hub
 titleSuffix: Azure Digital Twins
-description: See how to ingest device telemetry messages from IoT Hub.
+description: Learn how to ingest device telemetry messages from Azure IoT Hub to digital twins in an instance of Azure Digital Twins.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/9/2021
+ms.date: 10/28/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -16,6 +16,8 @@ ms.service: digital-twins
 ---
 
 # Ingest IoT Hub telemetry into Azure Digital Twins
+
+This guide walks through the process of writing a function that can ingest telemetry from IoT Hub and send it to an instance of Azure Digital Twins.
 
 Azure Digital Twins is driven with data from IoT devices and other sources. A common source for device data to use in Azure Digital Twins is [IoT Hub](../iot-hub/about-iot-hub.md).
 
@@ -77,7 +79,7 @@ When the twin is created successfully, the CLI output from the command should lo
 
 In this section, you'll create an Azure function to access Azure Digital Twins and update twins based on IoT telemetry events that it receives. Follow the steps below to create and publish the function.
 
-1. First, create a new function app project in Visual Studio. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
+1. First, create a new function app project in Visual Studio. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#create-an-azure-functions-project).
 
 2. Add the following packages to your project:
     * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core/)
@@ -90,7 +92,7 @@ In this section, you'll create an Azure function to access Azure Digital Twins a
 
     Save your function code.
 
-4. Publish the project with the *IoTHubtoTwins.cs* function to a function app in Azure. For instructions on how to do this, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
+4. Publish the project with the *IoTHubtoTwins.cs* function to a function app in Azure. For instructions on how to do so, see [Develop Azure Functions using Visual Studio](../azure-functions/functions-develop-vs.md#publish-to-azure).
 
 [!INCLUDE [digital-twins-verify-function-publish.md](../../includes/digital-twins-verify-function-publish.md)]
 
@@ -104,7 +106,7 @@ Next, **assign an access role** for the function and **configure the application
 
 ## Connect your function to IoT Hub
 
-In this section, you'll set up your function as an event destination for the IoT hub device data. This will ensure that the data from the thermostat device in IoT Hub will be sent to the Azure function for processing.
+In this section, you'll set up your function as an event destination for the IoT hub device data. Setting up your function in this way will ensure that the data from the thermostat device in IoT Hub will be sent to the Azure function for processing.
 
 In the [Azure portal](https://portal.azure.com/), navigate to your IoT Hub instance that you created in the [Prerequisites](#prerequisites) section. Under **Events**, create a subscription for your function.
 

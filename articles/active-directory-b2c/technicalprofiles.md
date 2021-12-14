@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 05/10/2021
+ms.date: 11/30/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 ---
@@ -135,7 +135,7 @@ The **Item** element of the **Metadata** element contains the following attribut
 | --------- | -------- | ----------- |
 | Key | Yes | The metadata key. See each [technical profile type](#types-of-technical-profiles) for the list of metadata items. |
 
-The following example illustrates the use of metadata relevant to the [OAuth2 technical profile](oauth2-technical-profile.md#metadata).
+The following example illustrates the use of metadata relevant to the [OAuth2 technical profile](oauth2-technical-profile.md).
 
 ```xml
 <TechnicalProfile Id="Facebook-OAUTH">

@@ -4,12 +4,12 @@ description: This quickstart shows how to deploy an event-based solution on Azur
 services: media-services
 author: harmke
 manager: ervandeh
-
 ms.service: media-services
 ms.workload: 
 ms.topic: quickstart
 ms.date: 5/21/2021
 ms.author: inhenkel
+ms.custom: mode-other
 ---
 
 # Event-based Face Redaction

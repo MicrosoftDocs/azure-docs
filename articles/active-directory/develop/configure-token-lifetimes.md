@@ -12,7 +12,7 @@ ms.workload: identity
 ms.topic: how-to
 ms.date: 04/08/2021
 ms.author: ryanwi
-ms.custom: aaddev, content-perf, FY21Q1
+ms.custom: aaddev, contperf-fy21q1
 ms.reviewer: hirsin, jlu, annaba
 ---
 # Configure token lifetime policies (preview)

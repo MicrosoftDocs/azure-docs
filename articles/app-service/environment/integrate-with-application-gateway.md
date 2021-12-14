@@ -9,7 +9,7 @@ ms.date: 10/12/2021
 ms.author: madsd
 ms.custom: seodec18
 ---
-# Integrate your ILB App Service Environment with the Azure Application Gateway #
+# Integrate your ILB App Service Environment with the Azure Application Gateway
 
 The [App Service Environment][AppServiceEnvironmentoverview] is a deployment of Azure App Service in the subnet of a customer's Azure virtual network. It can be deployed with an external or internal endpoint for app access. The deployment of the App Service environment with an internal endpoint is called an internal load balancer (ILB) App Service environment (ASE).
 
@@ -98,22 +98,22 @@ In the Azure portal, select **New** > **Network** > **Application Gateway** to c
     
     * Public IP address - You need to associate a public IP address for the application gateway public access. Record this IP address, you need to add a record in your DNS service later.
     
-        :::image type="content" source="./media/integrate-with-application-gateway/frontends.png" alt-text="Screenshot of getting public ip from the application gateway frontends setting.":::
+        :::image type="content" source="./media/integrate-with-application-gateway/frontends.png" alt-text="Screenshot of getting a public IP address from the application gateway frontends setting.":::
 
 3. Backends setting
 
     Input a backend pool name and select the **App Services** or **IP address or FQDN** in **Target type**. In this case, we set to **App services** and select App Service name from the target dropdown list.
-    
+
     :::image type="content" source="./media/integrate-with-application-gateway/add-backend-pool.png" alt-text="Screenshot of adding a backend pool name in backends setting.":::
 
 4. Configuration setting
 
     In **Configuration** setting, you need to add a routing rule by clicking **Add a routing rule** icon.
-    
+
     :::image type="content" source="./media/integrate-with-application-gateway/configuration.png" alt-text="Screenshot of adding a routing rule in configuration setting.":::
-    
-    You need to configure a **Listener** and  **Backend targets** in a routing rule. You can add a HTTP listener for proof of concept deployment or add a HTTPS listener for security enhancement.
-    
+
+    You need to configure a **Listener** and  **Backend targets** in a routing rule. You can add an HTTP listener for proof of concept deployment or add an HTTPS listener for security enhancement.
+
     * To connect to the application gateway with HTTP protocol, you can create a listener with following settings,
     
         | Parameter      | Value                             | Description                                                  |
@@ -143,11 +143,11 @@ In the Azure portal, select **New** > **Network** > **Application Gateway** to c
         | Host type      | Multiple/Wildcard                 | Set to multiple or wildcard website name if listener type is set to multi-sites. |
         | Host name      | For example:  `app.asabuludemo.com` | Set to a routable domain name for App Service              |
         
-        :::image type="content" source="./media/integrate-with-application-gateway/https-routing-rule.png" alt-text="HTTPS Listener of the application gateway Routing Rule.":::
+        :::image type="content" source="./media/integrate-with-application-gateway/https-routing-rule.png" alt-text="H T T P S listener of the application gateway Routing Rule.":::
     
-    * You have to configure a **Backend Pool** and **HTTP setting** in **Backend targets**. The Backend pool was configured in previously steps. Click **Add new** link to add a HTTP setting.
+    * You have to configure a **Backend Pool** and **HTTP setting** in **Backend targets**. The Backend pool was configured in previously steps. Click **Add new** link to add an HTTP setting.
     
-        :::image type="content" source="./media/integrate-with-application-gateway/add-new-http-setting.png" alt-text="Screenshot of adding new link to add a http setting.":::
+        :::image type="content" source="./media/integrate-with-application-gateway/add-new-http-setting.png" alt-text="Screenshot of adding new link to add an H T T P setting.":::
     
     * HTTP settings listed as below:
     
@@ -156,12 +156,12 @@ In the Azure portal, select **New** > **Network** > **Application Gateway** to c
         | HTTP setting name             | For example: `https-setting`                                   | HTTP setting name                                            |
         | Backend protocol              | HTTPS                                                        | Use TLS/SSL encryption                                       |
         | Backend port                  | 443                                                          | Default HTTPS Port                                           |
-        | Use well known CA certificate | Yes                                                          | The default domain name of ILB ASE is **.appserviceenvironment.net**, the certificate of this domain is issued by a public trusted root authority. In the Trusted root certificate setting, you can set to use **well known CA trusted root certificate**. |
+        | Use well known CA certificate | Yes                                                          | The default domain name of ILB ASE is `.appserviceenvironment.net`, the certificate of this domain is issued by a public trusted root authority. In the Trusted root certificate setting, you can set to use **well known CA trusted root certificate**. |
         | Override with new host name   | Yes                                                          | The host name header will be overwrote on connecting to the app on ILB ASE |
         | Host name override            | Pick host name from backend target | When setting backend pool to App Service, you can pick host from backend target |
         | Create custom probes | No | Use default health probe|
         
-        :::image type="content" source="./media/integrate-with-application-gateway/https-setting.png" alt-text="Screenshot of adding a HTTP settings details.":::
+        :::image type="content" source="./media/integrate-with-application-gateway/https-setting.png" alt-text="Screenshot of **Add an H T T P setting** dialog.":::
 
 
 ## Configure an application gateway integration with ILB ASE

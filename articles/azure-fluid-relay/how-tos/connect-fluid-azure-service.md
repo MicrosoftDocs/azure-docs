@@ -34,10 +34,7 @@ To connect to an Azure Fluid Relay instance you first need to create an `AzureCl
 ```javascript
 const config = {
   tenantId: "myTenantId",
-  tokenProvider: new InsecureTokenProvider("myTenantKey", {
-    id: "userId",
-    name: "Test User",
-  }),
+  tokenProvider: new InsecureTokenProvider("myTenantKey", { id: "userId" }),
   orderer: "https://myOrdererUrl",
   storage: "https://myStorageUrl",
 };
@@ -78,7 +75,7 @@ const client = new AzureClient(clientProps);
 The user object can also hold optional additional user details. For example:
 
 ```javascript
-const userDetails: ICustomUserDetails = {
+const userDetails = {
   email: "xyz@outlook.com",
   address: "Redmond",
 };
@@ -129,7 +126,7 @@ const { container, services } = await azureClient.getContainer(
 );
 ```
 
-For the further information on how to start recording logs being emitted by Fluid, see [Logging and telemetry](https://fluidframework.com/docs/testing/telemetry/) .
+For the further information on how to start recording logs being emitted by Fluid, see [Logging and telemetry](https://fluidframework.com/docs/testing/telemetry/).
 
 The container being fetched back will hold the `initialObjects` as defined in the container schema. See [Data modeling](https://fluidframework.com/docs/build/data-modeling/) on fluidframework.com to learn more about how to establish the schema and use the `container` object.
 
@@ -150,7 +147,7 @@ const audienceDiv = document.createElement("div");
 const onAudienceChanged = () => {
   const members = audience.getMembers();
   const self = audience.getMyself();
-  const memberStrings: string[] = [];
+  const memberStrings = [];
   const useAzure = process.env.FLUID_CLIENT === "azure";
 
   members.forEach((member) => {

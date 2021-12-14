@@ -2,8 +2,11 @@
 title: Private endpoints overview
 description: Understand the use of private endpoints for Azure Backup and the scenarios where using private endpoints helps maintain the security of your resources.
 ms.topic: conceptual
-ms.date: 09/28/2021 
+ms.date: 11/09/2021 
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Overview and concepts of private endpoints for Azure Backup
@@ -69,9 +72,9 @@ The storage FQDNs hit in both the scenarios are same. However, for a Recovery Se
 >The private endpoints for blobs and queues follow a standard naming pattern, they start with **\<the name of the private endpoint>_ecs** or **\<the name of the private endpoint>_prot**, and are suffixed with **\_blob** and **\_queue** respectively.
 
 The endpoints for the Azure Backup service are modified for private endpoint enabled vaults.  
-If you have configured a DNS proxy server, using  third-party proxy servers and firewalls, the above domain names must be allowed and redirected to a custom DNS (with private IP addresses mappings) or to 169.63.129.16 with a virtual network link to a private DNS zone with these private IP addresses mappings.
+If you have configured a DNS proxy server, using  third-party proxy servers and firewalls, the above domain names must be allowed and redirected to a custom DNS (with private IP addresses mappings) or to 168.63.129.16 with a virtual network link to a private DNS zone with these private IP addresses mappings.
 
-The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and AAD to 169.63.129.16.
+The following example shows Azure firewall used as DNS proxy to redirect the domain name queries for Recovery Services vault, blob, queues and AAD to 168.63.129.16.
 
 :::image type="content" source="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-inline.png" alt-text="Diagram showing the use of Azure firewall as DNS proxy to redirect the domain name queries." lightbox="./media/private-endpoints-overview/azure-firewall-used-as-dns-proxy-expanded.png":::
 

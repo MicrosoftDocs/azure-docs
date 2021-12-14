@@ -385,6 +385,5 @@ public async Task<ActionResult> issuanceRequest()
 
 ## Next steps
 
-Learn how a third-party application, also known as a relying party application, can verify your credentials with their own Azure AD tenant verifiable credentials API service. See [Configure Azure AD Verifiable Credentials verifier (preview)](verifiable-credentials-configure-verifier.md).
+In the [next step](verifiable-credentials-configure-verifier.md), learn how a third-party application, also known as a relying party application, can verify your credentials with its own Azure AD tenant verifiable credentials API service.
 
-In the [next step](verifiable-credentials-configure-verifier.md) you learn how third parties application, also known as relying party application can verify your credentials with their own Azure AD tenant verifiable credentials API service.

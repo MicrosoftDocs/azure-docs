@@ -1,8 +1,8 @@
 ---
 title: Update Azure Percept DK over a USB-C connection
 description: Learn how to update the Azure Percept DK over a USB-C cable connection
-author: EthanChangAED
-ms.author: amiyouss
+author: nkhuyent
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 03/18/2021
@@ -39,7 +39,7 @@ This guide will show you how to successfully update your dev kit's operating sys
 
 1. [NXP UUU tool](https://github.com/NXPmicro/mfgtools/releases). Download the **Latest Release** uuu.exe file (for Windows) or the uuu file (for Linux) under the **Assets** tab. UUU is a tool created by NXP used to update NXP dev boards.
 
-1. [Download the update files](./how-to-select-update-package.md). They're all contained in a zip file that you'll extract in the next section.
+1. [Download the update files](./software-releases-usb-cable-updates.md). They're all contained in a zip file that you'll extract in the next section.
 
 1. Ensure all three build artifacts are present:
     - Azure-Percept-DK-*&lt;version number&gt;*.raw

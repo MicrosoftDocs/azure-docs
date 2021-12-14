@@ -53,9 +53,9 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 | 1.3.127.7 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)|
 | 1.3.18.7 | [1.3.4-15](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201704-v1.3.4-15)|  
 
-### Azure Security Center
+### Microsoft Defender for Cloud
 
-Azure Security Center automatically provisions the Log Analytics agent and connects it to a default Log Analytics workspace created by ASC in your Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and breaks the connection with Azure Security Center.
+Microsoft Defender for Cloud automatically provisions the Log Analytics agent and connects it to a default Log Analytics workspace created by Defender for Cloud in your Azure subscription. If you are using Microsoft Defender for Cloud, do not run through the steps in this document. Doing so overwrites the configured workspace and breaks the connection with Microsoft Defender for Cloud.
 
 ### Internet connectivity
 

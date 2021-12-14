@@ -2,23 +2,21 @@
 metadata:
   title: "Azure Front Door - Frequently asked questions"
   description: This page provides answers to frequently asked questions about Azure Front Door
-  services: frontdoor
-  documentationcenter: ''
   author: duongau
+  ms.author: duau
   ms.service: frontdoor
-  ms.devlang: na
   ms.topic: article
-  ms.tgt_pltfrm: na
   ms.workload: infrastructure-services
   ms.date: 09/14/2021
-  ms.author: duau
     
 title: Frequently asked questions for Azure Front Door
 summary: |
   This article answers common questions about Azure Front Door features and functionality. If you don't see the answer to your question, you can contact us through the following channels (in escalating order):
   
   1. The comments section of this article.
-  2. [Azure Front Door UserVoice](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789).
+
+  2. [Azure Front Door UserVoice](https://feedback.azure.com/d365community/forum/8ae9bf04-8326-ec11-b6e6-000d3a4f0789?c=d47b0f41-8326-ec11-b6e6-000d3a4f0789).
+
   3. **Microsoft Support:** To create a new support request, in the Azure portal, on the **Help** tab, select the **Help + support** button, and then select **New support request**.
   
 
@@ -117,28 +115,46 @@ sections:
           
             Here's an example for [Microsoft Internet Information Services (IIS)](https://www.iis.net/):
           
-              ``` xml
-              <?xml version="1.0" encoding="UTF-8"?>
-              <configuration>
-                  <system.webServer>
-                      <rewrite>
-                          <rules>
-                              <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
-                                  <match url="*" />
-                                  <conditions>
-                                      <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
-                                  </conditions>
-                                  <action type="AbortRequest" />
-                              </rule>
-                          </rules>
-                      </rewrite>
-                  </system.webServer>
-              </configuration>
-              ```
+            ```xml
+            <?xml version="1.0" encoding="UTF-8"?>
+            <configuration>
+                <system.webServer>
+                    <rewrite>
+                        <rules>
+                            <rule name="Filter_X-Azure-FDID" patternSyntax="Wildcard" stopProcessing="true">
+                                <match url="*" />
+                                <conditions>
+                                    <add input="{HTTP_X_AZURE_FDID}" pattern="xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" negate="true" />
+                                </conditions>
+                                <action type="AbortRequest" />
+                            </rule>
+                        </rules>
+                    </rewrite>
+                </system.webServer>
+            </configuration>
+            ```
               
+            Here's an example for [AKS NGINX ingress controller](../aks/ingress-basic.md):
+            
+            ```yaml
+            apiVersion: networking.k8s.io/v1
+            kind: Ingress
+            metadata:
+              name: frontdoor-ingress
+              annotations:
+                kubernetes.io/ingress.class: nginx
+                nginx.ingress.kubernetes.io/enable-modsecurity: "true"
+                nginx.ingress.kubernetes.io/modsecurity-snippet: |
+                  SecRuleEngine On
+                  SecAuditLog /var/log/modsec_audit.log
+                  SecRule REQUEST_HEADERS:X-Azure-FDID "!@eq xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" "log,deny,id:107,status:403,msg:\'Traffic incoming from a different Frontdoor\'"
+            spec:
+              #section omitted on purpose
+            ```
+            
           - Azure Front Door also supports the *AzureFrontDoor.Frontend* service tag, which provides the list of IP addresses that clients use when connecting to Front Door. You can use the *AzureFrontDoor.Frontend* service tag when you’re controlling the outbound traffic that should be allowed to connect to services deployed behind Azure Front Door. Azure Front Door also supports an additional service tag, *AzureFrontDoor.FirstParty*, to integrate internally with other Azure services. See [available service tags](../virtual-network/service-tags-overview.md#available-service-tags) for more details on Azure Front Door service tags use cases.
           
-          If using Application Gateway as a backend to Azure Front Door, then the check on the `X-Azure-FDID` header can be done in a custom WAF rule.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
+            If using Application Gateway as a backend to Azure Front Door, then the check on the `X-Azure-FDID` header can be done in a custom WAF rule.  For more information, see [Create and use Web Application Firewall v2 custom rules on Application Gateway](../web-application-firewall/ag/create-custom-waf-rules.md#example-7).
 
       - question: |
           Can the anycast IP change over the lifetime of my Front Door?
