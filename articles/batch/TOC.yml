@@ -187,7 +187,7 @@
       href: batch-linux-nodes.md
     - name: Use Azure Spot VMs
       displayName: preempted, surplus, capacity
-      href: batch-low-pri-vms.md
+      href: batch-spot-vms.md
     - name: Checking for pool and node errors
       displayName: troubleshoot, failure
       href: batch-pool-node-error-checking.md

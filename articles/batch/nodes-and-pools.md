@@ -113,7 +113,7 @@ For more information, see [Run Docker container applications on Azure Batch](bat
 When you create a pool, you can specify which types of nodes you want and the target number for each. The two types of nodes are:
 
 - **Dedicated nodes.** Dedicated compute nodes are reserved for your workloads. They are more expensive than Spot nodes, but they are guaranteed to never be preempted.
-- **Spot nodes.** Spot nodes take advantage of surplus capacity in Azure to run your Batch workloads. Spot nodes are less expensive per hour than dedicated nodes, and enable workloads requiring significant compute power. For more information, see [Use Spot VMs with Batch](batch-low-pri-vms.md).
+- **Spot nodes.** Spot nodes take advantage of surplus capacity in Azure to run your Batch workloads. Spot nodes are less expensive per hour than dedicated nodes, and enable workloads requiring significant compute power. For more information, see [Use Spot VMs with Batch](batch-spot-vms.md).
 
 Spot nodes may be preempted when Azure has insufficient surplus capacity. If a node is preempted while running tasks, the tasks are requeued and run again once a compute node becomes available again. Spot nodes are a good option for workloads where the job completion time is flexible and the work is distributed across many nodes. Before you decide to use Spot nodes for your scenario, make sure that any work lost due to preemption will be minimal and easy to recreate.
 
