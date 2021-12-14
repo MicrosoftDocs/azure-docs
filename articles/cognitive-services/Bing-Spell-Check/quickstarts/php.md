@@ -10,7 +10,7 @@ ms.subservice: bing-spell-check
 ms.topic: quickstart
 ms.date: 05/21/2020
 ms.author: aahi
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 # Quickstart: Check spelling with the Bing Spell Check REST API and PHP
 

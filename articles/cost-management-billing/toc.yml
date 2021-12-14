@@ -370,7 +370,7 @@
         href: reservations/reservation-renew.md?toc=/azure/cost-management-billing/toc.json
   - name: Manage payment methods
     items:
-    - name: Pay Microsoft Customer Agreement bill
+    - name: Pay your Azure bill
       href: understand/pay-bill.md
     - name: Set up pay by check or wire transfer
       href: manage/pay-by-invoice.md
