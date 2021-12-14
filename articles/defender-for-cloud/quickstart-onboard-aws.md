@@ -60,7 +60,7 @@ This screenshot shows AWS accounts displayed in Defender for Cloud's [overview d
 
 Follow the steps below to create your AWS cloud connector. 
 
-### Remove 'legacy' connectors
+### Remove 'classic' connectors
 
 If you have any existing connectors created with the classic cloud connectors experience, remove them first:
 
