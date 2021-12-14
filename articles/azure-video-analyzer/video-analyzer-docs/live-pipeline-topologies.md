@@ -11,7 +11,7 @@ The tables that follow list the [live pipeline topologies](terminology.md#pipeli
 
 * A short description,
 * Topology's corresponding sample tutorial(s), and 
-* The corresponding pipeline topology name of the Visual Studio Code (VSCode) Video Analyzer extension. 
+* The corresponding pipeline topology name of the Visual Studio Code (VSCode) [Video Analyzer extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.azure-video-analyzer). 
 
 Clicking on a topology name redirects to the corresponding JSON file located in [this GitHub folder](https://github.com/Azure/video-analyzer/blob/main/pipelines/live/topologies/), clicking on a sample redirects to the corresponding sample document.
 
