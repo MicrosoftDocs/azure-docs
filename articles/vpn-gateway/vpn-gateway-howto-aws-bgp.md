@@ -127,10 +127,10 @@ Create a virtual private gateway using the values below and the [most recent AWS
 * **ASN**: Amazon default ASN (64512)
 * **VPC**: Attached to VPC1
 
-If you choose to have a custom ASN, it must be different than the ASN you used on Azure.
+If you choose to use a custom ASN, make sure it's different than the ASN you used in Azure.
 
 ### <a name ="enable-route-propagation"></a> Enable route propagation
-Enable route propagation on your VPC using the [most recent AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html#EnableDisableRouteProp).
+Enable route propagation on your virtual private gateway using the [most recent AWS documentation](https://docs.aws.amazon.com/vpc/latest/userguide/WorkWithRouteTables.html#EnableDisableRouteProp).
 
 ### <a name ="create-customer-gateways"></a> Create customer gateways
 Create two customer gateways using the values below and the [most recent AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html#vpn-create-cgw).
@@ -187,7 +187,7 @@ Site-to-site connection 2 settings
 For **Inside IPv4 CIDR for Tunnel 1** and **Inside IPv4 CIDR for Tunnel 2** for both connections, refer to the APIPA configuration you [chose](#apipa-config).
 
 ## <a name ="part-3"></a> Part 3: Connect to your AWS customer gateways from Azure
-Next, you will connect your AWS tunnels to Azure. For each of the four tunnels, you will have both a local network gateway and a site-to-site connection. You should have the AWS **outside IP address** for each of these four tunnels from step 11 of the previous section.
+Next, you will connect your AWS tunnels to Azure. For each of the four tunnels, you will have both a local network gateway and a site-to-site connection.
 
    >
    > [!IMPORTANT]
@@ -222,9 +222,6 @@ Next, you will connect your AWS tunnels to Azure. For each of the four tunnels, 
 7. Under **Custom BGP Addresses**
     * Enter the Custom BGP Address based on the [APIPA configuration you chose](#apipa-config).
     * The **Custom BGP Address** (Inside IPv4 CIDR in AWS) must match with the **IP Address** (Outside IP Address in AWS) that you specified in the local network gateway you are using for this connection.
-
-    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/aws-ip-cidr.png" alt-text="Where to find APIPA and IP Address on AWS" :::
-
     * Only one of the two custom BGP addresses will be used, depending on the tunnel you are specifying it for.
     * For making a connection from AWS to the **first public IP address** of your VPN gateway (instance 0), **only the Primary Custom BGP Address** will be used.
     * For making a connection from AWS to the **second public IP address** of your VPN gateway (instance 1), **only the Secondary Custom BGP Address** will be used.
@@ -268,5 +265,3 @@ Verify that you have a **local network gateway** and **connection** for **each o
 3. Select the first connection you made and then select the **Tunnel Details** tab.
 4. Verify that the **Status** of both tunnels shows as **UP**.
 5. Verify that the **Details** of both tunnels shows one or more BGP routes.
-
-    :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/verify-bgp-aws.png" alt-text="Verify AWS connections" :::
