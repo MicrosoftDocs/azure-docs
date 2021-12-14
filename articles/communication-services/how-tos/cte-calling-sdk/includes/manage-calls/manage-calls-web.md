@@ -55,7 +55,7 @@ const groupCall = callAgent.startCall([userCallee, pstnCallee], { threadId: '<TH
 To join a Teams meeting, use the `join` method on `callAgent` and pass either one of the followings:
 1. `meetingId`
 2. `meetingLink`
-3. combination of `threadId`, `organizerId`, `tenantId`, `messageId`
+3. Combination of `threadId`, `organizerId`, `tenantId`, `messageId`
 
 #### Join using `meetingId`
 ```js
@@ -144,7 +144,7 @@ const remoteParticipant = call.addParticipant(pstnIdentifier, { threadId: '<THRE
 
 ### Remove a participant from a call
 
-To remove a participant (either a user or a phone number) from a call, you can invoke `removeParticipant`. You have to pass one of the `Identifier` types. This method resolves asynchronously after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
+To remove a participant (either a user or a phone number) from a call, you can invoke `removeParticipant`. Pass one of the `Identifier` types as a parameter. This method resolves asynchronously after the participant is removed from the call. The participant is also removed from the `remoteParticipants` collection.
 
 ```js
 const userIdentifier = { microsoftTeamsUserId: '<MICROSOFT_TEAMS_USER_ID>' };
@@ -168,7 +168,7 @@ It can be one of the following `CommunicationIdentifier` types:
 - `{ communicationUserId: '<ACS_USER_ID'> }`: Object representing the ACS user.
 - `{ phoneNumber: '<E.164>' }`: Object representing the phone number in E.164 format.
 - `{ microsoftTeamsUserId: '<TEAMS_USER_ID>', isAnonymous?: boolean; cloud?: "public" | "dod" | "gcch" }`: Object representing the Teams user.
-- `{ id: string }`: object representing identifier that doesn't fit any of the other identifier types
+- `{ id: string }`: object representing the identifier that doesn't fit any of the other identifier types
 
 - `state`: Get the state of a remote participant.
 
@@ -250,7 +250,7 @@ Get the state of a call:
 const callState = call.state;
 ```
 
-This returns a string representing the current state of a call:
+This property returns a string representing the current state of a call:
 
 - `None`: Initial call state.
 - `Connecting`: Initial transition state when a call is placed or accepted.
@@ -303,7 +303,7 @@ Creating a chat thread is mandatory for making calls and adding participants to 
 1. Alice calls Bob using `startCall` method on `callAgent` and specifies the `threadId`
 1. Add Charlie to chat thread with `threadId` using [Chat Graph API to add member](graph/api/chat-post-members?view=graph-rest-1.0&tabs=http)
 1. Alice adds Charlie to the call using `addParticipant` method on `call` and specifies the `threadId`
-1. Alice removes Charlie from the call using `removeParticipant` method on `call` and specify the `threadId`
+1. Alice removes Charlie from the call using `removeParticipant` method on `call` and specifies the `threadId`
 1. Remove Charlie from chat thread with `threadId` using [Chat Graph API to remove member](graph/api/chat-delete-members?view=graph-rest-1.0&tabs=http)
 
 If Teams user stops call recording, the recording is placed into chat associated with the thread. Consider the experience of Teams users in Teams client, when you select the thread ID to be associated with the call.
