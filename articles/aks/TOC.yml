@@ -265,20 +265,14 @@
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
-            - name: Scan Images in your CI/CD Workflow
-              href: ../defender-for-cloud/defender-for-container-registries-cicd.md
-              maintainContext: True
-        - name: Application Security
-          items:
+         - name: Application Security
+           items:
             - name: Use AAD pod identity (preview)
               href: use-azure-ad-pod-identity.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md  
             - name: Use pod security policies (preview)
               href: use-pod-security-policies.md
-            - name: Scan Images in your CI/CD Workflow
-              href: ../defender-for-cloud/defender-for-container-registries-cicd.md
-              maintainContext: True
             - name: Secrets Store CSI Driver
               items:
                 - name: Secrets Store CSI Driver configuration
