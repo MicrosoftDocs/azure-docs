@@ -4,7 +4,7 @@ description: Rotate User provided TLS Certificate in indirect connected Arc-enab
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: melqin
+author: cloudmelon
 ms.author: melqin
 ms.reviewer: mikeray
 ms.date: 12/10/2021

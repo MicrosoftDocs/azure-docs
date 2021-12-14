@@ -187,6 +187,14 @@ items:
           href: create-sql-managed-instance-using-kubernetes-native-tools.md
         - name: Connect
           href: connect-managed-instance.md
+        - name: Active Directory
+          items:
+            - name: Plan
+              href: plan-active-directory-manual-mode.md
+            - name: deploy
+              href: deploy-active-directory-manual-mode.md
+            - name: Connect (Active Directory)
+              href: connect-ad-sql-mi.md
     - name: How-to
       items:
         - name: Manage
@@ -199,6 +207,8 @@ items:
               href: managed-instance-high-availability.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
+            - name: Rotate certificates (Active Directory)
+              href: deploy-active-directory-manual-mode.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Upgrade
