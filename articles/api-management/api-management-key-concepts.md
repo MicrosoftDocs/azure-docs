@@ -35,13 +35,13 @@ Common scenarios include:
 
 ## API Management components
 
-Azure API Management is made up of the following components. These components are Azure-hosted and fully managed by default. Different capabilities are available in the API Management [service tiers](api-management-features.md).
+Azure API Management is made up of an API *gateway*, a *management plane*, and a *developer portal*. These components are Azure-hosted and fully managed by default. Different capabilities are available in the API Management [service tiers](api-management-features.md).
 
 :::image type="content" source="media/api-management-key-concepts/api-management-components.png" alt-text="Key components of Azure API Management":::
 
 ### API gateway
 
-All requests from client applications first reach the *API gateway*, which forwards a valid request to a configured backend service. The API gateway acts as a façade to the backend services, allowing API providers to abstract API implementations and evolve backend architecture without impacting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
+All requests from client applications first reach the API gateway, which forwards a valid request to a configured backend service. The API gateway acts as a façade to the backend services, allowing API providers to abstract API implementations and evolve backend architecture without impacting API consumers. The gateway enables consistent configuration of routing, security, throttling, caching, and observability.
 
 The API gateway:
   
@@ -58,13 +58,13 @@ The self-hosted gateway is packaged as a Linux-based Docker container and is com
 
 ### Management plane
 
-API providers interact with the service through the *management plane*, which provides full access to the API Management service capabilities. 
+API providers interact with the service through the management plane, which provides full access to the API Management service capabilities. 
 
-Customers interact with the management plane through Azure tools include the Azure portal, Azure PowerShell, Azure CLI, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview), or client SDKs in several popular programming languages.
+Customers interact with the management plane through Azure tools including the Azure portal, Azure PowerShell, Azure CLI, a [Visual Studio Code extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview), or client SDKs in several popular programming languages.
 
 Use the management plane to:
 
-  * Define or import API schema from a wide range of sources, including OpenAPI specifications, Azure compute services, or WebSocket or GraphQL backends
+  * Define or import API schemas from a wide range of sources, including OpenAPI specifications, Azure compute services, or WebSocket or GraphQL backends
   * Package APIs into products
   * Set up [policies](#policies) like quotas or transformations on the APIs
   * Get insights from analytics
@@ -73,7 +73,7 @@ Use the management plane to:
 
 ### Developer portal
 
-App developers use the open-source [*developer portal*][Developer portal] to discover the APIs, onboard to use them, and learn how to consume them in applications. (APIs can also be exported to the [Power Platform](export-api-power-platform.md) for discovery and use by citizen developers.)
+App developers use the open-source [developer portal][Developer portal] to discover the APIs, onboard to use them, and learn how to consume them in applications. (APIs can also be exported to the [Power Platform](export-api-power-platform.md) for discovery and use by citizen developers.)
 
 Using the developer portal, developers can:
 
@@ -88,7 +88,7 @@ Customize the look and feel of the developer portal by adding custom content, cu
 
 API Management integrates with many complementary Azure services, including:
 
-* [Azure Key Vault](..key-vault/general/overview.md) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
+* [Azure Key Vault](../key-vault/general/overview.md) for secure safekeeping and management of [client certificates](api-management-howto-mutual-certificates.md) and [secrets​](api-management-howto-properties.md)
 * [Azure Monitor](api-management-howto-use-azure-monitor.md) for logging, reporting, and alerting on management operations, systems events, and API requests​
 * [Application Insights](api-management-howto-app-insights.md) for live metrics, end-to-end tracing, and troubleshooting
 * [Virtual networks](virtual-network-concepts.md) and [Application Gateway](api-management-howto-integrate-internal-vnet-appgateway.md) for network-level protection​
@@ -127,7 +127,7 @@ Groups are used to manage the visibility of products to developers. API Manageme
 
 * **Guests** - Unauthenticated developer portal users, such as prospective customers visiting the developer portal. They can be granted certain read-only access, such as the ability to view APIs but not call them.
 
-Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers affiliated with a specific partner organization and allow them access to the APIs from a product containing relevant APIs only. A user can be a member of more than one group.
+Administrators can also create custom groups or use external groups in an [associated Azure Active Directory tenant](api-management-howto-aad.md) to give developers visibility and access to API products. For example, create a custom group for developers in a partner organization to access the APIs from a product containing a subset of APIs. A user can be a member of more than one group.
 
 More information: 
 * [How to create and use groups][How to create and use groups]
