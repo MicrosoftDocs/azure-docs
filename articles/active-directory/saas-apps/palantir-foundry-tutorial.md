@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Palantir Foundry with Azure Acti
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Palantir Foundry single sign-on (SSO) enabled subscription.
+* Palantir Foundry subscription.
 
 ## Scenario description
 
@@ -66,28 +66,17 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 1. In the Azure portal, on the **Palantir Foundry** application integration page, find the **Manage** section and select **single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
-1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
+1. In Foundry, download the **SAML integration metadata XML** file and save it on your computer.
 
-   ![Edit Basic SAML Configuration](common/edit-urls.png)
+   ![Download Foundry metadata filef from Foundry](media/palantir-foundry-tutorial/TODO.png)
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+1. In the Azure portal, on the **Set up single sign-on with SAML** page, click **Upload metadata file** to upload the Palantir Foundry's XML metadata, then **Save**.
 
-    1. In the **Identifier** text box, type a value using the following pattern: `urn:uuid:<SOME_UUID>`
+   ![Upload Foundry metadata file in Azure](common/browse-upload-metadata.png)
 
-    1. In the **Reply URL** text box, type a URL using the following pattern: `https://<DOMAIN>/multipass/api/collectors/<SOME_UUID>/saml/SSO`
+1. On the **SAML Signing Certificate** section, click **Download** next to **Federation Metadata XML** to download Azure's XML metadata and save it on your computer for the **[Configure Palantir Foundry SSO](#configure-palantir-foundry-sso)** section.
 
-    1. In the **Logout URL** text box, type a URL using the following pattern: `https://<DOMAIN>/multipass/api/collectors/<SOME_UUID>/SingleLogout`
-
-        > [!NOTE]
-        > These values are not real. Update these values with the actual Identifier, Reply URL and Logout URL. Contact [Palantir Foundry Client support team](mailto:support@palantir.com) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
-
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Federation Metadata XML** and select **Download** to download the certificate and save it on your computer.
-
-	![The Certificate download link](common/metadataxml.png)
-
-1. On the **Set up Palantir Foundry** section, copy the appropriate URL(s) based on your requirement.
-
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+   ![Download Azure metadata file](common/metadataxml.png)
 
 ### Create an Azure AD test user
 
@@ -115,7 +104,9 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Palantir Foundry SSO
 
-To configure single sign-on on **Palantir Foundry** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Palantir Foundry support team](mailto:support@palantir.com). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Palantir Foundry** side, upload Azure's XML metadata downloaded from **Federation Metadata XML** into **Palantir Foundry Control Panel**.
+
+   ![Upload Azure metadata file in Foundyr](media/palantir-foundry-tutorial/TODO.png)
 
 ### Create Palantir Foundry test user
 
