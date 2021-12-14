@@ -7,7 +7,6 @@ ms.date: 02/14/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: 
 ---
 
 # Geofencing GeoJSON data
