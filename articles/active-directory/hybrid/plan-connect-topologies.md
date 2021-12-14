@@ -137,10 +137,13 @@ It's possible to have more than one staging server when you want to have multipl
 ## Multiple Azure AD tenants
 We recommend having a single tenant in Azure AD for an organization. Before you plan to use multiple Azure AD tenants, see the article [Administrative units management in Azure AD](../roles/administrative-units.md). It covers common scenarios where you can use a single tenant.
 
-### Each object multiple times in an Azure AD tenant
+### (Public preview) Each object multiple times in an Azure AD tenant
 <img src="./media/plan-connect-topologies/multi-tenant-1.png" alt="drawing" width="480"/>
 
-This topology supports the following use cases:
+> [!NOTE]
+> This functionality is currently in Public Preview. As the supported scnearios may still change we recommend not deploying this topology in a production environment.
+
+This topology implements the following use cases:
 
 * AADConnect can synchronize the same users, groups, and contacts from a single Active Directory to multiple Azure AD tenants. These tenants can be in different Azure environments, such as the Azure China environment or the Azure Government environment, but they could also be in the same Azure environment, such as two tenants that are both in Azure Commercial. 
 *	The same Source Anchor can be used for a single object in separate tenants (but not for multiple objects in the same tenant)
