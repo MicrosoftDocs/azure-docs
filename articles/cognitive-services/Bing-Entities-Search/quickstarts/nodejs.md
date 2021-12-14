@@ -10,7 +10,7 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-js, mode-other
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using Node.js
