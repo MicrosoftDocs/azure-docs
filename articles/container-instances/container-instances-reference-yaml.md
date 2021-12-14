@@ -220,10 +220,10 @@ The following tables describe the values you need to set in the schema.
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  server | string | Yes | The Docker image registry server without a protocol such as "http" and "https". |
-|  username | string | Yes | The username for the private registry. |
+|  username | string | No | The username for the private registry. |
 |  password | string | No | The password for the private registry. |
-|  identity | string | No? | The resource ID of the user or system-assigned managed identity used to authenticate. |
-|  identityUrl | string | No? | ? |
+|  identity | string | No | The resource ID of the user or system-assigned managed identity used to authenticate. |
+|  identityUrl | string | No | The identity URL for the private registry. |
 
 
 
@@ -267,7 +267,7 @@ The following tables describe the values you need to set in the schema.
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  id | string | Yes | The identifier for a subnet. |
-|  name | string | Yes | The name of the subnet. |
+|  name | string | No | The name of the subnet. |
 
 
 
@@ -351,7 +351,7 @@ The following tables describe the values you need to set in the schema.
 |  ---- | ---- | ---- | ---- |
 |  workspaceId | string | Yes | The workspace id for log analytics |
 |  workspaceKey | string | Yes | The workspace key for log analytics |
-|  workspaceResourceId | string | Yes? | The workspace resource id for log analytics |
+|  workspaceResourceId | string | No | The workspace resource id for log analytics |
 |  logType | enum | No | The log type to be used. - ContainerInsights or ContainerInstanceLogs |
 |  metadata | object | No | Metadata for log analytics. |
 
@@ -460,14 +460,14 @@ The following tables describe the values you need to set in the schema.
 |  path | string | No | The path to probe. |
 |  port | integer | Yes | The port number to probe. |
 |  scheme | enum | No | The scheme. - http or https |
-|  httpHeaders | object | No? | The HTTP headers included in the probe. - [HttpHeaders object](#httpheaders-object) |
+|  httpHeaders | object | No | The HTTP headers included in the probe. - [HttpHeaders object](#httpheaders-object) |
 
 ### HttpHeaders object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  name | string | No? | Name of the header. |
-|  value | string | No? | Value of the header. |
+|  name | string | No | Name of the header. |
+|  value | string | No | Value of the header. |
 
 ### GpuResource object
 
