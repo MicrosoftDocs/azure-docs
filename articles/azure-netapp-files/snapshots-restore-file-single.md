@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 12/14/2021
 ms.author: b-hchen
 ---
 
@@ -39,6 +39,9 @@ The restore operation does not create directories in the process. If the specifi
 ## Register the feature  
 
 The single-file snapshot restore feature to restore individual files from a snapshot is currently in preview. If you are using this feature for the first time, register the feature before using it.
+
+> [!IMPORTANT]
+> If you are an [Azure NetApp Files for Azure Government](azure-government) user, contact your account team to access this feature instead of following the steps below.
 
 1. Register the feature: 
 
