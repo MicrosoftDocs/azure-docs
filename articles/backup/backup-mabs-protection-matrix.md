@@ -1,8 +1,11 @@
 ---
 title: MABS (Azure Backup Server) V3 UR1 protection matrix
 description: This article provides a support matrix listing all workloads, data types, and installations that Azure Backup Server protects.
-ms.date: 07/27/2021
+ms.date: 12/09/2021
 ms.topic: conceptual
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # MABS (Azure Backup Server) V3 UR1 (and later) protection matrix
@@ -45,7 +48,7 @@ The following sections details the protection support matrix for MABS:
 
 | **Workload**                                                 | **Version**                                             | **Azure  Backup Server   installation**                      | **Supported  Azure Backup Server** | **Protection  and recovery**                                 |
 | ------------------------------------------------------------ | ------------------------------------------------------- | ------------------------------------------------------------ | ---------------------------------- | ------------------------------------------------------------ |
-| Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V3 UR1 and and V3 UR2                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives |
+| Hyper-V  host - MABS protection agent on Hyper-V host server, cluster, or VM | Windows  Server 2022, 2019, 2016, 2012 R2, 2012               | Physical  server  <br><br>    Hyper-V virtual machine <br><br>    VMware  virtual machine | V3 UR1 and V3 UR2                                 | Protect:  Virtual machines, cluster shared volumes (CSVs)  <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available  only for Windows, volumes, virtual hard drives |
 | Azure Stack HCI  |       V1 and 20H2      |    Physical server        <br><br>     Hyper-V / Azure Stack HCI virtual machine     <br><br>    VMware virtual machine     |    V3 UR2 and later   | Protect: Virtual machines, cluster shared volumes (CSVs)      <br><br>     Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives |
 | VMware  VMs                                                  | VMware  server 5.5, 6.0, or 6.5, 6.7 (Licensed Version) | Hyper-V  virtual machine  <br><br>   VMware  virtual machine         | V3 UR1                             | Protect:  VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage   <br><br>     Recover:  Virtual machine, Item-level recovery of files and folders available only for  Windows, volumes, virtual hard drives <br><br>    VMware  vApps aren't supported. |
 | VMware VMs      |   VMware server 7.0, 6.7, 6.5 or 6.0 (Licensed Version)     |    Hyper-V virtual machine     <br><br>    VMware virtual machine    |   V3 UR2 and later    |   Protect: VMware VMs on cluster-shared volumes (CSVs), NFS, and SAN storage     <br><br>    Recover: Virtual machine, Item-level recovery of files and folders available only for Windows, volumes, virtual hard drives     <br><br>    VMware vApps aren't supported.  |
@@ -102,7 +105,8 @@ Azure Backup Server can protect data in the following clustered applications:
 * SQL Server - Azure Backup Server doesn't support backing up SQL Server databases hosted on cluster-shared volumes (CSVs).
 
 >[!NOTE]
->MABS only supports the protection of Hyper-V virtual machines on Cluster Shared Volumes (CSVs). Protecting other workloads hosted on CSVs isn't supported.
+>- MABS V3 UR1 supports the protection of Hyper-V virtual machines on Cluster Shared Volumes (CSVs). Protection of other workloads hosted on CSVs isn't supported.
+>- MABS v3 UR2 additionally supports SQL Server Failover Cluster Instance (FCI) using Cluster Shared Volumes (CSVs).
 
 Azure Backup Server can protect cluster workloads that are located in the same domain as the MABS server, and in a child or trusted domain. If you want to protect data sources in untrusted domains or workgroups, use NTLM or certificate authentication for a single server, or certificate authentication only for a cluster.
 

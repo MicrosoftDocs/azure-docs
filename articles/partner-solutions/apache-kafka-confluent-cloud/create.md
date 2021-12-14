@@ -6,7 +6,7 @@ ms.topic: quickstart
 ms.date: 06/07/2021
 author: tfitzmac
 ms.author: tomfitz
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # QuickStart: Get started with Apache Kafka for Confluent Cloud - Azure portal

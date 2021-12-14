@@ -5,7 +5,7 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 11/16/2021
+ms.date: 12/09/2021
 ms.author: victorh
 ms.custom: references_regions
 ---
@@ -53,7 +53,9 @@ IDPS allows you to detect attacks in all ports and protocols for non-encrypted t
 
 The IDPS Bypass List allows you to not filter traffic to any of the IP addresses, ranges, and subnets specified in the bypass list.
 
-IDPS Signature rules(preview) allow you to:
+### IDPS signature rules
+
+IDPS signature rules allow you to:
 
 - Customize one or more signatures and change their mode to *Disabled*, *Alert* or *Alert and Deny*. 
 
@@ -63,6 +65,24 @@ IDPS Signature rules(preview) allow you to:
 - Smart search
 
    Allows you to search through the entire signatures database by any type of attribute. For example, you can search for specific CVE-ID to discovered what signatures are taking care of this CVE by simply typing the ID in the search bar.
+
+
+IDPS signature rules have the following properties:
+
+
+|Column  |Description  |
+|---------|---------|
+|Signature ID     |Internal ID for each signature. This ID is also presented in Azure Firewall Network Rules logs.|
+|Mode      |Indicates if the signature is active or not, and whether it should drop matched traffic. Signature mode can override IDPS mode<br>- **Disabled**: The signature is not enabled on your firewall.<br>- **Alert**: You will receive alerts when suspicious traffic is detected.<br>- **Alert and Deny**: You will receive alerts when suspicious traffic is detected, and that traffic will be denied when the matching signature is from a high confidence category.|
+|Severity      |Each signature has an associated severity level that indicates the probability that the signature is an actual attack.<br>- **Low**: An abnormal event is one that does not normally occur on a network or Informational events are logged. Probability of attack is low.<br>- **Medium**: The signature indicates an attack of a suspicious nature. The administrator should investigate further.<br>- **High**: The attack signatures indicate that an attack of a severe nature is being launched. There is very little probability that the packets have a legitimate purpose.|
+|Direction      |The traffic direction for which the signature is applied.<br>- **Inbound**: Signature is applied only on traffic arriving from the Internet and destined in Azure private IP range (according to IANA RFC 1918).<br>- **Outbound**: Signature is applied only on traffic sent from Azure private IP range (according to IANA RFC 1918) to the Internet.<br>- **Bidirectional**: Signature is always applied on any traffic direction.|
+|Group      |The group name that the signature belongs to.|
+|Description      |Structured from the following three parts:<br>- **Group name**: The group name that the signature belongs to as described in [Azure Firewall IDPS signature rule categories](idps-signature-categories.md).<br>- High level description of the signature<br>- **CVE-ID** (optional) in the case where the signature is associated with a specific CVE. The ID is listed here.|
+|Protocol     |The protocol associated with this signature.|
+|Source/Destination Ports     |The ports associated with this signature.|
+|Last updated     |The last date that this signature was introduced or modified.|
+
+:::image type="content" source="media/idps-signature-categories/firewall-idps-signature.png" alt-text="Image showing the IDPS signature rule columns":::
 
 
 ## URL filtering

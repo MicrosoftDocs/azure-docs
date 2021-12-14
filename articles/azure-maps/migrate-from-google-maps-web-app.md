@@ -6,7 +6,6 @@ ms.author: v-munksteve
 ms.date: 12/07/2020
 ms.topic: tutorial
 ms.service: azure-maps
-manager: cpendle
 ms.custom: devx-track-js
 ---
 
