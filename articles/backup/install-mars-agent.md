@@ -2,8 +2,10 @@
 title: Install the Microsoft Azure Recovery Services (MARS) agent
 description: Learn how to install the Microsoft Azure Recovery Services (MARS) agent to back up Windows machines.
 ms.topic: conceptual
-ms.date: 06/04/2021
-
+ms.date: 12/14/2021
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Install the Azure Backup MARS agent
@@ -115,7 +117,12 @@ If you've already installed the agent on any machines, make sure that you're run
     * Save the passphrase in a secure location. You need it to restore a backup.
     * If you lose or forget the passphrase, Microsoft can't help you recover the backup data.
 
+   :::image type="content" source="./media/backup-configure-vault/encryption-settings-passphrase-to-encrypt-decrypt-backups.png" alt-text="Screenshot showing to specify a passphrase to be used to encrypt and decrypt backups for machines.":::
+
 1. Select **Finish**. The agent is now installed, and your machine is registered to the vault. You're ready to configure and schedule your backup.
+
+   >[!Note]
+   >We strongly recommend you save your passphrase in an alternate secure location, such as the Azure key vault. Microsoft can't recover the data without the passphrase. [Learn](/azure/key-vault/secrets/quick-create-portal) how to store a secret in a key vault.
 
 ## Next steps
 
