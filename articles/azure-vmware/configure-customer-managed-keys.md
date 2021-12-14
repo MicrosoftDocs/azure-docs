@@ -40,13 +40,14 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
 # [Portal](#tab/azure-portal)
 
 1. Login to Azure portal.
-    1. Navigate to **Azure VMware Solution** and locate your SDDC.
+1. Navigate to **Azure VMware Solution** and locate your SDDC.
     <!-- New image from Rahi to go here -->
-1. Click **Identity** 
-    1. In **System Assigned** check **Enable** and click **Save**.
-     <!-- New image from Rahi to go here -->
+1. Click **Identity**. 
+1. In **System Assigned** check **Enable** and click **Save**.
+    <!-- New image from Rahi to go here -->
     1. **System Assigned identity** should now be enabled.
 1. To validate, click the **Overview** tab of SDDC.
+    <!-- New image from Rahi to go here -->
 1. Find **JSON View** in the upper right corner and select it.
 1. In the **Resource JSON** window, use the **API version** drop down menu to find and select the appropriate API version.
 
@@ -54,7 +55,7 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
 
 Using the JSON file provided below, use the following command to enable MSI on existing SDDC.
 
-- `az deployment group create --name <deployment name> --resource-group <RG Name> --template-file ./filename.json`
+`az deployment group create --name <deployment name> --resource-group <RG Name> --template-file ./filename.json`
 
     ```json   
     {
@@ -88,9 +89,9 @@ Using the JSON file provided below, use the following command to enable MSI on e
     }
     ```
 
-# [Windows on ARM](#tab/windows)
+# [Template](#tab/azure-resource-manager)
 
-Use the JSON file provided below to create an ARM template and enable MSI on pre-existing SDDC or while deploying a new SDDC.
+Below is the JSON file used to create an Azure Resource Manager (ARM) template and enable MSI on pre-existing SDDC or while deploying a new SDDC.
 
 ```json
     {
@@ -193,6 +194,10 @@ System-assigned identity is restricted to one per resource and is tied to the li
 >[!IMPORTANT]
 > Ensure that Key Vault is in the same region as the Azure VMware Solution private cloud.
 
+# [Portal](#tab/azure-portal)
+
+Navigate to your **Azure Key vault** and provide access to the SDDC on Azure Key vault using the Principal ID captured in the **Enble MSI** tab. Provide permissions
+
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption** and then **Customer-managed keys (CMK)**.
 
 <!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/set-up-customer-managed-keys1.png" alt-text="Screenshot of the encryption type for customer-managed keys.":::  -->   
@@ -225,9 +230,154 @@ System-assigned identity is restricted to one per resource and is tied to the li
 
 <!--    :::image type="content" source="media/configure-customer-managed-key-encryption-at-rest/enable-system-assigned-identity4.png" alt-text="Screenshot of the System-assigned identity enabled."::: -->
 
-    
 
+# [Azure CLI](#tab/azure-cli)
 
+Below is the command used to enable CMK on SDDC using the JSON file provided.
+
+`az deployment group create --name <deployment name> --resource-group <RG Name> --template-file ./filename.json`
+
+```json
+{
+    "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+    "contentVersion": "1.0.0.0",
+    "variables": {
+            "name": "<SDDC Name>",
+            "location": "<Location of SDDC>",
+            "sku": "av36"
+    },
+    "resources": [{
+            "type": "Microsoft.AVS/privateClouds",
+            "apiVersion": "2021-12-01",
+            "name": "[variables('name')]",
+            "location": "[variables('location')]",
+            "sku": {
+                    "name": "[variables('sku')]"
+            },
+            "properties": {
+                    "managementCluster": {
+                            "clusterSize": <Size of Cluster>
+                    },
+                    "internet": "enabled",
+                    "encryption": {
+                            "status": "enabled",
+            "keyVaultProperties": {
+                                    "keyVaultUrl": "<KeyVault URl>",
+                                    "keyName": "<Key Name>",
+                                    "keyVersion": ""
+                            }
+                            }
+                    }
+
+            }]
+
+}
+
+```
+# [Template](#tab/azure-resource-manager)
+
+Below is the JSON file used to create an ARM template and enable CMK on SDDC.
+
+```json
+{
+	"$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentTemplate.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"apiVersion": {
+			"type": "String",
+			"metadata": {
+				"description": "Must be 2021-12-01"
+			}
+		},
+		"name": {
+			"type": "String",
+			"metadata": {
+				"description": "Name of the SDDC"
+			}
+		},
+		"location": {
+			"type": "String",
+			"metadata": {
+				"description": "Location of the SDDC"
+			}
+		},
+		"sku": {
+			"type": "String",
+			"metadata": {
+				"description": "SKU value of the SDDC"
+			}
+		},
+		"clusterSize": {
+			"type": "int",
+			"metadata": {
+				"description": "Number of hosts in management cluster"
+			}
+		},
+		"internet": {
+			"type": "String",
+			"allowedValues": [
+				"enabled",
+				"disabled"
+			],
+			"metadata": {
+				"description": "Internet status"
+			}
+		},
+		"status": {
+			"type": "String",
+			"allowedValues": [
+				"enabled",
+				"disabled"
+			],
+			"metadata": {
+				"description": "Specifying whether need to perform enable cmk or disable cmk"
+			}
+		},
+		"keyVaultUrl": {
+			"type": "String",
+			"metadata": {
+				"description": "Key vault url to be used for Customer Managed Key"
+			}
+		},
+		"keyName": {
+			"type": "String",
+			"metadata": {
+				"description": "Name of the Customer Managed Key"
+			}
+		},
+		"keyVersion": {
+			"type": "String",
+			"metadata": {
+				"description": "Version of the Customer Managed Key"
+			}
+		}
+	},
+	"resources": [{
+		"type": "Microsoft.AVS/privateClouds",
+		"apiVersion": "[parameters('apiVersion')]",
+		"name": "[parameters('name')]",
+		"location": "[parameters('location')]",
+		"sku": {
+			"name": "[parameters('sku')]"
+		},
+		"properties": {
+			"managementCluster": {
+				"clusterSize": "[parameters('clusterSize')]"
+			},
+			"internet": "[parameters('internet')]",
+			"encryption": {
+				"status": "[parameters('status')]",
+				"keyVaultProperties": {
+					"keyVaultUrl": "[parameters('keyVaultUrl')]",
+					"keyName": "[parameters('keyName')]",
+					"keyVersion": "[parameters('keyVersion')]"
+				}
+			}
+		}
+	}]
+}
+```
+---
 
 ## Change from CMK to MMK and back to CMK 
 
