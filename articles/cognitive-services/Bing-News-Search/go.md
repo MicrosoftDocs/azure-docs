@@ -10,7 +10,7 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Get news results using the Bing News Search REST API and Go

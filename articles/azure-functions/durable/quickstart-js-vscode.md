@@ -5,7 +5,7 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 05/07/2020
 ms.reviewer: azfuncdf, antchu
-ms.custom: devx-track-js, mode-other
+ms.custom: devx-track-js, mode-api
 ---
 
 # Create your first durable function in JavaScript

@@ -6,7 +6,7 @@ ms.date: 08/17/2021
 ms.topic: quickstart
 ms.author: thweiss
 zone_pivot_groups: programming-languages-set-functions-temp
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Connect Azure Functions to Azure Cosmos DB using Visual Studio Code

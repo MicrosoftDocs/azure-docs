@@ -78,6 +78,23 @@ Authorization: Bearer eyJ0e….HNIVN
 
 For information about viewing your client ID, see [View authentication details](./how-to-manage-authentication.md#view-authentication-details).
 
+> [!TIP]
+>
+> **Getting the Client ID programmatically**
+>
+> When using PowerShell, the Client ID is stored as the `UniqueId` Property in the `IMapsAccount` object. You retrieve this property using `Get-AzMapsAccount`, for example:
+>
+> ```powershell
+> $maps = Get-AzMapsAccount -Name {Azure-Maps_Account-Name} -ResourceGroupName {Resource-Group-Name} -SubscriptionId {SubscriptionId}
+> $ClientId = $maps.UniqueId
+> ```
+>
+> When using the Azure CLI use the `az maps account show` command with the `--query` parameter, for example:
+>
+> ```azurecli
+> $ClientId = az maps account show --name {Azure-Maps_Account-Name} --resource-group {Resource-Group-Name} --subscription {SubscriptionId} --query properties.uniqueId
+>```
+
 ## Authorization with role-based access control
 
 Azure Maps supports access to all principal types for [Azure role-based access control (Azure RBAC)](../role-based-access-control/overview.md) including: individual Azure AD users, groups, applications, Azure resources, and Azure Managed identities. Principal types are granted a set of permissions, also known as a role definition. A role definition provides permissions to REST API actions. Applying access to one or more Azure Maps accounts is known as a scope. When applying a principal, role definition, and scope then a role assignment is created.
