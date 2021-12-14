@@ -377,7 +377,7 @@ Start-AzAutomationRunbook -AutomationAccountName "MyAutomationAccount" -Name "Te
 ```
 
 ## Run V1 and V2 Hybrid Workers on Same Machine
-You can have **Agent based (V1)** and **Extension based (V2)** either in the same worker group or in a different worker group and as per your requirement, both the **Agent based (V1)** and **Extension based (V2)** can connect to another worker group and an automation account to run in parallel.
+You can have **Agent based (V1)** and **Extension based (V2)** either in the same worker group or in a different worker group and as per your requirement, both the **Agent based (V1)** and **Extension based (V2)** can connect to different/same worker groups of different/same automation account to run in parallel.
 
 To create both **Agent based (V1)** and **Extension based (V2)** on same Virtual Machine:
 1. In **Process Automation**, **Hybrid Workers groups**, select an existing Hybrid Worker Group.
