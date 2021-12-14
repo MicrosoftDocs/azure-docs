@@ -4,7 +4,9 @@ metadata:
   description: In this article, discover answers to common questions about backing up Azure VMs with the Azure Backup service.
   ms.topic: article
   ms.service: backup
-  ms.date: 08/19/2021
+  ms.date: 11/09/2021
+  author: v-amallick
+  ms.author: v-amallick
 
 title: Frequently asked questions-Back up Azure VMs
 summary: |
@@ -79,7 +81,7 @@ sections:
           Yes, Azure Backup supports [standard SSD managed disks](../virtual-machines/disks-types.md#standard-ssds).
 
       - question: Can we back up a VM with a Write Accelerator (WA)-enabled disk?
-        answer: Snapshots can be taken on only data disks which are WA enabled and not OS disks. So only data disks which are WA enabled can be protected.
+        answer: Snapshots can be taken on only data disks that are WA enabled and not OS disks. So, only data disks that are WA enabled can be protected.
 
       - question: I have a VM with Write Accelerator (WA) disks and SAP HANA installed. How do I back up?
         answer: |
@@ -112,7 +114,7 @@ sections:
         answer: All the VM configurations required to perform the restore operations are stored in the VM backup. That includes the encryption copies of the VM encrypted keys, which are accessible to you on restore. The encryption copies can only be decrypted using the key vault. Temporary disks and memory state aren't captured in the snapshot.
       
       - question: Can we back up tags from Azure VM? If so, how many tags?
-        answer: Azure B0ackup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
+        answer: Azure Backup can back up and restore tags, except NICs and IPs. Azure Backup honors the subscription limitations of Azure Resource Group and restores up to 50 tags.<br><br>For detailed information, see [Subscription limits](../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits).
 
       - question: Can I take on-demand (ad-hoc) backup without scheduling backup for an Azure VM?
         answer: |
@@ -263,6 +265,12 @@ sections:
       - question: What's the minimum RPO and RTO for VM backups in Azure Backup?
         answer: |
           **RPO**: The minimum RPO is 1 day or 24 hours.  <br><br>  **RTO**: The snapshots are stored in the storage account. So, the restore from the instant restore tier is instantaneous. This data is then transferred to the Recovery Services vault that is maintained by the Azure Backup service and will take a couple of hours for transfer and restore.
+
+      - question: Why does the error VMMarketplaceInvalidInputmessage appear?
+        answer: |
+          This error appears when you try to start a VM after creating an Azure VM from a non-Marketplace image or swap the OS disk of a VM with a non-Marketplace image, and then the VM deployment fails. To resolve this issue, remove the plan information from the VM.
+
+
 
 
 

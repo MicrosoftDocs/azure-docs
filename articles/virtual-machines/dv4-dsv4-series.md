@@ -40,6 +40,7 @@ Remote Data disk storage is billed separately from virtual machines. To use prem
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported <br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max NICs|Expected network bandwidth (Mbps) |
@@ -67,6 +68,7 @@ Dsv4-series sizes run on the Intel&reg; Xeon&reg; Platinum 8272CL (Cascade Lake)
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max uncached disk throughput: IOPS/MBps | Max burst uncached disk throughput: IOPS/MBps<sup>1</sup> | Max NICs|Expected network bandwidth (Mbps) |

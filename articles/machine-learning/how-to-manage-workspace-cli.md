@@ -89,7 +89,7 @@ When you deploy an Azure Machine Learning workspace, various other services are 
 > * Hierarchical Namespace (ADLS Gen 2) is disabled
 > These requirements are only for the _default_ storage account used by the workspace.
 >
-> When attaching Azure container registry, you must have the the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
+> When attaching Azure container registry, you must have the [admin account](../container-registry/container-registry-authentication.md#admin-account) enabled before it can be used with an Azure Machine Learning workspace.
 
 # [Create with new resources](#tab/createnewresources)
 
@@ -371,7 +371,7 @@ az group delete -g <resource-group-name>
 
 For more information, see the [az ml workspace delete](/cli/azure/ml/workspace#az_ml_workspace_delete) documentation.
 
-If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](/azure/machine-learning/how-to-high-availability-machine-learning#workspace-deletion).
+If you accidentally deleted your workspace, are still able to retrieve your notebooks. Please refer to [this documentation](./how-to-high-availability-machine-learning.md#workspace-deletion).
 
 ## Troubleshooting
 
@@ -393,3 +393,5 @@ The Azure Machine Learning workspace uses Azure Container Registry (ACR) for som
 ## Next steps
 
 For more information on the Azure CLI extension for machine learning, see the [az ml](/cli/azure/ml) documentation.
+
+To check for problems with your workspace, see [How to use workspace diagnostics](how-to-workspace-diagnostic-api.md).

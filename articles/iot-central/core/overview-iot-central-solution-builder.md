@@ -50,6 +50,8 @@ As a solution builder, you can use the data export and rules capabilities in IoT
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)
 - [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
 
+You can use IoT Edge devices connected to your IoT Central application to integrate with [Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md). To learn more, see the [Azure IoT Central gateway module for Azure Video Analyzer](https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md) on GitHub.
+
 ## APIs
 
 IoT Central APIs let you build deep integrations with other services in your IoT solution. The available APIs are categorized as *data plane* or *control plane* APIs.

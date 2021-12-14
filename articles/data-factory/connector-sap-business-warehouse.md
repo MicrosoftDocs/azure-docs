@@ -37,6 +37,9 @@ Specifically, this SAP Business Warehouse connector supports:
 - Copying data from **InfoCubes and QueryCubes** (including BEx queries) using MDX queries.
 - Copying data using basic authentication.
 
+>[!NOTE]
+>The SAP Business Warehouse connector does not currently support parameters with MDX.  If filtering with MDX parameters is required you can consider using the alternative [SAP Open Hub connector](connector-sap-business-warehouse-open-hub.md) instead.
+
 ## Prerequisites
 
 To use this SAP Business Warehouse connector, you need to:

@@ -3,12 +3,12 @@ title: Quickstart - Add calling composite into your app
 titleSuffix: An Azure Communication Services quickstart
 description: In this quickstart, you'll learn how to get started with calling composite from UI Library
 author: jorgegarc
-
 ms.author: jorgegarc
 ms.date: 10/10/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 zone_pivot_groups: acs-plat-ios-android
+ms.custom: mode-other
 ---
 
 # Quickstart: Get started with calling composite 

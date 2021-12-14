@@ -1,5 +1,5 @@
 ---
-title: Speech SDK microphone array recommendations
+title: Microphone array recommendations - Speech service
 titleSuffix: Azure Cognitive Services
 description: Speech SDK microphone array recommendations. These array geometries are recommended for use with the Microsoft Audio Stack.
 services: cognitive-services
@@ -13,7 +13,7 @@ ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
-# Speech SDK Microphone array recommendations
+# Microphone array recommendations
 
 In this article, you learn how to design a microphone array for the Speech SDK.
 
@@ -99,7 +99,7 @@ The following guidelines for architecture are necessary when integrating microph
 
 ## Electrical architecture considerations
 
-Where applicable, arrays may be connected to a USB host (such as an SoC that runs the Microsoft Audio Stack) and interfaces to Speech services or other applications.
+Where applicable, arrays may be connected to a USB host (such as a SoC that runs the Microsoft Audio Stack) and interfaces to Speech services or other applications.
 
 Hardware components such as PDM-to-TDM conversion should ensure that the dynamic range and SNR of the microphones is preserved within re-samplers.
 

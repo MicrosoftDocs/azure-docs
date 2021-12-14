@@ -12,7 +12,7 @@ ms.devlang:
 ms.topic: conceptual
 author: WilliamDAssafMSFT
 ms.author: wiassaf
-ms.reviewer: 
+ms.reviewer: kendralittle, mathoma
 ms.date: 3/02/2021
 ---
 # Understand and resolve Azure SQL Database blocking problems

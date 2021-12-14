@@ -172,7 +172,9 @@ First decode each SAS token string. The following example decodes a SAS token st
 
 Then, you can pass that string to the [Get-FileHash](/powershell/module/microsoft.powershell.utility/get-filehash) PowerShell cmdlet. For an example, see [Example 4: Compute the hash of a string](/powershell/module/microsoft.powershell.utility/get-filehash#example-4--compute-the-hash-of-a-string).
 
-Alternatively, you can pass the decoded string to the [hash_sha256()](/data-explorer/kusto/query/sha256hashfunction) function as part of a kusto query.
+Alternatively, you can pass the decoded string to the [hash_sha256()](/azure/data-explorer/kusto/query/sha256hashfunction) function as part of a query when you use Azure Data Explorer.
+
+SAS tokens do not contain identity information. One way to track the activities of users or organizations, is to keep a mapping of users or organizations to various SAS token hashes.
 
 ## Optimize cost for infrequent queries
 

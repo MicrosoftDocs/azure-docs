@@ -102,6 +102,16 @@ When you use App Configuration in client applications, ensure that you consider 
 
 To address these concerns, we recommend that you use a proxy service between your client applications and your App Configuration store. The proxy service can securely authenticate with your App Configuration store without a security issue of leaking authentication information. You can build a proxy service by using one of the App Configuration provider libraries, so you can take advantage of built-in caching and refresh capabilities for optimizing the volume of requests sent to App Configuration. For more information about using App Configuration providers, see articles in Quickstarts and Tutorials. The proxy service serves the configuration from its cache to your client applications, and you avoid the two potential issues that are discussed in this section.
 
+## Configuration as Code
+
+Configuration as code is a practice of managing configuration files under your source control system, for example, a git repository. It gives you benefits like traceability and approval process for any configuration changes. If you adopt configuration as code, App Configuration has tools to assist you in deploying your configuration data. This way, your applications can access the latest data from your App Configuration store(s).
+
+- For GitHub, you can enable the [App Configuration Sync GitHub Action](concept-github-action.md) for your repository. Changes to configuration files are synchronized to App Configuration automatically whenever a pull request is merged. 
+- For Azure DevOps, you can include the [Azure App Configuration Push](push-kv-devops-pipeline.md), an Azure pipeline task, in your build or release pipelines for data synchronization. 
+- You can also import configuration files to App Configuration using Azure CLI as part of your CI/CD system. For more information, see [az appconfig kv import](scripts/cli-import.md).
+
+This model allows you to include validation and testing steps before committing data to App Configuration. If you use multiple App Configuration stores, you can also push the configuration data to them incrementally or all at once.
+
 ## Next steps
 
 * [Keys and values](./concept-key-value.md) 

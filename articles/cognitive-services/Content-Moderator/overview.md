@@ -19,8 +19,6 @@ keywords: content moderator, azure content moderator, online moderator, content 
 
 # What is Azure Content Moderator?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 [!INCLUDE [deprecation notice](includes/tool-deprecation.md)]
 
 Azure Content Moderator is an AI service that lets you handle content that is potentially offensive, risky, or otherwise undesirable. It includes the AI-powered content moderation service which scans text, image, and videos and applies content flags automatically, as well as the Review tool, an online moderator environment for a team of human reviewers.

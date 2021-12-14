@@ -7,7 +7,7 @@ ms.topic: article
 
 # Defender for IoT glossary for device builder
 
-This glossary provides a brief description of important terms and concepts for the Azure Defender for IoT platform. Select the **Learn more** links to go to related terms in the glossary. This will help you more quickly learn and use product tools.
+This glossary provides a brief description of important terms and concepts for the Microsoft Defender for IoT platform. Select the **Learn more** links to go to related terms in the glossary. This will help you more quickly learn and use product tools.
 
 <a name="glossary-a"></a>
 

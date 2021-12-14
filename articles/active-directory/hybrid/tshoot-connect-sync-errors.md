@@ -128,7 +128,9 @@ The most common reason for the ObjectTypeMismatch error is two objects of differ
 #### Description
 Azure Active Directory schema does not allow two or more objects to have the same value of the following attributes. That is each object in Azure AD is forced to have a unique value of these attributes at a given instance.
 
+* Mail
 * ProxyAddresses
+* SignInName
 * UserPrincipalName
 
 If Azure AD Connect attempts to add a new object or update an existing object with a value for the above attributes that is already assigned to another object in Azure Active Directory, the operation results in the "AttributeValueMustBeUnique" sync error.
@@ -188,23 +190,40 @@ Azure Active Directory protects cloud only objects from being updated through Az
 * Deleting a cloud only object is not supported. Please contact Microsoft Customer Support.
 * The password change request cannot be executed since it contains changes to one or more cloud only user objects, which is not supported. Please contact Microsoft Customer Support.
 
-## LargeObject
+## LargeObject or ExceededAllowedLength
+
 ### Description
-When an attribute exceeds the allowed size limit, length limit or count limit set by Azure Active Directory schema, the synchronization operation results in the **LargeObject** or **ExceededAllowedLength** sync error. Typically this error occurs for the following attributes
+When an attribute exceeds the allowed size limit, length limit or count limit set by Azure Active Directory schema, the synchronization operation results in a **LargeObject** or **ExceededAllowedLength** sync error. Typically this error occurs for the following attributes
 
 * userCertificate
 * userSMIMECertificate
 * thumbnailPhoto
 * proxyAddresses
 
+Azure AD does not impose limits per attribute, except for a hard-coded limit of 15 certificates in UserCertificate attribute and up to 100 attributes for [Directory extensions](how-to-connect-sync-feature-directory-extensions.md) with a maximum of 250 characters for each directory extension. However, there is a size limit for the whole object so when Azure AD Connect tries to synchronize an object that exceeds this object size limit, an export error is thrown.
+All attributes contribute to the object's final size and some attributes have different weight multipliers due to additional processing overhead (e.g., indexed values). Additionally, different cloud services, service plans, and licenses may be assigned to the account which consumes even more attributes that also contribute to the overall size of the object. 
+Therefore, it's not possible to determine exactly how many entries can an attribute hold in Azure AD (for example, how many SMTP addresses can fit in ProxyAddresses), because that depends on the size and multiplying factors of all the attributes populated in the object.
+
 ### Possible Scenarios
+
 1. Bob's userCertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates. For more information on how to handle LargeObject errors with userCertificate attribute, please refer to article [Handling LargeObject errors caused by userCertificate attribute](tshoot-connect-largeobjecterror-usercertificate.md).
 2. Bob's userSMIMECertificate attribute is storing too many certificates assigned to Bob. These may include older, expired certificates. The hard limit is 15 certificates.
 3. Bob's thumbnailPhoto set in Active Directory is too large to be synced in Azure AD.
 4. During automatic population of the ProxyAddresses attribute in Active Directory, an object has too many ProxyAddresses assigned.
 
+Below are some examples which demonstrate the different weighs of attributes like UserCertificate and ProxyAddresses:
+
+1. A synchronized user which doesn’t have any attributes populated other than the mandatory AD attributes and a Mail might be able to sync up to 332 ProxyAddresses.
+2. For a similar synchronized user that has a mailNickname, plus 10 UserCertificates, the maximum number of ProxyAddresses decreases to 329.
+3. If a similar synchronized user with 10 UserCertificates plus for instance 4 subscriptions assigned (with all Service Plans enabled), the maximum number of ProxyAddresses decreases to 311.
+4. Now let’s take the above user which already holds the maximum number of ProxyAddresses, and say you need to add 1 more smtp address - to achieve 312 ProxyAddresses you would need to remove at least 3 UserCertificates (depending on the size of the certificate).
+
+>[!NOTE]
+> These numbers can vary slightly. As a rule of thumb, it is safer to assume that the limit of smtp addresses in ProxyAddresses is approximately 300 addresses to leave the room for the future growth of the object and its populated attributes. 
+
 ### How to fix
-1. Ensure that the attribute causing the error is within the allowed limitation.
+
+Review the user properties and remove attribute values that may no longer be required like revoked or expired certificates, outdated or unnecessary addresses (SMTP, X.400, X.500, MSMail, CcMail, etc)
 
 ## Existing Admin Role Conflict
 
