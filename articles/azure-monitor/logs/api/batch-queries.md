@@ -73,7 +73,7 @@ Example:
 ## Response format
 
 The response format is a similar array of objects. Each object contains:
- - The id
+ - The ID
  - The HTTP status code of the particular query
  - The body of the returned response for that query. 
  
@@ -126,7 +126,7 @@ Example
     }
 ```
 
-## Behavior and Eerrors
+## Behavior and errors
 The order of responses inside the returned object isn't related to the order in the request. It is determined by time it takes each individual query to complete. Use IDs to map the query response objects to the original requests. Don't assume that the query responses are in order.
 
 An entire batch request only fails if:

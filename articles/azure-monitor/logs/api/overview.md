@@ -14,11 +14,11 @@ The Log Analytics **Query API** is a REST API that lets you query the full set o
 
 You must authenticate to access the Log Analytics API. 
 - To query your workspaces, you must use [Azure Active Directory authentication](https://azure.microsoft.com/documentation/articles/active-directory-whatis/).
-- To quickly explore the API without using AAD authentication, you can use an API key to query sample data in a non-production environment.
+- To quickly explore the API without using Azure AD authentication, you can use an API key to query sample data in a non-production environment.
 
-### AAD authentication for workspace data
+### Azure AD authentication for workspace data
 
-The Log Analytics API supports AAD authentication with three different [AAD OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
+The Log Analytics API supports Azure AD authentication with three different [Azure AD OAuth2](/azure/active-directory/develop/active-directory-protocols-oauth-code) flows:
 - Authorization code
 - Implicit
 - Client credentials 
@@ -29,7 +29,7 @@ After receiving a token, the process for calling the Log Analytics API is identi
 
 ### API key authentication for sample data
 
-To quickly explore the API without using AAD authentication, we provide a demonstration workspace with sample data, which allows [authenticating with an API key](authentication-authorization.md#authenticating-with-an-api-key).
+To quickly explore the API without using Azure AD authentication, we provide a demonstration workspace with sample data, which allows [authenticating with an API key](authentication-authorization.md#authenticating-with-an-api-key).
 ## Log Analytics API Query Limits
 See [the **Query API** section of this page](../../service-limits.md) for information about query limits.
 ## Trying the Log Analytics API
