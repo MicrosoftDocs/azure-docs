@@ -168,7 +168,7 @@ If you want to look at the number of requests made in your subscription for Netw
 To view only your throttled requests, you need to filter for 429 status code responses only. For REST API calls, filtering is accomplished via the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCode dimension by appending: $filter=StatusCode eq '429' as seen at the end of the request in the following snippet:
 
 ```bash
-curl --location --request GET 'https://management.azure.com/subscriptions/dff2e75b-8fe7-4dc7-8360-9247be413c9b/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&$filter=StatusCode%20eq%20%27429%27' \
+curl --location --request GET 'https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&$filter=StatusCode%20eq%20%27429%27' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
@@ -181,7 +181,7 @@ You can also filter directly in portal:
 Similar to looking at throttled requests, you view *all* requests that returned a server error response code by filtering 5xx responses only. For REST API calls, filtering is accomplished via the [$filter property](/rest/api/monitor/Metrics/List#uri-parameters) and the StatusCodeClass dimension by appending: $filter=StatusCodeClass eq '5xx' as seen at the end of the request in the following snippet:
 
 ```bash
-curl --location --request GET 'https://management.azure.com/subscriptions/dff2e75b-8fe7-4dc7-8360-9247be413c9b/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&$filter=StatusCodeClass%20eq%20%275xx%27' \
+curl --location --request GET 'https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/providers/microsoft.insights/metrics?api-version=2021-05-01&interval=P1D&metricnames=Latency&metricnamespace=microsoft.resources/subscriptions&region=global&aggregation=count,average&timespan=2021-11-01T00:00:00Z/2021-11-03T00:00:00Z&$filter=StatusCodeClass%20eq%20%275xx%27' \
 --header 'Authorization: bearer {{bearerToken}}'
 ```
 
