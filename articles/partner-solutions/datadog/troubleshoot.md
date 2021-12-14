@@ -37,7 +37,7 @@ The reply URL must be `https://us3.datadoghq.com/account/saml/assertion`.
 
 The following image shows the correct values.
   
-:::image type="content" source="media/troubleshoot/troubleshooting.png" alt-text="Check SAML settings for the Datadog application in AAD." border="true":::
+:::image type="content" source="media/troubleshoot/troubleshooting.png" alt-text="Check SAML settings for the Datadog application in Azure A D." border="true":::
 
 **Guest users invited to the tenant are unable to access Single sign-on** - Some users have two email addresses in Azure portal. Typically, one email is the user principal name (UPN) and the other email is an alternative email.
 
