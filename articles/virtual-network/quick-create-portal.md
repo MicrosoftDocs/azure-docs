@@ -11,7 +11,7 @@ ms.workload: infrastructure
 ms.tgt_pltfrm: virtual-network
 ms.devlang: na
 tags: azure-resource-manager
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a virtual network using the Azure portal

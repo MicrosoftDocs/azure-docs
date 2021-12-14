@@ -10,7 +10,7 @@ ms.topic: quickstart
 ms.date: 12/09/2021
 ms.author: lajanuar
 recommendations: false
-ms.custom: ignite-fall-2021, mode-other
+ms.custom: ignite-fall-2021, mode-api
 ---
 
 # Quickstart: C# client library SDK v3.0 | Preview
@@ -169,7 +169,7 @@ To interact with the Form Recognizer service, you'll need to create an instance 
 
 ## General document model
 
-##### Extract text, tables, structure, key-value pairs, and named entities from documents
+##### Extract text, tables, structure, key-value pairs, and named entities from documents.
 
 > [!div class="checklist"]
 >
@@ -368,7 +368,6 @@ for (int i = 0; i < result.Tables.Count; i++)
 ```
 
 ## Prebuilt model
-
 
 ### Choose the invoice prebuilt model ID
 
