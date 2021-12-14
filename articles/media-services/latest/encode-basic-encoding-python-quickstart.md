@@ -9,7 +9,7 @@ ms.workload:
 ms.topic: quickstart
 ms.date: 7/2/2021
 ms.author: inhenkel
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Media Services basic encoding with Python
