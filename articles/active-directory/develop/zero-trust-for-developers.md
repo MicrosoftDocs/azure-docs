@@ -26,7 +26,7 @@ Knowing this as the app developer, it's your responsibility to not only maximize
 
 Additionally, you are responsible for supporting the evolving needs of your customers and users, who will expect that your application meets their Zero Trust security requirements.
 
-By learning the principles of the [Zero Trust model](https://www.microsoft.com/en-us/security/business/zero-trust?rtc=1) and adopting their practices, you can:
+By learning the principles of the [Zero Trust model](https://www.microsoft.com/security/business/zero-trust?rtc=1) and adopting their practices, you can:
 - Build more secure apps
 - Minimize the damage your apps could cause if there is a breach
 
@@ -80,5 +80,5 @@ The Microsoft identity platform app registration portal is the primary entry poi
 ## Next steps
 
 - Zero Trust [Guidance Center](/security/zero-trust/)
-- Zero Trust for the Microsoft identity platform developer [whitepaper](https://www.microsoft.com/en-us/security/content-library/Search?SearchDataFor=OJZgGWbHnB3Ll5hblDBugaEMQAchNfvkzk5X5AmPM4tK43NHpbF5%2Bky%2Fnuivl7plZz89b%2FuLMMZsMqKeYbhPPw%3D%3D&IsKeywordSearch=evXIpssXVY6lIm6X2K9ieA%3D%3D) (downloadable PDF).
+- Zero Trust for the Microsoft identity platform developer [whitepaper](https://www.microsoft.com/security/content-library/Search?SearchDataFor=OJZgGWbHnB3Ll5hblDBugaEMQAchNfvkzk5X5AmPM4tK43NHpbF5%2Bky%2Fnuivl7plZz89b%2FuLMMZsMqKeYbhPPw%3D%3D&IsKeywordSearch=evXIpssXVY6lIm6X2K9ieA%3D%3D) (downloadable PDF).
 - Microsoft identity platform [best practices and recommendations](./identity-platform-integration-checklist.md).
