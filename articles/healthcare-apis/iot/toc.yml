@@ -24,17 +24,6 @@ items:
     items:
     - name: Receive device data through Azure IoT Hub
       href: device-data-through-iot-hub.md 
-- name: Concepts
-  expanded: true
-  items:
-  - name: IoT connector data flow
-    href: iot-data-flow.md
-  - name: IoT connector and Azure Machine Learning Service
-    href: iot-connector-machine-learning.md
-  - name: IoT connector and Microsoft Power BI
-    href: iot-connector-power-bi.md
-  - name: IoT connector and Microsoft Teams notifications
-    href: iot-connector-teams.md
 - name: How-to guides
   expanded: true
   items:
@@ -63,7 +52,17 @@ items:
       href: how-to-display-metrics.md
     - name: Create copies of mappings templates
       href: how-to-create-mappings-copies.md
-
+- name: Concepts
+  expanded: true
+  items:
+  - name: IoT connector data flow
+    href: iot-data-flow.md
+  - name: IoT connector and Azure Machine Learning Service
+    href: iot-connector-machine-learning.md
+  - name: IoT connector and Microsoft Power BI
+    href: iot-connector-power-bi.md
+  - name: IoT connector and Microsoft Teams notifications
+    href: iot-connector-teams.md
 - name: Resources
   expanded: true
   items:

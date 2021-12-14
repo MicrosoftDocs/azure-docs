@@ -60,8 +60,6 @@ items:
       href: dicomweb-standard-apis-with-dicom-services.md
     - name: DICOM Change Feed Overview
       href: dicom-change-feed-overview.md
-    - name: Enable Diagnostic Logging in the DICOM service
-      href: enable-diagnostic-logging.md
 - name: Resources
   expanded: true
   items:
