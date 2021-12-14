@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/14/2021
 ms.author: v-ydequadros
 ---
 
@@ -66,7 +66,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
         3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.    
 
              For example, a user may have various roles in different authorization systems, so they can select the **Add** icon and the **Users** icon to request access for all their accounts. 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+        4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
     
     - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
     
@@ -78,7 +78,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
         4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.   
 
              For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+        5. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
     
     - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
     
@@ -95,7 +95,7 @@ Inviting a user to CloudKnox adds the user to the system and allows system admin
         5. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
              For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts. 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+        6. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
 5. Select **Save**. 
 
@@ -156,11 +156,11 @@ Creating a permission directly in CloudKnox allows system administrators to assi
             1. Select **Next**.
             2. Check **Requestor for User** for each authorization system, if applicable.
 
-             A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
+                  A user must have an account with a valid email address in the authorization system to select **Requestor for User**. If a user doesn't exist in the authorization system, **Requestor for User** is grayed out.
 
             3. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
-                For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.    
+                 For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.    
 
              - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 

@@ -17,6 +17,7 @@
     - name: Integration with Securonix
       href: cloudknox-securonix.md
     - name: Integration with Splunk
+      href: cloudknox-splunk.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
     - name: Install CloudKnox with AWS role
