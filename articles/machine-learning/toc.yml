@@ -384,6 +384,9 @@
             - name: Label images and text
               displayName: data, dataset, labeling
               href: how-to-label-data.md
+            - name: Add users
+              displayName: data, dataset, labeling
+              href: how-to-add-users.md
             - name: Outsource labeling tasks
               href: how-to-outsource-data-labeling.md
             - name: Create datasets with labels
@@ -815,8 +818,6 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
-    - name: Machine learning CLI (v1) pipeline YAML reference
-      href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

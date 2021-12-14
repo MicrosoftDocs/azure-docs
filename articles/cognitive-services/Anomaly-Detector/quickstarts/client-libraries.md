@@ -12,7 +12,7 @@ ms.topic: quickstart
 ms.date: 09/22/2020
 ms.author: mbullwin
 keywords: anomaly detection, algorithms
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 ---
 
 # Quickstart: Use the Anomaly Detector univariate client library

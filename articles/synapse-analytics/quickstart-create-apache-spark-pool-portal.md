@@ -9,7 +9,7 @@ ms.subservice: spark
 ms.date: 08/19/2021
 ms.author: wiassaf
 ms.reviewer: jrasnick
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a new serverless Apache Spark pool using the Azure portal
