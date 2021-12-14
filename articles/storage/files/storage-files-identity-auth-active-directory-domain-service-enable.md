@@ -92,9 +92,7 @@ Execute the following commands:
 # 1. Find the service account in your managed domain that represents the storage account.
 
 $storageAccountName= “<InsertStorageAccountNameHere>”
-
 $searchFilter = "Name -like '*{0}*'" -f $storageAccountName
-
 $userObject = Get-ADUser -filter $searchFilter
 
 if ($userObject -eq $null)
