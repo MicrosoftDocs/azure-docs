@@ -118,6 +118,10 @@ sections:
           Does the cloud provisioning agent load balance if I have multiple agents installed?
         answer: |
           No. Only one agent is ever active. 
+      - question: |
+          Does the cloud provisioning agent require a prefered domain controller list be set?
+        answer: |
+          No. The preferred domain controller list is specified during [agent installation](how-to-install.md) but it is optional.  If no preferred DCs are configured, then the agent will use any available DC in the domain.
 additionalContent: |
 
   ## Next steps 
