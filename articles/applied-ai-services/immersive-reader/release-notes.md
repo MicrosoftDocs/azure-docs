@@ -38,6 +38,7 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 * Adds C# code sample demonstrating how to call the Azure Function for authentication
 * Adds Android Kotlin code sample demonstrating how to call the Azure Function for authentication
 * Updates the Swift code sample to be Objective C compliant
+* Updates Advanced C# code sample to demonstrate the usage of new options: parent node, disableGrammar, disableTranslation, and disableLanguageDetection
 
 #### Fixes
 
