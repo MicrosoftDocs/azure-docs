@@ -126,7 +126,7 @@ Steps for the owner to grant owner permission:
 1. Go to the Azure Compute Gallery.
 2. Select **Access control** (IAM) on the left panel.
 3. Select **Add**, then **Add role assignment**.<br>
-    :::image type="content" source="../media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
+    :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
 1. For **Role**, select **Owner**.
 1. For **Assign access to**, select **User, group, or service principal**.
 1. For **Select**, enter the Azure email of the person who will publish the image.
@@ -148,7 +148,7 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.PartnerCenterIngestion
 ```
 
 > [!NOTE]
-> You don’t need to generate SAS URIs as you can now publish an Azure Compute Gallery Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](../azure-vm-get-sas-uri.md).
+> You don’t need to generate SAS URIs as you can now publish an Azure Compute Gallery Image on Partner Center. However, if you still need to refer to the SAS URI generation steps, see [How to generate a SAS URI for a VM image](azure-vm-get-sas-uri.md).
 
 ## Next steps
 
