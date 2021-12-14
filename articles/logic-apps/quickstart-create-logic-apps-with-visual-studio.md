@@ -5,9 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: logicappspm
 ms.topic: quickstart
-ms.custom: mvc, mode-other
+ms.custom: mvc, mode-ui
 ms.date: 05/25/2021
-# Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
+#Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio
 ---
 
 # Quickstart: Create automated integration workflows with multi-tenant Azure Logic Apps and Visual Studio
