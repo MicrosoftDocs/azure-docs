@@ -12,7 +12,6 @@ ms.custom:
 
 # Dataset provisioning by data owner for Azure Storage (preview)
 
-## Supported capabilities
 This guide describes how a data owner can enable access to data stored in Azure Storage from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
 -   Allow access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2.
 
