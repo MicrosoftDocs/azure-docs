@@ -37,12 +37,12 @@ Example confidential use cases include: databases, blockchain, multiparty data a
 
 ## Technical specifications
 
-| Size             | Physical Cores | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS / MBps (cache size in GiB) | Max NICs / Expected network bandwidth (MBps) | EPC Memory MiB |
-|------------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|----------------------------------------------|---------------------|
-| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 2000/16                                                                                               | 2   | 28                                      |
-| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 4000/32                                                                                               | 2  | 56                                          |
-| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 8000/64                                                                                               | 2  | 112                                          |
-| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128                                                                                         | 2   | 168                                         |
+| Size             | Physical Cores | Memory GiB | Temp storage (SSD) GiB | Max data disks | Max NICs | EPC Memory MiB |
+|------------------|------|-------------|------------------------|----------------|----------------------------------------------|---------------------|
+| Standard_DC1s_v2 | 1    | 4           | 50                     | 1              | 1   | 28                                      |
+| Standard_DC2s_v2 | 2    | 8           | 100                    | 2              | 1  | 56                                          |
+| Standard_DC4s_v2 | 4    | 16          | 200                    | 4              | 1  | 112                                          |
+| Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 1   | 168                                         |
 
 
 ## Get started

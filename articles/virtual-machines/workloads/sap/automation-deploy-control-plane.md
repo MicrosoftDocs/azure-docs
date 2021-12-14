@@ -56,7 +56,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/samples/WORKSPACES WORKSPACES
 
 ```
 
@@ -76,7 +76,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
         --subscription $subscriptionID                                                                           \
         --spn_id $appID                                                                                          \
-        --spn_secret  $spn_secret                                                                                \ 
+        --spn_secret  $spn_secret                                                                                \
         --tenant_id $tenant_id
 ```
 
@@ -88,7 +88,7 @@ You can copy the sample configuration files to start testing the deployment auto
 
 cd C:\Azure_SAP_Automated_Deployment
 
-xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+xcopy sap-automation\samples\WORKSPACES WORKSPACES
 
 ```
 

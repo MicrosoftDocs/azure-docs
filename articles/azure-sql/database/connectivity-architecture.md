@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: rohitnayakmsft
 ms.author: rohitna
-ms.reviewer: mathoma, vanto
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 01/25/2021
 ---
 # Azure SQL Database and Azure Synapse Analytics connectivity architecture

@@ -52,7 +52,7 @@ It takes some time to download a parent image during app start-up. However, you 
 
 ## Change the Docker image of a custom container
 
-To change an existing custom container app from the current Docker image to a new image, use the following command:
+To change an existing custom container from the current Docker image to a new image, use the following command:
 
 ```azurecli-interactive
 az webapp config container set --name <app-name> --resource-group <group-name> --docker-custom-image-name <docker-hub-repo>/<image>
@@ -196,7 +196,7 @@ This method works both for single-container apps or multi-container apps, where 
 
 ::: zone pivot="container-windows"
 
-You can use the *C:\home* directory in your app's file system to persist files across restarts and share them across instances. The `C:\home` in your app is provided to enable your container app to access persistent storage.
+You can use the *C:\home* directory in your app's file system to persist files across restarts and share them across instances. The `C:\home` in your app is provided to enable your custom container to access persistent storage.
 
 When persistent storage is disabled, writes to the `C:\home` directory aren't persisted. [Docker host logs and container logs](#access-diagnostic-logs) are saved in a default persistent shared storage that is not attached to the container. When persistent storage is enabled, all writes to the `C:\home` directory are persisted and can be accessed by all instances of a scaled-out app, and log are accessible at `C:\home\LogFiles`.
 
@@ -204,7 +204,7 @@ When persistent storage is disabled, writes to the `C:\home` directory aren't pe
 
 ::: zone pivot="container-linux"
 
-You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your container app to access persistent storage.
+You can use the */home* directory in your app's file system to persist files across restarts and share them across instances. The `/home` in your app is provided to enable your custom container to access persistent storage.
 
 When persistent storage is disabled, then writes to the `/home` directory aren't persisted across app restarts or across multiple instances. The only exception is the `/home/LogFiles` directory, which is used to store the Docker and container logs. When persistent storage is enabled, all writes to the `/home` directory are persisted and can be accessed by all instances of a scaled-out app.
 

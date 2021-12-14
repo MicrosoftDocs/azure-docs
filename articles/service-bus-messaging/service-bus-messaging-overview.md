@@ -3,6 +3,7 @@ title: Azure Service Bus messaging overview | Microsoft Docs
 description: This article provides a high-level overview of Azure Service Bus, a fully managed enterprise integration message broker. It also explains concepts such as namespaces, queues, and topics in Service Bus. 
 ms.topic: overview
 ms.date: 11/11/2021
+ms.custom: contperf-fy22q2
 ---
 
 # What is Azure Service Bus?

@@ -7,13 +7,13 @@ ms.subservice: disks
 ms.collection: linux
 ms.topic: conceptual
 ms.author: mbaldwin
-ms.date: 03/15/2019
+ms.date: 12/06/2021
 ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 # Creating and configuring a key vault for Azure Disk Encryption with Azure AD (previous release) for Linux VMs
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets
 
 **The new release of Azure Disk Encryption eliminates the requirement for providing an Azure AD application parameter to enable VM disk encryption. With the new release, you are no longer required to provide Azure AD credentials during the enable encryption step. All new VMs must be encrypted without the Azure AD application parameters using the new release. To view instructions to enable VM disk encryption using the new release, see [Azure Disk Encryption](disk-encryption-overview.md). VMs that were already encrypted with Azure AD application parameters are still supported and should continue to be maintained with the AAD syntax.**
 
@@ -101,7 +101,7 @@ To execute the following commands, get and use the [Azure AD PowerShell module](
      $aadClientSecret = "My AAD client secret"
      $aadClientSecretSec = ConvertTo-SecureString -String $aadClientSecret -AsPlainText -Force
      $azureAdApplication = New-AzADApplication -DisplayName "My Application Display Name" -HomePage "https://MyApplicationHomePage" -IdentifierUris "https://MyApplicationUri" -Password $aadClientSecretSec
-     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId
+     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId -Role Contributor
      ```
 
 3. The $azureAdApplication.ApplicationId is the Azure AD ClientID and the $aadClientSecret is the client secret that you will use later to enable Azure Disk Encryption. Safeguard the Azure AD client secret appropriately. Running `$azureAdApplication.ApplicationId` will show you the ApplicationID.
@@ -267,7 +267,7 @@ Before using the PowerShell script, you should be familiar with the Azure Disk E
 	 $aadClientSecret =  'MyAADClientSecret';
      $aadClientSecretSec = ConvertTo-SecureString -String $aadClientSecret -AsPlainText -Force;
      $azureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -Password $aadClientSecretSec
-     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId;
+     $servicePrincipal = New-AzADServicePrincipal –ApplicationId $azureAdApplication.ApplicationId -Role Contributor;
      $aadClientID = $azureAdApplication.ApplicationId;
 
  #Step 3: Enable the vault for disk encryption and set the access policy for the Azure AD application.
@@ -323,7 +323,7 @@ If you would like to use certificate authentication, you can upload one to your 
    $CertValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
    $AzureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue
-   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
+   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId -Role Contributor
 
    $AADClientID = $AzureAdApplication.ApplicationId
    $aadClientCertThumbprint= $cert.Thumbprint
@@ -402,7 +402,7 @@ If you would like to use certificate authentication and wrap the encryption key 
    $CertValue = [System.Convert]::ToBase64String($cert.GetRawCertData())
 
    $AzureAdApplication = New-AzADApplication -DisplayName "<My Application Display Name>" -HomePage "<https://MyApplicationHomePage>" -IdentifierUris "<https://MyApplicationUri>" -CertValue $CertValue
-   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId
+   $ServicePrincipal = New-AzADServicePrincipal -ApplicationId $AzureAdApplication.ApplicationId -Role Contributor
 
    $AADClientID = $AzureAdApplication.ApplicationId
    $aadClientCertThumbprint= $cert.Thumbprint

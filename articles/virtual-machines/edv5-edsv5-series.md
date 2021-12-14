@@ -1,7 +1,7 @@
 ---
 title: Edv5 and Edsv5-series - Azure Virtual Machines
 description: Specifications for the Edv5 and Edsv5-series VMs.
-author: styli365
+author: joelpelley
 ms.author: joelpell
 ms.reviewer: joelpell
 ms.custom: mimckitt
@@ -29,9 +29,8 @@ Edv5-series virtual machines support Standard SSD and Standard HDD disk types. T
 [Memory Preserving Updates](maintenance-and-updates.md): Supported<br>
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Required <br>
-[Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
-[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
-<br>
+[Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br><br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps<sup>*</sup>  | Max NICs|Max network bandwidth (Mbps) |
 |---|---|---|---|---|---|---|---|
