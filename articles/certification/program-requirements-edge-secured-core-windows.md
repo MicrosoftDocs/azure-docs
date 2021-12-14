@@ -16,8 +16,8 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 > The Windows secured-core tests require you to download and run the following package (https://aka.ms/Scforwiniot) from an Administrator Command Prompt on the IoT device being validated.
 
 ## Windows IoT Hardware/Firmware Requirements
->[!Note]
-> Hardware must support TPM v2.0, DRTM, TXT and Secure-boot within the BIOS.
+> [!Note]
+> Hardware must support TPM v2.0, DRTM, TXT and Secure boot within the BIOS.
 ---
 </br>
 
