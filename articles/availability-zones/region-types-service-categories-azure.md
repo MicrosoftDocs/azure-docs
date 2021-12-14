@@ -43,7 +43,6 @@ Azure services are presented in the following tables by category. Note that some
 > [!div class="mx-tableFixed"]
 > | ![An icon that signifies this service is foundational.](media/icon-foundational.svg) Foundational                           | ![An icon that signifies this service is mainstream.](media/icon-mainstream.svg) Mainstream                                  | 
 > |----------------------------------------|---------------------------------------------------|
-<<<<<<< HEAD
 > | Azure Application Gateway              | Azure API Management                              | 
 > | Azure Backup                           | Azure App Configuration                           | 
 > | Azure Cosmos DB                        | Azure App Service                                 | 
