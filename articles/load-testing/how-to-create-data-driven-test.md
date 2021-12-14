@@ -13,7 +13,7 @@ ms.custom: template-how-to
 
 # Create a data-driven load test by using CSV files
 
-In this article, you'll learn how to create a data-driven load test in Azure Load Testing Preview. You'll configure a load test to use data from a CSV file.
+In this article, you'll learn how to create a data-driven load test in Azure Load Testing Preview. You'll configure a load test to use data from a comma-separated value (CSV) file.
 
 You can make an Apache JMeter test script configurable by reading data from a CSV file. In JMeter you can use the [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config). For example, to test a search API, you might retrieve the various query parameters from an external file.
 
@@ -25,8 +25,8 @@ When you configure your Azure load test, you can upload any additional files tha
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
-* An existing Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
-* An existing Apache JMeter test script (JMX).
+* An Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
+* An Apache JMeter test script (JMX).
 * (Optional) Apache JMeter GUI to author your test script. To install Apache JMeter, see [Apache JMeter Getting Started](https://jmeter.apache.org/usermanual/get-started.html).
 
 ## Configure your JMeter script
@@ -43,7 +43,7 @@ To edit your JMeter script by using the Apache JMeter GUI:
 
         :::image type="content" source="media/how-to-create-data-driven-test/update-csv-data-set-config.png" alt-text="Screenshot that shows the test runs to compare.":::
     
-  1. Repeat steps 1-2 for every CSV Data Set Config element.
+  1. Repeat the previous steps for every CSV Data Set Config element.
   
   1. Save the JMeter script.
 
@@ -71,7 +71,14 @@ To edit your JMeter script by using Visual Studio Code:
         
 ## Add a CSV file to your load test
 
-In this section, you'll configure your Azure load test to include a CSV file. You can then use this CSV file in the JMeter test script. If you're referencing other external files in your script, you can add them in the same way.
+In this section, you'll configure your Azure load test to include a CSV file. You can then use this CSV file in the JMeter test script. If you reference other external files in your script, you can add them in the same way.
+
+You can add a CSV file to your load test in two ways:
+
+* Configure the load test by using the Azure portal
+* If you have a CI/CD workflow, update the test configuration YAML file
+
+### Add a CSV file by using the Azure portal
 
 To add a CSV file to your load test by using the Azure portal:
 
@@ -86,17 +93,21 @@ To add a CSV file to your load test by using the Azure portal:
   
       :::image type="content" source="media/how-to-create-data-driven-test/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button.":::
 
-  1. On the **Edit test** page, select the **Test plan** tab. Select the CSV file from your computer, and then select **Upload** to upload the file to Azure.
+  1. On the **Edit test** page, select the **Test plan** tab. 
+
+  1. Select the CSV file from your computer, and then select **Upload** to upload the file to Azure.
   
       :::image type="content" source="media/how-to-create-data-driven-test/edit-test-upload-csv.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
   
-  1. Select **Apply** to modify the test and use the new configuration when you rerun it.
+  1. Select **Apply** to modify the test and to use the new configuration when you rerun it.
   
-To add a CSV file to your load test by using the YAML test configuration file:
+### Add a CSV file to the test configuration YAML file
+
+If you run a load test within your CI/CD workflow, you can add a CSV file to the test configuration YAML file. For more information about running a load test in a CI/CD workflow, see the [Automated regression testing tutorial](./tutorial-cicd-azure-pipelines.md).
+
+To add a CSV file in the test configuration YAML file:
 
   1. Open your YAML test configuration file in Visual Studio Code or your editor of choice.
-    
-      You use a test configuration file when you run a load test in your CI/CD workflow. For more information, see the [Automated regression testing tutorial](./tutorial-cicd-azure-pipelines.md).
 
   1. Add the CSV file to the `configurationFiles` setting. You can use wildcards or specify multiple individual files. 
 
