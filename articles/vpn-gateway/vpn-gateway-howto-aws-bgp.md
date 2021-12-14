@@ -117,7 +117,9 @@ In this section, you will connect to your Azure VPN gateway from AWS. These sect
 ### <a name ="create-vpc"></a> Create a VPC
 Create a VPC using the values below and the [most recent AWS documentation](https://docs.aws.amazon.com/directoryservice/latest/admin-guide/gsg_create_vpc.html#create_vpc).
 * **Name**: VPC1
-* **CIDR block**: 10.2.0.0/16 (can't overlap with Azure VNet)
+* **CIDR block**: 10.2.0.0/16
+
+Make sure that your CIDR block does not overlap with the virtual network you created in Azure.
 
 1.	Open the [Amazon VPC console](https://console.aws.amazon.com/vpc/).
 2.	In the navigation pane, click **VPC Dashboard**, then **Launch VPC Wizard**.
@@ -154,16 +156,22 @@ Enable route propagation on your VPC using the [most recent AWS documentation](h
 Create two customer gateways using the values below and the [most recent AWS documentation](https://docs.aws.amazon.com/vpn/latest/s2svpn/SetUpVPNConnections.html#vpn-create-cgw).
 
 Customer gateway 1 settings
+
 * **Name**: ToAzureInstance0
 * **Routing**: Dynamic
 * **BGP ASN**: 65000 (the ASN for your Azure VPN gateway)
 * **IP Address**: the first public IP address of you Azure VPN gateway
 
 Customer gateway 2 settings
+
 * **Name**: ToAzureInstance1
 * **Routing**: Dynamic
 * **BGP ASN**: 65000 (the ASN for your Azure VPN gateway)
 * **IP Address**: the second public IP address of you Azure VPN gateway
+
+
+Create a **second customer gateway** by repeating the steps with your second public IP address. You can locate your **Second Public IP address** on Azure in the **Configuration** section of your virtual network gateway, under **Second Public IP Address**.
+
 
 1.	In the navigation pane, choose **Customer Gateways**, and then **Create customer gateway**.
 2.	Enter a name for your customer gateway.
