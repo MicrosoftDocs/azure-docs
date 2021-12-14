@@ -27,8 +27,6 @@ For more information, see [Map a custom domain to a web app](scripts/cli-configu
 # [PowerShell](#tab/powershell)
 #### Azure PowerShell
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
 The following command adds a configured custom DNS name to an App Service app.
 
 ```powershell  
