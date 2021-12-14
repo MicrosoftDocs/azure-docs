@@ -138,7 +138,7 @@ In this tutorial, you learn how to:
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ILogger log)
         {
             string indexFile = "index.html";
             if (Environment.GetEnvironmentVariable("HOME") != null)
