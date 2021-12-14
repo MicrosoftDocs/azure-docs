@@ -252,7 +252,7 @@ Not supported for version 1.x of the Functions runtime.
 ::: zone pivot="programming-language-java"
 Your function must be named `warmup` (case-insensitive) using the `FunctionName` annotation. 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,zone pivot="programming-language-python"  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 The function type in function.json must be set to `warmupTrigger`.
 ::: zone-end  
 
