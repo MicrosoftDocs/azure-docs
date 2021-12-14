@@ -20,9 +20,11 @@ The last modified times are used for comparison. The file is skipped if the last
 
 The supported pairs are:
 
-- local <-> Azure Blob (either SAS or OAuth authentication can be used)
+- Local <-> Azure Blob (either SAS or OAuth authentication can be used)
 - Azure Blob <-> Azure Blob (Source must include a SAS or is publicly accessible; either SAS or OAuth authentication can be used for destination)
 - Azure File <-> Azure File (Source must include a SAS or is publicly accessible; SAS authentication should be used for destination)
+- Local <-> Azure File 
+- Azure Blob <-> Azure File
 
 The sync command differs from the copy command in several ways:
 
