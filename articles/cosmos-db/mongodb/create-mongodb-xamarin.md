@@ -8,7 +8,7 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: masoucou
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # QuickStart: Build a Xamarin.Forms app with .NET SDK and Azure Cosmos DB's API for MongoDB

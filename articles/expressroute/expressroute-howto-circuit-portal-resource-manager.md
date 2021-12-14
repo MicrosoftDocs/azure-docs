@@ -7,7 +7,7 @@ ms.author: duau
 ms.date: 04/23/2021
 ms.topic: quickstart
 ms.service: expressroute
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create and modify an ExpressRoute circuit

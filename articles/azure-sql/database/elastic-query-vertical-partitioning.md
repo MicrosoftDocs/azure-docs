@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 ---
 # Query across cloud databases with different schemas (preview)
