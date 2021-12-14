@@ -30,20 +30,20 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary and Detailed
 	- **Use cases:** 
-		- The access key age, last rotation date, and last usage date is available in the summary report to help with key rotation. 
-		- The granted task and PCI score to take the action on the keys. 
+		- The access key age, last rotation date, and last usage date is available in the summary report to help with key rotation.
+		- The granted task and PCI score to take action on the keys.
 
 - **User entitlements and usage**: 
-	- **Summary of report:** Provides information about the identities' permissions - entitlement, usage, PCI, and so on.
+	- **Summary of report:** Provides information about the identities' permissions: entitlement, usage, PCI, and so on.
 	- **Applies to:** AWS, Azure, Google Cloud Platform (GCP), and VCENTER
 	- **Report output type:** A comma-separated values (CSV) file
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary and Detailed
 	- **Use cases:** 
-		 - The data displayed on the **Usage Analytics** screen is downloaded as part of the **Summary** report. The user's detailed permissions usage is listed in the Detailed report. 
+		 - The data displayed on the **Usage Analytics** screen is downloaded as part of the **Summary** report. The user's detailed permissions usage is listed in the **Detailed** report.
 
 - **Group entitlements and usage**:
-	- **Summary of report:** Provides information about the group's permissions - entitlement, usage, PCI, and so on.
+	- **Summary of report:** Provides information about the group's permissions: entitlement, usage, PCI, and so on.
 	- **Applies to:** AWS, Azure, GCP, and VCENTER
 	- **Report output type:** CSV
 	- **Ability to collate report:** Yes
@@ -52,7 +52,7 @@ CloudKnox offers the following reports for management associated with the author
 		 - All group level entitlements and permission assignments, PCIs, and the number of members are listed as part of this report. 
 
 - **Identity permissions**:
-	- **Summary of report:** Report on identities that have specific permissions, for example, identities that have permission to delete any S3 buckets.
+	- **Summary of report:** Report on identities that have specific permissions. For example, identities that have permission to delete any S3 buckets.
 	- **Applies to:** AWS, Azure, GCP, VCENTER
 	- **Report output type:** CSV
 	- **Ability to collate report:** No
@@ -81,9 +81,9 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Detailed
 	- **Use cases:** 
-		 - This report lists the different key findings in the selected auth systems. The key findings include Super identities, Inactive identities, Over provisioned active identities, storage bucket hygiene, Access key age (AWS), and so on. This report will help administrators in visualizing the findings across the organization. 
+		 - This report lists the different key findings in the selected auth systems. The key findings include super identities, inactive identities, over provisioned active identities, storage bucket hygiene, access key age (for AWS only), and so on. The report helps administrators to visualize the findings across the organization. 
 
-	For more information, see Permissions analytics report.
+	<!---For more information, see Permissions analytics report.--->
 
 - **CIS Benchmarks** 
 	- **Summary of report:** Provides results of CIS Benchmarks.
@@ -125,7 +125,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** No
 	- **Type of report:** Summary
 	- **Use cases:** 
-		 - Assigned/Unassigned and custom/system policy with the used/unused condition is captured in this report for any specific, or all, AWS accounts. Similar data can be captured for Azure/GCP for the assigned/unassigned roles. 
+		 - Assigned/Unassigned, custom/system policy, and the used/unused condition is captured in this report for any specific, or all, AWS accounts. Similar data can be captured for Azure/GCP for the assigned/unassigned roles.
 
 - **PCI DSS**
 	- **Summary of report:** Provides results of PCI DSS security pillar recommendations.
@@ -161,11 +161,11 @@ CloudKnox offers the following reports for management associated with the author
 The reports dashboard provides a table of information with both System Reports and Custom Reports. The **Reports** page defaults to the **System Reports** tab, which has the following details:
 
 - **Report Name** - Lists the name of the report.
-- **Category** - Lists the type of report, for example, **Permission**, **Compliance**, and so on.
+- **Category** - Lists the type of report. For example, **Permission**, **Compliance**, and so on.
 - **Authorization System** - Displays which authorizations the custom report applies to.
-- **Format** - Displays the output format the report can be generated in, for example, CSV.
+- **Format** - Displays the output format the report can be generated in. For example, CSV.
 
-    - To download the report, select the menu, select **Download**, and then select **Download**.
+    - To download the report, select the menu, select **Download**.
 
       The following message displays across the top of the screen in green if the download is successful: **Successfully Started to Generate On Demand Report**.
 
@@ -173,9 +173,9 @@ The reports dashboard provides a table of information with both System Reports a
 
 - To view the following information, select the **Custom Reports** tab:
      - **Report Name** - Displays the name of the report.
-     - **Category** - Describes the type of report, for example, **Permission**, **Compliance**, and so on.
+     - **Category** - Describes the type of report. For example, **Permission**, **Compliance**, and so on.
      - **Authorization Systems** - Displays which authorizations the custom report applies to.
-     - **Format** - Displays the output format the report can be generated in, for example, CSV.
+     - **Format** - Displays the output format for the report, for example, CSV.
      - **Schedule** - Displays the date and time the next report will be generated.
      - **Next On** - Displays the date the next custom report will be generated on.
 

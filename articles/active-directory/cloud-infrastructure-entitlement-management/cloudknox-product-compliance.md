@@ -92,8 +92,9 @@ The main **Compliance** page displays all accounts for the selected **Authorizat
        - Some items aren't scored because they are test items and will be marked in the column as **Not Scored**. These items aren't counted in the recommendations.
       - **Recommendation** – Displays the summary describing the recommendation. The **Recommendation** sections vary slightly depending on which compliance standard and authorization system is being viewed.
       - **Result** – Displays the results of the recommendation, whether it has passed or failed. A green check mark displays when the recommendation passes and a red **X** if it has failed.
-       - If the item is a manual item, a hand icon displays in this column.
-       - If the item is one that cannot be scored, a document icon with a slash through it displays in this column.
+
+        - If the item is a manual item, a hand icon displays in this column.
+        - If the item is one that cannot be scored, a document icon with a slash through it displays in this column.
       - **Profile** (CIS Benchmarks and NIST 800-53) – Displays the recommendation priority or level.
      - **Resources** – All recommendations are run against resources.
          - **Failed** – Displays how many resources failed the recommendation.
