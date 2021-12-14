@@ -118,7 +118,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-csharp"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
 
@@ -130,7 +130,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-nodejs"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [azure-utpm-c](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
 
@@ -142,7 +142,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-python"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [Python](https://github.com/Azure/azure-iot-sdk-python) GitHub repository using the following command:
 
@@ -170,7 +170,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-java"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
 
@@ -288,12 +288,12 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
     The command installs the following packages:
 
-   * a security client that works with TPM: `azure-iot-security-tpm`
-   * a transport for the device to connect to the Device Provisioning Service: either `azure-iot-provisioning-device-http` or `azure-iot-provisioning-device-amqp`
-   * a client to use the transport and security client: `azure-iot-provisioning-device`
+   * A security client that works with TPM: `azure-iot-security-tpm`
+   * A transport for the device to connect to the Device Provisioning Service: either `azure-iot-provisioning-device-http` or `azure-iot-provisioning-device-amqp`
+   * A client to use the transport and security client: `azure-iot-provisioning-device`
    * the device client: `azure-iot-device`
-   * a transport: any of `azure-iot-device-amqp`, `azure-iot-device-mqtt`, or `azure-iot-device-http`
-   * the security client that you already installed: `azure-iot-security-tpm`
+   * A transport: any of `azure-iot-device-amqp`, `azure-iot-device-mqtt`, or `azure-iot-device-http`
+   * The security client that you already installed: `azure-iot-security-tpm`
 
      > [!NOTE]
      > The samples in this quickstart use the `azure-iot-provisioning-device-http` and `azure-iot-device-mqtt` transports.
@@ -663,7 +663,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-2. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py** (replace ) `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
+2. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py** (replace `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
