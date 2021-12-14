@@ -7,7 +7,7 @@ ms.date: 06/22/2021
 ms.service: storage
 ms.subservice: files
 ms.topic: quickstart
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Develop for Azure Files with C++

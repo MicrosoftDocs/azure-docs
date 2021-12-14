@@ -12,8 +12,8 @@ ms.workload: identity
 ms.date: 09/21/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
-# Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
-ms.custom: contperf-fy22q2
+ms.custom: contperf-fy22q2, mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to enable single sign-on for an enterprise application.
 ---
 
 # Quickstart: Enable single sign-on for an enterprise application
