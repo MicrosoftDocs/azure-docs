@@ -76,7 +76,7 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                        
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
         --subscription $subscriptionID                                                                           \
         --spn_id $appID                                                                                          \
-        --spn_secret  $spn_secret                                                                                \ 
+        --spn_secret  $spn_secret                                                                                \
         --tenant_id $tenant_id
 ```
 
