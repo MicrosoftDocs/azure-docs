@@ -24,7 +24,9 @@ Add emergency calling to your PSTN enabled application using the Communication S
 [!INCLUDE [Calling with Android](./includes/emergency-calling-android.md)]
 ::: zone-end
 
-
+::: zone pivot="platform-ios"
+[!INCLUDE [Calling with iOS](./includes/emergency-calling-ios.md)]
+::: zone-end
 
 ## Clean up resources
 
