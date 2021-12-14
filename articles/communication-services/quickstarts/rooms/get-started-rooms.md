@@ -10,6 +10,7 @@ ms.author: radubulboaca
 ms.date: 11/19/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
+ms.custom: mode-other
 ---
 # Quickstart: Create and manage a room resource
 
