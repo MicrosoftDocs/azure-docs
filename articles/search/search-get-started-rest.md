@@ -10,7 +10,7 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 12/07/2021
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using REST APIs

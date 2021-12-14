@@ -2,7 +2,7 @@
 title: Important changes coming to Microsoft Defender for Cloud
 description: Upcoming changes to Microsoft Defender for Cloud that you might need to be aware of and for which you might need to plan 
 ms.topic: overview
-ms.date: 11/21/2021
+ms.date: 12/12/2021
 ---
 # Important upcoming changes to Microsoft Defender for Cloud
 
@@ -20,9 +20,8 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 | Planned change                                                                                                                                                                      | Estimated date for change |
 |-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------------------|
-| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | November 2021             |
-| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | November 2021             |
-| [Container security features to be grouped under Defender for Containers](#container-security-features-to-be-grouped-under-defender-for-containers)                                 | December 2021             |
+| [Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses](#deprecating-a-preview-alert-armmcas_activityfromanonymousipaddresses)                                     | December 2021             |
+| [Legacy implementation of ISO 27001 is being replaced with new ISO 27001:2013](#legacy-implementation-of-iso-27001-is-being-replaced-with-new-iso-270012013)                        | December 2021             |
 | [Multiple changes to identity recommendations](#multiple-changes-to-identity-recommendations)                                                                                       | December 2021             |
 | [Enhancements to recommendation to classify sensitive data in SQL databases](#enhancements-to-recommendation-to-classify-sensitive-data-in-sql-databases)                           | Q1 2022                   |
 | [Changes to recommendations for managing endpoint protection solutions](#changes-to-recommendations-for-managing-endpoint-protection-solutions)                                     | March 2022                |
@@ -30,7 +29,7 @@ If you're looking for the latest release notes, you'll find them in the [What's 
 
 ### Deprecating a preview alert: ARM.MCAS_ActivityFromAnonymousIPAddresses
 
-**Estimated date for change:** November 2021
+**Estimated date for change:** December 2021
 
 We'll be deprecating the following preview alert:
 
@@ -96,25 +95,6 @@ Defender for Cloud includes multiple recommendations for improving the managemen
     |Related policy     |[Deprecated accounts should be removed from your subscription](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2fproviders%2fMicrosoft.Authorization%2fpolicyDefinitions%2f6b1cbf55-e8b6-442f-ba4c-7246b6381474)|Subscriptions should be purged of accounts that are blocked in Active Directory and have read and write permissions|
     |||
  
-
-### Container security features to be grouped under Defender for Containers
-
-**Estimated date for change:** December 2021
-
-Microsoft Defender for Cloud's container security features are currently available through two Microsoft Defender plans: [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md) and [Microsoft Defender for container registries](defender-for-container-registries-introduction.md).
-
-With this change:
-
-- These two plans will be deprecated.
-- The two existing recommendations to enable the current plans will also be deprecated: **Azure Defender for Kubernetes should be enabled** and **Azure Defender for container registries should be enabled**.
-- A new, combined plan, **Microsoft Defender for Containers**, will include all their features as well as a more streamlined and feature-rich experience to help you protect your container solutions. 
-
-There'll be no change to subscriptions that already have Defender for Kubernetes or Defender for container registries enabled. You'll have the option to upgrade your existing subscriptions to Microsoft Defender for Containers.
-
-When we release Microsoft Defender for Containers for general availability, new subscriptions won't have the option to use the deprecated plans.
-
-Learn more about [Container security in Microsoft Defender for Cloud](defender-for-containers-introduction.md).
-
 
 ### Enhancements to recommendation to classify sensitive data in SQL databases
 

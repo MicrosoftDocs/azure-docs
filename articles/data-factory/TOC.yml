@@ -281,6 +281,8 @@ items:
         href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
       href: continuous-integration-delivery-improvements.md
+    - name: Deploy linked ARM templates with VSTS
+      href: deploy-linked-arm-templates-with-vsts.md
   - name: Connectors
     items:
     - name: Connector overview

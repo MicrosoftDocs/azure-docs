@@ -15,13 +15,8 @@ zone_pivot_groups: iot-develop-nxp-toolset
 #   title: IoT Devices
 #   prompt: Choose a build environment
 #   pivots:
-#   - id: iot-toolset-cmake
-#     title: CMake
-#   - id: iot-toolset-iar-ewarm
-#     title: IAR EWARM
 #   - id: iot-toolset-mcuxpresso
 #     title: MCUXpresso
-
 #Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 

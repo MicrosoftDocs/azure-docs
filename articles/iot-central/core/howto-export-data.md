@@ -104,7 +104,7 @@ If you don't have an existing Azure Data Explorer database to export to, follow 
 1. To add the service principal to the database, navigate to the Azure Data Explorer portal and run the following query on your database. Replace the placeholders with the values you made a note of previously:
 
     ```kusto
-    .add database <YourDatabaseName> admins ('aadapp=<YourAppId>;<YourTenant>');
+    .add database ['<YourDatabaseName>'] admins ('aadapp=<YourAppId>;<YourTenant>');
     ```
 
 1. Create a table in your database with a suitable schema for the data you're exporting. The following example query creates a table called `smartvitalspatch`. To learn more, see [Transform data inside your IoT Central application for export](howto-transform-data-internally.md):

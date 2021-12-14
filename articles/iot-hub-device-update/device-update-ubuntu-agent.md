@@ -31,6 +31,11 @@ In this tutorial you will learn how to:
 
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 * The [connection string for an IoT Edge device](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true#view-registered-devices-and-retrieve-provisioning-information).
+* If you used the [Simulator agent tutorial](device-update-simulator.md) for testing prior to this, run the below command to invoke the APT handler and can deploy over-the-air Package Updates in this tutorial.
+
+```sh
+# sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
+```
 
 ## Prepare a device
 ### Using the Automated Deploy to Azure Button
@@ -81,12 +86,12 @@ For convenience, this tutorial uses a [cloud-init](../virtual-machines/linux/usi
    > If you want to SSH into this VM after setup, use the associated **DNS Name** with the command:
     `ssh <adminUsername>@<DNS_Name>`
 
-### (Optional) Manually prepare a device
+### Manually prepare a device
 Similar to the steps automated by the [cloud-init script](https://github.com/Azure/iotedge-vm-deploy/blob/1.2.0-rc4/cloud-init.txt), following are manual steps to install and configure the device. These steps can be used to prepare a physical device.
 
 1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true).
    > [!NOTE]
-   > The Device Update package agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
+   > The Device Update agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
    >
    > Although not covered in this tutorial, the [IoT Identity Service daemon can be installed standalone on Linux-based IoT devices](https://azure.github.io/iot-identity-service/installation.html). The sequence of installation matters. The Device Update package agent must be installed _after_ the IoT Identity Service. Otherwise, the package agent will not be registered as an authorized component to establish a connection to IoT Hub.
 
@@ -94,6 +99,18 @@ Similar to the steps automated by the [cloud-init script](https://github.com/Azu
 
    ```bash
    sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
+   ```
+   
+1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
+
+   ```markdown
+   /etc/adu/du-config.json
+   ```
+   
+1. Finally restart the Device Update agent by running the command below.
+
+   ```markdown
+    sudo systemctl restart adu-agent
    ```
 
 Device Update for Azure IoT Hub software packages are subject to the following license terms:
@@ -212,5 +229,12 @@ When no longer needed, clean up your device update account, instance, IoT Hub, a
 
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Image Update on Raspberry Pi 3 B+ tutorial](device-update-raspberry-pi.md)
+You can use the following tutorials for a simple demonstration of Device Update for IoT Hub:
+
+- [Image Update: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md) extensible via open source to build you own images for other architecture as needed.
+		
+- [Proxy Update: Getting Started using Device Update binary agent for downstream devices](device-update-howto-proxy-updates.md)
+	
+- [Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent](device-update-simulator.md)
+
+- [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
