@@ -6,7 +6,7 @@ ms.author: athenadsouza
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: conceptual
-ms.date: 14/12/2021
+ms.date: 12/14/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -26,7 +26,7 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 ### Getting started
 
 - Enabling sensitivity labeling in Azure Purview can be accomplished using the steps defined in [How to automatically apply sensitivity labels to your data in Azure Purview](./how-to-automatically-label-your-content.md).
-- Required licensing and helpful answers to other questions can be found in the [Sensitivity labels in Azure Purview FAQ](./sensitivity-labels-frequently-asked-questions.md).
+- Required licensing and helpful answers to other questions can be found in the [Sensitivity labels in Azure Purview FAQ](./sensitivity-labels-frequently-asked-questions.yml).
 
 ### Label considerations
 
