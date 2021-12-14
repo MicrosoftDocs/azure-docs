@@ -31,10 +31,9 @@ In this tutorial, you learn how to:
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial.
 * Make sure you can edit DNS records for your custom domain. To edit DNS records, you need access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
 * If you don't have a custom domain yet, you can [purchase an App Service domain](manage-custom-dns-buy-domain.md).
+* To map a custom DNS name to a web app, the web app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
 
-## 2. Prepare the app
-
-To map a custom DNS name to a web app, the web app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
+## 2. Get a domain verification ID
 
 #### Sign in to Azure
 
@@ -51,8 +50,6 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
    ![Screenshot showing portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/select-app.png)
 
     You see the management page of the App Service app.
-
-## 3. Get a domain verification ID
 
 To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. 
 
@@ -71,7 +68,7 @@ To add a custom domain to your app, you need to verify your ownership of the dom
    ![Screenshot that shows portal navigation to an Azure app.](./media/app-service-web-tutorial-custom-domain/mapping-information.png)
 
 
-## 4. Create the DNS records
+## 3. Create the DNS records
 
 1. Sign in to the website of your domain provider.
 
@@ -151,7 +148,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 <a name="cname" aria-hidden="true"></a>
 
-## 5. Enable the mapping in your app
+## 4. Enable the mapping in your app
 
 # [A](#tab/a)
 
@@ -238,7 +235,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 -----
 
 
-## 6. Test in a browser
+## 5. Test in a browser
 
 Browse to the DNS names that you configured earlier.
 
@@ -251,7 +248,7 @@ If you receive an HTTP 404 (Not Found) error when you browse to the URL of your 
 * The custom domain configured is missing an A record or a CNAME record. You may have deleted the DNS record after you've enabled the mapping in your app. Check if the DNS records are properly configured using an <a href="https://www.nslookup.io/">online DNS lookup</a> tool.
 * The browser client has cached the old IP address of your domain. Clear the cache, and test DNS resolution again. On a Windows machine, you clear the cache with `ipconfig /flushdns`.
 
-## 7. (Optional) Automate with scripts
+## (Optional) Automate with scripts
 
 You can automate management of custom domains with scripts by using the [Azure CLI](/cli/azure/install-azure-cli) or [Azure PowerShell](/powershell/azure/).
 
