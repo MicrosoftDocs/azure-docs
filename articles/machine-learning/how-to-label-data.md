@@ -182,7 +182,9 @@ If you realize that you made a mistake after you assign a tag, you can fix it. S
 
 There are three text project types:
 
- Classification Multi-Class | Assign a single tag to the entire text entry.  You can only select one tag for each text item.  Select a tag and then select **Submit** to move to the next entry.  |
+|Project type  | Description  |
+|---------|---------|
+| Classification Multi-Class | Assign a single tag to the entire text entry.  You can only select one tag for each text item.  Select a tag and then select **Submit** to move to the next entry.  |
 | Classification Multi-Label     | Assign one *or more* tags to each text entry.  You can select multiple tags for each text item.   Select all the tags that apply and then select **Submit** to move to the next entry.    |
 | Named entity recognition | Tag different words or phrases in each text entry.  See directions in the section below.
 
