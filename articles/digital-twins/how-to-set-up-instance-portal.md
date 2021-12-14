@@ -22,9 +22,7 @@ ms.custom: contperf-fy21q2, subject-rbac-steps
 
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools. Setup can also be completed by using the following alternate instructions:
-* [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
-* [Set up an instance and authentication (PowerShell)](how-to-set-up-instance-powershell.md)
+This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 

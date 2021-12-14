@@ -226,7 +226,7 @@ Start the device to allow your client application to start the registration with
 
 ## Verify the device is registered
 
-Once your device boots, the following actions should take place. See the [Provisioning Device Client Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/master/provisioning/Samples/device) for more details. 
+Once your device boots, the following actions should take place. See the [Provisioning Device Client Sample](https://github.com/Azure-Samples/azure-iot-samples-csharp/tree/main/provisioning/Samples/device) for more details. 
 
 1. The device sends a registration request to your Device Provisioning Service.
 2. For TPM devices, the Device Provisioning Service sends back a registration challenge to which your device responds. 

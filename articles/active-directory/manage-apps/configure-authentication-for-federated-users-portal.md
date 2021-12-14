@@ -18,7 +18,7 @@ ms.reviewer: hirsin
 #customer intent: As and admin, I want to configure Home Realm Discovery for Azure AD authentication for federated users.
 ---
 
-# Configure sign in behavior for an application by using a Home Realm Discovery policy
+# Configure sign-in behavior
 
 This article provides an introduction to configuring Azure Active Directory(Azure AD) authentication behavior for federated users using Home Realm Discovery (HRD) policy.  It covers using auto-acceleration to skip the username entry screen and automatically forward users to federated login endpoints.  Microsoft does not recommend configuring auto-acceleration any longer, as it can prevent the use of stronger authentication methods such as First Identity Online (FIDO) and hinders collaboration.
 

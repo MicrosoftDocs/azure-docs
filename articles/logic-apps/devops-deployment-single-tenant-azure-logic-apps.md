@@ -40,7 +40,7 @@ Single-tenant Azure Logic Apps inherits many capabilities and benefits from the 
 
 ### Local development and testing
 
-When you use Visual Studio Code with the Azure Logic Apps (Standard) extension, you can locally develop, build, and run single-tenant based logic app workflows in your development environment without having to deploy to Azure. You can also run your workflows where Azure Functions can run. For example, if your scenario requires containers, you can containerize your logic apps and deploy as containers.
+When you use Visual Studio Code with the Azure Logic Apps (Standard) extension, you can locally develop, build, and run single-tenant based logic app workflows in your development environment without having to deploy to Azure. If your scenario requires containers, you can create and deploy through [Azure Arc enabled Logic Apps](azure-arc-enabled-logic-apps-overview.md).
 
 This capability is a major improvement and provides a substantial benefit compared to the multi-tenant model, which requires you to develop against an existing and running resource in Azure.
 
@@ -74,7 +74,7 @@ For examples that include Azure DevOps, review [CI/CD for Containers](https://az
 
 ### App settings and parameters
 
-In multi-tenant Azure Logic Apps, ARM templates pose a challenge when you have to maintain environment variables for logic apps across across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
+In multi-tenant Azure Logic Apps, ARM templates pose a challenge when you have to maintain environment variables for logic apps across various dev, test, and production environments. Everything in an ARM template is defined at deployment. If you need to change just a single variable, you have to redeploy everything.
 
 In single-tenant Azure Logic Apps, you can call and reference your environment variables at runtime by using app settings and parameters, so you don't have to redeploy as often.
 
@@ -171,7 +171,7 @@ To call functions created and hosted in Azure Functions, you use the built-in Az
 
 ## Authentication
 
-In single-tenant Azure Logic Apps, the hosting model for logic app workflows is a single tenant where your workloads benefit from more isolation than in the multi-tenant model. Plus, the single-tenant Azure Logic Apps runtime is portable, which means you can run your workflows where Azure Functions can run. Still, this design requires a way for logic apps to authenticate their identity so they can access the managed connector ecosystem in Azure. Your apps also need the correct permissions to run operations when using managed connections.
+In single-tenant Azure Logic Apps, the hosting model for logic app workflows is a single tenant where your workloads benefit from more isolation than in the multi-tenant model. Plus, the single-tenant Azure Logic Apps runtime is portable, which means you can run your workflows in other environments, for example, locally in Visual Studio Code. Still, this design requires a way for logic apps to authenticate their identity so they can access the managed connector ecosystem in Azure. Your apps also need the correct permissions to run operations when using managed connections.
 
 By default, each single-tenant based logic app has an automatically enabled system-assigned managed identity. This identity differs from the authentication credentials or connection string used for creating a connection. At runtime, your logic app uses this identity to authenticate its connections through Azure access policies. If you disable this identity, connections won't work at runtime.
 

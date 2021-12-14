@@ -1,14 +1,14 @@
 ---
 title: MLflow Tracking for Azure Databricks ML experiments
 titleSuffix: Azure Machine Learning
-description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks Ml experiments.
+description:  Set up MLflow with Azure Machine Learning to log metrics and artifacts from Azure Databricks ML experiments.
 services: machine-learning
 author: nibaccam
 ms.author: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 09/22/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 ---
@@ -21,7 +21,7 @@ In this article, learn how to enable MLflow's tracking URI and logging API, coll
 
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
-If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning](how-to-train-mlflow-projects.md).
+If you have an MLflow Project to train with Azure Machine Learning, see [Train ML models with MLflow Projects and Azure Machine Learning (preview)](how-to-train-mlflow-projects.md).
 
 > [!TIP]
 > The information in this document is primarily for data scientists and developers who want to monitor the model training process. If you are an administrator interested in monitoring resource usage and events from Azure Machine Learning, such as quotas, completed training runs, or completed model deployments, see [Monitoring Azure Machine Learning](monitor-azure-machine-learning.md).

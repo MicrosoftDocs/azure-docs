@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 10/01/2021
 ---
 
 # Mapping data flow Debug Mode
@@ -27,7 +27,7 @@ Once you turn on the slider, you will be prompted to select which integration ru
 
 :::image type="content" source="media/data-flow/debug-new-1.png" alt-text="Debug IR selection":::
 
-When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off. You should be aware of the hourly charges incurred by Azure Databricks during the time that you have the debug session turned on.
+When Debug mode is on, you'll interactively build your data flow with an active Spark cluster. The session will close once you turn debug off. You should be aware of the hourly charges incurred by Data Factory during the time that you have the debug session turned on.
 
 In most cases, it's a good practice to build your Data Flows in debug mode so that you can validate your business logic and view your data transformations before publishing your work. Use the "Debug" button on the pipeline panel to test your data flow in a pipeline.
 

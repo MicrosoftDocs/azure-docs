@@ -25,13 +25,14 @@ Azure Media Services lets you deliver live events to your customers on the Azure
 
 ## Live events
 
-[Live events](/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a live event, a primary and secondary input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://www.adobe.com/devnet/rtmp.html) or [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (fragmented-MP4) input protocol. For the RTMP ingest protocol, the content can be sent in the clear (`rtmp://`) or securely encrypted on the wire(`rtmps://`). For the Smooth Streaming ingest protocol, the supported URL schemes are `http://` or `https://`.  
+[Live events](/rest/api/media/liveevents) are responsible for ingesting and processing the live video feeds. When you create a live event, a primary and secondary input endpoint is created that you can use to send a live signal from a remote encoder. The remote live encoder sends the contribution feed to that input endpoint using either the [RTMP](https://helpx.adobe.com/adobe-media-server/dev/stream-live-media-rtmp.html) or [Smooth Streaming](/openspecs/windows_protocols/ms-sstr/8383f27f-7efe-4c60-832a-387274457251) (fragmented-MP4) input protocol. For the RTMP ingest protocol, the content can be sent in the clear (`rtmp://`) or securely encrypted on the wire(`rtmps://`). For the Smooth Streaming ingest protocol, the supported URL schemes are `http://` or `https://`.  
 
 ## Live event types
 
-A [live event](/rest/api/media/liveevents) can be set to either a *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). The types are set during creation using [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
+A [live event](/rest/api/media/liveevents) can be set to either a basic or standard *pass-through* (an on-premises live encoder sends a multiple bitrate stream) or *live encoding* (an on-premises live encoder sends a single bitrate stream). The types are set during creation using [LiveEventEncodingType](/rest/api/media/liveevents/create#liveeventencodingtype):
 
-* **LiveEventEncodingType.None**: An on-premises live encoder sends a multiple bitrate stream. The ingested stream passes through the live event without any further processing. Also called the pass-through mode.
+* **LiveEventEncodingType.PassthroughBasic**: An on-premises live encoder sends a multiple bitrate stream. The basic pass-through is limited to a peak ingress of 5 Mbps, 8-hour DVR window, and live transcription is not supported.
+* **LiveEventEncodingType.PassthroughStandard**: An on-premises live encoder sends a multiple bitrate stream. The standard pass-through has higher ingest limits, 25-hour DVR window, and support for live transcriptions.
 * **LiveEventEncodingType.Standard**: An on-premises live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. If the contribution feed is of 720p or higher resolution, the **Default720p** preset will encode a set of 6 resolution/bitrates pairs.
 * **LiveEventEncodingType.Premium1080p**: An on-premises live encoder sends a single bitrate stream to the live event and Media Services creates multiple bitrate streams. The Default1080p preset specifies the output set of resolution/bitrates pairs.
 
@@ -39,7 +40,7 @@ A [live event](/rest/api/media/liveevents) can be set to either a *pass-through*
 
 ![pass-through live event with Media Services example diagram](./media/live-streaming/pass-through.svg)
 
-When using the pass-through **live event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the live event (using RTMP or fragmented-MP4 protocol). The live event then carries through the incoming video streams without any further processing. Such a pass-through live event is optimized for long-running live events or 24x365 linear live streaming. When creating this type of live event, specify None (LiveEventEncodingType.None).
+When using the basic or standard pass-through **live event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the live event (using RTMP or fragmented-MP4 protocol). The live event then carries through the incoming video streams without any further processing. Such a pass-through live event is optimized for long-running live events or 24x365 linear live streaming. When creating this type of live event, specify pass-through "basic" or "standard". (LiveEventEncodingType.PassThroughStandard).
 
 You can send the contribution feed at resolutions up to 4K and at a frame rate of 60 frames/second, with either H.264/AVC or H.265/HEVC (Smooth ingest only) video codecs, and AAC (AAC-LC, HE-AACv1, or HE-AACv2) audio codec. For more information, see [Live event types comparison](live-event-types-comparison-reference.md).
 

@@ -31,9 +31,9 @@ Create a new file in Visual Studio Code. Enter a `GET` request command line in t
 ## Get client application values
 
 > [!Important]
-> Before making RESTful API calls to the FHIR server (other than getting the metadata), you must complete **[application registration](register-application.md)**. Make a note of your Azure **tenant ID**, **client ID**, **client secret** and the **service URL**.
+> Before calling the FHIR server REST API (other than getting the metadata), you must complete **[application registration](register-application.md)**. Make a note of your Azure **tenant ID**, **client ID**, **client secret** and the **service URL**.
 
-While you can use values such as the client ID directly in the RESTful API calls, it is a good practice that you define a few variables for these values and use the variables instead.
+While you can use values such as the client ID directly in calls to the REST API, it's a good practice that you define a few variables for these values and use the variables instead.
 
 In your `test.http` file, include the following information obtained from registering your application: 
 

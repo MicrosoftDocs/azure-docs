@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Configure network in an Azure FXT Edge Filer cluster'
 description: How to customize network settings after creating the Azure FXT Edge Filer cluster 
-author: ekpgh
-ms.author: v-erkel 
+author: femila
+ms.author: femila 
 ms.service: fxt-edge-filer
 ms.topic: tutorial
-ms.date: 06/20/2019
+ms.date: 10/07/2021
 ---
 
 # Tutorial: Configure the cluster's network settings
@@ -97,43 +97,47 @@ Keep these things in mind when deciding whether or not to use a DNS server:
 
 ### Round-robin DNS configuration details
 
-When clients access the cluster, RRDNS automatically balances their requests among all available interfaces.
+A round-robin DNS (RRDNS) system automatically routes client requests among multiple addresses.
 
-For optimal performance, configure your DNS server to handle client-facing cluster addresses as shown in the following diagram.
+To set this system up, you need to customize the DNS server's configuration file so that when it gets mount requests to the FXT Edge Filer's main domain address, it assigns the traffic among all of the cluster's mount points. Clients mount the cluster using its domain name as the server argument, and are routed to the next mount IP automatically.
 
-A cluster vserver is shown on the left, and IP addresses appear in the center and on the right. Configure each client access point with A records and pointers as illustrated.
+There are two main steps to configure RRDNS:
 
-:::image type="complex" source="media/fxt-cluster-config/fxt-rrdns-diagram.png" alt-text="Diagram showing cluster round-robin DNS configuration.":::
-   <The diagram shows connections among three categories of elements: a single vserver (at the left), three IP addresses (middle column), and three client interfaces (right column). A single circle at the left labeled "vserver1" is connected by arrows pointing toward three circles labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the vserver circle to the three IP circles have the caption "A". Each of the IP address circles is connected by two arrows to a circle labeled as a client interface - the circle with IP 10.0.0.10 is connected to "vs1-client-IP-10", the circle with IP 10.0.0.11 is connected to "vs1-client-IP-11", and the circle with IP 10.0.0.12 is connected to "vs1-client-IP-11". The connections between the IP address circles and the client interface circles are two arrows: one arrow labeled "PTR" that points from the IP address circle to the client interface circle, and one arrow labeled "A" that points from the client interface circle to the IP address circle.>
+1. Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your FXT cluster. This option causes the server to cycle through all of the available IP values. Add a statement like the following:
+
+   ```bash
+   options {
+       rrset-order {
+           class IN A name "fxt.contoso.com" order cyclic;
+       };
+   };
+   ```
+
+1. Configure A records and pointer (PTR) records for each available IP address as in the following example.
+
+   These ``nsupdate`` commands provide an example of configuring DNS correctly for an Azure FXT Edge Filer cluster with the domain name fxt.contoso.com and three mount addresses (10.0.0.10, 10.0.0.11, and 10.0.0.12):
+
+   ```bash
+   update add fxt.contoso.com. 86400 A 10.0.0.10
+   update add fxt.contoso.com. 86400 A 10.0.0.11
+   update add fxt.contoso.com. 86400 A 10.0.0.12
+   update add client-IP-10.contoso.com. 86400 A 10.0.0.10
+   update add client-IP-11.contoso.com. 86400 A 10.0.0.11
+   update add client-IP-12.contoso.com. 86400 A 10.0.0.12
+   update add 10.0.0.10.in-addr.arpa. 86400 PTR client-IP-10.contoso.com
+   update add 11.0.0.10.in-addr.arpa. 86400 PTR client-IP-11.contoso.com
+   update add 12.0.0.10.in-addr.arpa. 86400 PTR client-IP-12.contoso.com
+   ```
+
+   These commands create an A record for each of the cluster's mount addresses, and also set up pointer records to support reverse DNS checks appropriately.
+
+   The diagram below shows the basic structure of this configuration.
+
+   :::image type="complex" source="media/round-robin-dns-diagram-fxt.png" alt-text="Diagram showing client mount point DNS configuration.":::
+   <The diagram shows connections among three categories of elements: the single FXT Edge Filer cluster domain name (at the left), three IP addresses (middle column), and three internal-use reverse DNS client interfaces (right column). A single oval at the left labeled "fxt.contoso.com" is connected by arrows pointing toward three ovals labeled with IP addresses: 10.0.0.10, 10.0.0.11, and 10.0.0.12. The arrows from the fxt.contoso.com oval to the three IP ovals are labeled "A". Each of the IP address ovals is connected by two arrows to an oval labeled as a client interface - the oval with IP 10.0.0.10 is connected to "client-IP-10.contoso.com", the oval with IP 10.0.0.11 is connected to "client-IP-11.contoso.com", and the oval with IP 10.0.0.12 is connected to "client-IP-11.contoso.com". The connections between the IP address ovals and the client interface ovals are two arrows: one arrow labeled "PTR" that points from the IP address oval to the client interface oval, and one arrow labeled "A" that points from the client interface oval to the IP address oval.>
 :::image-end:::
 
-Each client-facing IP address must have a unique name for internal use by the cluster. (In this diagram, the client IPs are named vs1-client-IP-* for clarity, but in production you should probably use something more concise, like client*.)
-
-Clients mount the cluster using the vserver name as the server argument.
-
-Modify your DNS server’s ``named.conf`` file to set cyclic order for queries to your vserver. This option ensures that all of the available values are cycled through. Add a statement like the following:
-
-```
-options {
-    rrset-order {
-        class IN A name "vserver1.example.com" order cyclic;
-    };
-};
-```
-
-The following ``nsupdate`` commands provide an example of configuring DNS correctly:
-
-```
-update add vserver1.example.com. 86400 A 10.0.0.10
-update add vserver1.example.com. 86400 A 10.0.0.11
-update add vserver1.example.com. 86400 A 10.0.0.12
-update add vs1-client-IP-10.example.com. 86400 A 10.0.0.10
-update add vs1-client-IP-11.example.com. 86400 A 10.0.0.11
-update add vs1-client-IP-12.example.com. 86400 A 10.0.0.12
-update add 10.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-10.example.com
-update add 11.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-11.example.com
-update add 12.0.0.10.in-addr.arpa. 86400 PTR vs1-client-IP-12.example.com
-```
+After the RRDNS system is configured, tell your client machines to use it to resolve the FXT cluster address in their mount commands.
 
 ### Enable DNS in the cluster
 
@@ -143,7 +147,7 @@ Specify the DNS server that the cluster uses in the **Cluster** > **Administrati
 * DNS domain name
 * DNS search domains
 
-For more details, read [DNS Settings](<https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns>) in the Cluster Configuration Guide.
+For more details, read [DNS Settings](https://azure.github.io/Avere/legacy/ops_guide/4_7/html/gui_admin_network.html#gui-dns) in the Cluster Configuration Guide.
 
 ## Next steps
 

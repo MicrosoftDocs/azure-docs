@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: trkeya
 ms.author: trkeya
-ms.date: 07/30/2021
+ms.date: 12/03/2021
 ---
 
 # Introduction to listing options
@@ -19,19 +19,19 @@ This table shows which listing options are available for each offer type:
 | ------------ | ------------- | ------------- | ------------- | ------------- |
 | Azure Application (Managed app) |   | &#10004; |   | &#10004; |
 | Azure Application (Solution template) |  |  |  | &#10004; |
-| Consulting service |  |  | &#10004; |  |
 | Azure Container |  |  |  | &#10004; |
-| Dynamics 365 business central | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 Customer Engagement & Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
-| Dynamics 365 for operations | &#10004; | &#10004; | &#10004; | &#10004; |
+| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
+| Consulting service |  |  | &#10004; |  |
+| Dynamics 365 Business Central | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 apps on Dataverse and Power Apps | &#10004; | &#10004; | &#10004; | &#10004; |
+| Dynamics 365 Operations Apps | &#10004; | &#10004; | &#10004; | &#10004; |
 | IoT Edge module |  |  |  | &#10004; |
 | Managed Service |  |  |  | &#10004; |
 | Power BI App |  |  |  | &#10004; |
-| Azure Virtual Machine | &#10004; | &#10004; |  | &#10004; |
 | Software as a service | &#10004; | &#10004; | &#10004; | &#10004; |
 ||||||
 
-&#42; The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For more information, see [Get It Now](#get-it-now).
+\* The **Get It Now** listing option includes Get It Now (Free), bring your own license (BYOL), Subscription, and Usage-based pricing. For more information, see [Get It Now](#get-it-now).
 
 ## Change the offer type
 
@@ -68,9 +68,9 @@ This table shows which offer types support the pricing options that are included
 | Azure Application (Solution template) | &#10004; |   |   |   |
 | Consulting service |   |   |   |   |
 | Azure Container | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
-| Dynamics 365 business central | &#10004; |   |   |   |
-| Dynamics 365 Customer Engagement & Power Apps | &#10004; |   |   |   |
-| Dynamics 365 for operations | &#10004; |   |   |   |
+| Dynamics 365 Business Central | &#10004; |   |   |   |
+| Dynamics 365 apps on Dataverse and Power Apps | &#10004; |   |   |   |
+| Dynamics 365 Operations Apps | &#10004; |   |   |   |
 | IoT Edge module | &#10004;<sup>1</sup> | &#10004;<sup>1</sup> |   |   |
 | Managed Service |   | &#10004; |   |   |
 | Power BI App | &#10004; |   |   |   |
@@ -136,8 +136,8 @@ The following table shows the options that are available for different offer typ
 | SaaS  | Both online stores | Both online stores | Both online stores |   | Both online stores &#42; |
 | Microsoft 365 App | AppSource | AppSource |   |   | AppSource &#42;&#42; |
 | Dynamics 365 Business Central | AppSource | AppSource |   |   |   |
-| Dynamics 365 for Customer Engagements & Power Apps | AppSource | AppSource |   |   |   |
-| Dynamics 365 Operations | AppSource | AppSource |   |   |   |
+| Dynamics 365 apps on Dataverse and Power Apps | AppSource | AppSource |   |   |   |
+| Dynamics 365 Operations Apps | AppSource | AppSource |   |   |   |
 | Power BI App |   |   | AppSource |   |   |
 |||||||
 

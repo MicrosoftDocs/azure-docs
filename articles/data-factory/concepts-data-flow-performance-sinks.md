@@ -1,14 +1,14 @@
 ---
-title: Optimizing sink performance in mapping data flow
+title: Sink performance and best practices in mapping data flow
 titleSuffix: Azure Data Factory & Azure Synapse
-description: Learn about optimizing sink performance in mapping data flows in Azure Data Factory and Azure Synapse Analytics pipelines.
+description: Learn about optimizing sink performance and best practices in mapping data flows in Azure Data Factory and Azure Synapse Analytics pipelines.
 author: kromerm
 ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
-ms.date: 09/29/2021
+ms.date: 10/06/2021
 ---
 
 # Optimizing sinks
@@ -18,6 +18,10 @@ When data flows write to sinks, any custom partitioning will happen immediately 
 ## Azure SQL Database sinks
 
 With Azure SQL Database, the default partitioning should work in most cases. There is a chance that your sink may have too many partitions for your SQL database to handle. If you are running into this, reduce the number of partitions outputted by your SQL Database sink.
+
+### Best practice for deleting rows in sink based on missing rows in source
+
+Here is a video walk through of how to use data flows with exits, alter row, and sink transformations to achieve this common pattern: > [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMLr5]
 
 ### Impact of error row handling to performance
 

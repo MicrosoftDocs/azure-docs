@@ -12,9 +12,9 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/31/2020
+ms.date: 11/18/2021
 ms.author: inhenkel
-ms.reviewer: anilmur
+ms.reviewer: johndeu
 
 ---
 # Standard Encoder formats and codecs
@@ -53,11 +53,12 @@ or
 | Input video codecs | Supported |
 | --- | --- |
 | AVC 8-bit/10-bit, up to 4:2:2, including AVCIntra |8 bit 4:2:0 and 4:2:2 |
-| Avid DNxHD (in MXF) |Yes |
-| DVCPro/DVCProHD (in MXF) |Yes |
+| Sony XAVC / XAVC S (in MXF container)| Yes|
+| Avid DNxHD (in MXF container) |Yes |
+| DVCPro/DVCProHD (in MXF container) |Yes |
 | Digital video (DV) (in AVI files) |Yes |
 | JPEG 2000 |Yes |
-| MPEG-2 (up to 422 Profile and High Level; including variants such as XDCAM, XDCAM HD, XDCAM IMX, CableLabs®, and D10) |Up to 422 Profile |
+| MPEG-2 (up to 422 Profile and High Level; including variants such as Sony XDCAM, Sony XDCAM HD, Sony XDCAM IMX, CableLabs®, and D10) |Up to 422 Profile |
 | MPEG-1 |Yes |
 | VC-1/WMV9 |Yes |
 | Canopus HQ/HQX |No |

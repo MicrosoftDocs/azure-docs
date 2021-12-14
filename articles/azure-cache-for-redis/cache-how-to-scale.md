@@ -1,9 +1,9 @@
 ---
 title: Scale an Azure Cache for Redis instance
 description: Learn how to scale your Azure Cache for Redis instances using the Azure portal, and tools such as Azure PowerShell, and Azure CLI
-author: yegu-ms
+author: curib
 
-ms.author: yegu
+ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
 ms.date: 02/08/2021 
@@ -44,6 +44,10 @@ To scale your cache, [browse to the cache](cache-configure.md#configure-azure-ca
 Choose a pricing tier on the right and then choose **Select**.
 
 :::image type="content" source="media/cache-how-to-scale/select-a-tier.png" alt-text="Azure Cache for Redis tiers":::
+
+> [!NOTE]
+> Scaling is currently not avaialble with Enterprise Tier.
+>
 
 You can scale to a different pricing tier with the following restrictions:
 

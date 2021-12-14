@@ -1,11 +1,11 @@
 ---
 title: Configure Azure HPC Cache settings
 description: Explains how to configure additional settings for the cache like MTU, custom NTP and DNS configuration, and how to access the express snapshots from Azure Blob storage targets.
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
 ms.date: 04/08/2021
-ms.author: v-erkel
+ms.author: femila
 ---
 
 # Configure additional Azure HPC Cache settings

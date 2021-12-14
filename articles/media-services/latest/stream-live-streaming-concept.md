@@ -51,7 +51,7 @@ Dynamic filtering is used to control the number of tracks, formats, bitrates, an
 
 ![Diagram showing how the video and audio feeds from a pass-through Live Event are ingested and processed.](./media/live-streaming/pass-through.svg)
 
-When using the pass-through **Live Event**, you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 input protocol). The Live Event then carries through the incoming video streams  to the dynamic packager (Streaming Endpoint) without any further transcoding. Such a pass-through Live Event is optimized for long-running live events or 24x365 linear live streaming. 
+When using the pass-through **Live Event** (basic or standard), you rely on your on-premises live encoder to generate a multiple bitrate video stream and send that as the contribution feed to the Live Event (using RTMP or fragmented-MP4 input protocol). The Live Event then carries through the incoming video streams  to the dynamic packager (Streaming Endpoint) without any further transcoding. Such a pass-through Live Event is optimized for long-running live events or 24x365 linear live streaming. 
 
 ### Live encoding  
 
@@ -65,6 +65,8 @@ Live transcription is a feature you can use with live events that are either pas
 
 > [!NOTE]
 > Currently, live transcription is available as a preview feature in West US 2.
+
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
 
 ## Live streaming workflow
 

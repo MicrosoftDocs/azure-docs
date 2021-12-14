@@ -10,7 +10,7 @@ ms.subservice: hpc
 ms.collection: windows
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 05/10/2020
+ms.date: 10/14/2021
 ms.author: vikancha 
 ms.custom: devx-track-azurepowershell
 
@@ -54,7 +54,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "AmdGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -69,10 +69,37 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | AmdGpuDriverWindows | string |
-| typeHandlerVersion | 1.0 | int |
+| typeHandlerVersion | 1.1 | int |
 
 
 ## Deployment
+### Azure portal
+
+You can deploy Azure AMD VM extensions in the Azure portal.
+
+1. In a browser, go to the [Azure portal](https://portal.azure.com).
+
+2. Go to the virtual machine on which you want to install the driver.
+
+3. In the left menu, select **Extensions**.
+
+    :::image type="content" source="./media/amd-ext-portal/extensions-menu.png" alt-text="Screenshot that shows selecting Extensions in the Azure portal menu.":::
+
+4. Select **Add**.
+
+    :::image type="content" source="./media/amd-ext-portal/add-extension.png" alt-text="Screenshot that shows adding a V M extension for the selected V M.":::
+
+5. Scroll to find and select **AMD GPU Driver Extension**, and then select **Next**.
+
+    :::image type="content" source="./media/amd-ext-portal/select-amd-extension.png" alt-text="Screenshot that shows selecting AMD G P U driver.":::
+
+6. Select **Review + create** and then click **Create**, wait a few minutes for the driver to be deployed.
+
+    :::image type="content" source="./media/amd-ext-portal/create-amd-extension.png" alt-text="Screenshot that shows selecting the review and create button.":::
+  
+7. Verify that the extension is added to the list of installed extensions.
+
+    :::image type="content" source="./media/amd-ext-portal/verify-extension.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
 
 ### Azure Resource Manager Template 
 
@@ -94,7 +121,7 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "AmdGpuDriverWindows",
-    "typeHandlerVersion": "1.0",
+    "typeHandlerVersion": "1.1",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -112,7 +139,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "AmdGpuDriverWindows" `
     -ExtensionType "AmdGpuDriverWindows" `
-    -TypeHandlerVersion 1.0 `
+    -TypeHandlerVersion 1.1 `
     -SettingString '{ `
 	}'
 ```
@@ -125,7 +152,7 @@ az vm extension set `
   --vm-name myVM `
   --name AmdGpuDriverWindows `
   --publisher Microsoft.HpcCompute `
-  --version 1.0 `
+  --version 1.1 `
   --settings '{ `
   }'
 ```

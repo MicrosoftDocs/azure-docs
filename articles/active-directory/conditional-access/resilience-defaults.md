@@ -15,7 +15,7 @@ ms.reviewer: dawoo
 
 ms.collection: M365-identity-device-management
 ---
-# Conditional Access: Resilience defaults
+# Conditional Access: Resilience defaults (Preview)
 
 If there was an outage of the primary authentication service, the Azure Active Directory (Azure AD) Backup Authentication Service may automatically issue access tokens to applications for existing sessions. This functionality may significantly increase Azure AD resilience, because reauthentications for existing sessions account for more than 90% of authentications to Azure AD. The Backup Authentication Service doesn't support new sessions or authentications by guest users.
 
@@ -83,7 +83,7 @@ You can configure Conditional Access resilience defaults from the Azure portal, 
 
 ### MS Graph APIs
 
-You can also manage resilience defaults for your Conditional Access policies using the MS Graph API and the [Microsoft Graph Explorer](/graph/graph-explorer). 
+You can also manage resilience defaults for your Conditional Access policies using the MS Graph API and the [Microsoft Graph Explorer](/graph/graph-explorer/graph-explorer-overview). 
 
 Sample request URL: 
 

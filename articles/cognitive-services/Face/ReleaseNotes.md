@@ -18,6 +18,14 @@ ms.custom: contperf-fy21q3, contperf-fy22q1
 
 The Azure Face service is updated on an ongoing basis. Use this article to stay up to date with new features, enhancements, fixes, and documentation updates.
 
+## July 2021
+
+### New HeadPose and Landmarks improvements for Detection_03
+
+* The Detection_03 model has been updated to support facial landmarks.
+* The landmarks feature in Detection_03 is much more precise, especially in the eyeball landmarks which are crucial for gaze tracking.
+
+
 ## April 2021
 
 ### PersonDirectory data structure

@@ -1,15 +1,15 @@
 ---
-title: 'Quickstart: create a Synapse workspace'  
-description: Create an  Synapse workspace by following the steps in this guide. 
+title: 'Quickstart: create a Synapse workspace'
+description: Create an  Synapse workspace by following the steps in this guide.
 services: synapse-analytics
 author: saveenr
-ms.service: synapse-analytics 
+ms.service: synapse-analytics
 ms.topic: quickstart
 ms.subservice: workspace
 ms.date: 09/03/2020
 ms.author: saveenr
 ms.reviewer: jrasnick
-ms.custom: subject-rbac-steps
+ms.custom: subject-rbac-steps, mode-other
 ---
 
 # Quickstart: Create a Synapse workspace

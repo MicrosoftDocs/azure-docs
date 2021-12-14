@@ -1,15 +1,13 @@
 ---
 title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/07/2020
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 11/29/2021
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
-
 ms.custom: mvc, references_regions
-#Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---
 
 # What is Azure Maps?
@@ -21,7 +19,6 @@ Azure Maps is a collection of geospatial services and SDKs that use fresh mappin
 * Search services to locate addresses, places, and points of interest around the world.
 * Various routing options; such as point-to-point, multipoint, multipoint optimization, isochrone, electric vehicle, commercial vehicle, traffic influenced, and matrix routing.
 * Traffic flow view and incidents view, for applications that require real-time traffic information.
-* Mobility services preview to request public transit information, plan routes by blending different travel modes and real-time arrivals.
 * Time zone and Geolocation services.
 * Elevation services with Digital Elevation Model
 * Geofencing service and mapping data storage, with location information hosted in Azure.
@@ -64,12 +61,6 @@ Data is imperative for maps. Use the Data service to upload and store geospatial
 Use the Geolocation service to retrieve the two-letter country/region code for an IP address. This service can help you enhance user experience by providing customized application content based on geographic location.
 
 For more details, read the [Geolocation service documentation](/rest/api/maps/geolocation).
-
-### Mobility services preview
-
-The Azure Maps Mobility services improve the development time for applications with public transit features, such as transit routing and search for nearby public transit stops. Users can retrieve detailed information about transit stops, lines, and schedules. The Mobility service also allows users to retrieve stop and line geometries, alerts for stops, lines, and service areas, and real-time public transit arrivals and service alerts. Additionally, the Mobility services provide routing capabilities with multimodal trip planning options. Multimodal trip planning incorporates walking, bicycling, and public transit options, all into one trip. Users can also access detailed multimodal step-by-step itineraries.
-
-To learn more about the service, see the [Mobility services documentation](/rest/api/maps/mobility).
 
 ### Render service
 
@@ -199,7 +190,7 @@ The Elevation service allows you to retrieve elevation data in two formats:
 
 * **GeoTIFF raster format**. Use the [Render V2-Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format.
 
-* **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. 
+* **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates.
 
 :::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
 
@@ -211,11 +202,11 @@ Also, Azure Maps offers a convenient [JavaScript map control](/javascript/api/az
 
 ## Power BI visual
 
-The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
+The Azure Maps Power BI visual provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps Power BI visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop with the Azure Maps visual displaying business data":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop with the Azure Maps Power BI visual displaying business data":::
 
-For more information, see the Getting started with the [Azure Maps Power BI visual](power-bi-visual-getting-started.md) documentation.
+For more information, see the [Get started with Azure Maps Power BI visual](power-bi-visual-get-started.md) article.
 
 ## Usage
 
@@ -224,7 +215,7 @@ To access Azure Maps services, go to the [Azure portal](https://portal.azure.com
 Azure Maps uses a key-based authentication scheme. When you create your account, two keys are generated. To authenticate for Azure Maps services, you can use either key.
 
 > [!NOTE]
-> Azure Maps shares customer-provided address/location queries ("Queries") with third-party TomTom for mapping functionality purposes. Queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals. The Mobility services, which include integration with Moovit, are currently in [preview](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Azure Maps shares customer-provided address/location queries with third-party TomTom for mapping functionality purposes. These queries aren't linked to any customer or end user when shared with TomTom and can't be used to identify individuals.
 
 Microsoft is currently in the process of adding TomTom, Moovit, and AccuWeather to the Online Services Subcontractor List.
 

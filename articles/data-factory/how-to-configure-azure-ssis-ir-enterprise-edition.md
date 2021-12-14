@@ -4,7 +4,7 @@ description: "This article describes the features of Enterprise Edition for the 
 ms.service: data-factory
 ms.subservice: integration-services
 ms.topic: conceptual
-ms.date: 07/09/2020
+ms.date: 10/22/2021
 author: swinarko
 ms.author: sawinark
 ---

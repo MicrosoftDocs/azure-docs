@@ -5,7 +5,7 @@ description: Learn how to develop code for Azure Cache for Redis.
 author: shpathak-msft
 ms.service: cache
 ms.topic: conceptual
-ms.date: 08/25/2021
+ms.date: 11/3/2021
 ms.author: shpathak
 ---
 
@@ -17,9 +17,35 @@ When developing client applications, be sure to consider the relevant best pract
 
 ## Consider more keys and smaller values
 
-Redis works best with smaller values. Consider dividing bigger chunks of data in to smaller chunks to spread the data over multiple keys. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
+Azure Cache for Redis works best with smaller values. Consider dividing bigger chunks of data in to smaller chunks to spread the data over multiple keys. For more information on ideal value size, see this [article](https://stackoverflow.com/questions/55517224/what-is-the-ideal-value-size-range-for-redis-is-100kb-too-large/).
 
-In this Redis discussion, some considerations are listed for you to consider carefully. For an example problem that can be caused by large values, see [Large request or response Size](cache-troubleshoot-client.md#large-request-or-response-size).
+## Large request or response size
+
+A large request/response can cause timeouts. As an example, suppose your timeout value configured on your client is 1 second. Your application requests two keys (for example, 'A' and 'B') at the same time (using the same physical network connection). Most clients support request "pipelining", where both requests 'A' and 'B' are sent one after the other without waiting for their responses. The server sends the responses back in the same order. If response 'A' is large, it can eat up most of the timeout for later requests.
+
+In the following example, request 'A' and 'B' are sent quickly to the server. The server starts sending responses 'A' and 'B' quickly. Because of data transfer times, response 'B' must wait behind response 'A' times out even though the server responded quickly.
+
+```console
+|-------- 1 Second Timeout (A)----------|
+|-Request A-|
+     |-------- 1 Second Timeout (B) ----------|
+     |-Request B-|
+            |- Read Response A --------|
+                                       |- Read Response B-| (**TIMEOUT**)
+```
+
+This request/response is a difficult one to measure. You could instrument your client code to track large requests and responses.
+
+Resolutions for large response sizes are varied but include:
+
+- Optimize your application for a large number of small values, rather than a few large values.
+    - The preferred solution is to break up your data into related smaller values.
+    - See the post [What is the ideal value size range for redis? Is 100 KB too large?](https://groups.google.com/forum/#!searchin/redis-db/size/redis-db/n7aa2A4DZDs/3OeEPHSQBAAJ) for details on why smaller values are recommended.
+- Increase the size of your VM to get higher bandwidth capabilities
+    - More bandwidth on your client or server VM may reduce data transfer times for larger responses.
+    - Compare your current network usage on both machines to the limits of your current VM size. More bandwidth on only the server or only on the client may not be enough.
+- Increase the number of connection objects your application uses.
+    - Use a round-robin approach to make requests over different connection objects.
 
 ## Key distribution
 
@@ -34,6 +60,7 @@ Try to choose a Redis client that supports [Redis pipelining](https://redis.io/t
 Some Redis operations, like the [KEYS](https://redis.io/commands/keys) command, are expensive and should be avoided. For some considerations around long running commands, see  [long-running commands](cache-troubleshoot-server.md#long-running-commands)
 
 ## Choose an appropriate tier
+
 Use Standard or Premium tier for production systems.  Don't use the Basic tier in production. The Basic tier is a single node system with no data replication and no SLA. Also, use at least a C1 cache. C0 caches are only meant for simple dev/test scenarios because:
 
 - they share a CPU core
@@ -56,14 +83,14 @@ If your client library or tool doesn't support TLS, then enabling unencrypted co
 
 ## Client library-specific guidance
 
-* [StackExchange.Redis (.NET)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-stackexchange-redis-md)
-* [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
-* [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
-* [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
-* [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
-* [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
-* [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
-* [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
+- [StackExchange.Redis (.NET)](cache-best-practices-connection.md#using-forcereconnect-with-stackexchangeredis)
+- [Java - Which client should I use?](https://gist.github.com/warrenzhu25/1beb02a09b6afd41dff2c27c53918ce7#file-azure-redis-java-best-practices-md)
+- [Lettuce (Java)](https://github.com/Azure/AzureCacheForRedis/blob/main/Lettuce%20Best%20Practices.md)
+- [Jedis (Java)](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-java-jedis-md)
+- [Node.js](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-node-js-md)
+- [PHP](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-php-md)
+- [HiRedisCluster](https://github.com/Azure/AzureCacheForRedis/blob/main/HiRedisCluster%20Best%20Practices.md)
+- [ASP.NET Session State Provider](https://gist.github.com/JonCole/925630df72be1351b21440625ff2671f#file-redis-bestpractices-session-state-provider-md)
 
 ## Next steps
 

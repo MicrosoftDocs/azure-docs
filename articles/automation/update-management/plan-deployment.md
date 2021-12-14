@@ -80,7 +80,7 @@ Enable Update Management and select machines to be managed using one of the foll
 
 - Using an Azure [Resource Manager template](enable-from-template.md) to deploy Update Management to a new or existing Automation account and Azure Monitor Log Analytics workspace in your subscription. It does not configure the scope of machines that should be managed, this is performed as a separate step after using the template.
 
-- From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Arc-enabled servers.
+- From your [Automation account](enable-from-automation-account.md) for one or more Azure and non-Azure machines, including Azure Arc-enabled servers.
 
 - Using the **Enable-AutomationSolution** [runbook](enable-from-runbook.md) to automate onboarding Azure VMs.
 

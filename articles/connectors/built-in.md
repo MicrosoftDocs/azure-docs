@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 08/16/2021
+ms.date: 11/02/2021
 ---
 
 # Built-in triggers and actions in Azure Logic Apps
 
 [Built-in triggers and actions](apis-list.md) provide ways for you to [control your workflow's schedule and structure](#control-workflow), [run your own code](#run-code-from-workflows), [manage or manipulate data](#manage-or-manipulate-data), and complete other tasks in your workflows. Different from [managed connectors](managed.md), many built-in operations aren't tied to a specific service, system, or protocol. For example, you can start almost any workflow on a schedule by using the Recurrence trigger. Or, you can have your workflow wait until called by using the Request trigger. All built-in operations run natively in Azure Logic Apps, and most don't require that you create a connection before you use them.
 
-For a smaller number of services, systems and protocols, Azure Logic Apps provides built-in operations, such as Azure App Services, Azure Functions, Azure API Management and for calling other Azure Logic Apps logic app workflows. The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For a smaller number of services, systems and protocols, Azure Logic Apps provides built-in operations, such as Azure API Management, Azure App Services, Azure Functions, and for calling other Azure Logic Apps logic app workflows. The number and range available vary based on whether you create a Consumption plan-based logic app resource that runs in multi-tenant Azure Logic Apps, or a Standard plan-based logic app resource that runs in single-tenant Azure Logic Apps. For more information, review [Single-tenant versus multi-tenant and integration service environment (ISE)](../logic-apps/single-tenant-overview-compare.md). In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
-For example, if you create a single-tenant logic app, both built-in operations and [managed connector operations](managed.md) are available for a few services, specifically Azure Service Bus, Azure Event Hubs, SQL Server, DB2, and MQ. In few cases, a built-in operation is available only in one environment, for example, Flat File is currently available only in multi-tenant, while IBM Host File is available only in single-tenant. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
+For example, if you create a single-tenant logic app, both built-in operations and [managed connector operations](managed.md) are available for a few services, specifically Azure Blob, Azure Event Hubs, Azure Cosmos DB, Azure Service Bus, DB2, MQ, and SQL Server. In few cases, some built-in operations are available only for one logic app resource type. For example, Batch operations are currently available only for Consumption logic app workflows. In most cases, the built-in version provides better performance, capabilities, pricing, and so on.
 
 The following list describes only some of the tasks that you can accomplish with [built-in triggers and actions](#general-built-in-triggers-and-actions):
 
@@ -80,7 +80,7 @@ Azure Logic Apps provides the following built-in triggers and actions:
         [**Response**][http-request-doc]: Respond to a request received by the **When a HTTP request is received** trigger in the same workflow.
     :::column-end:::
     :::column:::
-        [![Batch icon][batch-icon]][batch-doc]
+        [![Batch icon][batch-icon]][batch-doc]<br>(*Consumption logic app only*)
         \
         \
         [**Batch**][batch-doc]
@@ -90,6 +90,25 @@ Azure Logic Apps provides the following built-in triggers and actions:
         \
         \
         [**Send messages to batch**][batch-doc]: Call an existing workflow that currently starts with a **Batch messages** trigger.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![STFP-SSH icon][sftp-ssh-icon]][sftp-ssh-doc]
+        \
+        \
+        [**STFP-SSH**][sftp-ssh-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to SFTP servers that you can access from the internet by using SSH so that you can work with your files and folders.
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -120,6 +139,35 @@ Azure Logic Apps provides the following built-in actions for the following servi
         When Swagger is included, the triggers and actions defined by these apps appear like any other first-class triggers and actions in Azure Logic Apps.
     :::column-end:::
     :::column:::
+        [![Azure Blob icon icon][azure-blob-storage-icon]][azure-app-services-doc]
+        \
+        \
+        [**Azure Blob**][azure-blob-storage-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to your Azure Storage account so that you can create and manage blob content.
+    :::column-end:::
+    :::column:::
+        [![Azure Cosmos DB icon][azure-cosmos-db-icon]][azure-cosmos-db-doc]
+        \
+        \
+        [**Azure Cosmos DB**][azure-cosmos-db-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Azure Functions icon][azure-functions-icon]][azure-functions-doc]
+        \
+        \
+        [**Azure Functions**][azure-functions-doc]
+        \
+        \
+        Call [Azure-hosted functions](../azure-functions/functions-overview.md) to run your own *code snippets* (C# or Node.js) within your workflow.
+    :::column-end:::
+    :::column:::
         [![Azure Logic Apps icon][azure-logic-apps-icon]][nested-logic-app-doc]
         \
         \
@@ -129,13 +177,53 @@ Azure Logic Apps provides the following built-in actions for the following servi
         Call other workflows that start with the Request trigger named **When a HTTP request is received**.
     :::column-end:::
     :::column:::
+        [![Azure Service Bus icon][azure-service-bus-icon]][azure-service-bus-doc]
+        \
+        \
+        [**Azure Service Bus**][azure-service-bus-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Manage asynchronous messages, queues, sessions, topics, and topic subscriptions.
+    :::column-end:::
+    :::column:::
+        [![IBM DB2 icon][ibm-db2-icon]][ibm-db2-doc]
+        \
+        \
+        [**DB2**][ibm-db2-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more.
+    :::column-end:::
+:::row-end:::
+:::row:::
+    :::column:::
+        [![Azure Event Hubs icon][azure-event-hubs-icon]][azure-event-hubs-doc]
+        \
+        \
+        [**Event Hubs**][azure-event-hubs-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Consume and publish events through an event hub. For example, get output from your logic app with Event Hubs, and then send that output to a real-time analytics provider.
+    :::column-end:::
+    :::column:::
+        [![IBM MQ icon][ibm-mq-icon]][ibm-mq-doc]
+        \
+        \
+        [**MQ**][ibm-mq-doc]<br>(*Standard logic app only*)
+        \
+        \
+        Connect to IBM MQ on-premises or in Azure to send and receive messages.
+    :::column-end:::
+    :::column:::
         [![SQL Server icon][sql-server-icon]][sql-server-doc]
         \
         \
-        [**SQL Server**][sql-server-doc] <br>(*Single-tenant only*)
+        [**SQL Server**][sql-server-doc]<br>(*Standard logic app only*)
         \
         \
         Connect to your SQL Server on premises or an Azure SQL Database in the cloud so that you can manage records, run stored procedures, or perform queries. <p>**Note**: Single-tenant Azure Logic Apps provides both SQL built-in and managed connector operations, while multi-tenant Azure Logic Apps provides only managed connector operations. <p>For more information, review [Single-tenant versus multi-tenant and integration service environment for Azure Logic Apps](../logic-apps/single-tenant-overview-compare.md).
+    :::column-end:::
+    :::column:::
     :::column-end:::
 :::row-end:::
 
@@ -345,7 +433,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
         [![Flat file decoding icon][flat-file-decode-icon]][flat-file-decode-doc]
         \
         \
-        [**Flat file decoding**<br>(*Multi-tenant only*)][flat-file-decode-doc]
+        [**Flat file decoding**][flat-file-decode-doc]
         \
         \
         Encode XML before sending the content to a trading partner.
@@ -354,7 +442,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
         [![Flat file encoding icon][flat-file-encode-icon]][flat-file-encode-doc]
         \
         \
-        [**Flat file encoding**<br>(*Multi-tenant only*)][flat-file-encode-doc]
+        [**Flat file encoding**][flat-file-encode-doc]
         \
         \
         Decode XML after receiving the content from a trading partner.
@@ -410,8 +498,11 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [azure-api-management-icon]: ./media/apis-list/azure-api-management.png
 [azure-app-services-icon]: ./media/apis-list/azure-app-services.png
 [azure-blob-storage-icon]: ./media/apis-list/azure-blob-storage.png
+[azure-cosmos-db-icon]: ./media/apis-list/azure-cosmos-db.png
+[azure-event-hubs-icon]: ./media/apis-list/azure-event-hubs.png
 [azure-functions-icon]: ./media/apis-list/azure-functions.png
 [azure-logic-apps-icon]: ./media/apis-list/azure-logic-apps.png
+[azure-service-bus-icon]: ./media/apis-list/azure-service-bus.png
 [batch-icon]: ./media/apis-list/batch.png
 [condition-icon]: ./media/apis-list/condition.png
 [data-operations-icon]: ./media/apis-list/data-operations.png
@@ -422,9 +513,12 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [http-response-icon]: ./media/apis-list/response.png
 [http-swagger-icon]: ./media/apis-list/http-swagger.png
 [http-webhook-icon]: ./media/apis-list/http-webhook.png
+[ibm-db2-icon]: ./media/apis-list/ibm-db2.png
+[ibm-mq-icon]: ./media/apis-list/ibm-mq.png
 [inline-code-icon]: ./media/apis-list/inline-code.png
 [schedule-icon]: ./media/apis-list/recurrence.png
 [scope-icon]: ./media/apis-list/scope.png
+[sftp-ssh-icon]: ./media/apis-list/sftp.png
 [sql-server-icon]: ./media/apis-list/sql.png
 [switch-icon]: ./media/apis-list/switch.png
 [terminate-icon]: ./media/apis-list/terminate.png
@@ -443,7 +537,10 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [azure-api-management-doc]: ../api-management/get-started-create-service-instance.md "Create an Azure API Management service instance for managing and publishing your APIs"
 [azure-app-services-doc]: ../logic-apps/logic-apps-custom-api-host-deploy-call.md "Integrate logic apps with App Service API Apps"
 [azure-blob-storage-doc]: ./connectors-create-api-azureblobstorage.md "Manage files in your blob container with Azure Blob storage connector"
+[azure-cosmos-db-doc]: ./connectors-create-api-cosmos-db.md "Connect to Azure Cosmos DB so that you can access and manage Azure Cosmos DB documents"
+[azure-event-hubs-doc]: ./connectors-create-api-azure-event-hubs.md "Connect to Azure Event Hubs so that you can receive and send events between logic apps and Event Hubs"
 [azure-functions-doc]: ../logic-apps/logic-apps-azure-functions.md "Integrate logic apps with Azure Functions"
+[azure-service-bus-doc]: ./connectors-create-api-servicebus.md "Manage messages from Service Bus queues, topics, and topic subscriptions"
 [batch-doc]: ../logic-apps/logic-apps-batch-process-send-receive-messages.md "Process messages in groups, or as batches"
 [condition-doc]: ../logic-apps/logic-apps-control-flow-conditional-statement.md "Evaluate a condition and run different actions based on whether the condition is true or false"
 [data-operations-doc]: ../logic-apps/logic-apps-perform-data-operations.md "Perform data operations such as filtering arrays or creating CSV and HTML tables"
@@ -453,6 +550,8 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [http-response-doc]: ./connectors-native-reqres.md "Respond to HTTP requests from your logic apps"
 [http-swagger-doc]: ./connectors-native-http-swagger.md "Call REST endpoints from your logic apps"
 [http-webhook-doc]: ./connectors-native-webhook.md "Wait for specific events from HTTP or HTTPS endpoints"
+[ibm-db2-doc]: ./connectors-create-api-db2.md "Connect to IBM DB2 in the cloud or on-premises. Update a row, get a table, and more"
+[ibm-mq-doc]: ./connectors-create-api-mq.md "Connect to IBM MQ on-premises or in Azure to send and receive messages"
 [inline-code-doc]: ../logic-apps/logic-apps-add-run-inline-code.md "Add and run JavaScript code snippets from your logic apps"
 [nested-logic-app-doc]: ../logic-apps/logic-apps-http-endpoint.md "Integrate logic apps with nested workflows"
 [query-doc]: ../logic-apps/logic-apps-perform-data-operations.md#filter-array-action "Select and filter arrays with the Query action"
@@ -462,6 +561,7 @@ Azure Logic Apps provides the following built-in actions, which either require a
 [schedule-recurrence-doc]:  ./connectors-native-recurrence.md "Run logic apps on a recurring schedule"
 [schedule-sliding-window-doc]: ./connectors-native-sliding-window.md "Run logic apps that need to handle data in contiguous chunks"
 [scope-doc]: ../logic-apps/logic-apps-control-flow-run-steps-group-scopes.md "Organize actions into groups, which get their own status after the actions in group finish running"
+[sftp-ssh-doc]: ./connectors-sftp-ssh.md "Connect to your SFTP account by using SSH. Upload, get, delete files, and more"
 [sql-server-doc]: ./connectors-create-api-sqlazure.md "Connect to Azure SQL Database or SQL Server. Create, update, get, and delete entries in a SQL database table"
 [switch-doc]: ../logic-apps/logic-apps-control-flow-switch-statement.md "Organize actions into cases, which are assigned unique values. Run only the case whose value matches the result from an expression, object, or token. If no matches exist, run the default case"
 [terminate-doc]: ../logic-apps/logic-apps-workflow-actions-triggers.md#terminate-action "Stop or cancel an actively running workflow for your logic app"

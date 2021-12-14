@@ -96,16 +96,22 @@
       href: how-to-control-access.md
     - name: Configure IP filtering
       href: iot-dps-ip-filtering.md
+    - name: Managing public network access
+      href: public-network-access.md
   - name: Provision IoT Edge devices
     items: 
     - name: Linux
-      href: ../iot-edge/how-to-auto-provision-simulated-device-linux.md
+      href: ../iot-edge/how-to-provision-devices-at-scale-linux-tpm.md
       maintainContext: true
     - name: Windows
-      href: ../iot-edge/how-to-auto-provision-simulated-device-windows.md
+      href: ../iot-edge/how-to-provision-devices-at-scale-windows-tpm.md
       maintainContext: true
-  - name: Troubleshooting
-    href: how-to-troubleshoot-dps.md 
+  - name: Troubleshooting and FAQ
+    items:
+    - name: Troubleshooting DPS
+      href: how-to-troubleshoot-dps.md
+    - name: DPS FAQ
+      href: dps-faq.yml
 - name: Reference
   items:
   - name: REST API

@@ -2,11 +2,11 @@
 title: include file
 description: include file
 services: data-factory
-author: linda33wj
+author: jianleishen
 ms.service: data-factory
 ms.topic: include
-ms.date: 09/22/2021
-ms.author: jingwang
+ms.date: 09/29/2021
+ms.author: jianleishen
 ms.custom: include file
 ---
 
@@ -49,7 +49,7 @@ ms.custom: include file
 | &nbsp; |[Presto](../connector-presto.md) |✓ | |✓ |✓  |
 | &nbsp; |[SAP Business Warehouse via Open Hub](../connector-sap-business-warehouse-open-hub.md) |✓ | | |✓  |
 | &nbsp; |[SAP Business Warehouse via MDX](../connector-sap-business-warehouse.md) |✓ | | |✓  |
-| &nbsp; |[SAP HANA](../connector-sap-hana.md) |✓ |✓ | |✓  |
+| &nbsp; |[SAP HANA](../connector-sap-hana.md) |✓ | Sink supported only with the [ODBC Connector and the SAP HANA ODBC driver](../connector-sap-hana.md#sap-hana-sink) | |✓  |
 | &nbsp; |[SAP table](../connector-sap-table.md) |✓ | | |✓  |
 | &nbsp; |[Snowflake](../connector-snowflake.md) |✓ |✓ |✓ |✓  |
 | &nbsp; |[Spark](../connector-spark.md) |✓ | |✓ |✓  |

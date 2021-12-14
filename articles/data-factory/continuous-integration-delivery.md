@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 [!INCLUDE[appliesto-adf-xxx-md](includes/appliesto-adf-xxx-md.md)]
 
-Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible.Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
+Continuous integration is the practice of testing each change made to your codebase automatically and as early as possible. Continuous delivery follows the testing that happens during continuous integration and pushes changes to a staging or production system.
 
 In Azure Data Factory, continuous integration and delivery (CI/CD) means moving Data Factory pipelines from one environment (development, test, production) to another. Azure Data Factory utilizes [Azure Resource Manager templates](../azure-resource-manager/templates/overview.md) to store the configuration of your various ADF entities (pipelines, datasets, data flows, and so on). There are two suggested methods to promote a data factory to another environment:
 
@@ -25,6 +25,8 @@ In Azure Data Factory, continuous integration and delivery (CI/CD) means moving 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## CI/CD lifecycle
+
+[!NOTE] See also: [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements)
 
 Below is a sample overview of the CI/CD lifecycle in an Azure data factory that's configured with Azure Repos Git. For more information on how to configure a Git repository, see [Source control in Azure Data Factory](source-control.md).
 
@@ -94,6 +96,7 @@ If you're using Git integration with your data factory and have a CI/CD pipeline
 
 ## Next steps
 
+- [Continuous deployment improvements](continuous-integration-delivery-improvements.md#continuous-deployment-improvements)
 - [Automate continuous integration using Azure Pipelines releases](continuous-integration-delivery-automate-azure-pipelines.md)
 - [Manually promote a Resource Manager template to each environment](continuous-integration-delivery-manual-promotion.md)
 - [Use custom parameters with a Resource Manager template](continuous-integration-delivery-resource-manager-custom-parameters.md)

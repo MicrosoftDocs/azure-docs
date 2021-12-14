@@ -72,12 +72,12 @@ Following is an example:
 
 | Environment | Service | Domain |
 |:------------|:---------------|:---------------|
-| Development | Azure AD B2C | contoso-dev.b2clogin.com |
-| Development | Microsoft DFP Fingerprinting | fpt.dfp.microsoft-int.com |
-| UAT | Azure AD B2C | contoso-uat.b2clogin.com |
-| UAT | Microsoft DFP Fingerprinting | fpt.dfp.microsoft.com |
-| Production | Azure AD B2C | login.contoso.com |
-| Production | Microsoft DFP Fingerprinting | fpt.login.contoso.com |
+| Development | Azure AD B2C | `contoso-dev.b2clogin.com` |
+| Development | Microsoft DFP Fingerprinting | `fpt.dfp.microsoft-int.com` |
+| UAT | Azure AD B2C | `contoso-uat.b2clogin.com` |
+| UAT | Microsoft DFP Fingerprinting | `fpt.dfp.microsoft.com` |
+| Production | Azure AD B2C | `login.contoso.com` |
+| Production | Microsoft DFP Fingerprinting | `fpt.login.contoso.com` |
 
 ## Deploy the UI templates
 

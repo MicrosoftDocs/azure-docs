@@ -98,7 +98,7 @@ deriveTransformationName sink(allowSchemaDrift: true,
 ```
 
 ## DFS fundamentals
-The DFS is composed of a series of connected transformations, including sources, sinks, and various others which can add new columns, filter data, join data, and much more. Usually, the script with start with one or more sources followed by many transformations and ending with one or more sinks.
+The DFS is composed of a series of connected transformations, including sources, sinks, and various others which can add new columns, filter data, join data, and much more. Usually, the script will start with one or more sources followed by many transformations and ending with one or more sinks.
 
 Sources all have the same basic construction:
 ```
@@ -288,6 +288,10 @@ DerivedColumn1 window(over(dummy),
 	prevAndCurr = lag(title,1)+'-'+last(title),
 		nextAndCurr = lead(title,1)+'-'+last(title)) ~> leadAndLag
 ```
+
+### How many columns are in my data?
+
+```size(array(columns()))```
 
 ## Next steps
 

@@ -6,14 +6,17 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
 author: trkeya
 ms.author: trkeya
-ms.date: 09/27/2021
+ms.date: 12/03/2021
 ---
 
 # Detailed configuration for hosted test drives
 
-This article describes how to configure a hosted test drive for Dynamics 365 for Customer Engagement & Power Apps or Dynamics 365 for Operations.
+This article describes how to configure a hosted test drive for Dynamics 365 apps on Dataverse and Power Apps or Dynamics 365 Operations Apps.
 
-## Configure for Dynamics 365 Customer Engagement & Power Apps
+> [!TIP]
+> To see the customer's view of test drive in the commercial marketplace, see [What is Azure Marketplace?](/marketplace/azure-marketplace-overview#take-action-on-a-listing) and [What is Microsoft AppSource?](/marketplace/appsource-overview).
+
+## Configure for Dynamics 365 apps on Dataverse and Power Apps
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
@@ -21,12 +24,12 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
-3. Find an existing **Dynamics 365 for Customer Engagement & Power Apps** offer or create a new **Dynamics 365 for Customer Engagement & Power Apps** offer.
+3. Find an existing **Dynamics 365 apps on Dataverse and Power Apps** offer or create a new **Dynamics 365 apps on Dataverse and Power Apps** offer.
 4. On the **Offer setup** page, select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save draft**.
 
-    [ ![Illustrates selecting the 'Enable a test drive' check box.](./media/test-drive/enable-test-drive-check-box-workspaces.png) ](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
+    [![Illustrates selecting the 'Enable a test drive' check box.](./media/test-drive/enable-test-drive-check-box-workspaces.png)](./media/test-drive/enable-test-drive-check-box-workspaces.png#lightbox)
 
-    - **Type of test drive** – Choose **Microsoft Hosted (Dynamics 365 for Customer Engagement & PowerApps)**. This indicates that Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
+    - **Type of test drive** – Choose **Dynamics 365 apps on Dataverse and Power Apps**. This indicates that Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
 5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](./test-drive-azure-subscription-setup.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive** > **technical configuration** page.
@@ -62,12 +65,12 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
-3. Find an existing **Dynamics 365 for Customer Engagement & Power Apps** offer or create a new **Dynamics 365 for Customer Engagement & Power Apps** offer.
+3. Find an existing **Dynamics 365 apps on Dataverse and Power Apps** offer or create a new **Dynamics 365 apps on Dataverse and Power Apps** offer.
 4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save**.
 
     [![Selecting the 'Enable a test drive' check box.](media/test-drive/enable-test-drive-check-box.png)](media/test-drive/enable-test-drive-check-box.png#lightbox)
 
-    - **Type of test drive** – Choose **Microsoft Hosted (Dynamics 365 for Customer Engagement & Power Apps)**. This indicates that Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
+    - **Type of test drive** – Choose **Dynamics 365 apps on Dataverse and Power Apps**. This indicates that Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
 5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](./test-drive-azure-subscription-setup.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive technical configuration** page.
@@ -115,7 +118,7 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 ---
 
-## Configure for Dynamics 365 Operations
+## Dynamics 365 Operations Apps
 
 [!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
 
@@ -123,12 +126,12 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/commercial-marketplace/overview).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
-3. Find an existing **Dynamics 365 for Operations** offer or create a new **Dynamics 365 for Operations** offer.
+3. Find an existing **Dynamics 365 Operations Apps** offer or create a new **Dynamics 365 Operations Apps** offer.
 4. On the **Offer setup** page, select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save draft**.
 
     [![Select the 'Enable a test drive' check box.](media/test-drive/enable-test-drive-check-box-operations-workspaces.png)](media/test-drive/enable-test-drive-check-box-operations-workspaces.png#lightbox)
 
-    - **Type of test drive** – Choose **Dynamics 365 for Operations** option. This means Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
+    - **Type of test drive** – Choose **Dynamics 365 Operations Apps** option. This means Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
 5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive** >  **Technical configuration** page.
@@ -159,12 +162,12 @@ This article describes how to configure a hosted test drive for Dynamics 365 for
 
 1. Sign in to [Partner Center](https://go.microsoft.com/fwlink/?linkid=2165507).
 2. If you can't access the above link, you need to submit a request [here](https://appsource.microsoft.com/partners/list-an-app) to publish your application. Once we review the request, you will be granted access to start the publish process.
-3. Find an existing **Dynamics 365 for Operations** offer or create a new **Dynamics 365 for Operations** offer.
+3. Find an existing **Dynamics 365 Operations Apps** offer or create a new **Dynamics 365 Operations Apps** offer.
 4. Select the **Enable a test drive** check box and select a **Type of test drive** (see bullet below), then select **Save draft**.
 
     [![Select the 'Enable a test drive' check box.](media/test-drive/enable-test-drive-check-box-operations.png)](media/test-drive/enable-test-drive-check-box-operations.png#lightbox)
 
-    - **Type of test drive** – Choose **Dynamics 365 for Operations** option. This means Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
+    - **Type of test drive** – Choose **Dynamics 365 Operations Apps** option. This means Microsoft will host and maintain the service that performs the test drive user provisioning and deprovisioning.
 
 5. Grant Microsoft AppSource permission to provision and deprovision test drive users in your tenant using [these instructions](https://github.com/Microsoft/AppSource/blob/master/Microsoft%20Hosted%20Test%20Drive/Setup-your-Azure-subscription-for-Dynamics365-Microsoft-Hosted-Test-Drives.md). In this step, you will generate the **Azure AD App ID** and **Azure AD App Key** values mentioned below.
 6. Complete these fields on the **Test drive technical configuration** page.

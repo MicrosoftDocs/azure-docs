@@ -76,7 +76,7 @@ Or:
 
 1. Declare a `csharp-tsi-msal-ga-sample.csproj` file:
 
-    ```XML
+    ```xml
     <Project Sdk="Microsoft.NET.Sdk">
       <PropertyGroup>
         <OutputType>Exe</OutputType>
@@ -224,7 +224,6 @@ namespace CsharpTsiMsalGaSample
                             }
                         ]
                     }";
-
 
                 var createResponse = await AsyncHttpPostRequestHelper(httpClient, createInput);
 

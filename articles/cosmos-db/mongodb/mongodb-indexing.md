@@ -5,7 +5,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.devlang: nodejs
 ms.topic: how-to
-ms.date: 09/13/2021
+ms.date: 10/13/2021
 author: gahl-levy
 ms.author: gahllevy
 ms.custom: devx-track-js
@@ -13,7 +13,7 @@ ms.custom: devx-track-js
 # Manage indexing in Azure Cosmos DB's API for MongoDB
 [!INCLUDE[appliesto-mongodb-api](../includes/appliesto-mongodb-api.md)]
 
-Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. You can also read an [overview of indexing in Azure Cosmos DB](../index-overview.md) that's relevant across all APIs.
+Azure Cosmos DB's API for MongoDB takes advantage of the core index-management capabilities of Azure Cosmos DB. This article focuses on how to add indexes using Azure Cosmos DB's API for MongoDB. Indexes are specialized data structures that make querying your data roughly an order of magnitude faster.
 
 ## Indexing for MongoDB server version 3.6 and higher
 
@@ -355,13 +355,13 @@ When removing indexes and immediately running queries the have filters on the dr
 
 ## ReIndex command
 
-The `reIndex` command will recreate all indexes on a collection. In most cases, this is unnecessary. However, in some rare cases, query performance may improve after running the `reIndex` command.
+The `reIndex` command will recreate all indexes on a collection. In some rare cases, query performance or other index issues in your collection may be solved by running the `reIndex` command. If you're experiencing issues with indexing, recreating the indexes with the `reIndex` command is a recommended approach. 
 
 You can run the `reIndex` command using the following syntax:
 
 `db.runCommand({ reIndex: <collection> })`
 
-You can use the below syntax to check if you need to run the `reIndex` command:
+You can use the below syntax to check if running the `reIndex` command would improve query performance in your collection:
 
 `db.runCommand({"customAction":"GetCollection",collection:<collection>, showIndexes:true})`
 
@@ -396,7 +396,7 @@ Sample output:
 }
 ```
 
-If `reIndex` is necessary, **requiresReIndex** will be true. If `reIndex` isn't necessary, this property will be omitted.
+If `reIndex` will improve query performance, **requiresReIndex** will be true. If `reIndex` won't improve query performance, this property will be omitted.
 
 ## Migrate collections with indexes
 

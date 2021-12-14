@@ -1,8 +1,8 @@
-﻿--- 
+---
 title: Azure VMware Solution by CloudSimple - Configure DNS for CloudSimple Private Cloud
 description: Describes how to set up DNS name resolution for access to vCenter server on a CloudSimple Private Cloud from on-premises workstations
-author: shortpatti 
-ms.author: v-patsho
+author: suzizuber 
+ms.author: v-szuber
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

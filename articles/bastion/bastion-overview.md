@@ -4,13 +4,11 @@ description: Learn about Azure Bastion, which provides secure and seamless RDP/S
 services: bastion
 author: cherylmc
 # Customer intent: As someone with a basic network background, but is new to Azure, I want to understand the capabilities of Azure Bastion so that I can securely connect to my Azure virtual machines.
-
 ms.service: bastion
 ms.topic: overview
-ms.date: 08/30/2021
+ms.date: 10/12/2021
 ms.author: cherylmc
-ms.custom: contperf-fy2q1-portal
-
+ms.custom: contperf-fy2q1-portal, ignite-fall-2021
 ---
 # What is Azure Bastion?
 
@@ -31,7 +29,7 @@ Bastion provides secure RDP and SSH connectivity to all of the VMs in the virtua
 
 ## <a name="sku"></a>SKUs
 
-Azure Bastion has two available SKUs, Basic and Standard. The Standard SKU is currently in Preview. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article. 
+Azure Bastion has two available SKUs, Basic and Standard. For more information, including how to upgrade a SKU, see the [Configuration settings](configuration-settings.md#skus) article.
 
 The following table shows features and corresponding SKUs.
 
@@ -47,7 +45,7 @@ RDP and SSH are some of the fundamental means through which you can connect to y
 
 This figure shows the architecture of an Azure Bastion deployment. In this diagram:
 
-* The Bastion host is deployed in the virtual network that contains the AzureBastionSubnet subnet that has a minimum /27 prefix.
+* The Bastion host is deployed in the virtual network that contains the AzureBastionSubnet subnet that has a minimum /26 prefix.
 * The user connects to the Azure portal using any HTML5 browser.
 * The user selects the virtual machine to connect to.
 * With a single click, the RDP/SSH session opens in the browser.

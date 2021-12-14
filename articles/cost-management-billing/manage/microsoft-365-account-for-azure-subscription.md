@@ -1,7 +1,7 @@
 ---
 title: Sign up for Azure with a Microsoft 365 account
 description: Learn how to create an Azure subscription by using a Microsoft 365 account. You can also associate existing Azure and Microsoft 365 accounts with each other.
-author: JiangChen79
+author: bandersmsft
 ms.reviewer: adwise
 tags: billing,top-support-issue
 ms.service: cost-management-billing

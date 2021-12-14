@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/22/2021
+ms.date: 11/18/2021
 ms.author: davidmu
 ms.reviewer: ergreenl
 ms.collection: M365-identity-device-management
@@ -17,7 +17,7 @@ ms.custom: has-adal-ref
 # Customer intent: As an IT admin, I need to learn what it takes to plan a single-sign on deployment for my application in Azure Active Directory.
 ---
 
-# Plan a single sign-on deployment in Azure Active Directory
+# Plan a single sign-on deployment
 
 This article provides information that you can use to plan your [single sign-on (SSO)](what-is-single-sign-on.md) deployment in Azure Active Directory (Azure AD). When you plan your SSO deployment with your applications in Azure AD, you need to consider these questions:
 
@@ -52,12 +52,6 @@ You change that certificate duration in the Azure portal. Make sure to document 
 - Owner On-Call for application troubleshooting support
 - Closely monitored email distribution list for certificate-related change notifications
 
-You can use the following methods to manage your certificates:
-
-- **Automatic certificate rollover** - Signing key rollover is supported in Azure AD. While signing key rollover is the preferred method for managing certificates, not all applications support this scenario.
-
-- **Manually update** - Every application has its own certificate that expires based on how it's defined. Before the application’s certificate expires, create a new certificate and send it to the application provider. This information can be pulled from the federation metadata. For more information, see [Federation metadata](../azuread-dev/azure-ad-federation-metadata.md). 
-
 Set up a process for how you'll handle a certificate change between Azure AD and your application. By having this process in place, you can help prevent or minimize an outage due to a certificate expiring or a forced certificate rollover. For more information, see [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md).
 
 ## Communications
@@ -88,7 +82,7 @@ From the sign-in perspective, applications with shared accounts aren't different
 
 There are several ways you can configure an application for SSO. Choosing an SSO method depends on how the application is configured for authentication.
 - Cloud applications can use OpenID Connect, OAuth, SAML, password-based, or linked for SSO. Single sign-on can also be disabled.
-- On-premises applications can use password-based, Integrated Windows authentication, header-based, linked for SSO. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
+- On-premises applications can use password-based, Integrated Windows Authentication, header-based, linked for SSO. The on-premises choices work when applications are configured for [Application Proxy](../app-proxy/what-is-application-proxy.md).
 
 This flowchart can help you decide which SSO method is best for your situation.
 
@@ -110,7 +104,7 @@ The following SSO protocols are available to use:
 
 - **Disabled** - Choose disabled SSO when the application isn't ready to be configured for SSO.
 
-- **Integrated Windows authentication (IWA)** - Choose IWA single sign-on for applications that use IWA, or for claims-aware applications. For more information, see [Kerberos Constrained Delegation for single sign-on to your applications with Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md).
+- **Integrated Windows Authentication (IWA)** - Choose IWA single sign-on for applications that use IWA, or for claims-aware applications. For more information, see [Kerberos Constrained Delegation for single sign-on to your applications with Application Proxy](../app-proxy/application-proxy-configure-single-sign-on-with-kcd.md).
 
 - **Header-based** - Choose header-based single sign-on when the application uses headers for authentication. For more information, see [Header-based SSO](../app-proxy/application-proxy-configure-single-sign-on-with-headers.md).
 

@@ -1,16 +1,16 @@
 ---
-title: Set up the local account identity provider
+title: Set up phone sign-up and sign-in for user flows
 titleSuffix: Azure AD B2C
 description: Define the identity types you can use (email, username, phone number) for local account authentication when you set up user flows in your Azure Active Directory B2C tenant.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -71,10 +71,10 @@ Here's an example showing how to add phone sign-up to a new user flow.
 
     ![Create user flow button](./media/phone-authentication-user-flows/select-version.png)
 
-1. Enter a **Name** for the user flow. For example, *signupsignin1*.
+1. Enter a **Name** for the user flow, such as *signupsignin1*.
 1. In the **Identity providers** section, under **Local accounts**, select **Phone signup**.
 
-   ![User flow phone signup option selected](media/phone-authentication-user-flows/user-flow-phone-signup.png)
+   ![User flow **Phone signup** option selected](media/phone-authentication-user-flows/user-flow-phone-signup.png)
 
 1. Under **Social identity providers**, select any other identity providers you want to allow for this user flow.
 

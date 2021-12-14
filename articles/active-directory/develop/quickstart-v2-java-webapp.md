@@ -5,14 +5,13 @@ description: In this quickstart, you'll learn how to add sign-in with Microsoft 
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/09/2019
-ms.author: marsma 
-ms.custom: aaddev, scenarios:getting-started, languages:Java, devx-track-java
+ms.author: marsma
+ms.custom: aaddev, "scenarios:getting-started", "languages:Java", devx-track-java, mode-api
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Java web app
@@ -25,7 +24,7 @@ In this quickstart, you download and run a code sample that demonstrates how a J
 
 To run this sample, you need:
 
-- [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or later. 
+- [Java Development Kit (JDK)](https://openjdk.java.net/) 8 or later.
 - [Maven](https://maven.apache.org/).
 
 > [!div renderon="docs"]
@@ -134,7 +133,6 @@ To run this sample, you need:
 >      ```
 >   1. Put the generated keystore file in the *resources* folder.
 
-
 > [!div class="sxs-lookup" renderon="portal"]
 > #### Step 3: Run the code sample
 > [!div renderon="docs"]
@@ -142,7 +140,7 @@ To run this sample, you need:
 
 To run the project, take one of these steps:
 
-- Run it directly from your IDE by using the embedded Spring Boot server. 
+- Run it directly from your IDE by using the embedded Spring Boot server.
 - Package it to a WAR file by using [Maven](https://maven.apache.org/plugins/maven-war-plugin/usage.html), and then deploy it to a J2EE container solution like [Apache Tomcat](http://tomcat.apache.org/).
 
 ##### Running the project from an IDE
@@ -206,7 +204,6 @@ If you want to deploy the web sample to Tomcat, make a couple changes to the sou
 
 4. After the file is deployed, go to https://localhost:8443/msal4jsample by using a browser.
 
-
 > [!IMPORTANT]
 > This quickstart application uses a client secret to identify itself as a confidential client. Because the client secret is added as plain text to your project files, for security reasons we recommend that you use a certificate instead of a client secret before using the application in a production environment. For more information on how to use a certificate, see [Certificate credentials for application authentication](./active-directory-certificate-credentials.md).
 
@@ -223,7 +220,7 @@ Add MSAL4J to your application by using Maven or Gradle to manage your dependenc
 
 In pom.xml:
 
-```XML
+```xml
 <dependency>
     <groupId>com.microsoft.azure</groupId>
     <artifactId>msal4j</artifactId>

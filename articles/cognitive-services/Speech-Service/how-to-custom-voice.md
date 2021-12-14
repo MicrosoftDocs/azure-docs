@@ -3,18 +3,18 @@ title: "Get started with Custom Neural Voice - Speech service"
 titleSuffix: Azure Cognitive Services
 description: "Custom Neural Voice is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions."
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 05/18/2021
-ms.author: pafarley
+ms.author: eur
 ---
 
 # Get started with Custom Neural Voice
 
-[Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom text-to-speech experience. See the supported [languages](language-support.md#customization) and [regions](regions.md#custom-voices) for Custom Neural Voice.
+[Custom Neural Voice](https://aka.ms/customvoice) is a set of online tools that allow you to create a recognizable, one-of-a-kind voice for your brand. All it takes to get started are a handful of audio files and the associated transcriptions. Follow the links below to start creating a custom Text-to-Speech experience. See the supported [languages](language-support.md#custom-neural-voice) and [regions](regions.md#custom-neural-voices) for Custom Neural Voice.
 
 > [!NOTE]
 > As part of Microsoft's commitment to designing responsible AI, we have limited the use of Custom Neural Voice. You may gain access to the technology only after your applications are reviewed and you have committed to using it in alignment with our responsible AI principles. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural). 
@@ -41,11 +41,11 @@ To create your first project, select the **Text-to-Speech/Custom Voice** tab, th
 
 ## Tips for creating a custom neural voice
 
-Creating a great custom voice requires careful quality control in each step, from voice design and data preparation, to the deployment of the voice model to your system. Below are some key steps to take when creating a custom neural voice for your organization. 
+Creating a great custom neural voice requires careful quality control in each step, from voice design and data preparation, to the deployment of the voice model to your system. Below are some key steps to take when creating a custom neural voice for your organization. 
 
 ### Persona design
 
-First, design a persona of the voice that represents your brand using a persona brief document that defines elements such as the features of the voice, and the character behind the voice. This will help to guide the process of creating a custom voice model, including defining the scripts, selecting your voice talent, training and voice tuning.
+First, design a persona of the voice that represents your brand using a persona brief document that defines elements such as the features of the voice, and the character behind the voice. This will help to guide the process of creating a custom neural voice model, including defining the scripts, selecting your voice talent, training and voice tuning.
 
 ### Script selection
  
@@ -71,21 +71,11 @@ The style and the characteristics of the trained voice model depend on the style
 
 ## Migrate to Custom Neural Voice
 
-The standard/non-neural training tier (statistical parametric, concacenative) of Custom Voice is being deprecated. The announcement has been sent out to all existing Speech subscriptions before 2/28/2021. During the deprecation period (3/1/2021 - 2/29/2024), existing standard tier users can continue to use their non-neural models created. All new users/new speech resources should move to the neural tier/Custom Neural Voice. After 2/29/2024, all standard/non-neural custom voices will no longer be supported. 
+If you are using the old version of Custom Voice (to be retired in 2/2024), check the instructions [here](how-to-migrate-to-custom-neural-voice.md) on how to migrate it to Custom Neural Voice.
 
-If you are using non-neural/standard Custom Voice,  migrate to Custom Neural Voice immediately following the steps below. Moving to Custom Neural Voice will help you develop more realistic voices for even more natural conversational interfaces and enable your customers and end users to benefit from the latest Text-to-Speech technology, in a responsible way. 
-
-1. Learn more about our [policy on the limit access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext) and [apply here](https://aka.ms/customneural). Note that the access to the Custom Neural Voice service is subject to Microsoft’s sole discretion based on our eligibility criteria. Customers may gain access to the technology only after their application is reviewed and they have committed to using it in alignment with our [Responsible AI principles](https://microsoft.com/ai/responsible-ai) and the [code of conduct](/legal/cognitive-services/speech-service/tts-code-of-conduct?context=%2fazure%2fcognitive-services%2fspeech-service%2fcontext%2fcontext). 
-2. Once your application is approved, you will be provided with the access to the "neural" training feature. Make sure you log in to [Speech Studio](https://speech.microsoft.com) using the same Azure subscription that you provide in your application. 
-    > [!IMPORTANT]
-    > To protect voice talent and prevent training of voice models with unauthorized recording or without the acknowledgement from the voice talent, we require the customer to upload a recorded statement of the voice talent giving their consent. When preparing your recording script, make sure you include this sentence. 
-    > “I [state your first and last name] am aware that recordings of my voice will be used by [state the name of the company] to create and use a synthetic version of my voice.”
-    > This sentence must be uploaded to the **Set up voice talent** tab as a verbal consent file. It will be used to verify if the recordings in your training datasets are done by the same person that makes the consent.
-3. After the Custom Neural Voice model is created, deploy the voice model to a new endpoint. To create a new custom voice endpoint with your neural voice model, go to **Text-to-Speech > Custom Voice > Deploy model**. Select **Deploy models** and enter a **Name** and **Description** for your custom endpoint. Then select the custom neural voice model you would like to associate with this endpoint and confirm the deployment.  
-4. Update your code in your apps if you have created a new endpoint with a new model. 
 
 ## Next steps
 
-- [Prepare data for Custom Neural Voice](how-to-custom-voice-prepare-data.md)
-- [Train and deploy a Custom Neural Voice](how-to-custom-voice-create-voice.md)
+- [Prepare data for custom neural voice](how-to-custom-voice-prepare-data.md)
+- [Train and deploy a custom neural voice](how-to-custom-voice-create-voice.md)
 - [How to record voice samples](record-custom-voice-samples.md)

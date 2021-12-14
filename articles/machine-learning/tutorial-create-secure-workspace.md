@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Create an Azure Machine Learning workspace and required Azure services inside a secure virtual network.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.reviewer: jhirono
 ms.author: larryfr
 author: blackmist
-ms.date: 09/15/2021
+ms.date: 12/03/2021
 ms.topic: how-to
 ms.custom: subject-rbac-steps
 ---
@@ -29,10 +29,8 @@ In this tutorial, you accomplish the following tasks:
 > * Create an Azure Machine Learning compute cluster. A compute cluster is used when __training machine learning models in the cloud__. In configurations where Azure Container Registry is behind the VNet, it is also used to build Docker images.
 > * Connect to the jump box and use the Azure Machine Learning studio.
 
-If your environment meets the prerequisites and you're familiar with using ARM templates, the first five steps in this tutorial can also be completed by selecting the 'Deploy to Azure button'. You can continue reading from [Connect to the workspace](#connect-to-the-workspace).
-
-[![Deploy To Azure](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazure.svg?sanitize=true)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
-[![Deploy To Azure US Gov](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/1-CONTRIBUTION-GUIDE/images/deploytoazuregov.svg?sanitize=true)](https://portal.azure.us/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.machinelearningservices%2Fmachine-learning-advanced%2Fazuredeploy.json)
+> [!TIP]
+> If you're looking for a template (Microsoft Bicep or Hashicorp Terraform) that demonstrates how to create a secure workspace, see [Tutorial - Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 ## Prerequisites
 

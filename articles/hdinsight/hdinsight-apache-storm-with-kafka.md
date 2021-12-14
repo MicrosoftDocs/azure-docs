@@ -6,7 +6,7 @@ ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 06/25/2019
 #Customer intent: As a developer, I want to learn how to build a streaming pipeline that uses Storm and Kafka to process streaming data.
---- 
+---
 
 # Tutorial: Use Apache Storm with Apache Kafka on HDInsight
 

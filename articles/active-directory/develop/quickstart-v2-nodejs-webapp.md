@@ -5,14 +5,13 @@ description: In this quickstart, you learn how to implement authentication in a 
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET, devx-track-js
+ms.custom: aaddev, identityplatformtop40, "scenarios:getting-started", "languages:ASP.NET", devx-track-js, mode-api
 #Customer intent: As an application developer, I want to know how to set up OpenID Connect authentication in a web application built using Node.js with Express.
 ---
 
@@ -44,7 +43,7 @@ In this quickstart, you download and run a code sample that demonstrates how to 
 1. Enter a **Front-channel logout URL** `https://localhost:3000`.
 1. In the **Implicit grant and hybrid flows** section, select **ID tokens** as this sample requires the [Implicit grant flow](./v2-oauth2-implicit-grant-flow.md) to be enabled to sign-in the user.
 1. Select **Configure**.
-1. Under **Manage**, select **Certificates & secrets** > **New client secret**.
+1. Under **Manage**, select **Certificates & secrets** > **Client secrets** > **New client secret**.
 1. Enter a key description (for instance app secret).
 1. Select a key duration of either **In 1 year, In 2 years,** or **Never Expires**.
 1. Select **Add**. The key value will be displayed. Copy the key value and save it in a safe location for later use.

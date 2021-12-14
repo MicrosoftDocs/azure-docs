@@ -7,8 +7,8 @@ ms.author: nibaccam
 ms.reviewer: nibaccam
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 03/08/2021
+ms.subservice: automl
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: devx-track-python, automl, references_regions
 ---

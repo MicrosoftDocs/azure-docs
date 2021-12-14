@@ -5,7 +5,8 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 09/25/2021
+ms.date: 10/05/2021
+ms.custom: ignite-fall-2021
 ---
 
 # Create an integration workflow with single-tenant Azure Logic Apps (Standard) in the Azure portal
@@ -55,6 +56,8 @@ As you progress, you'll complete these high-level tasks:
 
 * If you create your logic app resources with settings that support using [Application Insights](../azure-monitor/app/app-insights-overview.md), you can optionally enable diagnostics logging and tracing for your logic app. You can do so either when you create your logic app or after deployment. You need to have an Application Insights instance, but you can create this resource either [in advance](../azure-monitor/app/create-workspace-resource.md), when you create your logic app, or after deployment.
 
+* To deploy your **Logic App (Standard)** resource to an [App Service Environment v3 (ASEv3)](../app-service/environment/overview.md), you have to create this environment resource first. You can then select this environment as the deployment location when you create your logic app resource. For more information, review [Resources types and environments](single-tenant-overview-compare.md#resource-environment-differences) and [Create an App Service Environment](../app-service/environment/creation.md).
+
 <a name="create-logic-app-resource"></a>
 
 ## Create the logic app resource
@@ -63,7 +66,7 @@ As you progress, you'll complete these high-level tasks:
 
 1. In the Azure portal search box, enter `logic apps`, and select **Logic apps**.
 
-   ![Screenshot that shows the Azure portal search box with the "logic apps" search term and the "Logic App (Standard)" resource selected.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
+   ![Screenshot that shows the Azure portal search box with the "logic apps" search term and the "Logic apps" group selected.](./media/create-single-tenant-workflows-azure-portal/find-logic-app-resource-template.png)
 
 1. On the **Logic apps** page, select **Add**.
 
@@ -74,9 +77,9 @@ As you progress, you'll complete these high-level tasks:
    | **Subscription** | Yes | <*Azure-subscription-name*> | The Azure subscription to use for your logic app. |
    | **Resource Group** | Yes | <*Azure-resource-group-name*> | The Azure resource group where you create your logic app and related resources. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a resource group named `Fabrikam-Workflows-RG`. |
    | **Type** | Yes | **Standard** | This logic app resource type runs in the single-tenant Azure Logic Apps environment and uses the [Standard usage, billing, and pricing model](logic-apps-pricing.md#standard-pricing). |
-   | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by Azure Functions, which uses the same app naming convention. |
+   | **Logic App name** | Yes | <*logic-app-name*> | The name to use for your logic app. This resource name must be unique across regions and can contain only letters, numbers, hyphens (**-**), underscores (**_**), parentheses (**()**), and periods (**.**). <p><p>This example creates a logic app named `Fabrikam-Workflows`. <p><p>**Note**: Your logic app's name automatically gets the suffix, `.azurewebsites.net`, because the **Logic App (Standard)** resource is powered by the single-tenant Azure Logic Apps runtime, which uses the Azure Functions extensibility model and is hosted as an extension on the Azure Functions runtime. Azure Functions uses the same app naming convention. |
    | **Publish** | Yes | <*deployment-environment*> | The deployment destination for your logic app. By default, **Workflow** is selected for deployment to single-tenant Azure Logic Apps. Azure creates an empty logic app resource where you have to add your first workflow. <p><p>**Note**: Currently, the **Docker Container** option requires a [*custom location*](../azure-arc/kubernetes/conceptual-custom-locations.md) on an Azure Arc enabled Kubernetes cluster, which you can use with [Azure Arc enabled Logic Apps (Preview)](azure-arc-enabled-logic-apps-overview.md). The resource locations for your logic app, custom location, and cluster must all be the same. |
-   | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. If you selected **Docker Container**, select your custom location. <p><p>This example deploys the sample logic app to Azure and uses **West US**. |
+   | **Region** | Yes | <*Azure-region*> | The location to use for creating your resource group and resources. This example deploys the sample logic app to Azure and uses **West US**. <p>- If you selected **Docker Container**, select your custom location. <p>- To deploy to an [ASEv3](../app-service/environment/overview.md) resource, which must first exist, select that environment resource from the **Region** list. |
    |||||
 
    The following example shows the **Create Logic App (Standard)** page:
@@ -87,6 +90,7 @@ As you progress, you'll complete these high-level tasks:
 
    | Property | Required | Value | Description |
    |----------|----------|-------|-------------|
+   | **Storage type** | Yes | - **SQL and Azure Storage** <br>- **Azure Storage** | The storage type that you want to use for workflow-related artifacts and data. <p><p>- To deploy only to Azure, select **Azure Storage**. <p><p>- To use SQL as primary storage and Azure Storage as secondary storage, select **SQL and Azure Storage**, and review [Set up SQL database storage for Standard logic apps in single-tenant Azure Logic Apps](set-up-sql-db-storage-single-tenant-standard-workflows.md). <p><p>**Note**: If you're deploying to an Azure region, you still need an Azure storage account, which is used to complete the one-time hosting of the logic app's configuration on the Azure Logic Apps platform. The ongoing workflow state, run history, and other runtime artifacts are stored in your SQL database. <p><p>For deployments to a custom location that's hosted on an Azure Arc cluster, you only need SQL as your storage provider. |
    | **Storage account** | Yes | <*Azure-storage-account-name*> | The [Azure Storage account](../storage/common/storage-account-overview.md) to use for storage transactions. <p><p>This resource name must be unique across regions and have 3-24 characters with only numbers and lowercase letters. Either select an existing account or create a new account. <p><p>This example creates a storage account named `fabrikamstorageacct`. |
    | **Plan type** | Yes | <*hosting-plan*> | The hosting plan to use for deploying your logic app. <p><p>For more information, review [Hosting plans and pricing tiers](logic-apps-pricing.md#standard-pricing). |
    | **Windows Plan** | Yes | <*plan-name*> | The plan name to use. Either select an existing plan name or provide a name for a new plan. <p><p>This example uses the name `Fabrikam-Service-Plan`. |
@@ -146,7 +150,7 @@ After you create your empty logic app resource, you have to add your first workf
 
 This example builds a workflow that has these steps:
 
-* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When a HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
+* The built-in [Request trigger](../connectors/connectors-native-reqres.md), **When an HTTP request is received**, which receives inbound calls or requests and creates an endpoint that other services or logic apps can call.
 
 * The [Office 365 Outlook action](../connectors/connectors-create-api-office365-outlook.md), **Send an email**.
 
@@ -156,13 +160,13 @@ Before you can add a trigger to a blank workflow, make sure that the workflow de
 
 1. Next to the designer surface, in the **Add a trigger** pane, under the **Choose an operation** search box, check that the **Built-in** tab is selected. This tab shows triggers that run natively in Azure Logic Apps.
 
-1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When a HTTP request is received**.
+1. In the **Choose an operation** search box, enter `when a http request`, and select the built-in Request trigger that's named **When an HTTP request is received**.
 
-   ![Screenshot that shows the designer and **Add a trigger** pane with "When a HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
+   ![Screenshot that shows the designer and **Add a trigger** pane with "When an HTTP request is received" trigger selected.](./media/create-single-tenant-workflows-azure-portal/find-request-trigger.png)
 
    When the trigger appears on the designer, the trigger's details pane opens to show the trigger's properties, settings, and other actions.
 
-   ![Screenshot that shows the designer with the "When a HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
+   ![Screenshot that shows the designer with the "When an HTTP request is received" trigger selected and trigger details pane open.](./media/create-single-tenant-workflows-azure-portal/request-trigger-added-to-designer.png)
 
    > [!TIP]
    > If the details pane doesn't appear, makes sure that the trigger is selected on the designer.
@@ -265,7 +269,7 @@ To find the fully qualified domain names (FQDNs) for connections, follow these s
 
 In this example, the workflow runs when the Request trigger receives an inbound request, which is sent to the URL for the endpoint that's created by the trigger. When you saved the workflow for the first time, the Logic Apps service automatically generated this URL. So, before you can send this request to trigger the workflow, you need to find this URL.
 
-1. On the workflow designer, select the Request trigger that's named **When a HTTP request is received**.
+1. On the workflow designer, select the Request trigger that's named **When an HTTP request is received**.
 
 1. After the details pane opens, on the **Parameters** tab, find the **HTTP POST URL** property. To copy the generated URL, select the **Copy Url** (copy file icon), and save the URL somewhere else for now. The URL follows this format:
 
