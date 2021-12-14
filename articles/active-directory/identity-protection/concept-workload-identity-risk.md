@@ -133,7 +133,7 @@ Once you determine if the workload identity was compromised, dismiss the risk or
 ## Remediation
 
 1.	Inventory credentials assigned to the Risky Service Principal.
-   1. Execute a Microsoft Graph call using GET ~/application/{id} where the **id** passed is the application object ID.
+   1. Execute a Microsoft Graph call using `GET ~/application/{id}` where the **id** passed is the application object ID.
 1.	Parse the output for credentials. The output may contain passwordCredentials or keyCredentials. Record the keyIds for all. For example: 
 
       ```json
@@ -155,22 +155,22 @@ Once you determine if the workload identity was compromised, dismiss the risk or
       ],
       ```         
 
-1.	Add a new (x509) certificate credential to the application object via application addKey API: POST ~/applications/{id}/addKey. Then IMMEDIATELY do the next step.
-1.	Remove all old credentials. For each old password credential, remove it using POST ~/applications/{id}/removePassword. For each old key credential, remove it using POST ~/applications/{id}/removeKey.
+1.	Add a new (x509) certificate credential to the application object via application addKey API: `POST ~/applications/{id}/addKey`. Then IMMEDIATELY do the next step.
+1.	Remove all old credentials. For each old password credential, remove it using `POST ~/applications/{id}/removePassword`. For each old key credential, remove it using `POST ~/applications/{id}/removeKey`.
 
 ### Remediation of all Service Principals associated to Application
 
 Follow these steps if your tenant hosts or registers a multi-tenant application or registers multiple service principals associated to the application. Complete similar steps to what is listed above:
 
-1.	GET ~/servicePrincipals/{id}.
+1.	`GET ~/servicePrincipals/{id}.`
 1.	Find passwordCredentials and keyCredentials in the response, record all OLD keyIds.
-1.	Remove all old password and key credentials. Use POST ~/servicePrincipals/{id}/removePassword and POST ~/servicePrincipals/{id}/removeKey for these tasks.
+1.	Remove all old password and key credentials. Use `POST ~/servicePrincipals/{id}/removePassword` and `POST ~/servicePrincipals/{id}/removeKey` for these tasks.
 
 ### Remediation of resources the affected Service Principal(s) has access to:
 
 Remediate any KeyVault secrets that the Service Principal has access to by rotating them, in the following priority:
 
-1. Secrets directly exposed with GetSecret() calls.
+1. Secrets directly exposed with `GetSecret()` calls.
 1. The rest of the secrets in exposed KeyVaults.
 1. The rest of the secrets across any exposed subscriptions.
 
@@ -180,6 +180,6 @@ Using [Conditional Access for workload identities](../conditional-access/workloa
 
 ## Next steps
 
-[Conditional Access for workload identities](../conditional-access/workload-identity.md)
+- [Conditional Access for workload identities](../conditional-access/workload-identity.md)
 
-Microsoft Graph API
+- [Microsoft Graph API](/graph/use-the-api)
