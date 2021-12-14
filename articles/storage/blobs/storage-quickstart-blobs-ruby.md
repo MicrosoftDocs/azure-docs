@@ -7,7 +7,7 @@ ms.date: 12/04/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Quickstart: Azure Blob Storage client library for Ruby

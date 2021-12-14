@@ -6,7 +6,6 @@ services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: KumudD
-# Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ms.assetid: 
 ms.service: load-balancer
 ms.devlang: na
@@ -15,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/27/2020
 ms.author: allensu
-ms.custom: devx-track-azurepowershell, mode-other
+ms.custom: devx-track-azurepowershell, mode-api
+#Customer intent: I want to create a load balancer so that I can load balance internal traffic to VMs.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using Azure PowerShell

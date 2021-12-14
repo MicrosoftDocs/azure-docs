@@ -10,7 +10,7 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: clschott
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Search for videos using the Bing Video Search REST API and C#

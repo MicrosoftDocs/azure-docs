@@ -10,7 +10,7 @@ ms.topic: tutorial
 ms.date: 10/14/2021
 ms.author: barclayn
 ms.custom: ep-miar
-#Customer intent: As an administrator I want to know how to access Cosmos DB from a virtual machine using a managed identity
+#Customer intent: As an administrator, I want to know how to access Cosmos DB from a virtual machine using a managed identity
 ---
 
 # How to use managed identities to connect to Cosmos DB from an Azure virtual machine
