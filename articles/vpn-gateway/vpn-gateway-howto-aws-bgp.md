@@ -140,14 +140,14 @@ Customer gateway 1 settings
 * **Name**: ToAzureInstance0
 * **Routing**: Dynamic
 * **BGP ASN**: 65000 (the ASN for your Azure VPN gateway)
-* **IP Address**: the first public IP address of you Azure VPN gateway
+* **IP Address**: the first public IP address of your Azure VPN gateway
 
 Customer gateway 2 settings
 
 * **Name**: ToAzureInstance1
 * **Routing**: Dynamic
 * **BGP ASN**: 65000 (the ASN for your Azure VPN gateway)
-* **IP Address**: the second public IP address of you Azure VPN gateway
+* **IP Address**: the second public IP address of your Azure VPN gateway
 
 You can locate your **Public IP address** and your **Second Public IP address** on Azure in the **Configuration** section of your virtual network gateway.
 
@@ -206,7 +206,7 @@ Next, you will connect your AWS tunnels to Azure. For each of the four tunnels, 
 :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/create-lng.png" alt-text="Values for your local network gateway" :::
 
 7. Select **Yes** for **Configure BGP settings**.
-8. For **Autonomous system number (ASN)**, enter the ASN for your AWS Virtual Private Network. Use the ASN **64512** if you left this as the AWS default value.
+8. For **Autonomous system number (ASN)**, enter the ASN for your AWS Virtual Private Network. Use the ASN **64512** if you left your ASN as the AWS default value.
 9. For **BGP peer IP address**, enter the AWS BGP Peer IP Address based on the [APIPA configuration you chose](#apipa-config).
 
 :::image type="content" source="./media/vpn-gateway-howto-aws-bgp/lng-bgp.png" alt-text="Values for your local network gateway BGP settings" :::
