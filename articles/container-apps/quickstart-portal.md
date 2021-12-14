@@ -7,7 +7,7 @@ ms.service: container-apps
 ms.topic: quickstart
 ms.date: 11/09/2021
 ms.author: v-bcatherine
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Deploy your first container app using the Azure portal

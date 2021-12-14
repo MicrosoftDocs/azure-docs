@@ -6,7 +6,7 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 12/13/2021
 ms.custom:
 ---
 
@@ -16,7 +16,7 @@ ms.custom:
 This guide describes how a data owner can enable access to data stored in Azure Storage from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
 -   Allow access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2.
 
-> [!NOTE]
+> [!Note]
 > These capabilities are currently in preview. This preview version is provided without a service level agreement, and should not be used for production workloads. Certain features might not be supported or might have constrained capabilities. For more information, see [Supplemental Terms of Use for Microsoft Azure
 Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -70,7 +70,7 @@ Register and scan each data source with Purview to later define access policies.
 
 If you would like to use a data source to create access policies in Purview, enable it for access policy through the **Data use governance** toggle, as shown in the picture.
 
-:::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy.png" alt-text="Image shows how to register a data source for policy.":::
+:::image type="content" source="./media/how-to-access-policies-storage/register-data-source-for-policy-storage.png" alt-text="Image shows how to register a data source for policy.":::
 
 >[!Note]
 > - To disable a source for *Data use Governance*, remove it first from being bound (i.e. published) in any policy.
@@ -110,21 +110,21 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. To add policy statements to the new policy, select the **New policy statement** button. This will bring up the policy statement builder.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/create-new-policy-storage.png" alt-text="Image shows how a data owner can create a new policy statement.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/create-new-policy.png" alt-text="Image shows how a data owner can create a new policy statement.":::
 
-1. Select the **Action** button and choose Read or Modify from the drop-down list.
+1. Select the **Effect** button and choose *Allow* from the drop-down list.
 
-1. Select the **Effect** button and choose Allow from the drop-down list.
+1. Select the **Action** button and choose *Read* or *Modify* from the drop-down list.
 
 1. Select the **Data Resources** button to bring up the options to provide the data asset path, which will open on the right.
 
 1. Use the **Assets** box if you scanned the data source, otherwise use the **Data sources** box above. Assuming the first, in the **Assets** box, enter the **Data Source Type** and select the **Name** of a previously registered data source.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/select-data-source-type-storage.png" alt-text="Image shows how a data owner can select a Data Resource when editing a policy statement.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/select-data-source-type.png" alt-text="Image shows how a data owner can select a Data Resource when editing a policy statement.":::
 
 1. Select the **Continue** button and transverse the hierarchy to select the folder or file. Then select the **Add** button. This will take you back to the policy editor.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/select-asset-storage.png" alt-text="Image shows how a data owner can select the asset when creating or editing a policy statement.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/select-asset.png" alt-text="Image shows how a data owner can select the asset when creating or editing a policy statement.":::
 
 1. Select the **Subjects** button and enter the subject identity as a principal, group, or MSI. Then select the **OK** button. This will take you back to the policy editor
 
@@ -134,7 +134,7 @@ This section describes the steps to create a new policy in Azure Purview.
 
 1. Select the **Save** button to save the policy
 
-> [!NOTE]
+> [!Note]
 > Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
 > - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
 > - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
@@ -158,7 +158,7 @@ Steps to create a new policy in Purview are as follows.
 
 1. The policy details page will appear, including Edit and Delete options. Select the **Edit** button, which brings up the policy statement builder for the statements in this policy. Now, any parts of the statements in this policy can be updated. To delete the policy, use the **Delete** button.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/edit-policy-storage.png" alt-text="Image shows how a data owner can edit or delete a policy statement.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/edit-policy.png" alt-text="Image shows how a data owner can edit or delete a policy statement.":::
 
 ### Publish the policy
 
@@ -174,11 +174,11 @@ The steps to publish a policy are as follows
 
 1. The Policy portal will present the list of existing policies in Purview. Locate the policy that needs to be published. Select the **Publish** button on the right top corner of the page.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/publish-policy-storage.png" alt-text="Image shows how a data owner can publish a policy.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/publish-policy.png" alt-text="Image shows how a data owner can publish a policy.":::
 
 1. A list of data sources is displayed. You can enter a name to filter the list. Then, select each data source where this policy is to be published and then select the **Publish** button.
 
-    :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy-storage.png" alt-text="Image shows how a data owner can select the data source where the policy will be published.":::
+    :::image type="content" source="./media/how-to-access-policies-storage/select-data-sources-publish-policy.png" alt-text="Image shows how a data owner can select the data source where the policy will be published.":::
 
 >[!Important]
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
