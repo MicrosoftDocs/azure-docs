@@ -11,7 +11,7 @@ ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: how-to
-ms.date: 01/01/2022
+ms.date: 01/03/2022
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
