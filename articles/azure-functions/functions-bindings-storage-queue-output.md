@@ -518,13 +518,15 @@ The output queue item is available via `context.bindings.<NAME>` where `<NAME>` 
 Output to the queue message is available via `Push-OutputBinding` where you pass arguments that match the name designated by binding's `name` parameter in the *function.json* file.
 
 ::: zone-end   
-::: zone pivot="programming-language-python"  
+::: zone pivot="programming-language-python"
+  
 There are two options for outputting an Queue message from a function:
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Queue storage message.
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as a Queue storage message.
-- ::: zone-end  
+
+::: zone-end  
 
 ## Exceptions and return codes
 
