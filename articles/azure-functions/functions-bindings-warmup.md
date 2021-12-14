@@ -137,6 +137,20 @@ module.exports = async function (context, warmupContext) {
 
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
+Here's the *function.json* file:
+
+```json
+{
+    "bindings": [
+        {
+            "type": "warmupTrigger",
+            "direction": "in",
+            "name": "warmupContext"
+        }
+    ]
+}
+```
+PowerShell example code pending.
 
 <!--Content and samples from the PowerShell tab in ##Examples go here.-->
 
