@@ -506,12 +506,17 @@ There are two options for outputting an Queue message from a function by using t
 - **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Queue message.
 
 - **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Queue message.
-- ::: zone-end  
-::: zone pivot="programming-language-javascript"  
-The output queue item is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
+
 ::: zone-end  
-::: zone pivot="programming-language-powershell"  
+::: zone pivot="programming-language-javascript"
+  
+The output queue item is available via `context.bindings.<NAME>` where `<NAME>` matches the name defined in *function.json*. You can use a string or a JSON-serializable object for the queue item payload.
+
+::: zone-end  
+::: zone pivot="programming-language-powershell"
+  
 Output to the queue message is available via `Push-OutputBinding` where you pass arguments that match the name designated by binding's `name` parameter in the *function.json* file.
+
 ::: zone-end   
 ::: zone pivot="programming-language-python"  
 There are two options for outputting an Queue message from a function:
@@ -521,18 +526,7 @@ There are two options for outputting an Queue message from a function:
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as a Queue storage message.
 - ::: zone-end  
 
-<!---## Extra sections
-
-Put any sections with content that doesn't fit into the above section headings down here. This will likely get moved to another article after the refactor. 
--->
-
-## host.json settings
-
-<!-- Some bindings don't have this section. If yours doesn't, please remove this section. -->
-
-## Next steps
-
-<!--Use the next step links from the original article.-->## Exceptions and return codes
+## Exceptions and return codes
 
 | Binding |  Reference |
 |---|---|
