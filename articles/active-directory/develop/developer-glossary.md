@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 11/11/2021
+ms.date: 12/14/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jmprieur, saeeda, jesakowi, nacanuma
@@ -114,6 +114,10 @@ See [consent framework](consent-framework.md) for more information.
 An [OpenID Connect][OpenIDConnect-ID-Token] [security token](#security-token) provided by an [authorization server's](#authorization-server) [authorization endpoint](#authorization-endpoint), which contains [claims](#claim) pertaining to the authentication of an end user [resource owner](#resource-owner). Like an access token, ID tokens are also represented as a digitally signed [JSON Web Token (JWT)][JWT]. Unlike an access token though, an ID token's claims are not used for purposes related to resource access and specifically access control.
 
 See the [ID token reference](id-tokens.md) for more details.
+
+## managed identities
+
+Eliminate the need for developers to manage credentials. Managed identities provide an identity for applications to use when connecting to resources that support Azure AD authentication. Applications may use the managed identity to obtain Azure AD tokens. For example, an application may use a managed identity to access resources like Azure Key Vault where developers can store credentials in a secure manner or to access storage accounts. For more information, see [managed identities overview](/azure/active-directory/managed-identities-azure-resources/overview).
 
 ## Microsoft identity platform
 
@@ -229,6 +233,14 @@ Similar to the way a service principal object is used to represent an applicatio
 ## web client
 
 A type of [client application](#client-application) that executes all code on a web server, and able to function as a "confidential" client by securely storing its credentials on the server. For more information, see [OAuth2 client types and profiles][OAuth2-Client-Types].
+
+## workload identity
+
+An identity used by a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. In Azure AD, workload identities are apps, service principals, and managed identities.  For more information, see [workload identity overview](workload-identities-overview.md).
+
+## workload identity federation
+
+Allows you to securely access Azure AD protected resources from external apps and services without needing to manage secrets (for supported scenarios).  For more information, see [workload identity federation](workload-identity-federation.md).)
 
 ## Next steps
 
