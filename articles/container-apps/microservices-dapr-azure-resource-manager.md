@@ -13,7 +13,7 @@ zone_pivot_groups: container-apps
 
 # Tutorial: Deploy a Dapr application to Azure Container Apps using an ARM or Bicep template
 
-[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps build resilient, stateless, and stateful microservices. In this tutorial, a sample Dapr application is deployed to Azure Container Apps.
+[Dapr](https://dapr.io/) (Distributed Application Runtime) is a runtime that helps you build resilient stateless and stateful microservices. In this tutorial, a sample Dapr application is deployed to Azure Container Apps.
 
 You learn how to:
 
@@ -25,7 +25,7 @@ You learn how to:
 
 Azure Container Apps offers a fully managed version of the Dapr APIs when building microservices. When you use Dapr in Azure Container Apps, you can enable sidecars to run next to your microservices that provide a rich set of capabilities. Available Dapr APIs include [Service to Service calls](https://docs.dapr.io/developing-applications/building-blocks/service-invocation/), [Pub/Sub](https://docs.dapr.io/developing-applications/building-blocks/pubsub/), [Event Bindings](https://docs.dapr.io/developing-applications/building-blocks/bindings/), [State Stores](https://docs.dapr.io/developing-applications/building-blocks/state-management/), and [Actors](https://docs.dapr.io/developing-applications/building-blocks/actors/).
 
-In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) quickstart, which consists of a client (Python) app that generates messages, and a service (Node) app that consumes and persists those messages in a configured state store. The following architecture diagram illustrates the components that make up this tutorial:
+In this tutorial, you deploy the same applications from the Dapr [Hello World](https://github.com/dapr/quickstarts/tree/master/hello-kubernetes) quickstart. The quickstart consists of a client (Python) app that generates messages, and a service (Node) app that consumes and persists those messages in a configured state store. The following architecture diagram illustrates the components that make up this tutorial:
 
 :::image type="content" source="media/microservices-dapr/azure-container-apps-microservices-dapr.png" alt-text="Architecture diagram for Dapr Hello World microservices on Azure Container Apps":::
 
@@ -83,7 +83,7 @@ $STORAGE_ACCOUNT="<storage account name>"
 
 ---
 
-Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Storage account names must be *unique within Azure* and between 3 and 24 characters in length and may contain numbers and lowercase letters only.
+Choose a name for `STORAGE_ACCOUNT`. It will be created in a following step. Storage account names must be *unique within Azure*.  It must be between 3 and 24 characters in length and may contain numbers and lowercase letters only.
 
 ## Setup
 
@@ -177,7 +177,7 @@ With the CLI upgraded and a new resource group available, you can create a Conta
 
 ## Create an environment
 
-Azure Container Apps environments act as isolation boundaries between a group of container apps. Container Apps deployed to the same environment are deployed in the same virtual network and write logs to the same Log Analytics workspace.
+Azure Container Apps environments act as isolation boundaries between a group of container apps. Container Apps deployed to the same environment share the same virtual network and write logs to the same Log Analytics workspace.
 
 Azure Log Analytics is used to monitor your container app and is required when creating a Container Apps environment.
 
@@ -213,7 +213,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --que
 ```
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv `
+LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv`
 ```
 
 # [PowerShell](#tab/powershell)
@@ -224,8 +224,12 @@ Make sure to run each query separately to give enough time for the request to co
 $LOG_ANALYTICS_WORKSPACE_CLIENT_ID=(Get-AzOperationalInsightsWorkspace -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).CustomerId
 ```
 
-```powershell
+<!--- This was taken out because of a breaking changes warning.  We should put it back after it's fixed. Until then we'll go with the az command
 $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(Get-AzOperationalInsightsWorkspaceSharedKey -ResourceGroupName $RESOURCE_GROUP -Name $LOG_ANALYTICS_WORKSPACE).PrimarySharedKey
+--->
+
+```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=(az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE --out tsv)
 ```
 
 ---
@@ -605,7 +609,7 @@ resource pythonapp 'Microsoft.Web/containerApps@2021-03-01' = {
 
 ::: zone pivot="container-apps-arm"
 
-Navigate to the directory in which you stored the ARM template file and run the command below to deploy the service container app.
+Now let's deploy the service Container App.  Navigate to the directory in which you stored the ARM template file and run the command below.
 
 # [Bash](#tab/bash)
 
@@ -643,7 +647,9 @@ New-AzResourceGroupDeployment `
 
 ::: zone pivot="container-apps-bicep"
 
-Navigate to the directory in which you stored the Bicep template file and run the command below to deploy the service container app.
+Now let's deploy the service Container App.  Navigate to the directory in which you stored the Bicep template file and run the command below.
+
+A warning (BCP081) may be displayed. This warning will have no effect on successfully deploying the Container App.
 
 # [Bash](#tab/bash)
 
@@ -676,6 +682,8 @@ New-AzResourceGroupDeployment `
   -TemplateFile ./serviceapp.bicep `
   -SkipTemplateParameterPrompt 
 ```
+
+
 
 ::: zone-end
 
@@ -718,6 +726,8 @@ New-AzResourceGroupDeployment `
 
 ::: zone pivot="container-apps-bicep"
 
+A warning (BCP081) may be displayed. This warning will have no effect on successfully deploying the Container App.
+
 # [Bash](#tab/bash)
 
 ```azurecli
@@ -747,7 +757,7 @@ New-AzResourceGroupDeployment `
 
 ---
 
-This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there is no `targetPort` to start a server, nor is there a need to enable ingress.
+This command deploys `pythonapp` that also runs with a Dapr sidecar that is used to look up and securely call the Dapr sidecar for `nodeapp`. As this app is headless there's no `targetPort` to start a server, nor is there a need to enable ingress.
 
 ## Verify the result
 
@@ -771,9 +781,9 @@ You can confirm the services are working correctly by viewing data in your Azure
 
 ### View Logs
 
-Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or from the command line. You may need to wait a few minutes for the analytics to arrive for the first time before you are able to query the logged data.
+Data logged via a container app are stored in the `ContainerAppConsoleLogs_CL` custom table in the Log Analytics workspace. You can view logs through the Azure portal or from the command line. You may need to wait a few minutes for the analytics to arrive for the first time before you can query the logged data.
 
-Use the following command to view logs in bash or Powershell.
+Use the following command to view logs in bash or PowerShell.
 
 # [Bash](#tab/bash)
 
@@ -810,7 +820,7 @@ nodeapp               Got a new order! Order ID: 63    PrimaryResult  2021-10-22
 
 ## Clean up resources
 
-Once you are done, clean up your Container App resources by running the following command to delete your resource group.
+Once you're done, clean up your Container App resources by running the following command to delete your resource group.
 
 # [Bash](#tab/bash)
 
