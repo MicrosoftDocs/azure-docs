@@ -18,7 +18,9 @@ The Edge Secured-core program for Linux is enabled through the IoT Edge runtime 
 Edge Secured-core validation on Linux based devices is executed through a container run on the IoT Edge runtime. For this reason, all devices that are certifying Edge Secured-core must have the IoT Edge runtime installed.
 
 ## Linux Hardware/Firmware Requirements
-
+>[!Note]
+> Hardware must support TPM v2.0, SRTM, Secure-boot or UBoot.
+> Firmware will be submitted to Microsoft for vulnerability and configuration evaluation.
 ---
 |Name|SecuredCore.Hardware.Identity|
 |:---|:---|

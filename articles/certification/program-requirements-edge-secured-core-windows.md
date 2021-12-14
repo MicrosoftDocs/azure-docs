@@ -11,11 +11,13 @@ ms.service: certification
 
 
 ## Windows IoT OS Support
-Windows 10 IoT Enterprise version 1903
+Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 1903
 > [!Note]
 > The Windows secured-core tests require you to download and run the following package (https://aka.ms/Scforwiniot) from an Administrator Command Prompt on the IoT device being validated.
 
 ## Windows IoT Hardware/Firmware Requirements
+>[!Note]
+> Hardware must support TPM v2.0, DRTM, TXT and Secure-boot within the BIOS.
 ---
 </br>
 
@@ -53,7 +55,7 @@ Windows 10 IoT Enterprise version 1903
 |Requirements dependency|DRTM + UEFI|
 |Validation Type|Manual/Tools|
 |Validation|Device to be validated through [Edge Secured-core Agent](https://aka.ms/Scforwiniot) toolset to confirm it is protected from firmware security threats through one of the following approaches: <ul><li>DRTM + UEFI Management Mode mitigations</li><li>DRTM + UEFI Management Mode hardening</li></ul> |
-|Resources| https://trustedcomputinggroup.org/ |
+|Resources| <ul><li>https://trustedcomputinggroup.org/</li><li>[Intel's DRTM based computing whitepaper](https://www.intel.com/content/dam/www/central-libraries/us/en/documents/drtm-based-computing-whitepaper.pdf)</li><li>[AMD Security whitepaper](https://www.amd.com/system/files/documents/amd-security-white-paper.pdf)</li></ul> |
 
 ---
 </br>
