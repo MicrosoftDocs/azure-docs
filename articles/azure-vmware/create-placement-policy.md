@@ -104,7 +104,6 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
    >The select hosts pane shows how many VM-Host policies are associated with the host and the total number of VMs contained in those associated policies.
    >
 
-
 1. Select **+ Add virtual machine** and the VMs to include in the policy. You can select multiple VMs.
 
    
@@ -117,11 +116,9 @@ Make sure to review the requirements for the [policy type](#placement-policy-typ
 
 1. Select **Create policy**. If you want to make changes, select **Back: Basics**.
 
-
 1. After the placement policy gets created, select **Refresh** to see it in the list.
 
-   :::image type="content" source="media/placement-policies/create-placement-policy-8.png" alt-text="Screenshot showing the placement policy as Enabled after it's created." lightbox="media/placement-policies/create-placement-policy-8.png":::
-
+:::image type="content" source="media/placement-policies/create-placement-policy-8.png" alt-text="Screenshot showing the placement policy as Enabled after it's created." lightbox="media/placement-policies/create-placement-policy-8.png":::
 
 
 ## Edit a placement policy
@@ -138,8 +135,6 @@ You can change the state of a policy to **Enabled** or **Disabled**.
 
    >[!TIP]
    >You can disable a policy from the Placement policy overview by selecting **Disable** from the Settings drop-down. You can't enable a policy from the Settings drop-down.
-
-   :::image type="content" source="media/placement-policies/edit-placement-policy.png" alt-text="Screenshot showing how to edit a placement policy." lightbox="media/placement-policies/edit-placement-policy.png":::
 
 1.	If the policy is enabled but you want to disable it, select **Disabled** and then select **Disabled** on the confirmation message. Otherwise, if the policy is disabled and you want to enable it, select **Enable**.
 
@@ -163,7 +158,6 @@ To add a new resource, select **Edit virtual machine** or **Edit host**, select 
 1. Review the changes and select **Update policy**.  If you want to make changes, select **Back : Basics**.
 
 
-
 ## Delete a policy
 
 You can delete a placement policy and its corresponding DRS rule. 
@@ -172,8 +166,6 @@ You can delete a placement policy and its corresponding DRS rule.
 
 1. For the policy you want to edit, select **More** (...) and then select **Delete**.
 1. Select **Delete** on the confirmation message.
-
-
 
 ## Monitor the operation of a policy
 
@@ -194,12 +186,10 @@ For most workloads this is not necessary and may cause unintended performance im
 
 1. Navigate to the Placement Policies blade and click Restrict VM movement. 
 1. Select the VM or VMs you want to restrict, then click Select.
-
-### Restrict VM movement
-
-1. The VM or VMS you selected in [Enable Restricted VM movement for specific VMs](#enable-restricted-vm-movement-for-specific-vms) appears in the VMs with restricted movement tab.   
+1. The VM or VMS you selected appears in the VMs with restricted movement tab.   
 In the vSphere client, a VM override will be created to set DRS to partially automated for that VM.    
-DRS will no longer migrate the VM automatically.  Manual vMotion of the VM and automatic initial placement of the VM will continue to function.  
+DRS will no longer migrate the VM automatically.    
+Manual vMotion of the VM and automatic initial placement of the VM will continue to function.  
 
 ## FAQs
 
