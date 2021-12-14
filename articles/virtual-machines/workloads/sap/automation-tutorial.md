@@ -4,7 +4,7 @@ description: Hands-on lab for the SAP deployment automation framework on Azure.
 author: hdamecharla
 ms.author: hdamecharla
 ms.reviewer: kimforss
-ms.date: 11/17/2021
+ms.date: 12/14/2021
 ms.topic: tutorial
 ms.service: virtual-machines-sap
 ---
