@@ -245,7 +245,11 @@ Edit the following as needed:
 
 The following example shows a completed data controller yaml file. Update the example for your environment, based on your requirements, and the information above.
 
+:::code language="yml" source="~/azure_arc_sample/arc_data_services/deploy/yaml/data-controller.yaml":::
+
 ```yml
+OLD EXAMPLE
+
 apiVersion: v1
 kind: ServiceAccount
 metadata:

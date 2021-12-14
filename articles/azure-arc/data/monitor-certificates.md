@@ -33,13 +33,13 @@ You can specify these certificates when you deploy the data controller. This art
    - `--metrics-ui-public-key-file <path\file to metrics public key file>`
    - `--metrics-ui-private-key-file <path\file to metrics private key file>`
 
-   For example:
+   For example, the following example creates a data controller with designated certificates for the logs and metrics UI dashboards:
 
    ```azurecli
    az arcdata dc create --profile-name azure-arc-aks-default-storage --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --logs-ui-public-key-file <path\file to logs public key file> --logs-ui-private-key-file <path\file to logs private key file> --metrics-ui-public-key-file <path\file to metrics public key file> --metrics-ui-private-key-file <path\file to metrics private key file>
 
    #Example:
-   #az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --logs-ui-public-key-file logsuipublickeyfile --logs-ui-private-key-file logsuiprivatekeyfile --metrics-ui-public-key-file metricsuipublickeyfile --metrics-ui-private-key-file metricsuiprivatekeyfile
+   #az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --logs-ui-public-key-file /path/to/logsuipublickeyfile.pem --logs-ui-private-key-file /path/to/logsuiprivatekey.pem --metrics-ui-public-key-file /path/to/metricsuipublickeyfile.pem --metrics-ui-private-key-file /path/to/metricsuiprivatekey.pem
    ```
 
 ## Specify during Kubernetes native tools deployment
