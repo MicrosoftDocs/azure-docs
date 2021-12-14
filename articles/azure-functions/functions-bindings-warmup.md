@@ -125,7 +125,7 @@ Here's the *function.json* file:
 }
 ```
 
-The [configuration](#tabpanel_2_csharp-script) section explains these properties.
+The [configuration](#configuration) section explains these properties.
 
 Here's the JavaScript code:
 
