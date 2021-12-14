@@ -15,9 +15,9 @@ ms.author: v-ydequadros
 # Microsoft CloudKnox Permissions Management product reports
 
 Microsoft CloudKnox Permissions Management has various types of system reports available that capture specific sets of data. These reports allow management to:
-- Make timely decisions. These reports allow management to 
-- Analyze trends and system/user performance. 
-- Identify trends in data and high risk areas so that management can address issues more quickly and improve their efficiency. 
+-  Make timely decisions.
+- Analyze trends and system/user performance.
+- Identify trends in data and high risk areas so that management can address issues more quickly and improve their efficiency.
 
 ## CloudKnox reports
 
@@ -30,8 +30,8 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary and Detailed
 	- **Use cases:** 
-		- The access key age and last rotation date along with last usage date is available in the summary report to help with key rotation. 
-		- Granted task along with PCI score in order to take the action on the keys. 
+		- The access key age, last rotation date, and last usage date is available in the summary report to help with key rotation. 
+		- The granted task and PCI score to take the action on the keys. 
 
 - **User entitlements and usage**: 
 	- **Summary of report:** Provides information about the identities' permissions - entitlement, usage, PCI, and so on.
@@ -40,7 +40,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary and Detailed
 	- **Use cases:** 
-		 - The data displayed on the **Usage Analytics** screen is downloaded as part of the **Summary** report, and detailed permissions usage by User is listed in the Detailed report. 
+		 - The data displayed on the **Usage Analytics** screen is downloaded as part of the **Summary** report. The user's detailed permissions usage is listed in the Detailed report. 
 
 - **Group entitlements and usage**:
 	- **Summary of report:** Provides information about the group's permissions - entitlement, usage, PCI, and so on.
@@ -69,8 +69,8 @@ CloudKnox offers the following reports for management associated with the author
 	- **Use cases:** 
 		- Any identity permission change can be captured using this report. 
 		- The **Identity Privilege Activity** report has the following main sections: **User Summary**, **Group Summary**, **Role Summary**, and **Delete Task Summary**. 
-		- The **User** summary lists the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted users, users with PCI change, and High-risk active/inactive users. 
-		- The **Group** summary lists the administrator level groups with the current granted permissions along with high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted groups, groups with PCI change, and High-risk active/inactive groups.
+		- The **User** summary lists the current granted permissions and high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted users, users with PCI change, and High-risk active/inactive users. 
+		- The **Group** summary lists the administrator level groups with the current granted permissions and high-risk permissions and resources accessed in 1 day, 7 days, or 30 days. There are subsections for newly added or deleted groups, groups with PCI change, and High-risk active/inactive groups.
 		- The **Role summary** lists similar details as Group Summary. 
 		- The **Delete Task summary** section lists the number of times the **Delete task** has been executed in the given time period. 
 
@@ -92,7 +92,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary, Detailed, and Dashboard
 	- **Use cases:** 
-		-  The **Dashboard** report tracks the overall progress of the CIS benchmark, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
+		-  The **Dashboard** report tracks the overall progress of the CIS benchmark, and lists the percentage passing, overall pass/fail of test control and the break up of L1/L2 per authorization system. 
 		- The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
 		- The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
 
@@ -103,7 +103,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary, Detailed, and Dashboard
 	- **Use cases:** 
-		-  The **Dashboard** report tracks the overall progress of NIST 800-53, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
+		-  The **Dashboard** report tracks the overall progress of NIST 800-53, and lists the percentage passing, overall pass/fail of test control and the break up of L1/L2 per authorization system. 
 		- The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
 		- The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
 
@@ -114,7 +114,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary, Detailed, and Dashboard
 	- **Use Cases:** 
-		- The **Dashboard** report tracks the overall progress of the **Well-Architected Framework**, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
+		- The **Dashboard** report tracks the overall progress of the **Well-Architected Framework**, and lists the percentage passing, overall pass/fail of test control and the break up of L1/L2 per authorization system. 
 		- The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
 		- The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
 
@@ -134,7 +134,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary, Detailed, and Dashboard
 	- **Use cases:** 
-		- The **Dashboard** report tracks the overall progress of PCI DSS, and lists the percentage passing, overall pass/fail of test control along with the break up of L1/L2 per authorization system. 
+		- The **Dashboard** report tracks the overall progress of PCI DSS, and lists the percentage passing, overall pass/fail of test control and the break up of L1/L2 per authorization system. 
 		- The **Summary** report for each authorization system lists the test control pass/fail per authorization system, and the number of resources evaluated per test control.
 		- The **Detailed** report helps auditors/administrators track the resource level pass/fail per test control.
 
@@ -145,7 +145,7 @@ CloudKnox offers the following reports for management associated with the author
 	- **Ability to collate report:** Yes
 	- **Type of report:** Summary
 	- **Use cases:** 
-		 - This report can be used to plot the trend of the PCI by viewing the monthly PCI history for each authorization system.
+		 - This report plots the trend of the PCI by displaying the monthly PCI history for each authorization system.
 
 - **All Permissions for Identity** 
 	- **Summary of report:** Provides results of all permissions for identities.
@@ -191,7 +191,7 @@ The reports dashboard provides a table of information with both System Reports a
  	- To view which authorization systems the report applies to, hover over each report option.
     - To view a description of the report, select the required option.
 4. Select **Next**.
-5. Under the **Authorization Systems** tab, select the appropriate authorization system type (AWS, Azure, GCP, and/or vCenter), and check or uncheck the appropriate authorization system under the applicable authorization system type.
+5. Under the **Authorization Systems** tab, select the appropriate authorization system type (AWS, Azure, GCP, and vCenter), and check or uncheck the appropriate authorization system under the applicable authorization system type.
 
 	Use **Search** to find an authorization system.
 6. To add specific users from each authorization system type, select the **Identities** tab.
@@ -200,7 +200,7 @@ The reports dashboard provides a table of information with both System Reports a
      - To find a specific user, select **Search** under **Users**, and add user names.
 7. Select the **Report Format** tab and check the following options, if applicable:
 	- **Detailed** - Check **CSV** for a detailed report.
-	- **Summary** - Check **CSV** and/or **PDF** for a summary of the report.
+	- **Summary** - Check **CSV** or **PDF** for a summary of the report.
 	- **Dashboard** - Check **CSV** for a dashboard view of the report.
 8. Select the **Schedule** tab and choose from **None** up to **Monthly**.
 
@@ -233,15 +233,15 @@ The reports dashboard provides a table of information with both System Reports a
 	- To download a copy of the report, select the **Down arrow** icon.
 2. To perform actions to the report and select from the following options, select the ellipses (**...**) icon:
 
-	 Reports that were not created by the current user, are listed as **Duplicate**.
+	 Reports not created by the current user are listed as **Duplicate**.
 
 	- **Download** - Downloads a copy of the report.
 
-	- **Report Settings** - Displays the settings on the report, including scheduling, authorization system type, and so on. 
+	- **Report Settings** - Displays the settings on the report, including scheduling, authorization system type, and so on.
 
 	- **Duplicate** - Creates a duplicate of the report called **"Copy of XXX"**
 
-		 After selecting **Duplicate**, a pop-up box appears asking if the user is sure they want to create a duplicate. Select **Confirm**. 
+		 After selecting **Duplicate**, a pop-up box appears asking if the user is sure they want to create a duplicate. Select **Confirm**.
 
          **Report generated successfully** appears across the top of the screen in green if successfully duplicated.
 

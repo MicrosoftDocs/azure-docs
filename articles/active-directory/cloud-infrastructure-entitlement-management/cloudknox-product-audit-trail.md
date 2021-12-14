@@ -8,13 +8,13 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 12/13/2021
 ms.author: v-ydequadros
 ---
 
 # Microsoft CloudKnox Permissions Management audit trail
 
-Microsoft CloudKnox Permissions Management's audit trail details all user activity performed in the Cloud. It captures high risk activity in a centralized location and allows system administrators to query the logs. 
+Microsoft CloudKnox Permissions Management's audit trail details all user activity performed in the Cloud. It captures all high risk activity in a centralized location, and allows system administrators to query the logs. 
 The audit trail screen provides: 
 - The ability to set and save new queries and easily access key data points.
 - The functionality to query across multiple authorization systems at once.

@@ -1,6 +1,6 @@
 ---
 title: Microsoft CloudKnox Permissions Management product alerts
-description: How to set-up alerts through the Microsoft CloudKnox Permissions Management application.
+description: How to set up alerts through the Microsoft CloudKnox Permissions Management application.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,15 +8,15 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/09/2021
+ms.date: 12/13/2021
 ms.author: v-ydequadros
 ---
 
 # Microsoft CloudKnox Permissions Management product alerts
 
-You can set up alerts through Microsoft CloudKnox Permissions Management so that you're notified about specific activity being performed or that occur on various authorization systems and associated accounts. 
+You can set up alerts through Microsoft CloudKnox Permissions Management. CloudKnox will notify you about specific activities being performed or that occur on various authorization systems and associated accounts.
 
-The **Alerts** page provides settings you can use to create and save alerts so you are notified about key data points.
+The **Alerts** page provides settings you can use to create and save alerts so you're notified about key data points.
 
 ## How to access the Alerts page
 
@@ -54,7 +54,7 @@ The **Alerts** page provides settings you can use to create and save alerts so y
    - Select **Search**, and then select **AWS**, **Azure**, **GCP**, or **VCENTER**.
 4. From the **Authorization System** menu, select one or multiple accounts. 
 
-      - To select multiple accounts, select the boxes next to the account from the **List** and/or **Folder** tabs.  
+      - To select multiple accounts, select the boxes next to the account from the **List** tab or the **Folder** tab.  
       - To view alert conditions, select **View**.
       - To edit alert conditions, select **Edit**.
 5. To add a third criteria box, select an **Authorization System**, and then select an option. 
@@ -217,7 +217,7 @@ The **Operator** menu contains the following options:
     - **Last Updated** - Displays the date and time the alert trigger was last updated.
     - **Subscription** - Displays either **On** or **Off**.
 
-         - If the column displays **Off**, the current user is not subscribed to that alert. Switch the toggle to **On** to subscribe to the alert.
+         - If the column displays **Off**, the current user isn't subscribed to that alert. Switch the toggle to **On** to subscribe to the alert.
          - The person who creates an alert trigger is automatically subscribed to the alert, and will receive emails about the alert.
 2. Under the **Status** section, select **Activated & Deactivated** to filter only by **Activated** or only by **Deactivated**. 
 
@@ -226,7 +226,7 @@ The **Operator** menu contains the following options:
     - **Edit** - Allows you to make changes to the alert and returns the user to the **Create Alert Trigger** screen. 
       <!---For more information, see How to create a new alert.--->
        > [!NOTE]
-         > Only the user who created the alert can perform the following actions: edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users are not saved.
+         > Only the user who created the alert can perform the following actions: edit the trigger screen, rename an alert, deactivate an alert, and delete an alert. Changes made by other users aren't saved.
 
     - **View -** View  details of the alert trigger.
     - **Duplicate** - Creates a duplicate of the alert called "**Copy of XXX**".
@@ -243,7 +243,7 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
       - **Alert Name** - Lists the name of the alert.
          To view the specific identity, resource, and task names that occurred during the alert collection period, select the **Alert Name**.
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert.
-        For more information, see How to create a new anomaly trigger.
+        <!---For more information, see How to create a new anomaly trigger.--->
       - **# of Occurrences** - How many times the alert trigger has occurred.
       - **Task** - How many tasks are affected by the alert.
       - **Resources** - How many resources are affected by the alert.
@@ -265,8 +265,8 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
 3. Select the **Authorization System**.
 4. Select one of the following conditions:
       - **Any Resource Accessed for the First Time** - The identity accesses a resource for the first time during the specified time interval
-      - **Identity Performs a Particular Task for the First Time** - The identity performs a specific task for the first time during the specified time interval 
-      - **Inactive Identity Becomes Active** - An identity that hasn't been active for 90 days becomes active and performs any task in the selected time interval
+      - **Identity Performs a Particular Task for the First Time** - The identity does a specific task for the first time during the specified time interval 
+      - **Inactive Identity Becomes Active** - An identity that hasn't been active for 90 days becomes active and does any task in the selected time interval
 5. Select **Next**.
 6. On the **Authorization Systems** tab, select the available authorization systems display and the appropriate systems, or, to select all systems, select **All**. 
 
@@ -282,7 +282,7 @@ Rule-based anomalies identify recent activity that is determined to be unusual b
       - **Alert** - Displays the name of the alert.
       - **Anomaly Alert Rule** - Displays the name of the selected rule when creating the alert.
 
-         For more information, see How to create a new anomaly trigger.
+         <!---For more information, see How to create a new anomaly trigger.--->
       - **# of Users Subscribed** - Displays the number of users subscribed to the alert.
       - **Created By** - Displays the email address of the user who created the alert.
       - **Last Modified By** - Displays the email address of the user who last modified the alert.
@@ -307,7 +307,7 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
       - **Alert Name** - Lists the name of the alert 
       - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert. 
 
-           For more information, see How to create a new anomaly trigger.
+           <!---For more information, see How to create a new anomaly trigger.--->
       - **# of Occurrences** - Displays how many times the alert trigger has occurred.
       - **Task** - Displays how many tasks are affected by the alert.
       - **Resources** - Displays how many resources are affected by the alert.
@@ -333,18 +333,18 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 3. Select the **Authorization System**.
 4. Select from one of the following conditions:
 
-      - **Identity Performed High Number of Tasks** - The identity performing a task performs at a higher volume than usual. The typical performance is 25 tasks per day and they are now performing 100 tasks per day.
-      - **Identity Performed Low Number of Tasks** - The identity performing a task performs lower than their daily average. The typical performance is 100 tasks per day and they are now performing 25 tasks per day.
-      - **Identity Performed Tasks with Multiple Unusual Patterns** - The identity performs many unusual tasks and at different times, meaning they can be performing actions outside their normally logged hours or performance hours, as well as they performed a higher than usual volume of tasks than normal.
+      - **Identity Performed High Number of Tasks** - The identity performs at a higher volume than usual. The typical performance is 25 tasks per day and they're now performing 100 tasks per day.
+      - **Identity Performed Low Number of Tasks** - The identity performs lower than their daily average. The typical performance is 100 tasks per day and they're now performing 25 tasks per day.
+      - **Identity Performed Tasks with Multiple Unusual Patterns** - The identity does many unusual tasks and at different times. This means that identities can execute actions outside their normally logged hours or performance hours, and at a higher than usual volume of tasks than normal.
       - **Identity Performed Tasks with Unusual Results** - The identity performing an action gets a different result than usual, such as most tasks end in a successful result and are now ending in a failed result or vice versa.
-      - **Identity Performed Tasks with Unusual Timing** - The identity performs tasks outside of their normal logged in time or performance hours determined by the UTC actions hours grouped as follows:
+      - **Identity Performed Tasks with Unusual Timing** - The identity does tasks outside of their normal logged in time or performance hours determined by the UTC actions hours grouped as follows:
            - 12AM-4AM UTC
            - 4AM-8AM UTC
            - 8AM-12PM UTC
            - 12PM-4PM UTC
            - 4PM-8PM UTC
            - 8PM-12AM UTC
-      - **Identity Performed Tasks with Unusual Types** - The identity performs unusual types of tasks from their normal tasking, for example, read, write, or delete tasks they wouldn't ordinarily perform.
+      - **Identity Performed Tasks with Unusual Types** - The identity does unusual types of tasks from their normal tasking, for example, read, write, or delete tasks they wouldn't ordinarily perform.
 5. Select **Next**.
 6. On the **Authorization Systems** tab, the available authorization systems displays. 
 
@@ -363,7 +363,9 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 1. You can view the following data on the **Alert Triggers** tab:
 
       - **Alert** - Displays the name of the alert.
-      - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert. For more information, see How to create a new anomaly trigger.
+      - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert. 
+
+          <!---For more information, see How to create a new anomaly trigger.--->
       - **# of Users Subscribed** - Displays the number of users subscribed to the alert.
       - **Created By** - Displays the email address of the user who created the alert.
       - **Last Modified By** - Displays the email address of the user who last modified the alert.
@@ -384,7 +386,9 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
       - **Alert Name** - Lists the name of the alert.
            - To view the name, ID, role, domain, authorization system, statistical condition, anomaly date, and observance period, select the **Alert Name**.  
            - To expand the top information found with a graph of when the anomaly occurred, select **Details**. 
-      - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert. For more information, see How to create a new anomaly trigger.
+      - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert.
+
+         <!---For more information, see How to create a new anomaly trigger.--->
       - **# of Occurrences** - Displays how many times the alert trigger has occurred.
       - **Task** - Displays how many tasks are affected by the alert
       - **Resources** - Displays how many resources are affected by the alert
@@ -423,7 +427,9 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
 1. You can view the following data in the **Alert Triggers** tab:
 
       - **Alert** - Lists the name of the alert.
-      - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert. For more information, see How to create a new anomaly trigger.
+      - **Anomaly Alert Rule** - Displays the name of the rule select when creating the alert.
+
+          <!---For more information, see How to create a new anomaly trigger.--->
       - **# of Users Subscribed** - Displays the number of users subscribed to the alert.
       - **Created By** - Displays the email address of the user who created the alert.
       - **Last Modified By** - Displays the email address of the user who last modified the alert.
@@ -438,6 +444,6 @@ Statistical anomalies detect outliers in an identities behavior, and recent acti
       - The **Activity** section displays details about the **Identity Name**, **Resource Name**, **Task Name**, **Date**, and **IP Address**.
 4. To filter the results by **Activated** or  **Deactivated** status:
     1. Under the **Status** section, select the **Activated & Deactivated** dropdown menu.
-    2. Select the appropriate option and click **Apply** to filter the results.
+    2. Select the appropriate option, and then select **Apply** to filter the results.
 
 <!---## Next steps--->
