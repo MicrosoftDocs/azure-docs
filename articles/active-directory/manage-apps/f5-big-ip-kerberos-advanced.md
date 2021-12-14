@@ -123,7 +123,8 @@ Next, configure the BIG-IP registration to fulfill SAML tokens requested by the 
 
    2.  Replace the **Reply URL** but retain the path for the application’s SAML SP endpoint. 
    
-     In this configuration, the SAML flow would operate in IdP initiated mode, where Azure AD issues a SAML assertion before the user is redirected to the BIG-IP endpoint forthe  application. 
+     In this configuration, the SAML flow would operate in IdP initiated mode, where Azure AD issues a SAML assertion before the user is redirected to the BIG-IP endpoint for the application. 
+
 
    3. To use SP initiated mode, populate the **Sign on URL**        with the application URL.
 
@@ -162,7 +163,8 @@ For our scenario, the application is hosted on server **APP-VM-01** and is runni
 
 ### Create a BIG-IP APM delegation account 
 
-As the BIG-IP doesn’t support group Managed Service Accounts (gMSA), create a standard user account to use as the APM service account:
+As the BIG-IP doesn’t support group managed service accounts (gMSA), create a standard user account to use as the APM service account:
+
 
 1. Replace the **UserPrincipalName** and **SamAccountName** values with those for your environment in these PowerShell commands:
 
