@@ -7,7 +7,7 @@ ms.author: crtreasu
 ms.date: 09/08/2021
 ms.topic: quickstart
 ms.service: azure-object-anchors
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 # Quickstart: Create a HoloLens app with Azure Object Anchors, in C++/WinRT and DirectX
 

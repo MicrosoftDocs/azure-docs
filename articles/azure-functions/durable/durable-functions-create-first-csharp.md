@@ -9,7 +9,7 @@ zone_pivot_groups: code-editors-set-one
 ms.custom: mode-other
 ---
 
-# Create your first durable function in C\#
+# Create your first durable function in C#
 
 *Durable Functions* is an extension of [Azure Functions](../functions-overview.md) that lets you write stateful functions in a serverless environment. The extension manages state, checkpoints, and restarts for you.
 

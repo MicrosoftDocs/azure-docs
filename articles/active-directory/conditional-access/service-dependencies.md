@@ -12,9 +12,9 @@ ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: karenhoran
 ms.reviewer: calebb
+ms.collection: M365-identity-device-management
 
 #Customer intent: As an IT admin, I need to understand what service dependencies are in Conditional Access so that I can assess how policies are applied
-ms.collection: M365-identity-device-management
 ---
 # What are service dependencies in Azure Active Directory Conditional Access? 
 

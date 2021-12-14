@@ -1,7 +1,7 @@
 ---
 title: How to use Microsoft Defender for container registries
 description: Learn about using Microsoft Defender for container registries to scan Linux images in your Linux-hosted registries
-ms.date: 11/09/2021
+ms.date: 12/09/2021
 ms.topic: how-to
 ---
 
@@ -93,7 +93,7 @@ To enable vulnerability scans of images stored in your Azure Resource Manager-ba
 
     1. When you are sure the updated image has been pushed, scanned, and is no longer appearing in the recommendation, delete the “old” vulnerable image from your registry.
 
-## Disable specific findings (preview)
+## Disable specific findings
 
 > [!NOTE]
 > [!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]

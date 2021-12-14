@@ -10,7 +10,7 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 10/19/2020
 ms.author: aahi
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using C#
