@@ -36,7 +36,7 @@ If you need to mirror between Kafka clusters in different networks, there are th
 
 * **Server addressing**: You can choose to address your cluster nodes by using their IP addresses or fully qualified domain names.
 
-    * **IP addresses**: If you configure your Kafka clusters to use IP address advertising, you can proceed with the mirroring setup by using the IP addresses of the broker nodes and zookeeper nodes.
+    * **IP addresses**: If you configure your Kafka clusters to use IP address advertising, you can proceed with the mirroring setup by using the IP addresses of the broker nodes and ZooKeeper nodes.
     
     * **Domain names**: If you don't configure your Kafka clusters for IP address advertising, the clusters must be able to connect to each other by using fully qualified domain names (FQDNs). This requires a domain name system (DNS) server in each network that is configured to forward requests to the other networks. When you're creating an Azure virtual network, instead of using the automatic DNS provided with the network, you must specify a custom DNS server and the IP address for the server. After you create the virtual network, you must then create an Azure virtual machine that uses that IP address. Then you install and configure DNS software on it.
 
@@ -72,7 +72,7 @@ This architecture features two clusters in different resource groups and virtual
     1. Select the **kafka-primary-vnet** virtual network.
     1. Under **Settings**, select **Peerings**.
     1. Select **Add**.
-    1. On the **Add peering** screen, enter the details as shown in this the following screenshot.
+    1. On the **Add peering** screen, enter the details as shown in the following screenshot.
 
         :::image type="content" source="./media/apache-kafka-mirroring/hdi-add-vnet-peering.png" alt-text="Screenshot that shows H D Insight Kafka add virtual network peering." border="true":::
 
@@ -105,14 +105,14 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 1. Select **Save**.
 1. Select **Restart** > **Confirm Restart All**.
 
-### Record broker IP addresses and zookeeper addresses for primary cluster
+### Record broker IP addresses and ZooKeeper addresses for primary cluster
 
 1. Select **Hosts** on the Ambari dashboard.
-1. Make a note of the IP addresses for the brokers and zookeepers. The broker nodes have **wn** as the first two letters of the host name, and the zookeeper nodes have **zk** as the first two letters of the host name.
+1. Make a note of the IP addresses for the brokers and ZooKeepers. The broker nodes have **wn** as the first two letters of the host name, and the ZooKeeper nodes have **zk** as the first two letters of the host name.
 
     :::image type="content" source="./media/apache-kafka-mirroring/view-node-ip-addresses2.png" alt-text="Screenshot that shows the Apache Ambari view node i p addresses." border="true":::
 
-1. Repeat the previous three steps for the second cluster, **kafka-secondary-cluster**: configure IP advertising, set listeners, and make a note of the broker and zookeeper IP addresses.
+1. Repeat the previous three steps for the second cluster, **kafka-secondary-cluster**: configure IP advertising, set listeners, and make a note of the broker and ZooKeeper IP addresses.
 
 ## Create topics
 
@@ -126,10 +126,10 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
     For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Use the following command to create two environment variables with the Apache zookeeper hosts and broker hosts for the primary cluster. Replace strings like `ZOOKEEPER_IP_ADDRESS1` with the actual IP addresses recorded earlier, such as `10.23.0.11` and `10.23.0.7`. The same goes for `BROKER_IP_ADDRESS1`. If you're using FQDN resolution with a custom DNS server, follow [these steps](apache-kafka-get-started.md#getkafkainfo) to get broker and zookeeper names.
+1. Use the following command to create two environment variables with the Apache ZooKeeper hosts and broker hosts for the primary cluster. Replace strings like `ZOOKEEPER_IP_ADDRESS1` with the actual IP addresses recorded earlier, such as `10.23.0.11` and `10.23.0.7`. The same goes for `BROKER_IP_ADDRESS1`. If you're using FQDN resolution with a custom DNS server, follow [these steps](apache-kafka-get-started.md#getkafkainfo) to get broker and ZooKeeper names.
 
     ```bash
-    # get the zookeeper hosts for the primary cluster
+    # get the ZooKeeper hosts for the primary cluster
     export PRIMARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181, ZOOKEEPER_IP_ADDRESS2:2181, ZOOKEEPER_IP_ADDRESS3:2181'
     
     # get the broker hosts for the primary cluster
@@ -220,10 +220,10 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
     For more information, see [Producer Configs](https://kafka.apache.org/documentation#producerconfigs) at `kafka.apache.org`.
 
-1. Use the following commands to create an environment variable with the IP addresses of the zookeeper hosts for the secondary cluster:
+1. Use the following commands to create an environment variable with the IP addresses of the ZooKeeper hosts for the secondary cluster:
 
     ```bash
-    # get the zookeeper hosts for the secondary cluster
+    # get the ZooKeeper hosts for the secondary cluster
     export SECONDARY_ZKHOSTS='ZOOKEEPER_IP_ADDRESS1:2181,ZOOKEEPER_IP_ADDRESS2:2181,ZOOKEEPER_IP_ADDRESS3:2181'
     ```
 
