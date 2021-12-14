@@ -89,7 +89,7 @@ If you create your job in the Preview portal, you see one of the following job s
 | Received                          | After all drives are received at the datacenter, the job state is set to **Received**.<br/>The job status may change 1 to 3 business days after the carrier delivers the device, when order processing completes in the datacenter. |
 | Data copy in progress             | Once processing begins for at least one drive, the job state is set to **Data copy in progress**. For more information, see [Drive status descriptions](#drive-status-descriptions). |
 | Data copy completed with errors   | The job moves to **Data copy completed with errors** state when the service has experienced errors while copying data in at least one of the drives. |
-| Data copy completed with warnings | The job moves to **Data copy completed with warnings** state when the service has completed the data copy but some warnings were encountered during the process. |
+| Data copy completed with warnings | The job moves to **Data copy completed with warnings** state when the service has completed the data copy but some files, folders, or containers were renamed. See the copy log for details. |
 | Data copy failed                  | Data copy failed due to issues encountered while copying data to or from at least one of the drives. |
 | Preparing to ship                 | After all drives have completed processing, the job is placed in **Preparing to ship** state until the drives are shipped back to you. |
 | Shipped to customer               | After all drives have been shipped back to you, the job status changes to **Shipped to customer**. |

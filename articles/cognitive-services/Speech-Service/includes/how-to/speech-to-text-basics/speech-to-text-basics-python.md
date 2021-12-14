@@ -18,25 +18,9 @@ This article assumes:
 
 * You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-## Install and import the Speech SDK
+## Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK.
-
-```Python
-pip install azure-cognitiveservices-speech
-```
-
-If you're on macOS and run into install issues, you may need to run this command first.
-
-```Python
-python3 -m pip install --upgrade pip
-```
-
-After the Speech SDK is installed, import it into your Python project.
-
-```Python
-import azure.cognitiveservices.speech as speechsdk
-```
+[!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
 
 ## Create a speech configuration
 

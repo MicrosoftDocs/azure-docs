@@ -7,7 +7,7 @@ ms.topic: quickstart
 author: ntrogh
 ms.author: nicktrog
 ms.date: 11/30/2021
-ms.custom: template-quickstart
+ms.custom: template-quickstart, mode-other
 adobe-target: true
 ---
 
