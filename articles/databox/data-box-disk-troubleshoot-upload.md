@@ -92,7 +92,7 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 | crc64       | The checksum if cyclic redundancy check 64 (CRC64) was used to verify data integrity during the data transfer. Either CRC64 or MD5 is used. |
 | md5         | The checksum if Message Digest Algorithm 5 (MD5) was used to verify data integrity during the data transfer. Either CRC64 or MD5 is used. |
 
-> [!HINT]
+> [!TIP]
 > To find out the drive log version of a verbose log, check the **DriveLogVersion** of the copy log.
 
 #### Sample verbose log: 2021-08-01
