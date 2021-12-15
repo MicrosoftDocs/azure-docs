@@ -98,6 +98,8 @@
           href: linter-rule-admin-username-should-not-be-literal.md
         - name: No hardcoded environment URLs
           href: linter-rule-no-hardcoded-environment-urls.md
+        - name: No unnecessary dependsOn entries
+          href: linter-rule-no-unnecessary-dependson.md
         - name: No unused parameters
           href: linter-rule-no-unused-parameters.md
         - name: No unused variables
