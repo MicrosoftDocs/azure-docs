@@ -21,7 +21,7 @@ The below video features a six-minute introduction and demonstration of this fea
 
 > [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/How-to-execute-Azure-Machine-Learning-service-pipelines-in-Azure-Data-Factory/player]
 
-## Create a Fail activity with UI
+## Create a Machine Learning Execute Pipeline activity with UI
 
 To use a Machine Learning Execute Pipeline activity in a pipeline, complete the following steps:
 
