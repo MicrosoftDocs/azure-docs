@@ -306,8 +306,8 @@ Follow these steps:
   1. Remove private endpoints
   1. Delete Disaster Recovery items 
 
-<details>
-<summary>PpwerShell script for delete vault. Click to expand.</summary>
+**Script for delete vault.**
+
 ```azurepowershell-interactive
 Connect-AzAccount
 
@@ -515,8 +515,7 @@ Remove-AzRecoveryServicesVault -Vault $VaultToDelete
 #Finish
 
 ```
-  
-  </details>
+
 
 To delete an individual backup items or to write your own script, use the following PowerShell commands:
 
