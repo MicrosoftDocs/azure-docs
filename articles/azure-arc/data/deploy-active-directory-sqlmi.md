@@ -49,13 +49,7 @@ This port number must be in the acceptable range of port numbers to Kubernetes c
 
 The examples in these instructions will assume the port number `31433`.
 
-### 3. Create a DNS record for the SQL Managed Instance endpoint in the Active Directory DNS servers.
-
-In one of the Active Directory DNS servers, create an A record (forward lookup record) for the DNS name chosen in step 1. This DNS record should point to the IP address that the SQL Managed Instance endpoint will listen on for connections from outside the Kubernetes cluster.
-
-You do NOT need to create a PTR record (reverse lookup record) in association with the A record.
-
-### 4. Create an Active Directory account for the SQL Managed Instance.
+### 3. Create an Active Directory account for the SQL Managed Instance.
 
 Choose a name for the Active Directory account that will represent your SQL Managed Instance. This name should be unique in the Active Directory domain.
 Using `Active Directory Users and Computers` tool on the Domain Controllers, create an account for this chosen name.
@@ -63,6 +57,12 @@ Provide a complex password to this account that is acceptable to the Active Dire
 The account does not need any special permissions. Ensure that the account is enabled.
 
 The examples in these instructions will assume the AD account name `sqlmi-account`.
+
+### 4. Create a DNS record for the SQL Managed Instance endpoint in the Active Directory DNS servers.
+
+In one of the Active Directory DNS servers, create an A record (forward lookup record) for the DNS name chosen in step 1. This DNS record should point to the IP address that the SQL Managed Instance endpoint will listen on for connections from outside the Kubernetes cluster.
+
+You do NOT need to create a PTR record (reverse lookup record) in association with the A record.
 
 ### 5. Create Service Principal Names (SPNs)
 
