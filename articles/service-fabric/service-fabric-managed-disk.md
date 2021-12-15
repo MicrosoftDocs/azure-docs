@@ -35,7 +35,7 @@ To use managed data disks on a node type, configure the underlying virtual machi
 >[!NOTE]
 > Support for managed data disks for Linux Service Fabric clusters is currently not available.
 
-Here's an Azure Resource Manager template for a Service Fabric Extension:
+Here's an Azure Resource Manager template for a Service Fabric extension:
 
 ```json
 {
