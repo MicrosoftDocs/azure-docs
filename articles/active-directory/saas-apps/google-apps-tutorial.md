@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/24/2021
+ms.date: 12/15/2021
 ms.author: jeedes
 ---
 
@@ -126,8 +126,8 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
     | **Reply URL** |
     |-----|
-    | `https://www.google.com/acs` |
-    | `https://www.google.com/a/<yourdomain.com>/acs` |
+    | `https://www.google.com` |
+    | `https://www.google.com/a/<yourdomain.com>` |
     
     c. In the **Sign on URL** textbox, type a URL using the following pattern: 
     `https://www.google.com/a/<yourdomain.com>/ServiceLogin?continue=https://mail.google.com`
