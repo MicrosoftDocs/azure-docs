@@ -1,21 +1,21 @@
 ---
-title: Create a data-driven load test with CSV data
+title: Read CSV data in a JMeter load test
 titleSuffix: Azure Load Testing
-description: Learn how to create a data-driven load test with Azure Load Testing by using data from a CSV file.
+description: Learn how to read data from a CSV file in JMeter and Azure Load Testing.
 services: load-testing
 ms.service: load-testing
 ms.author: nicktrog
 author: ntrogh
-ms.date: 12/07/2021
+ms.date: 12/15/2021
 ms.topic: how-to 
 ms.custom: template-how-to
 ---
 
-# Create a data-driven load test by using CSV files
+# Read data from a CSV file in JMeter and Azure Load Testing Preview
 
-In this article, you'll learn how to create a data-driven load test in Azure Load Testing Preview. You'll configure a load test to use data from a comma-separated value (CSV) file.
+In this article, you'll learn how to read data from a comma-separated value (CSV) file in JMeter and Azure Load Testing Preview.
 
-You can make an Apache JMeter test script configurable by reading data from a CSV file. In JMeter you can use the [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config). For example, to test a search API, you might retrieve the various query parameters from an external file.
+You can make an Apache JMeter test script configurable by reading settings from an external CSV file. To do this, you can use the [CSV Data Set Config element](https://jmeter.apache.org/usermanual/component_reference.html#CSV_Data_Set_Config) in JMeter. For example, to test a search API, you might retrieve the various query parameters from an external file.
 
 When you configure your Azure load test, you can upload any additional files that the JMeter script requires. For example, CSV files that contain configuration settings or binary files to send in the body of an HTTP request. You then update the JMeter script to reference the external files.
 
@@ -41,13 +41,13 @@ To edit your JMeter script by using the Apache JMeter GUI:
 
   1. Update the **Filename** information and remove any file path reference.
 
-        :::image type="content" source="media/how-to-create-data-driven-test/update-csv-data-set-config.png" alt-text="Screenshot that shows the test runs to compare.":::
+        :::image type="content" source="media/how-to-read-csv-data/update-csv-data-set-config.png" alt-text="Screenshot that shows the test runs to compare.":::
     
   1. Repeat the previous steps for every CSV Data Set Config element.
   
   1. Save the JMeter script.
 
-To edit your JMeter script by using Visual Studio Code:
+To edit your JMeter script by using Visual Studio Code or your editor of preference:
 
   1. Open the JMX file in Visual Studio Code.
 
@@ -91,13 +91,13 @@ To add a CSV file to your load test by using the Azure portal:
   
   1. Select your test from the list by selecting the checkbox, and then select **Edit**.
   
-      :::image type="content" source="media/how-to-create-data-driven-test/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button.":::
+      :::image type="content" source="media/how-to-read-csv-data/edit-test.png" alt-text="Screenshot that shows the list of load tests and the 'Edit' button.":::
 
   1. On the **Edit test** page, select the **Test plan** tab. 
 
   1. Select the CSV file from your computer, and then select **Upload** to upload the file to Azure.
   
-      :::image type="content" source="media/how-to-create-data-driven-test/edit-test-upload-csv.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
+      :::image type="content" source="media/how-to-read-csv-data/edit-test-upload-csv.png" alt-text="Screenshot of the 'Load' tab on the 'Edit test' pane.":::
   
   1. Select **Apply** to modify the test and to use the new configuration when you rerun it.
   
