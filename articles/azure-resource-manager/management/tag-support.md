@@ -1394,7 +1394,6 @@ Jump to a resource provider namespace:
 > | servers / virtualNetworkRules | No | No |
 > | servers / waitStatistics | No | No |
 > | serversv2 | Yes | Yes |
-> | singleServers | Yes | Yes |
 
 ## Microsoft.DelegatedNetwork
 
