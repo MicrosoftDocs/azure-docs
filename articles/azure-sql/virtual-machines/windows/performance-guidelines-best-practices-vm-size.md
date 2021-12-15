@@ -33,6 +33,7 @@ Review the following checklist for a brief overview of the VM size best practice
 - Use VM sizes with 4 or more vCPUs like the [E4ds_v5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) or higher.
 - Use [memory optimized](../../../virtual-machines/sizes-memory.md) virtual machine sizes for the best performance of SQL Server workloads. 
 - The [Edsv5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) series, the [M-](../../../virtual-machines/m-series.md), and the [Mv2-](../../../virtual-machines/mv2-series.md) series offer the optimal memory-to-vCore ratio required for OLTP workloads. 
+- The [Edsv5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) series offers the best price-performance for SQL Server workloads on Azure VMs. Consider this series first for most SQL Server workloads.
 - The M series VMs offer the highest memory-to-vCore ratio in Azure. Consider these VMs for mission critical and data warehouse workloads.
 - Leverage Azure Marketplace images to deploy your SQL Server Virtual Machines as the SQL Server settings and storage options are configured for optimal performance. 
 - Collect the target workload's performance characteristics and use them to determine the appropriate VM size for your business.
@@ -63,7 +64,7 @@ The [memory optimized virtual machine sizes](../../../virtual-machines/sizes-mem
 
 ### Edsv5-series
 
-The [Edsv5-series](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) is designed for memory-intensive applications and is the VM series that Microsoft recommends for most SQL Server workloads. These VMs have a large local storage SSD capacity, up to 672 GiB of RAM, and the highest local and remote storage throughput currently available in Azure. There is a nearly consistent 8 GiB of memory per vCore across most of these virtual machines, which is ideal for most SQL Server workloads.
+The [Edsv5-series](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) is designed for memory-intensive applications and is the VM series that Microsoft recommends for most SQL Server workloads. These VMs have a large local storage SSD capacity, up to 672 GiB of RAM, and the highest local and remote storage throughput currently available in Azure. There is a nearly consistent 8 GiB of memory per vCore across most of these virtual machines, which is ideal for most SQL Server workloads. These VMs offer the best price-performance for SQL Server workloads running on Azure virtual machines.
 
 The largest virtual machine in this group is the [Standard_E104ids_v5](../../../virtual-machines/edv5-edsv5-series.md#edsv5-series) that offers 104 vCores and 672 GiBs of memory. This virtual machine is notable because it is [isolated](../../../virtual-machines/isolation.md) which means it is guaranteed to be the only virtual machine running on the host, and therefore is isolated from other customer workloads. This has a memory-to-vCore ratio that is lower than what is recommended for SQL Server, so it should only be used if isolation is required.
 
