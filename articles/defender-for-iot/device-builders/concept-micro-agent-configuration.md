@@ -58,7 +58,7 @@ To reduce the number of messages sent to cloud, each priority should be set as a
 
 To view and update the micro agent twin configuration:
 
-1. Navigate to the [Azure portal](http://ms.portal.azure.com).
+1. Navigate to the [Azure portal](https://ms.portal.azure.com).
 
 1. In the searchbar, search for, and select **IoT Hub**.
 
@@ -78,18 +78,17 @@ To view and update the micro agent twin configuration:
 
 1. In the Module Identity Details screen select **Module Identity Twin**.
 
-    :::image type="content" source="media/concept-micro-agent-configuration/module-identity-twin.png" alt-text="Screenshot of the Module Identoty Details screen.":::
+    :::image type="content" source="media/concept-micro-agent-configuration/module-identity-twin.png" alt-text="Screenshot of the Module Identity Details screen.":::
 
-1. Change the value of any field by selecting it and entering the change.
+1. Change the value of any field by by adding the field to the `“desired”` section with the new value.
 
-    :::image type="content" source="media/concept-micro-agent-configuration/sample-module-identity-twin.png" alt-text="Screenshot of the sample output of the module identity twin.":::
+    :::image type="content" source="media/concept-micro-agent-configuration/desired.png" alt-text="Screenshot of the sample output of the module identity twin.":::
 
     The agent successfully set the new configuration if the value of `“latest_state”`, under the `“reported”` section will show `“success”`.
 
     :::image type="content" source="media/concept-micro-agent-configuration/reported-success.png" alt-text="Screenshot of a successful configuration change.":::
 
-    If the agent fails to set the new configuration, the value of `“latest_state”`, under the `“reported”` section will show `”failed”`. If this occurs, the `“latest_invalid_fields”` will contain a list of the fields that failed to update.
-
+    If the agent fails to set the new configuration, the value of `“latest_state”`, under the `“reported”` section will show `”failed”`. If this occurs, the `“latest_invalid_fields”` will contain a list of the fields that are invalid.
 
 ## Next steps
 
