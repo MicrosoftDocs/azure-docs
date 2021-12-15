@@ -92,25 +92,25 @@ Here is a sample walkthrough to create a user specifically for Purview scan and 
 
 4. Grant reader rights to the database objects.
 
-```sql
-GRANT USAGE ON DATABASE <your_database_name> TO purview_reader;
+    ```sql
+    GRANT USAGE ON DATABASE <your_database_name> TO purview_reader;
 
---grant reader access to all the database structures that purview can currently scan
-GRANT USAGE ON ALL SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE ON ALL FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE ON ALL PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
-GRANT SELECT ON ALL TABLES IN DATABASE <your_database_name> TO role purview_reader;
-GRANT SELECT ON ALL VIEWS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE, READ on ALL STAGES IN DATABASE <your_database_name> TO role purview_reader;
+    --grant reader access to all the database structures that purview can currently scan
+    GRANT USAGE ON ALL SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON ALL FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON ALL PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON ALL TABLES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON ALL VIEWS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE, READ on ALL STAGES IN DATABASE <your_database_name> TO role purview_reader;
 
---grant reader access to any future objects that could be created
-GRANT USAGE ON FUTURE SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE ON FUTURE FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE ON FUTURE PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
-GRANT SELECT ON FUTURE TABLES IN DATABASE <your_database_name> TO role purview_reader;
-GRANT SELECT ON FUTURE VIEWS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE, READ ON FUTURE STAGES IN DATABASE <your_database_name> TO role purview_reader;
-```
+    --grant reader access to any future objects that could be created
+    GRANT USAGE ON FUTURE SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON FUTURE FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON FUTURE PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON FUTURE TABLES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON FUTURE VIEWS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE, READ ON FUTURE STAGES IN DATABASE <your_database_name> TO role purview_reader;
+    ```
 
 ## Register
 
