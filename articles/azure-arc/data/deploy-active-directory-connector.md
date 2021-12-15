@@ -39,9 +39,9 @@ To deploy an instance of Active Directory Connector, several inputs are needed f
 These inputs are provided in a YAML spec of AD Connector instance.
 
 Following metadata about the AD domain must be available before deploying an instance of AD Connector:
-1. Name of the Active Directory domain
-2. List of the domain controllers (fully-qualified domain names)
-3. List of the DNS server IP addresses
+* Name of the Active Directory domain
+* List of the domain controllers (fully-qualified domain names)
+* List of the DNS server IP addresses
 
 Following input fields are exposed to the users in the Active Directory Connector spec:
 
