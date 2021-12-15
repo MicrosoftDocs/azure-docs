@@ -441,7 +441,7 @@ As a user, launch a browser and connect to the application’s external URL. You
 
 ### Azure AD B2B guest access
 
-SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-cloud-to-on-premises.md). Guest identities are synchronized from your Azure AD tenant to your target Kerberos domain. To have a local representation of guest objects is necessary for BIG-IP to perform KCD SSO to the backend application. 
+SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-cloud-to-on-premises.md). Guest identities are synchronized from your Azure AD tenant to your target Kerberos domain. It is necessary to have a local representation of guest objects for BIG-IP to perform KCD SSO to the backend application. 
 
 ## Troubleshooting
 

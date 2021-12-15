@@ -36,6 +36,20 @@ See following articles if you are new to Azure Batch service:
 > [!IMPORTANT]
 > When creating a new Azure Batch pool, ‘VirtualMachineConfiguration’ must be used and NOT ‘CloudServiceConfiguration'. For more details refer [Azure Batch Pool migration guidance](../batch/batch-pool-cloud-service-to-virtual-machine-configuration.md). 
 
+## Add custom activities to a pipeline with UI
+
+To use a Custom activity in a pipeline, complete the following steps:
+
+1. Search for _Custom_ in the pipeline Activities pane, and drag a Custom activity to the pipeline canvas.
+1. Select the new Custom activity on the canvas if it is not already selected.
+1. Select the  **Azure Batch** tab to select or create a new Azure Batch linked service that will execute the custom activity.
+
+   :::image type="content" source="media/transform-data-using-dotnet-custom-activity/custom-activity.png" alt-text="Shows the UI for a Custom activity.":::
+
+1. Select the **Settings** tab and specify a command to be executed on the Azure Batch, and optional advanced details.
+
+   :::image type="content" source="media/transform-data-using-dotnet-custom-activity/custom-activity-settings.png" alt-text="Shows the UI for the Settings tab for a Custom activity.":::
+
 ## Azure Batch linked service
 
 The following JSON defines a sample Azure Batch linked service. For details, see [Supported compute environments](compute-linked-services.md)

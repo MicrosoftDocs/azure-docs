@@ -189,10 +189,9 @@ Some of these are global settings that can be reused for publishing more applica
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
 3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** from your registered application
+4. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**
 
 ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-ldap/config-properties.png)
-
-Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
 
 ### Service Provider
 
