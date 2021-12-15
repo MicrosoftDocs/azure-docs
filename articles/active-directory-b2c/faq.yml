@@ -9,9 +9,10 @@ metadata:
   ms.service: active-directory
   ms.workload: identity
   ms.topic: conceptual
-  ms.date: 12/9/2021
+  ms.date: 12/15/2021
   ms.author: kengaderdus
   ms.subservice: B2C
+  ms.custom: "b2c-support"
     
 title: 'Azure AD B2C: Frequently asked questions (FAQ)'
 summary: This page answers frequently asked questions about the Azure Active Directory B2C (Azure AD B2C). Keep checking back for updates.
@@ -226,6 +227,18 @@ sections:
 
           * API connectors
           * Conditional Access
+          
+      - question: |
+          I have revoked the refresh token by using Microsoft Graph `invalidateAllRefreshTokens` or Azure AD PowerShell `Revoke-AzureADUserAllRefreshToken`. But why is B2C still accepting the old refresh token?
+        answer: |
+          In B2C, if the time difference between refreshTokensValidFromDateTime and refreshTokenIssuedTime is less than or equal to 5 minutes, the refresh token is still considered as valid. When refreshTokenIssuedTime is greater than refreshTokensValidFromDateTime, then the refresh token is revoked.
+          Follow this process to check if the RT is revoked or not:
+          1. Get RefreshToken and AccessToken by redeeming authorization_code
+          1. Wait for 7 mins
+          1. Run RevokeAllRefreshToken command. You can use PowerShell cmdlet (Revoke-AzureADUserAllRefreshToken)[https://docs.microsoft.com/en-us/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0] or Microsoft Graph (invalidateAllRefreshTokens)[https://docs.microsoft.com/en-us/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta&tabs=http]
+          1. Wait for 10 mins
+          1. This way we are making sure that the difference between refreshTokenIssuedTime and updated refreshTokenValidFromDateTime is more than 5 mins
+          1. Now try to redeem the RefreshToken you got in step 1
           
       - question: |
           How do I report issues with Azure AD B2C?
