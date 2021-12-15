@@ -19,9 +19,17 @@ ms.custom: aaddev
 
 # What are workload identities?
 
-A workload identity is an identity used by a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The terminology is inconsistent across the industry, but generally a workload identity is something you need for your software entity to authenticate with some system.  For example, a workload identity could be a user account that your client authenticates as to access a MongoDB database.  A workload identity could also be an AWS service role attached to an EC2 instance with read-only access to an S3 bucket.
+A workload identity is an identity used by a software workload (such as an application, service, script, or container) to authenticate and access other services and resources. The terminology is inconsistent across the industry, but generally a workload identity is something you need for your software entity to authenticate with some system.  For example, a workload identity could be a user account that your client authenticates as to access a MongoDB database.  A workload identity could also be an AWS service role attached to an EC2 instance with read-only access to an Amazon S3 bucket.
 
-In Azure Active Directory (Azure AD), workload identities are apps, service principals, and managed identities.  Here are some ways that workload identities in Azure AD are used:
+In Azure Active Directory (Azure AD), workload identities are [applications, service principals, and managed identities](app-objects-and-service-principals.md).  
+
+An application is defined by an application object, which resides in the tenant where the software workload was registered. The application object is the global representation of your application for use across all tenants. The application object describes how tokens are issued, resources that the application might need to access, and the actions that the application can take.
+
+The service principal is the local representation of your application for use in a specific tenant. An application object is used as a template or blueprint to create one or more service principal objects in every tenant where the application is used.  The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+
+Managed identities are a special type of service principal and provide an identity for applications to use when connecting to resources that support Azure AD authentication.  Managed identities eliminate the need for developers to manage credentials.
+
+Here are some ways that workload identities in Azure AD are used:
 
 - An app that enables a web app to access Microsoft Graph based on admin or user consent. This access could be either on behalf of the user or on behalf of the application.
 - A managed identity used by a developer to provision their service with access to an Azure resource such as Azure Key Vault or Azure Storage.
