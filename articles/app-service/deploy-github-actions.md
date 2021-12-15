@@ -101,12 +101,6 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 # [OpenID Connect](#tab/openid)
 
-To set up OpenID Connect and use it in a GitHub Actions workflow, you'll need:
-
-* An [Active Directory application](/azure/active-directory/develop/), with a service principal that has contributor access to your subscription.
-* An Active Directory application configured with a federated credential to trust tokens issued by GitHub Actions to your GitHub repository. 
-
-
 1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). Create the Active Directory application.
 
     ```azurecli-interactive
