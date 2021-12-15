@@ -322,9 +322,19 @@ For more information on customer-managed keys and high business impact workspace
 
 To get information about a workspace, use the following command:
 
+# [1.0 CLI](#tab/workspaceupdatev1)
+
 ```azurecli-interactive
 az ml workspace show -w <workspace-name> -g <resource-group-name>
 ```
+
+# [2.0 CLI - preview](#tab/workspaceupdatev2)
+
+```azurecli-interactive
+az ml workspace show -n <workspace-name> -g <resource-group-name>
+```
+
+---
 
 For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az_ml_workspace_show) documentation.
 
@@ -386,7 +396,7 @@ az ml workspace delete -w <workspace-name> -g <resource-group-name>
 # [2.0 CLI - preview](#tab/workspacedeletev2)
 
 ```azurecli-interactive
-az ml workspace update -n <workspace-name> -g <resource-group-name>
+az ml workspace delete -n <workspace-name> -g <resource-group-name>
 ```
 
 ---
