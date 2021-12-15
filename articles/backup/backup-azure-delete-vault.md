@@ -45,16 +45,14 @@ To delete a vault, follow these steps:
 
   :::image type="content" source="./media/backup-azure-delete-vault/delete-vault-manually.png" alt-text="Screenshot showing to delete vault manually.":::
 
-  1. \<steps to include\>
-
 - <a id="portal-mua">**Step 2**</a>: If Multi-User Authorization (MUA) is enabled, seek necessary permissions from the security administrator before vault deletion. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
 
-- **Step 3**: Disable the soft delete feature
+- <a id="portal-disable-soft-delete">**Step 3**</a>: Disable the soft delete feature
 
   1. Go to **Properties** -> **Security Settings** and disable the **Soft Delete** feature if enabled. See [how to disable soft delete](/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
   1. Go to **Properties** -> **Security Settings** and disable **Security Features**, if enabled. [Learn more](/azure/backup/backup-azure-security-feature-cloud). 
 
-- **Step 4**: Delete Cloud protected items
+- <a id="portal-delete-cloud-protected-items">**Step 4**</a>: Delete Cloud protected items
 
   1. Delete Items in soft-deleted state: After disabling soft delete, check if there are any items previously remaining in the soft deleted state. If there are items in soft deleted state, then you need to *undelete* and *delete* them again. [Follow these steps](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items) to find soft delete items and permanently delete them.
 
@@ -62,9 +60,7 @@ To delete a vault, follow these steps:
 
   1. Go to the vault dashboard menu > **Backup Items**. All items listed here must be removed with **Stop Backup** or **Delete Backup Data** along with their backup data. [Follow these steps](#delete-protected-items-in-the-cloud) to remove those items.
       
-
-
-- **Step 5**: Delete Backup Servers
+- <a id="portal-delete-backup-servers">**Step 5**</a>: Delete Backup Servers
 
   1. Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. In Protected Servers, select the server to unregister. To delete the vault, you must unregister all the servers. Right-click the protected server and select **Unregister**.
   
@@ -75,11 +71,11 @@ To delete a vault, follow these steps:
   >[!Note]
   >Deleting MARS/MABS/DPM servers also removes the corresponding backup items protected in the vault.
 
-- **Step 6**: Unregister Storage Accounts
+- <a id="portal-unregister-storage-accounts">**Step 6**</a>: Unregister Storage Accounts
 
   You must ensure all registered storage accounts are unregistered for successful vault deletion. Go to the vault dashboard menu > **Backup Infrastructure** > **Storage Accounts**. If you have storage accounts listed here, then you must unregister all of them. Learn more how to [Unregister a storage account](manage-afs-backup.md#unregister-a-storage-account).
 
-- **Step 7**: Remove Private Endpoints
+- <a id="portal-remove-private-endpoints">**Step 7**</a>: Remove Private Endpoints
 
   Ensure there are no Private endpoints created for the vault. Go to Vault dashboard menu > **Private endpoint Connections** under 'Settings' > if the vault has any Private endpoint connections created or attempted to be created, ensure they are removed before proceeding with vault delete.
 
@@ -276,7 +272,7 @@ Follow these steps:
 
 - **Step 1**: Ensure to get the necessary permissions from the security administrator to delete the vault, if Multi-User Authorization is enabled against the vault. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
 
-- **Step 2**: Install the _Az module_ and upgrade to PowerShell 7 version by performing these steps:
+- <a id="powershell-install-az-module">**Step 2**</a>: Install the _Az module_ and upgrade to PowerShell 7 version by performing these steps:
 
   1. Upgrade to PowerShell 7: Run the following command in your console:
   
