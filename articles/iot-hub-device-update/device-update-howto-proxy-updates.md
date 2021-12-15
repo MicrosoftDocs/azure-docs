@@ -58,6 +58,9 @@ This tutorial uses an Ubuntu Server 18.04 LTS virtual machine (VM) as an example
    ```sh
       sudo nano /etc/adu/du-config.json  
    ```
+   
+   > [!NOTE]
+   > You can copy the primary connection string for the device instead, but we recommend that you use the string for the Device Update module. For information about setting up the module, see [Device Update Agent provisioning](device-update-agent-provisioning.md). 
        
 5. Ensure that */etc/adu/du-diagnostics-config.json* contains the correct settings for log collection. For example: 
 
