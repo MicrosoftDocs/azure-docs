@@ -73,10 +73,10 @@ From VSCode, open the **Output** view in the pane at the bottom of the screen, a
 
   :::image type="content" source="./media/installation-troubleshoot/visual-studio-code-output-pane-bicep.png" alt-text="Visual Studio Code output pane":::
 
-If you see the following output in the pane, and you are using Bicep CLI v0.4.1124 or later, check whether you have added the `dotnetAcquisitionExtension.existingDotnetPath` configuration option to VSCode. See [.NET runtime error](#net-runtime-error). If this configuration option is present, remove it and restart VSCode.
+If you see the following output in the pane, and you are using Bicep CLI **version 0.4.1124** or later, check whether you have added the `dotnetAcquisitionExtension.existingDotnetPath` configuration option to VSCode. See [.NET runtime error](#net-runtime-error). If this configuration option is present, remove it and restart VSCode.
 
   ```error
-  It was not possible to find any compatible framework version
+  It was not possible to find any compatible framework version.
   ```
 
 Otherwise, raise an issue in the [Bicep repo](https://github.com/Azure/bicep/issues), and include the output messages.
