@@ -2043,8 +2043,10 @@ This container image has the following tags available. You can also find a full 
 # [Latest version](#tab/current)
 
 Release notes for `v1.11.0`:
+
 **Features**
 * Support `de-ch-janneural` and `de-ch-lenineural`.
+
 **Fixes**
 * Upgrade security patches.
 
@@ -2057,8 +2059,8 @@ Release notes for `v1.11.0`:
 |-------------------------------------|:---------------------------------------------------------------------------|
 | `cs-cz-antoninneural`               | Container image with the `cs-CZ` locale and `cs-CZ-antoninneural` voice.   |
 | `cs-cz-vlastaneural`                | Container image with the `cs-CZ` locale and `cs-CZ-Vlastaneural` voice.    |
-| `de-ch-janneural`                   | Container image with the `de-CH` locale and `de-DE-Janneural` voice.       |
-| `de-ch-lenineural`                  | Container image with the `de-CH` locale and `de-DE-Lenineural` voice.      |
+| `de-ch-janneural`                   | Container image with the `de-CH` locale and `de-CH-Janneural` voice.       |
+| `de-ch-lenineural`                  | Container image with the `de-CH` locale and `de-CH-Lenineural` voice.      |
 | `de-de-conradneural`                | Container image with the `de-DE` locale and `de-DE-ConradNeural` voice.    |
 | `de-de-katjaneural`                 | Container image with the `de-DE` locale and `de-DE-KatjaNeural` voice.     |
 | `en-au-natashaneural`               | Container image with the `en-AU` locale and `en-AU-NatashaNeural` voice.   |
