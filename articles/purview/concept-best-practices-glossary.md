@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.date: 12/15/2021
 ---
 
-# Azure Purview Glossary best practices
+# Azure Purview glossary best practices
 
 The business glossary is a definition of terms specific to a domain of knowledge that is commonly used, communicated, and shared in organizations as they are conducting business. 
 A common business glossary (for example, business language) is significant as it is critical in improving an organizations overall business productivity and performance. You will observe in most organizations that their business language is being codified based on business dealings associated with:  
@@ -70,7 +70,7 @@ When building new term templates in Purview, review the following considerations
 - When importing terms, use the sample .CSV file to guide you. This can save hours of frustration.
 - When importing terms from a .CSV file, be sure that terms already existing in Purview are intended to be updated. When using the import feature, Purview will overwrite existing terms.
 - Before importing terms, test the import in a lab environment to ensure that no unexpected results occur, such as duplicate terms. 
-- The email address for Stewards and Experts should be the primary address of the user from AAD group. Alternate email, user principal name and non-AAD emails are not yet supported.
+- The email address for Stewards and Experts should be the primary address of the user from the Azure Active Directory group. Alternate email, user principal name and non-Azure Active Directory emails are not yet supported.
 - Glossary terms provide fours status: draft, approved, expire, alert. Draft is not officially implemented, approved is official/stand/approved for production, expired means should no longer be used, alert need to pay more attention.
 For more information, see [Create, import, and export glossary terms](/how-to-create-import-export-glossary)
 
