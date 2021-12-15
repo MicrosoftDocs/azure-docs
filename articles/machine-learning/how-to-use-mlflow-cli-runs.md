@@ -1,5 +1,5 @@
 ---
-title: MLflow Tracking for ML experiments
+title: Tracking for ML experiments with MLflow and CLI (v2)
 titleSuffix: Azure Machine Learning
 description:  Set up MLflow Tracking with Azure Machine Learning to log metrics and artifacts from ML models with MLflow or the Azure Machine Learning CLI (v2)
 services: machine-learning
