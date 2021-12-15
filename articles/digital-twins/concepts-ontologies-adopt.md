@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: Learn about existing industry ontologies that can be adopted for Azure Digital Twins
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 2/26/2021
+ms.date: 10/27/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -16,6 +16,8 @@ ms.service: digital-twins
 ---
 
 # Adopting an industry ontology
+
+This article covers different sets of industry-standard ontologies that can be adopted to simplify solutions.
 
 Because it can be easier to start with an open-source Digital Twins Definition Language (DTDL) ontology than from a blank page, Microsoft is partnering with domain experts to publish ontologies. These ontologies represent widely accepted industry conventions and support various customer use cases. 
 

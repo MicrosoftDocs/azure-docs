@@ -9,9 +9,9 @@ ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: quickstart
 ms.date: 12/02/2020
-ms.author: curtand 
+ms.author: curtand
 ms.reviewer: krbain
-ms.custom: "it-pro, seo-update-azuread-jan"
+ms.custom: it-pro, seo-update-azuread-jan, mode-other
 ms.collection: M365-identity-device-management
 ---
 # Restore a deleted Microsoft 365 group in Azure Active Directory

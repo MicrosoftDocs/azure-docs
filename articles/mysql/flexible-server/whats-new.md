@@ -17,7 +17,37 @@ ms.date: 10/12/2021
 
 This article summarizes new releases and features in Azure Database for MySQL - Flexible Server beginning in January 2021. Listings appear in reverse chronological order, with the most recent updates first.
 
+## November 2021
+- **General Availability of Azure Database for MySQL - Flexible Server**
+    
+  Azure Database for MySQL - Flexible Server is now **General Availability** in more than [30 Azure regions](overview.md) worldwide.
+
+- **View available full backups in Azure portal**
+  A dedicated Backup and Restore blade is now available in the Azure portal. This blade lists the backups available within the server’s retention period, effectively providing you with single pane view for managing a server’s backups and consequent restores. You can use this blade to 
+   1) View the completion timestamps for all available full backups within the server’s retention period 
+   2) Perform restore operations using these full backups
+  
+- **Fastest restore points**
+  
+  With the fastest restore point option, you can restore a Flexible Server instance in the fastest time possible on a given day within the server’s retention period. This restore operation will simply restore the full snapshot backup without requiring restore or recovery of logs. With fastest restore point, customers will see 3 options while performing point in time restores from Azure portal viz latest restore point, custom restore point and fastest restore point. [Learn more](concepts-backup-restore.md#point-in-time-restore)
+  
+- **FAQ blade in Azure portal**
+
+  The Backup and Restore blade will also include section dedicated to listing your most frequently asked questions, together with answers. This should provide you with answers to most questions about backup directly within the Azure portal. In addition, selecting the question mark icon for FAQs on the top menu provides access to even more related detail.
+
+- **Restore a deleted Flexible server**
+    
+  The service now allows you to recover a deleted MySQL flexible server resource within 5 days from the time of server deletion. For a detailed guide on how to restore a deleted server, [refer documented steps](../flexible-server/how-to-restore-dropped-server.md). To protect server resources post deployment from accidental deletion or unexpected changes, we recommend administrators to leverage [management locks](../../azure-resource-manager/management/lock-resources.md).
+
+- **Known issues**
+
+On servers where we have HA and  Geo-redundant backup option enabled, we found an rare issue encountered by a race condition which blocks the restart of the standby server to finish. As a result of this issue, when you failover the  HA enabled Azure database for MySQL - Flexible server MySQL Instance may get stuck in restarting state for a long time. The fix will be deployed to the production in the next deployment cycle.
+
 ## October 2021
+
+- **Thread pools are now available for Azure Database for MySQL – Flexible Server**
+ 
+    Thread pools enhance the scalability of the Azure Database for MySQL – Flexible Server. By using a thread pool, users can now optimize performance, achieve better throughput, and lower latency for high concurrent workloads. [Learn more](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/achieve-up-to-a-50-performance-boost-in-azure-database-for-mysql/ba-p/2909691).
 
 - **Geo-redundant backup restore to geo-paired region for DR scenarios**
 
@@ -49,8 +79,21 @@ This article summarizes new releases and features in Azure Database for MySQL - 
     
     Terraform support for MySQL Flexible Server is now released  with the [latest v2.81.0 release of azurerm](https://github.com/hashicorp/terraform-provider-azurerm/blob/v2.81.0/CHANGELOG.md). The detailed reference document for provisioning and managing a MySQL Flexible Server using Terraform can be found [here](https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/mysql_flexible_server). Any bugs or known issues can be found or report [here](https://github.com/hashicorp/terraform-provider-azurerm/issues).
 
+- **Static Parameter innodb_log_file_size is now Configurable**
+
+    - [innodb_log_file_size](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_file_size) can now be configured to any of these values: 256MB, 512MB, 1GB, or 2GB. Because it's a static parameter, it will require a server restart. If you have changed the parameter innodb_log_file_size from default, check if the value of "show global status like 'innodb_buffer_pool_pages_dirty'" stays at 0 for 30 seconds to avoid restart delay. See [Server parameters in Azure Database for MySQL](./concepts-server-parameters.md) to learn more.
+
+- **Availability in two additional Azure regions**
+
+   Azure Database for MySQL - Flexible Server is now available in the following Azure regions:
+
+   - US West 3
+   - North Central US
+     [Learn more](overview.md#azure-regions).
+
 - **Known Issues**
-    - When a primary Azure region is down, one cannot create geo-redundant servers in it's geo-paired region as storage cannot be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region. 
+    - When a primary Azure region is down, one cannot create geo-redundant servers in it's geo-paired region as storage cannot be provisioned in the primary Azure region. One must wait for the primary region to be up to provision geo-redundant servers in the geo-paired region.
+    
 
 ## September 2021
 

@@ -93,4 +93,4 @@ Following limitations apply to Server Trust Groups:
 
 * For more information about distributed transactions in Azure SQL Managed Instance, see [Distributed transactions](../database/elastic-transactions-overview.md).
 * For release updates and known issues state, see [What's new?](doc-changes-updates-release-notes-whats-new.md).
-* If you have feature requests, add them to the [SQL Managed Instance forum](https://feedback.azure.com/forums/915676-sql-managed-instance).
+* If you have feature requests, add them to the [Managed Instance forum](https://feedback.azure.com/d365community/forum/a99f7006-3425-ec11-b6e6-000d3a4f0f84).

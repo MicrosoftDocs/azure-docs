@@ -82,7 +82,7 @@ Azure Image Builder will support Azure Marketplace base OS images:
 
 ## How it works
 
-The Azure VM Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. Provide a configuration to the service that specifies the source image, customization to perform and where the new image is to be distributed to, the diagram below shows a high level workflow:
+The Azure VM Image Builder is a fully managed Azure service that is accessible by an Azure resource provider. Provide a configuration to the service that specifies the source image, customization to perform and where the new image is to be distributed to, the diagram below shows a high-level workflow:
 
 ![Conceptual drawing of the Azure Image Builder process showing the sources (Windows/Linux), customizations (Shell, PowerShell, Windows Restart & Update, adding files) and global distribution with the Azure Compute Gallery](./media/image-builder-overview/image-builder-flow.png)
 
@@ -92,7 +92,7 @@ To run the build you will invoke `Run` on the Image Template resource, the servi
 
 When the build finishes all resources will be deleted, except for the staging resource group and the storage account, to remove these you will delete the Image Template resource, or you can leave them there to run the build again.
 
-There are multiple examples and step by step guides in this documentation, which reference configuration templates and solutions in the [Azure Image Builder GitHub repository](https://github.com/azure/azvmimagebuilder).
+There are multiple examples and step-by-step guides in this documentation, which reference configuration templates and solutions in the [Azure Image Builder GitHub repository](https://github.com/azure/azvmimagebuilder).
 
 ### Move Support
 The image template resource is immutable and contains links to resources and the staging resource group, therefore the resource type does not support being moved. If you wish to move the image template resource, ensure you have a copy of the configuration template (extract the existing configuration from the resource if you don't have it), create a new image template resource in the new resource group with a new name and delete the previous image template resource. 
@@ -109,13 +109,27 @@ You will incur some compute, networking and storage costs when creating, buildin
 
 During the image creation process, files are downloaded and stored in the `IT_<DestinationResourceGroup>_<TemplateName>` resource group, which will incur a small storage costs. If you do not want to keep these, delete the **Image Template** after the image build.
  
-Image Builder creates a VM using a D1v2 VM size, and the storage, and networking needed for the VM. These resources will last for the duration of the build process, and will be deleted once Image Builder has finished creating the image. 
+Image Builder creates a VM using the default D1v2 VM size for Gen1 images and D2ds V4 for Gen2 images, along with the storage, and networking needed for the VM. These resources last for the duration of the build process and are deleted once Image Builder has finished creating the image. 
  
 Azure Image Builder will distribute the image to your chosen regions, which might incur network egress charges.
 
 ## Hyper-V generation
-Image Builder currently only natively supports creating Hyper-V generation (Gen1) 1 images in the Azure Compute Gallery. 
- 
+Image Builder currently supports creating Hyper-V Gen1 and Gen2 images in the Azure Compute Gallery and as managed images or VHD. Please keep in mind, the image distributed will always be the same generation as the image provided. 
+
+For Gen2 images, please ensure you are using the correct SKU. For example, the SKU for a Ubuntu Server 18.04 Gen2 image would be “18_04-lts-gen2”. The SKU for a Ubuntu Server 18.04 Gen1 image would be "18.04-lts".
+
+How to find SKUs based on the image publisher:
+```azurecli-interactive
+# Find all Gen2 SKUs published by Microsoft Windows Desktop
+az vm image list --publisher MicrosoftWindowsDesktop --sku g2 --output table --all
+
+# Find all Gen2 SKUs published by Canonical
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
+
+For more information on which Azure VM images support Gen2, please visit: [Generation 2 VM images in Azure Marketplace
+](https://docs.microsoft.com/azure/virtual-machines/generation-2)
+
 ## Next steps 
  
 To try out the Azure Image Builder, see the articles for building [Linux](./linux/image-builder.md) or [Windows](./windows/image-builder.md) images.

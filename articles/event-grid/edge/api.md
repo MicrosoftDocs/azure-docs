@@ -46,7 +46,7 @@ In case of **CloudEventSchemaV1_0** in structured mode, the value of Content-Typ
     
 `Content-Type: application/cloudevents-batch+json; charset=utf-8`
 
-In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/master/http-protocol-binding.md) for details.
+In case of **CloudEventSchemaV1_0** in binary mode, refer to [documentation](https://github.com/cloudevents/spec/blob/main/cloudevents/bindings/http-protocol-binding.md) for details.
 
 ### Error response
 All APIs return an error with the following payload:

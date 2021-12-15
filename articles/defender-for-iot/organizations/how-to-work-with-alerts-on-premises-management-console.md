@@ -1,7 +1,7 @@
 ---
 title: Work with alerts on the on-premises management console
 description: Use the on-premises management console to get an enterprise view of recent threats in your network and better understand how sensor users are handling them.
-ms.date: 07/13/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

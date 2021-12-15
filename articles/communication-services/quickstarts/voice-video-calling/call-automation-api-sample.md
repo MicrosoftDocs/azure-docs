@@ -5,13 +5,13 @@ description: Provides a quickstart sample for the Call Automation APIs.
 author: GrantMeStrength
 manager: anvalent
 services: azure-communication-services
-
 ms.author: jken
 ms.date: 06/30/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
 zone_pivot_groups: acs-csharp-java
+ms.custom: mode-api
 ---
 
 # Quickstart: Use the call automation APIs

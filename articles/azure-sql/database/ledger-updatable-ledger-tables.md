@@ -4,10 +4,10 @@ description: This article provides information on updatable ledger tables, ledge
 ms.date: "09/09/2021"
 ms.service: sql-database
 ms.subservice: security
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.topic: conceptual
-author: JasonMAnderson
-ms.author: janders
+author: VanMSFT
+ms.author: vanto
 ---
 
 # Azure SQL Database updatable ledger tables

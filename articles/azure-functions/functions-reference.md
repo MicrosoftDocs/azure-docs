@@ -205,7 +205,7 @@ Here is an example of `local.settings.json` properties required for identity-bas
 Azure Functions by default uses the "AzureWebJobsStorage" connection for core behaviors such as coordinating singleton execution of timer triggers and default app key storage. This can be configured to leverage an identity as well.
 
 > [!CAUTION]
-> Other components in Functions rely on "AzureWebJobsStorage" for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs and Event Hubs. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](/run-functions-from-deployment-package).
+> Other components in Functions rely on "AzureWebJobsStorage" for default behaviors. You should not move it to an identity-based connection if you are using older versions of extensions that do not support this type of connection, including triggers and bindings for Azure Blobs and Event Hubs. Similarly, `AzureWebJobsStorage` is used for deployment artifacts when using server-side build in Linux Consumption, and if you enable this, you will need to deploy via [an external deployment package](run-functions-from-deployment-package.md).
 >
 > In addition, some apps reuse "AzureWebJobsStorage" for other storage connections in their triggers, bindings, and/or function code. Make sure that all uses of "AzureWebJobsStorage" are able to use the identity-based connection format before changing this connection from a connection string.
 
@@ -213,12 +213,16 @@ To use an identity-based connection for "AzureWebJobsStorage", configure the fol
 
 | Setting                       | Description                                | Example value                                        |
 |-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
-| `AzureWebJobsStorage__blobServiceUri`| The data plane URI of the blob service of the storage account. | <storage_account_name>.blob.core.windows.net |
-| `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account. | <storage_account_name>.queue.core.windows.net |
+| `AzureWebJobsStorage__blobServiceUri`| The data plane URI of the blob service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.blob.core.windows.net |
+| `AzureWebJobsStorage__queueServiceUri` | The data plane URI of the queue service of the storage account, using the HTTPS scheme. | https://<storage_account_name>.queue.core.windows.net |
 
 [Common properties for identity-based connections](#common-properties-for-identity-based-connections) may also be set as well.
 
 If you are using a storage account that uses the default DNS suffix and service name for global Azure, following the `https://<accountName>.blob/queue/file/table.core.windows.net` format, you can instead set `AzureWebJobsStorage__accountName` to the name of your storage account. The blob and queue endpoints will be inferred for this account. This will not work if the storage account is in a sovereign cloud or has a custom DNS.
+
+| Setting                       | Description                                | Example value                                        |
+|-----------------------------------------------------|--------------------------------------------|------------------------------------------------|
+| `AzureWebJobsStorage__accountName` | The account name of a storage account, valid only if the account is not in a sovereign cloud and does not have a custom DNS. | <storage_account_name> |
 
 [!INCLUDE [functions-azurewebjobsstorage-permissions](../../includes/functions-azurewebjobsstorage-permissions.md)]
 

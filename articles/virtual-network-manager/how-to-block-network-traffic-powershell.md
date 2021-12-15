@@ -27,7 +27,7 @@ Before you start configuring security rules, confirm the following steps:
 
 ## Create a SecurityAdmin configuration
 
-1. Create a new SecurityAdmin configuration with [New-AzNetworkManagerSecurityAdminConfiguration](/powershell/module/az.network/new-aznetworkmanagersecurityadminconfiguration).
+1. Create a new SecurityAdmin configuration with New-AzNetworkManagerSecurityAdminConfiguration.
 
     ```azurepowershell-interactive
     $config = @{
@@ -38,7 +38,7 @@ Before you start configuring security rules, confirm the following steps:
     $securityconfig = New-AzNetworkManagerSecurityAdminConfiguration @config 
     ```
 
-1. Store network group to a variable with [Get-AzNetworkManagerGroup](/powershell/module/az.network/get-aznetworkmanagergroup).
+1. Store network group to a variable with Get-AzNetworkManagerGroup.
 
     ```azurepowershell-interactive
     $ng = @{
@@ -49,7 +49,7 @@ Before you start configuring security rules, confirm the following steps:
     $networkgroup = Get-AzNetworkManagerGroup @ng   
     ```
 
-1. Create a connectivity group item to add a network group to with [New-AzNetworkManagerSecurityGroupItem](/powershell/module/az.network/new-aznetworkmanagersecuritygroupitem).
+1. Create a connectivity group item to add a network group to with New-AzNetworkManagerSecurityGroupItem.
 
     ```azurepowershell-interactive
     $gi = @{
@@ -65,7 +65,7 @@ Before you start configuring security rules, confirm the following steps:
     $configGroup.Add($groupItem) 
     ```
 
-1. Create a security admin rules collection with [New-AzNetworkManagerSecurityAdminRuleCollection](/powershell/module/az.network/new-aznetworkmanagersecurityadminrulecollection).
+1. Create a security admin rules collection with New-AzNetworkManagerSecurityAdminRuleCollection.
 
     ```azurepowershell-interactive
     $collection = @{
@@ -78,7 +78,7 @@ Before you start configuring security rules, confirm the following steps:
     $rulecollection = New-AzNetworkManagerSecurityAdminRuleCollection @collection
     ```
 
-1. Define the variables for the source and destination address prefixes and ports with [New-AzNetworkManagerAddressPrefixItem](/powershell/module/az.network/new-aznetworkmanageraddressprefixitem).
+1. Define the variables for the source and destination address prefixes and ports with New-AzNetworkManagerAddressPrefixItem.
 
     ```azurepowershell-interactive
     $sourceip = @{
@@ -101,7 +101,7 @@ Before you start configuring security rules, confirm the following steps:
     $destinationPortList.Add("443”)
     ```
 
-1. Create a security rule with [New-AzNetworkManagerSecurityAdminRule](/powershell/module/az.network/new-aznetworkmanagersecurityadminrule).
+1. Create a security rule with New-AzNetworkManagerSecurityAdminRule.
 
     ```azurepowershell-interactive
     $rule = @{
@@ -124,7 +124,7 @@ Before you start configuring security rules, confirm the following steps:
 
 ## Commit deployment
 
-Commit the security configuration to target regions with [Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit).
+Commit the security configuration to target regions with Deploy-AzNetworkManagerCommit.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  
@@ -151,7 +151,7 @@ If you no longer need the security configuration, you'll need to make sure the f
 
 ### Remove security configuration deployment
 
-Remove the security deployment by deploying a configuration with [Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit).
+Remove the security deployment by deploying a configuration with Deploy-AzNetworkManagerCommit.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()
@@ -169,7 +169,7 @@ Deploy-AzNetworkManagerCommit @removedeployment
 
 ### Remove security rules
 
-Remove security rules with [Remove-AzNetworkManagerSecurityAdminRule](/powershell/module/az.network/remove-aznetworkmanagersecurityadminrule).
+Remove security rules with Remove-AzNetworkManagerSecurityAdminRule.
 
 ```azurepowershell-interactive
 $removerule = @{
@@ -195,7 +195,7 @@ Remove-AzNetworkManagerSecurityAdminRuleCollection @removecollection
 
 ### Delete configuration
 
-Delete the security configuration with [Remove-AzNetworkManagerSecurityAdminConfiguration](/powershell/module/az.network/remove-aznetworkmanagersecurityadminconfiguration).
+Delete the security configuration with Remove-AzNetworkManagerSecurityAdminConfiguration.
 
 ```azurepowershell-interactive
 $removeconfig = @{

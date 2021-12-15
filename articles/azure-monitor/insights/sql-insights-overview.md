@@ -4,7 +4,7 @@ description: Overview of SQL insights in Azure Monitor
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/15/2021
+ms.date: 11/10/2021
 ---
 
 # Monitor your SQL deployments with SQL insights (preview)
@@ -47,7 +47,12 @@ SQL insights has no support or has limited support for the following:
 - **Secondary replicas**: Metrics can be gathered for only a single secondary replica per database. If a database has more than one secondary replica, only one can be monitored.
 - **Authentication with Azure Active Directory**: The only supported method of [authentication](../../azure-sql/database/logins-create-manage.md#authentication-and-authorization) for monitoring is SQL authentication. For SQL Server on Azure Virtual Machines, authentication through Active Directory on a custom domain controller is not supported.  
 
+## Regional availability
+
+SQL Insights is available in all Azure regions where Azure Monitor is [available](https://azure.microsoft.com/global-infrastructure/services/?products=monitor), with the exception of Azure government and national clouds.
+
 ## Opening SQL insights
+
 To open SQL insights:
 
 1. In the Azure portal, go to the **Azure Monitor** menu.

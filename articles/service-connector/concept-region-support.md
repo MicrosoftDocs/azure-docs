@@ -6,7 +6,7 @@ ms.author: xshi
 ms.service: serviceconnector
 ms.topic: conceptual
 ms.date: 10/29/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, references_regions
 ---
 
 # Service Connector region support
@@ -15,11 +15,21 @@ When you create a service connection with Service Connector, the conceptual conn
 
 ## Supported regions with regional endpoint
 
-You can find the latest region support list in [Azure Products by Region](https://azure.microsoft.com/global-infrastructure/services/?products=service-connector). If your compute service instance is located in one of the regions that Service Connector supports, you can use Service Connector to create and manage service connections.
+If your compute service instance is located in one of the regions that Service Connector supports below, you can use Service Connector to create and manage service connections.
+
+- West Central US
+- West Europe
+- North Europe
+- East US
+- West US 2
 
 ## Supported regions with geographical endpoint
 
 Your compute service instance might be created in the region that Service Connector has geographical region support. It means that your service connection will be created in a different region from your compute instance. You will see a banner about this information when you create a service connection. The region difference may impact your compliance, data residency, and data latency.
+
+- East US 2
+- West US 3
+- South Central US
 
 ## Not supported regions in public preview
 

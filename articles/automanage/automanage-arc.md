@@ -9,7 +9,6 @@ ms.topic: conceptual
 ms.date: 06/24/2021
 ---
 
-
 # Azure Automanage for Machines Best Practices - Azure Arc-enabled servers
 
 These Azure services are automatically onboarded for you when you use Automanage Machine Best Practices on an Azure Arc-enabled server VM. They are essential to our best practices white paper, which you can find in our [Cloud Adoption Framework](/azure/cloud-adoption-framework/manage/azure-server-management).

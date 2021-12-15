@@ -58,7 +58,7 @@ A user query is the question that the end user asks of the knowledge base, such 
 
 You control the response by setting properties such as [scoreThreshold](./confidence-score.md#choose-a-score-threshold), [top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers), and [strictFilters](../how-to/query-knowledge-base-with-metadata.md).
 
-Use [conversation context](../how-to/query-knowledge-base-with-metadata.md) with [multi-turn functionality](../how-to/multiturn-conversation.md) to keep the conversation going to refine the questions and answers, to find the correct and final answer.
+Use [conversation context](../how-to/query-knowledge-base-with-metadata.md) with [multi-turn functionality](../how-to/multi-turn.md) to keep the conversation going to refine the questions and answers, to find the correct and final answer.
 
 ### The response from a call to generate an answer
 

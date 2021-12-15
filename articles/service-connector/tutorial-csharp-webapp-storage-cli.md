@@ -21,10 +21,10 @@ Learn how to access Azure Storage for a web app (not a signed-in user) running o
 ## 1. Set up your initial environment
 
 1. Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-2. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.18.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
+2. Install the <a href="/cli/azure/install-azure-cli" target="_blank">Azure CLI</a> 2.30.0 or higher, with which you run commands in any shell to provision and configure Azure resources.
 
 
-Check that your Azure CLI version is 2.18.0 or higher:
+Check that your Azure CLI version is 2.30.0 or higher:
 
 ```Azure CLI
 az --version

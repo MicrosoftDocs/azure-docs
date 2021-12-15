@@ -168,27 +168,38 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
 
    1. Create an App Registration in your Azure Active Directory tenant where Power BI is located. Make sure you update `password` field with a strong password and update `app_display_name` with a non-existent application name in your Azure AD tenant where Power BI tenant is hosted.
 
-       ```powershell   
-       $SecureStringPassword = ConvertTo-SecureString -String <'password'> -AsPlainText -Force
-       $AppName = '<app_display_name>'
-       New-AzADApplication -DisplayName $AppName -Password $SecureStringPassword
-       ```
+      ```powershell   
+      $SecureStringPassword = ConvertTo-SecureString -String <'password'> -AsPlainText -Force
+      $AppName = '<app_display_name>'
+      New-AzADApplication -DisplayName $AppName -Password $SecureStringPassword
+      ```
 
    1. From Azure Active Directory dashboard, select newly created application and then select **App registration**. Assign the application the following delegated permissions and grant admin consent for the tenant:
 
-         - Power BI Service     Tenant.Read.All
-         - Microsoft Graph      openid
+      - Power BI Service     Tenant.Read.All
+      - Microsoft Graph      openid
 
-   1. From Azure Active Directory dashboard, select newly created application and then select **Authentication**. Under **Supported account types** select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**.
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-delegated-permissions.png" alt-text="Screenshot of delegated permissions for Power BI Service and Microsoft Graph.":::
 
-   1. Construct tenant-specific sign in URL for your service principal by running the following url in your web browser:
+   1. From Azure Active Directory dashboard, select newly created application and then select **Authentication**. Under **Supported account types** select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**. 
 
-     https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-multitenant.png" alt-text="Screenshot of account type support multitenant.":::
 
-    Make sure you replace the parameters with correct information:
-    <purview_tenant_id> is the Azure Active Directory tenant ID (GUID) where Azure Purview account is provisioned.
-    <client_id_to_delegate_the_pbi_admin> is the application ID corresponding to your service principal
+   1. Under **Implicit grant and hybrid flows**, ensure to select **ID tokens (used for implicit and hybrid flows)**
+    
+      :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-id-token-hybrid-flows.png" alt-text="Screenshot of ID token hybrid flows.":::
 
+   1. Construct tenant-specific sign-in URL for your service principal by running the following url in your web browser:
+
+      ```
+      https://login.microsoftonline.com/<purview_tenant_id>/oauth2/v2.0/authorize?client_id=<client_id_to_delegate_the_pbi_admin>&scope=openid&response_type=id_token&response_mode=fragment&state=1234&nonce=67890
+      ```
+    
+      Make sure you replace the parameters with correct information:
+      
+      - `<purview_tenant_id>` is the Azure Active Directory tenant ID (GUID) where Azure Purview account is provisioned.
+      - `<client_id_to_delegate_the_pbi_admin>` is the application ID corresponding to your service principal
+   
    1. Sign-in using any non-admin account. This is required to provision your service principal in the foreign tenant.
 
    1. When prompted, accept permission requested for _View your basic profile_ and _Maintain access to data you have given it access to_.
@@ -206,7 +217,12 @@ Use the following steps to register and scan one or more Power BI tenants in Azu
     $Password = '<pbi_admin_password>'
     ```
 
-1. In Azure Purview subscription, locate your Purview account and using Azure RBAC roles, assign _Purview Data Source Administrator_ to the Service Principal and the Power BI user.
+    > [!Note]
+    > If you create a user account in Azure Active Directory from the portal, the public client flow option is **No** by default. You need to toggle it to **Yes**:
+    > <br>
+    > :::image type="content" source="media/setup-power-bi-scan-catalog-portal/power-bi-public-client-flows.png" alt-text="Screenshot of public client flows.":::
+    
+1. In Azure Purview Studio, assign _Data Source Admin_ to the Service Principal and the Power BI user at the root collection. 
 
 1. To register the cross-tenant Power BI tenant as a new data source inside Azure Purview account, update `service_principal_key` and execute the following cmdlets in the PowerShell session:
 

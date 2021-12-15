@@ -1,20 +1,20 @@
 ---
 title: 'Quickstart: Deploy your first container app'
 description: Deploy your first application to Azure Container Apps Preview.
-services: app-service
+services: container-apps
 author: craigshoemaker
-ms.service: app-service
-ms.topic:  quickstart
-ms.date: 10/21/2021
+ms.service: container-apps
+ms.topic: quickstart
+ms.date: 11/02/2021
 ms.author: cshoe
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Deploy your first container app
 
 Azure Container Apps Preview enables you to run microservices and containerized applications on a serverless platform. With Container Apps, you enjoy the benefits of running containers while leaving behind the concerns of manually configuring cloud infrastructure and complex container orchestrators.
 
-In this quickstart, create a secure Container Apps environment and deploy your first container app.
+In this quickstart, you create a secure Container Apps environment and deploy your first container app.
 
 ## Prerequisites
 
@@ -32,7 +32,7 @@ az login
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az login
 ```
 
@@ -49,7 +49,7 @@ az extension add \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az extension add `
   --source https://workerappscliextension.blob.core.windows.net/azure-cli-extension/containerapp-0.2.0-py2.py3-none-any.whl 
 ```
@@ -66,30 +66,30 @@ az provider register --namespace Microsoft.Web
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az provider register --namespace Microsoft.Web
 ```
 
 ---
 
-Set the following environment variables:
+Next, set the following environment variables:
 
 # [Bash](#tab/bash)
 
 ```azurecli
-RESOURCE_GROUP="my-containerapps"
+RESOURCE_GROUP="my-container-apps"
 LOCATION="canadacentral"
-LOG_ANALYTICS_WORKSPACE="containerapps-logs"
-CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
+CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$RESOURCE_GROUP="my-containerapps"
+$RESOURCE_GROUP="my-container-apps"
 $LOCATION="canadacentral"
-$LOG_ANALYTICS_WORKSPACE="containerapps-logs"
-$CONTAINERAPPS_ENVIRONMENT="containerapps-env"
+$LOG_ANALYTICS_WORKSPACE="my-container-apps-logs"
+$CONTAINERAPPS_ENVIRONMENT="my-environment"
 ```
 
 ---
@@ -106,7 +106,7 @@ az group create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az group create `
   --name $RESOURCE_GROUP `
   --location "$LOCATION"
@@ -134,7 +134,7 @@ az monitor log-analytics workspace create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az monitor log-analytics workspace create `
   --resource-group $RESOURCE_GROUP `
   --workspace-name $LOG_ANALYTICS_WORKSPACE
@@ -185,7 +185,7 @@ az containerapp env create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp env create `
   --name $CONTAINERAPPS_ENVIRONMENT `
   --resource-group $RESOURCE_GROUP `
@@ -198,7 +198,7 @@ az containerapp env create `
 
 ## Create a container app
 
-Now that you have an environment created, you can deploy you first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
+Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
 
 # [Bash](#tab/bash)
 
@@ -215,7 +215,7 @@ az containerapp create \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az containerapp create `
   --name my-container-app `
   --resource-group $RESOURCE_GROUP `
@@ -228,7 +228,7 @@ az containerapp create `
 
 ---
 
-By setting `--ingress` to `external`, you make the container app available public requests.
+By setting `--ingress` to `external`, you make the container app available to public requests.
 
 Here, the `create` command returns the container app's fully qualified domain name. Copy this location to a web browser and you'll see the following message.
 
@@ -247,7 +247,7 @@ az group delete \
 
 # [PowerShell](#tab/powershell)
 
-```powershell
+```azurecli
 az group delete `
   --name $RESOURCE_GROUP
 ```

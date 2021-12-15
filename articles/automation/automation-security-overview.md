@@ -4,7 +4,7 @@ description: This article provides an overview of Azure Automation account authe
 keywords: automation security, secure automation; automation authentication
 services: automation
 ms.subservice: process-automation
-ms.date: 10/26/2021
+ms.date: 11/05/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -32,6 +32,9 @@ All tasks that you create against resources using Azure Resource Manager and the
 A managed identity from Azure Active Directory (Azure AD) allows your runbook to easily access other Azure AD-protected resources. The identity is managed by the Azure platform and doesn't require you to provision or rotate any secrets. For more information about managed identities in Azure AD, see [Managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md).
 
 Managed identities are the recommended way to authenticate in your runbooks, and is the default authentication method for your Automation account.
+
+> [!NOTE]
+> When you create an Automation account, the option to create a Run As account is no longer available. However, we continue to support a RunAs account for existing and new Automation accounts. You can [create a Run As account](create-run-as-account.md) in your Automation account from the Azure portal or by using PowerShell.
 
 Here are some of the benefits of using managed identities:
 
@@ -63,7 +66,7 @@ To create or renew a Run As account, permissions are needed at three levels:
 - Automation account
 
 > [!NOTE]
-> Azure Automation does not automatically create the Run As account. It has been replaced by using managed identities.
+> Azure Automation does not automatically create the Run As account, it has been replaced by using managed identities. However, we continue to support a RunAs account for existing and new Automation accounts. You can [create a Run As account](create-run-as-account.md) in your Automation account from the Azure portal or by using PowerShell.
 
 ### Subscription permissions
 

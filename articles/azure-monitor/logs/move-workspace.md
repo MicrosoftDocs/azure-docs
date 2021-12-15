@@ -4,7 +4,7 @@ description: Learn how to move your Log Analytics workspace to another subscript
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 11/12/2020 
+ms.date: 11/12/2020
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -19,7 +19,7 @@ In this article, you'll learn the steps to move Log Analytics workspace to anoth
 ## Verify Active Directory tenant
 The workspace source and destination subscriptions must exist within the same Azure Active Directory tenant. Use Azure PowerShell to verify that both subscriptions have the same tenant ID.
 
-``` PowerShell
+```powershell
 (Get-AzSubscription -SubscriptionName <your-source-subscription>).TenantId
 (Get-AzSubscription -SubscriptionName <your-destination-subscription>).TenantId
 ```
@@ -32,11 +32,11 @@ The workspace source and destination subscriptions must exist within the same Az
   - Update Management
   - Change Tracking
   - Start/Stop VMs during off-hours
-  - Azure Security Center
+  - Microsoft Defender for Cloud
 
 >[!IMPORTANT]
-> **Azure Sentinel customers**
-> - Currently, after Azure Sentinel is deployed on a workspace, moving the workspace to another resource group or subscription isn't supported. 
+> **Microsoft Sentinel customers**
+> - Currently, after Microsoft Sentinel is deployed on a workspace, moving the workspace to another resource group or subscription isn't supported. 
 > - If you have already moved the workspace, disable all active rules under **Analytics** and re-enable them after five minutes. This should be an effective solution in most cases, though, to reiterate, it is unsupported and undertaken at your own risk.
 > - It could take Azure Resource Manager a few hours to complete and solutions may be unresponsive during the operation.
 > 
@@ -65,7 +65,7 @@ Use the following procedure to remove the solutions using the Azure portal:
 
 To remove the solutions using PowerShell, use the [Remove-AzResource](/powershell/module/az.resources/remove-azresource) cmdlet as shown in the following example:
 
-``` PowerShell
+```powershell
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "ChangeTracking(<workspace-name>)" -ResourceGroupName <resource-group-name>
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Updates(<workspace-name>)" -ResourceGroupName <resource-group-name>
 Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -ResourceName "Start-Stop-VM(<workspace-name>)" -ResourceGroupName <resource-group-name>
@@ -109,7 +109,7 @@ Use the following procedure to move your workspace using the Azure portal:
 ### PowerShell
 To move your workspace using PowerShell, use the [Move-AzResource](/powershell/module/AzureRM.Resources/Move-AzureRmResource) as in the following example:
 
-``` PowerShell
+```powershell
 Move-AzResource -ResourceId "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/MyResourceGroup01/providers/Microsoft.OperationalInsights/workspaces/MyWorkspace" -DestinationSubscriptionId "00000000-0000-0000-0000-000000000000" -DestinationResourceGroupName "MyResourceGroup02"
 ```
 

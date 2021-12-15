@@ -2,9 +2,11 @@
 title: Changed and deleted blobs
 titleSuffix: Azure Cognitive Search
 description: After an initial search index build that imports from Azure Blob Storage, subsequent indexing can pick up just those blobs that are changed or deleted. This article explains the details.
-author: nitinme
-ms.author: nitinme
+
+author: gmndrg
+ms.author: gimondra
 manager: nitinme
+
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/29/2021

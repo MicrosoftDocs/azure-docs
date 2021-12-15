@@ -37,6 +37,21 @@ IoT Edge for Linux on Windows uses the following components to enable Linux and 
 
 Bi-directional communication between Windows process and the Linux virtual machine means that Windows processes can provide user interfaces or hardware proxies for workloads run in the Linux containers.
 
+
+## Prerequisites
+
+A Windows device with the following minimum requirements:
+
+* System Requirements
+   * Windows 10¹/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019¹/2022  
+   <sub>¹ Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
+
+* Hardware requirements
+  * Minimum Free Memory: 1 GB
+  * Minimum Free Disk Space: 10 GB
+
+
 ## Samples
 
 IoT Edge for Linux on Windows emphasizes interoperability between the Linux and Windows components.

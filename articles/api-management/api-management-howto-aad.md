@@ -72,7 +72,7 @@ In this article, you'll learn how to:
     * Enter a **Description**.
     * Select any option for **Expires**.
     * Choose **Add**. 
-1. Copy the client **Secret ID** before leaving the page. You will need it later. 
+1. Copy the client **Secret value** before leaving the page. You will need it later. 
 1. Under **Manage** in the side menu, select **Authentication**.
 1. Under the **Implicit grant and hybrid flows** sections, select the **ID tokens** checkbox.
 1. Switch to the browser tab with your API Management instance. 

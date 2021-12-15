@@ -48,7 +48,7 @@ For Windows Server nodes, Windows Update does not automatically run and apply th
 
 ### Are there additional security threats relevant to AKS that customers should be aware of?
 
-Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Azure Security Center](https://azure.microsoft.com/services/security-center/). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
+Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
 
 * [New large-scale campaign targets Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - June 8, 2021
 

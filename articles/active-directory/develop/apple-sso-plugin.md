@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 08/10/2021
 ms.author: brandwe
 ms.reviewer: brandwe
-ms.custom: aaddev, has-adal-ref
+ms.custom: aaddev
 ---
 
 # Microsoft Enterprise SSO plug-in for Apple devices (preview)
@@ -218,7 +218,7 @@ Use the bundle IDs to configure SSO for the apps.
 
 #### Allow users to sign in from unknown applications and the Safari browser
 
-By default, the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when a user has signed in from an app that uses a Microsoft identity platform library like MSAL or Azure Active Directory Authentication Library (ADAL). The Microsoft Enterprise SSO plug-in can also acquire a shared credential when it's called by another app that uses a Microsoft identity platform library during a new token acquisition.
+By default, the Microsoft Enterprise SSO plug-in provides SSO for authorized apps only when a user has signed in from an app that uses a Microsoft identity platform library like MSAL. The Microsoft Enterprise SSO plug-in can also acquire a shared credential when it's called by another app that uses a Microsoft identity platform library during a new token acquisition.
 
 When you enable the `browser_sso_interaction_enabled` flag, apps that don't use a Microsoft identity platform library can do the initial bootstrapping and get a shared credential. The Safari browser can also do the initial bootstrapping and get a shared credential. 
 
