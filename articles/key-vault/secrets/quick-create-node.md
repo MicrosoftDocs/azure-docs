@@ -3,7 +3,7 @@ title: Quickstart -  Azure Key Vault secret client library for JavaScript (versi
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the JavaScript client library
 author: msmbaldwin
 ms.author: mbaldwin
-ms.date: 11/29/2021
+ms.date: 12/13/2021
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -78,66 +78,31 @@ Create a Node.js application that uses your key vault.
     npm install @azure/identity
     ```
 
-## Create a Service principal
-
-Create a service principal and configure its access to Azure resources. Use a service principal instead of your own individual user account and password.
-
-1. Create the service principal with the Azure [az ad sp create-for-rbac](/cli/azure/ad/sp#az_ad_sp_create_for_rbac) command with the Azure CLI or [Cloud Shell](https://shell.azure.com). 
-
-    ```bash
-    az ad sp create-for-rbac --name YOUR-SERVICE-PRINCIPAL-NAME
-    ```
-
-2. Make note of the command response in order to set up your Azure authentication to the Azure SDK later in this quickstart:
-
-    ```json
-    {
-      "appId": "YOUR-SERVICE-PRINCIPAL-ID",
-      "displayName": "YOUR-SERVICE-PRINCIPAL-NAME",
-      "name": "http://YOUR-SERVICE-PRINCIPAL-NAME",
-      "password": "YOUR-SERVICE-PRINCIPAL-SECRET",
-      "tenant": "YOUR-TENANT-ID"
-    }
-    ```
-
 ## Grant access to your key vault
 
-Create an access policy for your key vault that grants secret permissions to your service principal with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command.
+Create an access policy for your key vault that grants secret permissions to your user account with the [az keyvault set-policy](/cli/azure/keyvault#az_keyvault_set_policy) command.
 
 ```azurecli
-az keyvault set-policy --name <your-key-vault-name> --spn <your-service-principal-id> --secret-permissions delete get list set purge
+az keyvault set-policy --name <your-key-vault-name> --upn user@domain.com --secret-permissions delete get list set purge
 ```
 
 ## Set environment variables
 
-1. Collect the following required environment variables:
+This application is using key vault name as an environment variable called `KEY_VAULT_NAME`.
 
-    |Name|Value|
-    |--|--|
-    |AZURE_TENANT_ID|From the service principal result, YOUR-TENANT-ID.|
-    |AZURE_CLIENT_ID|From the service principal result, YOUR-SERVICE-PRINCIPAL-ID|
-    |AZURE_CLIENT_SECRET|From the service principal result, YOUR-SERVICE-PRINCIPAL-SECRET|
-    |KEYVAULT_URI|https://YOUR-KEY-VAULT-NAME.vault.azure.net/|
+Windows
+```cmd
+set KEY_VAULT_NAME=<your-key-vault-name>
+````
+Windows PowerShell
+```powershell
+$Env:KEY_VAULT_NAME="<your-key-vault-name>"
+```
 
-1. Select your command and run it four times, once for each of the keys and settings in the previous table. 
-
-    # [Windows](#tab/env-windows)
-    
-    ```cmd
-    set name=value
-    ```
-    # [Windows PowerShell](#tab/env-windows-powershell)
-    
-    ```powershell
-    $Env:name="value"
-    ```
-    # [macOS or Linux](#tab/env-mac-linux)
-    
-    ```cmd
-    export name=value
-    ```
-    
-    ---
+macOS or Linux
+```cmd
+export KEY_VAULT_NAME=<your-key-vault-name>
+```
 
 ## Code example
 
@@ -160,7 +125,8 @@ The code samples below will show you how to create a client, set a secret, retri
       // - AZURE_CLIENT_SECRET: The client secret for the registered application
       const credential = new DefaultAzureCredential();
     
-      const url = process.env["KEYVAULT_URI"] || "<keyvault-url>";
+      const keyVaultName = process.env["KEY_VAULT_NAME"];
+      const url = "https://" + keyVaultName + ".vault.azure.net";
     
       const client = new SecretClient(url, credential);
     

@@ -3,7 +3,7 @@ title: Azure SQL bindings for Functions
 description: Understand how to use Azure SQL bindings in Azure Functions.
 author: dzsquared
 ms.topic: reference
-ms.date: 11/12/2021
+ms.date: 12/15/2021
 ms.author: drskwier
 ms.reviewer: cachai
 ---
@@ -55,3 +55,4 @@ The Azure SQL bindings for Azure Functions are open source and available on the 
 
 - [Read data from a database (Input binding)](./functions-bindings-azure-sql-input.md)
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
+- [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
