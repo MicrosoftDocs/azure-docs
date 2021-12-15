@@ -71,7 +71,7 @@ If you enable ML Assisted labeling in a labeling project, Microsoft will charge 
 
 ## Enable access
 
-In order for the vendor labeling company to have access into your projects, you'll enable access to them via [Azure Role Based Access (RBAC) ](how-to-assign-roles.md#manage-workspace-access) at the workspace level.  If you are planning to use multiple vendor labeling companies for different labeling projects, we recommend you create separate workspaces for each company.
+In order for the vendor labeling company to have access into your projects, you'll next [add them as labelers to your project](how-to-add-users.md).  If you are planning to use multiple vendor labeling companies for different labeling projects, we recommend you create separate workspaces for each company.
 
 > [!IMPORTANT]
 > You, and not Microsoft, are responsible for all aspects of your engagement with a labeling company, including but not limited to issues relating to scope, quality, schedule, and pricing.
@@ -80,3 +80,4 @@ In order for the vendor labeling company to have access into your projects, you'
 
 * [Create an image labeling project and export labels](how-to-create-image-labeling-projects.md)
 * [Create a text labeling project and export labels (preview)](how-to-create-text-labeling-projects.md)
+* [Add users to your data labeling project](how-to-add-users.md)

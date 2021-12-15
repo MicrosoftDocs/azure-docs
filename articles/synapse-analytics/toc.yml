@@ -550,6 +550,8 @@ items:
         href: ./sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?context=/azure/synapse-analytics/context/context
       - name: Continuous integration and deployment
         href: ./sql-data-warehouse/sql-data-warehouse-continuous-integration-and-deployment.md?context=/azure/synapse-analytics/context/context
+      - name: Deploy linked ARM templates with VSTS
+        href: ../data-factory/deploy-linked-arm-templates-with-vsts.md
     - name: Query external data
       items:
       - name: Overview

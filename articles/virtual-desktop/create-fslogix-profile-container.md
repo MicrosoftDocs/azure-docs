@@ -115,7 +115,7 @@ After that, you need to join an Active Directory connection.
       
       ![A screenshot of the Join Active Directory connections menu for username and password.](media/active-directory-connections-credentials.png)
 
-    - For additional parameters descriptions, please refer to [this](https://docs.microsoft.com/azure/azure-netapp-files/create-active-directory-connections#create-an-active-directory-connection) article. 
+    - For additional parameters descriptions, please refer to [this](../azure-netapp-files/create-active-directory-connections.md#create-an-active-directory-connection) article. 
     - Click **Join**, the Active Directory connection you created appears.
     
       ![A screenshot of Active Directory connection screen after joining.](media/active-directory-connections-show.png)
