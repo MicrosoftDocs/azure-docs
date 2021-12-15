@@ -37,7 +37,7 @@ Azure offers a range of approved Linux distributions. For a current list, see [L
 4. Select the image from the dropdown list or select **See all images** to search or browse all available virtual machine images. You can also configure the VM generation of your image depending on the image you select.
 5. Select the size of the VM to deploy.
 6. Provide the other required details to create the VM.
-8. Select **Review + create** to review your choices. When the **Validation passed** message appears, select  **Create**.
+7. Select **Review + create** to review your choices. When the **Validation passed** message appears, select  **Create**.
 
 Azure begins provisioning the virtual machine you specified. Track its progress by selecting the **Virtual Machines** tab in the left menu. After it's created, the status of Virtual Machine changes to **Running**.
 
@@ -57,7 +57,7 @@ Refer to the following documentation to connect to your [Windows](../virtual-mac
 
 [!INCLUDE [Discussion of addition security checks](includes/additional-security-checks.md)]
 
-## Customize your VM image
+### Customize your VM image
 
 Now, install the necessary software and make any custom configuration changes on your VM for your solution to work properly, including any scheduled tasks that need to run after deployment. Consider the following when making your custom changes:
 
@@ -124,8 +124,8 @@ If you only have read access to the subscription, use one of the following two o
 Steps for the owner to grant owner permission:
 
 1. Go to the Azure Compute Gallery.
-2. Select **Access control** (IAM) on the left panel.
-3. Select **Add**, then **Add role assignment**.<br>
+1. Select **Access control** (IAM) on the left panel.
+1. Select **Add**, then **Add role assignment**.<br>
     :::image type="content" source="media/create-vm/add-role-assignment.png" alt-text="The add role assignment window is shown.":::
 1. For **Role**, select **Owner**.
 1. For **Assign access to**, select **User, group, or service principal**.
