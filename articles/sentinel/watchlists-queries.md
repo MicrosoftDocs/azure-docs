@@ -32,7 +32,9 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
 
     The timestamp on your queries will be ignored in both the query UI and in scheduled alerts.
 
-1. Write a query that uses the _GetWatchlist('watchlist-name') function and uses **SearchKey** as the key for your join. For example, the following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named mywatchlist.
+1. Write a query that uses the _GetWatchlist('watchlist-name') function and uses **SearchKey** as the key for your join. 
+
+   For example, the following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named mywatchlist.
 
     ```kusto
     Heartbeat
@@ -44,7 +46,7 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
  
     :::image type="content" source="./media/watchlists/sentinel-watchlist-queries-join.png" alt-text="Screenshot of queries against watchlist as lookup" lightbox="./media/watchlists/sentinel-watchlist-queries-join.png":::
 
-## Create analytics rules with watchlists
+## Create an analytics rule with a watchlist
 
 To use watchlists in analytics rules, create a rule using the _GetWatchlist('watchlist-name') function in the query.
 
@@ -53,7 +55,8 @@ To use watchlists in analytics rules,
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Analytics**.
 1. Select **Create** and the type of rule you want to create.
-1. In the **Set rule logic** tab, under **Rule query** use the `_GetWatchlist('<watchlist>')` function in the query.
+1. On the **General**, enter the appropriate information.
+1. On the **Set rule logic** tab, under **Rule query** use the `_GetWatchlist('<watchlist>')` function in the query.
 
    For example, let's say you have a watchlist named “ipwatchlist”  that you created from a CSV file with the following values:
 
@@ -71,7 +74,7 @@ To use watchlists in analytics rules,
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-new-other.png" alt-text="Screenshot that shows the query returns the four items from the watchlist.":::
 
-1. Next, create the analytics rule.  In this example, we only include events from IP addresses in the watchlist:
+    In this example, we only include events from IP addresses in the watchlist:
 
     ```kusto
     //Watchlist as a variable
@@ -79,6 +82,8 @@ To use watchlists in analytics rules,
     Heartbeat
     | where ComputerIP in (watchlist)
     ```
+
+    The following example query uses the watchlist inline with the query and the search key defined for the watchlist.
 
     ```kusto
     //Watchlist inline with the query
@@ -90,7 +95,13 @@ To use watchlists in analytics rules,
     )
     ```
 
+    The following image shows this last query used in the rule query.
+
     :::image type="content" source="./media/watchlists/sentinel-watchlist-analytics-rule.png" alt-text="use watchlists in analytics rules":::
+
+1. Complete the rest of the tabs in the **Analytics rule wizard**.
+
+For more information, see [Create custom analytics rules to detect threats](detect-threats-custom.md).
 
 ## View list of watchlist aliases
 
