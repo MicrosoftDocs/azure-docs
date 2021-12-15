@@ -15,7 +15,7 @@ ms.author: micraft
 > Support for managed data disks is only in preview right now and should not be used with production workloads.
 
 
-Azure Service Fabric node types, by default, use the temporary disk on each virtual machine (VM) in the underlying virtual machine scale set for data storage. However, because the temporary disk is not persistent, and the size of the temporary disk is bound to a given VM SKU, this can be too restrictive for some scenarios. Azure managed data disks have a persistent data disk for which customers can specify the node-type size and performance that is separate from the VM SKU, making managed data disks possibly more suitable for some scenarios.
+Azure Service Fabric node types, by default, use the temporary disk on each virtual machine (VM) in the underlying virtual machine scale set for data storage. However, because the temporary disk is not persistent, and the size of the temporary disk is bound to a given VM SKU, this can be too restrictive for some scenarios. 
 
 This article provides the steps for how to use native support from Service Fabric to configure and use managed data disks as the default data path. Service Fabric will automatically configure managed data disks at node type creation and handle situations where VMs or the virtual machine scale set is reimaged.
 
@@ -85,7 +85,15 @@ Service Fabric Extension Azure Resource Manager template
 
 ## Migrate to using managed data disks for Service Fabric node types
 
-For all migration scenarios, you need to add a new node type that uses managed data disks as specified earlier. When the new node types are added, you can migrate the workloads to them. After the workload resources have finished deploying to the new node types, you can begin to disable the nodes you want to remove from the original cluster.
+For all migration scenarios:
+
+1. Add a new node type that is configured to use managed data disks as specified earlier.
+
+1. Migrate any required workload(s) to the new node type.
+
+1. Disable and remove the old node type from the cluster.
+
+
 
 
 
