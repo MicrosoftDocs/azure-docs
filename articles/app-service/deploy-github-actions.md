@@ -57,7 +57,7 @@ You can also deploy a workflow without using the Deployment Center. To do so, yo
 
 ## Generate deployment credentials
 
-The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal but the process requires more steps. 
+The recommended way to authenticate with Azure App Services for GitHub Actions is with a publish profile. You can also authenticate with a service principal or Open ID Connect but the process requires more steps. 
 
 Save your publish profile credential or service principal as a [GitHub secret](https://docs.github.com/en/actions/reference/encrypted-secrets) to authenticate with Azure. You'll access the secret within your workflow. 
 
