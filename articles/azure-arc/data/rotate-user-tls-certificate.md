@@ -1,6 +1,6 @@
 ---
-title: Rotate user provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
-description: Rotate user provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
+title: Rotate hyphenate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
+description: Rotate hyphenate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Rotate certificate Azure Arc-enabled SQL Managed Instance (indirectly connected)
 
-This article describes how to rotate user provided Transport Layer Security(TLS) certificate for Azure Arc-enabled SQL Managed Instances in indirectly connected mode using Azure CLI or `kubectl` commands.  
+This article describes how to rotate hyphenate user-provided Transport Layer Security(TLS) certificate for Azure Arc-enabled SQL Managed Instances in indirectly connected mode using Azure CLI or `kubectl` commands.  
 
 Examples in this article use OpenSSL. [OpenSSL](https://www.openssl.org/) is an open-source command-line toolkit for general-purpose cryptography and secure communication.
 
@@ -36,12 +36,23 @@ Run the following command to check the required SANs:
 ```console
 openssl req -noout -text -in <cert-name>
 ```
+The following is an example to use this command : 
 
-The command returns: 
+```console
+$openssl x509 -in /var/run/secrets/managed/certificates/mssql/mssql-certificate.pem -text
+```
+
+The command returns the following output : 
 
 ```output
 X509v3 Subject Alternative Name:
 DNS:<SQLMI name>-svc, DNS:<SQLMI name>-svc.<namespace>.svc.cluster.local, DNS:<SQLMI name>-svc.<namespace>.svc
+```
+
+An exemplary output is as the following : 
+```output
+X509v3 Subject Alternative Name:
+DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
 ```
 
 ## Create Kubernetes secret yaml specification for your service certificate
@@ -51,6 +62,17 @@ DNS:<SQLMI name>-svc, DNS:<SQLMI name>-svc.<namespace>.svc.cluster.local, DNS:<S
    ```console
    base64 /<path>/<file> > cert.txt 
    ```
+
+For Windows users, use [certutil](./windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command : 
+
+   ```console
+   $certutil -encode -f input.txt b64-encoded.txt
+  ```
+
+You will need to remove the header in the output file using 
+  ```console
+  $findstr /v CERTIFICATE b64-encoded.txt> updated-b64.txt 
+  ```
 
 1. Add the base64 encoded cert and private key to the yaml specification file to create a Kubernetes secret:
 
@@ -82,7 +104,7 @@ az sql mi-arc update -n mysqlmi -k <arc> --use-k8s --service-cert-secret mymi-ce
 Use the following command to rotate the certificate with the PEM formatted certificate public and private keys. The command generates a default service certificate name. 
 
 ```console
-az sql mi-arc update -n <managed instance name> -k arc --use-k8s --cert-public-key-file <path-to-my-cert-public-key> --cert-private-key-file <path-to-my-cert-private-key> 
+az sql mi-arc update -n <managed instance name> -k arc --use-k8s --cert-public-key-file <path-to-my-cert-public-key> --cert-private-key-file <path-to-my-cert-private-key> --k8s-namespace <your-k8s-namespace>
 ```
 
 For example:
@@ -103,7 +125,7 @@ For example:
 az sql mi-arc update -n mysqlmi -k arc --use-k8s --cert-public-key-file ./mi1-1-cert --cert-private-key-file ./mi1-1-pvt --service-cert-secret mi1-12-1-cert-secret
 ```
 
-## Rotate the certificate with `kubectl`
+## Rotate the certificate with `kubectl` command
 
 Once you created the Kubernetes secret, you can bind it to the SQL Managed Instance yaml definition `security` section where `serviceCertificateSecret` located as follows: 
 
@@ -141,6 +163,12 @@ spec:
       volumes:
       - size: 5Gi
   tier: GeneralPurpose
+```
+
+You can use the following kubectl command to apply this setting : 
+
+```console
+   kubectl apply -f <my-sql-mi-yaml-file>
 ```
 
 ## Next steps
