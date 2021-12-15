@@ -44,6 +44,8 @@ You can specify these certificates when you deploy the data controller. This art
 
 ## Specify during Kubernetes native tools deployment
 
+Make sure the services are listed as subject alternative names (SANs) and the certificate usage parameters are correct. 
+
 1. Before you deploy the data controller, provide the certificates and private keys. Create a `logsui-certificiate-secret` and a `metricsui-certificate-secret`.
 1. Verify each secret has the following fields:
    - `certificate.pem` containing the base64 encoded certificate

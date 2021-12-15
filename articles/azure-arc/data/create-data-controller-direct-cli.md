@@ -219,7 +219,7 @@ az arcdata dc create --name <name> --resource-group <resourcegroup> --location <
 az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --auto-upload-metrics true --custom-location mycustomlocation
 ```
 
-Beginning with the December, 2021 release, you can specify certificates for logs and UI dashboards. See [Provide certificates for monitoring](monitor-certificates.md) for examples.
+Optionally, you can specify certificates for logs and metrics UI dashboards. See [Provide certificates for monitoring](monitor-certificates.md) for examples. The December, 2021 release introduces this option.
 
 ## Monitor the status of Azure Arc data controller deployment
 
