@@ -7,47 +7,80 @@ author: aahill
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: reference
-ms.date: 09/17/2021
+ms.date: 12/15/2021
 ms.author: aahi
 ---
 
 # Use Docker containers in disconnected environments
 
 Containers enable you to run Cognitive Services APIs in your own environment, and are great for your specific security and data governance requirements. Disconnected containers enable you to use several of these APIs completely disconnected from the internet. Currently, the following containers can be run in this manner:
-* Speech containers
-* Text Analytics containers
-* TBD 
+
+* Speech to Text (Standard)
+* Text to Speech (Neural)
+* Language Understanding standard (Text Requests)
+* Azure Cognitive Service for Language
+    * Sentiment Analysis
+    * Key Phrase Extraction
+    * Language Detection
+* Computer Vision - Read
+
+Commitment tier pricing is also available for the following Applied AI service container:
+* Form Recognizer – Custom/Invoice
 
 
 ## Request access to use containers in disconnected environments
 
-> [!IMPORTANT]
-> * On the form, you must use an email address associated with an Azure subscription ID.
-> * The Azure resource (billing endpoint and apikey) you use to run the container must have been created with the approved Azure subscription ID. 
-> * Check your email (both inbox and junk folders) for updates on the status of your application from Microsoft.
+Fill out and submit the [request form](https://aka.ms/csgate) to request access to the containers disconnected from the internet.
 
-Fill out and submit the [Cognitive Services request form](https://aka.ms/csgate) to request access to use containers disconnected from the internet.
+[!INCLUDE [Request access to public preview](../../../includes/cognitive-services-containers-request-access.md)]
 
-The form requests information about you, your company, and the user scenario for which you'll use the container. After you've submitted the form, the Azure Cognitive Services team reviews it to ensure that you meet the criteria for usage.
 
-## Sign up for commitment tiers
+## Purchase a commitment plan to use containers in disconnected environments
 
-To use a container in a disconnected environment, you will need to sign up for a pricing plan that offers a set amount of service for a specified amount of time. To sign up for a commitment tier:
+To use a container in a disconnected environment, you will need to sign up for a pricing plan that allows you to run select containers in disconnected environments, for a specified amount of time. See [Quickstart: Purchase commitment tier pricing](../commitment-tier.md) for more information.
 
-1. Sign on to the [Azure portal](https://portal.azure.com/).
-2. TBD 
-3. TBD
+> [!CAUTION]
+> When purchasing a commitment plan, make sure you're purchasing a plan for disconnected containers.
 
-## Use `docker run` to download the license file
+## Familiarize yourself with the Docker container you want to run
 
-> [!TIP]
-> Make sure you know the requirements for your host computer, and the `docker pull` command for the docker container you want to use. See the following articles for more information
-> * [Speech containers](../speech-service/speech-container-howto.md) 
-> * [Text Analytics containers](../text-analytics/how-tos/text-analytics-how-to-install-containers.md)
-> * TBD
+Before running a Docker container in a disconnected environment, make sure you know the steps to successfully download and use the container. For example:
+* The host computer requirements and recommendations.
+* The Docker `pull` command you will use to download the container.
+* Validate that a container is running.
+* Send queries to the container's endpoint, once it's running.
 
-After you've signed up for a commitment tier, you'll be able to download a license file using a `docker run` command. This file will let you run the container offline.
+See the following articles for more information
+* [Speech to Text container (Standard)](../speech-service/speech-container-howto.md?tabs=stt)
+* [Text to Speech container (Neural)](../speech-service/speech-container-howto.md?tabs=ntts)
+* [Language Understanding standard container (Text Requests)](../luis/luis-container-howto.md)
+* Azure Cognitive Service for Language
+    * [Sentiment Analysis container](../language-service/sentiment-opinion-mining/how-to/use-containers.md)
+    * [Key Phrase Extraction container](../language-service/key-phrase-extraction/how-to/use-containers.md)
+    * [Language Detection container](../language-service/language-detection/how-to/use-containers.md)
+* [Computer Vision - Read container](../computer-vision/computer-vision-how-to-install-containers.md)
+* [Form Recognizer – Custom/Invoice container](../../applied-ai-services/form-recognizer/containers/form-recognizer-container-install-run.md)
 
+## Download a license file 
+
+After you have been approved and purchased a commitment plan for disconnected containers, you will need to download a license file that will enable your Docker container to run when it isn't connected to the internet. To get your license file:
+
+1. Log in to the [Azure portal](https://portal.azure.com/), and navigate to the Azure resource you purchased a commitment plan for.
+1. in the left navigation menu, select TBD to download your license file. 
+1. The license file will be named `license.dat`. Place this file in a memorable location on your computer.
+
+
+## Download a Docker container with `docker pull`
+
+After you have a license file, download the Docker container you have approval to run in a disconnected environment. For example:
+
+```Docker
+docker pull mcr.microsoft.com/azure-cognitive-services/speechservices/speech-to-text:latest
+```
+
+## Configure the container to be run in a disconnected environment.
+
+Now that you've downloaded a container and license file, you can run the container in a disconnected environment. 
 The following example shows the formatting of the `docker run` command you'll use, with placeholder values. Replace these placeholder values with your own values.
 
 | Placeholder | Value | Format or example |
@@ -60,11 +93,15 @@ The following example shows the formatting of the `docker run` command you'll us
 
 ```bash
 docker run -v {LICENSE_MOUNT} {IMAGE} \
-eula=accept billing={ENDPOINT_URI} \
+eula=accept \
+billing={ENDPOINT_URI} \
 apikey={API_KEY} \
 DownloadLicense=True \
 Mounts:License={LICENSE_LOCATION}
 ```
+
+> [!TIP]
+> If your container requires additional encrypted models, they should be downloaded by running the container with the `DownloadModel=True` flag.
 
 Wherever the container is run, the license file must be mounted to the container and the location of the license folder on the container's local filesystem must be specified with the `LicenseFolderKey` parameter 
 
@@ -84,5 +121,4 @@ If you run the container with an output mount and logging enabled, the container
 
 ## Next steps
 
-* link 1
-* link 2
+[Azure Cognitive Services containers overview](../cognitive-services-container-support.md)
