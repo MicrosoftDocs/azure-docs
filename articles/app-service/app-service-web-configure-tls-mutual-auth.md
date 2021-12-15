@@ -78,6 +78,9 @@ public class Startup
         {
             options.ForwardedHeaders =
                 ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            // Only loopback proxies are allowed by default. Clear that restriction to enable this explicit configuration.
+            options.KnownNetworks.Clear();
+            options.KnownProxies.Clear();
         });       
         
         // Configure the application to client certificate forwarded the frontend load balancer

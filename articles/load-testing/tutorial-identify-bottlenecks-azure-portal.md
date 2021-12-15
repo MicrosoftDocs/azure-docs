@@ -114,7 +114,7 @@ In this section, you'll update the Apache JMeter script with the URL of the samp
 1. Replace the value with the URL of the newly deployed sample application:
 
    ```xml
-   <stringProp name="HTTPSampler.domain">yourappname.azurewebsites.net</stringProp>
+   <stringProp name="HTTPSampler.domain">your-app-name.azurewebsites.net</stringProp>
    ```
 
    Update the value in all three places. Don't include the `https://` prefix.  
@@ -168,6 +168,9 @@ To create a load test in the Load Testing resource for the sample app:
 1. Select **Review + create**, review all settings, and select **Create**.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
+
+> [!NOTE]
+> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
 
 ## Run the load test in the Azure portal
 

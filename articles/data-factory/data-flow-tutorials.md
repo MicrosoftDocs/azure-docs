@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: tutorial
-ms.date: 12/01/2021
+ms.date: 12/13/2021
 ---
 
 # Mapping data flow video tutorials
@@ -80,6 +80,12 @@ As updates are constantly made to the product, some features have added or diffe
 [Dynamic Joins and Dynamic Lookups](https://youtu.be/CMOPPie9bXM)
 
 [Flatten transformation](https://youtu.be/VY2tFQJoAXE)
+
+[Flowlets](https://www.youtube.com/watch?v=bVdeBFiiJNQ)
+ 
+[Stringify transformation](https://www.youtube.com/watch?v=1X4sRHf5W2U)
+
+[External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
 
 [Transform hierarchical data](https://youtu.be/oAEh21NFgWQ)
 
