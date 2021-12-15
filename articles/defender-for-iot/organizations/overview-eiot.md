@@ -2,7 +2,7 @@
 title: Overview for EIoT networks
 description: Learn more about Microsoft Defender for IoT features and services, and understand how Microsoft Defender for IoT provides comprehensive IoT security for EIoT networks.
 ms.topic: overview
-ms.date: 12/12/2021
+ms.date: 12/15/2021
 ---
 
 # Enterprise IoT network protection
