@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 10/04/2021
+ms.date: 12/09/2021
 ms.author: b-hchen
 ---
 # Create an SMB volume for Azure NetApp Files
@@ -97,25 +97,10 @@ Before creating an SMB volume, you need to create an Active Directory connection
         - The length must not exceed 80 characters.   
         
     * <a name="smb3-encryption"></a>If you want to enable encryption for SMB3, select **Enable SMB3 Protocol Encryption**.   
-        This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.  
+
+        This feature enables encryption for in-flight SMB3 data. SMB clients not using SMB3 encryption will not be able to access this volume.  Data at rest is encrypted regardless of this setting.   
         See [SMB encryption](azure-netapp-files-smb-performance.md#smb-encryption) for additional information. 
 
-        The **SMB3 Protocol Encryption** feature is currently in preview. If this is your first time using this feature, register the feature before using it: 
-
-        ```azurepowershell-interactive
-        Register-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
-        ```
-
-        Check the status of the feature registration: 
-
-        > [!NOTE]
-        > The **RegistrationState** may be in the `Registering` state for up to 60 minutes before changing to`Registered`. Wait until the status is `Registered` before continuing.
-
-        ```azurepowershell-interactive
-        Get-AzProviderFeature -ProviderNamespace Microsoft.NetApp -FeatureName ANFSMBEncryption
-        ```
-        
-        You can also use [Azure CLI commands](/cli/azure/feature?preserve-view=true&view=azure-cli-latest) `az feature register` and `az feature show` to register the feature and display the registration status.  
     * <a name="continuous-availability"></a>If you want to enable Continuous Availability for the SMB volume, select **Enable Continuous Availability**.    
 
         > [!IMPORTANT]   

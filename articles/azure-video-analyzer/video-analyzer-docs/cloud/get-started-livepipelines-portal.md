@@ -1,10 +1,10 @@
 ---
-title: Get started with Azure Video Analyzer live pipelines - Azure portal
+title: Get started with live pipelines using the portal
 description: This quickstart walks you through the steps to capture and record video from an RTSP camera using live pipelines in Azure Video Analyzer service.
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 12/07/2021
-ms.custom: ignite-fall-2021, mode-portal
+ms.custom: ignite-fall-2021, mode-ui
 ---
 
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal

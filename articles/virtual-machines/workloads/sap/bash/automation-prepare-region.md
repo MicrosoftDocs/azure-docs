@@ -51,18 +51,18 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 az logout
 az login
 
-export subscriptionID=<subscriptionID>
+export subscriptionId=<subscriptionID>
 export appId=<appID>
-export spn_secret="<password>"
-export tenant_id=<tenant>
+export spnSecret="<password>"
+export tenantId=<tenantID>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
         --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
         --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
-        --subscription $subscriptionID                                                                           \
-        --spn_id $appID                                                                                          \
-        --spn_secret $spn_secret                                                                                 \ 
-        --tenant_id $tenant_id
+        --subscription $subscriptionId                                                                           \
+        --spn_id $appId                                                                                          \
+        --spn_secret $spnSecret                                                                                  \
+        --tenant_id $tenantId
 ```
 
 ## Parameters
@@ -97,7 +97,7 @@ Aliases: `-s`
 Required: False
 ```
 
-### `-spn_id`
+### `--spn_id`
 Sets the service principal's app ID. For more information, see [Prepare the deployment credentials](../automation-deploy-control-plane.md#prepare-the-deployment-credentials).
 
 ```yaml
@@ -129,7 +129,7 @@ Required: False
 
 
 ### `--storageaccountname`
-Sets the name of the storage account that contains the Terraform state files.
+Sets the name of the storage account that contains the Terraform state files.  
 
 ```yaml
 Type: String
@@ -158,6 +158,16 @@ Aliases: `-i`
 Required: False
 ```
 
+### `--recover`
+Recreates the local configuration files.
+
+```yaml
+Type: SwitchParameter
+Aliases: `-h`
+
+Required: False
+```
+
 ### `--help`
 Shows help for the script.
 
@@ -167,6 +177,7 @@ Aliases: `-h`
 
 Required: False
 ```
+
 
 ## Notes
 v0.9 - Initial version

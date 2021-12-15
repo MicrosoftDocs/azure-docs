@@ -2,7 +2,7 @@
 title: Microsoft Defender for Cloud's features according to OS, machine type, and cloud
 description: Learn about the availability of Microsoft Defender for Cloud features according to OS, machine type, and cloud deployment.
 ms.topic: overview
-ms.date: 11/24/2021
+ms.date: 12/14/2021
 ms.custom: references_regions
 ---
 
@@ -93,46 +93,48 @@ For information about when recommendations are generated for each of these solut
 
 ## Feature support in government and national clouds
 
-| Feature/Service                                                                                                                                           | Azure          | Azure Government               | Azure China 21Vianet   |
-|-----------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|---------------|
-| **Defender for Cloud free features**                                                                                                                         |                |                                |               |
-| - [Continuous export](./continuous-export.md)                                                                                                             | GA             | GA                             | GA            |
-| - [Workflow automation](./workflow-automation.md)                                                                                                           | GA             | GA                             | GA            |
-| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                  | Public Preview | Not Available                  | Not Available |
-| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                | GA             | GA                             | GA            |
-| - [Email notifications for security alerts](./configure-email-notifications.md)                                                        | GA             | GA                             | GA            |
-| - [Auto provisioning for agents and extensions](./enable-data-collection.md)                                                              | GA             | GA                             | GA            |
-| - [Asset inventory](./asset-inventory.md)                                                                                                                 | GA             | GA                             | GA            |
-| - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                                  | GA             | GA                             | GA            |
-| **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |               |
-| - [Microsoft Defender for servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA            |
-| - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available |
-| - [Microsoft Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA            |
+| Feature/Service                                                                                                                                               | Azure          | Azure Government               | Azure China 21Vianet           |
+|---------------------------------------------------------------------------------------------------------------------------------------------------------------|----------------|--------------------------------|--------------------------------|
+| **Defender for Cloud free features**                                                                                                                          |                |                                |                                |
+| - [Continuous export](./continuous-export.md)                                                                                                                 | GA             | GA                             | GA                             |
+| - [Workflow automation](./workflow-automation.md)                                                                                                             | GA             | GA                             | GA                             |
+| - [Recommendation exemption rules](./exempt-resource.md)                                                                                                      | Public Preview | Not Available                  | Not Available                  |
+| - [Alert suppression rules](./alerts-suppression-rules.md)                                                                                                    | GA             | GA                             | GA                             |
+| - [Email notifications for security alerts](./configure-email-notifications.md)                                                                               | GA             | GA                             | GA                             |
+| - [Auto provisioning for agents and extensions](./enable-data-collection.md)                                                                                  | GA             | GA                             | GA                             |
+| - [Asset inventory](./asset-inventory.md)                                                                                                                     | GA             | GA                             | GA                             |
+| - [Azure Monitor Workbooks reports in Microsoft Defender for Cloud's workbooks gallery](./custom-dashboards-azure-workbooks.md)                               | GA             | GA                             | GA                             |
+| - [Integration with Microsoft Defender for Cloud Apps](./other-threat-protections.md#display-recommendations-in-microsoft-defender-for-cloud-apps-)                | GA             | Not Available                  | Not Available                  |
+| **Microsoft Defender plans and extensions**                                                                                                                   |                |                                |                                |
+| - [Microsoft Defender for servers](./defender-for-servers-introduction.md)                                                                                    | GA             | GA                             | GA                             |
+| - [Microsoft Defender for App Service](./defender-for-app-service-introduction.md)                                                                            | GA             | Not Available                  | Not Available                  |
+| - [Microsoft Defender for DNS](./defender-for-dns-introduction.md)                                                                                            | GA             | GA                             | GA                             |
 | - [Microsoft Defender for container registries](./defender-for-container-registries-introduction.md) <sup>[1](#footnote1)</sup>                               | GA             | GA  <sup>[2](#footnote2)</sup> | GA  <sup>[2](#footnote2)</sup> |
-| - [Microsoft Defender for container registries scanning of images in CI/CD workflows](./defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available |
-| - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA            |
-| - [Defender extension for Azure Arc-enabled Kubernetes clusters](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup>                 | Public Preview | Not Available                  | Not Available |
+| - [Microsoft Defender for container registries scanning of images in CI/CD workflows](./defender-for-container-registries-cicd.md) <sup>[3](#footnote3)</sup> | Public Preview | Not Available                  | Not Available                  |
+| - [Microsoft Defender for Kubernetes](./defender-for-kubernetes-introduction.md) <sup>[4](#footnote4)</sup>                                                   | GA             | GA                             | GA                             |
+| - [Microsoft Defender for Containers](./defender-for-containers-introduction.md) <sup>[10](#footnote4)</sup>                                                  | GA             | GA                             | GA                             |
+| - [Defender extension for Azure Arc-enabled Kubernetes clusters, servers or data services](./defender-for-kubernetes-azure-arc.md) <sup>[5](#footnote5)</sup> | Public Preview | Not Available                  | Not Available                  |
 | - [Microsoft Defender for Azure SQL database servers](./defender-for-sql-introduction.md)                                                                     | GA             | GA                             | GA  <sup>[9](#footnote9)</sup> |
-| - [Microsoft Defender for SQL servers on machines](./defender-for-sql-introduction.md)                                                                        | GA             | GA                             | Not Available |
-| - [Microsoft Defender for open-source relational databases](./defender-for-databases-introduction.md)                                                         | GA             | Not Available                  | Not Available |
-| - [Microsoft Defender for Key Vault](./defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  | Not Available |
-| - [Microsoft Defender for Resource Manager](./defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             | GA            |
-| - [Microsoft Defender for Storage](./defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             | Not Available |
-| - [Threat protection for Cosmos DB](./other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                          | Public Preview | Not Available                  | Not Available |
-| - [Kubernetes workload protection](./kubernetes-workload-protections.md)                                                                                  | GA             | GA                             | GA            |
-| - [Bi-directional alert synchronization with Sentinel](../sentinel/connect-azure-security-center.md)                                                      | Public Preview | Not Available                  | Not Available |
-| **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                        |                |                                |               |
-| - [Just-in-time VM access](./just-in-time-access-usage.md)                                                                                             | GA             | GA                             | GA            |
-| - [File integrity monitoring](./file-integrity-monitoring-overview.md)                                                                             | GA             | GA                             | GA            |
-| - [Adaptive application controls](./adaptive-application-controls.md)                                                                              | GA             | GA                             | GA            |
-| - [Adaptive network hardening](./adaptive-network-hardening.md)                                                                           | GA             | Not Available                  | Not Available |
-| - [Docker host hardening](./harden-docker-hosts.md)                                                                                                       | GA             | GA                             | GA            |
-| - [Integrated Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md)                                                             | GA             | Not Available                  | Not Available |
-| - [Regulatory compliance dashboard & reports](./regulatory-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                       | GA             | GA                             | GA            |
-| - [Microsoft Defender for Endpoint deployment and integrated license](./integration-defender-for-endpoint.md)                                                         | GA             | GA                             | Not Available |
-| - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                      | GA             | Not Available                  | Not Available |
-| - [Connect GCP account](./quickstart-onboard-gcp.md)                                                                                                      | GA             | Not Available                  | Not Available |
-|                                                                                                                                                           |                |                                |               |
+| - [Microsoft Defender for SQL servers on machines](./defender-for-sql-introduction.md)                                                                        | GA             | GA                             | Not Available                  |
+| - [Microsoft Defender for open-source relational databases](./defender-for-databases-introduction.md)                                                         | GA             | Not Available                  | Not Available                  |
+| - [Microsoft Defender for Key Vault](./defender-for-key-vault-introduction.md)                                                                                | GA             | Not Available                  | Not Available                  |
+| - [Microsoft Defender for Resource Manager](./defender-for-resource-manager-introduction.md)                                                                  | GA             | GA                             | GA                             |
+| - [Microsoft Defender for Storage](./defender-for-storage-introduction.md) <sup>[6](#footnote6)</sup>                                                         | GA             | GA                             | Not Available                  |
+| - [Threat protection for Cosmos DB](./other-threat-protections.md#threat-protection-for-azure-cosmos-db-preview)                                              | Public Preview | Not Available                  | Not Available                  |
+| - [Kubernetes workload protection](./kubernetes-workload-protections.md)                                                                                      | GA             | GA                             | GA                             |
+| - [Bi-directional alert synchronization with Sentinel](../sentinel/connect-azure-security-center.md)                                                          | Public Preview | Not Available                  | Not Available                  |
+| **Microsoft Defender for servers features** <sup>[7](#footnote7)</sup>                                                                                        |                |                                |                                |
+| - [Just-in-time VM access](./just-in-time-access-usage.md)                                                                                                    | GA             | GA                             | GA                             |
+| - [File integrity monitoring](./file-integrity-monitoring-overview.md)                                                                                        | GA             | GA                             | GA                             |
+| - [Adaptive application controls](./adaptive-application-controls.md)                                                                                         | GA             | GA                             | GA                             |
+| - [Adaptive network hardening](./adaptive-network-hardening.md)                                                                                               | GA             | Not Available                  | Not Available                  |
+| - [Docker host hardening](./harden-docker-hosts.md)                                                                                                           | GA             | GA                             | GA                             |
+| - [Integrated Qualys vulnerability scanner](./deploy-vulnerability-assessment-vm.md)                                                                          | GA             | Not Available                  | Not Available                  |
+| - [Regulatory compliance dashboard & reports](./regulatory-compliance-dashboard.md) <sup>[8](#footnote8)</sup>                                                | GA             | GA                             | GA                             |
+| - [Microsoft Defender for Endpoint deployment and integrated license](./integration-defender-for-endpoint.md)                                                 | GA             | GA                             | Not Available                  |
+| - [Connect AWS account](./quickstart-onboard-aws.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
+| - [Connect GCP account](./quickstart-onboard-gcp.md)                                                                                                          | GA             | Not Available                  | Not Available                  |
+|                                                                                                                                                               |                |                                |                                |
 
 <sup><a name="footnote1"></a>1</sup> Partially GA: The ability to disable specific findings from vulnerability scans is in public preview.
 
@@ -142,7 +144,7 @@ For information about when recommendations are generated for each of these solut
 
 <sup><a name="footnote4"></a>4</sup> Partially GA: Support for Azure Arc-enabled clusters is in public preview and not available on Azure Government.
 
-<sup><a name="footnote5"></a>5</sup> Requires Microsoft Defender for Kubernetes.
+<sup><a name="footnote5"></a>5</sup> Requires Microsoft Defender for Kubernetes or Microsoft Defender for Containers.
 
 <sup><a name="footnote6"></a>6</sup> Partially GA: Some of the threat protection alerts from Microsoft Defender for Storage are in public preview.
 
@@ -151,6 +153,8 @@ For information about when recommendations are generated for each of these solut
 <sup><a name="footnote8"></a>8</sup> There may be differences in the standards offered per cloud type.
  
 <sup><a name="footnote9"></a>9</sup> Partially GA: Subset of alerts and vulnerability assessment for SQL servers. Behavioral threat protections aren't available.
+
+<sup><a name="footnote4"></a>10</sup> Partially GA: Support for Arc-enabled Kubernetes clusters (and therefore AWS EKS too) is in public preview and not available on Azure Government. Run-time visibility of vulnerabilities in container images is also a preview feature.
 
 ## Next steps
 

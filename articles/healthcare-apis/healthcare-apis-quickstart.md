@@ -7,7 +7,7 @@ ms.subservice: fhir
 ms.topic: quickstart
 ms.date: 07/12/2021
 ms.author: ginle
-ms.custom: mode-portal
+ms.custom: mode-api
 ---
 
 # Deploy Healthcare APIs (preview) workspace using Azure portal
