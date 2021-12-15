@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic:  conceptual
-ms.date: 12/06/2021
+ms.date: 12/15/2021
 ms.author: cshoe
 ---
 
@@ -26,35 +26,9 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 
 The following example shows you how to create a Container Apps environment with an existing virtual network.
 
-Before you begin, you need to following items:
+[!INCLUDE [container-apps-create-cli-steps.md](../../../includes/container-apps-create-cli-steps.md)]
 
-- [Azure Subscription](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
-- [Resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)
-- [Log analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
-
-With these resources ready, replace the placeholders between the `<>` brackets with your own values.
-
-# [Bash](#tab/bash)
-
-```bash
-SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
-RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME>
-RESOURCE_GROUP_LOCATION=<RESOURCE_GROUP_LOCATION>
-LOG_ANALYTICS_WORKSPACE_NAME=<LOG_ANALYTICS_WORKSPACE_NAME>
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$SUBSCRIPTION_ID=<SUBSCRIPTION_ID>
-$RESOURCE_GROUP_NAME=<RESOURCE_GROUP_NAME>
-$RESOURCE_GROUP_LOCATION=<RESOURCE_GROUP_LOCATION>
-$LOG_ANALYTICS_WORKSPACE_NAME=<LOG_ANALYTICS_WORKSPACE_NAME>
-```
-
----
-
-Next, query for the Log Analytics client ID and secret.
+Next, retrieve the Log Analytics Client ID and client secret.
 
 # [Bash](#tab/bash)
 
