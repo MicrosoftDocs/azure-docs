@@ -1,5 +1,5 @@
 ---
-title: 'Register components with Device Update: Contoso Virtual Vacuum component enumerator' | Microsoft Docs
+title: 'Register components with Device Update: Contoso Virtual Vacuum component enumerator | Microsoft Docs'
 description: Follow a Contoso Virtual Vacuum example to implement your own component enumerator by using proxy update.
 author: valls
 ms.author: valls
