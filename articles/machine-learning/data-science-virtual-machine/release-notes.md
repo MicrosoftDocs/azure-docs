@@ -6,13 +6,17 @@ author: michalmar
 ms.service: data-science-vm
 
 ms.author: mimarusa
-ms.date: 12/06/2021
+ms.date: 12/14/2021
 ms.topic: reference
 ---
 
 # Azure Data Science Virtual Machine release notes
 
 In this article, learn about Azure Data Science Virtual Machine releases. For a full list of tools included, along with version numbers, check out [this page](./tools-included.md).
+
+Due to the rapidly evolving needs and packages updates, we target to release new Azure Data Science Virtual Machine for Windows and Ubuntu images every month.
+
+Azure portal users will always find the latest image available for provisioning the Data Science Virtual Machine. For CLI or ARM users, we keep images of individual versions available for twelve months. After that period, particular version of image is no longer available for provisioning.
 
 See the [list of known issues](reference-known-issues.md) to learn about known bugs and workarounds.
 
