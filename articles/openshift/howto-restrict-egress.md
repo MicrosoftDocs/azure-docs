@@ -77,7 +77,7 @@ In OpenShift Container Platform, customers can opt out of reporting health and u
 - **`storage.googleapis.com/openshift-release`**: Alternative site to download platform release signatures, used by the cluster to know what images to pull from quay.io.
 - **`*.apps.<cluster_name>.<base_domain>`** (OR EQUIVALENT ARO URL): When allowlisting domains, this is use in your corporate network to reach applications deployed in OpenShift, or to access the OpenShift console.
 - **`api.openshift.com`**: Required  by the cluster to check if there are available updates before downloading the image signatures.
-- **`registry.access.redhat.com`**: Registry access is required in your VDI or laptop environment to download dev images when using the ODO CLI tool. (This CLI tool is an alternative CLI tool for developers who aren't familiar with kubernetes). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html
+- **`registry.access.redhat.com`** and **`access.redhat.com`**: Registry access is required in your VDI or laptop environment to download dev images when using the ODO CLI tool. (This CLI tool is an alternative CLI tool for developers who aren't familiar with kubernetes). https://docs.openshift.com/container-platform/4.6/cli_reference/developer_cli_odo/understanding-odo.html
 
 ---
 
