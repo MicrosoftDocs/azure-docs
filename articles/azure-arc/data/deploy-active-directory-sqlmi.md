@@ -110,6 +110,16 @@ Use the following command to run the script after replacing the parameter values
 AD_PASSWORD=<password> ./create-sql-keytab.sh --realm <AD domain in uppercase> --account <AD account name> --port <endpoint port> --dns-name <endpoint DNS name> --keytab-file <keytab file name/path> --secret-name <keytab secret name> --secret-namespace <keytab secret namespace>
 ```
 
+The input parameters are expecting the following values : 
+* **--realm** expects the uppercase of the AD domain, such as CONTOSO.LOCAL
+* **--account** expects the AD account under where the SPNs are registered, such sqlmi-account
+* **--port** expects the SQL endpoint port number 31433
+* **--dns-name** expects the DNS name for the SQL endpoint
+* **--keytab-file** expects the path to the keytab file
+* **--secret-name** expects the name of the keytab secret
+* **--secret-namespace** expects the Kubernetes namespace contains the keytab secret
+
+
 Using the examples chosen in this document, the command should look like the following.
 Choose a name for the Kubernetes secret hosting the keytab. The namespace should be the same as what the SQL Managed Instance will be deployed in.
 
@@ -143,14 +153,6 @@ Deploy the Kubernetes secret with `kubectl apply -f <file>`. For example:
 
 ```console
 kubectl apply –f sqlmi-keytab-secret.yaml
-```
-
-#### Verify the deployment of Keytab secret
-
-After the deployment, use the following command to check if your Kubernetes secret has been created successfully: 
-
-```console
-kubectl get secret -n <secret namespace>
 ```
 
 ## SQL Managed instance Spec for Active Directory Authentication

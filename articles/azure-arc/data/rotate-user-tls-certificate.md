@@ -69,7 +69,7 @@ For Windows users, use [certutil](./windows-server/administration/windows-comman
    $certutil -encode -f input.txt b64-encoded.txt
   ```
 
-You will need to remove the header in the output file using 
+You will need to remove the header in the output file manually or using the following command :
   ```console
   $findstr /v CERTIFICATE b64-encoded.txt> updated-b64.txt 
   ```
