@@ -21,7 +21,7 @@ For detailed network concepts and security enhancements in App Service, see [Net
 
 ## Prerequisites
 
-* [Enable regional virtual network integration](configure-vnet-integration-enable) for your app.
+* [Enable regional virtual network integration](configure-vnet-integration-enable.md) for your app.
 * [Verify that **Route All** is enabled](configure-vnet-integration-routing.md). This setting is enabled by default, which tells App Service to route all outbound traffic through the integrated virtual network. If you disable it, only traffic to private IP addresses will be routed through the virtual network.
 * On the App Service subnet in the integrated virtual network, [disable all service endpoints](../virtual-network/virtual-network-service-endpoints-overview.md). After Azure Firewall is configured, you will route outbound traffic to Azure Services through the firewall instead of through the service endpoints.
 
@@ -32,7 +32,7 @@ To deploy a firewall into a virtual network, you need a subnet called **AzureFir
 1. In the [Azure portal](https://portal.azure.com), navigate to the virtual network that's integrated with your app.
 1. From the left navigation, select **Subnets** > **+ Subnet**.
 1. In **Name**, type **AzureFirewallSubnet**.
-1. **Subnet address range**, accept the default or specify a range that's [at least /26 in size](../firewall/firewall-faq.md#why-does-azure-firewall-need-a--26-subnet-size).
+1. **Subnet address range**, accept the default or specify a range that's [at least /26 in size](../firewall/firewall-faq.yml#why-does-azure-firewall-need-a--26-subnet-size).
 1. Select **Save**.
 
 ## 2. Deploy the firewall and get its IP
