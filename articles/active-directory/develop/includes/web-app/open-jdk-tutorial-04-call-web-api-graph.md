@@ -7,7 +7,7 @@ ms.subservice: develop
 ms.topic: include
 ---
 
-In this tutorial, you get access tokens to call the Microsoft Graph API from a single-page application that uses the Microsoft Authentication Library (MSAL).
+In this tutorial, you get access tokens to call the Microsoft Graph API from a web app that uses the Microsoft Authentication Library (MSAL).
 
 Follow the steps in this tutorial to:
 
