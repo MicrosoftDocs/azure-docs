@@ -16,7 +16,9 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 - You control the subnet range used by the container app.
 - Once the environment is created, the subnet range is immutable.
 - Each [revision pod](revisions.md) is assigned an IP address in the subnet.
-- Current support is for outbound VNET only
+
+> [!NOTE]
+> Current support is for outbound VNET only. Refer to the [project GitHub repository](https://github.com/microsoft/azure-container-apps) for roadmap information.
 
 :::image type="content" source="media/networking/azure-container-apps-virtual-network.png" alt-text="Azure Container Apps environments use an existing VNET, or you can provide your own.":::
 
@@ -24,11 +26,11 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 
 The following example shows you how to create a Container Apps environment with an existing virtual network.
 
-Before you begin, you need to following information:
+Before you begin, you need to following items:
 
-- [Azure Subscription ID](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
-- [Resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group) name and location
-- [Log analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md) name
+- [Azure Subscription](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)
+- [Resource group](../azure-resource-manager/management/manage-resource-groups-portal.md#what-is-a-resource-group)
+- [Log analytics workspace](../azure-monitor/logs/log-analytics-tutorial.md)
 
 With these resources ready, replace the placeholders between the `<>` brackets with your own values.
 
@@ -96,7 +98,7 @@ $VNET_NAME=<VNET_NAME>
 
 ---
 
-Now create an instance of the virtual network to associate with the Container Apps environment.
+Now create an instance of the virtual network to associate with the Container Apps environment. The virtual network must have two subnets available for the container apps instance.
 
 > [!NOTE]
 > You can use an existing virtual network, but two empty subnets are required to use with Container Apps.
@@ -105,12 +107,22 @@ Now create an instance of the virtual network to associate with the Container Ap
 
 ```azurecli
 az network vnet create \
-  --resource-group ${RESOURCE_GROUP_NAME} \
-  --name ${VNET_NAME} \
-  --location ${RESOURCE_GROUP_LOCATION} \
-  --address-prefix 10.0.0.0/16 \
-  --subnet-name default \
-  --subnet-prefix 10.0.0.0/24
+  --resource-group $RESOURCE_GROUP_NAME \
+  --name $VNET_NAME \
+  --location $RESOURCE_GROUP_LOCATION \
+  --address-prefix 10.0.0.0/16
+
+az network vnet subnet create \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --vnet-name $VNET_NAME \
+  --name control-plane \
+  --address-prefixes 10.0.0.0/21
+
+az network vnet subnet create \
+  --resource-group $RESOURCE_GROUP_NAME \
+  --vnet-name $VNET_NAME \
+  --name applications \
+  --address-prefixes 10.0.8.0/21
 ```
 
 # [PowerShell](#tab/powershell)
@@ -120,9 +132,19 @@ az network vnet create `
   --resource-group $RESOURCE_GROUP_NAME `
   --name $VNET_NAME `
   --location $RESOURCE_GROUP_LOCATION `
-  --address-prefix 10.0.0.0/16 `
-  --subnet-name default `
-  --subnet-prefix 10.0.0.0/24
+  --address-prefix 10.0.0.0/16
+
+az network vnet subnet create `
+  --resource-group $RESOURCE_GROUP_NAME `
+  --vnet-name $VNET_NAME `
+  --name control-plane `
+  --address-prefixes 10.0.0.0/21
+
+az network vnet subnet create `
+  --resource-group $RESOURCE_GROUP_NAME `
+  --vnet-name $VNET_NAME `
+  --name applications `
+  --address-prefixes 10.0.8.0/21
 ```
 
 ---
@@ -151,7 +173,7 @@ SUBNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP_NAME -n $VNET_NAME -
 
 ---
 
-Finally, create the Container Apps environment with the VNET and subnet.
+Finally, create the Container Apps environment with the VNET and subnets.
 
 # [Bash](#tab/bash)
 
@@ -162,6 +184,8 @@ az containerapp env create \
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "canadacentral" \
+  --app-subnet-resource-id $SUBNET_RESOURCE_ID \
+  --controlplane-subnet-resource-id $SUBNET_RESOURCE_ID \
   --subnet-resource-id $SUBNET_RESOURCE_ID
 ```
 
@@ -174,10 +198,20 @@ az containerapp env create `
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "canadacentral" `
+  --app-subnet-resource-id $SUBNET_RESOURCE_ID `
+  --controlplane-subnet-resource-id $SUBNET_RESOURCE_ID `
   --subnet-resource-id $SUBNET_RESOURCE_ID
 ```
 
 ---
+
+- `app-subnet-resource-id`: The resource ID of a subnet that Container App containers are injected into. This subnet must be in the same VNET as the subnet defined in `controlPlaneSubnetResourceId`.
+
+- `controlplane-subnet-resource-id`: The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `appSubnetResourceId`.
+
+## Additional resources
+
+Refer to [What is Azure Private Endpoint](/azure/private-link/private-endpoint-overview) for more details on configuring your private endpoint.
 
 ## Next steps
 
