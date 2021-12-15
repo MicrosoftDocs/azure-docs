@@ -276,7 +276,7 @@ Some requirements of this program are based on a business agreement between your
 ::: zone pivot="platform-linux"
 
 ## Linux OS Support
-OS Support is determined through underling requirements of Azure services and our ability to validate scenarios.
+OS Support is determined through underlying requirements of Azure services and our ability to validate scenarios.
 
 The Edge Secured-core program for Linux is enabled through the IoT Edge runtime which is supported based on [Tier 1 and Tier 2 operating systems](../iot-edge/support.md).
 
