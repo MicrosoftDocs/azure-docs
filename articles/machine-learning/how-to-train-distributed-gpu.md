@@ -258,19 +258,48 @@ For single-node training (including single-node multi-GPU), you can run your cod
 - MASTER_PORT
 - NODE_RANK
 
-To run multi-node Lightning training on Azure ML, you can largely follow the [per-node-launch guide](#per-node-launch):
+To run multi-node Lightning training on Azure ML, you can largely follow the [per-node-launch guide](#per-node-launch), but currently the `ddp` strategy only works when you run an experiment using multiple nodes with one gpu per note
+To run an experiment using multiple nodes with multiple gpus you need to:
 
-- Define the `PyTorchConfiguration` and specify the `node_count`. Don't specify `process_count`, as Lightning internally handles launching the worker processes for each node.
-- For PyTorch jobs, Azure ML handles setting the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables required by Lightning.
+- Define the `MpiConfiguration` and specify the `node_count`. Don't specify `process_count`, as Lightning internally handles launching the worker processes for each node.
+- For PyTorch jobs, Azure ML handles setting the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables required by Lightning. An example below
+
+```
+import os
+
+def set_environment_variables_for_nccl_backend(single_node=False, master_port=6105):
+    if not single_node:
+        master_node_params = os.environ["AZ_BATCH_MASTER_NODE"].split(":")
+        os.environ["MASTER_ADDR"] = master_node_params[0]
+
+        # Do not overwrite master port with that defined in AZ_BATCH_MASTER_NODE
+        if "MASTER_PORT" not in os.environ:
+            os.environ["MASTER_PORT"] = str(master_port)
+    else:
+        os.environ["MASTER_ADDR"] = os.environ["AZ_BATCHAI_MPI_MASTER_NODE"]
+        os.environ["MASTER_PORT"] = "54965"
+
+    os.environ["NCCL_SOCKET_IFNAME"] = "^docker0,lo"
+    try:
+        os.environ["NODE_RANK"] = os.environ["OMPI_COMM_WORLD_RANK"]
+        # additional variables
+        os.environ["MASTER_ADDRESS"] = os.environ["MASTER_ADDR"]
+        os.environ["LOCAL_RANK"] = os.environ["OMPI_COMM_WORLD_LOCAL_RANK"]
+        os.environ["WORLD_SIZE"] = os.environ["OMPI_COMM_WORLD_SIZE"]
+    except:
+        # fails when used with pytorch configuration instead of mpi
+        pass
+```
+
 - Lightning will handle computing the world size from the Trainer flags `--gpus` and `--num_nodes` and manage rank and local rank internally.
 
 ```python
 from azureml.core import ScriptRunConfig, Experiment
-from azureml.core.runconfig import PyTorchConfiguration
+from azureml.core.runconfig import MpiConfiguration
 
 nnodes = 2
-args = ['--max_epochs', 50, '--gpus', 2, '--accelerator', 'ddp', '--num_nodes', nnodes]
-distr_config = PyTorchConfiguration(node_count=nnodes)
+args = ['--max_epochs', 50, '--gpus', 2, '--accelerator', 'ddp_spawn', '--num_nodes', nnodes]
+distr_config = MpiConfiguration(node_count=nnodes)
 
 run_config = ScriptRunConfig(
   source_directory='./src',
