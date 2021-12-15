@@ -31,7 +31,6 @@ In this tutorial, you learn how to:
 * [Create an App Service app](./index.yml), or use an app that you created for another tutorial. The web app's [App Service plan](overview-hosting-plans.md) must be a paid tier and not **Free (F1)**. See [Scale up an app](manage-scale-up.md#scale-up-your-pricing-tier) to update the tier.
 * Make sure you can edit DNS records for your custom domain. To edit DNS records, you need access to the DNS registry for your domain provider, such as GoDaddy. For example, to add DNS entries for `contoso.com` and `www.contoso.com`, you must be able to configure the DNS settings for the `contoso.com` root domain.
 * If you don't have a custom domain yet, you can [purchase an App Service domain](manage-custom-dns-buy-domain.md).
-* To map a custom DNS name to a web app, 
 
 ## 2. Get a domain verification ID
 
