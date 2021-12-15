@@ -203,19 +203,15 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 1. Open a new tab in your browser, and sign into the [Google Cloud (G Suite) Connector Admin Console](https://admin.google.com/) using your administrator account.
 
-2. Click **Security**. If you don't see the link, it may be hidden under the **More Controls** menu at the bottom of the screen.
+1. Go to the **Menu -> Security -> Authentication -> SSO with third party IDP**.
 
-    ![Click Security.](./media/google-apps-tutorial/gapps-security.png)
+    ![G suite security page.](./media/google-apps-tutorial/security.png)
 
-3. On the **Security** page, click **Set up single sign-on (SSO).**
+4. Perform the following configuration changes in the **Third-party SSO profile for your organization** tab:
 
-    ![Click SSO.](./media/google-apps-tutorial/security-gapps.png)
+    ![Configure SSO.](./media/google-apps-tutorial/sso-configuration.png)
 
-4. Perform the following configuration changes:
-
-    ![Configure SSO.](./media/google-apps-tutorial/configuration.png)
-
-    a. Select **Setup SSO with third-party identity provider**.
+    a. Turn ON the **SSO profile for your organization**.
 
     b. In the **Sign-in page URL** field in Google Cloud (G Suite) Connector, paste the value of **Login URL** which you have copied from Azure portal.
 
