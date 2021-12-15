@@ -51,7 +51,7 @@ Data formats available for text data:
 
 1. Select **Text** to create a text labeling project.
 
-    :::image type="content" source="media/how-to-create-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
+    :::image type="content" source="media/how-to-create-text-labeling-projects/text-labeling-creation-wizard.png" alt-text="Labeling project creation for text labeling":::
 
     * Choose **Text Classification Multi-class (Preview)** for projects when you want to apply only a *single label* from a set of labels to each piece of text.
     * Choose **Text Classification Multi-label (Preview)** for projects when you want to apply *one or more* labels from a set of labels to each piece of text. 
@@ -171,7 +171,7 @@ Once a machine learning model has been trained on your manually labeled data, th
 
 The **Dashboard** tab shows the progress of the labeling task.
 
-:::image type="content" source="./media/how-to-create-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
+:::image type="content" source="./media/how-to-create-text-labeling-projects/text-labeling-dashboard.png" alt-text="Text data labeling dashboard":::
 
 
 The progress chart shows how many items have been labeled, skipped, in need of review, or not yet done.  Hover over the chart to see the number of item in each section.
