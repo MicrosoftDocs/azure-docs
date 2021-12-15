@@ -60,7 +60,7 @@ Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-dic
 
 ## Next steps
 
-In this article, you learned how to obtain and access token for the FHIR service and DICOM service using CLI and Azure PowerShell. For more details about accessing the FHIR service and DICOM service, see 
+In this article, you learned how to obtain and an access token for the FHIR service and DICOM service using CLI and Azure PowerShell. For more details about accessing the FHIR service and DICOM service, see 
 
 >[!div class="nextstepaction"]
 >[Access FHIR service using Postman](use-postman.md)
