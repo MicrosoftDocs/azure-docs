@@ -17,7 +17,7 @@ ms.date: 12/15/2021
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Azure SQL Database](sql-database-paas-overview.md) provides built-in tools to identify the causes of high CPU usage and to optimize CPU performance. You can use these tools to troubleshoot high CPU usage while it's occurring, or reactively after the incident has completed. You can also enable [automatic tuning](automatic-tuning-overview.md) to proactively reduce CPU usage over time for your database. This article teaches you to diagnose and troubleshoot high CPU with built-in tools in Azure SQL Database.
+[Azure SQL Database](sql-database-paas-overview.md) provides built-in tools to identify the causes of high CPU usage and to optimize CPU performance. You can use these tools to troubleshoot high CPU usage while it's occurring, or reactively after the incident has completed. You can also enable [automatic tuning](automatic-tuning-overview.md) to proactively reduce CPU usage over time for your database. This article teaches you to diagnose and troubleshoot high CPU with built-in tools in Azure SQL Database and explains [when to add CPU resources](#when-to-add-cpu-resources).
 
 ## Understand vCore count
 
@@ -26,6 +26,8 @@ It's helpful to understand the number of virtual cores (vCores) available to you
 ### Identify vCore count in the Azure portal
 
 You can quickly identify the vCore count for a database in the Azure portal if you are using a [vCore-based service tier](service-tiers-vcore.md) with the provisioned compute tier. In this case, the **pricing tier** listed for the database on its **Overview** page will contain the core count. For example, a database's pricing tier might be 'General Purpose: Gen5, 16 vCores'.
+
+If you are using a database under the [DTU-based purchase model](service-tiers-dtu.md) or the [serverless](serverless-tier-overview.md) compute tier, you will need to use Transact-SQL to query the database's vCore count.
 
 ### Identify vCore count with Transact-SQL
 
@@ -42,24 +44,31 @@ GO
 ```
 
 ## Identify the causes of high CPU
+You can measure and analyze CPU utilization using the Azure portal, Query Store interactive tools in SSMS, and Transact-SQL queries in SSMS and Azure Data Studio.
+
+The Azure portal and Query Store show execution statistics, such as CPU metrics, for completed queries. If you are experiencing a current high CPU incident that may be caused by one or more ongoing long-running queries, [identify currently running queries with Transact-SQL](#identify-currently-running-queries-with-transact-sql).
 
 Common causes of new and unusual high CPU utilization are:
 
 * New queries in the workload that use a large amount of CPU.
-* [Query plan regression](intelligent-insights-troubleshoot-performance.md#plan-regression) resulting in one or more queries consuming more CPU.
 * An increase in the frequency of regularly running queries.
+* Query plan regression due to [queries that have parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md) resulting in one or more queries consuming more CPU.
 * A significant increase in compilation or recompilation of query plans.
+* Databases where queries use [excessive parallelism](configure-max-degree-of-parallelism.md#excessive-parallelism)
 
-To understand what is causing your high CPU incident, identify when high CPU utilization is occurring against your database and the top queries using CPU at that time. Examine:
+To understand what is causing your high CPU incident, identify when high CPU utilization is occurring against your database and the top queries using CPU at that time.
 
-1. Are new queries using significant CPU appearing in the workload?
-1. Are some queries in the workload using more CPU per execution than they did in the past? If so, have the query plans changed?
-1. Is the overall execution count of queries higher than it used to be?
-1. Is there evidence of a large amount of compilation or recompilation occurring?
+Examine:
 
-You can measure and analyze CPU utilization using the Azure portal, Query Store interactive tools in SSMS, and Transact-SQL queries in SSMS and Azure Data Studio.
-
-The Azure portal and Query Store show execution statistics, such as CPU metrics, for completed queries. If you are experiencing a current high CPU incident that may be caused by one or more ongoing long-running queries, [identify currently running queries with Transact-SQL](#identify-currently-running-queries-with-transact-sql).
+1. Are new queries using significant CPU appearing in the workload, or are you seeing an increase in frequency of regularly running queries? Use any of the following methods to investigate. Look for queries with limited history (new queries), and at the frequency of execution for queries with longer history.
+    - [Review CPU metrics and related top queries in the Azure portal](#review-cpu-usage-metrics-and-related-top-queries-in-the-azure-portal) 
+    - [Query the top recent 15 queries by CPU usage](#query-the-top-recent-15-queries-by-cpu-usage) with Transact-SQL.
+    - [Use interactive Query Store tools in SSMS to identify top queries by CPU time](#use-interactive-query-store-tools-to-identify-top-queries-by-cpu-time)
+1. Are some queries in the workload using more CPU per execution than they did in the past? If so, has the query execution plan changed? These queries may [have parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md). Use either of the following techniques to investigate. Look for queries with multiple query execution plans with significantly variation in CPU usage:
+    - [Query the top recent 15 queries by CPU usage](#query-the-top-recent-15-queries-by-cpu-usage) with Transact-SQL.
+    - [Use interactive Query Store tools in SSMS to identify top queries by CPU time](#use-interactive-query-store-tools-to-identify-top-queries-by-cpu-time)
+1. Is there evidence of a large amount of compilation or recompilation occurring? Query the [most frequently compiled queries by query hash](#query-the-most-frequently-compiled-queries-by-query-hash) and review how frequently they compile.
+1. Are queries using excessive parallelism? Query your [MAXDOP database scoped configuration](configure-max-degree-of-parallelism.md#maxdop-database-scoped-configuration-1) and review your [vCore count](#understand-vcore-count). Excessive parallelism often occurs in databases where MAXDOP is set to 0 with a core count higher than eight.
 
 ### Review CPU usage metrics and related top queries in the Azure portal
 
@@ -141,7 +150,7 @@ If the column `query_plan_with_transient_statistics` returns an execution plan, 
 
 ### Review CPU usage metrics for the last hour
 
-The following query against `sys.dm_db_resource_stats` returns the average CPU used over 15-second intervals for approximately the last hour.
+The following query against `sys.dm_db_resource_stats` returns the average CPU usage over 15-second intervals for approximately the last hour.
 
 ```sql
 SELECT
@@ -210,7 +219,8 @@ SELECT TOP (20)
     MIN(initial_compile_start_time) as initial_compile_start_time,
     MAX(last_compile_start_time) as last_compile_start_time,
     CASE WHEN DATEDIFF(mi,MIN(initial_compile_start_time), MAX(last_compile_start_time)) > 0
-        THEN 1.* SUM(count_compiles) / DATEDIFF(mi,MIN(initial_compile_start_time), MAX(last_compile_start_time)) 
+        THEN 1.* SUM(count_compiles) / DATEDIFF(mi,MIN(initial_compile_start_time), 
+            MAX(last_compile_start_time)) 
         ELSE 0 
         END as avg_compiles_minute,
     SUM(count_compiles) as count_compiles
@@ -243,7 +253,8 @@ with query_ids as (
     JOIN sys.query_store_plan p on q.query_id=p.query_id
     CROSS APPLY (SELECT TRY_CONVERT(XML, p.query_plan) AS query_plan_xml) AS qpx
     JOIN sys.query_store_runtime_stats qrs on p.plan_id = qrs.plan_id
-    JOIN sys.query_store_runtime_stats_interval qsrsi on qrs.runtime_stats_interval_id=qsrsi.runtime_stats_interval_id
+    JOIN sys.query_store_runtime_stats_interval qsrsi on 
+        qrs.runtime_stats_interval_id=qsrsi.runtime_stats_interval_id
     WHERE q.query_hash = @query_hash
     GROUP BY q.query_id, q.query_hash, p.query_plan_hash)
 SELECT qid.*,
@@ -289,9 +300,10 @@ Each bar in the top-left quadrant represents a query. Select a bar to see detail
 Part of your troubleshooting should include learning more about the queries identified in the previous section. You can reduce CPU usage by tuning indexes, modifying your application patterns, tuning queries, and adjusting CPU-related settings for your database.
 
 1. If you found new queries using significant CPU appearing in the workload, validate that indexes have been optimized for those queries. You can [tune indexes manually](#tune-indexes-manually) or [reduce CPU usage with automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning). Evaluate if your [max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism) setting is correct for your increased workload.
-1. If you found queries in the workload with [query plan regression](intelligent-insights-troubleshoot-performance.md#plan-regression), consider [automatic plan correction (force plan)](#reduce-cpu-usage-with-automatic-plan-correction-force-plan). You can also [manually force a plan in Query Store](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) or tune the Transact-SQL for the query to result in a consistently high-performing query plan.
 1. If you found that the overall execution count of queries is higher than it used to be, [tune indexes for your highest CPU consuming queries](#tune-indexes-manually) and consider [automatic index tuning](#reduce-cpu-usage-with-automatic-index-tuning). Evaluate if your [max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism) setting is correct for your increased workload.
+1. If you found queries in the workload with [parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md), consider [automatic plan correction (force plan)](#reduce-cpu-usage-with-automatic-plan-correction-force-plan). You can also [manually force a plan in Query Store](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) or tune the Transact-SQL for the query to result in a consistently high-performing query plan.
 1. If you found evidence that a large amount of compilation or recompilation is occurring, [tune the queries so that they are properly parameterized or do not require recompile hints](#tune-your-application-queries-and-database-settings).
+1. If you found that queries are using excessive parallelism, [tune the max degree of parallelism](#reduce-cpu-usage-by-tuning-the-max-degree-of-parallelism).
 
 Consider the following strategies in this section.
 
@@ -322,6 +334,8 @@ For some workloads, columnstore indexes may be the best choice to reduce CPU of 
 In examining your top queries, you may find [application characteristics to tune](performance-guidance.md#application-characteristics) such as "chatty" behavior, workloads that would benefit from sharding, and suboptimal database access design. For read-heavy workloads, consider [application-tier caching](performance-guidance.md#application-tier-caching) as a long-term strategy to scale out frequently read data.
 
 You may also choose to manually tune the top CPU using queries identified in your workload. Manual tuning options include rewriting Transact-SQL statements, [forcing plans](/sql/relational-databases/system-stored-procedures/sp-query-store-force-plan-transact-sql) in Query Store, and applying [query hints](/sql/t-sql/queries/hints-transact-sql-query).
+
+If you identify cases where queries sometimes use an execution plan which is not optimal for performance, review the solutions in [queries that parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md)
 
 If you identify non-parameterized queries with a high number of plans, consider parameterizing these queries. This may be done by modifying the queries, creating a [plan guide to force parameterization](/sql/relational-databases/performance/specify-query-parameterization-behavior-by-using-plan-guides) of a specific query, or by enabling [forced parameterization](/sql/relational-databases/query-processing-architecture-guide#execution-plan-caching-and-reuse) at the database level.
 
