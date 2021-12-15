@@ -218,17 +218,17 @@
         - name: Enable Defender for Containers
           href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks
           maintainContext: true
-        - name: Build Security
+        - name: Build security
           items:
-            - name: Scan Images in your CI/CD Workflow
+            - name: Scan images in your CI/CD Workflow
               href: ../defender-for-cloud/defender-for-container-registries-cicd.md
               maintainContext: True
-        - name: Registry Security
+        - name: Registry security
           items:
             - name: Scanning images in ACR registries
               href: ../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks#vulnerability-assessment
               maintainContext: True
-        - name: Cluster Security
+        - name: Cluster security
           items:
             - name: Create service principal
               href: kubernetes-service-principal.md
@@ -248,7 +248,7 @@
                   href: azure-ad-integration-cli.md
                 - name: Enable GMSA integration (Preview)
                   href: use-group-managed-service-accounts.md
-            - name: Use Azure RBAC for Kubernetes Authorization
+            - name: Use Azure RBAC for Kubernetes authorization
               href: manage-azure-rbac.md
             - name: Use Kubernetes RBAC with Azure AD integration
               href: azure-ad-rbac.md
@@ -259,15 +259,15 @@
             - name: Control deployments with Azure Policy
               href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
               maintainContext: true
-        - name: Node Security
+        - name: Node security
           items:
             - name: BYOK for disks
               href: azure-disk-customer-managed-keys.md
             - name: Enable host-based encryption
               href: enable-host-encryption.md
-        - name: Application Security
+        - name: Application security
           items:
-            - name: Use AAD pod identity (preview)
+            - name: Use Azure AD pod identity (preview)
               href: use-azure-ad-pod-identity.md
             - name: Secure pod traffic with network policies
               href: use-network-policies.md  
