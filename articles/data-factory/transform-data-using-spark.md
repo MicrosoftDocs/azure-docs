@@ -26,7 +26,7 @@ To use a Spark activity to a pipeline, complete the following steps:
 
 1. Search for _Spark_ in the pipeline Activities pane, and drag a Spark activity to the pipeline canvas.
 1. Select the new Spark activity on the canvas if it is not already selected.
-1. Select the  **HDI Cluster** tab to select or create a new linked service to an HDInsight cluster that will be used to execute the MapReduce activity.
+1. Select the  **HDI Cluster** tab to select or create a new linked service to an HDInsight cluster that will be used to execute the Spark activity.
 
    :::image type="content" source="media/transform-data-using-spark/spark-activity.png" alt-text="Shows the UI for a Spark activity.":::
 
