@@ -31,13 +31,13 @@ The guidance is structured around the key principles of Zero Trust: verify expli
 A secure identity solution means that an app only provides access to authenticated users. Most developers are not identity experts. So it is important that you find a solution that makes it easy for you or your team to implement secure modern authentication. You can use one of the following solutions.
 
 - For a new application, use a cloud-hosted solution that handles authentication for you.
-2. To update the security of an existing application, either use a Zero Trust network access (ZTNA) solution that uses modern authentication, or implement authentication using the Microsoft Authentication Library (MSAL) and use Azure Active Directory as your identity provider.
+- To update the security of an existing application, either use a Zero Trust network access (ZTNA) solution that uses modern authentication, or implement authentication using the Microsoft Authentication Library (MSAL) and use Azure Active Directory as your identity provider.
 
 These solutions are explained in more detail below.
 
 ### Cloud-hosted solution
 
-Using a cloud hosted solution can provide modern authentication without needing to implement any lines of code. For example, [Microsoft 365](/microsoft-365/enterprise/about-microsoft-365-identity), Dynamics 365 and [Power Apps](/powerapps/maker/portals/configure/use-simplified-authentication-configuration) allow you to secure access with Azure Active Directory – giving you single sign-on and multi-factor authentication for free.
+Using a cloud hosted solution can provide modern authentication without needing to implement any lines of code. For example, [Microsoft 365](/microsoft-365/enterprise/about-microsoft-365-identity), Dynamics 365 and [Power Apps](/powerapps/maker/portals/configure/use-simplified-authentication-configuration) allow you to secure access with Azure Active Directory – giving you single sign-on and multifactor authentication for free.
 
 If you are building your own application, Azure App Service has [built in authentication and authorization](/azure/app-service/overview-authentication-authorization) that will protect your application without needing to use any particular language, SDK, or even code.
 
@@ -47,7 +47,7 @@ We recommend this approach because it is easy and leaves the least room for erro
 
 Zero Trust network access solutions provide secure remote access to individual on-premises applications. Azure AD works with partners to enable scalable Zero Trust network access that supports various authentication protocols. You can find a list of partners and integrations on the [secure hybrid access docs page](/azure/active-directory/manage-apps/secure-hybrid-access).
 
-[Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy) is another solution which uses Azure AD to support modern authentication and remote access for on-premises applications that use header-based, Kerberos, SAML, and anonymous authentication. You can use this solution without having to modify your existing apps. With it, users can access the on-premises apps through an external URL or internal application portal. You can enable Azure AD security features and controls such as single sign-on, conditional access, and multi-factor authentication.
+[Azure AD Application Proxy](/azure/active-directory/app-proxy/application-proxy) is another solution which uses Azure AD to support modern authentication and remote access for on-premises applications that use header-based, Kerberos, SAML, and anonymous authentication. You can use this solution without having to modify your existing apps. With it, users can access the on-premises apps through an external URL or internal application portal. You can enable Azure AD security features and controls such as single sign-on, conditional access, and multifactor authentication.
 
 :::image type="content" source="./media/secure-line-of-business-apps/secure-hybrid-access.png" alt-text="Illustration of Secure Hybrid Access partner integrations and Application Proxy providing access to legacy and on-premises applications after authentication with Azure AD." border="false":::
 
