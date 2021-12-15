@@ -169,6 +169,9 @@ To create a load test in the Load Testing resource for the sample app:
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
 
+> [!NOTE]
+> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
+
 ## Run the load test in the Azure portal
 
 In this section, you'll use the Azure portal to manually start the load test that you created previously. If you checked the **Run test after creation** checkbox, the test will already be running.

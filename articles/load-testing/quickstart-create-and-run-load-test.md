@@ -152,6 +152,9 @@ To create a load test by using an existing Apache JMeter script:
 
     :::image type="content" source="./media/quickstart-create-and-run-loadtest/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
 
+> [!NOTE]
+> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
+
 ## <a name="run"></a> Run the load test
 
 In this section, you'll run the load test that you just created. If you selected the **Run test after creation** checkbox when you created the test, you can skip to [View the load test results](#view).

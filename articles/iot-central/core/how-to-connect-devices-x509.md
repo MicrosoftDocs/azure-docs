@@ -339,13 +339,13 @@ To modify the sample code to use the certificates:
 
 :::zone pivot="programming-language-javascript"
 
-1. Navigate to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **pnpTemperatureController.js** application and run the following command to install the X.509 package:
+1. Navigate to the _azure-iot-sdk-node/device/samples/javascript_ folder that contains the **pnp_temperature_controller.js** application and run the following command to install the X.509 package:
 
     ```cmd/sh
     npm install azure-iot-security-x509 --save
     ```
 
-1. Open the **pnpTemperatureController.js** file in a text editor.
+1. Open the **pnp_temperature_controller.js** file in a text editor.
 
 1. Edit the `require` statements to include the following code:
 
@@ -396,7 +396,7 @@ To modify the sample code to use the certificates:
 1. Execute the script and verify the device provisions successfully:
 
     ```cmd/sh
-    node pnpTemperatureController.js
+    node pnp_temperature_controller.js.js
     ```
 
 :::zone-end
@@ -517,7 +517,7 @@ The device is now provisioned with X.509 certificate.
 
 ### Run a sample individual enrollment device
 
-1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ files to the _azure-iot-sdk-node/device/samples/pnp_ folder that contains the **pnpTemperatureController.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
+1. Copy the _mytestselfcertprimary_key.pem_ and _mytestselfcertprimary_cert.pem_ files to the _azure-iot-sdk-node/device/samples/javascript_ folder that contains the **pnp_temperature_controller.js** application. You used this application when you completed the [Connect a device (JavaScript) tutorial](./tutorial-connect-device.md).
 
 1. Modify the environment variables you used in the sample above as follows:
 
@@ -530,7 +530,7 @@ The device is now provisioned with X.509 certificate.
 1. Execute the script and verify the device is provisioned successfully:
 
     ```cmd/sh
-    node environmentalSensor.js
+    node pnp_temperature_controller.js
     ```
 
     You can also verify that telemetry appears on the device view.
