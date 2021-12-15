@@ -158,9 +158,9 @@ az vm extension set \
   }'
 ```
 
-## Troubleshooting and support
+## Troubleshoot and support
 
-### Troubleshooting
+### Troubleshoot
 
 You can retrieve data about the state of extension deployments from the Azure portal and by using Azure PowerShell and the Azure CLI. To see the deployment state of extensions for a given VM, run the following command:
 
