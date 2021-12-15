@@ -202,7 +202,7 @@ Microsoft offers the programs to help partners approach Microsoft customers:
     - Published Logic Apps connector and Microsoft Sentinel playbooks.
     - API integrations, on a case-by-case basis
 
-    To request a MISA nomination review or for questions, contact [MicrosoftSentinelPartner@microsoft.com](mailto:MicrosoftSentinelPartner@microsoft.com).
+    To request a MISA nomination review or for questions, contact [AzureSentinelPartner@microsoft.com](mailto:AzureSentinelPartner@microsoft.com).
 
 ## Next steps
 
