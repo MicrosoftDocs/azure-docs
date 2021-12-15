@@ -4,7 +4,7 @@ description: Learn how to renew an expired subscription, purchase a new on, or t
 author: jamestramel
 ms.author: jametra
 ms.date: 12/15/2021
-ms.topic: troubleshoot
+ms.topic: troubleshooting
 ms.prod: visual-studio-windows
 ms.custom: devtestoffer
 ---
@@ -16,7 +16,7 @@ If your Visual Studio subscription expires or is removed, all the subscription b
 > [!IMPORTANT]
 > You must transfer your resources to another Azure subscription before your current Azure subscription is disabled or you will lose access to your data.
 >
-> If you don’t take one of these actions, your Azure subscription will be disabled at the time specified in your email notification. If the subscription is disabled, you can reenable it as a pay-as-you-go subscription by following [these steps](https://docs.microsoft.com/azure/cost-management-billing/manage/switch-azure-offer).
+> If you don’t take one of these actions, your Azure subscription will be disabled at the time specified in your email notification. If the subscription is disabled, you can reenable it as a pay-as-you-go subscription by following [these steps](/azure/cost-management-billing/manage/switch-azure-offer.md).
 
 ## Maintain a subscription to use monthly credits
  
