@@ -41,7 +41,7 @@ If you need to mirror between Kafka clusters in different networks, there are th
     * **Domain names**: If you don't configure your Kafka clusters for IP address advertising, the clusters must be able to connect to each other by using fully qualified domain names (FQDNs). This requires a domain name system (DNS) server in each network that is configured to forward requests to the other networks. When you're creating an Azure virtual network, instead of using the automatic DNS provided with the network, you must specify a custom DNS server and the IP address for the server. After you create the virtual network, you must then create an Azure virtual machine that uses that IP address. Then you install and configure DNS software on it.
 
     > [!IMPORTANT]  
-    > Create and configure the custom DNS server before installing HDInsight into the virtual network. There is no additional configuration required for HDInsight to use the DNS server configured for the Virtual Network.
+    > Create and configure the custom DNS server before installing HDInsight into the virtual network. There is no additional configuration required for HDInsight to use the DNS server configured for the virtual network.
 
 For more information on connecting two Azure virtual networks, see [Configure a connection](../../vpn-gateway/vpn-gateway-vnet-vnet-rm-ps.md).
 
@@ -105,7 +105,7 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 1. Select **Save**.
 1. Select **Restart** > **Confirm Restart All**.
 
-### Record broker IP addresses and ZooKeeper addresses for primary cluster
+### Record broker IP addresses and ZooKeeper addresses for the primary cluster
 
 1. Select **Hosts** on the Ambari dashboard.
 1. Make a note of the IP addresses for the brokers and ZooKeepers. The broker nodes have **wn** as the first two letters of the host name, and the ZooKeeper nodes have **zk** as the first two letters of the host name.
@@ -116,13 +116,13 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
 ## Create topics
 
-1. Connect to the **primary** cluster by using SSH:
+1. Connect to the primary cluster by using SSH:
 
     ```bash
     ssh sshuser@PRIMARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Replace `sshuser` with the SSH user name used when creating the cluster. Replace `PRIMARYCLUSTER` with the base name used when creating the cluster.
+    Replace `sshuser` with the SSH user name that you used when creating the cluster. Replace `PRIMARYCLUSTER` with the base name that you used when creating the cluster.
 
     For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
@@ -164,17 +164,17 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
 ## Configure mirroring
 
-1. Connect to the **secondary** cluster by using a different SSH session:
+1. Connect to the secondary cluster by using a different SSH session:
 
     ```bash
     ssh sshuser@SECONDARYCLUSTER-ssh.azurehdinsight.net
     ```
 
-    Replace `sshuser` with the SSH user name used when creating the cluster. Replace `SECONDARYCLUSTER` with the name used when creating the cluster.
+    Replace `sshuser` with the SSH user name that you used when creating the cluster. Replace `SECONDARYCLUSTER` with the name that you used when creating the cluster.
 
     For more information, see [Use SSH with HDInsight](../hdinsight-hadoop-linux-use-ssh-unix.md).
 
-1. Use a `consumer.properties` file to configure communication with the **primary** cluster. To create the file, use the following command:
+1. Use a `consumer.properties` file to configure communication with the primary cluster. To create the file, use the following command:
 
     ```bash
     nano consumer.properties
@@ -187,13 +187,13 @@ Configure IP advertising to enable a client to connect by using broker IP addres
     group.id=mirrorgroup
     ```
 
-    Replace `PRIMARY_BROKERHOSTS` with the broker host IP addresses from the **primary** cluster.
+    Replace `PRIMARY_BROKERHOSTS` with the broker host IP addresses from the primary cluster.
 
     This file describes the consumer information to use when reading from the primary Kafka cluster. For more information, see [Consumer Configs](https://kafka.apache.org/documentation#consumerconfigs) at `kafka.apache.org`.
 
     To save the file, press Ctrl+X, press Y, and then press Enter.
 
-1. Before configuring the producer that communicates with the secondary cluster, set up a variable for the broker IP addresses of the **secondary** cluster. Use the following commands to create this variable:
+1. Before configuring the producer that communicates with the secondary cluster, set up a variable for the broker IP addresses of the secondary cluster. Use the following commands to create this variable:
 
     ```bash
     export SECONDARY_BROKERHOSTS='BROKER_IP_ADDRESS1:9092,BROKER_IP_ADDRESS2:9092,BROKER_IP_ADDRESS2:9092'
@@ -203,7 +203,7 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
     `10.23.0.14:9092,10.23.0.4:9092,10.23.0.12:9092`
 
-1. Use a `producer.properties` file to communicate the **secondary** cluster. To create the file, use the following command:
+1. Use a `producer.properties` file to communicate the secondary cluster. To create the file, use the following command:
 
     ```bash
     nano producer.properties
@@ -256,7 +256,7 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 > [!NOTE]
 > This article contains references to the term *whitelist*, a term that Microsoft no longer uses. When the term is removed from the software, we'll remove it from this article.
 
-1. From the SSH connection to the **secondary** cluster, use the following command to start the MirrorMaker process:
+1. From the SSH connection to the secondary cluster, use the following command to start the MirrorMaker process:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-run-class.sh kafka.tools.MirrorMaker --consumer.config consumer.properties --producer.config producer.properties --whitelist testtopic --num.streams 4
@@ -273,15 +273,15 @@ Configure IP advertising to enable a client to connect by using broker IP addres
 
     The consumer on the secondary node is now waiting to receive messages.
 
-1. From the SSH connection to the **primary** cluster, use the following command to start a producer and send messages to the topic:
+1. From the SSH connection to the primary cluster, use the following command to start a producer and send messages to the topic:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-producer.sh --broker-list $PRIMARY_BROKERHOSTS --topic testtopic
     ```
 
-     When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the **primary** cluster. When done, press Ctrl+C to end the producer process.
+     When you arrive at a blank line with a cursor, type in a few text messages. The messages are sent to the topic on the primary cluster. When done, press Ctrl+C to end the producer process.
 
-1. From the SSH connection to the **secondary** cluster, press Ctrl+C to end the MirrorMaker process. It might take several seconds to end the process. To verify that the messages were replicated to the secondary, use the following command:
+1. From the SSH connection to the secondary cluster, press Ctrl+C to end the MirrorMaker process. It might take several seconds to end the process. To verify that the messages were replicated to the secondary, use the following command:
 
     ```bash
     /usr/hdp/current/kafka-broker/bin/kafka-console-consumer.sh --bootstrap-server $SECONDARY_BROKERHOSTS --topic testtopic --from-beginning
