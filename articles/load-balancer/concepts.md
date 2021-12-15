@@ -16,9 +16,9 @@ ms.author: allensu
 
 # Azure Load Balancer algorithm
 
-Azure Load Balancer is Azure's most performat Load Balancer all while keeping latency ultra-low. To learn more about Azure Load Balancer, visit [Azure Load Balancer overview](load-balancer-overview.md) or Azure Load balancer [components](components.md).
+Azure Load Balancer is Azure's most performant Load Balancer all while keeping latency ultra-low. To learn more about Azure Load Balancer, visit [Azure Load Balancer overview](load-balancer-overview.md) or Azure Load balancer [components](components.md).
 
-Azure Load Balancer leverages a tuple based hashing as the load-balancing algorithm.
+Azure Load Balancer leverages a tuple-based hashing as the load-balancing algorithm.
 
 ## Load balancing algorithm
 
