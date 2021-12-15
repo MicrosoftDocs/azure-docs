@@ -98,7 +98,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 ---
 
-## Windows IoT Configuration Requirements
+## Windows IoT configuration requirements
 ---
 </br>
 
