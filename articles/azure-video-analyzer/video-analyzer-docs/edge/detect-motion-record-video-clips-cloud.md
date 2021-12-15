@@ -51,8 +51,8 @@ The diagram below is the visual representation of the overall flow.
 
 ### Obtain your IoT Hub connection string
 
-1. In Azure portal, navigate to the IoT Hub you created as part of the above set up step
-1. Look for **Shared access policies** option in the left hand navigation, and click there.
+1. In Azure portal, navigate to the IoT Hub you created as part of the above setup step
+1. Look for **Shared access policies** option in the left-hand navigation, and click there.
 1. Click on the policy named **iothubowner**
 1. Copy the **Primary connection string** - it will look like `HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX`
 
