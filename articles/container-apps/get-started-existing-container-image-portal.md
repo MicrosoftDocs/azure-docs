@@ -124,7 +124,7 @@ If you enabled ingress, configure the following settings:
 
 1. Select **Go to resource** to view your new container app.
 1. Select **Logs** under the *Monitoring* header.
-1. Select **Run** from any of the cards.
+1. Select the **Load to editor** button from any of the cards.
 1. Replace the generated code with the following query:
 
     ```text
