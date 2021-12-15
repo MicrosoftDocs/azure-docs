@@ -135,7 +135,7 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
    The following example shows sample files uploaded to update cameras connected to a smart vacuum cleaner device. It also includes a pre-installation script to turn off the cameras before the over-the-air update. 
    
-   In the example, the parent import manifest is *contoso.Virtual-Vacuum-virtual-camera.1.4.importmanifest.json*. The child import manifest with details for updating the camera is *Contoso.Virtual-Vacuum.3.3.importmanifest.json*. Note that both manifest file names follow the required format and end with *.importmanifest.json. 
+   In the example, the parent import manifest is *contoso.Virtual-Vacuum-virtual-camera.1.4.importmanifest.json*. The child import manifest with details for updating the camera is *Contoso.Virtual-Vacuum.3.3.importmanifest.json*. Note that both manifest file names follow the required format and end with *.importmanifest.json*. 
 
    :::image type="content" source="media/understand-device-update/two-containers.png" alt-text="Screenshot that shows sample files uploaded to update cameras connected to a smart vacuum cleaner device." lightbox="media/understand-device-update/two-containers.png":::
 
@@ -161,7 +161,7 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
 ## Deploy an update
 
-1. In the **Groups and Deployments** view, you should see the new update available for your device group. You might need to refresh the page once. The following example shows the view for the example smart vacuum device:
+1. In the **Groups and Deployments** view, confirm that the new update is available for your device group. You might need to refresh the page once. The following example shows the view for the example smart vacuum device:
 
    :::image type="content" source="media/understand-device-update/five-groups.png" alt-text="Screenshot that shows an available update." lightbox="media/understand-device-update/five-groups.png":::
 

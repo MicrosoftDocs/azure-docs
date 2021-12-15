@@ -124,8 +124,8 @@ The `ComponentInfo` JSON string must include following required properties:
 | Name | Type | Description |
 |---|---|---|
 |`id`| string | A component's unique identity (device scope). Examples include hardware serial number, disk partition ID, and unique file path of the component.|
-|`name`| string| A component's logical name. This is the name that a device builder assigns to a component that's available in every device of the same `device` class.<br/><br/>For example, every Contoso Virtual Vacuum device contains a motor that drives a left wheel. Contoso assigned `Left Motor` as a common (logical) name for this motor to easily refer to this component, instead of hardware ID, which can be globally unique.|
-|`group`|string|A group that this component belongs to.<br/><br/>For example, all motors could belong to a `motors` group.|
+|`name`| string| A component's logical name. This is the name that a device builder assigns to a component that's available in every device of the same `device` class.<br/><br/>For example, every Contoso Virtual Vacuum device contains a motor that drives a left wheel. Contoso assigned *Left Motor* as a common (logical) name for this motor to easily refer to this component, instead of hardware ID, which can be globally unique.|
+|`group`|string|A group that this component belongs to.<br/><br/>For example, all motors could belong to a *motors* group.|
 |`manufacturer`|string|For a physical hardware component, this is a manufacturer or vendor name.<br/><br/>For a logical component, such as a disk partition or directory, it can be any device builder's defined value.|
 |`model`|string|For a physical hardware component, this is a model name.<br/><br/>For a logical component, such as a disk partition or directory, this can be any device builder's defined value.|
 |`properties`|object| A JSON object that contains any optional device-specific properties.|
@@ -273,7 +273,7 @@ Here's the input parameter for selecting the *motors* component group:
 }
 ```
 
-Here's the output of the parameter. All components belong to the `motors` group.
+Here's the output of the parameter. All components belong to the *motors* group.
 
 ```json
 {
@@ -329,7 +329,7 @@ Here's the input parameter for selecting a single component named *hostfw*:
 }
 ```
 
-Here's the parameter's output for the `hostfw` component:
+Here's the parameter's output for the *hostfw* component:
 
 ```json
 {
@@ -352,11 +352,11 @@ Here's the parameter's output for the `hostfw` component:
 ```
 
 > [!NOTE]
-> The preceding example demonstrated that, if needed, it's possible to send a newer update to any instance of a component that's selected by `name` property. For example, deploy the `motor-fw-2.0` update to `vacuum-motor` while continuing to use `motor-fw-1.0` on `left-motor` and `right-motor`.
+> The preceding example demonstrated that, if needed, it's possible to send a newer update to any instance of a component that's selected by `name` property. For example, deploy the `motor-fw-2.0` update to *vacuum-motor* while continuing to use `motor-fw-1.0` on *left-motor* and *right-motor*.
 
 ## Inventory file
 
-The example implementation shown earlier for the Contoso component enumerator will read the device-specific components' information from the *component-inventory.json* file. Note that example implementation is only for demonstration purposes.  
+The example implementation shown earlier for the Contoso component enumerator will read the device-specific components' information from the *component-inventory.json* file. Note that this example implementation is only for demonstration purposes.  
 
 In a production scenario, some properties should be retrieved directly from the actual components. These properties include `id`, `manufacturer`, and `model`. 
 
@@ -367,7 +367,7 @@ The device builder defines the `name` and `group` properties. These values shoul
 > [!NOTE]
 > The content in this file looks almost the same as the returned value from the `GetAllComponents` function. However, `ComponentInfo` in this file doesn't contain `version` and `status` properties. The component enumerator will populate these properties at runtime.
 
-For example, for `hostfw`, the value of the property `properties.version` will be populated from the specified (mock) `firmwareDataFile` value (*/usr/local/contoso-devices/vacuum-1/hostfw/firmware.json*).
+For example, for *hostfw*, the value of the property `properties.version` will be populated from the specified (mock) `firmwareDataFile` value (*/usr/local/contoso-devices/vacuum-1/hostfw/firmware.json*).
 
 ```json
 {
