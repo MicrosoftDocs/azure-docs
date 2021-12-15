@@ -34,19 +34,45 @@ openssl req -newkey rsa:2048 -keyout your-private-key.key -out your-csr.csr
 Run the following command to check the required SANs:
 
 ```console
-openssl req -noout -text -in <cert-name>
+openssl x509 -in /<cert path>/<filename>.pem -text
 ```
 The following is an example to use this command : 
 
 ```console
-$openssl x509 -in /var/run/secrets/managed/certificates/mssql/mssql-certificate.pem -text
+openssl x509 -in ./mssql-certificate.pem -text
 ```
 
 The command returns the following output : 
 
 ```output
-X509v3 Subject Alternative Name:
-DNS:<SQLMI name>-svc, DNS:<SQLMI name>-svc.<namespace>.svc.cluster.local, DNS:<SQLMI name>-svc.<namespace>.svc
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 7686530591430793847 (0x6aac0ad91167da77)
+        Signature Algorithm: sha256WithRSAEncryption
+        Issuer: CN = Cluster Certificate Authority
+        Validity
+            Not Before: Mmm dd hh:mm:ss yyyy GMT
+            Not After : Mmm dd hh:mm:ss yyyy GMT
+        Subject: CN = mi4-svc
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                RSA Public-Key: (2048 bit)
+                Modulus:
+                    00:ad:7e:16:3e:7d:b3:1e: ...
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            X509v3 Extended Key Usage: critical
+                TLS Web Client Authentication, TLS Web Server Authentication
+            X509v3 Key Usage: critical
+                Digital Signature, Key Encipherment
+            X509v3 Subject Alternative Name:
+                DNS:mi4-svc, DNS:mi4-svc.test.svc.cluster.local, DNS:mi4-svc.test.svc
+    Signature Algorithm: sha256WithRSAEncryption
+         7a:f8:a1:25:5c:1d:e2:b4: ...
+-----BEGIN CERTIFICATE-----
+MIIDNjCCAh6gAwIB ...==
+-----END CERTIFICATE-----
 ```
 
 An exemplary output is as the following : 
@@ -63,7 +89,7 @@ DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
    base64 /<path>/<file> > cert.txt 
    ```
 
-For Windows users, use [certutil](./windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command : 
+For Windows users, use [certutil](/windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command : 
 
    ```console
    $certutil -encode -f input.txt b64-encoded.txt
