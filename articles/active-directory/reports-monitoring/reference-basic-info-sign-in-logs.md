@@ -36,7 +36,7 @@ In Azure AD, a resource access has three relevant components:
 - **What** – The target (Resource) accessed by the identity.
 
 
-Each component has an associated unique identifier (ID). Below is an example of user using the Windows Azure Service Management API to access the Azure portal.
+Each component has an associated unique identifier (ID). Below is an example of user using the Windows Azure service management API to access the Azure portal.
 
 ![Open audit logs](./media/reference-basic-info-sign-in-logs/sign-in-details-basic-info.png)
 
@@ -66,7 +66,7 @@ This attribute shows the highest level of authentication needed through all the 
 
 ## Sign-in event types 
 
-Indicates the category of the sign in the event represents. For user sign ins, the category can be `interactiveUser` or `nonInteractiveUser` and corresponds to the value for the **isInteractive** property on the signin resource. For managed identity sign ins, the category is `managedIdentity`. For service principal sign ins, the category is **servicePrincipal**. The Azure Portal doesn't show this value, but the sign-in event is placed in the tab that matches its sign-in event type. Possible values are:
+Indicates the category of the sign in the event represents. For user sign-ins, the category can be `interactiveUser` or `nonInteractiveUser` and corresponds to the value for the **isInteractive** property on the sign in resource. For managed identity sign ins, the category is `managedIdentity`. For service principal sign ins, the category is **servicePrincipal**. The Azure portal doesn't show this value, but the sign-in event is placed in the tab that matches its sign-in event type. Possible values are:
 
 - `interactiveUser`
 - `nonInteractiveUser`
@@ -81,9 +81,9 @@ The Microsoft Graph API, supports: `$filter` (`eq` operator only)
 The type of a user. Examples include `member`, `guest`, or `external`.
 
 
-## Cross tenant access type 
+## Cross-tenant access type 
 
-This attribute describes the type of cross tenant access used by the actor to access the resource. Possible values are: 
+This attribute describes the type of cross-tenant access used by the actor to access the resource. Possible values are: 
 
 - `none`
 - `b2bCollaboration`
@@ -92,7 +92,7 @@ This attribute describes the type of cross tenant access used by the actor to ac
 - `serviceProvider`
 - `unknownFutureValue` 
 
-If the sign in did not cross tenant boundaries, the value is `none`.
+If the sign-in did not cross-tenant boundaries, the value is `none`.
 
 ## Conditional access evaluation 
 
