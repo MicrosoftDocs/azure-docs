@@ -22,7 +22,7 @@ It's crucial to mention that exactly-once needs the whole system including publi
 
 Service provides a message delivery option to control the type of messaging semantics per hub. By default, it's `AtMostOnce`. Please select to `ExactlyOnce` to enable exactly-once message delivery in service side.
 
-## Reconnection
+### Reconnection
 
 All connections what to achieve exactly-once message delivery should implement reconnection. When a new connection connect to service, as long as the hub enabled `ExactlyOnce`, the connection will receive a `Connected` message contains `connectionId` and `reconnectionToken`.
 
