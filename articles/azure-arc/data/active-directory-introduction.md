@@ -13,8 +13,7 @@ ms.topic: how-to
 
 # Introduction to Azure Arc-enabled SQL Managed Instance with Active Directory authentication 
 
-This article describes Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication. It specifically talks about the "Bring your own Keytab (BYOK)" mode (a.k.a. manual mode) of deploying a SQL Managed Instance
-where the user is expected to provide a pre-created Active Directory account, Service Principal Names and Keytab.
+This article describes Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication by bring your own keytab (BYOK) where the user is expected to provide a pre-created Active Directory account, Service Principal Names and Keytab.
 
 ## Background
 
