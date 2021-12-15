@@ -15,7 +15,7 @@ ms.date: 09/17/2021
 keywords: sql database, managed instance, azure cli samples, azure cli examples, azure cli code samples, azure cli script examples
 ---
 
-# Azure CLI samples for Azure SQL Database and SQL Managed Instance 
+# Azure CLI samples for Azure SQL Database and SQL Managed Instance
  
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
 

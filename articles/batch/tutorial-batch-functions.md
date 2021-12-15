@@ -4,7 +4,6 @@ description: Tutorial - Apply OCR to scanned documents as they're added to a sto
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/23/2021
-ms.author: peshultz
 ms.custom: "mvc, devx-track-csharp"
 ---
 
