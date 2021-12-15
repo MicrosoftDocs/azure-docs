@@ -1,5 +1,6 @@
 ---
 title: "Db2 to SQL Server on Azure VM: Migration guide"
+titleSuffix: SQL Server on Azure VMs
 description: This guide teaches you to migrate your IBM Db2 databases to SQL Server on Azure VM, by using SQL Server Migration Assistant for Db2.
 ms.custom: ""
 ms.service: virtual-machines-sql

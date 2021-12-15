@@ -1,5 +1,6 @@
 ---
 title: "Prerequisites: Migrate to SQL Server VM using distributed AG" 
+titleSuffix: SQL Server on Azure VMs
 description: Review the prerequisites to migrate your SQL Server to SQL Server on Azure VMs using a distributed availability group. 
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide

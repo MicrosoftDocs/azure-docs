@@ -1,5 +1,6 @@
 ---
 title: Use distributed AG to migrate availability group
+titleSuffix: SQL Server on Azure VMs
 description: Learn to use a distributed availability group (AG) to migrate a database (or multiple databases) from a source SQL Server Always On availability group to a target SQL Server on Azure VM. 
 ms.service: virtual-machines-sql
 ms.subservice: migration-guide
