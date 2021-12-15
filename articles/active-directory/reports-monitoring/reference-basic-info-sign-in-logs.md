@@ -31,7 +31,7 @@ This article explains the values on the Basic info tab of the sign-ins log.
 
 In Azure AD, a resource access has three relevant components:
 
-- **Who** – The identity (User) performing the sign-in. 
+- **Who** – The identity (User) doing the sign-in. 
 - **How** – The client (Application) used for the access.  
 - **What** – The target (Resource) accessed by the identity.
 
@@ -51,12 +51,12 @@ These identifiers are relevant in cross-tenant scenarios. For example, to find o
 
 ### Request ID
 
-The request ID is an identifier that corresponds to an issued token. If you are looking for sign-ins that were performed with a specific token, you need to extract the request ID from the token, first.
+The request ID is an identifier that corresponds to an issued token. If you are looking for sign-ins with a specific token, you need to extract the request ID from the token, first.
 
 
 ### Correlation ID
 
-The correlation ID is an identifier that correlates sign-ins from the same sign-in session. The identifier was implemented for convenience. Its accuracy is not guaranteed because the value is based on parameters passed by a client. 
+The correlation ID groups sign-ins from the same sign-in session. The identifier was implemented for convenience. Its accuracy is not guaranteed because the value is based on parameters passed by a client. 
 
 
 
@@ -92,7 +92,7 @@ This attribute describes the type of cross-tenant access used by the actor to ac
 - `serviceProvider`
 - `unknownFutureValue` 
 
-If the sign-in did not the boundaries of a tenant, the value is `none`.
+If the sign-in did not the pass the boundaries of a tenant, the value is `none`.
 
 ## Conditional access evaluation 
 
