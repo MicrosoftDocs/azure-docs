@@ -60,7 +60,7 @@ Verify that your data is in the storage account(s) before you delete it from the
 
       ![Screenshot of the Order Details pane for a Data Box Disk import order. The Order Details menu item and Managed Disk Resource Groups setting are highlighted.](media/data-box-disk-deploy-picked-up/order-details-resource-group.png)
 
-    Go to the noted resource group and locate your managed disks.
+    Go to the noted resource group, and locate your managed disks.
 
       ![Screenshot of a Resource Group resource for a Data Box Disk order. The resource group name and disks in the resource group are highlighted.](media/data-box-disk-deploy-picked-up/resource-group-attached-managed-disk.png)
 
@@ -101,7 +101,7 @@ To verify that the data has uploaded into Azure, take the following steps:
 
 ## Erasure of data from Data Box Disk
 
-Once the upload to Azure is complete, the Data Box Disk erases the data on its disks as per the [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) standard.
+Once the upload to Azure is complete, the Data Box Disk service erases the data on its disks as per the [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) standard.
 
 ::: zone target="docs"
 
