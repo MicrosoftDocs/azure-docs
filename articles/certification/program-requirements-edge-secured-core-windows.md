@@ -17,11 +17,11 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 
 ## Windows IoT Hardware/Firmware Requirements
 > [!Note]
-> Hardware must support the following...
+> Hardware must support and have the following enabled...
 > * Intel or AMD virtualization extensions
 > * Trusted Platform Module (TPM) 2.0
-> * On Intel: DRTM/TXT support in the BIOS, and SINIT ACM driver package must be included in the Windows system image
-> * On AMD: SKINIT package must be integrated in the Windows system image
+> * <b>For Intel systems:</b> Intel Virtualization Technology for Directed I/O (VT-d), Intel Trusted Execution Technology (TXT), and SINIT ACM driver package must be included in the Windows system image (for DRTM)
+> * <b>For AMD systems:</b> AMD IOMMU and AMD-V virtualization, and SKINIT package must be integrated in the Windows system image (for DRTM)
 > * Kernel DMA Protection (also known as Memory Access Protection)
 
 ---
