@@ -205,6 +205,8 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
+      - name: Manage file access logs 
+        href: manage-file-access-logs.md
   - name: Manage application volume groups 
     items:
       - name: Manage application volume groups for SAP HANA
