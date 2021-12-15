@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/13/2021
 ms.author: banders
 ---
 
@@ -92,7 +92,7 @@ subscription ID | Unique identifier for the subscription accruing the charges
 subscriptionName | Name of the subscription accruing the charges
 reservationId | Unique identifier for the purchased reservation instance
 reservationName | Name of the purchased reservation instance
-publisherType | Type of publisher (Values: firstParty, thirdPartyReseller, thirdPartyAgency)
+publisherType | Microsoft/Azure, Marketplace, and AWS costs.  Values are `Microsoft` for Microsoft Customer Agreement accounts and `Azure` for EA and pay-as-you-go accounts.
 publisherName | Publisher for Marketplace services
 resourceGroupId | Unique identifier for the resource group associated with the resource
 resourceGroupName | Name of the resource group associated with the resource

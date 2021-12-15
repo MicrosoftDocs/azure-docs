@@ -37,7 +37,7 @@ Cirrus Migrate Cloud consists of multiple components:
 
 ## Implementation guide
 
-User should follow the Azure best practices to implement a new virtual machine. If not familiar with the process, learn more from [quick start guide](/azure/virtual-machines/windows/quick-create-portal).
+User should follow the Azure best practices to implement a new virtual machine. If not familiar with the process, learn more from [quick start guide](../../../../virtual-machines/windows/quick-create-portal.md).
 
 Before starting the migration, make sure the following prerequisites have been met:
 
@@ -155,8 +155,8 @@ In the [Azure portal](https://portal.azure.com) search for support in the search
 In the CMC portal, select **Help Center** tab on the CMC portal to contact Cirrus Data Solutions support, or go to [CDSI website](https://support.cirrusdata.cloud/en/), and file a support request.
 
 ## Next steps
-- Learn more on [Azure virtual machines](/azure/virtual-machines/windows/overview)
-- Learn more on [Azure Managed Disks](/azure/virtual-machines/managed-disks-overview)
-- Learn more on [storage migration](/azure/storage/common/storage-migration-overview)
+- Learn more on [Azure virtual machines](../../../../virtual-machines/windows/overview.md)
+- Learn more on [Azure Managed Disks](../../../../virtual-machines/managed-disks-overview.md)
+- Learn more on [storage migration](../../../common/storage-migration-overview.md)
 - [Cirrus Data website](https://www.cirrusdata.com/)
 - Step-by-step guides for [cMotion](https://support.cirrusdata.cloud/en/category/howtos-1un623w/)

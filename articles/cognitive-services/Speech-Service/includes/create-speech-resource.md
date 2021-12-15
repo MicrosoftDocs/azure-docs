@@ -2,12 +2,12 @@
 title: Container support
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: include 
 ms.date: 7/5/2019
-ms.author: pafarley
+ms.author: eur
 ---
 
 ## Create a Speech resource

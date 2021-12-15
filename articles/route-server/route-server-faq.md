@@ -5,7 +5,7 @@ services: route-server
 author: duongau
 ms.service: route-server
 ms.topic: article
-ms.date: 09/01/2021
+ms.date: 11/02/2021
 ms.author: duau
 ---
 
@@ -55,6 +55,9 @@ If the route has the same AS path length, Azure Route Server will program multip
 
 Yes, Azure Route Server propagates the route with the BGP communities as is.
 
+### What is the BGP timer setting of Azure Route Server?
+The Keep-alive timer is set to 60 seconds and the Hold-down timer 180 seconds.
+
 ### What Autonomous System Numbers (ASNs) can I use?
 
 You can use your own public ASNs or private ASNs in your network virtual appliance. You can't use the ranges reserved by Azure or IANA.
@@ -70,15 +73,25 @@ The following ASNs are reserved by Azure or IANA:
 
 No, Azure Route Server supports only 16-bit (2 bytes) ASNs.
 
-### Can I configure a User Defined Route (UDR) in the AzureRouteServer Subnet?
+### Can I associate a User Defined Route (UDR) to the RouteServerSubnet?
 
-No, Azure Route Server doesn't support configuring a UDR in the AzureRouteServer subnet.
+No, Azure Route Server doesn't support configuring a UDR on the RouteServerSubnet.
+
+### Can I associate a Network Security group (NSG) to the RouteServerSubnet?
+
+No, Azure Route Server doesn't support NSG association to the RouteServerSubnet.
 
 ### Can I peer two route servers in two peered virtual networks and enable the NVAs connected to the route servers to talk to each other? 
 
 ***Topology: NVA1 -> RouteServer1 -> (via VNet Peering) -> RouteServer2 -> NVA2***
 
 No, Azure Route Server doesn't forward data traffic. To enable transit connectivity through the NVA, set up a direct connection (for example, an IPsec tunnel) between the NVAs and use the route servers for dynamic route propagation. 
+
+### Can I use Azure Route Server to direct traffic between subnets in the same virtual network to flow inter-subnet traffic through the NVA?
+
+No. System routes for traffic related to virtual network, virtual network peerings, or virtual network service endpoints, are preferred routes, even if BGP routes are more specific. As Route Server uses BGP to advertise routes, currently this is not supported by design. You must continue to use UDRs to force override the routes, and you can't utilize BGP to quickly failover these routes. You must continue to use a third party solution to update the UDRs via the API in a failover situation, or use an Azure Load Balancer with HA ports mode to direct traffic.
+
+You can still use Route Server to direct traffic between subnets in different virtual networks to flow using the NVA. The only possible design that may work is one subnet per "spoke" virtual network and all virtual networks are peered to a "hub" virtual network, but this is very limiting and needs to take into scaling considerations and Azure's maximum limits on virtual networks vs subnets.
 
 ## <a name = "limitations"></a>Route Server Limits
 

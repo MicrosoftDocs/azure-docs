@@ -52,7 +52,7 @@ You can access Advisor recommendations as *Owner*, *Contributor*, or *Reader* of
 
 Advisor provides recommendations for Application Gateway, App Services, availability sets, Azure Cache, Azure Data Factory, Azure Database for MySQL, Azure Database for PostgreSQL, Azure Database for MariaDB, Azure ExpressRoute, Azure Cosmos DB, Azure public IP addresses, Azure Synapse Analytics, SQL servers, storage accounts, Traffic Manager profiles, and virtual machines.
 
-Azure Advisor also includes your recommendations from [Azure Security Center](../security-center/security-center-recommendations.md) which may include recommendations for additional resource types.
+Azure Advisor also includes your recommendations from [Microsoft Defender for Cloud](../defender-for-cloud/defender-for-cloud-introduction.md) which may include recommendations for additional resource types.
 
 ### Can I postpone or dismiss a recommendation?
 

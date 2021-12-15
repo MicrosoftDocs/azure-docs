@@ -4,12 +4,12 @@ description: How to create membership rules to automatically populate groups, an
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.subservice: enterprise-users
 ms.workload: identity
 ms.topic: overview
-ms.date: 08/06/2021
+ms.date: 09/24/2021
 ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
@@ -128,7 +128,7 @@ For the properties used for device rules, see [Rules for devices](#rules-for-dev
 
 ## Supported expression operators
 
-The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix.
+The following table lists all the supported operators and their syntax for a single expression. Operators can be used with or without the hyphen (-) prefix. The **Contains** operator does partial string matches but not item in a collection matches.
 
 | Operator | Syntax |
 | --- | --- |
@@ -199,7 +199,7 @@ The correct way to reference the null value is as follows:
 
 ## Rules with multiple expressions
 
-A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination. 
+A group membership rule can consist of more than one single expression connected by the -and, -or, and -not logical operators. Logical operators can also be used in combination.
 
 The following are examples of properly constructed membership rules with multiple expressions:
 
@@ -264,7 +264,7 @@ assignedPlans is a multi-value property that lists all service plans assigned to
 user.assignedPlans -any (assignedPlan.servicePlanId -eq "efb87545-963c-4e0d-99df-69c6916d9eb0" -and assignedPlan.capabilityStatus -eq "Enabled")
 ```
 
-A rule such as this one can be used to group all users for whom an Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
+A rule such as this one can be used to group all users for whom a Microsoft 365 (or other Microsoft Online Service) capability is enabled. You could then apply with a set of policies to the group.
 
 #### Example 2
 

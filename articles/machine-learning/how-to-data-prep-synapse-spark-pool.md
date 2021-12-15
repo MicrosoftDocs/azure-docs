@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to attach and launch Apache Spark pools for data wrangling with Azure Synapse Analytics and Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: nibaccam
 author: nibaccam
 ms.reviewer: nibaccam
-ms.date: 03/02/2021
+ms.date: 10/21/2021
 ms.custom: devx-track-python, data4ml, synapse-azureml, contperf-fy21q4
 
 
@@ -95,7 +95,7 @@ env.register(workspace=ws)
 To begin data preparation with the Apache Spark pool and your custom environment, specify the Apache Spark pool name and which environment to use during the Apache Spark session. Furthermore, you can provide your subscription ID, the machine learning workspace resource group, and the name of the machine learning workspace.
 
 >[!IMPORTANT]
-> Make sure to [Allow session level packages](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages-preview) is enabled in the linked Synapse workspace.
+> Make sure to [Allow session level packages](../synapse-analytics/spark/apache-spark-manage-python-packages.md#session-scoped-packages) is enabled in the linked Synapse workspace.
 >
 >![enable session level packages](media/how-to-data-prep-synapse-spark-pool/enable-session-level-package.png)
 
@@ -271,6 +271,7 @@ The following code,
 
 ```Python
 from azureml.core import Dataset, HDFSOutputDatasetConfig
+from azureml.core.environment import CondaDependencies
 from azureml.core import RunConfiguration
 from azureml.core import ScriptRunConfig 
 from azureml.core import Experiment
@@ -286,6 +287,9 @@ run_config.spark.configuration["spark.driver.cores"] = 2
 run_config.spark.configuration["spark.executor.memory"] = "1g" 
 run_config.spark.configuration["spark.executor.cores"] = 1 
 run_config.spark.configuration["spark.executor.instances"] = 1 
+
+conda_dep = CondaDependencies()
+conda_dep.add_pip_package("azureml-core==1.20.0")
 
 run_config.environment.python.conda_dependencies = conda_dep
 

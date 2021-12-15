@@ -4,7 +4,7 @@ description: Describes how to define parameters in a Bicep file.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 11/12/2021
 ---
 
 # Parameters in Bicep
@@ -21,7 +21,15 @@ To learn more about parameters, and for hands-on guidance, see [Build reusable B
 
 ## Declaration
 
-Each parameter needs a name and type. A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
+Each parameter has a name and [data type](data-types.md). Optionally, you can provide a default value for the parameter.
+
+```bicep
+param <parameter-name> <parameter-data-type> = <default-value>
+```
+
+A parameter can't have the same name as a variable, resource, output, or other parameter in the same scope.
+
+The following example shows basic declarations of parameters.
 
 ```bicep
 param demoString string
@@ -49,9 +57,45 @@ You can use another parameter value to build a default value. The following temp
 
 :::code language="bicep" source="~/azure-docs-bicep-samples/syntax-samples/parameters/parameterswithfunctions.bicep" highlight="2":::
 
-## Secure parameters
+## Decorators
 
-Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration.
+Parameters use decorators for constraints or metadata. The decorators are in the format `@expression` and are placed above the parameter's declaration. You can mark a parameter as secure, specify allowed values, set the minimum and maximum length for a string, set the minimum and maximum value for an integer, and provide a description of the parameter.
+
+The following example shows two common uses for decorators.
+
+```bicep
+@secure()
+param demoPassword string
+
+@description('Must be at least Standard_A3 to support 2 NICs.')
+param virtualMachineSize string = 'Standard_DS1_v2'
+```
+
+The following table describes the available decorators and how to use them.
+
+| Decorator | Apply to | Argument | Description |
+| --------- | ---- | ----------- | ------- |
+| [allowed](#allowed-values) | all | array | Allowed values for the parameter. Use this decorator to make sure the user provides correct values. |
+| [description](#description) | all | string | Text that explains how to use the parameter. The description is displayed to users through the portal. |
+| [maxLength](#length-constraints) | array, string | int | The maximum length for string and array parameters. The value is inclusive. |
+| [maxValue](#integer-constraints) | int | int | The maximum value for the integer parameter. This value is inclusive. |
+| metadata | all | object | Custom properties to apply to the parameter. Can include a description property that is equivalent to the description decorator. |
+| [minLength](#length-constraints) | array, string | int | The minimum length for string and array parameters. The value is inclusive. |
+| [minValue](#integer-constraints) | int | int | The minimum value for the integer parameter. This value is inclusive. |
+| [secure](#secure-parameters) | string, object | none | Marks the parameter as secure. The value for a secure parameter isn't saved to the deployment history and isn't logged. For more information, see [Secure strings and objects](data-types.md#secure-strings-and-objects). |
+
+Decorators are in the [sys namespace](bicep-functions.md#namespaces-for-functions). If you need to differentiate a decorator from another item with the same name, preface the decorator with `sys`. For example, if your Bicep file includes a parameter named `description`, you must add the sys namespace when using the **description** decorator.
+
+```bicep
+@sys.description('The name of the instance.')
+param name string
+@sys.description('The description of the instance to display.')
+param description string
+```
+
+The available decorators are described in the following sections.
+
+### Secure parameters
 
 You can mark string or object parameters as secure. The value of a secure parameter isn't saved to the deployment history and isn't logged.
 
@@ -63,7 +107,7 @@ param demoPassword string
 param demoSecretObject object
 ```
 
-## Allowed values
+### Allowed values
 
 You can define allowed values for a parameter. You provide the allowed values in an array. The deployment fails during validation if a value is passed in for the parameter that isn't one of the allowed values.
 
@@ -75,7 +119,7 @@ You can define allowed values for a parameter. You provide the allowed values in
 param demoEnum string
 ```
 
-## Length constraints
+### Length constraints
 
 You can specify minimum and maximum lengths for string and array parameters. You can set one or both constraints. For strings, the length indicates the number of characters. For arrays, the length indicates the number of items in the array.
 
@@ -91,7 +135,7 @@ param storageAccountName string
 param appNames array
 ```
 
-## Integer constraints
+### Integer constraints
 
 You can set minimum and maximum values for integer parameters. You can set one or both constraints.
 
@@ -101,7 +145,7 @@ You can set minimum and maximum values for integer parameters. You can set one o
 param month int
 ```
 
-## Description
+### Description
 
 To help users understand the value to provide, add a description to the parameter. When deploying the template through the portal, the description's text is automatically used as a tip for that parameter. Only add a description when the text provides more information than can be inferred from the parameter name.
 

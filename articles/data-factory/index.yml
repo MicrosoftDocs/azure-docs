@@ -152,6 +152,6 @@ landingContent:
           - text: Source Control
             url: ./source-control.md
           - text: Continuous integration and delivery
-            url: ./continuous-integration-deployment.md
+            url: ./continuous-integration-delivery.md
           - text: Monitor with Azure Monitor
             url: ./monitor-using-azure-monitor.md

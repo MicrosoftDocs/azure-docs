@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
-ms.date: 07/27/2021
+ms.date: 10/21/2021
 ms.custom: seoapril2019, seodec18
 #Customer intent: As a data scientist, I want to understand the big picture about how Azure Machine Learning works.
 ---
@@ -265,7 +265,7 @@ The studio is also where you access the interactive tools that are part of Azure
 + [Azure Machine Learning designer](concept-designer.md) to perform workflow steps without writing code
 + Web experience for [automated machine learning](concept-automated-ml.md)
 + [Azure Machine Learning notebooks](how-to-run-jupyter-notebooks.md) to write and run your own code in integrated Jupyter notebook servers.
-+ [Data labeling projects](how-to-create-labeling-projects.md) to create, manage, and monitor projects to label your data
++ Data labeling projects to create, manage, and monitor projects for labeling [images](how-to-create-image-labeling-projects.md) or [text](how-to-create-text-labeling-projects.md).
 
 ### Programming tools
 

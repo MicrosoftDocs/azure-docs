@@ -9,14 +9,8 @@
   items:
   - name: Create / use file shares - Windows
     href: storage-files-quick-create-use-windows.md
-  - name: Create file shares - Portal
+  - name: Create file shares
     href: storage-how-to-use-files-portal.md
-  - name: Create file shares - PowerShell
-    href: storage-how-to-use-files-powershell.md
-  - name: Create file shares - CLI
-    href: storage-how-to-use-files-cli.md
-  - name: Create file shares - Storage Explorer
-    href: storage-how-to-use-files-storage-explorer.md
 - name: Tutorials
   items:
   - name: Extend Windows file servers with Azure File Sync
@@ -177,7 +171,7 @@
       href: storage-files-migration-overview.md
     - name: Target a cloud-only deployment
       items:
-      - name: RoboCopy to to Azure file shares
+      - name: RoboCopy to migrate to Azure file shares
         href: storage-files-migration-robocopy.md
       - name: Migrate from an on-premises NAS to Azure file shares with DataBox
         href: storage-files-migration-nas-cloud-databox.md
@@ -221,7 +215,7 @@
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Enable infrastructure encryption for the account
       href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Configure Azure Defender for threat protection
+    - name: Enable threat protection with Microsoft Defender for Storage
       href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Configure firewalls and virtual networks
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json

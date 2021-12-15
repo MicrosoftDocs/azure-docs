@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 12/08/2021
 ---
 
 # Copy data to or from Azure Data Lake Storage Gen1 using Azure Data Factory or Azure Synapse Analytics
@@ -182,7 +182,7 @@ To use user-assigned managed identity authentication, follow these steps:
     - **As source**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Read** permission for the files to copy. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**. There's no requirement on account-level access control (IAM).
     - **As sink**: In **Data explorer** > **Access**, grant at least **Execute** permission for ALL upstream folders including the root, along with **Write** permission for the sink folder. You can choose to add to **This folder and all children** for recursive, and add as **an access permission and a default permission entry**.
     
-2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
 The following property is supported:
 
@@ -426,6 +426,7 @@ When you're transforming data in mapping data flows, you can read and write file
 * [Delimited text](format-delimited-text.md#mapping-data-flow-properties)
 * [Excel](format-excel.md#mapping-data-flow-properties)
 * [JSON](format-json.md#mapping-data-flow-properties)
+* [ORC format](format-orc.md#mapping-data-flow-properties)
 * [Parquet](format-parquet.md#mapping-data-flow-properties)
 
 Format-specific settings are located in the documentation for that format. For more information, see [Source transformation in mapping data flow](data-flow-source.md) and [Sink transformation in mapping data flow](data-flow-sink.md).
@@ -472,15 +473,15 @@ To move source files to another location post-processing, first select "Move" fo
 
 If you have a source path with wildcard, your syntax will look like this below:
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 You can specify "from" as
 
-```/data/sales```
+`/data/sales`
 
 And "to" as
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
 
@@ -488,6 +489,10 @@ In this case, all files that were sourced under /data/sales are moved to /backup
 > File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
 
 **Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. 
+
+**Enable change data capture (Preview):** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. For more details, see [Change data capture (preview)](#change-data-capture-preview).
+
+:::image type="content" source="media/data-flow/enable-change-data-capture-preview.png" alt-text="Screenshot showing Enable change data capture (Preview).":::
 
 ### Sink properties
 
@@ -647,6 +652,15 @@ To learn details about the properties, check [Delete activity](delete-activity.m
     }
 ]
 ```
+## Change data capture (preview) 
+
+Azure Data Factory can get new or changed files only from Azure Data Lake Storage Gen1 by enabling **Enable change data capture (Preview)** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice.
+ 
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can always be recorded from the last run to get changes from there. If you change your pipeline name or activity name, the checkpoint will be reset, and you will start from the beginning in the next run.
+
+When you debug the pipeline, the **Enable change data capture (Preview)** works as well. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the result from debug run, you can publish and trigger the pipeline. It will always start from the beginning regardless of the previous checkpoint recorded by debug run. 
+
+In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changes are always gotten from the checkpoint record in your selected pipeline run.   
 
 ## Next steps
 

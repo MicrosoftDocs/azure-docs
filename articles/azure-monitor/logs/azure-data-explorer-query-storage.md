@@ -7,7 +7,6 @@ ms.reviewer: bwren
 ms.topic: conceptual
 ms.date: 10/13/2020 
 ms.custom: devx-track-azurepowershell
-
 ---
 
 # Query exported data from Azure Monitor using Azure Data Explorer
@@ -103,7 +102,7 @@ with
    docstring = "Docs",
    folder = "ExternalTables"
 )
-'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName, $resourcegroupname,$WorkspaceId
+'@ -f $TableName, $schema, $BlobURL, $ContainerAccessKey, $subscriptionId, $WorkspaceName.ToLower(), $resourcegroupname.ToLower(),$WorkspaceId
 
 $createMapping = @'
 .create external table {0} json mapping "{1}" '[{2}]'

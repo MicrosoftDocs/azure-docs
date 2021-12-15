@@ -5,7 +5,7 @@ author: timsander1
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
-ms.date: 06/16/2020
+ms.date: 10/05/2021
 ms.author: tisande
 ms.custom: devx-track-js
 ---

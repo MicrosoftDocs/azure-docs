@@ -7,13 +7,13 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: cost-management
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
 # Manage costs with Azure Budgets
 
-Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Azure Cost Management APIs](/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
+Cost control is a critical component to maximizing the value of your investment in the cloud. There are several scenarios where cost visibility, reporting, and cost-based orchestration are critical to continued business operations. [Cost Management APIs](/rest/api/consumption/) provide a set of APIs to support each of these scenarios. The APIs provide usage details, allowing you to view granular instance level costs.
 
 Budgets are commonly used as part of cost control. Budgets can be scoped in Azure. For instance, you could narrow your budget view based on subscription, resource groups, or a collection of resources. In addition to using the budgets API to notify you via email when a budget threshold is reached, you can use [Azure Monitor action groups](../../azure-monitor/alerts/action-groups.md) to trigger an orchestrated set of actions resulting from a budget event.
 

@@ -3,7 +3,7 @@ title: Import a SOAP API and convert to REST using the Azure portal | Microsoft 
 description: Learn how to import a SOAP API, convert it to REST with API Management, and then test the API in the Azure and Developer portals.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -12,7 +12,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 11/22/2017
-ms.author: apimpm
+ms.author: danlep
 
 ---
 # Import a SOAP API and convert to REST
@@ -39,7 +39,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
     ![SOAP API](./media/restify-soap-api/wsdl-api.png)
 3. In the **WSDL specification**, enter the URL to where your SOAP API resides.
-4. Click **SOAP to REST** radio button. When this option is clicked, APIM attempts to make an automatic transformation between XML and JSON. In this case consumers should be calling the API as a restful API, which returns JSON. APIM is converting each request into a SOAP call.
+4. Click **SOAP to REST** radio button. When this option is clicked, APIM attempts to make an automatic transformation between XML and JSON. In this case consumers should be calling the API as a RESTful API, which returns JSON. APIM is converting each request into a SOAP call.
 
     ![SOAP to REST](./media/restify-soap-api/soap-to-rest.png)
 

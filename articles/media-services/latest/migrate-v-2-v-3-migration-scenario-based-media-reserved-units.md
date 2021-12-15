@@ -29,7 +29,7 @@ This article gives you MRU scenario based guidance that will assist you in migra
 Please migrate your MRUs based on the following scenarios:
 
 * For all Media Services accounts, you no longer are required to set Media Reserved Units (MRUs). The system will now automatically scale up and down based on load.
-* If you have an account that was created before the 2020-05-01 version of the API, you can still Have access to API’s for managing MRU’s, however none of the MRU configuration that you set will be used to control encoding concurrency or performance. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). You can manage the MRUs using CLI 2.0 for Media Services V3, or using the Azure portal.
+* If you have an account that was created before the 2020-05-01 (or later) version of the API, you can still Have access to API’s for managing MRU’s, however none of the MRU configuration that you set will be used to control encoding concurrency or performance. For more information, see [Scaling Media Processing](../previous/media-services-scale-media-processing-overview.md). You can manage the MRUs using CLI 2.0 for Media Services V3, or using the Azure portal.
 * If you don't see the option to manage MRUs in the Azure portal, you're running an account that was created with the 2020-05-01 API or later.
 * If you are familiar with setting your MRU type to S3, your performance will improve or remain the same with the removal with MRUs.
 * If you are an existing V2 customer, you need to create a new V3 account to support your existing application prior to the completion of  migration. 

@@ -1,18 +1,15 @@
 ---
-title: 'Configure access to data sources for Azure Purview MSI at scale (preview)'
+title: 'Configure access to data sources for Azure Purview MSI at scale'
 description: In this tutorial, you'll configure Azure MSI settings on your Azure data source subscriptions. 
 author: zeinam
 ms.author: zeinam
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: tutorial
-ms.date: 05/28/2021
+ms.date: 09/27/2021
 # Customer intent: As a data steward or catalog administrator, I need to onboard Azure data sources at scale before I register and scan them.
 ---
-# Tutorial: Configure access to data sources for Azure Purview MSI at scale (preview)
-
-> [!IMPORTANT]
-> Azure Purview is currently in preview. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta or preview or are otherwise not yet released for general availability.
+# Tutorial: Configure access to data sources for Azure Purview MSI at scale
 
 To scan data sources, Azure Purview requires access to them. This tutorial is intended for Azure subscription owners and Azure Purview Data Source Administrators. It will help you identify required access and set up required authentication and network rules for Azure Purview across Azure data sources.
 
@@ -65,7 +62,7 @@ Follow these steps to run the script from your Windows computer:
 
 1. [Download Azure Purview MSI Configuration](https://github.com/Azure/Purview-Samples/tree/master/Data-Source-MSI-Configuration) script to the location of your choice.
 
-2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, right-click **Windows PowerShell** and then select **Run as administrator**.
+2. On your computer, enter **PowerShell** in the search box on the Windows taskbar. In the search list, select and hold (or right-click) **Windows PowerShell** and then select **Run as administrator**.
 
 3. In the PowerShell window, enter the following command. (Replace `<path-to-script>` with the folder path of the extracted script file.)
 

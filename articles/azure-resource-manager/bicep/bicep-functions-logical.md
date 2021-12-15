@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to determine logical
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 09/10/2021
+ms.date: 09/30/2021
 ---
 
 # Logical functions for Bicep
@@ -18,6 +18,8 @@ Most of the logical functions in Azure Resource Manager templates are replaced w
 `bool(arg1)`
 
 Converts the parameter to a boolean.
+
+Namespace: [sys](bicep-functions.md#namespaces-for-functions).
 
 ### Parameters
 

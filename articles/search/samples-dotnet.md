@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 01/27/2021
+ms.date: 10/01/2021
 ---
 
 # .NET (C#) code samples for Azure Cognitive Search
@@ -62,6 +62,7 @@ The following samples are also published by the Cognitive Search team, but are n
 
 | Samples | Description |
 |---------|-------------|
+| [Index Data Lake Gen2 using Azure AD](https://github.com/Azure-Samples/azure-search-dotnet-samples/blob/master/data-lake-gen2-acl-indexing/README.md) | Source code demonstrating indexer connections and indexing of Azure Data Lake Gen2 files and folders that are secured through Azure AD and role-based access controls. |
 | [azure-search-power-skills](https://github.com/Azure-Samples/azure-search-power-skills)  | Source code for consumable custom skills that you can incorporate in your won solutions.  |
 | [Knowledge Mining Solution Accelerator](/samples/azure-samples/azure-search-knowledge-mining/azure-search-knowledge-mining/) | Includes templates, support files, and analytical reports to help you prototype an end-to-end knowledge mining solution.  |
 | [Covid-19 Search App repository](https://github.com/liamca/covid19search) | Source code repository for the Cognitive Search based [Covid-19 Search App](https://covid19search.azurewebsites.net/) |

@@ -8,7 +8,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 08/19/2021
+ms.date: 10/21/2021
 ---
 
 # Distributed GPU training guide
@@ -283,10 +283,6 @@ run_config = ScriptRunConfig(
 
 run = Experiment(ws, 'experiment_name').submit(run_config)
 ```
-
-### PyTorch Lightning example
-
-* [azureml-examples: Multi-node training with PyTorch Lightning](https://github.com/Azure/azureml-examples/blob/main/python-sdk/experimental/using-pytorch-lightning/4.train-multi-node-ddp.ipynb)
 
 ### Hugging Face Transformers
 

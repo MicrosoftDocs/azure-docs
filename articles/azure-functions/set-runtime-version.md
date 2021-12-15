@@ -9,7 +9,7 @@ ms.custom: devx-track-azurepowershell
 
 # How to target Azure Functions runtime versions
 
-A function app runs on a specific version of the Azure Functions runtime. There are three major versions: [3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 3.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
+A function app runs on a specific version of the Azure Functions runtime. There are four major versions: [4.x, 3.x, 2.x, and 1.x](functions-versions.md). By default, function apps are created in version 4.x of the runtime. This article explains how to configure a function app in Azure to run on the version you choose. For information about how to configure a local development environment for a specific version, see [Code and test Azure Functions locally](functions-run-local.md).
 
 The way that you manually target a specific version depends on whether you're running Windows or Linux.
 
@@ -28,11 +28,12 @@ When a new version is publicly available, a prompt in the portal gives you the c
 
 The following table shows the `FUNCTIONS_EXTENSION_VERSION` values for each major version to enable automatic updates:
 
-| Major version | `FUNCTIONS_EXTENSION_VERSION` value |
-| ------------- | ----------------------------------- |
-| 3.x  | `~3` |
-| 2.x  | `~2` |
-| 1.x  | `~1` |
+| Major version | `FUNCTIONS_EXTENSION_VERSION` value | Additional configuration  |
+| ------------- | ----------------------------------- | ------------------------- |
+| 4.x           | `~4`                                | [On Windows, enable .NET 6](./functions-versions.md#migrating-from-3x-to-4x) |
+| 3.x           | `~3`                                |                           |
+| 2.x           | `~2`                                |                           |
+| 1.x           | `~1`                                |                           |
 
 A change to the runtime version causes a function app to restart.
 

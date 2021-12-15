@@ -27,12 +27,12 @@ Use these steps to update an offer that's been successfully published to Preview
     - **Incomplete**: The updates made to the section introduced errors that need to be fixed or requires more information to be provided.
 2. Select **Publish** to submit the updated offer for publishing. Your offer will then go through the standard [validation and publishing steps](review-publish-offer.md#validation-and-publishing-steps).
 
+> [!IMPORTANT]
+> You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
+
 ## Changing offer type
 
 [!INCLUDE [change-offer-type](includes/change-offer-type.md)]
-
-> [!IMPORTANT]
-> You must review your offer preview once it's available and select **Go-live** to publish your updated offer to your intended audience (public or private).
 
 ## Add a plan to an existing offer
 
@@ -82,7 +82,7 @@ Now that you have hidden the plan with the old price, create a copy of that plan
 
 1. In Partner Center, go back to **Plan overview**.
 2. Select **Create new plan**. Enter a **Plan ID** and a **Plan name**, then select **Create**.
-1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](azure-vm-create-plans.md) to learn more.
+1. To reuse the technical configuration from the plan you’ve hidden, select the **Reuse technical configuration** checkbox. Read [Create plans for a VM offer](azure-vm-plan-overview.md) to learn more.
     > [!IMPORTANT]
     > If you select **This plan reuses technical configuration from another plan**, you won’t be able to stop distribution of the parent plan later. Don’t use this option if you want to stop distribution of the parent plan.
 3. Complete all the required sections for the new plan, including the new price.

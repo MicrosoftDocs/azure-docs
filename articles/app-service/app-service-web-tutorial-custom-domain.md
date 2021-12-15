@@ -279,7 +279,7 @@ To migrate a live site and its DNS domain name to App Service with no downtime, 
 ## Redirect to a custom directory
 
 > [!NOTE]
-> By default, App Service directs web requests to the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app is accessible at `http://contoso.com/public`, but you you typically want to direct `http://contoso.com` to the `public` directory instead.
+> By default, App Service directs web requests to the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app is accessible at `http://contoso.com/public`, but you typically want to direct `http://contoso.com` to the `public` directory instead.
 
 While this is a common scenario, it doesn't actually involve custom DNS mapping, but is about customizing the virtual directory within your app.
 

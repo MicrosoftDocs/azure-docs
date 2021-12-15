@@ -7,7 +7,7 @@ ms.subservice: core
 ms.topic: overview
 author: peterclu
 ms.author: peterlu
-ms.date: 08/23/2021
+ms.date: 10/21/2021
 adobe-target: true
 ---
  
@@ -39,7 +39,7 @@ The studio offers multiple authoring experiences depending on the type project a
 
 + **Azure Machine Learning designer**
 
-  Use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and modules to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
+  Use the designer to train and deploy machine learning models without writing any code. Drag and drop datasets and components to create ML pipelines. Try out the [designer tutorial](tutorial-designer-automobile-price-train-score.md).
 
     ![Azure Machine Learning designer example](media/concept-designer/designer-drag-and-drop.gif)
 
@@ -51,7 +51,7 @@ The studio offers multiple authoring experiences depending on the type project a
 
 + **Data labeling**
 
-    Use [Azure Machine Learning data labeling](how-to-create-labeling-projects.md) to efficiently coordinate data labeling projects.
+    Use Azure Machine Learning data labeling to efficiently coordinate [image labeling](how-to-create-image-labeling-projects.md) or [text labeling](how-to-create-text-labeling-projects.md) projects.
 
 ## Manage assets and resources
 

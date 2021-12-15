@@ -4,15 +4,16 @@ description: Learn how to activate your privileged access group roles in Azure A
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: daveba
+manager: KarenH444
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 07/01/2021
+ms.date: 10/07/2021
 ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -25,7 +26,7 @@ This article is for eligible members who want to activate their privileged acces
 
 ## Activate a role
 
-When you need to take on an privileged access group role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
+When you need to take on a privileged access group role, you can request activation by using the **My roles** navigation option in Privileged Identity Management.
 
 1. [Sign in to Azure AD portal](https://aad.portal.azure.com) with Global Administrator or group Owner permissions.
 

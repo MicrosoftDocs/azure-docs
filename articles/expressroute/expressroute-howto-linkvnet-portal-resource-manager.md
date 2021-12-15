@@ -83,6 +83,9 @@ You can share an ExpressRoute circuit across multiple subscriptions. The followi
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/cross-subscription.png" alt-text="Cross-subscription connectivity":::
 
+> [!NOTE]
+> Connecting virtual networks between Azure sovereign clouds and Public Azure cloud is not supported. You can only link virtual networks from different subscriptions in the same cloud.
+
 Each of the smaller clouds within the large cloud is used to represent subscriptions that belong to different departments within an organization. Each of the departments within the organization uses their own subscription for deploying their services--but they can share a single ExpressRoute circuit to connect back to your on-premises network. A single department (in this example: IT) can own the ExpressRoute circuit. Other subscriptions within the organization may use the ExpressRoute circuit.
 
   > [!NOTE]
@@ -120,6 +123,9 @@ You can delete a connection by selecting the **Delete** icon for the authorizati
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-authorization-key.png" alt-text="Delete authorization key":::
 
 If you want to delete the connection but retain the authorization key, you can delete the connection from the connection page of the circuit.
+> [!NOTE]
+  > Connections redeemed in different subscriptions will not display in the circuit connection page. Navigate to the subscription where the authorization was redeemed and delete the top-level connection resource.
+  >
 
 :::image type="content" source="./media/expressroute-howto-linkvnet-portal-resource-manager/delete-connection-owning-circuit.png" alt-text="Delete connection owning circuit":::
 

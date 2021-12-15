@@ -1,7 +1,7 @@
 ---
 title: Onboard a customer to Azure Lighthouse
 description: Learn how to onboard a customer to Azure Lighthouse, allowing their resources to be accessed and managed by users in your tenant.
-ms.date: 08/26/2021
+ms.date: 09/30/2021
 ms.topic: how-to 
 ms.custom: devx-track-azurepowershell
 ---
@@ -333,6 +333,7 @@ If you are unable to successfully onboard your customer, or if your users have t
 - The **Microsoft.ManagedServices** resource provider must be registered for the delegated subscription. This should happen automatically during the deployment but if not, you can [register it manually](../../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
 - Authorizations must not include any users with the [Owner](../../role-based-access-control/built-in-roles.md#owner) built-in role or any built-in roles with [DataActions](../../role-based-access-control/role-definitions.md#dataactions).
 - Groups must be created with [**Group type**](../../active-directory/fundamentals/active-directory-groups-create-azure-portal.md#group-types) set to **Security** and not **Microsoft 365**.
+- If access was granted to a group, check to make sure the user is a member of that group. If they aren't, you can [add them to the group using Azure AD](../../active-directory/fundamentals/active-directory-groups-members-azure-portal.md), without having to perform another deployment. Note that [group owners](../../active-directory/fundamentals/active-directory-accessmanagement-managing-group-owners.md) are not necessarily members of the groups they manage, and may need to be added in order to have access.
 - There may be an additional delay before access is enabled for [nested groups](../..//active-directory/fundamentals/active-directory-groups-membership-azure-portal.md).
 - The [Azure built-in roles](../../role-based-access-control/built-in-roles.md) that you include in authorizations must not include any deprecated roles. If an Azure built-in role becomes deprecated, any users who were onboarded with that role will lose access, and you won't be able to onboard additional delegations. To fix this, update your template to use only supported built-in roles, then perform a new deployment.
 

@@ -1,15 +1,15 @@
 ---
 title: Partitioning tables in dedicated SQL pool 
-description: Recommendations and examples for using table partitions in dedicated SQL pool 
+description: Recommendations and examples for using table partitions in dedicated SQL pool.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 08/19/2021
-ms.author: xiaoyul
-ms.reviewer: igorstan, wiassaf
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: 
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -37,7 +37,7 @@ Partitioning can also be used to improve query performance. A query that applies
 
 For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip searching in partitions that don't match the filter.
 
-## Sizing partitions
+## Partition sizing
 
 While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables. 
 
@@ -55,7 +55,7 @@ Dedicated SQL pool introduces a way to define partitions that is simpler than SQ
 
 While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same. SQL Server and dedicated SQL pool support one partition column per table, which can be ranged partition. To learn more about partitioning, see [Partitioned Tables and Indexes](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement to partition the FactInternetSales table on the OrderDateKey column:
+The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement to partition the `FactInternetSales` table on the `OrderDateKey` column:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -81,7 +81,7 @@ WITH
 ;
 ```
 
-## Migrating partitioning from SQL Server
+## Migrate partitions from SQL Server
 
 To migrate SQL Server partition definitions to dedicated SQL pool simply:
 
@@ -189,8 +189,10 @@ The following split command receives an error message:
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
+```
 Msg 35346, Level 15, State 1, Line 44
 SPLIT clause of ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.
+```
 
 However, you can use `CTAS` to create a new table to hold the data.
 

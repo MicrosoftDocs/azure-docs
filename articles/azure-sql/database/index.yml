@@ -12,7 +12,7 @@ metadata:
   ms.topic: landing-page
   author: MashaMSFT
   ms.author: mathoma
-  ms.reviewer:
+  ms.reviewer: kendralittle, mathoma
   ms.date: 01/25/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -27,7 +27,9 @@ landingContent:
       - linkListType: whats-new
         links:
           - text: What's new? 
-            url: doc-changes-updates-release-notes.md?tabs=single-database        
+            url: doc-changes-updates-release-notes-whats-new.md
+          - text: Survey to improve Azure SQL!
+            url: https://aka.ms/AzureSQLSurveyNov2021
       - linkListType: quickstart
         links:
           - text: Create SQL Database

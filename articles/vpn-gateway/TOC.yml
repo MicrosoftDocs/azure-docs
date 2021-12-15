@@ -53,7 +53,7 @@
     href: vpn-gateway-bgp-overview.md
   - name: About highly available connections
     href: vpn-gateway-highlyavailable.md
-  - name: About Point-to-Site connections
+  - name: About Point-to-Site VPN
     href: point-to-site-about.md
   - name: About Point-to-Site VPN routing
     href: vpn-gateway-about-point-to-site-routing.md
@@ -109,7 +109,7 @@
         href: vpn-gateway-create-site-to-site-rm-powershell.md
       - name: Azure CLI
         href: vpn-gateway-howto-site-to-site-resource-manager-cli.md
-    - name: Configure multiple Site-to-Site connections
+    - name: Add additional S2S connections
       href: vpn-gateway-howto-multi-site-to-site-resource-manager-portal.md
     - name: Connect to multiple policy-based VPN devices
       href: vpn-gateway-connect-multiple-policybased-rm-ps.md
@@ -259,8 +259,6 @@
       href: vpn-gateway-activeactive-rm-powershell.md
   - name: Configure zone redundant gateways
     href: create-zone-redundant-vnet-gateway.md
-  - name: Configure packet captures 
-    href: packet-capture.md
   - name: Monitoring
     items:
     - name: Monitoring VPN Gateway
@@ -269,6 +267,8 @@
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-metric.md
     - name: Set up alerts based on resource logs
       href: vpn-gateway-howto-setup-alerts-virtual-network-gateway-log.md
+    - name: Configure packet captures 
+      href: packet-capture.md
   - name: Troubleshooting
     items:
     - name: Troubleshoot VPN Gateway

@@ -34,7 +34,7 @@ properties from related resource types. Here is the list of tables available in 
 |DesktopVirtualizationResources |Yes |Includes resources _related_ to `Microsoft.DesktopVirtualization`. |
 |ExtendedLocationResources |No |Includes resources _related_ to `Microsoft.ExtendedLocation`. |
 |GuestConfigurationResources |No |Includes resources _related_ to `Microsoft.GuestConfiguration`. |
-|HealthResources|Yes |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
+|HealthResources|Yes (preview) |Includes resources _related_ to `Microsoft.ResourceHealth/availabilitystatuses`. |
 |IoTSecurityResources |No |Includes resources _related_ to `Microsoft.IoTSecurity`. |
 |KubernetesConfigurationResources |No |Includes resources _related_ to `Microsoft.KubernetesConfiguration`. |
 |MaintenanceResources |Partial, join _to_ only. (preview) |Includes resources _related_ to `Microsoft.Maintenance`. |

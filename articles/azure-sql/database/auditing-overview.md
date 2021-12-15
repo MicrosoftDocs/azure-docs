@@ -7,7 +7,7 @@ ms.subservice: security
 ms.topic: conceptual
 author: Rupp29
 ms.author: arupp
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 08/25/2021
 ms.custom: azure-synapse, sqldbrb=1
 ---

@@ -19,9 +19,9 @@ For a set of security recommendations that follow the [Azure Security Benchmark]
 
 This section guides you on configuring and running your function app as securely as possible. 
 
-### Security Center
+### Defender for Cloud
 
-Security Center integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use the real-time security features of Security Center, for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](../security-center/defender-for-app-service-introduction.md). 
+Defender for Cloud integrates with your function app in the portal. It provides, for free, a quick assessment of potential configuration-related security vulnerabilities. Function apps running in a dedicated plan can also use Defender for Cloud's enhanced security features for an additional cost. To learn more, see [Protect your Azure App Service web apps and APIs](../defender-for-cloud/defender-for-app-service-introduction.md). 
 
 ### Log and monitor
 
@@ -29,7 +29,7 @@ One way to detect attacks is through activity monitoring and logging analytics. 
 
 Functions also integrates with Azure Monitor Logs to enable you to consolidate function app logs with system events for easier analysis. You can use diagnostic settings to configure streaming export of platform logs and metrics for your functions to the destination of your choice, such as a Logs Analytics workspace. To learn more, see [Monitoring Azure Functions with Azure Monitor Logs](functions-monitor-log-analytics.md). 
 
-For enterprise-level threat detection and response automation, stream your logs and events to a Logs Analytics workspace. You can then connect Azure Sentinel to this workspace. To learn more, see [What is Azure Sentinel](../sentinel/overview.md).  
+For enterprise-level threat detection and response automation, stream your logs and events to a Logs Analytics workspace. You can then connect Microsoft Sentinel to this workspace. To learn more, see [What is Microsoft Sentinel](../sentinel/overview.md).  
 
 For more security recommendations for observability, see the [Azure security baseline for Azure Functions](security-baseline.md#logging-and-monitoring). 
 

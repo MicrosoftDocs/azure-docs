@@ -33,7 +33,7 @@ For Azure Stack Edge service, the integration with key vault provides the follow
 
 ## Generate activation key and create key vault
 
-A key vault is created for Azure Stack Edge resource during the process of activation key generation. The key vault is created in the same resource group where the Azure Stack Edge resource is present. Contributor permissions is required on the key vault. 
+A key vault is created for Azure Stack Edge resource during the process of activation key generation. The key vault is created in the same resource group where the Azure Stack Edge resource is present. Contributor permission is required on the key vault. 
 
 ### Prerequisites for key vault
 

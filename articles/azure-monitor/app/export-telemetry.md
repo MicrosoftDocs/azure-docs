@@ -211,7 +211,7 @@ The continuous export will restart.
 ## Export samples
 
 * [Export to SQL using Stream Analytics][exportasa]
-* [Stream Analytics sample 2](export-stream-analytics.md)
+* [Stream Analytics sample 2](../../stream-analytics/app-insights-export-stream-analytics.md)
 
 On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data, and you could use it to process data that has been exported from Application Insights.
 
@@ -244,7 +244,7 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 ## Code samples
 
-* [Stream Analytics sample](export-stream-analytics.md)
+* [Stream Analytics sample](../../stream-analytics/app-insights-export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
 * [Detailed data model reference for the property types and values.](export-data-model.md)
 
@@ -263,6 +263,5 @@ To migrate to diagnostic settings based export:
 
 <!--Link references-->
 
-[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[exportasa]: ../../stream-analytics/app-insights-export-sql-stream-analytics.md
 [roles]: ./resources-roles-access-control.md
-

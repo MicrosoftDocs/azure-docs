@@ -1,8 +1,8 @@
 ---
 title: Software releases for Azure Percept DK OTA updates
 description: Information and download links for the Azure Percept DK over-the-air update packages
-author: EthanChangAED
-ms.author: amiyouss
+author: nkhuyent
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
@@ -65,13 +65,13 @@ Microsoft would service each dev kit release with OTA packages. However, as ther
 
 |Release|Applicable Version(s)|Download Links|Note|
 |---|---|---|---|
-|July Service Release (2107)|2021.106.111.115|[2021.107.129.116 OTA update package](https://go.microsoft.com/fwlink/?linkid=2169245)||
+|November Service Release (2111)|2021.106.111.115,<br>2021.107.129.116,<br>2021.109.129.108 |[2021.111.124.109 OTA update package](<https://download.microsoft.com/download/2/5/3/253f56fe-1a26-4fe7-b1b6-c03f070acc35/2021.111.124.109 OTA update package.zip>)||
 
 **Hard-stop releases:**
 
 |Release|Applicable Version(s)|Download Links|Note|
 |---|---|---|---|
-|June Service Release (2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 OTA manifest (for PE-101)](https://go.microsoft.com/fwlink/?linkid=2167127)<br>[2021.106.111.115 OTA manifest (for APDK-101)](https://go.microsoft.com/fwlink/?linkid=2167235) <br>[2021.106.111.115 OTA update package](https://go.microsoft.com/fwlink/?linkid=2167128) |Be sure to use the correct manifest based on "model name" (PE-101/APDK-101)|
+|June Service Release (2106)|2021.102.108.112, 2021.104.110.103, 2021.105.111.122 |[2021.106.111.115 OTA manifest (for PE-101)](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/aduimportmanifest_PE-101_2021.106.111.115_v3.json)<br>[2021.106.111.115 OTA manifest (for APDK-101)](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/aduimportmanifest_Azure-Percept-DK_2021.106.111.115_v3.json) <br>[2021.106.111.115 OTA update package](https://download.microsoft.com/download/d/f/0/df0f17dc-d2fb-42ff-aaa5-98edf4d6d1e8/Microsoft-Azure-Percept-DK-2021.106.111.115.swu) |Be sure to use the correct manifest based on "model name" (PE-101/APDK-101)|
 
 ## Next steps
 

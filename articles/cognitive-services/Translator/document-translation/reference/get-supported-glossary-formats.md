@@ -3,14 +3,12 @@ title: Get supported glossary formats method
 titleSuffix: Azure Cognitive Services
 description: The get supported glossary formats method returns the list of supported glossary formats.
 services: cognitive-services
-author: jann-skotdal
 manager: nitinme
 
 ms.service: cognitive-services
 ms.subservice: translator-text
 ms.topic: reference
 ms.date: 04/21/2021
-ms.author: v-jansk
 ---
 
 # Get supported glossary formats

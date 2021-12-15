@@ -2,19 +2,19 @@
 title: "Quickstart: Create a search index in the Azure portal"
 titleSuffix: Azure Cognitive Search
 description: Create, load, and query your first search index using the Import Data wizard in the Azure portal. This quickstart uses a fictitious hotel dataset for sample data.
-
 manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
+ms.custom: mode-ui
 ---
 # Quickstart: Create an Azure Cognitive Search index in the Azure portal
 
 Create your first search index using the **Import data** wizard and a built-in sample data source consisting of fictitious hotel data. The wizard guides you through the creation of a search index (hotels-sample-index) so that you can write interesting queries within minutes. 
 
-Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [Quickstart: Create a cognitive skillset](cognitive-search-quickstart-blob.md).
+Although you won't use the options in this quickstart, the wizard includes a page for AI enrichment so that you can extract text and structure from image files and unstructured text. For a similar walkthrough that includes AI enrichment, see [text translation and entity skillset](cognitive-search-quickstart-blob.md) or [OCR image skillset](cognitive-search-quickstart-ocr.md) quickstarts.
 
 ## Prerequisites
 
@@ -130,10 +130,6 @@ Moving forward, you should now have a search index that's ready to query using t
 
 **Search explorer** is only equipped to handle [REST API requests](/rest/api/searchservice/search-documents), but it accepts syntax for both [simple query syntax](/rest/api/searchservice/simple-query-syntax-in-azure-search) and [full Lucene query parser](/rest/api/searchservice/lucene-query-syntax-in-azure-search), plus all the search parameters available in [Search Document REST API](/rest/api/searchservice/search-documents#bkmk_examples) operations.
 
-> [!TIP]
-> The following steps are demonstrated at 6m08s into the [Azure Cognitive Search Overview video](https://channel9.msdn.com/Events/Connect/2016/138).
->
-
 1. Click **Search explorer** on the command bar.
 
    :::image type="content" source="media/search-get-started-portal/search-explorer-cmd.png" alt-text="Search explorer command":::
@@ -195,7 +191,7 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 + Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
-+ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see [How to implement faceted navigation in Azure Cognitive Search](./search-faceted-navigation.md#filter-based-on-a-range).
++ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
 
 ### <a name="highlight-query"></a> Highlight search results
 

@@ -220,7 +220,7 @@ As a backup user or administrator, you should be able to monitor all backup solu
 
 ### Monitoring
 
-* Azure Backup provides **in-built job monitoring** for operations such as configuring backup, backup, restore, delete backup, and so on. This is scoped to the vault, and ideal for monitoring a single vault. [Learn more here](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-recovery-services-vault).
+* Azure Backup provides **in-built job monitoring** for operations such as configuring backup, backup, restore, delete backup, and so on. This is scoped to the vault, and ideal for monitoring a single vault. [Learn more here](backup-azure-monitoring-built-in-monitor.md#backup-jobs-in-backup-center).
 
 * If you need to monitor operational activities at scale, then **Backup Explorer** provides an aggregated view of your entire backup estate, enabling detailed drill-down analysis and troubleshooting. It's a built-in Azure Monitor workbook that gives a single, central location to help you monitor operational activities across the entire backup estate on Azure, spanning tenants, locations, subscriptions, resource groups, and vaults. [Learn more here](monitor-azure-backup-with-backup-explorer.md).
   * Use it to identify resources that aren't configured for backup, and ensure that you don't ever miss protecting critical data in your growing estate.

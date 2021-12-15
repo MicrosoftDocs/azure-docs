@@ -1,8 +1,8 @@
---- 
+---
 title: Connect Azure virtual network to CloudSimple using ExpressRoute - Azure VMware Solution by CloudSimple
 description: Describes how to obtain peering information for a connection between the Azure virtual network and your CloudSimple environment
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.date: 08/14/2019 
 ms.topic: article 
 ms.service: azure-vmware-cloudsimple 

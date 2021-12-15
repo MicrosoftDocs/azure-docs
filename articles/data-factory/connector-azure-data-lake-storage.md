@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 12/08/2021
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
@@ -258,7 +258,7 @@ To use user-assigned managed identity authentication, follow these steps:
     - **As source**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Read** permission for the files to copy. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Reader** role.
     - **As sink**: In Storage Explorer, grant at least **Execute** permission for ALL upstream folders and the file system, along with **Write** permission for the sink folder. Alternatively, in Access control (IAM), grant at least the **Storage Blob Data Contributor** role.
     
-2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](data-factory-service-identity.md#credentials) for each user-assigned managed identity. 
+2. Assign one or multiple user-assigned managed identities to your data factory and [create credentials](credentials.md) for each user-assigned managed identity. 
 
 These properties are supported for the linked service:
 
@@ -577,15 +577,15 @@ To move source files to another location post-processing, first select "Move" fo
 
 If you have a source path with wildcard, your syntax will look like this below:
 
-```/data/sales/20??/**/*.csv```
+`/data/sales/20??/**/*.csv`
 
 You can specify "from" as
 
-```/data/sales```
+`/data/sales`
 
 And "to" as
 
-```/backup/priorSales```
+`/backup/priorSales`
 
 In this case, all files that were sourced under /data/sales are moved to /backup/priorSales.
 
@@ -593,6 +593,10 @@ In this case, all files that were sourced under /data/sales are moved to /backup
 > File operations run only when you start the data flow from a pipeline run (a pipeline debug or execution run) that uses the Execute Data Flow activity in a pipeline. File operations *do not* run in Data Flow debug mode.
 
 **Filter by last modified:** You can filter which files you process by specifying a date range of when they were last modified. All date-times are in UTC. 
+
+**Enable change data capture (Preview):** If true, you will get new or changed files only from the last run. Initial load of full snapshot data will always be gotten in the first run, followed by capturing new or changed files only in next runs. For more details, see [Change data capture (preview)](#change-data-capture-preview).
+
+:::image type="content" source="media/data-flow/enable-change-data-capture-preview.png" alt-text="Screenshot showing Enable change data capture (Preview).":::
 
 ### Sink properties
 
@@ -610,6 +614,34 @@ In the sink transformation, you can write to either a container or folder in Azu
    * **Output to a single file**: Combine the partitioned output files into a single named file. The path is relative to the dataset folder. Please be aware that te merge operation can possibly fail based upon node size. This option is not recommended for large datasets.
 
 **Quote all:** Determines whether to enclose all values in quotes
+    
+### ```umask```
+
+You can optionally set the ```umask``` for files using POSIX read, write, execute flags for owner, user and group.
+    
+### Pre-processing and post-processing commands
+    
+You can optionally execute Hadoop filesystem commands before or after writing to an ADLS Gen2 sink. The following commands are supported:
+    
+* ```cp```
+* ```mv```
+* ```rm```
+* ```mkdir```
+
+Examples:
+
+* ```mkdir /folder1```
+* ```mkdir -p folder1```
+* ```mv /folder1/*.* /folder2/```
+* ```cp /folder1/file1.txt /folder2```
+* ```rm -r /folder1```
+
+Parameters are also supported through expression builder, for example:
+
+`mkdir -p {$tempPath}/commands/c1/c2`
+`mv {$tempPath}/commands/*.* {$tempPath}/commands/c1/c2`
+
+By default, folders are created as user/root. Refer to the top level container with ‘/’.
 
 ## Lookup activity properties
 
@@ -638,7 +670,7 @@ To learn details about the properties, check [Delete activity](delete-activity.m
 | modifiedDatetimeStart | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
 | modifiedDatetimeEnd | Files filter based on the attribute Last Modified. The files are selected if their last modified time is within the time range between `modifiedDatetimeStart` and `modifiedDatetimeEnd`. The time is applied to the UTC time zone in the format of "2018-12-01T05:00:00Z". <br/><br/> The overall performance of data movement is affected by enabling this setting when you want to do file filter with huge amounts of files. <br/><br/> The properties can be NULL, which means no file attribute filter is applied to the dataset. When `modifiedDatetimeStart` has a datetime value but `modifiedDatetimeEnd` is NULL, it means the files whose last modified attribute is greater than or equal to the datetime value are selected. When `modifiedDatetimeEnd` has a datetime value but `modifiedDatetimeStart` is NULL, it means the files whose last modified attribute is less than the datetime value are selected.| No |
 | format | If you want to copy files as is between file-based stores (binary copy), skip the format section in both the input and output dataset definitions.<br/><br/>If you want to parse or generate files with a specific format, the following file format types are supported: **TextFormat**, **JsonFormat**, **AvroFormat**, **OrcFormat**, and **ParquetFormat**. Set the **type** property under **format** to one of these values. For more information, see the [Text format](supported-file-formats-and-compression-codecs-legacy.md#text-format), [JSON format](supported-file-formats-and-compression-codecs-legacy.md#json-format), [Avro format](supported-file-formats-and-compression-codecs-legacy.md#avro-format), [ORC format](supported-file-formats-and-compression-codecs-legacy.md#orc-format), and [Parquet format](supported-file-formats-and-compression-codecs-legacy.md#parquet-format) sections. |No (only for binary copy scenario) |
-| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are **GZip**, **Deflate**, **BZip2**, and **ZipDeflate**.<br/>Supported levels are **Optimal** and **Fastest**. |No |
+| compression | Specify the type and level of compression for the data. For more information, see [Supported file formats and compression codecs](supported-file-formats-and-compression-codecs-legacy.md#compression-support).<br/>Supported types are ```**GZip**, **Deflate**, **BZip2**, and **ZipDeflate**```.<br/>Supported levels are **Optimal** and **Fastest**. |No |
 
 >[!TIP]
 >To copy all files under a folder, specify **folderPath** only.<br>To copy a single file with a given name, specify **folderPath** with a folder part and **fileName** with a file name.<br>To copy a subset of files under a folder, specify **folderPath** with a folder part and **fileName** with a wildcard filter. 
@@ -752,6 +784,15 @@ To learn details about the properties, check [Delete activity](delete-activity.m
     }
 ]
 ```
+## Change data capture (preview) 
+
+Azure Data Factory can get new or changed files only from Azure Data Lake Storage Gen2 by enabling **Enable change data capture (Preview)** in the mapping data flow source transformation. With this connector option, you can read new or updated files only and apply transformations before loading transformed data into destination datasets of your choice.
+ 
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can always be recorded from the last run to get changes from there. If you change your pipeline name or activity name, the checkpoint will be reset, and you will start from the beginning in the next run.
+
+When you debug the pipeline, the **Enable change data capture (Preview)** works as well. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the result from debug run, you can publish and trigger the pipeline. It will always start from the beginning regardless of the previous checkpoint recorded by debug run. 
+
+In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changes are always gotten from the checkpoint record in your selected pipeline run. 
 
 ## Next steps
 

@@ -35,24 +35,81 @@ Before you upload your root certificates and endpoint certificates on to the dev
 
 To upload the root and endpoint certificates on the device, use the **+ Add certificate** option on the **Certificates** page in the local web UI. Follow these steps:
 
-1. Upload the root certificates first. In the local web UI, go to **Certificates > + Add certificate**.
+1. Upload the root certificates first. In the local web UI, go to **Certificates**.
+1. Select **+ Add certificate**.
 
-    ![Add signing chain certificate 1](media/azure-stack-edge-series-manage-certificates/add-cert-1.png)
+    ![Add signing chain certificate 1](media/azure-stack-edge-gpu-manage-certificates/add-cert-1.png)
 
-2. Next upload the endpoint certificates. 
+1. Save the certificate.
 
-    ![Add signing chain certificate 2](media/azure-stack-edge-series-manage-certificates/add-cert-2.png)
+#### Upload endpoint certificate
+
+1. Next upload the endpoint certificates. 
+
+    ![Add signing chain certificate 2](media/azure-stack-edge-gpu-manage-certificates/add-cert-2.png)
 
     Choose the certificate files in *.pfx* format and enter the password you supplied when you exported the certificate. The Azure Resource Manager certificate may take a few minutes to apply.
 
     If the signing chain is not updated first, and you try to upload the endpoint certificates, then you will get an error.
 
-    ![Apply certificate error](media/azure-stack-edge-series-manage-certificates/apply-cert-error-1.png)
+    ![Apply certificate error](media/azure-stack-edge-gpu-manage-certificates/apply-cert-error-1.png)
 
     Go back and upload the signing chain certificate and then upload and apply the endpoint certificates.
 
 > [!IMPORTANT]
 > If the device name or the DNS domain are changed, new certificates must be created. The client certificates and the device certificates should then be updated with the new device name and DNS domain. 
+
+#### Upload Kubernetes certificates
+
+The Kubernetes certificates can be for Edge Container Registry or for Kubernetes dashboard. In each case, a certificate and a key file must be uploaded. Follow these steps to create and upload Kubernetes certificates:
+
+
+1. You'll use `openssl` to create the Kubernetes dashboard certificate or Edge Container Registry. Make sure to install openssl on the system you would use to create the certificates. On a Windows system, you can use Chocolatey to install `openssl`. After you've installed Chocolatey, open PowerShell and type:
+    
+    ```powershell
+    choco install openssl
+    ```
+1. Use `openssl` to create these certificates. A `cert.pem` certificate file and `key.pem` key file are created.  
+
+    - For Edge Container Registry, use the following command:
+    
+        ```powershell
+        openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=<ecr.endpoint-suffix>"
+        ``` 
+        Here is an example output: 
+
+        ```powershell
+        PS C:\WINDOWS\system32> openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=ecr.dbe-1d6phq2.microsoftdatabox.com"
+        Generating a RSA private key
+        .....................++++....++++
+        writing new private key to 'key.pem'
+        -----
+        PS C:\WINDOWS\system32>
+        ```    
+    - For Kubernetes dashboard certificate, use the following command:  
+     
+        ```powershell
+        openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=<<kubernetes-dashboard.endpoint-suffix> OR <endpoint-suffix>>"
+        ```
+        Here is an example output: 
+
+        ```powershell
+        PS C:\WINDOWS\system32> openssl req -newkey rsa:4096 -nodes -sha256 -keyout key.pem -x509 -days 365 -out cert.pem -subj "/CN=kubernetes-dashboard.dbe-1d8phq2.microsoftdatabox.com"
+        Generating a RSA private key
+        .....................++++....++++
+        writing new private key to 'key.pem'
+        -----
+        PS C:\WINDOWS\system32>
+        ```          
+1. Upload the Kubernetes certificate and the corresponding key file that you generated earlier.
+    
+    - For Edge Container Registry
+    
+        ![Screenshot for adding an Edge Container Registry certificate and key file](media/azure-stack-edge-gpu-manage-certificates/add-cert-3.png)      
+
+    - For Kubernetes dashboard     
+
+        ![Screenshot for adding a Kubernetes dashboard certificate and key file](media/azure-stack-edge-gpu-manage-certificates/add-cert-4.png) 
 
 ## Import certificates on the client accessing the device
 
@@ -70,22 +127,22 @@ To import certificates on a Windows client, take the following steps:
 
 1. Right-click the file and select **Install certificate**. This action starts the Certificate Import Wizard.
 
-    ![Import certificate 1](media/azure-stack-edge-series-manage-certificates/import-cert-1.png)
+    ![Import certificate 1](media/azure-stack-edge-gpu-manage-certificates/import-cert-1.png)
 
 2. For **Store location**, select **Local Machine**, and then select **Next**.
 
-    ![Import certificate 2](media/azure-stack-edge-series-manage-certificates/import-cert-2.png)
+    ![Import certificate 2](media/azure-stack-edge-gpu-manage-certificates/import-cert-2.png)
 
 3. Select **Place all certificates in the following store**, and then select **Browse**. 
 
     - To import into personal store, navigate to the Personal store of your remote host, and then select **Next**.
 
-        ![Import certificate 4](media/azure-stack-edge-series-manage-certificates/import-cert-4.png)
+        ![Import certificate 4](media/azure-stack-edge-gpu-manage-certificates/import-cert-4.png)
 
 
     - To import into trusted store, navigate to the Trusted Root Certificate Authority, and then select **Next**.
 
-        ![Import certificate 3](media/azure-stack-edge-series-manage-certificates/import-cert-3.png)
+        ![Import certificate 3](media/azure-stack-edge-gpu-manage-certificates/import-cert-3.png)
 
  
 4. Select **Finish**. A message to the effect that the import was successful appears.

@@ -7,7 +7,7 @@ ms.custom: mvc
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: overview
-ms.date: 09/15/2021
+ms.date: 10/15/2021
 ---
 
 # Product updates for PostgreSQL - Hyperscale (Citus)
@@ -35,6 +35,14 @@ Here are the features currently available for preview:
   session and object audit logging via the standard PostgreSQL
   logging facility. It produces audit logs required to pass
   certain government, financial, or ISO certification audits.
+* **[Private access](concepts-hyperscale-private-access.md)**.
+  Allow hosts on a virtual network (VNet) to securely access a
+  Hyperscale (Citus) server group over a private endpoint.
+
+> [!NOTE]
+>
+> Private access is available for preview in only [certain
+> regions](concepts-hyperscale-limits.md#regions).
 
 ## Contact us
 

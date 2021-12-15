@@ -1,8 +1,8 @@
 ---
-title: Configure diagnostic settings and workspace
-description: Learn how to configure diagnostic settings and a Log Analytics Workspace to monitor Azure Data Factory.
-author: minhe-msft
-ms.author: hemin
+title: Configure diagnostic settings and a workspace
+description: Learn how to configure diagnostic settings and a Log Analytics workspace to monitor Azure Data Factory.
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring
@@ -10,26 +10,25 @@ ms.topic: conceptual
 ms.date: 09/02/2021
 ---
 
-# Configure diagnostic settings and workspace
+# Configure diagnostic settings and a workspace
 
 Create or add diagnostic settings for your data factory.
 
-1. In the portal, go to Monitor. Select **Settings** > **Diagnostic settings**.
+1. In the Azure portal, go to **Monitor**. Select **Settings** > **Diagnostics settings**.
 
 1. Select the data factory for which you want to set a diagnostic setting.
 
 1. If no settings exist on the selected data factory, you're prompted to create a setting. Select **Turn on diagnostics**.
 
-   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image1.png" alt-text="Create a diagnostic setting if no settings exist":::
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image1.png" alt-text="Screenshot that shows creating a diagnostic setting if no settings exist.":::
 
    If there are existing settings on the data factory, you see a list of settings already configured on the data factory. Select **Add diagnostic setting**.
 
-   :::image type="content" source="media/data-factory-monitor-oms/add-diagnostic-setting.png" alt-text="Add a diagnostic setting if settings exist":::
+   :::image type="content" source="media/data-factory-monitor-oms/add-diagnostic-setting.png" alt-text="Screenshot that shows adding a diagnostic setting if settings exist.":::
 
-1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics Workspace**.
+1. Give your setting a name, select **Send to Log Analytics**, and then select a workspace from **Log Analytics workspace**.
 
     * In _Azure-Diagnostics_ mode, diagnostic logs flow into the _AzureDiagnostics_ table.
-
     * In _Resource-Specific_ mode, diagnostic logs from Azure Data Factory flow into the following tables:
       - _ADFActivityRun_
       - _ADFPipelineRun_
@@ -41,19 +40,23 @@ Create or add diagnostic settings for your data factory.
       - _ADFSSISPackageExecutionComponentPhases_
       - _ADFSSISPackageExecutionDataStatistics_
 
-      You can select various logs relevant to your workloads to send to Log Analytics tables. For example, if you don't use SQL Server Integration Services (SSIS) at all, you need not select any SSIS logs. If you want to log SSIS Integration Runtime (IR) start/stop/maintenance operations, you can select SSIS IR logs. If you invoke SSIS package executions via T-SQL on SQL Server Management Studio (SSMS), SQL Server Agent, or other designated tools, you can select SSIS package logs. If you invoke SSIS package executions via Execute SSIS Package activities in ADF pipelines, you can select all logs.
+      You can select various logs relevant to your workloads to send to Log Analytics tables. For example: 
+        - If you don't use SQL Server Integration Services (SSIS) at all, you don't need to select any SSIS logs. 
+        - If you want to log SSIS integration runtime (IR) start, stop, or maintenance operations, select SSIS IR logs. 
+        - If you invoke SSIS package executions via T-SQL on SQL Server Management Studio, SQL Server Agent, or other designated tools, select SSIS package logs. 
+        - If you invoke SSIS package executions via Execute SSIS Package activities in Data Factory pipelines, select all logs.
 
-    * If you select _AllMetrics_, various ADF metrics will be made available for you to monitor or raise alerts on, including the metrics for ADF activity, pipeline, and trigger runs, as well as for SSIS IR operations and SSIS package executions.
+    * If you select _AllMetrics_, various Data Factory metrics are made available for you to monitor or raise alerts on. These metrics include the metrics for Data Factory activity, pipeline, and trigger runs, and for SSIS IR operations and SSIS package executions.
 
-   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Name your settings and select a log-analytics workspace":::
+   :::image type="content" source="media/data-factory-monitor-oms/monitor-oms-image2.png" alt-text="Screenshot that shows naming your settings and selecting a Log Analytics workspace.":::
 
     > [!NOTE]
-    > Because an Azure log table can't have more than 500 columns, we **highly recommended** you select _Resource-Specific mode_. For more information, see [AzureDiagnostics Logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).
+    > Because an Azure log table can't have more than 500 columns, we *highly recommend* that you select _Resource-Specific mode_. For more information, see [Azure diagnostics logs reference](/azure/azure-monitor/reference/tables/azurediagnostics).
 
 1. Select **Save**.
 
 After a few moments, the new setting appears in your list of settings for this data factory. Diagnostic logs are streamed to that workspace as soon as new event data is generated. Up to 15 minutes might elapse between when an event is emitted and when it appears in Log Analytics.
 
-## Next Steps
+## Next steps
 
-[Setup diagnostics logs via the Azure Monitor REST API](monitor-logs-rest.md)
+[Set up diagnostics logs via the Azure Monitor REST API](monitor-logs-rest.md)

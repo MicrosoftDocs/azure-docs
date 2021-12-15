@@ -71,7 +71,7 @@ All devices in a transparent gateway scenario need cloud identities so they can 
 >
 >You can configure the IoT Edge hub to go back to the previous behavior by setting the environment variable **AuthenticationMode** to the value **CloudAndScope**.
 
-Child devices can only have one parent. Each parent can have up to 100 children.
+Child devices can only have one parent. By default, a parent can have up to 100 children. You can change this limit by setting the **MaxConnectedClients** environment variable in the parent device's edgeHub module.
 
 <!-- 1.2.0 -->
 ::: moniker range=">=iotedge-2020-11"

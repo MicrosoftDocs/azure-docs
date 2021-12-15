@@ -2,7 +2,7 @@
 title: Agent based security custom alerts
 description: Learn about customizable security alerts and recommended remediation using Defender for IoT device's features and service.
 ms.topic: conceptual
-ms.date: 2/16/2021
+ms.date: 11/09/2021
 ---
 
 

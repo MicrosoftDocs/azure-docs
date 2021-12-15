@@ -3,7 +3,7 @@ title: Azure API Management authentication policies | Microsoft Docs
 description: Learn about the authentication policies available for use in Azure API Management.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/27/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 # API Management authentication policies
 This topic provides a reference for the following API Management policies. For information on adding and configuring policies, see [Policies in API Management](./api-management-policies.md).

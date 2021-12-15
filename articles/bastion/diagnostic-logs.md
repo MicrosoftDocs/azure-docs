@@ -45,7 +45,7 @@ To access your diagnostics logs, you can directly use the storage account that y
    ![select storage location](./media/diagnostic-logs/3-resource-location.png)
 4. Locate the json file created by Azure Bastion that contains the diagnostics log data for the time-period navigated to.
 
-5. Download the json file from your storage blob container. An example entry from the json file is shown below for reference:
+5. Download the json file from your storage blob container. An example entry of successful login from the json file is shown below for reference:
 
    ```json
    { 
@@ -66,6 +66,7 @@ To access your diagnostics logs, you can directly use the storage account that y
       "message":"Successfully Connected.",
       "resourceType":"VM",
       "targetVMIPAddress":"172.16.1.5",
+      "userEmail":"<userAzureAccountEmailAddress>"
       "tunnelId":"<tunnelID>"
    },
    "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
@@ -73,7 +74,37 @@ To access your diagnostics logs, you can directly use the storage account that y
    "CustomerSubscriptionId":"<subscripionID>"
    }
    ```
-
+   
+   Below is an example entry of unsuccessful login (e.g. due to incorrect username/password) from the json file:
+   
+   ```json
+   { 
+   "time":"2019-10-03T16:03:34.776Z",
+   "resourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.NETWORK/BASTIONHOSTS/MYBASTION-BASTION",
+   "operationName":"Microsoft.Network/BastionHost/connect",
+   "category":"BastionAuditLogs",
+   "level":"Informational",
+   "location":"eastus",
+   "properties":{ 
+      "userName":"<username>",
+      "userAgent":"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.90 Safari/537.36",
+      "clientIpAddress":"131.107.159.86",
+      "clientPort":24039,
+      "protocol":"ssh",
+      "targetResourceId":"/SUBSCRIPTIONS/<subscripionID>/RESOURCEGROUPS/MYBASTION/PROVIDERS/MICROSOFT.COMPUTE/VIRTUALMACHINES/LINUX-KEY",
+      "subscriptionId":"<subscripionID>",
+      "message":"Login Failed",
+      "resourceType":"VM",
+      "targetVMIPAddress":"172.16.1.5",
+      "userEmail":"<userAzureAccountEmailAddress>"
+      "tunnelId":"<tunnelID>"
+   },
+   "FluentdIngestTimestamp":"2019-10-03T16:03:34.0000000Z",
+   "Region":"eastus",
+   "CustomerSubscriptionId":"<subscripionID>"
+   }
+   ```
+   
 ## Next steps
 
 Read the [Bastion FAQ](bastion-faq.md).

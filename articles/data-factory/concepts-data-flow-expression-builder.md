@@ -65,7 +65,7 @@ If your data flow uses a defined schema in any of its sources, you can reference
 
 When you have column names that include special characters or spaces, surround the name with curly braces to reference them in an expression.
 
-```{[dbo].this_is my complex name$$$}```
+`{[dbo].this_is my complex name$$$}`
 
 ### Parameters
 
@@ -83,7 +83,17 @@ A cached lookup allows you to do an inline lookup of the output of a cached sink
 
 ### Locals
 
-If you are sharing logic across multiple columns or want to compartmentalize your logic, you can create a local within a derived column\. To reference a local, either click on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. Learn more about locals in the [derived column documentation](data-flow-derived-column.md#locals).
+If you are sharing logic across multiple columns or want to compartmentalize your logic, you can create a local variable. A local is a set of logic that doesn't get propagated downstream to the following transformation. Locals can be created within the expression builder by going to **Expression elements** and selecting **Locals**. Create a new one by selecting **Create new**.
+
+:::image type="content" source="media/data-flow/create-local.png" alt-text="Create local":::
+
+Locals can reference any expression element including functions, input schema, parameters, and other locals. When referencing other locals, order does matter as the referenced local needs to be "above" the current one.
+
+:::image type="content" source="media/data-flow/create-local-2.png" alt-text="Create local 2":::
+
+To reference a local in a transformation, either click on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. To edit a local definition, hover over it in the expression elements view and click on the pencil icon.
+
+:::image type="content" source="media/data-flow/using-locals.png" alt-text="Using locals":::
 
 ## Preview expression results
 
@@ -154,13 +164,13 @@ Below are a list of shortcuts available in the expression builder. Most intellis
 
 ### Convert to dates or timestamps
 
-To include string literals in your timestamp output, wrap your conversion in ```toString()```.
+To include string literals in your timestamp output, wrap your conversion in `toString()`.
 
-```toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')```
+`toString(toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss'), 'MM/dd /yyyy\'T\'HH:mm:ss')`
 
 To convert milliseconds from epoch to a date or timestamp, use `toTimestamp(<number of milliseconds>)`. If time is coming in seconds, multiply by 1,000.
 
-```toTimestamp(1574127407*1000l)```
+`toTimestamp(1574127407*1000l)`
 
 The trailing "l" at the end of the previous expression signifies conversion to a long type as inline syntax.
 

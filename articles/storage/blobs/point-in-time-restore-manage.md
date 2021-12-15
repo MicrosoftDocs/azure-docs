@@ -9,7 +9,7 @@ ms.service: storage
 ms.topic: how-to
 ms.date: 01/29/2021
 ms.author: tamram
-ms.subservice: blobs 
+ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -189,7 +189,7 @@ To check the properties of a restore operation, call [az storage account show](/
 ```azurecli
 az storage account show \
     --name <storage-account> \
-    --resource-group <resource_group> \ 
+    --resource-group <resource_group> \
     --expand blobRestoreStatus \
     --query blobRestoreStatus.status \
     --output tsv
@@ -255,7 +255,7 @@ Restore-AzStorageBlobRange -ResourceGroupName $rgName `
     -TimeToRestore (Get-Date).AddDays(-3)
 ```
 
-By default, the **Restore-AzStorageBlobRange** command runs asynchronously. When you initiate a restore operation asynchronously, PowerShell immediately displays a table of properties for the operation:  
+By default, the **Restore-AzStorageBlobRange** command runs asynchronously. When you initiate a restore operation asynchronously, PowerShell immediately displays a table of properties for the operation:
 
 ```powershell
 Status     RestoreId                            FailureReason Parameters.TimeToRestore     Parameters.BlobRanges

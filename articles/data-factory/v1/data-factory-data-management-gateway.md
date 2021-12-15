@@ -3,8 +3,9 @@ title: Data Management Gateway for Data Factory
 description: Use Data Management Gateway in Azure Data Factory to move your data.
 author: nabhishek
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/10/2018
+ms.date: 10/22/2021
 ms.author: abnarain 
 ms.custom: devx-track-azurepowershell
 robots: noindex
@@ -272,6 +273,7 @@ You see the status of update operation (manual or automatic) in the system tray.
 You can disable/enable the auto-update feature by doing the following steps:
 
 [For single node gateway]
+
 1. Launch Windows PowerShell on the gateway machine.
 2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* folder.
 3. Run the following command to turn the auto-update feature OFF (disable).
@@ -279,20 +281,26 @@ You can disable/enable the auto-update feature by doing the following steps:
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off
     ```
+
 4. To turn it back on:
 
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -on
     ```
-   [For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
+[For multi-node highly available and scalable gateway](data-factory-data-management-gateway-high-availability-scalability.md)
+
 1. Launch Windows PowerShell on the gateway machine.
+
 2. Switch to the *C:\\\\Program Files\\Microsoft Integration Runtime\\5.0\\PowerShellScript\\* folder.
+
 3. Run the following command to turn the auto-update feature OFF (disable).
 
     For gateway with high availability feature, an extra AuthKey param is required.
+
     ```powershell
     .\IntegrationRuntimeAutoUpdateToggle.ps1 -off -AuthKey <your auth key>
     ```
+
 4. To turn it back on:
 
     ```powershell
@@ -300,6 +308,7 @@ You can disable/enable the auto-update feature by doing the following steps:
     ```
 
 ## Configuration Manager
+
 Once you install the gateway, you can launch Data Management Gateway Configuration Manager in one of the following ways:
 
 1. In the **Search** window, type **Data Management Gateway** to access this utility.
@@ -447,7 +456,7 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
    4. Click **OK** to encrypt credentials and close the dialog box.
 8. You should see a **encryptedCredential** property in the **connectionString** now.
 
-    ```JSON
+    ```json
     {
         "name": "SqlServerLinkedService",
         "properties": {
@@ -460,7 +469,8 @@ To encrypt credentials in the Data Factory Editor, do the following steps:
         }
     }
     ```
-   If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it does not allow you to set credentials for the data source and to test connection to the data source.
+
+    If you access the portal from a machine that is different from the gateway machine, you must make sure that the Credentials Manager application can connect to the gateway machine. If the application cannot reach the gateway machine, it does not allow you to set credentials for the data source and to test connection to the data source.
 
 When you use the **Setting Credentials** application, the portal encrypts the credentials with the certificate specified in the **Certificate** tab of the **Gateway Configuration Manager** on the gateway machine.
 
@@ -519,10 +529,11 @@ This section describes how to create and register a gateway using Azure PowerShe
     ```
 2. You can use the **Get-AzDataFactoryGateway** cmdlet to get the list of Gateways in your data factory. When the **Status** shows **online**, it means your gateway is ready to use.
 
-    ```powershell        
+    ```powershell
     Get-AzDataFactoryGateway -DataFactoryName <dataFactoryName> -ResourceGroupName ADF
     ```
-   You can remove a gateway using the **Remove-AzDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
+
+    You can remove a gateway using the **Remove-AzDataFactoryGateway** cmdlet and update description for a gateway using the **Set-AzDataFactoryGateway** cmdlets. For syntax and other details about these cmdlets, see Data Factory Cmdlet Reference.  
 
 ### List gateways using PowerShell
 

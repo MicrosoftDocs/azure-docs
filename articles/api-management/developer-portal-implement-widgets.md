@@ -3,7 +3,7 @@ title: Implement widgets in the developer portal
 titleSuffix: Azure API Management
 description: Learn how to implement widgets that consume data from external APIs and display it on the API Management developer portal.
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 04/15/2021
 ms.service: api-management
 ms.topic: how-to

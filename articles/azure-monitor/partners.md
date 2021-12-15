@@ -4,7 +4,7 @@ description: Learn about partners for Azure Monitor and how you can access docum
 author: rboucher
 ms.author: robb
 ms.topic: conceptual
-ms.date: 04/14/2021
+ms.date: 10/27/2021
 ---
 
 # Azure Monitor partner integrations
@@ -97,9 +97,9 @@ Through this unified experience, you'll be able to:
 -	Streamline single-sign on (SSO) to Datadog. A separate sign-on from the Datadog portal is no longer required. 
 -	Get unified billing for the Datadog service through Azure subscription invoicing.
 
-A preview of Datadog integration with Azure is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview).
+The [Datadog integration with Azure](../partner-solutions/datadog/overview.md) is available in [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/datadog1591740804488.dd_liftr_v2?tab=Overview). 
 
-If you're still using the previous, manually configured integration, see the [documentation on the Datadog website](https://docs.datadoghq.com/integrations/azure/).
+For documentation on the integration, see [Datadog integration with Azure](../partner-solutions/datadog/index.yml). If you're still using the previous, manually configured integration, see the [documentation on the Datadog website](https://docs.datadoghq.com/integrations/azure/).
 
 ## Dynatrace
 
@@ -380,7 +380,3 @@ If you use Azure Monitor to route monitoring data to an event hub, you can easil
 - [Access metrics by using the REST API](essentials/rest-api-walkthrough.md)
 - [Stream the Activity Log to a non-Microsoft service](essentials/activity-log.md#legacy-collection-methods)
 - [Stream resource logs to a non-Microsoft service](essentials/resource-logs.md#send-to-azure-event-hubs)
-
-
-
-

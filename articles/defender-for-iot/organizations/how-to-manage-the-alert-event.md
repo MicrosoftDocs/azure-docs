@@ -1,7 +1,7 @@
 ---
 title: Manage alert events
 description: Manage alert events detected in your network. 
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

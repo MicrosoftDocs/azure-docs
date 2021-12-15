@@ -65,6 +65,7 @@ The supported Kubelet parameters and accepted values are listed below.
 | `allowedUnsafeSysctls` | `kernel.shm*`, `kernel.msg*`, `kernel.sem`, `fs.mqueue.*`, `net.*` | None | Allowed list of unsafe sysctls or unsafe sysctl patterns. | 
 | `containerLogMaxSizeMB` | Size in megabytes (MB) | 10 MB | The maximum size (for example, 10 MB) of a container log file before it's rotated. | 
 | `containerLogMaxFiles` | ≥ 2 | 5 | The maximum number of container log files that can be present for a container. | 
+| `podMaxPids` | -1 to kernel PID limit | -1 (∞)| The maximum amount of process IDs that can be running in a Pod |
 
 ### Linux OS custom configuration
 

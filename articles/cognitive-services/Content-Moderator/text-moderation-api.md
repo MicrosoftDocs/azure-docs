@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: conceptual
-ms.date: 05/18/2020
+ms.date: 10/27/2021
 ms.author: pafarley
 
 ---
@@ -39,7 +39,7 @@ If the API detects any profane terms in any of the [supported languages](./langu
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 0,
-        "Term": "crap"
+        "Term": "<offensive word>"
     }
 ```
 
@@ -150,7 +150,7 @@ The following example shows the matching List ID:
         "Index": 118,
         "OriginalIndex": 118,
         "ListId": 231.
-        "Term": "crap"
+        "Term": "<offensive word>"
     }
 ```
 
