@@ -113,7 +113,7 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
     |A|\<subdomain\> (for example, www)|IP address from [Copy the app's IP address](#2-get-a-domain-verification-id)||
     |TXT|asuid.\<subdomain\> (for example, asuid.www)|[The verification ID you got earlier](#2-get-a-domain-verification-id)||
 
-    ![Screenshot that shows a DNS records page.](./media/app-service-web-tutorial-custom-domain/a-record-subdomain.png)
+    ![Screenshot that shows a DNS records subdomain page.](./media/app-service-web-tutorial-custom-domain/a-record-subdomain.png)
     
 # [CNAME](#tab/cname)
 
@@ -152,7 +152,7 @@ For a wildcard name like `*` in `*.contoso.com`, create two records according to
 
 ## 4. Enable the mapping in your app
 
-After you [create DNS records](3-create-the-dns-records), you enable the mapping in your app.
+After you [create DNS records](#3-create-the-dns-records), you enable the mapping in your app.
 # [A](#tab/a)
 
 1. In the left pane of the app page in the Azure portal, select **Custom domains**.
