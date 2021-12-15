@@ -1,5 +1,5 @@
 ---
-title: Configuring external tools for the SAP deployment automation framework
+title: Configuring external tools for the SAP Deployment Automation Framework
 description: Describes how to configure external tools for using SAP Deployment Automation Framework.
 author: kimforss
 ms.author: kimforss
@@ -13,9 +13,9 @@ ms.service: virtual-machines-sap
 
 This document describes how to configure external tools to use the SAP Deployment Automation Framework.
 
-## Configuring Visual Studio code
+## Configuring Visual Studio Code
 
-### Copy the ssh key from the key vault.
+### Copy the ssh key from the key vault
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
@@ -60,11 +60,11 @@ Once you have downloaded the ssh key for the deployer, you can use it to connect
 
 1. Choose "Add New SSH Host"
 
-```bash
-ssh -i `C:\\Users\\<your-username>\\weeu_deployer.ssh` azureadm@<IP_Address>
-```
-> [!NOTE] 
->Change the <IP_Address> to reflect the Deployer IP.
+    ```bash
+    ssh -i `C:\\Users\\<your-username>\\weeu_deployer.ssh` azureadm@<IP_Address>
+    ```
+    > [!NOTE] 
+    >Change the <IP_Address> to reflect the Deployer IP.
 
 1. Click Connect, choose Linux when prompted for the target operating system, accept the remaining dialogues (key, trust etc.)
 
