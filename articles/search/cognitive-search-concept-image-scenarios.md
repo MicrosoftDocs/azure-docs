@@ -13,29 +13,37 @@ ms.custom: devx-track-csharp
 
 # Extract text and information from images in AI enrichment
 
-Through it's [AI enrichment](cognitive-search-concept-intro.md) capabilities, Azure Cognitive Search has several options for working with images, including Optical Character Recognition (OCR) and image analysis that extracts text, layout, captions, and tags. You can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Other scenarios include generating a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
+Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Search gives you several options for working with images, including:
 
-Input can be embedded images or standalone image files. Output is always text that's ingested into a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md) for data mining scenarios.
++ Optical Character Recognition (OCR)
++ Image analysis that extracts text, layout, captions, and tags
++ Custom skills that invoke any external image processing you want to provide
 
-This article explains how to work with images in an AI enrichment pipeline. To work with image content, you'll need:
+Through OCR, you can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Through image analysis, you can generate a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
-+ Supported inputs
+This article explains how to work with images in an AI enrichment pipeline. 
+
+To work with image content, you'll need:
+
++ Supported inputs and expected outputs
 + Indexer configuration having an imageAction parameter
 + Built-in or custom skills that invoke OCR or image analysis
 
 ## Inputs to image analysis
 
-Image analysis is indexer-driven, which means that raw data must be a supported file type (as determined by the skills you choose), in a [supported data source](search-indexer-overview.md#supported-data-sources). OCR supports JPEG, PNG, GIF, TIF, and BMP. Image analysis supports JPEG, PNG, GIF, and BMP. Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. 
+Input can be embedded images or standalone image files. Output is always text that's ingested into a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md) for data mining scenarios.
 
-The location of image files and connection information is specified in an indexer data source object. As with any indexer, the connection will be made using either key-based authentication or Azure Active Directory.
+Image analysis is indexer-driven, which means that the raw inputs must be a supported file type (as determined by the skills you choose) from a [supported data source](search-indexer-overview.md#supported-data-sources). OCR supports JPEG, PNG, GIF, TIF, and BMP. Image analysis supports JPEG, PNG, GIF, and BMP. Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. 
 
-In addition to connections to external data, Cognitive Search calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to include multi-service key to a Cognitive Services resource in the same region as your Cognitive Search service.
+The location of image files and connection information is specified in an indexer data source object. As with any indexer, the connection will be made using either key-based authentication or Azure Active Directory and role-based authorization.
+
+In addition to connections to external data, Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to include multi-service key to a Cognitive Services resource in the same region as your Cognitive Search service.
 
 ### Standalone image files
 
-Standalone images files contain binary data. Recall that OCR only recognizes text in the files that provide it. If you run OCR over images having no text, you will get "Could not execute skill" messages on each occurrence. In contrast, image analysis will analyze for characteristics and metadata, and can typically produce text descriptions or captions from pure imagery. 
+Standalone images files contain binary data. Recall that OCR only recognizes text in the files that provide it. If you run OCR over images having no text, such as a cityscape or nature scene, you will get "Could not execute skill" messages on each occurrence. In contrast, image analysis will analyze for characteristics and metadata, and can typically produce text descriptions or captions from pure imagery. 
 
-The generated text, layout information, captions, and tags are captured as strings or string collections in an enriched document, for downstream consumption by indexing or projection.
+The generated text, layout information, captions, and tags are captured as string fields or string collection fields in an enriched document, for downstream consumption by indexing or projection.
 
 ### Embedded images in documents
 
@@ -45,17 +53,17 @@ Typically, image processing output is inserted in the same location as where the
 
 ## Indexer configuration for image processing
 
-Indexer configuration is required for image processing. The parameters you specify in an indexer will be used to:
+Indexer configuration is required for image processing. The parameters you'll specify in an indexer will be used to:
 
-+ Specify image normalization.
-+ Set the parsingMode, applicable when working with embedded image content.
-+ Specify output field mappings, necessary for any indexer that includes a skillset.
++ Specify image normalization
++ Set the parsingMode, applicable when working with embedded image content
++ Specify output field mappings, necessary for any indexer that includes a skillset
 
 <a name="get-normalized-images"></a>
 
 ### Enable image normalization
 
-Image processing requires image normalization to makes images more uniform for downstream processing. 
+Image processing requires image normalization to makes images more uniform for downstream processing.
 
 + Large images are resized to a maximum height and width to make them consumable.
 + For images providing metadata on orientation, image rotation is adjusted for vertical loading. Metadata adjustments are captured in a complex type created for each image. 
@@ -116,13 +124,16 @@ When the *imageAction* is set to a value other then "none", the new *normalized_
 ]
 ```
 
-### Check the parsingMode
+### Check the parsingMode (Blob storage only)
 
-If you set the **imageAction** to anything other than "none", **parsingMode** must be "default", which sets up a one-to-one correspondence between a source document and a search document in an index. The parsing mode will have no effect on standalone image files, but it is relevant when working with PDFs and other files that contain embedded images. 
+Blob indexers include a parsingMode parameter that determines the granularity of search documents created in the index. The default mode sets up a one-to-one correspondence so that one blob results in one search document, but it also accepts values that result in one blob and many search documents. If you're invoking OCR or image analysis, the 
 
-The parsing mode you specify will apply equally to all files in the data source. If files include pure text content that you want to prase as JSON or JSON arrays, you will need to separate that content into a separate data source so that you can index it with the appropriate parsing mode.
+Parsing applies to text, not images, but if indexer configuration includes "imageAction" set to anything other than "none", then the "parsingMode" must be "default".
 
-### Set the output field mappings
+> [!NOTE]
+> The parsing mode applies equally to all files in the container. If the container contains text-only files that you want to parse using another mode, such as JSON or JSON arrays, you will need to place those files into a separate container and set up a second indexer with the appropriate configuration.
+
+### Expected output
 
 TBD
 
