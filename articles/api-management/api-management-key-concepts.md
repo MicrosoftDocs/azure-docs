@@ -149,7 +149,7 @@ With [policies][API Management policies], an API publisher can change the behavi
 
 Policy expressions can be used as attribute values or text values in any of the API Management policies, unless the policy specifies otherwise. Some policies such as the [Control flow](./api-management-advanced-policies.md#choose) and [Set variable](./api-management-advanced-policies.md#set-variable) policies are based on policy expressions. 
 
-Policies can be applied at different scopes: global (all APIs), a specific API, or an API operation. 
+Policies can be applied at different scopes, depending on your needs: global (all APIs), a product, a specific API, or an API operation. 
 
 More information:
 
