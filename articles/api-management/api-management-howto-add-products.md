@@ -5,7 +5,7 @@ description: In this tutorial, you create and publish a product in Azure API Man
 author: dlepow
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 12/14/2021
+ms.date: 12/15/2021
 ms.author: danlep
 ms.custom: devdivchpfy22
 
@@ -53,7 +53,7 @@ In this tutorial, you learn how to:
     | Legal terms              | You can include the terms of use for the product which subscribers must accept to use the product.                                                                                                                                                                                                             |
     | APIs                     | Select one or more APIs. You can also add APIs after creating the product. For more information, see [Add APIs to a product](#add-apis-to-a-product) later in this article. |
 
-3. Select **Create** to create your new product.
+1. Select **Create** to create your new product.
 
 ### [Azure CLI](#tab/azure-cli)
 
