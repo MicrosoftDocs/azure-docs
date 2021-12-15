@@ -29,7 +29,7 @@ To work with image content, you'll need:
 + Indexer configuration having an imageAction parameter
 + Built-in or custom skills that invoke OCR or image analysis
 
-## Inputs to image analysis
+## Inputs and expected outputs
 
 Input can be embedded images or standalone image files. Output is always text that's ingested into a [search index](search-what-is-an-index.md) or a [knowledge store](knowledge-store-concept-intro.md) for data mining scenarios.
 
