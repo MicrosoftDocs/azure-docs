@@ -30,6 +30,8 @@ Sign in to the [Azure portal](https://portal.azure.com).
 4. In the **Filter by name...** search box, enter `Microsoft.Orbital`
 5. Select the `Microsoft.Orbital` provider and select **Register** from the top bar of the Resource providers page.
 
+:::image type="content" source="media/orbital-eos-rpregister.png" alt-text="Register Resource Provider":::
+
 ## Submit the Azure Orbital Preview Onboarding Form
 
 1. Access the [Azure Orbital Preview Onboarding Form](https://forms.office.com/r/fk32xNmDyx)
