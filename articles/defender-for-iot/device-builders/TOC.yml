@@ -41,7 +41,7 @@
 - name: Tutorials
   items:
   - name: Configure a micro agent twin
-    href: tutorial-configure-micro-agent-twin
+    href: tutorial-configure-micro-agent-twin.md
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support (Preview)                     
