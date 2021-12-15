@@ -37,8 +37,6 @@ For more information, see the Sample upload logs for log drive release 2021-08-0
 
 ## Locate the logs
 
-XXX
-
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
 Take the following steps to locate **version 2021-08-01** upload logs.
