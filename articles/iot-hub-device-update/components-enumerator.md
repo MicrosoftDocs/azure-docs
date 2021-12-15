@@ -1,6 +1,6 @@
 ---
-title: 'Register components with Device Update: Contoso Virtual Vacuum component enumerator example' | Microsoft Docs
-description: How to use Components Enumerator for Proxy Updates
+title: 'Register components with Device Update: Contoso Virtual Vacuum component enumerator' | Microsoft Docs
+description: Follow a Contoso Virtual Vacuum example to implement your own component enumerator by using proxy update.
 author: valls
 ms.author: valls
 ms.date: 12/3/2021
@@ -8,9 +8,9 @@ ms.topic: how-to
 ms.service: iot-hub-device-update
 ---
 
-# Register components with Device Update: Contoso Virtual Vacuum component enumerator example
+# Register components with Device Update: Contoso Virtual Vacuum component enumerator
 
-This article shows a sample implementation of the Contoso Virtual Vacuum component enumerator. You can reference this sample to implement a custom component enumerator for your Internet of Things (IoT) devices. A *component* is an identity beneath the device level that has a composition relationship with the host device.
+This article shows an example implementation of the Contoso Virtual Vacuum component enumerator. You can reference this example to implement a custom component enumerator for your Internet of Things (IoT) devices. A *component* is an identity beneath the device level that has a composition relationship with the host device.
 
 ## What is Contoso Virtual Vacuum?
 
@@ -85,7 +85,7 @@ Here are the responsibilities of each part of the proxy update flow:
   - Integrate the Device Update Agent and its dependencies.
   - Implement a device-specific component enumerator extension and register with the Device Update Agent.
     
-    The component enumerator uses the information from a component inventory or a configuration file to augment static component data (device update required) with dynamic data (for example, firmware version, connection status, and hardware identity).
+    The component enumerator uses the information from a component inventory or a configuration file to augment static component data (Device Update required) with dynamic data (for example, firmware version, connection status, and hardware identity).
   - Create a proxy update that contains one or more child updates that target one or more components on (or connected to) the device.
   - Send the update to the solution operator.
 - **Solution operator**
