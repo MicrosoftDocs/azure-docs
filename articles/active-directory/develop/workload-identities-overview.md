@@ -23,9 +23,9 @@ A workload identity is an identity used by a software workload (such as an appli
 
 In Azure Active Directory (Azure AD), workload identities are [applications, service principals, and managed identities](app-objects-and-service-principals.md).  
 
-An application is defined by an application object, which resides in the tenant where the software workload was registered. The application object is the global representation of your application for use across all tenants. The application object describes how tokens are issued, resources that the application might need to access, and the actions that the application can take.
+An application is defined by an application object, which resides in the tenant where the software workload was registered. The application object is the *global* representation of your application for use across all tenants. The application object describes how tokens are issued, resources that the application might need to access, and the actions that the application can take.
 
-The service principal is the local representation of your application for use in a specific tenant. An application object is used as a template or blueprint to create one or more service principal objects in every tenant where the application is used.  The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
+The service principal is the *local* representation of your application for use in a specific tenant. An application object is used as a template or blueprint to create one or more service principal objects in every tenant where the application is used.  The service principal object defines what the app can actually do in the specific tenant, who can access the app, and what resources the app can access.
 
 Managed identities are a special type of service principal and provide an identity for applications to use when connecting to resources that support Azure AD authentication.  Managed identities eliminate the need for developers to manage credentials.
 
