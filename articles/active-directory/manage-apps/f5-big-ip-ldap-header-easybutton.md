@@ -33,7 +33,7 @@ For this scenario, we have a legacy application using HTTP authorization headers
 
 Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introduce inevitable costs, and risk potential downtime.
 
-Instead, a BIG-IP Virtual Edition (VE) deployed between the internet and the internal Azure VNet application is connected and will be used to gate inbound access, along with Azure AD for its extensive choice of authentication and authorization capabilities.
+Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet application is connected and will be used to gate inbound access to the application, along with Azure AD for its extensive choice of authentication and authorization capabilities.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO. It significantly improves the overall security posture of the application, and allows the business to continue operating at pace, without interruption.
 
