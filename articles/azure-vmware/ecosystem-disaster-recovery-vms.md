@@ -8,7 +8,9 @@ ms.date: 11/29/2021
 
 One of the most important aspects of any Azure VMware Solution deployment is disaster recovery, which can be achieved by creating disaster recovery plans between different Azure VMware Solution regions or between Azure and an on-premises vSphere environment. 
 
-We currently offer customers the possibility to implement their disaster recovery plans using state-of-the-art VMware solution like [SRM](disaster-recovery-using-vmware-site-recovery-manager.md) or [HCX](deploy-disaster-recovery-using-vmware-hcx.md). Following our principle of giving customers the choice to apply their investments in skills and technology we´ve collaborated with some of the leading partners in the industry. 
+We currently offer customers the possibility to implement their disaster recovery plans using state-of-the-art VMware solution like [SRM](disaster-recovery-using-vmware-site-recovery-manager.md) or [HCX](deploy-disaster-recovery-using-vmware-hcx.md).
+
+Following our principle of giving customers the choice to apply their investments in skills and technology we´ve collaborated with some of the leading partners in the industry. 
 
 You can find more information about their solutions in the links below:
 - [Jetstream](https://www.jetstreamsoft.com/2020/09/28/solution-brief-disaster-recovery-for-avs/)
