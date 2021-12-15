@@ -25,22 +25,25 @@ The following example shows the rules that are available for configuration.
       "verbose": true,
       "rules": {
         "adminusername-should-not-be-literal": {
-          "level": "error"
+          "level": "warning"
         },
         "no-hardcoded-env-urls": {
           "level": "warning"
         },
+        "no-unnecessary-dependson": {
+          "level": "warning"
+        },
         "no-unused-params": {
-          "level": "error"
+          "level": "warning"
         },
         "no-unused-vars": {
-          "level": "error"
+          "level": "warning"
         },
         "prefer-interpolation": {
           "level": "warning"
         },
         "secure-parameter-default": {
-          "level": "error"
+          "level": "warning"
         },
         "simplify-interpolation": {
           "level": "warning"
