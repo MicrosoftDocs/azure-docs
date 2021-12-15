@@ -2,7 +2,7 @@
 title: YAML reference for container group   
 description: Reference for the YAML file supported by Azure Container Instances to configure a container group
 ms.topic: article
-ms.date: 07/06/2020
+ms.date: 11/11/2021
 ---
 
 # YAML reference: Azure Container Instances
@@ -12,15 +12,17 @@ This article covers the syntax and properties for the YAML file supported by Azu
 A YAML file is a convenient way to configure a container group for reproducible deployments. It is a concise alternative to using a [Resource Manager template](/azure/templates/Microsoft.ContainerInstance/2019-12-01/containerGroups) or the Azure Container Instances SDKs to create or update a container group.
 
 > [!NOTE]
-> This reference applies to YAML files for Azure Container Instances REST API version `2019-12-01`.
+> This reference applies to YAML files for Azure Container Instances REST API version `2021-07-01`.
 
 ## Schema 
 
 The schema for the YAML file follows, including comments to highlight key properties. For a description of the properties in this schema, see the [Property values](#property-values) section.
 
+[!INCLUDE [network profile callout](./includes/network-profile/network-profile-callout.md)]
+
 ```yml
 name: string  # Name of the container group
-apiVersion: '2019-12-01'
+apiVersion: '2021-07-01'
 location: string
 tags: {}
 identity: 
@@ -62,6 +64,9 @@ properties: # Properties of container group
           command:
           - string
         httpGet:
+          httpHeaders:
+          - name: string
+            value: string
           path: string
           port: integer
           scheme: string
@@ -75,6 +80,9 @@ properties: # Properties of container group
           command:
           - string
         httpGet:
+          httpHeaders:
+          - name: string
+            value: string
           path: string
           port: integer
           scheme: string
@@ -87,6 +95,8 @@ properties: # Properties of container group
   - server: string
     username: string
     password: string
+    identity: string
+    identityUrl: string
   restartPolicy: string
   ipAddress: # IP address configuration of container group
     ports:
@@ -113,10 +123,12 @@ properties: # Properties of container group
     logAnalytics:
       workspaceId: string
       workspaceKey: string
+      workspaceResourceId: string
       logType: string
       metadata: {}
-  networkProfile: # Virtual network profile for container group
-    id: string
+  subnetIds: # Subnet to deploy the container group into
+    - id: string
+      name: string
   dnsConfig: # DNS configuration for container group
     nameServers:
     - string
@@ -184,7 +196,7 @@ The following tables describe the values you need to set in the schema.
 |  osType | enum | Yes | The operating system type required by the containers in the container group. - Windows or Linux |
 |  volumes | array | No | The list of volumes that can be mounted by containers in this container group. - [Volume object](#volume-object) |
 |  diagnostics | object | No | The diagnostic information for a container group. - [ContainerGroupDiagnostics object](#containergroupdiagnostics-object) |
-|  networkProfile | object | No | The network profile information for a container group. - [ContainerGroupNetworkProfile object](#containergroupnetworkprofile-object) |
+|  subnetIds | object | No | The subnet information for a container group. - [ContainerGroupSubnetIds object](#containergroupsubnetids-object) |
 |  dnsConfig | object | No | The DNS config information for a container group. - [DnsConfiguration object](#dnsconfiguration-object) |
 | sku | enum | No | The SKU for a container group - Standard or Dedicated |
 | encryptionProperties | object | No | The encryption properties for a container group. - [EncryptionProperties object](#encryptionproperties-object) | 
@@ -208,8 +220,10 @@ The following tables describe the values you need to set in the schema.
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
 |  server | string | Yes | The Docker image registry server without a protocol such as "http" and "https". |
-|  username | string | Yes | The username for the private registry. |
+|  username | string | No | The username for the private registry. |
 |  password | string | No | The password for the private registry. |
+|  identity | string | No | The resource ID of the user or system-assigned managed identity used to authenticate. |
+|  identityUrl | string | No | The identity URL for the private registry. |
 
 
 
@@ -248,11 +262,12 @@ The following tables describe the values you need to set in the schema.
 
 
 
-### ContainerGroupNetworkProfile object
+### ContainerGroupSubnetIds object
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  id | string | Yes | The identifier for a network profile. |
+|  id | string | Yes | The identifier for a subnet. |
+|  name | string | No | The name of the subnet. |
 
 
 
@@ -334,8 +349,9 @@ The following tables describe the values you need to set in the schema.
 
 |  Name | Type | Required | Value |
 |  ---- | ---- | ---- | ---- |
-|  workspaceId | string | Yes | The workspace id for log analytics |
+|  workspaceId | string | Yes | The workspace ID for log analytics |
 |  workspaceKey | string | Yes | The workspace key for log analytics |
+|  workspaceResourceId | string | No | The workspace resource ID for log analytics |
 |  logType | enum | No | The log type to be used. - ContainerInsights or ContainerInstanceLogs |
 |  metadata | object | No | Metadata for log analytics. |
 
@@ -444,9 +460,14 @@ The following tables describe the values you need to set in the schema.
 |  path | string | No | The path to probe. |
 |  port | integer | Yes | The port number to probe. |
 |  scheme | enum | No | The scheme. - http or https |
+|  httpHeaders | object | No | The HTTP headers included in the probe. - [HttpHeaders object](#httpheaders-object) |
 
+### HttpHeaders object
 
-
+|  Name | Type | Required | Value |
+|  ---- | ---- | ---- | ---- |
+|  name | string | No | Name of the header. |
+|  value | string | No | Value of the header. |
 
 ### GpuResource object
 
