@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 12/15/2021
 ms.author: v-ydequadros
 ---
 
@@ -71,68 +71,55 @@ The following information guides you through the installation and configuration 
 
 1. Identify the Azure subscriptions from which you want CloudKnox to collect data.
 
-2. Ensure the installing user can create Azure AD application.
+2. Make sure that the installing user can create an Azure AD application.
 
-3. Ensure that the installing user has Azure Active Directory Administrative Privileges to grant permissions.
+3. Make sure that the installing user has Azure Active Directory Administrative Privileges to grant permissions.
 
-     The installing user should be an *Owner* of the Subscriptions from which you want to collect data.
+     The installing user should be an *Owner* of the subscriptions from which they want to collect data.
 
-4. Identify an Azure Storage Account and container to copy the CloudKnox Sentry VHD.
-
-   This step requires the Storage Account Access Key.
+4. Identify an Azure Storage account and container to copy the CloudKnox Sentry VHD. (This step requires the Storage Account access key.)
 
 ## Deploying the CloudKnox Sentry appliance
 
 ### Create a network security group for the CloudKnox Sentry
 
-1. Browse to the **Network Security Groups** dashboard.
-
-2. Add a new **Network Security Groups**:
+1. Select **Network Security Groups** to display the dashboard.
+2. In the **Network Security Groups** section:
      - In the **Name** box, enter `cloudknox-nsg`
-     - In the **Subscription** box, enter: The Azure subscription in which you install the Sentry.
-     - In the **Resource Group** box, enter: The Azure Resource Group in which you install the Sentry.
-     - In the **Location** box, enter: The location in which you install the Sentry.
+     - In the **Subscription** box, enter the Azure subscription in which you installed the Sentry.
+     - In the **Resource Group** box, enter the Azure Resource Group in which you installed the Sentry.
+     - In the **Location** box, enter the location in which you installed the Sentry.
 
-3. Select the network security group you created (cloudknox-nsg), and then, from **Settings**, select the **Inbound security** rules.
-
-4. To add a new inbound security rule, select **Add**.
-
-5. Add the following rule:
+3. Select the network security group you created in Step 2 (cloudknox-nsg). 
+4. From **Settings**, select the **Inbound security** rules.
+5. To add a new inbound security rule, select **Add**.
+6. Add the following rule:
     - In the **Source** box, enter the IP Addresses.
     - In the **Source IP addresses/CIDR ranges** box, enter your IP Address.
     - In the **Destination port ranges** box, enter *22*
     - In the **Protocol** box, enter *TCP*
     - In the **Name** box, enter *Port_22*
-
-6. Select **Add**.
+7. Select **Add**.
 
 ### Create the Service Principal
 
 **Option 1: Using managed identities**
 
 1. Open **Managed Identities and Create User Assigned Managed Identity**.
-
 2. Enter the CloudKnox resource group.
-
 3. Enter the name for the identity *CloudKnox*, and then create the identity.
-
 4. In the subscription, select **Access Control (IAM)**.
-
 5. Select **Add**, select **Add role assignment**, and then fill in the following:
      - In the **Role** box, enter *Reader*
      - In the **Assign access to** box, enter *Azure AD user, group, or service principal*
 
 6. Select: **Search for the User Managed Identity** created above, and then select **Save**.
-
 7. Optional: To enable Controller functionality (that is, to enable JEP controller and Privilege On Demand), assign the following role:
        - In the **Role** box, enter *User Access Administrator*.
 
 8. Repeat step 5 for each Azure subscription from which you want CloudKnox to collect data.
-
 9. Navigate to the virtual machine (VM) created earlier, then select the **Identity** menu.
-
 10. Select the **User Managed** tab, then select the user-managed identity you created earlier.
-
 11. Run the following PowerShell command to assign Microsoft graph API permission to the Service principal created earlier.
 
 ~~~
@@ -157,41 +144,34 @@ The following information guides you through the installation and configuration 
 
 **Option 2: Using App registration**
 
-1. Browse to Azure Active Directory.
-
+1. Browse to **Azure Active Directory**.
 2. Select  **App registrations**.
-
 3. Select **New registration**.
-
 4. In the **Register an application** page:
      1. In the **Name** box, enter *CloudKnox-App*
      2. From **Supported account types**, select **Accounts in this organizational directory only**.
      3. Leave the **Redirect URI** box blank.
 
 5. Make a note of the **Application (client) ID**. You'll use it when you configure the Sentry.
-
 6. Select **View API Permissions**.
-
 7. Select **Add a permission**.
     1. In **Microsoft Graph**:
          1. Select **Application permissions**.
          2. Add the **AuditLog.Read.All** permission.
          3. Add the **Directory.Read.All** permission.
          4. Select **Add permissions**.
-
 8. Select **Grant admin consent**.
-
 9. Select **Certificates & secrets**. Then:
     1. Select **New client secret**.
     2. Add a description and choose an **expiration date**.
     3. Select **Add**.
     4. Make a note of the **client secret value**. You'll use it when you configure the Sentry.
 
-### Granting the 'Reader' role to the Azure Application 
+### Granting the *Reader* role to the Azure Application 
 
 1. Browse to the subscription from which you want the Sentry to collect data.
 2. In the subscription, select **Access Control (IAM)**.
-3. Select **Add**, select **Add role assignment**, and then fill in the following:
+3. Select **Add**, select **Add role assignment**, and then enter the following:
     1. In the **Role** box, enter *Reader*.
     2. In the **Assign access to** box, enter the Azure AD user, group, or service principal.
     3. Select **Search**, enter the Azure Application you created previously, and then select **Save**.

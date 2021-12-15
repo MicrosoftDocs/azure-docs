@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/13/2021
+ms.date: 12/15/2021
 ms.author: v-ydequadros
 ---
 
@@ -66,9 +66,9 @@ If you set up the Sentry in Account B to collect entitlement, resource, and acti
 
 3. Through the API, the cross-account role collects information about user privileges, groups, resources, configuration, and activity from native AWS services. It then returns the data to the CloudKnox Sentry.
 
-<!---### Sentry installation video
+    <!---### Sentry installation video
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/DNecovdu55Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--->
+    <iframe width="560" height="315" src="https://www.youtube.com/embed/DNecovdu55Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--->
 
 ### Centralized S3 collection
 
@@ -127,7 +127,7 @@ The Sentry's CloudFormation template uses the CloudKnox Sentry AMI to create an 
 4. To configure the sentry after deployment using SSH access into the instance, select **Allow**.  
     To update the stack later and remove the inbound port 22 access from security group, select **Deny**.
 
-5. In **InstanceType**, enter *m5.xlarge*.
+5. In **InstanceType**, enter *m5.xlarge*
 
 6. Select a **KeyPair**.
 
@@ -135,9 +135,11 @@ The Sentry's CloudFormation template uses the CloudKnox Sentry AMI to create an 
 
 8. In **Position URL**, accept the default unless CloudKnox support recommends something else.
 
-9. In **Secret Prefix**, enter the prefix string that CloudKnox can use to create/update/read secret saved data.  
-   With this prefix string, CloudKnox adds access to the CloudKnox role policy to *secret*.  
-   CloudKnox creates the **S3 Bucket Name** bucket to store cached data. Access to this bucket is added to the CloudKnox role policy.
+9. In **Secret Prefix**, enter the prefix string that CloudKnox can use to create/update/read secret saved data. With this prefix string, CloudKnox: 
+
+     - Adds access to the CloudKnox role policy to the secret prefix.  
+     - Creates the **S3 Bucket Name** bucket to store cached data. 
+     - Adds access to this bucket to the CloudKnox role policy.
 
 10. In **Instance Count Desired/Min/Max**, enter the counts needed for CloudKnox sentry instances. (Approximately 1 for collection of 30 AWS accounts.) Then select **Next**.
 
@@ -159,11 +161,13 @@ Create a cross-account role that allows the Sentry's EC2 instance to assume the 
 
      - In **Role type**, enter another AWS account.
      - In **Account ID**, enter the Account ID of the AWS Account in which the Sentry was deployed.
-     - In **Attach policy**, enter *SecurityAudit*.
+     - In **Attach policy**, enter *SecurityAudit*
 
          Optional: To allow the Sentry to modify IAM permissions, enable the **Privilege On Demand** feature. Then create and attach the PrivilegeOnDemand.json policy to the IAM role.
 
-     - In **Role Name**, enter `IAM_R_KNOX_SECURITY_XA` (This value is configurable.)
+     - In **Role Name**, enter `IAM_R_KNOX_SECURITY_XA` 
+
+         (This value is configurable.)
   
 2. Modify the role's trust relationship.   
    In this step, you limit who and what can assume this cross-account role by specifying the instanceId of the Sentry.
@@ -174,7 +178,7 @@ Create a cross-account role that allows the Sentry's EC2 instance to assume the 
  
        `arn:aws:iam::<accountofSentry>:role/IAM_R_KNOX_SECURITY`
 
-      Where *accountofSentry* is the AccountId of the AWS holding the sentry.
+      Where *accountofSentry* is the AWS AccountId holding the sentry.
 
 3. Repeat step 2 for any other accounts targeted for data collection.
 
@@ -333,7 +337,7 @@ Follow the instructions below to configure the Sentry in CloudKnox console.
 
 2. Under the AWS section, select **Deploy**.
 
-<!---Add screenshot.--->
+    <!---Add screenshot.--->
 
 3. Select **Next**.
 
@@ -341,10 +345,10 @@ Follow the instructions below to configure the Sentry in CloudKnox console.
 
 5. Enter the appliance DNS name or IP of the Sentry that you deployed in AWS, and then select **Next**.
 
-<!---Add screenshot.--->
+    <!---Add screenshot.--->
 6. Follow the instructions on the **Configure Appliance** screen.
 
-<!---Add screenshots.--->
+    <!---Add screenshots.--->
 
 ### Sentry configuration
 
