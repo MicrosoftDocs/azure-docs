@@ -88,7 +88,7 @@ az feature register --namespace Microsoft.ContainerService -n AKS-ExtensionManag
     * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
     * ```system:serviceaccount:azureml:azureml-fe```
     * ```system:serviceaccount:azureml:prom-prometheus```
-    * ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default``` **(Note:** ```{KUBERNETES-COMPUTE-NAMESPACE}``` **is the namespace of kubernetes compute sepcified in compute attach, which defaults to** ```default```. **Skip this setting if the namespace is** ```default```**)**
+    * ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default``` **(Note:** ```{KUBERNETES-COMPUTE-NAMESPACE}``` **is the namespace of kubernetes compute specified in compute attach, which defaults to** ```default```. **Skip this setting if the namespace is** ```default```**)**
 
 ## Deploy Azure Machine Learning extension
 
@@ -106,7 +106,7 @@ Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension?
 > [!IMPORTANT]
 > Set the `--cluster-type` parameter to `managedClusters` to deploy the Azure Machine Learning extension to AKS clusters.
 
-The following is the list of configuration settings available to be used for different Azure Machine Learning extension deployment scenarios.
+The following configuration settings are available to be used for different Azure Machine Learning extension deployment scenarios.
 
 You can use ```--config``` or ```--config-protected``` to specify list of key-value pairs for Azure Machine Learning deployment configurations.
 
@@ -116,20 +116,20 @@ You can use ```--config``` or ```--config-protected``` to specify list of key-va
 | Configuration Setting Key Name  | Description  | Training | Inference | Training and Inference |
    |--|--|--|--|--|
    |```enableTraining``` |```True``` or ```False```, default ```False```. **Must** be set to ```True``` for AzureML extension deployment with Machine Learning model training support.  |  **&check;**| N/A |  **&check;** |
-   |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAalytics Workspace. This setting must be explicitly set to ```True``` if customer wants to leverage this capability. LogAnalytics Workspace cost may apply.  |Optional |Optional |Optional |
+   |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAalytics Workspace. This setting must be explicitly set to ```True``` if customer wants to use this capability. LogAnalytics Workspace cost may apply.  |Optional |Optional |Optional |
    |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```True```. Nvidia Device Plugin is required for ML workloads on Nvidia GPU hardware. By default, AzureML extension deployment will install Nvidia Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this configuration setting to False if Nvidia Device Plugin installation is not required (either it is installed already or there is no plan to use GPU for workload). | Optional |Optional |Optional |
    | ```enableInference``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML extension deployment with Machine Learning inference support. |N/A| **&check;** |  **&check;** |
    | ```allowInsecureConnections``` |```True``` or ```False```, default False. This **must** be set to ```True``` for AzureML extension deployment with HTTP endpoints support for inference, when ```sslCertPemFile``` and ```sslKeyPemFile``` are not provided. |N/A| Optional |  Optional |
    | ```privateEndpointNodeport``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML deployment with Machine Learning inference private endpoints support using serviceType nodePort. | N/A| Optional |  Optional |
    | ```privateEndpointILB``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML extension deployment with Machine Learning inference private endpoints support using serviceType internal load balancer | N/A| Optional |  Optional |
-   | ```inferenceLoadBalancerHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy 3 ingress controller replicas for high availability, which requires at least 3 workers in a cluster. Set this to ```False``` if you have less than 3 workers and want to deploy AzureML extension for development and testing only, in this case it will deploy one ingress controller replica only. | N/A| Optional |  Optional |
-   |```openshift``` | ```True``` or ```False```, default ```False```. Set to ```True``` if you deploy AzureML extension on ARO or OCP cluster.The deployment process will automatically compile a policy package and load policy package on each node so AzureML services operation can function properly.  | Optional| Optional |  Optional |
+   | ```inferenceLoadBalancerHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy three ingress controller replicas for high availability, which requires at least three workers in a cluster. Set this config to ```False``` if you have fewer than three workers and want to deploy AzureML extension for development and testing only, in this case it will deploy one ingress controller replica only. | N/A| Optional |  Optional |
+   |```openshift``` | ```True``` or ```False```, default ```False```. Set to ```True``` if you deploy AzureML extension on ARO or OCP cluster. The deployment process will automatically compile a policy package and load policy package on each node so AzureML services operation can function properly.  | Optional| Optional |  Optional |
    |```nodeSelector``` | Set the node selector so the extension components and the training/inference workloads will only be deployed to the nodes with all specified selectors. Usage: `nodeSelector.key=value`, support multiple selectors. Example: `nodeSelector.node-purpose=worker nodeSelector.node-region=eastus`| Optional| Optional |  Optional |
    |```sslCname``` |The cname for if SSL is enabled.  |  N/A | Optional |  Optional |
 
    |Configuration Protected Setting Key Name  |Description  |Training |Inference |Training and Inference
    |--|--|--|--|--|
-   | ```sslCertPemFile```, ```sslKeyPemFile``` |Path to SSL certificate and key file (PEM-encoded), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to False . | N/A| Optional |  Optional |
+   | ```sslCertPemFile```, ```sslKeyPemFile``` |Path to SSL certificate and key file (PEM-encoded), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to False. | N/A| Optional |  Optional |
 
 > [!WARNING]
 > If Nvidia Device Plugin, is already installed in your cluster, reinstalling them may result in an extension installation error. Set `installNvidiaDevicePlugin` to `False` to prevent deployment errors.
@@ -147,7 +147,7 @@ az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureM
 
 ### Deploy extension for real-time inferencing workloads <a id="inferencing"></a>
 
-Depending your network setup, Kubernetes distribution variant, and where your Kubernetes cluster is hosted (on-premises or the cloud), choose one of following options to deploy the Azure Machine Learning extension and enable inferencing workloads on your Kubernetes cluster.
+Depending on your network setup, Kubernetes distribution variant, and where your Kubernetes cluster is hosted (on-premises or the cloud), choose one of following options to deploy the Azure Machine Learning extension and enable inferencing workloads on your Kubernetes cluster.
 
 #### Public endpoints support with public load balancer
 
@@ -182,9 +182,9 @@ Depending your network setup, Kubernetes distribution variant, and where your Ku
 
 #### Endpoints support with NodePort
 
-Using a NodePort gives you the freedom to set up your own load balancing solution, to configure environments that are not fully supported by Kubernetes, or even to expose one or more nodes' IPs directly.
+Using a NodePort gives you the freedom to set up your own load-balancing solution, to configure environments that are not fully supported by Kubernetes, or even to expose one or more nodes' IPs directly.
 
-When you deploy with NodePort service, the scoring url (or swagger url) will be replaced with one of Node IP (e.g. ```http://<NodeIP><NodePort>/<scoring_path>```) and remain unchanged even if the Node is unavailable. But you can replace it with any other Node IP.
+When you deploy with NodePort service, the scoring url (or swagger url) will be replaced with one of Node IP (for example, ```http://<NodeIP><NodePort>/<scoring_path>```) and remain unchanged even if the Node is unavailable. But you can replace it with any other Node IP.
 
 * **HTTPS**
 
@@ -214,8 +214,8 @@ Once the Azure Machine Learning extension is deployed, the following resources a
    |--|--|--|--|--|--|
    |Azure ServiceBus|Azure resource|**&check;**|**&check;**|**&check;**|Used by gateway to sync job and cluster status to AML services regularly.|
    |Azure Relay|Azure resource|**&check;**|**&check;**|**&check;**|Route traffic from AML services to the kubernetes cluster.|
-   |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Mange the lifecycle of training jobs.|
-   |{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Export the cluster related metrics to Prometheus.|
+   |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.|
+   |{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Export the cluster-related metrics to Prometheus.|
    |{EXTENSION-NAME}-prometheus-operator|Kubernetes deployment|**&check;**|**&check;**|**&check;**| Provide Kubernetes native deployment and management of Prometheus and related monitoring components.|
    |amlarc-identity-controller|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Blob/ACR token with managed identity for infra and user container.|
    |amlarc-identity-proxy|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Blob/ACR token with managed identity for infra and user container.|
@@ -226,8 +226,8 @@ Once the Azure Machine Learning extension is deployed, the following resources a
    |cluster-status-reporter|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Gather the nodes and resource information, and upload it to Azure service through gateway.|
    |nfd-master|Kubernetes deployment|**&check;**|N/A|**&check;**|Node feature discovery.|
    |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Send nodes and cluster resource information to Azure service.|
-   |csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|CSI for azure blob.|
-   |csi-blob-node|Kubernetes daemonset|**&check;**|N/A|**&check;**|CSI for azure blob.|
+   |csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|CSI for Azure blob.|
+   |csi-blob-node|Kubernetes daemonset|**&check;**|N/A|**&check;**|CSI for Azure blob.|
    |fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Gather infra components' log.|
    |k8s-host-device-plugin-daemonset|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Expose fuse to pods on each node.|
    |nfd-worker|Kubernetes daemonset|**&check;**|N/A|**&check;**|Node feature discovery.|
@@ -260,7 +260,7 @@ Use ```k8s-extension update``` CLI command to update the mutable properties of  
 
 1.	Azure Arc supports update of  ``--auto-upgrade-minor-version``, ``--version``,  ``--configuration-settings``, ``--configuration-protected-settings``.  
 2.	For configurationSettings, only the settings that require update need to be provided. If the user provides all settings, they would be merged/overwritten with the provided values. 
-3.	For ConfigurationProtectedSettings, ALL  settings should to be provided. If some settings are omitted, those settings would be considered obsolete and deleted. 
+3.	For ConfigurationProtectedSettings, ALL  settings should be provided. If some settings are omitted, those settings would be considered obsolete and deleted. 
 
 > **<span style="color:orange">Important**:</span>
 > 
@@ -277,7 +277,7 @@ Use ```k8s-extension update``` CLI command to update the mutable properties of  
 
 ## Extension delete
 
-Use [``k8s-extension delete``](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_delete) CLI command to delete the existed AzureMl extension. It will take around 10 minitues to delete all componenents deployed to the cluster. Run ``kubectl get pods -n azureml`` to check if all components being deleted.
+Use [``k8s-extension delete``](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_delete) CLI command to delete the existed AzureMl extension. It will take around 10 minutes to delete all components deployed to the cluster. Run ``kubectl get pods -n azureml`` to check if all components being deleted.
 
 
 ## Attach Arc Cluster
@@ -297,7 +297,7 @@ Attaching an Azure Arc-enabled Kubernetes cluster makes it available to your wor
 
     * **(Optional)** Enter Kubernetes namespace, which defaults to `default`. All machine learning workloads will be sent to the specified kubernetes namespace in the cluster.
 
-    * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) for more information.
+    * **(Optional)** Assign system-assigned or user-assigned managed identity. Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) .
 
     ![Configure Kubernetes cluster](./media/how-to-attach-arc-kubernetes/configure-kubernetes-cluster-2.png)
 
@@ -313,7 +313,7 @@ You can use the Azure Machine Learning Python SDK to attach Azure Arc-enabled Ku
 
 The following Python code shows how to attach an Azure Arc-enabled Kubernetes cluster and use it as a compute target with managed identity enabled.
 
-Managed identities eliminate the need for developers to manage credentials. See the [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md) for more information.
+Managed identities eliminate the need for developers to manage credentials. For more information, see [managed identities overview](../active-directory/managed-identities-azure-resources/overview.md).
 
 ```python
 from azureml.core.compute import KubernetesCompute
