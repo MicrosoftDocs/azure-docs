@@ -12,7 +12,7 @@ zone_pivot_groups: app-service-platform-windows-linux
 
 # Azure Certified Device - Edge Secured-core (Preview) #
 
-## Edge Secured-Core Certification Requirements ##
+## Edge Secured-Core certification requirements ##
 
 ### Program Purpose ###
 Edge Secured-core is an incremental certification in the Azure Certified Device program for IoT devices running a full operating system, such as Linux or Windows 10 IoT.This program enables device partners to differentiate their devices by meeting an additional set of security criteria. Devices meeting this criteria enable these promises:
