@@ -65,6 +65,6 @@ For more information about service logs and metrics for the DICOM service and Io
 >[Enable diagnostic logging in the DICOM service](./dicom/enable-diagnostic-logging.md)
 
 >[!div class="nextstepaction"]
->[How to display IoT connector metrics](./../healthcare-apis/iot/how-to-display-metrics)
+>[How to display IoT connector metrics](./../healthcare-apis/iot/how-to-display-metrics.md)
 
 
