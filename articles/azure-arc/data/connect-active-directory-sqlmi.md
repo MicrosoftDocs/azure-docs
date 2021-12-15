@@ -36,7 +36,7 @@ GO
 
 ## Connect to Azure Arc-enabled SQL Managed Instance
 
-From your domain joined Windows-based or Linux-based client machine, you can use `sqlcmd` utility, or open [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio (ADS)](/sql/azure-data-studio/download-azure-data-studio) to connect to the Azure Arc-enabled SQL Managed Instance using AD authentication.
+From your domain joined Windows-based client machine or a Linux-based domain aware machine, you can use `sqlcmd` utility, or open [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio (ADS)](/sql/azure-data-studio/download-azure-data-studio) to connect to the Azure Arc-enabled SQL Managed Instance using AD authentication.
 
 ### Connect from Linux/Mac OS
 
