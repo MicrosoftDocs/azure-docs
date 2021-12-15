@@ -18,8 +18,6 @@ Follow the steps in this tutorial to:
 > - Configure redirect URIs in your single-page app
 ## Register your application with Azure AD
 
-:::code language="JavaScript" source="~/ms-identity-javascript-react-docs/src/index.js" id="ms_docref_configure_msal":::
-
 ## Configure a redirect URI
 
 ## Next steps
