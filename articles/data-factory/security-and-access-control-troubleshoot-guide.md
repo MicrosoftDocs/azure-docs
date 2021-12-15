@@ -35,7 +35,7 @@ About Apache Log4j (1.X), the CVE-2019-17571 might be the vulnerability issue. H
 > Both CVE-2021-44228 and CVE-2019-17571 have no impact on on-premise SQL Server Integration Services (SSIS) and ADF products below:
 > - Managed IR: Azure IR, Azure-SSIS IR and Managed VNet IR
 > - On-premise products: Self-hosted IR
-> - Data flows: The Log4j library used in data flows and Databricks already contains the fix for this CVE.
+> - Data flows: The Log4j library used in data flows and Databricks already contains the fix for these CVE.
 
 The version update of SSIS and self-hosted IR will be evaluated since there is no security impact so far.
 
