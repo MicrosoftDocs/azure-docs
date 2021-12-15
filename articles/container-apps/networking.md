@@ -55,7 +55,7 @@ Now create an instance of the virtual network to associate with the Container Ap
 az network vnet create \
   --resource-group $RESOURCE_GROUP \
   --name $VNET_NAME \
-  --location $RESOURCE_GROUP \
+  --location $LOCATION \
   --address-prefix 10.0.0.0/16
 ```
 
@@ -103,7 +103,7 @@ az network vnet subnet create `
 
 ---
 
-With the VNET established, you can now query for the VNET, subnet, control plane, and app IDs.
+With the VNET established, you can now query for the VNET, control plane, and app subnet IDs.
 
 # [Bash](#tab/bash)
 
@@ -174,8 +174,28 @@ The following table describes the parameters used in for `containerapp env creat
 | `logs-workspace-id` | The ID of the Log Analytics workspace. |
 | `logs-workspace-key` | The Log Analytics client secret.  |
 | `location` | The Azure location where the environment is to deploy.  |
-| `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `controlPlaneSubnetResourceId`. |
-| `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `appSubnetResourceId`. |
+| `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
+| `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
+
+## Clean up resources
+
+If you're not going to continue to use this application, you can delete the Azure Container Apps instance and all the associated services by removing the resource group.
+
+# [Bash](#tab/bash)
+
+```azurecli
+az group delete \
+  --name $RESOURCE_GROUP
+```
+
+# [PowerShell](#tab/powershell)
+
+```azurecli
+az group delete `
+  --name $RESOURCE_GROUP
+```
+
+---
 
 ## Restrictions
 
