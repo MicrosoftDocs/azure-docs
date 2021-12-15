@@ -10,6 +10,14 @@
       href: cloudknox-product-integrations.md
     - name: Integration with the CloudKnox API
       href: cloudknox-api.md
+    - name: Integration with HashiCorp Terraform
+      href: cloudknox-hashicorp-terraform.md
+    - name: Integration with Saviynt
+      href: cloudknox-saviynt.md
+    - name: Integration with Securonix
+      href: cloudknox-securonix.md
+    - name: Integration with Splunk
+      href: cloudknox-splunk.md
     - name: CloudKnox integration with ServiceNow
       href: cloudknox-product-dashboard.md
     - name: CloudKnox FortSentry registration
@@ -23,6 +31,16 @@
   - name: Data management
     expanded: true
     items:
+    - name: User management
+      href: cloudknox-product-user-management.md
+    - name: View usage analytics about users
+      href: cloudknox-product-usage-analytics.md
+    - name: Adjust permissions with the Just Enough Privilege Controller
+      href: cloudknox-product-jep-controller.md
+    - name: Manage users with the Autopilot function
+      href: cloudknox-product-autopilot.md
+    - name: Collect data sources
+      href: cloudknox-product-data-sources.md
     - name: Create and save product alerts
       href: cloudknox-product-alerts.md
     - name: Filter and query user activity
