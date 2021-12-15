@@ -30,7 +30,7 @@ The guidance is structured around the key principles of Zero Trust: verify expli
 
 A secure identity solution means that an app only provides access to authenticated users. Most developers are not identity experts. So it is important that you find a solution that makes it easy for you or your team to implement secure modern authentication. You can use one of the following solutions.
 
-1. For a new application, use a cloud-hosted solution that handles authentication for you.
+- For a new application, use a cloud-hosted solution that handles authentication for you.
 2. To update the security of an existing application, either use a Zero Trust network access (ZTNA) solution that uses modern authentication, or implement authentication using the Microsoft Authentication Library (MSAL) and use Azure Active Directory as your identity provider.
 
 These solutions are explained in more detail below.
