@@ -595,7 +595,6 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 | `GC Total Time` | custom metrics | Sum of time across all GC MXBeans (diff since last reported).| yes |
 | `Heap Memory Used (MB)` | custom metrics | java.lang:type=Memory / HeapMemoryUsage.Used.| yes |
 | `% Of Max Heap Memory Used` | custom metrics | java.lang:type=Memory / maximum amount of memory in bytes.| yes |
-| `Available Bytes` | default metrics | java.lang:type=OperatingSystem / FreePhysicalMemorySize. | yes |
 | `\Processor(_Total)\% Processor Time` | default metrics | /proc/stat | no |
 | `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | java.lang:type=OperatingSystem / ProcessCpuTime (diff since last reported, normalized by time and number of CPUs) | no |
 | `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | java.lang:type=Memory / HeapMemoryUsage.Used + NonHeapMemoryUsage.Used | no |
