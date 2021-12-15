@@ -66,7 +66,7 @@ Here's an example *firmware.json* file:
 ```
 
 > [!NOTE]
-> Contoso Virtual Vacuum contains software or firmware versions for Proxy Update demonstration purposes. It doesn't provide any other functionality. 
+> Contoso Virtual Vacuum contains software or firmware versions for the purpose of demonstrating proxy update. It doesn't provide any other functionality. 
 
 ## What is a component enumerator?
 
@@ -93,7 +93,7 @@ Here are the responsibilities of each part of the proxy update flow:
   - Deploy the update to a group of devices.
 - **Device Update Agent**
   - Get update information from Azure IoT Hub (via device twin or module twin).
-  - Invoke a *steps handler* to process the proxy update intended for one or more components on the device
+  - Invoke a *steps handler* to process the proxy update intended for one or more components on the device.
    
     This example has two updates: `host-fw-1.1` and `motors-fw-1.1`. For each child update, the parent steps handler invokes a child steps handler to enumerate all components that match the `Compatibilities` properties specified in the child update's manifest file. Next, the handler downloads, installs, and applies the child update to all targeted components.
     
@@ -113,18 +113,18 @@ Implement all APIs declared in [component_enumerator_extension.hpp](https://gith
 
 | Function | Arguments | Returns |
 |---|---|---|
-|`char* GetAllComponents()`|None|A JSON string contains an array of *all* `ComponentInfo` values. For more information, see [Example return values](#example-return-values).|
+|`char* GetAllComponents()`|None|A JSON string that contains an array of *all* `ComponentInfo` values. For more information, see [Example return values](#example-return-values).|
 |`char* SelectComponents(char* selector)`|A JSON string that contains one or more name/value pairs used for selecting update target components| A JSON string that contains an array of `ComponentInfo` values. For more information, see [Example return values](#example-return-values).|
 |`void FreeComponentsDataString(char* string)`|A pointer to string buffer previously returned by `GetAllComponents` or `SelectComponents` functions|None|
 
 ### ComponentInfo
 
-The `ComponentInfo` JSON string must include following required properties:
+The `ComponentInfo` JSON string must include the following properties:
 
 | Name | Type | Description |
 |---|---|---|
 |`id`| string | A component's unique identity (device scope). Examples include hardware serial number, disk partition ID, and unique file path of the component.|
-|`name`| string| A component's logical name. This is the name that a device builder assigns to a component that's available in every device of the same `device` class.<br/><br/>For example, every Contoso Virtual Vacuum device contains a motor that drives a left wheel. Contoso assigned *Left Motor* as a common (logical) name for this motor to easily refer to this component, instead of hardware ID, which can be globally unique.|
+|`name`| string| A component's logical name. This is the name that a device builder assigns to a component that's available in every device of the same `device` class.<br/><br/>For example, every Contoso Virtual Vacuum device contains a motor that drives a left wheel. Contoso assigned *left motor* as a common (logical) name for this motor to easily refer to this component, instead of hardware ID, which can be globally unique.|
 |`group`|string|A group that this component belongs to.<br/><br/>For example, all motors could belong to a *motors* group.|
 |`manufacturer`|string|For a physical hardware component, this is a manufacturer or vendor name.<br/><br/>For a logical component, such as a disk partition or directory, it can be any device builder's defined value.|
 |`model`|string|For a physical hardware component, this is a model name.<br/><br/>For a logical component, such as a disk partition or directory, this can be any device builder's defined value.|
@@ -466,7 +466,7 @@ For example, for *hostfw*, the value of the property `properties.version` will b
 
 ## Next steps
 
-This example is written in `C++`. You can choose to use `C` if you prefer. To explore example source codes, see:
+This example is written in C++. You can choose to use C if you prefer. To explore example source codes, see:
 
 - [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/CMakeLists.txt)
 - [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/contoso-component-enumerator.cpp)
