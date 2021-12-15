@@ -8,7 +8,7 @@ ms.date: 12/14/2021
 ms.custom: Edge Secured-core Certification Requirements
 ms.service: certification
 ---
-
+#
 ## Linux OS Support
 OS Support is determined through underling requirements of Azure services and our ability to validate scenarios.
 
