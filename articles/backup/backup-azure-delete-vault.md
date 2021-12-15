@@ -85,7 +85,7 @@ To delete a vault, follow these steps:
 
   If you are **still unable to delete the vault** that contain no dependencies then follow the steps listed in [**deleting vault using ARM client**](#delete-the-recovery-services-vault-by-using-azure-resource-manager).
 
-## Delete protected items in the cloud
+### Delete protected items in the cloud
 
 First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
@@ -111,7 +111,7 @@ To stop protection and delete the backup data, perform the following steps:
 
       ![The Delete Backup Items page.](./media/backup-azure-delete-vault/empty-items-list.png)
 
-## Delete protected items on premises
+### Delete protected items on premises
 
 First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
@@ -247,7 +247,7 @@ Open the **MABS management** or **DPM management** console. Under **Select data 
 
 After you delete the on-premises backup items, follow the next steps from the portal.
 
-## Delete the Recovery Services vault
+### Delete the Recovery Services vault
 
 
 1. When all dependencies have been removed, scroll to the **Essentials** pane in the vault menu.
