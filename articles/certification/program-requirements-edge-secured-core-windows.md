@@ -35,7 +35,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Requirements dependency|TPM v2.0 device|
 |Validation Type|Manual/Tools|
 |Validation|Devices will be enrolled to DPS using the TPM authentication mechanism during testing.|
-|Resources|Azure IoT Hub Device Provisioning Service: <ul><li>[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-ansi-c.md) </li><li>	[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)</li></ul>|
+|Resources|Azure IoT Hub Device Provisioning Service: <ul><li>[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-ansi-c) </li><li>	[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)</li></ul>|
 
 ---
 </br>
@@ -102,7 +102,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Requirements dependency|Windows 10 IoT Enterprise Version 1903 or greater. Note: other requirements may require greater versions for other services. |
 |Validation Type|Manual/Tools|
 Validation|Device to be validated through toolset to ensure the device supports a minimum TLS version of 1.2 and supports the following required TLS cipher suites.<ul><li>TLS_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_RSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_DHE_RSA_WITH_AES_128_GCM_SHA256</li><li>TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256</li><li>TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256</li></ul>|
-|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](https://docs.microsoft.com/windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
+|Resources| [TLS support in IoT Hub](../iot-hub/iot-hub-tls-support.md) <br /> [TLS Cipher suites in Windows 10](../../windows/win32/secauthn/tls-cipher-suites-in-windows-10-v1903) |
 
 ---
 </br>
