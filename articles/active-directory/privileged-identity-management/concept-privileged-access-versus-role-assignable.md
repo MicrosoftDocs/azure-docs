@@ -11,7 +11,7 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: pim
-ms.date: 10/10/2021
+ms.date: 12/15/2021
 ms.author: curtand
 ms.reviewer: shaunliu
 ms.custom: pim
@@ -46,7 +46,7 @@ If you want to assign a group to an Azure AD or Azure Resource role and require 
 
 Either of these methods will work for the end-to-end scenario. We recommend that you use the first method in most cases. You should use the second method only if you are trying to:
 
-- Assign a group to multiple Azure AD or Azure resource roles and have users activate once to get access to multiple roles.
+- Assign a group to multiple Azure AD or Azure resource roles and have only a single activation for all users at once.
 - Maintain different activation policies for different sets of users to access an Azure AD or Azure resource role. For example, if you want some users to be approved before becoming a Global Administrator while allowing other users to be auto-approved, you can set up two privileged access groups, assign them both persistently (a "permanent" assignment in Privileged Identity Management) to the Global Administrator role and then use a different activation policy for the member role for each group.
 
 ## Next steps
