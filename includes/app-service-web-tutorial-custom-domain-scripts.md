@@ -25,7 +25,6 @@ az webapp config hostname add \
 For more information, see [Map a custom domain to a web app](/azure/app-service/scripts/cli-configure-custom-domain.md).
 
 # [PowerShell](#tab/powershell)
-#### Azure PowerShell
 
 The following command adds a configured custom DNS name to an App Service app.
 
