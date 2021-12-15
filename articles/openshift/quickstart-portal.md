@@ -6,7 +6,7 @@ ms.author: rahulmehta
 ms.service: azure-redhat-openshift
 ms.topic: quickstart
 ms.date: 11/30/2021
-ms.custom: mode-portal
+ms.custom: mode-ui
 ---
 
 # Quickstart: Deploy an Azure Red Hat OpenShift (ARO) cluster using the Azure portal
