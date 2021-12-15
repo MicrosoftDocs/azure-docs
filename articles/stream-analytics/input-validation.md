@@ -17,7 +17,7 @@ ms.date: 12/10/2021
 
 Azure Stream Analytics (ASA) jobs process data coming from input streams. When configuring a [streaming input](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs), only the **event serialization format** has to be defined (CSV, JSON, AVRO...). With ASA, the schema of the incoming data doesn't need to be set at the input level. By schema we mean the list of fields and their data types. ASA doesn't require it because it's capable of handling **dynamic input schemas**. This means ASA expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
 
-**Dynamic schema handling** is a powerful feature, key to stream processing. Data streams often contain multiple event types, each with a unique schema. To route, filter, and process events on such streams, ASA has to ingest them all regardless of their schema. But that freedom comes with a downside if left unchecked: it allows malformed events to flow through the query logic. This can in turn generate errors and crashes as the query logic (and built-in functions it uses) will expect certain types in arguments.
+**Dynamic schema handling** is a powerful feature, key to stream processing. Data streams often contain multiple event types, each with a unique schema. To route, filter, and process events on such streams, ASA has to ingest them all regardless of their schema. But that freedom comes with a downside if left unchecked: it allows malformed events to flow through the query logic. This can in turn generate errors and crashes as the query logic (and built-in functions it uses) will expect certain fields and types in arguments.
 
 As an example, using [ROUND](https://docs.microsoft.com/en-us/stream-analytics-query/round-azure-stream-analytics) on a `NVARCHAR(MAX)` may not end well. ASA will be able to implicitly cast it as long as the field contains a numeric value stored as a string in the input events. But when an event has that field set to `"NaN"`, then the job may fail.
 
@@ -25,9 +25,9 @@ As an example, using [ROUND](https://docs.microsoft.com/en-us/stream-analytics-q
 
 ## Problem statement
 
-We will be building a new ASA job that will ingest data from a single Event Hub. As is most often the case, we are not responsible for the data producers. Here producers are IoT devices sourced from multiple hardware vendors.
+We will be building a new ASA job that will ingest data from a single event hub. As is most often the case, we are not responsible for the data producers. Here producers are IoT devices sourced from multiple hardware vendors.
 
-After a series of meetings, we were able to define a serialization format (JSON) and schema for the events to be pushed from the devices to the Event Hub.
+After a series of meetings, we were able to define a serialization format (JSON) and schema for the events to be pushed from the devices to the event hub.
 
 The schema is defined as follow:
 
@@ -52,6 +52,8 @@ Which in turns gives us the following sample message:
 ```
 
 We can already realize a discrepancy between the schema contract and its implementation. In JSON there is no data type for datetime. It will transmitted as a string (see `message_Ts` above). ASA will be able to easily address the issue, but it shows how little trust we can have in some serialization formats to respect types. CSV is notoriously poor in that regard. This makes query validation all the more important here.
+
+Another discrepancy exists between the incoming field types and the type system used by ASA.
 
 ## Prerequisites
 
