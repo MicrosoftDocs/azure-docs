@@ -154,7 +154,7 @@ This topology implements the following use cases:
 *	It is not supported to configure hybrid experiences such as Seamless SSO and Hybrid Azure AD Join on more than one tenant. Doing so would overwrite the configuration of the other tenant and would make it unusable. 
 *	You can synchronize device objects to more than one tenant but only one tenant can be configured to trust a device.
 * Each Azure AD Connect instance should be running on a domain-joined machine.
-* 
+
 >[!NOTE]
 >Global Address List Synchronization (GalSync) is not done automatically in this topology and requires an additional custom MIM implementation to ensure each tenant has a complete Global Address List (GAL) in Exchange Online and Skype for Business Online.
 
