@@ -141,7 +141,7 @@ Replace the following values in the example:
 - `<ServerName>`: Use a unique Azure SQL logical server name
 - `<ServerAdminName>`: The SQL Administrator login
 - `<ServerAdminPassword>`: The SQL Administrator password
-- `<IdentityType>`: Type of identity to be assigned to the server. Possible values are `SystemAsssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` and None
+- `<IdentityType>`: Type of identity to be assigned to the server. Possible values are `SystemAssigned`, `UserAssigned`, `SystemAssigned,UserAssigned` and None
 - `<UserAssignedIdentityId>`: The list of user-assigned managed identities to be assigned to the server (can be one or multiple)
 - `<PrimaryUserAssignedIdentityId>`: The user-assigned managed identity that should be used as the primary or default on this server
 - `<CustomerManagedKeyId>`: The Azure Key Vault URI that is used for encryption
