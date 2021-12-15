@@ -32,6 +32,7 @@ To migrate your instance or availability group, your source SQL Server should me
 Before your target SQL Server VMs are ready for migration, make sure they meet the following prerequisites: 
 
 - The Azure account performing the migration is assigned as the owner or contributor to the resource group that contains target the SQL Server VMs. 
+- The target SQL Server instance should be the default instance (**MSSQLSERVER**) to be fully supported by the SQL Server IaaS agent extension. If possible, create target SQL Server instances using the default instance name. 
 - For simplicity, the target SQL Server instance should match the version of the source SQL Server instance. If you choose to upgrade during the migration process by using a higher version of SQL Server on the target, then you will need to manually seed your database rather than relying on autoseeding as is  provided in this series of articles. Review [Migrate to higher SQL Server versions](/sql/database-engine/availability-groups/windows/distributed-availability-groups#cautions-when-using-distributed-availability-groups-to-migrate-to-higher-sql-server-versions) for more details. 
 - The SQL Server edition should be enterprise. 
 - You must enable the [Always On feature](/sql/database-engine/availability-groups/windows/enable-and-disable-always-on-availability-groups-sql-server). 

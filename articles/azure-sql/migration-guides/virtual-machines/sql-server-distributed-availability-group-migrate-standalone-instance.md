@@ -16,6 +16,8 @@ Once you've validated your source SQL Server instance meets the [prerequisites](
 
 This article is intended for databases on a standalone instance of SQL Server. This solution does not require a Windows Server Failover Cluster (WSFC) or an availability group listener. It's also possible to [migrate databases in an availability group](sql-server-distributed-availability-group-migrate-ag.md). 
 
+:::image type="content" source="media/sql-server-distributed-availability-group-migrate-standalone-instance/migrate-single-instance-with-dag.png" alt-text="Diagram explaining single instance migration using a distributed availability group":::
+
 ## Initial setup
 
 The first step is to create your SQL Server VM in Azure. You can do so by using the [Azure portal](../../virtual-machines/windows/sql-vm-create-portal-quickstart.md), [Azure Powershell](../../virtual-machines/windows/sql-vm-create-powershell-quickstart.md), or an [ARM template](../../virtual-machines/windows/create-sql-vm-resource-manager-template.md). 
@@ -27,11 +29,11 @@ For simplicity, join your target SQL Server VM to the same domain as your source
 This article uses the following example parameters:
 
 - Database name: **Adventureworks**
-- Source machine name (global primary in DAG): **SQLonPrem**
-- Source SQL Server instance name: **SQL1**
+- Source machine name (global primary in DAG): **OnPremNode**
+- Source SQL Server instance name: **MSSQLSERVER**
 - Source availability group name: **OnPremAg**
-- Target SQL Server VM name (forwarder in DAG): **SQLonAzure**
-- Target SQL Server on Azure VM instance name: **SQL1**
+- Target SQL Server VM name (forwarder in DAG): **SQLVM**
+- Target SQL Server on Azure VM instance name: **MSSQLSERVER**
 - Target availability group name: **AzureAG**
 - Endpoint name: **Hadr_endpoint**
 - Distributed availability group name: **DAG**
@@ -39,7 +41,7 @@ This article uses the following example parameters:
 
 ## Create endpoints
 
-Use Transact-SQL (T-SQL) to create endpoints on both your source (**SQLonPrem\SQL1**) and target (**SQLonAzure\SQL1**) SQL Server instances. 
+Use Transact-SQL (T-SQL) to create endpoints on both your source (**OnPremNode**) and target (**SQLVM**) SQL Server instances. 
 
 To create your endpoints, run this T-SQL script on both source and target servers: 
 
@@ -65,7 +67,7 @@ GRANT CONNECT ON ENDPOINT::[Hadr_endpoint] TO [<your account>]
 
 Since a distributed availability group is a special availability group that spans across two individual availability groups, you first need to create an availability group on the source SQL Server instance. If you already have an availability group that you would like to maintain in Azure, then [migrate your availability group](sql-server-distributed-availability-group-migrate-ag.md) instead. 
 
-Use Transact-SQL (T-SQL) to create an availability group (**OnPremAg**) on the source (**SQLonPrem\SQL1**) instance for the example **Adventureworks** database. 
+Use Transact-SQL (T-SQL) to create an availability group (**OnPremAg**) on the source (**OnPremNode**) instance for the example **Adventureworks** database. 
 
 To create the availability group, run this script on the source: 
 
@@ -76,10 +78,10 @@ CREATE AVAILABILITY GROUP [OnPremAG]
    DTC_SUPPORT = NONE, 
    CLUSTER_TYPE=NONE, 
    REQUIRED_SYNCHRONIZED_SECONDARIES_TO_COMMIT = 0) 
-   FOR DATABASE  [Adventureworks] 
+   FOR DATABASE [Adventureworks] 
 
-REPLICA ON N'SQLonPrem\SQL1' 
-WITH (ENDPOINT_URL = N'TCP://SQLonPrem.contoso.com:5022', FAILOVER_MODE = AUTOMATIC, 
+REPLICA ON N'OnPremNode' 
+WITH (ENDPOINT_URL = N'TCP://OnPremNode.contoso.com:5022', FAILOVER_MODE = AUTOMATIC, 
 AVAILABILITY_MODE = SYNCHRONOUS_COMMIT, 
 SEEDING_MODE = AUTOMATIC, SECONDARY_ROLE(ALLOW_CONNECTIONS = NO)); 
 
@@ -90,14 +92,14 @@ GO
 
 You also need to create an availability group on the target SQL Server VM as well. 
 
-Use Transact-SQL (T-SQL) to create an availability group (**AzureAG**) on the target **SQLonAzure\SQL1** instance. 
+Use Transact-SQL (T-SQL) to create an availability group (**AzureAG**) on the target (**SQLVM**) instance. 
 
 To create the availability group, run this script on the target: 
 
 ```sql
 CREATE AVAILABILITY GROUP [AzureAG]
 FOR
-REPLICA ON N'SQLonAzure\SQL1' WITH (ENDPOINT_URL = N'TCP://SQLonAzure.contoso.com:5022',    
+REPLICA ON N'SQLVM' WITH (ENDPOINT_URL = N'TCP://SQLVM.contoso.com:5022',    
 FAILOVER_MODE = MANUAL,    
 AVAILABILITY_MODE = SYNCHRONOUS_COMMIT,    
 BACKUP_PRIORITY = 50,
@@ -112,7 +114,7 @@ GO
 
 After you have your source (**OnPremAG**) and target (**AzureAG**) availability groups configured, create your distributed availability group to span both individual availability groups. 
 
-Use Transact-SQL on the source SQL Server instance (**SQLonPrem\SQL1**) and AG (**OnPremAG**) to create the distributed availability group (**DAG**). 
+Use Transact-SQL on the source SQL Server instance (**OnPremNode**) and AG (**OnPremAG**) to create the distributed availability group (**DAG**). 
 
 To create the distributed AG, run this script on the source: 
 
@@ -122,14 +124,14 @@ CREATE AVAILABILITY GROUP [DAG]
    AVAILABILITY GROUP ON 
       'OnPremAG' WITH    
       (		 
-         LISTENER_URL = 'tcp://SQLonPrem.contoso.com:5022',   
+         LISTENER_URL = 'tcp://OnPremNode.contoso.com:5022',   
          AVAILABILITY_MODE = ASYNCHRONOUS_COMMIT,   
          FAILOVER_MODE = MANUAL,    
          SEEDING_MODE = AUTOMATIC    
       ),    
       'AzureAG' WITH     
       (    
-         LISTENER_URL = 'tcp://SQLonAzure.contoso.com:5022',  
+         LISTENER_URL = 'tcp://SQLVM.contoso.com:5022',  
          AVAILABILITY_MODE = ASYNCHRONOUS_COMMIT,    
          FAILOVER_MODE = MANUAL,    
          SEEDING_MODE = AUTOMATIC    
@@ -141,7 +143,7 @@ GO
 >[!NOTE]
 > The seeding mode is set to `AUTOMATIC` as the version of SQL Server on the target and source is the same. If your SQL Server target is a higher version, then create the distributed ag, and join the secondary AG to the distributed ag with **seeding_mode** set to `manual`. Then manually restore your databases from the source to the target SQL Server instance. Review [upgrading versions during migration](/sql/database-engine/availability-groups/windows/distributed-availability-groups#cautions-when-using-distributed-availability-groups-to-migrate-to-higher-sql-server-versions) to learn more. 
 
-After your distributed AG is created, join the target AG (**AzureAG**) on the target instance (**SQLonAzure\SQL1**) to the distributed AG (**DAG**). 
+After your distributed AG is created, join the target AG (**AzureAG**) on the target instance (**SQLVM**) to the distributed AG (**DAG**). 
 
 To join the target AG to the distributed AG, run this script on the target: 
 
@@ -150,13 +152,13 @@ ALTER AVAILABILITY GROUP [DAG]
 JOIN    
 AVAILABILITY GROUP ON   
    'OnPremAG' WITH    
- 	(LISTENER_URL = 'tcp://SQLonPrem.contoso.com:5022', 
+ 	(LISTENER_URL = 'tcp://OnPremNode.contoso.com:5022', 
     AVAILABILITY_MODE = ASYNCHRONOUS_COMMIT,  
     FAILOVER_MODE = MANUAL,  
     SEEDING_MODE = AUTOMATIC  
  	),   
    'AzureAG' WITH 
- 	(LISTENER_URL = 'tcp://SQLonAzure.contoso.com:5022',    
+ 	(LISTENER_URL = 'tcp://SQLVM.contoso.com:5022',    
     AVAILABILITY_MODE = ASYNCHRONOUS_COMMIT,   
     FAILOVER_MODE = MANUAL,    
     SEEDING_MODE = AUTOMATIC    
@@ -164,7 +166,7 @@ AVAILABILITY GROUP ON
 GO  
 ```
 
-If you need to cancel, pause, or delay synchronization between the source and target availability groups (such as, for example, performance issues), run this script on the source global primary instance (**SQLonPrem\SQL1**): 
+If you need to cancel, pause, or delay synchronization between the source and target availability groups (such as, for example, performance issues), run this script on the source global primary instance (**OnPremNode**): 
 
 ```sql
 ALTER AVAILABILITY GROUP [DAG] 
