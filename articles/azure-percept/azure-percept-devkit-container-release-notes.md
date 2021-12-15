@@ -1,7 +1,7 @@
 ---
 title: Azure Percept DK Container release notes
 description: Information of changes and fixes for Azure Percept DK Container releases.
-author: amiyouss
+author: nkhuyent
 ms.author: amiyouss
 ms.service: azure-percept
 ms.topic: conceptual

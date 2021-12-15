@@ -18,6 +18,9 @@
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: Use loops
+    displayName: multiple
+    href: quickstart-loops.md
   - name: CI/CD
     items:
     - name: Bicep with pipelines
@@ -67,6 +70,7 @@
       - name: Create private registry
         href: private-module-registry.md
     - name: Loops
+      displayName: multiple
       href: loops.md
     - name: Scopes
       items:

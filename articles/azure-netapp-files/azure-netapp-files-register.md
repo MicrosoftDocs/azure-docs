@@ -3,7 +3,7 @@ title: Register for NetApp Resource Provider to use with Azure NetApp Files | Mi
 description: Learn how to register the NetApp Resource Provider for Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Register for NetApp Resource Provider
 

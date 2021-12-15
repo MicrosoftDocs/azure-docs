@@ -1704,8 +1704,11 @@
         href: ./linux/scheduled-events.md
         displayname: Scheduled events
       - name: Windows
-        displayName: Scheduled events
-        href: ./windows/scheduled-events.md
+        items: 
+          - name: Scheduled events
+            href: ./windows/scheduled-events.md
+          - name: Monitor scheduled events
+            href: ./windows/scheduled-event-service.md
     - name: Track and update VMs
       items:
       - name: Linux
@@ -1886,6 +1889,8 @@
     - name: Overview
       href: ../backup/backup-azure-vms-introduction.md?context=/azure/virtual-machines/context/context
       dispayName: backup VMs, Azure Backup, recovery
+    -  name: Creating restore points
+       href: virtual-machines-create-restore-points.md
     - name: Quickstarts
       items:
       - name: CLI

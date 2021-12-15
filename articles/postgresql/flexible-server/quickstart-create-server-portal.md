@@ -4,9 +4,9 @@ description: Quickstart guide to creating and managing an Azure Database for Pos
 author: sunilagarwal
 ms.author: sunila
 ms.service: postgresql
-ms.custom: mvc, mode-portal
+ms.custom: mvc, mode-ui
 ms.topic: quickstart
-ms.date: 11/30/2021
+ms.date: 12/01/2021
 ---
 
 # Quickstart: Create an Azure Database for PostgreSQL - Flexible Server in the Azure portal
@@ -53,14 +53,14 @@ To create an Azure Database for PostgreSQL server, take the following steps:
     Password |Your password| A new password for the server admin account. It must contain between 8 and 128 characters. Your password must contain characters from three of the following categories: English uppercase letters, English lowercase letters, numbers (0 through 9), and non-alphanumeric characters (!, $, #, %, etc.).
     Location|The region closest to your users| The location that is closest to your users.
     Version|The latest major version| The latest PostgreSQL major version, unless you have specific requirements otherwise.
-    Compute + storage | **General Purpose**, **4 vCores**, **512 GB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *General Purpose*, *4 vCores*, *512 GB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**. You can leave those sliders as is or adjust them. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
+    Compute + storage | **General Purpose**, **4 vCores**, **512 GB**, **7 days** | The compute, storage, and backup configurations for your new server. Select **Configure server**. *General Purpose*, *4 vCores*, *512 GB*, and *7 days* are the default values for **Compute tier**, **vCore**, **Storage**, and **Backup Retention Period**.  You can leave those sliders as is or adjust them. <br> <br> To configure your server with **Geo-redundant Backup** to protect from region-level failures, you can check the box ON. Note that the Geo-redundant backup can be configured only at the time of server creation. To save this pricing tier selection, select **OK**. The next screenshot captures these selections.
 
-    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier.png" alt-text="The Pricing tier pane":::
+    :::image type="content" source="./media/quickstart-create-database-portal/4-pricing-tier-geo-backup.png" alt-text="The Pricing tier pane":::
 
     
 5. Configure Networking options
 6. 
-    On the **Networking** tab, you can choose how your server is reachable. Azure Database for MySQL Flexible Server provides two ways to connect to your server:
+    On the **Networking** tab, you can choose how your server is reachable. Azure Database for PostgreSQL Flexible Server provides two ways to connect to your server:
    - Public access (allowed IP addresses)
    - Private access (VNet Integration)
 
