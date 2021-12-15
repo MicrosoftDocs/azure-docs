@@ -162,7 +162,6 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
     container: HTMLDivElement;
     sessionId: string;
     charactersProcessed: number;
-    postLaunchOperations: PostLaunchOperations;
 }
 ```
 
