@@ -51,7 +51,7 @@ Open the [Azure portal](https://portal.azure.com), and sign in with your Azure a
 
     You see the management page of the App Service app.
 
-To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. 
+    To add a custom domain to your app, you need to verify your ownership of the domain by adding a verification ID as a TXT record with your domain provider. 
 
 1. In the left pane of your app page, select **Custom domains**. 
 1. Copy the ID in the **Custom Domain Verification ID** box in the **Custom Domains** page for the next step.

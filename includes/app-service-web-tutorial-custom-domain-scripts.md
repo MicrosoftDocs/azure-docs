@@ -37,4 +37,5 @@ Set-AzWebApp `
 ```
 
 For more information, see [Assign a custom domain to a web app](/azure/app-service/scripts/powershell-configure-custom-domain.md).
+
 -----
