@@ -68,7 +68,7 @@ When you enable code generation, automated ML generates the model's training cod
 
 * **script_run_notebook.ipynb**: Notebook with boiler-plate code to run the model's training code (script.py) in AzureMLCompute through Azure ML SDK classes such as `ScriptRunConfig`. 
 
-![Code generation diagram](media/how-to-generate-automl-model-training-code/generated-code-illustration.png)
+![Code generation diagram](./media/how-to-generate-automl-training-code/code-generation-design.png)
 
 ## Get generated code and model artifacts
 
@@ -81,11 +81,11 @@ remote_run.download_file("outputs/generated_code/script_run_notebook.ipynb", "sc
 
 You also have the option to view the generated code through the Azure Machine Learning studio UI. To do so, you can select the **View generated code** button on the **Models** tab on the automated ML experiments parent run page. This button redirects to the Notebooks portal extension, where you can view and run the generated code.
 
-![models tab view generate code button](media\how-to-generate-automl-model-training-code/ParentModelsViewGenerateCodeBtn.png)
+![parent run models tab view generate code button](./media/how-to-generate-automl-training-code/parent-run-view-generated-code.png)
 
 You can also access to the model's generated code from the top of the child run page.
 
-![child run page view generated code button](media\how-to-generate-automl-model-training-code/ChildViewGeneratedCodeBtn.png)
+![child run page view generated code button](./media/how-to-generate-automl-training-code/child-run-view-generated-code.png)
 
 
 ## script.py
@@ -109,8 +109,8 @@ def get_training_dataset():
 
 When running as part of a script run, `Run.get_context().experiment.workspace` retrieves the correct workspace. However, if this script is run inside of a different workspace or run locally without using `ScriptRunConfig`, [you need to modify the script to specify the appropriate workspace explicitly](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
 
-Once the workspace has been retrieved, the original dataset is retrieved by its ID. Another dataset can also be specified, either using [`get_by_id()`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-id-workspace--id-) if you know
-its ID, or [`get_by_name()`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#get-by-name-workspace--name--version--latest--) if you know its name.
+Once the workspace has been retrieved, the original dataset is retrieved by its ID. Another dataset can also be specified, either using [`get_by_id()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-id-workspace--id-) if you know
+its ID, or [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--) if you know its name.
 
 You can also opt to replace this entire function with your own data loading mechanism; the only constraints are that the return value must be a Pandas dataframe and that the data must have the same shape as in the original experiment.
 
@@ -148,7 +148,7 @@ For example, a possible data transformation that can happen in this function wou
 
 With a classification and regression tasks, featurizers are combined with the corresponding [`DataFrameMappers`](https://github.com/scikit-learn-contrib/sklearn-pandas) into [`TransformerAndMapper`](https://docs.microsoft.com/en-us/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.transformer_and_mapper.transformerandmapper?view=azure-ml-py) objects. These combined objects are wrapped in the [`DataTransformer`](https://docs.microsoft.com/en-us/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.data_transformer.datatransformer?view=azure-ml-py).
 
-For time-series forecasting models, multiple time series-aware featurizers are collected into a scikit-learn pipeline, then wrapped in the [`TimeSeriesTransformer`](https://docs.microsoft.com/en-us/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.timeseries_transformer.timeseriestransformer?view=azure-ml-py).
+For time-series forecasting models, multiple time series-aware featurizers are collected into a scikit-learn pipeline, then wrapped in the [`TimeSeriesTransformer`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.timeseries_transformer.timeseriestransformer).
 
 ### Preprocessor specification
 
@@ -177,7 +177,7 @@ def generate_preprocessor_config():
 
 This is probably the most interesting code for many ML professionals. 
 
-The `generate_algorithm_config()` function specifies the actual algorithm and hyperparameters for traing the model as the last stage of the final scikit-learn pipeline, as in the following example using an XGBoostClassifier algorithm with specific hyperparameters.
+The `generate_algorithm_config()` function specifies the actual algorithm and hyperparameters for training the model as the last stage of the final scikit-learn pipeline, as in the following example using an XGBoostClassifier algorithm with specific hyperparameters.
 
 ```python
 def generate_algorithm_config():
@@ -288,11 +288,11 @@ dependencies and has the side benefit of not needing a Docker image rebuild step
 If you make changes to `script.py` that require additional dependencies, or you would like to use your own environment, you will need to update the `Create environment`
 cell in `script_run_notebook.ipynb` accordingly.
 
-For additional documentation on AzureML environments, see [this page](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.environment.environment?view=azure-ml-py).
+For additional documentation on AzureML environments, see [this page](/python/api/azureml-core/azureml.core.environment.environment).
 
 ### Submitting the experiment
 
-Since the generated code is not driven by AutoML anymore, instead of creating an `AutoMLConfig` and then passing it to `experiment.submit()`, you need to create a [`ScriptRunConfig`](https://docs.microsoft.com/en-us/python/api/azureml-core/azureml.core.scriptrunconfig?view=azure-ml-py) and provide the generated code (script.py) to it, like in the following example.
+Since the generated code is not driven by AutoML anymore, instead of creating an `AutoMLConfig` and then passing it to `experiment.submit()`, you need to create a [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.scriptrunconfig) and provide the generated code (script.py) to it, like in the following example.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -306,7 +306,7 @@ src = ScriptRunConfig(source_directory=project_folder,
 run = experiment.submit(config=src)
 ```
 
-All of the parameters in the above snippet are regular dependencies needed to run ScriptRunConfig, such as compute, environment, etc. For further information on how to use ScriptRunConfig, read the article [Configure and submit training runs](https://docs.microsoft.com/en-us/azure/machine-learning/how-to-set-up-training-targets)
+All of the parameters in the above snippet are regular dependencies needed to run ScriptRunConfig, such as compute, environment, etc. For further information on how to use ScriptRunConfig, read the article [Configure and submit training runs](how-to-set-up-training-targets.md)
 
 
 ### Downloading and loading the serialized trained model in memory
