@@ -104,7 +104,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Palantir Foundry SSO
 
-To configure single sign-on on **Palantir Foundry** side, upload Azure's XML metadata downloaded from **Federation Metadata XML** into **Palantir Foundry Control Panel**.
+To configure single sign-on on the **Palantir Foundry** side, upload Azure's XML metadata downloaded from **Federation Metadata XML** into the **Identity provider metadata** section of **Palantir Foundry Control Panel**.
 
    ![Upload Azure metadata file in Foundyr](media/palantir-foundry-tutorial/upload-metadata.png)
 
