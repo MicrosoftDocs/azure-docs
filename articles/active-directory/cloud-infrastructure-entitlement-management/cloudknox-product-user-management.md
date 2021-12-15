@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 12/15/2021
 ms.author: v-ydequadros
 ---
 
@@ -162,7 +162,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
                  For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.    
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+            4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
         - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
             1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
@@ -174,7 +174,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
             4. Optional: To request access for multiple other identities, under **Requestor for Other Users**, select **Add**, and then select **Users**.
 
                  For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+            5. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
         - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in **Auth System Types**.
 
             1. Select **Next**.
@@ -192,7 +192,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
                 For example, a user can have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts. 
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+            6. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
     4. Select **Save**. 
      
@@ -253,7 +253,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
                For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts.
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+            4. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
         - **Admin for Selected Authorization System Types** - **View**, **Control**, and **Approve** permissions for selected Authorization System Types.
             1. Check **Viewer**, **Controller**, or **Approver** for the appropriate authorization system(s).  
@@ -265,7 +265,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
                For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts. 
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+            5. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
        
         - **Custom** - **View**, **Control**, and **Approve** permissions for specific accounts in Auth System Types.
             1. Select **Next**.   
@@ -286,7 +286,7 @@ Creating a permission directly in CloudKnox allows system administrators to assi
 
                For example, a user may have various roles in different authorization systems, so they can select **Add**, and then select **Users** to request access for all their accounts. 
 
-             - On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
+            6. On the **Add Users** screen, enter the user's name or ID in the **User Search** box and select all applicable users. Then select **Add**.
 
     4. Select **Save**. 
     
