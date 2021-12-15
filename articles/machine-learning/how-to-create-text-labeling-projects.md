@@ -79,7 +79,7 @@ To create a dataset from data that you've already stored in Azure Blob storage:
 1. Select **Create a dataset** > **From datastore**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**:
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row contains a response. Tabular is not available for Text Named Entity Recognition projects. 
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description for your dataset.
 1. Select **Next**.
@@ -97,7 +97,7 @@ To directly upload your data:
 1. Select **Create a dataset** > **From local files**.
 1. Assign a **Name** to your dataset.
 1. Choose the **Dataset type**.
-    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response.
+    * Select **Tabular** if you're using a .csv or .tsv file, where each row is a response. Tabular is not available for Text Named Entity Recognition projects. 
     * Select **File** if you're using separate .txt files for each response.
 1. (Optional) Provide a description of your dataset.
 1. Select **Next**
