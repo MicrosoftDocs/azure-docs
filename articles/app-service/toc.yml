@@ -309,7 +309,7 @@
           href: manage-create-arc-environment.md
 
     - name: Networking
-      - items:
+      items:
         - name: Enable VNet integration
           href: configure-vnet-integration-enable.md
         - name: Configure VNet integration routing
