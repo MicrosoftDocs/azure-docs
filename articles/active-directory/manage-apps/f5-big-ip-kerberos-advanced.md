@@ -32,7 +32,9 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 For this scenario, you will configure a critical line of business (LOB) application for **Kerberos authentication**, also known as **Integrated Windows Authentication (IWA)**.
 
-To integrate the application directly with Azure AD, it’d need to support some form of federation-based protocol such as Security Assertion Markup Language (SAML), or better. But as modernizing the application introduces risk of potential downtime, there are other options. While using Kerberos Constrained Delegation (KCD) for SSO, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) to access the application remotely. In this arrangement, you can achieve the protocol transitioning required to bridge the legacy application to the modern identity control plane. Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC). This enables overlay of the application with Azure AD pre-authentication and KCD SSO, and significantly improves the overall Zero Trust posture of the application.
+To integrate the application directly with Azure AD, it’d need to support some form of federation-based protocol such as Security Assertion Markup Language (SAML), or better. But as modernizing the application introduces risk of potential downtime, there are other options. While using Kerberos Constrained Delegation (KCD) for SSO, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) to access the application remotely. 
+
+In this arrangement, you can achieve the protocol transitioning required to bridge the legacy application to the modern identity control plane. Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC). This enables overlay of the application with Azure AD pre-authentication and KCD SSO, and significantly improves the overall Zero Trust posture of the application.
 
 ## Scenario architecture
 

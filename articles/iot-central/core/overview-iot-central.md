@@ -64,6 +64,8 @@ You have several options for creating device templates:
 - Create a device model using Visual Studio code and publish the model to a repository. Implement your device code from the model, and connect your device to your IoT Central application. IoT Central finds the device model from the repository and creates a simple device template for you.
 - Create a device model using Visual Studio code. Implement your device code from the model. Manually import the device model into your IoT Central application and then add any cloud properties, customizations, and views your IoT Central application needs.
 
+If the telemetry from your devices is too complex, you can [map telemetry on ingress to IoT Central](howto-map-data.md) to simplify or normalize it.
+
 ### Customize the UI
 
 Customize the IoT Central application UI for the operators who are responsible for the day-to-day use of the application. Customizations you can make include:
