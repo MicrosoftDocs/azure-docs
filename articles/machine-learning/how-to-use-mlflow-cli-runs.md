@@ -42,11 +42,14 @@ See [MLflow and Azure Machine Learning](concept-mlflow.md) for all supported MLf
 
 ## Track runs from your local machine
 
-MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts runs that were executed on your local machine into your Azure Machine Learning workspace. Make sure you are logged in to your Azure account, otherwise your the tracking URI returns an empty string.
+MLflow Tracking with Azure Machine Learning lets you store the logged metrics and artifacts runs that were executed on your local machine into your Azure Machine Learning workspace. 
 
 ### Set up tracking environment
 
 To track a local run, you need to point your local machine to the Azure Machine Learning MLflow Tracking URI. 
+
+>[!IMPORTANT]
+> Make sure you are logged in to your Azure account, otherwise the tracking URI returns an empty string.
 
 # [MLflow SDK](#tab/mlflow)
 
@@ -56,7 +59,7 @@ The following code uses `mlflow` and the [`subprocess`](https://docs.python.org/
 import mlflow
 import subprocess
 
-#Get MLFLow URI through the Azure ML CLI (v2) and convert to string
+#Get MLfLow URI through the Azure ML CLI (v2) and convert to string
 MLFLOW_TRACKING_URI = subprocess.run(["az", "ml", "workspace", "show", "--query", "mlflow_tracking_uri", "-o", "tsv"], stdout=subprocess.PIPE, text=True)
 
 MLFLOW_TRACKING_URI = str(MLFLOW_TRACKING_URI.stdout).strip()
@@ -64,7 +67,7 @@ MLFLOW_TRACKING_URI = str(MLFLOW_TRACKING_URI.stdout).strip()
 ## Set the MLFLOW TRACKING URI
 mlflow.set_tracking_uri(MLFLOW_TRACKING_URI)
 
-## Make sure the MLFLow URI looks something like this: 
+## Make sure the MLflow URI looks something like this: 
 ## azureml://westus.api.azureml.ms/mlflow/v1.0/subscriptions/<Sub-ID>/resourceGroups/<RG>/providers/Microsoft.MachineLearningServices/workspaces/<WS>
 
 print("MLFlow Tracking URI:",MLFLOW_TRACKING_URI)
@@ -72,7 +75,7 @@ print("MLFlow Tracking URI:",MLFLOW_TRACKING_URI)
 
 # [Terminal](#tab/terminal)
 
-Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your terminal.
+Another option is to set one of the MLflow environment variables [MLFLOW_TRACKING_URI](https://mlflow.org/docs/latest/tracking.html#logging-to-a-tracking-server) directly in your terminal. 
 
 ```Azure CLI
 # Configure MLflow to communicate with a Azure Machine Learning-hosted tracking server
@@ -84,7 +87,7 @@ export MLFLOW_TRACKING_URI=$(az ml workspace show --query mlflow_tracking_uri | 
 
 ### Set experiment name
 
-All MLflow runs are logged to the active experiment, which can be set using MLflow SDK or the Azure CLI. 
+All MLflow runs are logged to the active experiment, which can be set with the MLflow SDK or Azure CLI. 
 
 # [MLflow SDK](#tab/mlflow)
 
@@ -130,7 +133,7 @@ MLflow Tracking with Azure Machine Learning lets you store the logged metrics an
 
 First, you should create a `src` subdirectory and create a file with your training code in a `train.py` file in the `src` subdirectory. All your training code will go into the `src` subdirectory, including `train.py`.
 
-The training code is taken from this [MLFLow example](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/basics/src/hello-mlflow.py) in the Azure Machine Learning example repo. 
+The training code is taken from this [MLfLow example](https://github.com/Azure/azureml-examples/blob/main/cli/jobs/basics/src/hello-mlflow.py) in the Azure Machine Learning example repo. 
 
 Copy this code into the file:
 
