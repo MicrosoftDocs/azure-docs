@@ -11,13 +11,13 @@ ms.date: 11/18/2021
 
 # Azure Purview classification best practices 
 
-Data classification, in the context of Azure Purview, is a way of categorizing data assets by assigning unique logical labels or class to the data assets. Classification is based on the business context of the data. For example, you might classify assets by *Passport Number*, *Driver's License Number*, *Credit Card Number*, *SWIFT Code*, *Person’s Name*, and so on.
+Data classification, in the context of Azure Purview, is a way of categorizing data assets by assigning unique logical labels or classes to the data assets. Classification is based on the business context of the data. For example, you might classify assets by *Passport Number*, *Driver's License Number*, *Credit Card Number*, *SWIFT Code*, *Person’s Name*, and so on.
 
 When you classify data assets, you make them easier to understand, search, and govern. Classifying data assets also helps you understand the risks associated with them. This in turn can help you implement measures to protect sensitive or important data from ungoverned proliferation and unauthorized access across the data estate. 
  
 Azure Purview provides automated classification capability while you scan your data sources. You get more than 200 system built-in classifications and the ability to create custom classifications for your data. You can classify assets automatically, when they're configured as part of a scan, or you can edit them manually in Azure Purview Studio after they're scanned and ingested.  
  
-## Why do you need to adopt classification? 
+## Why classification is a good idea 
 
 Classification is the process of organizing data into *logical categories* that make the data easy to retrieve, sort, and identify for future use. This can be particularly important for data governance. Among other reasons, classifying data assets is important because it helps you: 
 * Narrow down the search for data assets that you're interested in.
@@ -72,15 +72,15 @@ While you're deciding on which classifications to apply, we recommend that you:
 
 Create custom classifications only if the available system classifications don't meet your needs.
 
-For the *name* of custom classification, it's a good practice to use a namespace convention (for example, *\<company name>.\<business unit>.\<custom classification name>*). 
+For the *name* of the custom classification, it's a good practice to use a namespace convention (for example, *\<company name>.\<business unit>.\<custom classification name>*). 
 
-As an example, for the custom EMPLOYEE_ID classification for a company named Contoso, the name of your custom classification would be CONTOSO.HR.EMPLOYEE_ID, and the friendly name is stored in the system as HR.EMPLOYEE ID.
+As an example, for the custom EMPLOYEE_ID classification for fictitious company Contoso, the name of your custom classification would be CONTOSO.HR.EMPLOYEE_ID, and the friendly name is stored in the system as HR.EMPLOYEE ID.
     
 :::image type="content" source="./media/concept-best-practices/classification-custom-classification-example-5.png" alt-text="Screenshot showing an EMPLOYEE_ID custom classification." lightbox="./media/concept-best-practices/classification-custom-classification-example-5.png":::
 
 When you create and configure the classification rules for a custom classification, do the following:
 
-* Select the appropriate classification **name** for which the classification **rule** is to be created.
+* Select the appropriate classification name for which the classification rule is to be created.
 
 * Azure Purview supports the following two methods for creating custom classification rules: 
    * Use the **Regular expression** (regex) method if you can consistently express the data element by using a regular expression pattern or you can generate the pattern by using a data file. Ensure that the sample data reflects the population.
@@ -96,13 +96,13 @@ When you create and configure the classification rules for a custom classificati
 
     * You can also configure the column name pattern, for the column to be classified to minimize false positives.
 
-    * Configure the *Minimum match threshold* parameter that's acceptable for your data that matches the data pattern to apply the classification. The threshold values can be from 1% through 100%. We suggest a value of at least 60% as the threshold to avoid false positives. However, you may configure as necessary for your specific classification scenarios. For example, your threshold may be as low as 1% if you want to detect and apply a classification for any value in the data if it matches the pattern. 
+    * Configure the *Minimum match threshold* parameter that's acceptable for your data that matches the data pattern to apply the classification. The threshold values can be from 1% through 100%. We suggest a value of at least 60% as the threshold to avoid false positives. However, you may configure as necessary for your specific classification scenarios. For example, your threshold might be as low as 1% if you want to detect and apply a classification for any value in the data if it matches the pattern. 
   
         :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-regular-expressions-example-7.png" alt-text="Screenshot showing the regex method for creating a custom classification rule." lightbox="./media/concept-best-practices/classification-custom-classification-rule-regular-expressions-example-7.png":::
 
-    * The option to set a minimum match rule is automatically disabled, if more than one data pattern is added to the classification rule.
+    * The option to set a minimum match rule is automatically disabled if more than one data pattern is added to the classification rule.
 
-    * Use the *Test classification rule* and test with a sample data to verify that the classification rule is working as expected. Ensure that in the sample data (for example, in a .csv file) at least three columns are present, including the column on which the classification is to be applied. If the test is successful, you should see the classification label on the column, as shown in the following image:
+    * Use the *Test classification rule* and test with sample data to verify that the classification rule is working as expected. Ensure that in the sample data (for example, in a .csv file) at least three columns are present, including the column on which the classification is to be applied. If the test is successful, you should see the classification label on the column, as shown in the following image:
    
         :::image type="content" source="./media/concept-best-practices/classification-test-classification-rule-example-8.png" alt-text="Screenshot showing classification when the test classification is successful." lightbox="./media/concept-best-practices/classification-test-classification-rule-example-8.png":::
 
@@ -114,7 +114,7 @@ When you create and configure the classification rules for a custom classificati
 
 ### Custom classification archetypes
 
-How the "threshold" parameter works in the regular expression:
+**How the "threshold" parameter works in the regular expression**
 
 * Consider the sample source data in the following image. There are five columns, and the custom classification rule should be applied to columns **Sample_col1**, **Sample_col2**, and **Sample_col3** for the data pattern *N{Digit}{Digit}{Digit}AN*.
 
@@ -134,9 +134,9 @@ How the "threshold" parameter works in the regular expression:
 
    :::image type="content" source="./media/concept-best-practices/classification-test-custom-classification-rule-12.png" alt-text="Screenshot showing result of high threshold criteria." lightbox="./media/concept-best-practices/classification-test-custom-classification-rule-12.png":::
 
-How to use both data and column patterns:
+**How to use both data and column patterns**
 
-* For the given sample data, where column **B** and column **C** both have similar data patterns, you can classify on column **B** based on the data pattern "^P[0-9]{3}[A-Z]{2}$". 
+* For the given sample data, where both column **B** and column **C** have similar data patterns, you can classify on column **B** based on the data pattern "^P[0-9]{3}[A-Z]{2}$". 
    
    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-sample-data-13.png" alt-text="Screenshot showing sample data." lightbox="./media/concept-best-practices/classification-custom-classification-sample-data-13.png":::
 
@@ -151,7 +151,7 @@ How to use both data and column patterns:
 
    :::image type="content" source="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png" alt-text="Screenshot showing a column pattern." lightbox="./media/concept-best-practices/classification-custom-classification-rule-column-pattern-15.png":::
 
-How to use multiple column patterns:
+**How to use multiple column patterns**
 
 If there are multiple column patterns to be classified for the same classification rule, use pipe (|) character-separated column names. For example, for columns **Product ID**, **Product_ID**, **ProductID**, and so on, write the column pattern as shown in the following image:
    
@@ -180,7 +180,7 @@ You can also classifications in bulk through Purview Studio. For more informatio
 
 Here are some considerations to bear in mind as you're defining classifications:
 
-* To decide what classifications are required to be applied to the assets prior to scanning, consider the use case of how your classifications are to be used. Unnecessary classification labels might look noisy and even misleading for data consumers. You can use classifications to:
+* To decide what classifications are required to be applied to the assets prior to scanning, consider how your classifications are to be used. Unnecessary classification labels might look noisy and even misleading for data consumers. You can use classifications to:
     * Describe the nature of the data that exists in the data asset or schema that's being scanned. In other words, classifications should enable customers to identify the content of data asset or schema from the classification labels as they search the catalog.
     * Set priorities and develop a plan to achieve the security and compliance needs of an organization. 
     * Describe the phases in the data preparation processes (raw zone, landing zone, and so on) and assign the classifications to specific assets to mark the phase in the process.
