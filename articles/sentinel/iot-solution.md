@@ -3,7 +3,7 @@ title: Integrate Microsoft Sentinel and Microsoft Defender for IoT  | Microsoft 
 description: This tutorial describes how to use the Microsoft Sentinel data connector and solution for Microsoft Defender for IoT to secure your entire OT environment. Detect and respond to OT threats, including multistage attacks that may cross IT and OT boundaries.
 author: batamig
 ms.topic: tutorial
-ms.date: 12/14/2021
+ms.date: 12/15/2021
 ms.author: bagol
 ---
 
@@ -146,6 +146,8 @@ You can ensure that Microsoft Sentinel creates incidents for relevant alerts gen
 
 # [Use out-of-the-box analytics rules (recommended)](#tab/use-out-of-the-box-analytics-rules-recommended)
 
+[Install the Defender for IoT solution](#install-the-defender-for-iot-solution) to get out-of-the-box analytics rules deployed to your workspace, built specifically for Defender for IoT data.
+
 The following table describes the out-of-the-box analytics rules provided in the [IoT OT Threat Monitoring with Defender for IoT](#install-the-defender-for-iot-solution) solution.
 
 > [!TIP]
@@ -154,20 +156,20 @@ The following table describes the out-of-the-box analytics rules provided in the
 
 | Rule Name | Description|
 | ---------- | ----------|
-| **Illegal function codes for ICS/SCADA traffic** | Illegal function codes in SCADA equipment may indicate either improper application configuration (e.g., due to a firmware update or reinstallation) or malicious activity such as a cyber threat that attempts to use illegal values within a protocol to exploit a vulnerability in the PLC (e.g., to cause a buffer overflow).              |
-| **Firmware update**                              | Unauthorized firmware updates may indicate malicious activity on the network; a cyber threat that attempts to manipulate PLC firmware to compromise PLC function.    |
-| **Unauthorized PLC changes**                     | Unauthorized changes to PLC ladder logic code can be either an indication of new functionality in the PLC, improper configuration of an application (e.g., due to a firmware update or reinstallation),or malicious activity on the network; a cyber threat that attempts to manipulate PLC programming to compromise PLC function.          |
-| **PLC insecure key state**                      | The new mode may indicate that the PLC is not secure. Leaving the PLC in an insecure operating mode may allow adversaries to perform malicious activities on it, such as a program download. If the PLCis compromised, devices and processes that interact with it may be impacted. This may affect overall system security and safety.      |
-| **PLC stop**  | The PLC stop command could indicate either improper configuration of an application that has caused the PLC to stop functioning, or malicious activity on the network; a cyber threat that is attempting to manipulate PLC programming toaffect the function of the network.                                                                 |
+| **Illegal function codes for ICS/SCADA traffic** | Illegal function codes in supervisory control and data acquisition (SCADA) equipment may indicate one of the following: <br><br>- Improper application configuration, such as due to a firmware update or reinstallation. <br>- Malicious activity. For example, a cyber threat that attempts to use illegal values within a protocol to exploit a vulnerability in the programmable logic controller (PLC), such as a buffer overflow.              |
+| **Firmware update**      | Unauthorized firmware updates may indicate malicious activity on the network, such as a cyber threat that attempts to manipulate PLC firmware to compromise PLC function.    |
+| **Unauthorized PLC changes**                     | Unauthorized changes to PLC ladder logic code may be one of the following: <br><br>- An indication of new functionality in the PLC. <br>- Improper configuration of an application, such as due to a firmware update or reinstallation. <br>- Malicious activity on the network, such as a cyber threat that attempts to manipulate PLC programming to compromise PLC function.          |
+| **PLC insecure key state**                      | The new mode may indicate that the PLC is not secure. Leaving the PLC in an insecure operating mode may allow adversaries to perform malicious activities on it, such as a program download. <br><br>If the PLC is compromised, devices and processes that interact with it may be impacted. which may affect overall system security and safety.      |
+| **PLC stop**  | The PLC stop command may indicate an improper configuration of an application that has caused the PLC to stop functioning, or malicious activity on the network. For example, a cyber threat that attempts to manipulate PLC programming to affect the functionality of the network.       |
 | **Suspicious malware found in the network**      | Suspicious malware found on the network indicates that suspicious malware is trying to compromise production.    |
-| **Multiple Scans in the Network**                | Multiple scans on the network can be either an indication of a new device on the network, new functionality of an existing device, misconfiguration of an application (e.g., due to a firmware update orreinstallation), or malicious activity on the network - reconnaissance.                                                              |
-| **Internet Connectivity**                        | OT device communicating with Internet addresses can either be an indication of improper configuration of an application (e.g., Antivirus software attempting to download updates from an externalserver) or indicate malicious activity on the network                                                                                       |
-| **Unauthorized device in the SCADA network**     | An unauthorized device on the network may be either a legitimate new device recently installed on the network or an indication of unauthorized or even malicious activity on the network; a cyber threat attempting to manipulate the SCADA network.  |
-| **Unauthorized DHCP configuration in the SCADA network**    | An unauthorized DHCP configuration on the network can be an indication of a new, unauthorized device operating on the network. This is either a legitimate new device recently deployed onthe network or an indication of unauthorized or even malicious activity on the network; a cyber threat attempting to manipulate the SCADA network. |
-| **Excessive login attempts**                     | Excessive login attempts may indicate improper service configuration, human error, or malicious activity on the network; a cyber threat attempting to manipulate the SCADA network.  |
-| **High bandwidth in the network**                | An unusually high bandwidth may be an indication of a new service/process on the network, such as backup, or an indication of malicious activity on the network; a cyber threat attempting to manipulatethe SCADA network.     |
-| **Denial of Service**                            | Detect attacks that would prevent the use or proper operation of the DCS system.                                 |
-| **Unauthorized remote access to the network**    | Unauthorized remote access to the network can compromise the target device. That is, if another device on the network is compromised, the target devices can be accessed remotely, increasing the attack surface.                                                                                                                             |
+| **Multiple scans in the network**                | Multiple scans on the network can be an indication of one of the following: <br><br>- A new device on the network <br>- New functionality of an existing device <br>- Misconfiguration of an application, such as due to a firmware update or re-installation <br>- Malicious activity on the network for reconnaissance    |
+| **Internet connectivity**                        | An OT device communicating with internet addresses may indicate an improper application configuration, such as anti-virus software attempting to download updates from an external server, or malicious activity on the network.     |
+| **Unauthorized device in the SCADA network**     | An unauthorized device on the network may be a legitimate, new device recently installed on the network, or an indication of unauthorized or even malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network.  |
+| **Unauthorized DHCP configuration in the SCADA network**    | An unauthorized DHCP configuration on the network may indicate a new, unauthorized device operating on the network. <br><br>This may be one a legitimate, new device recently deployed on the network, or an indication of unauthorized or even malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network. |
+| **Excessive login attempts**                     | Excessive login attempts may indicate improper service configuration, human error, or malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network.  |
+| **High bandwidth in the network**                | An unusually high bandwidth may be an indication of a new service/process on the network, such as backup, or an indication of malicious activity on the network, such as a cyber threat attempting to manipulate the SCADA network.     |
+| **Denial of Service**    | This alert detects attacks that would prevent the use or proper operation of the DCS system.         |
+| **Unauthorized remote access to the network**    | Unauthorized remote access to the network can compromise the target device. <br><br> This means that if another device on the network is compromised, the target devices can be accessed remotely, increasing the attack surface.         |
 
 # [Create and maintain analytics rules manually](#tab/create-and-maintain-analytics-rules-manually)
 
