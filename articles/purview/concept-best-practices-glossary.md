@@ -15,7 +15,7 @@ The business glossary is a definition of terms specific to a domain of knowledge
 A common business glossary (for example, business language) is significant as it is critical in improving an organizations overall business productivity and performance. You will observe in most organizations that their business language is being codified based on business dealings associated with:  
 
 - Business Meetings
-- Stand-Ups, Projects, and Systems (ERP, CRM, SharePoint, etc). 
+- Stand-Ups, Projects, and Systems (ERP, CRM, SharePoint, etc.). 
 - Business Plans and Business Processes
 - Presentations
 - Reporting and Business Rules
