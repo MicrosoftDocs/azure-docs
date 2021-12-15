@@ -56,7 +56,7 @@ For more information about the frequently asked questions of Azure IoT connector
 >[Azure IoT connector for FHIR FAQs](fhir-faq.yml)
 
 >[!div class="nextstepaction"]
->[Frequently asked questions about IoT connector](../../healthcare-apis/iot/iot-connector-faqs)
+>[Frequently asked questions about IoT connector](../../healthcare-apis/iot/iot-connector-faqs.md)
 
 *In the Azure portal, Azure IoT connector for FHIR is referred to as IoT connector (preview). FHIR is a registered trademark of HL7 and is used with the permission of HL7.
 
