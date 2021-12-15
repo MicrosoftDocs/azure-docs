@@ -10623,7 +10623,7 @@
         },
         {
             "source_path": "articles/active-directory/reports-monitoring/reference-basic-info-identifiers.md",
-            "redirect_url": "/azure/active-directory/reports-monitoring/reference-basic-info-sign-in-log",
+            "redirect_url": "/azure/active-directory/reports-monitoring/reference-basic-info-sign-in-logs",
             "redirect_document_id": false
         }
          

@@ -1,6 +1,6 @@
 ---
-title: Basic info in the Azure AD sign-in log | Microsoft Docs
-description: Learn what the basic info in the sign-in log is about.
+title: Basic info in the Azure AD sign-in logs | Microsoft Docs
+description: Learn what the basic info in the sign-in logs is about.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
@@ -21,10 +21,11 @@ ms.reviewer: besiler
 ms.collection: M365-identity-device-management
 ---
 
-# Basic info in the Azure AD sign-in log
+# Basic info in the Azure AD sign-in logs
 
-Azure AD logs all sign-ins into an Azure tenant for compliance. As an IT administrator, you need to know what the values in a sign-in log mean, so that you can interpret the log values correctly.
-This article explains the identifiers on the Basic info tab of the sign-ins log.
+Azure AD logs all sign-ins into an Azure tenant for compliance. As an IT administrator, you need to know what the values in the sign-in logs mean, so that you can interpret the log values correctly.
+
+This article explains the values on the Basic info tab of the sign-ins log.
 
 ## Unique identifiers 
 
@@ -37,7 +38,7 @@ In Azure AD, a resource access has three relevant components:
 
 Each component has an associated unique identifier (ID). Below is an example of user using the Windows Azure Service Management API to access the Azure portal.
 
-![Open audit logs](./media/reference-basic-info-sign-in-log/sign-in-details-basic-info.png)
+![Open audit logs](./media/reference-basic-info-sign-in-logs/sign-in-details-basic-info.png)
 
 ### Tenant identifiers
 
@@ -65,20 +66,37 @@ This attribute shows the highest level of authentication needed through all the 
 
 ## Sign-in event types 
 
-Indicates the category of sign in that the event represents. For user sign ins, the category can be `interactiveUser` or `nonInteractiveUser` and corresponds to the value for the **isInteractive** property on the signin resource. For managed identity sign ins, the category is `managedIdentity`. For service principal sign ins, the category is **servicePrincipal**. In the Azure Portal UX, this value is not shown, but the sign-in event is placed in the tab that matches its sign-in event type. Possible values are: `interactiveUser`, `nonInteractiveUser`, `servicePrincipal`, `managedIdentity`, `unknownFutureValue`. In the Graph API, supports `$filter` (`eq` operator only).
+Indicates the category of the sign in the event represents. For user sign ins, the category can be `interactiveUser` or `nonInteractiveUser` and corresponds to the value for the **isInteractive** property on the signin resource. For managed identity sign ins, the category is `managedIdentity`. For service principal sign ins, the category is **servicePrincipal**. The Azure Portal doesn't show this value, but the sign-in event is placed in the tab that matches its sign-in event type. Possible values are:
+
+- `interactiveUser`
+- `nonInteractiveUser`
+- `servicePrincipal`
+- `managedIdentity`
+- `unknownFutureValue`
+
+The Microsoft Graph API, supports: `$filter` (`eq` operator only)
 
 ## User type 
 
-Type of user. Examples include member, guest, or external.
+The type of a user. Examples include `member`, `guest`, or `external`.
 
 
 ## Cross tenant access type 
 
-Describes the type of cross tenant access used by the actor to access the resource. Possible values are: `none`, `b2bCollaboration`, `b2bDirectConnect`, `microsoftSupport`, `serviceProvider`, `unknownFutureValue`. If the sign in did not cross tenant boundaries, the value is `none`.
+This attribute describes the type of cross tenant access used by the actor to access the resource. Possible values are: 
+
+- `none`
+- `b2bCollaboration`
+- `b2bDirectConnect`
+- `microsoftSupport`
+- `serviceProvider`
+- `unknownFutureValue` 
+
+If the sign in did not cross tenant boundaries, the value is `none`.
 
 ## Conditional access evaluation 
 
-Shows whether continuous access evaluation (CAE) was applied to the sign-in event. There are multiple sign-in requests for each authentication. Some will be shown on the interactive tab, while others will be shown on the non-interactive tab. CAE will only be displayed as true for one of the requests, and it can be on the interactive tab or non-interactive tab. For more details, see Monitor and troubleshoot sign-ins with continuous access evaluation in Azure AD | Microsoft Docs. 
+This value shows whether continuous access evaluation (CAE) was applied to the sign-in event. There are multiple sign-in requests for each authentication. Some are shown on the interactive tab, while others are shown on the non-interactive tab. CAE is only displayed as true for one of the requests, and it can be on the interactive tab or non-interactive tab. For more information, see [Monitor and troubleshoot sign-ins with continuous access evaluation in Azure AD](../conditional-access/howto-continuous-access-evaluation-troubleshoot.md). 
 
 
 
