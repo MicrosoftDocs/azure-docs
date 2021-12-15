@@ -15,7 +15,7 @@ ms.custom: ignite-fall-2021
 
 # Form Recognizer custom and composed models
 
-Azure Form Recognizer uses advanced machine learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
+Azure Form Recognizer uses advanced machine-learning technology to detect and extract information from document images and return the extracted data in a structured JSON output. With Form Recognizer, you can train standalone custom models or combine custom models to create composed models.
 
 * **Custom models**: By using custom models, you can analyze and extract data from forms and documents specific to your business. Custom models are trained for your distinct data and use cases.
 * **Composed models**: A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
@@ -24,7 +24,7 @@ Azure Form Recognizer uses advanced machine learning technology to detect and ex
 
 ## What is a custom model?
 
-A custom model is a machine learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started. Your custom model can be trained with or without labeled datasets.
+A custom model is a machine-learning program trained to recognize form fields within your distinct content and extract key-value pairs and table data. You only need five examples of the same form type to get started. Your custom model can be trained with or without labeled datasets.
 
 ## What is a composed model?
 
@@ -46,7 +46,7 @@ The following resources are supported by Form Recognizer v3.0:
 
 ### Try Form Recognizer
 
-See how data is extracted from your specific or unique documents by using custom models. You need the following:
+See how data is extracted from your specific or unique documents by using custom models. You need the following resources:
 
 * An Azure subscription. You can [create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
@@ -120,7 +120,7 @@ The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) doesn't support 
 
 ## Supported languages and locales
 
- The Form Recognizer preview version introduces more language support for custom models. For a complete list of supported handwritten and printed text, see the [language support](language-support.md#layout-and-custom-model).
+ The Form Recognizer preview version introduces more language support for custom models. For a list of supported handwritten and printed text, see [Language support](language-support.md#layout-and-custom-model).
 
 ## Form Recognizer v3.0 (preview)
 
