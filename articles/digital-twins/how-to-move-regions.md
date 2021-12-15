@@ -28,12 +28,12 @@ Before you attempt to recreate your Azure Digital Twins instance, go over the co
 
 Here are some questions to consider:
 
-* What are the *models* uploaded to my instance? How many are there?
-* What are the *twins* in my instance? How many are there?
-* What's the general shape of the *graph* in my instance? How many relationships are there?
-* What *endpoints* do I have in my instance?
-* What *routes* do I have in my instance? Do they have filters?
-* Where does my instance *connect to other Azure services*? Some common integration points include:
+* What are the **models** uploaded to my instance? How many are there?
+* What are the **twins** in my instance? How many are there?
+* What's the general shape of the **graph** in my instance? How many relationships are there?
+* What **endpoints** do I have in my instance?
+* What **routes** do I have in my instance? Do they have filters?
+* Where does my instance **connect to other Azure services**? Some common integration points include:
 
     - Azure Event Grid, Azure Event Hubs, or Azure Service Bus
     - Azure Functions
@@ -41,7 +41,7 @@ Here are some questions to consider:
     - Azure Time Series Insights
     - Azure Maps
     - Azure IoT Hub Device Provisioning Service
-* What other *personal or company apps* do I have that connect to my instance?
+* What other **personal or company apps** do I have that connect to my instance?
 
 You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), [Azure Digital Twins CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), or the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
 
