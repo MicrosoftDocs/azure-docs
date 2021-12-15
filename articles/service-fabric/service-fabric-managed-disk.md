@@ -29,14 +29,13 @@ To use managed data disks on a node type, configure the underlying virtual machi
 
 * Add a managed disk in data disks section of the template for the virtual machine scale set. 
 * Update the Service Fabric extension with following settings: 
-    * For Windows: **useManagedDataDisk: true** and **dataPath: 'K:\\\\SvcFab'** .  Note, the drive K is just a representation. You can use any drive letter lexicographically greater than all the drive letters present in the virtual machine scale set SKU.
-    * For Linux: **useManagedDataDisk:true** and **dataPath: '\mnt\sfdataroot'** .
+    * For Windows: **useManagedDataDisk: true** and **dataPath: 'K:\\\\SvcFab'**. Note that drive K is just a representation. You can use any drive letter lexicographically greater than all the drive letters present in the virtual machine scale set SKU.
+    * For Linux: **useManagedDataDisk:true** and **dataPath: '\mnt\sfdataroot'**.
 
 >[!NOTE]
 > Support for managed data disks for Linux Service Fabric clusters is currently not available.
 
-
-Service Fabric Extension Azure Resource Manager template
+Here's an Azure Resource Manager template for a Service Fabric Extension:
 
 ```json
 {
@@ -87,9 +86,9 @@ Service Fabric Extension Azure Resource Manager template
 
 For all migration scenarios:
 
-1. Add a new node type that is configured to use managed data disks as specified earlier.
+1. Add a new node type that's configured to use managed data disks as specified earlier.
 
-1. Migrate any required workload(s) to the new node type.
+1. Migrate any required workloads to the new node type.
 
 1. Disable and remove the old node type from the cluster.
 
