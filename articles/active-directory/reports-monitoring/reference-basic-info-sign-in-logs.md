@@ -66,7 +66,7 @@ This attribute shows the highest level of authentication needed through all the 
 
 ## Sign-in event types 
 
-Indicates the category of the sign in the event represents. For user sign-ins, the category can be `interactiveUser` or `nonInteractiveUser` and corresponds to the value for the **isInteractive** property on the sign in resource. For managed identity sign-ins, the category is `managedIdentity`. For service principal sign-ins, the category is **servicePrincipal**. The Azure portal doesn't show this value, but the sign-in event is placed in the tab that matches its sign-in event type. Possible values are:
+Indicates the category of the sign in the event represents. For user sign-ins, the category can be `interactiveUser` or `nonInteractiveUser` and corresponds to the value for the **isInteractive** property on the sign-in resource. For managed identity sign-ins, the category is `managedIdentity`. For service principal sign-ins, the category is **servicePrincipal**. The Azure portal doesn't show this value, but the sign-in event is placed in the tab that matches its sign-in event type. Possible values are:
 
 - `interactiveUser`
 - `nonInteractiveUser`
@@ -92,7 +92,7 @@ This attribute describes the type of cross-tenant access used by the actor to ac
 - `serviceProvider`
 - `unknownFutureValue` 
 
-If the sign-in did not cross-tenant boundaries, the value is `none`.
+If the sign-in did not the boundaries of a tenant, the value is `none`.
 
 ## Conditional access evaluation 
 
