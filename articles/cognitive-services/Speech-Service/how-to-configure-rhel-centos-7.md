@@ -42,8 +42,8 @@ Next update the compiler and runtime libraries:
 
 ```bash
 # Build GCC 7.5.0 and runtimes and install them under /usr/local
-curl https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.bz2 -O
-tar jxf gcc-7.5.0.tar.bz2
+curl https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.gz -O
+tar -xf gcc-7.5.0.tar.gz
 mkdir gcc-7.5.0-build && cd gcc-7.5.0-build
 ../gcc-7.5.0/configure --enable-languages=c,c++ --disable-bootstrap --disable-multilib --prefix=/usr/local
 make -j$(nproc)
