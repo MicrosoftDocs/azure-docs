@@ -97,8 +97,6 @@ items:
       items:
         - name: Guide
           href: troubleshoot-guide.md
-        - name: Troubleshoot deployment (Active Directory)
-          href: troubleshoot-ad-deployment.md
         - name: Get logs
           href: troubleshooting-get-logs.md
 - name: Azure Arc-enabled PostgreSQL Hyperscale (preview) 
@@ -191,12 +189,14 @@ items:
           href: connect-managed-instance.md
         - name: Active Directory
           items:
-            - name: Plan
-              href: plan-active-directory-integrated-deployment.md
-            - name: deploy
-              href: deploy-active-directory-manual-mode.md
-            - name: Connect (Active Directory)
-              href: connect-ad-sql-mi.md
+            - name: Introduction
+              href: active-directory-introduction.md
+            - name: Deploy connector
+              href: deploy-active-directory-connector.md
+            - name: Deploy SQL Managed Instance
+              href: deploy-active-directory-sqlmi.md
+            - name: Connect SQL Managed Instance
+              href: connect-active-directory-sqlmi.md              
     - name: How-to
       items:
         - name: Manage

@@ -99,7 +99,7 @@ SQL Server will use this file as its credential against Active Directory.
 There are multiple tools available to generate a keytab file.
 1. **ktutil**: This tool is available on Linux
 2. **ktpass**: This tool is available on Windows
-3. **adutil**: This tool is available for Linux. Installation instructions are [here](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-ad-auth-adutil-introduction?view=sql-server-ver15&tabs=ubuntu).
+3. **adutil**: This tool is available for Linux. See [Introduction to `adutil` - Active Directory utility](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
 To generate the keytab file specifically for SQL Managed Instance, you may use a bash shell script we have published. It wraps ktutil and adutil on Linux.
 The script can be found here: [create-sql-keytab.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.sh).
