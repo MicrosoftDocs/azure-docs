@@ -8,7 +8,7 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 05/28/2020
-ms.custom: devx-track-js, mode-other
+ms.custom: devx-track-js, mode-api
 ---
 # Quickstart: Build a Table API app with Node.js and Azure Cosmos DB
 [!INCLUDE[appliesto-table-api](../includes/appliesto-table-api.md)]

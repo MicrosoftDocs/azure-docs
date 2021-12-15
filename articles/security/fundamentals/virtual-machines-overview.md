@@ -65,7 +65,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 Learn more:
 
 * [Get Started with WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [Overview of WDATP capabilities](/microsoft-365/security/defender-endpoint/whats-new-in-microsoft-defender-atp)  
+* [Overview of WDATP capabilities](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/what-s-new-in-the-wdatp-portal/ba-p/200828)  
 
 ## Hardware security module
 

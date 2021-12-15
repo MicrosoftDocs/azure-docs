@@ -1,10 +1,10 @@
 ---
 title: Get started with Enterprise IoT
-description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with an EIoT deployment
+description: In this tutorial, you will learn how to onboard to Microsoft Defender for IoT with an Enterprise IoT deployment
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 12/09/2021
+ms.date: 12/12/2021
 ms.custom: template-tutorial
 ---
 
@@ -19,10 +19,10 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > * Set up a server or Virtual Machine (VM)
 > * Prepare your environment
-> * Register an Enterprise IoT sensor
+> * Set up an Enterprise IoT sensor
 > * Install the sensor
 > * Validate your setup
-> * View your enterprise IoT devices in the EIoT device inventory
+> * View your enterprise IoT devices in the Enterprise IoT device inventory
 
 ## Prerequisites
 
@@ -111,7 +111,7 @@ You can also download, and add the [Azure public IP ranges](https://www.microsof
 
 A sensor is needed to discover, and continuously monitor Enterprise IoT devices. The sensor will use the Enterprise IoT network, and endpoint sensors to gain comprehensive visibility.
 
-**To set up an Enterprise sensor**:
+**To set up an Enterprise IoT sensor**:
 
 1. Navigate to the [Azure portal](https://portal.azure.com#home).
 
@@ -135,7 +135,7 @@ A sensor is needed to discover, and continuously monitor Enterprise IoT devices.
 
 1. Save the command provided to you.
 
-    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an EIoT sensor.":::
+    :::image type="content" source="media/tutorial-get-started-eiot/successful-registration.png" alt-text="Screenshot of the successful registration of an Enterprise IoT sensor.":::
 
 ## Install the sensor
 
@@ -145,7 +145,7 @@ Run the command that you received, and saved when you registered the Enterprise 
 
 1. Sign in to the sensor's CLI using a terminal, such as PUTTY, or MobaXterm.
 
-1. Run the command that you saved from the Register an EIoT sensor.
+1. Run the command that you saved from the [Set up an Enterprise IoT sensor](#set-up-an-enterprise-iot-sensor).
 
 1. When the command is complete, the installation wizard will appear.
 
@@ -211,7 +211,7 @@ The installation will now finish.
 
     Ensure that packets are being sent to the Event Hub.
 
-## View your enterprise IoT devices in the EIoT device inventory
+## View your enterprise IoT devices in the Enterprise IoT device inventory
 
 Once you have validated your setup, the device inventory will start to populate with all of your devices after 15 minutes.
 

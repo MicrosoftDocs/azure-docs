@@ -157,8 +157,12 @@
   - name: App security
     displayName: least privilege, secure app configuration, conditional access
     items:
+    - name: Zero trust best practices for app developers
+      href: zero-trust-for-developers.md
     - name: Best practices for least privileged access for apps
       href: secure-least-privileged-access.md
+    - name: Secure line-of-business applications using Zero Trust principles
+      href: secure-line-of-business-apps.md
     - name: Security best practices for Azure AD application registration
       href: security-best-practices-for-app-registration.md
   - name: Automatic user provisioning (SCIM)
