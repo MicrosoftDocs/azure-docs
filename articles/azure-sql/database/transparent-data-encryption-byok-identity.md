@@ -47,6 +47,12 @@ In addition to the system-assigned managed identity that is already supported fo
 - By default, TDE in Azure SQL uses the primary user-assigned managed identity set on the server for key vault access. If no user-assigned identities have been assigned to the server, then the system-assigned managed identity of the server is used for key vault access.
 - When using the system-assigned managed identity for TDE with CMK, no user-assigned managed identities should be assigned to the server 
 - When using a user-assigned managed identity for TDE with CMK, assign the identity to the server and set it as the primary identity for the server
+- The primary user-assigned managed identity requires continuous key vault access (*get, wrapKey, unwrapKey* permissions). If the identity's access to key vault is revoked or sufficient permissions are not provided, the database will move to *Inaccessible* state 
+- If the primary user-assigned managed identity is being updated to a different user-assigned managed identity, the new identity must be given required permissions to the key vault prior to updating the primary 
+- To switch the server from user-assigned to system-assigned managed identity for key vault access, provide the system-assigned managed identity with the required key vault permissions, then remove all user-assigned managed identities from the server
+
+> [!Important]
+> The primary user-assigned managed identity being used for TDE with CMK should not be deleted from Azure. Deleting this identity will lead to the server losing access to key vault and databases becoming *inaccessible*. 
  
 ## Current limitations in preview
 
