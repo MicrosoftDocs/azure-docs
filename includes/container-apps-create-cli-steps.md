@@ -133,3 +133,29 @@ az monitor log-analytics workspace create `
 ```
 
 ---
+
+Next, retrieve the Log Analytics Client ID and client secret.
+
+# [Bash](#tab/bash)
+
+```bash
+LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE | tr -d '[:space:]'`
+```
+
+```bash
+LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE | tr -d '[:space:]'`
+```
+
+# [PowerShell](#tab/powershell)
+
+```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE | tr -d '[:space:]'
+```
+
+```powershell
+$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE | tr -d '[:space:]'
+```
+
+---
+
+The Log Analytics values are used as you create the Container Apps environment.

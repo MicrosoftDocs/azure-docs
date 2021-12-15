@@ -28,46 +28,18 @@ The following example shows you how to create a Container Apps environment with 
 
 [!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
-Next, retrieve the Log Analytics Client ID and client secret.
+Next, declare a variable to hold the VNET name.
 
 # [Bash](#tab/bash)
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'`
-```
-
-```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'`
+VNET_NAME="my-custom-vnet"
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_ID=az monitor log-analytics workspace show --query customerId -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'
-```
-
-```powershell
-$LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP_NAME -n $LOG_ANALYTICS_WORKSPACE_NAME | tr -d '[:space:]'
-```
-
----
-
-The Log Analytics values are used as you create the Container Apps environment.
-
-Next, declare variables to hold the new environment and VNET names. Replace your values with the placeholders surrounded by the `<>` brackets.
-
-# [Bash](#tab/bash)
-
-```bash
-CONTAINER_APPS_ENVIRONMENT_NAME=<CONTAINER_APPS_ENVIRONMENT_NAME>
-VNET_NAME=<VNET_NAME>
-```
-
-# [PowerShell](#tab/powershell)
-
-```powershell
-$CONTAINER_APPS_ENVIRONMENT_NAME=<CONTAINER_APPS_ENVIRONMENT_NAME>
-$VNET_NAME=<VNET_NAME>
+$VNET_NAME="my-custom-vnet"
 ```
 
 ---
@@ -81,19 +53,23 @@ Now create an instance of the virtual network to associate with the Container Ap
 
 ```azurecli
 az network vnet create \
-  --resource-group $RESOURCE_GROUP_NAME \
+  --resource-group $RESOURCE_GROUP \
   --name $VNET_NAME \
-  --location $RESOURCE_GROUP_LOCATION \
+  --location $RESOURCE_GROUP \
   --address-prefix 10.0.0.0/16
+```
 
+```azurecli
 az network vnet subnet create \
-  --resource-group $RESOURCE_GROUP_NAME \
+  --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
   --name control-plane \
   --address-prefixes 10.0.0.0/21
+```
 
+```azurecli
 az network vnet subnet create \
-  --resource-group $RESOURCE_GROUP_NAME \
+  --resource-group $RESOURCE_GROUP \
   --vnet-name $VNET_NAME \
   --name applications \
   --address-prefixes 10.0.8.0/21
@@ -103,19 +79,23 @@ az network vnet subnet create \
 
 ```powershell
 az network vnet create `
-  --resource-group $RESOURCE_GROUP_NAME `
+  --resource-group $RESOURCE_GROUP `
   --name $VNET_NAME `
-  --location $RESOURCE_GROUP_LOCATION `
+  --location $LOCATION `
   --address-prefix 10.0.0.0/16
+```
 
+```powershell
 az network vnet subnet create `
-  --resource-group $RESOURCE_GROUP_NAME `
+  --resource-group $RESOURCE_GROUP `
   --vnet-name $VNET_NAME `
   --name control-plane `
   --address-prefixes 10.0.0.0/21
+```
 
+```powershell
 az network vnet subnet create `
-  --resource-group $RESOURCE_GROUP_NAME `
+  --resource-group $RESOURCE_GROUP `
   --vnet-name $VNET_NAME `
   --name applications `
   --address-prefixes 10.0.8.0/21
@@ -123,26 +103,34 @@ az network vnet subnet create `
 
 ---
 
-With the VNET established, you can now query for the VNET and subnet IDs.
+With the VNET established, you can now query for the VNET, subnet, control plane, and app IDs.
 
 # [Bash](#tab/bash)
 
 ```bash
-VNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
+VNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP} -n ${VNET_NAME} --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 ```bash
-SUBNET_RESOURCE_ID=`az network vnet show -g ${RESOURCE_GROUP_NAME} -n ${VNET_NAME} --query "subnets[0].id" -o tsv | tr -d '[:space:]'`
+CONTROL_PLANE_SUBNET=`az network vnet subnet show -g ${RESOURCE_GROUP} --vnet-name $VNET_NAME -n control-plane --query "id" -o tsv | tr -d '[:space:]'`
+```
+
+```bash
+APP_SUBNET=`az network vnet subnet show -g ${RESOURCE_GROUP} --vnet-name ${VNET_NAME} -n applications --query "id" -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
-VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP_NAME -n $VNET_NAME --query "id" -o tsv | tr -d "[:space:]")
+VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP -n $VNET_NAME --query "id" -o tsv | tr -d "[:space:]")
 ```
 
-```powershell
-SUBNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP_NAME -n $VNET_NAME --query "subnets[0].id" -o tsv | tr -d "[:space:]")
+```bash
+CONTROL_PLANE_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n control-plane --query "id" -o tsv | tr -d "[:space:]")
+```
+
+```bash
+APP_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n applications --query "id" -o tsv | tr -d "[:space:]")
 ```
 
 ---
@@ -153,35 +141,52 @@ Finally, create the Container Apps environment with the VNET and subnets.
 
 ```azurecli
 az containerapp env create \
-  --name $CONTAINER_APPS_ENVIRONMENT_NAME \
-  --resource-group $RESOURCE_GROUP_NAME \
+  --name $CONTAINERAPPS_ENVIRONMENT \
+  --resource-group $RESOURCE_GROUP \
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
   --location "canadacentral" \
-  --app-subnet-resource-id $SUBNET_RESOURCE_ID \
-  --controlplane-subnet-resource-id $SUBNET_RESOURCE_ID \
-  --subnet-resource-id $SUBNET_RESOURCE_ID
+  --app-subnet-resource-id $APP_SUBNET \
+  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
 ```
 
 # [PowerShell](#tab/powershell)
 
 ```powershell
 az containerapp env create `
-  --name $CONTAINER_APPS_ENVIRONMENT_NAME `
-  --resource-group $RESOURCE_GROUP_NAME `
+  --name $CONTAINERAPPS_ENVIRONMENT `
+  --resource-group $RESOURCE_GROUP `
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
   --location "canadacentral" `
-  --app-subnet-resource-id $SUBNET_RESOURCE_ID `
-  --controlplane-subnet-resource-id $SUBNET_RESOURCE_ID `
-  --subnet-resource-id $SUBNET_RESOURCE_ID
+  --app-subnet-resource-id $APP_SUBNET `
+  --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
 ```
 
 ---
 
-- `app-subnet-resource-id`: The resource ID of a subnet that Container App containers are injected into. This subnet must be in the same VNET as the subnet defined in `controlPlaneSubnetResourceId`.
+The following table describes the parameters used in for `containerapp env create`.
 
-- `controlplane-subnet-resource-id`: The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `appSubnetResourceId`.
+| Parameter | Description |
+|---|---|
+| `name` | Name of the container apps environment. |
+| `resource-group` | Name of the resource group. |
+| `logs-workspace-id` | The ID of the Log Analytics workspace. |
+| `logs-workspace-key` | The Log Analytics client secret.  |
+| `location` | The Azure location where the environment is to deploy.  |
+| `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `controlPlaneSubnetResourceId`. |
+| `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `appSubnetResourceId`. |
+
+## Restrictions
+
+There are some restrictions on the subnet address ranges for an environment. Subnet address ranges can't overlap with the following reserved ranges:
+
+- 169.254.0.0/16
+- 172.30.0.0/16
+- 172.31.0.0/16
+- 192.0.2.0/24
+
+Additionally, subnets must have a size between /21 and /12.
 
 ## Additional resources
 
