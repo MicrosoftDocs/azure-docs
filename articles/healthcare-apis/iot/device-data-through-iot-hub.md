@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: tutorial 
-ms.date: 11/16/2021
+ms.date: 12/14/2021
 ms.author: jasteppe
 ---
 
@@ -15,7 +15,11 @@ ms.author: jasteppe
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-IoT connector provides the capability to collect and ingest health data from various IoT health related or medical devices into the Fast Healthcare Interoperability Resources (FHIR®) service. IoT connector is interoperable and responsive with devices created and managed through Azure IoT Hub for enhanced workflows and ease of use. This tutorial provides the procedure to connect and route device data from Azure IoT Hub to IoT connector.
+IoT connector provides the capability to collect and ingest health data from IoT health related or medical devices into the Fast Healthcare Interoperability Resources (FHIR®) service. 
+
+IoT connector may be used with devices created and managed through Azure IoT Hub for enhanced workflows and ease of use. 
+
+This tutorial provides the steps to connect and route device data from Azure IoT Hub to IoT connector.
 
 ## Prerequisites
 
@@ -26,53 +30,31 @@ IoT connector provides the capability to collect and ingest health data from var
 > [!TIP]
 > If you are using an Azure IoT Hub simulated device application, feel free to pick the application of your choice amongst different supported languages and systems.
 
-## Get connection string for IoT connector
+Below is a diagram of IoT device data flowing from IoT hub into IoT connector:
 
-Azure IoT Hub requires a connection string to securely connect with your IoT connector. Create a new connection string for your IoT connector as described in [Generate a connection string](../azure-api-for-fhir/iot-fhir-portal-quickstart.md#generate-a-connection-string). Safe this connection string to be used in the next step.
+:::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" alt-text="Diagram of IoT message data flow through IoT Hub into IoT connector." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png"::: 
 
-IoT connector uses an Azure Event Hub instance under the hood to receive device messages. The connection string created above is basically the connection string to this underlying Event Hub.
+##  Provide IoT hub access to IoT connector event hub
+
+For this tutorial, we'll be using an IoT hub with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview)
+
+The user-assigned managed identity will be used to provide access to your IoT connector device message event hub. 
+
+Access will be granted using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview).  
+
+Follow these directions to create a user-assigned managed identity on your IoT Hub: [IoT Hub support for managed identities](/azure/iot-hub/iot-hub-managed-identity#user-assigned-managed-identity)  
 
 ## Connect Azure IoT Hub with IoT connector
 
-Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services like Event Hub, Storage Account, and Service Bus. IoT connector uses this feature to connect and send device data from Azure IoT Hub to its Event Hub endpoint.
+Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services (for example: Event Hubs, Storage Accounts, and Service Buses). IoT connector uses this feature to allow IoT Hub to connect and send device data its device message event hub endpoint.
 
-> [!NOTE] 
-> At this time you can only use PowerShell or CLI command to [create message routing](../../iot-hub/tutorial-routing.md) because IoT connector's Event Hub is not hosted on the customer subscription, hence it won't be visible to you through the Azure portal. Though, once the message route objects are added using PowerShell or CLI, they are visible on the Azure portal and can be managed from there.
-
-Setting up a message routing consists of two steps.
-
-### Add an endpoint
-
-This step defines an endpoint to which the IoT Hub would route the data. Create this endpoint using either [Add-AzIotHubRoutingEndpoint](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub routing-endpoint create](/cli/azure/iot/hub/route#az_iot_hub_route_create) CLI command, based on your preference.
-
-Here is the list of parameters to use with the command to create an endpoint:
-
-|PowerShell Parameter|CLI Parameter|Description|
-|---|---|---|
-|ResourceGroupName|resource-group|Resource group name of your IoT Hub resource.|
-|Name|hub-name|Name of your IoT Hub resource.|
-|EndpointName|endpoint-name|Use a name that you would like to assign to the endpoint being created.|
-|EndpointType|endpoint-type|Type of endpoint that IoT Hub needs to connect with. Use literal value of "EventHub" for PowerShell and "eventhub" for CLI.|
-|EndpointResourceGroup|endpoint-resource-group|Resource group name for your IoT connector's FHIR service resource. You can get this value from the Overview page of FHIR service.|
-|EndpointSubscriptionID|endpoint-subscription-id|Subscription ID for your IoT connector's FHIR service resource. You can get this value from the Overview page of FHIR service.|
-|ConnectionString|connection-string|Connection string to your IoT connector. Use the value you obtained in the previous step.|
-
-### Add a message route
-This step defines a message route using the endpoint created above. Create a route using either [Add-AzIotHubRoute](/powershell/module/az.iothub/Add-AzIoTHubRoute) PowerShell command or [az iot hub route create](/cli/azure/iot/hub/route) CLI command, based on your preference.
-
-Here is the list of parameters to use with the command to add a message route:
-
-|PowerShell Parameter|CLI Parameter|Description|
-|---|---|---|
-|ResourceGroupName|g|Resource group name of your IoT Hub resource.|
-|Name|hub-name|Name of your IoT Hub resource.|
-|EndpointName|endpoint-name|Name of the endpoint you have created above.|
-|RouteName|route-name|A name you want to assign to message route being created.|
-|Source|source-type|Type of data to send to the endpoint. Use literal value of "DeviceMessages" for PowerShell and "devicemessages" for CLI.|
+Follow these directions to grant access to the IoT hub user-assigned managed identity to your IoT connector device message event hub and set up message routing: [Configure message routing with managed identities](/azure/iot-hub/iot-hub-managed-identity#egress-connectivity-from-iot-hub-to-other-azure-resources) 
 
 ## Send device message to Azure IoT Hub
 
-Use your device (real or simulated) to send the sample heart rate message shown below to Azure IoT Hub. This message will get routed to IoT connector, where the message will be transformed into a FHIR Observation resource and stored into the FHIR service.
+Use your device (real or simulated) to send the sample heart rate message shown below to Azure IoT Hub. 
+
+This message will get routed to IoT connector, where the message will be transformed into a FHIR Observation resource and stored into the FHIR service.
 
 ```json
 {
@@ -99,9 +81,9 @@ You can view the FHIR Observation resource(s) created by IoT connector on the FH
 
 ## Next steps
 
-In this tutorial, you set up Azure IoT Hub to route device data to IoT connector. Select from below next steps to learn more about IoT connector:
+In this tutorial, you set up Azure IoT Hub to route device data to IoT connector. 
 
-Understand different stages of data flow within IoT connector.
+To learn more about IoT connector about the different stages of data flow within IoT connector, see
 
 >[!div class="nextstepaction"]
 >[IoT connector data flow](iot-data-flow.md)
