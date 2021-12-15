@@ -10635,8 +10635,12 @@
             "source_path": "articles/active-directory/manage-apps/application-types.md",
             "redirect_url": "/azure/active-directory/manage-apps/application-list",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/reference-basic-info-identifiers.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/reference-basic-info-sign-in-logs",
+            "redirect_document_id": false
         }
- 
          
     ]
 }
