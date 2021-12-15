@@ -10,7 +10,7 @@ ms.subservice: mlops
 ms.reviewer: nibaccam
 ms.date: 10/21/2021
 ms.topic: how-to
-ms.custom: devx-track-python
+ms.custom: devx-track-python, mlflow
 ---
 
 # Track ML models with MLflow and Azure Machine Learning
@@ -25,7 +25,7 @@ Supported capabilities include:
 
 + Track and manage models in MLflow and Azure Machine Learning model registry.
 
-[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLFlow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine, or an [Azure Databricks cluster](how-to-use-mlflow-azure-databricks.md). 
+[MLflow](https://www.mlflow.org) is an open-source library for managing the life cycle of your machine learning experiments. MLflow Tracking is a component of MLflow that logs and tracks your training run metrics and model artifacts, no matter your experiment's environment--locally on your computer, on a remote compute target, a virtual machine, or an [Azure Databricks cluster](how-to-use-mlflow-azure-databricks.md). 
 
 See [MLflow and Azure Machine Learning](concept-mlflow.md) for additional MLflow and Azure Machine Learning functionality integrations.
 
