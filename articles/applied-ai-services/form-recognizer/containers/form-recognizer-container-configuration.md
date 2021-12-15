@@ -90,7 +90,7 @@ In this example, enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_K
 ```yml
 version: "3.9"
 services:
-azure-cognitive-service-layout:
+  azure-cognitive-service-layout:
     container_name: azure-cognitive-service-layout
     image: mcr.microsoft.com/azure-cognitive-services/form-recognizer/layout
     environment:

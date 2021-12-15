@@ -247,7 +247,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
 1. RDP to the VM using the local administrator account and examine the `CommandExecution.log` file under:
    
-   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0.`
+   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\1.0.0.1\`
 
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as `CommandExecution_YYYYMMDDHHMMSSSSS.log`. 
@@ -261,7 +261,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
-   > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `appid` in the access token matches the managed identity assigned to the VM.
+   > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `oid` in the access token matches the managed identity assigned to the VM.
 
 1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
