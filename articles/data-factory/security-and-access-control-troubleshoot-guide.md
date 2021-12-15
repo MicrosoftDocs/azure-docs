@@ -37,7 +37,6 @@ About Apache Log4j (1.X), the CVE-2019-17571 might be the vulnerability issue. H
 > - On-premise products: Self-hosted IR and SSIS
 > - Data flows: The Log4j library used in data flows and Databricks already contains the fix for this CVE.
 
-#### Resolution
 
 The version update of SSIS and self-hosted IR will be evaluated since there is no security impact so far.
 
