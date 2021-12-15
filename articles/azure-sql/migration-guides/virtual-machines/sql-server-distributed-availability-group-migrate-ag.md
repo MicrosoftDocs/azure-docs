@@ -211,7 +211,7 @@ GO
 ```
 
 >[!NOTE]
-> The seeding mode is set to `AUTOMATIC` as the version of SQL Server on the target and source is the same. If your SQL Server target is a higher version, or if your global primary and forwarder have different instance names, then create the distributed ag, and join the secondary AG to the distributed ag with **seeding_mode** set to `manual`. Then manually restore your databases from the source to the target SQL Server instance. Review [upgrading versions during migration](/sql/database-engine/availability-groups/windows/distributed-availability-groups#cautions-when-using-distributed-availability-groups-to-migrate-to-higher-sql-server-versions) to learn more. 
+> The seeding mode is set to `AUTOMATIC` as the version of SQL Server on the target and source is the same. If your SQL Server target is a higher version, or if your global primary and forwarder have different instance names, then create the distributed ag, and join the secondary AG to the distributed ag with **SEEDING_MODE** set to `MANUAL`. Then manually restore your databases from the source to the target SQL Server instance. Review [upgrading versions during migration](/sql/database-engine/availability-groups/windows/distributed-availability-groups#cautions-when-using-distributed-availability-groups-to-migrate-to-higher-sql-server-versions) to learn more. 
 
 After your distributed AG is created, join the target AG (**AzureAG**) on the target forwarder instance (**SQLVM1**) to the distributed AG (**DAG**). 
 
