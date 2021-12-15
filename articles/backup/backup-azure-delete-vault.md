@@ -49,7 +49,7 @@ To delete a vault, follow these steps:
 
 - <a id="portal-mua">**Step 2**</a>: If Multi-User Authorization (MUA) is enabled, seek necessary permissions from the security administrator before vault deletion. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
 
-- **Step 3**: Disable the soft delete feature.\
+- **Step 3**: Disable the soft delete feature
 
   1. Go to **Properties** -> **Security Settings** and disable the **Soft Delete** feature if enabled. See [how to disable soft delete](/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
   1. Go to **Properties** -> **Security Settings** and disable **Security Features**, if enabled. [Learn more](/azure/backup/backup-azure-security-feature-cloud). 
