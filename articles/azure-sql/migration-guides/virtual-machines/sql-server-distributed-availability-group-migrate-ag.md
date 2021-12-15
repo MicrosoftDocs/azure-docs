@@ -26,7 +26,7 @@ Be sure to configure your SQL Server VMs according to the [prerequisites](sql-se
 
 For simplicity, join your target SQL Server VMs to the same domain as your source SQL Server instances. Otherwise, join your target SQL Server VM to a domain that's federated with the domain of your source SQL Server instances. 
 
-Use the same SQL Server instance names for the target as the source SQL Server instances. Using a different instance name for each replica is not recommended, and may causes issues with file paths when adding new databases. 
+To use automatic seeding to create your distributed availability group (DAG), the instance name for the global primary (source) of the DAG must match the instance name of the forwarder (target) of the DAG. If there is an instance name mismatch between the global primary and forwarder, then you must use manual seeding to create the DAG, and manually add any additional database files in the future.
 
 This article uses the following example parameters:
 
@@ -184,7 +184,7 @@ GO
 
 After you have your source (**OnPremAG**) and target (**AzureAG**) availability groups configured, create your distributed availability group to span both individual availability groups. 
 
-Use Transact-SQL on the source SQL Server global primary (**OnPremNode1\SQL1**) and AG (**OnPremAG**) to create the distributed availability group (**DAG**). 
+Use Transact-SQL on the source SQL Server global primary (**OnPremNode1**) and AG (**OnPremAG**) to create the distributed availability group (**DAG**). 
 
 To create the distributed AG on the source, run this script on the source global primary: 
 
@@ -238,7 +238,7 @@ ALTER AVAILABILITY GROUP [DAG]
 GO    
 ```
 
-If you need to cancel, pause, or delay synchronization between the source and target availability groups (such as, for example, performance issues), run this script on the source global primary instance (**OnPremNode1\SQL1**): 
+If you need to cancel, pause, or delay synchronization between the source and target availability groups (such as, for example, performance issues), run this script on the source global primary instance (**OnPremNode1**): 
 
 ```sql
 ALTER AVAILABILITY GROUP [DAG] 

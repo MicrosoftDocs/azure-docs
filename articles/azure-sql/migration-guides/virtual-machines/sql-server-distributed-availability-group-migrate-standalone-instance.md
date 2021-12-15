@@ -26,6 +26,8 @@ Be sure to configure your SQL Server VM according to the [prerequisites](sql-ser
 
 For simplicity, join your target SQL Server VM to the same domain as your source SQL Server. Otherwise, join your target SQL Server VM to a domain that's federated with the domain of your source SQL Server. 
 
+To use automatic seeding to create your distributed availability group (DAG), the instance name for the global primary (source) of the DAG must match the instance name of the forwarder (target) of the DAG. If there is an instance name mismatch between the global primary and forwarder, then you must use manual seeding to create the DAG, and manually add any additional database files in the future.
+
 This article uses the following example parameters:
 
 - Database name: **Adventureworks**
