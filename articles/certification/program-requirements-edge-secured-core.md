@@ -55,7 +55,7 @@ Edge Secured-core for Windows IoT requires Windows 10 IoT Enterprise version 190
 |Requirements dependency|TPM v2.0 device|
 |Validation Type|Manual/Tools|
 |Validation|Devices will be enrolled to DPS using the TPM authentication mechanism during testing.|
-|Resources|Azure IoT Hub Device Provisioning Service: <ul><li>[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-ansi-c.md) </li><li>	[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)</li></ul>|
+|Resources|Azure IoT Hub Device Provisioning Service: <ul><li>[Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub](../iot-dps/quick-create-simulated-device-tpm?pivots=programming-language-ansi-c.md) </li><li>[TPM Attestation Concepts](../iot-dps/concepts-tpm-attestation.md)</li></ul>|
 
 ---
 </br>
