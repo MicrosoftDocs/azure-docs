@@ -11,7 +11,7 @@ ms.service: iot-hub-device-update
 # Device Update for Azure IoT Hub tutorial using the Device Update binary agent for Proxy Updates
 If you haven't already done so, review [Using Proxy Updates with Device Update for Azure IoT Hub](device-update-proxy-updates.md).
 
-## Setup Test Device or Virtual Machine (VM)
+## Set up Test Device or Virtual Machine (VM)
 
 ### Assumption
 
@@ -114,25 +114,25 @@ For testing and demonstration purposes, we'll be creating following mock compone
 If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
 1. Download the Proxy Updates import manifests and images from the [latest Device Update release](https://github.com/Azure/iot-hub-device-update/releases) under Assets. 
-2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Updates option under Device Management from the left-hand navigation bar.
+2. Sign in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the **Updates** option under **Device Management** from the left pane.
 
    :::image type="content" source="media/understand-device-update/one-import.png" alt-text="Start import." lightbox="media/understand-device-update/one-import.png":::
 
-3. Select the Updates tab.
-4. Select '+ Import New Update'.
-5. Select '+ Select from storage container' and then choose your Storage account and Container. 
-6. Select 'Upload' to add the files you downloaded in (1).
+3. Select the **Updates** tab.
+4. Select **+ Import New Update**.
+5. Select **+ Select from storage container** and then choose your Storage account and Container. 
+6. Select **Upload** to add the files you downloaded in step 1.
 7. Upload the parent import manifest, child import manifest, and payload files to your container. The example below shows sample files uploaded to update cameras connected to a smart vacuum cleaner device. It also includes a pre-install script to turn-off the cameras before the over-the-air update. The parent import manifest  is "contoso.Virtual-Vacuum-virtual-camera.1.4.importmanifest.json". The child import manifest with details for updating the camera is "Contoso.Virtual-Vacuum.3.3.importmanifest.json". Note both manifest file names follow the required format and end with *.importmanifest.json. 
 
    :::image type="content" source="media/understand-device-update/two-containers.png" alt-text="Containers" lightbox="media/understand-device-update/two-containers.png":::
 
-8. Then choose 'Select' to go to the next step.
-9. The UI now shows the list of files that will be imported to Device Update. Select 'Import update'.
+8. Choose **Select** to go to the next step.
+9. The UI now shows the list of files that will be imported to Device Update. Select **Import update**.
 
    :::image type="content" source="media/understand-device-update/three-confirm-import.png" alt-text="Import" lightbox="media/understand-device-update/three-confirm-import.png":::
 
-10. The import process begins, and the screen changes to the 'Import History' section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, the import may complete in a few minutes but could take longer.
-11. When the Status column indicates the import has succeeded, select the 'Available Updates' header. You should see your imported update in the list now.
+10. The import process begins, and the screen changes to the **Import History** section. Select **Refresh** to view progress until the import process completes. Depending on the size of the update, the import may complete in a few minutes but could take longer.
+11. When the Status column indicates the import has succeeded, select the **Available Updates** header. You should see your imported update in the list now.
 
    :::image type="content" source="media/understand-device-update/four-update-added.png" alt-text="Update Added" lightbox="media/understand-device-update/four-update-added.png":::
 
@@ -140,21 +140,21 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
 ## Create update group
 
-1. Select the 'Groups and Deployments' tab at the top of the page. 
+1. Select the **Groups and Deployments** tab at the top of the page. 
 
-2. Select the '+ Add Group' button to create a new group by selecting the IoT Hub tag. Then select 'Create group'. Note, you can also deploy the update to an existing Group.
+2. Select the **+ Add Group** button to create a new group by selecting the IoT Hub tag. Then select **Create group**. Note, you can also deploy the update to an existing Group.
 
 [Learn more](create-update-group.md) about adding tags and creating update groups
 
 ## Deploy update
 
-1. In the 'Groups and Deployments' view, you should see the new update available for your device group with a link to 'deploy'. You may need to Refresh once. For the example Smart Vacuum device you should see the below view:
+1. In the **Groups and Deployments** view, you should see the new update available for your device group with a link to 'deploy'. You may need to Refresh once. For the example Smart Vacuum device you should see the below view:
 
    :::image type="content" source="media/understand-device-update/five-groups.png" alt-text="Groups" lightbox="media/understand-device-update/five-groups.png":::
 
-2. Click on 'Deploy'
+2. Select **Deploy**.
 
-3. Confirm the correct group is selected as the target group. Schedule your deployment or start immediately, then select 'Create'.
+3. Confirm the correct group is selected as the target group. Schedule your deployment or start immediately, then select **Create**.
 
    :::image type="content" source="media/understand-device-update/six-deploy.png" alt-text="Deploy" lightbox="media/understand-device-update/six-deploy.png":::
 
@@ -166,9 +166,9 @@ If you haven't already done so, create a [Device Update account and instance](cr
 
 ## Monitor an update deployment
 
-1. Select the 'Groups and Deployments' tab at the top of the page.
+1. Select the **Groups and Deployments** tab at the top of the page.
 
-2. Click on the Group you created to view the deployment details.
+2. Select the group you created to view the deployment details.
 
 This completes a successful end-to-end proxy update using Device Update for IoT Hub. 
 
