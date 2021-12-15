@@ -15,7 +15,7 @@ Security Operations (SOC) teams use Microsoft Sentinel to generate detections an
 
 For example, your integration may add value for any of the following goals:
 
-- **Creating detections** out of semi-structured data. For example, your integration might bring new log data, actionable intelligence, analytics rules, hunting rules, guided hunting experiences, or machine learning analysis
+- **Creating detections** out of semi-structured data. For example, your integration might bring new log data, actionable intelligence, analytics rules, hunting rules, guided hunting experiences, or machine-learning analysis
 
 - **Contribute to Microsoft Sentinel investigations**. For example, your integration might add new detections, queries, or historical and supporting data, such as extra databases, vulnerability data, compliance, data, and so on.
 
@@ -34,7 +34,7 @@ Microsoft Sentinel works with the following types of data:
 |**Unprocessed data**     |  Supports detections and hunting processes. <br><br>Analyze raw operational data in which signs of malicious activity may be present. Bring unprocessed data to Microsoft Sentinel to use Microsoft Sentinel's built-in hunting and detection features to identify new threats and more. <br><br>Examples: Syslog data, CEF data over Syslog, application, firewall, authentication, or access logs, and more.      |
 |**Security conclusions**     | Creates alert visibility and opportunity for correlation. <br><br>Alerts and detections are conclusions that have already been made about threats.  Putting detections in context with all the activities and other detections visible in Microsoft Sentinel investigations, saves time for analysts and creates a more complete picture of an incident, resulting in better prioritization and better decisions.    <br><br>Examples: anti-malware alerts, suspicious processes, communication with known bad hosts, network traffic that was blocked and why, suspicious logons, detected password spray attacks, identified phishing attacks, data exfiltration events, and more.    |
 |**Reference data**     | Builds context with referenced environments, saving investigation effort and increasing efficiency. <br><br>Examples: CMDBs, high value asset databases, application dependency databases, IP assignment logs, threat intelligence collections for enrichment, and more.|
-|**Threat intelligence**     | Powers threat detection by contributing indicators of known threats. <br><br>Threat intelligence can include current indicators that represent immediate threats or historical indicators that are retained for future prevention. Historical data sets are often large and are best referenced ad-hoc, in place, instead of importing them directly to Microsoft Sentinel.|
+|**Threat intelligence**     | Powers threat detection by contributing indicators of known threats. <br><br>Threat intelligence can include current indicators that represent immediate threats or historical indicators that are kept for future prevention. Historical data sets are often large and are best referenced ad-hoc, in place, instead of importing them directly to Microsoft Sentinel.|
 |     |         |
 
 Each type of data supports different activities in Microsoft Sentinel, and many security products work with multiple types of data at the same time.
@@ -101,7 +101,7 @@ The following sections describe common partner integration scenarios, and recomm
 
 ### Your product generates data that is important to security investigations
 
-**Scenario**: Your product generates data that can inform or is otherwise important for security investigations. Your product may or many not include out-of-the-box detections.
+**Scenario**: Your product generates data that can inform or is otherwise important for security investigations. Your product may or may not include out-of-the-box detections.
 
 **Example**: Products that supply some form of log data include firewalls, cloud application security brokers, physical access systems, Syslog output, commercially available and enterprise-built LOB applications, servers, network metadata, anything deliverable over Syslog in Syslog or CEF format, or over REST API in JSON format.
 
@@ -168,7 +168,7 @@ The following sections describe common partner integration scenarios, and recomm
 
 **Scenario**: Your product can implement security policies in Azure Policy and other systems
 
-**Examples**: 	Firewalls, NDR, EDR, MDM, Identity solutions, Conditional Access solutions, physical access solutions, other products that support block/allow or other actionable security policies
+**Examples**: 	Firewalls, NDR, EDR, MDM, Identity solutions, Conditional Access solutions, physical access solutions, or other products that support block/allow or other actionable security policies
 
 **How to use your data in Microsoft Sentinel**: Microsoft Sentinel actions and workflows enabling remediations and responses to threats
 
@@ -181,7 +181,7 @@ The following sections describe common partner integration scenarios, and recomm
 
 All Microsoft Sentinel technical integrations begin with the [Microsoft Sentinel GitHub Repository](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions) and [Contribution Guidance](https://github.com/Azure/Azure-Sentinel#contributing).
 
-When you are ready to begin work on your Microsoft Sentinel solution, find instructions for submitting, packaging, and publishing in the [Guide to Building Microsoft Sentinel Solutions](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions#guide-to-building-azure-sentinel-solutions).
+When you're ready to begin work on your Microsoft Sentinel solution, find instructions for submitting, packaging, and publishing in the [Guide to Building Microsoft Sentinel Solutions](https://github.com/Azure/Azure-Sentinel/tree/master/Solutions#guide-to-building-azure-sentinel-solutions).
 
 ### Getting to market
 
