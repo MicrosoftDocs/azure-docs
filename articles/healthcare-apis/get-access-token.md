@@ -58,6 +58,7 @@ $headers = @{Authorization="Bearer $token"}
 Invoke-WebRequest -Method GET -Headers $headers -Uri 'https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed'
 ```
 
+---
 ## Next steps
 
 In this article, you learned how to obtain and an access token for the FHIR service and DICOM service using CLI and Azure PowerShell. For more details about accessing the FHIR service and DICOM service, see 
@@ -70,8 +71,3 @@ In this article, you learned how to obtain and an access token for the FHIR serv
 
 >[!div class="nextstepaction"]
 >[Access DICOM service using cURL](dicom/dicomweb-standard-apis-curl.md)
-
-
-
-
-
