@@ -27,6 +27,10 @@ Choose from:
 
 Data ingestion is the process in which unstructured data is extracted from one or multiple sources and then prepared for training machine learning models. It's also time intensive, especially if done manually, and if you have large amounts of data from multiple sources. Automating this effort frees up resources and ensures your models use the most recent and applicable data.
 
+> [!Important]
+> Azure Machine Learning doesn't store or process your data outside of the region where you deploy.
+>
+
 ## Azure Data Factory
 
 [Azure Data Factory](../data-factory/introduction.md) offers native support for data source monitoring and triggers for data ingestion pipelines.  
