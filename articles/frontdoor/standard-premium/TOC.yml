@@ -13,6 +13,8 @@
   items:
   - name: Create a Front Door Standard/Premium - Portal
     href: create-front-door-portal.md
+  - name: Create a Front Door Standard/Premium - CLI
+    href: create-front-door-cli.md  
 - name: Samples
   items:
   - name: Resource Manager templates
