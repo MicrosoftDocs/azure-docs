@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot expired Visual Studio subscription
-description: Learn how to renew an expired subscription, purchase a new on, or transfer your Azure resources
+description: Learn how to renew an expired subscription, purchase a new one, or transfer your Azure resources.
 author: jamestramel
 ms.author: jametra
 ms.date: 12/15/2021
@@ -34,7 +34,7 @@ There are several ways to continue using a monthly credit for Azure. To save you
 
 - **If you have another active Visual Studio subscription** at the same subscription level, you can use it to set up a new Azure credit subscription.
 
-## Convert your Azure subscription to Pay-As-You-Go
+## Convert your Azure subscription to pay-as-you-go
 
 If you no longer need a Visual Studio subscription or credit but you want to continue using your Azure resources, convert your Azure subscription to pay-as-you-go pricing by [removing your spending limit](/azure/cost-management-billing/manage/spending-limit#remove-the-spending-limit-in-azure-portal).
 
