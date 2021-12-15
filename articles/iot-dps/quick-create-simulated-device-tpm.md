@@ -538,6 +538,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     SECURE_DEVICE_TYPE hsm_type;
     hsm_type = SECURE_DEVICE_TYPE_TPM;
     //hsm_type = SECURE_DEVICE_TYPE_X509;
+    //hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
 7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
