@@ -199,7 +199,7 @@ To create and run a new scan, do the following:
 - Check your account identifer in the source registration step. Do not include `https://` part at the front.
 - Make sure the warehouse name and database name are in capital case on the scan setup page.
 - Check your key vault. Make sure there are no typos in the password.
-- Check the credential you set up in Puview. The user you specify must have a default role with the necessary access rights to both the warehouse and the database you are trying to scan. See [Required permissions for scan](#required-permissions-for-scan). USE `DESCRIBE USER;` to verify the default role of the user you've specified for Purview.
+- Check the credential you set up in Purview. The user you specify must have a default role with the necessary access rights to both the warehouse and the database you are trying to scan. See [Required permissions for scan](#required-permissions-for-scan). USE `DESCRIBE USER;` to verify the default role of the user you've specified for Purview.
 - Use Query History in Snowflake to see if any activity is coming across. 
   - If there's a problem with the account identifer or password, you won't see any activity.
   - If there's a problem with the default role, you should at least see a `USE WAREHOUSE . . .` statement.
