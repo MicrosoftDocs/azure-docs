@@ -43,7 +43,7 @@ If you are building your own application, Azure App Service has [built in authen
 
 We recommend this approach because it is easy and leaves the least room for error. For example, if you use Azure App Service to host your app you can focus on implementing the business logic of the app. [Registration with Azure Active Directory](/azure/app-service/configure-authentication-provider-aad) can be done automatically. However, you do have the flexibility to customize the authentication logic and choose an alternative identity provider if you want.
 
-### Zero Trust network access solution**
+### Zero Trust network access solution
 
 Zero Trust network access solutions provide secure remote access to individual on-premises applications. Azure AD works with partners to enable scalable Zero Trust network access that supports various authentication protocols. You can find a list of partners and integrations on the [secure hybrid access docs page](/azure/active-directory/manage-apps/secure-hybrid-access).
 
