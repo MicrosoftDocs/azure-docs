@@ -585,3 +585,20 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
   }
 ]
 ```
+### Default metrics captured by Java agent
+
+| Metric  | Metric Type | Description  | Filterable |
+|---|---|---|---|
+| `Current Thread Count` | custom metrics | java.lang:type=Threading / ThreadCount. | yes |
+| `Loaded Class Count` | custom metrics | java.lang:type=ClassLoading / LoadedClassCount.| yes |
+| `GC Total Count` | custom metrics | Sum of counts across all GC MXBeans (diff since last reported). | yes |
+| `GC Total Time` | custom metrics | Sum of time across all GC MXBeans (diff since last reported).| yes |
+| `Heap Memory Used (MB)` | custom metrics | java.lang:type=Memory / HeapMemoryUsage.Used.| yes |
+| `% Of Max Heap Memory Used` | custom metrics | java.lang:type=Memory / maximum amount of memory in bytes.| yes |
+| `Available Bytes` | default metrics | java.lang:type=OperatingSystem / FreePhysicalMemorySize. | yes |
+| `\Processor(_Total)\% Processor Time` | default metrics | /proc/stat | no |
+| `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | java.lang:type=OperatingSystem / ProcessCpuTime (diff since last reported, normalized by time and number of CPUs) | no |
+| `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | java.lang:type=Memory / HeapMemoryUsage.Used + NonHeapMemoryUsage.Used | no |
+| `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | default metrics | /proc/<pid>/io | no |
+| `\Memory\Available Bytes` | default metrics | java.lang:type=OperatingSystem / FreePhysicalMemorySize. | no |
+
