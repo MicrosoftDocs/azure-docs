@@ -50,7 +50,7 @@ When file systems, containers, or folders are shared in snapshot-based sharing, 
 
 An incremental snapshot is based on the last-modified time of the files. Existing files that have the same name as files in the received data are overwritten in a snapshot. Files that are deleted from the source aren't deleted on the target. 
 
-A snapshot run may be interrupted in the event on of networking issue or disaster. In the next run, consumer should get the correct data based on the last successful snapshot.
+In the event a snapshot is interrupted and failed (e.g. due to cancel, networking issue or disaster), the next incremental snapshot will copy files with last-modified time greater than the time of the last successful snapshot.
 
 For more information, see [Share and receive data from Azure Blob Storage and Azure Data Lake Storage](how-to-share-from-storage.md).
 
@@ -61,7 +61,7 @@ Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 o
 
 When consumers accept data into Azure Data Lake Storage Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if the file already exists. When data is received into a table and the target table doesn't already exist, Azure Data Share creates an SQL table by using the source schema. If a target table already exists and it has the same name, it's dropped and overwritten with the latest full snapshot. Incremental snapshots aren't currently supported.
 
-A snapshot run may be interrupted in the event on of networking issue or disaster. In the next run, user should get the correct data based on the last successful snapshot.
+In the event a snapshot is interrupted and failed (e.g. due to cancel, networking issue or disaster), the next snapshot will copy the entire table or view again.
 
 For more information, see [Share and receive data from Azure SQL Database and Azure Synapse Analytics](how-to-share-from-sql.md).
 
