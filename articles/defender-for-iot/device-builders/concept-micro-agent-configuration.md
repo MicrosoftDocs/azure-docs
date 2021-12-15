@@ -54,6 +54,16 @@ Define the frequency in which messages are sent for each priority level. The def
 
 To reduce the number of messages sent to cloud, each priority should be set as a multiple of the one below it. For example, High: 60 minutes, Medium: 120 minutes, Low: 480 minutes.
 
+The syntax for configuring the frequencies is as follows:
+
+`"CollectorsCore_PriorityIntervals"` : `"<High>,<Medium>,<Low>"`
+
+For example:
+
+`"CollectorsCore_PriorityIntervals"` : `"30,120,1440"`
+
+Please note, that you must specify all 3 values.
+
 ## Next steps
 
 Learn about the [Micro agent event collection (Preview)](concept-event-aggregation.md).
