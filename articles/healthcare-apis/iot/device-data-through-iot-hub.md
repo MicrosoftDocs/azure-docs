@@ -17,38 +17,38 @@ ms.author: jasteppe
  
 IoT connector may be used with devices created and managed through Azure IoT Hub for enhanced workflows and ease of use. 
 
-This tutorial provides the steps to connect and route device data from IoT Hub to IoT connector.
+This tutorial provides the steps to connect and route device data from IoT hub to IoT connector.
 
 ## Prerequisites
 
 - An active Azure subscription - [Create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - FHIR service resource with at least one IoT connector - [Deploy IoT connector using Azure portal](deploy-iot-connector-in-azure.md)
-- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT Hub using the Azure portal](../../iot-develop/quickstart-send-telemetry-iot-hub.md?pivots=programming-language-csharp)
+- Azure IoT Hub resource connected with real or simulated device(s) - [Create an IoT hub using the Azure portal](/azure/iot-hub/iot-hub-create-through-portal)
 
 > [!TIP]
 > If you are using an Azure IoT Hub simulated device application, feel free to pick the application of your choice amongst different supported languages and systems.
 
-Below is a diagram of IoT device data flowing from IoT Hub into IoT connector:
+Below is a diagram of the IoT device message flow from IoT hub into IoT connector:
 
 :::image type="content" source="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png" alt-text="Diagram of IoT message data flow through IoT Hub into IoT connector." lightbox="media\iot-hub-to-iot-connector\iot-hub-to-iot-connector.png"::: 
 
-##  Create an IoT Hub managed identity
+##  Create an IoT hub managed identity
 
-For this tutorial, we'll be using an IoT Hub with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
+For this tutorial, we'll be using an IoT hub with a [user-assigned managed identity](/azure/active-directory/managed-identities-azure-resources/overview).
 
 The user-assigned managed identity will be used to provide access to your IoT connector device message event hub using [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview). 
 
-Follow these directions to create a user-assigned managed identity on your IoT Hub: [IoT Hub support for managed identities](/azure/iot-hub/iot-hub-managed-identity#user-assigned-managed-identity). 
+Follow these directions to create a user-assigned managed identity with your IoT hub: [IoT hub support for managed identities](/azure/iot-hub/iot-hub-managed-identity#user-assigned-managed-identity). 
 
-## Connect Azure IoT Hub with IoT connector
+## Connect IoT hub with IoT connector
 
-Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services (for example: Event Hubs, Storage Accounts, and Service Buses). IoT connector uses this feature to allow IoT Hub to connect and send device data the IoT connector device message event hub endpoint.
+Azure IoT Hub supports a feature called [message routing](../../iot-hub/iot-hub-devguide-messages-d2c.md) that provides capability to send device data to various Azure services (for example: Event Hubs, Storage Accounts, and Service Buses). IoT connector uses this feature to allow an IoT hub to connect and send device messages to the IoT connector device message event hub endpoint.
 
 Follow these directions to grant access to the IoT hub user-assigned managed identity to your IoT connector device message event hub and set up message routing: [Configure message routing with managed identities](/azure/iot-hub/iot-hub-managed-identity#egress-connectivity-from-iot-hub-to-other-azure-resources). 
 
-## Send device message to Azure IoT Hub
+## Send device message to IoT hub
 
-Use your device (real or simulated) to send the sample heart rate message shown below to Azure IoT Hub. 
+Use your device (real or simulated) to send the sample heart rate message shown below to the IoT hub. 
 
 This message will get routed to IoT connector, where the message will be transformed into a FHIR Observation resource and stored into the FHIR service.
 
@@ -66,7 +66,7 @@ This message will get routed to IoT connector, where the message will be transfo
 }
 ```
 > [!IMPORTANT]
-> Make sure to send the device message that conforms to the [Device mappings](./how-to-use-device-mappings.md) and [FHIR destinations mappings](./how-to-use-fhir-mappings.md) configured with your IoT connector.
+> Make sure to send the device message that conforms to the [Device mappings](how-to-use-device-mappings.md) and [FHIR destinations mappings](how-to-use-fhir-mappings.md) configured with your IoT connector.
 
 ## View device data in FHIR service
 
