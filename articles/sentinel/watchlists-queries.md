@@ -15,7 +15,7 @@ For optimal query performance, use **Searchkey** as the key for joins in your qu
 
 ## Build queries with watchlists
 
-To use a watchlist in search query, write a Kusto query that uses the _GetWatchlist('<watchlist>') function and uses **SearchKey** as the key for your join.
+To use a watchlist in search query, write a Kusto query that uses the _GetWatchlist('watchlist-name') function and uses **SearchKey** as the key for your join.
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Watchlist**.
@@ -32,7 +32,7 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
 
     The timestamp on your queries will be ignored in both the query UI and in scheduled alerts.
 
-1. Write a query that uses the _GetWatchlist('<watchlist>') function and uses **SearchKey** as the key for your join. For example, the following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named mywatchlist.
+1. Write a query that uses the _GetWatchlist('watchlist-name') function and uses **SearchKey** as the key for your join. For example, the following example query joins the `RemoteIPCountry` column in the `Heartbeat` table with the search key defined for the watchlist named mywatchlist.
 
     ```kusto
     Heartbeat
@@ -46,7 +46,7 @@ To use a watchlist in search query, write a Kusto query that uses the _GetWatchl
 
 ## Create analytics rules with watchlists
 
-To use watchlists in analytics rules, create a rule using the _GetWatchlist('<watchlist>') function in the query.
+To use watchlists in analytics rules, create a rule using the _GetWatchlist('watchlist-name') function in the query.
 
 To use watchlists in analytics rules,
 
@@ -79,6 +79,7 @@ To use watchlists in analytics rules,
     Heartbeat
     | where ComputerIP in (watchlist)
     ```
+
     ```kusto
     //Watchlist inline with the query
     //Use SearchKey for the best performance

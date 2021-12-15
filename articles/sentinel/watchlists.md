@@ -37,7 +37,7 @@ Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs a
 
 Create a watchlist from a local file or by using a template. Each watchlist template has it's own set of data listed in a CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md).
 
-For more information, see [Create watchlists in Microsoft Sentinel](watchlist-create.md)
+For more information, see [Create watchlists in Microsoft Sentinel](watchlists-create.md)
 
 ## Watchlists in queries for searches and detection rules
 
@@ -55,11 +55,12 @@ Let's look some other example queries.
 
 Suppose you want to use a watchlist in an analytics rule. You create a watchlist called “ipwatchlist” that includes columns for "IPAddress" and "Location". You define "IPAddress" as the search key.
 
-    IPAddress,Location
-    10.0.100.11,Home
-    172.16.107.23,Work
-    10.0.150.39,Home
-    172.20.32.117,Work
+   |IPAddress,Location   |
+   |---------|
+   | 10.0.100.11,Home     |
+   |172.16.107.23,Work     |
+   |10.0.150.39,Home     |
+   |172.20.32.117,Work   |
 
 To only include events from IP addresses in the watchlist, you might use a query where watchlist is used as a variable or where the watchlist is used inline. 
 
@@ -91,7 +92,7 @@ For more information, see [Build queries and detection rules with watchlists in 
 
 To learn more about Microsoft Sentinel, see the following articles:
 
-- [Create watchlists](watchlist-create.md)
+- [Create watchlists](watchlists-create.md)
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
