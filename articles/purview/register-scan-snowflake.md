@@ -48,45 +48,45 @@ Azure Purview supports basic authentication (username and password) for scanning
 
 1. Set up a `purview_reader` role. You will need _ACCOUNTADMIN_ rights to do this.
 
-```sql
-USE ROLE ACCOUNTADMIN;
-
---create role to allow read only access - this will later be assigned to the purview USER
-CREATE OR REPLACE ROLE purview_reader;
-
---make sysadmin the parent role
-GRANT ROLE purview_reader TO ROLE sysadmin;
-```
+   ```sql
+   USE ROLE ACCOUNTADMIN;
+   
+   --create role to allow read only access - this will later be assigned to the purview USER
+   CREATE OR REPLACE ROLE purview_reader;
+   
+   --make sysadmin the parent role
+   GRANT ROLE purview_reader TO ROLE sysadmin;
+   ```
 
 2. Create a warehouse for Purview to use and grant rights.
 
-```sql
---create warehouse - account admin required
-CREATE OR REPLACE WAREHOUSE purview_wh WITH 
-    WAREHOUSE_SIZE = 'XSMALL' 
-    WAREHOUSE_TYPE = 'STANDARD' 
-    AUTO_SUSPEND = 300 
-    AUTO_RESUME = TRUE 
-    MIN_CLUSTER_COUNT = 1 
-    MAX_CLUSTER_COUNT = 2 
-    SCALING_POLICY = 'STANDARD';
-
---grant rights to the warehouse
-GRANT USAGE ON WAREHOUSE purview_wh TO ROLE purview_reader;
-```
+   ```sql
+   --create warehouse - account admin required
+   CREATE OR REPLACE WAREHOUSE purview_wh WITH 
+       WAREHOUSE_SIZE = 'XSMALL' 
+       WAREHOUSE_TYPE = 'STANDARD' 
+       AUTO_SUSPEND = 300 
+       AUTO_RESUME = TRUE 
+       MIN_CLUSTER_COUNT = 1 
+       MAX_CLUSTER_COUNT = 2 
+       SCALING_POLICY = 'STANDARD';
+   
+   --grant rights to the warehouse
+   GRANT USAGE ON WAREHOUSE purview_wh TO ROLE purview_reader;
+   ```
 
 3. Create a USER `purview` for Purview scan.
 
-```sql
-CREATE OR REPLACE USER purview 
-    PASSWORD = '<password>'; 
-
---note the default role will be used during scan
-ALTER USER purview SET DEFAULT_ROLE = purview_reader;
-    
---add user to purview_reader role
-GRANT ROLE purview_reader TO USER purview;
-```
+   ```sql
+   CREATE OR REPLACE USER purview 
+       PASSWORD = '<password>'; 
+   
+   --note the default role will be used during scan
+   ALTER USER purview SET DEFAULT_ROLE = purview_reader;
+       
+   --add user to purview_reader role
+   GRANT ROLE purview_reader TO USER purview;
+   ```
 
 4. Grant reader rights to the database objects.
 
