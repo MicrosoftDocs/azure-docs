@@ -23,8 +23,8 @@ SQL Managed Instances running on the same Data Controller an ability to perform 
 
 An Active Directory Connector instance deploys a DNS proxy service that proxies the DNS requests
 coming from the SQL Managed Instance to either of the two upstream DNS services:
-1. Active Directory DNS Servers
-2. Kubernetes DNS Servers
+* Active Directory DNS Servers
+* Kubernetes DNS Servers
 
 ## Prerequisites
 
