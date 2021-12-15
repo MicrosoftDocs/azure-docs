@@ -5,9 +5,9 @@ titleSuffix: Azure Digital Twins
 description: See how to move an Azure Digital Twins instance from one Azure region to another.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 9/8/2021
+ms.date: 12/15/2021
 ms.topic: how-to
-ms.custom: subject-moving-resources
+ms.custom: subject-moving-resources, contperf-fy22q2
 ms.service: digital-twins
 #Customer intent: As an Azure service administrator, I want to move my Azure Digital Twins instance to another region.
 
