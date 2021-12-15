@@ -187,16 +187,6 @@ items:
           href: create-sql-managed-instance-using-kubernetes-native-tools.md
         - name: Connect
           href: connect-managed-instance.md
-        - name: Active Directory
-          items:
-            - name: Introduction
-              href: active-directory-introduction.md
-            - name: Deploy connector
-              href: deploy-active-directory-connector.md
-            - name: Deploy SQL Managed Instance
-              href: deploy-active-directory-sqlmi.md
-            - name: Connect SQL Managed Instance
-              href: connect-active-directory-sqlmi.md              
     - name: How-to
       items:
         - name: Manage
@@ -223,6 +213,16 @@ items:
               href: migrate-to-managed-instance.md
             - name: Restore AdventureWorks
               href: restore-adventureworks-sample-db.md
+        - name: Active Directory
+          items:
+            - name: Introduction
+              href: active-directory-introduction.md
+            - name: Deploy connector
+              href: deploy-active-directory-connector.md
+            - name: Deploy SQL Managed Instance
+              href: deploy-active-directory-sqlmi.md
+            - name: Connect SQL Managed Instance
+              href: connect-active-directory-sqlmi.md              
         - name: Configure business continuity
           items:
             - name: Point in time restore
