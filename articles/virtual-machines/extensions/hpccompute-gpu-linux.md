@@ -29,7 +29,7 @@ An extension is also available to install NVIDIA GPU drivers on [Windows N-serie
 
 ### Operating system
 
-This extension supports the following OS distros, depending on driver support for specific OS version:
+This extension supports the following OS distros, depending on driver support for the specific OS version:
 
 | Distribution | Version |
 |---|---|
@@ -38,7 +38,7 @@ This extension supports the following OS distros, depending on driver support fo
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 
 > [!NOTE]
-> The latest supported CUDA drivers for NC-series VMs is currently 470.82.01. Later driver versions aren't supported on the K80 cards in NC. While the extension is being updated with this end-of-support for NC, install CUDA drivers manually for K80 cards on the NC-series.
+> The latest supported CUDA drivers for NC-series VMs are currently 470.82.01. Later driver versions aren't supported on the K80 cards in NC. While the extension is being updated with this end of support for NC, install CUDA drivers manually for K80 cards on the NC-series.
 
 ### Internet connectivity
 
@@ -109,17 +109,17 @@ You can deploy Azure NVIDIA VM extensions in the Azure portal.
 
     :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension-linux.png" alt-text="Screenshot that shows selecting NVIDIA G P U Driver Extension.":::
 
-1. Select **Review + create**, select **Create**, and wait a few minutes for the driver to be deployed.
+1. Select **Review + create**, and select **Create**. Wait a few minutes for the driver to deploy.
 
     :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension-linux.png" alt-text="Screenshot that shows selecting the Review + create button.":::
   
-1. Verify that the extension is added to the list of installed extensions.
+1. Verify that the extension was added to the list of installed extensions.
 
     :::image type="content" source="./media/nvidia-ext-portal/verify-extension-linux.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
 
 ### Azure Resource Manager template
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration.
+You can use Azure Resource Manager templates to deploy Azure VM extensions. Templates are ideal when you deploy one or more virtual machines that require post-deployment configuration.
 
 The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md).
 
@@ -192,7 +192,7 @@ az vm extension set \
 
 ### Troubleshooting
 
-Data about the state of extension deployments can be retrieved from the Azure portal and by using Azure PowerShell and the Azure CLI. To see the deployment state of extensions for a given VM, run the following command:
+You can retrieve data about the state of extension deployments from the Azure portal and by using Azure PowerShell and the Azure CLI. To see the deployment state of extensions for a given VM, run the following command:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
@@ -213,12 +213,12 @@ Extension execution output is logged to the following file. Refer to this file t
 | Exit code | Meaning | Possible action |
 | :---: | --- | --- |
 | 0 | Operation successful |
-| 1 | Incorrect usage of extension | Check execution output log. |
-| 10 | Linux Integration Services for Hyper-V and Azure not available or installed | Check output of lspci. |
+| 1 | Incorrect usage of extension | Check the execution output log. |
+| 10 | Linux Integration Services for Hyper-V and Azure not available or installed | Check the output of lspci. |
 | 11 | NVIDIA GPU not found on this VM size | Use a [supported VM size and OS](../linux/n-series-driver-setup.md). |
 | 12 | Image offer not supported |
 | 13 | VM size not supported | Use an N-series VM to deploy. |
-| 14 | Operation unsuccessful | Check execution output log. |
+| 14 | Operation unsuccessful | Check the execution output log. |
 
 ### Support
 

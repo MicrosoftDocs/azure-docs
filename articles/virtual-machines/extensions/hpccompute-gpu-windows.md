@@ -94,17 +94,17 @@ You can deploy Azure NVIDIA VM extensions in the Azure portal.
 
     :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension.png" alt-text="Screenshot that shows selecting NVIDIA G P U Driver Extension.":::
 
-1. Select **Review + create**, select **Create**, and wait a few minutes for the driver to be deployed.
+1. Select **Review + create**, and select **Create**. Wait a few minutes for the driver to deploy.
 
     :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="Screenshot that shows selecting the Review + create button.":::
   
-1. Verify that the extension is added to the list of installed extensions.
+1. Verify that the extension was added to the list of installed extensions.
 
     :::image type="content" source="./media/nvidia-ext-portal/verify-extension.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
 
 ### Azure Resource Manager template
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when you deploy one or more virtual machines that require post-deployment configuration.
+You can use Azure Resource Manager templates to deploy Azure VM extensions. Templates are ideal when you deploy one or more virtual machines that require post-deployment configuration.
 
 The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md).
 
@@ -162,7 +162,7 @@ az vm extension set \
 
 ### Troubleshooting
 
-Data about the state of extension deployments can be retrieved from the Azure portal, and by using Azure PowerShell and the Azure CLI. To see the deployment state of extensions for a given VM, run the following command:
+You can retrieve data about the state of extension deployments from the Azure portal and by using Azure PowerShell and the Azure CLI. To see the deployment state of extensions for a given VM, run the following command:
 
 ```powershell
 Get-AzVMExtension -ResourceGroupName myResourceGroup -VMName myVM -Name myExtensionName
