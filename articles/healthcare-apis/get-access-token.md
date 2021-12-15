@@ -6,7 +6,7 @@ author: SteveWohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 11/17/2021
+ms.date: 12/14/2021
 ms.author: zxue
 ms.custom: devx-track-azurepowershell
 ---
@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to obtain an access token for the FHIR service and the DICOM service using PowerShell and the Azure CLI. For more details on how to get started with the Healthcare APIs, see [How to get started with FHIR]() or [How to get started with DICOM](). 
+In this article, you'll learn how to obtain an access token for the FHIR service and the DICOM service using PowerShell and the Azure CLI. For more details on how to get started with the Healthcare APIs, see [How to get started with FHIR](./../healthcare-apis/fhir/get-started-with-fhir.md) or [How to get started with DICOM](./../healthcare-apis/dicom/get-started-with-dicom). 
 
 ---
 ## Obtain a token for the FHIR service
