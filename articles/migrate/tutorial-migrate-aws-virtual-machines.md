@@ -341,7 +341,7 @@ After you've verified that the test migration works as expected, you can migrate
 
 2. In **Replicating machines**, right-click the VM > **Migrate**.
 3. In **Migrate** > **Shut down virtual machines and perform a planned migration with no data loss**, select **Yes** > **OK**.
- If you don't want to shut down the VM, select **No**.
+
     > [!NOTE]
     >  Physical servers and Virtual Machines from other clouds do not support automatic shutdown.
  
