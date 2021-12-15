@@ -26,7 +26,7 @@ As you create an Azure Container Apps [environment](environment.md), a virtual n
 
 The following example shows you how to create a Container Apps environment with an existing virtual network.
 
-[!INCLUDE [container-apps-create-cli-steps.md](../../../includes/container-apps-create-cli-steps.md)]
+[!INCLUDE [container-apps-create-cli-steps.md](../../includes/container-apps-create-cli-steps.md)]
 
 Next, retrieve the Log Analytics Client ID and client secret.
 
