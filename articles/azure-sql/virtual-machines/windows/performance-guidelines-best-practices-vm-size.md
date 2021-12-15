@@ -70,7 +70,7 @@ The largest virtual machine in this group is the [Standard_E104ids_v5](../../../
 
 The Edsv5-series virtual machines support [premium storage](../../../virtual-machines/premium-storage-performance.md), and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
-### M, Mv2, and Mdsv2 series
+### M and Mv2 series
 
 The [M-series](../../../virtual-machines/m-series.md) offers vCore counts and memory for some of the largest SQL Server workloads.  
 
@@ -84,7 +84,7 @@ The [general purpose virtual machine sizes](../../../virtual-machines/sizes-gene
 
 Because of the smaller memory-to-vCore ratios with the general purpose virtual machines, it is important to carefully monitor memory-based performance counters to ensure SQL Server is able to get the buffer cache memory it needs. See [memory performance baseline](performance-guidelines-best-practices-collect-baseline.md#memory) for more information. 
 
-Since the starting recommendation for production workloads is a memory-to-vCore ratio of 8, the minimum recommended configuration for a general purpose VM running SQL Server is 4 vCPU and 32 GB of memory. 
+Since the starting recommendation for production workloads is a memory-to-vCore ratio of 8, the minimum recommended configuration for a general purpose VM running SQL Server is 4 vCPU and 32 GiB of memory. 
 
 ### Ddsv5 series
 
@@ -94,7 +94,7 @@ The Ddsv5 VMs include lower latency and higher-speed local storage.
 
 These machines are ideal for side-by-side SQL and app deployments that require fast access to temp storage and departmental relational databases. There is a standard memory-to-vCore ratio of 4 across all of the virtual machines in this series. 
 
-For this reason, it is recommended to leverage the D8ds_v5 as the starter virtual machine in this series, which has 8 vCores and 32 GBs of memory. The largest machine is the D96ds_v5, which has 96 vCores and 256 GiBs of memory.
+For this reason, it is recommended to leverage the D8ds_v5 as the starter virtual machine in this series, which has 8 vCores and 32 GiBs of memory. The largest machine is the D96ds_v5, which has 96 vCores and 256 GiBs of memory.
 
 The [Ddsv5-series](../../../virtual-machines/ddv5-ddsv5-series.md#ddsv5-series) virtual machines support [premium storage](../../../virtual-machines/premium-storage-performance.md) and [premium storage caching](../../../virtual-machines/premium-storage-performance.md#disk-caching).
 
@@ -122,7 +122,7 @@ This series supports [premium storage](../../../virtual-machines/premium-storage
 
 The [Av2-series](../../../virtual-machines/av2-series.md) VMs are best suited for entry-level workloads like development and test, low traffic web servers, small to medium app databases, and proof-of-concepts.
 
-Only the [Standard_A2m_v2](../../../virtual-machines/av2-series.md) (2 vCores and 16GBs of memory), [Standard_A4m_v2](../../../virtual-machines/av2-series.md) (4 vCores and 32GBs of memory), and the [Standard_A8m_v2](../../../virtual-machines/av2-series.md) (8 vCores and 64GBs of memory) have a good memory-to-vCore ratio of 8 for these top three virtual machines. 
+Only the [Standard_A2m_v2](../../../virtual-machines/av2-series.md) (2 vCores and 16GiBs of memory), [Standard_A4m_v2](../../../virtual-machines/av2-series.md) (4 vCores and 32GiBs of memory), and the [Standard_A8m_v2](../../../virtual-machines/av2-series.md) (8 vCores and 64GiBs of memory) have a good memory-to-vCore ratio of 8 for these top three virtual machines. 
 
 These virtual machines are both good options for smaller development and test SQL Server machines. 
 
