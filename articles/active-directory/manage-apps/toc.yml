@@ -172,6 +172,8 @@
           href: https://docs.microsoft.com/azure/active-directory-b2c/partner-f5
         - name: F5 BIG-IP for SSO to header-based and LDAP applications          
           href: f5-big-ip-ldap-header-easybutton.md
+        - name: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication    
+          href: f5-big-ip-kerberos-advanced.md
       - name: Silverfort
         href: silverfort-azure-ad-integration.md
     - name: Single sign-on

@@ -8,7 +8,7 @@ ms.service: cognitive-services
 ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 05/22/2020
-ms.custom: devx-track-java, mode-other
+ms.custom: devx-track-java, mode-api
 ---
 
 # Quickstart: Get image insights using the Bing Visual Search REST API and Java

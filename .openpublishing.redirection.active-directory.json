@@ -4401,6 +4401,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/governance/what-is-app-provisioning.md",
+            "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/articles/active-directory/governance/what-is-hr-driven-provisioning.md",
+            "redirect_url": "azure/active-directory/app-provisioning/what-is-hr-driven-provisioning",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/articles/active-directory/governance/what-is-inter-directory-provisioning.md",
+            "redirect_url": "azure/active-directory/hybrid/what-is-inter-directory-provisioning",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/cloud-provisioning/tutorial-single-forest.md",
             "redirect_url": "/azure/active-directory/cloud-sync/tutorial-single-forest",
             "redirect_document_id": false

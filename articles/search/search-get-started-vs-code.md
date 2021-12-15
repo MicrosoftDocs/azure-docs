@@ -7,7 +7,7 @@ ms.author: delegenz
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 03/10/2021
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Get started with Azure Cognitive Search using Visual Studio Code
