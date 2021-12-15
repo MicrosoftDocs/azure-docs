@@ -25,18 +25,17 @@ This article explores common troubleshooting methods for security and access con
 
 The open source component *Apache Log4J versions 2.0 through 2.14.1* contains a critical security vulnerability CVE-2021-44228. For more details, see [CVE-2021-44228](https://cve.mitre.org/cgi-bin/cvename.cgi?name=CVE-2021-44228).
 
-#### Cause 
+#### Clarification
 
-The Azure Data Factory (ADF) components which are SQL Server Integration Services (SSIS), the self-hosted integration runtime (IR) and data flows apply library Apache Log4j (1.X), but CVE-2021-44228 is only for Apache Log4j (2.X), so ADF is not related to the known security hole issue.
+The Azure Data Factory (ADF) components which are the self-hosted integration runtime (IR) and data flows apply library Apache Log4j (1.X), but CVE-2021-44228 is only for Apache Log4j (2.X), so ADF is not related to the known security hole issue.
 
 About Apache Log4j (1.X), the CVE-2019-17571 might be the vulnerability issue. However, the ORC and Parquet format apply the Java Virtual Machine (JVM) which is used for format serialization and deserialization, so this CVE does not impact ADF. 
 
 > [!Note]
-> CVE-2019-17571 does not impact ADF products below:
+> Both CVE-2021-44228 and CVE-2019-17571 have no impact on on-premise SQL Server Integration Services (SSIS) and ADF products below:
 > - Managed IR: Azure IR, Azure-SSIS IR and Managed VNet IR
-> - On-premise products: Self-hosted IR and SSIS
+> - On-premise products: Self-hosted IR
 > - Data flows: The Log4j library used in data flows and Databricks already contains the fix for this CVE.
-
 
 The version update of SSIS and self-hosted IR will be evaluated since there is no security impact so far.
 
