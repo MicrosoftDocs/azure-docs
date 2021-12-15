@@ -212,55 +212,77 @@
           href: kubernetes-dashboard.md
     - name: Security and authentication
       items:
-        - name: Create service principal
-          href: kubernetes-service-principal.md
-        - name: Use managed identities
-          href: use-managed-identity.md
-        - name: Use AAD pod identity (preview)
-          href: use-azure-ad-pod-identity.md
-        - name: Limit access to cluster configuration file
-          href: control-kubeconfig-access.md
-        - name: Secure pod traffic with network policies
-          href: use-network-policies.md
-        - name: Use Azure Policy
-          href: use-azure-policy.md
-        - name: Use pod security policies (preview)
-          href: use-pod-security-policies.md
-        - name: Define API server authorized IP ranges
-          href: api-server-authorized-ip-ranges.md
-        - name: Control deployments with Azure Policy
-          href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
-        - name: Update cluster credentials
-          href: update-credentials.md
-        - name: Enable Azure Active Directory integration
-          items:
-            - name: AKS-managed Azure AD
-              href: managed-aad.md
-            - name: Azure AD integration (legacy)
-              href: azure-ad-integration-cli.md
-            - name: Enable GMSA integration (Preview)
-              href: use-group-managed-service-accounts.md
-        - name: Use Azure RBAC for Kubernetes Authorization
-          href: manage-azure-rbac.md
-        - name: Use Kubernetes RBAC with Azure AD integration
-          href: azure-ad-rbac.md
+        - name: Overview of Defender for Containers
+          href: ../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks#what-are-the-benefits-of-microsoft-defender-for-containers
           maintainContext: true
-        - name: Rotate certificates
-          href: certificate-rotation.md
-        - name: BYOK for disks
-          href: azure-disk-customer-managed-keys.md
-        - name: Enable host-based encryption
-          href: enable-host-encryption.md
-        - name: Secrets Store CSI Driver
+        - name: Enable Defender for Containers
+          href: ../defender-for-cloud/defender-for-containers-enable.md?tabs=aks-deploy-portal%2Ck8s-deploy-asc%2Ck8s-verify-asc%2Ck8s-remove-arc%2Caks-removeprofile-api&pivots=defender-for-container-aks
+          maintainContext: true
+        - name: Build security
           items:
-          - name: Secrets Store CSI Driver configuration
-            href: csi-secrets-store-driver.md
-          - name: Provide Azure Key Vault access
-            href: csi-secrets-store-identity-access.md
-          - name: Configure TLS for NGINX ingress controller
-            href: csi-secrets-store-nginx-tls.md
-          - name: Troubleshooting
-            href: csi-secrets-store-troubleshooting.md
+            - name: Scan images in your CI/CD Workflow
+              href: ../defender-for-cloud/defender-for-container-registries-cicd.md
+              maintainContext: True
+        - name: Registry security
+          items:
+            - name: Scanning images in ACR registries
+              href: ../defender-for-cloud/defender-for-containers-introduction.md?tabs=defender-for-container-arch-aks#vulnerability-assessment
+              maintainContext: True
+        - name: Cluster security
+          items:
+            - name: Create service principal
+              href: kubernetes-service-principal.md
+            - name: Use managed identities
+              href: use-managed-identity.md 
+            - name: Limit access to cluster configuration file
+              href: control-kubeconfig-access.md
+            - name: Define API server authorized IP ranges
+              href: api-server-authorized-ip-ranges.md
+            - name: Update cluster credentials
+              href: update-credentials.md
+            - name: Enable Azure Active Directory integration
+              items:
+                - name: AKS-managed Azure AD
+                  href: managed-aad.md
+                - name: Azure AD integration (legacy)
+                  href: azure-ad-integration-cli.md
+                - name: Enable GMSA integration (Preview)
+                  href: use-group-managed-service-accounts.md
+            - name: Use Azure RBAC for Kubernetes authorization
+              href: manage-azure-rbac.md
+            - name: Use Kubernetes RBAC with Azure AD integration
+              href: azure-ad-rbac.md
+            - name: Rotate certificates
+              href: certificate-rotation.md
+            - name: Use Azure Policy
+              href: use-azure-policy.md
+            - name: Control deployments with Azure Policy
+              href: ../governance/policy/concepts/policy-for-kubernetes.md?toc=/azure/aks/toc.json
+              maintainContext: true
+        - name: Node security
+          items:
+            - name: BYOK for disks
+              href: azure-disk-customer-managed-keys.md
+            - name: Enable host-based encryption
+              href: enable-host-encryption.md
+        - name: Application security
+          items:
+            - name: Use Azure AD pod identity (preview)
+              href: use-azure-ad-pod-identity.md
+            - name: Secure pod traffic with network policies
+              href: use-network-policies.md  
+            - name: Use pod security policies (preview)
+              href: use-pod-security-policies.md
+            - name: Secrets Store CSI Driver
+              items:
+                - name: Secrets Store CSI Driver configuration
+                  href: csi-secrets-store-driver.md
+                - name: Provide Azure Key Vault access
+                  href: csi-secrets-store-identity-access.md
+                - name: Configure TLS for NGINX ingress controller
+                  href: csi-secrets-store-nginx-tls.md
+                - name: Troubleshooting
+                  href: csi-secrets-store-troubleshooting.md        
     - name: Configure private clusters
       items:
       - name: Create a private cluster
