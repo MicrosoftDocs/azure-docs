@@ -28,6 +28,8 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 ## Delete a Recovery Services vault
 
+Choose a client:
+
 # [Azure portal](#tab/portal)
 
 >[!WARNING]
@@ -83,7 +85,7 @@ To delete a vault, follow these steps:
 
 - **Step 8**: Delete vault
 
-  After you've completed these steps, you can continue to [delete the vault](#delete-the-recovery-services-vault).
+  After you've completed these steps, you can continue to [delete the vault](/azure/backup/backup-azure-delete-vault&tabs=portal#delete-the-recovery-services-vault).
 
   If you are **still unable to delete the vault** that contain no dependencies then follow the steps listed in [**deleting vault using ARM client**](#delete-the-recovery-services-vault-by-using-azure-resource-manager).
 
