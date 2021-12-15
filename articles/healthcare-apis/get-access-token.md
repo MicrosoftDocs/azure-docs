@@ -16,7 +16,7 @@ ms.custom: devx-track-azurepowershell
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to obtain an access token for the FHIR service and the DICOM service using PowerShell and the Azure CLI. For more details on how to get started with the Healthcare APIs, see [How to get started with FHIR](./../healthcare-apis/fhir/get-started-with-fhir.md) or [How to get started with DICOM](./../healthcare-apis/dicom/get-started-with-dicom). 
+In this article, you'll learn how to obtain an access token for the FHIR service and the DICOM service using PowerShell and the Azure CLI. For more details on how to get started with the Healthcare APIs, see [How to get started with FHIR](./../healthcare-apis/fhir/get-started-with-fhir.md) or [How to get started with DICOM](./../healthcare-apis/dicom/get-started-with-dicom.md). 
 
 ---
 ## Obtain a token for the FHIR service
@@ -61,7 +61,7 @@ The DICOM service uses a `resource` or `Audience` with URI equal to the URI of t
 $token=$(az account get-access-token --resource=https://dicom.healthcareapis.azure.com --query accessToken --output tsv)
 ```
 
-## Use the tokenb with the DICOM service
+## Use the token with the DICOM service
 
 ```Azure CLICopy
 curl -X GET --header "Authorization: Bearer $token"  https://<workspacename-dicomservicename>.dicom.azurehealthcareapis.com/v<version of REST API>/changefeed
