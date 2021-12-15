@@ -109,13 +109,13 @@ The following information guides you through the installation and configuration 
 2. Enter the CloudKnox resource group.
 3. Enter the name for the identity *CloudKnox*, and then create the identity.
 4. In the subscription, select **Access Control (IAM)**.
-5. Select **Add**, select **Add role assignment**, and then fill in the following:
+5. Select **Add**, select **Add role assignment**, and then enter the following:
      - In the **Role** box, enter *Reader*
      - In the **Assign access to** box, enter *Azure AD user, group, or service principal*
 
 6. Select: **Search for the User Managed Identity** created above, and then select **Save**.
 7. Optional: To enable Controller functionality (that is, to enable JEP controller and Privilege On Demand), assign the following role:
-       - In the **Role** box, enter *User Access Administrator*.
+       - In the **Role** box, enter *User Access Administrator*
 
 8. Repeat step 5 for each Azure subscription from which you want CloudKnox to collect data.
 9. Navigate to the virtual machine (VM) created earlier, then select the **Identity** menu.
@@ -172,11 +172,11 @@ The following information guides you through the installation and configuration 
 1. Browse to the subscription from which you want the Sentry to collect data.
 2. In the subscription, select **Access Control (IAM)**.
 3. Select **Add**, select **Add role assignment**, and then enter the following:
-    1. In the **Role** box, enter *Reader*.
+    1. In the **Role** box, enter *Reader*
     2. In the **Assign access to** box, enter the Azure AD user, group, or service principal.
     3. Select **Search**, enter the Azure Application you created previously, and then select **Save**.
     4. Optional:  To enable Controller functionality (that is, to enable JEP controller and Privilege On Demand), assign the following role:
-       - In the **Role** box, enter *User Access Administrator*.
+       - In the **Role** box, enter *User Access Administrator*
 4. Repeat step 3 for each Azure subscription from which you want CloudKnox to collect data.
 
 ### Creating the CloudKnox Sentry from the image
@@ -223,7 +223,7 @@ After you create a **Resource** group in CloudKnox, you'll use it to install Clo
     `sudo /opt/cloudknox/sentrysoftwareservice/bin/runAzureConfigCLI.sh`
 3. Enter the email address from the CloudKnox console that generated the PIN.
 4. Enter the PIN you obtained earlier.
-5. Enter the tenant name or ID in next prompt: *Azure AD tenant* or *tenantID*.
+5. Enter the tenant name or ID in next prompt: *Azure AD tenant* or *tenantID*
 6. Specify if the service principal with the Reader role for CloudKnox data collection is a managed identity or app registration.
     1. If you select **Y** for client ID configuration, enter the client ID and password to authenticate and verify access to Graph API.
     2. If you're using Azure MSI OR if you previously configured **(Y/N): ?**, you don't have to enter a value in the **Configure ClientID and Secret** box.
