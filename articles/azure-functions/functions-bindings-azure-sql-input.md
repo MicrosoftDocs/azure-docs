@@ -170,3 +170,4 @@ The Azure SQL binding for Azure Functions does not currently support Python.
 ## Next steps
 
 - [Save data to a database (Output binding)](./functions-bindings-azure-sql-output.md)
+- [Review ToDo API sample with Azure SQL bindings](/samples/azure-samples/azure-sql-binding-func-dotnet-todo/todo-backend-dotnet-azure-sql-bindings-azure-functions/)
