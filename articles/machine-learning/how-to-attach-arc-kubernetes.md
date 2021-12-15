@@ -68,8 +68,6 @@ However, you have to register the feature in your cluster. Use the following com
 
 ```azurecli
 az feature register --namespace Microsoft.ContainerService -n AKS-ExtensionManager
-az provider register – namespace Microsoft.ContainerService
-az provider register – namespace Microsoft.KubernetesConfiguration
 ```
 
 ### Azure RedHat OpenShift Service (ARO) and OpenShift Container Platform (OCP) only
@@ -90,6 +88,7 @@ az provider register – namespace Microsoft.KubernetesConfiguration
     * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
     * ```system:serviceaccount:azureml:azureml-fe```
     * ```system:serviceaccount:azureml:prom-prometheus```
+    * ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default``` **(Note:** ```{KUBERNETES-COMPUTE-NAMESPACE}``` **is the namespace of kubernetes compute sepcified in compute attach, which defaults to** ```default```. **Skip this setting if the namespace is** ```default```**)**
 
 ## Deploy Azure Machine Learning extension
 
@@ -115,27 +114,35 @@ You can use ```--config``` or ```--config-protected``` to specify list of key-va
 > Set the `openshift` parameter to `True` to deploy the Azure Machine Learning extension to ARO and OCP Kubernetes clusters.
 
 | Configuration Setting Key Name  | Description  | Training | Inference | Training and Inference |
-|---|---|---|---|---|
-| ```enableTraining``` | Default `False`. Set to `True` to create an extension instance for training machine learning models. |  **&check;** | N/A |  **&check;** |
-|```logAnalyticsWS```  | Default `False`. The Azure Machine Learning extension integrates with Azure LogAnalytics Workspace. Set to `True` to provide log viewing and analysis capability through LogAnalytics Workspace. LogAnalytics Workspace cost may apply. | Optional | Optional | Optional |
-|```installNvidiaDevicePlugin```  | Default `True`. Nvidia Device Plugin is required for training and inferencing on Nvidia GPU hardware. The Azure Machine Learning extension installs the Nvidia Device Plugin by default during the Azure Machine Learning instance creation regardless of whether the Kubernetes cluster has GPU hardware or not. Set to `False` if you don't plan on using a GPU or Nvidia Device Plugin is already installed.  | Optional |Optional | Optional |
-| ```enableInference``` | Default `False`.  Set to `True`  to create an extension instance for inferencing machine learning models. | N/A | **&check;** |  **&check;** |
-| ```allowInsecureConnections``` | Default `False`. Set to `True` for Azure Machine Learning extension deployment with HTTP endpoint support for inference, when ```sslCertPemFile``` and ```sslKeyPemFile``` are not provided. | N/A | Optional |  Optional |
-| ```sslCertPemFile``` & ```ssKeyPMFile``` | Path to SSL certificate and key file (PEM-encoded). Required for AzureML extension deployment with HTTPS endpoint support for inference. | N/A | Optional |  Optional |
-| ```privateEndpointNodeport``` | Default `False`.  Set to `True` for Azure Machine Learning extension deployment with machine learning inference private endpoint support using NodePort. | N/A | Optional |  Optional |
-| ```privateEndpointILB``` | Default `False`.  Set to `True` for Azure Machine Learning extension deployment with Machine Learning inference private endpoints support using serviceType internal load balancer | N/A| Optional |  Optional |
-| ```inferenceLoadBalancerHA``` | Default `True`. By default, the Azure Machine Learning extension deploys multiple ingress controller replicas for high availability. Set to `False` if you have limited cluster resources or want to deploy Azure Machine Learning extension for development and testing only. Not using a high-availability load-balancer deploys only one ingress controller replica. | N/A | Optional |  Optional |
-|```openshift``` | Default `False`. Set to `True` for Azure Machine Learning extension deployment on ARO or OCP cluster. The deployment process  automatically compiles a policy package and load policy package on each node so Azure Machine Learning services operation can function properly. | Optional | Optional |  Optional |
+   |--|--|--|--|--|
+   |```enableTraining``` |```True``` or ```False```, default ```False```. **Must** be set to ```True``` for AzureML extension deployment with Machine Learning model training support.  |  **&check;**| N/A |  **&check;** |
+   |```logAnalyticsWS```  |```True``` or ```False```, default ```False```. AzureML extension integrates with Azure LogAnalytics Workspace to provide log viewing and analysis capability through LogAalytics Workspace. This setting must be explicitly set to ```True``` if customer wants to leverage this capability. LogAnalytics Workspace cost may apply.  |Optional |Optional |Optional |
+   |```installNvidiaDevicePlugin```  | ```True``` or ```False```, default ```True```. Nvidia Device Plugin is required for ML workloads on Nvidia GPU hardware. By default, AzureML extension deployment will install Nvidia Device Plugin regardless Kubernetes cluster has GPU hardware or not. User can specify this configuration setting to False if Nvidia Device Plugin installation is not required (either it is installed already or there is no plan to use GPU for workload). | Optional |Optional |Optional |
+   | ```enableInference``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML extension deployment with Machine Learning inference support. |N/A| **&check;** |  **&check;** |
+   | ```allowInsecureConnections``` |```True``` or ```False```, default False. This **must** be set to ```True``` for AzureML extension deployment with HTTP endpoints support for inference, when ```sslCertPemFile``` and ```sslKeyPemFile``` are not provided. |N/A| Optional |  Optional |
+   | ```privateEndpointNodeport``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML deployment with Machine Learning inference private endpoints support using serviceType nodePort. | N/A| Optional |  Optional |
+   | ```privateEndpointILB``` |```True``` or ```False```, default ```False```.  **Must** be set to ```True``` for AzureML extension deployment with Machine Learning inference private endpoints support using serviceType internal load balancer | N/A| Optional |  Optional |
+   | ```inferenceLoadBalancerHA``` |```True``` or ```False```, default ```True```. By default, AzureML extension will deploy 3 ingress controller replicas for high availability, which requires at least 3 workers in a cluster. Set this to ```False``` if you have less than 3 workers and want to deploy AzureML extension for development and testing only, in this case it will deploy one ingress controller replica only. | N/A| Optional |  Optional |
+   |```openshift``` | ```True``` or ```False```, default ```False```. Set to ```True``` if you deploy AzureML extension on ARO or OCP cluster.The deployment process will automatically compile a policy package and load policy package on each node so AzureML services operation can function properly.  | Optional| Optional |  Optional |
+   |```nodeSelector``` | Set the node selector so the extension components and the training/inference workloads will only be deployed to the nodes with all specified selectors. Usage: `nodeSelector.key=value`, support multiple selectors. Example: `nodeSelector.node-purpose=worker nodeSelector.node-region=eastus`| Optional| Optional |  Optional |
+   |```sslCname``` |The cname for if SSL is enabled.  |  N/A | Optional |  Optional |
+
+   |Configuration Protected Setting Key Name  |Description  |Training |Inference |Training and Inference
+   |--|--|--|--|--|
+   | ```sslCertPemFile```, ```sslKeyPemFile``` |Path to SSL certificate and key file (PEM-encoded), required for AzureML extension deployment with HTTPS endpoint support for inference, when  ``allowInsecureConnections`` is set to False . | N/A| Optional |  Optional |
 
 > [!WARNING]
 > If Nvidia Device Plugin, is already installed in your cluster, reinstalling them may result in an extension installation error. Set `installNvidiaDevicePlugin` to `False` to prevent deployment errors.
+>
+> By default, the deployed kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, please use `nodeSelector` configuration setting.
+
 
 ### Deploy extension for training workloads <a id="training"></a>
 
 Use the following Azure CLI command to deploy the Azure Machine Learning extension and enable training workloads on your Kubernetes cluster:
 
 ```azurecli
-az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group> --scope cluster
+az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --config enableTraining=True --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group> --scope cluster --auto-upgrade-minor-version False
 ```
 
 ### Deploy extension for real-time inferencing workloads <a id="inferencing"></a>
@@ -147,7 +154,7 @@ Depending your network setup, Kubernetes distribution variant, and where your Ku
 * **HTTPS**
 
     ```azurecli
-    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file> --resource-group <resource-group> --scope cluster
+    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True sslCname=<cname> --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file> --resource-group <resource-group> --scope cluster --auto-upgrade-minor-version False
     ```
 
 * **HTTP**
@@ -156,7 +163,7 @@ Depending your network setup, Kubernetes distribution variant, and where your Ku
     > Public HTTP endpoints support with public load balancer is the least secure way of deploying the Azure Machine Learning extension for real-time inferencing scenarios and is therefore **NOT** recommended.
 
     ```azurecli
-    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name>  --configuration-settings enableInference=True allowInsecureConnections=True --resource-group <resource-group> --scope cluster
+    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name>  --configuration-settings enableInference=True allowInsecureConnections=True --resource-group <resource-group> --scope cluster --auto-upgrade-minor-version False
     ```
 
 #### Private endpoints support with internal load balancer
@@ -164,13 +171,13 @@ Depending your network setup, Kubernetes distribution variant, and where your Ku
 * **HTTPS**
 
     ```azurecli
-    az k8s-extension create --name amlarc-compute --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointILB=True --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file> --resource-group <resource-group> --scope cluster
+    az k8s-extension create --name amlarc-compute --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointILB=True sslCname=<cname> --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file> --resource-group <resource-group> --scope cluster --auto-upgrade-minor-version False
     ```
 
 * **HTTP**
 
    ```azurecli
-   az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointILB=True allowInsecureConnections=True --resource-group <resource-group> --scope cluster
+   az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointILB=True allowInsecureConnections=True --resource-group <resource-group> --scope cluster --auto-upgrade-minor-version False
    ```
 
 #### Endpoints support with NodePort
@@ -182,13 +189,13 @@ When you deploy with NodePort service, the scoring url (or swagger url) will be 
 * **HTTPS**
 
     ```azurecli
-    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group> --scope cluster --config enableInference=True privateEndpointNodeport=True --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file>
+    az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --resource-group <resource-group> --scope cluster --config enableInference=True privateEndpointNodeport=True sslCname=<cname> --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file> --auto-upgrade-minor-version False
     ```
 
 * **HTTP**
 
    ```azurecli
-   az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointNodeport=True allowInsecureConnections=Ture --resource-group <resource-group> --scope cluster
+   az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableInference=True privateEndpointNodeport=True allowInsecureConnections=Ture --resource-group <resource-group> --scope cluster --auto-upgrade-minor-version False
    ```
 
 ### Deploy extension for training and inferencing workloads <a id="training-inferencing"></a>
@@ -196,37 +203,37 @@ When you deploy with NodePort service, the scoring url (or swagger url) will be 
 Use the following Azure CLI command to deploy the Azure Machine Learning extension and enable cluster real-time inferencing, batch-inferencing, and training workloads on your Kubernetes cluster.
 
 ```azurecli
-az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableTraining=True enableInference=True --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file>--resource-group <resource-group> --scope cluster
+az k8s-extension create --name arcml-extension --extension-type Microsoft.AzureML.Kubernetes --cluster-type connectedClusters --cluster-name <your-connected-cluster-name> --config enableTraining=True enableInference=True sslCname=<cname> --config-protected sslCertPemFile=<path-to-the-SSL-cert-PEM-ile> sslKeyPemFile=<path-to-the-SSL-key-PEM-file>--resource-group <resource-group> --scope cluster --auto-upgrade-minor-version False
 ```
 
 ## Resources created during deployment
 
 Once the Azure Machine Learning extension is deployed, the following resources are created in Azure as well as your Kubernetes cluster, depending on the workloads you run on your cluster.
 
-|Resource name  |Resource type |Training |Inference |Training and Inference|
-|---|---|---|---|---|
-|Azure ServiceBus|Azure resource|**&check;**|**&check;**|**&check;**|
-|Azure Relay|Azure resource|**&check;**|**&check;**|**&check;**|
-|{EXTENSION-NAME}|Azure resource|**&check;**|**&check;**|**&check;**|
-|aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|
-|{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
-|{EXTENSION-NAME}-prometheus-operator|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
-|amlarc-identity-controller|Kubernetes deployment|N/A|**&check;**|**&check;**|
-|amlarc-identity-proxy|Kubernetes deployment|N/A|**&check;**|**&check;**|
-|azureml-fe|Kubernetes deployment|N/A|**&check;**|**&check;**|
-|inference-operator-controller-manager|Kubernetes deployment|N/A|**&check;**|**&check;**|
-|metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
-|relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
-|cluster-status-reporter|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
-|nfd-master|Kubernetes deployment|**&check;**|N/A|**&check;**|
-|gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|
-|csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|
-|csi-blob-node|Kubernetes daemonset|**&check;**|N/A|**&check;**|
-|fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|
-|k8s-host-device-plugin-daemonset|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|
-|nfd-worker|Kubernetes daemonset|**&check;**|N/A|**&check;**|
-|prometheus-prom-prometheus|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|
-|frameworkcontroller|Kubernetes statefulset|**&check;**|N/A|**&check;**|
+   |Resource name  |Resource type |Training |Inference |Training and Inference| Description |
+   |--|--|--|--|--|--|
+   |Azure ServiceBus|Azure resource|**&check;**|**&check;**|**&check;**|Used by gateway to sync job and cluster status to AML services regularly.|
+   |Azure Relay|Azure resource|**&check;**|**&check;**|**&check;**|Route traffic from AML services to the kubernetes cluster.|
+   |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Mange the lifecycle of training jobs.|
+   |{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Export the cluster related metrics to Prometheus.|
+   |{EXTENSION-NAME}-prometheus-operator|Kubernetes deployment|**&check;**|**&check;**|**&check;**| Provide Kubernetes native deployment and management of Prometheus and related monitoring components.|
+   |amlarc-identity-controller|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Blob/ACR token with managed identity for infra and user container.|
+   |amlarc-identity-proxy|Kubernetes deployment|N/A|**&check;**|**&check;**|Request and renew Blob/ACR token with managed identity for infra and user container.|
+   |azureml-fe|Kubernetes deployment|N/A|**&check;**|**&check;**|The front-end component that routes incoming inference requests to deployed services.|
+   |inference-operator-controller-manager|Kubernetes deployment|N/A|**&check;**|**&check;**|Manage the lifecycle of inference endpoints. |
+   |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for prometheus|
+   |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Pass the job spec from Azure service to cluster.|
+   |cluster-status-reporter|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Gather the nodes and resource information, and upload it to Azure service through gateway.|
+   |nfd-master|Kubernetes deployment|**&check;**|N/A|**&check;**|Node feature discovery.|
+   |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Send nodes and cluster resource information to Azure service.|
+   |csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|CSI for azure blob.|
+   |csi-blob-node|Kubernetes daemonset|**&check;**|N/A|**&check;**|CSI for azure blob.|
+   |fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Gather infra components' log.|
+   |k8s-host-device-plugin-daemonset|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Expose fuse to pods on each node.|
+   |nfd-worker|Kubernetes daemonset|**&check;**|N/A|**&check;**|Node feature discovery.|
+   |prometheus-prom-prometheus|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|Gather and send job metrics to Azure.|
+   |frameworkcontroller|Kubernetes statefulset|**&check;**|N/A|**&check;**|Manage the lifecycle of actual training pods.|
+   |alertmanager|Kubernetes statefulset|**&check;**|N/A|**&check;**|Handle alerts sent by client applications such as the Prometheus server.|
 
 > [!IMPORTANT]
 > Azure ServiceBus and Azure Relay resources are under the same resource group as the Arc cluster resource. These resources are used to communicate with the Kubernetes cluster and modifying them will break attached compute targets.
@@ -247,6 +254,31 @@ When the `installState` shows **Installed**, run the following command on your m
 ```bash
 kubectl get pods -n azureml
 ```
+## Extension update
+
+Use ```k8s-extension update``` CLI command to update the mutable properties of  AzureML extension, review list of required and optional parameters for ```k8s-extension update``` CLI command [here](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_update). 
+
+1.	Azure Arc supports update of  ``--auto-upgrade-minor-version``, ``--version``,  ``--configuration-settings``, ``--configuration-protected-settings``.  
+2.	For configurationSettings, only the settings that require update need to be provided. If the user provides all settings, they would be merged/overwritten with the provided values. 
+3.	For ConfigurationProtectedSettings, ALL  settings should to be provided. If some settings are omitted, those settings would be considered obsolete and deleted. 
+
+> **<span style="color:orange">Important**:</span>
+> 
+> * DO NOT update following configs if you have active training workloads, otherwise, the training jobs will be impacted.
+> * * `enableTraining` from `True` to `False`
+> * * `installNvidiaDevicePlugin` from `True` to `False` if GPU is used.
+> * * `nodeSelector`. Update operation can't remove existed nodeSelectors, but can only update existed ones or add new ones.
+> * DO NOT update following configs if you have active real-time inference endpoints, otherwise, the endpoints will be unavailable.
+> * * `enableInference` from `True` to `False`
+> * * `installNvidiaDevicePlugin` from `True` to `False` if GPU is used.
+> * * `nodeSelector`. Update operation can't remove existed nodeSelectors, but can only update existed ones or add new ones. 
+> * * `allowInsecureConnections`,`privateEndpointNodeport`,`privateEndpointILB`
+> *  To update `logAnalyticsWS` from `True` to `False`, please provide all originial configurationProtectedSettings. Otherwise, those settings would be considered obsolete and deleted .
+
+## Extension delete
+
+Use [``k8s-extension delete``](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_delete) CLI command to delete the existed AzureMl extension. It will take around 10 minitues to delete all componenents deployed to the cluster. Run ``kubectl get pods -n azureml`` to check if all components being deleted.
+
 
 ## Attach Arc Cluster
 
