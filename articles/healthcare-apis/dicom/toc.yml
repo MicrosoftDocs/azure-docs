@@ -25,17 +25,6 @@ items:
 - name: How-to guides
   expanded: true
   items:
-  - name: Registering applications
-    expanded: true
-    items:
-    - name: Register Azure Active Directory applications for the DICOM service
-      href: dicom-register-azure-active-directory-applications.md
-    - name: Register a service client application
-      href: dicom-register-service-client-application.md
-    - name: Register a public client application
-      href: dicom-register-public-application.md
-    - name: Register a confidential client application
-      href: dicom-register-confidential-client-application.md
   - name: Configure settings
     expanded: true
     items:
