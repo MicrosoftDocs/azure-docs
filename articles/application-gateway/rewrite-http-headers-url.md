@@ -81,6 +81,9 @@ To capture a substring for later use, put parentheses around the subpattern that
 
 * (\d)+ # Match a digit one or more times, capturing the last into group 1
 
+> [!Note]
+> Use of */* to prefix and suffix the pattern should not be specified in the pattern match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ will not match two digits.
+
 Once captured, you can reference them in the action set using the following format:
 
 * For a request header capture, you must use {http_req_headerName_groupNumber}. For example, {http_req_User-Agent_1} or {http_req_User-Agent_2}
