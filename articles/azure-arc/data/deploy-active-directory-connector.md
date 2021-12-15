@@ -21,7 +21,7 @@ This article explains how to deploy Active Directory Connector Custom Resource.
 The Active Directory (AD) connector is a Kubernetes native custom resource definition (CRD) that allows you to provide 
 SQL Managed Instances running on the same Data Controller an ability to perform Active Directory Authentication.
 
-In Bring Your Own Keytab (BYOK) mode, an Active Directory Connector instance deploys a DNS proxy service that proxies the DNS requests
+An Active Directory Connector instance deploys a DNS proxy service that proxies the DNS requests
 coming from the SQL Managed Instance to either of the two upstream DNS services:
 1. Active Directory DNS Servers
 2. Kubernetes DNS Servers

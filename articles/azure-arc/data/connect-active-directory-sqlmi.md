@@ -20,7 +20,7 @@ See [Tutorial – Deploy AD-integrated SQL Managed Instance (Bring Your Own Keyt
 ## Create Active Directory logins in SQL Managed Instance
 
 Once SQL Managed Instance is successfully deployed, you will need to provision AD logins in SQL Server.
-In order to do this, first connect to the SQL Managed Instance using the basic authentication login with administrative privileges and run the following TSQL:
+In order to do this, first connect to the SQL Managed Instance using the SQL login with administrative privileges and run the following TSQL:
 
 ```console
 CREATE LOGIN [<NetBIOS domain name>\<AD account name>] FROM WINDOWS;
@@ -47,7 +47,7 @@ kinit <username>@<REALM>
 sqlcmd -S <Endpoint DNS name>,<Endpoint port number> -E
 ```
 
-For connecting using the `CONTOSO\admin` AD account to the SQL Managed Instance with endpoint sqlmi.contoso.local at port 31433, the commands should look like the following: 
+For connecting using the `CONTOSO\admin` AD account to the SQL Managed Instance with endpoint sqlmi.contoso.local at port 31433, the '-E' is used when using the integrated authentification, the commands should look like the following: 
 
 ```bash
 kinit admin@CONTOSO.LOCAL

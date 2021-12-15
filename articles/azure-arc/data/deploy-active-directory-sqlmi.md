@@ -35,7 +35,7 @@ the Active Directory domain and provide to the deployment.
 
 ## Steps Before the Deployment of SQL Managed Instance
 
-### 1. Decide a DNS name for the SQL Managed Instance endpoint.
+### 1. Pre-decide a DNS name for the SQL Managed Instance endpoint.
 
 You must pre-decide a DNS name for the endpoint SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
 This DNS name should be in the Active Directory domain or its descendant domains.
@@ -44,15 +44,14 @@ The examples in these instructions will assume the DNS name `sqlmi.contoso.local
 
 ### 2. Decide a port number for the SQL Managed Instance endpoint.
 
-You must pre-decide a port number for the endpoint SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
+You must decide a port number for the endpoint SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
 This port number must be in the acceptable range of port numbers to Kubernetes cluster.
 
 The examples in these instructions will assume the port number `31433`.
 
 ### 3. Create a DNS record for the SQL Managed Instance endpoint in the Active Directory DNS servers.
 
-In one of the Active Directory DNS servers, create an A record (forward lookup record) for the DNS name chosen in step 1. This DNS record should point to the IP address
-that the SQL Managed Instance endpoint will listen on for connections from outside the Kubernetes cluster.
+In one of the Active Directory DNS servers, create an A record (forward lookup record) for the DNS name chosen in step 1. This DNS record should point to the IP address that the SQL Managed Instance endpoint will listen on for connections from outside the Kubernetes cluster.
 
 You do NOT need to create a PTR record (reverse lookup record) in association with the A record.
 
