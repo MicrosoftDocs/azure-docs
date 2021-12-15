@@ -1,7 +1,7 @@
 ---
 title: Delete a Microsoft Azure Recovery Services vault 
 description: In this article, learn how to remove dependencies and then delete an Azure Backup Recovery Services vault.
-ms.topic: conceptual
+ms.topic: how-to
 ms.date: 12/13/2021
 author: v-amallick
 ms.service: backup
@@ -26,7 +26,9 @@ If you try to delete the vault without removing the dependencies, you'll encount
 
 - Recovery Services vault cannot be deleted as there are backup items in soft deleted state in the vault. The soft deleted items are permanently deleted after 14 days of delete operation. Please try vault deletion after the backup items are permanently deleted and there is no item in soft deleted state left in the vault. For more information, see [Soft delete for Azure Backup](/azure/backup/backup-azure-security-feature-cloud).
 
-## Delete a Recovery Services vault using Azure portal
+## Delete a Recovery Services vault
+
+# [Azure portal](#tab/portal)
 
 >[!WARNING]
 >The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
@@ -259,12 +261,12 @@ After you delete the on-premises backup items, follow the next steps from the po
 
 4. Select **Yes** to verify that you want to delete the vault. The vault is deleted. The portal returns to the **New** service menu.
 
-## Delete the Recovery Services vault by using PowerShell
+# [PowerShell](#tab/powershell)
 
 First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process. If you're sure that all the items backed up in the vault are no longer required and wish to delete them at once without reviewing, you can directly run the PowerShell script in this section. The script will delete all the backup items recursively and eventually the entire vault.
 
 >[!Note]
->
+>To download the PowerShell file to delete your vault, go to vault **Overview** -> **Delete** -> **Delete using PowerShell Script**, and then click **Generate and Download Script** as shown in the screenshot below. This generates a customized script specific to the vault, which requires no additional changes. You can run the script in the PowerShell console by switching the downloaded script’s directory and running the file using: _.\NameofFile.ps1_
 
 :::image type="content" source="./media/backup-azure-delete-vault/generate-delete-vault-powershell-script-inline.png" alt-text="Screenshot showing the process to generate the delete vault PowerShell script." lightbox="./media/backup-azure-delete-vault/generate-delete-vault-powershell-script-expanded.png":::
 
@@ -601,7 +603,7 @@ To delete a Recovery Services vault:
 
 [Learn more](/powershell/module/az.recoveryservices/remove-azrecoveryservicesvault) about deleting a Recovery Services vault.
 
-## Delete the Recovery Services vault by using CLI
+# [CLI](#tab/cli)
 
 First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
@@ -638,9 +640,9 @@ To delete existing Recovery Services vault, perform the following steps:
 
     For more information, see this [article](/cli/azure/backup/vault)
 
-## Delete the Recovery Services vault by using Azure Resource Manager
+# [ARM](#tab/arm)
 
-This option to delete the Recovery Services vault is recommended only if all of the dependencies are removed and you're still getting the *Vault deletion error*. Try any or all of the following tips:
+Delete the Recovery Services vault using Azure Resource Manager (ARM) is recommended only if all of the dependencies are removed and you're still getting the *Vault deletion error*. Try any or all of the following tips:
 
 - From the **Essentials** pane in the vault menu, verify that there aren't any backup items, backup management servers, or replicated items listed. If there are backup items, refer to the [Before you start](#before-you-start) section.
 - Try [deleting the vault from the portal](#delete-the-recovery-services-vault) again.
@@ -673,7 +675,9 @@ For more information on the ARMClient command, see [ARMClient README](https://gi
 
 3. In the Azure portal, make sure that the vault is deleted.
 
+---
+
 ## Next steps
 
-[Learn about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
-[Learn about monitoring and managing Recovery Services vaults](backup-azure-manage-windows-server.md)
+- [Learn about Recovery Services vaults](backup-azure-recovery-services-vault-overview.md)
+- [Learn about monitoring and managing Recovery Services vaults](backup-azure-manage-windows-server.md)
