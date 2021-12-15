@@ -91,7 +91,7 @@ First template, describes how to create a Resource Manager template for an actio
          "SecurewebhookReceivers": [
           {
             "name": "contososecureHook",
-            "serviceUri": ""http://requestb.in/1bq63iu1",
+            "serviceUri": "http://requestb.in/1bq63iu1",
             "useCommonAlertSchema": false
           },
           {
