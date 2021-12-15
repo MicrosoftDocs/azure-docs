@@ -47,7 +47,7 @@ To delete a vault, follow these steps:
 
   1. \<steps to include\>
 
-- **Step 2**: If Multi-User Authorization (MUA) is enabled, seek necessary permissions from the security administrator before vault deletion. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
+- <a id="portal-mua">**Step 2**</a>: If Multi-User Authorization (MUA) is enabled, seek necessary permissions from the security administrator before vault deletion. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
 
 - **Step 3**: Disable the soft delete feature.\
 
@@ -87,7 +87,7 @@ To delete a vault, follow these steps:
 
   After you've completed these steps, you can continue to [delete the vault](/azure/backup/backup-azure-delete-vault&tabs=portal#delete-the-recovery-services-vault).
 
-  If you are **still unable to delete the vault** that contain no dependencies then follow the steps listed in [**deleting vault using ARM client**](#delete-the-recovery-services-vault-by-using-azure-resource-manager).
+  If you are **still unable to delete the vault** that contain no dependencies then follow the steps listed in [**deleting vault using ARM client**](/azure/backup/backup-azure-delete-vault&tabs=arm#tabpanel_1_arm).
 
 ### Delete protected items in the cloud
 
