@@ -8,12 +8,9 @@ ms.topic: how-to
 ms.date: 03/30/2021
 ---
 
-# Restart/Stop/Start an Azure Database for MySQL - Flexible Server (Preview)
+# Restart/Stop/Start an Azure Database for MySQL Flexible Server
 
 [[!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article shows you how to perform restart, start and stop flexible server using Azure CLI.
 

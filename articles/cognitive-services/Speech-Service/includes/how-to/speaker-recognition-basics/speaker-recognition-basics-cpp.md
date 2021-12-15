@@ -4,7 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 In this quickstart, you learn basic design patterns for Speaker Recognition using the Speech SDK, including:
@@ -13,7 +13,7 @@ In this quickstart, you learn basic design patterns for Speaker Recognition usin
 * Speaker identification to identify a voice sample among a group of voices
 * Deleting voice profiles
 
-For a high-level look at Speech Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article.
+For a high-level look at Speaker Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article. See the Reference node on left nav for a list of the supported platforms.
 
 ## Skip to samples on GitHub
 
@@ -24,7 +24,7 @@ If you want to skip straight to sample code, see the [C++ quickstart samples](ht
 This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Speaker Recognition is currently *only* supported in Azure Speech resources created in the `westus` region.
+> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. 
 
 ## Install the Speech SDK
 
@@ -86,10 +86,7 @@ Next, [SpeechRecognizer::RecognizeOnceAsync](/cpp/cognitive-services/speech/spee
 
 ## Text-independent verification
 
-In contrast to **text-dependent** verification, **text-independent** verification:
-
-* Does not require a certain passphrase to be spoken, anything can be spoken
-* Does not require three audio samples, but *does* require 20 seconds of total audio
+In contrast to **text-dependent** verification, **text-independent** verification does not require three audio samples, but *does* require 20 seconds of total audio.
 
 ### TextIndependentVerification function
 

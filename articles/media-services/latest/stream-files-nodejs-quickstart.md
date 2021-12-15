@@ -1,11 +1,11 @@
 ---
-title: How to encode and stream video files with Node.JS
-description: How to stream video files with Node.JS. Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
+title: How to encode and stream video files with Node.js
+description: How to stream video files with Node.js. Follow the steps of this tutorial to create a new Azure Media Services account, encode a file, and stream it to Azure Media Player.
 services: media-services
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-keywords: azure media services, stream, Node.JS
+keywords: azure media services, stream, Node.js
 
 ms.service: media-services
 ms.workload: media
@@ -15,7 +15,7 @@ ms.author: inhenkel
 
 ---
 
-# How to encode and stream video files with Node.JS
+# How to encode and stream video files with Node.js
 
 [!INCLUDE [media services api v3 logo](./includes/v3-hr.md)]
 
@@ -23,10 +23,10 @@ This quickstart shows you how easy it is to encode and start streaming videos on
 
 By the end of this quickstart you will know:
 
-- How to encode with Node.JS
-- How to stream with Node.JS
-- How to upload a file from an HTTPS URL with Node.JS
-- How to use an HLS or DASH client player with Node.JS
+- How to encode with Node.js
+- How to stream with Node.js
+- How to upload a file from an HTTPS URL with Node.js
+- How to use an HLS or DASH client player with Node.js
 
 The sample in this article encodes content that you make accessible via an HTTPS URL. Note that currently, AMS v3 does not support chunked transfer encoding over HTTPS URLs.
 
@@ -49,9 +49,9 @@ Clone a GitHub repository that contains the streaming Node.js sample to your mac
  git clone https://github.com/Azure-Samples/media-services-v3-node-tutorials.git
  ```
 
-The sample is located in the [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/AMSv3Samples/StreamFilesSample) folder.
+The sample is located in the [StreamFilesSample](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/master/StreamFilesSample) folder.
 
-Open [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/AMSv3Samples/StreamFilesSample/index.ts) in your downloaded project. Update the *sample.env* file in the root folder with the values and credentials that you got from [accessing APIs](./access-api-howto.md). Rename the *sample.env* file to *.env* (Yes, just the extension).
+Open [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/master/StreamFilesSample/index.ts) in your downloaded project. Update the *sample.env* file in the root folder with the values and credentials that you got from [accessing APIs](./access-api-howto.md). Rename the *sample.env* file to *.env* (Yes, just the extension).
 
 The sample performs the following actions:
 
@@ -68,30 +68,18 @@ The sample performs the following actions:
 
 ## Run the sample
 
-1. The application downloads encoded files. Create a folder where you want the output files to go and update the value of the **outputFolder** variable in the [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/AMSv3Samples/StreamFilesSample/index.ts#L59) file. It is set to "Temp" by default.
+1. The application downloads encoded files. Create a folder where you want the output files to go and update the value of the **outputFolder** variable in the [index.ts](https://github.com/Azure-Samples/media-services-v3-node-tutorials/blob/main/StreamFilesSample/index.ts#L65) file. It is set to "./Temp" by default.
 1. Open a **command prompt**, browse to the sample's directory.
-1. Change directory into the AMSv3Samples folder.
-
-    ```bash
-    cd AMSv3Samples
-    ```
-
+1. Make a copy of the sample.env file and rename it to ".env"
+1. Update the contents of the .env file to match your account settings and subscription information for accessing the Media Services account. You can find this information in the API Access menu in the portal for the Media Services account. 
 1. Install the packages used in the *packages.json* file.
 
     ```bash
     npm install 
     ```
 
-1. Change directory to the *StreamFilesSample* folder.
-
+1. Launch Visual Studio Code from the root folder of the samples
     ```bash
-    cd StreamFilesSample
-    ```
-
-1. Launch Visual Studio Code from the *AMSv3Samples* Folder. (This is required to launch from the folder where the *.vscode* folder and *tsconfig.json* files are located.)
-
-    ```bash
-    cd ..
     code .
     ```
 

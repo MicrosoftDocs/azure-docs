@@ -7,9 +7,10 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 11/02/2021
 ms.author: lajanuar
 recommendations: false
+ms.custom: ignite-fall-2021
 ---
 
 # Form Recognizer custom and composed models
@@ -20,8 +21,7 @@ Form Recognizer uses advanced machine learning technology to detect and extract 
 
 * **Composed models**. A composed model is created by taking a collection of custom models and assigning them to a single model that encompasses your form types. When a document is submitted to a composed model, the service performs a classification step to decide which custom model accurately represents the form presented for analysis.
 
-:::image type="content" source="media/analyze.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
-
+:::image type="content" source="media/studio/analyze-custom.png" alt-text="Screenshot: Form Recognizer tool analyze-a-custom-form window.":::
 
 ## What is a custom model?
 
@@ -29,39 +29,72 @@ A custom model is a machine learning program trained to recognize form fields wi
 
 ## What is a composed model?
 
-With composed models, you can assign multiple custom models to a composed model called with a single model ID. This is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
+With composed models, you can assign multiple custom models to a composed model called with a single model ID. It is useful when you have trained several models and want to group them to analyze similar form types. For example, your composed model may include custom models trained to analyze your supply, equipment, and furniture purchase orders. Instead of manually trying to select the appropriate model, you can use a composed model to determine the appropriate custom model for each analysis and extraction.
 
-## Try Form Recognizer Studio (Preview)
+## Development options
 
-* Form Recognizer studio is available with the preview (v3.0) API.
+The following resources are supported by Form Recognizer v2.1:
 
-* Analyze forms of a specific or unique type with our Form Recognizer Studio Custom Form feature:
+| Feature | Resources |
+|----------|-------------------------|
+|**Custom model**| <ul><li>[**Form Recognizer labeling tool**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](quickstarts/try-sdk-rest-api.md?pivots=programming-language-rest-api#analyze-forms-with-a-custom-model)</li><li>[**Client-library SDK**](quickstarts/try-sdk-rest-api.md)</li><li>[**Form Recognizer Docker container**](containers/form-recognizer-container-install-run.md?tabs=custom#run-the-container-with-the-docker-compose-up-command)</li></ul>|
 
-> [!div class="nextstepaction"]
-> [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
+The following resources are supported by Form Recognizer v3.0:
 
-## Try Form Recognizer Sample labeling tool
+| Feature | Resources |
+|----------|-------------|
+|**Custom model**| <ul><li>[**Form Recognizer Studio**](https://fott-2-1.azurewebsites.net)</li><li>[**REST API**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument)</li><li>[**C# SDK**](quickstarts/try-v3-csharp-sdk.md)</li><li>[**Python SDK**](quickstarts/try-v3-python-sdk.md)</li></ul>| 
 
-You can see how data is extracted from custom forms by trying our Sample Labeling tool. You'll need the following:
+### Try Form Recognizer
+
+See how data is extracted from  your specific or unique documents using custom models. You'll need the following:
 
 * An Azure subscription—you can [create one for free](https://azure.microsoft.com/free/cognitive-services/)
 
-* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) ) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, click **Go to resource** to get your API key and endpoint.
+* A [Form Recognizer instance](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal. You can use the free pricing tier (`F0`) to try the service. After your resource deploys, select **Go to resource** to get your API key and endpoint.
 
  :::image type="content" source="media/containers/keys-and-endpoint.png" alt-text="Screenshot: keys and endpoint location in the Azure portal.":::
 
-> [!div class="nextstepaction"]
-> [Try it](https://fott-2-1.azurewebsites.net/projects/create)
+#### Form Recognizer Studio (preview)
+
+> [!NOTE]
+> Form Recognizer studio is available with the preview (v3.0) API.
+
+1. On the Form Recognizer Studio home page, select **Custom form**.
+
+1. Under **My Projects**, select **+ Create a project**.
+
+1. Complete the **project details** fields.
+
+1. **Configure the service resource**.
+
+1. Add your **Storage account** and **Blob container** to **Connect your training data source**.
+
+1. **Review and create** your project.
+
+1. A set of sample documents has been provided for you to build and test your custom model.
+
+    > [!div class="nextstepaction"]
+    > [Try Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio/customform/projects)
+
+#### Sample Labeling tool
+
+You'll need a set of at least six forms of the same type. You'll use this data to train the model and test a form. You can use our [sample data set](https://go.microsoft.com/fwlink/?linkid=2090451). Download  and extract the *sample_data.zip*, then upload the contents to your Azure Blob Storage container.
 
 In the Form Recognizer UI:
 
-1. Select **Use Custom to train a model with labels and get key value pairs**.
+1. On the Sample Labeling tool home page, select **Use Custom to train a model with labels and get key value pairs**.
 
       :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTTtool selection of custom option.":::
 
 1. In the next window, select **New project**:
 
     :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
+
+    For more detailed instructions, *see* our [Sample Labeling tool](quickstarts/try-sample-label-tool.md) quickstart.
+
+    > [!div class="nextstepaction"]
+    > [Try Sample Labeling tool](https://fott-2-1.azurewebsites.net/projects/create)
 
 ## Input requirements
 
@@ -74,8 +107,8 @@ In the Form Recognizer UI:
 * The total size of the training data is 500 pages or less.
 * If your PDFs are password-locked, you must remove the lock before submission.
 * For unsupervised learning (without labeled data):
-  * data must contain keys and values.
-  * keys must appear above or to the left of the values; they can't appear below or to the right.
+  * Data must contain keys and values.
+  * Keys must appear above or to the left of the values; they can't appear below or to the right.
 
   > [!TIP]
   > **Training data**
@@ -86,7 +119,7 @@ In the Form Recognizer UI:
   >* If your form images are of lower quality, use a larger data set (10-15 images, for example).
 
 > [!NOTE]
-> The [sample labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
+> The [Sample Labeling tool](https://fott-2-1.azurewebsites.net/) does not support the BMP file format. This is a limitation of the tool not the Form Recognizer Service.
 
 ## Supported languages and locales
 
@@ -98,29 +131,29 @@ In the Form Recognizer UI:
 
 * **Custom model API (v3.0)** supports signature detection for custom forms. When training custom models, you can specify certain fields as signatures.  When a document is analyzed with your custom model, it will indicate whether a signature has been detected or not.
 
-* Following our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
+* Follow our [**Form Recognizer v3.0 migration guide**](v3-migration-guide.md) to learn how to use the preview version in your applications and workflows.
 
 * Explore our [**REST API (preview)**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v3-0-preview-1/operations/AnalyzeDocument) to learn more about the preview version and new capabilities.
 
 ### Try signature detection
 
-1. [**Build your training data set**](build-training-data-set.md#custom-model-input-requirements).
+1. Build your training data set.
 
-1. Navigate to the [**Form Recognizer sample labeling tool**](https://fott-preview-private.azurewebsites.net) and select **Use Custom to train a models with labels and get key value pairs**:
+1. Navigate to the [Form Recognizer Studio](https://formrecognizer.appliedai.azure.com/studio) and select **Custom form** under Custom models:
 
-    :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTTtools selection of the custom option.":::
+    :::image type="content" source="media/label-tool/select-custom-form.png" alt-text="Screenshot: Form Recognizer Studio select a custom form page.":::
 
-1. In the next window, select **New project**:
+1. Follow the workflow to create a new project:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTTtools select new project.":::
+1. Follow the Custom model input requirements.
 
-1. Follow the  [**Custom model input requirements**](build-training-data-set.md#custom-model-input-requirements).
+1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
-1. Create a label with the type **Signature**.
+1. Label your documents. For signature fields, using region labeling is recommended for better accuracy.
 
-1. **Label your documents**.  For signature fields, using region labeling is recommended for better accuracy.
+    :::image type="content" source="media/label-tool/signature-label-region-too.png" alt-text="Screenshot: Label signature field.":::
 
-1. Once your training set has been labeled, you can **train your custom model** and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
+Once your training set has been labeled, you can train your custom model and use it to analyze documents. The signature fields will specify whether a signature was detected or not.
 
 ## Next steps
 

@@ -160,7 +160,7 @@ If you want to your logic app to run only when a specific event or operation hap
 
    1. In the middle box, keep the operator **is equal to**.
 
-   1. In the right box, enter this value, which is the specific operation that you to monitor:
+   1. In the right box, enter the operation that you want to monitor, which is the following value for this example:
 
       `Microsoft.Compute/virtualMachines/write`
 

@@ -35,7 +35,7 @@ Automated ML supports model training for computer vision tasks like image classi
     To install the SDK you can either, 
     * Create a compute instance, which automatically installs the SDK and is pre-configured for ML workflows. For more information, see [Create and manage an Azure Machine Learning compute instance](how-to-create-manage-compute-instance.md).
 
-    * [Install the `automl` package yourself](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
+    * [Install the `automl` package yourself](https://github.com/Azure/azureml-examples/blob/main/python-sdk/tutorials/automl-with-azureml/README.md#setup-using-a-local-conda-environment), which includes the [default installation](/python/api/overview/azure/ml/install#default-install) of the SDK.
     
     > [!NOTE]
     > Only Python 3.6 and 3.7 are compatible with automated ML support for computer vision tasks. 
@@ -62,7 +62,7 @@ automl_image_config = AutoMLImageConfig(task=ImageTask.IMAGE_OBJECT_DETECTION)
 
 ## Training and validation data
 
-In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](how-to-create-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
+In order to generate computer vision models, you need to bring labeled image data as input for model training in the form of an Azure Machine Learning [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset). You can either use a `TabularDataset` that you have [exported from a data labeling project](./how-to-create-image-labeling-projects.md#export-the-labels), or create a new `TabularDataset` with your labeled training data. 
 
 If your training data is in a different format (like, pascal VOC or COCO), you can apply the helper scripts included with the sample notebooks to convert the data to JSONL. Learn more about how to [prepare data for computer vision tasks with automated ML](how-to-prepare-datasets-for-automl-images.md). 
 
@@ -513,4 +513,4 @@ Review detailed code examples and use cases in the [GitHub notebook repository f
 ## Next steps
 
 * [Tutorial: Train an object detection model (preview) with AutoML and Python](tutorial-auto-train-image-models.md).
-* [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md). 
+* [Troubleshoot automated ML experiments](how-to-troubleshoot-auto-ml.md).

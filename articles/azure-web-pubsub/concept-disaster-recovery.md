@@ -4,7 +4,7 @@ description: An overview on how to set up multiple Azure Web PubSub service inst
 author: vicancy
 ms.service: azure-web-pubsub
 ms.topic: conceptual
-ms.date: 10/13/2021
+ms.date: 11/08/2021
 ms.author: lianwei
 ---
 # Resiliency and disaster recovery in Azure Web PubSub Service
@@ -21,17 +21,24 @@ One typical setup for cross region scenario is to have two (or more) pairs of We
 
 Inside each pair app server and Web PubSub service are located in the same region, and Web PubSub service set the event handler upstream to the app server in the same region.
 
-To better illustrate the architecture, we call Web PubSub service the "primary" service to the app server in the same pair. And we call Web PubSub services in other pairs as the "secondary" services to the app server.
+To better illustrate the architecture, we call Web PubSub service the **primary** service to the app server in the same pair. And we call Web PubSub services in other pairs as the **secondary** services to the app server.
 
-The application server uses [service health check API](/rest/api/webpubsub/health-api/get-service-status) to detect if its "primary" and "secondary" services are healthy or not. For example, for a Web PubSub service called `demo`, the endpoint `https://demo.webpubsub.azure.com/api/health` returns 200 when the service is healthy. The app server can periodically call the endpoints or call the endpoints on demand to check if the endpoints are healthy. WebSocket clients usually **negotiate** with its application server first to get the URL connecting to the Web PubSub service, and the application uses this **negotiate** step to fail over the clients to other healthy "secondary" services. Detailed steps as below:
+The application server can use [service health check API](/rest/api/webpubsub/dataplane/health-api/get-service-status) to detect if its **primary** and **secondary** services are healthy or not. For example, for a Web PubSub service called `demo`, the endpoint `https://demo.webpubsub.azure.com/api/health` returns 200 when the service is healthy. The app server can periodically call the endpoints or call the endpoints on demand to check if the endpoints are healthy. WebSocket clients usually **negotiate** with its application server first to get the URL connecting to the Web PubSub service, and the application uses this **negotiate** step to fail over the clients to other healthy **secondary** services. Detailed steps as below:
 
 1. When a client **negotiate** with the app server, app server SHOULD only return primary Web PubSub service endpoints so in normal case clients only connect to primary endpoints.
-
-2. When primary instance is down, **negotiate** SHOULD return a healthy secondary endpoint so client can still make connections, and the client connects to the secondary endpoint.
-
-3. When app server wants to "broadcast" messages to multiple clients, make sure it "broadcast" messages to all the "healthy" endpoints including both "primary" and "secondary".
+1. When primary instance is down, **negotiate** SHOULD return a healthy secondary endpoint so client can still make connections, and the client connects to the secondary endpoint.
+1. When primary instance is up, **negotiate** SHOULD return the healthy primary endpoint so clients now can connect to the primary endpoint
+1. When app server **broadcast**s messages, it SHOULD **broadcast** messages to all the **healthy** endpoints including both **primary** and **secondary**.
+1. App server can close connections connected to **secondary** endpoints to force the clients reconnect to the healthy primary endpoint.
 
 With this topology, message from one server can still be delivered to all clients as all app servers and Web PubSub service instances are interconnected.
+
+We haven't integrated the strategy into the SDK yet, so for now the application needs to implement this strategy by itself. 
+
+In summary, what the application side needs to implement is:
+1. Health check. Application can either check if the service is healthy using [service health check API](/rest/api/webpubsub/dataplane/health-api/get-service-status) periodically in the background or on demand for every **negotiate** call.
+1. Negotiate logic. Application returns healthy **primary** endpoint by default. When **primary** endpoint is down, application returns healthy **secondary** endpoint.
+1. Broadcast logic. When sending messages to multiple clients, application needs to make sure it broadcasts messages to all the **healthy** endpoints.
 
 Below is a diagram that illustrates such topology:
 
@@ -76,7 +83,7 @@ Web PubSub service can support both patterns, the main difference is how you imp
 If app servers are active/passive, Web PubSub service will also be active/passive (as the primary app server only returns its primary Web PubSub service instance).
 If app servers are active/active, Web PubSub service will also be active/active (as all app servers will return their own primary Web PubSub instances, so all of them can get traffic).
 
-Be noted no matter which patterns you choose to use, you'll need to connect each Web PubSub service instance to an app server as a "primary" role.
+Be noted no matter which patterns you choose to use, you'll need to connect each Web PubSub service instance to an app server as a **primary** role.
 
 Also due to the nature of WebSocket connection (it's a long connection), clients will experience connection drops when there is a disaster and failover take place.
 You'll need to handle such cases at client side to make it transparent to your end customers. For example, do reconnect after a connection is closed.

@@ -22,7 +22,7 @@ When an Azure Virtual Machine (VM) that’s been protected by a Recovery Service
 
 Before you move a VM, ensure the following prerequisites are met:
 
-1. See the [prerequisites associated with VM move](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) and ensure that the VM is eligible for move.
+1. See the [prerequisites associated with VM move](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) and ensure that the VM is eligible for move.
 1. [Select the VM on the **Backup Items** tab](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of existing vault’s dashboard and select **Stop protection** followed by retain/delete data as per your requirement. When the backup data for a VM is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures you always have your backup data ready for restore.
    >[!Note]
    >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using the  [Delete data option](./backup-azure-manage-vms.md#delete-backup-data).
@@ -31,8 +31,8 @@ Before you move a VM, ensure the following prerequisites are met:
    - On Windows VMs, install the latest Windows updates.
    - On Linux VMs, refer to distributor guidance to ensure that machines have the latest certificates and CRL.
 1. Allow outbound connectivity from VMs:
-   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
-   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
+   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](../resource-mover/support-matrix-move-region-azure-vm.md#url-access).
+   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
 ### Move Azure VMs
 
@@ -52,8 +52,8 @@ Azure Backup offers [a snapshot management solution](./backup-afs.md) for your A
 
 Before you move the Storage Account, ensure the following prerequisites are met:
 
-1.	See the [prerequisites to move Storage Account](/azure/storage/common/storage-account-move?tabs=azure-portal#prerequisites). 
-1. Export and modify a Resource Move template. For more information, see [Prepare Storage Account for region move](/azure/storage/common/storage-account-move?tabs=azure-portal#prepare).
+1.	See the [prerequisites to move Storage Account](../storage/common/storage-account-move.md?tabs=azure-portal#prerequisites). 
+1. Export and modify a Resource Move template. For more information, see [Prepare Storage Account for region move](../storage/common/storage-account-move.md?tabs=azure-portal#prepare).
 
 ### Move Azure File Share
 
@@ -78,7 +78,7 @@ When you move a VM running SQL or SAP HANA servers to another region, the SQL an
 
 Before you move SQL Server/SAP HANA running in a VM to a new region, ensure the following prerequisites are met:
 
-1. See the [prerequisites associated with VM move](/azure/resource-mover/tutorial-move-region-virtual-machines#prerequisites) and ensure that the VM is eligible for move. 
+1. See the [prerequisites associated with VM move](../resource-mover/tutorial-move-region-virtual-machines.md#prerequisites) and ensure that the VM is eligible for move. 
 1. Select the VM on the [Backup Items tab](./backup-azure-delete-vault.md#delete-protected-items-in-the-cloud) of the existing vault’s dashboard and select _the databases_ for which backup needs to be stopped. Select **Stop protection** followed by retain/delete data as per your requirement. When the backup data is stopped with retain data, the recovery points remain forever and don’t adhere to any policy. This ensures that you always have your backup data ready for restore.
    >[!Note]
    >Retaining data in the older vault will incur backup charges. If you no longer wish to retain data to avoid billing, you need to delete the retained backup data using [Delete data option](./backup-azure-manage-vms.md#delete-backup-data).
@@ -87,8 +87,8 @@ Before you move SQL Server/SAP HANA running in a VM to a new region, ensure the 
    - On Windows VMs, install the latest Windows updates.
    - On Linux VMs, refer to the distributor guidance and ensure that machines have the latest certificates and CRL.
 1. Allow outbound connectivity from VMs:
-   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](/azure/resource-mover/support-matrix-move-region-azure-vm#url-access).
-   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](/azure/resource-mover/support-matrix-move-region-azure-vm#nsg-rules).
+   - If you're using a URL-based firewall proxy to control outbound connectivity, allow access to [these URLs](../resource-mover/support-matrix-move-region-azure-vm.md#url-access).
+   - If you're using network security group (NSG) rules to control outbound connectivity, create [these service tag rules](../resource-mover/support-matrix-move-region-azure-vm.md#nsg-rules).
 
 ### Move SQL Server/SAP HANA in Azure VM
 

@@ -1,16 +1,13 @@
 ---
 title: Certificates bindings
-description: Explain numerous topics related to certificates on an App Service Environment. Learn how certificate bindings work on the single-tenanted apps in an ASE.
-author: ccompy
-
-ms.assetid: 9e21a7e4-2436-4e81-bb05-4a6ba70eeaf7
-ms.topic: article
-ms.date: 08/29/2018
-ms.author: ccompy
-ms.custom: seodec18
+description: Explain numerous topics related to certificates on an App Service Environment v2. Learn how certificate bindings work on the single-tenanted apps in an ASE.
+author: madsd
+ms.topic: overview
+ms.date: 11/15/2021
+ms.author: madsd
 ---
 
-# Certificates and the App Service Environment 
+# Certificates and the App Service Environment v2
 > [!NOTE]
 > This article is about the App Service Environment v2 which is used with Isolated App Service plans
 > 

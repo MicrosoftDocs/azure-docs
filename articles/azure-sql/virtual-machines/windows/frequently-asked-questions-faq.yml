@@ -261,7 +261,7 @@ sections:
         
       - question: |
           What Azure Load Balancer SKU should be used for a cross-cluster migration of an availability group? 
-        answer:    To perform a [cross-cluster migration of an availability group](http://download.microsoft.com/download/d/2/0/d20e1c5f-72ea-4505-9f26-fef9550efd44/alwayson%20ag%20os%20upgrade.docx) on SQL Server on Azure VMs, use the standard [Azure Load Balancer SKU](/azure/load-balancer/skus). 
+        answer:    To perform a [cross-cluster migration of an availability group](http://download.microsoft.com/download/d/2/0/d20e1c5f-72ea-4505-9f26-fef9550efd44/alwayson%20ag%20os%20upgrade.docx) on SQL Server on Azure VMs, use the standard [Azure Load Balancer SKU](../../../load-balancer/skus.md). 
 
       - question: |
           Can I use Azure premium file share to host my database files on a standalone instance of SQL Server?  

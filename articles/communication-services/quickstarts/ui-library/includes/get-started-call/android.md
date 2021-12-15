@@ -8,6 +8,10 @@ ms.topic: include
 ms.service: azure-communication-services
 ---
 
+[!INCLUDE [Public Preview Notice](../../../../includes/public-preview-include.md)]
+
+Azure Communication UI [open source library](https://github.com/Azure/communication-ui-library-android) for Android and the sample application code can be found [here](https://github.com/Azure-Samples/communication-services-android-quickstarts/tree/main/ui-library-quick-start)
+
 
 ## Prerequisites
 
@@ -15,6 +19,7 @@ ms.service: azure-communication-services
 - An OS running [Android Studio](https://developer.android.com/studio).
 - A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
 - Azure Communication Services Token. See [example](../../../identity/quick-create-identity.md) 
+
 
 ## Setting up
 
@@ -29,13 +34,6 @@ Click the `Next` button and name the project `UILibraryQuickStart`, set language
 ![Screenshot showing the 'Finish' button selected in Android Studio.](../../media/composite-android-new-project-finish.png)
 
 Click `Finish`.
-
-## Maven repository credentials
-
-- You need to provide your personal access token that has read:packages scope selected.
-- You might need to have SSO enabled for that PAT.
-- Also make sure your GitHub user has access to https://github.com/Azure/communication-preview
-- Personal access token can be generated: [here](https://github.com/settings/tokens
 
 ## Install the packages
 
@@ -54,31 +52,23 @@ android {
 ```groovy
 dependencies {
     ...
-    implementation 'com.azure.android:azure-communication-ui:1.0.0-alpha.1'
+    implementation 'com.azure.android:azure-communication-ui:+'
     ...
 }
 ```
 
-In your project setting level (**app folder**) `settings.gradle`, add the following lines to the repositories.
+In your project gradle scripts add following lines to `repositories`.  
+For `Android Studio (2020.*)` the `repositories` are in `settings.gradle` `dependencyResolutionManagement(Gradle version 6.8 or greater)`.  
+If you are using old versions of `Android Studio (4.*)` then the `repositories` will be in project level `build.gradle` `allprojects{}`.  
 
 ```groovy
-dependencyResolutionManagement {
-    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
-    repositories {
-        ...
-        maven {
-            url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
-        }
-        maven {
-            name='github'
-            url = 'https://maven.pkg.github.com/Azure/communication-preview'
-            credentials {
-                username '<your GitHub user name>'
-                password '<your personal access token>'
-            }
-        }
-        ...
+repositories {
+    ...
+    mavenCentral()
+    maven {
+        url "https://pkgs.dev.azure.com/MicrosoftDeviceSDK/DuoSDK-Public/_packaging/Duo-SDK-Feed/maven/v1"
     }
+    ...
 }
 ```
 Sync project with gradle files. (Android Studio -> File -> Sync Project With Gradle Files)
@@ -140,11 +130,12 @@ class MainActivity : AppCompatActivity() {
     private fun startCallComposite() {
         val communicationTokenRefreshOptions = CommunicationTokenRefreshOptions({ fetchToken() }, true)
         val communicationTokenCredential = CommunicationTokenCredential(communicationTokenRefreshOptions)
+
         val options = GroupCallOptions(
             this,
             communicationTokenCredential,
+            UUID.fromString("GROUP_CALL_ID"),
             "DISPLAY_NAME",
-            UUID.fromString("GROUP_CALL_ID")
         )
 
         val callComposite: CallComposite = CallCompositeBuilder().build()
@@ -187,17 +178,19 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void startCallComposite() {
-        CallComposite callComposite = new CallCompositeBuilder().build();
-
         CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
                 new CommunicationTokenRefreshOptions(this::fetchToken, true);
-        CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
-        GroupCallOptions options = new GroupCallOptions(this,
+        CommunicationTokenCredential communicationTokenCredential = 
+                new CommunicationTokenCredential(communicationTokenRefreshOptions);
+
+        GroupCallOptions options = new GroupCallOptions(
+                this,
                 communicationTokenCredential,
-                "DISPLAY_NAME",
-                UUID.fromString("GROUP_CALL_ID"));
+                UUID.fromString("GROUP_CALL_ID"),
+                "DISPLAY_NAME");
 
+        CallComposite callComposite = new CallCompositeBuilder().build();
         callComposite.launch(options);
     }
 
@@ -230,7 +223,9 @@ The following classes and interfaces handle some of the major features of the Az
 | [TeamsMeetingOptions](#teams-meeting)                              | Passed to CallComposite launch to join Teams meeting meeting.                                |
 | [ThemeConfiguration](#apply-theme-configuration)                   | Injected as optional in CallCompositeBuilder to change primary color of composite.           |
 
-## Create Call Composite
+## UI Library functionality
+
+### Create Call Composite
 
 Initialize a `CallCompositeBuilder` instance and a `CallComposite` instance inside the `startCallComposite` function.
 
@@ -246,7 +241,7 @@ CallComposite callComposite = new CallCompositeBuilder().build();
 ```
 
 -----
-### Create `CommunicationTokenCredential`
+### Setup authentication
 
 Initialize a `CommunicationTokenCredential` instance inside the `startCallComposite` function. Replace `"<USER_ACCESS_TOKEN>"` with your token.
 
@@ -266,25 +261,24 @@ val communicationTokenCredential = CommunicationTokenCredential(communicationTok
 CallComposite callComposite = new CallCompositeBuilder().build();
 
 CommunicationTokenRefreshOptions communicationTokenRefreshOptions =
-                new CommunicationTokenRefreshOptions(this::fetchToken, true);
+        new CommunicationTokenRefreshOptions(this::fetchToken, true);
 
-CommunicationTokenCredential communicationTokenCredential = new CommunicationTokenCredential(communicationTokenRefreshOptions);
+CommunicationTokenCredential communicationTokenCredential = 
+        new CommunicationTokenCredential(communicationTokenRefreshOptions);
 
 ```
 
 Refer to the [user access token](../../../identity/quick-create-identity.md) documentation if you don't already have a token available.
 
 -----
-## Setup Group Call or Teams Meeting Options
+### Setup Group Call or Teams Meeting Options
 
 Depending on what type of Call/Meeting you would like to setup, use the appropriate options object.
 
 ### Group Call
 
 Initialize a `GroupCallOptions` instance inside the `startCallComposite` function.
-
 Replace `"GROUP_CALL_ID"` with your group ID for your call.
-
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -293,8 +287,8 @@ Replace `"DISPLAY_NAME"` with your name.
 val options = GroupCallOptions(
             this,
             communicationTokenCredential,
+            UUID.fromString("GROUP_CALL_ID"),
             "DISPLAY_NAME",
-            UUID.fromString("GROUP_CALL_ID")
         )
 ```
 
@@ -304,16 +298,15 @@ val options = GroupCallOptions(
 GroupCallOptions options = new GroupCallOptions(
     this,
     communicationTokenCredential,
-    "DISPLAY_NAME",
-    UUID.fromString("GROUP_CALL_ID")
+    UUID.fromString("GROUP_CALL_ID"),
+    "DISPLAY_NAME"
 );
 ```
 -----
 ### Teams Meeting
 
 Initialize a `TeamsMeetingOptions` instance inside the `startCallComposite` function.
-Replace `"TEAMS_MEETING_LINK"` with your group ID for your call.
-
+Replace `"TEAMS_MEETING_LINK"` with teams meeting url for your call.
 Replace `"DISPLAY_NAME"` with your name.
 
 #### [Kotlin](#tab/kotlin)
@@ -322,8 +315,8 @@ Replace `"DISPLAY_NAME"` with your name.
 val options = TeamsMeetingOptions(
             this,
             communicationTokenCredential,
+            "TEAMS_MEETING_LINK",
             "DISPLAY_NAME",
-           "TEAMS_MEETING_LINK"
         )
 ```
 
@@ -333,20 +326,20 @@ val options = TeamsMeetingOptions(
 TeamsMeetingOptions options = new TeamsMeetingOptions(
     this,
     communicationTokenCredential,
-    "DISPLAY_NAME",
-    "TEAMS_MEETING_LINK"
+    "TEAMS_MEETING_LINK",
+    "DISPLAY_NAME"
 );
 ```
 
 -----
 ### Get a Microsoft Teams meeting link
 
-A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?tabs=http&view=graph-rest-beta&preserve-view=true).
+A Microsoft Teams meeting link can be retrieved using Graph APIs. This process is detailed in [Graph documentation](/graph/api/onlinemeeting-createorget?preserve-view=true&tabs=http&view=graph-rest-beta).
 
-The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](https://docs.microsoft.com/graph/api/resources/onlinemeeting?view=graph-rest-beta&preserve-view=true)
+The Communication Services Call SDK accepts a full Microsoft Teams meeting link. This link is returned as part of the `onlineMeeting` resource, accessible under the [`joinWebUrl` property](/graph/api/resources/onlinemeeting?preserve-view=true&view=graph-rest-beta)
 You can also get the required meeting information from the **Join Meeting** URL in the Teams meeting invite itself.
 
-## Launch
+### Launch
 
 Call `launch` on the `CallComposite` instance inside the `startCallComposite` function
 
@@ -364,47 +357,31 @@ callComposite.launch(options);
 
 -----
 
-## Subscribe on events from `CallComposite`
+### Subscribe to events from `CallComposite`
 
 To receive events, inject a handler to the `CallCompositeBuilder`.
 
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val communicationCallComposite: CallComposite =
-            CallCompositeBuilder()
-                .callCompositeEventsHandler(ApplicationCallCompositeEventsHandler())
-                .build()
-
-...
-
-class ApplicationCallCompositeEventsHandler : CallCompositeEventsHandler {
-    override fun onException(eventArgs: OnExceptionEventArgs) {
-        //...
-    }
+val callComposite: CallComposite = CallCompositeBuilder().build()
+callComposite.setOnErrorHandler { errorEvent ->
+    //...
 }
 ```
 
 #### [Java](#tab/java)
 
 ```java
-CallComposite communicationCallComposite =
-                new CallCompositeBuilder()
-                        .callCompositeEventsHandler(new ApplicationCallCompositeEventsHandler())
-                        .build();
-...
-
-class ApplicationCallCompositeEventsHandler implements CallCompositeEventsHandler {
-    @Override
-    public void onException(@NonNull OnExceptionEventArgs eventArgs) {
-        //...
-    }
-}
+CallComposite callComposite = new CallCompositeBuilder().build();
+callComposite.setOnErrorHandler(errorEvent -> {
+    //...
+});
 ```
 
 -----
 
-## Apply theme configuration
+### Apply theme configuration
 
 To change the primary color of composite, create a new theme style in `src/main/res/values/themes.xml` and `src/main/res/values-night/themes.xml` by considering `AzureCommunicationUI.Theme.Calling` as parent theme. To apply theme, inject the theme ID in `CallCompositeBuilder`.
 
@@ -417,7 +394,9 @@ To change the primary color of composite, create a new theme style in `src/main/
 #### [Kotlin](#tab/kotlin)
 
 ```kotlin
-val communicationCallComposite: CallComposite =
+import com.azure.android.communication.ui.configuration.ThemeConfiguration
+
+val callComposite: CallComposite =
         CallCompositeBuilder()
             .theme(ThemeConfiguration(R.style.MyCompany_CallComposite))
             .build()
@@ -426,8 +405,14 @@ val communicationCallComposite: CallComposite =
 #### [Java](#tab/java)
 
 ```java
+import com.azure.android.communication.ui.configuration.ThemeConfiguration;
+
 CallComposite callComposite = 
     new CallCompositeBuilder()
         .theme(new ThemeConfiguration(R.style.MyCompany_CallComposite))
         .build();
 ```
+
+### Add notifications into your mobile app
+
+The push notifications allow you to send information from your application to users' mobile devices. You can use push notifications to show a dialog, play a sound, or display incoming call UI. Azure Communication Services provides integrations with [Azure Event Grid](../../../../../event-grid/overview.md) and [Azure Notification Hubs](../../../../../notification-hubs/notification-hubs-push-notification-overview.md) that enable you to add push notifications to your apps [follow the link.](../../../../concepts/notifications.md)

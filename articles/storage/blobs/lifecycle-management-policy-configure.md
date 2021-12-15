@@ -216,4 +216,4 @@ A lifecycle management policy must be read or written in full. Partial updates a
 ## See also
 
 - [Optimize costs by automatically managing the data lifecycle](lifecycle-management-overview.md)
-- [Hot, cool, and archive access tiers for blob data](access-tiers-overview.md)
+- [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md)

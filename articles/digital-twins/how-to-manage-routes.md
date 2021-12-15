@@ -136,7 +136,7 @@ After successfully running these commands, the event grid, event hub, or Service
 
 #### Create an endpoint with identity-based authentication
 
-You can also create an endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
+You can also create an endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
 
 The CLI command to create this type of endpoint is below. You'll need the following values to plug into the placeholders in the command:
 * the Azure resource ID of your Azure Digital Twins instance
@@ -239,7 +239,7 @@ Alternatively, you can create dead letter endpoints using the [Azure Digital Twi
 
 #### Create a dead-letter endpoint with identity-based authentication
 
-You can also create a dead-lettering endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hub and Service Bus-type endpoints (it's not supported for Event Grid).
+You can also create a dead-lettering endpoint that has identity-based authentication, to use the endpoint with a [managed identity](concepts-security.md#managed-identity-for-accessing-other-resources). This option is only available for Event Hubs and Service Bus-type endpoints (it's not supported for Event Grid).
 
 To create this type of endpoint, use the same CLI command from earlier to [create an endpoint with identity-based authentication](#create-an-endpoint-with-identity-based-authentication), with an extra field in the JSON payload for a `deadLetterUri`.
 

@@ -347,14 +347,13 @@ Azure Backup Server v3 only accepts storage volumes. When you add a volume, Azur
 
 1. Select from the available volumes to add to the storage pool. 
 
-1. After you add the available volumes, give them a friendly name to help you manage them. 
+1. After you add the available volumes, give them a friendly name to help you manage them.
 
 1. Select **OK** to format these volumes to ReFS so that Azure Backup Server can use Modern Backup Storage benefits.
-
 
 ## Next steps
 
 Now that you've covered how to set up Azure Backup Server for Azure VMware Solution, you may want to learn about:
 
 - [Configuring backups for your Azure VMware Solution VMs](backup-azure-vmware-solution-virtual-machines.md).
-- [Protecting your Azure VMware Solution VMs with Azure Security Center integration](azure-security-integration.md).
+- [Protecting your Azure VMware Solution VMs with Microsoft Defender for Cloud integration](azure-security-integration.md).

@@ -462,7 +462,7 @@ However, if your generalized and sysprepped OS image already contains the Azure 
 
 The  Microsoft Azure Virtual Machine running the Azure extension for SAP requires access to the Internet. If this Azure VM is part of an Azure Virtual Network or of an on-premises domain, make sure that the relevant proxy settings are set. These settings must also be valid for the LocalSystem account to access the Internet. Follow chapter [Configure the proxy][configure-proxy] in this guide.
 
-In addition, if you need to set a static IP address for your Azure VM, do not set it manually inside the Azure VM, but set it using [Azure PowerShell](../../../virtual-network/virtual-networks-static-private-ip-arm-ps.md), [Azure CLI](../../../virtual-network/virtual-networks-static-private-ip-arm-cli.md) [Azure portal](../../../virtual-network/virtual-networks-static-private-ip-arm-pportal.md). The static IP is propagated via the Azure DHCP service.
+In addition, if you need to set a static IP address for your Azure VM, do not set it manually inside the Azure VM, but set it using [Azure PowerShell](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-ps.md), [Azure CLI](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-cli.md) [Azure portal](../../../virtual-network/ip-services/virtual-networks-static-private-ip-arm-pportal.md). The static IP is propagated via the Azure DHCP service.
 
 Manually setting a static IP address inside the Azure VM is not supported, and might lead to problems with the Azure extension for SAP.
 

@@ -8,7 +8,7 @@ ms.subservice: enterprise-readiness
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 08/03/2021
+ms.date: 10/29/2021
 ms.topic: how-to
 ms.custom: contperf-fy21q3, devx-track-azurepowershell
 ---
@@ -19,6 +19,9 @@ When using an Azure Machine Learning workspace with a private endpoint, there ar
 
 > [!IMPORTANT]
 > This article covers how to find the fully qualified domain names (FQDN) and IP addresses for these entries if you would like to manually register DNS records in your DNS solution. Additionally this article provides architecture recommendations for how to configure your custom DNS solution to automatically resolve FQDNs to the correct IP addresses. This article does NOT provide information on configuring the DNS records for these items. Consult the documentation for your DNS software for information on how to add records.
+
+> [!WARNING]
+> If you use a private endpoint for other Azure services that the machine learning workspace relies on, such as Azure Storage, Azure Key Vault, or Azure Container Registry. You must also create DNS entries or use a conditional forwarder for these services. For more information, see [Azure Private Endpoint DNS configuration](../private-link/private-endpoint-dns.md).
 
 > [!TIP]
 > This article is part of a series on securing an Azure Machine Learning workflow. See the other articles in this series:
@@ -280,7 +283,7 @@ The following steps describe how this topology works:
     **Azure Public regions**:
     - ```api.azureml.ms```
     - ```notebooks.azure.net```
-    - ```instances.ml.azure.us```
+    - ```instances.ml.azure.ms```
     
     **Azure China regions**:
     - ```api.ml.azure.cn```

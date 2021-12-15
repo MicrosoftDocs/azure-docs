@@ -17,7 +17,7 @@ ms.custom: contperf-fy21q2
 #customer intent: As an admin, I want to manage app consent policies for enterprise applications in Azure AD
 ---
 
-# Manage app consent policies in Azure Active Directory
+# Manage app consent policies
 
 With Azure AD PowerShell, you can view and manage app consent policies.
 
@@ -120,7 +120,7 @@ Once the app consent policy has been created, you can [allow user consent](confi
    ```
 
 > [!WARNING]
-> Deleted app consent policies cannot be restored. If you accidentally delete an custom app consent policy, you will need to re-create the policy.
+> Deleted app consent policies cannot be restored. If you accidentally delete a custom app consent policy, you will need to re-create the policy.
 
 ---
 

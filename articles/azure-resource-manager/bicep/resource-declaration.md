@@ -4,30 +4,63 @@ description: Describes how to declare resources to deploy in Bicep.
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 11/12/2021
 ---
 
 # Resource declaration in Bicep
 
-To deploy a resource through a Bicep file, you add a resource declaration by using the `resource` keyword.
+This article describes the syntax you use to add a resource to your Bicep file.
 
-## Set resource type and version
+## Declaration
 
-When adding a resource to your Bicep file, start by setting the resource type and API version. These values determine the other properties that are available for the resource.
-
-The following example shows how to set the resource type and API version for a storage account. The example doesn't show the full resource declaration.
+Add a resource declaration by using the `resource` keyword. You set a symbolic name for the resource. The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file.
 
 ```bicep
-resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
+resource <symbolic-name> '<full-type-name>@<api-version>' = {
+  <resource-properties>
+}
+```
+
+So, a declaration for a storage account can start with:
+
+```bicep
+resource stg 'Microsoft.Storage/storageAccounts@2021-04-01' = {
   ...
 }
 ```
 
-You set a symbolic name for the resource. In the preceding example, the symbolic name is `stg`.  The symbolic name isn't the same as the resource name. You use the symbolic name to reference the resource in other parts of your Bicep file. Symbolic names are case-sensitive.  They may contain letters, numbers, and _; but can't start with a number.
+Symbolic names are case-sensitive. They may contain letters, numbers, and underscores (`_`). They can't start with a number. A resource can't have the same name as a parameter, variable, or module.
 
-Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
+For the available resource types and version, see [Bicep resource reference](/azure/templates/). Bicep doesn't support `apiProfile`, which is available in [Azure Resource Manager templates (ARM templates) JSON](../templates/syntax.md).
 
-## Set resource name
+To conditionally deploy a resource, use the `if` syntax. For more information, see [Conditional deployment in Bicep](conditional-resource-deployment.md).
+
+```bicep
+resource <symbolic-name> '<full-type-name>@<api-version>' = if (condition) {
+  <resource-properties>
+}
+```
+
+To deploy more than one instance of a resource, use the `for` syntax. You can use the `batchSize` decorator to specify whether the instances are deployed serially or in parallel. For more information, see [Iterative loops in Bicep](loops.md).
+
+```bicep
+@batchSize(int) // optional decorator for serial deployment
+resource <symbolic-name> '<full-type-name>@<api-version>' = [for <item> in <collection>: {
+  <properties-to-repeat>
+}]
+```
+
+You can also use the `for` syntax on the resource properties to create an array.
+
+```bicep
+resource <symbolic-name> '<full-type-name>@<api-version>' = {
+  properties: {
+    <array-property>: [for <item> in <collection>: <value-to-repeat>]
+  }
+}
+```
+
+## Resource name
 
 Each resource has a name. When setting the resource name, pay attention to the [rules and restrictions for resource names](../management/resource-name-rules.md).
 
@@ -51,7 +84,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-## Set location
+## Location
 
 Many resources require a location. You can determine if the resource needs a location either through intellisense or [template reference](/azure/templates/). The following example adds a location parameter that is used for the storage account.
 
@@ -95,11 +128,11 @@ az provider show \
 
 ---
 
-## Set tags
+## Tags
 
 You can apply tags to a resource during deployment. Tags help you logically organize your deployed resources. For examples of the different ways you can specify the tags, see [ARM template tags](../management/tag-resources.md#arm-templates).
 
-## Set managed identities for Azure resources
+## Managed identities for Azure resources
 
 Some resources support [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). Those resources have an identity object at the root level of the resource declaration.
 
@@ -133,11 +166,11 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   }
 ```
 
-## Set resource-specific properties
+## Resource-specific properties
 
 The preceding properties are generic to most resource types. After setting those values, you need to set the properties that are specific to the resource type you're deploying.
 
-Use intellisense or [template reference](/azure/templates/) to determine which properties are available and which ones are required. The following example sets the remaining properties for a storage account.
+Use intellisense or [Bicep resource reference](/azure/templates/) to determine which properties are available and which ones are required. The following example sets the remaining properties for a storage account.
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -154,7 +187,7 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
 }
 ```
 
-## Set resource dependencies
+## Dependencies
 
 When deploying resources, you may need to make sure some resources exist before other resources. For example, you need a logical SQL server before deploying a database. You establish this relationship by marking one resource as dependent on the other resource. Order of resource deployment can be influenced in two ways: [implicit dependency](#implicit-dependency) and [explicit dependency](#explicit-dependency)
 
@@ -228,7 +261,7 @@ Visual Studio Code provides a tool for visualizing the dependencies. Open a Bice
 
 :::image type="content" source="./media/resource-declaration/bicep-resource-visualizer.png" alt-text="Screenshot of Visual Studio Code Bicep resource visualizer":::
 
-## Reference existing resources
+## Existing resources
 
 To reference a resource that's outside of the current Bicep file, use the `existing` keyword in a resource declaration.
 
@@ -252,6 +285,8 @@ resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' existing = {
 
 output blobEndpoint string = stg.properties.primaryEndpoints.blob
 ```
+
+If you attempt to reference a resource that doesn't exist, you get the `NotFound` error and your deployment fails.
 
 For more information about setting the scope, see [Scope functions for Bicep](bicep-functions-scope.md).
 

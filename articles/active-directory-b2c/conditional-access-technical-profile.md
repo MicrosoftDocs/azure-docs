@@ -30,7 +30,7 @@ Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=
 
 The following example shows a Conditional Access technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -60,7 +60,6 @@ The **InputClaims** element contains a list of claims to send to Conditional Acc
 | IsFederated | Yes |boolean | Indicates whether or not a user signed in with a federated account. The value must be `false`. |
 | IsMfaRegistered | Yes |boolean | Indicates whether the user already enrolled a phone number for multi-factor authentication. |
 
-
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending them to the Conditional Access service.
 
 ### Output claims
@@ -78,7 +77,7 @@ The **OutputClaimsTransformations** element may contain a collection of **Output
 
 The following example shows a Conditional Access technical profile that is used to evaluate the sign-in threat.
 
-```XML
+```xml
 <TechnicalProfile Id="ConditionalAccessEvaluation">
   <DisplayName>Conditional Access Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.ConditionalAccessProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -118,7 +117,6 @@ The **InputClaims** element contains a list of claims to send to Conditional Acc
 | ClaimReferenceId | Required | Data Type | Description |
 | --------- | -------- | ----------- |----------- |
 | ChallengesSatisfied | Yes | stringCollection| The list of satisfied challenges to remediate the identified threat as return from the evaluation mode, challenges claim.|
-
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before calling the Conditional Access service.
 

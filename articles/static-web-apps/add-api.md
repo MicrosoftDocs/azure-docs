@@ -5,7 +5,7 @@ services: static-web-apps
 author: manekinekko
 ms.service: static-web-apps
 ms.topic:  how-to
-ms.date: 05/14/2021
+ms.date: 12/03/2021
 ms.author: wachegha
 ms.custom: devx-track-js
 ---
@@ -23,6 +23,7 @@ You can add serverless APIs to Azure Static Web Apps that are powered by Azure F
   - If you don't have an account, you can [create one for free](https://azure.microsoft.com/free).
 - [Visual Studio Code](https://code.visualstudio.com/)
 - [Azure Static Web Apps extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurestaticwebapps) for Visual Studio Code
+- [Azure Functions extension](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-azurefunctions) for Visual Studio Code
 - [Node.js](https://nodejs.org/download/) to run the frontend app and API
 
 ## Create the static web app
@@ -306,7 +307,7 @@ Run the frontend app and API together by starting the app with the Static Web Ap
 
 1. When the CLI processes start, access your app at `http://localhost:4280/`. Notice how the page calls the API and displays its output, `Hello from the API`.
 
-1. To stop the CLI, type <kbd>Ctrl-C</kbd>.
+1. To stop the CLI, type <kbd>Ctrl + C</kbd>.
 
 ## Add API location to workflow
 

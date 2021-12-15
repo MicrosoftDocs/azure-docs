@@ -7,7 +7,7 @@ ms.subservice: extensions
 author: amjads1
 ms.author: amjads
 ms.collection: linux
-ms.date: 02/18/2020
+ms.date: 11/02/2021
 
 ---
 # Log Analytics virtual machine extension for Linux
@@ -16,10 +16,8 @@ ms.date: 02/18/2020
 
 Azure Monitor Logs provides monitoring, alerting, and alert remediation capabilities across cloud and on-premises assets. The Log Analytics virtual machine extension for Linux is published and supported by Microsoft. The extension installs the Log Analytics agent on Azure virtual machines, and enrolls virtual machines into an existing Log Analytics workspace. This document details the supported platforms, configurations, and deployment options for the Log Analytics virtual machine extension for Linux.
 
->[!NOTE]
->As part of the ongoing transition from Microsoft Operations Management Suite (OMS) to Azure Monitor, the OMS Agent for Windows or Linux will be referred to as the Log Analytics agent for Windows and Log Analytics agent for Linux.
-
-[!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+> [!NOTE]
+> Azure Arc-enabled servers enables you to deploy, remove, and update the Log Analytics agent VM extension to non-Azure Windows and Linux machines, simplifying the management of your hybrid machine through their lifecycle. For more information, see [VM extension management with Azure Arc-enabled servers](../../azure-arc/servers/manage-vm-extensions.md).
 
 ## Prerequisites
 
@@ -28,6 +26,7 @@ Azure Monitor Logs provides monitoring, alerting, and alert remediation capabili
 For details about the supported Linux distributions, refer to the [Overview of Azure Monitor agents](../../azure-monitor/agents/agents-overview.md#supported-operating-systems) article.
 
 ### Agent and VM Extension version
+
 The following table provides a mapping of the version of the Log Analytics VM extension and Log Analytics agent bundle for each release. A link to the release notes for the Log Analytics agent bundle version is included. Release notes include details on bug fixes and new features available for a given agent release.  
 
 | Log Analytics Linux VM extension version | Log Analytics Agent bundle version | 
@@ -54,17 +53,17 @@ The following table provides a mapping of the version of the Log Analytics VM ex
 | 1.3.127.7 | [1.3.5-127](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201705-v1.3.5-127)|
 | 1.3.18.7 | [1.3.4-15](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent-201704-v1.3.4-15)|  
 
-### Azure Security Center
+### Microsoft Defender for Cloud
 
-Azure Security Center automatically provisions the Log Analytics agent and connects it to a default Log Analytics workspace created by ASC in your Azure subscription. If you are using Azure Security Center, do not run through the steps in this document. Doing so overwrites the configured workspace and breaks the connection with Azure Security Center.
+Microsoft Defender for Cloud automatically provisions the Log Analytics agent and connects it to a default Log Analytics workspace created by Defender for Cloud in your Azure subscription. If you are using Microsoft Defender for Cloud, do not run through the steps in this document. Doing so overwrites the configured workspace and breaks the connection with Microsoft Defender for Cloud.
 
 ### Internet connectivity
 
-The Log Analytics Agent extension for Linux requires that the target virtual machine is connected to the internet. 
+The Log Analytics agent extension for Linux requires that the target virtual machine is connected to the internet. 
 
 ## Extension schema
 
-The following JSON shows the schema for the Log Analytics Agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/vm/monitor-virtual-machine.md) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
+The following JSON shows the schema for the Log Analytics agent extension. The extension requires the workspace ID and workspace key from the target Log Analytics workspace; these values can be [found in your Log Analytics workspace](../../azure-monitor/vm/monitor-virtual-machine.md) in the Azure portal. Because the workspace key should be treated as sensitive data, it should be stored in a protected setting configuration. Azure VM extension protected setting data is encrypted, and only decrypted on the target virtual machine. Note that **workspaceId** and **workspaceKey** are case-sensitive.
 
 ```json
 {
@@ -104,13 +103,12 @@ The following JSON shows the schema for the Log Analytics Agent extension. The e
 | workspaceId (e.g) | 6f680a37-00c6-41c7-a93f-1437e3462574 |
 | workspaceKey (e.g) | z4bU3p1/GrnWpQkky4gdabWXAhbWSTz70hm4m2Xt92XI+rSRgE8qVvRhsGo9TXffbrTahyrwv35W0pOqQAU7uQ== |
 
-
 ## Template deployment
 
 >[!NOTE]
 >Certain components of the Log Analytics VM extension are also shipped in the [Diagnostics VM extension](./diagnostics-linux.md). Due to this architecture, conflicts can arise if both extensions are instantiated in the same ARM template. To avoid these install-time conflicts, use the [`dependsOn` directive](../../azure-resource-manager/templates/resource-dependency.md#dependson) to ensure the extensions are installed sequentially. The extensions can be installed in either order.
 
-Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to Azure Monitor Logs. A sample Resource Manager template that includes the Log Analytics Agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-ubuntu-vm). 
+Azure VM extensions can be deployed with Azure Resource Manager templates. Templates are ideal when deploying one or more virtual machines that require post deployment configuration such as onboarding to Azure Monitor Logs. A sample Resource Manager template that includes the Log Analytics agent VM extension can be found on the [Azure Quickstart Gallery](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/oms-extension-ubuntu-vm). 
 
 The JSON configuration for a virtual machine extension can be nested inside the virtual machine resource, or placed at the root or top level of a Resource Manager JSON template. The placement of the JSON configuration affects the value of the resource name and type. For more information, see [Set name and type for child resources](../../azure-resource-manager/templates/child-resource-name-type.md). 
 
@@ -166,7 +164,7 @@ When placing the extension JSON at the root of the template, the resource name i
 
 ## Azure CLI deployment
 
-The Azure CLI can be used to deploy the Log Analytics Agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure portal under *Advanced Settings*. 
+The Azure CLI can be used to deploy the Log Analytics agent VM extension to an existing virtual machine. Replace the *myWorkspaceKey* value below with your workspace key and the *myWorkspaceId* value with your workspace ID. These values can be found in your Log Analytics workspace in the Azure portal under *Advanced Settings*. 
 
 ```azurecli
 az vm extension set \

@@ -597,9 +597,9 @@
 			<text x="4" y="465.1" class="st46">Standard PAYG <tspan x="4" dy="1.2em" class="st38">meter $0.10*8</tspan></text>		</g>
 		<g id="shape1240-208" transform="translate(216.375,-118.348)">
 			<title>Art caption, FL.1240</title>
-			<desc>Hyperscale PAYG meter $0.10*8</desc>
+			<desc>Hyperscale PAYG meter $0.10*16</desc>
 			<rect x="0" y="453" width="74.8441" height="19.2771" class="st36"/>
-			<text x="4" y="465.1" class="st46">Hyperscale PAYG <tspan x="4" dy="1.2em" class="st38">meter $0.10*8</tspan></text>		</g>
+			<text x="4" y="465.1" class="st46">Hyperscale PAYG <tspan x="4" dy="1.2em" class="st38">meter $0.10*16</tspan></text>		</g>
 		<g id="shape1241-212" transform="translate(417.093,-257.848)">
 			<title>Art caption, FL.1241</title>
 			<desc>Business critical AHB meter $0*4</desc>
