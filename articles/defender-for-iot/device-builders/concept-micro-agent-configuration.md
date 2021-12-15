@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 12/14/2021
+ms.date: 12/15/2021
 ms.topic: conceptual
 ---
 
@@ -62,7 +62,9 @@ To view and update the micro agent twin configuration:
 
 1. In the searchbar, search for, and select **IoT Hub**.
 
-1. Select your device from the list.
+    :::image type="content" source="media/concept-micro-agent-configuration/iot-hub.png" alt-text="Screenshot of searching for the IoT hub in the searchbar.":::
+
+1. Select your IoT Hub from the list.
 
 1. Under the Device management section and select **Devices**.
 
