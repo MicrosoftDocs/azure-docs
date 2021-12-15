@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 12/14/2021
+ms.date: 12/15/2021
 ms.author: alkohli
 ---
 
@@ -261,7 +261,6 @@ The file level status are in `BlobStatus` that describes any actions taken to up
   <DriveLog Version="2018-10-01">
     <DriveId>18041C582D7E</DriveId>
     <Summary>
-     <!--Summary for validation and data copy to Azure -->
       <ValidationErrors>
         <None Count="8" />
       </ValidationErrors>
@@ -270,7 +269,6 @@ The file level status are in `BlobStatus` that describes any actions taken to up
         <ContainerRenamed Count="3" Description="Renamed the container as the original container name does not follow Azure conventions." />
       </CopyErrors>
     </Summary>
-    <!--List of renamed containers with the new names, new file path in Azure, original invalid file path, and size -->
     <Blob Status="ContainerRenamed">
       <BlobPath>databox-c2073fd1cc379d83e03d6b7acce23a6cf29d1eef/private.vhd</BlobPath>
       <OriginalFilePath>\PageBlob\pageblob test\private.vhd</OriginalFilePath>
@@ -296,7 +294,7 @@ The file level status are in `BlobStatus` that describes any actions taken to up
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
-The errors found in the 2018-10-01 error log are described below.<!--1) In 2021-08-01, the errors have an error category (the name); a numeric error code; and an error message is the description. 2) Are all categories that begin with "UploadError" validation errors?-->
+The errors found in the 2018-10-01 error log are described below.<!--1) Missing definitions requested from Akash. Also clarification of which are validation errors (begin with UploadError?) and which are copy errors. 2) In 2021-08-01, the errors have an error category (the name); a numeric error code; and an error message is the description.-->
 
 | Error category                      | Error message   |
 |-------------------------------------|-----------------|
