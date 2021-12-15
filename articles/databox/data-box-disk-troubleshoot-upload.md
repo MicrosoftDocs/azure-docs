@@ -20,12 +20,12 @@ This article applies to Microsoft Azure Data Box Disk and describes the issues y
 
 When the data is uploaded to Azure at the datacenter, copy log (`_copy.xml` or `_error.xml`, depending on the drive log release) and verbose log (`_verbose.xml`) files are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data. 
 
-* The copy/error logs contains descriptions of the events that occurred while copying the data from the disk to the Azure Storage account, and a summary of errors by error category.
-* The verbose log contains a complete listing of the copy operation on every blob and file. 
+* The copy/error logs has descriptions of the events that occurred while copying the data from the disk to the Azure Storage account, and a summary of errors by error category.
+* The verbose log has a complete listing of the copy operation on every blob and file.
 
 ### Identify the log version
 
-There are two versions of the copy/error log and verbose log, with different formats, depending on the XX release. To find out the log release number for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
+There are two versions of the copy/error log and verbose log, with different formats.<!--Depending on what? I have asked Balaji/Akash. If I don't get an answer, the "Product release" column will have to go.--> To find out the log release number for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
 
 | Product release | Search copy/error log for... | Log drive release |
 |-----------------|------------------------------|-------------------|
@@ -47,8 +47,16 @@ Take the following steps to locate **version 2021-08-01** upload logs.
 
     ![Screenshot of the Overview pane for a Data Box Disk order with Copy Completed With Errors status. The Disk Status and Copy Log Path for each disk are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
 
-2. Select and click the COPY LOG PATH for a drive to open the folder with the logs for that drive. A copy log lists all data copy error that occurred. If you selected STOPPED HERE FOR THE EVENING.
+2. Use the COPY LOG PATH for a drive to locate the folder with the logs for your drive. The folder will have a copy log. If you chose to save a verbose log, the folder also has a verbose log.
 
+   The logs are uploaded to a container (for blob imports) or share (for imports to Azure Files) in the storage account. The URLs have these formats:
+
+   |Log type   |URL format|
+   |-----------|----------|
+   |copy log   |`&lt;storage-account-name&gt;/databoxcopylog/&lt;order-name&gt;_&lt;device-serial-number&gt;_CopyLog_&lt;GUID&gt;.xml`|
+   |verbose log|`&lt;storage-account-name&gt;/databoxcopylog/&lt;order-name&gt;_&lt;device-serial-number&gt;_VerboseLog_&lt;GUID&gt;.xml`|
+
+3. Go to the storage account, and download a copy of each log.
 
 ### [Log version: 2018-10-01](#tab/log-version-2018-10-01)
 
@@ -68,7 +76,7 @@ In each case, you see the error logs and the verbose logs. Select each log and d
 
 ## Sample upload logs
 
-INTRO
+The logs differ depending on the the drive log version.
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
@@ -76,18 +84,18 @@ Each data transfer for a disk generates a copy log. If you chose to save a verbo
 
 ## Verbose log
 
-The verbose log is a simple listing of all files that were transferred from the drive, with the following information for each transferred file. The verbose log doesn’t provide summary information.
+The verbose log is an optional file that you can enable during ordering. It's a simple listing of all files that were successfully imported from the drive, with the following information for each file. The verbose log doesn’t provide summary information.
 
 | Field       | Description                                  |
 |-------------|----------------------------------------------|
 | CloudFormat | BlockBlob, PageBlob, or AzureFile            |
 | Path        | Path to the file within the storage account. |
 | Size        | File or blob size.                           |
-| crc64       | If cyclic redundancy check 64 (CRC64) was used to verify the integrity of the file during data transfer, the CRC64 hash that was used. Either CRC64 or MD5 is used for Data Box Disk. |
-| md5         | If Message Digest Algorithm 5 (MD5) was used to verify the integrity of the file during data transfer, the MD5 hash that was used. Either CRC64 or MD5 is used for Data Box Disk. |
+| crc64       | The checksum if cyclic redundancy check 64 (CRC64) was used to verify data integrity during the data transfer. Either CRC64 or MD5 is used. |
+| md5         | The checksum if Message Digest Algorithm 5 (MD5) was used to verify data integrity during the data transfer. Either CRC64 or MD5 is used. |
 
 > [!HINT]
-> To find out the release number for the verbose log, check the **DriveLogVersion** of the copy log.
+> To find out the drive log version of a verbose log, check the **DriveLogVersion** of the copy log.
 
 #### Sample verbose log: 2021-08-01
 
@@ -111,30 +119,30 @@ The following sample verbose log has sample file entries for block blob, page bl
 
 ### Copy log
 
-The copy log contains an error entry for each data transfer that resulted in an error, and ends with a summary of validation errors and copy errors that occurred for the drive.
+The copy log contains an error entry for each file that failed to import, with error detail. The copy log ends with a summary of validation and copy errors that occurred during the import.
 
 Each error entry contains the following information.
 
-| Field        | Description                                                                                            |
-|--------------|--------------------------------------------------------------------------------------------------------|
-| Path         | The destination share within the container or file share.                                              |
-| Category     | One of 15 error categories. See [Data upload errors](#data-upload-errors) for log version 2021-08-01.  |
-| ErrorCode    | The numeric code for the error.                                                                        |
-| ErrorMessage | Describes the error.                                                                                   |
+| Field        | Description                                               |
+|--------------|-----------------------------------------------------------|
+| Path         | The destination share within the container or file share. |
+| Category     | One of 15 error categories. For more information, see [Data upload errors](#data-upload-errors) for **Log version 2021-08-01.** |
+| ErrorCode    | The numeric code for the error.                           |
+| ErrorMessage | Describes the error.                                      |
 
-The CopyLog Summary reports:<!--Add definitions?-->
+The CopyLog Summary reports:
 
-•	DriveLogVersion
+•	Drive log version (in this case, 2021-08-01)
 •	Drive ID
 •	Data copy status
-•	Summary of validation errors by error category.
-•	Summary of copy errors y error category.
+•	Summary of validation errors by error category
+•	Summary of copy errors by error category
 
 #### Sample copy log: 2021-08-01
 
 The following sample copy log is for a disk that contained imports to Azure Files and Azure Blob storage. 
-The copy failed, with no validation errors but with three copy errors. One file share was renamed (ShareRenamed error) and two containers were renamed (ContainerRenamed error) either because the container name didn’t conform to Azure naming conventions or the container name and path exceeded the maximum length in Windows Storage.
-HOW TO FOLLOW UP?
+
+This copy failed, with no validation errors but with three copy errors. One file share was renamed (`ShareRenamed` error), and two containers were renamed (`ContainerRenamed` error). To find out the original name, look for the `Path` in the verbose log.<!--Verify that this path is the original, not the path after the folder was renamed. Should they be looking in the manifest instead?-->
 
 ```xml
 <ErroredEntity Path="New Folder">
@@ -254,7 +262,7 @@ The error file in this case has a `Summary` section and another section that con
 
 The `Summary` contains the `ValidationErrors` and the `CopyErrors`. In this case, 8 files or folders were uploaded to Azure and there were no validation errors. When the data was copied to Azure Storage account, 5 files or folders uploaded successfully. The remaining 3 files or folders were renamed as per the Azure container naming conventions and then uploaded successfully to Azure.
 
-The file level status are in `BlobStatus` that describes any actions taken to upload the blobs. In this case, three containers are renamed because the folders to which the data was copied did not conform with the Azure naming conventions for containers. For the blobs uploaded in those containers, the new container name, path of the blob in Azure, original invalid file path, and the blob size are included.
+The file level statuses are in `BlobStatus`, which describes any actions taken to upload the blobs. In this case, three containers are renamed because the folders to which the data was copied did not conform with the Azure naming conventions for containers. For the blobs uploaded in those containers, the new container name, path of the blob in Azure, original invalid file path, and the blob size are included.
   
 ```xml
  <?xml version="1.0" encoding="utf-8"?>
