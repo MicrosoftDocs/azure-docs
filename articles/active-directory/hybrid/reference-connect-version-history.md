@@ -59,7 +59,8 @@ Required permissions | For permissions required to apply an update, see [account
 > Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md).
 
 ## 2.0.88.0
-> [!NOTE] This release requires Windows Server 2016 or newer. It fixes a vulnerability that is present in version 2.0 of Azure AD Connect, as well as some other bug fixes and minor feature updates.
+> [!NOTE] 
+> This release requires Windows Server 2016 or newer. It fixes a vulnerability that is present in version 2.0 of Azure AD Connect, as well as some other bug fixes and minor feature updates.
 
 ### Release status
 12/15/2021: Released for download only, not available for auto upgrade.
