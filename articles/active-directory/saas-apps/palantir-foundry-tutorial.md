@@ -27,7 +27,7 @@ In this tutorial, you'll learn how to integrate Palantir Foundry with Azure Acti
 To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
-* Palantir Foundry subscription.
+* A Palantir Foundry subscription.
 
 ## Scenario description
 
