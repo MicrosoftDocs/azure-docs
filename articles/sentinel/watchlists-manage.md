@@ -1,28 +1,15 @@
 ---
 title: Manage watchlists in Microsoft Sentinel
-description: This article describes how to use Microsoft Sentinel watchlists to create allowlists/blocklists, enrich event data, and assist in investigating threats.
+description: Edit or add items to watchlists in Microsoft Sentinel watchlists.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
-ms.custom: mvc, ignite-fall-2021
-ms.date: 11/09/2021
+ms.date: 12/15/2021
 ---
 
 # Manage watchlists in Microsoft Sentinel
 
 Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. Use watchlists in your search, detection rules, threat hunting, and response playbooks.
-
-## View list of watchlist aliases
-
-You might need to see a list of watchlist aliases to identify a watchlist to use in a query or analytics rule.
-
-1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
-1. Under **General**, select **Logs**.
-1. If you see a list of queries, closes the **Queries** window.
-1. On the **New Query** page, run the following query: `_GetWatchlistAlias`. 
-1. Review the list of aliases in the **Results** tab.
-
-   :::image type="content" source="./media/watchlists/sentinel-watchlist-alias.png" alt-text="list watchlists" lightbox="./media/watchlists/sentinel-watchlist-alias.png":::
 
 ## Edit a watchlist in Microsoft Sentinel
 
@@ -54,7 +41,10 @@ Edit a watchlist to edit or add an item to the watchlist.
 
 ## Next steps
 
-In this document, you learned how to use watchlists in Microsoft Sentinel to enrich data and improve investigations. To learn more about Microsoft Sentinel, see the following articles:
+To learn more about Microsoft Sentinel, see the following articles:
+
+- [Use watchlists in Microsoft Sentinel](watchlists.md)
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
+

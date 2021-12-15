@@ -13,15 +13,11 @@ Watchlists in Microsoft Sentinel allow you to correlate data from a data source 
 
 Create a watchlist from a local file or by using a template.
 
-Some limitations of watchlists you upload to Microsoft Sentinel:
-
-- Limit what's included in your watchlist to reference data. Watchlists aren't designed for large data volumes.
-- The total number of active watchlist items across all watchlists in a single workspace is currently limited to 10 million. Deleted watchlist items don't count against this total. If you must reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
-- Watchlists can only be referenced from within the same workspace. Cross-workspace and/or Lighthouse scenarios are currently not supported.
-- File uploads are currently limited to files of up to 3.8 MB in size.
+Before you create a watchlist, review the [limitations of watchlists](watchlists.md).
 
 ## Create a watchlist from a local file
 
+You can upload a CSV file from your local machine to create a watchlist.
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Watchlist**.
@@ -60,31 +56,44 @@ Some limitations of watchlists you upload to Microsoft Sentinel:
 
 ## Create a watchlist by using a template (public preview)
 
+Download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
+
+Each built-in watchlist template has it's own set of data listed in the CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md).
+
 The ability to create a watchlist by using a template is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+To download one of the watchlist templates,
 
 1. In the Azure portal, go to **Microsoft Sentinel** and select the appropriate workspace.
 1. Under **Configuration**, select **Watchlist**.
 1. Select the tab **Templates (Preview)**.
-
 1. Select a template from the list to view details of the template in the right pane.
-1. Select **Create from template**.
+1. Select the ellipses **...** at the end of the row.
+1. Select **Download Schema**.
+
+    :::image type="content" source="./media/watchlists/create-watchlist-download-schema.png" alt-text="Screenshot of templates tab with download schema selected.":::
+
+1. Populate your local version of the file and save it locally as a CSV file.
+
+To create the watchlist from the template you populated,
+
+1. From appropriate workspace in Microsoft Sentinel, select **Watchlist**.
+1. Select the tab **Templates (Preview)**.
+1. Select the appropriate template from the list to view details of the template in the right pane.
+1. Select **Create from template**,
 
     :::image type="content" source="./media/watchlists/create-watchlist-from-template.png" alt-text="Create a watchlist from a built-in template." lightbox="./media/watchlists/create-watchlist-from-template.png":::
 
-1. In the **Watchlist wizard**, select **Download Schema** to download a CSV file that contains the schema expected for the selected watchlist template.
-
-    Each built-in watchlist template has it's own set of data listed in the CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md)
-
-1. Populate your local version of the CSV file, and then upload the file into the wizard.
-
 1. On the **General** tab, notice that the **Name**, **Description**, and **Watchlist Alias** fields are all read-only.
-
+1. On the **Source** tab, select **Browse for files** and select the file you created from the template.
 1. Select **Next: Review and Create** > **Create**.
 
 
 ## Next steps
 
-In this document, you learned how to use watchlists in Microsoft Sentinel to enrich data and improve investigations. To learn more about Microsoft Sentinel, see the following articles:
+To learn more about Microsoft Sentinel, see the following articles:
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.
+- [Manage watchlists](watchlists-manage.md)
+- [Build queries and detection rules with watchlists](watchlists-queries.md)
