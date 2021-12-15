@@ -317,7 +317,7 @@
       href: automation-configure-extra-disks.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
-    - name: Configure extarnal tools
+    - name: Configure external tools
       href: automation-tools-configuration.md
   - name: Script reference
     items:               
