@@ -184,7 +184,7 @@ For most workloads this is not necessary and may cause unintended performance im
 
 ### Enable Restricted VM movement for specific VMs
 
-1. Navigate to the Placement Policies blade and click Restrict VM movement. 
+1. Navigate to Manage Placement policies blade and click Restrict VM movement. 
 1. Select the VM or VMs you want to restrict, then click Select.
 1. The VM or VMS you selected appears in the VMs with restricted movement tab.   
 In the vSphere client, a VM override will be created to set DRS to partially automated for that VM.    
