@@ -1,6 +1,6 @@
 ---
 title: Configure Azure Devops for SAP Deployment Automation Framework
-description: Configure your Azure Devops for the SAP Deployment Automation Framework on Azure.
+description: Configure your Azure Devops for the SAP Deployment Automation Framework on Azure
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -21,4 +21,8 @@ You can use Azure DevOps as your execution environment for deployment and config
 
 You can create Azure DevOps pipelines to perform the deployment or removal of the control plane, workload zone, SAP system and perform the SAP installation.
 
+## Next steps
+
+> [!div class="nextstepaction"]
+> [Configure control plane](automation-configure-control-plane.md)
 

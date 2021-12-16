@@ -1,8 +1,8 @@
 ---
 title: SAP deployment automation framework DevOps hands-on lab
-description: DevOps Hands-on lab for the SAP Deployment Automation Framework on Azure.
+description: DevOps Hands-on lab for the SAP Deployment Automation Framework on Azure
 author: kimforss
-ms.author: mimergel
+ms.author: kimforss
 ms.reviewer: kimforss
 ms.date: 12/14/2021
 ms.topic: tutorial
