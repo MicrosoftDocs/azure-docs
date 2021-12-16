@@ -1,11 +1,11 @@
 ---
-title: Detect motion, record video with Azure Video Analyzer
-description: This quickstart shows how to use Azure Video Analyzer edge module in order to detect motion in a live video stream and record video to the Video Analyzer account.
+title: Detect motion in a video, record the video 
+description: This quickstart shows how to use Azure Video Analyzer edge module to detect motion in a live video stream and record the video to the Video Analyzer account.
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other, contperf-fy22q2
 ---
-# Quickstart: Detect motion, record video to Video Analyzer
+# Quickstart: Detect motion in a (simulated) live video, record the video to the Video Analyzer account
 
 [!INCLUDE [header](includes/edge-env.md)]
 
@@ -36,7 +36,7 @@ You can get more details [here](https://github.com/Azure/video-analyzer/tree/mai
 
 In the virtual machine created by the above deployment are several MKV files.  One of these files is called `lots_015.mkv`. In the following steps, we will use this video file to simulate a live stream for this tutorial.
 
-You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit `Ctrl+N`, and paste [the parking lot video sample](https://lvamedia.blob.core.windows.net/public/lots_015.mkv) link to start playback. At about the 5-second mark, a white car moves through the parking lot.
+You can use an application like [VLC Player](https://www.videolan.org/vlc/), launch it, hit `Ctrl+N`, and paste [the parking lot video sample](https://avamedia.blob.core.windows.net/public/lots_015.mkv) link to start playback. At about the 5-second mark, a white car moves through the parking lot.
 
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RE4LUbN]
 
@@ -51,8 +51,8 @@ The diagram below is the visual representation of the overall flow.
 
 ### Obtain your IoT Hub connection string
 
-1. In Azure portal, navigate to the IoT Hub you created as part of the above set up step
-1. Look for **Shared access policies** option in the left hand navigation, and click there.
+1. In Azure portal, navigate to the IoT Hub you created as part of the above setup step
+1. Look for **Shared access policies** option in the left-hand navigation, and click there.
 1. Click on the policy named **iothubowner**
 1. Copy the **Primary connection string** - it will look like `HostName=xxx.azure-devices.net;SharedAccessKeyName=iothubowner;SharedAccessKey=XXX`
 
@@ -980,7 +980,7 @@ Within few seconds, you should see the following response in the OUTPUT window
 
 Status code of 200 indicates that the  pipeline topology was successfully deleted.
 
-## Playing back the recording
+## Play back the recording
 
 You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
@@ -1002,4 +1002,4 @@ You can examine the Video Analyzer video resource that was created by the live p
 ## Next steps
 
 * Learn how to [play back video recordings](../playback-recordings-how-to.md)
-* Try the [quickstart for analyzing live video](analyze-live-video-use-your-model-http.md)
+* Try [Quickstart: Analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md)

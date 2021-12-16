@@ -105,7 +105,7 @@ Within the skillset:
 + Include a Shaper skill in your skillset to determine the schema and contents of the projection
 + Assign the named shape to a projection
 
-### [**.NET SDK**](#tab/kstore-dotnet)
+### [**C#**](#tab/kstore-csharp)
 
 For .NET developers, use the [KnowledgeStore Class](/dotnet/api/azure.search.documents.indexes.models.knowledgestore) in the Azure.Search.Documents client library.
 

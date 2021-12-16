@@ -17,7 +17,7 @@ After deploying new binary to your app, you may want to check the functionality 
 
 ## Prerequisites
 
-This article assumes that you have a Spring Boot 2.x application that can be successfully deployed and booted on Azure Spring Cloud service.  See [Quickstart: Launch an existing Azure Spring Cloud application using the Azure portal](./quickstart.md)
+This article assumes that you have a Spring Boot 2.x application that can be successfully deployed and booted on Azure Spring Cloud service.  See [Quickstart: Launch an existing application in Azure Spring Cloud using the Azure portal](./quickstart.md)
 
 ## Verify app through test endpoint
 

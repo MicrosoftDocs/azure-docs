@@ -48,7 +48,7 @@ If you want to disable device file uploads to your IoT Central application:
 
 ## Upload a file from a device
 
-IoT Central uses IoT Hub's file upload capability to enable devices to upload files. For sample code that shows you how to upload files from a device, see the [IoT Central file upload device sample](/samples/iot-for-all/iotc-file-upload-device/iotc-file-upload-device/).
+IoT Central uses IoT Hub's file upload capability to enable devices to upload files. For sample code that shows you how to upload files from a device, see the [IoT Central file upload device sample](/samples/azure-samples/iot-central-file-upload-device/iotc-file-upload-device/).
 
 ## Next steps
 

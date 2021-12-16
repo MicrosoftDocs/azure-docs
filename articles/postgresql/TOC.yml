@@ -146,7 +146,7 @@
       - name: Connectivity architecture
         href: concepts-connectivity-architecture.md
         displayName: security, architecture
-      - name: Threat protection with Azure Defender
+      - name: Threat protection with Microsoft Defender for Cloud
         href: ../security-center/defender-for-databases-usage.md?toc=/azure/postgresql/toc.json&bc=/azure/postgresql/breadcrumb/toc.json
         displayName: security, advanced threat protection
       - name: Azure AD authentication
@@ -409,7 +409,7 @@
         href: howto-migrate-using-dump-and-restore.md
       - name: Upgrade/Migrate data with pg_dump and psql
         href: howto-migrate-using-export-and-import.md
-- name: Flexible Server (Preview)
+- name: Flexible Server 
   expanded: true
   items:
   - name: Flexible Server documentation
@@ -517,6 +517,8 @@
           href: flexible-server/concepts-intelligent-tuning.md
     - name: Replication
       href: flexible-server/concepts-logical.md
+    - name: Azure Advisor recommendations
+      href: flexible-server/concepts-azure-advisor-recommendations.md
   - name: Troubleshooting
     items:  
     - name: Troubleshoot CLI errors
@@ -712,6 +714,8 @@
         href: howto-hyperscale-scale-grow.md
       - name: Rebalance shards
         href: howto-hyperscale-scale-rebalance.md
+      - name: Change compute quotas
+        href: howto-hyperscale-compute-quota.md
     - name: Data access and security
       items:
       - name: Public access

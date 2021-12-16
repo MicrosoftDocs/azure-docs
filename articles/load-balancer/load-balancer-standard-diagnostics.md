@@ -10,7 +10,7 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/25/2021
+ms.date: 12/14/2021
 ms.author: allensu
 ---
 
@@ -214,7 +214,7 @@ The chart displays the following information:
 The chart allows customers to troubleshoot the deployment on their own without having to guess or ask support whether other issues are occurring. The service was unavailable because health probes were failing due to either a misconfiguration or a failed application.
 </details>
 
-## Configure alerts for multi-dimensional metrics ###
+## Configure alerts for multi-dimensional metrics
 
 Azure Standard Load Balancer supports easily configurable alerts for multi-dimensional metrics. Configure custom thresholds for specific metrics to trigger alerts with varying levels of severity to empower a touchless resource monitoring experience.
 
@@ -275,6 +275,7 @@ Generic resource health status description are available in the [RHC documentati
 
 ## Next steps
 
+- Learn about [Network Analytics](../azure-monitor/insights/azure-networking-analytics.md)
 - Learn about using [Insights](./load-balancer-insights.md) to view these metrics preconfigured for your Load Balancer
 - Learn more about [Standard Load Balancer](./load-balancer-overview.md).
 - Learn more about your [Load balancer outbound connectivity](./load-balancer-outbound-connections.md).

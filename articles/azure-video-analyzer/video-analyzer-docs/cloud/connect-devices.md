@@ -1,5 +1,5 @@
 ---
-title: Connect devices to Azure Video Analyzer
+title: Connect devices to the service
 description: This article describes how to connect devices to Azure Video Analyzer
 ms.service: azure-video-analyzer
 ms.topic: how-to
@@ -103,7 +103,7 @@ When the `tunnelOpen` direct method is invoked by Video Analyzer service, the ap
    * Set the HTTP "Authorization" header as "Bearer (remoteAuthorizationToken)"
    * Set the header "TunnelConnectionSource" with value "PnpDevice"
    * Set User-Agent to a suitable value that would help you identify your implementation. 
-      * For example, you may want to capture the architecture of the CPU, the OS, the model/make of the the device.
+      * For example, you may want to capture the architecture of the CPU, the OS, the model/make of the device.
    * Return 200 OK if the web socket connection was successful, otherwise return the appropriate error code
 1. Return response (do not block)
 1. IoT PnP device implementation starts sending TCP data bi-directionally between the websocket and RTSP server TCP connection

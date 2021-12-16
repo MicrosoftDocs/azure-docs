@@ -6,11 +6,11 @@ author: Antvgski
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: quickstart
-ms.subservice: sql-dw 
+ms.subservice: sql-dw
 ms.date: 04/17/2018
 ms.author: anvang
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019, azure-synapse 
+ms.custom: seo-lt-2019, azure-synapse, mode-other
 ---
 
 # Quickstart: Scale compute for dedicated SQL pool (formerly SQL DW) in Azure Synapse Analytics using T-SQL

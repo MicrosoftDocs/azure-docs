@@ -4,7 +4,6 @@ description: Open Service Mesh (OSM) in Azure Kubernetes Service (AKS)
 services: container-service
 ms.topic: article
 ms.date: 3/12/2021
-ms.custom: mvc, devx-track-azurecli
 ms.author: pgibson
 ---
 
@@ -45,10 +44,6 @@ OSM can assist your AKS deployments with the following scenarios:
 - Configuration of weighted traffic controls between two or more services for A/B or canary deployments
 
 - Collection and viewing of KPIs from application traffic
-
-## OSM service quotas and limits (preview)
-
-OSM preview limitations for service quotas and limits can be found on the AKS [Quotas and regional limits page](./quotas-skus-regions.md).
 
 <!-- LINKS - internal -->
 
