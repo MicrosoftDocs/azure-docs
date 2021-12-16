@@ -24,9 +24,9 @@ Azure Orbital is now on preview, to get access an Azure subscription must be onb
 1. Access the [Azure Orbital Preview Onboarding Form](https://forms.office.com/r/fk32xNmDyx)
 2. Provide the following information:
 
-    1. Company name
-    2. Contact info: name and email
-    3. Azure Subscription ID
+   - Company name
+   - Contact info: name and email
+   - Azure Subscription ID
 
 3. Submit the form
 4. Await a 'Preview Access Granted' email from Azure Orbital (typically within 72 hours)
@@ -43,7 +43,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 4. In the **Filter by name...** search box, enter `Microsoft.Orbital`
 5. Select the `Microsoft.Orbital` provider and select **Register** from the top bar of the Resource providers page.
 
-:::image type="content" source="media/orbital-eos-rpregister.png" alt-text="Register Resource Provider":::
+   :::image type="content" source="media/orbital-eos-rp-register.png" alt-text="Register Resource Provider" border="true":::
 
 ## Next steps
 

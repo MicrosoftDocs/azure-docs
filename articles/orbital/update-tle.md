@@ -30,13 +30,13 @@ Sign in to the [Azure portal](https://portal.azure.com).
 3.	Select **Ephemeris** on the left menu bar of the spacecraft’s overview.
 4.	In Ephemeris, enter this information in each of the required fields:
 
-| **Field** | **Value** |
-| --- | --- |
-| TLE title line | Spacecraft updated TLE Title Line |
-| TLE Line 1 | Spacecraft updated TLE Line 1 |
-| TLE Line 2 | Spacecraft updated TLE Line 2 |
+    | **Field** | **Value** |
+    | --- | --- |
+    | TLE title line | Spacecraft updated TLE Title Line |
+    | TLE Line 1 | Spacecraft updated TLE Line 1 |
+    | TLE Line 2 | Spacecraft updated TLE Line 2 |
 
-:::image type="content" source="./media/orbital-eos-ephemeris.png" alt-text="Spacecraft TLE update":::
+    :::image type="content" source="./media/orbital-eos-ephemeris.png" alt-text="Spacecraft TLE update" border="true":::
 
 5. Select the **Submit** button.
 

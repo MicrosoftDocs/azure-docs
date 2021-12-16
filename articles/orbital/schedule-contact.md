@@ -26,31 +26,31 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Select an available contact
 
-1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results
-2. In the **Spacecrafts** page, select the spacecraft for the contact
-3. Select **Schedule contact** on the top bar of the spacecraft’s overview
+1. In the Azure portal search box, enter **Spacecrafts**. Select **Spacecrafts** in the search results.
+2. In the **Spacecrafts** page, select the spacecraft for the contact.
+3. Select **Schedule contact** on the top bar of the spacecraft’s overview.
  
-:::image type="content" source="./media/orbital-eos-schedule.png" alt-text="Schedule a contact at spacecraft resource page":::
+   :::image type="content" source="./media/orbital-eos-schedule.png" alt-text="Schedule a contact at spacecraft resource page" border="true":::
 
-4.	In the **Schedule contact** page, specify this information from the top of the page: 
+4. In the **Schedule contact** page, specify this information from the top of the page:
 
-| **Field** | **Value** |
-| --- | --- |
-| Contact profile | Specify the contact profile to be used for the contact |
-| Ground station | Specify the ground station(s) |
-| Start time | Identify a start time for the contact availability window |
-| End time | Identify an end time for the contact availability window |
+   | **Field** | **Value** |
+   | --- | --- |
+   | Contact profile | Specify the contact profile to be used for the contact |
+   | Ground station | Specify the ground station(s) |
+   | Start time | Identify a start time for the contact availability window |
+   | End time | Identify an end time for the contact availability window |
 
-:::image type="content" source="./media/orbital-eos-schedulesearch.png" alt-text="Search for available contact schedules page":::
+    :::image type="content" source="./media/orbital-eos-schedule-search.png" alt-text="Search for available contact schedules page" border="true":::
 
-5.	Select **Search** to view available contact times
-6.	Select one or more contact windows and select **Schedule**
+5. Select **Search** to view available contact times.
+6. Select one or more contact windows and select **Schedule**.
 
-:::image type="content" source="./media/orbital-eos-selectschedule.png" alt-text="Select an available contact schedule page":::
+   :::image type="content" source="./media/orbital-eos-select-schedule.png" alt-text="Select an available contact schedule page" border="true":::
 
-7.	View scheduled contacts by selecting on the spacecraft page, and navigating to **Contacts**
+7. View scheduled contacts by selecting on the spacecraft page, and navigating to **Contacts**.
 
-:::image type="content" source="./media/orbital-eos-viewschedcontacts.png" alt-text="View scheduled contacts page":::
+   :::image type="content" source="./media/orbital-eos-view-scheduled-contacts.png" alt-text="View scheduled contacts page" border="true":::
 
 ## Next steps
 
