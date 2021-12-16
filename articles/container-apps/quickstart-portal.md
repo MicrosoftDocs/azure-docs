@@ -62,7 +62,6 @@ In the *Basics* tab, do the following actions.
 
 1. Select **OK**.
 1. Select the **Create** button at the bottom of the *Create Container App Environment* page.
-1. Select the **Next: App settings** button at the bottom of the page.
 
 ### Deploy the container app
 

@@ -5,7 +5,7 @@ services: container-apps
 author: craigshoemaker
 ms.service: container-apps
 ms.topic: quickstart
-ms.date: 12/09/2021
+ms.date: 12/16/2021
 ms.author: cshoe
 zone_pivot_groups: container-apps-registry-types
 ---
@@ -51,15 +51,15 @@ az containerapp env create `
 
 Now that you have an environment created, you can deploy your first container app. Using the `containerapp create` command, deploy a container image to Azure Container Apps.
 
-The example shown in this article demonstrates how use a custom container image with common commands. Your container image may need additional parameters including the following items:
+The example shown in this article demonstrates how to use a custom container image with common commands. Your container image may need more parameters including the following items:
 
 - Setting the revision mode
 - Defining secrets
 - Defining environment variables
-- Setting container cpu and/or memory requirements
+- Setting container CPU or memory requirements
 - Enabling and configuring Dapr
-- Enabling ingress for internal and/or internal + external traffic
-- Providing minimum and maximum replica values and/or additional scale rules
+- Enabling internal or internal ingress
+- Providing minimum and maximum replica values or scale rules
 
 For details on how to provide values for any of these parameters to the `create` command, run `az containerapp create --help`.
 
@@ -145,7 +145,7 @@ If you have enabled ingress on your container app, you can add `--query configur
 
 ## Verify deployment
 
-You can verify your deployment is successful by querying the Log Analytics workspace. You can view logs through the Azure portal or with the CLI. You may need to wait a 5 to 10 minutes for the analytics to arrive for the first time before you are able to query the logs.
+To verify a successful deployment, you can query the Log Analytics workspace. You may need to wait a 5 to 10 minutes for the analytics to arrive for the first time before you are able to query the logs.
 
 After about 5 to 10 minutes has passed after creating the container app, use the following steps to view logged messages.
 

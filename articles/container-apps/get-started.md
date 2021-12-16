@@ -78,7 +78,9 @@ az containerapp create `
 
 By setting `--ingress` to `external`, you make the container app available to public requests.
 
-Here, the `create` command returns the container app's fully qualified domain name. Copy this location to a web browser and you'll see the following message.
+## Verify deployment
+
+The `create` command returned the container app's fully qualified domain name. Copy this location to a web browser and you'll see the following message.
 
 :::image type="content" source="media/get-started/azure-container-apps-quickstart.png" alt-text="Your first Azure Container Apps deployment.":::
 
