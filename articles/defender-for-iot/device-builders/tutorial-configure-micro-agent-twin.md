@@ -35,13 +35,13 @@ To view and update the micro agent twin configuration:
 
 1. Navigate to the [Azure portal](https://ms.portal.azure.com).
 
-1. In the searchbar, search for, and select **IoT Hub**.
+1. Search for, and select **IoT Hub**.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/iot-hub.png" alt-text="Screenshot of searching for the IoT hub in the searchbar.":::
 
 1. Select your IoT Hub from the list.
 
-1. Under the Device management section and select **Devices**.
+1. Under the Device management section, select **Devices**.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/devices.png" alt-text="Creenshot of the Device management section of the IoT hub.":::
 
@@ -55,7 +55,7 @@ To view and update the micro agent twin configuration:
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/module-identity-twin.png" alt-text="Screenshot of the Module Identity Details screen.":::
 
-1. Change the value of any field by by adding the field to the `“desired”` section with the new value.
+1. Change the value of any field by adding the field to the `“desired”` section with the new value.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/desired.png" alt-text="Screenshot of the sample output of the module identity twin.":::
 
