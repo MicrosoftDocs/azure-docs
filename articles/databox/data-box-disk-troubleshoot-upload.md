@@ -41,20 +41,7 @@ For more information, see the Sample upload logs for log drive release 2021-08-0
 
 Take the following steps to locate **version 2021-08-01** upload logs.
 
-1. When the data upload completes, the Azure portal displays the disk status and the path to the copy logs for the disk.
-
-    ![Screenshot of the Overview pane for a Data Box Disk order with Copy Completed With Errors status. The Disk Status and Copy Log Path for each disk are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
-
-2. Use the COPY LOG PATH for a drive to locate the folder with the logs for your drive. The folder will have a copy log. If you chose to save a verbose log, the folder also has a verbose log.
-
-   The logs are uploaded to a container (for blob imports) or share (for imports to Azure Files) in the storage account. The URLs have these formats:
-
-   |Log type   |URL format|
-   |-----------|----------|
-   |copy log   |`&lt;storage-account-name&gt;/databoxcopylog/&lt;order-name&gt;_&lt;device-serial-number&gt;_CopyLog_&lt;GUID&gt;.xml`|
-   |verbose log|`&lt;storage-account-name&gt;/databoxcopylog/&lt;order-name&gt;_&lt;device-serial-number&gt;_VerboseLog_&lt;GUID&gt;.xml`|
-
-3. Go to the storage account, and download a copy of each log.
+[!INCLUDE [data-box-disk-locate-logs.md](../../includes/data-box-disk-locate-logs.md)]
 
 ### [Log version: 2018-10-01](#tab/log-version-2018-10-01)
 
@@ -78,7 +65,7 @@ The logs differ depending on the the drive log version.
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
-Each data transfer for a disk generates a copy log. If you chose to save a verbose log when you ordered your Data Box Disk, there’s also a verbose log in the same folder.
+Each data transfer for a disk generates a copy log. If you chose to save a verbose log when you placed your order, there’s also a verbose log in the same folder.
 
 ## Verbose log
 

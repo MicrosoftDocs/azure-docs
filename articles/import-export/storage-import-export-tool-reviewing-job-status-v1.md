@@ -5,17 +5,24 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/15/2021
+ms.date: 12/16/2021
 ms.author: alkohli
 ms.subservice: common
 ---
 
 # Review copy logs from imports and exports via Azure Import/Export
+
 When the Microsoft Azure Import/Export service processes the drives that are associated with an import or export job, it writes copy log files to the storage account you used to import or export blobs. 
 
 The log file contains detailed status about each file that was imported or exported. 
 
-The service returns the URL for each copy log file when you query the status of a completed job. For more information, see [Get Job](/rest/api/storageimportexport/Jobs/Get).  
+The service returns the URL for each copy log file when you query the status of a completed job. For more information, see [Get Job](/rest/api/storageimportexport/Jobs/Get).
+
+## Locate the logs
+
+To locate the logs for the job, do the following steps.
+
+[!INCLUDE [data-box-disk-locate-logs.md](../../includes/data-box-disk-locate-logs.md)]
 
 ## Example URLs
 
