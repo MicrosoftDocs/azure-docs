@@ -43,7 +43,7 @@ This how-to guide outlines the steps to create an [Azure SQL Managed Instance](s
 
    For more information on the configuration options, see [Quickstart: Create an Azure SQL Managed Instance](../managed-instance/instance-create-quickstart.md).
 
-1. Under **Authentication**, select a preferred authentication model. If you are looking to only configure [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md), see our guide [here](../database/authentication-azure-ad-only-authentication-create-server.md?tabs=azure-portal).
+1. Under **Authentication**, select a preferred authentication model. If you're looking to only configure [Azure AD-only authentication](../database/authentication-azure-ad-only-authentication.md), see our guide [here](../database/authentication-azure-ad-only-authentication-create-server.md?tabs=azure-portal).
 
 1. Next, go through the **Networking** tab configuration, or leave the default settings.
 
