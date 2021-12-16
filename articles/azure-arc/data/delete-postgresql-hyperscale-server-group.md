@@ -4,8 +4,8 @@ description: Delete an Azure Arc-enabled Postgres Hyperscale server group
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to

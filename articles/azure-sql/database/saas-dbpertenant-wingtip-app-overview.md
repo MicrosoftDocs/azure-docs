@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer:
+ms.reviewer: mathoma
 ms.date: 09/24/2018
 ---
 # Introduction to a multitenant SaaS app that uses the database-per-tenant pattern with Azure SQL Database

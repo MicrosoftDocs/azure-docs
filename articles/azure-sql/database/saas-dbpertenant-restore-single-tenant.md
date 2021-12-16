@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: LitKnd
 ms.author: kendralittle
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.date: 12/04/2018
 ---
 # Restore a single tenant with a database-per-tenant SaaS application
