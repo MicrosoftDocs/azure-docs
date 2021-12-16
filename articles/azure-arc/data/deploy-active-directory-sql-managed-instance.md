@@ -125,7 +125,7 @@ the Active Directory domain and provide to the deployment.
    * **--dns-name** expects the DNS name for the SQL endpoint
    * **--keytab-file** expects the path to the keytab file
    * **--secret-name** expects the name of the keytab secret
-   * **--secret-namespace** expects the Kubernetes namespace contains the keytab secret
+   * **--secret-namespace** expects the Kubernetes namespace containing the keytab secret
 
    Using the examples chosen in this document, the command should look like the following.
 
