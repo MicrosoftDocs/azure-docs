@@ -792,6 +792,10 @@ name: .NET Core
 
 on: [push]
 
+permissions:
+      id-token: write
+      contents: read
+
 env:
   AZURE_WEBAPP_NAME: my-app    # set this to your application's name
   AZURE_WEBAPP_PACKAGE_PATH: '.'      # set this to the path to your web app project, defaults to the repository root
@@ -844,6 +848,10 @@ Build and deploy a ASP.NET MVC app to Azure using an Azure service principal. Th
 name: Deploy ASP.NET MVC App deploy to Azure Web App
 
 on: [push]
+
+permissions:
+      id-token: write
+      contents: read
 
 env:
   AZURE_WEBAPP_NAME: my-app    # set this to your application's name
@@ -898,6 +906,10 @@ name: Java CI with Maven
 
 on: [push]
 
+permissions:
+      id-token: write
+      contents: read
+
 jobs:
   build:
 
@@ -938,6 +950,10 @@ Build and deploy a Node.js app to Azure using an Azure service principal. The ex
 name: JavaScript CI
 
 on: [push]
+
+permissions:
+      id-token: write
+      contents: read
 
 name: Node.js
 
@@ -992,6 +1008,10 @@ name: Python application
 
 on:
   [push]
+
+permissions:
+      id-token: write
+      contents: read
 
 env:
   AZURE_WEBAPP_NAME: my-app # set this to your application's name
