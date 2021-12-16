@@ -270,12 +270,12 @@ sections:
   - name: WebSocket
     questions:
       - question: |
-         Does Azure AD Application proxy support WebSocket protocol?
+         Does Azure AD Application Proxy support the websocket protocol?
         answer: |
-              Applications like QlikSense and Remote Desktop Web Client (HTML5) that connect using websocket protocol are now supported in GA, with following know limitations:
-              * Application proxy discards the cookie that is set on the server response while opening the websocket
-              * There is no SSO applied to the websocket request
-              * Features (Eventlogs, PowerShell and Remote Desktop Services) in Windows Admin Center (WAC) do not work through Azure AD Application Proxy presently.
+              Applications like QlikSense and Remote Desktop Web Client (HTML5) that connect using the websocket protocol are now supported. The following are known limitations:
+              * Application proxy discards the cookie that is set on the server response while opening the websocket.
+              * There is no SSO applied to the websocket request.
+              * Features (Eventlogs, PowerShell and Remote Desktop Services) in the Windows Admin Center (WAC) do not work through Azure AD Application Proxy.
               The websocket application doesn't have any unique publishing requirements, and can be [published](application-proxy-add-on-premises-application.md) the same way as all your other Application Proxy applications. 
           
   - name: Link translation
