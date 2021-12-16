@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: tutorial
-ms.date: 12/14/2021
+ms.date: 12/16/2021
 ms.author: danlep
 ms.custom: fasttrack-edit, devdivchpfy22
 
@@ -99,7 +99,7 @@ This section shows how to add a wildcard operation. A wildcard operation lets yo
 
 ### Test the operation 
 
-Test the operation in the Azure portal. You can test it in the **Developer portal**.
+Test the operation in the Azure portal. You can also test it in the **Developer portal**.
 
 1. Select the **Test** tab.
 2. Select **WildcardGet**. Try the GET operations that you tested in previous sections, or try a different supported GET operation.
