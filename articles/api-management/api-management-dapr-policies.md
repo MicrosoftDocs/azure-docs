@@ -29,7 +29,7 @@ template:
 ```
 
 > [!TIP]
-> You can also deploy the [self-hosted gateway with Helm](how-to-deploy-self-hosted-gateway-kubernetes-yaml.md) and use the Dapr configuration options.
+> You can also deploy the [self-hosted gateway with Helm](how-to-deploy-self-hosted-gateway-kubernetes-helm.md) and use the Dapr configuration options.
 
 ## Distributed Application Runtime (Dapr) integration policies
 
