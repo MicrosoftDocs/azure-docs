@@ -1469,7 +1469,6 @@ productDirectory:
       summary: Satellite ground station and scheduling services for fast downlinking of data
       imageSrc: https://docs.microsoft.com/en-us/media/logos/logo-azureorbital.svg
       azureCategories:
-        - featured
         - networking
       url: orbital/index.yml
 

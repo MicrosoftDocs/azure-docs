@@ -44,7 +44,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | Event Hubs Namespace | Select an Event Hubs Namespace to which you will send telemetry data of your contacts. Select a Subscription before you can select an Event Hubs Namespace. |
    | Event Hubs Instance | Select an Event Hubs Instance that belongs to the previously selected Namespace. *This field will only appear if an Event Hubs Namespace is selected first*. |
 
-   :::image type="content" source="./media/orbital-eos-contact-profile.png" alt-text="Contact Profile Resource Page" border="true":::
+   :::image type="content" source="media/orbital-eos-contact-profile.png" alt-text="Contact Profile Resource Page" lightbox="media/orbital-eos-contact-profile.png":::
 
 5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
 6. In the **Links** page, select **Add new Link**
@@ -62,7 +62,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | Port | Specify the Port for data retrieval/delivery |
    | Protocol | Select TCP or UDP protocol for data retrieval/delivery |
 
-   :::image type="content" source="./media/orbital-eos-contact-link.png" alt-text="Contact Profile Links Page" border="true":::
+   :::image type="content" source="media/orbital-eos-contact-link.png" alt-text="Contact Profile Links Page" lightbox="media/orbital-eos-contact-link.png":::
 
 8. Select the **Submit** button
 9. Select the **Review + create** tab or select the **Review + create** button

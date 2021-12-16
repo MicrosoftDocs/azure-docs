@@ -31,12 +31,12 @@ Sign in to the [Azure portal](https://portal.azure.com).
 2. In the **Spacecrafts** page, select the name of the spacecraft for the scheduled contact.
 3. Select **Contacts** from the left menu bar in the spacecraft’s overview page.
 
-   :::image type="content" source="./media/orbital-eos-delete-contact.png" alt-text="Select a scheduled contact" border="true":::
+   :::image type="content" source="media/orbital-eos-delete-contact.png" alt-text="Select a scheduled contact" lightbox="media/orbital-eos-delete-contact.png":::
 
 4. Select the name of the contact to be deleted
 5. Select **Delete** from the top bar of the contact's configuration view
 
-   :::image type="content" source="./media/orbital-eos-contact-config-view.png" alt-text="Delete a scheduled contact" border="true":::
+   :::image type="content" source="media/orbital-eos-contact-config-view.png" alt-text="Delete a scheduled contact" lightbox="media/orbital-eos-contact-config-view.png":::
 
 6. The scheduled contact will be canceled once the contact entry is deleted.
 ## Next steps

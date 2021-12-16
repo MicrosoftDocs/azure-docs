@@ -36,7 +36,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
     | TLE Line 1 | Spacecraft updated TLE Line 1 |
     | TLE Line 2 | Spacecraft updated TLE Line 2 |
 
-    :::image type="content" source="./media/orbital-eos-ephemeris.png" alt-text="Spacecraft TLE update" border="true":::
+    :::image type="content" source="media/orbital-eos-ephemeris.png" alt-text="Spacecraft TLE update" lightbox="media/orbital-eos-ephemeris.png":::
 
 5. Select the **Submit** button.
 

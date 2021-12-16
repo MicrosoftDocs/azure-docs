@@ -41,7 +41,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | TLE line 1 | Enter TLE line 1 |
    | TLE line 2 | Enter TLE line 2 |
 
-   :::image type="content" source="./media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" border="true":::
+   :::image type="content" source="media/orbital-eos-register-bird.png" alt-text="Register Spacecraft Resource Page" lightbox="media/orbital-eos-register-bird.png":::
 
 5. Select the **Links** tab, or select the **Next: Links** button at the bottom of the page.
 6. In the **Links** page, enter or select this information:
@@ -53,7 +53,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
    | Bandwidth | Enter the bandwidth in Mhz |
    | Polarization | Select RHCP, LHCP, Dual, or Linear Vertical |
 
-   :::image type="content" source="./media/orbital-eos-register-links.png" alt-text="Spacecraft Links Resource Page" border="true":::
+   :::image type="content" source="media/orbital-eos-register-links.png" alt-text="Spacecraft Links Resource Page" lightbox="media/orbital-eos-register-links.png":::
 
 7. Select the **Review + create** tab, or select the **Review + create** button.
 8. Select **Create**

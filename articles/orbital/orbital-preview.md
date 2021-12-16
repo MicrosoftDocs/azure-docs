@@ -43,7 +43,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 4. In the **Filter by name...** search box, enter `Microsoft.Orbital`
 5. Select the `Microsoft.Orbital` provider and select **Register** from the top bar of the Resource providers page.
 
-   :::image type="content" source="media/orbital-eos-rp-register.png" alt-text="Register Resource Provider" border="true":::
+   :::image type="content" source="media/orbital-eos-rp-register.png" alt-text="Register Resource Provider" lightbox="media/orbital-eos-rp-register.png":::
 
 ## Next steps
 
