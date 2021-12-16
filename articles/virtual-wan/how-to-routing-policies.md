@@ -14,7 +14,7 @@ ms.author: wellee
 # How to configure Virtual WAN Hub routing intent and routing policies
 
 >[!NOTE] 
-> Hub Routing Intent is currently in gated public preview. 
+> Hub Routing Intent is currently in gated public preview.
 > 
 > This preview is provided without a service-level agreement and isn't recommended for production workloads. Some features might be unsupported or have constrained capabilities. For more information, see [Supplemental terms of use for Microsoft Azure previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 > 
@@ -56,9 +56,9 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
     ```
 4.  Expect a response within 24-48 hours with confirmation of feature enablement. 
 5. Ensure that your Virtual Hubs do **not** have any Custom Route Tables or any  routes you may have added into the defaultRouteTable. You will **not** be able to enable routing policies on your deployments with existing Custom Route tables configured or if there are static routes configured in your Default Route Table. 
-6. If you are using an **Azure Firewall** deployed in the Virtual WAN Hub, please reference the following [section](#azurefirewall) to configure routing intent and routing policies. If you are using a **Network Virtual Appliance** deployed in the Virtual WAN Hub, please reference the following [section](#nva) to configure routing intent and routing policies.
+6. If you are using an **Azure Firewall** deployed in the Virtual WAN Hub, please reference [Configuring routing policies (through Azure Firewall Manager)](#azurefirewall) to configure routing intent and routing policies. If you are using a **Network Virtual Appliance** deployed in the Virtual WAN Hub, please reference [Configuring routing policies (through Virtual WAN Portal)](#nva) to configure routing intent and routing policies.
 
-## <a name="azurefirewall"></a> Configure routing policies (Azure Firewall) 
+## <a name="azurefirewall"></a> Configure routing policies (through Azure Firewall Manager)
 
 1. From the custom portal Link provided in the confirmation email from Step 3 in the **Prerequisites** section, navigate to the Virtual WAN Hub that you want to configure Routing Policies on.
 1. Under Security, select **Secured Virtual hub settings** and then **Manage security provider and route settings for this Secured virtual hub in Azure Firewall Manager**
@@ -79,12 +79,12 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 10. Repeat steps 2-8 for other Secured Virtual WAN hubs that you want to configure Routing policies for.
 
 
-## <a name="nva"></a> Configure routing policies (Network Virtual Appliance)
+## <a name="nva"></a> Configure routing policies (through Virtual WAN portal)
 
 >[!NOTE]
-> The only Network Virtual Appliance compatible with Routing Policies is rhe Fortinet NVA. For more information on obtaining access to this offering, please visit the following deployment guide.
+> The only Network Virtual Appliance deployed in the Virtual WAN hub compatible with routing intent and routing policies are listed in the [Partners section](about-nva-hub.md) as dual-role connectivity and Next-Generation Firewall solution providers.
 
-1. From the custom portal Link provided in the confirmation email from Step 3 in the **Prerequisites** section, navigate to the Virtual WAN hub that you want to configure routing policies on.
+1. From the custom portal link provided in the confirmation email from Step 3 in the **Prerequisites** section, navigate to the Virtual WAN hub that you want to configure routing policies on.
 1. Under Routing, select **Routing Policies**.
 
     :::image type="content" source="./media/routing-policies/routing-policies-vwan-ui.png"alt-text="Screenshot showing how to navigate to routing policies."lightbox="./media/routing-policies/routing-policies-vwan-ui.png":::
@@ -113,7 +113,7 @@ The following section describes two common scenarios customers of applying Routi
 
 ### All Virtual WAN Hubs are secured (deployed with Azure Firewall or NVA)
 
-In this scenario, all Virtual WAN hubs are deployed with an Azure Firewall or NVA in them. In this scenario, you may configure an Internet Traffic Routing Policy, a Private Traffic Routing Policy or both on each Virtual WAN Hub. 
+In this scenario, all Virtual WAN hubs are deployed with an Azure Firewall or NVA in them. In this scenario, you may configure an Internet Traffic Routing Policy, a Private Traffic Routing Policy or both on each Virtual WAN Hub.
 
 :::image type="content" source="./media/routing-policies/two-secured-hubs-diagram.png"alt-text="Screenshot showing architecture with two secured hubs."lightbox="./media/routing-policies/two-secured-hubs-diagram.png":::
 
