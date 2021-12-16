@@ -88,7 +88,10 @@ az feature register --namespace Microsoft.ContainerService -n AKS-ExtensionManag
     * ```system:serviceaccount:azureml:load-amlarc-selinux-policy-sa```
     * ```system:serviceaccount:azureml:azureml-fe```
     * ```system:serviceaccount:azureml:prom-prometheus```
-    * ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default``` **(Note:** ```{KUBERNETES-COMPUTE-NAMESPACE}``` **is the namespace of kubernetes compute specified in compute attach, which defaults to** ```default```. **Skip this setting if the namespace is** ```default```**)**
+    * ```system:serviceaccount:{KUBERNETES-COMPUTE-NAMESPACE}:default``` 
+    
+> [!NOTE]
+> `{KUBERNETES-COMPUTE-NAMESPACE}` is the namespace of the Kubernetes compute cluster specified in compute attach, which defaults to `default`. Skip this setting if the namespace is `default`
 
 ## Deploy Azure Machine Learning extension
 
