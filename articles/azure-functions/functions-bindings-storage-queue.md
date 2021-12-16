@@ -40,12 +40,14 @@ The functionality of the extension varies depending on the extension version:
 
 # [Extension 5.x higher](#tab/extensionv5/in-process)
 
+<a name="storage-extension-5x-and-higher"></a>
 A new version of the Storage bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `WindowsAzure.Storage` and `Microsoft.Azure.Storage` with newer types from [Azure.Storage.Queues](/dotnet/api/azure.storage.queues).
 
 This extension version is available by installing this [NuGet package](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage.Queues), version 5.x.
 
 # [Functions 2.x and higher](#tab/functionsv2/in-process)
 
+<a name="functions-2x-and-higher"></a>
 Working with the trigger and bindings requires that you reference the appropriate NuGet package. Install the [NuGet package], version 3.x. The package is used for .NET class libraries while the extension bundle is used for all other application types.
 
 # [Functions 1.x](#tab/functionsv1/in-process)
@@ -132,7 +134,7 @@ Functions 1.x apps automatically have a reference to the extension.
 
 ::: zone-end
 
-## host.json settings
+## <a name="host-json"></a>host.json settings
 
 [!INCLUDE [functions-host-json-section-intro](../../includes/functions-host-json-section-intro.md)]
 

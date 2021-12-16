@@ -481,7 +481,7 @@ You can write multiple messages to the queue by using one of the following types
 
 For examples using [QueueMessage] and [QueueClient], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
-[!INCLUDE [functions-bindings-queue-storage-attribute](functions-bindings-queue-storage-attribute.md)]
+[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
 
 # [Extension 2.x and higher](#tab/extensionv2/in-process)
 
@@ -499,7 +499,7 @@ You can write multiple messages to the queue by using one of the following types
 * `ICollector<T>` or `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-[!INCLUDE [functions-bindings-queue-storage-attribute](functions-bindings-queue-storage-attribute.md)]
+[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 

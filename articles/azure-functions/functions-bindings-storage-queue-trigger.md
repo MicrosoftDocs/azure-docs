@@ -357,7 +357,7 @@ See the [Example section](#example) for complete examples.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## Usage
+## <a name="encoding"></a>Usage
 
 > [!NOTE]
 > Functions expect a *base64* encoded string. Any adjustments to the encoding type (in order to prepare data as a *base64* encoded string) need to be implemented in the calling service.
@@ -393,7 +393,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code. For examples using [QueueMessage], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
-[!INCLUDE [functions-bindings-queue-storage-attribute](functions-bindings-queue-storage-attribute.md)]
+[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
 
 # [Extension 2.x and higher](#tab/extensionv2/in-process)
 
@@ -406,7 +406,7 @@ Access the message data by using a method parameter such as `string paramName`. 
 
 When binding to an object, the Functions runtime tries to deserializes the JSON payload into an instance of an arbitrary class defined in your code.  If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md).
 
-[!INCLUDE [functions-bindings-queue-storage-attribute](functions-bindings-queue-storage-attribute.md)]
+[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
 
 # [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
@@ -456,7 +456,7 @@ Access the queue message via string parameter that matches the name designated b
 Access the queue message via the parameter typed as [QueueMessage](/python/api/azure-functions/azure.functions.queuemessage).
 ::: zone-end  
 
-## Metadata
+## <a name="message-metadata"></a>Metadata
 
 The queue trigger provides several [metadata properties](./functions-bindings-expressions-patterns.md#trigger-metadata). These properties can be used as part of binding expressions in other bindings or as parameters in your code. 
 
