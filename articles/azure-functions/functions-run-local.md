@@ -149,7 +149,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 5. Install the Core Tools package:
 
     ```bash
-    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-4
     ```
 
@@ -160,7 +159,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 5. Install the Core Tools package:
 
     ```bash
-    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-3
     ```
 
@@ -171,7 +169,6 @@ Version 1.x of the Core Tools isn't supported on macOS. Use version 2.x or a lat
 5. Install the Core Tools package:
 
     ```bash
-    sudo apt-get update
     sudo apt-get install azure-functions-core-tools-2
     ```
 

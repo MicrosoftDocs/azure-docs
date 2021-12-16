@@ -18,7 +18,7 @@ Bicep modules are converted into a single Azure Resource Manager template with [
 
 ### Microsoft Learn
 
-To learn more about modules, and for hands-on guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/) on **Microsoft Learn**.
+If you would rather learn about modules through step-by-step guidance, see [Create composable Bicep files by using modules](/learn/modules/create-composable-bicep-files-using-modules/) on **Microsoft Learn**.
 
 ## Definition syntax
 
