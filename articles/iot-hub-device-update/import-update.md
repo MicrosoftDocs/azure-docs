@@ -33,7 +33,7 @@ If your organization already creates software for the devices you use, that same
 
 ## Create a Device Update import manifest
 
-If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md), and try out an [image-based](device-update-raspberry-pi.md) or [package-based](device-update-ubuntu-agent.md) tutorial first.
+If you haven't already done so, be sure to familiarize yourself with the basic [import concepts](import-concepts.md), and try out an [image-based](device-update-raspberry-pi.md), [package-based](device-update-ubuntu-agent.md) or proxy update tutorial first.
 
 1. Ensure that your update file(s) are located in a directory accessible from PowerShell.
 
@@ -68,12 +68,12 @@ If you haven't already done so, be sure to familiarize yourself with the basic [
     | updateVersion | Version number distinguishing this update from others that have the same Provider and Name. Does not have match a version of an individual software component on the device (but can if you choose).
     | updateType | <ul><li>Specify `microsoft/swupdate:1` for image update</li><li>Specify `microsoft/apt:1` for package update</li></ul>
     | installedCriteria | Used during deployment to compare the version already on the device with the version of the update. Deploying the update to the device will return a “failed” result if the installedCriteria value doesn't match the version that is on the device.<ul><li>For `microsoft/swupdate:1` update type, specify value of SWVersion </li><li>For `microsoft/apt:1` update type, specify **name-version**, where _name_ is the name of the APT Manifest and _version_ is the version of the APT Manifest. For example, contoso-iot-edge-1.0.0.0.
-    | updateFilePath(s) | Path to the update file(s) on your computer.
+    | updateFilePath(s) | Path to the update file(s) on your computer. For package update, this should be one APT manifest file. For image-based update, it can be multiple files (see [Import manifest schema details](import-schema.md)).
 
 
 ## Review the generated import manifest
 
-An example manifest output is below. For this example, there are two files that comprise this update: a .json file and a .zip file. If you have questions about any of the items, view the complete [import manifest schema](import-schema.md). 
+An example manifest output is below. For this example, there are two files that comprise this update: a .json file and a .zip file. If you have questions about any of the items, view the complete [import manifest schema](import-schema.md#import-manifest-schema). 
 ```json
 {
   "updateId": {
