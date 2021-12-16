@@ -124,7 +124,7 @@ the Active Directory domain and provide to the deployment.
    * **--port** expects the SQL endpoint port number 31433
    * **--dns-name** expects the DNS name for the SQL endpoint
    * **--keytab-file** expects the path to the keytab file
-   * **--secret-name** expects the name of the keytab secret
+   * **--secret-name** expects the name of the keytab secret to generate a spec for
    * **--secret-namespace** expects the Kubernetes namespace containing the keytab secret
 
    Using the examples chosen in this document, the command should look like the following.
