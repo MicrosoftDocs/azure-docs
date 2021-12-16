@@ -21,7 +21,7 @@ While tools such as [Postman](../use-postman.md), [cURL](../using-curl.md), and 
 >[!Note]
 >The [bulk import](https://github.com/microsoft/fhir-server/blob/main/docs/BulkImport.md) feature is currently available in the open source FHIR server. It's not available in Healthcare APIs yet.
 
-## Azure Function Importer
+## Azure Function FHIR Importer
 
 The [FHIR Importer](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FhirImporter) is an Azure Function or microservice, written in C#, that imports FHIR bundles in JSON or NDJSON formats as soon as they're uploaded to an Azure storage container.
 
@@ -39,13 +39,13 @@ To use the tool, follow the prerequisite steps below:
 1. [Register a confidential client application](../register-application-cli-rest.md) with a client secret.
 1. [Grant permissions](../configure-azure-rbac-using-scripts.md) to the client application.
 1. [Deploy FHIR Importer](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FhirImporter) using the CLI scripts and the ARM template. The Azure Function runtime is set to 2.0 by default, but it can be changed to 3.0 from the Azure portal.
-1. Review and modify the application settings for the Azure Function. For example, change `MaxDegreeOfParallelism` from 16 to a smaller number, and set `UUIDtoResourceTypeConversion` to **false** to ingest data without Universally Unique Identifier (UUID) string conversion.
+1. Review and modify the application settings for the Azure Function. For example, change `MaxDegreeOfParallelism` from 16 to a smaller number, and set `UUIDtoResourceTypeConversion` to **false** to ingest data without the conversion from a "urn:uuid" string to a corresponding FHIR resource type.
 
-   [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)()
+   [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)](media/bulk-import/importer-appsettings.png#lightbox)
 
 1. Upload the FHIR data to the storage container that the FHIR Importer is monitoring. By default, the storage account is named as the importer function name plus `sa`. For example, `importer1sa` and the container is named `fhirimport`. The `fhirrejected` container is for storing files that cannot be processed due to errors. You can use the portal, Azure [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or other upload tools.
 
-   [![Image of user interface of Upload Files to Storage.](media/bulk-import/importer-storage-container.png). 
+   [![Image of user interface of Upload Files to Storage.](media/bulk-import/importer-storage-container.png)](media/bulk-import/importer-storage-container.png#lightbox). 
 
 1. Test the FHIR Importer with a few documents first before bulk importing. Use App Insights to monitor and troubleshoot the Importer Azure Function. Check the logs and files in the `fhirrejected` storage container.
 
