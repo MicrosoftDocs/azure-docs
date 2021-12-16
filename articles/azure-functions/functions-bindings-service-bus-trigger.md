@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 12/02/2021
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Service Bus trigger for Azure Functions
@@ -24,7 +24,6 @@ For information on setup and configuration details, see the [overview](functions
 <!--Optional intro text goes here, followed by the C# modes include.-->
 
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
-
 
 # [In-process](#tab/in-process)
 
@@ -242,23 +241,27 @@ def main(msg: func.ServiceBusMessage):
 
     logging.info(result)
 ```
-
----
-
 ::: zone-end  
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs) to define the function. C# script instead uses a function.json configuration file.
 
+The following table explains the properties you can define using the attribute:
+
+| Property |Description|
+| --- | --- |
+|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed. |
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a Service Bus trigger:
-
-* [ServiceBusTriggerAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusTriggerAttribute.cs)
-
-  The attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. For more information, see the [Trigger - configuration](#configuration) section.
+In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes the name of the queue or the topic and subscription. In Azure Functions version 1.x, you can also specify the connection's access rights. If you don't specify access rights, the default is `Manage`. For more information, see the [Trigger - configuration](#configuration) section.
 
   Here's an example that shows the attribute used with a string parameter:
 
@@ -283,11 +286,9 @@ In [C# class libraries](functions-dotnet-class-library.md), use the following at
   }
   ```
 
-  For a complete example, see [Trigger - example](#example).
+  For a complete example, see [the examples section](#example).
 
-* [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs)
-
-  Provides another way to specify the Service Bus account to use. The constructor takes the name of an app setting that contains a Service Bus connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
+You can also use the [ServiceBusAccountAttribute](https://github.com/Azure/azure-functions-servicebus-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.ServiceBus/ServiceBusAccountAttribute.cs) to specify the Service Bus account to use. The constructor takes the name of an app setting that contains a Service Bus connection string. The attribute can be applied at the parameter, method, or class level. The following example shows class level and method level:
 
   ```csharp
   [ServiceBusAccount("ClassLevelServiceBusAppSetting")]
@@ -310,13 +311,28 @@ The Service Bus account to use is determined in the following order:
 * The `ServiceBusAccount` attribute applied to the function.
 * The `ServiceBusAccount` attribute applied to the class.
 * The "AzureWebJobsServiceBus" app setting.
+
 # [Isolated process](#tab/isolated-process)
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/ServiceBus/ServiceBusFunction.cs" range="12-15":::
 
 # [C# script](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+C# script uses a *function.json* file for configuration instead of attributes. The following table explains the binding configuration properties that you set in the *function.json* file.
+
+|function.json property | Attribute property |Description|
+|---------|---------|----------------------|
+|**type** | n/a | Must be set to "serviceBusTrigger". This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | n/a | The name of the variable that represents the queue or topic message in function code. |
+|**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
+|**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
+|**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
+|**connection**|**Connection**| The name of an app setting or setting collection that specifies how to connect to Service Bus. See [Connections](#connections).|
+|**accessRights**|**Access**|Access rights for the connection string. Available values are `manage` and `listen`. The default is `manage`, which indicates that the `connection` has the **Manage** permission. If you use a connection string that does not have the **Manage** permission, set `accessRights` to "listen". Otherwise, the Functions runtime might fail trying to do operations that require manage rights. In Azure Functions version 2.x and higher, this property is not available because the latest version of the Service Bus SDK doesn't support manage operations.|
+|**isSessionsEnabled**|**IsSessionsEnabled**|`true` if connecting to a [session-aware](../service-bus-messaging/message-sessions.md) queue or subscription. `false` otherwise, which is the default value.|
+|**autoComplete**|**AutoComplete**|`true` Whether the trigger should automatically call complete after processing, or if the function code will manually call complete.<br><br>Setting to `false` is only supported in C#.<br><br>If set to `true`, the trigger completes the message automatically if the function execution completes successfully, and abandons the message otherwise.<br><br>When set to `false`, you are responsible for calling [MessageReceiver](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver) methods to complete, abandon, or deadletter the message. If an exception is thrown (and none of the `MessageReceiver` methods are called), then the lock remains. Once the lock expires, the message is re-queued with the `DeliveryCount` incremented and the lock is automatically renewed.<br><br>In non-C# functions, exceptions in the function results in the runtime calls `abandonAsync` in the background. If no exception occurs, then `completeAsync` is called in the background. This property is available only in Azure Functions 2.x and higher. |
+
 ---
 
 
@@ -331,16 +347,16 @@ The `ServiceBusTopicTrigger` annotation allows you to designate a topic and subs
 See the trigger [example](#example) for more detail.
 
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBusTrigger` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to "serviceBusTrigger". This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue or topic message in function code. |
+|function.json property | Description|
+|---------|----------------------|
+|**type** |  Must be set to "serviceBusTrigger". This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** | Must be set to "in". This property is set automatically when you create the trigger in the Azure portal. |
+|**name** | The name of the variable that represents the queue or topic message in function code. |
 |**queueName**|**QueueName**|Name of the queue to monitor.  Set only if monitoring a queue, not for a topic.
 |**topicName**|**TopicName**|Name of the topic to monitor. Set only if monitoring a topic, not for a queue.|
 |**subscriptionName**|**SubscriptionName**|Name of the subscription to monitor. Set only if monitoring a topic, not for a queue.|
@@ -416,10 +432,7 @@ Access the queue or topic message by using `context.bindings.<name from function
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 The Service Bus instance is available via the parameter configured in the *function.json* file's name property.
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
-<!--Any usage information from the TypeScript tab in ## Usage. -->
-::: zone-end  
+::: zone-end   
 ::: zone pivot="programming-language-python"  
 The queue message is available to the function via a parameter typed as `func.ServiceBusMessage`. The Service Bus message is passed into the function as either a string or JSON object.
 ::: zone-end  

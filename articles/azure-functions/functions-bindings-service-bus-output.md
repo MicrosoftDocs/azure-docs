@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 12/02/2021
 ms.author: cshoe
 ms.custom: "devx-track-csharp, devx-track-python"
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # Azure Service Bus output binding for Azure Functions
@@ -333,7 +333,7 @@ Attributes are not supported by C# Script.
 The `ServiceBusQueueOutput` and `ServiceBusTopicOutput` annotations are available to write a message as a function output. The parameter decorated with these annotations must be declared as an `OutputBinding<T>` where `T` is the type corresponding to the message's type.
 
 ::: zone-end  
-::: zone pivot="programming-language-csharp,programming-language-java,programming-language-javascript,programming-language-typescript,programming-language-powershell,programming-language-python"  
+::: zone pivot="programming-language-java,programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
 The following table explains the binding configuration properties that you set in the *function.json* file and the `ServiceBus` attribute.
@@ -424,10 +424,7 @@ Access the queue or topic by using `context.bindings.<name from function.json>`.
 ::: zone-end  
 ::: zone pivot="programming-language-powershell"  
 Output to the Service Bus is available via the `Push-OutputBinding` cmdlet where you pass arguments that match the name designated by binding's name parameter in the *function.json* file.
-::: zone-end  
-::: zone pivot="programming-language-typescript"  
-<!--Any usage information from the TypeScript tab in ## Usage. -->
-::: zone-end  
+::: zone-end   
 ::: zone pivot="programming-language-python"  
 Use the [Azure Service Bus SDK](../service-bus-messaging/index.yml) rather than the built-in output binding.
 ::: zone-end  
