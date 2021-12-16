@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 12/15/2021
+ms.date: 12/16/2021
 ms.author: alkohli
 ---
 
@@ -25,14 +25,14 @@ When the data is uploaded to Azure at the datacenter, copy log (`_copy.xml` or `
 
 ### Identify the log version
 
-There are two versions of the copy/error log and verbose log, with different formats. To find out the log release number for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
+There are two versions of the copy/error log and verbose log, with different formats. The log versions are discussed separately in the sections that follow.
+
+To find out the log release number for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
 
 |Log file name   | Parameter        | Log drive release |
 |----------------|------------------|-------------------|
 |_copy.xml       | DriveLogVersion  | 2021-08-01        |
-|_error.xml      | DriveLog Version | 2018-10-01        |
-
-For more information, see the Sample upload logs for log drive release 2021-08-01 and log drive release 2018-10-01. 
+|_error.xml      | DriveLog Version | 2018-10-01        | 
 
 
 ## Locate the logs
