@@ -49,6 +49,9 @@ If you're an approver, you're sent email notifications when you need to approve 
 
 The following diagrams show when these email notifications are sent to either the approvers or the requestor. Reference the [email notifications table](entitlement-management-process.md#email-notifications-table) to find the corresponding number to the email notifications displayed in the diagrams.
 
+ > [!NOTE]
+ > You will not receive an email notification when an access request has been completed or denied if the admin is directly assigning a user to an access package. Email notifications are only sent when a user makes a requests for access.
+
 ### First approvers and alternate approvers
 The following diagram shows the experience of first approvers and alternate approvers, and the email notifications they receive during the request process:
 
