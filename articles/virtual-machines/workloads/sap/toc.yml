@@ -317,6 +317,8 @@
       href: automation-configure-extra-disks.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
+    - name: Configure Azure DevOps
+      href: automation-configure-devops.md  
     - name: Configure external tools
       href: automation-tools-configuration.md
   - name: Script reference
@@ -379,6 +381,8 @@
       href: automation-run-ansible.md
     - name: Deployment hands-on lab
       href: automation-tutorial.md
+    - name: Deployment hands-on lab using DevOps pipelines
+      href: automation-devops-tutorial.md
     - name: Manual infrastructure deployment
       href: automation-manual-deployment.md
     - name: Sample deployment configurations
