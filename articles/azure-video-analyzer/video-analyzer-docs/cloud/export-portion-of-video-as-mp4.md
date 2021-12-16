@@ -26,7 +26,7 @@ Prerequisites for this tutorial are:
 
 * An Azure account that includes an active subscription. [Create an account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) for free if you don't already have one.
 * [Video Analyzer account](../create-video-analyzer-account.md).
-* Have completed [Quickstart: Detect motion, record video to Video Analyzer](../edge/detect-motion-record-video-clips-cloud.md) or any Video Analyzer pipeline that records to a video sink.
+* Have completed [Quickstart: Detect motion in a (simulated) live video, record the video to the Video Analyzer account](../edge/detect-motion-record-video-clips-cloud.md) or any Video Analyzer pipeline that records to a video sink.
 
 ## Overview
 
