@@ -23,7 +23,7 @@ Managed Identities can be of two types:
 - **System-assigned**
 - **User-assigned**
 
-Enabling system-assigned managed identity for Azure SQL logical servers and Managed Instances are already supported today. Assigning user-assigned managed identity to the server is now in public preview.
+Enabling system-assigned managed identity for Azure SQL logical servers and Managed Instances are already supported today. [Assigning user-assigned managed identity](authentication-azure-ad-user-assigned-managed-identity.md) to the server is now in public preview.
 
 For [TDE with customer-managed key (CMK)](transparent-data-encryption-byok-overview.md) in Azure SQL, a managed identity on the server is used for providing access rights to the server on the key vault. For instance, the system-assigned managed identity of the server should be provided with [key vault permissions](transparent-data-encryption-byok-overview.md#how-customer-managed-tde-works) prior to enabling TDE with CMK on the server. 
 
