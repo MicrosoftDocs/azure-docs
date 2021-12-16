@@ -14,9 +14,9 @@ ms.author: zxue
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this article, you'll learn how to bulk import data into the FHIR service in Healthcare APIs. The tools described in this article are freely available at GitHub and can be modified to meet your business needs. Technical support for the tools is available through GitHub and the open source community.
+In this article, you'll learn how to bulk import data into the FHIR service in Healthcare APIs. The tools described in this article are freely available at GitHub and can be modified to meet your business needs. Technical support for the tools is available through GitHub and the open-source community.
 
-While tools such as [Postman](../use-postman.md), [cURL](../using-curl.md) and [Rest Client](../using-rest-client.md) to ingest data to the FHIR service, they're not typically used to bulk load FHIR data.
+While tools such as [Postman](../use-postman.md), [cURL](../using-curl.md), and [Rest Client](../using-rest-client.md) to ingest data to the FHIR service, they're not typically used to bulk load FHIR data.
 
 >[!Note]
 >The [bulk import](https://github.com/microsoft/fhir-server/blob/main/docs/BulkImport.md) feature is currently available in the open source FHIR server. It's not available in Healthcare APIs yet.
@@ -41,7 +41,7 @@ To use the tool, follow the prerequisite steps below:
 1. [Deploy FHIR Importer](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FhirImporter) using the CLI scripts and the ARM template. The Azure Function runtime is set to 2.0 by default, but it can be changed to 3.0 from the Azure portal.
 1. Review and modify the application settings for the Azure Function. For example, change `MaxDegreeOfParallelism` from 16 to a smaller number, and set `UUIDtoResourceTypeConversion` to **false** to ingest data without Universally Unique Identifier (UUID) string conversion.
 
-   [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)(media/importer-appsettings.png#lightbox)
+   [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)()
 
 1. Upload the FHIR data to the storage container that the FHIR Importer is monitoring. By default, the storage account is named as the importer function name plus `sa`. For example, `importer1sa` and the container is named `fhirimport`. The `fhirrejected` container is for storing files that cannot be processed due to errors. You can use the portal, Azure [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or other upload tools.
 
@@ -61,7 +61,7 @@ There are other similar tools that can be used to bulk load FHIR data.
 
 ## Next steps
 
-In this article, you've learned about the tools and the steps for bulk importing data into the FHIR service. For more information about converting data to FHIR, exporting setting to set up a storage account, and to move data to Azure Synapse, see
+In this article, you've learned about the tools and the steps for bulk-importing data into the FHIR service. For more information about converting data to FHIR, exporting settings to set up a storage account, and moving data to Azure Synapse, see
 
 >[!div class="nextstepaction"]
 >[Converting your data to FHIR](convert-data.md)
