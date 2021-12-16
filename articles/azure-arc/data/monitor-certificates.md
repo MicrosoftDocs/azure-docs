@@ -11,7 +11,7 @@ ms.date: 12/15/2021
 ms.topic: how-to
 ---
 
-# Provide certificates for monitoring
+# Provide SSL certificates for monitoring
 
 Beginning in December, 2021 Azure Arc-enabled data services allows you to provide certificates for the monitoring dashboards. You can use these certificates for logs (Kibana) and metrics (Grafana) dashboards. 
 
@@ -42,11 +42,17 @@ You can specify these certificates when you deploy the data controller. This art
    #az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --logs-ui-public-key-file /path/to/logsuipublickeyfile.pem --logs-ui-private-key-file /path/to/logsuiprivatekey.pem --metrics-ui-public-key-file /path/to/metricsuipublickeyfile.pem --metrics-ui-private-key-file /path/to/metricsuiprivatekey.pem
    ```
 
+You can only specify certificates when you include `--use-k8s` in the `az arcdata dc create ...` statement.
+
 ## Specify during Kubernetes native tools deployment
 
 Make sure the services are listed as subject alternative names (SANs) and the certificate usage parameters are correct. 
 
 1. Before you deploy the data controller, provide the certificates and private keys. Create a `logsui-certificiate-secret` and a `metricsui-certificate-secret`.
+
+   The Azure Arc samples repository provides a shell script example to create and verify a valid certificate. See [create-monitoring-tls-files.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring).
+
+
 1. Verify each secret has the following fields:
    - `certificate.pem` containing the base64 encoded certificate
    - `privatekey.pem` containing the private key
