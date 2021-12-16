@@ -13,6 +13,9 @@ ms.topic: how-to
 
 # Upgrade an indirect mode Azure Arc-enabled Managed Instance using Kubernetes tools
 
+This article describes how to upgrade a SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using Kubernetes tools.
+
+
 ## Prerequisites
 
 ### Install tools
