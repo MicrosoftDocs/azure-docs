@@ -11,14 +11,21 @@ ms.date: 09/10/2021
 
 [!INCLUDE [appliesto-sql](includes/appliesto-sql.md)]
 
-Azure Data Share allows you to securely share snapshots of your data from Azure SQL Database and Azure Synapse Analytics resources, to other Azure subscriptions. Including Azure subscriptions outside your tenant. This article will guide you through what kinds of data can be shared, how to prepare you environment, how to create a share, and how to receive shared data.
+Azure Data Share allows you to securely share snapshots of data from your Azure SQL Database and Azure Synapse Analytics resources, to other Azure subscriptions. Including Azure subscriptions outside your tenant. This article will guide you through what kinds of data can be shared, how to prepare you environment, how to create a share, and how to receive shared data.
 
-
-Azure Data Share supports snapshot-based sharing Azure SQL Database and Azure Synapse Analytics. This article explains how to share and receive data from these sources.
+:::image type="content" source="media/how-to/how-to-share-from-sql/data-share-flow.png" alt-text="Image showing the data flow between data owners and data consumers.":::
 
 ## What's supported
 
-Azure Data Share supports sharing of both tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), and sharing of tables from Azure Synapse Analytics (workspace) dedicated SQL pool.
+### Share data
+
+Azure Data Share supports sharing data full data snapshots from several SQL resources in Azure. Incremental snapshots are not currently supported for these resources.
+
+|Resource type | Share tables   | Share views |
+|----------|-----------|------------|
+| Azure SQL Database    | Yes       | Yes      |
+|Azure Synapse Analytics (formerly Azure SQL DW)|Yes   |Yes|
+|Synapse Analytics (workspace) dedicated SQL pool|Yes   |No|
 
 >[!NOTE]
 > Sharing from Azure Synapse Analytics (workspace) serverless SQL pool is not currently supported.
@@ -26,16 +33,21 @@ Azure Data Share supports sharing of both tables and views from Azure SQL Databa
 >[!NOTE]
 > Currently, Azure Data Share does not support Azure SQL databases with Always Encrypted configured. 
 
-Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 or Azure Blob Storage as csv or parquet file, as well as into Azure SQL Database and Azure Synapse Analytics as tables. 
+### Receive shared data
 
-When accepting data into Azure Data Lake Store Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if already exists.
-When data is received into SQL table and if the target table does not already exist, Azure Data Share creates the SQL table with the source schema. If a target table already exists with the same name, it will be dropped and overwritten with the latest full snapshot. 
+Data consumers can choose to accept shared data into several Azure resources:
+
+* Azure Data Lake Storage Gen2
+* Azure Blob Storage
+* Azure SQL Database
+* Azure Synapse Analytics
+
+Shared data in **Azure Data Lake Storage Gen 2** or **Azure Blob Storage** can be stored as a csv or parquet file. Full data snapshots overwrite the contents of the target file if already exists.
+
+Shared data in **Azure SQL Database** and **Azure Synapse Analytics** is stored in tables. If the target table does not already exist, Azure Data Share creates the SQL table with the source schema. If a target table with the same name already exists, it will be dropped and overwritten with the latest full snapshot. 
 
 >[!NOTE] 
 > For source SQL tables with dynamic data masking, data will appear masked on the recipient side.
-
->[!NOTE] 
-> Incremental snapshots are not currently supported.
 
 ### Supported data types
 When you share data from SQL source, the following mapping are used from SQL Server data types to Azure Data Share interim data types during snapshot process. 
@@ -82,10 +94,13 @@ When you share data from SQL source, the following mapping are used from SQL Ser
 
 ##  Prerequisites to share data
 
-* Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+To share data snapshots from your Azure SQL resources, you need to prepare your environment. You'll need:
+
+* An Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* An [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace) with tables and views that you want to share.
 * [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
-* Your recipient's Azure login e-mail address (using their e-mail alias won't work).
-* If the source Azure data store is in a different Azure subscription than the one you will use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
+* Your data recipient's Azure login e-mail address (using their e-mail alias won't work).
+* If your Azure SQL resource is in a different Azure subscription than your Azure Data Share account, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where your source Azure SQL resource is located.
 
 There are also source-specific prerequisites for sharing. Select your source and follow the steps:
 
@@ -94,24 +109,28 @@ There are also source-specific prerequisites for sharing. Select your source and
 
 ### <a id="prerequisitesforsharingazuresqlorsynapse">Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)</a>
 
-To share data using Azure Active Directory authentication, here is a list of prerequisites:
+You can use one of these methods to authenticate with Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW):
+* [Azure Active Directory authentication](#azure-active-directory-authentication)
+* [SQL authentication](#sql-authentication)
 
-* An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) with tables and views that you want to share.
-* Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
-* SQL Server **Azure Active Directory Admin**
-* SQL Server Firewall access. This can be done through the following steps: 
-    1. In Azure portal, navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
-    1. Click **Yes** for *Allow Azure services and resources to access this server*.
-    1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
-    1. Click **Save**. 
+#### Azure Active Directory authentication
 
-To share data using SQL authentication, below is a list of prerequisites. You can follow the [step by step demo](https://youtu.be/hIE-TjJD8Dc) to configure prerequisites.
+* Permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
+* SQL Server **Azure Active Directory Admin** permissions.
+* SQL Server Firewall access: 
+    1. In the [Azure portal](https://portal.azure.com/), navigate to your SQL server. Select *Firewalls and virtual networks* from left navigation.
+    1. Select **Yes** for *Allow Azure services and resources to access this server*.
+    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from the Azure portal. You can also add an IP range.
+    1. Select **Save**.
 
-* An Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) with tables and views that you want to share.
-* Permission to write to the databases on SQL server, which is present in *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
-* Permission for the Data Share resource's managed identity to access the database. This can be done through the following steps: 
-    1. In Azure portal, navigate to the SQL server and set yourself as the **Azure Active Directory Admin**.
-    1. Connect to the Azure SQL Database/Data Warehouse using [Query Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication. 
+#### SQL authentication
+
+You can follow the [step by step demo video](https://youtu.be/hIE-TjJD8Dc) to configure authentication, or follow these steps below:
+
+* Permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the **Contributor** role.
+* Permission for the Azure Data Share resource's managed identity to access the database:
+    1. In the [Azure portal](https://portal.azure.com/), navigate to the SQL server and set yourself as the **Azure Active Directory Admin**.
+    1. Connect to the Azure SQL Database/Data Warehouse using the [Query Editor](../azure-sql/database/connect-query-portal.md#connect-using-azure-active-directory) or SQL Server Management Studio with Azure Active Directory authentication. 
     1. Execute the following script to add the Data Share resource Managed Identity as a db_datareader. You must connect using Active Directory and not SQL Server authentication. 
     
         ```sql
@@ -122,32 +141,32 @@ To share data using SQL authentication, below is a list of prerequisites. You ca
 
 * An Azure SQL Database User with **'db_datareader'** access to navigate and select the tables and/or views you wish to share. 
 
-* SQL Server Firewall access. This can be done through the following steps: 
-    1. In Azure portal, navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
-    1. Click **Yes** for *Allow Azure services and resources to access this server*.
-    1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
-    1. Click **Save**. 
+* SQL Server Firewall access:
+    1. In the [Azure portal](https://portal.azure.com/), navigate to SQL server. Select *Firewalls and virtual networks* from left navigation.
+    1. Select **Yes** for *Allow Azure services and resources to access this server*.
+    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
+    1. Select **Save**. 
 
 ### <a id="prerequisitesforsharingazuresynapseworkspace">Prerequisites for sharing from Azure Synapse Analytics (workspace) SQL pool</a>
 
-* An Azure Synapse Analytics (workspace) dedicated SQL pool with tables that you want to share. Sharing of view is not currently supported. Sharing from serverless SQL pool is not currently supported.
-* Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
-* Permission for the Data Share resource's managed identity to access Synapse workspace SQL pool. This can be done through the following steps: 
-    1. In Azure portal, navigate to Synapse workspace. Select SQL Active Directory admin from left navigation and set yourself as the **Azure Active Directory admin**.
-    1. Open Synapse Studio, select *Manage* from the left navigation. Select *Access control* under Security. Assign yourself **SQL admin** or **Workspace admin** role.
-    1. In Synapse Studio, select *Develop* from the left navigation. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a db_datareader. 
+* Permission to write to the SQL pool in Synapse workspace: *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
+* Permission for the Data Share resource's managed identity to access Synapse workspace SQL pool: 
+    1. In the [Azure portal](https://portal.azure.com/), navigate to your Synapse workspace. Select **SQL Active Directory admin** from left navigation and set yourself as the **Azure Active Directory admin**.
+    1. Open the Synapse Studio, select **Manage** from the left navigation. Select **Access control** under Security. Assign yourself the **SQL admin** or **Workspace admin** role.
+    1. Select **Develop** from the left navigation in the Synapse Studio. Execute the following script in SQL pool to add the Data Share resource Managed Identity as a db_datareader. 
     
         ```sql
         create user "<share_acct_name>" from external provider;     
         exec sp_addrolemember db_datareader, "<share_acct_name>"; 
         ```                   
-       Note that the *<share_acc_name>* is the name of your Data Share resource. If you have not created a Data Share resource as yet, you can come back to this pre-requisite later.  
+       > [!Note]
+       > The *<share_acc_name>* is the name of your Data Share resource.
 
-* Synapse workspace Firewall access. This can be done through the following steps: 
-    1. In Azure portal, navigate to Synapse workspace. Select *Firewalls* from left navigation.
-    1. Click **ON** for *Allow Azure services and resources to access this workspace*.
-    1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
-    1. Click **Save**. 
+* Synapse workspace Firewall access: 
+    1. In the [Azure portal](https://portal.azure.com/), navigate to Synapse workspace. Select **Firewalls** from left navigation.
+    1. Select **ON** for **Allow Azure services and resources to access this workspace**.
+    1. Select **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
+    1. Select **Save**. 
 
 ## Create a share
 
@@ -197,9 +216,7 @@ To share data using SQL authentication, below is a list of prerequisites. You ca
 
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation. 
 
-## Receive shared data
-
-### Prerequisites to receive data
+## Prerequisites to receive data
 Before you can accept a data share invitation, you must provision a number of Azure resources, which are listed below. 
 
 Ensure that all pre-requisites are complete before accepting a data share invitation. 
@@ -284,23 +301,21 @@ To receive data into a SQL server where you are not the **Azure Active Directory
     1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
     1. Click **Save**. 
 
-### Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
+## Receive shared data
 
 ### Open invitation
 
-1. You can open invitation from email or directly from Azure portal. 
+You can open invitation from email or directly from the [Azure portal](https://portal.azure.com/). 
 
-   To open invitation from email, check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Click on **View invitation** to see your invitation in Azure. 
+To open invitation from email, check your inbox for an invitation from your data provider. The invitation is from Microsoft Azure, titled **Azure Data Share invitation from <yourdataprovider@domain.com>**. Click on **View invitation** to see your invitation in Azure. 
 
-   To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
+To open invitation from Azure portal directly, search for **Data Share Invitations** in Azure portal. This takes you to the list of Data Share invitations.
 
-   If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it is valid for 12 months.
+If you are a guest user of a tenant, you will be asked to verify your email address for the tenant prior to viewing Data Share invitation for the first time. Once verified, it is valid for 12 months.
 
-   ![List of Invitations](./media/invitations.png "List of invitations") 
+![List of Invitations](./media/invitations.png "List of invitations") 
 
-1. Select the share you would like to view. 
+Then, select the share you would like to view. 
 
 ### Accept invitation
 1. Make sure all fields are reviewed, including the **Terms of Use**. If you agree to the terms of use, you'll be required to check the box to indicate you agree. 
