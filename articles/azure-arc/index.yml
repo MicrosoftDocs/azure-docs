@@ -37,11 +37,11 @@ highlightedContent:
       itemType: overview
       url: ./kubernetes/overview.md
     # Card
-    - title: Azure Arc-enabled data services (preview)
+    - title: Azure Arc-enabled data services 
       itemType: overview
       url: ./data/overview.md
     # Card
-    - title: SQL Server on Azure Arc-enabled servers (preview)
+    - title: SQL Server on Azure Arc-enabled servers
       itemType: overview
       url: /sql/sql-server/azure-arc/overview
 
@@ -61,10 +61,10 @@ conceptualContent:
           text: Security overview
         - url: ./servers/policy-reference.md
           itemType: learn
-          text: Admission control policies using Azure Policy
+          text: Admission control policy definitions using Azure Policy
         - url: /sql/sql-server/azure-arc/overview
           itemType: overview
-          text: Enable Arc-enabled SQL Server (preview)
+          text: Connect SQL Server
       # footerLink (optional)
       footerLink:
         url: ./servers/index.yml
@@ -75,12 +75,12 @@ conceptualContent:
         - url: ./kubernetes/quickstart-connect-cluster.md
           itemType: quickstart
           text: Connect a cluster to Azure Arc
-        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md
+        - url: ../azure-monitor/containers/container-insights-enable-arc-enabled-clusters.md?toc=/azure/azure-arc/kubernetes/toc.json
           itemType: tutorial
           text: Monitor using Azure Monitor for containers
-        - url: ./kubernetes/use-azure-policy.md
+        - url: ./kubernetes/tutorial-use-gitops-flux2.md
           itemType: how-to-guide
-          text: Enforce GitOps using Azure Policy
+          text: Apply configurations on cluster using GitOps
         - url: ./kubernetes/tutorial-arc-enabled-open-service-mesh.md
           itemType: tutorial
           text: Azure Arc-enabled Open Service Mesh (Preview)
@@ -89,7 +89,7 @@ conceptualContent:
         url: ./kubernetes/index.yml
         text: See more
     # Card
-    - title: Azure Arc-enabled data services (preview)
+    - title: Azure Arc-enabled data services 
       links:
         - url: ./data/install-client-tools.md
           itemType: deploy
@@ -120,16 +120,16 @@ conceptualContent:
           text: Azure Policy overview
         - url: ../security-center/azure-defender.md
           itemType: overview
-          text: Azure Defender overview
+          text: Microsoft Defender for Cloud overview
         - url: ../automation/automation-intro.md
           itemType: overview
           text: Azure Automation overview
     # Card
-    - title: SQL Server on Azure Arc-enabled servers (preview)
+    - title: SQL Server on Azure Arc-enabled servers
       links:
         - url: /sql/sql-server/azure-arc/assess
           itemType: how-to-guide
-          text: Assess Arc enabled instance
+          text: Assess instance
         - url: /sql/sql-server/azure-arc/configure-advanced-data-security
           itemType: how-to-guide
           text: Configure advanced data security

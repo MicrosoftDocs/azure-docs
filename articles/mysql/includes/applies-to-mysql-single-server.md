@@ -1,1 +1,1 @@
-<Token>**APPLIES TO:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Database for MySQL - Single Server </Token>
+**APPLIES TO:** :::image type="icon" source="../media/applies-to/yes.png" border="false":::Azure Database for MySQL - Single Server 

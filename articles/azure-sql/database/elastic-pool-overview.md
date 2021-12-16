@@ -9,13 +9,16 @@ ms.devlang:
 ms.topic: conceptual
 author: arvindshmicrosoft 
 ms.author: arvindsh
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 06/23/2021
 ---
 # Elastic pools help you manage and scale multiple databases in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 Azure SQL Database elastic pools are a simple, cost-effective solution for managing and scaling multiple databases that have varying and unpredictable usage demands. The databases in an elastic pool are on a single server and share a set number of resources at a set price. Elastic pools in Azure SQL Database enable SaaS developers to optimize the price performance for a group of databases within a prescribed budget while delivering performance elasticity for each database.
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 ## What are SQL elastic pools
 

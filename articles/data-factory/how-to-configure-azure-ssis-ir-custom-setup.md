@@ -2,11 +2,12 @@
 title: Customize the setup for an Azure-SSIS Integration Runtime
 description: This article describes how to use the custom setup interface for an Azure-SSIS Integration Runtime to install additional components or change settings
 ms.service: data-factory
+ms.subservice: integration-services
 ms.topic: conceptual
 author: swinarko
 ms.author: sawinark
 ms.custom: seo-lt-2019
-ms.date: 04/30/2021
+ms.date: 11/01/2021
 ---
 
 # Customize the setup for an Azure-SSIS Integration Runtime
@@ -68,40 +69,40 @@ To provision or reconfigure your Azure-SSIS IR with standard custom setups on AD
 
    a. Under **Local and Attached**, right-click **Storage Accounts**, and then select **Connect to Azure Storage**.
 
-      ![Connect to Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png" alt-text="Connect to Azure Storage":::
 
    b. Select **Storage account or service**, select **Account name and key**, and then select **Next**.
 
    c. Enter your Azure Storage account name and key, select **Next**, and then select **Connect**.
 
-      ![Provide storage account name and key](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image3.png" alt-text="Provide storage account name and key":::
 
    d. Under your connected Azure Storage account, right-click **Blob Containers**, select **Create Blob Container**, and name the new blob container.
 
-      ![Create a blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image4.png" alt-text="Create a blob container":::
 
    e. Select the new blob container, and upload your custom setup script and its associated files. Make sure that you upload *main.cmd* at the top level of your blob container, not in any folder. Your blob container should contain only the necessary custom setup files, so downloading them to your Azure-SSIS IR later won't take a long time. The maximum duration of a custom setup is currently set at 45 minutes before it times out. This includes the time to download all files from your blob container and install them on the Azure-SSIS IR. If setup requires more time, raise a support ticket.
 
-      ![Upload files to the blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image5.png" alt-text="Upload files to the blob container":::
 
    f. Right-click the blob container, and then select **Get Shared Access Signature**.
 
-      ![Get the Shared Access Signature for the blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image6.png" alt-text="Get the Shared Access Signature for the blob container":::
 
    g. Create the SAS URI for your blob container with a sufficiently long expiration time and with read/write/list permission. You need the SAS URI to download and run your custom setup script and its associated files. This happens whenever any node of your Azure-SSIS IR is reimaged or restarted. You also need write permission to upload setup execution logs.
 
       > [!IMPORTANT]
       > Ensure that the SAS URI doesn't expire and the custom setup resources are always available during the whole lifecycle of your Azure-SSIS IR, from creation to deletion, especially if you regularly stop and start your Azure-SSIS IR during this period.
 
-      ![Generate the Shared Access Signature for the blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image7.png" alt-text="Generate the Shared Access Signature for the blob container":::
 
    h. Copy and save the SAS URI of your blob container.
 
-      ![Copy and save the Shared Access Signature](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image8.png" alt-text="Copy and save the Shared Access Signature":::
 
 1. Select the **Customize your Azure-SSIS Integration Runtime with additional system configurations/component installations** check box on the **Advanced settings** page of **Integration runtime setup** pane. Next, enter the SAS URI of your blob container in the **Custom setup container SAS URI** text box.
 
-   ![Advanced settings with custom setups](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)
+   :::image type="content" source="./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png" alt-text="Advanced settings with custom setups":::
 
 After your standard custom setup finishes and your Azure-SSIS IR starts, you can find all custom setup logs in the *main.cmd.log* folder of your blob container. They include the standard output of *main.cmd* and other execution logs.
 
@@ -115,7 +116,7 @@ To provision or reconfigure your Azure-SSIS IR with express custom setups on ADF
 
 #### Running cmdkey command
 
-If you select the **Run cmdkey command** type for your express custom setup, you can run the Windows cmdkey command on your Azure-SSIS IR. To do so, enter your targeted computer name or domain name, username or account name, and password or account key in the **/Add**, **/User**, and **/Pass** text boxes, respectively. This will allow you to persist access credentials for SQL Servers, file shares, or Azure Files on your Azure-SSIS IR. For example, to access Azure Files, you can enter `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName`, and `YourAzureStorageAccountKey` for **/Add**, **/User**, and **/Pass**, respectively. This is similar to running the Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) command on your local machine. Only one express custom setup to run cmdkey command is supported for now. To run multiple cmdkey commands, use a standard custom setup instead.
+If you select the **Run cmdkey command** type for your express custom setup, you can run the Windows cmdkey command on your Azure-SSIS IR. To do so, enter your targeted computer name or domain name, username or account name, and password or account key in the **/Add**, **/User**, and **/Pass** text boxes, respectively. This will allow you to persist access credentials for SQL Servers, file shares, or Azure Files on your Azure-SSIS IR. For example, to access Azure Files, you can enter `YourAzureStorageAccountName.file.core.windows.net`, `azure\YourAzureStorageAccountName`, and `YourAzureStorageAccountKey` for **/Add**, **/User**, and **/Pass**, respectively. This is similar to running the Windows [cmdkey](/windows-server/administration/windows-commands/cmdkey) command on your local machine. 
 
 #### Adding environment variables
 
@@ -263,7 +264,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
    a. Under **Local and Attached**, right-click **Storage Accounts**, and then select **Connect to Azure Storage**.
 
-      ![Connect to Azure Storage](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png)
+      :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image1.png" alt-text="Connect to Azure Storage":::
 
    b. Select **Blob container**, select **Shared access signature URL (SAS)**, and then select **Next**.
 
@@ -277,7 +278,7 @@ To view and reuse some samples of standard custom setups, complete the following
 
       * A *UserScenarios* folder, which contains several custom setup samples from real user scenarios. If you want to install multiple samples on your Azure-SSIS IR, you can combine their custom setup script (*main.cmd*) files into a single one and upload it with all of their associated files into your blob container.
 
-        ![Contents of the public preview blob container](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png)
+        :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image11.png" alt-text="Contents of the public preview blob container":::
 
    e. Double-click the *UserScenarios* folder to find the following items:
 
@@ -337,7 +338,7 @@ To view and reuse some samples of standard custom setups, complete the following
       
         First, [download the latest Zulu OpenJDK](https://www.azul.com/downloads/zulu/zulu-windows/) (for example, *zulu8.33.0.1-jdk8.0.192-win_x64.zip*), and then upload it together with *main.cmd* and *install_openjdk.ps1* to your blob container.
 
-        ![Folders in the user scenarios folder](media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png)
+        :::image type="content" source="media/how-to-configure-azure-ssis-ir-custom-setup/custom-setup-image12.png" alt-text="Folders in the user scenarios folder":::
 
    f. To reuse these standard custom setup samples, copy the content of selected folder to your blob container.
 

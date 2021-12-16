@@ -2,7 +2,7 @@
 title: Manage signed images
 description: Learn how to enable content trust for your Azure container registry, and push and pull signed images. Content trust implements Docker content trust and is a feature of the Premium service tier.
 ms.topic: how-to
-ms.date: 06/25/2021
+ms.date: 07/26/2021
 ms.custom: subject-rbac-steps
 ---
 # Content trust in Azure Container Registry
@@ -70,6 +70,9 @@ Only the users or systems you've granted permission can push trusted images to y
 > You can't grant trusted image push permission to the following administrative accounts: 
 > * the [admin account](container-registry-authentication.md#admin-account) of an Azure container registry
 > * a user account in Azure Active Directory with the [classic system administrator role](../role-based-access-control/rbac-and-directory-admin-roles.md#classic-subscription-administrator-roles).
+
+> [!NOTE]
+> Starting July 2021, the `AcrImageSigner` role includes both the         `Microsoft.ContainerRegistry/registries/sign/write` action and the `Microsoft.ContainerRegistry/registries/trustedCollections/write` data action.
 
 Details for granting the `AcrImageSigner` role in the Azure portal and the Azure CLI follow.
 

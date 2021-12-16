@@ -11,7 +11,7 @@ ms.author: duau
 
 
 ---
-# Configure Network Performance Monitor for ExpressRoute
+# Configure Network Performance Monitor for ExpressRoute (deprecated)
 
 This article helps you configure a Network Performance Monitor extension to monitor ExpressRoute. Network Performance Monitor (NPM) is a cloud-based network monitoring solution that monitors connectivity between Azure cloud deployments and on-premises locations (Branch offices, etc.). NPM is part of Azure Monitor logs. NPM offers an extension for ExpressRoute that lets you monitor network performance over ExpressRoute circuits that are configured to use private peering or Microsoft peering. When you configure NPM for ExpressRoute, you can detect network issues to identify and eliminate. This service is also available for Azure Government Cloud.
 
@@ -83,7 +83,7 @@ Create a workspace in the subscription that has the VNets link to the ExpressRou
 
 1. Go to the **Common Settings** tab of the **Network Performance Monitor Configuration** page for your resource. Click the agent that corresponds to your server's processor from the **Install Log Analytics Agents** section, and download the setup file.
 2. Next, copy the **Workspace ID** and **Primary Key** to Notepad.
-3. From the **Configure Log Analytics Agents for monitoring using TCP protocol** section, download the Powershell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
+3. From the **Configure Log Analytics Agents for monitoring using TCP protocol** section, download the PowerShell Script. The PowerShell script helps you open the relevant firewall port for the TCP transactions.
 
    ![PowerShell script](./media/how-to-npm/7.png)
 

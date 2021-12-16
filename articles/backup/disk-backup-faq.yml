@@ -2,7 +2,8 @@
 metadata:
   title: Frequently asked questions about Azure Disk Backup
   description: Get answers to frequently asked questions about Azure Disk Backup
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: backup
   ms.date: 05/27/2021
     
 title: Frequently asked questions about Azure Disk Backup

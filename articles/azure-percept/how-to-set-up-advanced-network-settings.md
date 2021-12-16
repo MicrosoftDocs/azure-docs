@@ -1,15 +1,15 @@
 ---
 title: Set up advanced network settings on the Azure Percept DK
 description: This article walks user through the Advanced Network Settings during the Azure Percept DK setup experience
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: wendyowen
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 7/19/2021
 ms.custom: template-how-to 
 ---
 
-# Set up Advanced Network Settings on the Azure Percept DK
+# Set up advanced network settings on the Azure Percept DK
 
 The Azure Percept DK allows you to control various networking components on the dev kit. This is done via the Advanced Networking Settings in the setup experience. To access these settings, you must [start the setup experience](./quickstart-percept-dk-set-up.md) and select **Access advanced network settings** on the **Network connection** page.
 
@@ -19,7 +19,7 @@ The Azure Percept DK allows you to control various networking components on the 
 IPv4 and IPv6 are both supported on the Azure Percept DK for local connectivity.
 
 > [!NOTE]
-> Azure IoTHub [does not supports IPv6](https://docs.microsoft.com/azure/iot-hub/iot-hub-understand-ip-address#support-for-ipv6). IPv4 must be used to communicate with IoTHub.
+> Azure IoTHub [does not supports IPv6](../iot-hub/iot-hub-understand-ip-address.md#support-for-ipv6). IPv4 must be used to communicate with IoTHub.
 1. Select the IPv4 radio button and then select an item under Network Settings to change its IPv4 settings
 1. Select the IPv6 radio button and then select an item under Network Settings to change its IPv6 settings
 1. The **Network setting** options may change depending on your selection
@@ -95,4 +95,3 @@ Passphrase requirements:
 
 ## Next steps
 After you have finished making changes in **Advanced network settings**, select the **Back** button to [continue through the Azure Percept DK setup experience](./quickstart-percept-dk-set-up.md).
-

@@ -15,7 +15,7 @@ ms.author: duau
 # Customer intent: As an IT admin, I want to learn about Front Door and what new features are available. 
 ---
 
-# Azure Front Door Rules Engine Actions
+# Azure Front Door Rules Engine actions
 
 In [AFD Rules Engine](front-door-rules-engine.md), a rule consists of zero or more match conditions and actions. This article provides detailed descriptions of the actions you can use in AFD Rules Engine.
 

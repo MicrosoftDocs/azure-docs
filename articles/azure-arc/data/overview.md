@@ -8,21 +8,23 @@ ms.reviewer: mikeray
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-ms.date: 07/13/2021
+ms.date: 07/30/2021
 ms.topic: overview
 # Customer intent: As a data professional, I want to understand why my solutions would benefit from running with Azure Arc-enabled data services so that I can leverage the capability of the feature.
 ---
 
-# What are Azure Arc-enabled data services (preview)?
+# What are Azure Arc-enabled data services?
 
 Azure Arc makes it possible to run Azure data services on-premises, at the edge, and in public clouds using Kubernetes and the infrastructure of your choice.
 
-Currently, the following Azure Arc-enabled data services are available in preview:
+Currently, the following Azure Arc-enabled data services are available: 
 
 - SQL Managed Instance
-- PostgreSQL Hyperscale
+- PostgreSQL Hyperscale (preview)
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+For an introduction to how Azure Arc-enabled data services supports your hybrid work environment, see this introductory video:
+
+> [!VIDEO https://channel9.msdn.com/Shows//Inside-Azure-for-IT/Choose-the-right-data-solution-for-your-hybrid-environment/player?format=ny]
 
 ## Always current
 
@@ -40,28 +42,33 @@ Azure Arc also provides other cloud benefits such as fast deployment and automat
 
 Using familiar tools such as the Azure portal, Azure Data Studio, and the Azure CLI (`az`) with the `arcdata` extension, you can now gain a unified view of all your data assets deployed with Azure Arc. You are able to not only view and manage a variety of relational databases across your environment and Azure, but also get logs and telemetry from Kubernetes APIs to analyze the underlying infrastructure capacity and health. Besides having localized log analytics and performance monitoring, you can now leverage Azure Monitor for comprehensive operational insights across your entire estate.
 
+[!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 ## Disconnected scenario support
 
 Many of the services such as self-service provisioning, automated backups/restore, and monitoring can run locally in your infrastructure with or without a direct connection to Azure. Connecting directly to Azure opens up additional options for integration with other Azure services such as Azure Monitor and the ability to use the Azure portal and Azure Resource Manager APIs from anywhere in the world to manage your Azure Arc-enabled data services.
 
 ## Supported regions
 
-The following table describes the scenarios that are currently supported for Arc enabled data services.
+The following table describes the scenarios that are currently supported for Azure Arc-enabled data services.
 
 |Azure Regions  |Direct connected mode  |Indirect connected mode  |
 |---------|---------|---------|
 |East US|Available|Available
 |East US 2|Available|Available
+|West US|Available|Available
 |West US 2|Available|Available
-|Central US|Not available|Available
+|West US 3|Available|Available
+|North Central US | Available | Available
+|Central US|Available|Available
 |South Central US|Available|Available
 |UK South|Available|Available
 |France Central|Available|Available
 |West Europe |Available |Available
 |North Europe|Available|Available
-|Japan East|Not available|Available
-|Korea Central|Not available|Available
-|East Asia|Not available|Available
+|Japan East|Available|Available
+|Korea Central|Available|Available
+|East Asia|Available|Available
 |Southeast Asia|Available|Available
 |Australia East|Available|Available
 

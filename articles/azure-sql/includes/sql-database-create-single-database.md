@@ -1,7 +1,7 @@
 ---
 author: MashaMSFT
 ms.service: sql-database
-ms.subservice: service-overview  
+ms.subservice: service-overview
 ms.topic: include
 ms.date: 03/10/2020
 ms.author: mathoma
@@ -64,7 +64,7 @@ To create a resource group, server, and single database in the Azure portal:
    For more information about firewall settings, see [Allow Azure services and resources to access this server](../database/network-access-controls-overview.md) and [Add a private endpoint](../database/private-endpoint-overview.md).
 
 1. On the **Additional settings** tab, in the **Data source** section, for **Use existing data**, select **Sample**.
-1. Optionally, enable [Azure Defender for SQL](../database/azure-defender-for-sql.md).
+1. Optionally, enable [Microsoft Defender for SQL](../database/azure-defender-for-sql.md).
 1. Optionally, set the [maintenance window](../database/maintenance-window.md) so planned maintenance is performed at the best time for your database.
 1. Select **Review + create** at the bottom of the page.
 
@@ -74,7 +74,7 @@ To create a resource group, server, and single database in the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
+You can create an Azure resource group, server, and single database using the Azure CLI. If you don't want to use the Azure Cloud Shell, [install the Azure CLI](/cli/azure/install-azure-cli) on your computer.
 
 To run the following code sample in Azure Cloud Shell, select **Try it** in the code sample title bar. When the Cloud Shell opens, select **Copy** in the code sample title bar, and paste the code sample into the Cloud Shell window. In the code, replace `<Subscription ID>` with your Azure Subscription ID, and for `$startip` and `$endip`, replace `0.0.0.0` with the public IP address of the computer you're using.
 

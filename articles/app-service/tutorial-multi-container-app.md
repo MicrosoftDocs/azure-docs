@@ -526,8 +526,8 @@ Advance to the next tutorial to learn how to map a custom DNS name to your app.
 
 Or, check out other resources:
 
-> [!div class="nextstepaction"]
-> [Configure custom container](configure-custom-container.md)
+- [Configure custom container](configure-custom-container.md)
+- [Environment variables and app settings reference](reference-app-settings.md)
 
 <!--Image references-->
 [1]: ./media/tutorial-multi-container-app/azure-multi-container-wordpress-install.png

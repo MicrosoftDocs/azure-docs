@@ -1,8 +1,8 @@
 ---
 author: memildin
-ms.service: security-center
+ms.service: defender-for-cloud
 ms.topic: include
-ms.date: 07/25/2021
+ms.date: 12/08/2021
 ms.author: memildin
 ms.custom: generated
 ---

@@ -7,176 +7,160 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
 # Create Azure Arc data controller using the CLI
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Prerequisites
 
-Review the topic [Create the Azure Arc data controller](create-data-controller.md) for overview information.
+Review the topic [Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md) for overview information.
 
-To create the Azure Arc data Controller using the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] you will need to have the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)] installed.
+### Install tools
 
-   [Install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
+To create the data controller using the CLI, you will need to install the `arcdata` extension for Azure (az) CLI. 
 
-Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller administrator user. You can provide these credentials to other people that need to have administrator access to the data controller as needed.
+[Install the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)]](install-client-tools.md)
 
-**AZDATA_USERNAME** - A username of your choice for the data controller administrator user. Example: `arcadmin`
+Regardless of which target platform you choose, you will need to set the following environment variables prior to the creation for the data controller. These environment variables will become the credentials used for accessing the metrics and logs dashboards after data controller creation.
 
-**AZDATA_PASSWORD** - A password of your choice for the data controller administrator user. The password must be at least eight characters long and contain characters from three of the following four sets: uppercase letters, lowercase letters, numbers, and symbols.
 
-### Linux or macOS
+### Set environment variables
+
+Following are two sets of environment variables needed to access the metrics and logs dashboards.
+
+The environment variables include passwords for log and metric services. The passwords must be at least eight characters long and contain characters from three of the following four categories: Latin uppercase letters, Latin lowercase letters, numbers, and non-alphanumeric characters.
+
+
+# [Linux](#tab/linux)
 
 ```console
-export AZDATA_USERNAME="<your username of choice>"
-export AZDATA_PASSWORD="<your password of choice>"
+## variables for Metrics and Monitoring dashboard credentials
+export AZDATA_LOGSUI_USERNAME=<username for Kibana dashboard>
+export AZDATA_LOGSUI_PASSWORD=<password for Kibana dashboard>
+export AZDATA_METRICSUI_USERNAME=<username for Grafana dashboard>
+export AZDATA_METRICSUI_PASSWORD=<password for Grafana dashboard>
 ```
 
-### Windows PowerShell
+# [Windows (PowerShell)](#tab/windows)
 
-```console
-$ENV:AZDATA_USERNAME="<your username of choice>"
-$ENV:AZDATA_PASSWORD="<your password of choice>"
+```PowerShell
+## variables for Metrics and Monitoring dashboard credentials
+$ENV:AZDATA_LOGSUI_USERNAME="<username for Kibana dashboard>"
+$ENV:AZDATA_LOGSUI_PASSWORD="<password for Kibana dashboard>"
+$ENV:AZDATA_METRICSUI_USERNAME="<username for Grafana dashboard>"
+$ENV:AZDATA_METRICSUI_PASSWORD="<password for Grafana dashboard>"
 ```
+
+--- 
+
+### Connect to Kubernetes cluster
 
 You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the creation of the Azure Arc data controller. How you connect to a Kubernetes cluster or service varies. See the documentation for the Kubernetes distribution or service that you are using on how to connect to the Kubernetes API server.
 
 You can check to see that you have a current Kubernetes connection and confirm your current context with the following commands.
 
 ```console
-kubectl get namespace
+kubectl cluster-info
 kubectl config current-context
 ```
 
 ## Create the Azure Arc data controller
 
-> [!NOTE]
-> You can use a different value for the `--namespace` parameter of the `azdata arc dc create` command in the examples below, but be sure to use that namespace name for the `--namespace parameter` in all other commands below.
+The following sections provide instructions for specific types of Kubernetes platforms. Follow the instructions for your platform.
 
-- [Create Azure Arc data controller using the CLI](#create-azure-arc-data-controller-using-the-cli)
-  - [Prerequisites](#prerequisites)
-    - [Linux or macOS](#linux-or-macos)
-    - [Windows PowerShell](#windows-powershell)
-  - [Create the Azure Arc data controller](#create-the-azure-arc-data-controller)
-    - [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
-    - [Create on AKS engine on Azure Stack Hub](#create-on-aks-engine-on-azure-stack-hub)
-    - [Create on AKS on Azure Stack HCI](#create-on-aks-on-azure-stack-hci)
-    - [Create on Azure Red Hat OpenShift (ARO)](#create-on-azure-red-hat-openshift-aro)
-      - [Create custom deployment profile](#create-custom-deployment-profile)
-      - [Create data controller](#create-data-controller)
-    - [Create on Red Hat OpenShift Container Platform (OCP)](#create-on-red-hat-openshift-container-platform-ocp)
-      - [Determine storage class](#determine-storage-class)
-      - [Create custom deployment profile](#create-custom-deployment-profile-1)
-      - [Set storage class](#set-storage-class)
-      - [Set LoadBalancer (optional)](#set-loadbalancer-optional)
-      - [Create data controller](#create-data-controller-1)
-    - [Create on open source, upstream Kubernetes (kubeadm)](#create-on-open-source-upstream-kubernetes-kubeadm)
-    - [Create on AWS Elastic Kubernetes Service (EKS)](#create-on-aws-elastic-kubernetes-service-eks)
-    - [Create on Google Cloud Kubernetes Engine Service (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
-  - [Monitoring the creation status](#monitoring-the-creation-status)
-  - [Troubleshooting creation problems](#troubleshooting-creation-problems)
+- [Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks)
+- [AKS on Azure Stack HCI](#create-on-aks-on-azure-stack-hci)
+- [Azure Red Hat OpenShift (ARO)](#create-on-azure-red-hat-openshift-aro)
+- [Red Hat OpenShift Container Platform (OCP)](#create-on-red-hat-openshift-container-platform-ocp)
+- [Open source, upstream Kubernetes (kubeadm)](#create-on-open-source-upstream-kubernetes-kubeadm)
+- [AWS Elastic Kubernetes Service (EKS)](#create-on-aws-elastic-kubernetes-service-eks)
+- [Google Cloud Kubernetes Engine Service (GKE)](#create-on-google-cloud-kubernetes-engine-service-gke)
 
-### Create on Azure Kubernetes Service (AKS)
+> [!TIP]
+> If you have no Kubernetes cluster, you can create one on Azure. Follow the instructions at [Quickstart: Deploy Azure Arc-enable data services - directly connected mode - Azure portal](create-complete-managed-instance-directly-connected.md) to walk through the entire process. 
+>
+> Then follow the instructions under [Create on Azure Kubernetes Service (AKS)](#create-on-azure-kubernetes-service-aks).
+
+## Create on Azure Kubernetes Service (AKS)
 
 By default, the AKS deployment profile uses the `managed-premium` storage class. The `managed-premium` storage class will only work if you have VMs that were deployed using VM images that have premium disks.
 
 If you are going to use `managed-premium` as your storage class, then you can run the following command to create the data controller. Substitute the placeholders in the command with your resource group name, subscription ID, and Azure location.
 
-```console
-azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+```azurecli
+az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace <namespace> --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --use-k8s
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-premium-storage --k8s-namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --use-k8s
 ```
 
 If you are not sure what storage class to use, you should use the `default` storage class which is supported regardless of which VM type you are using. It just won't provide the fastest performance.
 
 If you want to use the `default` storage class, then you can run this command:
 
-```console
-azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+```azurecli
+az arcdata dc create --profile-name azure-arc-aks-default-storage --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-default-storage  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
-### Create on AKS engine on Azure Stack Hub
+## Create on AKS on Azure Stack HCI
 
-By default, the deployment profile uses the `managed-premium` storage class. The `managed-premium` storage class will only work if you have worker VMs that were deployed using VM images that have premium disks on Azure Stack Hub.
+### Configure storage (Azure Stack HCI with AKS-HCI)
 
-You can run the following command to create the data controller using the managed-premium storage class:
+If you are using Azure Stack HCI with AKS-HCI, create a custom storage class with `fsType`.
 
-```console
-azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+   ```json
+   fsType: ext4
+   ```
 
-#Example:
-#azdata arc dc create --profile-name azure-arc-aks-premium-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
-```
-
-If you are not sure what storage class to use, you should use the `default` storage class which is supported regardless of which VM type you are using. In Azure Stack Hub, premium disks and standard disks are backed by the same storage infrastructure. Therefore, they are expected to provide the same general performance, but with different IOPS limits.
-
-If you want to use the `default` storage class, then you can run this command.
-
-```console
-azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
-
-#Example:
-#azdata arc dc create --profile-name azure-arc-aks-default-storage --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
-```
-
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
-
-### Create on AKS on Azure Stack HCI
+Use this type to deploy the data controller. See the complete instructions at [Create a custom storage class for an AKS on Azure Stack HCI disk](/azure-stack/aks-hci/container-storage-interface-disks#create-a-custom-storage-class-for-an-aks-on-azure-stack-hci-disk).
 
 By default, the deployment profile uses a storage class named `default` and the service type `LoadBalancer`.
 
 You can run the following command to create the data controller using the `default` storage class and service type `LoadBalancer`.
 
-```console
-azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+```azurecli
+az arcdata dc create --profile-name azure-arc-aks-hci  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-aks-hci --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-aks-hci  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
+## Create on Azure Red Hat OpenShift (ARO)
 
-### Create on Azure Red Hat OpenShift (ARO)
-
-#### Create custom deployment profile
+### Create custom deployment profile
 
 Use the profile `azure-arc-azure-openshift` for Azure RedHat Open Shift.
 
-```console
-azdata arc dc config init --source azure-arc-azure-openshift --path ./custom
+```azurecli
+az arcdata dc config init --source azure-arc-azure-openshift --path ./custom
 ```
 
-#### Create data controller
+### Create data controller
 
 You can run the following command to create the data controller:
 
-```console
-azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+```azurecli
+az arcdata dc create --profile-name azure-arc-azure-openshift  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example
-#azdata arc dc create --profile-name azure-arc-azure-openshift --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-azure-openshift  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
-### Create on Red Hat OpenShift Container Platform (OCP)
+## Create on Red Hat OpenShift Container Platform (OCP)
 
-> [!NOTE]
-> If you are using Red Hat OpenShift Container Platform on Azure, it is recommended to use the latest available version.
-
-#### Determine storage class
+### Determine storage class
 
 You will also need to determine which storage class to use by running the following command.
 
@@ -184,62 +168,64 @@ You will also need to determine which storage class to use by running the follow
 kubectl get storageclass
 ```
 
-#### Create custom deployment profile
+### Create custom deployment profile
 
 Create a new custom deployment profile file based on the `azure-arc-openshift` deployment profile by running the following command. This command creates a directory `custom` in your current working directory and a custom deployment profile file `control.json` in that directory.
 
 Use the profile `azure-arc-openshift` for OpenShift Container Platform.
 
-```console
-azdata arc dc config init --source azure-arc-openshift --path ./custom
+```azurecli
+az arcdata dc config init --source azure-arc-openshift --path ./custom
 ```
 
-#### Set storage class 
+### Set storage class 
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
-```console
-azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
-azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
+```azurecli
+az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
+az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
 
 #Example:
-#azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=mystorageclass"
-#azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
+#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=mystorageclass"
+#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
 ```
 
-#### Set LoadBalancer (optional)
+### Set LoadBalancer (optional)
 
 By default, the `azure-arc-openshift` deployment profile uses `NodePort` as the service type. If you are using an OpenShift cluster that is integrated with a load balancer, you can change the configuration to use the `LoadBalancer` service type using the following command:
 
-```console
-azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
+```azurecli
+az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
 ```
 
-#### Create data controller
+### Create data controller
 
 Now you are ready to create the data controller using the following command.
 
 > [!NOTE]
 >   The `--path` parameter should point to the _directory_ containing the control.json file not to the control.json file itself.
 
+> [!NOTE]
+>   When deploying to OpenShift Container Platform, you will need to specify the `--infrastructure` parameter value.  Options are: `aws`, `azure`, `alibaba`, `gcp`, `onpremises`.
 
-```console
-azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+```azurecli
+az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --infrastructure <infrastructure>
 
 #Example:
-#azdata arc dc create --path ./custom --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --path ./custom  --k8s-namespace arc --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --infrastructure onpremises
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
-### Create on open source, upstream Kubernetes (kubeadm)
+## Create on open source, upstream Kubernetes (kubeadm)
 
-By default, the kubeadm deployment profile uses a storage class called `local-storage` and service type `NodePort`. If this is acceptable you can skip the instructions below that set the desired storage class and service type and immediately run the `azdata arc dc create` command below.
+By default, the kubeadm deployment profile uses a storage class called `local-storage` and service type `NodePort`. If this is acceptable you can skip the instructions below that set the desired storage class and service type and immediately run the `az arcdata dc create` command below.
 
 If you want to customize your deployment profile to specify a specific storage class and/or service type, start by creating a new custom deployment profile file based on the kubeadm deployment profile by running the following command. This command will create a directory `custom` in your current working directory and a custom deployment profile file `control.json` in that directory.
 
-```console
-azdata arc dc config init --source azure-arc-kubeadm --path ./custom
+```azurecli
+az arcdata dc config init --source azure-arc-kubeadm --path ./custom 
 ```
 
 You can look up the available storage classes by running the following command.
@@ -250,63 +236,66 @@ kubectl get storageclass
 
 Now, set the desired storage class by replacing `<storageclassname>` in the command below with the name of the storage class that you want to use that was determined by running the `kubectl get storageclass` command above.
 
-```console
-azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
-azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
+```azurecli
+az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=<storageclassname>"
+az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=<storageclassname>"
 
 #Example:
-#azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=mystorageclass"
-#azdata arc dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
+#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.data.className=mystorageclass"
+#az arcdata dc config replace --path ./custom/control.json --json-values "spec.storage.logs.className=mystorageclass"
 ```
 
 By default, the kubeadm deployment profile uses `NodePort` as the service type. If you are using a Kubernetes cluster that is integrated with a load balancer, you can change the configuration using the following command.
 
-```console
-azdata arc dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer"
+```azurecli
+az arcdata dc config replace --path ./custom/control.json --json-values "$.spec.services[*].serviceType=LoadBalancer" --k8s-namespace <namespace> --use-k8s
 ```
 
 Now you are ready to create the data controller using the following command.
 
-```console
-azdata arc dc create --path ./custom --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+> [!NOTE]
+>   When deploying to OpenShift Container Platform, you will need to specify the `--infrastructure` parameter value.  Options are: `aws`, `azure`, `alibaba`, `gcp`, `onpremises`.
+
+```azurecli
+az arcdata dc create --path ./custom  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect --infrastructure <infrastructure>
 
 #Example:
-#azdata arc dc create --path ./custom --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --path ./custom - --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect --infrastructure onpremises
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
-### Create on AWS Elastic Kubernetes Service (EKS)
+## Create on AWS Elastic Kubernetes Service (EKS)
 
 By default, the EKS storage class is `gp2` and the service type is `LoadBalancer`.
 
 Run the following command to create the data controller using the provided EKS deployment profile.
 
-```console
-azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+```azurecli
+az arcdata dc create --profile-name azure-arc-eks  --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-eks --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-eks  --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
-### Create on Google Cloud Kubernetes Engine Service (GKE)
+## Create on Google Cloud Kubernetes Engine Service (GKE)
 
 By default, the GKE storage class is `standard` and the service type is `LoadBalancer`.
 
 Run the following command to create the data controller using the provided GKE deployment profile.
 
-```console
-azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
+```azurecli
+az arcdata dc create --profile-name azure-arc-gke --k8s-namespace <namespace> --use-k8s --name arc --subscription <subscription id> --resource-group <resource group name> --location <location> --connectivity-mode indirect
 
 #Example:
-#azdata arc dc create --profile-name azure-arc-gke --namespace arc --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
+#az arcdata dc create --profile-name azure-arc-gke --k8s-namespace <namespace> --use-k8s --name arc --subscription xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx --resource-group my-resource-group --location eastus --connectivity-mode indirect
 ```
 
-Once you have run the command, continue on to [Monitoring the creation status](#monitoring-the-creation-status).
+Once you have run the command, continue on to [Monitoring the creation status](#monitor-the-creation-status).
 
-## Monitoring the creation status
+## Monitor the creation status
 
 Creating the controller will take a few minutes to complete. You can monitor the progress in another terminal window with the following commands:
 

@@ -3,7 +3,7 @@ title: HTTP variables for Azure CDN rules engine | Microsoft Docs
 description: Learn about HTTP variables, which allow you to get HTTP request and response metadata for some rules engine features. Use metadata to alter a request/response.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
 ms.date: 05/09/2018
-ms.author: allensu
+ms.author: duau
 
 
 ---

@@ -34,7 +34,7 @@ The **ServiceDefinition.csdef** file specifies the settings that are used by Azu
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <ServiceDefinition name="MyServiceName" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
-  <WebRole name="WebRole1" vmsize="Medium">
+  <WebRole name="WebRole1" vmsize="Standard_D1_v2">
     <Sites>
       <Site name="Web">
         <Bindings>

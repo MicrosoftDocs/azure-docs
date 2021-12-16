@@ -7,7 +7,7 @@ author: cherylmc
 
 ms.service: vpn-gateway
 ms.topic: how-to
-ms.date: 07/21/2021
+ms.date: 08/19/2021
 ms.author: cherylmc
 
 ---
@@ -164,11 +164,11 @@ For steps to generate and install VPN client configuration files, see [Create an
 
 ### To connect from a Mac VPN client
 
-From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then select **Connect**.
+From the Network dialog box, locate the client profile that you want to use, specify the settings from the [VpnSettings.xml](point-to-site-vpn-client-configuration-azure-cert.md#installmac), and then select **Connect**. For detailed instructions, see [Generate and install VPN client configuration files - macOS](./point-to-site-vpn-client-configuration-azure-cert.md#installmac). 
 
-Check [Install - macOS](./point-to-site-vpn-client-configuration-azure-cert.md#installmac) for detailed instructions. If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. Basic SKU is not supported for Mac clients.
+If you are having trouble connecting, verify that the virtual network gateway is not using a Basic SKU. The Basic SKU is not supported for Mac clients.
 
-:::image type="content" source="./media/vpn-gateway-howto-point-to-site-rm-ps/applyconnect.png" alt-text="Mac VPN client connection." border="false":::
+   :::image type="content" source="./media/point-to-site-vpn-client-configuration-azure-cert/select-connect.png" alt-text="Screenshot shows connect button." lightbox="./media/point-to-site-vpn-client-configuration-azure-cert/expanded/select-connect.png":::
 
 ## <a name="verify"></a>To verify your connection
 
@@ -233,6 +233,6 @@ You can revoke a client certificate by adding the thumbprint to the revocation l
 For frequently asked questions, see the [FAQ](vpn-gateway-vpn-faq.md#P2S).
 
 ## Next steps
-Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-machines/network-overview.md).
+Once your connection is complete, you can add virtual machines to your virtual networks. For more information, see [Virtual Machines](../index.yml). To understand more about networking and virtual machines, see [Azure and Linux VM network overview](../virtual-network/network-overview.md).
 
 For P2S troubleshooting information, [Troubleshooting Azure point-to-site connections](vpn-gateway-troubleshoot-vpn-point-to-site-connection-problems.md).

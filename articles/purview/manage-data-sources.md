@@ -1,31 +1,31 @@
 ---
-title: Manage data sources in Azure Purview (Preview)
-description: Learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview (Preview).
+title: How to manage multi-cloud data sources
+description: Learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview.
 author: viseshag
 ms.author: viseshag
 ms.service: purview
-ms.subservice: purview-data-catalog
+ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/25/2020
+ms.date: 09/27/2021
 ---
 
-# Manage data sources in Azure Purview (Preview)
+# Manage data sources in Azure Purview
 
-In this article, you learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview (Preview)
+In this article, you learn how to register new data sources, manage collections of data sources, and view sources in Azure Purview.
 
 ## Register a new source
 
 Use the following steps to register a new source.
 
-1. Open Purview Studio and select the **Register sources** tile.
+1. Open [Purview Studio](https://web.purview.azure.com/resource/), navigate to the **Data Map**, **Sources**, and select **Register**.
 
    :::image type="content" source="media/manage-data-sources/purview-studio.png" alt-text="Azure Purview Studio":::
 
-1. Select **Register**, and then select a source type. This example uses Azure Blob Storage. Select **Continue**.
+1. Select a source type. This example uses Azure Blob Storage. Select **Continue**.
 
    :::image type="content" source="media/manage-data-sources/select-source-type.png" alt-text="Select a data source type in the Register sources page":::
 
-2. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list. 
+2. Fill out the form on the **Register sources** page. Select a name for your source and enter the relevant information. If you chose **From Azure subscription** as your account selection method, the sources in your subscription appear in a dropdown list.
 
    :::image type="content" source="media/manage-data-sources/register-sources-form.png" alt-text="Form for data source information":::
 
@@ -33,7 +33,7 @@ Use the following steps to register a new source.
 
 ## View sources
 
-You can view all registered sources on the **Sources** tab of Azure Purview Studio. There are two view types: map view and list view.
+You can view all registered sources on the **Data Map** tab of Azure Purview Studio. There are two view types: map view and list view.
 
 ### Map view
 
@@ -41,9 +41,9 @@ In Map view, you can see all of your sources and collections. In the following i
 
 :::image type="content" source="media/manage-data-sources/map-view.png" alt-text="Azure Purview data source map view":::
 
-### List view
+### Table view
 
-In List view, you can see a sortable list of sources. Hover over the source for options to edit, begin a new scan, or delete.
+In the table view, you can see a sortable list of sources. Hover over the source for options to edit, begin a new scan, or delete.
 
 :::image type="content" source="media/manage-data-sources/list-view.png" alt-text="Azure Purview data source list view":::
 
@@ -53,7 +53,7 @@ You can group your data sources into collections. To create a new collection, se
 
 To add sources to a collection, select the **Edit** pencil on the source and choose a collection from the **Select a collection** drop-down menu.
 
-To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *Fabrikam* is a parent to the *Finance* collection, which contains an Azure Blob Storage data source. You can collapse or expand collections by clicking the circle attached to the arrow between levels.
+To create a hierarchy of collections, assign higher-level collections as a parent to lower-level collections. In the following image, *Fabrikam* is a parent to the *Finance* collection, which contains an Azure Blob Storage data source. You can collapse or expand collections by selecting the circle attached to the arrow between levels.
 
 :::image type="content" source="media/manage-data-sources/collections.png" alt-text="A hierarchy of collections in Azure Purview Studio":::
 

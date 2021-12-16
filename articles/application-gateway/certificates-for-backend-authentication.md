@@ -6,8 +6,8 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: how-to
-ms.date: 06/17/2020
-ms.author: absha
+ms.date: 07/30/2021
+ms.author: victorh
 ---
 
 # Create certificates to allow the backend with Azure Application Gateway

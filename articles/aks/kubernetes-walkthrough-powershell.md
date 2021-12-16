@@ -4,9 +4,7 @@ description: Learn how to quickly create a Kubernetes cluster, deploy an applica
 services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.custom: devx-track-azurepowershell
-
-
+ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -67,8 +65,9 @@ ResourceId        : /subscriptions/00000000-0000-0000-0000-000000000000/resource
 
 ## Create AKS cluster
 
-1. Generate an SSH key pair using the `ssh-keygen` command-line utility.
-    * For more details, see [Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md).
+1. Generate an SSH key pair using the `ssh-keygen` command-line utility. For more details, see:
+    * [Quick steps: Create and use an SSH public-private key pair for Linux VMs in Azure](../virtual-machines/linux/mac-create-ssh-keys.md)
+    * [How to use SSH keys with Windows on Azure](../virtual-machines/linux/ssh-from-windows.md)
 
 1. Create an AKS cluster using the [New-AzAksCluster][new-azakscluster] cmdlet. Azure Monitor for containers is enabled by default.
 
@@ -144,7 +143,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -187,7 +186,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1

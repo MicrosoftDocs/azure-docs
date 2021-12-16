@@ -118,7 +118,7 @@ Here's an example autoscale event:
 ```json
 {
     "TrackingId": "fb1b3676-bb2d-4b17-85b7-be1c7aa1967e",
-    "Message": "Scaled-up EventHub TUs (UpdateStartTimeUTC: 5/13/2020 7:48:36 AM, PreviousValue: 1, UpdatedThroughputUnitValue: 2, AutoScaleReason: 'IncomingMessagesPerSecond reached 2170')",
+    "Message": "Scaled-up EventHub TUs (UpdateStartTimeUTC: 5/13/2021 7:48:36 AM, PreviousValue: 1, UpdatedThroughputUnitValue: 2, AutoScaleReason: 'IncomingMessagesPerSecond reached 2170')",
     "ResourceId": "/subscriptions/0000000-0000-0000-0000-000000000000/resourcegroups/testrg/providers/microsoft.eventhub/namespaces/namespace-name"
 }
 ```
@@ -178,7 +178,7 @@ Event Hubs virtual network (VNet) connection event JSON includes elements listed
 | `Count` | Number of occurrences for the given action |
 | `ResourceId` | Azure Resource Manager resource ID. |
 
-Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. [Enable IP filtering](../event-hubs-ip-filtering.md), and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs IP filtering doesn't support IPv6 ranges. Note that you may see private endpoint addresses in the IPv6 format in the log. 
+Virtual network logs are generated only if the namespace allows access from **selected networks** or from **specific IP addresses** (IP filter rules). If you don't want to restrict the access to your namespace using these features and still want to get virtual network logs to track IP addresses of clients connecting to the Event Hubs namespace, you could use the following workaround. [Enable IP filtering](../event-hubs-ip-filtering.md), and add the total addressable IPv4 range (1.0.0.0/1 - 255.0.0.0/1). Event Hubs IP filtering doesn't support IPv6 ranges. You may see private endpoint addresses in the IPv6 format in the log. 
 
 #### Example
 
@@ -200,11 +200,58 @@ Customer-managed key user log JSON includes elements listed in the following tab
 
 | Name | Description |
 | ---- | ----------- | 
-| `Category` | Type of category for a message. It's one of the following values: **error** and **info** |
+| `Category` | Type of category for a message. It's one of the following values: **error** and **info**. For example, if the key from your key vault is being disabled, then it would be an information category or if a key can't be unwrapped, it could fall under error.|
 | `ResourceId` | Internal resource ID, which includes Azure subscription ID and namespace name |
 | `KeyVault` | Name of the Key Vault resource |
-| `Key` | Name of the Key Vault key. |
-| `Version` | Version of the Key Vault key |
-| `Operation` | The name of an operation done to serve requests |
-| `Code` | Status code |
+| `Key` | Name of the Key Vault key that's used to encrypt the Event Hubs namespace. |
+| `Version` | Version of the Key Vault key.|
+| `Operation` | The operation that's performed on the key in your key vault. For example, disable/enable the key, wrap, or unwrap. |
+| `Code` | The code that's associated with the operation. Example: Error code, 404 means that key wasn't found. |
 | `Message` | Message, which provides details about an error or informational message |
+
+Here's an example of the  log for a customer managed key:
+
+```json
+{
+   "TaskName": "CustomerManagedKeyUserLog",
+   "ActivityId": "11111111-1111-1111-1111-111111111111",
+   "category": "error"
+   "resourceId": "/SUBSCRIPTIONS/11111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
+   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "key": "mykey",
+   "version": "1111111111111111111111111111111",
+   "operation": "wrapKey",
+   "code": "404",
+   "message": "Key not found: ehbyok0/111111111111111111111111111111",
+}
+
+
+
+{
+   "TaskName": "CustomerManagedKeyUserLog",
+   "ActivityId": "11111111111111-1111-1111-1111111111111",
+   "category": "info"
+   "resourceId": "/SUBSCRIPTIONS/111111111-1111-1111-1111-11111111111/RESOURCEGROUPS/DEFAULT-EVENTHUB-CENTRALUS/PROVIDERS/MICROSOFT.EVENTHUB/NAMESPACES/FBETTATI-OPERA-EVENTHUB",
+   "keyVault": "https://mykeyvault.vault-int.azure-int.net",
+   "key": "mykey",
+   "version": "111111111111111111111111111111",
+   "operation": "disable" | "restore",
+   "code": "",
+   "message": "",
+}
+```
+
+Following are the common errors codes to look for when BYOK encryption is enabled.
+
+| Action | Error code |	Resulting state of data |
+| ------ | ---------- | ----------------------- | 
+| Remove wrap/unwrap permission from a key vault | 403 |	Inaccessible |
+| Remove AAD role membership from an AAD principal that granted the wrap/unwrap permission | 403 |	Inaccessible |
+| Delete an encryption key from the key vault | 404 | Inaccessible |
+| Delete the key vault | 404 | Inaccessible (assumes soft-delete is enabled, which is a required setting.) |
+| Changing the expiration period on the encryption key such that it's already expired | 403 |	Inaccessible  |
+| Changing the NBF (not before) such that key encryption key isn't active | 403 | Inaccessible  |
+| Selecting the **Allow MSFT Services** option for the key vault firewall or otherwise blocking network access to the key vault that has the encryption key | 403 | Inaccessible |
+| Moving the key vault to a different tenant | 404 | Inaccessible |  
+| Intermittent network issue or DNS/AAD/MSI outage |  | Accessible using cached data encryption key |
+

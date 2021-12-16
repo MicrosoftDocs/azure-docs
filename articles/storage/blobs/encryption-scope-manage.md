@@ -9,7 +9,7 @@ ms.date: 05/10/2021
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: ozgun
-ms.subservice: common 
+ms.subservice: common
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -18,8 +18,6 @@ ms.custom: devx-track-azurepowershell
 Encryption scopes enable you to manage encryption at the level of an individual blob or container. You can use encryption scopes to create secure boundaries between data that resides in the same storage account but belongs to different customers. For more information about encryption scopes, see [Encryption scopes for Blob storage](encryption-scope-overview.md).
 
 This article shows how to create an encryption scope. It also shows how to specify an encryption scope when you create a blob or container.
-
-[!INCLUDE [storage-data-lake-gen2-support](../../../includes/storage-data-lake-gen2-support.md)]
 
 ## Create an encryption scope
 

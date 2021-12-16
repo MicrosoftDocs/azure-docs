@@ -12,6 +12,8 @@ ms.author: kegorman
 ---
 # Reference architectures for Oracle Database Enterprise Edition on Azure
 
+**Applies to:** :heavy_check_mark: Linux VMs 
+
 This guide details information on deploying a highly available Oracle database on Azure. In addition, this guide dives into disaster recovery considerations. These architectures have been created based on customer deployments. This guide only applies to Oracle Database Enterprise Edition.
 
 If you're interested in learning more about maximizing the performance of your Oracle database, see [Architect an Oracle DB](oracle-design.md).
@@ -42,7 +44,7 @@ When running Oracle Databases across multiple [availability zones](../../../avai
 
 When hosting your mission-critical applications in the cloud, it's important to design for high availability and disaster recovery.
 
-For Oracle Database Enterprise Edition, Oracle Data Guard is a useful feature for disaster recovery. You can set up a standby database instance in a [paired Azure region](../../../best-practices-availability-paired-regions.md) and set up Data Guard failover for disaster recovery. For zero data loss, it's recommended that you deploy an Oracle Data Guard Far Sync instance in addition to Active Data Guard. 
+For Oracle Database Enterprise Edition, Oracle Data Guard is a useful feature for disaster recovery. You can set up a standby database instance in a [paired Azure region](../../../availability-zones/cross-region-replication-azure.md) and set up Data Guard failover for disaster recovery. For zero data loss, it's recommended that you deploy an Oracle Data Guard Far Sync instance in addition to Active Data Guard. 
 
 Consider setting up the Data Guard Far Sync instance in a different availability zone than your Oracle primary database if your application permits the latency (thorough testing is required). Use a **Maximum Availability** mode to set up synchronous transport of your redo files to the Far Sync instance. These files are then transferred asynchronously to the standby database. 
 

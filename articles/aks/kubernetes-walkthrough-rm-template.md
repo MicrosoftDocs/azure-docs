@@ -4,9 +4,7 @@ description: Learn how to quickly create a Kubernetes cluster using an Azure Res
 services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
-
-ms.custom: mvc,subject-armqs, devx-track-azurecli
-
+ms.custom: mvc, subject-armqs, devx-track-azurecli, mode-arm
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run applications using the managed Kubernetes service in Azure.
 ---
 
@@ -145,7 +143,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-back
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-back
             image: mcr.microsoft.com/oss/bitnami/redis:6.0.8
@@ -188,7 +186,7 @@ Two [Kubernetes Services][kubernetes-service] are also created:
             app: azure-vote-front
         spec:
           nodeSelector:
-            "beta.kubernetes.io/os": linux
+            "kubernetes.io/os": linux
           containers:
           - name: azure-vote-front
             image: mcr.microsoft.com/azuredocs/azure-vote-front:v1

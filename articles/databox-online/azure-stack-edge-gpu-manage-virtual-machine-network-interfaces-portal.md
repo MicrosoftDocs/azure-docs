@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 07/26/2021
+ms.date: 08/02/2021
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to manage network interfaces on an Azure Stack Edge Pro device so that I can use it to run applications using Edge compute before sending it to Azure.<!--Does "it" refer to the device or to the virtual NICs?-->
 ---
@@ -48,7 +48,7 @@ Before you begin to manage VMs on your device via the Azure portal, make sure th
 
 1. Your VM should be in **Stopped** state. To stop your VM, go to **Virtual machines** and select the VM you want to stop. In the VM **Details** page, select **Stop** and then select **Yes** when prompted for confirmation. Before you add, edit, or delete network interfaces, you must stop the VM.
 
-    ![Stop VM from VM properties page](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
+    ![Screenshot showing the confirmation prompt to stop a virtual machine in Azure Stack Edge.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/stop-vm-2.png)
 
 
 ## Add a network interface
@@ -57,11 +57,11 @@ Follow these steps to add a network interface to a virtual machine deployed on y
 
 1. Go to the virtual machine that you have stopped, and select **Networking**.
     
-    ![Select Resources and then Networking on the Virtual machines page for a device](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
+    ![Screenshot showing the Details tab for a virtual machine. The Networking label, which opens the Networking blade for the VM, is highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-1.png)
 
 2. In the **Networking** blade, from the command bar, select **+ Add network interface**.
 
-    ![Select add network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-2.png)
+    ![Screenshot showing the Networking blade for a virtual machine. The Plus Add Network Interface button is highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-2.png)
 
 3. In the **Add network interface** blade, enter the following parameters:
 
@@ -73,15 +73,15 @@ Follow these steps to add a network interface to a virtual machine deployed on y
     |Subnet     | A subnet within the selected virtual network. This field is automatically populated with the subnet associated with the network interface on which you enabled compute.         |
     |IP address assignment   | A static or a dynamic IP for your network interface. The static IP should be an available, free IP from the specified subnet range. Choose dynamic if a DHCP server exists in the environment.        |
 
-    ![Screenshot showing theh options for adding a new network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-3.png)
+    ![Screenshot showing the Add network interface blade for a virtual machine. The Add button is highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-3.png)
 
 4. You'll see a notification that the network interface creation is in progress.
 
-    ![Notification when a network interface is getting created](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-4.png)
+    ![Screenshot showing the notification that a network interface is being created.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-4.png)
 
 5.  After the network interface is successfully created, the list of network interfaces refreshes to display the newly created interface.
 
-    ![Updated list of network interfaces](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-5.png)
+    ![Screenshot of the Networking blade for a virtual machine. The entry for a newly created virtual machine is highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/add-nic-5.png)
 
 
 ## Edit a network interface
@@ -92,11 +92,11 @@ Follow these steps to edit a network interface associated with a virtual machine
 
 1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the edit icon (pencil).  
 
-    ![Screenshot showing the edit icon selected for a virtual network](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-1.png)
+    ![Screenshot showing the Networking blade for a virtual machine. The name of a network interface, and the pencil icon for the entry, are highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-1.png)
 
 1. In the **Edit network interface** blade, you can only change the IP assignment of the network interface. The name, edge resource group, virtual network, and subnet associated with the network interface can't be changed once it is created. Change the **IP assignment** to static, and save the changes.
 
-    ![Screenshot showing how to change the IP assignment for a network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-2.png)
+    ![Screenshot of the Edit network interface blade for a virtual machine. The IP address assignment area and the Save button are highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/edit-nic-2.png)
 
 1. The list of network interface refreshes to display the updated network interface.
 
@@ -109,11 +109,11 @@ Follow these steps to detach or remove a network interface associated with a vir
 
 1. In the list of network interfaces, select the interface that you wish to edit. In the far right of the network interface selected, select the detach icon (unplug).  
 
-    ![Screenshot showing the detach icon selected for a network interface attached to a virtual machine](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
+    ![Screenshot of the Networking blade for a virtual machine. The name of a network interface, and the detach icon for it are highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-1.png)
 
 1. You'll see a message asking you to confirm that you want to detach the network interface. Select **Yes**.
 
-    ![Screenshot showing the detach icon - a pencil - for detaching a virtual network from a virtual machine](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-2.png)
+    ![Screenshot showing the notification to confirm you want to detach a network interface from a virtual machine.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/detach-nic-2.png)
 
     After the interface is completely detached, the list of network interfaces is refreshed to display the remaining interfaces.
 
@@ -124,15 +124,15 @@ Follow these steps to delete a network interface that isn't attached to a virtua
 
 1. Go to **Virtual machines**, and then to the **Resources** page. Select **Networking**.
     
-    ![Screenshot showing the Networking tab on the Resources page for virtual machines](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-1.png)
+    ![Screenshot that shows the Networking tab on the Resources page for virtual machines. The labels for the Resources pane and the Networking tab are highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-1.png)
 
 1. On the **Networking** blade, select the delete icon (trashcan) by the network interface you want to delete. The delete icon is only displayed for network interfaces that aren't attached to a VM.
 
-    ![Screenshot showing the delete icon selected for an unattached network interface](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-2.png)
+    ![Screenshot showing the Networking blade in virtual machine resources. The delete icon for an unattached network interface is highlighted.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-2.png)
 
 1. You'll see a message asking you to confirm that you want to delete the network interface. The operation can't be reversed. Select **Yes**.
 
-    ![To delete an unattached disk, selecting the trashcan icon to the right of the entry in the list of disks](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-3.png)
+    ![Screenshot of the notification asking you to confirm you want to delete a selected network interface.](./media/azure-stack-edge-gpu-manage-virtual-machine-network-interfaces-portal/delete-nic-3.png)
   
     After deletion of the network interface completes, the network interface is removed from the list.
 

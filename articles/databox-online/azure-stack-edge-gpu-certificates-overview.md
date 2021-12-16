@@ -6,8 +6,8 @@ author: alkohli
 
 ms.service: databox
 ms.subservice: edge
-ms.topic: article
-ms.date: 06/30/2021
+ms.topic: overview
+ms.date: 09/01/2021
 ms.author: alkohli
 ---
 # What are certificates on Azure Stack Edge Pro GPU?
@@ -28,12 +28,12 @@ On your Azure Stack Edge device, you can use the self-signed certificates or bri
 
 - **Bring your own certificates**: Optionally, you can bring your own certificates. There are guidelines that you need to follow if you plan to bring your own certificates.
 
-- Start by understanding the types of the certificates that can be used with your Azure Stack Edge device in this article.
-- Next, review the [Certificate requirements for each type of certificate](azure-stack-edge-gpu-certificate-requirements.md).  
-- You can then [Create your certificates via Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md) or [Create your certificates via Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md).
-- Finally, [Convert the certificates to appropriate format](azure-stack-edge-gpu-prepare-certificates-device-upload.md) so that they are ready to upload on to your device.
-- [Upload your certificates](azure-stack-edge-gpu-manage-certificates.md#upload-certificates-on-your-device) on the device.
-- [Import the certificates on the clients](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device) accessing the device.
+    - Start by understanding the types of the certificates that can be used with your Azure Stack Edge device in this article.
+    - Next, review the [Certificate requirements for each type of certificate](azure-stack-edge-gpu-certificate-requirements.md).  
+    - You can then [Create your certificates via Azure PowerShell](azure-stack-edge-gpu-create-certificates-powershell.md) or [Create your certificates via Readiness Checker tool](azure-stack-edge-gpu-create-certificates-tool.md).
+    - Finally, [Convert the certificates to appropriate format](azure-stack-edge-gpu-prepare-certificates-device-upload.md) so that they are ready to upload on to your device.
+    - [Upload your certificates](azure-stack-edge-gpu-manage-certificates.md#upload-certificates-on-your-device) on the device.
+    - [Import the certificates on the clients](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device) accessing the device.
 
 ## Types of certificates
 
@@ -53,6 +53,9 @@ The various types of certificates that you can bring for your device are as foll
 - IoT device certificates
     
 - Kubernetes certificates
+
+    - Edge Container Registry certificate
+    - Kubernetes dashboard certificate
     
 - Wi-Fi certificates
 - VPN certificates  
@@ -154,15 +157,27 @@ For more information on IoT Edge certificates, see [Azure IoT Edge certificate d
 
 ## Kubernetes certificates
 
-If your device has an Edge container registry, then you'll need an Edge Container Registry certificate for secure communication with the client that is accessing the registry on the device.
+The following Kubernetes certificates may be used with your Azure Stack Edge device.
+
+- **Edge container registry certificate**: If your device has an Edge container registry, then you'll need an Edge Container Registry certificate for secure communication with the client that is accessing the registry on the device.
+- **Dashboard endpoint certificate**: You'll need a dashboard endpoint certificate to access the Kubernetes dashboard on your device.
+
 
 #### Caveats
 
-- The Edge Container Registry certificate must be uploaded as *.pfx* format with a private key.
+- The Edge Container Registry certificate should: 
+    - Be a PEM format certificate.
+    - Contain either Subject Alternative Name (SAN) or CName (CN) of type: `*.<endpoint suffix>` or `ecr.<endpoint suffix>`. For example: `*.dbe-1d6phq2.microsoftdatabox.com OR ecr.dbe-1d6phq2.microsoftdatabox.com`
+
+
+- The dashboard certificate should:
+    - Be a PEM format certificate.
+    - Contain either Subject Alternative Name (SAN) or CName (CN) of type:  `*.<endpoint-suffix>` or `kubernetes-dashboard.<endpoint-suffix>`. For example: `*.dbe-1d6phq2.microsoftdatabox.com` or `kubernetes-dashboard.dbe-1d6phq2.microsoftdatabox.com`. 
+
 
 ## VPN certificates
 
-If VPN (Point-to-site) is configured on your  device, you can bring your own VPN certificate to ensure the communication is trusted. The root certificate is installed on the Azure VPN Gateway and the client certificates are installed on each client computer that connects to a VNet using Point-to-Site.
+If VPN (Point-to-site) is configured on your  device, you can bring your own VPN certificate to ensure the communication is trusted. The root certificate is installed on the Azure VPN Gateway and the client certificates are installed on each client computer that connects to a virtual network using Point-to-Site.
 
 #### Caveats
 

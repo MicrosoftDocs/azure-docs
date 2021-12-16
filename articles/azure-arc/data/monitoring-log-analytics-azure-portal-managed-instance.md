@@ -4,10 +4,10 @@ description: Monitor Azure Arc-enabled data services for SQL Managed Instance.
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 09/22/2020
+ms.date: 07/30/2021
 ms.topic: conceptual
 ---
 
@@ -15,7 +15,6 @@ ms.topic: conceptual
 
 This article lists additional experiences you can have with Azure Arc-enabled data services.
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Experiences
 
