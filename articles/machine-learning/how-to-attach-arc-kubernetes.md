@@ -262,18 +262,18 @@ Use ```k8s-extension update``` CLI command to update the mutable properties of  
 2.	For configurationSettings, only the settings that require update need to be provided. If the user provides all settings, they would be merged/overwritten with the provided values. 
 3.	For ConfigurationProtectedSettings, ALL  settings should be provided. If some settings are omitted, those settings would be considered obsolete and deleted. 
 
-> **<span style="color:orange">Important**:</span>
+> [!IMPORTANT]
+> **Don't** update following configs if you have active training workloads or real-time inference endpoints. Otherwise, the training jobs will be impacted and endpoints unavailable.
 > 
-> * DO NOT update following configs if you have active training workloads, otherwise, the training jobs will be impacted.
-> * * `enableTraining` from `True` to `False`
-> * * `installNvidiaDevicePlugin` from `True` to `False` if GPU is used.
-> * * `nodeSelector`. Update operation can't remove existed nodeSelectors, but can only update existed ones or add new ones.
-> * DO NOT update following configs if you have active real-time inference endpoints, otherwise, the endpoints will be unavailable.
-> * * `enableInference` from `True` to `False`
-> * * `installNvidiaDevicePlugin` from `True` to `False` if GPU is used.
-> * * `nodeSelector`. Update operation can't remove existed nodeSelectors, but can only update existed ones or add new ones. 
-> * * `allowInsecureConnections`,`privateEndpointNodeport`,`privateEndpointILB`
-> *  To update `logAnalyticsWS` from `True` to `False`, please provide all originial configurationProtectedSettings. Otherwise, those settings would be considered obsolete and deleted .
+> * `enableTraining` from `True` to `False`
+> * `installNvidiaDevicePlugin` from `True` to `False` when using GPU.
+> * `nodeSelector`. The update operation can't remove existing nodeSelectors. It can only update existing ones or add new ones.
+>
+> **Don't** update following configs if you have active real-time inference endpoints, otherwise, the endpoints will be unavailable.
+> * `allowInsecureConnections`
+> *`privateEndpointNodeport`
+> *`privateEndpointILB`
+> *  To update `logAnalyticsWS` from `True` to `False`, provide all original `configurationProtectedSettings`. Otherwise, those settings are considered obsolete and deleted.
 
 ## Extension delete
 
