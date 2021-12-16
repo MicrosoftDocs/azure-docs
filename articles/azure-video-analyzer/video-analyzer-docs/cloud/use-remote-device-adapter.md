@@ -10,7 +10,7 @@ ms.custom: ignite-fall-2021
 
 [!INCLUDE [header](includes/cloud-env.md)]
 
-Azure Video Analyzer service allows users to capture and record video from RTSP cameras that are connected to the cloud. This requires that such cameras be accessible over the internet, which may not be permissible in many cases. Instead, you can deploy the Video Analyzer edge module to a lightweight edge device on the same (private) network as the RTSP cameras, and connect the edge device to the internet. The edge module can now be set up as an *adapter* that enables Video Analyzer service to connect to the *remote devices* (cameras). The edge module acts as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md) for video traffic between the RTSP cameras and the Video Analyzer service.
+Azure Video Analyzer service allows users to capture and record video from RTSP cameras that are connected to the cloud. This requires that such cameras must be accessible over the internet. In cases where this may not be permissible, the Video Analyzer edge module can instead be deployed to a lightweight edge device with internet connectivity. With the lightweight edge device on the same (private) network as the RTSP cameras, the edge module can now be set up as an *adapter* that enables the Video Analyzer service to connect to the *remote devices* (cameras). The edge module enables the edge device to act as a [transparent gateway](../../../iot-edge/iot-edge-as-gateway.md) for video traffic between the RTSP cameras and the Video Analyzer service.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/use-remote-device-adapter/use-remote-device-adapter.svg" alt-text="Connect cameras to the cloud with a remote device adapter":::
@@ -46,7 +46,7 @@ Create an IoT device to represent each RTSP camera that needs to be connected to
 1. Select the **Devices** pane under **Device management**
 1. Select **+Add device** 
 1. Enter a **Device ID** using a unique string (Ex: building404-camera1)
-1. **Authentication type** must be **Symmetric key**
+1. **Authentication type** can be left as **Symmetric key**
 1. All other properties can be left as default
 1. Select **Save** to create the IoT device
 1. Select the IoT device, and record the **Primary key** or **Secondary key**, as it will be needed below
