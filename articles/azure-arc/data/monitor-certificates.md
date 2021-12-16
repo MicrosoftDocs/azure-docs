@@ -19,15 +19,19 @@ You can specify the certificate when you create a data controller with:
 - Azure `az` CLI `arcdata` extension
 - Kubernetes native deployment
 
+Microsoft provides sample files to create the certificates in the [/microsoft/azure_arc/](https://github.com/microsoft/azure_arc) GitHub repository. 
+
+You can clone the file locally to access the sample files.
+
+```console
+git clone https://github.com/microsoft/azure_arc
+```
+
+The files that are referenced in this article are in the repository under `/arc_data_services/deploy/scripts/monitoring`. 
+
 ## Create or acquire appropriate certificates
 
-The Azure Arc samples GitHub repository provides an example of one way to generate a certificate and private key for an endpoint. 
-
-To use the example, download the contents of the [monitoring](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring) folder.
-
-See the following code from [create-monitoring-tls-files.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring).
-
-:::code language="bash" source="~/azure_arc_sample/arc_data_services/deploy/scripts/monitoring/create-monitoring-tls-files.sh":::
+You need appropriate certificates for each UI. One for logs, and one for metrics. The following table describes the requirements.
 
 The following table describes the requirements for each certificate and key. 
 
@@ -38,7 +42,24 @@ The following table describes the requirements for each certificate and key.
 |keyUsage|`digitalsignature`<br/><br>`keyEncipherment`|`digitalsignature`<br/><br>`keyEncipherment`|
 |extendedKeyUsage|`serverAuth`|`serverAuth`|
 
-## Specify during deployment with CLI
+The GitHub repository directory includes example template files that identify the certificate specifications.
+
+- [/arc_data_services/deploy/scripts/monitoring/logsui-ssl.conf.tmpl](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring/logsui-ssl.conf.tmpl)
+- [/arc_data_services/deploy/scripts/monitoring/metricsui-ssl.conf.tmpl](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring/metricssui-ssl.conf.tmpl) 
+
+The Azure Arc samples GitHub repository provides an example you can use to generate a compliant certificate and private key for an endpoint. 
+
+See the code from [/arc_data_services/deploy/scripts/monitoringcreate-monitoring-tls-files.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring).
+
+To use the example to create certificates, update the following command with your `namespace` and the directory for the certificates (`output_directory`). Then run the command.
+
+```console
+./create-monitor-tls-files.sh <namespace> <output_directory>
+```
+
+This creates compliant certificates in the directory.
+
+## Deploy with CLI
 
 After you have the certificate/private key for each endpoint, create the data controller with `az dc create...` command.
 
@@ -60,7 +81,7 @@ az arcdata dc create --profile-name azure-arc-aks-default-storage --k8s-namespac
 
 You can only specify certificates when you include `--use-k8s` in the `az arcdata dc create ...` statement.
 
-## Specify during Kubernetes native tools deployment
+## Deploy with Kubernetes native tools
 
 If you are using Kubernetes native tools to deploy, create kubernetes secrets that hold the certificates and private keys. Create the following secrets:
 
