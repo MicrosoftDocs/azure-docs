@@ -19,7 +19,7 @@ ms.author: thwimmer
 This tutorial describes the steps you need to do in both Plandisc and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [Plandisc](https://plandisc.com) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
-## Capabilities Supported
+## Capabilities supported
 > [!div class="checklist"]
 > * Create users in Plandisc
 > * Remove users in Plandisc when they do not require access anymore
