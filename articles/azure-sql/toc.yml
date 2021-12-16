@@ -114,6 +114,8 @@
           href: database/transparent-data-encryption-tde-overview.md
         - name: Bring Your Own Key (BYOK)
           href: database/transparent-data-encryption-byok-overview.md
+        - name: Managed identities with BYOK
+          href: database/transparent-data-encryption-byok-identity.md
 
     - name: Business continuity
       displayName: Backup, back up, restore, recovery
@@ -592,6 +594,8 @@
         href: database/threat-detection-configure.md
       - name: Configure dynamic data masking
         href: database/dynamic-data-masking-configure-portal.md
+      - name: Create server configured with UMI and customer-managed TDE
+        href: database/transparent-data-encryption-byok-create-server.md
       - name: IP-based firewall
         href: database/firewall-configure.md
       - name: Ledger
