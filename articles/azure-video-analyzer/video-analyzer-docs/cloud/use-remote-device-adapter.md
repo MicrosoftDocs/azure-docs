@@ -211,6 +211,8 @@ After creating the live pipeline, the pipeline can be activated to start recordi
 | PrivateCameraSourceRTSPPassword | Provide RTSP source password |
 | PrivateCameraVideoName | Provide unique video name to capture live video from this RTSP source|
 
+Bitrate is set to 1500 kbps by default but can be edited on `line 282 of Program.cs`. This represents the maximum bitrate for the RTSP camera, and it must be between 500 and 3000 Kbps. If bitrate of the live video from the camera exceeds this threshold, then the service will keep disconnecting from the camera, and retrying later - with exponential backoff.
+
 ### Run the sample program
 
 - Start a debugging session in VS code. If this project is not set as default, you can set it as default project to run on hitting F5 by modifying the files in .vscode folder: 
