@@ -218,7 +218,8 @@ Below are some examples which demonstrate the different weighs of attributes lik
 3. If a similar synchronized user with 10 UserCertificates plus for instance 4 subscriptions assigned (with all Service Plans enabled), the maximum number of ProxyAddresses decreases to 311.
 4. Now let’s take the above user which already holds the maximum number of ProxyAddresses, and say you need to add 1 more smtp address - to achieve 312 ProxyAddresses you would need to remove at least 3 UserCertificates (depending on the size of the certificate).
 
-> [NOTE] These numbers can vary slightly. As a rule of thumb, it is safer to assume that the limit of smtp addresses in ProxyAddresses is approximately 300 addresses to leave the room for the future growth of the object and its populated attributes. 
+>[!NOTE]
+> These numbers can vary slightly. As a rule of thumb, it is safer to assume that the limit of smtp addresses in ProxyAddresses is approximately 300 addresses to leave the room for the future growth of the object and its populated attributes. 
 
 ### How to fix
 
