@@ -135,6 +135,6 @@ kubectl get adc -n <namespace>
 
 ## Next steps
 
-* [Deploy SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sqlmi.md).
-* [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sqlmi.md).
+* [Deploy SQL Managed Instance with Active Directory Authentication](deploy-active-directory-sql-managed-instance.md).
+* [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
 

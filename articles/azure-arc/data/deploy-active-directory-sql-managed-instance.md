@@ -238,5 +238,5 @@ kubectl apply -f sqlmi.yaml
 
 ## Next steps
 
-* [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sqlmi.md).
+* [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sql-managed-instance.md).
 

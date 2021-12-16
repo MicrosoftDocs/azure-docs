@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This article describes how to connect to SQL Managed Instance endpoint using Active Directory (AD) authentication. Before you proceed, make sure you have an AD-integrated Azure Arc-enabled SQL Managed Instance deployed already.
 
-See [Tutorial – Deploy AD-integrated SQL Managed Instance (Bring Your Own Keytab)](deploy-active-directory-sqlmi.md) to deploy a Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication enabled.
+See [Tutorial – Deploy AD-integrated SQL Managed Instance (Bring Your Own Keytab)](deploy-active-directory-sql-managed-instance.md) to deploy a Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication enabled.
 
 ## Create Active Directory logins in SQL Managed Instance
 
