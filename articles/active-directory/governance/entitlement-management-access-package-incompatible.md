@@ -91,7 +91,7 @@ Follow these steps to view the list of other access packages that have indicated
 
 ## Identifying users who already have incompatible access to another access package
 
-If you are configuring incompatible access settings on an access package that already has users assigned to it, then any of those users will also have a assignment to the incompatible access package or groups will not be able to re-request access.
+If you are configuring incompatible access settings on an access package that already has users assigned to it, then any of those users who also have an assignment to the incompatible access package or groups will not be able to re-request access.
 
 **Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
 
@@ -148,7 +148,7 @@ If an access package has been configured as incompatible, then a user who has an
 
 For example, if the **Western Territory** access package has marked the **Eastern Territory** package as incompatible, and a user has an assignment to the **Eastern Territory** access package, then the access package manager for **Western Territory** cannot create an assignment for that user to the **Western Territory**.  In order to proceed with that assignment, the user's existing assignment to the **Eastern Territory** access package must first be removed.
 
-If there is an exceptional situation where these separation of duties rules might need to be overriden, then configuring an additional access package to capture the users who have overlapping access rights will make it clear to the approvers, reviewers and auditors the exceptional nature of those assignments.
+If there is an exceptional situation where separation of duties rules might need to be overridden, then configuring an additional access package to capture the users who have overlapping access rights will make it clear to the approvers, reviewers, and auditors the exceptional nature of those assignments.
 
 
 ## Monitor and report on access assignments
