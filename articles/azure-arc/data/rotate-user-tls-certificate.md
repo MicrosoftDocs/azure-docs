@@ -93,7 +93,7 @@ DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
 
    ```console
    $certutil -encode -f input.txt b64-encoded.txt
-  ```
+   ```
 
    You will need to remove the header in the output file manually or using the following command :
 
