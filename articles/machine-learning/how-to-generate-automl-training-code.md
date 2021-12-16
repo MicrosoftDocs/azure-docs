@@ -232,8 +232,8 @@ def build_model_pipeline():
 
 Here, the scikit-learn pipeline includes the featurization step, a preprocessor (if used) and then the algorithm/model.
 
-In the case of timeseries models, the scikit-learn pipeline is wrapped in a `ForecastingPipelineWrapper`; the `ForecastingPipelineWrapper` has some additional logic
-needed to properly handle timeseries data depending on the algorithm used.
+For time-series forecasting models, the scikit-learn pipeline is wrapped in a `ForecastingPipelineWrapper`; the `ForecastingPipelineWrapper` has some additional logic
+needed to properly handle time-series data depending on the algorithm used.
 
 Once we have the Scikit-Learn pipeline, all that is left is to call `fit()` on it in order to train the model:
 
@@ -273,12 +273,14 @@ Finally, the model is serialized and saved as a `.pkl` file named "model.pkl":
     run.upload_file('outputs/model.pkl', 'model.pkl')
 ```
 
-## `script_run_notebook.ipynb`
-`script_run_notebook.ipynb` serves as an easy way to execute `script.py` on Azure ML compute.
+## script_run_notebook.ipynb
+
+The `script_run_notebook.ipynb` notebook serves as an easy way to execute `script.py` on an Azure ML compute.
 
 It is similar to the existing automated ML sample notebooks however, there are a couple of key differences as explained in the following sections.
 
 ### Environment
+
 Typically the training environment for automated ML runs is automatically set by the SDK. However, when running a custom script run like the generated code, automated ML is no longer driving the process so the environment must be specified for the script run to succeed.
 
 Code generation reuses the environment that was used in the original AutoML experiment, if possible; this guarantees that the training script run will not fail due to missing
@@ -309,7 +311,7 @@ All of the parameters in the above snippet are regular dependencies needed to ru
 
 ### Downloading and loading the serialized trained model in memory
 
-Once you have a trained model, you can save/serialize it to a .pkl file. It is possible that the model will not serialize/deserialize correctly using `pickle.dump()` and `pickle.load()` due to pickle limitations (for example, lambda functions cannot be serialized using pickle). Hence, `joblib.dump()` and `joblib.load()` should be used instead.
+Once you have a trained model, you can save/serialize it to a `.pkl` file. It is possible that the model will not serialize/deserialize correctly using `pickle.dump()` and `pickle.load()` due to pickle limitations (for example, lambda functions cannot be serialized using pickle). Hence, `joblib.dump()` and `joblib.load()` should be used instead.
 
 The following example is how you download and load in memory a model that was trained in AML compute with ScriptRunConfig. This code can run in the same notebook you used the Azure ML SDK ScriptRunConfig.
 
