@@ -66,9 +66,7 @@ If you set up the Sentry in Account B to collect entitlement, resource, and acti
 
 3. Through the API, the cross-account role collects information about user privileges, groups, resources, configuration, and activity from native AWS services. It then returns the data to the CloudKnox Sentry.
 
-    <!---### Sentry installation video
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/DNecovdu55Y" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>--->
+    <!---### Sentry installation video--->
 
 ### Centralized S3 collection
 

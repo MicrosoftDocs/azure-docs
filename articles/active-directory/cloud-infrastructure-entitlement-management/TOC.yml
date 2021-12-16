@@ -11,9 +11,7 @@
     - name: Integration with the CloudKnox API
       href: cloudknox-api.md
     - name: Integration with ServiceNow
-      href: cloudknox-sentry-install-azure.md
-    - name: CloudKnox integration with ServiceNow
-      href: cloudknox-product-dashboard.md
+      href: cloudknox-servicenow.md     
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
     - name: Install CloudKnox with AWS role
@@ -22,6 +20,8 @@
       href: cloudknox-sentry-install-aws.md
     - name: Install CloudKnox Sentry on Azure
       href: cloudknox-sentry-install-azure.md
+    - name: The CloudKnox dashboard
+      href: cloudknox-product-dashboard.md
     - name: The CloudKnox Account Explorer
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
