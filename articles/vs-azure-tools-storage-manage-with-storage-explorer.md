@@ -5,7 +5,6 @@ services: storage
 author: cawaMS
 
 ms.service: storage
-ms.devlang: multiple
 ms.topic: article
 ms.date: 11/08/2019
 ms.author: cawa

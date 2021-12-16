@@ -6,9 +6,10 @@ author: HeidiSteen
 manager: nitinme
 ms.author: heidist
 ms.service: cognitive-search
+ms.devlang: python
 ms.topic: quickstart
 ms.date: 06/11/2021
-ms.custom: devx-track-python, mode-other
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Create an Azure Cognitive Search index in Python using Jupyter Notebook
