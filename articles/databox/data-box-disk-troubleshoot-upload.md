@@ -245,10 +245,10 @@ The errors found in the 2018-10-01 copy log are described below.
 | `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |
 | `UploadErrorUnknownType`            |Unknown error. |
 | `ContainerRenamed`                  |Renamed the container as the original container name does not follow Azure conventions. |
-| `ShareRenamed`                      |The original container/share/Blob has been renamed to: DataBox-<*GUID*> :from: New Folder :because either name has invalid character(s) or length is not supported|
-| `BlobRenamed`                       |The original container/share/Blob has been renamed to BlockBlob/DataBox-<*GUID*> :from: <*original  name*> :because either the name has invalid character(s) or the length is not supported.|
-| `FileRenamed`                       |The original container/share/Blob has been renamed to: AzureFile/DataBox-<*GUID*> :from: <*original name*> :because either the name has invalid character(s) or the length is not supported. |
-| `DiskRenamed`                       |The original container/share/Blob has been renamed to: ManagedDisk/DataBox-<*GUID*> :from: <*original name*> :because either the name has invalid character(s) or the length is not supported. |
+| `ShareRenamed`                      |The original container/share/Blob has been renamed to: DataBox-<*GUID*> from <*New Folder*> because either the name has invalid character(s) or the length is not supported|
+| `BlobRenamed`                       |The original container/share/Blob has been renamed to BlockBlob/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported.|
+| `FileRenamed`                       |The original container/share/Blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*> :because either the name has invalid character(s) or the length is not supported. |
+| `DiskRenamed`                       |The original container/share/Blob has been renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*> :because either the name has invalid character(s) or the length is not supported. |
 | `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. |
 | `ExportCloudHttp`                   |Unsupported blob type. |
 

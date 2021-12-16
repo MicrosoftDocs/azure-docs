@@ -103,7 +103,6 @@ The following is a sample copy log for an export that encountered three file sys
 ```
 
 
-
 ## Data transfer errors
 
 The following errors are found in the copy logs for import job and/or export jobs.
@@ -111,20 +110,18 @@ The following errors are found in the copy logs for import job and/or export job
 | Error category                      | Error message     | Imports | Exports |
 |-------------------------------------|-------------------|---------|---------|
 | `UploadErrorWin32`                  |File system error. | Yes     | Yes     |
-| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).| Yes     | Yes     |
-| `UploadErrorDataValidationError`   |CRC computed during data ingestion doesn’t match the CRC computed during upload. | Yes     | Yes     |
-| `UploadErrorFilePropertyError`      |File Last Write time conversion failure. |
-| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). | Yes     | Yes     |
-| `UploadErrorUnknownType`            |Unknown error. | Yes     | Yes     |
-| `ContainerRenamed`                  |Renamed the container as the original container name does not follow Azure conventions. | No     | Yes     |
-| `ShareRenamed`                      |The original container/share/Blob has been renamed to: DataBox-<*GUID*> :from: New Folder :because either name has invalid character(s) or length is not supported| No     | Yes     |
-| `BlobRenamed`                       |The original container/share/Blob has been renamed to BlockBlob/DataBox-<*GUID*> :from: <*original  name*> :because either the name has invalid character(s) or the length is not supported.| No     | Yes     |
-| `FileRenamed`                       |The original container/share/Blob has been renamed to: AzureFile/DataBox
-
--<*GUID*> :from: <*original name*> :because either the name has invalid character(s) or the length is not supported. | No     | Yes     |
-| `DiskRenamed`                       |The original container/share/Blob has been renamed to: ManagedDisk/DataBox-<*GUID*> :from: <*original name*> :because either the name has invalid character(s) or the length is not supported. | No     | Yes     |
-| `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. | Yes     | No     |
-| `ExportCloudHttp`                   |Unsupported blob type. | Yes     | Yes     |
+| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).|Yes |Yes |
+| `UploadErrorDataValidationError`   |CRC computed during data ingestion doesn’t match the CRC computed during upload. |Yes |Yes |
+| `UploadErrorFilePropertyError`      |File Last Write time conversion failure. |Yes |Yes |
+| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |Yes |Yes |
+| `UploadErrorUnknownType`            |Unknown error. |Yes |Yes |
+| `ContainerRenamed`                  |Renamed the container as the original container name does not follow Azure conventions. |No |Yes |
+| `ShareRenamed`                      |The original container/share/Blob has been renamed to DataBox-<*GUID*> from <*New Folder*> because either the name has invalid character(s) or the length is not supported |No |Yes |
+| `BlobRenamed`                       |The original container/share/Blob has been renamed to BlockBlob/DataBox-<*GUID*> from: <*original name*> because either the name has invalid character(s) or the length is not supported.|No |Yes |
+| `FileRenamed`                       |The original container/share/Blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported. |No |Yes |
+| `DiskRenamed`                       |The original container/share/Blob-<*original name*> has been renamed to ManagedDisk/DataBox-<*new name*> because either the name has invalid character(s) or the length is not supported. |No |Yes |
+| `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. |Yes |No |
+| `ExportCloudHttp`                   |Unsupported blob type. |Yes |Yes |
 
 <!--## Example URLs
 
