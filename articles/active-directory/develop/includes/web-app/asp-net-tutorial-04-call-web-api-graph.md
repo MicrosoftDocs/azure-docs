@@ -29,4 +29,4 @@ In this tutorial, you acquired an access token and called the Microsoft Graph AP
 Now that you have an app that can sign in users and call a web API, $NEXT_STEP_DESCRIPTION_HERE.
 
 > [!div class="nextstepaction"]
-> [$NEXT_STEP_HERE](../../authorization-basics.md)
+> [Tutorial: $TITLE](../../authorization-basics.md)
