@@ -1,6 +1,6 @@
 ---
-title: Deploy a self-hosted gateway to Kubernetes
-description: Learn how to deploy a self-hosted gateway component of Azure API Management to Kubernetes
+title: Deploy a self-hosted gateway to Kubernetes with YAML
+description: Learn how to deploy a self-hosted gateway component of Azure API Management to Kubernetes with YAML
 author: dlepow
 manager: gwallace
 ms.service: api-management
@@ -9,7 +9,7 @@ ms.topic: article
 ms.author: danlep
 ms.date: 05/25/2021
 ---
-# Deploy a self-hosted gateway to Kubernetes
+# Deploy a self-hosted gateway to Kubernetes with YAML
 
 This article describes the steps for deploying the self-hosted gateway component of Azure API Management to a Kubernetes cluster.
 
