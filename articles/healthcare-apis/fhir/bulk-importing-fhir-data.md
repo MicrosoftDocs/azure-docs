@@ -41,16 +41,16 @@ To use the tool, follow the prerequisite steps below:
 1. [Deploy FHIR Importer](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FhirImporter) using the CLI scripts and the ARM template. The Azure Function runtime is set to 2.0 by default, but it can be changed to 3.0 from the Azure portal.
 1. Review and modify the application settings for the Azure Function. For example, change `MaxDegreeOfParallelism` from 16 to a smaller number, and set `UUIDtoResourceTypeConversion` to **false** to ingest data without Universally Unique Identifier (UUID) string conversion.
 
-   [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)](media/importer-appsettings.png#lightbox)
+   [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)(media/importer-appsettings.png#lightbox)
 
 1. Upload the FHIR data to the storage container that the FHIR Importer is monitoring. By default, the storage account is named as the importer function name plus `sa`. For example, `importer1sa` and the container is named `fhirimport`. The `fhirrejected` container is for storing files that cannot be processed due to errors.
 
-   [![Image of user interface of Upload Files to Storage.](media/bulk-import/importer-storage-container.png)](media/importer-storage-container.png#lightbox). You can use the portal, Azure [AzCopy](../../storage/common/storage-use-azcopy-v10.md)) or other upload tools.
+   [![Image of user interface of Upload Files to Storage.](media/bulk-import/importer-storage-container.png)(media/importer-storage-container.png#lightbox). You can use the portal, Azure [AzCopy](../../storage/common/storage-use-azcopy-v10.md)) or other upload tools.
  
 
 1. Test the FHIR Importer with a few documents first before bulk importing. Use App Insights to monitor and troubleshoot the Importer Azure Function. Check the logs and files in the `fhirrejected` storage container.
 
-   [![Image of user interface of Importer Monitoring](media/bulk-import/importer-monitoring.png)](media/importer-monitoring.png#lightbox)
+   [![Image of user interface of Importer Monitoring](media/bulk-import/importer-monitoring.png)](media/bulk-import/importer-monitoring.png#lightbox)
 
 ## Other FHIR Data Loading Tools
 
