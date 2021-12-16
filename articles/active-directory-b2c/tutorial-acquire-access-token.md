@@ -391,7 +391,7 @@ node index.js
 1. Enter your sign in credentials such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you've an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the page with sign in status as shown below.
 
  :::image type="content" source="./media/tutorial-acquire-access-token/signed-in-acquire-access-token.png" alt-text="Node web app signed in status for acquiring access token":::
-3. Check in the terminal to see a long string, that's, access token:
+3. In the terminal, find a long string, such as one shown below, that's, the access token:
 ```
 eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsImtpZCI6Ilg1ZVhrNHh5b2pORnVtM.............
 ```
