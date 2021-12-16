@@ -103,7 +103,7 @@ Organizations may use the following framework to begin their investigation into 
          1. Is the application active at the wrong times of day?
          1. Are sign-ins made from an unrecognized IP address?
       1. You may need to confer with the application's development team or owner for more detail. 
-1.	Check for abnormal credential changes by reviewing the Azure AD audit logs:
+1. Check for abnormal credential changes by reviewing the Azure AD audit logs:
     1. Filter for “Category” by “Application Management” and “Activity” by “Update Application - Certificates and secrets management”.
    1. Check to see if there was an unauthorized change to credentials on the account.
    1. Check if there are more credentials than required assigned to the service principal.
@@ -123,7 +123,7 @@ Organizations may use the following framework to begin their investigation into 
    1. Filter for “Activity” by “Add app role assignment to service principal”.
    1. Confirm if the assigned roles have high privilege.
    1. Confirm if the assigned privileges are necessary.
-1.	Check for unverified commercial apps:
+1. Check for unverified commercial apps:
    1. Check if commercial gallery applications are being used.
 
 Once you determine if the workload identity was compromised, dismiss the risk or confirm compromise in the **Risky workload identities (preview)** report.
