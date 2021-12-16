@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 05/13/2021
+ms.date: 12/01/2021
 ms.author: ginle
 ---
 # Moving data from Azure API for FHIR to Azure Synapse Analytics
