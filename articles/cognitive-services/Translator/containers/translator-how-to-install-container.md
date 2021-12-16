@@ -97,7 +97,7 @@ Application for Gated Services**](https://aka.ms/csgate-translator) to request a
 Use the [docker run](https://docs.docker.com/engine/reference/commandline/run/) command to download a container image from Microsoft Container registry and run it.
 
 ```Docker
-docker run --rm -it -p 5000:80 --memory 12g --cpus 4 \
+docker run --rm -it -p 5000 --memory 12g --cpus 4 \
 -v /mnt/d/TranslatorContainer:/usr/local/models \
 -e apikey={API_KEY} \
 -e eula=accept \
