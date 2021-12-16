@@ -211,7 +211,7 @@ These actions will reset the notebook state and will reset all variables in the 
 
 Use the kernel dropdown on the right to change to any of the installed kernels.  
 
-## Package management
+## Manage packages
 
 Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently-running kernel.  Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently-running kernel).
 
