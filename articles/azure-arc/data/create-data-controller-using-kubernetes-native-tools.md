@@ -154,15 +154,7 @@ The example below assumes that you created a image pull secret name `arc-private
         imagePullPolicy: Always
 ```
 
-## Create credentials for the metrics and logs dashboards
-
-You can secure the logs and metrics dashboards with an SSL/TLS certificate or with a user name and password.
-
-To use a certificate, follow the instructions in [Specify during Kubernetes native tools deployment](monitor-certificates.md#specify-during-kubernetes-native-tools-deployment). 
-
-To create a user name and password, follow the instructions below.
-
-### Specify a user name and password
+## Create secrets for the metrics and logs dashboards
 
 You can specify a user name and password that is used to authenticate to the metrics and logs dashboards as an administrator. Choose a secure password and share it with only those that need to have these privileges.
 
@@ -200,6 +192,10 @@ kubectl create --namespace arc -f <path to your data controller secret file>
 kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.yaml
 ```
 
+## Create certificates for logs and metrics dashboards
+
+Optionally, you can create SSL/TLS certificates for the logs and metrics dashboards. Follow the instructions at [Specify during Kubernetes native tools deployment](monitor-certificates.md#specify-during-kubernetes-native-tools-deployment).
+
 ## Create the webhook deployment job, cluster role and cluster role binding
 
 First, create a copy of the [template file](https://raw.githubusercontent.com/microsoft/azure_arc/main/arc_data_services/deploy/yaml/web-hook.yaml) locally on your computer so that you can modify some of the settings.
@@ -224,21 +220,15 @@ First, create a copy of the [template file](https://raw.githubusercontent.com/mi
 
 Edit the following as needed:
 
-- **Required**
-   - **location**
-      Change this to be the Azure location where the _metadata_ about the data controller will be stored.  Review the [list of available regions](overview.md#supported-regions).
-   - **resourceGroup**
-      The Azure resource group where you want to create the data controller Azure resource in Azure Resource Manager.  Typically this resource group should already exist, but it is not required until the time that you upload the data to Azure.
-   - **subscription**
-      The Azure subscription GUID for the subscription that you want to create the Azure resources in.
+**REQUIRED**
+- **location**: Change this to be the Azure location where the _metadata_ about the data controller will be stored.  Review the [list of available regions](overview.md#supported-regions).
+- **resourceGroup**: the Azure resource group where you want to create the data controller Azure resource in Azure Resource Manager.  Typically this resource group should already exist, but it is not required until the time that you upload the data to Azure.
+- **subscription**: the Azure subscription GUID for the subscription that you want to create the Azure resources in.
 
-- **Recommend review and possibly change default values**
-   - **storage..className**
-      The storage class to use for the data controller data and log files.  If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`.  The default is `default` which assumes there is a storage class that exists and is named `default` not that there is a storage class that _is_ the default.  Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
-   - **serviceType**
-      Change the service type to `NodePort` if you are not using a LoadBalancer.
-   - **Security**
-      For Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, replace the `security:` settings with the following values in the data controller yaml file.
+**RECOMMENDED TO REVIEW AND POSSIBLY CHANGE DEFAULTS**
+- **storage..className**: the storage class to use for the data controller data and log files.  If you are unsure of the available storage classes in your Kubernetes cluster, you can run the following command: `kubectl get storageclass`.  The default is `default` which assumes there is a storage class that exists and is named `default` not that there is a storage class that _is_ the default.  Note: There are two className settings to be set to the desired storage class - one for data and one for logs.
+- **serviceType**: Change the service type to `NodePort` if you are not using a LoadBalancer.
+- **Security** For Azure Red Hat OpenShift or Red Hat OpenShift Container Platform, replace the `security:` settings with the following values in the data controller yaml file.
 
 ```yml
   security:
