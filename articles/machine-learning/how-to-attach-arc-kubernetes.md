@@ -215,7 +215,7 @@ Once the Azure Machine Learning extension is deployed, the following resources a
 
    |Resource name  |Resource type |Training |Inference |Training and Inference| Description |
    |--|--|--|--|--|--|
-   |Azure ServiceBus|Azure resource|**&check;**|**&check;**|**&check;**|Used by gateway to sync job and cluster status to Azure Machine Learning services regularly.|
+   |Azure Service Bus|Azure resource|**&check;**|**&check;**|**&check;**|Used by gateway to sync job and cluster status to Azure Machine Learning services regularly.|
    |Azure Relay|Azure resource|**&check;**|**&check;**|**&check;**|Route traffic from Azure Machine Learning services to the Kubernetes cluster.|
    |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.|
    |{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Export the cluster-related metrics to Prometheus.|
@@ -286,6 +286,22 @@ It takes around 10 minutes to delete all components deployed to the Kubernetes c
 
 
 ## Attach Arc Cluster
+
+### Pre-requesitie
+
+Azure Machine Learning workspace defaults to have a system-assigned managed identity to access Azure ML resources. It's all done if this default setting is applied. 
+
+![Managed Identity in workspace](./media/how-to-attach-arc-kubernetes/ws-msi.png)
+
+Otherwise, if a user-assigned managed identity is specified in Azure Machine Learning workspace creation, the following role assignments need to be granted to the identity manually before attaching the compute,
+
+|Azure resource name  |Role to be assigned|
+|--|--|
+|Azure Service Bus|Azure Service Bus Data Owner|
+|Azure Relay|Azure Relay Owner|Azure Relay Owner|
+|Azure Arc-enable Kubernetes|Reader|
+
+The Azure Service Bus and Azure Relay resource are created under the same Resource Group as the Arc cluster.
 
 ### [Studio](#tab/studio)
 
