@@ -101,27 +101,33 @@ In the example above, replace the placeholders with your subscription ID, resour
 
 # [OpenID Connect](#tab/openid)
 
-1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). Create the Active Directory application.
+OpenID Connect is an authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex process that offers hardened security. 
+
+1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). Create the Active Directory application. 
 
     ```azurecli-interactive
     az ad app create --display-name myApp
     ```
 
-    This command will output JSON with an `appId` that is your `client-id`. The `objectId` is `APPLICATION-OBJECT-ID` and when creating federated credentials with Graph API calls.
+    This command will output JSON with an `appId` that is your `client-id`. Save the value to use as the `AZURE_CLIENT_ID` GitHub secret later. 
 
-1. Create a service principal. Replace the `$appID` with the appId from your JSON output. This command generates JSON output with a different `objectId` will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+    You'll use the `objectId` value when creating federated credentials with Graph API and reference it as the `APPLICATION-OBJECT-ID`.
+
+1. Create a service principal. Replace the `$appID` with the appId from your JSON output. 
+
+    This command generates JSON output with a different `objectId` and will be used in the next step. The new  `objectId` is the `assignee-object-id`. 
+    
+    Copy the `appOwnerTenantId` to use as a GitHub secret for `AZURE_TENANT_ID` later. 
 
     ```azurecli-interactive
      az ad sp create --id $appId
     ```
 
-1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID and `$assigneeObjectId` with generated `assignee-object-id`.
+1. Create a new role assignment by subscription and object. By default, the role assignment will be tied to your default subscription. Replace `$subscriptionId` with your subscription ID and `$assigneeObjectId` with the generated `assignee-object-id`. Learn [how to manage Azure subscriptions with the Azure CLI](/cli/azure/manage-azure-subscriptions-azure-cli). 
 
     ```azurecli-interactive
     az role assignment create --role contributor --subscription $subscriptionId --assignee-object-id  $assigneeObjectId --assignee-principal-type ServicePrincipal
     ```
-
-1. Copy the values for `clientId`, `subscriptionId`, and `tenantId` to use later in your GitHub Actions workflow.
 
 1. Run the following command to [create a new federated identity credential](/graph/api/application-post-federatedidentitycredentials?view=graph-rest-beta&preserve-view=true) for your active directory application.
 
@@ -133,7 +139,7 @@ In the example above, replace the placeholders with your subscription ID, resour
   * For workflows triggered by a pull request event: `repo:< Organization/Repository >:pull_request`.
 
 ```azurecli
-az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:environment:Production","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
+az rest --method POST --uri 'https://graph.microsoft.com/beta/applications/<APPLICATION-OBJECT-ID>/federatedIdentityCredentials' --body '{"name":"<CREDENTIAL-NAME>","issuer":"https://token.actions.githubusercontent.com","subject":"repo:organization/repository:ref:refs/heads/main","description":"Testing","audiences":["api://AzureADTokenExchange"]}' 
 ```
 
 To learn how to create a Create an active directory application, service principal, and federated credentials in Azure portal, see [Connect GitHub and Azure](/azure/developer/github/connect-from-azure#use-the-azure-login-action-with-openid-connect).
