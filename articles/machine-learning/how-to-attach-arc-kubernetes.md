@@ -254,7 +254,7 @@ When the `installState` shows **Installed**, run the following command on your m
 ```bash
 kubectl get pods -n azureml
 ```
-## Extension update
+## Update Azure Machine Learning extension
 
 Use ```k8s-extension update``` CLI command to update the mutable properties of  AzureML extension, review list of required and optional parameters for ```k8s-extension update``` CLI command [here](https://docs.microsoft.com/en-us/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_update). 
 
