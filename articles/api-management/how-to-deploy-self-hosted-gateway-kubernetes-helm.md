@@ -5,7 +5,7 @@ author: tomkerkhove
 manager: mrcarlosdev
 ms.service: api-management
 ms.topic: article
-ms.date: 21/12/2021
+ms.date: 12/21/2021
 ms.author: tomkerkhove
 ---
 
