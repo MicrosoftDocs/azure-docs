@@ -102,11 +102,11 @@ Each error entry contains the following information.
 
 The CopyLog Summary reports:
 
-•	Drive log version (in this case, 2021-08-01)
-•	Drive ID
-•	Data copy status
-•	Summary of validation errors by error category
-•	Summary of copy errors by error category
+*	Drive log version (in this case, 2021-08-01)
+*	Drive ID
+*	Data copy status
+*	Summary of validation errors by error category
+*	Summary of copy errors by error category
 
 #### Sample copy log: 2021-08-01
 
