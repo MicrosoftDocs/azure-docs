@@ -89,16 +89,17 @@ DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
    base64 /<path>/<file> > cert.txt 
    ```
 
-For Windows users, use [certutil](/windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command : 
+   For Windows users, use [certutil](/windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command : 
 
    ```console
    $certutil -encode -f input.txt b64-encoded.txt
   ```
 
-You will need to remove the header in the output file manually or using the following command :
-  ```console
-  $findstr /v CERTIFICATE b64-encoded.txt> updated-b64.txt 
-  ```
+   You will need to remove the header in the output file manually or using the following command :
+
+   ```console
+   $findstr /v CERTIFICATE b64-encoded.txt> updated-b64.txt 
+   ```
 
 1. Add the base64 encoded cert and private key to the yaml specification file to create a Kubernetes secret:
 
