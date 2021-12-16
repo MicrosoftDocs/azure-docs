@@ -93,7 +93,7 @@ For more information see the API DOCS THAT ARE PUBLSHED
 
 ## Investigate risky workload identities
 
-Organizations may use the following framework to begin their investigation into any risky workload identities. 
+Organizations may use the following framework to begin their investigation into any risky workload identities. Investigations may require having a conversation with the application owner or developer, review of the [sign-in logs]((../reports-monitoring/concept-sign-ins.md)), and review of the [audit logs]((../reports-monitoring/concept-audit-logs.md)) to name a few.
 
 1. Investigate sign-in activity:
    1. Information can be found in the Azure AD sign-in logs under **Service Principal sign-ins** and **Managed Identity sign-ins** You must enable the Sign-ins preview to view these tabs.
@@ -104,7 +104,7 @@ Organizations may use the following framework to begin their investigation into 
          1. Are sign-ins made from an unrecognized IP address?
       1. You may need to confer with the application's development team or owner for more detail. 
 1.	Check for abnormal credential changes by reviewing the Azure AD audit logs:
-   1. Filter for “Category” by “Application Management” and “Activity” by “Update Application - Certificates and secrets management”.
+    1. Filter for “Category” by “Application Management” and “Activity” by “Update Application - Certificates and secrets management”.
    1. Check to see if there was an unauthorized change to credentials on the account.
    1. Check if there are more credentials than required assigned to the service principal.
    1. When checking for credentials, check both the application and any associated service principal objects. 
@@ -183,3 +183,7 @@ Using [Conditional Access for workload identities](../conditional-access/workloa
 - [Conditional Access for workload identities](../conditional-access/workload-identity.md)
 
 - [Microsoft Graph API](/graph/use-the-api)
+
+- [Azure AD audit logs](../reports-monitoring/concept-audit-logs.md)
+
+- [Azure AD sign-in logs](../reports-monitoring/concept-sign-ins.md)
