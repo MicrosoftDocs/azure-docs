@@ -40,7 +40,9 @@ public static class QueueFunctions
 
 # [Isolated process](#tab/isolated-process)
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="9-31":::
+The following example shows a [C# function](dotnet-isolated-process-guide.md) that polls the `input-queue` queue and writes several messages to an output queue each time a queue item is processed.
+
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding":::
 
 # [C# Script](#tab/csharp-script)
 
@@ -285,7 +287,7 @@ public static void Run(
 
 In [C# class libraries](dotnet-isolated-process-guide.md), the attribute's constructor takes the name of the queue to monitor, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="13-17":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger":::
 
 This example also demonstrates setting the [connection string setting](#connections) in the attribute itself. 
 
@@ -296,7 +298,7 @@ C# script uses a function.json file for configuration instead of attributes.
 The following table explains the binding configuration properties for C# script that you set in the *function.json* file.
 
 |function.json property | Description|
-|---------|---------|----------------------|
+|------------|----------------------|
 |**type** |Must be set to `queueTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction**|  In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | The name of the variable that contains the queue item payload in the function code.  |
@@ -341,7 +343,7 @@ public class QueueTriggerDemo {
 The following table explains the binding configuration properties that you set in the *function.json* file and the `QueueTrigger` attribute.
 
 |function.json property | Description|
-|---------|---------|----------------------|
+|---------|------------------------|
 |**type** |  Must be set to `queueTrigger`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction**|  In the *function.json* file only. Must be set to `in`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** | The name of the variable that contains the queue item payload in the function code.  |

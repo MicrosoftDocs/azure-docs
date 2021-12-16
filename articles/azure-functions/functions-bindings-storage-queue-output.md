@@ -19,8 +19,6 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone pivot="programming-language-csharp"
 
-<!--Optional intro text goes here, followed by the C# modes include.-->
-
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
@@ -43,10 +41,7 @@ public static class QueueFunctions
 
 # [Isolated process](#tab/isolated-process)
 
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:-->
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="9-31":::
-
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 # [C# Script](#tab/csharp-script)
 
@@ -359,7 +354,7 @@ You can use the `StorageAccount` attribute to specify the storage account at cla
 
 When running in an isolated process, you use the [QueueOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Storage.Queues/src/QueueOutputAttribute.cs), which takes the name of the queue, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="13-17":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
 
 Only returned variables are supported when running in an isolated process. Output parameters can't be used. 
 
@@ -370,7 +365,7 @@ C# script uses a function.json file for configuration instead of attributes.
 The following table explains the binding configuration properties that you set in the *function.json* file and the `Queue` attribute.
 
 |function.json property | Description|
-|---------|---------|----------------------|
+|---------|----------------------|
 |**type** |Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** |  Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** |  The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
@@ -417,7 +412,7 @@ The parameter associated with the [QueueOutput](/java/api/com.microsoft.azure.fu
 The following table explains the binding configuration properties that you set in the *function.json* file.
 
 |function.json property | Description|
-|---------|---------|----------------------|
+|---------|-----------------------|
 |**type** |Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
 |**direction** |  Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
 |**name** |  The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
