@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/01/2021
+ms.date: 12/13/2021
 ---
 
 # Copy data from and to the SFTP server using Azure Data Factory or Azure Synapse Analytics

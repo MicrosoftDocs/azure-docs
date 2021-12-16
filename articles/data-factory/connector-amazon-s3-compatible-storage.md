@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 12/13/2021
 ---
 
 # Copy data from Amazon S3 Compatible Storage by using Azure Data Factory or Synapse Analytics
