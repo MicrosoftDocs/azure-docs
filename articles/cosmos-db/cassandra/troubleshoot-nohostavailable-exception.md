@@ -14,18 +14,18 @@ ms.author: IriaOsara
 The NoHostAvailableException is a top-level wrapper exception with many possible causes and inner exceptions, many of which can be client-related. This exception tends to occur if there are some issues with cluster, connection settings or one or more Cassandra nodes is unavailable. Here we explore possible reasons for this exception along with details specific to the client driver being used.
 
 ## Driver Settings
-One of the most common cause of a NoHostAvailableException is due to the default driver settings. We advised the following settings.
+One of the most common cause of a NoHostAvailableException is because of the default driver settings. We advised the following [settings](#code-sample).
 
 1. The default connections per host set to 1 is not recommended for CosmosDB, a minimum value of 10 is advised. While more aggregated RUs are provisioned, increase connection count. The general guideline is 10 connections per 200k RU.
 2. Use cosmos retry policy to handle intermittent throttling responses, please reference cosmosdb extension library while using Java drivers.
-3. For multi-region account, CosmosDB load balancing policy should be used.
-4. When Server Side Retry is enabled, read timeout should be set greater than 1 minute. Java driver v4 defaults to 2 seconds which should be changed to 12 seconds like driver v3.
+3. For multi-region account, CosmosDB load-balancing policy should be used.
+4. When Server Side Retry is enabled, read timeout should be set greater than 1 minute. Java driver v4 defaults to 2 seconds, which should be changed to 90 seconds.
 
 ## Exception Messages
-If exception still persists after the recommended settings, please review the exception messages below. Follow the recommendation, if your error log contains any of these messages.
+If exception still persists after the recommended settings, review the exception messages below. Follow the recommendation, if your error log contains any of these messages.
 
 ### BusyPoolException
-This client-side error indicates that the maximum number of request connections for a host has been reached. If unable to remove, request from the queue, you might see this error. If the connection per host has been set to minimum of 10, this could be caused by high server side latency.
+This client-side error indicates that the maximum number of request connections for a host has been reached. If unable to remove, request from the queue, you might see this error. If the connection per host has been set to minimum of 10, this could be caused by high server-side latency.
 
 ```
 Java driver v3  exception:
@@ -43,16 +43,17 @@ Instead of tuning the `max requests per connection`, we advise making sure the `
 OverloadException is thrown when the request rate is too large. Which may be because of insufficient throughput being provisioned for the table and the RU budget being exceeded. Learn more about [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large) and [server-side retry](prevent-rate-limiting-errors.md)
 #### Recommendation
 We recommend using either of the following options:
-1. Increase RU provisioned for the table or database if the throttling is consistent.
-2. If throttling is persistent, we advise using CosmosRetryPolicy in our [Azure Cosmos Cassandra extensions]( https://github.com/Azure/azure-cosmos-cassandra-extensions)
-3. If throttling is intermittent, [enable server side retry](prevent-rate-limiting-errors.md).
+1. If throttling is persistent, we advise using CosmosRetryPolicy in our [Azure Cosmos Cassandra extensions]( https://github.com/Azure/azure-cosmos-cassandra-extensions)
+2. If extension library cannot be referenced [enable server side retry](prevent-rate-limiting-errors.md).
 
 ### All hosts tried for query failed
 If the primary contact point cannot be reached, client sees a different exception. This error is specific to when the client is set to connect to a different region other than what the primary contact point region. The error is seen during the initial a few seconds upon start-up.
  
-Exception message with a Java v3 driver: ``` Exception in thread "main" com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)at cassandra.driver.core@3.10.2/com.datastax.driver.core.exceptions.NoHostAvailableException.copy(NoHostAvailableException.java:83)```
+Exception message with a Java v3 driver: `Exception in thread "main" com.datastax.driver.core.exceptions.NoHostAvailableException: All host(s) tried for query failed (no host was tried)at cassandra.driver.core@3.10.2/com.datastax.driver.core.exceptions.NoHostAvailableException.copy(NoHostAvailableException.java:83)`
 
-Exception message with a C# v3 driver: ```All hosts tried for query failed (tried 127.0.0.1:15350) at Cassandra.Requests.RequestHandler.GetNextValidHost(Dictionary`2 triedHosts)```
+Exception message with a Java v4 driver: `No node was available to execute the query`
+
+Exception message with a C# v3 driver: `System.ArgumentException: Datacenter West US does not match any of the nodes, available datacenters: West US 2`
 
 #### Recommendation
 We advise using the CosmosLoadBalancingPolicy in [Java driver v3](https://github.com/Azure/azure-cosmos-cassandra-extensions) and [Java driver v4](https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1). This policy falls back to the ContactPoint of the primary write region where the specified local data is unavailable.
@@ -72,8 +73,7 @@ We advise using the CosmosLoadBalancingPolicy in [Java driver v3](https://github
         .SetMaxConnectionsPerHost(HostDistance.Remote, 10); // default 2
 
     SocketOptions socketOptions = new SocketOptions()
-        .SetConnectTimeoutMillis(5000)
-        .SetReadTimeoutMillis(60000); // default 12000
+        .SetReadTimeoutMillis(90000); // default 12000
 
     buildCluster = Cluster.Builder()
         .AddContactPoint(Program.ContactPoint)
@@ -90,8 +90,7 @@ We advise using the CosmosLoadBalancingPolicy in [Java driver v3](https://github
    // socket options with default values
     // https://docs.datastax.com/en/developer/java-driver/3.6/manual/socket_options/
     SocketOptions socketOptions = new SocketOptions()
-        .setConnectTimeoutMillis(5000)
-        .setReadTimeoutMillis(12000); // Set to 75000 when SSR is enabled.
+        .setReadTimeoutMillis(90000); // default 12000
     
     // connection pooling options (default values are 1s)
     // https://docs.datastax.com/en/developer/java-driver/3.6/manual/pooling/
@@ -107,6 +106,13 @@ We advise using the CosmosLoadBalancingPolicy in [Java driver v3](https://github
         .withWriteDC(Region)
         .withReadDC(Region)
         .build();
+
+    // cosmos retry policy
+    CosmosRetryPolicy retryPolicy = CosmosRetryPolicy.builder()
+        .withFixedBackOffTimeInMillis(1000)
+        .withGrowingBackOffTimeInMillis(1000)
+        .withMaxRetryCount(10)
+        .build();
     
     Cluster cluster = Cluster.builder()
         .addContactPoint(EndPoint).withPort(10350)
@@ -116,13 +122,6 @@ We advise using the CosmosLoadBalancingPolicy in [Java driver v3](https://github
         .withPoolingOptions(poolingOptions)
         .withLoadBalancingPolicy(cosmosLoadBalancingPolicy)
         .withRetryPolicy(retryPolicy)
-        .build();
-    
-    // cosmos retry policy
-    CosmosRetryPolicy retryPolicy = CosmosRetryPolicy.builder()
-        .withFixedBackOffTimeInMillis(1000)
-        .withGrowingBackOffTimeInMillis(1000)
-        .withMaxRetryCount(10)
         .build();
 ```
 
@@ -137,7 +136,7 @@ We advise using the CosmosLoadBalancingPolicy in [Java driver v3](https://github
     configBuilder
         .withInt(DefaultDriverOption.CONNECTION_POOL_LOCAL_SIZE, 10) // default 1
         .withInt(DefaultDriverOption.CONNECTION_POOL_REMOTE_SIZE, 10) // default 1
-        .withDuration(DefaultDriverOption.REQUEST_TIMEOUT, Duration.ofSeconds(12)) // default 2. Set to 75 seconds when server side retry is enabled.
+        .withDuration(DefaultDriverOption.REQUEST_TIMEOUT, Duration.ofSeconds(90)) // default 2.
         .withClass(DefaultDriverOption.RECONNECTION_POLICY_CLASS, ConstantReconnectionPolicy.class) // default ExponentialReconnectionPolicy
         .withBoolean(DefaultDriverOption.METADATA_TOKEN_MAP_ENABLED, false); // default true
         
