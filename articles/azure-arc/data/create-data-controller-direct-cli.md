@@ -200,6 +200,10 @@ From the terminal, run the below command to list the custom locations, and valid
 az customlocation list -o table
 ```
 
+## Create certificates for logs and metrics UI dashboards
+
+Optionally, you can specify certificates for logs and metrics UI dashboards. See [Provide certificates for monitoring](monitor-certificates.md) for examples. The December, 2021 release introduces this option.
+
 ## Create the Azure Arc data controller
 
 After the extension and custom location are created, proceed to deploy the Azure Arc data controller as follows.
@@ -218,8 +222,6 @@ az arcdata dc create --name <name> --resource-group <resourcegroup> --location <
 # Example
 az arcdata dc create --name arc-dc1 --resource-group my-resource-group --location eastasia --connectivity-mode direct --path ./azure-arc-custom  --auto-upload-logs true --auto-upload-metrics true --custom-location mycustomlocation
 ```
-
-Optionally, you can specify certificates for logs and metrics UI dashboards. See [Provide certificates for monitoring](monitor-certificates.md) for examples. The December, 2021 release introduces this option.
 
 ## Monitor the status of Azure Arc data controller deployment
 
