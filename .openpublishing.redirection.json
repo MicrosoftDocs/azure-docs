@@ -45140,7 +45140,7 @@
     },
     {
       "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
-      "redirect_url": "/articles/active-directory/develop/zero-trust-for-developers.md",
+      "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
       "redirect_document_id": false
     }
   ]
