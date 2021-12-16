@@ -43,10 +43,9 @@ To use the tool, follow the prerequisite steps below:
 
    [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)(media/importer-appsettings.png#lightbox)
 
-1. Upload the FHIR data to the storage container that the FHIR Importer is monitoring. By default, the storage account is named as the importer function name plus `sa`. For example, `importer1sa` and the container is named `fhirimport`. The `fhirrejected` container is for storing files that cannot be processed due to errors.
+1. Upload the FHIR data to the storage container that the FHIR Importer is monitoring. By default, the storage account is named as the importer function name plus `sa`. For example, `importer1sa` and the container is named `fhirimport`. The `fhirrejected` container is for storing files that cannot be processed due to errors. You can use the portal, Azure [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or other upload tools.
 
-   [![Image of user interface of Upload Files to Storage.](media/bulk-import/importer-storage-container.png)(media/importer-storage-container.png#lightbox). You can use the portal, Azure [AzCopy](../../storage/common/storage-use-azcopy-v10.md)) or other upload tools.
- 
+   [![Image of user interface of Upload Files to Storage.](media/bulk-import/importer-storage-container.png). 
 
 1. Test the FHIR Importer with a few documents first before bulk importing. Use App Insights to monitor and troubleshoot the Importer Azure Function. Check the logs and files in the `fhirrejected` storage container.
 
