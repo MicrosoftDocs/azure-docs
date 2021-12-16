@@ -26,11 +26,11 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
+* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs, and named entities.
 
-* [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
+* [**Prebuilt Invoice**](#prebuilt-model)Analyze and extract common fields from invoices, using a pre-trained invoice model.
 
 ## Prerequisites
 
