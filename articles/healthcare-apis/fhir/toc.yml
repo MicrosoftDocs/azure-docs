@@ -45,7 +45,9 @@ items:
     - name: Access using cURL
       href: ../using-curl.md
     - name: Access using REST Client
-      href: ../using-rest-client.md  
+      href: ../using-rest-client.md
+    - name: Bulk import data into the FHIR service
+      href: bulk-importing-fhir-data.md  
   - name: Configure settings
     expanded: true
     items:
