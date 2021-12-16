@@ -4,6 +4,7 @@ description: This tutorial shows you how to send messages to and receive message
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
+ms.devlang: csharp
 ms.custom: contperf-fy22q2, mode-other
 ---
 
