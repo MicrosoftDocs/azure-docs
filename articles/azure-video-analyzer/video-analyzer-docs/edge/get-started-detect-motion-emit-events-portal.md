@@ -805,6 +805,6 @@ You can try to invoke `pipelineTopologyList` and observe that the module contain
 
 ## Next steps
 
-- Try [Quickstart: recording videos to the cloud when motion is detected](detect-motion-record-video-clips-cloud.md).
+- Try [Quickstart: Detect motion in a (simulated) live video, record the video to the Video Analyzer account](detect-motion-record-video-clips-cloud.md).
 - Try [Quickstart: analyze a live video feed from a (simulated) IP camera using your own HTTP model](analyze-live-video-use-your-model-http.md).
 - Learn more about [diagnostic messages](monitor-log-edge.md).
