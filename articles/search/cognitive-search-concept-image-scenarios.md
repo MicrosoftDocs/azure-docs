@@ -33,7 +33,7 @@ To work with image content in a skillset, you'll need:
 
 Optionally, you can define projections to accept image-analyzed output into a [knowledge store](knowledge-store-concept-intro.md) for data mining scenarios.
 
-## Source files
+## Set up source files
 
 Image processing is indexer-driven, which means that the raw inputs must be a supported file type (as determined by the skills you choose) from a [supported data source](search-indexer-overview.md#supported-data-sources). OCR supports JPEG, PNG, GIF, TIF, and BMP. Image analysis supports JPEG, PNG, GIF, and BMP. Images can be binary files or embedded in documents (PDF, RTF, and Microsoft application files). Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. [Blob indexer configuration](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) includes file exclusion settings so that you can import files of a selected type.
 
@@ -41,7 +41,7 @@ Connections to source files is specified in an indexer data source object. As wi
 
 In addition to connections to external data, Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to include multi-service key to a Cognitive Services resource in the same region as your Cognitive Search service.
 
-## Indexer configuration for image processing
+## Configure indexers for image processing
 
 Parameters in indexer configuration enable image processing:
 
@@ -123,7 +123,7 @@ Whenever you invoke OCR or image analysis, the parsing mode must be "default". P
 > [!NOTE]
 > The parsing mode applies equally to all files in the container. If the container contains text-only files that you want to parse using another mode, such as JSON or JSON arrays, you will need to place those files into a separate container and set up a second indexer with the appropriate configuration.
 
-## Skillsets for image processing
+## Define skillsets for image processing
 
 This section supplements the [skill reference](cognitive-search-predefined-skills.md) articles by providing a holistic introduction to skill inputs, outputs, and patterns, as they relate to image processing.
 
@@ -163,7 +163,7 @@ Whether you're using OCR and image analysis in the same, inputs have virtually t
     }
 ```
 
-## Outputs of image processing
+## Map outputs to search fields
 
 Output is always text, represented as nodes in an internal enriched document tree, which must be mapped to fields in a search index or projections in a knowledge store to make the content available in your app. The "outputs" section of a skill tells you what content gets created as nodes in the enriched document:
 
@@ -273,7 +273,7 @@ Output from image analysis includes a caption for each image, while tags are lis
     . . .
 ```
 
-## Processing embedded images in PDF and other files
+## Embedded images scenario
 
 When you run OCR over source files that included documents with embedded images, the output is a single string containing all file contents, both text and image-origin text, achieved with this workflow:  
 
@@ -339,7 +339,7 @@ The following example skillset creates a "merged_text" field containing the text
 
 Now that you have a merged_text field, you could map it as a searchable field in your indexer definition. All of the content of your files, including the text of the images, will be searchable.
 
-## Visualizing bounding boxes of extracted text
+## Visualize bounding box scenario
 
 Another common scenario is visualizing search results layout information. For example, you might want to highlight where a piece of text was found in an image as part of your search results.
 
@@ -388,7 +388,7 @@ public static Point GetOriginalCoordinates(Point normalized,
 }
 ```
 
-## Using custom skills
+## Custom skill scenario
 
 Images can also be passed into and returned from custom skills. The skillset base64-encodes the image being passed into the custom skill. To use the image within the custom skill, set `"/document/normalized_images/*/data"` as the input to the custom skill. Within your custom skill code, base64-decode the string before converting it to an image. To return an image to the skillset, base64-encode the image before returning it to the skillset.
 
