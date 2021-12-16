@@ -107,11 +107,11 @@ DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
    apiVersion: v1
    kind: Secret
    metadata:
-     name: {{ secretName }}
+     name: <secretName>
    type: Opaque
    data:
-     certificate.pem: {{ base64 encoded certificate }}
-     privatekey.pem: {{ base64 encoded private key }}
+     certificate.pem: < base64 encoded certificate >
+     privatekey.pem: < base64 encoded private key >
    ```
 
 ## Rotating certificate via Azure CLI
