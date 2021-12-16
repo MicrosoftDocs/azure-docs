@@ -7,7 +7,7 @@ ms.devlang:
 ms.topic: how-to
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.date: "09/09/2021"
 ---
 

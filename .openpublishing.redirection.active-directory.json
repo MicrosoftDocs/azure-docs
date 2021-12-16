@@ -4401,6 +4401,21 @@
             "redirect_document_id": false
         },
         {
+            "source_path_from_root": "/articles/active-directory/governance/what-is-app-provisioning.md",
+            "redirect_url": "/azure/active-directory/app-provisioning/user-provisioning",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/articles/active-directory/governance/what-is-hr-driven-provisioning.md",
+            "redirect_url": "azure/active-directory/app-provisioning/what-is-hr-driven-provisioning",
+            "redirect_document_id": false
+        },
+{
+            "source_path_from_root": "/articles/active-directory/governance/what-is-inter-directory-provisioning.md",
+            "redirect_url": "azure/active-directory/hybrid/what-is-inter-directory-provisioning",
+            "redirect_document_id": false
+        },
+        {
             "source_path_from_root": "/articles/active-directory/cloud-provisioning/tutorial-single-forest.md",
             "redirect_url": "/azure/active-directory/cloud-sync/tutorial-single-forest",
             "redirect_document_id": false
@@ -10599,8 +10614,33 @@
             "source_path": "articles/active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-rest.md",
             "redirect_url": "/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities?pivots=identity-mi-methods-rest",
             "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/enable-your-tenant-verifiable-credentials.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant",
+            "redirect_document_id": false
         }
-   
+        ,
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/issue-verify-verifiable-credentials-your-tenant.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-issuer",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/verifiable-credentials/get-started-verifiable-credentials.md",
+            "redirect_url": "/azure/active-directory/verifiable-credentials/verifiable-credentials-configure-tenant",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/manage-apps/application-types.md",
+            "redirect_url": "/azure/active-directory/manage-apps/application-list",
+            "redirect_document_id": false
+        },
+        {
+            "source_path": "articles/active-directory/reports-monitoring/reference-basic-info-identifiers.md",
+            "redirect_url": "/azure/active-directory/reports-monitoring/reference-basic-info-sign-in-logs",
+            "redirect_document_id": false
+        }
          
     ]
 }

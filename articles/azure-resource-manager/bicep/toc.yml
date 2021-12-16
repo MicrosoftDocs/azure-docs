@@ -18,6 +18,9 @@
   items:
   - name: Create Bicep templates - VS Code
     href: quickstart-create-bicep-use-visual-studio-code.md
+  - name: Use loops
+    displayName: multiple
+    href: quickstart-loops.md
   - name: CI/CD
     items:
     - name: Bicep with pipelines
@@ -67,6 +70,7 @@
       - name: Create private registry
         href: private-module-registry.md
     - name: Loops
+      displayName: multiple
       href: loops.md
     - name: Scopes
       items:
@@ -94,6 +98,8 @@
           href: linter-rule-admin-username-should-not-be-literal.md
         - name: No hardcoded environment URLs
           href: linter-rule-no-hardcoded-environment-urls.md
+        - name: No unnecessary dependsOn entries
+          href: linter-rule-no-unnecessary-dependson.md
         - name: No unused parameters
           href: linter-rule-no-unused-parameters.md
         - name: No unused variables

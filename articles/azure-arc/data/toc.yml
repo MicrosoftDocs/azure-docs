@@ -15,8 +15,10 @@ items:
   items:
     - name: Plan an Azure Arc-enabled data services deployment 
       href: plan-azure-arc-data-services.md
-    - name: Create AKS cluster
-      href: create-aks-cluster-data-controller.md
+    - name: Directly connected | Azure portal example
+      href: create-complete-managed-instance-directly-connected.md
+    - name: Indirectly connected | Azure CLI example
+      href: create-complete-managed-instance-indirectly-connected.md
 - name: Concepts
   items:
     - name: Connectivity modes and requirements
@@ -199,6 +201,8 @@ items:
               href: managed-instance-high-availability.md
             - name: Reserved capacity
               href: reserved-capacity-overview.md
+            - name: Rotate certificates (Active Directory)
+              href: rotate-user-tls-certificate.md
             - name: Delete
               href: delete-managed-instance.md
         - name: Upgrade
@@ -213,6 +217,16 @@ items:
               href: migrate-to-managed-instance.md
             - name: Restore AdventureWorks
               href: restore-adventureworks-sample-db.md
+        - name: Active Directory
+          items:
+            - name: Introduction
+              href: active-directory-introduction.md
+            - name: Deploy connector
+              href: deploy-active-directory-connector.md
+            - name: Deploy SQL Managed Instance
+              href: deploy-active-directory-sql-managed-instance.md
+            - name: Connect SQL Managed Instance
+              href: connect-active-directory-sql-managed-instance.md              
         - name: Configure business continuity
           items:
             - name: Point in time restore

@@ -5,7 +5,7 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Create your first durable function in Python

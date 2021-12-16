@@ -8,7 +8,7 @@ ms.subservice: security
 ms.topic: how-to
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.custom: sqldbrb=1
 ms.date: 04/28/2020
 tag: azure-synpase

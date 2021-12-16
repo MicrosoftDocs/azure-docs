@@ -9,7 +9,7 @@ ms.custom: references_regions, devx-track-azurepowershell
 ms.topic: conceptual
 author: SQLSourabh 
 ms.author: sourabha
-ms.reviewer: mathoma, wiassaf, danil
+ms.reviewer: kendralittle, mathoma, wiassaf, danil
 ms.date: 08/28/2021
 ---
 # Automated backups - Azure SQL Database & Azure SQL Managed Instance
