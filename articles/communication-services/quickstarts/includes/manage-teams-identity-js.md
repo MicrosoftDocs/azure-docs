@@ -91,7 +91,7 @@ const app = express();
 app.get('/', async (req, res) => {
     const {verifier, challenge} = await provider.generatePkceCodes();
     const authCodeUrlParameters = {
-        scopes: ["https://auth.msft.communication.azure.com/VoIP"],
+        scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
         redirectUri: REDIRECT_URI,
         codeChallenge: challenge, 
         codeChallengeMethod: "S256"
@@ -105,7 +105,7 @@ app.get('/', async (req, res) => {
 app.get('/redirect', async (req, res) => {
     const tokenRequest = {
         code: req.query.code,
-        scopes: ["https://auth.msft.communication.azure.com/VoIP"],
+        scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
         redirectUri: REDIRECT_URI,
     };
 
