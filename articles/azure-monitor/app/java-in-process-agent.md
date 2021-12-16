@@ -369,7 +369,7 @@ If you want to attach custom dimensions to your logs, use [Log4j 1.2 MDC](https:
 
 1. Create a TelemetryClient:
     
-      ```java
+    ```java
     static final TelemetryClient telemetryClient = new TelemetryClient();
     ```
 
