@@ -155,8 +155,8 @@ The following Resource Provider mode is currently supported as a **preview**:
   mode is _deprecated_.
 
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions and don't support
-> [exemptions](./exemption-structure.md) if not explicitly stated.
+> Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the 
+> [component-level](./determine-non-compliance.md).
 
 ## Metadata
 
