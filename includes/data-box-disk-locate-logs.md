@@ -17,7 +17,7 @@ ms.author: alkohli
 
    |Log type   |URL format|
    |-----------|----------|
-   |copy log   |`&lt;storage-account-name&gt;/databoxcopylog/&lt;order-name&gt;_&lt;device-serial-number&gt;_CopyLog_&lt;GUID&gt;.xml`|
-   |verbose log|`&lt;storage-account-name&gt;/databoxcopylog/&lt;order-name&gt;_&lt;device-serial-number&gt;_VerboseLog_&lt;GUID&gt;.xml`|
+   |copy log   |<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_CopyLog_<*GUID*>.xml |
+   |verbose log|<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_VerboseLog_<*GUID*>.xml|
 
 3. Go to the storage account, and download a copy of each log.

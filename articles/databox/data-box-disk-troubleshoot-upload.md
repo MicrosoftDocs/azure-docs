@@ -1,7 +1,7 @@
 ---
-title: Troubleshoot data uploads using logs
+title: Use logs to troubleshoot upload issues in Azure Data Box Disk
 titleSuffix: Azure Data Box Disk
-description: Describes how to use the logs and troubleshoot issues seen when uploading data to Azure Data Box Disk.
+description: Describes how to use copy/error logs to troubleshoot issues seen when uploading data to Azure Data Box Disk.
 services: databox
 author: alkohli
 
@@ -12,30 +12,32 @@ ms.date: 12/16/2021
 ms.author: alkohli
 ---
 
-# Understand logs to troubleshoot data upload issues in Azure Data Box Disk
+# Use logs to troubleshoot upload issues in Azure Data Box Disk
 
-This article applies to Microsoft Azure Data Box Disk and describes the issues you see when you upload data to Azure.
+This article describes the issues you see when you upload data in the Azure datacenter using Azure Data Box Disk.
 
 ## About upload logs
 
-When the data is uploaded to Azure at the datacenter, copy log (`_copy.xml` or `_error.xml`, depending on the drive log release) and verbose log (`_verbose.xml`) files are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data. 
+When the data is uploaded in the Azure datacenter, a copy/error log and a verbose log are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data.
 
-* The copy/error logs has descriptions of the events that occurred while copying the data from the disk to the Azure Storage account, and a summary of errors by error category.
+* The copy/error log has descriptions of the events that occurred while copying the data from the disk to the Azure Storage account, and a summary of errors by error category.
 * The verbose log has a complete listing of the copy operation on every blob and file.
 
-### Identify the log version
+### Identify log version
 
-There are two versions of the copy/error log and verbose log, with different formats. The log versions are discussed separately in the sections that follow.
+There are two versions of the copy/error log and verbose log, with different formats. Along with the verbose log, you'll see either a copy log (`_copy.xml`) or an error log (`_error.xml`), depending on the drive release. The log versions are discussed separately in the sections that follow.
 
-To find out the log release number for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
+To find out the log release for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
 
-|Log file name   | Parameter        | Log drive release |
+|Log file name   | Field            | Drive log version |
 |----------------|------------------|-------------------|
 |_copy.xml       | DriveLogVersion  | 2021-08-01        |
 |_error.xml      | DriveLog Version | 2018-10-01        |
 
 
 ## Locate the logs
+
+The log location is different for log versions.
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
@@ -61,13 +63,13 @@ In each case, you see the error logs and the verbose logs. Select each log and d
 
 ## Sample upload logs
 
-The logs differ depending on the the drive log version.
+The log formats for upload logs differ for the two log versions.
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
 Each data transfer for a disk generates a copy log. If you chose to save a verbose log when you placed your order, there’s also a verbose log in the same folder.
 
-## Verbose log
+### Verbose log
 
 The verbose log is an optional file that you can enable during ordering. It's a simple listing of all files that were successfully imported from the drive, with the following information for each file. The verbose log doesn’t provide summary information.
 
@@ -78,9 +80,6 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 | Size        | File or blob size.                           |
 | crc64       | Checksum when cyclic redundancy check 64 (CRC64) was used to verify data integrity during data transfer. |
 | md5         | Checksum when Message Digest Algorithm 5 (MD5) was used to verify data integrity during data transfer.|
-
-> [!NOTE]
-> To find out the drive log version of a verbose log, check the **DriveLogVersion** of the copy log.
 
 #### Sample verbose log: 2021-08-01
 
@@ -100,7 +99,7 @@ Each error entry contains the following information.
 | ErrorCode    | The numeric code for the error.                           |
 | ErrorMessage | Describes the error.                                      |
 
-The CopyLog Summary reports:
+The summary at the end of the log (look for `CopyLog Summary`) gives the following information:
 
 *	Drive log version (in this case, 2021-08-01)
 *	Drive ID
@@ -232,23 +231,25 @@ The file level statuses are in `BlobStatus`, which describes any actions taken t
 
 ## Data upload errors
 
+The errors reported in the logs vary slightly in the two log versions.
+
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
 The errors found in the 2018-10-01 copy log are described below.
 
-| Error category                      | Error message     |
+| Error category                      | Description       |
 |-------------------------------------|-------------------|
 | `UploadErrorWin32`                  |File system error. |
 | `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).|
-| `UploadErrorDataValidationError`   |CRC computed during data ingestion doesn’t match the CRC computed during upload.<!--Verify. Message description for previous release.--> |
+| `UploadErrorDataValidationError`    |CRC computed during data ingestion doesn’t match the CRC computed during upload.<!--Verify. Message description for previous release.--> |
 | `UploadErrorFilePropertyError`      |File Last Write time conversion failure. |
 | `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |
 | `UploadErrorUnknownType`            |Unknown error. |
 | `ContainerRenamed`                  |Renamed the container as the original container name does not follow Azure conventions. |
-| `ShareRenamed`                      |The original container/share/Blob has been renamed to: DataBox-<*GUID*> from <*New Folder*> because either the name has invalid character(s) or the length is not supported|
+| `ShareRenamed`                      |The original container/share/Blob has been renamed to DataBox-<*GUID*> from <*New Folder*> because either the name has invalid character(s) or the length is not supported. |
 | `BlobRenamed`                       |The original container/share/Blob has been renamed to BlockBlob/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported.|
-| `FileRenamed`                       |The original container/share/Blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*> :because either the name has invalid character(s) or the length is not supported. |
-| `DiskRenamed`                       |The original container/share/Blob has been renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*> :because either the name has invalid character(s) or the length is not supported. |
+| `FileRenamed`                       |The original container/share/Blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported. |
+| `DiskRenamed`                       |The original container/share/Blob has been renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported. |
 | `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. |
 | `ExportCloudHttp`                   |Unsupported blob type. |
 
@@ -262,7 +263,7 @@ The errors generated when uploading the data to Azure are summarized in the foll
 |`Renamed` | Successfully renamed the blob.  |
 |`CompletedWithErrors` | Upload completed with errors. The details of the files in error are included in the log file.  |
 |`Corrupted`|CRC computed during data ingestion doesn’t match the CRC computed during upload.  |  
-|`StorageRequestFailed` | Azure storage request failed.   |     
+|`StorageRequestFailed` | Azure storage request failed.   |
 |`LeasePresent` | This item is leased and is being used by another user. |
 |`StorageRequestForbidden` |Could not upload due to authentication issues. |
 |`ManagedDiskCreationTerminalFailure` | Could not upload as managed disks. The files are available in the staging storage account as page blobs. You can manually convert page blobs to managed disks.  |
@@ -283,5 +284,4 @@ The errors generated when uploading the data to Azure are summarized in the foll
 
 ## Next steps
 
-- [Review non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).
-- [Open a Support ticket for Data Box Disk issues](data-box-disk-contact-microsoft-support.md).
+[Contact Support](data-box-disk-contact-microsoft-support.md).
