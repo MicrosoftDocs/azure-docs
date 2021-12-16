@@ -980,7 +980,7 @@ Within few seconds, you should see the following response in the OUTPUT window
 
 Status code of 200 indicates that the  pipeline topology was successfully deleted.
 
-## Playing back the recording
+## Play back the recording
 
 You can examine the Video Analyzer video resource that was created by the live pipeline by logging in to the Azure portal and viewing the video.
 1. Open your web browser, and go to the [Azure portal](https://portal.azure.com/). Enter your credentials to sign in to the portal. The default view is your service dashboard.
