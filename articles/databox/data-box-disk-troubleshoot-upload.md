@@ -84,23 +84,8 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 
 #### Sample verbose log: 2021-08-01
 
-The following sample verbose log has sample file entries for block blob, page blob, and Azure File imports.
+[!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
 
-```xml
-<File CloudFormat="BlockBlob" Path="$root\file26fd6b4bd-25f7-4019-8d0d-baa7355745df.vhd" Size="1024" crc64="14179624636173788226">
-</File><File CloudFormat="BlockBlob" Path="$root\file49d220295-9cfd-469e-b69e-5c7c885133df.vhd" Size="1024" crc64="14179624636173788226">
-</File>
-----------CUT--------------------
-<File CloudFormat="AzureFile" Path="e579954d-1f94-40cf-955f-afd39e9ca217\file1876f73ad-6213-43bc-9467-67fe0c794e99.block" Size="1024" crc64="1410470866535975213">
-</File><File CloudFormat="AzureFile" Path="05407abe-81c8-4b44-b846-3a2c8c198316\file28d7868be-e6a7-4441-8d09-2b127f7d049e.vhd" Size="1024" crc64="1410470866535975213">
-</File><File CloudFormat="AzureFile" Path="eb7666a7-c026-4375-9c08-3dea37a57713\file4448aeaf5-53dc-4bff-b798-4776e367ab5e.vhd" Size="1024" crc64="1410470866535975213">
-</File>
-----------CUT--------------------
-<File CloudFormat="PageBlob" Path="tesdir8b1d0acd-2d37-46dd-96cf-edeb0f772e6b\file1.txt" Size="83886080" crc64="1680234237456714851">
-</File><File CloudFormat="PageBlob" Path="tesdirf631630d-8098-4c84-be7b-40f6bbdb73fb\file_size0.txt" Size="0" crc64="0">
-</File><File CloudFormat="PageBlob" Path="tesdirf631630d-8098-4c84-be7b-40f6bbdb73fb\Dir1/file_size0.txt" Size="0" crc64="0">
-</File>
-```
 
 ### Copy log
 
@@ -125,45 +110,7 @@ The CopyLog Summary reports:
 
 #### Sample copy log: 2021-08-01
 
-The following sample copy log is for a disk that contained imports to Azure Files and Azure Blob storage. 
-
-This copy failed, with no validation errors but with three copy errors. One file share was renamed (`ShareRenamed` error), and two containers were renamed (`ContainerRenamed` error). To find out the original name, look for the `Path` in the verbose log.<!--Verify that this path is the original, not the path after the folder was renamed. Should they be looking in the manifest instead?-->
-
-```xml
-<ErroredEntity Path="New Folder">
-  <Category>ShareRenamed</Category>
-  <ErrorCode>1</ErrorCode>
-  <ErrorMessage>The original container/share/Blob has been renamed to: DataBox-f55763d4-8ef7-458f-b029-f36b51ada34f :from: New Folder :because either name has invalid character(s) or length is not supported</ErrorMessage>
-  <Type>Container</Type>
-</ErroredEntity>
-<ErroredEntity Path="CV">
-  <Category>ContainerRenamed</Category>
-  <ErrorCode>1</ErrorCode>
-  <ErrorMessage>The original container/share/Blob has been renamed to: DataBox-6bcae46f-04c8-4385-8442-3a28b962c930 :from: CV :because either name has invalid character(s) or length is not supported</ErrorMessage>
-  <Type>Container</Type>
-</ErroredEntity><ErroredEntity Path="New_ShareFolder">
-  <Category>ContainerRenamed</Category>
-  <ErrorCode>1</ErrorCode>
-  <ErrorMessage>The original container/share/Blob has been renamed to: DataBox-96d8e2ee-ffd4-4529-9ec0-f666674b70d9 :from: New_ShareFolder :because either name has invalid character(s) or length is not supported</ErrorMessage>
-  <Type>Container</Type>
-</ErroredEntity>
-<CopyLog Summary="Summary">
-  <DriveLogVersion>2021-08-01</DriveLogVersion>
-  <DriveId>72a1914a-7fb2-4e34-a135-5c7176c3ee41</DriveId>
-  <Status>Failed</Status>
-  <TotalFiles_Blobs>60</TotalFiles_Blobs>
-  <FilesErrored>0</FilesErrored>
-  <Summary>
-    <ValidationErrors>
-      <None Count="3" />
-    </ValidationErrors>
-    <CopyErrors>
-      <ShareRenamed Count="1" Description="Renamed the share as the original share name does not follow Azure conventions." />
-      <ContainerRenamed Count="2" Description="Renamed the container as the original container name does not follow Azure conventions." />
-    </CopyErrors>
-  </Summary>
-</CopyLog>
-```
+[!INCLUDE [data-box-disk-sample-copy-log.md](../../includes/data-box-disk-sample-copy-log.md)]
 
 ### [Log version: 2018-10-01](#tab/log-version-2018-10-01)
 

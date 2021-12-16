@@ -24,7 +24,18 @@ To locate the logs for the job, do the following steps.
 
 [!INCLUDE [data-box-disk-locate-logs.md](../../includes/data-box-disk-locate-logs.md)]
 
-## Example URLs
+## Sample verbose log: imports
+
+The following sample is a copy log for an import to both Azure Files and Azure Blob storage.
+
+[!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
+
+## Sample copy log: imports
+
+[!INCLUDE [data-box-disk-sample-copy-log.md](../../includes/data-box-disk-sample-copy-log.md)]
+
+
+<!--## Example URLs
 
 The following are example URLs for copy log files for an import job with two drives:  
 
@@ -32,7 +43,7 @@ The following are example URLs for copy log files for an import job with two dri
 
  `http://myaccount.blob.core.windows.net/ImportExportStatesPath/waies/myjob_9WM45A6Q_20130921-042122-021_error.xml`  
 
- <!--See [Import/Export service Log File Format](/previous-versions/azure/storage/common/storage-import-export-file-format-log) for the format of copy logs and the full list of status codes. ARCHIVED-->  
+--> 
 
 ## Next steps
 
