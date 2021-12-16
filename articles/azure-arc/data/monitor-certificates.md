@@ -35,7 +35,7 @@ The following table describes the requirements for each certificate and key.
 
    The Azure Arc samples GitHub repository provides an example of one way to generate a certificate and private key for an endpoint. See the following code from [create-monitoring-tls-files.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring).
 
-   :::code language="bash" source="~/azure_arc_sample/deploy/scripts/monitoring/create-monitoring-tls-files.sh":::
+   :::code language="bash" source="~/azure_arc_sample/arc_data_services/deploy/scripts/monitoring/create-monitoring-tls-files.sh":::
 
 1. Use the following arguments with `dc create ...`
 
