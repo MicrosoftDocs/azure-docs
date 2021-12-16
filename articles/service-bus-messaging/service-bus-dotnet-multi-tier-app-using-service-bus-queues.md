@@ -4,6 +4,7 @@ description: A .NET tutorial that helps you develop a multi-tier app in Azure th
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 04/30/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
