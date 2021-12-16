@@ -126,7 +126,7 @@ The following diagrams describe how single-file snapshot restore works.
 
    ![Diagram showing a second set of snapshots being copied to capture new changes in the original file set.](../media/azure-netapp-files/single-file-snapshot-restore-four.png)
 
-5. When a single file is restored in-place (`file2`) or to a new file in the volume (`file2`), only the pointers to existing blocks previously captured in a snapshot are reverted. This operation eliminates copying any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
+5. When a single file is restored in-place (`file2`) or to a new file in the volume (`file2’`), only the pointers to existing blocks previously captured in a snapshot are reverted. This operation eliminates copying any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
 
    ![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)
 
