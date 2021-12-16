@@ -154,7 +154,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the availability zone drop-down menu. The "availability zone" option is highlighted.](media/availability-zone.png)
 
-5. Next, choose the security type that you would like to use for your virtual machines. You can choose either **Standard** or **Trusted Launch virtual machines**. To learn more about Trusted Launch virtual machines, see [Trusted Launch for Azure virtual machines](https://docs.microsoft.com/en-us/azure/virtual-machines/trusted-launch).
+5. Next, choose the security type that you would like to use for your virtual machines. You can choose either **Standard** or **Trusted Launch virtual machines**. To learn more about Trusted Launch virtual machines, see [Trusted Launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
 
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the security type drop-down menu. The "Standard" option is highlighted.](https://user-images.githubusercontent.com/62080236/146099065-bd2de963-d204-4b96-9291-264c02923377.png)
