@@ -36,7 +36,7 @@ Choose a client:
 >The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
 
 >[!Note]
->If you're sure that all backed-up items in the vault are no longer required and want to delete them at once without reviewing, [run this PowerShell script](/azure/backup/backup-azure-delete-vault#script-for-delete-vault). The script will delete all backup items recursively and eventually the entire vault.
+>If you're sure that all backed-up items in the vault are no longer required and want to delete them at once without reviewing, [run this PowerShell script](/azure/backup/backup-azure-delete-vault#script-for-delete-vault&tabs=powershell#script-for-delete-vault). The script will delete all backup items recursively and eventually the entire vault.
 
 > [!VIDEO ]
 
@@ -305,7 +305,7 @@ Follow these steps:
 
   :::image type="content" source="./media/backup-azure-delete-vault/delete-vault-using-cloudshell-inline.png" alt-text="Screenshot showing to delete a vault using CloudShell." lightbox="./media/backup-azure-delete-vault/delete-vault-using-cloudshell-expanded.png":::
 
-  <a id="script-for-delete-vault">**Run the script in the PowerShell console**</a>
+  **Run the script in the PowerShell console**
 
   This script performs the following actions:
 
@@ -315,7 +315,7 @@ Follow these steps:
   1. Delete Disaster Recovery items
   1. Remove private endpoints
 
-**Script for delete vault.**
+###### Script for delete vault
 
 ```azurepowershell-interactive
 Connect-AzAccount
