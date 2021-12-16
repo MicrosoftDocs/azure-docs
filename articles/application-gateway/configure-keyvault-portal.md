@@ -238,7 +238,7 @@ context so the customer can determine why they would click the link.
 ## Next steps
 [Learn more about TLS termination](ssl-overview.md)
 
-[Learn more about Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/index.yml)
+[Learn more about Key Vault](../key-vault/general/index.yml)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
