@@ -145,7 +145,7 @@ az containerapp env create \
   --resource-group $RESOURCE_GROUP \
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID \
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET \
-  --location "canadacentral" \
+  --location "$LOCATION" \
   --app-subnet-resource-id $APP_SUBNET \
   --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
 ```
@@ -158,7 +158,7 @@ az containerapp env create `
   --resource-group $RESOURCE_GROUP `
   --logs-workspace-id $LOG_ANALYTICS_WORKSPACE_CLIENT_ID `
   --logs-workspace-key $LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET `
-  --location "canadacentral" `
+  --location "$LOCATION" `
   --app-subnet-resource-id $APP_SUBNET `
   --controlplane-subnet-resource-id $CONTROL_PLANE_SUBNET
 ```
@@ -176,6 +176,8 @@ The following table describes the parameters used in for `containerapp env creat
 | `location` | The Azure location where the environment is to deploy.  |
 | `app-subnet-resource-id` | The resource ID of a subnet where containers are injected into the container app. This subnet must be in the same VNET as the subnet defined in `--control-plane-subnet-resource-id`. |
 | `controlplane-subnet-resource-id` | The resource ID of a subnet for control plane infrastructure components. This subnet must be in the same VNET as the subnet defined in `--app-subnet-resource-id`. |
+
+With your environment created with your custom virtual network, you can create container apps into the environment using the `az containerapp create` command.
 
 ## Clean up resources
 

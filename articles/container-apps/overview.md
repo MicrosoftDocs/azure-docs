@@ -48,7 +48,7 @@ With Azure Container Apps, you can:
 
 - [**Use the Azure CLI extension or ARM templates**](get-started.md) to manage your applications.
 
-- [**Provide an existing virtual network**](networking.md) when creating an environment for your container apps.
+- [**Provide an existing virtual network**](vnet-custom.md) when creating an environment for your container apps.
 
 - [**Securely manage secrets**](secure-app.md) directly in your application.
 
