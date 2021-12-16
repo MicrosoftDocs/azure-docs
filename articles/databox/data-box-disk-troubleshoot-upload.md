@@ -32,7 +32,7 @@ To find out the log release number for both the copy/error log and the accompany
 |Log file name   | Parameter        | Log drive release |
 |----------------|------------------|-------------------|
 |_copy.xml       | DriveLogVersion  | 2021-08-01        |
-|_error.xml      | DriveLog Version | 2018-10-01        | 
+|_error.xml      | DriveLog Version | 2018-10-01        |
 
 
 ## Locate the logs
