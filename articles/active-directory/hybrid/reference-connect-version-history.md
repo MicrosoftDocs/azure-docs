@@ -70,7 +70,8 @@ Required permissions | For permissions required to apply an update, see [account
  - We upgraded the version of Microsoft.Data.OData from 5.8.1 to 5.8.4 to fix a vulnerability
  - Accesibility: We made the Azure AD Connect wizard resizable to account for different zoom levels and screen resolutions.
  - Accesibility: Named elements to satisfy accessibility requirements
- - We fixed a bug where miisserver was crashing due to a null referenceW fFixed a bug to ensure the desktop SSO value persists after upgrading Azure AD Connect to a newer version
+ - We fixed a bug where miisserver was crashing due to a null reference
+ - We fixed a bug to ensure the desktop SSO value persists after upgrading Azure AD Connect to a newer version
  - We modified the inetorgperson sync rules to fix an issue with account/resource forests
  - We fixed radio button test to display a link more link
 ### Functional changes
