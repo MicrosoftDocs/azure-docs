@@ -15,7 +15,7 @@ Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://az
 
 ## Versioning and support for Defender for IoT
 
-Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
+Listed below are the support, breaking change policies for Microsoft Defender for IoT, and the versions of Defender for IoT that are currently available.
 
 ### Servicing information and timelines
 
