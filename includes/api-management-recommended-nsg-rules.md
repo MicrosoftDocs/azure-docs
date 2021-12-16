@@ -1,0 +1,36 @@
+---
+author: dlepow
+ms.service: api-management
+ms.topic: include
+ms.date: 12/15/2021
+ms.author: danlep
+---
+
+## Configure NSG rules
+
+Configure custom rules in the API Management subnet's NSG. The following are the minimum rules recommended to ensure proper operation and access to your instance. We recommend configuring these rules with [service tags](../virtual-network/network-security-groups-overview.md#service-tags), as shown in the following table.
+
+Depending on your use of monitoring and other features, you may need to configure additional rules. For detailed settings, see [Virtual network configuration reference](virtual-network-configuration-reference.md).
+
+### [stv2](#tab/stv2)
+
+| Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                                  | VNET type |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                   | External             |
+| * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell        | External & Internal  |
+| * / 6390                       | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer (required for Premium service tier)                        | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure Storage                             | External & Internal  |
+| * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | Access to Azure SQL endpoints                           | External & Internal  |
+| * / 443                     | Outbound           | TCP                | VIRTUAL_NETWORK / AzureKeyVault                | Access to Azure Key Vault                         | External & Internal  |
+
+### [stv1](#tab/stv1)
+
+| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose                                                  | VNET type |
+|------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
+| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                   | External             |
+| * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell        | External & Internal  |
+| * / *                       | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer (required for Premium service tier)                          | External & Internal  |
+| * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure Storage                             | External & Internal  |
+| * / 1433                     | Outbound           | TCP                | VIRTUAL_NETWORK / SQL                 | Access to Azure SQL endpoints                           | External & Internal  |
+
+---
