@@ -12,7 +12,7 @@ ms.custom: devdivchpfy22
 ---
 # Tutorial: Create and publish a product
 
-In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. Once a product is published, developers can subscribe to the product and begin to use the product's APIs.  
+In Azure API Management, a [*product*](api-management-terminology.md#term-definitions) contains one or more APIs, a usage quota, and the terms of use. After a product is published, developers can subscribe to the product and begin to use the product's APIs.  
 
 In this tutorial, you learn how to:
 
@@ -31,7 +31,7 @@ In this tutorial, you learn how to:
 
 ## Create and publish a product
 
-### [Azure portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. Sign in to the Azure portal, and navigate to your API Management instance.
 1. In the left navigation pane, select **Products** > **+ Add**.
@@ -50,7 +50,7 @@ In this tutorial, you learn how to:
     | Requires subscription    | Select if a user is required to subscribe to use the product.                                                                                                                                                                                                                                   |
     | Requires approval        | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved.                                                                                                                         |
     | Subscription count limit | Optionally, limit the count of multiple simultaneous subscriptions.                                                                                                                                                                                                                                |
-    | Legal terms              | You can include the terms of use for the product which subscribers must accept to use the product.                                                                                                                                                                                                             |
+    | Legal terms              | You can include the terms of use for the product, which subscribers must accept to use the product.                                                                                                                                                                                                             |
     | APIs                     | Select one or more APIs. You can also add APIs after creating the product. For more information, see [Add APIs to a product](#add-apis-to-a-product) later in this article. |
 
 1. Select **Create** to create your new product.
@@ -80,7 +80,7 @@ You can specify various values for your product:
    | `--subscription-required` | Select if a user is required to subscribe to use the product. |
    | `--approval-required` | Select if you want an administrator to review and accept or reject subscription attempts to this product. If not selected, subscription attempts are auto-approved. |
    | `--subscriptions-limit` | Optionally, limit the count of multiple simultaneous subscriptions.|
-   | `--legal-terms`         | You can include the terms of use for the product which subscribers must accept to use the product. |
+   | `--legal-terms`         | You can include the terms of use for the product, which subscribers must accept to use the product. |
 
 To see your current products, use the [az apim product list](/cli/azure/apim/product#az_apim_product_list) command:
 
@@ -119,7 +119,7 @@ Developers must first subscribe to a product to get access to the API. When they
 
 ### Add an API to an existing product
 
-### [Azure portal](#tab/azure-portal)
+### [Portal](#tab/azure-portal)
 
 1. In the left navigation of your API Management instance, select **Products**.
 1. Select a product, and then select **APIs**.
