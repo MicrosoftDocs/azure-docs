@@ -154,7 +154,15 @@ The example below assumes that you created a image pull secret name `arc-private
         imagePullPolicy: Always
 ```
 
-## Create secrets for the metrics and logs dashboards
+## Create credentials for the metrics and logs dashboards
+
+You can secure the logs and metrics dashboards with an SSL/TLS certificate or with a user name and password.
+
+To use a certificate, follow the instructions in [Specify during Kubernetes native tools deployment](monitor-certificates.md#specify-during-kubernetes-native-tools-deployment). 
+
+To create a user name and password, follow the instructions below.
+
+### Specify a user name and password
 
 You can specify a user name and password that is used to authenticate to the metrics and logs dashboards as an administrator. Choose a secure password and share it with only those that need to have these privileges.
 
