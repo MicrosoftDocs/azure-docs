@@ -64,7 +64,7 @@ To allow delegated roles, such as catalog creators and access package managers, 
 
 ## Manage role assignments programmatically (preview)
 
-You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions?view=graph-rest-beta&preserve-view=true) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments?view=graph-rest-beta&preserve-view=true) to those role definitions.
+You can also view and update catalog creators and entitlement management catalog-specific role assignments using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the Graph API to [list the role definitions](/graph/api/rbacapplication-list-roledefinitions) of entitlement management, and [list role assignments](/graph/api/rbacapplication-list-roleassignments) to those role definitions.
 
 To retrieve a list of the users and groups assigned to the catalog creators role, the role with definition id `ba92d953-d8e0-4e39-a797-0cbedb0a89e8`, use the Graph query
 

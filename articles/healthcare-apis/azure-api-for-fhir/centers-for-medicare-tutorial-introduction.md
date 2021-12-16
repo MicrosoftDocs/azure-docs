@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/05/2021
+ms.date: 11/29/2021
 ---
 
 # Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule introduction
@@ -66,4 +66,4 @@ To test adherence to the various implementation guides, [Touchstone](https://tou
 Now that you have a basic understanding of the Interoperability and Patient Access rule, implementation guides, and available testing tool (Touchstone), we’ll walk through setting up the Azure API for FHIR for the CARIN IG for Blue Button. 
 
 >[!div class="nextstepaction"]
->[CARIN Implementation Guide for Blue Button](../fhir/carin-implementation-guide-blue-button-tutorial.md)  
+>[CARIN Implementation Guide for Blue Button](carin-implementation-guide-blue-button-tutorial.md)  

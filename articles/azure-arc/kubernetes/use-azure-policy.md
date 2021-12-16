@@ -13,6 +13,9 @@ keywords: "Kubernetes, Arc, Azure, K8s, containers"
 
 You can use Azure Policy to apply configurations (`Microsoft.KubernetesConfiguration/sourceControlConfigurations` resource type) at scale on Azure Arc-enabled Kubernetes clusters (`Microsoft.Kubernetes/connectedclusters`).
 
+>[!NOTE]
+>The built-in policies referenced in this article are for GitOps with Flux v1.
+
 To use Azure Policy, select a built-in GitOps policy definition and create a policy assignment. When creating the policy assignment:
 1. Set the scope for the assignment.
     * The scope will be all resource groups in a subscription or management group or specific resource groups.

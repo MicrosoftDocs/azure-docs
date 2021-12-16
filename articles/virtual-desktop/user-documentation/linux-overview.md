@@ -1,5 +1,5 @@
 ---
-title: Azure Virtual Desktop Thin Client Support - Azure
+title: Azure Virtual Desktop thin client support - Azure
 description: A brief overview of thin client support for Azure Virtual Desktop.
 author: Heidilohr
 ms.topic: conceptual

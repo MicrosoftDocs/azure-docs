@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 11/30/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -752,7 +752,7 @@ In the following tables, the term alphanumeric refers to:
 > [!NOTE]
 > A web site must have a globally unique URL. When you create a web site that uses a hosting plan, the URL is `http://<app-name>.azurewebsites.net`. The app name must be globally unique. When you create a web site that uses an App Service Environment, the app name must be unique within the [domain for the App Service Environment](../../app-service/environment/using-an-ase.md#app-access). For both cases, the URL of the site is globally unique.
 >
-> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites.
+> Azure Functions has the same naming rules and restrictions as Microsoft.Web/sites. However, prior to version 4.x of Azure Functions Core Tools, the function name was truncated to 32 characters when generating the host ID. For version 4.x, this limit no longer applies. For earlier versions, limit the function name to 32 characters to avoid naming collisions.
 
 ## Next steps
 

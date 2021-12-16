@@ -5,12 +5,12 @@ author: niklarin
 ms.author: nlarin
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 07/08/2021
+ms.date: 11/30/2021
 ---
 
-# Networking overview for Azure Database for PostgreSQL - Flexible Server (preview)
+# Networking overview for Azure Database for PostgreSQL - Flexible Server 
 
-This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. The Flexible Server deployment option is in preview.
+This article describes connectivity and networking concepts for Azure Database for PostgreSQL - Flexible Server. 
 
 When you create an Azure Database for PostgreSQL - Flexible Server instance (a *flexible server*), you must choose one of the following networking options: **Private access (VNet integration)** or **Public access (allowed IP addresses)**. 
 
@@ -80,7 +80,7 @@ If you use the Azure portal or the Azure CLI to create flexible servers with a v
 If you use an Azure API, an Azure Resource Manager template (ARM template), or Terraform, create private DNS zones that end with `postgres.database.azure.com`. Use those zones while configuring flexible servers with private access. For more information, see the [private DNS zones overview](../../dns/private-dns-overview.md).
 
 
- When using private network access with Azure virtual network, providing the private DNS zone information is  mandatory across various interfaces, including API, ARM, and Terraform.  Therefore, for new Azure Database for PostgreSQL Flexible Server creation using private network access with API, ARM, or Terraform, create private DNS zones and use them while configuring flexible servers with private access. See more information on [REST API specifications for Microsoft Azure](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/preview/2021-06-01-preview/postgresql.json). If you use the [Azure portal](./how-to-manage-virtual-network-portal.md) or [Azure CLI](./how-to-manage-virtual-network-cli.md) for creating flexible servers, you can either provide a private DNS zone name that you had previously created in the same or a different subscription or a default private DNS zone is automatically created in your subscription.
+ When using private network access with Azure virtual network, providing the private DNS zone information is  mandatory across various interfaces, including API, ARM, and Terraform.  Therefore, for new Azure Database for PostgreSQL Flexible Server creation using private network access with API, ARM, or Terraform, create private DNS zones and use them while configuring flexible servers with private access. See more information on [REST API specifications for Microsoft Azure](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/postgresql/resource-manager/Microsoft.DBforPostgreSQL/stable/2021-06-01/postgresql.json). If you use the [Azure portal](./how-to-manage-virtual-network-portal.md) or [Azure CLI](./how-to-manage-virtual-network-cli.md) for creating flexible servers, you can either provide a private DNS zone name that you had previously created in the same or a different subscription or a default private DNS zone is automatically created in your subscription.
 
 
 
