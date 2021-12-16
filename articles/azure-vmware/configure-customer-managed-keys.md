@@ -32,7 +32,7 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
 
 <!-- New content from Rahi to go here -->
 
-:::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png" alt-text="Diagram showing the customer managed keys topology." border="false"lightbox="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png":::
+:::image type="content" source="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png" alt-text="Diagram showing the customer managed keys topology." border="false" lightbox="media/configure-customer-managed-keys/customer-managed-keys-topology-diagram.png":::
 
 
 ## Prerequisites
@@ -41,7 +41,7 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
 
 1. Log into Azure portal.
 1. Navigate to **Azure VMware Solution** and locate your SDDC.
-1. From the left side bar, in the **Manage** section, click **Identity**. 
+1. From the left navigation, open **Manage** and click **Identity**. 
 1. In **System Assigned** check **Enable** and click **Save**.
     1. **System Assigned identity** should now be enabled.
 1. To validate, click the **Overview** tab of SDDC.
@@ -51,7 +51,7 @@ When you create the Azure VMware Solution private cloud, you'll assign identity 
 
 # [Azure CLI](#tab/azure-cli)
 
-Using the JSON file provided below, use the following command to enable MSI on existing SDDC.
+Use the JSON file and command provided below to enable MSI on existing SDDC.
 
 `az deployment group create --name <deployment name> --resource-group <RG Name> --template-file ./filename.json`
 
@@ -379,7 +379,7 @@ Below is the JSON file used to create an ARM template and enable CMK on SDDC.
 
 ## Change from CMK to MMK and back to CMK 
 
-intro paragraph here --> what are they doing and why
+<!--  intro paragraph here  what are they doing and why -->
 
 1. From your Azure VMware Solution private cloud, under **Manage**, select **Encryption**.
 
