@@ -11,7 +11,7 @@ ms.subservice: baremetal-sap
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 05/19/2021
+ms.date: 07/21/2021
 ms.author: madhukan
 ms.custom: H1Hack27Feb2017
 
@@ -20,14 +20,14 @@ ms.custom: H1Hack27Feb2017
 
 In this article, we'll describe the architecture for deploying SAP HANA on Azure Large Instances (otherwise known as BareMetal Infrastructure). 
 
-At a high level, the SAP HANA on Azure (Large Instances) solution has the SAP application layer on virtual machines (VMs). The database layer is on the SAP certified HANA Large Instance, which located in the same Azure region as the Azure IaaS VMs.
+At a high level, the SAP HANA on Azure (Large Instances) solution has the SAP application layer on virtual machines (VMs). The database layer is on the SAP certified HANA Large Instance (HLI). The HLI is located in the same Azure region as the Azure IaaS VMs.
 
 > [!NOTE]
 > Deploy the SAP application layer in the same Azure region as the SAP database management system (DBMS) layer. This rule is well documented in published information about SAP workloads on Azure. 
 
 ## Architectural overview
 
-The overall architecture of SAP HANA on Azure (Large Instances) provides an SAP TDI-certified hardware configuration. The hardware is a non-virtualized, bare metal, high-performance server for the SAP HANA database. It also provides the flexibility of Azure to scale resources for the SAP application layer to meet your needs.
+The overall architecture of SAP HANA on Azure (Large Instances) provides an SAP TDI-certified hardware configuration. The hardware is a non-virtualized, bare metal, high-performance server for the SAP HANA database. It gives you the flexibility to scale resources for the SAP application layer to meet your needs.
 
 ![Architectural overview of SAP HANA on Azure (Large Instances)](./media/hana-overview-architecture/image1-architecture.png)
 
@@ -44,7 +44,7 @@ The architecture shown is divided into three sections:
   -  [Use SAP on Windows virtual machines](./get-started.md?toc=/azure/virtual-machines/linux/toc.json)
   -  [Use SAP solutions on Azure virtual machines](get-started.md)
 
-- **Left**: Shows the SAP HANA TDI-certified hardware in the Azure Large Instance stamp. The HANA Large Instance units connect to the virtual networks of your Azure subscription via same technology on-premises connects into Azure. In May 2019, we introduced an optimization that allows communication between the HANA Large Instance units and the Azure VMs without the ExpressRoute Gateway. This optimization, called ExpressRoute FastPath, is shown in the preceding diagram by the red lines.
+- **Left**: Shows the SAP HANA TDI-certified hardware in the Azure Large Instance stamp. The HANA Large Instance units connect to the virtual networks of your Azure subscription using the same technology on-premises servers use to connect into Azure. In May 2019, we introduced an optimization that allows communication between the HANA Large Instance units and the Azure VMs without the ExpressRoute Gateway. This optimization, called ExpressRoute FastPath, is shown in the preceding diagram by the red lines.
 
 ## Components of the Azure Large Instance stamp
 
@@ -56,7 +56,9 @@ The Azure Large Instance stamp itself combines the following components:
 
 ## Tenants
 
-Within the multi-tenant infrastructure of the Large Instance stamp, customers are deployed as isolated tenants. At deployment of the tenant, you name an Azure subscription within your Azure enrollment. This Azure subscription is the one that the HANA Large Instance is billed against. These tenants have a 1:1 relationship to the Azure subscription. For a network, it's possible to access a HANA Large Instance unit deployed in one tenant in one Azure region from different virtual networks that belong to different Azure subscriptions. Those Azure subscriptions must belong to the same Azure enrollment.
+Within the multi-tenant infrastructure of the Large Instance stamp, customers are deployed as isolated tenants. At deployment of the tenant, you name an Azure subscription within your Azure enrollment. This Azure subscription is the one the HANA Large Instance is billed against. These tenants have a 1:1 relationship to the Azure subscription. 
+
+For a network, it's possible to access a HANA Large Instance deployed in one tenant in one Azure region from different virtual networks belonging to different Azure subscriptions. Those Azure subscriptions must belong to the same Azure enrollment.
 
 ## Availability across regions
 

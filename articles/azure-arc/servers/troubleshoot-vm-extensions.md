@@ -5,9 +5,9 @@ ms.date: 07/16/2021
 ms.topic: conceptual
 ---
 
-# Troubleshoot Arc-enabled servers VM extension issues
+# Troubleshoot Azure Arc-enabled servers VM extension issues
 
-This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy or remove Azure VM extensions on Arc-enabled servers. For general information, see [Manage and use Azure VM extensions](./manage-vm-extensions.md).
+This article provides information on troubleshooting and resolving issues that may occur while attempting to deploy or remove Azure VM extensions on Azure Arc-enabled servers. For general information, see [Manage and use Azure VM extensions](./manage-vm-extensions.md).
 
 ## General troubleshooting
 

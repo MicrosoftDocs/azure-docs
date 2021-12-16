@@ -12,6 +12,9 @@ ms.custom: mimckitt
 
 ---
 # Understand instance IDs for Azure VM scale set VMs
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Uniform scale sets
+
 This article describes instance IDs for scale sets and the various ways they surface.
 
 ## Scale set instance IDs

@@ -2,7 +2,7 @@
 title: Check registry health
 description: Learn how to run a quick diagnostic command to identify common problems when using an Azure container registry, including local Docker configuration and connectivity to the registry
 ms.topic: article
-ms.date: 07/02/2019
+ms.date: 07/14/2021
 ---
 # Check the health of an Azure container registry
 
@@ -38,6 +38,14 @@ To check access to a registry as well as perform local environment checks, pass 
 az acr check-health --name myregistry
 ```
 
+### Check registry access in a virtual network
+
+To verify DNS settings to route to a private endpoint, pass the virtual network's name or resource ID. The resource ID is required when the virtual network is in a different subscription or resource group than the registry.
+
+```azurecli
+az acr check-health --name myregistry --vnet myvnet
+```
+
 ## Error reporting
 
 The command logs information to the standard output. If a problem is detected, it provides an error code and description. For more information about the codes and possible solutions, see the [error reference](container-registry-health-error-reference.md).
@@ -48,8 +56,8 @@ By default, the command stops whenever it finds an error. You can also run the c
 # Check environment only
 az acr check-health --ignore-errors
 
-# Check environment and target registry
-az acr check-health --name myregistry --ignore-errors
+# Check environment and target registry; skip confirmation to pull image
+az acr check-health --name myregistry --ignore-errors --yes
 ```      
 
 Sample output:
@@ -68,8 +76,6 @@ Challenge endpoint https://myregistry.azurecr.io/v2/ : OK
 Fetch refresh token for registry 'myregistry.azurecr.io' : OK
 Fetch access token for registry 'myregistry.azurecr.io' : OK
 ```  
-
-
 
 ## Next steps
 

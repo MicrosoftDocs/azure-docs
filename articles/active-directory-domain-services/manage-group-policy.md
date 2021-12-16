@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/06/2020
+ms.date: 07/26/2021
 ms.author: justinha
 
 ---
@@ -20,6 +20,15 @@ Settings for user and computer objects in Azure Active Directory Domain Services
 In a hybrid environment, group policies configured in an on-premises AD DS environment aren't synchronized to Azure AD DS. To define configuration settings for users or computers in Azure AD DS, edit one of the default GPOs or create a custom GPO.
 
 This article shows you how to install the Group Policy Management tools, then edit the built-in GPOs and create custom GPOs.
+
+If you are interested in server management strategy, including machines in Azure and
+[hybrid connected](../azure-arc/servers/overview.md),
+consider reading how to
+[convert Group Policy content](../governance/policy/how-to/guest-configuration-create-group-policy.md)
+to the
+[guest configuration](../governance/policy/concepts/guest-configuration.md)
+feature of
+[Azure Policy](../governance/policy/overview.md).
 
 ## Before you begin
 
@@ -39,8 +48,6 @@ To complete this article, you need the following resources and privileges:
 > You can use Group Policy Administrative Templates by copying the new templates to the management workstation. Copy the *.admx* files into `%SYSTEMROOT%\PolicyDefinitions` and copy the locale-specific *.adml* files to `%SYSTEMROOT%\PolicyDefinitions\[Language-CountryRegion]`, where `Language-CountryRegion` matches the language and region of the *.adml* files.
 >
 > For example, copy the English, United States version of the *.adml* files into the `\en-us` folder.
->
-> Alternatively, you can centrally store your Group Policy Administrative Template on the domain controllers that are part of the managed domain. For more information, see [How to create and manage the Central Store for Group Policy Administrative Templates in Windows](https://support.microsoft.com/help/3087759/how-to-create-and-manage-the-central-store-for-group-policy-administra).
 
 ## Install Group Policy Management tools
 

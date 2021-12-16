@@ -4,7 +4,7 @@ description: In this Quickstart, learn how to create a Recovery Services vault, 
 ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 01/31/2019
-ms.custom: mvc, devx-track-azurecli
+ms.custom: mvc, devx-track-azurecli, mode-api
 ---
 
 # Back up a virtual machine in Azure with the Azure CLI
@@ -86,6 +86,7 @@ az backup protection backup-now \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
+    --backup-management-type AzureIaaSVM
     --retain-until 18-10-2017
 ```
 
@@ -123,6 +124,7 @@ az backup protection disable \
     --vault-name myRecoveryServicesVault \
     --container-name myVM \
     --item-name myVM \
+    --backup-management-type AzureIaaSVM
     --delete-backup-data true
 az backup vault delete \
     --resource-group myResourceGroup \

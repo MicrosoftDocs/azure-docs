@@ -19,7 +19,7 @@ Data encryption with customer-managed keys for Azure Database for MySQL, is set 
 Key Vault is a cloud-based, external key management system. It's highly available and provides scalable, secure storage for RSA cryptographic keys, optionally backed by FIPS 140-2 Level 2 validated hardware security modules (HSMs). It doesn't allow direct access to a stored key, but does provide services of encryption and decryption to authorized entities. Key Vault can generate the key, import it, or [have it transferred from an on-premises HSM device](../key-vault/keys/hsm-protected-keys.md).
 
 > [!NOTE]
-> This feature is available in all Azure regions where Azure Database for MySQL supports "General Purpose" and "Memory Optimized" pricing tiers. For other limitations, refer to the [limitation](concepts-data-encryption-mysql.md#limitations) section.
+> This feature is supported only on "General Purpose storage v2 (support up to 16TB)" storage available in General Purpose and Memory Optimized pricing tiers. Refer [Storage concepts](concepts-pricing-tiers.md#storage) for more details. For other limitations, refer to the [limitation](concepts-data-encryption-mysql.md#limitations) section.
 
 ## Benefits
 
@@ -132,14 +132,15 @@ To avoid issues while setting up customer-managed data encryption during restore
 For Azure Database for MySQL, the support for encryption of data at rest using customers managed key (CMK) has few limitations -
 
 * Support for this functionality is limited to **General Purpose** and **Memory Optimized** pricing tiers.
-* This feature is only supported in regions and servers, which support storage up to 16 TB. For the list of Azure regions supporting storage up to 16 TB, refer to the storage section in documentation [here](concepts-pricing-tiers.md#storage)
+* This feature is only supported in regions and servers, which support general purpose storage v2 (up to 16 TB). For the list of Azure regions supporting storage up to 16 TB, refer to the storage section in documentation [here](concepts-pricing-tiers.md#storage)
 
     > [!NOTE]
-    > - All new MySQL servers created in the regions listed above, support for encryption with customer manager keys is **available**. Point In Time Restored (PITR) server or read replica will not qualify though in theory they are ‘new’.
-    > - To validate if your provisioned server supports up to 16TB, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server may not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times. Please reach out to AskAzureDBforMySQL@service.microsoft.com if you have any questions.
+    > - All new MySQL servers created in the [Azure regions](concepts-pricing-tiers.md#storage) supporting general purpose storage v2, support for encryption with customer manager keys is **available**. Point In Time Restored (PITR) server or read replica will not qualify though in theory they are ‘new’.
+    > - To validate if your provisioned server general purpose storage v2, you can go to the pricing tier blade in the portal and see the max storage size supported by your provisioned server. If you can move the slider up to 4TB, your server is on general purpose storage v1 and will not support encryption with customer managed keys. However, the data is encrypted using service managed keys at all times. Please reach out to AskAzureDBforMySQL@service.microsoft.com if you have any questions.
 
 * Encryption is only supported with RSA 2048 cryptographic key.
 
 ## Next steps
 
-Learn how to set up data encryption with a customer-managed key for your Azure database for MySQL by using the [Azure portal](howto-data-encryption-portal.md) and [Azure CLI](howto-data-encryption-cli.md).
+* Learn how to set up data encryption with a customer-managed key for your Azure database for MySQL by using the [Azure portal](howto-data-encryption-portal.md) and [Azure CLI](howto-data-encryption-cli.md).
+* Learn about the storage type support for [Azure Database for MySQL - Single Server](concepts-pricing-tiers.md#storage)

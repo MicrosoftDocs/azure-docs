@@ -1,13 +1,14 @@
 ---
-title: Understand business glossary features in Azure Purview (preview)
+title: Understand business glossary features in Azure Purview
 description: This article explains what business glossary is in Azure Purview.
 author: nayenama
 ms.author: nayenama
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/13/2020
+ms.date: 09/27/2021
 ---
+
 # Understand business glossary features in Azure Purview
 
 This article provides an overview of the business glossary feature in Azure Purview. 
@@ -15,7 +16,6 @@ This article provides an overview of the business glossary feature in Azure Purv
 ## Business glossary
 
 A glossary provides vocabulary for business users.  It consists of business terms that can be related to each other and allows them to be categorized so that they can be understood in different contexts. These terms can be then mapped to assets like a database, tables, columns etc. This helps in abstracting the technical jargon associated with the data repositories and allows the business user to discover and work with data in the vocabulary that is more familiar to them.
-
 
 A business glossary is a collection of terms. Each term represents an object in an organization and it is highly likely that there are multiple terms representing the same object. A customer could also be referred to as client, purchaser, or buyer. These multiple terms have a relationship with each other. The relationship between these terms could one of the following:
 
@@ -59,7 +59,7 @@ Classifications are annotations that can be assigned to entities. The flexibilit
 - understanding the nature of data stored in the data assets
 - defining access control policies
 
-Purview has more than 100 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
+Purview has more than 200 system classifiers today and you can define your own classifiers in catalog. As part of the scanning process, we automatically detect these classifications and apply them to data assets and schemas. However, you can override them at any point of time. The human overrides are never replaced by automated scans.
 
 ### Sensitivity labels
 

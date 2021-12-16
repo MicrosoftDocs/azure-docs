@@ -1,11 +1,11 @@
 ---
-title: Deploy a Service Fabric managed cluster application using ARM template
-description: Deploy an application to a Azure Service Fabric managed cluster using an Azure Resource Manager template.
+title: Deploy an application to a managed cluster using Azure Resource Manager
+description: Learn how to deploy, upgrade, or delete a Service Fabric application on an Azure Service Fabric managed cluster using Azure Resource Manager
 ms.topic: how-to
-ms.date: 5/10/2021 
+ms.date: 8/23/2021 
 ms.custom: devx-track-azurepowershell
 ---
-# Deploy a Service Fabric managed cluster application using ARM template
+# Manage application lifecycle on a managed cluster using Azure Resource Manager
 
 You have multiple options for deploying Azure Service Fabric applications on your Service Fabric managed cluster. We recommend using Azure Resource Manager. If you use Resource Manager, you can describe applications and services in JSON, and then deploy them in the same Resource Manager template as your cluster. Unlike using PowerShell or Azure CLI to deploy and manage applications, if you use Resource Manager, you don't have to wait for the cluster to be ready; application registration, provisioning, and deployment can all happen in one step. Using Resource Manager is the best way to manage the application life cycle in your cluster. For more information, see [Best practices: Infrastructure as code](service-fabric-best-practices-infrastructure-as-code.md#service-fabric-resources).
 
@@ -19,11 +19,11 @@ In this document, you will learn how to:
 
 > [!div class="checklist"]
 >
-> * Deploy application resources by using Resource Manager.
-> * Upgrade application resources by using Resource Manager.
-> * Delete application resources.
+> * Deploy service fabric application resources by using Resource Manager.
+> * Upgrade service fabric application resources by using Resource Manager.
+> * Delete service fabric application resources.
 
-## Deploy application resources
+## Deploy Service Fabric application resources
 
 The high-level steps you take to deploy an application and its services by using the Resource Manager application resource model are:
 1. Package the application code.
@@ -32,7 +32,7 @@ The high-level steps you take to deploy an application and its services by using
 
 For more information, view [Package an application](service-fabric-package-apps.md#create-an-sfpkg).
 
-Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
+Then, you create a Resource Manager template, update the parameters file with application details, and deploy the template on the Service Fabric managed cluster. [Explore samples](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/voting-sample-no-reverse-proxy/ARM-Managed-Cluster).
 
 ### Create a storage account
 
@@ -78,7 +78,7 @@ Now, the application is now staged and you can create the Resource Manager templ
 
 ### Create the Resource Manager template
 
-The sample application contains [Azure Resource Manager templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM) you can use to deploy the application. The template file names are *UserApp.json* and *UserApp.Parameters.json*.
+The sample application contains [Azure Resource Manager templates](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/tree/master/ARM-Managed-Cluster) you can use to deploy the application. The template file names are *UserApp.json* and *UserApp.Parameters.json*.
 
 > [!NOTE]
 > The *UserApp.Parameters.json* file must be updated with the name of your cluster.
@@ -121,7 +121,7 @@ The sample application contains [Azure Resource Manager templates](https://githu
 }
 ```
 
-### Deploy the application
+### Deploy the Service Fabric application
 
 Run the **New-AzResourceGroupDeployment** cmdlet to deploy the application to the resource group that contains your cluster:
 
@@ -132,12 +132,12 @@ New-AzResourceGroupDeployment -ResourceGroupName "sf-cluster-rg" -TemplateParame
 ## Upgrade the Service Fabric application by using Resource Manager
 
 > [!IMPORTANT]
-> Any service being deployed via ARM JSON definition must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
+> Any service being deployed via Azure Resource Manager (ARM) template must be removed from the DefaultServices section of the corresponding ApplicationManifest.xml file.
 
 
 You might upgrade an application that's already deployed to a Service Fabric cluster for one of these reasons:
 
-* A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM/UserApp.Parameters.json):
+* A new service is added to the application. A service definition must be added to *service-manifest.xml* and *application-manifest.xml* files when a service is added to the application. To reflect a new version of an application, you also must change the application type version from 1.0.0 to 1.0.1 in [UserApp.Parameters.json](https://github.com/Azure-Samples/service-fabric-dotnet-quickstart/blob/master/ARM-Managed-Cluster/UserApp.Parameters.json):
 
     ```json
     "applicationTypeVersion": {
@@ -156,11 +156,13 @@ You might upgrade an application that's already deployed to a Service Fabric clu
     ```json
      "applicationTypeVersion": {
         "value": "1.0.1"
-    },
+    }
     ```
-## Delete application resources
+## Delete Service Fabric application resources
+> [!NOTE]
+> Applications should not be deleted via Azure Resource Manager (ARM) template as there is no declarative way to cleanup individual resources
 
-To delete an application that was deployed by using the application resource model in Resource Manager:
+To delete a service fabric application that was deployed by using the application resource model in Resource Manager:
 
 1. Use the [Get-AzResource](/powershell/module/az.resources/get-azresource) cmdlet to get the resource ID for the application:
 

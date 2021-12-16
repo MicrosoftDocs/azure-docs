@@ -1,15 +1,15 @@
 ---
-title: How to bind an Azure Database for MySQL instance to your Azure Spring Cloud application
-description: Learn how to bind an Azure Database for MySQL instance to your Azure Spring Cloud application
-author: bmitchell287
+title: How to bind an Azure Database for MySQL instance to your application in Azure Spring Cloud
+description: Learn how to bind an Azure Database for MySQL instance to your application in Azure Spring Cloud
+author: karlerickson
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/04/2019
-ms.author: brendm
+ms.author: karler
 ms.custom: devx-track-java
 ---
 
-# Bind an Azure Database for MySQL instance to your Azure Spring Cloud application 
+# Bind an Azure Database for MySQL instance to your application in Azure Spring Cloud
 
 **This article applies to:** ✔️ Java
 
@@ -21,7 +21,7 @@ With Azure Spring Cloud, you can bind select Azure services to your applications
 * An Azure Database for MySQL account
 * Azure CLI
 
-If you don't have a deployed Azure Spring Cloud instance, follow the instructions in [Quickstart: Launch an Azure Spring Cloud application by using the Azure portal](./quickstart.md) to deploy your first Spring Cloud app.
+If you don't have a deployed Azure Spring Cloud instance, follow the instructions in [Quickstart: Launch an application in Azure Spring Cloud by using the Azure portal](./quickstart.md) to deploy your first Spring Cloud app.
 
 ## Prepare your Java project
 
@@ -33,6 +33,7 @@ If you don't have a deployed Azure Spring Cloud instance, follow the instruction
         <artifactId>spring-boot-starter-data-jpa</artifactId>
     </dependency>
     ```
+
 1. In the *application.properties* file, remove any `spring.datasource.*` properties.
 
 1. Update the current app by running `az spring-cloud app deploy`, or create a new deployment for this change by running `az spring-cloud app deployment create`.
@@ -40,20 +41,21 @@ If you don't have a deployed Azure Spring Cloud instance, follow the instruction
 ## Bind your app to the Azure Database for MySQL instance
 
 #### [Service Binding](#tab/Service-Binding)
-1. Note the admin username and password of your Azure Database for MySQL account. 
+1. Note the admin username and password of your Azure Database for MySQL account.
 
 1. Connect to the server, create a database named **testdb** from a MySQL client, and then create a new non-admin account.
 
-1. In the Azure portal, on your **Azure Spring Cloud** service page, look for the **Application Dashboard**, and then select the application to bind to your Azure Database for MySQL instance.  This is the same application that you updated or deployed in the previous step. 
+1. In the Azure portal, on your **Azure Spring Cloud** service page, look for the **Application Dashboard**, and then select the application to bind to your Azure Database for MySQL instance.  This is the same application that you updated or deployed in the previous step.
 
-1. Select **Service binding**, and then select the **Create service binding** button. 
+1. Select **Service binding**, and then select the **Create service binding** button.
 
 1. Fill out the form, selecting **Azure MySQL** as the **Binding type**, using the same database name you used earlier, and using the same username and password you noted in the first step.
 
 1. Restart the app, and this binding should now work.
 
 1. To ensure that the service binding is correct, select the binding name, and then verify its detail. The `property` field should look like this:
-    ```
+
+    ```properties
     spring.datasource.url=jdbc:mysql://some-server.mysql.database.azure.com:3306/testdb?useSSL=true&requireSSL=false&useLegacyDatetimeCode=false&serverTimezone=UTC
     spring.datasource.username=admin@some-server
     spring.datasource.password=abc******
@@ -165,8 +167,9 @@ resource "azurerm_spring_cloud_active_deployment" "example" {
   deployment_name     = azurerm_spring_cloud_java_deployment.example.name
 }
 ```
+
 ---
 
 ## Next steps
 
-In this article, you learned how to bind an Azure Spring Cloud application to an Azure Database for MySQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an Azure Spring Cloud application](./how-to-bind-cosmos.md).
+In this article, you learned how to bind an application in Azure Spring Cloud to an Azure Database for MySQL instance. To learn more about binding services to an application, see [Bind an Azure Cosmos DB database to an application in Azure Spring Cloud](./how-to-bind-cosmos.md).

@@ -33,8 +33,8 @@ $serverEndpointPath = "<your-server-endpoint-path>"
 $cloudTieringDesired = $true
 $volumeFreeSpacePercentage = <your-volume-free-space>
 # Optional property. Choose from: [NamespaceOnly] default when cloud tiering is enabled. [NamespaceThenModifiedFiles] default when cloud tiering is disabled. [AvoidTieredFiles] only available when cloud tiering is disabled.
-$initialDownloadPolicy = NamespaceOnly
-$initialUploadPolicy = Merge
+$initialDownloadPolicy = "NamespaceOnly"
+$initialUploadPolicy = "Merge"
 # Optional property. Choose from: [Merge] default for all new server endpoints. Content from the server and the cloud merge. This is the right choice if one location is empty or other server endpoints already exist in the sync group. [ServerAuthoritative] This is the right choice when you seeded the Azure file share (e.g. with Data Box) AND you are connecting the server location you seeded from. This enables you to catch up the Azure file share with the changes that happened on the local server since the seeding.
 
 if ($cloudTieringDesired) {

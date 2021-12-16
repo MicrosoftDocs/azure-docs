@@ -77,4 +77,4 @@ This performance chart maps to an equivalent of invoking `kubectl get pods –al
 
 ## Next steps
 
-View [log query examples](container-insights-log-search.md#search-logs-to-analyze-data) to see predefined queries and examples to create alerts, visualizations, or perform further analysis of your clusters.
+View [log query examples](container-insights-log-query.md) to see predefined queries and examples to create alerts, visualizations, or perform further analysis of your clusters.

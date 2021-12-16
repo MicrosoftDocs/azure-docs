@@ -12,6 +12,8 @@ ms.author: cynthn
 
 # Generate and store SSH keys in the Azure portal
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 If you frequently use the portal to deploy Linux VMs, you can make using SSH keys simpler by creating them directly in the portal, or uploading them from your computer.
 
 You can create a SSH keys when you first create a VM, and reuse them for other VMs. Or, you can create SSH keys separately, so that you have a set of keys stored in Azure to fit your organizations needs. 

@@ -28,7 +28,7 @@ Cognitive Search has three basic network traffic patterns:
 
 Inbound requests range from creating objects, loading data, and querying. For inbound access to data and operations, you can implement a progression of security measures, starting with API keys on the request. You can then supplement with either inbound rules in an IP firewall, or create private endpoints that fully shield your service from the public internet.
 
-Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets. For indexers, read operations include document cracking and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
+Outbound requests can include both read and write operations. The primary agent of an outbound call is an indexer and constituent skillsets. For indexers, read operations include [document cracking](search-indexer-overview.md#document-cracking) and data ingestion. An indexer can also write to Azure Storage when creating knowledge stores, persisting cached enrichments, and persisting debug sessions. Finally, a skillset can also include custom skills that run external code, for example in Azure Functions or in a web app.
 
 Internal requests include service-to-service calls for tasks like diagnostic logging, encryption, authentication and authorization through Azure Active Directory, private endpoint connections, and requests made to Cognitive Services for built-in skills.
 
@@ -52,7 +52,7 @@ To further control access to your search service, you can create inbound firewal
 
 You can use the portal to [configure inbound access](service-configure-firewall.md).
 
-Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/services/createorupdate#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
+Alternatively, you can use the management REST APIs. Starting with API version 2020-03-13, with the [IpRule](/rest/api/searchmanagement/2020-08-01/services/create-or-update#iprule) parameter, you can restrict access to your service by identifying IP addresses, individually or in a range, that you want to grant access to your search service.
 
 ### Connect to a private endpoint (network isolation, no Internet traffic)
 
@@ -175,7 +175,7 @@ Reliance on API key-based authentication means that you should have a plan for r
 
 Cognitive Search does not log user identities so you cannot refer to logs for information about a specific user. However, the service does log create-read-update-delete operations, which you might be able to correlate with other logs to understand the agency of specific actions.
 
-Using alerts and the logging infrastructure in Azure, you can pick up on query volume spikes or other actions that deviate from expected workloads. For more information about setting up logs, see [Collect and analyze log data](search-monitor-logs.md) and [Monitor query requests](search-monitor-queries.md).
+Using alerts and the logging infrastructure in Azure, you can pick up on query volume spikes or other actions that deviate from expected workloads. For more information about setting up logs, see [Collect and analyze log data](monitor-azure-cognitive-search.md) and [Monitor query requests](search-monitor-queries.md).
 
 ### Certifications and compliance
 
@@ -197,4 +197,4 @@ Watch this fast-paced video for an overview of the security architecture and eac
 
 + [Azure security fundamentals](../security/fundamentals/index.yml)
 + [Azure Security](https://azure.microsoft.com/overview/security)
-+ [Azure Security Center](../security-center/index.yml)
++ [Microsoft Defender for Cloud](../security-center/index.yml)

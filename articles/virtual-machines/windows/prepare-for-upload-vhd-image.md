@@ -1,7 +1,7 @@
 ---
 title: Prepare a Windows VHD to upload to Azure
 description: Learn how to prepare a Windows VHD or VHDX to upload it to Azure
-author: glimoli
+author: genlin
 manager: dcscontentpm
 ms.service: virtual-machines
 ms.subservice: disks
@@ -13,6 +13,8 @@ ms.author: genli
 ---
 
 # Prepare a Windows VHD or VHDX to upload to Azure
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 Before you upload a Windows virtual machine (VM) from on-premises to Azure, you must prepare the
 virtual hard disk (VHD or VHDX). Azure supports both generation 1 and generation 2 VMs that are in

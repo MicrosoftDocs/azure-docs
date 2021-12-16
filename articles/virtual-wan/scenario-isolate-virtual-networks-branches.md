@@ -3,19 +3,19 @@ title: 'Scenario: Custom isolation for virtual networks and branches'
 titleSuffix: Azure Virtual WAN
 description: Learn about Virtual WAN routing scenarios to prevent selected VNets and branches from being able to reach each other.
 services: virtual-wan
-author: wellee
+author: cherylmc
 
 ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 04/27/2021
-ms.author: wellee
+ms.author: cherylmc
 
 ---
 # Scenario: Custom Isolation for Virtual Networks and Branches
 
 When working with Virtual WAN virtual hub routing, there are quite a few available scenarios. In a custom isolation scenario for both Virtual Networks (VNets) and branches, the goal is to prevent a specific set of VNets from reaching another set of VNets. Likewise, branches (VPN/ER/User VPN) are only allowed to reach certain sets of VNets.
 
-We also introduce the additional requirement that Azure Firewall should inspect branch-to-VNet and Branch-to VNet-traffic, but **not**  VNet-to VNet-traffic.  
+We also introduce the additional requirement that Azure Firewall should inspect branch-to-VNet and VNet-to-branch, but **not** VNet-to VNet-traffic.  
 
 For more information about virtual hub routing, see [About virtual hub routing](about-virtual-hub-routing.md).
 

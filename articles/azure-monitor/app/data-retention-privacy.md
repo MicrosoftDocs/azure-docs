@@ -311,4 +311,3 @@ This product includes GeoLite2 data created by MaxMind, available from [https://
 [pricing]: https://azure.microsoft.com/pricing/details/application-insights/
 [redfield]: ./status-monitor-v2-overview.md
 [start]: ./app-insights-overview.md
-

@@ -1,16 +1,15 @@
 ---
 # Mandatory fields. See more on aka.ms/skyeye/meta.
-title: Azure Media Services v3 release notes 
+title: Azure Media Services v3 release notes
 description: To stay up-to-date with the most recent developments, this article provides you with the latest updates on Azure Media Services v3.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: na
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ms.topic: article
 ms.date: 03/17/2021
 ms.author: inhenkel
@@ -27,6 +26,77 @@ To stay up-to-date with the most recent developments, this article provides you 
 * Bug fixes
 * Deprecated functionality
 
+
+## December 2021
+
+### Sweden Central region is now GA
+
+ Media Services is now generally available in the Sweden Central region. There are currently some feature limitations in the region while we await a few dependency services to also arrive in the region. Check the [regional feature availability chart](./azure-clouds-regions.md) to determine when features will arrive.
+
+### New live event channel archive heartbeat event
+
+A new event that tracks the status and health of the live event archive has been added. See the LiveEventChannelArchiveHeartbeatEvent in the [Event Grid schemas for Media Services](./media-services-event-schemas.md) for more details on this new event.
+
+
+## September 2021
+
+### New basic pass-through live event SKU
+
+The new basic pass-through live event SKU allows customers to create live events at a [lower price point](https://azure.microsoft.com/pricing/details/media-services/). It is similar to standard pass-through live events, but with lower input bandwidth limits, fewer live output allowed, different DVR window length limits, and no access to live transcription. See [live event types comparison](./live-event-types-comparison-reference.md#types-comparison) for more details.
+
+### Improved scale management and monitoring for a Streaming Endpoint in the portal
+
+The streaming endpoint portal page now provides an easy way for you to manage your egress capacity and estimate your audience  reach with and without a CDN configured.  Simply adjust the delivery bitrate and expected CDN cache hit ratio to get quick estimations of your audience size and help you determine if you need to scale up to more Premium streaming endpoints.
+
+   [ ![Scale and monitor streaming endpoints in the portal](./media/release-notes/streaming-endpoint-monitor-inline.png) ](./media/release-notes/streaming-endpoint-monitor.png#lightbox)
+
+### Streaming Endpoint portal page now shows CPU, egress and latency metrics
+
+You can now visualize the CPU load, egress bandwidth and end-to-end latency metrics on their streaming endpoints in the Azure portal. You can now create monitoring alerts based on the CPU, egress or latency metrics directly in the portal using the power of Azure Monitor.
+
+### User-Assigned Managed Identities support for Media Services accounts
+
+Using User-Assigned Managed Identities, customers will now be able to enable better security of their storage accounts and associated key vaults. Access to the customer storage account and key vaults will be limited to the user assigned managed identity.  You have full control over the lifetime of user-managed identities and can easily revoke the media service account’s access to any specific storage account as needed.
+
+### Media services storage accounts page in the portal now support both UAMI and SAMI
+
+You can now assign and manage user-assigned managed identities (UAMI) or system-assigned managed identities(SAMI) for your storage accounts directly in the Azure portal for Media Services.
+
+### Bring your own key page now also supports both UAMI and SAMI.
+The key management portal page for Media Services now supports configuration and management of  user-assigned managed identities (UAMI) or system-assigned managed identities (SAMI).
+
+   [ ![Bring your own keys for account encryption](./media/release-notes/byok-managed-identity.png)](./media/release-notes/byok-managed-identity.png)
+
+
+### Private Link support for Media services
+You can now restrict public access to your live events, streaming endpoints, and key delivery services endpoint for content protection and DRM by creating a private endpoint for each of the services. This will limit public access to each of these services. Only traffic originating from your configured virtual network (VNET), configured in Private Endpoint, will be able reach these endpoints.
+
+### IP allowlist for Key Service
+You can now choose to allow certain public IP addresses to have access to the key delivery service for DRM and content protection. Live event and streaming endpoints already support configuration of IP allowlist in their respective pages.
+
+You also now have an account level feature flag to allow/block public internet access to your media services account.
+
+## July 2021
+
+### .NET SDK (Microsoft.Azure.Management.Media ) 5.0.0 release available in NuGet
+
+The [Microsoft.Azure.Management.Media](https://www.nuget.org/packages/Microsoft.Azure.Management.Media/5.0.0) .NET SDK version 5.0.0 is now released on NuGet. This version is generated to work with the [2021-06-01 stable](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/mediaservices/resource-manager/Microsoft.Media/stable/2021-06-01) version of the Open API (Swagger) ARM Rest API.
+
+For details on changes from the 4.0.0 release see the [change log](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/mediaservices/Microsoft.Azure.Management.Media/CHANGELOG.md).
+
+#### Changes in the 5.0.0 .NET SDK release
+
+* The Media Services account now supports system and user assigned managed identities.
+* Added **PublicNetworkAccess** option to Media Services accounts. This option can be used with the Private Link feature to only allow access from private networks, blocking all public network access
+* Basic passthrough - A new live event type is added. "Basic Pass-through" live events have similar capabilities as standard pass-through live events with some input and output restrictions, and are offered at a reduced price.
+* **PresetConfigurations** - allow you to customize the output settings, and min and max bitrates used for the [Content Aware Encoding presets](./encode-content-aware-concept.md). This helps you to better estimate and plan for more accurate billing when using Content Aware Encoding through constrained output track numbers and resolutions.
+
+#### Breaking changes in tht 5.0.0 .NET SDK release
+
+* **ApiErrorException** has been replaced with **ErrorResponseException** to be consistent with all other Azure SDKs. Exception body has not changed.
+* All calls returning 404 Not found now raise an **ErrorResponseException** instead of returning null. this change was made to be consistent with other Azure SDKs
+* Media service constructor has new optional PublicNetworkAccess parameter after KeyDelivery parameter.
+* Type property in **MediaServiceIdentity** has been changed from ManagedIdentityType enum to string to accommodate multiple comma-separated values. Valid strings are **SystemAssigned** or **UserAssigned**.
 
 ## June 2021
 
@@ -62,10 +132,10 @@ Updated samples for **Node.js** that use the latest Typescript support in the Az
 
 |Sample|Description|
 |---|---|
-|[Live streaming](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/Live/index.ts)| Basic live streaming example. **WARNING**, make sure to check that all resources are cleaned up and no longer billing in portal when using live|
-|[Upload and stream HLS and DASH](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesSample/index.ts)| Basic example for uploading a local file or encoding from a source URL. Sample shows how to use storage SDK to download content, and shows how to stream to a player |
-|[Upload and stream HLS and DASH with Playready and Widevine DRM](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/StreamFilesWithDRMSample/index.ts)| Demonstrates how to encode and stream using Widevine and PlayReady DRM |
-|[Upload and use AI to index videos and audio](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/AMSv3Samples/VideoIndexerSample/index.ts)| Example of using the Video and Audio Analyzer presets to generate metadata and insights from a video or audio file |
+|[Live streaming](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/Live/)| Basic live streaming example. **WARNING**, make sure to check that all resources are cleaned up and no longer billing in portal when using live|
+|[Upload and stream HLS and DASH](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/StreamFilesSample/index.ts)| Basic example for uploading a local file or encoding from a source URL. Sample shows how to use storage SDK to download content, and shows how to stream to a player |
+|[Upload and stream HLS and DASH with Playready and Widevine DRM](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/StreamFilesWithDRMSample/index.ts)| Demonstrates how to encode and stream using Widevine and PlayReady DRM |
+|[Upload and use AI to index videos and audio](https://github.com/Azure-Samples/media-services-v3-node-tutorials/tree/main/VideoAnalytics/index.ts)| Example of using the Video and Audio Analyzer presets to generate metadata and insights from a video or audio file |
 
 
 New **Python** sample demonstrating how to use Azure Functions, and Event Grid to trigger Face redaction preset.
@@ -139,6 +209,8 @@ Version 3 provides:
 - ARM REST APIs, client SDKs for .NET core, Node.js, Python, Java, Go and Ruby.
 - Customer managed keys, trusted storage integration, private link support, and [more](./migrate-v-2-v-3-migration-benefits.md)
 
+As part of the update to v3 API and SDKs, Media Reserve Units (MRUs) are no longer needed for any Media Services account as the system will automatically scale up and down based on load. Please refer to the [MRUs migration guidance](./migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md) for more information.
+
 #### Action Required
 
 To minimize disruption to your workloads, review the [migration guide](./migrate-v-2-v-3-migration-introduction.md) to transition your code from the version 2 API and SDKs to version 3 API and SDK before 29 February 2024.
@@ -148,7 +220,7 @@ See the official [Azure Updates announcement](https://azure.microsoft.com/update
 
 ### Standard Encoder support for v2 API features
 
-In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 version of the encoding API.
+In addition to the new added support for HEVC (H.265) encoding, the following features are now available in the 2020-05-01 (or later) version of the encoding API.
 
 - Multiple Input File stitching is now supported using the new **JobInputClip** support.
     - An example is available for .NET showing how to [stitch two assets together](https://github.com/Azure-Samples/media-services-v3-dotnet/tree/main/VideoEncoding/Encoding_StitchTwoAssets).
@@ -250,7 +322,7 @@ We published a High Availability with Media Services and Video on Demand (VOD) [
 
 ### Live Video Analytics on IoT Edge preview release
 
-The preview of Live Video Analytics on IoT Edge went public. For more information, see [release notes](../live-video-analytics-edge/release-notes.md).
+The preview of Live Video Analytics on IoT Edge went public. 
 
 Live Video Analytics on IoT Edge is an expansion to the Media Service family. It enables you to analyze live video with AI models of your choice on your own edge devices, and optionally capture and record that video. You can now build apps with real-time video analytics at the edge without worrying about the complexity of building and operating a live video pipeline.
 
@@ -321,7 +393,7 @@ Added support for the following new recommended partner encoders for RTMP live s
 - Standard encoding now maintains a regular GOP cadence for variable frame rate  (VFR) contents during VOD encoding when using the time-based GOP setting.  This means that customer submitting mixed frame rate content that varies between 15-30 fps, for example,  should now see regular GOP distances calculated on output to adaptive bitrate streaming MP4 files. This will improve the ability to switch seamlessly between tracks when delivering over HLS or DASH. 
 -  Improved AV sync for variable frame rate (VFR) source content
 
-### Video Indexer, Video analytics
+### Azure Video Analyzer for Media, Video analytics
 
 - Keyframes extracted using the VideoAnalyzer preset are now in the original resolution of the video instead of being resized. High-resolution keyframe extraction gives you original quality images and allows you to make use of the image-based artificial intelligence models provided by the Microsoft Computer Vision and Custom Vision services to gain even more insights from your video.
 
@@ -337,9 +409,9 @@ Media Services v3 is announcing the preview of 24 hrs x 365 days of live linear 
 
 #### Deprecation of media processors
 
-We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. Azure Media Services Video Indexer replaces these legacy media processors.
+We are announcing deprecation of *Azure Media Indexer* and *Azure Media Indexer 2 Preview*. For the retirement dates, see the  [legacy components](../previous/legacy-components.md) article. Azure Video Analyzer for Media replaces these legacy media processors.
 
-For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to Azure Media Services Video Indexer](../previous/migrate-indexer-v1-v2.md).
+For more information, see [Migrate from Azure Media Indexer and Azure Media Indexer 2 to **Azure Media Services Video Indexer**](../previous/migrate-indexer-v1-v2.md).
 
 ## August 2019
 

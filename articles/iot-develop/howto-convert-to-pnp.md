@@ -272,7 +272,7 @@ If your device uses DPS to connect, include the model ID in the payload you send
 }
 ```
 
-To learn more, see [Runtime Registration - Register Device](/rest/api/iot-dps/runtimeregistration/registerdevice).
+To learn more, see [Runtime Registration - Register Device](/rest/api/iot-dps/device/runtime-registration/register-device).
 
 If your device uses DPS to connect or connects directly with a connection string, include the model ID when your code connects to IoT Hub. For example:
 

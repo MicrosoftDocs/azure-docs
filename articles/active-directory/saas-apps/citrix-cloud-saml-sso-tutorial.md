@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 07/16/2021
+ms.date: 07/22/2021
 ms.author: jeedes
 
 ---
@@ -149,7 +149,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	a. In the **Entity ID** textbox, paste the **Azure AD Identifier** value which you have copied from the Azure portal.
 
-	b. In the **Sign Authentication Request**, select **Yes** to allow Citrix Cloud to Sign authentication requests.
+	b. In the **Sign Authentication Request**, select **No**.
 
 	c. In the **SSO Service URL** textbox, paste the **Login URL** value which you have copied from the Azure portal.
 
@@ -159,7 +159,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	f. Upload the **Certificate (PEM)** from the Azure portal into the **X.509 Certificate** section.
 
-	g. In the **Authentication Context**, select **Unspecified** and **Minimum**  from the dropdown.
+	g. In the **Authentication Context**, select **Unspecified** and **Exact**  from the dropdown.
 
 	h. Click **Test and Finish**.
 
@@ -173,4 +173,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure Citrix Cloud SAML SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Citrix Cloud SAML SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

@@ -5,10 +5,9 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: azla
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-ui
 ms.date: 05/25/2021
-
-# Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
+#Customer intent: As a developer, I want to create my first automated workflow by using Azure Logic Apps while working in Visual Studio Code
 ---
 
 # Quickstart: Create and manage logic app workflow definitions with multi-tenant Azure Logic Apps and Visual Studio Code
@@ -17,7 +16,7 @@ This quickstart shows how to create and manage logic app workflows that help you
 
 Although you can perform these same tasks in the [Azure portal](https://portal.azure.com) and in Visual Studio, you can get started faster in Visual Studio Code when you're already familiar with logic app definitions and want to work directly in code. For example, you can disable, enable, delete, and refresh already created logic apps. Also, you can work on logic apps and integration accounts from any development platform where Visual Studio Code runs, such as Linux, Windows, and Mac.
 
-For this article, you can create the same logic app from this [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), which focuses more on the basic concepts. You can also [learn to create the example app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), and [learn to create and manage apps through the Azure Command-Line Interface (Azure CLI)](quickstart-logic-apps-azure-cli.md). In Visual Studio Code, the logic app looks like this example:
+For this article, you can create the same logic app from this [quickstart](../logic-apps/quickstart-create-first-logic-app-workflow.md), which focuses more on the basic concepts. You can also [learn to create the example app in Visual Studio](quickstart-create-logic-apps-with-visual-studio.md), and [learn to create and manage apps through the Azure CLI](quickstart-logic-apps-azure-cli.md). In Visual Studio Code, the logic app looks like this example:
 
 ![Example logic app workflow definition](./media/quickstart-create-logic-apps-visual-studio-code/visual-studio-code-overview.png)
 
@@ -53,7 +52,7 @@ Before you start, make sure that you have these items:
 
 <a name="access-azure"></a>
 
-## Access Azure from Visual Studio
+## Access Azure from Visual Studio Code
 
 1. Open Visual Studio Code. On the Visual Studio Code toolbar, select the Azure icon.
 

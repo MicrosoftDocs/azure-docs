@@ -1,20 +1,21 @@
 ---
 title: What is Azure Communication Services?
 description: Learn how Azure Communication Services helps you develop rich user experiences with real-time communications.
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: overview
 ms.service: azure-communication-services
-
 ---
 
 # What is Azure Communication Services?
 
-Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication features to your applications without being an expert in communication technologies such as media encoding and real-time networking. Azure Communication Services supports various communication formats:
+Azure Communication Services are cloud-based services with REST APIs and client library SDKs available to help you integrate communication into your applications. You can add communication features to your applications without being an expert in communication technologies such as media encoding and real-time networking. This functionality is also supported in Azure for government.
+
+Azure Communication Services supports various communication formats:
 
 1. Voice and Video Calling
 1. Rich Text Chat
@@ -38,8 +39,8 @@ To learn more, check out our [Microsoft Mechanics video](https://www.youtube.com
 | Resource                               |Description                           |
 |---                                    |---                                   |
 |**[Create a Communication Services resource](./quickstarts/create-communication-resource.md)**|Begin using Azure Communication Services by using the Azure portal or Communication Services SDK to provision your first Communication Services resource. Once you have your Communication Services resource connection string, you can provision your first user access tokens.|
-|**[Get a phone number](./quickstarts/telephony-sms/get-phone-number.md)**|Use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate or receive phone calls and build SMS solutions.|
-|**[Send an SMS from your app](./quickstarts/telephony-sms/send.md)**| Azure Communication Services SMS REST APIs and SDKs is used send and receive SMS messages from service applications.|
+|**[Get a phone number](./quickstarts/telephony/get-phone-number.md)**|Use Azure Communication Services to provision and release telephone numbers. These telephone numbers can be used to initiate or receive phone calls and build SMS solutions.|
+|**[Send an SMS from your app](./quickstarts/sms/send.md)**| Azure Communication Services SMS REST APIs and SDKs is used send and receive SMS messages from service applications.|
 
 After creating a Communication Services resource you can start building client scenarios, such as voice and video calling or text chat:
 
@@ -74,7 +75,7 @@ Learn more about the Azure Communication Services SDKs with the resources below.
 |**[SDK libraries and REST APIs](./concepts/sdk-options.md)**|Azure Communication Services capabilities are conceptually organized into six areas, each represented by an SDK. You can decide which SDK libraries to use based on your real-time communication needs.|
 |**[Calling SDK overview](./concepts/voice-video-calling/calling-sdk-features.md)**|Review the Communication Services Calling SDK overview.|
 |**[Chat SDK overview](./concepts/chat/sdk-features.md)**|Review the Communication Services Chat SDK overview.|
-|**[SMS SDK overview](./concepts/telephony-sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
+|**[SMS SDK overview](./concepts/sms/sdk-features.md)**|Review the Communication Services SMS SDK overview.|
 
 ## Other Microsoft Communication Services
 

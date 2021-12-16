@@ -28,7 +28,7 @@ All prerequisites that apply to [semantic queries](semantic-how-to-query-request
 
 + Query strings entered by the user must be recognizable as a question (what, where, when, how).
 
-+ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in "searchFields". For example, given a query "what is a hash table", if none of the searchFields contain passages that include "A hash table is ..." , then it's unlikely an answer will be returned.
++ Search documents in the index must contain text having the characteristics of an answer, and that text must exist in one of the fields listed in the [semantic configuration](semantic-how-to-query-request.md#create-a-semantic-configuration). For example, given a query "what is a hash table", if none of the fields in the semantic configuration contain passages that include "A hash table is ..." , then it's unlikely an answer will be returned.
 
 ## What is a semantic answer?
 
@@ -41,6 +41,39 @@ Answers are returned as an independent, top-level object in the query response p
 <a name="query-params"></a>
 
 ## How to specify "answers" in a query request
+
+The approach for listing fields in priority order has changed recently, with semanticConfiguration replacing searchFields. If you are currently using searchFields, please update your code to the 2021-04-30-Preview API version and use semanticConfiguration instead.
+
+### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
+
+To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "semanticConfiguration", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
+
+The "semanticConfiguration" parameter is crucial to returning a high quality answer. 
+
+```json
+{
+    "search": "how do clouds form",
+    "queryType": "semantic",
+    "queryLanguage": "en-us",
+    "semanticConfiguration": "my-semantic-config",
+    "answers": "extractive|count-3",
+    "captions": "extractive|highlight-true",
+    "count": "true"
+}
+```
+
++ A query string must not be null and should be formulated as question.
+
++ "queryType" must be set to "semantic.
+
++ "queryLanguage" must be one of the values from the [supported languages list (REST API)](/rest/api/searchservice/preview-api/search-documents#queryLanguage).
+
++ A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. For precise guidance on how to create an effective semantic configuration, see [Create a semantic configuration](semantic-how-to-query-request.md#searchfields). 
+
++ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of ten.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
+
+
+### [**searchFields**](#tab/searchFields)
 
 To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "searchFields", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
 
@@ -65,7 +98,9 @@ The "searchFields" parameter is crucial to returning a high quality answer, both
 
 + "searchFields" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. For precise guidance on how to set this field so that it works for both captions and answers, see [Set searchFields](semantic-how-to-query-request.md#searchfields). 
 
-+ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of five.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
++ For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of ten.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
+
+---
 
 ## Deconstruct an answer from the response
 
@@ -108,8 +143,8 @@ Given the query "how do clouds form", the following answer is returned in the re
                 "North America",
                 "Vancouver"
             ]
-    ]
         }
+    ]
 }
 
 ```
@@ -118,7 +153,7 @@ Given the query "how do clouds form", the following answer is returned in the re
 
 For best results, return semantic answers on a document corpus having the following characteristics:
 
-+ "searchFields" must provide fields that offer sufficient text in which an answer is likely to be found. Only verbatim text from a document can appear as an answer.
++ The "semanticConfiguration" must include fields that offer sufficient text in which an answer is likely to be found. Fields more likely to contain answers should be listed first in "prioritizedContentFields". Only verbatim text from a document can appear as an answer.
 
 + query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
 

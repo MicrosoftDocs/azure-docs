@@ -15,7 +15,7 @@ ms.subservice: common
 # Grant limited access to Azure Storage resources using shared access signatures (SAS)
 
 A shared access signature (SAS) provides secure delegated access to resources in your storage account. With a SAS, you have granular control over how a client can access your data. For example:
- 
+
 - What resources the client may access.
 
 - What permissions they have to those resources.
@@ -46,13 +46,13 @@ For more information about the service SAS, see [Create a service SAS (REST API)
 
 ### Account SAS
 
-An account SAS is secured with the storage account key. An account SAS delegates access to resources in one or more of the storage services. All of the operations available via a service or user delegation SAS are also available via an account SAS. 
+An account SAS is secured with the storage account key. An account SAS delegates access to resources in one or more of the storage services. All of the operations available via a service or user delegation SAS are also available via an account SAS.
 
 You can also delegate access to the following:
 
-- Service-level operations (For example, the **Get/Set Service Properties** and **Get Service Stats** operations). 
+- Service-level operations (For example, the **Get/Set Service Properties** and **Get Service Stats** operations).
 
-- Read, write, and delete operations that aren't permitted with a service SAS. 
+- Read, write, and delete operations that aren't permitted with a service SAS.
 
 For more information about the account SAS, [Create an account SAS (REST API)](/rest/api/storageservices/create-account-sas).
 
@@ -77,7 +77,7 @@ A shared access signature is a signed URI that points to one or more storage res
 
 ### SAS signature and authorization
 
-You can sign a SAS token with a user delegation key or with a storage account key (Shared Key). 
+You can sign a SAS token with a user delegation key or with a storage account key (Shared Key).
 
 #### Signing a SAS token with a user delegation key
 
@@ -129,15 +129,15 @@ Many real-world services may use a hybrid of these two approaches. For example, 
 
 Additionally, a SAS is required to authorize access to the source object in a copy operation in certain scenarios:
 
-- When you copy a blob to another blob that resides in a different storage account. 
-  
+- When you copy a blob to another blob that resides in a different storage account.
+
   You can optionally use a SAS to authorize access to the destination blob as well.
 
-- When you copy a file to another file that resides in a different storage account. 
+- When you copy a file to another file that resides in a different storage account.
 
   You can optionally use a SAS to authorize access to the destination file as well.
 
-- When you copy a blob to a file, or a file to a blob. 
+- When you copy a blob to a file, or a file to a blob.
 
   You must use a SAS even if the source and destination objects reside within the same storage account.
 
@@ -161,11 +161,11 @@ The following recommendations for using shared access signatures can help mitiga
 
 - **Use near-term expiration times on an ad hoc SAS service SAS or account SAS.** In this way, even if a SAS is compromised, it's valid only for a short time. This practice is especially important if you cannot reference a stored access policy. Near-term expiration times also limit the amount of data that can be written to a blob by limiting the time available to upload to it.
 
-- **Have clients automatically renew the SAS if necessary.** Clients should renew the SAS well before the expiration, in order to allow time for retries if the service providing the SAS is unavailable. This might be unnecessary in some cases. For example, you might intend for the SAS to be used for a small number of immediate, short-lived operations. These operations are expected to be completed within the expiration period. As a result, you are not expecting the SAS to be renewed. However, if you have a client that is routinely making requests via SAS, then the possibility of expiration comes into play. 
+- **Have clients automatically renew the SAS if necessary.** Clients should renew the SAS well before the expiration, in order to allow time for retries if the service providing the SAS is unavailable. This might be unnecessary in some cases. For example, you might intend for the SAS to be used for a small number of immediate, short-lived operations. These operations are expected to be completed within the expiration period. As a result, you are not expecting the SAS to be renewed. However, if you have a client that is routinely making requests via SAS, then the possibility of expiration comes into play.
 
 - **Be careful with SAS start time.** If you set the start time for a SAS to the current time, failures might occur intermittently for the first few minutes. This is due to different machines having slightly different current times (known as clock skew). In general, set the start time to be at least 15 minutes in the past. Or, don't set it at all, which will make it valid immediately in all cases. The same generally applies to expiry time as well--remember that you may observe up to 15 minutes of clock skew in either direction on any request. For clients using a REST version prior to 2012-02-12, the maximum duration for a SAS that does not reference a stored access policy is 1 hour. Any policies that specify a longer term than 1 hour will fail.
 
-- **Be careful with SAS datetime format.** For some utilities (such as AzCopy), you need datetime formats to be '+%Y-%m-%dT%H:%M:%SZ'. This format specifically includes the seconds. 
+- **Be careful with SAS datetime format.** For some utilities (such as AzCopy), you need datetime formats to be '+%Y-%m-%dT%H:%M:%SZ'. This format specifically includes the seconds.
 
 - **Be specific with the resource to be accessed.** A security best practice is to provide a user with the minimum required privileges. If a user only needs read access to a single entity, then grant them read access to that single entity, and not read/write/delete access to all entities. This also helps lessen the damage if a SAS is compromised because the SAS has less power in the hands of an attacker.
 

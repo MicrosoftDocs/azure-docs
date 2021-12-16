@@ -2,12 +2,8 @@
 title: SAP NetWeaver high availability installation on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure | Microsoft Docs
 description: SAP NetWeaver high availability installation on a Windows failover cluster and file share for SAP ASCS/SCS instances
 services: virtual-machines-windows,virtual-network,storage
-documentationcenter: saponazure
 author: rdeltcheva
-manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: 71296618-673b-4093-ab17-b7a80df6e9ac
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -16,7 +12,6 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2021
 ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-
 ---
 
 # Install SAP NetWeaver high availability on a Windows failover cluster and file share for SAP ASCS/SCS instances on Azure
@@ -35,9 +30,9 @@ ms.custom: H1Hack27Feb2017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 
-[s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[s2d-in-win-2016]:/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
-[new-in-win-2016-storage]:https://docs.microsoft.com/windows-server/storage/whats-new-in-storage
+[new-in-win-2016-storage]:/windows-server/storage/whats-new-in-storage
 
 [dbms-guide]:../../virtual-machines-windows-sap-dbms-guide.md
 

@@ -1,19 +1,18 @@
 ---
 title: 'Tutorial: Create a geofence and track devices on a Microsoft Azure Map'
 description: Tutorial on how to set up a geofence. See how to track devices relative to the geofence by using the Azure Maps Spatial service
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 7/06/2021
+author: stevemunk
+ms.author: v-munksteve
+ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
 ms.custom: mvc
 ---
 
 # Tutorial: Set up a geofence by using Azure Maps
 
-This tutorial walks you through the basics of creating and using Azure Maps geofence services. 
+This tutorial walks you through the basics of creating and using Azure Maps geofence services.
 
 Consider the following scenario:
 
@@ -22,6 +21,7 @@ Consider the following scenario:
 Azure Maps provides a number of services to support the tracking of equipment entering and exiting the construction area. In this tutorial, you will:
 
 > [!div class="checklist"]
+>
 > * Upload [Geofencing GeoJSON data](geofence-geojson.md) that defines the construction site areas you want to monitor. You'll use the [Data Upload API](/rest/api/maps/data-v2/upload-preview) to upload geofences as polygon coordinates to your Azure Maps account.
 > * Set up two [logic apps](../event-grid/handler-webhooks.md#logic-apps) that, when triggered, send email notifications to the construction site operations manager when equipment enters and exits the geofence area.
 > * Use [Azure Event Grid](../event-grid/overview.md) to subscribe to enter and exit events for your Azure Maps geofence. You set up two webhook event subscriptions that call the HTTP endpoints defined in your two logic apps. The logic apps then send the appropriate email notifications of equipment moving beyond or entering the geofence.
@@ -54,7 +54,7 @@ To upload the geofencing GeoJSON data:
 5. Enter the following URL. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```HTTP
-    https://us.atlas.microsoft.com/mapData?subscription-key={Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
+    https://us.atlas.microsoft.com/mapData?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=2.0&dataFormat=geojson
     ```
 
     The `geojson` parameter in the URL path represents the data format of the data being uploaded.
@@ -158,7 +158,7 @@ To upload the geofencing GeoJSON data:
 11. Copy the value of the **Operation-Location** key, which is the `status URL`. We'll use the `status URL` to check the status of the GeoJSON data upload.
 
     ```http
-    https://us.atlas.microsoft.com/mapData/operations/<operationId>?api-version=2.0
+    https://us.atlas.microsoft.com/mapData/operations/{operationId}?api-version=2.0
     ```
 
 ### Check the GeoJSON data upload status
@@ -176,7 +176,7 @@ To check the status of the GeoJSON data and retrieve its unique ID (`udid`):
 5. Enter the `status URL` you copied in [Upload Geofencing GeoJSON data](#upload-geofencing-geojson-data). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
    ```HTTP
-   https://us.atlas.microsoft.com/mapData/<operationId>?api-version=2.0&subscription-key={Subscription-key}
+   https://us.atlas.microsoft.com/mapData/{operationId}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
    ```
 
 6. Select **Send**.
@@ -204,7 +204,7 @@ To retrieve content metadata:
 5. Enter the `resource Location URL` you copied in [Check the GeoJSON data upload status](#check-the-geojson-data-upload-status). The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key):
 
     ```http
-    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Azure-Maps-Primary-Subscription-key}
+    https://us.atlas.microsoft.com/mapData/metadata/{udid}?api-version=2.0&subscription-key={Your-Azure-Maps-Primary-Subscription-key}
     ```
 
 6. In the response window, select the **Body** tab. The metadata should like the following JSON fragment:
@@ -222,7 +222,7 @@ To retrieve content metadata:
 
 ## Create workflows in Azure Logic Apps
 
-Next, we'll create two [logic app](../event-grid/handler-webhooks.md#logic-apps) endpoints that trigger an email notification. 
+Next, we'll create two [logic app](../event-grid/handler-webhooks.md#logic-apps) endpoints that trigger an email notification.
 
 To create the logic apps:
 
@@ -334,7 +334,7 @@ Each of the following sections makes API requests by using the five different lo
 5. Enter the following URL. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data)).
 
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.638237&lon=-122.1324831&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
 6. Select **Send**.
@@ -382,7 +382,7 @@ In the preceding GeoJSON response, the negative distance from the main site geof
 5. Enter the following URL. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data)).
 
    ```HTTP
-   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
+   https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udId={udId}&lat=47.63800&lon=-122.132531&searchBuffer=5&isAsync=True&mode=EnterAndExit
    ```
 
 6. Select **Send**.
@@ -430,7 +430,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 5. Enter the following URL. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data)).
 
     ```HTTP
-      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
+      https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63810783315048&lon=-122.13336020708084&searchBuffer=5&isAsync=True&mode=EnterAndExit
       ```
 
 6. Select **Send**.
@@ -481,7 +481,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 5. Enter the following URL. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data)).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.637988&userTime=2023-01-16&lon=-122.1338344&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 6. Select **Send**.
@@ -523,7 +523,7 @@ In the preceding GeoJSON response, the equipment has remained in the main site g
 5. Enter the following URL. The request should look like the following URL (replace `{Azure-Maps-Primary-Subscription-key}` with your primary subscription key, and `{udid}` with the `udid` you saved in the [Upload Geofencing GeoJSON data section](#upload-geofencing-geojson-data)).
 
     ```HTTP
-    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
+    https://atlas.microsoft.com/spatial/geofence/json?subscription-key={Your-Azure-Maps-Primary-Subscription-key}&api-version=1.0&deviceId=device_01&udid={udid}&lat=47.63799&lon=-122.134505&searchBuffer=5&isAsync=True&mode=EnterAndExit
     ```
 
 6. Select **Send**.

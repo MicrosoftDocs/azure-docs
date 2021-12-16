@@ -1,13 +1,13 @@
 ---
 title: Data collection and reporting | Azure Arc-enabled data services
-description: Explains the type of data that is transmitted by Arc enabled Data services to Microsoft. 
+description: Explains the type of data that is transmitted by Azure Arc-enabled Data services to Microsoft. 
 author: dnethi
 ms.author: dinethi
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 ms.topic: conceptual 
-ms.date: 04/27/2021
+ms.date: 07/30/2021
 ms.custom: template-concept 
 ---
 
@@ -15,7 +15,6 @@ ms.custom: template-concept
 
 This article describes the data that Azure Arc-enabled data services transmits to Microsoft. 
 
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
 
 ## Related products
 
@@ -24,6 +23,9 @@ Azure Arc-enabled data services may use some or all of the following products:
 - SQL MI – Azure Arc 
 - PostgreSQL Hyperscale – Azure Arc
 - Azure Data Studio
+
+   [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)]
+
 - Azure CLI (az)
 - Azure Data CLI (`azdata`) 
 
@@ -59,11 +61,11 @@ This section provides more details about the information included with the Azure
 
 ### Operational data
 
-Operational data is collected for all database instances and for the Arc enabled data services platform itself. There are two types of operational data: 
+Operational data is collected for all database instances and for the Azure Arc-enabled data services platform itself. There are two types of operational data: 
 
-- Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Arc enabled data services. You can view these metrics in the provided Grafana dashboard. 
+- Metrics – Performance and capacity related metrics, which are collected to an Influx DB provided as part of Azure Arc-enabled data services. You can view these metrics in the provided Grafana dashboard. 
 
-- Logs – logs emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Arc enabled data services. You can view the logs in the provided Kibana dashboard. 
+- Logs – logs emitted by all components including failure, warning, and informational events are collected to an Elasticsearch database provided as part of Azure Arc-enabled data services. You can view the logs in the provided Kibana dashboard. 
 
 The operational data stored locally requires built in administrative privileges to view it in Grafana/Kibana. 
 
@@ -79,8 +81,8 @@ Every database instance and the data controller itself will be reflected in Azur
 
 There are three resource types: 
 
-- Arc enabled SQL Managed Instance 
-- Arc enabled PostgreSQL Hyperscale server group 
+- Azure Arc-enabled SQL Managed Instance 
+- Azure Arc-enabled PostgreSQL Hyperscale server group 
 - SQL Server on Azure Arc-enabled servers 
 - Data controller 
 
@@ -89,7 +91,7 @@ The following sections show the properties, types, and descriptions that are col
 ### SQL Server on Azure Arc-enabled servers 
 - SQL Server edition. 
    - `string: Edition` 
-- Resource ID of the container resource (Azure Arc for Servers). 
+- Resource ID of the container resource (Azure Arc for Servers). 
    - `string: ContainerResourceId` 
 - Time when the resource was created. 
    - `string: CreateTime` 
@@ -253,11 +255,6 @@ In support situations, you may be asked to provide database instance logs, Kuber
 |Views    |Views can contain customer data but are restricted and shared only by user     |
 |Crash dumps – customer data | Maximum 30-day retention of crash dumps – may contain access control data <br/><br/> Statistics objects, data values within rows, query texts could be in customer crash dumps    |
 |Crash dumps – personal data | Machine, logins/ user names, emails, location information, customer identification – require user consent to be included  |
-
-### Customer experience improvement program (CEIP) (Telemetry) 
-
-Telemetry is used to track product usage metrics and environment information. 
-See [SQL Server privacy supplement](/sql/sql-server/sql-server-privacy/). 
 
 ## Next steps
 [Upload usage data to Azure Monitor](upload-usage-data.md)

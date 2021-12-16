@@ -7,8 +7,8 @@
     topicHref: /azure/virtual-machines/index
     items:
     - name: Workloads
-      tocHref: /azure/virtual-machines/workloads/index
-      topicHref: /azure/virtual-machines/workloads/index
+      tocHref: /azure/virtual-machines/workloads/sap/get-started
+      topicHref: /azure/virtual-machines/workloads/sap/get-started
       items:
       - name: SAP
         tocHref: /azure/backup/index 

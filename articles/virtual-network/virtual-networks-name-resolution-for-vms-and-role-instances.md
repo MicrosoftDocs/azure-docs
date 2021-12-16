@@ -144,8 +144,8 @@ The resolv.conf file is usually auto-generated, and should not be edited. The sp
   1. Add *timeout:1 attempts:5* to the **NETCONFIG_DNS_RESOLVER_OPTIONS=""** parameter in **/etc/sysconfig/network/config**.
   2. Run `netconfig update` to update.
 * **CentOS** (uses NetworkManager):
-  1. Add *echo "options timeout:1 attempts:5"* to **/etc/NetworkManager/dispatcher.d/11-dhclient**.
-  2. Update with `service network restart`.
+  1. Add the line *RES_OPTIONS="options timeout:1 attempts:5"* to the file **/etc/sysconfig/network-scripts/ifcfg-eth0**.
+  2. Update with `systemctl restart NetworkManager.service`.
 
 ## Name resolution that uses your own DNS server
 
@@ -187,7 +187,7 @@ If forwarding queries to Azure doesn't suit your needs, you should provide your 
 
 ### Web apps
 Suppose you need to perform name resolution from your web app built by using App Service, linked to a virtual network, to VMs in the same virtual network. In addition to setting up a custom DNS server that has a DNS forwarder that forwards queries to Azure (virtual IP 168.63.129.16), perform the following steps:
-1. Enable virtual network integration for your web app, if not done already, as described in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+1. Enable virtual network integration for your web app, if not done already, as described in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 2. In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
 
     ![Screenshot of virtual network name resolution](./media/virtual-networks-name-resolution-for-vms-and-role-instances/webapps-dns.png)
@@ -197,7 +197,7 @@ If you need to perform name resolution from your web app built by using App Serv
 * Set up a DNS server in your target virtual network, on a VM that can also forward queries to the recursive resolver in Azure (virtual IP 168.63.129.16). An example DNS forwarder is available in the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/dns-forwarder/) and [GitHub](https://github.com/Azure/azure-quickstart-templates/tree/master/demos/dns-forwarder).
 * Set up a DNS forwarder in the source virtual network on a VM. Configure this DNS forwarder to forward queries to the DNS server in your target virtual network.
 * Configure your source DNS server in your source virtual network's settings.
-* Enable virtual network integration for your web app to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
+* Enable virtual network integration for your web app to link to the source virtual network, following the instructions in [Integrate your app with a virtual network](../app-service/overview-vnet-integration.md?toc=%2fazure%2fvirtual-network%2ftoc.json).
 * In the Azure portal, for the App Service plan hosting the web app, select **Sync Network** under **Networking**, **Virtual Network Integration**.
 
 ## Specify DNS servers

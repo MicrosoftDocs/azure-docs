@@ -2,15 +2,16 @@
 title: Authenticate to Azure Communication Services
 titleSuffix: An Azure Communication Services concept document
 description: Learn about the various ways an app or service can authenticate to Communication Services.
-author: mikben
+author: probableprime
 
-manager: jken
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
+ms.author: rifox
 ms.date: 06/30/2021
 ms.topic: conceptual
 ms.service: azure-communication-services
+ms.subservice: identity
 ---
 
 # Authenticate to Azure Communication Services
@@ -50,6 +51,10 @@ To set up a managed identity, [create a registered application from the Azure CL
 ### User Access Tokens
 
 User access tokens are generated using the Identity SDK and are associated with users created in the Identity SDK. See an example of how to [create users and generate tokens](../quickstarts/access-tokens.md). Then, user access tokens are used to authenticate participants added to conversations in the Chat or Calling SDK. For more information, see [add chat to your app](../quickstarts/chat/get-started.md). User access token authentication is different compared to access key and managed identity authentication in that it is used to authenticate a user rather than a secured Azure resource.
+
+## Using identity for monitoring and metrics
+
+The user identity is intended to act as a primary key for logs and metrics collected through Azure Monitor. If you'd like to get a view of all of a specific user's calls, for example, you should set up your authentication in a way that maps a specific Azure Communication Services identity (or identities) to a singular user. Learn more about [log analytics](../concepts/analytics/log-analytics.md), and [metrics](../concepts/metrics.md) available to you.
 
 ## Next steps
 

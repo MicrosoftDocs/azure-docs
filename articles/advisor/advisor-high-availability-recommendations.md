@@ -2,13 +2,13 @@
 title: Improve reliability of your application with Advisor
 description: Use Azure Advisor to ensure and improve reliability in your business-critical Azure deployments.
 ms.topic: article
-ms.date: 09/27/2020
+ms.date: 10/26/2021
 
 ---
 
 # Improve the reliability of your application by using Azure Advisor
 
-Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations from Advisor on the **Reliability** tab of the Advisor dashboard.
+Azure Advisor helps you ensure and improve the continuity of your business-critical applications. You can get reliability recommendations on the **Reliability** tab of the [Azure Advisor](https://aka.ms/azureadvisordashboard).
 
 ## Check the version of your Check Point network virtual appliance image
 
@@ -55,6 +55,9 @@ Azure Advisor checks for any VPN gateways that use a Basic SKU and recommends th
 - Custom Ipsec/IKE policy. 
 - Higher stability and availability.
 
+## Ensure reliable outbound connectivity with VNet NAT
+Using default outbound connecitivty provided by a Standard Load Balancer or other Azure resources is not recommended for production workloads as this causes connection failures (also called SNAT port exhaustion). The recommended approach is using a VNet NAT which will prevent any failures of connectivty in this regard. NAT can scale seamlessly to ensure your application is never out ports. [Learn more about VNet NAT](../virtual-network/nat-gateway/nat-overview.md).
+
 ## Ensure virtual machine fault tolerance (temporarily disabled)
 
 To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies virtual machines that aren't part of an availability set and recommends moving them into one. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create an availability set for the virtual machine or to add the virtual machine to an existing availability set.
@@ -66,9 +69,9 @@ To provide redundancy for your application, we recommend that you group two or m
 
 To provide redundancy for your application, we recommend that you group two or more virtual machines in an availability set. Advisor identifies availability sets that contain a single virtual machine and recommends adding one or more virtual machines to it. This configuration ensures that during either planned or unplanned maintenance, at least one virtual machine is available and meets the Azure virtual machine SLA. You can choose to create a virtual machine or to add an existing virtual machine to the availability set.  
 
-## Use managed disks to improve data reliability (temporarily disabled)
+## Use managed disks to improve data reliability
 
-Virtual machines that are in an availability set with disks that share either storage accounts or storage scale units aren't resilient to failures to single storage scale units during outages. Advisor identifies these availability sets and recommends migrating to Azure managed disks. This migration will ensure that the disks of the virtual machines in the availability set are sufficiently isolated to avoid a single point of failure. 
+Virtual machines in an availability set with disks that share either storage accounts or storage scale units are not resilient to single storage scale unit failures during outages. Migrate to Azure managed disks to ensure that the disks of different VMs in the availability set are sufficiently isolated to avoid a single point of failure.
 
 ## Repair invalid log alert rules
 
@@ -110,13 +113,7 @@ Virtual machines that don't have replication enabled to another region aren't re
 The [Azure Connected Machine agent](../azure-arc/servers/manage-agent.md) is updated regularly with bug fixes, stability enhancements, and new functionality. We have identified resources which are not working on the latest version of machine agent and this Advisor recommendation will suggest you to upgrade your agent to the latest version for the best Azure Arc experience.
 
 ## Do not override hostname to ensure website integrity
-Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect urls being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the *.azurewebsites.net host name towards the backend.* [Learn more about custom domain](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
-
-## How to access high availability recommendations in Advisor
-
-1. Sign in to the [Azure portal](https://portal.azure.com), and then open [Advisor](https://aka.ms/azureadvisordashboard).
-
-2.	On the Advisor dashboard, select the **High Availability** tab.
+Advisor recommend to try avoid overriding the hostname when configuring Application Gateway. Having a different domain on the frontend of Application Gateway than the one which is used to access the backend can potentially lead to cookies or redirect URLs being broken. Note that this might not be the case in all situations and that certain categories of backends (like REST API's) in general are less sensitive to this. Please make sure the backend is able to deal with this or update the Application Gateway configuration so the hostname does not need to be overwritten towards the backend. When used with App Service, attach a custom domain name to the Web App and avoid use of the `*.azurewebsites.net` host name towards the backend. [Learn more about custom domain](../application-gateway/troubleshoot-app-service-redirection-app-service-url.md).
 
 ## Next steps
 

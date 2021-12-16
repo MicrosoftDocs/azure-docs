@@ -81,7 +81,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Screenshot shows a dialog box where you can select and upload a file.](common/browse-upload-metadata.png)
 
-	c. Once the metadata file is successfully uploaded, the necessary urls get auto populated automatically.
+	c. Once the metadata file is successfully uploaded, the necessary URLs get auto populated automatically.
 
 	d. In the **Sign-on URL** text box, type the URL:
     `https://login.rackspace.com/federate/`
@@ -179,7 +179,7 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 * Go to Rackspace SSO Sign-on URL directly and initiate the login flow from there.
 
-* You can use Microsoft My Apps. When you click the Rackspace SSO tile in the My Apps, this will redirect to Rackspace SSO Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft My Apps. When you click the Rackspace SSO tile in the My Apps, this will redirect to Rackspace SSO Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 You can also use the **Validate** button in the **Rackspace SSO** Single sign-on settings:
 
@@ -187,4 +187,4 @@ You can also use the **Validate** button in the **Rackspace SSO** Single sign-on
 
 ## Next steps
 
-Once you configure Rackspace SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Rackspace SSO you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

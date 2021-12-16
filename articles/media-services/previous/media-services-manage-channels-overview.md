@@ -10,7 +10,6 @@ ms.assetid: fb63502e-914d-4c1f-853c-4a7831bb08e8
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: ne
 ms.topic: article
 ms.date: 03/10/2021
 ms.author: inhenkel
@@ -19,8 +18,7 @@ ms.author: inhenkel
 
 [!INCLUDE [media services api v2 logo](./includes/v2-hr.md)]
 
-> [!NOTE]
-> No new features or functionality are being added to Media Services v2. <br/>Check out the latest version, [Media Services v3](../latest/index.yml). Also, see [migration guidance from v2 to v3](../latest/migrate-v-2-v-3-migration-introduction.md)
+[!INCLUDE [v2 deprecation notice](../latest/includes/v2-deprecation-notice.md)]
 
 ## Overview
 
@@ -158,7 +156,7 @@ The following table shows how Channel states map to the billing mode.
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## Related topics
-[Azure Media Services Fragmented MP4 Live Ingest Specification](../media-services-fmp4-live-ingest-overview.md)
+[Azure Media Services Fragmented MP4 Live Ingest Specification](media-services-fmp4-live-ingest-overview.md)
 
 [Working with Channels that are Enabled to Perform Live Encoding with Azure Media Services](media-services-manage-live-encoder-enabled-channels.md)
 
