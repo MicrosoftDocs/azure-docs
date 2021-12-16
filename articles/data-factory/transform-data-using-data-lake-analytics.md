@@ -22,6 +22,19 @@ A pipeline in an Azure Data Factory or Synapse Analytics workspace processes dat
 
 Create an Azure Data Lake Analytics account before creating a pipeline with a Data Lake Analytics U-SQL Activity. To learn about Azure Data Lake Analytics, see [Get started with Azure Data Lake Analytics](../data-lake-analytics/data-lake-analytics-get-started-portal.md).
 
+## Add a U-SQL activity for Azure Data Lake Analytics to a pipeline with UI
+
+To use a U-SQL activity for Azure Data Lake Analytics in a pipeline, complete the following steps:
+
+1. Search for _Data Lake_ in the pipeline Activities pane, and drag a U-SQL activity to the pipeline canvas.
+1. Select the new U-SQL activity on the canvas if it is not already selected.
+1. Select the  **ADLA Account** tab to select or create a new Azure Data Lake Analytics linked service that will be used to execute the U-SQL activity.
+
+   :::image type="content" source="media/transform-data-using-data-lake-analytics/u-sql-activity.png" alt-text="Shows the UI for a U-SQL activity.":::
+
+1. Select the **Script** tab to select or create a new storage linked service, and a path within the storage location, which will host the script.
+
+   :::image type="content" source="media/transform-data-using-data-lake-analytics/u-sql-script-configuration.png" alt-text="Shows the UI for the Script tab for a U-SQL activity.":::
 
 ## Azure Data Lake Analytics linked service
 You create an **Azure Data Lake Analytics** linked service to link an Azure Data Lake Analytics compute service to an Azure Data Factory or Synapse Analytics workspace. The Data Lake Analytics U-SQL activity in the pipeline refers to this linked service. 
