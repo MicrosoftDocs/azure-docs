@@ -1,6 +1,6 @@
 ---
 title: Configure TLS termination with Key Vault certificates - Portal
-description: Learn how how to use an Azure Portal to integrate your key vault with your application gateway for TLS/SSL termination certificates. 
+description: Learn how to use an Azure portal to integrate your key vault with your application gateway for TLS/SSL termination certificates. 
 author: gaking
 ms.author: tcsougan
 ms.service: application-gateway
@@ -9,13 +9,13 @@ ms.date: 10/01/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
-# Configure TLS termination with Key Vault certificates using Azure Portal
+# Configure TLS termination with Key Vault certificates using Azure portal
 
 [Azure Key Vault](../key-vault/general/overview.md) is a platform-managed secret store that you can use to safeguard secrets, keys, and TLS/SSL certificates. Azure Application Gateway supports integration with Key Vault for server certificates that are attached to HTTPS-enabled listeners. This support is limited to the Application Gateway v2 SKU.
 
 For more information, see [TLS termination with Key Vault certificates](key-vault-certs.md).
 
-This article shows you how to use Azure Portal to integrate your key vault with your application gateway for TLS/SSL termination certificates.
+This article shows you how to use Azure portal to integrate your key vault with your application gateway for TLS/SSL termination certificates.
 
 
 <!-- 3. Prerequisites 
@@ -27,7 +27,7 @@ Use clear and unambiguous language and use a list format.
 
 Before you begin, you must have an Azure subscription. If not, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
 
-## Configuration Steps
+## Configuration steps
 
 ### Create a resource group
 <!-- Introduction paragraph -->
@@ -62,7 +62,7 @@ Before you begin, you must have an Azure subscription. If not, create a [free ac
     Leave the other options to their defaults.
 5. After providing the information above, select **create**.
 
-:::image type="content" source="media/configure-keyvault-portal/create-keyvault.png" alt-text="screenshot of keyvault creation":::
+:::image type="content" source="media/configure-key-vault-portal/create-key-vault.png" alt-text="screenshot of key vault creation":::
 
 At this point, your Azure account is the only one authorized to perform operations on this new vault.
 
@@ -74,7 +74,7 @@ At this point, your Azure account is the only one authorized to perform operatio
 3. Input your Certificate name and complete all the required fields. 
 4. After providing the information above, select **Create**.
 
-:::image type="content" source="media/configure-keyvault-portal/create-keyvault-certificate.png" alt-text="Screenshot of keyvault certificate creation":::
+:::image type="content" source="media/configure-key-vault-portal/create-key-vault-certificate.png" alt-text="Screenshot of key vault certificate creation":::
 
 > [!Important]
 > Issuance policies only affect certificates that will be issued in the future. Modifying this issuance policy will not affect any existing certificates.
@@ -114,21 +114,21 @@ You'll create the application gateway using the tabs on the **Create an applicat
 
 2. For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
-> [!Note]
-[Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
+    > [!Note]
+    > [Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
-Under Configure virtual network, create a new virtual network by selecting Create new. In the Create virtual network window that opens, enter the following values to create the virtual network and two subnets:
+    Under Configure virtual network, create a new virtual network by selecting Create new. In the Create virtual network window that opens, enter the following values to create the virtual network and two subnets:
 
-Name: Enter myVNet for the name of the virtual network.
+    Name: Enter myVNet for the name of the virtual network.
 
-Subnet name (Application Gateway subnet): The Subnets grid will show a subnet named Default. Change the name of this subnet to myAGSubnet.
-The application gateway subnet can contain only application gateways. No other resources are allowed.
+    Subnet name (Application Gateway subnet): The Subnets grid will show a subnet named Default. Change the name of this subnet to myAGSubnet.
+    The application gateway subnet can contain only application gateways. No other resources are allowed.
 
-Subnet name (backend server subnet): In the second row of the Subnets grid, enter myBackendSubnet in the Subnet name column.
+    Subnet name (backend server subnet): In the second row of the Subnets grid, enter myBackendSubnet in the Subnet name column.
 
-Address range (backend server subnet): In the second row of the Subnets Grid, enter an address range that doesn't overlap with the address range of myAGSubnet. For example, if the address range of myAGSubnet is 10.0.0.0/24, enter 10.0.1.0/24 for the address range of myBackendSubnet.
+    Address range (backend server subnet): In the second row of the Subnets Grid, enter an address range that doesn't overlap with the address range of myAGSubnet. For example, if the address range of myAGSubnet is 10.0.0.0/24, enter 10.0.1.0/24 for the address range of myBackendSubnet.
 
-Select OK to close the Create virtual network window and save the virtual network settings.
+    Select OK to close the Create virtual network window and save the virtual network settings.
 
 3. On the Basics tab, accept the default values for the other settings and then select Next: Frontends.
 
@@ -137,8 +137,8 @@ Select OK to close the Create virtual network window and save the virtual networ
 1. On the Frontends tab, verify Frontend IP address type is set to Public.
 You can configure the Frontend IP to be Public or Private as per your use case. In this example, you'll choose a Public Frontend IP.
 
-> [!Note]
-For the Application Gateway v2 SKU, there must be a Public frontend IP configuration. You can still have both a Public and a Private frontend IP configuration, but Private only frontend IP configuration (Only ILB mode) is currently not enabled for the v2 SKU.
+   > [!Note]
+   > For the Application Gateway v2 SKU, there must be a Public frontend IP configuration. You can still have both a Public and a Private frontend IP configuration, but Private only frontend IP configuration (Only ILB mode) is currently not enabled for the v2 SKU.
 
 2. Select Add new for the Public IP address and enter myAGPublicIPAddress for the public IP address name, and then select OK.
 
@@ -191,21 +191,21 @@ Review the settings on the Review + create tab, and then select Create to create
 Add backend targets to your Backend Pool.
 
 
-### Create User-Assigned Managed Identity
+### Create user-assigned managed identity
 
 Search for 'Managed Identity'
-1. Create User Assigned Managed Identity
-2. Go back to Key Vault previously created
-3. Click on Access Policy
-4. Click 'Add access policy'
-5. Fill in the required level of permissions you need
-6. Select principal - click on 'None selected'
-7. Search for the managed identity name previously created and click select to use that one
+1. Create user assigned managed identity.
+2. Go back to Key Vault previously created.
+3. Select Access Policy.
+4. Select 'Add access policy'.
+5. Fill in the required level of permissions you need.
+6. Select principal - then choose 'None selected'.
+7. Search for the managed identity name previously created and use that one.
 Skip Application identity.
 
-:::image type="content" source="media/configure-keyvault-portal/create-user-assigned-identity.png" alt-text="Screenshot of user assigned identity creation":::
+:::image type="content" source="media/configure-key-vault-portal/create-user-assigned-identity.png" alt-text="Screenshot of user assigned identity creation":::
 
-For additional information on configuring Access Policy permissions and Key Vault Firewall permissions, please read below articles. 
+For additional information on configuring Access Policy permissions and Key Vault Firewall permissions, read below articles. 
 
 [Delegate user-assigned managed identity to Key Vault](./key-vault-certs.md#delegate-user-assigned-managed-identity-to-key-vault)
 
@@ -214,21 +214,21 @@ For additional information on configuring Access Policy permissions and Key Vaul
 ### Point the TLS/SSL certificate to your key vault by assigning the user-managed identity to the application gateway
 
 1. Go back to the application gateway previously configured
-2. Click on 'Listeners' and select 'Add listener' (this will be the HTTPS listener)
-3. Fill the in the below fields:
+2. Select 'Listeners' and then choose 'Add listener' (this will add the HTTPS listener)
+3. Complete the following fields:
 
-- Listener name: unique-name
-- Frontend IP: Public
-- Port: 443
-- Protocol: HTTPS
-- Https Settings: Choose a certificate from Key Vault
-- Cert name: unique-name
-- Managed identity: select the name of the managed identity previously created from above
-- Key vault: select name of key vault previously configured
-- Certificate: this should auto-populate the certificate(s) found in key vault
+    - Listener name: unique-name
+    - Frontend IP: Public
+    - Port: 443
+    - Protocol: HTTPS
+    - Https Settings: Choose a certificate from Key Vault
+    - Cert name: unique-name
+    - Managed identity: select the name of the managed identity previously created from above
+    - Key vault: select name of key vault previously configured
+    - Certificate: auto-populates the certificate(s) found in key vault
 Leave remaining selections as default
 
-:::image type="content" source="media/configure-keyvault-portal/applicationgateway-using-keyvault-cert.png" alt-text="Screenshot of application gateway using keyvault":::
+:::image type="content" source="media/configure-key-vault-portal/application-gateway-using-key-vault-cert.png" alt-text="Screenshot of application gateway using key vault":::
 
 <!-- 5. Next steps
 Required. Provide at least one next step and no more than three. Include some 
