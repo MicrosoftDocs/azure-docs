@@ -5,8 +5,8 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
 ms.date: 10/20/2021
+ms.custom: ignite-fall-2021, mode-ui
 #Customer intent: As a new user, I want to quickly get a LUIS app created so I can understand the model and actions to train, test, publish, and query.
-ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Build your app in LUIS portal

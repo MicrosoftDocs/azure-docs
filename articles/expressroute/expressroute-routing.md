@@ -6,7 +6,7 @@ author: duongau
 
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 09/19/2019
+ms.date: 12/07/2021
 ms.author: duau
 
 
@@ -259,7 +259,11 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | US Gov Texas | 12076:51108 |
 | US DoD Central | 12076:51209 |
 | US DoD East | 12076:51205 |
-
+| **China** |  |
+| China North | 12076:51301 |
+| China East | 12076:51302 |
+| China East 2| 12076:51303 |
+| China North 2 | 12076:51304 |
 
 | **Service in National Clouds** | **BGP community value** |
 | --- | --- |
@@ -269,6 +273,8 @@ In addition to the above, Microsoft will also tag prefixes based on the service 
 | Skype For Business Online |12076:5130 |
 | Azure Active Directory |12076:5160 |
 | Other Office 365 Online services |12076:5200 |
+
+* *Office 365 communities are not supported over Microsoft Peering for Azure China region.*
 
 ## Next steps
 * Configure your ExpressRoute connection.
