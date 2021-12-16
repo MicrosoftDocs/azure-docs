@@ -3,7 +3,6 @@ title: Create and provision IoT Edge devices using symmetric keys on Linux on Wi
 description: Use symmetric key attestation to test provisioning Linux on Windows devices at scale for Azure IoT Edge with device provisioning service
 author: kgremban
 ms.author: kgremban
-ms.reviewer: v-tcassi
 ms.date: 10/29/2021
 ms.topic: conceptual
 ms.service: iot-edge
@@ -76,7 +75,7 @@ For Windows Admin Center, use the following steps:
 
 ---
 
-## Verify successful configuration
+## Verify successful installation
 
 Verify that IoT Edge for Linux on Windows was successfully installed and configured on your IoT Edge device.
 

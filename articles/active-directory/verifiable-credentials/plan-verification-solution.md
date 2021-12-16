@@ -327,7 +327,7 @@ As part of your operational planning, consider monitoring the following:
 
    * Enable logging for Key Vault to track signing operations, as well as to monitor and alert on configuration changes. Refer to [How to enable Key Vault logging](../../key-vault/general/howto-logging.md) for more information.
 
-   * Archive logs in a security information and event management (SIEM) systems, such as [Azure Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for long-term retention.
+   * Archive logs in a security information and event management (SIEM) systems, such as [Microsoft Sentinel](https://azure.microsoft.com/services/azure-sentinel/) for long-term retention.
 
  
 

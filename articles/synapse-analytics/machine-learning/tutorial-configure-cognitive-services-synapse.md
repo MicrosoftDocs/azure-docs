@@ -9,7 +9,7 @@ ms.reviewer: jrasnick, garye
 ms.date: 11/20/2020
 author: nelgson
 ms.author: negust
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Quickstart: Configure prerequisites for using Cognitive Services in Azure Synapse Analytics
@@ -70,7 +70,7 @@ You can create a [Speech](https://ms.portal.azure.com/#create/Microsoft.Cognitiv
 ## Create a key vault and configure secrets and access
 
 1. Create a [key vault](https://ms.portal.azure.com/#create/Microsoft.KeyVault) in the Azure portal.
-2. Go to **Key Vault** > **Access policies**, and grant the [Azure Synapse workspace MSI](../security/synapse-workspace-managed-identity.md) permissions to read secrets from Azure Key Vault.
+2. Go to **Key Vault** > **Access policies**, and grant the [Azure Synapse workspace MSI](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) permissions to read secrets from Azure Key Vault.
 
    > [!NOTE]
    > Make sure that the policy changes are saved. This step is easy to miss.

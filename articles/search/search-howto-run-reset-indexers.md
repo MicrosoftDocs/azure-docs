@@ -166,5 +166,5 @@ After you reset and rerun indexer jobs, you can monitor status from the search s
 
 + [Indexer operations (REST)](/rest/api/searchservice/indexer-operations)
 + [Monitor search indexer status](search-howto-monitor-indexers.md)
-+ [Collect and analyze log data](search-monitor-logs.md)
++ [Collect and analyze log data](monitor-azure-cognitive-search.md)
 + [Schedule an indexer](search-howto-schedule-indexers.md)

@@ -16,7 +16,7 @@ ms.reviewer: alamaral
 #customer intent: As an admin, I want to manage user assignment for an app in Azure Active Directory using Powershell
 ---
 
-# Assign users and groups to an application in Azure Active Directory
+# Assign users and groups to an application
 
 This article shows you how to assign users and groups to an enterprise application in Azure Active Directory (Azure AD) using PowerShell. When you assign a user to an application, the application appears in the user's My Apps portal for easy access. If the application exposes roles, you can also assign a specific role to the user.
 
@@ -26,7 +26,7 @@ To assign users to an app using PowerShell, you need:
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - One of the following roles: Global Administrator, Cloud Application Administrator, Application Administrator, or owner of the service principal.
-- If you have not yet installed the AzureAD module (use the command `Install-Module -Name AzureAD`). If prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
+- If you have not yet installed the AzureAD module (use the command `Install-Module -Name AzureAD`). If you're prompted to install a NuGet module or the new Azure Active Directory V2 PowerShell module, type Y and press ENTER.
 - Azure Active Directory Premium P1 or P2 for group-based assignment. For more licensing requirements for the features discussed in this article, see the [Azure Active Directory pricing page](https://azure.microsoft.com/pricing/details/active-directory).
 - Optional: Completion of [Configure an app](add-application-portal-configure.md).
 

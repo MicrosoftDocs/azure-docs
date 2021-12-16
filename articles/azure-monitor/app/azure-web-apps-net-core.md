@@ -17,6 +17,8 @@ Enabling monitoring on your ASP.NET Core based web applications running on [Azur
 > [!IMPORTANT]
 > The following versions of ASP.NET Core are supported for auto-instrumentation on Windows: ASP.NET Core 3.1, 5.0 and 6.0. Versions 2.0, 2.1, 2.2, and 3.0 have been retired and are no longer supported. Please upgrade to a [supported version](https://dotnet.microsoft.com/platform/support/policy/dotnet-core) of .NET Core for auto-instrumentation to work.
 
+[Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
+
 See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
 
 # [Linux](#tab/Linux)
@@ -27,7 +29,7 @@ See the [enable monitoring section](#enable-monitoring ) below to begin setting 
 > [!NOTE]
 > Linux auto-instrumentation App Services portal enablement is in Public Preview. These preview versions are provided without a service level agreement. Certain features might not be supported or might have constrained capabilities.
 
- In Linux, [Framework-dependent deployment](/dotnet/core/deploying/#publish-framework-dependent) and [self-contained deployment](/dotnet/core/deploying/#publish-self-contained) are supported. 
+[Trim self-contained deployments](/dotnet/core/deploying/trimming/trim-self-contained) is **not supported**. Use [manual instrumentation](./asp-net-core.md) via code instead.
 
 See the [enable monitoring section](#enable-monitoring ) below to begin setting up Application Insights with your App Service resource. 
 

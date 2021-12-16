@@ -2,7 +2,7 @@
 title: Create an Azure portal dashboard with PowerShell
 description: Learn how to create a dashboard in the Azure portal using Azure PowerShell.
 ms.topic: quickstart
-ms.custom: devx-track-azurepowershell
+ms.custom: devx-track-azurepowershell, mode-api
 ms.date: 03/25/2021
 ---
 

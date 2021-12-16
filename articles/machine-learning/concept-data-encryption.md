@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.author: jhirono
 author: jhirono
 ms.reviewer: larryfr
-ms.date: 08/02/2021
+ms.date: 10/21/2021
 ---
 
 # Data encryption with Azure Machine Learning

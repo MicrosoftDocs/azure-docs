@@ -16,7 +16,7 @@ ms.custom: ignite-fall-2021
 
 [Computer Vision](../../cognitive-services/computer-vision/index.yml) is an [Azure Cognitive Service](../../cognitive-services/index.yml) that enables you to process images and return information based on the visual features. In this tutorial, you'll learn how to use [Computer Vision](../../cognitive-services/computer-vision/index.yml) to analyze images on Azure Synapse Analytics.
 
-This tutorial demonstrates using text analytics with [MMLSpark](https://github.com/Azure/mmlspark) to:
+This tutorial demonstrates using text analytics with [SynapseML](https://github.com/microsoft/SynapseML) to:
 
 > [!div class="checklist"]
 > - Extract visual features from the image content
@@ -182,4 +182,4 @@ To ensure the Spark instance is shut down, end any connected sessions(notebooks)
 ## Next steps
 
 * [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/main/MachineLearning) 
-* [MMLSpark GitHub Repo](https://github.com/Azure/mmlspark)
+* [SynapseML GitHub Repo](https://github.com/Azure/mmlspark)

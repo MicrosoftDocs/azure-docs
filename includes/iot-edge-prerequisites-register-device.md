@@ -7,7 +7,7 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-### Device registration
+### Device management tools
 
 You can use the **Azure portal**, **Visual Studio Code**, or **Azure CLI** for the steps to register you device. Each utility has its own prerequisites:
 
@@ -23,7 +23,9 @@ A free or standard [IoT hub](../articles/iot-hub/iot-hub-create-through-portal.m
 
 # [Azure CLI](#tab/azure-cli)
 
-* A free or standard [IoT hub](../articles/iot-hub/iot-hub-create-using-cli.md) in your Azure subscription.
-* [Azure CLI](/cli/azure/install-azure-cli) in your environment. At a minimum, your Azure CLI version must be 2.0.70 or newer. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
+* A free or standard [IoT hub](../articles/iot-hub/iot-hub-create-using-cli.md) in your Azure subscription
+* [Azure CLI](/cli/azure/install-azure-cli) in your environment
+
+  At a minimum, your Azure CLI version must be 2.0.70 or newer. Use `az --version` to validate. This version supports az extension commands and introduces the Knack command framework.
 
 ---

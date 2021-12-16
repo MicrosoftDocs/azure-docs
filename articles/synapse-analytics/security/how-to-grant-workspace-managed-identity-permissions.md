@@ -93,4 +93,4 @@ You should see your managed identity listed under the **Storage Blob Data Contri
 
 ## Next steps
 
-Learn more about [Workspace managed identity](./synapse-workspace-managed-identity.md)
+Learn more about [Workspace managed identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics)

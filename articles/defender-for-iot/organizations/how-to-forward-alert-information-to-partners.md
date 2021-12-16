@@ -1,17 +1,17 @@
 ---
 title: Forward alert information
 description: You can send alert information to partner systems by working with forwarding rules.
-ms.date: 08/29/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
 # Forward alert information
 
-You can send alert information to partners who are integrating with Azure Defender for IoT, to syslog servers, to email addresses, and more. Working with forwarding rules lets you quickly deliver alert information to security stakeholders.
+You can send alert information to partners who are integrating with Microsoft Defender for IoT, to syslog servers, to email addresses, and more. Working with forwarding rules lets you quickly deliver alert information to security stakeholders.
 
 Define criteria by which to trigger a forwarding rule. Working with forwarding rule criteria helps pinpoint and manage the volume of information sent from the sensor to external systems.
 
-Syslog and other default forwarding actions are delivered with your system. More forwarding actions might become available when you integrate with partner vendors, such as Microsoft Azure Sentinel, ServiceNow, or Splunk.
+Syslog and other default forwarding actions are delivered with your system. More forwarding actions might become available when you integrate with partner vendors, such as Microsoft Sentinel, ServiceNow, or Splunk.
 
 :::image type="content" source="media/how-to-work-with-alerts-sensor/alert-information-screen.png" alt-text="Alert information.":::
 
@@ -49,7 +49,7 @@ If validation is enabled and the certificate can not be verified, communication 
 
 The following Forwarding rules allow encryption and certificate validation:
 - Syslog CEF
-- Azure Sentinel
+- Microsoft Sentinel
 - QRadar
 
 ## Create forwarding rules
@@ -146,14 +146,14 @@ Enter the following parameters:
 | Date and time | Date and time that the syslog server machine received the information. |
 | Priority | User.Alert |
 | Hostname | Sensor IP address |
-| Message | CEF:0 <br />Azure Defender for IoT <br />Sensor name: The name of the sensor appliance. <br />Sensor version <br />Alert title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert. <br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br /> start: The time that the alert was detected. <br />Might vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br />src_ip: IP address of the source device.  <br />dst_ip: IP address of the destination device.<br />cat: The alert group associated with the alert.  |
+| Message | CEF:0 <br />Microsoft Defender for IoT <br />Sensor name: The name of the sensor appliance. <br />Sensor version <br />Alert title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert. <br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br /> start: The time that the alert was detected. <br />Might vary from the time of the syslog server machine, and depends on the time-zone configuration of the forwarding rule. <br />src_ip: IP address of the source device.  <br />dst_ip: IP address of the destination device.<br />cat: The alert group associated with the alert.  |
 
 | Syslog LEEF output format | Description |
 |--|--|
 | Date and time | Date and time that the syslog server machine received the information. |  
 | Priority | User.Alert |
 | Hostname | Sensor IP |
-| Message | Sensor name: The name of the Azure Defender for IoT appliance. <br />LEEF:1.0 <br />Azure Defender for IoT <br />Sensor  <br />Sensor version <br />Azure Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It may be different from the time of the syslog server machine. (This depends on the time-zone configuration.) <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
+| Message | Sensor name: The name of the Microsoft Defender for IoT appliance. <br />LEEF:1.0 <br />Microsoft Defender for IoT <br />Sensor  <br />Sensor version <br />Microsoft Defender for IoT Alert <br />title: The title of the alert. <br />msg: The message of the alert. <br />protocol: The protocol of the alert.<br />severity: **Warning**, **Minor**, **Major**, or **Critical**. <br />type: The type of the alert: **Protocol Violation**, **Policy Violation**, **Malware**, **Anomaly**, or **Operational**. <br />start: The time of the alert. It may be different from the time of the syslog server machine. (This depends on the time-zone configuration.) <br />src_ip: IP address of the source device.<br />dst_ip: IP address of the destination device. <br />cat: The alert group associated with the alert. |
 
 After you enter all the information, select **Submit**.
 

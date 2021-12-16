@@ -95,7 +95,7 @@ Dedicated resources can accommodate larger sampling and processing times for mor
 
 1. [Build an initial index](search-what-is-an-index.md) to determine how source data translates to an index. This is the only way to estimate index size. 
 
-1. [Monitor storage, service limits, query volume, and latency](search-monitor-usage.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
+1. [Monitor storage, service limits, query volume, and latency](monitor-azure-cognitive-search.md) in the portal. The portal shows you queries per second, throttled queries, and search latency. All of these values can help you decide if you selected the right tier.
 
 1. Add replicas if you need high availability or if you experience slow query performance.
 

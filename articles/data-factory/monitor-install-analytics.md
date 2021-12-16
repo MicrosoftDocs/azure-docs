@@ -1,8 +1,8 @@
 ---
 title: Install Azure Data Factory Analytics solution from Azure Marketplace 
 description: Learn how to install an Azure Data Factory Analytics solution from Azure Marketplace.
-author: jasonwhowell
-ms.author: jasonh
+author: joshuha-msft
+ms.author: joowen
 ms.reviewer: jburchel
 ms.service: data-factory
 ms.subservice: monitoring

@@ -7,17 +7,18 @@ ms.service: iot-edge
 services: iot-edge
 ---
 
-### IoT Edge for Linux on Windows installation
+### Device requirements
 
-A Windows device with the following minimum system requirements:
+A Windows device with the following minimum requirements:
 
-* Windows 10 version 1809 or later, build 17763 or later; or Windows 11 version 21H2 or later, build 22000 or later
+* System Requirements
+   * Windows 10<sup>1</sup>/11 (Pro, Enterprise, IoT Enterprise)
+   * Windows Server 2019<sup>1</sup>/2022  
+   <sub><sup>1</sup> Windows 10 and Windows Server 2019 minimum build 17763 with all current cumulative updates installed.</sub>
 
-* Professional, Enterprise, or Server (2019 or 2022) editions
-
-* Minimum Free Memory: 1 GB
-
-* Minimum Free Disk Space: 10 GB
+* Hardware requirements
+  * Minimum Free Memory: 1 GB
+  * Minimum Free Disk Space: 10 GB
 
 * Virtualization support
   * On Windows 10, enable Hyper-V. For more information, see [Install Hyper-V on Windows 10](/virtualization/hyper-v-on-windows/quick-start/enable-hyper-v).
@@ -34,6 +35,8 @@ A Windows device with the following minimum system requirements:
 > You will need to install the correct drivers depending on your GPU architecture, and you may need access to a Windows Insider Program build. To determine your configuration needs and satisfy these prerequisites, see [GPU acceleration for Azure IoT Edge for Linux on Windows](../articles/iot-edge/gpu-acceleration.md).
 >
 > Make sure you take the time to satisfy the prerequisites for GPU acceleration now. You will need to restart the installation process if you decide you want GPU acceleration during installation.
+
+### Developer tools
 
 You can use either **PowerShell** or **Windows Admin Center** to manage your IoT Edge devices. Each utility has its own prerequisites:
 

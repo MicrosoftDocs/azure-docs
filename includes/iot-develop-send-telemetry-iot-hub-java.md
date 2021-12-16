@@ -19,7 +19,7 @@ This quickstart runs on Windows, Linux, and Raspberry Pi. It's been tested on th
 
 - Windows 10
 - Ubuntu 20.04 LTS
-- Raspberry Pi OS version 10 (Raspian) running on a Raspberry Pi 3 Model B+
+- Raspberry Pi OS (Raspbian) version 10, running on a Raspberry Pi 3 Model B+
 
 Install the following prerequisites on your development machine except where noted for Raspberry Pi:
 
@@ -107,7 +107,7 @@ To complete this quickstart on Linux or Raspberry Pi OS, install the following s
 
 [!INCLUDE [iot-hub-include-create-hub-iot-explorer](iot-hub-include-create-hub-iot-explorer.md)]
 
-## Run a device
+## Run the device sample
 
 In this section, you use the Java SDK to send messages from a device to your IoT hub. You'll run a sample that implements a temperature controller with two thermostat sensors.
 

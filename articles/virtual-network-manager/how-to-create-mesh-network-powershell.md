@@ -26,7 +26,7 @@ In this article, you'll learn how to create a mesh network topology with Azure V
 
 This section will help you create a network group containing the virtual networks you'll be using for the hub-and-spoke network topology.
 
-1. Create a static virtual network member with [New-AzNetworkManagerGroupMembersItem](/powershell/module/az.network/new-aznetworkmanagergroupmembersitem).
+1. Create a static virtual network member with New-AzNetworkManagerGroupMembersItem.
 
     ```azurepowershell-interactive
     $member = New-AzNetworkManagerGroupMembersItem –ResourceId "/subscriptions/abcdef12-3456-7890-abcd-ef1234567890/resourceGroups/myAVNMResourceGroup/providers/Microsoft.Network/virtualNetworks/VNetA"
@@ -54,7 +54,7 @@ This section will help you create a network group containing the virtual network
     }' 
     ```
 
-1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) define previously using [New-AzNetworkManagerGroup](/powershell/module/az.network/new-aznetworkmanagergroup).
+1. Create the network group using either the static membership group (GroupMember) or the dynamic membership group (ConditionalMembership) define previously using New-AzNetworkManagerGroup.
 
     ```azurepowershell-interactive
     $ng = @{
@@ -72,7 +72,7 @@ This section will help you create a network group containing the virtual network
 
 This section will guide you through how to create a mesh configuration with the network group you created in the previous section.
 
-1. Create a connectivity group item to add a network group to with [New-AzNetworkManagerConnectivityGroupItem](/powershell/module/az.network/new-aznetworkmanagerconnectivitygroupitem).
+1. Create a connectivity group item to add a network group to with New-AzNetworkManagerConnectivityGroupItem.
 
     ```azurepowershell-interactive
     $gi = @{
@@ -88,7 +88,7 @@ This section will guide you through how to create a mesh configuration with the 
     $configGroup.Add($groupItem)
     ```
 
-1. Create the connectivity configuration with [New-AzNetworkManagerConnectivityConfiguration](/powershell/module/az.network/new-aznetworkmanagerconnectivityconfiguration).
+1. Create the connectivity configuration with New-AzNetworkManagerConnectivityConfiguration.
 
     ```azurepowershell-interactive
     $config = @{
@@ -103,7 +103,7 @@ This section will guide you through how to create a mesh configuration with the 
 
 ## Deploy the mesh configuration
 
-Commit the configuration to the target regions with [Deploy-AzNetworkManagerCommit](/powershell/module/az.network/deploy-aznetworkmanagercommit).
+Commit the configuration to the target regions with Deploy-AzNetworkManagerCommit.
 
 ```azurepowershell-interactive
 [System.Collections.Generic.List[string]]$configIds = @()  

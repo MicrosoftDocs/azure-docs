@@ -11,6 +11,7 @@ ms.workload: identity
 ms.date: 12/15/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ms.custom: mode-api
 ---
 
 # Configure managed identities for Azure resources on an Azure VM using Azure CLI

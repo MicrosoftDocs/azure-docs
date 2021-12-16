@@ -6,11 +6,14 @@ author: msjasteppe
 ms.custom: references_regions
 ms.service: healthcare-apis
 ms.topic: reference
-ms.date: 10/22/2021
+ms.date: 11/05/2021
 ms.author: jasteppe
 ---
 
 # Frequently asked questions about IoT connector
+
+> [!IMPORTANT]
+> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
 Here are some of the frequently asked questions about IoT connector.
 
@@ -32,9 +35,9 @@ The IoT connector currently only supports the persistence of [HL7 FHIR&#174; R4]
 
 ### What are the subscription quota limits for IoT connector?
 
-* 25 IoT Connectors per Subscription (adjustable with an Azure support request)
-* 10 IoT Connectors per Workspace (adjustable with an Azure support request)
-* One FHIR Destination* per IoT Connector (not adjustable)
+* 25 IoT connectors per Subscription (not adjustable)
+* 10 IoT connectors per Workspace (not adjustable)
+* One FHIR destination* per IoT connector (not adjustable)
 
 (* - FHIR Destination is a child resource of IoT connector)
 

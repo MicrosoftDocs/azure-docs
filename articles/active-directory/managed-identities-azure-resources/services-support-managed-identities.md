@@ -8,9 +8,9 @@ ms.date: 10/26/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: daveba
+manager: karenh444
 ms.collection: M365-identity-device-management
-ms.custom: references_regions
+ROBOTS: NOINDEX
 ---
 
 # Services that support managed identities for Azure resources
@@ -320,7 +320,7 @@ Refer to the following list to configure managed identity for Azure Service Fabr
 | User assigned | Not Available | Not Available | Not Available | Not Available |
 
 
-For more information, see [How to enable system-assigned managed identity for Azure Spring Cloud application](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md).
+For more information, see [How to enable system-assigned managed identity for applications in Azure Spring Cloud](../../spring-cloud/how-to-enable-system-assigned-managed-identity.md).
 
 ### Azure Stack Edge
 

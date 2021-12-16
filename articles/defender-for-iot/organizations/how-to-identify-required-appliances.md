@@ -1,7 +1,7 @@
 ---
 title: Identify required appliances 
 description: Learn about hardware and virtual appliances for certified Defender for IoT sensors and the on-premises management console. 
-ms.date: 06/21/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -266,7 +266,6 @@ After you purchase the appliance, go to **Defender for IoT** > **Network Sensors
 
 ## Next steps
 
-[About Azure Defender for IoT installation](how-to-install-software.md)
+[About Microsoft Defender for IoT installation](how-to-install-software.md)
 
-[About Azure Defender for IoT network setup](how-to-set-up-your-network.md)
-
+[About Microsoft Defender for IoT network setup](how-to-set-up-your-network.md)

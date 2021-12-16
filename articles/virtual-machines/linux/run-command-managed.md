@@ -33,6 +33,10 @@ The *updated* managed Run Command uses the same VM agent channel to execute scri
 - Passing secrets (parameters, passwords) in a secure manner
 
 
+## Register for preview
+
+You must register your subscription in order to use managed Run Command during public preview. Go to [set up preview features in Azure subscription](../../azure-resource-manager/management/preview-features.md) for registration instructions and use the feature name `RunCommandPreview`.
+
 ## Azure CLI 
 
 The following examples use [az vm run-command](/cli/azure/vm/run-command) to run shell script on an Azure Linux VM.
@@ -41,7 +45,7 @@ The following examples use [az vm run-command](/cli/azure/vm/run-command) to run
 This command will deliver the script to the VM, execute it, and return the captured output.
 
 ```azurecli-interactive
-az vm run-command set --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --script "echo Hello World!"
+az vm run-command create --name "myRunCommand" --vm-name "myVM" --resource-group "myRG" --script "echo Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a VM 
@@ -72,7 +76,7 @@ az vm run-command delete --name "myRunCommand" --vm-name "myVM" --resource-group
 This command will deliver the script to the VM, execute it, and return the captured output.
 
 ```powershell-interactive
-Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand" – Script "echo Hello World!"
+Set-AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" – Script "echo Hello World!"
 ```
 
 ### List all deployed RunCommand resources on a VM 
@@ -86,14 +90,14 @@ Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM"
 This command will retrieve current execution progress, including latest output, start/end time, exit code, and terminal state of the execution.
 
 ```powershell-interactive
-Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand" -Status
+Get-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName" -Status
 ```
 
 ### Delete RunCommand resource from the VM
 Remove the RunCommand resource previously deployed on the VM. If the script execution is still in progress, execution will be terminated. 
 
 ```powershell-interactive
-Remove-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "myRunCommand"
+Remove-AzVMRunCommand AzVMRunCommand -ResourceGroupName "myRG" -VMName "myVM" -Name "RunCommandName"
 ```
  
 

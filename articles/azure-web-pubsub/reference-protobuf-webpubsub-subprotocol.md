@@ -5,7 +5,7 @@ author: chenyl
 ms.author: chenyl
 ms.service: azure-web-pubsub
 ms.topic: conceptual 
-ms.date: 08/31/2021
+ms.date: 11/08/2021
 ---
 
 #  The Azure Web PubSub-supported protobuf WebSocket subprotocol
@@ -64,23 +64,24 @@ message UpstreamMessage {
 
     message SendToGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
         MessageData data = 3;
     }
 
     message EventMessage {
         string event = 1;
         MessageData data = 2;
+        optional uint64 ack_id = 3;
     }
     
     message JoinGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
     }
 
     message LeaveGroupMessage {
         string group = 1;
-        optional int32 ack_id = 2;
+        optional uint64 ack_id = 2;
     }
 }
 
@@ -99,7 +100,7 @@ Format:
 
 Set `join_group_message.group` to the group name.
 
-* `ackId` is optional. It's an incremental integer for this command message. If you specify `ackId`, the service sends an [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 ### Leave groups
 
@@ -107,13 +108,13 @@ Format:
 
 Set `leave_group_message.group` to the group name.
 
-* `ackId` is optional. It's an incremental integer for this command message. If you specify `ackId`, the service sends an [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 ### Publish messages
 
 Format:
 
-* `ackId` is optional. It's an incremental integer for this command message. If you specify `ackId`, the service sends an [ack response message](#ack-response) back to the client when the command is executed.
+* `ackId` is the identity of each request and should be unique. The service sends a [ack response message](#ack-response) to notify the process result of the request. More details can be found at [AckId and Ack Response](./concept-client-protocols.md#ackid-and-ack-response)
 
 There's an implicit `dataType`, which can be `protobuf`, `text`, or `binary`, depending on the `data` in `MessageData` you set. The receiver clients can use `dataType` to handle the content correctly.
 
@@ -342,7 +343,7 @@ message DownstreamMessage {
     }
     
     message AckMessage {
-        int32 ack_id = 1;
+        uint64 ack_id = 1;
         bool success = 2;
         optional ErrorMessage error = 3;
     

@@ -21,7 +21,7 @@ For more information about the built-in roles in Azure Purview, see the [Azure P
 ## Metadata Policy API Reference summary
 The following table gives an overview of the [Azure Purview Metadata Policy API Reference](/rest/api/purview/metadatapolicydataplane/Metadata-Policy). 
 
-Replace {pv-acc-name} with the name of your Azure Purview account before running these APIs. For instance, if your Azure Purview account name is *FabrikamPurviewAccount*, your API endpoints will become *FabrikamPurviewAccount.purview.azure.com*.
+> Note: Replace {pv-acc-name} with the name of your Azure Purview account before running these APIs. For instance, if your Azure Purview account name is *FabrikamPurviewAccount*, your API endpoints will become *FabrikamPurviewAccount.purview.azure.com*. The "api-version" parameter is subject to change. Please refer the [Purview Metadata policy REST API documentation](/rest/api/purview/metadatapolicydataplane/Metadata-Policy) for the latest "api-version" and the API signature.
 
 | API&nbsp;function | REST&nbsp;method | API&nbsp;endpoint | Description | 
 | :- | :- | :- | :- | 

@@ -36,7 +36,7 @@ Application packages provide benefits over other deployment and packaging method
 - Support for virtual machines, and both flexible and uniform scale sets
 
 - If you have Network Security Group (NSG) rules applied on your VM or scale set, downloading the packages from an internet repository might not be possible. And  with storage accounts, downloading packages onto locked-down VMs would require setting up private links.
-- VM applications can be used with the [DeployIfNotExists](/azure/governance/policy/concepts/effects) policy.
+- VM applications can be used with the [DeployIfNotExists](../governance/policy/concepts/effects.md) policy.
 
 
 ## What are VM app packages?
@@ -303,5 +303,3 @@ Get-AzVmss -name <VMSS name> -ResourceGroupName <resource group name> -InstanceV
 ## Next steps
 
 - Learn how to [create and deploy VM application packages](vm-applications-how-to.md).
-
-

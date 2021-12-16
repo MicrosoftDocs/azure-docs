@@ -9,7 +9,7 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
-ms.date: 06/11/2021
+ms.date: 10/21/2021
 ms.custom: designer, FY21Q4-aml-seo-hack, contperf-fy21q4
 ---
 
@@ -34,7 +34,7 @@ Complete [part one of the tutorial](tutorial-designer-automobile-price-train-sco
 
 ## Create a real-time inference pipeline
 
-To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training modules and adds web service inputs and outputs to handle requests.
+To deploy your pipeline, you must first convert the training pipeline into a real-time inference pipeline. This process removes training components and adds web service inputs and outputs to handle requests.
 
 ### Create a real-time inference pipeline
 
@@ -48,18 +48,18 @@ To deploy your pipeline, you must first convert the training pipeline into a rea
 
     When you select **Create inference pipeline**, several things happen:
     
-    * The trained model is stored as a **Dataset** module in the module palette. You can find it under **My Datasets**.
-    * Training modules like **Train Model** and **Split Data** are removed.
+    * The trained model is stored as a **Dataset** component in the component palette. You can find it under **My Datasets**.
+    * Training components like **Train Model** and **Split Data** are removed.
     * The saved trained model is added back into the pipeline.
-    * **Web Service Input** and **Web Service Output** modules are added. These modules show where user data enters the pipeline and where data is returned.
+    * **Web Service Input** and **Web Service Output** components are added. These components show where user data enters the pipeline and where data is returned.
 
     > [!NOTE]
-    > By default, the **Web Service Input** will expect the same data schema as the module output data which connects to the same downstream port as it. In this sample, **Web Service Input** and **Automobile price data (Raw)** connect to the same downstream module, hence **Web Service Input** expect the same data schema as **Automobile price data (Raw)** and target variable column `price` is included in the schema.
-    > However, usually When you score the data, you won't know the target variable values. For such case, you can remove the target variable column in the inference pipeline using **Select Columns in Dataset** module. Make sure that the output of **Select Columns in Dataset** removing target variable column is connected to the same port as the output of the **Web Service Intput** module.
+    > By default, the **Web Service Input** will expect the same data schema as the component output data which connects to the same downstream port as it. In this sample, **Web Service Input** and **Automobile price data (Raw)** connect to the same downstream component, hence **Web Service Input** expect the same data schema as **Automobile price data (Raw)** and target variable column `price` is included in the schema.
+    > However, usually When you score the data, you won't know the target variable values. For such case, you can remove the target variable column in the inference pipeline using **Select Columns in Dataset** component. Make sure that the output of **Select Columns in Dataset** removing target variable column is connected to the same port as the output of the **Web Service Intput** component.
 
 1. Select **Submit**, and use the same compute target and experiment that you used in part one.
 
-    If this is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each module to further improve efficiency.
+    If this is the first run, it may take up to 20 minutes for your pipeline to finish running. The default compute settings have a minimum node size of 0, which means that the designer must allocate resources after being idle. Repeated pipeline runs will take less time since the compute resources are already allocated. Additionally, the designer uses cached results for each component to further improve efficiency.
 
 1. Select **Deploy**.
 
@@ -144,19 +144,19 @@ If you make some modifications in your training pipeline, you should resubmit th
 
 Note that only trained models will be updated in the inference pipeline, while data transformation will not be updated.
 
-To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation module as dataset.
+To use the updated transformation in inference pipeline, you need to register the transformation output of the transformation component as dataset.
 
 ![Screenshot showing how to register transformation dataset](./media/tutorial-designer-automobile-price-deploy/register-transformation-dataset.png)
 
-Then manually replace the **TD-** module in inference pipeline with the registered dataset.
+Then manually replace the **TD-** component in inference pipeline with the registered dataset.
 
-![Screenshot showing how to replace transformation module](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
+![Screenshot showing how to replace transformation component](./media/tutorial-designer-automobile-price-deploy/replace-td-module.png)
 
 Then you can submit the inference pipeline with the updated model and transformation, and deploy.
 
 ### Deploy real-time endpoint
 
-Due to datstore access limitation, if your inference pipeline contains **Import Data** or **Export Data** module, they will be auto-removed when deploy to real-time endpoint.
+Due to datstore access limitation, if your inference pipeline contains **Import Data** or **Export Data** component, they will be auto-removed when deploy to real-time endpoint.
 
 ## Clean up resources
 

@@ -76,8 +76,9 @@ If you can't find the keys in your records, you can generate a new key from the 
 ### Known limitations
 
 The StorSimple Data Manager and Azure file shares have a few limitations you should consider before you begin your migration, as they can prevent a migration:
-* Only NTFS volumes from your StorSimple appliance are supported.
-* The service doesn't work with volumes that are BitLocker encrypted.
+* Only NTFS volumes from your StorSimple appliance are supported. ReFS volumes are not supported.
+* Any volume placed on [Windows Server Dynamic Disks](/troubleshoot/windows-server/backup-and-storage/best-practices-using-dynamic-disks) is not supported. (deprecated before Windows Server 2012)
+* The service doesn't work with volumes that are BitLocker encrypted or have [Data Deduplication](/windows-server/storage/data-deduplication/understand) enabled.
 * Corrupted StorSimple backups can't be migrated.
 * Special networking options, such as firewalls or private endpoint-only communication can't be enabled on either the source storage account where StorSimple backups are stored, nor on the target storage account that holds you Azure file shares.
 

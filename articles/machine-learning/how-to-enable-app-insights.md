@@ -7,7 +7,7 @@ ms.service: machine-learning
 ms.subservice: mlops
 ms.author: larryfr
 author: blackmist
-ms.date: 09/15/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, data4ml
 ---
