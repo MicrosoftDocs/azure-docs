@@ -17,7 +17,7 @@ Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Sear
 
 + [OCR](cognitive-search-skill-ocr.md) for optical character recognition of text and digits
 + [Image Analysis](cognitive-search-skill-image-analysis.md) that describe images through captions and tags
-+ [Custom skills](#Passing-images-to-custom-skills) to invoke any external image processing that you want to provide
++ [Custom skills](#passing-images-to-custom-skills) to invoke any external image processing that you want to provide
 
 Through OCR, you can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Through image analysis, you can generate a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
@@ -49,7 +49,7 @@ Parameters in indexer configuration enable image processing:
 
 ### Enable image normalization
 
-Image processing requires image normalization to makes images more uniform for downstream processing. This step occurs automatically and is internal to indexer processing. As a developer, your only action is to enable image normalization by setting the "imageAction" parameter in indexer configuration.
+Image processing requires image normalization to make images more uniform for downstream processing. This step occurs automatically and is internal to indexer processing. As a developer, your only action is to enable image normalization by setting the "imageAction" parameter in indexer configuration.
 
 Image normalization includes the following operations:
 
@@ -60,7 +60,7 @@ You cannot turn off image normalization. Skills that iterate over images, such a
 
 | Configuration Parameter | Description |
 |-------------------------|-------------|
-| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. </p>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking. </p>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types. </p>For any option that is not "none", the images will be exposed in the *normalized_images* field. </p>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata." </p>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
+| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. </p>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking. </p>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types. </p>For any option that is not "none", the images will be exposed in the *normalized_images* field. </p>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata". </p>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
 |  normalizedImageMaxWidth | The maximum width (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000. | 
 |  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.|
 
@@ -122,7 +122,7 @@ Whenever you invoke OCR or image analysis, the parsing mode must be "default". P
 
 ## Define a skillset
 
-This section supplements the [skill reference](cognitive-search-predefined-skills.md) articles by providing a wholistic introduction to skill inputs, outputs, and patterns, as they relate to image processing.
+This section supplements the [skill reference](cognitive-search-predefined-skills.md) articles by providing a holistic introduction to skill inputs, outputs, and patterns, as they relate to image processing.
 
 ### Inputs for image processing
 
@@ -196,7 +196,7 @@ Enriched documents are internal. To "externalize" their nodes, you'll create an 
 
 Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "captions" (image analysis), "tags" (image analysis):
 
-+ `"text"` stores OCR-generated output. This node is mapped to field of type Edm.Collection(string). There is one "text" field per search document consisting of comma-delimited strings for documents that contain multiple images. The following illustration shows OCR output for three documents. First is a document containing one image with no text. Second is a document containing one image  with the word "Microsoft". Third is a document containing multiple images, some with without any text (`"",`).
++ `"text"` stores OCR-generated output. This node is mapped to field of type `Collection(Edm.String)`. There is one "text" field per search document consisting of comma-delimited strings for documents that contain multiple images. The following illustration shows OCR output for three documents. First is a document containing one image with no text. Second is a document containing one image  with the word "Microsoft". Third is a document containing multiple images, some with without any text (`"",`).
 
     ```json
     "value": [
@@ -225,9 +225,9 @@ Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "capti
     ]
     ```
 
-+ `"layoutText"` stores OCR-generated information about text location on the page, described in terms of bounding boxes and coordinates of the normalized image. This node is mapped to field of type Edm.Collection(string). There is one "layoutText" field per search document consisting of comma-delimited strings.
++ `"layoutText"` stores OCR-generated information about text location on the page, described in terms of bounding boxes and coordinates of the normalized image. This node is mapped to field of type `Collection(Edm.String)`. There is one "layoutText" field per search document consisting of comma-delimited strings.
 
-+ `"merged_content"` stores the output of a Text Merge skill, and it will be one large field of type Edm.String that contains raw text from the source document, with embedded "text" in place of an image. If files are text-only, then OCR and image analysis have nothing to do, and "merged_content" will be the same as "content" (a blob property that contains the content of the blob).
++ `"merged_content"` stores the output of a Text Merge skill, and it will be one large field of type `Edm.String` that contains raw text from the source document, with embedded "text" in place of an image. If files are text-only, then OCR and image analysis have nothing to do, and "merged_content" will be the same as "content" (a blob property that contains the content of the blob).
 
 + `"ImageCaption"` captures a description of an image as individuals tags and a longer text description.
 
@@ -287,14 +287,15 @@ The [Azure Search python samples](https://github.com/Azure-Samples/azure-search-
 
 ## Processing embedded images in PDF and other files
 
-When you run OCR over source files that included documents with embedded images, the output is a single string containing all file contents, both text and image-origin text, achieved using this workflow.:  
+When you run OCR over source files that included documents with embedded images, the output is a single string containing all file contents, both text and image-origin text, achieved with this workflow:  
 
 1. The indexer cracks source documents, extracts text and images, and queues each content type for text and image processing.
-1. Images are normalized and provided as [`"document/normalized_images"`](#get-normalized-images).
+1. Images are normalized and passed into enriched documents as a [`"document/normalized_images"`](#get-normalized-images) node.
 1. OCR runs using `"/document/normalized_images"` as input.
 1. [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string.
+1. Indexers reference output field mappings to send skill outputs to fields in a search index.
 
-The following example skillset creates a *merged_text* field containing the textual content of your document. It also includes the OCRed text from each of the embedded images. 
+The following example skillset creates a "merged_text" field containing the textual content of your document. It also includes the OCRed text from each of the embedded images. 
 
 ### Request body syntax
 
