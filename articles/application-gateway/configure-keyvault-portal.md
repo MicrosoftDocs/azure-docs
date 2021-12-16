@@ -207,9 +207,9 @@ Skip Application identity.
 
 For additional information on configuring Access Policy permissions and Key Vault Firewall permissions, please read below articles. 
 
-[Delegate user-assigned managed identity to Key Vault](key-vault-certs#delegate-user-assigned-managed-identity-to-key-vault)
+[Delegate user-assigned managed identity to Key Vault](./key-vault-certs.md#delegate-user-assigned-managed-identity-to-key-vault)
 
-[Verify Firewall Permissions to Key Vault](key-vault-certs#verify-firewall-permissions-to-key-vault)
+[Verify Firewall Permissions to Key Vault](./key-vault-certs.md#verify-firewall-permissions-to-key-vault)
 
 ### Point the TLS/SSL certificate to your key vault by assigning the user-managed identity to the application gateway
 
@@ -238,7 +238,7 @@ context so the customer can determine why they would click the link.
 ## Next steps
 [Learn more about TLS termination](ssl-overview.md)
 
-[Learn more about Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/)
+[Learn more about Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/index.yml)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
