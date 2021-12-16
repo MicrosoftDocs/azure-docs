@@ -35,13 +35,13 @@ There are two non-interactive authentication models for Azure AD, which can be u
 - `Azure Active Directory - Password`
 - `Azure Active Directory - Integrated`
 
-The interactive method that also supports Azure AD Multi-Factor Authentication (MFA) is: 
+The interactive method that also supports Azure AD multi-factor authentication (MFA) is: 
 
 - `Azure Active Directory - Universal with MFA`
 
 Azure AD MFA helps safeguard access to data and applications while meeting user demand for a simple sign-in process. It delivers strong authentication with a range of easy verification options (phone call, text message, smart cards with pin, or mobile app notification), allowing users to choose the method they prefer. Interactive MFA with Azure AD can result in a pop-up dialog box for validation.
 
-For a description of Azure AD Multi-Factor Authentication, see [Multi-Factor Authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
+For a description of Azure AD multi-factor authentication, see [multi-factor authentication](../../active-directory/authentication/concept-mfa-howitworks.md).
 For configuration steps, see [Configure Azure SQL Database multi-factor authentication for SQL Server Management Studio](authentication-mfa-ssms-configure.md).
 
 ### Azure AD domain name or tenant ID parameter
@@ -66,7 +66,7 @@ Azure AD users that are supported for Azure AD B2B scenarios as guest users (see
 
 For example, if `steve@gmail.com` is invited to Azure AD `contosotest` (with the Azure AD domain `contosotest.onmicrosoft.com`), a user `steve@gmail.com` must be created for a specific database (such as **MyDatabase**) by an Azure AD SQL administrator or Azure AD DBO by executing the Transact-SQL `create user [steve@gmail.com] FROM EXTERNAL PROVIDER` statement. If `steve@gmail.com` is part of an Azure AD group, such as `usergroup` then this group must be created for a specific database (such as **MyDatabase**) by an Azure AD SQL administrator, or Azure AD DBO by executing the Transact-SQL statement `create user [usergroup] FROM EXTERNAL PROVIDER` statement. 
 
-After the database user or user group is created, then the user `steve@gmail.com` can sign into `MyDatabase` using the SSMS authentication option `Azure Active Directory – Universal with MFA`. By default, the user or usergroup only has connect permission. Any further data access will need to be [granted](/sql/t-sql/statements/grant-transact-sql) in the database by a user with enough privilege. 
+After the database user or group is created, then the user `steve@gmail.com` can sign into `MyDatabase` using the SSMS authentication option `Azure Active Directory – Universal with MFA`. By default, the user or group only has connect permission. Any further data access will need to be [granted](/sql/t-sql/statements/grant-transact-sql) in the database by a user with enough privilege. 
 
 > [!NOTE]
 > For SSMS 17.x, using `steve@gmail.com` as a guest user, you must check the **AD domain name or tenant ID** box and add the AD domain name `contosotest.onmicrosoft.com` in the **Connection Property** dialog box. The **AD domain name or tenant ID** option is only supported for the **Azure Active Directory - Universal with MFA** authentication. Otherwise, the check box it is greyed out.
