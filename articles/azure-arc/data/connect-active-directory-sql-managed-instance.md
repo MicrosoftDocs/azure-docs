@@ -15,7 +15,7 @@ ms.topic: how-to
 
 This article describes how to connect to SQL Managed Instance endpoint using Active Directory (AD) authentication. Before you proceed, make sure you have an AD-integrated Azure Arc-enabled SQL Managed Instance deployed already.
 
-See [Tutorial – Deploy AD-integrated SQL Managed Instance (Bring Your Own Keytab)](deploy-active-directory-sqlmi.md) to deploy a Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication enabled.
+See [Tutorial – Deploy AD-integrated SQL Managed Instance (Bring Your Own Keytab)](deploy-active-directory-sql-managed-instance.md) to deploy a Azure Arc-enabled SQL Managed Instance with Active Directory (AD) Authentication enabled.
 
 ## Create Active Directory logins in SQL Managed Instance
 
@@ -50,7 +50,7 @@ kinit <username>@<REALM>
 sqlcmd -S <Endpoint DNS name>,<Endpoint port number> -E
 ```
 
-For connecting using the `CONTOSO\admin` AD account to the SQL Managed Instance with endpoint sqlmi.contoso.local at port 31433, the '-E' is used when using the integrated authentification, the commands should look like the following: 
+For connecting using the `CONTOSO\admin` AD account to the SQL Managed Instance with endpoint sqlmi.contoso.local at port 31433, the '-E' is used when using the integrated authentication, the commands should look like the following: 
 
 ```bash
 kinit admin@CONTOSO.LOCAL

@@ -220,9 +220,9 @@ items:
             - name: Deploy connector
               href: deploy-active-directory-connector.md
             - name: Deploy SQL Managed Instance
-              href: deploy-active-directory-sqlmi.md
+              href: deploy-active-directory-sql-managed-instance.md
             - name: Connect SQL Managed Instance
-              href: connect-active-directory-sqlmi.md              
+              href: connect-active-directory-sql-managed-instance.md              
         - name: Configure business continuity
           items:
             - name: Point in time restore
