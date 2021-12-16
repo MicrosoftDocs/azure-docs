@@ -50,7 +50,7 @@ kinit <username>@<REALM>
 sqlcmd -S <Endpoint DNS name>,<Endpoint port number> -E
 ```
 
-For connecting using the `CONTOSO\admin` AD account to the SQL Managed Instance with endpoint sqlmi.contoso.local at port 31433, the '-E' is used when using the integrated authentication, the commands should look like the following: 
+For connecting using the CONTOSO\admin AD account to the SQL Managed Instance with endpoint sqlmi.contoso.local at port 31433, the commands should look like the following. The -E argument is used to perform Integrated Authentication.
 
 ```bash
 kinit admin@CONTOSO.LOCAL
