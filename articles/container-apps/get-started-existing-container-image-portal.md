@@ -122,6 +122,10 @@ If you enabled ingress, configure the following settings:
 
 ### Verify deployment
 
+You can verify your deployment is successful by querying the Log Analytics workspace. You may need to wait a 5 to 10 minutes for the analytics to arrive for the first time before you are able to query the logs.
+
+After about 5 to 10 minutes has passed after creating the container app, use the following steps to view logged messages.
+
 1. Select **Go to resource** to view your new container app.
 1. Select **Logs** under the *Monitoring* header.
 1. Select the **Load to editor** button from any of the cards.

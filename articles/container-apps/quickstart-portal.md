@@ -54,7 +54,15 @@ In the *Basics* tab, do the following actions.
     | Environment name | Enter **my-environment**. |
     | Region | Select **Canada Central**. |
 
-Now that can deploy the container app using the sample container image.
+1. Select the **Monitoring** tab to create a Log Analytics workspace.
+1. Select **Create new** in the *Log Analytics workspace* field.
+1. Enter **my-container-apps-logs** in the *Name* field of the *Create new Log Analytics Workspace* dialog.
+  
+    The *Location* field is pre-filled with *Canada Central* for you.
+
+1. Select **OK**.
+1. Select the **Create** button at the bottom of the *Create Container App Environment* page.
+1. Select the **Next: App settings** button at the bottom of the page.
 
 ### Deploy the container app
 
