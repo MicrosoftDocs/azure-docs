@@ -686,7 +686,7 @@ sections:
           Linux VM extension validations require the following to be part of the image:
           
           - Azure Linux Agent greater 2.2.41
-          - Python version above 2.8 
+          - Python version above 2.6+ 
           
           For more information, please visit [VM Extension](../virtual-machines/extensions/diagnostics-linux.md).
                
