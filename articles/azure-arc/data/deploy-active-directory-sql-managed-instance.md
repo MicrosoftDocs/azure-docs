@@ -95,8 +95,6 @@ the Active Directory domain and provide to the deployment.
 
    For SQL Managed Instance to be able to authenticate itself to Active Directory and accept authentication from Active Directory users, provide a keytab file using a Kubernetes secret.
 
-   using a Kubernetes secret.
-
    The keytab file contains encrypted entries for the Active Directory account generated for SQL Managed Instance and the SPNs.
 
    SQL Server will use this file as its credential against Active Directory.
