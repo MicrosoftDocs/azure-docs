@@ -19,8 +19,6 @@ For information on setup and configuration details, see the [overview](./functio
 
 ::: zone pivot="programming-language-csharp"
 
-<!--Optional intro text goes here, followed by the C# modes include.-->
-
 [!INCLUDE [functions-bindings-csharp-intro](../../includes/functions-bindings-csharp-intro.md)]
 
 # [In-process](#tab/in-process)
@@ -43,10 +41,7 @@ public static class QueueFunctions
 
 # [Isolated process](#tab/isolated-process)
 
-<!--add a link to the extension-specific code example in this repo: https://github.com/Azure/azure-functions-dotnet-worker/blob/main/samples/Extensions/ as in the following example:-->
-
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="9-31":::
-
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_output_binding" :::
 
 # [C# Script](#tab/csharp-script)
 
@@ -324,18 +319,8 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+The attribute that defines an output binding in C# libraries depends on the mode in which the C# class library runs. C# script instead uses a function.json configuration file.
 
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
-
--->
 
 # [In-process](#tab/in-process)
 
@@ -363,27 +348,36 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-For a complete example, see [Output example](#example).
-
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
 
 # [Isolated process](#tab/isolated-process)
 
-<!-- C# attribute information for the trigger goes here with an intro sentence. Use a code link like the following to show the method definition: 
--->
+When running in an isolated process, you use the [QueueOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Storage.Queues/src/QueueOutputAttribute.cs), which takes the name of the queue, as shown in the following example:
 
-:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="13-17":::
+:::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" id="docsnippet_queue_trigger" :::
+
+Only returned variables are supported when running in an isolated process. Output parameters can't be used. 
 
 # [C# script](#tab/csharp-script)
 
-Attributes are not supported by C# Script.
+C# script uses a function.json file for configuration instead of attributes.
+
+The following table explains the binding configuration properties that you set in the *function.json* file and the `Queue` attribute.
+
+|function.json property | Description|
+|---------|----------------------|
+|**type** |Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** |  Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** |  The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
+|**queueName** | The name of the queue. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 ---
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-The `QueueOutput` annotation allows you to write a message as the output of a function. The following example shows an HTTP-triggered function that creates a queue message.
+The [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation allows you to write a message as the output of a function. The following example shows an HTTP-triggered function that creates a queue message.
 
 ```java
 package com.function;
@@ -410,24 +404,23 @@ public class HttpTriggerQueueOutput {
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
 
-The parameter associated with the `QueueOutput` annotation is typed as an [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) instance.
+The parameter associated with the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation is typed as an [OutputBinding\<T\>](/java/api/com.microsoft.azure.functions.outputbinding) instance.
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python,programming-language-csharp,programming-language-java"  
+::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration
 
-The following table explains the binding configuration properties that you set in the *function.json* file and the `Queue` attribute.
+The following table explains the binding configuration properties that you set in the *function.json* file.
 
-|function.json property | Attribute property |Description|
-|---------|---------|----------------------|
-|**type** | n/a | Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
-|**direction** | n/a | Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
-|**name** | n/a | The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
-|**queueName** |**QueueName** | The name of the queue. |
-|**connection** | **Connection** |The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
+|function.json property | Description|
+|---------|-----------------------|
+|**type** |Must be set to `queue`. This property is set automatically when you create the trigger in the Azure portal.|
+|**direction** |  Must be set to `out`. This property is set automatically when you create the trigger in the Azure portal. |
+|**name** |  The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
+|**queueName** | The name of the queue. |
+|**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 ::: zone-end  
 
 See the [Example section](#example) for complete examples.
@@ -435,11 +428,45 @@ See the [Example section](#example) for complete examples.
 ## Usage
 
 ::: zone pivot="programming-language-csharp"  
-The parameter type supported by the Event Grid trigger depends on the Functions runtime version, the extension package version, and the C# modality used.
+The usage of the Queue output binding depends on the extension package version and the C# modality used in your function app, which can be one of the following:
 
-# [In-process](#tab/in-process)
+# [In-process class library](#tab/in-process)
 
-### Default
+An in-process class library is a compiled C# function runs in the same process as the Functions runtime.
+ 
+# [Isolated process](#tab/isolated-process)
+
+An isolated process class library compiled C# function runs in a process isolated from the runtime. Isolated process is required to support C# functions running on .NET 5.0.  
+   
+# [C# script](#tab/csharp-script)
+
+C# script is used primarily when creating C# functions in the Azure portal.
+
+---
+
+Choose a version to see usage details for the mode and version. 
+
+# [Extension 5.x and higher](#tab/extensionv5/in-process)
+
+Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
+
+* An object serializable as JSON
+* `string`
+* `byte[]`
+* [QueueMessage]
+
+For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
+You can write multiple messages to the queue by using one of the following types: 
+
+* `ICollector<T>` or `IAsyncCollector<T>`
+* [QueueClient]
+
+For examples using [QueueMessage] and [QueueClient], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
+
+[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
+
+# [Extension 2.x and higher](#tab/extensionv2/in-process)
 
 Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
@@ -448,64 +475,67 @@ Write a single queue message by using a method parameter such as `out T paramNam
 * `byte[]`
 * [CloudQueueMessage] 
 
-If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
-In C# and C# script, write multiple queue messages by using one of the following types: 
+You can write multiple messages to the queue by using one of the following types: 
 
 * `ICollector<T>` or `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
 
-### Additional types
+[!INCLUDE [functions-bindings-queue-storage-attribute](../../includes/functions-bindings-queue-storage-attribute.md)]
 
-Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueue` and `CloudQueueMessage` types in favor of the following types:
+# [Extension 5.x and higher](#tab/extensionv5/isolated-process)
 
-- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
-- [QueueClient](/dotnet/api/azure.storage.queues.queueclient) for writing multiple queue messages
+Isolated process currently only supports binding to string parameters.
+
+# [Extension 2.x and higher](#tab/extensionv2/isolated-process)
+
+Isolated process currently only supports binding to string parameters.
+
+# [Extension 5.x and higher](#tab/extensionv5/csharp-script)
+
+Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
+
+* An object serializable as JSON
+* `string`
+* `byte[]`
+* [QueueMessage]
 
 For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
+You can write multiple messages to the queue by using one of the following types: 
 
-# [Isolated process](#tab/isolated-process)
+* `ICollector<T>` or `IAsyncCollector<T>`
+* [QueueClient]
 
-<!--If available, call out any usage information from the linked example in the worker repo. -->
+For examples using [QueueMessage] and [QueueClient], see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
-# [C# script](#tab/csharp-script)
+# [Extension 2.x and higher](#tab/extensionv2/csharp-script)
 
-### Default
-
-Write a single queue message by using a method parameter such as `out T paramName`. The `paramName` is the value specified in the `name` property of *function.json*. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
+Write a single queue message by using a method parameter such as `out T paramName`. You can use the method return type instead of an `out` parameter, and `T` can be any of the following types:
 
 * An object serializable as JSON
 * `string`
 * `byte[]`
 * [CloudQueueMessage] 
 
-If you try to bind to `CloudQueueMessage` and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
+If you try to bind to [CloudQueueMessage] and get an error message, make sure that you have a reference to [the correct Storage SDK version](functions-bindings-storage-queue.md#azure-storage-sdk-version-in-functions-1x).
 
-In C# and C# script, write multiple queue messages by using one of the following types: 
+You can write multiple messages to the queue by using one of the following types: 
 
 * `ICollector<T>` or `IAsyncCollector<T>`
 * [CloudQueue](/dotnet/api/microsoft.azure.storage.queue.cloudqueue)
-
-### Additional types
-
-Apps using the [5.0.0 or higher version of the Storage extension](./functions-bindings-storage-queue.md#storage-extension-5x-and-higher) may also use types from the [Azure SDK for .NET](/dotnet/api/overview/azure/storage.queues-readme). This version drops support for the legacy `CloudQueue` and `CloudQueueMessage` types in favor of the following types:
-
-- [QueueMessage](/dotnet/api/azure.storage.queues.models.queuemessage)
-- [QueueClient](/dotnet/api/azure.storage.queues.queueclient) for writing multiple queue messages
-
-For examples using these types, see [the GitHub repository for the extension](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Microsoft.Azure.WebJobs.Extensions.Storage.Queues#examples).
 
 ---
 
 ::: zone-end  
 <!--Any of the below pivots can be combined if the usage info is identical.-->
 ::: zone pivot="programming-language-java"
-There are two options for outputting an Queue message from a function by using the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation:
+There are two options for writing to a queue from a function by using the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation:
 
-- **Return value**: By applying the annotation to the function itself, the return value of the function is persisted as an Queue message.
+- **Return value**: By applying the annotation to the function itself, the return value of the function is written to the queue.
 
-- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method persists the value as an Queue message.
+- **Imperative**: To explicitly set the message value, apply the annotation to a specific parameter of the type [`OutputBinding<T>`](/java/api/com.microsoft.azure.functions.outputbinding), where `T` is a POJO or any native Java type. With this configuration, passing a value to the `setValue` method writes the value to the queue.
 
 ::: zone-end  
 ::: zone pivot="programming-language-javascript"
@@ -520,13 +550,15 @@ Output to the queue message is available via `Push-OutputBinding` where you pass
 ::: zone-end   
 ::: zone pivot="programming-language-python"
   
-There are two options for outputting an Queue message from a function:
+There are two options for writing from your function to the configured queue:
 
 - **Return value**: Set the `name` property in *function.json* to `$return`. With this configuration, the function's return value is persisted as a Queue storage message.
 
 - **Imperative**: Pass a value to the [set](/python/api/azure-functions/azure.functions.out#set-val--t-----none) method of the parameter declared as an [Out](/python/api/azure-functions/azure.functions.out) type. The value passed to `set` is persisted as a Queue storage message.
 
 ::: zone-end  
+
+[!INCLUDE [functions-storage-queue-connections](../../includes/functions-storage-queue-connections.md)]
 
 ## Exceptions and return codes
 
@@ -543,3 +575,5 @@ There are two options for outputting an Queue message from a function:
 <!-- LINKS -->
 
 [CloudQueueMessage]: /dotnet/api/microsoft.azure.storage.queue.cloudqueuemessage
+[QueueMessage]: /dotnet/api/azure.storage.queues.models.queuemessage
+[QueueClient]: /dotnet/api/azure.storage.queues.queueclient
