@@ -63,7 +63,7 @@ Now, install the necessary software and make any custom configuration changes on
 
 - If it is a scheduled run-once task, the task should delete itself after it successfully completes.
 - Configurations should not rely on drives other than C or D, because only these two drives are always guaranteed to exist (drive C is the operating system disk and drive D is the temporary local disk).
-- Make any technical configuration changes necessary for your solution. The configurations you make on your VM will later be flagged within the **Properties** section on the technical configuration page within Partner Center. The properties you select during publishing will denote to your customer which scenarios are supported. Configure the following technical configuration properties if necessary for your solution:
+- Make any technical configuration changes necessary for your solution. Later, you will flag the configurations you make on your VM in the **Properties** section of the **Technical Configuration** page in Partner Center. This will show your customers which scenarios are supported based on the configuration changes you make now. Select from the following technical configuration properties during publishing:
     - Supports backup
     - Supports accelerated networking
     - Supports cloud-init configuration
