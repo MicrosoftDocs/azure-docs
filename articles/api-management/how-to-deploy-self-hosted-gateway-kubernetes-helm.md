@@ -41,7 +41,6 @@ This article provides the steps for deploying self-hosted gateway component of A
    ...Successfully got an update from the "azure-apim-gateway" chart repository
    Update Complete. ⎈Happy Helming!⎈
    ```
-   ```
 
 3. Verify your Helm configuration by listing all available charts.
 
