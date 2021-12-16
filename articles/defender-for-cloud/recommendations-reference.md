@@ -1,11 +1,8 @@
 ---
 title: Reference table for all Microsoft Defender for Cloud recommendations 
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your resources.
-author: memildin
-ms.service: defender-for-cloud
 ms.topic: reference
 ms.date: 09/05/2021
-ms.author: memildin
 ms.custom: generated
 ---
 # Security recommendations - a reference guide

@@ -26,12 +26,18 @@ The following sections provide information about known issues associated with th
 
 iOS 15.1 introduced a bug that affects the majority of Communication Services calls with video that are placed in iOS with Safari. Specifically, the problem occurs when a user joins a Communication Services call or a meeting in Microsoft Teams by using Communication Services on iOS 15.1 on any browser with video turned on. This set of circumstances causes the Safari browser to crash.
 
-We managed to bypass that bug, now users will be able to join calls with video on iOS 15.1 also with two limitations:
+We managed to bypass that bug and now users will be able to join calls with video on iOS 15.1 but that uncovered other issues with Webkit.
 
 * Orientation on the receiver's end won't be correct. Mitigation: Switch device orientation to horizontal.
 * Going to background will refresh user's call. Mitigation: Stop video before going to background.
 
-This is a [known bug on iOS 15.1 with Safari](https://bugs.webkit.org/show_bug.cgi?id=231505). You should prevent users from using (turning on) any video when using iOS 15.1 with Safari for Communication Services video calls. You should also prevent this activity for video call meetings between Microsoft Teams and Communication Services.
+This is a [known bug on iOS 15.1 with Safari](https://bugs.webkit.org/show_bug.cgi?id=231505).
+
+### Android 12 causes video artifacts when user is sending video in a call
+
+Android 12 introduced a bug that affects outgoing video on all Chromium based browsers. Specifically, the problem occurs when a user joins a call using Communication Services on Android 12 with video turned on. The video will render on the receiver's end with artifacts. 
+
+This is a [known bug on Android 12](https://bugs.chromium.org/p/chromium/issues/detail?id=1237677).
 
 ### Refreshing a page doesn't immediately remove the user from their call
 

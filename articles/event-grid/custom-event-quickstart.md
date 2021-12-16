@@ -2,8 +2,8 @@
 title: 'Quickstart: Send custom events with Event Grid and Azure CLI'
 description: 'Quickstart Use Azure Event Grid and Azure CLI to publish a custom topic, and subscribe to events for that topic. The events are handled by a web application.'
 ms.date: 07/01/2021
-ms.topic: quickstart 
-ms.custom: devx-track-azurecli
+ms.topic: quickstart
+ms.custom: devx-track-azurecli, mode-other
 ---
 # Quickstart: Route custom events to web endpoint with Azure CLI and Event Grid
 

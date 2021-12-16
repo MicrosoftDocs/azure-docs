@@ -328,7 +328,7 @@ $storageAccountName = "<YourStorageAccountName>"
 $shareName="<YourStorageAccountFileShareName>"
 
 # update quota
-Set-AzRmStorageShare `
+Update-AzRmStorageShare `
     -ResourceGroupName $resourceGroupName `
     -StorageAccountName $storageAccountName `
     -Name $shareName `

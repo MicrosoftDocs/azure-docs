@@ -7,7 +7,7 @@ ms.date: 12/6/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-js
+ms.custom: devx-track-js, mode-other
 ---
 
 # Quickstart: Azure Key Vault key client library for JavaScript (version 4)

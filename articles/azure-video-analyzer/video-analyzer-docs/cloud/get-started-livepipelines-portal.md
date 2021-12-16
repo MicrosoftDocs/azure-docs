@@ -4,7 +4,7 @@ description: This quickstart walks you through the steps to capture and record v
 ms.service: azure-video-analyzer
 ms.topic: quickstart
 ms.date: 11/04/2021
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-portal
 ---
 
 # Quickstart: Get started with Video Analyzer live pipelines in the Azure portal

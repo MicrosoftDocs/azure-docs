@@ -4,7 +4,7 @@ description: Describes the cause of the RequestDisallowedByPolicy error when dep
 author: genlin
 ms.topic: troubleshooting
 ms.date: 10/31/2018
-ms.author: genli 
+ms.author: genli
 ms.custom: devx-track-azurepowershell
 ---
 # RequestDisallowedByPolicy error with Azure resource policy
@@ -29,8 +29,6 @@ During deployment, you might receive a **RequestDisallowedByPolicy** error that 
 To retrieve details about the policy that blocked your deployment, use the following one of the methods:
 
 ### PowerShell
-
-[!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
 In PowerShell, provide that policy identifier as the `Id` parameter to retrieve details about the policy that blocked your deployment.
 

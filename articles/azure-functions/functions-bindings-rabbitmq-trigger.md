@@ -7,7 +7,7 @@ ms.topic: reference
 ms.date: 11/17/2021
 ms.author: cachai
 ms.custom:
-zone_pivot_groups: programming-languages-set-functions
+zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---
 
 # RabbitMQ trigger for Azure Functions overview
@@ -252,7 +252,7 @@ The annotation supports the following configuration options:
 |**port**|Gets or sets the port used. Defaults to 0, which points to the RabbitMQ client's default port setting of `5672`. |
 
 ::: zone-end  
-::: zone pivot="programming-language-javascript,programming-language-python,programming-language-typescript,programming-language-powershell"  
+::: zone pivot="programming-language-javascript,programming-language-python,programming-language-powershell"  
 
 ## Configuration
 
@@ -292,7 +292,7 @@ The default message type is [RabbitMQ Event](https://rabbitmq.github.io/rabbitmq
 
 # [Isolated process](#tab/isolated-process)
 
-<!--We need to find out from Anthony Chu what kind of usage we have for isolated. -->
+The RabbitMQ bindings currently support only string and serializable object types when running in an isolated process.
 
 # [C# script](#tab/csharp-script)
 

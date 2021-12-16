@@ -59,7 +59,7 @@ In this article you learn how to secure the following inferencing resources in a
 ### Azure Kubernetes Service
 
 * If your workspace has a __private endpoint__, the Azure Kubernetes Service cluster must be in the same Azure region as the workspace.
-* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md#create-a-private-aks-cluster-with-a-public-fqdn) is __not supported__ with Azure Machine learning.
+* Using a [public fully qualified domain name (FQDN) with a private AKS cluster](../aks/private-clusters.md) is __not supported__ with Azure Machine learning.
 
 <a id="aksvnet"></a>
 

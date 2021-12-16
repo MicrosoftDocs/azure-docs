@@ -37,7 +37,7 @@ groups:
   - id: postgres-single-server
     title: Single Server
   - id: postgres-flexible-server
-    title: Flexible Server (Preview)    
+    title: Flexible Server 
 # Programming language groups
 - id: programming-languages-set-one
   title: Programming languages
@@ -1176,6 +1176,14 @@ groups:
     title: Azure Arc
   - id: azure-portal
     title: Defender for Cloud's portal pages
+- id: connect-aws-accounts
+  title: Add an AWS account
+  prompt: How will you connect the AWS account?
+  pivots:
+  - id: env-settings
+    title: Environment settings
+  - id: classic-connector
+    title: Classic connector
 - id: manage-asc-initiatives
   title: Manage Defender for Cloud initiatives
   prompt: How will you manage your Defender for Cloud initiatives?
@@ -1464,3 +1472,32 @@ groups:
     title: CLI
   - id: client-portaltier
     title: Azure portal
+# Owner: prakulka
+- id: acs-tollfree-shortcode
+  title: Number Type
+  prompt: Choose a Number Type
+  pivots:
+  - id: tollfree
+    title: Toll-Free
+  - id: shortcode
+    title: Short Code
+# Owner: timlt
+- id: iot-develop-nxp-toolset
+  title: IoT Devices
+  prompt: Choose a build environment
+  pivots:
+  - id: iot-toolset-cmake
+    title: CMake
+  - id: iot-toolset-iar-ewarm
+    title: IAR EWARM
+  - id: iot-toolset-mcuxpresso
+    title: MCUXpresso
+# Owner: cshoe
+- id: container-apps
+  title: Template language
+  prompt: Select a template language
+  pivots:
+  - id: container-apps-arm
+    title: Azure Resource Manager (ARM) template
+  - id: container-apps-bicep
+    title: Bicep

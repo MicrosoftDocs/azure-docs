@@ -8,8 +8,8 @@ ms.subservice: service-overview
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer:
 ms.date: 03/12/2019
 ---

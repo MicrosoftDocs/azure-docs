@@ -80,6 +80,8 @@
         href: create-profile-container-adds.md
       - name: Use Azure Files and AD DS
         href: create-file-share.md
+      - name: Use Azure Files and Azure AD
+        href: create-profile-container-azure-ad.md
       - name: Install Office with FSLogix app containers
         href: fslogix-office-app-rule-editor.md
       - name: Authorize an account to use Azure Files
@@ -96,6 +98,8 @@
     href: apply-windows-license.md
   - name: Customize session host image
     items:
+      - name: Set up golden image in Azure
+        href: set-up-golden-image.md
       - name: Set up a master VHD image
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image

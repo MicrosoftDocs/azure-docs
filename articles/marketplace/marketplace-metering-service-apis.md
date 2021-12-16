@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 10/15/2021
-author: saasguide
-ms.author: souchak
+author: arifgani
+ms.author: argani
 ---
 
 # Marketplace metered billing APIs

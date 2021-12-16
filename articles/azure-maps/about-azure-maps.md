@@ -1,15 +1,14 @@
 ---
 title: Overview for Microsoft Azure Maps
 description: Learn about services and capabilities in Microsoft Azure Maps and how to use them in your applications.
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 12/07/2020
+author: stevemunk
+ms.author: v-munksteve
+manager: jokebeck
+ms.date: 11/29/2021
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
-
 ms.custom: mvc, references_regions
-#Customer intent: As an Azure enterprise customer, I want to know what capabilities Azure Maps has, so that I can take advantage of mapping in my applications. 
 ---
 
 # What is Azure Maps?
@@ -192,7 +191,7 @@ The Elevation service allows you to retrieve elevation data in two formats:
 
 * **GeoTIFF raster format**. Use the [Render V2-Get Map Tile API](/rest/api/maps/renderv2) to retrieve elevation data in tile format.
 
-* **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates. 
+* **GeoJSON format**. Use the [Elevation APIs](/rest/api/maps/elevation) to request sampled elevation data along paths, within a defined bounding box, or at specific coordinates.
 
 :::image type="content" source="./media/about-azure-maps/elevation.png" alt-text="Example of map with elevation data":::
 
@@ -204,11 +203,11 @@ Also, Azure Maps offers a convenient [JavaScript map control](/javascript/api/az
 
 ## Power BI visual
 
-The Azure Maps visual for Power BI provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
+The Azure Maps Power BI visual provides a rich set of data visualizations for spatial data on top of a map. It's estimated that over 80% of business data has a location context. The Azure Maps Power BI visual offers a no-code solution for gaining insights into how this location context relates to and influences your business data.
 
-:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop with the Azure Maps visual displaying business data":::
+:::image type="content" source="./media/about-azure-maps/intro-power-bi.png" border="false" alt-text="Power BI desktop with the Azure Maps Power BI visual displaying business data":::
 
-For more information, see the Getting started with the [Azure Maps Power BI visual](power-bi-visual-getting-started.md) documentation.
+For more information, see the [Get started with Azure Maps Power BI visual](power-bi-visual-get-started.md) article.
 
 ## Usage
 

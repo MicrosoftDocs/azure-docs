@@ -115,7 +115,7 @@ You you can try following these steps to find them:
 2. Run OpenSSL.
     - Windows: Open the installation directory, select **/bin/**, and then double-click **openssl.exe**.
     - Mac and Linux: Run `openssl` from a terminal.
-3. Run this command: `s_client -showcerts -connect <hostname>:443`, for any of the Microsoft or Azure hostnames that your storage resources are behind. You can find a list of hostnames that are frequently accessed by Storage Explorer here.
+3. Run this command: `openssl s_client -showcerts -connect <hostname>:443`, for any of the Microsoft or Azure hostnames that your storage resources are behind. You can find a list of hostnames that are frequently accessed by Storage Explorer here.
 4. Look for self-signed certificates. If the subject `("s:")` and issuer `("i:")` are the same, then the certificate is most likely self signed.
 5. When you find the self-signed certificates, for each one, copy and paste everything from (and including) `-----BEGIN CERTIFICATE-----` to `-----END CERTIFICATE-----` into a new .cer file.
 6. Open Storage Explorer and go to **Edit** > **SSL Certificates** > **Import Certificates**. Then use the file picker to find, select, and open the .cer files that you created.
@@ -143,14 +143,14 @@ To reduce the frequency of having to reenter credentials due to errors like the 
 
 If you have conditional access policies that need to be satisfied for your account, make sure you are using the **Default Web Browser** value for the **Sign in with** setting. For information on that setting, see [Changing where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
 
-### Browser complains about HTTP redirect during sign in
+### Browser complains about HTTP redirect or insecure connection during sign in
 
 When Storage Explorer performs sign in in your web browser, a redirect to `localhost` is done at the end of the sign in process. Browsers sometimes raise a warning or error that the redirect is being performed with HTTP instead of HTTPS. Some browsers may also try to force the redirect to be performed with HTTPS. If either of these happen, then depending on your browser, you have various options:
 - Ignore the warning.
 - Add an exception for `localhost`.
 - Disable force HTTPS, either globally or just for `localhost`.
 
-If you are not able to do any of those options, then you can also [change where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens).
+If you are not able to do any of those options, then you can also [change where sign in happens](./storage-explorer-sign-in.md#changing-where-sign-in-happens) to integrated sign-in to avoid having to use your browser altogether.
 
 ### Unable to acquire token, tenant is filtered out
 

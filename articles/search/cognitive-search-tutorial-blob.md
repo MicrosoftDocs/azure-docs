@@ -7,12 +7,12 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: tutorial
-ms.date: 11/17/2020
+ms.date: 12/01/2021
 ---
 
 # Tutorial: Use REST and AI to generate searchable content from Azure blobs
 
-If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can extract information and create new content from blobs that are useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
+If you have unstructured text or images in Azure Blob Storage, an [AI enrichment pipeline](cognitive-search-concept-intro.md) can analyze your content, creating new information that's useful for full-text search or knowledge mining scenarios. Although a pipeline can process images, this REST tutorial focuses on text, applying language detection and natural language processing to create new fields that you can leverage in queries, facets, and filters.
 
 This tutorial uses Postman and the [Search REST APIs](/rest/api/searchservice/) to perform the following tasks:
 
@@ -27,15 +27,15 @@ If you don't have an Azure subscription, open a [free account](https://azure.mic
 
 ## Overview
 
-This tutorial uses C# and the Azure Cognitive Search REST APIs to create a data source, index, indexer, and skillset. You'll start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage, and then run them through a skillset to extract entities, key phrases, and other text in the content files.
+This tutorial uses Postman and the Azure Cognitive Search REST APIs to create a data source, index, indexer, and skillset. You'll start with whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage, and then run them through a skillset to extract entities, key phrases, and other text in the content files.
 
 This skillset uses built-in skills based on Cognitive Services APIs. Steps in the pipeline include language detection on text, key phrase extraction, and entity recognition (organizations). New information is stored in new fields that you can leverage in queries, facets, and filters.
 
 ## Prerequisites
 
-+ [Azure Storage](https://azure.microsoft.com/services/storage/)
-+ [Postman desktop app](https://www.getpostman.com/)
-+ [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) 
+* [Azure Storage](https://azure.microsoft.com/services/storage/)
+* [Postman desktop app](https://www.getpostman.com/)
+* [Create](search-create-service-portal.md) or [find an existing search service](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices)
 
 > [!Note]
 > You can use the free service for this tutorial. A free search service limits you to three indexes, three indexers, and three data sources. This tutorial creates one of each. Before starting, make sure you have room on your service to accept the new resources.

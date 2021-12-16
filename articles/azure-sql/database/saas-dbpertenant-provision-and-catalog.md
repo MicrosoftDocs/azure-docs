@@ -7,8 +7,8 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: tutorial
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer:
 ms.date: 09/24/2018
 ---

@@ -6,21 +6,20 @@ ms.author: srranga
 ms.custom: references_regions
 ms.service: postgresql
 ms.topic: overview
-ms.date: 11/18/2021
-
+ms.date: 11/30/2021
 ---
 
 # Release notes - Azure Database for PostgreSQL - Flexible Server
 
 This page provides latest news and updates regarding feature additions, engine versions support, extensions, and any other announcements relevant for Flexible Server - PostgreSQL.
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 ## Release: November 2021
 
 * Support for [latest PostgreSQL minors](./concepts-supported-versions.md) 13.4, 12.8 and 11.13 with new server creates<sup>$</sup>.
 * Support for [Geo-redundant backup and restore](concepts-backup-restore.md) feature in preview in selected paired regions - East US 2, Central US, North Europe, West Europe, Japan East, and Japan West.
+*  Support for [new regions](overview.md#azure-regions) North Central US, Sweden Central, and West US 3. 
 *  Support for [Azure Stream Analytics (ASA) connector in Preview](https://techcommunity.microsoft.com/t5/analytics-on-azure/stream-analytics-updates-ignite-fall-2021-new-outputs-new/ba-p/2919170) to ingest high throughput streaming data to existing table.
 *  Several bug fixes, stability, and performance improvements<sup>$</sup>.
 
@@ -78,7 +77,7 @@ This page provides latest news and updates regarding feature additions, engine v
 * Support for new [regions](./overview.md#azure-regions) including Australia East, Canada Central, and France Central.
 * Support for [built-in PgBouncer](./concepts-pgbouncer.md) connection pooler. 
 <!--- * Support for [pglogical](https://github.com/2ndQuadrant/pglogical) extension version 2.3.2. -->
-* [Intelligent performance](concepts-query-store.md) in public preview.
+* [Intelligent performance](concepts-query-store.md) .
 * Several bug fixes, stability and performance improvements.
 
 ## Release: October 2020 - March 2021

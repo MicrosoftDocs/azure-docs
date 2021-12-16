@@ -6,7 +6,7 @@ description: Extract a positive-negative sentiment score from text in an AI enri
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 09/17/2021
 ---
 

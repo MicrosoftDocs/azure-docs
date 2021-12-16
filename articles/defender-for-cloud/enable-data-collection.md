@@ -1,12 +1,9 @@
 ---
 title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.author: memildin
+ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
 
@@ -280,4 +277,4 @@ To turn off automatic provisioning of an agent:
 
 
 ## Next steps
-This page explained how to enable auto provisioning for the Log Analytics agent and other Defender for Cloud extensions. It also described how to define a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. Storing data in Log Analytics, whether you use a new or existing workspace, might incur more charges for data storage. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+This page explained how to enable auto provisioning for the Log Analytics agent and other Defender for Cloud extensions. It also described how to define a Log Analytics workspace in which to store the collected data. Both operations are required to enable data collection. Storing data in Log Analytics, whether you use a new or existing workspace, might incur more charges for data storage. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).

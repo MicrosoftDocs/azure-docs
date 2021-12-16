@@ -29,7 +29,7 @@ Azure Cosmos DB supports two indexing modes:
 > [!NOTE]
 > Azure Cosmos DB also supports a Lazy indexing mode. Lazy indexing performs updates to the index at a much lower priority level when the engine is not doing any other work. This can result in **inconsistent or incomplete** query results. If you plan to query a Cosmos container, you should not select lazy indexing. New containers cannot select lazy indexing. You can request an exemption by contacting cosmoslazyindexing@microsoft.com (except if you are using an Azure Cosmos account in [serverless](serverless.md) mode which doesn't support lazy indexing).
 
-By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure CosmosDB to automatically index documents as they are written.
+By default, indexing policy is set to `automatic`. It's achieved by setting the `automatic` property in the indexing policy to `true`. Setting this property to `true` allows Azure Cosmos DB to automatically index documents as they are written.
 
 ## <a id="index-size"></a>Index size
 

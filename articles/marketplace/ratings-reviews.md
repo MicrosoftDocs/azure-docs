@@ -7,7 +7,7 @@ ms.topic: conceptual
 author: smannepalle
 ms.author: smannepalle
 ms.reviewer: sroy
-ms.date: 09/27/2021
+ms.date: 11/22/2021
 ---
 
 # Ratings and Reviews dashboard in commercial marketplace analytics
@@ -22,22 +22,12 @@ This article provides information on the Ratings and Reviews dashboard in Partne
 
 ## Access the Ratings & reviews dashboard
 
-[!INCLUDE [Workspaces view note](./includes/preview-interface.md)]
-
-#### [Workspaces view](#tab/workspaces-view)
-
 1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home).
 1. On the Home page, select the **Insights** tile.
 
     [ ![Illustrates the Insights tile on the Partner Center Home page.](./media/workspaces/partner-center-insights-tile.png) ](./media/workspaces/partner-center-insights-tile.png#lightbox)
 
 1. In the left menu, select **Ratings & reviews**.
-
-#### [Current view](#tab/current-view)
-
-In the [Commercial Marketplace dashboard](https://partner.microsoft.com/dashboard/commercial-marketplace/overview) in Partner Center, expand the **[Analyze](https://partner.microsoft.com/dashboard/commercial-marketplace/analytics/summary)** section and select **Ratings & Reviews**.
-
----
 
 The dashboard displays a graphical representation of the following customer activity:
 
@@ -69,8 +59,6 @@ You can respond to reviews from users and the response will be visible on either
 
 To respond to a review, follow these steps:
 
-#### [Workspaces view](#tab/workspaces-view)
-
 1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating.
 
     [![Illustrates the ratings and review page.](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png)](media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews-workspace.png#lightbox)
@@ -78,18 +66,6 @@ To respond to a review, follow these steps:
 1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
 
 The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
-
-#### [Current view](#tab/current-view)
-
-1. On the **Ratings & reviews** page, select **Azure Marketplace** or **AppSource**. You can select **filters** to narrow down the list of reviews, and display, for example, only reviews with a specific star rating
-
-    :::image type="content" source="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png" alt-text="Illustrates the ratings and review in AppSource" lightbox="media/marketplace-publisher-guide-rating-reviews/ratings-and-reviews.png":::
-
-1. Select the **Reply** link for the review you wish to respond, type your reply on the **text box**, then select **Send reply**.
-
-The response will appear under the text of the original review in the product detail page in AppSource, and Azure Marketplace online storefront.
-
----
 
 #### AppSource
 

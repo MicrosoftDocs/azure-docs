@@ -9,7 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 09/14/2021
 ms.author: sajagtap
-ms.custom: ignite-fall-2021
+ms.custom: ignite-fall-2021, mode-other
 ---
 
 # Get started: Form Recognizer Studio | Preview

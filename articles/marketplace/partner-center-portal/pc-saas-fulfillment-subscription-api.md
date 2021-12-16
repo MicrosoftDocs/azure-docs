@@ -5,8 +5,8 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: reference
 ms.date: 10/27/2021
-author: saasguide
-ms.author: souchak
+author: arifgani
+ms.author: argani
 ---
 
 # SaaS fulfillment Subscription APIs v2 in Microsoft commercial marketplace

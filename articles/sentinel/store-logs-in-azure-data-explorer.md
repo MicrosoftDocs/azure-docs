@@ -20,7 +20,11 @@ Storing logs in Azure Data Explorer reduces costs while retains your ability to 
 
 Azure Data Explorer is a big data analytics platform that is highly optimized for log and data analytics. Since Azure Data Explorer uses Kusto Query Language (KQL) as its query language, it's a good alternative for Microsoft Sentinel data storage. Using Azure Data Explorer for your data storage enables you to run cross-platform queries and visualize data across both Azure Data Explorer and Microsoft Sentinel.
 
-For more information, see the Azure Data Explorer [documentation](/azure/data-explorer/) and [blog](https://azure.microsoft.com/blog/tag/azure-data-explorer/).
+For more information, see:
+
+- [Azure Data Explorer documentation](/azure/data-explorer/)
+- [Azure Data Explorer blog](https://azure.microsoft.com/blog/tag/azure-data-explorer/)
+- [General architectures for long-term security log retention with Azure Data Explorer](/architecture/example-scenario/security/security-log-retention-azure-data-explorer)
 
 ### When to integrate with Azure Data Explorer
 

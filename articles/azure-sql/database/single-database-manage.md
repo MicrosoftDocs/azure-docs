@@ -7,8 +7,8 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.reviewer:
 ms.date: 03/12/2019
 ---

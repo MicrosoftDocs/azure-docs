@@ -3,7 +3,7 @@ title: Create a private Azure Kubernetes Service cluster
 description: Learn how to create a private Azure Kubernetes Service (AKS) cluster
 services: container-service
 ms.topic: article
-ms.date: 8/30/2021
+ms.date: 11/30/2021
 
 ---
 
@@ -12,6 +12,8 @@ ms.date: 8/30/2021
 In a private cluster, the control plane or API server has internal IP addresses that are defined in the [RFC1918 - Address Allocation for Private Internet](https://tools.ietf.org/html/rfc1918) document. By using a private cluster, you can ensure network traffic between your API server and your node pools remains on the private network only.
 
 The control plane or API server is in an Azure Kubernetes Service (AKS)-managed Azure subscription. A customer's cluster or node pool is in the customer's subscription. The server and the cluster or node pool can communicate with each other through the [Azure Private Link service][private-link-service] in the API server virtual network and a private endpoint that's exposed in the subnet of the customer's AKS cluster.
+
+When you provision a private AKS cluster, AKS by default creates a private FQDN with a private DNS zone and an additional public FQDN with a corresponding A record in Azure public DNS. The agent nodes still use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.  
 
 ## Region availability
 
@@ -22,7 +24,8 @@ Private cluster is available in public regions, Azure Government, and Azure Chin
 
 ## Prerequisites
 
-* The Azure CLI version 2.2.0 or later
+* Azure CLI >= 2.28.0 or Azure CLI with aks-preview extension 0.5.29 or later.
+* If using ARM or the rest API, the AKS API version must be 2021-05-01 or later.
 * The Private Link service is supported on Standard Azure Load Balancer only. Basic Azure Load Balancer isn't supported.  
 * To use a custom DNS server, add the Azure DNS IP 168.63.129.16 as the upstream DNS server in the custom DNS server.
 
@@ -41,6 +44,7 @@ az group create -l westus -n MyResourceGroup
 ```azurecli-interactive
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster  
 ```
+
 Where `--enable-private-cluster` is a mandatory flag for a private cluster. 
 
 ### Advanced networking  
@@ -61,6 +65,22 @@ Where `--enable-private-cluster` is a mandatory flag for a private cluster.
 
 > [!NOTE]
 > If the Docker bridge address CIDR (172.17.0.1/16) clashes with the subnet CIDR, change the Docker bridge address appropriately.
+
+## Disable Public FQDN
+
+The following parameters can be leveraged to disable Public FQDN.
+
+### Disable Public FQDN on a new AKS cluster
+
+```azurecli-interactive
+az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <private-dns-zone-mode> --disable-public-fqdn
+```
+
+### Disable Public FQDN on an existing cluster
+
+```azurecli-interactive
+az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --disable-public-fqdn
+```
 
 ## Configure Private DNS Zone 
 
@@ -138,28 +158,6 @@ az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --lo
 az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <custom private dns zone ResourceId> --fqdn-subdomain <subdomain>
 ```
 
-### Create a private AKS cluster with a Public FQDN
-
-Prerequisites:
-
-* Azure CLI >= 2.28.0 or Azure CLI with aks-preview extension 0.5.29 or later.
-* If using ARM or the rest API, the AKS API version must be 2021-05-01 or later.
-
-The Public DNS option can be leveraged to simplify routing options for your Private Cluster.  
-
-![Public DNS](https://user-images.githubusercontent.com/50749048/124776520-82629600-df0d-11eb-8f6b-71c473b6bd01.png)
-
-1. When you provision a private AKS cluster, AKS by default creates an additional public FQDN and corresponding A record in Azure public DNS. The agent nodes still use the A record in the private DNS zone to resolve the private IP address of the private endpoint for communication to the API server.
-
-2. If you use `--private-dns-zone none`, the cluster will only have a public FQDN. When using this option, no Private DNS Zone is created or used for the name resolution of the FQDN of the API Server. The IP of the API is still private and not publicly routable.
-
-3. If the public FQDN is not desired, you could use `--disable-public-fqdn` to disable it ("none" private dns zone is not allowed to disable public FQDN).
-
-```azurecli-interactive
-az aks create -n <private-cluster-name> -g <private-cluster-resource-group> --load-balancer-sku standard --enable-private-cluster --enable-managed-identity --assign-identity <ResourceId> --private-dns-zone <private-dns-zone-mode> --disable-public-fqdn
-az aks update -n <private-cluster-name> -g <private-cluster-resource-group> --disable-public-fqdn
-```
-
 ## Options for connecting to the private cluster
 
 The API server endpoint has no public IP address. To manage the API server, you'll need to use a VM that has access to the AKS cluster's Azure Virtual Network (VNet). There are several options for establishing network connectivity to the private cluster.
@@ -167,45 +165,9 @@ The API server endpoint has no public IP address. To manage the API server, you'
 * Create a VM in the same Azure Virtual Network (VNet) as the AKS cluster.
 * Use a VM in a separate network and set up [Virtual network peering][virtual-network-peering].  See the section below for more information on this option.
 * Use an [Express Route or VPN][express-route-or-VPN] connection.
-* Use the [AKS Run Command feature](#aks-run-command).
+* Use the [AKS `command invoke` feature][command-invoke].
 
 Creating a VM in the same VNET as the AKS cluster is the easiest option.  Express Route and VPNs add costs and require additional networking complexity.  Virtual network peering requires you to plan your network CIDR ranges to ensure there are no overlapping ranges.
-
-### AKS Run Command
-
-Today when you need to access a private cluster, you must do so within the cluster virtual network or a peered network or client machine. This usually requires your machine to be connected via VPN or Express Route to the cluster virtual network or a jumpbox to be created in the cluster virtual network. AKS run command allows you to remotely invoke commands in an AKS cluster through the AKS API. This feature provides an API that allows you to, for example, execute just-in-time commands from a remote laptop for a private cluster. This can greatly assist with quick just-in-time access to a private cluster when the client machine is not on the cluster private network while still retaining and enforcing the same RBAC controls and private API server.
-
-### Prerequisites
-
-* The Azure CLI version 2.24.0 or later
-
-### Use AKS Run Command
-
-Simple command
-
-```azurecli-interactive
-az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl get pods -n kube-system"
-```
-
-Deploy a manifest by attaching the specific file
-
-```azurecli-interactive
-az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f deployment.yaml
-```
-
-Deploy a manifest by attaching a whole folder
-
-```azurecli-interactive
-az aks command invoke -g <resourceGroup> -n <clusterName> -c "kubectl apply -f deployment.yaml -n default" -f .
-```
-
-Perform a Helm install and pass the specific values manifest
-
-```azurecli-interactive
-az aks command invoke -g <resourceGroup> -n <clusterName> -c "helm repo add bitnami https://charts.bitnami.com/bitnami && helm repo update && helm install my-release -f values.yaml bitnami/nginx" -f values.yaml
-```
-> [!NOTE]
-> Secure access to the AKS Run Command by creating a Custom role with the "Microsoft.ContainerService/managedClusters/runcommand/action", "Microsoft.ContainerService/managedclusters/commandResults/read" permissions and assign to specific users and/or groups in combination with Just-in-Time access or Conditional Access policies. 
 
 ## Virtual network peering
 
@@ -256,3 +218,4 @@ As mentioned, virtual network peering is one way to access your private cluster.
 [express-route-or-vpn]: ../expressroute/expressroute-about-virtual-network-gateways.md
 [devops-agents]: /azure/devops/pipelines/agents/agents
 [availability-zones]: availability-zones.md
+[command-invoke]: command-invoke.md

@@ -1,8 +1,7 @@
 ---
 title: 'Quickstart: Create a search index using REST APIs'
 titleSuffix: Azure Cognitive Search
-description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using either Postman or Visual Studio Code. 
-
+description: In this REST API quickstart, learn how to call the Azure Cognitive Search REST APIs using either Postman or Visual Studio Code.
 zone_pivot_groups: URL-test-interface-rest-apis
 manager: nitinme
 author: HeidiSteen
@@ -11,6 +10,7 @@ ms.service: cognitive-search
 ms.topic: quickstart
 ms.devlang: rest-api
 ms.date: 11/17/2020
+ms.custom: mode-other
 ---
 
 # Quickstart: Create an Azure Cognitive Search index using REST APIs

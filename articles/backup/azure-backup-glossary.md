@@ -119,7 +119,7 @@ Crash-consistent snapshots typically occur if an Azure VM shuts down at the time
 
 ## Cross-Region Restore (CRR)
 
-As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../best-practices-availability-paired-regions.md#what-are-paired-regions).
+As one of the [restore options](backup-azure-arm-restore-vms.md#restore-options), Cross Region Restore (CRR) allows you to restore backup items in a secondary region, which is an [Azure paired region](../availability-zones/cross-region-replication-azure.md).
 
 ## Data box
 
@@ -267,7 +267,7 @@ A backup job that is automatically triggered by the backup policy configured for
 
 ## Secondary region / Paired region
 
-A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](../best-practices-availability-paired-regions.md).
+A regional pair consists of two regions within the same geography. One is the primary region, and the other is the secondary region. Paired regions are used by some Azure services (including Azure Backup with GRS settings) to ensure business continuity and protect against data loss. [Learn more](../availability-zones/cross-region-replication-azure.md).
 
 ## Soft delete
 

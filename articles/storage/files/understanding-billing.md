@@ -58,7 +58,7 @@ Azure Files supports storage capacity reservations, which enable you to achieve 
 - **Location**: The Azure region for the capacity reservation. Capacity reservations are available in a subset of Azure regions.
 - **Redundancy**: The storage redundancy for the capacity reservation. Reservations are supported for all redundancies Azure Files supports, including LRS, ZRS, GRS, and GZRS.
 
-Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, and data transfer charges are not including in the reservation.
+Once you purchase a capacity reservation, it will automatically be consumed by your existing storage utilization. If you use more storage than you have reserved, you will pay list price for the balance not covered by the capacity reservation. Transaction, bandwidth, data transfer, and metadata storage charges are not included in the reservation.
 
 For more information on how to purchase storage reservations, see [Optimize costs for Azure Files with reserved capacity](files-reserve-capacity.md).
 
@@ -79,21 +79,20 @@ When you provision a premium file share, you specify how many GiBs your workload
 | Baseline IOPS formula | `MIN(400 + 1 * ProvisionedGiB, 100000)` |
 | Burst limit | `MIN(MAX(4000, 3 * ProvisionedGiB), 100000)` |
 | Burst credits | `(BurstLimit - BaselineIOPS) * 3600` |
-| Ingress rate | `40 MiB/sec + 0.04 * ProvisionedGiB` |
-| Egress rate | `60 MiB/sec + 0.06 * ProvisionedGiB` |
+| Throughput rate (ingress + egress) | `100 + CEILING(0.04 * ProvisionedGiB) + CEILING(0.06 * ProvisionedGiB)` |
 
 The following table illustrates a few examples of these formulae for the provisioned share sizes:
 
-| Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Ingress (MiB/sec) | Egress (MiB/sec) |
-|-|-|-|-|-|-|
-| 100 | 500 | Up to 4,000 | 12,600,000 | 44 | 66 |
-| 500 | 900 | Up to 4,000 | 11,160,000 | 60 | 90 |
-| 1,024 | 1,424 | Up to 4,000 | 10,713,600 | 81 | 122 |
-| 5,120 | 5,520 | Up to 15,360 | 35,424,000 | 245 | 368 |
-| 10,240 | 10,640 | Up to 30,720 | 72,288,000 | 450 | 675 |
-| 33,792 | 34,192 | Up to 100,000 | 236,908,800 | 1,392 | 2,088 |
-| 51,200 | 51,600 | Up to 100,000 | 174,240,000 | 2,088 | 3,132 |
-| 102,400 | 100,000 | Up to 100,000 | 0 | 4,136 | 6,204 |
+| Capacity (GiB) | Baseline IOPS | Burst IOPS | Burst credits | Throughput (ingress + egress) (MiB/sec) |
+|-|-|-|-|-|
+| 100 | 500 | Up to 4,000 | 12,600,000 | 110 |
+| 500 | 900 | Up to 4,000 | 11,160,000 | 150 |
+| 1,024 | 1,424 | Up to 4,000 | 10,713,600 | 203 |
+| 5,120 | 5,520 | Up to 15,360 | 35,424,000 | 613 |
+| 10,240 | 10,640 | Up to 30,720 | 72,288,000 | 1,125 |
+| 33,792 | 34,192 | Up to 100,000 | 236,908,800 | 3,480 |
+| 51,200 | 51,600 | Up to 100,000 | 174,240,000 | 5,220 |
+| 102,400 | 100,000 | Up to 100,000 | 0 | 10,340 |
 
 Effective file share performance is subject to machine network limits, available network bandwidth, IO sizes, parallelism, among many other factors. For example, based on internal testing with 8 KiB read/write IO sizes, a single Windows virtual machine without SMB Multichannel enabled, *Standard F16s_v2*, connected to premium file share over SMB could achieve 20K read IOPS and 15K write IOPS. With 512 MiB read/write IO sizes, the same VM could achieve 1.1 GiB/s egress and 370 MiB/s ingress throughput. The same client can achieve up to \~3x performance if SMB Multichannel is enabled on the premium shares. To achieve maximum performance scale, [enable SMB Multichannel](files-smb-protocol.md#smb-multichannel) and spread the load across multiple VMs. Refer to [SMB Multichannel performance](storage-files-smb-multichannel-performance.md) and [troubleshooting guide](storage-troubleshooting-files-performance.md) for some common performance issues and workarounds.
 

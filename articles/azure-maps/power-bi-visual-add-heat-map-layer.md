@@ -1,21 +1,21 @@
 ---
-title: Add a heat map layer to the Azure Maps visual for Power BI | Microsoft Azure Maps
-description: In this article, you will learn how to use the heat map layer in the Microsoft Azure Maps visual for Power BI.
+title: Add a heat map layer to an Azure Maps Power BI visual
+titleSuffix: Microsoft Azure Maps
+description: In this article, you will learn how to use the heat map layer in an Azure Maps Power BI visual.
 author: stevemunk
 ms.author: v-munksteve
-ms.date: 10/11/2021
+manager: jokebeck
+ms.date: 11/29/2021
 ms.topic: how-to
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
-ms.custom: 
 ---
 
-# Add a heat map layer to the Azure Maps visual for Power BI
+# Add a heat map layer
 
-In this article, you will learn how to add a heat map layer to an Azure Maps visual in Power BI.
+In this article, you will learn how to add a heat map layer to an Azure Maps Power BI visual.
 
-:::image type="content" source="media/power-bi-visual/heat-map.png" alt-text="Heat map layer in Azure Maps Visual for Power BI.":::
+:::image type="content" source="media/power-bi-visual/heat-map.png" alt-text="Heat map layer in an Azure Maps Power BI visual.":::
 
 Heat maps, also known as density maps, are a type of overlay on a map used to represent the density of data using different colors. Heat maps are often used to show the data “hot spots” on a map. Heat maps are a great way to render datasets with large number of points. Displaying a large number of data points on a map will result in a degradation in performance and can cover it with overlapping symbols, making it unusable. Rendering the data as a heat map results not only in better performance, it helps you make better sense of the data by making it easy to see the relative density of each data point.
 
@@ -27,8 +27,8 @@ A heat map is useful when users want to visualize vast comparative data:
 
 ## Prerequisites
 
-- [Getting started with the Azure Maps visual for Power BI](./power-bi-visual-getting-started.md).
-- [Understanding layers in the Azure Maps visual for Power BI](./power-bi-visual-understanding-layers.md).
+- [Get started with Azure Maps Power BI visual](./power-bi-visual-get-started.md).
+- Understand [layers in the Azure Maps Power BI visual](./power-bi-visual-understanding-layers.md).
 
 ## Add the heat map layer
 

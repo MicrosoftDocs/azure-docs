@@ -128,7 +128,7 @@
     - name: Top connectors
       expanded: true
       items:
-      - name: Amazon Web Services CloudTrail
+      - name: Amazon Web Services logs
         href: connect-aws.md
       - name: Azure Active Directory
         href: connect-azure-active-directory.md
@@ -318,6 +318,8 @@
         href: process-events-normalization-schema.md
       - name: Registry event normalization schema
         href: registry-event-normalization-schema.md
+      - name: Web normalization schema
+        href: web-normalization-schema.md
       - name: Legacy network normalization schema
         href: normalization-schema-v1.md
     - name: Windows security event sets

@@ -5,7 +5,7 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.date: 11/17/2021
 ms.reviewer: Daya-Patil
-ms.custom: mvc,subject-bicepqs, devx-track-azurepowershell
+ms.custom: mvc, subject-bicepqs, devx-track-azurepowershell, mode-arm
 author: v-amallick
 ms.service: backup
 ms.author: v-amallick
@@ -307,5 +307,3 @@ In this quickstart, you created a Recovery Services vault, enabled protection on
 - [Learn how](tutorial-restore-disk.md) to quickly restore a VM
 - [Learn how](../azure-resource-manager/bicep/quickstart-create-bicep-use-visual-studio-code.md?tabs=CLI) to create Bicep templates.
 - [Learn how](../azure-resource-manager/bicep/decompile.md?tabs=azure-cli) to decompile Azure Resource Manager templates (ARM templates) to Bicep files.
-
-

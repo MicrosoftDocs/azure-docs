@@ -5,14 +5,13 @@ description: In this quickstart, learn how a JavaScript React single-page applic
 services: active-directory
 author: j-mantu
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/09/2021
 ms.author: jamesmantu
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-other
 #Customer intent: As an app developer, I want to learn how to login, logout, conditionally render components to authenticated users, and acquire an access token for a protected resource such as Microsoft Graph by using the Microsoft identity platform so that my JavaScript React app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 

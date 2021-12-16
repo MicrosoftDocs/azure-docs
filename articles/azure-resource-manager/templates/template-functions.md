@@ -2,7 +2,7 @@
 title: Template functions
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values, work with strings and numerics, and retrieve deployment information.
 ms.topic: conceptual
-ms.date: 08/31/2021
+ms.date: 11/23/2021
 ---
 # ARM template functions
 
@@ -154,9 +154,7 @@ Resource Manager provides several functions for working with objects.
 <a id="list" aria-hidden="true"></a>
 <a id="providers" aria-hidden="true"></a>
 <a id="reference" aria-hidden="true"></a>
-<a id="resourcegroup" aria-hidden="true"></a>
 <a id="resourceid" aria-hidden="true"></a>
-<a id="subscription" aria-hidden="true"></a>
 <a id="subscriptionResourceId" aria-hidden="true"></a>
 <a id="tenantResourceId" aria-hidden="true"></a>
 
@@ -172,11 +170,23 @@ Resource Manager provides the following functions for getting resource values:
 * [pickZones](template-functions-resource.md#pickzones)
 * [providers (deprecated)](template-functions-resource.md#providers)
 * [reference](template-functions-resource.md#reference)
-* [resourceGroup](template-functions-resource.md#resourcegroup) - can only be used in deployments to a resource group.
 * [resourceId](template-functions-resource.md#resourceid) - can be used at any scope, but the valid parameters change depending on the scope.
-* [subscription](template-functions-resource.md#subscription) - can only be used in deployments to a resource group or subscription.
 * [subscriptionResourceId](template-functions-resource.md#subscriptionresourceid)
 * [tenantResourceId](template-functions-resource.md#tenantresourceid)
+
+<a id="managementgroup" aria-hidden="true"></a>
+<a id="resourcegroup" aria-hidden="true"></a>
+<a id="subscription" aria-hidden="true"></a>
+<a id="tenant" aria-hidden="true"></a>
+
+## Scope functions
+
+Resource Manager provides the following functions for getting deployment scope values:
+
+* [managementGroup](template-functions-scope.md#managementgroup) - can only be used in deployments to a management group.
+* [resourceGroup](template-functions-scope.md#resourcegroup) - can only be used in deployments to a resource group.
+* [subscription](template-functions-scope.md#subscription) - can only be used in deployments to a resource group or subscription.
+* [tenant](template-functions-scope.md#tenant) - can be used for deployments at any scope.
 
 <a id="base64" aria-hidden="true"></a>
 <a id="base64tojson" aria-hidden="true"></a>

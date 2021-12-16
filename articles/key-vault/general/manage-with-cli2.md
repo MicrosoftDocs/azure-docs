@@ -195,7 +195,7 @@ For detailed steps on registering an application with Azure Active Directory you
 To register an application in Azure Active Directory:
 
 ```azurecli
-az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv" --skip-assignment
+az ad sp create-for-rbac -n "MyApp" --password "hVFkk965BuUv"
 # If you don't specify a password, one will be created for you.
 ```
 

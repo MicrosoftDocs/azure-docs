@@ -1,10 +1,10 @@
 ---
 title: Support options
 description: Information on how to open a request with the Azure Spatial Anchors support team.
-author: msftradford
+author: pamistel
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-ms.author: parkerra
+ms.author: pamistel
 ms.date: 11/20/2020
 ms.topic: troubleshooting
 ms.service: azure-spatial-anchors
@@ -32,13 +32,16 @@ To open a technical support ticket within the Azure portal for Azure Spatial Anc
 
    ![Azure portal support ticket fields](./media/spatial-anchor-support3.png)
 
-## Community support
+## Team & community support
+### Azure Spatial Anchors general
+For support from the Spatial Anchors team and the user community, see [Azure Spatial Anchors Q&A](https://docs.microsoft.com/answers/topics/azure-spatial-anchors.html).
 
-For support from the user community, please see [Azure Spatial Anchors on Stack Overflow](https://stackoverflow.com/questions/tagged/azure-spatial-anchors).
+### Azure Spatial Anchors samples 
+If you are unable to run the samples, please file an issue in the [ASA samples repository](https://github.com/Azure/azure-spatial-anchors-samples/issues) by clicking _New issue_ then _Get started_
 
 ## Provide content feedback
 
-On the bottom of each content article, there is an opportunity to open a GitHub issue and provide feedback on the Azure Spatial Anchor documentation content.
+At the bottom of each content article, there is an opportunity to open a GitHub issue and provide feedback on the Azure Spatial Anchor documentation content.
 
 ## Provide product feedback
 

@@ -9,6 +9,7 @@ ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: quickstart
 ms.date: 05/24/2021
+ms.custom: mode-other
 ---
 
 # Multi-slot personalization (Preview)

@@ -21,7 +21,7 @@ Language support varies by Speech service functionality. The following tables su
 
 Both the Microsoft Speech SDK and the REST API support the following languages (locales). 
 
-To improve accuracy, customization is offered for a subset of the languages through uploading **Audio + Human-labeled Transcripts** or **Related Text: Sentences**. Support for customization of the acoustic model with **Audio + Human-labeled Transcripts** is limited to the specific base models listed below. Other base models and languages will only use the text of the transcripts to train custom models just like with **Related Text: Sentences**. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
+To improve accuracy, customization is available for some languages and baseline model versions by uploading **Audio + Human-labeled Transcripts**, **Plain Text**, **Structured Text**, and **Pronunciation**. By default, Plain Text customization is supported for all available baseline models. To learn more about customization, see [Get started with Custom Speech](./custom-speech-overview.md).
 
 <!--
 To get the AM and ML bits:
@@ -33,111 +33,111 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 
 | Language                 | Locale (BCP-47) | Customizations  | [Language identification](how-to-automatic-language-detection.md) | [Pronunciation assessment](how-to-pronunciation-assessment.md) |
 |------------------------------------|--------|---------------------------------------------------|-------------------------------|--------------------------|
-| Arabic (Algeria)                   | `ar-DZ` | Text                                   |                           |                          |
-| Arabic (Bahrain), modern standard  | `ar-BH` | Text                                   |                           |                          |
-| Arabic (Egypt)                     | `ar-EG` | Text                                   | Yes                          |                          |
-| Arabic (Iraq)                      | `ar-IQ` | Text                                   |                           |                          |
-| Arabic (Israel)                    | `ar-IL` | Text                                   |                           |                          |
-| Arabic (Jordan)                    | `ar-JO` | Text                                   |                           |                          |
-| Arabic (Kuwait)                    | `ar-KW` | Text                                   |                           |                          |
-| Arabic (Lebanon)                   | `ar-LB` | Text                                   |                           |                          |
-| Arabic (Libya)                     | `ar-LY` | Text                                   |                           |                          |
-| Arabic (Morocco)                   | `ar-MA` | Text                                   |                           |                          |
-| Arabic (Oman)                      | `ar-OM` | Text                                   |                           |                          |
-| Arabic (Qatar)                     | `ar-QA` | Text                                   |                           |                          |
-| Arabic (Saudi Arabia)              | `ar-SA` | Text                                   |                           |                          |
-| Arabic (Palestinian Authority)     | `ar-PS` | Text                                   |                           |                          |
-| Arabic (Syria)                     | `ar-SY` | Text                                   |                           |                          |
-| Arabic (Tunisia)                   | `ar-TN` | Text                                   |                           |                          |
-| Arabic (United Arab Emirates)      | `ar-AE` | Text                                   |                           |                          |
-| Arabic (Yemen)                     | `ar-YE` | Text                                   |                           |                          |
-| Bulgarian (Bulgaria)               | `bg-BG` | Text                                   |                           |                          |
-| Catalan (Spain)                    | `ca-ES` | Text<br>Pronunciation                  | Yes                          |                          |
-| Chinese (Cantonese, Traditional)   | `zh-HK` | Audio (20201015)<br>Text                 |        Yes                   |                          |
-| Chinese (Mandarin, Simplified)     | `zh-CN` | Audio (20200910)<br>Text                 |     Yes                      | Yes                         |
-| Chinese (Taiwanese Mandarin)       | `zh-TW` | Audio (20190701, 20201015)<br>Text                 |           Yes                |                          |
-| Croatian (Croatia)                 | `hr-HR` | Text<br>Pronunciation                  |                           |                          |
-| Czech (Czech)             | `cs-CZ` | Text<br>Pronunciation                  |                           |                          |
-| Danish (Denmark)                   | `da-DK` | Text<br>Pronunciation                  | Yes                          |                          |
-| Dutch (Netherlands)                | `nl-NL` | Audio (20201015)<br>Text<br>Pronunciation|    Yes                       |                          |
-| English (Australia)                | `en-AU` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |                          |
-| English (Canada)                   | `en-CA` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          |                          |
-| English (Ghana)                    | `en-GH` | Text<br>Pronunciation                  |                           |                          |
-| English (Hong Kong)                | `en-HK` | Text<br>Pronunciation                  |                           |                          |
-| English (India)                    | `en-IN` | Audio (20200923)<br>Text<br>Pronunciation |                          |                          |
-| English (Ireland)                  | `en-IE` | Text<br>Pronunciation                  |                           |                          |
-| English (Kenya)                    | `en-KE` | Text<br>Pronunciation                  |                           |                          |
-| English (New Zealand)              | `en-NZ` | Audio (20201019)<br>Text<br>Pronunciation |                          |                          |
-| English (Nigeria)                  | `en-NG` | Text<br>Pronunciation                  |                           |                          |
-| English (Philippines)              | `en-PH` | Text<br>Pronunciation                  |                           |                          |
-| English (Singapore)                | `en-SG` | Text<br>Pronunciation                  |                           |                          |
-| English (South Africa)             | `en-ZA` | Text<br>Pronunciation                  |                           |                          |
-| English (Tanzania)                 | `en-TZ` | Text<br>Pronunciation                  |                           |                          |
-| English (United Kingdom)           | `en-GB` | Audio (20201019)<br>Text<br>Pronunciation| Yes                          | Yes                         |
-| English (United States)            | `en-US` | Audio (20201019, 20210223)<br>Text<br>Pronunciation| Yes                          | Yes                         |
-| Estonian(Estonia)                  | `et-EE` | Text<br>Pronunciation                  |                           |                          |
-| Filipino (Philippines)             | `fil-PH`| Text<br>Pronunciation                  |                           |                          |
-| Finnish (Finland)                  | `fi-FI` | Text<br>Pronunciation                  |     Yes                      |                          |
-| French (Canada)                    | `fr-CA` | Audio (20201015)<br>Text<br>Pronunciation|     Yes                      |                          |
-| French (France)                    | `fr-FR` | Audio (20201015)<br>Text<br>Pronunciation|      Yes                     |                          |
-| French (Switzerland)               | `fr-CH` | Text<br>Pronunciation                  |                           |                          |
-| German (Austria)                   | `de-AT` | Text<br>Pronunciation                  |                           |                          |
-| German (Switzerland)               | `de-CH` | Text<br>Pronunciation                  |                           |                          |
-| German (Germany)                   | `de-DE` | Audio (20190701, 20200619, 20201127)<br>Text<br>Pronunciation|  Yes                         |                          |
-| Greek (Greece)                     | `el-GR` | Text                                   |  Yes                         |                          |
-| Gujarati (Indian)                  | `gu-IN` | Text                                   |                           |                          |
-| Hebrew (Israel)                    | `he-IL` | Text                                   |                           |                          |
-| Hindi (India)                      | `hi-IN` | Audio (20200701)<br>Text                 |     Yes                      |                          |
-| Hungarian (Hungary)                | `hu-HU` | Text<br>Pronunciation                  |                           |                          |
-| Indonesian (Indonesia)             | `id-ID` | Text<br>Pronunciation                  |                           |                          |
-| Irish (Ireland)                    | `ga-IE` | Text<br>Pronunciation                  |                           |                          |
-| Italian (Italy)                    | `it-IT` | Audio (20201016)<br>Text<br>Pronunciation|      Yes                     |                          |
-| Japanese (Japan)                   | `ja-JP` | Text                                   |      Yes                     |                          |
-| Kannada  (India)                   | `kn-IN` | Text                                   |                           |                          |
-| Korean (Korea)                     | `ko-KR` | Audio (20201015)<br>Text                 |      Yes                     |                          |
-| Latvian (Latvia)                   | `lv-LV` | Text<br>Pronunciation                  |                           |                          |
-| Lithuanian (Lithuania)             | `lt-LT` | Text<br>Pronunciation                  |                           |                          |
-| Malay (Malaysia)                   | `ms-MY` | Text                                   |                           |                          |
-| Maltese (Malta)                    | `mt-MT` | Text                                   |                           |                          |
-| Marathi (India)                    | `mr-IN` | Text                                   |                           |                          |
-| Norwegian (Bokmål, Norway)         | `nb-NO` | Text                                   |     Yes                      |                          |
-| Persian (Iran)                     | `fa-IR` | Text                                   |                           |                          |
-| Polish (Poland)                    | `pl-PL` | Text<br>Pronunciation                  |       Yes                    |                          |
-| Portuguese (Brazil)                | `pt-BR` | Audio (20190620, 20201015)<br>Text<br>Pronunciation|          Yes                 |                          |
-| Portuguese (Portugal)              | `pt-PT` | Text<br>Pronunciation                  |             Yes              |                          |
-| Romanian (Romania)                 | `ro-RO` | Text<br>Pronunciation                  |  Yes                         |                          |
-| Russian (Russia)                   | `ru-RU` | Audio (20200907)<br>Text                 |                Yes           |                          |
-| Slovak (Slovakia)                  | `sk-SK` | Text<br>Pronunciation                  |                           |                          |
-| Slovenian (Slovenia)               | `sl-SI` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Argentina)                | `es-AR` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Bolivia)                  | `es-BO` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Chile)                    | `es-CL` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Colombia)                 | `es-CO` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Costa Rica)               | `es-CR` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Cuba)                     | `es-CU` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Dominican Republic)       | `es-DO` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Ecuador)                  | `es-EC` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (El Salvador)              | `es-SV` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Equatorial Guinea)        | `es-GQ` | Text                                   |                           |                          |
-| Spanish (Guatemala)                | `es-GT` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Honduras)                 | `es-HN` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Mexico)                   | `es-MX` | Audio (20200907)<br>Text<br>Pronunciation|    Yes                       |                          |
-| Spanish (Nicaragua)                | `es-NI` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Panama)                   | `es-PA` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Paraguay)                 | `es-PY` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Peru)                     | `es-PE` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Puerto Rico)              | `es-PR` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Spain)                    | `es-ES` | Audio (20201015)<br>Text<br>Pronunciation|  Yes                         |                          |
-| Spanish (Uruguay)                  | `es-UY` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (USA)                      | `es-US` | Text<br>Pronunciation                  |                           |                          |
-| Spanish (Venezuela)                | `es-VE` | Text<br>Pronunciation                  |                           |                          |
-| Swahili (Kenya)                    | `sw-KE` | Text                                   |                           |                          |
-| Swedish (Sweden)                   | `sv-SE` | Text<br>Pronunciation                  |   Yes                        |                          |
-| Tamil (India)                      | `ta-IN` | Text                                   |                           |                          |
-| Telugu (India)                     | `te-IN` | Text                                   |                           |                          |
-| Thai (Thailand)                    | `th-TH` | Text                                   |      Yes                     |                          |
-| Turkish (Turkey)                   | `tr-TR` | Text                                   |                           |                          |
-| Vietnamese (Vietnam)               | `vi-VN` | Text                                   |                           |                          |
+| Arabic (Algeria)                   | `ar-DZ` | Plain Text                                   |                           |                          |
+| Arabic (Bahrain), modern standard  | `ar-BH` | Plain Text                                   |                           |                          |
+| Arabic (Egypt)                     | `ar-EG` | Plain Text                                   | Yes                          |                          |
+| Arabic (Iraq)                      | `ar-IQ` | Plain Text                                   |                           |                          |
+| Arabic (Israel)                    | `ar-IL` | Plain Text                                   |                           |                          |
+| Arabic (Jordan)                    | `ar-JO` | Plain Text                                   |                           |                          |
+| Arabic (Kuwait)                    | `ar-KW` | Plain Text                                   |                           |                          |
+| Arabic (Lebanon)                   | `ar-LB` | Plain Text                                   |                           |                          |
+| Arabic (Libya)                     | `ar-LY` | Plain Text                                   |                           |                          |
+| Arabic (Morocco)                   | `ar-MA` | Plain Text                                   |                           |                          |
+| Arabic (Oman)                      | `ar-OM` | Plain Text                                   |                           |                          |
+| Arabic (Qatar)                     | `ar-QA` | Plain Text                                   |                           |                          |
+| Arabic (Saudi Arabia)              | `ar-SA` | Plain Text                                   |                           |                          |
+| Arabic (Palestinian Authority)     | `ar-PS` | Plain Text                                   |                           |                          |
+| Arabic (Syria)                     | `ar-SY` | Plain Text                                   |                           |                          |
+| Arabic (Tunisia)                   | `ar-TN` | Plain Text                                   |                           |                          |
+| Arabic (United Arab Emirates)      | `ar-AE` | Plain Text                                   |                           |                          |
+| Arabic (Yemen)                     | `ar-YE` | Plain Text                                   |                           |                          |
+| Bulgarian (Bulgaria)               | `bg-BG` | Plain Text                                   |                           |                          |
+| Catalan (Spain)                    | `ca-ES` | Plain Text<br>Pronunciation                  | Yes                          |                          |
+| Chinese (Cantonese, Traditional)   | `zh-HK` | Plain Text                 |        Yes                   |                          |
+| Chinese (Mandarin, Simplified)     | `zh-CN` | Plain Text                 |     Yes                      | Yes                         |
+| Chinese (Taiwanese Mandarin)       | `zh-TW` | Plain Text                 |           Yes                |                          |
+| Croatian (Croatia)                 | `hr-HR` | Plain Text<br>Pronunciation                  |                           |                          |
+| Czech (Czech)             | `cs-CZ` | Plain Text<br>Pronunciation                  |                           |                          |
+| Danish (Denmark)                   | `da-DK` | Plain Text<br>Pronunciation                  | Yes                          |                          |
+| Dutch (Netherlands)                | `nl-NL` | Plain Text<br>Pronunciation|    Yes                       |                          |
+| English (Australia)                | `en-AU` | Plain Text<br>Pronunciation| Yes                          |                          |
+| English (Canada)                   | `en-CA` | Plain Text<br>Pronunciation| Yes                          |                          |
+| English (Ghana)                    | `en-GH` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (Hong Kong)                | `en-HK` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (India)                    | `en-IN` | Plain Text<br>Structured Text (20210907)<br>Pronunciation |                          |                          |
+| English (Ireland)                  | `en-IE` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (Kenya)                    | `en-KE` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (New Zealand)              | `en-NZ` | Plain Text<br>Pronunciation |                          |                          |
+| English (Nigeria)                  | `en-NG` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (Philippines)              | `en-PH` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (Singapore)                | `en-SG` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (South Africa)             | `en-ZA` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (Tanzania)                 | `en-TZ` | Plain Text<br>Pronunciation                  |                           |                          |
+| English (United Kingdom)           | `en-GB` | Audio (20201019)<br>Plain Text<br>Structured Text (20210906)<br>Pronunciation| Yes                          | Yes                         |
+| English (United States)            | `en-US` | Audio (20201019, 20210223)<br>Plain Text<br>Structured Text (20211012)<br>Pronunciation| Yes                          | Yes                         |
+| Estonian(Estonia)                  | `et-EE` | Plain Text<br>Pronunciation                  |                           |                          |
+| Filipino (Philippines)             | `fil-PH`| Plain Text<br>Pronunciation                  |                           |                          |
+| Finnish (Finland)                  | `fi-FI` | Plain Text<br>Pronunciation                  |     Yes                      |                          |
+| French (Canada)                    | `fr-CA` | Audio (20201015)<br>Plain Text<br>Structured Text (20210908)<br>Pronunciation|     Yes                      |                          |
+| French (France)                    | `fr-FR` | Audio (20201015)<br>Plain Text<br>Structured Text (20210908)<br>Pronunciation|      Yes                     |                          |
+| French (Switzerland)               | `fr-CH` | Plain Text<br>Pronunciation                  |                           |                          |
+| German (Austria)                   | `de-AT` | Plain Text<br>Pronunciation                  |                           |                          |
+| German (Switzerland)               | `de-CH` | Plain Text<br>Pronunciation                  |                           |                          |
+| German (Germany)                   | `de-DE` | Audio (20201127)<br>Plain Text<br>Structured Text (20210831)<br>Pronunciation|  Yes                         |                          |
+| Greek (Greece)                     | `el-GR` | Plain Text                                   |  Yes                         |                          |
+| Gujarati (Indian)                  | `gu-IN` | Plain Text                                   |                           |                          |
+| Hebrew (Israel)                    | `he-IL` | Plain Text                                   |                           |                          |
+| Hindi (India)                      | `hi-IN` | Plain Text                 |     Yes                      |                          |
+| Hungarian (Hungary)                | `hu-HU` | Plain Text<br>Pronunciation                  |                           |                          |
+| Indonesian (Indonesia)             | `id-ID` | Plain Text<br>Pronunciation                  |                           |                          |
+| Irish (Ireland)                    | `ga-IE` | Plain Text<br>Pronunciation                  |                           |                          |
+| Italian (Italy)                    | `it-IT` | Audio (20201016)<br>Plain Text<br>Pronunciation|      Yes                     |                          |
+| Japanese (Japan)                   | `ja-JP` | Plain Text                                   |      Yes                     |                          |
+| Kannada  (India)                   | `kn-IN` | Plain Text                                   |                           |                          |
+| Korean (Korea)                     | `ko-KR` | Audio (20201015)<br>Plain Text                 |      Yes                     |                          |
+| Latvian (Latvia)                   | `lv-LV` | Plain Text<br>Pronunciation                  |                           |                          |
+| Lithuanian (Lithuania)             | `lt-LT` | Plain Text<br>Pronunciation                  |                           |                          |
+| Malay (Malaysia)                   | `ms-MY` | Plain Text                                   |                           |                          |
+| Maltese (Malta)                    | `mt-MT` | Plain Text                                   |                           |                          |
+| Marathi (India)                    | `mr-IN` | Plain Text                                   |                           |                          |
+| Norwegian (Bokmål, Norway)         | `nb-NO` | Plain Text                                   |     Yes                      |                          |
+| Persian (Iran)                     | `fa-IR` | Plain Text                                   |                           |                          |
+| Polish (Poland)                    | `pl-PL` | Plain Text<br>Pronunciation                  |       Yes                    |                          |
+| Portuguese (Brazil)                | `pt-BR` | Audio (20201015)<br>Plain Text<br>Pronunciation|          Yes                 |                          |
+| Portuguese (Portugal)              | `pt-PT` | Plain Text<br>Pronunciation                  |             Yes              |                          |
+| Romanian (Romania)                 | `ro-RO` | Plain Text<br>Pronunciation                  |  Yes                         |                          |
+| Russian (Russia)                   | `ru-RU` | Plain Text                 |                Yes           |                          |
+| Slovak (Slovakia)                  | `sk-SK` | Plain Text<br>Pronunciation                  |                           |                          |
+| Slovenian (Slovenia)               | `sl-SI` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Argentina)                | `es-AR` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Bolivia)                  | `es-BO` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Chile)                    | `es-CL` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Colombia)                 | `es-CO` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Costa Rica)               | `es-CR` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Cuba)                     | `es-CU` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Dominican Republic)       | `es-DO` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Ecuador)                  | `es-EC` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (El Salvador)              | `es-SV` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Equatorial Guinea)        | `es-GQ` | Plain Text                                   |                           |                          |
+| Spanish (Guatemala)                | `es-GT` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Honduras)                 | `es-HN` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Mexico)                   | `es-MX` | Plain Text<br>Structured Text (20210908)<br>Pronunciation|    Yes                       |                          |
+| Spanish (Nicaragua)                | `es-NI` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Panama)                   | `es-PA` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Paraguay)                 | `es-PY` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Peru)                     | `es-PE` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Puerto Rico)              | `es-PR` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Spain)                    | `es-ES` | Audio (20201015)<br>Plain Text<br>Structured Text (20210908)<br>Pronunciation|  Yes                         |                          |
+| Spanish (Uruguay)                  | `es-UY` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (USA)                      | `es-US` | Plain Text<br>Pronunciation                  |                           |                          |
+| Spanish (Venezuela)                | `es-VE` | Plain Text<br>Pronunciation                  |                           |                          |
+| Swahili (Kenya)                    | `sw-KE` | Plain Text                                   |                           |                          |
+| Swedish (Sweden)                   | `sv-SE` | Plain Text<br>Pronunciation                  |   Yes                        |                          |
+| Tamil (India)                      | `ta-IN` | Plain Text                                   |                           |                          |
+| Telugu (India)                     | `te-IN` | Plain Text                                   |                           |                          |
+| Thai (Thailand)                    | `th-TH` | Plain Text                                   |      Yes                     |                          |
+| Turkish (Turkey)                   | `tr-TR` | Plain Text                                   |                           |                          |
+| Vietnamese (Vietnam)               | `vi-VN` | Plain Text                                   |                           |                          |
 
 ## Text-to-speech
 

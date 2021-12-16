@@ -6,8 +6,8 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: conceptual
-author: rothja
-ms.author: jroth
+author: VanMSFT
+ms.author: vanto
 ---
 
 # What is the database ledger?

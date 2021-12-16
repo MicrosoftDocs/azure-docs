@@ -4,7 +4,7 @@ description: Create an server-level firewall rule
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, mode-portal
 ms.devlang: 
 ms.topic: quickstart
 author: rohitnayakmsft

@@ -1,11 +1,14 @@
 ---
-title: Azure Maps Web SDK best practices | Microsoft Azure Maps
+title: Azure Maps Web SDK best practices
+titleSuffix: Microsoft Azure Maps
 description: Learn tips & tricks to optimize your use of the Azure Maps Web SDK. 
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 3/22/2021
+author: stevemunk
+ms.author: v-munksteve
+manager: erikland
+ms.date: 11/29/2021
 ms.topic: conceptual
 ms.service: azure-maps
+services: azure-maps
 ---
 
 # Azure Maps Web SDK best practices
@@ -411,7 +414,7 @@ Report issues on Azure's [Help + support](https://ms.portal.azure.com/#blade/Mic
 
 **Where do I get technical help for Azure Maps?**
 
-* For questions related to the Azure Maps visual in Power BI, contact [Power BI support](https://powerbi.microsoft.com/support/).
+* For questions related to the Azure Maps Power BI visual, contact [Power BI support](https://powerbi.microsoft.com/support/).
 
 * For all other Azure Maps services, contact [Azure support](https://azure.com/support).
 

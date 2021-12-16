@@ -31,9 +31,9 @@
   items:
   - name: 1. Enable Defender for Cloud on your subscriptions
     href: get-started.md
-  - name: 2. Enable the enhanced protections
+  - name: 2. Enable the enhanced security features
     href: enable-enhanced-security.md
-  - name: 3. Connect your hybrid and multi-cloud machines
+  - name: 3. Connect hybrid and multi-cloud machines
     items:
     - name: Connect non-Azure machines
       displayName: azure stack, ash, windows, linux, hybrid, arc
@@ -341,7 +341,7 @@
   - name: Azure Policy built-ins
     displayName: samples, policy
     href: policy-reference.md
-  - name: Azure roadmap blog
+  - name: Azure updates blog
     href: https://azure.microsoft.com/updates/?product=security-center
   - name: Endpoint protection assessment and recommendations
     href: endpoint-protection-recommendations-technical.md
@@ -356,21 +356,19 @@
   - name: Manage user data
     href: privacy.md
   - name: Microsoft Defender for IoT documentation
-    href: /azure/asc-for-iot/
+    href: /azure/defender-for-iot/
   - name: Azure security documentation
     href: ../security/index.yml
-  - name: Azure updates
-    href: https://azure.microsoft.com/updates/?category=security-identity
   - name: Readiness Roadmap
     href: security-center-readiness-roadmap.md
   - name: Microsoft Defender for Cloud tech community blogs
-    href: https://techcommunity.microsoft.com/t5/azure-security-center/bg-p/AzureSecurityCenterBlog
+    href: https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/bg-p/MicrosoftDefenderCloudBlog
   - name: Microsoft Defender for Cloud on Stack Overflow
-    href: https://stackoverflow.com/search?q=azure-security-center
-  - name: ASCinTheField YouTube videos
-    href: https://www.youtube.com/results?search_query=%23ASCInTheField
+    href: https://stackoverflow.com/search?q=microsoft+defender+for+cloud
+  - name: MDfCinTheField YouTube videos
+    href: https://www.youtube.com/hashtag/mdfcinthefield
   - name: Pricing
-    href: https://azure.microsoft.com/pricing/details/security-center/
+    href: https://azure.microsoft.com/pricing/details/azure-defender/
   - name: Regional availability
     href: https://azure.microsoft.com/regions/services/
   - name: Troubleshooting guide

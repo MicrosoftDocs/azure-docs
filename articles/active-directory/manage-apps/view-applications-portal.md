@@ -13,6 +13,7 @@ ms.date: 09/07/2021
 ms.author: davidmu
 ms.reviewer: arvinh
 # Customer intent: As an administrator of an Azure AD tenant, I want to search for and view the enterprise applications in the tenant.
+ms.custom: mode-other
 ---
 
 # Quickstart: View enterprise applications

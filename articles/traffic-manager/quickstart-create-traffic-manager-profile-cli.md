@@ -11,7 +11,7 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/19/2021
 ms.author: duau
-ms.custom: devx-track-azurecli
+ms.custom: devx-track-azurecli, mode-other
 # Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 

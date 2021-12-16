@@ -5,14 +5,13 @@ description: In this quickstart, learn how a JavaScript single-page application 
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/09/2021
 ms.author: marsma
-ms.custom: aaddev, scenarios:getting-started, languages:JavaScript, devx-track-js
+ms.custom: aaddev, "scenarios:getting-started", "languages:JavaScript", devx-track-js, mode-other
 #Customer intent: As an app developer, I want to learn how to get access tokens and refresh tokens by using the Microsoft identity platform so that my JavaScript app can sign in users of personal accounts, work accounts, and school accounts.
 ---
 

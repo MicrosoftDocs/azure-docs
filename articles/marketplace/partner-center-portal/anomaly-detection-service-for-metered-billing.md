@@ -4,9 +4,9 @@ description: Describes how anomaly detection works, when notifications are sent 
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-author: saasguide
-ms.author: souchak
-ms.date: 09/27/2021
+ms.date: 11/22/2021
+author: arifgani
+ms.author: argani
 ---
 
 # Anomaly detection service for metered billing

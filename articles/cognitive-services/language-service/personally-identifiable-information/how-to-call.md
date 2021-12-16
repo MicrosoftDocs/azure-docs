@@ -45,7 +45,7 @@ The API will attempt to detect the [defined entity categories](concepts/entity-c
 > [!TIP]
 > If you don't include `default` when specifying entity categories, The API will only return the entity categories you specify.
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1-preview.5/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.1/entities/recognition/pii?piiCategories=default,FRDriversLicenseNumber`
 
 ## Getting PII results
 

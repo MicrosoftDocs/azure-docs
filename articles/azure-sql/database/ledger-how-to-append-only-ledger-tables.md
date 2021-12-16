@@ -6,8 +6,8 @@ ms.service: sql-database
 ms.subservice: security
 ms.reviewer: vanto
 ms.topic: how-to
-author: rothja
-ms.author: jroth
+author: VanMSFT
+ms.author: vanto
 ---
 
 # Create and use append-only ledger tables
