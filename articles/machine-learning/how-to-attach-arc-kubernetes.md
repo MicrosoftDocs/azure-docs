@@ -226,7 +226,7 @@ Once the Azure Machine Learning extension is deployed, the following resources a
    |inference-operator-controller-manager|Kubernetes deployment|N/A|**&check;**|**&check;**|Manage the lifecycle of inference endpoints. |
    |metrics-controller-manager|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Manage the configuration for Prometheus|
    |relayserver|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Pass the job spec from Azure Machine Learning services to the Kubernetes cluster.|
-   |cluster-status-reporter|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Gather the nodes and resource information, and upload it to Azure Machine Learning services through the gateway deployed in the cluster.|
+   |cluster-status-reporter|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Gather the nodes and resource information, and upload it to Azure Machine Learning services.|
    |nfd-master|Kubernetes deployment|**&check;**|N/A|**&check;**|Node feature discovery.|
    |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Send nodes and cluster resource information to Azure Machine Learning services.|
    |csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|Azure Blob Storage Container Storage Interface(CSI) driver.|
