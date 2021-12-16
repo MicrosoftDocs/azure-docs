@@ -33,6 +33,12 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 
 ## December 2021
 
+**Apache Log4j vulnerability**
+
+Version 10.5.4 of Microsoft Defender for IoT mitigates the Apache Log4j vulnerability. For details, see [the security advisory update](https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844).
+
+**Alerting**
+
 Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancements:
 
 - Alerts for certain minor events or edge-cases are now disabled.
@@ -71,7 +77,7 @@ Disabling these alerts also disables monitoring of related traffic. Specifically
 - Unauthorized HTTP User Agent alert and HTTP User Agents Data Mining traffic
 - Unauthorized HTTP SOAP Action and HTTP SOAP Actions Data Mining traffic
 
-### Updated Alert Functionality
+### Updated alert functionality
 
 **Unauthorized Database Operation alert**
 Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
@@ -81,7 +87,7 @@ Previously, this alert covered DDL and DML alerting and Data Mining reporting. N
 **New Asset Detected alert**
 This alert is disabled for new devices detected in IT subnets. The New Asset Detected alert is still triggered for new devices discovered in OT subnets. OT subnets are detected automatically and can be updated by users if required.
 
-### Minimized Alerting
+### Minimized alerting
 
 Alert triggering for specific scenarios has been minimized to help reduce alert volume and simplify alert investigation. In these scenarios, if a device performs repeated activity on targets, an alert is triggered once.  Previously, a new alert was triggered each time the same activity was carried out.
 
