@@ -16,7 +16,7 @@ The NoHostAvailableException is a top-level wrapper exception with many possible
 ## Driver Settings
 One of the most common causes of a NoHostAvailableException is because of the default driver settings. We advised the following [settings](#code-sample).
 
-1. The default value of the connections per host is 1 which is not recommended for CosmosDB, a minimum value of 10 is advised. While more aggregated RUs are provisioned, increase connection count. The general guideline is 10 connections per 200k RU.
+1. The default value of the connections per host is 1, which is not recommended for CosmosDB, a minimum value of 10 is advised. While more aggregated RUs are provisioned, increase connection count. The general guideline is 10 connections per 200k RU.
 2. Use cosmos retry policy to handle intermittent throttling responses, please reference [cosmosdb extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions)(https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1)
 3. For multi-region account, CosmosDB load-balancing policy in the extension should be used.
 4. Read request timeout should be set greater than 1 minute. We recommend 90 seconds.
