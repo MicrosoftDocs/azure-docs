@@ -112,23 +112,23 @@ The following diagrams describe how single-file snapshot restore works.
 
 1. File consists of blocks written to a volume:
 
-![A diagram of three files against four grey verticals bars, labeled time, volume, files, block](../media/azure-netapp-files/single-file-snapshot-restore-one.png)
+   ![A diagram of three files against four grey verticals bars, labeled time, volume, files, block.](../media/azure-netapp-files/single-file-snapshot-restore-one.png)
 
 2. A snapshot is a copy of the pointers that represent the files:
 
-![A diagram of three files against four grey verticals bars, labeled time, volume, files, block. A fifth grey bar depicts the snapshots as a write-destination](../media/azure-netapp-files/single-file-snapshot-restore-two.png)
+   ![A diagram of three files against four grey verticals bars, labeled time, volume, files, block. A fifth grey bar depicts the snapshots as a write-destination.](../media/azure-netapp-files/single-file-snapshot-restore-two.png)
 
 3. Files on the volume continue to change and new ones are added. Modified data blocks are written to new empty data blocks on the volume:
 
-![Diagram depicting changes to directories that will be staged for snapshot copies](../media/azure-netapp-files/single-file-snapshot-restore-three.png)
+   ![Diagram depicting changes to directories that will be staged for snapshot copies.](../media/azure-netapp-files/single-file-snapshot-restore-three.png)
 
 4. A new snapshot is taken to capture the new changes and additions.  Each volume supports up to 255 snapshots:
 
-![Diagram showing a second set of snapshots being copied to capture new changes in the original file set](../media/azure-netapp-files/single-file-snapshot-restore-four.png)
+   ![Diagram showing a second set of snapshots being copied to capture new changes in the original file set.](../media/azure-netapp-files/single-file-snapshot-restore-four.png)
 
 5. When a single file is restored in-place (`file2`) or to a new file in the volume (`file2`), only the pointers to existing blocks previously captured in a snapshot are reverted. This operation eliminates copying any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
 
-![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted](../media/azure-netapp-files/single-file-snapshot-restore-five.png)
+   ![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)
 
 ### Restoring files or directories from online snapshots using a client
 
