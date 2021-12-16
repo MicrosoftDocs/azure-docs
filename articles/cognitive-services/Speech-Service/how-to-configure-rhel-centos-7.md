@@ -12,9 +12,9 @@ ms.date: 04/02/2020
 ms.author: pankopon
 ---
 
-# Configure RHEL/CentOS for C++
+# Configure RHEL7/CentOS7 for C++
 
-To use the Speech SDK for C++ development on Red Hat Enterprise Linux (RHEL) 8 x64 and CentOS 8 x64, update the C++ compiler and the shared C++ runtime library on your system.
+To use the Speech SDK for C++ development on Red Hat Enterprise Linux (RHEL) 7 x64 and CentOS 7 x64, update the C++ compiler and the shared C++ runtime library on your system.
 
 ## Install dependencies
 
