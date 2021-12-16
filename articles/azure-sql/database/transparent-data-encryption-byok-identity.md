@@ -1,13 +1,13 @@
 ---
-title: Customer-managed Transparent Data Encryption using user-assigned managed identity
-description: "Bring Your Own Key (BYOK) support for Transparent Data Encryption (TDE) using user-assigned managed identity (UMI)"
+title: Customer-managed transparent data encryption using user-assigned managed identity
+description: "Bring Your Own Key (BYOK) support for transparent data encryption (TDE) using user-assigned managed identity (UMI)"
 ms.service: sql-db-mi
 ms.subservice: security
 ms.topic: conceptual
 author: shohamMSFT
 ms.author: shohamd
 ms.reviewer: vanto
-ms.date: 12/15/2021
+ms.date: 12/16/2021
 ---
 
 # Managed Identities for Transparent Data Encryption with BYOK
@@ -34,13 +34,13 @@ In addition to the system-assigned managed identity that is already supported fo
 
 ## Benefits of using UMI for customer-managed TDE
 
-- Enables the ability to pre-authorize key vault access for Azure SQL logical servers or managed instances by creating a user assigned managed identity, and granting it access to key vault, even before the server or database has been created
+- Enables the ability to pre-authorize key vault access for Azure SQL logical servers or managed instances by creating a user-assigned managed identity, and granting it access to key vault, even before the server or database has been created
 
 - Allows creation of an Azure SQL logical server with TDE and CMK enabled
 
 - Enables the same user-assigned managed identity to be assigned to multiple servers, eliminating the need to individually turn on system-assigned managed identity for each Azure SQL logical server or managed instance, and providing it access to key vault
 
-- Provides the capability to enforce CMK at server or database creation time via available built-in Azure policy
+- Provides the capability to enforce CMK at server or database creation time with an available built-in Azure policy
 
 ## Considerations while using UMI for customer-managed TDE
 
@@ -48,9 +48,9 @@ In addition to the system-assigned managed identity that is already supported fo
 - When using the system-assigned managed identity for TDE with CMK, no user-assigned managed identities should be assigned to the server 
 - When using a user-assigned managed identity for TDE with CMK, assign the identity to the server and set it as the primary identity for the server
  
-## Current limitations in preview
+## Limitations
 
-- If the key vault is behind a VNet, user-assigned managed identity cannot be used with customer-managed TDE. System-assigned managed identity must be used in this case. A user-assigned managed identity can only be used when the key vault is not behind a VNet. 
+- If the key vault is behind a VNet, a user-assigned managed identity cannot be used with customer-managed TDE. A system-assigned managed identity must be used in this case. A user-assigned managed identity can only be used when the key vault is not behind a VNet. 
 
 
 ## Next steps
