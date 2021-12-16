@@ -1,6 +1,6 @@
 ---
-title: Rotate hyphenate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
-description: Rotate hyphenate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
+title: Rotate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
+description: Rotate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Rotate certificate Azure Arc-enabled SQL Managed Instance (indirectly connected)
 
-This article describes how to rotate hyphenate user-provided Transport Layer Security(TLS) certificate for Azure Arc-enabled SQL Managed Instances in indirectly connected mode using Azure CLI or `kubectl` commands.  
+This article describes how to rotate user-provided Transport Layer Security(TLS) certificate for Azure Arc-enabled SQL Managed Instances in indirectly connected mode using Azure CLI or `kubectl` commands.  
 
 Examples in this article use OpenSSL. [OpenSSL](https://www.openssl.org/) is an open-source command-line toolkit for general-purpose cryptography and secure communication.
 
