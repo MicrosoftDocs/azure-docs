@@ -80,7 +80,7 @@ Investigate together with an *incident team* by integrating Microsoft Teams dire
 
 1. Select your **Teams integration** link to switch into Microsoft Teams, where all of the data about your incident is listed on the **Incident page** tab.
 
-    [ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.jpg) ](media/collaborate-in-microsoft-teams/incident-in-teams.jpg#lightbox)
+    [ ![Incident page in Microsoft Teams.](media/collaborate-in-microsoft-teams/incident-in-teams.png) ](media/collaborate-in-microsoft-teams/incident-in-teams.png#lightbox)
 
 Continue the conversation about the investigation in Teams for as long as needed. You have the full incident details directly in teams.
 
