@@ -18,7 +18,7 @@ This article describes Azure Arc-enabled SQL Managed Instance with Active Direct
 ## Background
 
 In order to support Active Directory authentication for SQL Managed Instance, a SQL Managed Instance must be deployed in an environment that allows it to communicate with the Active Directory domain.
-To facilitate this, a new Kubernetes-native [Custom Resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/), in the yaml definition file, by specifying the 'Kind' called "Active Directory Connector" is introduced. An Active Directory Connector custom resource stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts.
+To facilitate this, Azure Arc introduces a new Kubernetes-native [custom resource definition (CRD)](https://kubernetes.io/docs/concepts/extend-kubernetes/api-extension/custom-resources/) called `Active Directory Connector`. You can specify this kind of resource in the CRD. An Active Directory Connector custom resource stores the information needed to enable connections to DNS and AD for purposes of authenticating users and service accounts.
 
 This custom resource deploys a DNS proxy service that mediates between the SQL Managed Instance DNS resolver and the two upstream DNS servers:
 

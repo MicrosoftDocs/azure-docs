@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Deploy AD-integrated SQL Managed Instance (bring your own keytab)
-description: Tutorial to deploy AD-integrated SQL Managed Instance (bring your own keytab)
+title: Tutorial – Deploy AD-integrated SQL Managed Instance
+description: Tutorial to deploy AD-integrated SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,9 +12,9 @@ ms.topic: how-to
 ---
 
 
-# Tutorial – Deploy AD-integrated SQL Managed Instance (Bring Your Own Keytab)
+# Tutorial – Deploy AD-integrated SQL Managed Instance
 
-This article explains how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory (AD) authentication using Bring Your Own Keytab (BYOK) mode.
+This article explains how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory (AD) authentication.
 Before you proceed, you need to complete the steps explained in [Tutorial – Deploy Active Directory Connector](deploy-active-directory-connector.md).
 
 ## Prerequisites
@@ -25,7 +25,7 @@ Before you proceed, verify that you have:
 * An instance of Data Controller deployed
 * An instance of Active Directory Connector deployed
 
-These instructions are for Bring Your Own Keytab (BYOK) mode of deployment. Hence the instructions expect that the users are able to generate the following in
+These instructions expect that the users are able to generate the following in
 the Active Directory domain and provide to the deployment.
 
 * An Active Directory user account for the SQL Managed Instance
@@ -93,9 +93,7 @@ the Active Directory domain and provide to the deployment.
 
 6. Generate a keytab file containing entries for the account and SPNs
 
-   For SQL Managed Instance to be able to authenticate itself to Active Directory and accept authentication from Active Directory users, provide a keytab file.
-
-   using a Kubernetes secret.
+   For SQL Managed Instance to be able to authenticate itself to Active Directory and accept authentication from Active Directory users, provide a keytab file using a Kubernetes secret.
 
    The keytab file contains encrypted entries for the Active Directory account generated for SQL Managed Instance and the SPNs.
 
@@ -124,8 +122,8 @@ the Active Directory domain and provide to the deployment.
    * **--port** expects the SQL endpoint port number 31433
    * **--dns-name** expects the DNS name for the SQL endpoint
    * **--keytab-file** expects the path to the keytab file
-   * **--secret-name** expects the name of the keytab secret
-   * **--secret-namespace** expects the Kubernetes namespace contains the keytab secret
+   * **--secret-name** expects the name of the keytab secret to generate a spec for
+   * **--secret-namespace** expects the Kubernetes namespace containing the keytab secret
 
    Using the examples chosen in this document, the command should look like the following.
 
