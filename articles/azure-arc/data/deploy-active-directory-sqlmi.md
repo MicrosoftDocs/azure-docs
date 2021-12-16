@@ -1,6 +1,6 @@
 ---
-title: Tutorial – Deploy AD-integrated SQL Managed Instance (Bring Your Own Keytab)
-description: Tutorial to deploy AD-integrated SQL Managed Instance (Bring Your Own Keytab)
+title: Tutorial – Deploy AD-integrated SQL Managed Instance (bring your own keytab)
+description: Tutorial to deploy AD-integrated SQL Managed Instance (bring your own keytab)
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data

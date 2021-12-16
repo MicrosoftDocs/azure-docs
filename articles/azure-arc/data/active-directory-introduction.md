@@ -44,6 +44,6 @@ The following are the steps for user to set up:
 
 ## Next steps
 
-* [Deploying Active Directory (AD) Connector](deploy-active-directory-connector.md)
-* [Deploying Arc-enabled SQL Managed Instance in Active Directory (AD) Manual Authentication mode](deploy-active-directory-sqlmi.md)
+* [Deploy Active Directory (AD) connector](deploy-active-directory-connector.md)
+* [Deploy Azure Arc-enabled SQL Managed Instance in Active Directory (AD)](deploy-active-directory-sqlmi.md)
 * [Connect to AD-integrated Azure Arc-enabled SQL Managed Instance](connect-active-directory-sqlmi.md)

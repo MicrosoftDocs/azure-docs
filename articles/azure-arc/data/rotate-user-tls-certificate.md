@@ -1,6 +1,6 @@
 ---
-title: Rotate hyphenate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
-description: Rotate hyphenate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
+title: Rotate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
+description: Rotate user-provided TLS certificate in indirectly connected Azure Arc-enabled SQL Managed Instance
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -12,7 +12,7 @@ ms.topic: how-to
 ---
 # Rotate certificate Azure Arc-enabled SQL Managed Instance (indirectly connected)
 
-This article describes how to rotate hyphenate user-provided Transport Layer Security(TLS) certificate for Azure Arc-enabled SQL Managed Instances in indirectly connected mode using Azure CLI or `kubectl` commands.  
+This article describes how to rotate user-provided Transport Layer Security(TLS) certificate for Azure Arc-enabled SQL Managed Instances in indirectly connected mode using Azure CLI or `kubectl` commands.  
 
 Examples in this article use OpenSSL. [OpenSSL](https://www.openssl.org/) is an open-source command-line toolkit for general-purpose cryptography and secure communication.
 
@@ -89,16 +89,17 @@ DNS:mi1-svc, DNS:mi1-svc.test.svc.cluster.local, DNS:mi1-svc.test.svc
    base64 /<path>/<file> > cert.txt 
    ```
 
-For Windows users, use [certutil](/windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command : 
+   For Windows users, use [certutil](/windows-server/administration/windows-commands/certutil) utility to perform Base64 encoding and decoding as the following command : 
 
    ```console
    $certutil -encode -f input.txt b64-encoded.txt
-  ```
+   ```
 
-You will need to remove the header in the output file manually or using the following command :
-  ```console
-  $findstr /v CERTIFICATE b64-encoded.txt> updated-b64.txt 
-  ```
+   You will need to remove the header in the output file manually or using the following command :
+
+   ```console
+   $findstr /v CERTIFICATE b64-encoded.txt> updated-b64.txt 
+   ```
 
 1. Add the base64 encoded cert and private key to the yaml specification file to create a Kubernetes secret:
 
@@ -106,11 +107,11 @@ You will need to remove the header in the output file manually or using the foll
    apiVersion: v1
    kind: Secret
    metadata:
-     name: {{ secretName }}
+     name: <secretName>
    type: Opaque
    data:
-     certificate.pem: {{ base64 encoded certificate }}
-     privatekey.pem: {{ base64 encoded private key }}
+     certificate.pem: < base64 encoded certificate >
+     privatekey.pem: < base64 encoded private key >
    ```
 
 ## Rotating certificate via Azure CLI
