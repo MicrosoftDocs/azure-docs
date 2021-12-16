@@ -45142,6 +45142,11 @@
       "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
       "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
       "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
+      "redirect_url": "/azure/orbital/overview",
+      "redirect_document_id": false
     }
   ]
 }
