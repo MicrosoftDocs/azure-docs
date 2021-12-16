@@ -1,6 +1,6 @@
 ---
 title: Upgrade direct mode Azure Arc data controller using the CLI
-description: Article describes how to upgrade an indirectly connected Azure Arc data controller using the CLI
+description: Article describes how to upgrade a directly connected Azure Arc data controller using the CLI
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
@@ -17,7 +17,7 @@ This article describes how to upgrade a directly connected Azure Arc-enabled dat
 
 ## Prerequisites
 
-You will need an direct mode data controller with the imageTag v1.0.0_2021-07-30 or later.
+You will need a direct mode data controller with the imageTag v1.0.0_2021-07-30 or later.
 
 To check the version, run:
 
@@ -39,7 +39,7 @@ Before you can proceed with the tasks in this article you need to install:
 Pull the list of available images for the data controller with the following command:
 
    ```azurecli
-   az arcdata dc list-upgrades --k8s-namespace <namespace> –-use-k8s
+   az arcdata dc list-upgrades --k8s-namespace <custom location> 
    ```
 
 The command above returns output like the following example:
@@ -62,14 +62,16 @@ This section shows how to upgrade a data controller in direct mode.
 
 ### Direct mode
 
-Check this statement in testing: 
 You will need to connect and authenticate to a Kubernetes cluster and have an existing Kubernetes context selected prior to beginning the upgrade of the Azure Arc data controller.
+
+```kubectl
+kubectl config use-context <Kubernetes cluster name>
+```
 
 You can perform a dry run first. The dry run validates the registry exists, the version schema, and the private repository authorization token (if used). To perform a dry run, use the `--dry-run` parameter in the `az arcdata dc upgrade` command. For example:
 
 ```azurecli
-az arcdata dc upgrade --desired-version <version> --k8s-namespace <namespace> --dry-run --use-k8s
-az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --t <version> [--no-wait]
+az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --desired-version <version> [--no-wait]
 ```
 
 The output for the preceding command is:
@@ -84,21 +86,7 @@ Arcdata Control Plane would be upgraded to: 20211024.1
 To upgrade the data controller, run the `az arcdata dc upgrade` command. If you don't specify a target image, the data controller will be upgraded to the latest version. The following example uses a local variable (`$version`) to use the version you selected previously ([View available images and chose a version](#view-available-images-and-chose-a-version)).
 
 ```azurecli
-az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --t <version> [--no-wait]
-```
-
-The output for the preceding command shows the status of the steps:
-
-```output
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
-Preparing to upgrade dc arcdc in namespace arc to version 20211024.1.
-Creating service account: arc:cr-upgrade-worker
-Creating cluster role: arc:cr-upgrade-worker
-Creating cluster role binding: arc:crb-upgrade-worker
-Cluster role binding: arc:crb-upgrade-worker created successfully.
-Cluster role: arc:cr-upgrade-worker created successfully.
-Service account arc:cr-upgrade-worker has been created successfully.
-Creating privileged job arc-elevated-bootstrapper-job
+az arcdata dc upgrade --resource-group <resource group> --name <data controller name> --desired-version <version> [--no-wait]
 ```
 
 ## Monitor the upgrade status
@@ -108,7 +96,7 @@ You can monitor the progress of the upgrade with CLI.
 ### CLI
 
 ```azurecli
- az arcdata dc status show --k8s-namespace <namespace> --use-k8s
+ az arcdata dc status show --resource-group <resource group>
 ```
 
 The upgrade is a two-part process. First the controller is upgraded, then the monitoring stack is upgraded. When the upgrade is complete, the output will be:

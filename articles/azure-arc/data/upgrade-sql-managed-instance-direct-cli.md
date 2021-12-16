@@ -13,6 +13,8 @@ ms.topic: how-to
 
 # Upgrade a direct mode Azure Arc-enabled Managed Instance using the CLI
 
+This article describes how to upgrade a SQL Managed Instance deployed on a directly connected Azure Arc-enabled data controller using the Azure CLI (`az`).
+
 ## Prerequisites
 
 ### Install tools
@@ -33,8 +35,7 @@ Currently, only one Managed Instance can be upgraded at a time.
 A dry run can be performed first. This will validate the version schema and list which instance(s) will be upgraded.
 
 ````cli
-az sql mi-arc upgrade --name <instance name> --k8s-namespace <namespace> --dry-run --use-k8s
-az sql mi-arc upgrade --resource-group <resource group> --name <instance name> [--no-wait]
+az sql mi-arc upgrade --resource-group <resource group> --name <instance name> --dry-run 
 ````
 
 The output will be:
@@ -49,14 +50,13 @@ Preparing to upgrade sql sqlmi-1 in namespace arc to data controller version.
 To upgrade the Managed Instance, use the following command:
 
 ````cli
-az sql mi-arc upgrade --name <instance name> --desired-version <version> --k8s-namespace <namespace> --use-k8s
 az sql mi-arc upgrade --resource-group <resource group> --name <instance name> [--no-wait]
 ````
 
 Example:
 
 ````cli
-az sql mi-arc upgrade --name instance1 --target v1.0.0.20211028 --k8s-namespace arc1 --use-k8s
+az sql mi-arc upgrade --resource-group rgarc --name sql1 [--no-wait]
 ````
 
 ## Monitor
@@ -66,7 +66,7 @@ You can monitor the progress of the upgrade with CLI.
 ### CLI
 
 ```cli
-az sql mi-arc show --name <instance name> --k8s-namespace <namespace> --use-k8s
+az sql mi-arc show --resource-group <resource group> --name <instance name>
 ```
 
 ### Output
