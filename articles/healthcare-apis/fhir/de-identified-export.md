@@ -5,7 +5,7 @@ author: ranvijaykumar
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 9/28/2020
+ms.date: 12/06/2021
 ms.author: ranku
 ---
 # Exporting de-identified data (preview)
@@ -60,3 +60,10 @@ For more detailed information on each of these 4 sections of the configuration f
 
 > [!IMPORTANT]
 > Both raw export as well as de-identified export writes to the same Azure storage account specified as part of export configuration. It is recommended that you use different containers corresponding to different de-identified config and manage user access at the container level.
+
+## Next steps
+
+In this article, you've learned how to set up and use de-identified export. For more information about how to export FHIR data, see
+ 
+>[!div class="nextstepaction"]
+>[Export data](export-data.md)
