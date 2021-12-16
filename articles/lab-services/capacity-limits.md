@@ -33,7 +33,7 @@ The admin can follow these steps to request a limit increase:
 
 ## Per-customer assigned capacity
 
-Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren’t visible to customers. Previously, VM capacity was available from a large pool shared across many customers. With the January 2022 Update, VM capacity is now dedicated to each customer.
+Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren’t visible to customers. Previously, VM capacity was available from a large pool shared across many customers. With the [January 2022 Update (preview)](lab-services-whats-new.md), VM capacity is now dedicated to each customer.
 
 Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and region. Pre-requesting capacity helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.  We can now assign VM capacity on a per-customer basis when you submit a support ticket to request capacity.
 

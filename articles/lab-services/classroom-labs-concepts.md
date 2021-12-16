@@ -9,9 +9,6 @@ ms.date: 11/19/2021
 
 This article describes key Lab Services concepts and definitions.
 
->[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the January 2022 Update](lab-services-whats-new.md). The new experience is in preview.
-
 ## Quota
 
 Quota is the time limit (in hours) that an educator can set for a student to use a lab VM. It can be set to 0, or a specific number of hours. If the quota is set to 0, a student can only use the virtual machine when a schedule is running or when an educator manually turns on the virtual machine for the student.  
@@ -34,7 +31,7 @@ There are three types of schedules: Standard, Start only and Stop only.
 
 A template virtual machine in a lab is a base virtual machine image from which all users’ virtual machines are created. Trainers/lab creators set up the template virtual machine and configure it with the software that they want to provide to training attendees to do labs. When you publish a template VM, Azure Lab Services creates or updates lab VMs based on the template VM.
 
-With the [January 2022 Update](lab-services-whats-new.md), labs can now be created from a pre-defined virtual machine image without the need for a template machine.  
+With the [January 2022 Update (preview)](lab-services-whats-new.md), labs can now be created from a pre-defined virtual machine image without the need for a template machine.  
 
 ## User profiles
 

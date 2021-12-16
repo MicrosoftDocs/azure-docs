@@ -9,6 +9,8 @@ ms.author: nicolela
 
 # Set up labs for Autodesk
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article describes how to set up Autodesk Inventor and Autodesk Revit software for engineering classes:
 
 - [Inventor computer-aided design (CAD)](https://www.autodesk.com/products/inventor/new-features) and [computer-aided manufacturing (CAM)](https://www.autodesk.com/products/inventor-cam/overview) provide 3D modeling and are used in engineering design.
@@ -17,9 +19,6 @@ This article describes how to set up Autodesk Inventor and Autodesk Revit softwa
 Autodesk is commonly used in both universities and K-12 schools.  For example, in K-12, AutoDesk is included in the [Project Lead the Way (PLTW)](./class-type-pltw.md) curriculum.
 
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 ## License server
 

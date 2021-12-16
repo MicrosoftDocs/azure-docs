@@ -9,10 +9,9 @@ ms.author: enewman
 
 # Architecture Fundamentals in Azure Lab Services
 
-Azure Lab Services is a SaaS (software as a service) solution, which means that the resources needed by Lab Services are handled for you. This article will cover the fundamental resources used by Lab Services and basic architecture of a lab.
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
->[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the January 2022 Update](lab-services-whats-new.md). The new experience is in preview.
+Azure Lab Services is a SaaS (software as a service) solution, which means that the resources needed by Lab Services are handled for you. This article will cover the fundamental resources used by Lab Services and basic architecture of a lab.
 
 Azure Lab Services does provide a couple of areas that allow you to use your own resources in conjunction with Lab Services.  For more information about using VMs on your own network, see how to [peer a virtual network](how-to-connect-peer-virtual-network.md).  If using the January 2022 update, see [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) to use virtual network injection instead of virtual network peering.  To reuse images from a Shared Image Gallery, see how to [attach a Shared Image Gallery](how-to-attach-detach-shared-image-gallery.md).
 

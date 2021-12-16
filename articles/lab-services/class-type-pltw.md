@@ -7,6 +7,8 @@ ms.date: 10/28/2020
 
 # Set up labs for Project Lead The Way classes
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 [Project Lead The Way (PLTW)](https://www.pltw.org/) is a nonprofit organization that provides PreK&ndash;12 curriculum across the United States in computer science, engineering, and biomedical science.  In each PLTW class, students use various software applications as part of their hands-on learning experience.  Many of the software applications require either a fast CPU or, in some cases, a GPU.  This article shows you how to set up labs for the following PLTW classes, which are typically offered to students in grades 9&ndash;12:
 
 - **Introduction to Engineering Design**
@@ -48,9 +50,6 @@ ms.date: 10/28/2020
 For a full list of class software, go to the [PLTW site](https://www.pltw.org/pltw-software) for each class.
 
 To begin setting up labs for PLTW, you need access to an Azure subscription and a lab plan. Discuss with your organization's admin to see if you can get access to an existing Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 ## License server
 

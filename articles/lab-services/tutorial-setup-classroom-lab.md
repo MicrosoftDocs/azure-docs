@@ -7,6 +7,8 @@ ms.date: 11/12/2021
 
 # Tutorial: Set up a classroom lab
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 In this tutorial, you set up a classroom lab with virtual machines that are used by students in the classroom by doing the following actions:
 
 > [!div class="checklist"]
@@ -18,9 +20,6 @@ In this tutorial, you set up a classroom lab with virtual machines that are used
 ## Prerequisites
 
 To set up a classroom lab, you must be a member of one of these roles in the lab plan: Owner, Lab Creator, or Contributor. The account you used to create a lab plan is automatically added to the owner role. So, you can use the user account that you used to create a lab plan to create a classroom lab.
-
-> [!NOTE]
-> The [January 2022 Update](lab-services-whats-new.md) of Azure Lab Services replaces lab accounts with lab plans. This article will use [lab plans](tutorial-setup-lab-plan.md) instead of lab accounts.
 
 Here's the typical workflow when using Azure Lab Services:
 

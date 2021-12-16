@@ -9,14 +9,13 @@ ms.author: enewman
 
 # Set up lab for React on Windows
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 [React](https://reactjs.org/) is a popular JavaScript library for building user interfaces (UI). React is a declarative way to create reusable components for your website.  There are many other popular libraries for JavaScript-based front-end development.  We'll use a few of these libraries while creating our lab.  [Redux](https://redux.js.org/) is a library that provides predictable state container for JavaScript apps and is often used in compliment with React. [JSX](https://reactjs.org/docs/introducing-jsx.html) is a library syntax extension to JavaScript often used with React to describe what the UI should look like.  [NodeJS](https://nodejs.org/) is a convenient way to run a webserver for your React application.
 
 This article will show how to install [Visual Studio 2019](https://visualstudio.microsoft.com/vs/) for your development environment, and the tools, and libraries needed for a React web development class.
 
 ## Lab configuration
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription and lab plan to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

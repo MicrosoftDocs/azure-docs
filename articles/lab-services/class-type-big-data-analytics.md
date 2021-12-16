@@ -9,6 +9,8 @@ ms.author: nicolela
 
 # Set up a lab for big data analytics using Docker deployment of HortonWorks Data Platform
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article shows you how to set up a lab to teach a big data analytics class.  With this type of class, students learn how to handle large volumes of data and apply machine and statistical learning algorithms to derive data insights.  A key objective for students is to learn to use data analytics tools, such as [Apache Hadoop's open-source software package](https://hadoop.apache.org/) which provides tools for storing, managing, and processing big data.
 
 In this lab, students will use a popular commercial version of Hadoop provided by [Cloudera](https://www.cloudera.com/), called [Hortonworks Data Platform (HDP)](https://www.cloudera.com/products/hdp.html).  Specifically, students will use [HDP Sandbox 3.0.1](https://www.cloudera.com/tutorials/getting-started-with-hdp-sandbox/1.html) which is a simplified, easy-to-use version of the platform that is free of cost and intended for learning and experimentation.  Although this class may use either Windows or Linux virtual machines (VM) with HDP Sandbox deployed, this article will show how to use Windows.
@@ -18,9 +20,6 @@ Another interesting aspect of this lab, is that we will deploy HDP Sandbox on th
   - sandbox-proxy
 
 ## Lab configuration
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

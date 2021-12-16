@@ -9,6 +9,8 @@ ms.author: nicolela
 
 # Set up a lab for Adobe Creative Cloud
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 [Adobe Creative Cloud](https://www.adobe.com/creativecloud.html) is a collection of desktop applications and web services used for photography, design, video, web, user experience (UX), and more.  Universities and K-12 schools use Creative Cloud in digital arts and media classes.  Some of Creative Cloud’s media processes may require more computational and visualization (GPU) power than a typical tablet, laptop, or workstation support.  With Azure Lab Services, you have flexibility to choose from various virtual machine (VM) sizes, including GPU sizes.
 
 In this article, we’ll show how to set up a class that uses Creative Cloud.
@@ -18,9 +20,6 @@ In this article, we’ll show how to set up a class that uses Creative Cloud.
 To use Creative Cloud on a lab VM, you must use [Named User Licensing](https://helpx.adobe.com/enterprise/kb/technical-support-boundaries-virtualized-server-based.html#main_Licensing_considerations), which is the only type of licensing that supports deployment on a virtual machine.  Each lab VM has internet access so that your students can activate Creative Cloud apps by signing into the software.  Once a student signs in, their authentication token is cached in the user profile so that they don’t have to sign in again on their VM.  Read [Adobe’s article on licensing](https://helpx.adobe.com/enterprise/using/licensing.html) for more details.
 
 ## Lab configuration
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

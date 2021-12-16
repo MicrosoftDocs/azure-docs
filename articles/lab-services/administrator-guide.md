@@ -9,8 +9,7 @@ ms.date: 11/22/2021
 
 Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school.
 
-> [!NOTE]
-> This article focuses on the January 2022 Update, where lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
 After they've set up a lab plan, administrators or educators create the labs that are associated with the plan. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 
