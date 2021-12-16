@@ -9,28 +9,90 @@ ms.date: 09/10/2021
 ---
 # Share and receive data from Azure SQL Database and Azure Synapse Analytics
 
-[!INCLUDE[appliesto-sql](includes/appliesto-sql.md)]
+[!INCLUDE [appliesto-sql](includes/appliesto-sql.md)]
+
+Azure Data Share allows you to securely share snapshots of your data from Azure SQL Database and Azure Synapse Analytics resources, to other Azure subscriptions. Including Azure subscriptions outside your tenant. This article will guide you through what kinds of data can be shared, how to prepare you environment, how to create a share, and how to receive shared data.
+
 
 Azure Data Share supports snapshot-based sharing Azure SQL Database and Azure Synapse Analytics. This article explains how to share and receive data from these sources.
 
-Azure Data Share supports sharing of both tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), and sharing of tables from Azure Synapse Analytics (workspace) dedicated SQL pool. Sharing from Azure Synapse Analytics (workspace) serverless SQL pool is not currently supported. Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 or Azure Blob Storage as csv or parquet file, as well as into Azure SQL Database and Azure Synapse Analytics as tables.
+## What's supported
+
+Azure Data Share supports sharing of both tables and views from Azure SQL Database and Azure Synapse Analytics (formerly Azure SQL DW), and sharing of tables from Azure Synapse Analytics (workspace) dedicated SQL pool.
+
+>[!NOTE]
+> Sharing from Azure Synapse Analytics (workspace) serverless SQL pool is not currently supported.
+
+>[!NOTE]
+> Currently, Azure Data Share does not support Azure SQL databases with Always Encrypted configured. 
+
+Data consumers can choose to accept the data into Azure Data Lake Storage Gen2 or Azure Blob Storage as csv or parquet file, as well as into Azure SQL Database and Azure Synapse Analytics as tables. 
 
 When accepting data into Azure Data Lake Store Gen2 or Azure Blob Storage, full snapshots overwrite the contents of the target file if already exists.
-When data is received into SQL table and if the target table does not already exist, Azure Data Share creates the SQL table with the source schema. If a target table already exists with the same name, it will be dropped and overwritten with the latest full snapshot. Incremental snapshots are not currently supported.
+When data is received into SQL table and if the target table does not already exist, Azure Data Share creates the SQL table with the source schema. If a target table already exists with the same name, it will be dropped and overwritten with the latest full snapshot. 
 
-## Share data
+>[!NOTE] 
+> For source SQL tables with dynamic data masking, data will appear masked on the recipient side.
 
-### Prerequisites to share data
+>[!NOTE] 
+> Incremental snapshots are not currently supported.
+
+### Supported data types
+When you share data from SQL source, the following mapping are used from SQL Server data types to Azure Data Share interim data types during snapshot process. 
+
+>[!NOTE]
+> 1. For data types that map to the Decimal interim type, currently snapshot supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string. 
+> 1.  If you are sharing data from Azure SQL database to Azure Synapse Analytics, not all data types are supported. Refer to [Table data types in dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) for details. 
+
+| SQL Server data type | Azure Data Share interim data type |
+|:--- |:--- |
+| bigint |Int64 |
+| binary |Byte[] |
+| bit |Boolean |
+| char |String, Char[] |
+| date |DateTime |
+| Datetime |DateTime |
+| datetime2 |DateTime |
+| Datetimeoffset |DateTimeOffset |
+| Decimal |Decimal |
+| FILESTREAM attribute (varbinary(max)) |Byte[] |
+| Float |Double |
+| image |Byte[] |
+| int |Int32 |
+| money |Decimal |
+| nchar |String, Char[] |
+| ntext |String, Char[] |
+| numeric |Decimal |
+| nvarchar |String, Char[] |
+| real |Single |
+| rowversion |Byte[] |
+| smalldatetime |DateTime |
+| smallint |Int16 |
+| smallmoney |Decimal |
+| sql_variant |Object |
+| text |String, Char[] |
+| time |TimeSpan |
+| timestamp |Byte[] |
+| tinyint |Int16 |
+| uniqueidentifier |Guid |
+| varbinary |Byte[] |
+| varchar |String, Char[] |
+| xml |String |
+
+
+##  Prerequisites to share data
 
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+* [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
 * Your recipient's Azure login e-mail address (using their e-mail alias won't work).
 * If the source Azure data store is in a different Azure subscription than the one you will use to create Data Share resource, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where the Azure data store is located. 
 
-### Prerequisites for SQL source
-Below is the list of prerequisites for sharing data from SQL source. 
+There are also source-specific prerequisites for sharing. Select your source and follow the steps:
 
-#### Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
+* [Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)](#prerequisitesforsharingazuresqlorsynapse)
+* [Azure Synapse Analytics (workspace) SQL pool](#prerequisitesforsharingazuresynapseworkspace)
 
+### <a id="prerequisitesforsharingazuresqlorsynapse">Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)</a>
 
 To share data using Azure Active Directory authentication, here is a list of prerequisites:
 
@@ -66,7 +128,7 @@ To share data using SQL authentication, below is a list of prerequisites. You ca
     1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
     1. Click **Save**. 
 
-#### Prerequisites for sharing from Azure Synapse Analytics (workspace) SQL pool
+### <a id="prerequisitesforsharingazuresynapseworkspace">Prerequisites for sharing from Azure Synapse Analytics (workspace) SQL pool</a>
 
 * An Azure Synapse Analytics (workspace) dedicated SQL pool with tables that you want to share. Sharing of view is not currently supported. Sharing from serverless SQL pool is not currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
@@ -87,35 +149,7 @@ To share data using SQL authentication, below is a list of prerequisites. You ca
     1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
     1. Click **Save**. 
 
-### Sign in to the Azure portal
-
-Sign in to the [Azure portal](https://portal.azure.com/).
-
-### Create a Data Share Account
-
-Create an Azure Data Share resource in an Azure resource group.
-
-1. Select the menu button in the upper-left corner of the portal, then select **Create a resource** (+).
-
-1. Search for *Data Share*.
-
-1. Select Data Share and Select **Create**.
-
-1. Fill out the basic details of your Azure Data Share resource with the following information. 
-
-     **Setting** | **Suggested value** | **Field description**
-    |---|---|---|
-    | Subscription | Your subscription | Select the Azure subscription that you want to use for your data share account.|
-    | Resource group | *test-resource-group* | Use an existing resource group or create a new resource group. |
-    | Location | *East US 2* | Select a region for your data share account.
-    | Name | *datashareaccount* | Specify a name for your data share account. |
-    | | |
-
-1. Select **Review + create**, then **Create** to provision your data share account. Provisioning a new data share account typically takes about 2 minutes or less. 
-
-1. When the deployment is complete, select **Go to resource**.
-
-### Create a share
+## Create a share
 
 1. Navigate to your Data Share Overview page.
 
@@ -163,7 +197,7 @@ Create an Azure Data Share resource in an Azure resource group.
 
 Your Azure Data Share has now been created and the recipient of your Data Share is now ready to accept your invitation. 
 
-## Receive data
+## Receive shared data
 
 ### Prerequisites to receive data
 Before you can accept a data share invitation, you must provision a number of Azure resources, which are listed below. 
@@ -173,6 +207,17 @@ Ensure that all pre-requisites are complete before accepting a data share invita
 * Azure Subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 * A Data Share invitation: An invitation from Microsoft Azure with a subject titled "Azure Data Share invitation from **<yourdataprovider@domain.com>**".
 * Register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the Azure subscription where you will create a Data Share resource and the Azure subscription where your target Azure data stores are located.
+* You will need a resource in Azure where you will store the recieved data, which can be one of these kinds of resources:
+    - [Azure Storage](../storage/common/storage-account-create.md)
+    - [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
+    - [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md)
+
+There are also prerequisites for the resource where the recieved data will be stored. 
+Select your resource type and follow the steps:
+
+* [Azure Storage prerequisites](#prerequisites-for-target-storage-account)
+* [Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) prerequisites](#prerequisitesforreceivingtoazuresqlorsynapse)
+* [Azure Synapse Analytics (workspace) SQL pool prerequisites](#prerequisitesforreceivingtoazuresynapseworkspacepool)
 
 ### Prerequisites for target storage account
 If you choose to receive data into Azure Storage, below is the list of prerequisites.
@@ -181,10 +226,7 @@ If you choose to receive data into Azure Storage, below is the list of prerequis
 * Permission to write to the storage account, which is present in *Microsoft.Storage/storageAccounts/write*. This permission exists in the **Contributor** role. 
 * Permission to add role assignment of the Data Share resource's managed identity to the storage account, which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the **Owner** role.  
 
-### Prerequisites for SQL target
-If you choose to receive data into Azure SQL Database, Azure Synapse Analytics, below is the list of prerequisites. 
-
-#### Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
+### <a id="prerequisitesforreceivingtoazuresqlorsynapse">Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)</a>
 
 To receive data into a SQL server where you are the **Azure Active Directory admin** of the SQL server, here is a list of prerequisites:
 
@@ -219,7 +261,7 @@ To receive data into a SQL server where you are not the **Azure Active Directory
     1. Click **+Add client IP**. Client IP address is subject to change. This process might need to be repeated the next time you are sharing SQL data from Azure portal. You can also add an IP range.
     1. Click **Save**. 
  
-#### Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool
+### <a id="prerequisitesforreceivingtoazuresynapseworkspacepool">Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool</a>
 
 * An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool is not currently supported.
 * Permission to write to the SQL pool in Synapse workspace, which is present in *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
@@ -308,54 +350,7 @@ These steps only apply to snapshot-based sharing.
 ### View history
 This step only applies to snapshot-based sharing. To view history of your snapshots, select **History** tab. Here you'll find history of all snapshots that were generated for the past 30 days. 
 
-## Supported data types
-When you share data from SQL source, the following mapping are used from SQL Server data types to Azure Data Share interim data types during snapshot process. 
-
-| SQL Server data type | Azure Data Share interim data type |
-|:--- |:--- |
-| bigint |Int64 |
-| binary |Byte[] |
-| bit |Boolean |
-| char |String, Char[] |
-| date |DateTime |
-| Datetime |DateTime |
-| datetime2 |DateTime |
-| Datetimeoffset |DateTimeOffset |
-| Decimal |Decimal |
-| FILESTREAM attribute (varbinary(max)) |Byte[] |
-| Float |Double |
-| image |Byte[] |
-| int |Int32 |
-| money |Decimal |
-| nchar |String, Char[] |
-| ntext |String, Char[] |
-| numeric |Decimal |
-| nvarchar |String, Char[] |
-| real |Single |
-| rowversion |Byte[] |
-| smalldatetime |DateTime |
-| smallint |Int16 |
-| smallmoney |Decimal |
-| sql_variant |Object |
-| text |String, Char[] |
-| time |TimeSpan |
-| timestamp |Byte[] |
-| tinyint |Int16 |
-| uniqueidentifier |Guid |
-| varbinary |Byte[] |
-| varchar |String, Char[] |
-| xml |String |
-
->[!NOTE]
-> 1. For data types that map to the Decimal interim type, currently snapshot supports precision up to 28. If you have data that requires precision larger than 28, consider converting to a string. 
-> 1.  If you are sharing data from Azure SQL database to Azure Synapse Analytics, not all data types are supported. Refer to [Table data types in dedicated SQL pool](../synapse-analytics/sql-data-warehouse/sql-data-warehouse-tables-data-types.md) for details. 
-
-## SQL Always Encrypted or Dynamic Data Masking
-Currently, Azure Data Share does not support Azure SQL databases with Always Encrypted configured. 
-
-For source SQL tables with dynamic data masking, data will appear masked on the recipient side.
-
-## SQL snapshot performance
+## Snapshot performance
 SQL snapshot performance is impacted by a number of factors. It is always recommended to conduct your own performance testing. Below are some example factors impacting performance.
 
 * Source or destination data store input/output operations per second (IOPS) and bandwidth.
@@ -366,7 +361,7 @@ SQL snapshot performance is impacted by a number of factors. It is always recomm
 
 For large tables where incremental updates are desired, you can export updates to storage account and leverage storage account’s incremental sharing capability for faster performance.
 
-## Troubleshoot SQL snapshot failure
+## Troubleshoot snapshot failure
 The most common cause of snapshot failure is that Data Share does not have permission to the source or target data store. In order to grant Data Share permission to the source or target Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot additional SQL snapshot failure, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshots).
 
 ## Next steps
