@@ -49,9 +49,9 @@ You can generate the code for the following scenarios:
 
     * Alternatively, you can create a new local Conda environment on your local machine and then install the latest Azure ML SDK. [How to install AutoML client SDK in Conda environment with the `automl` package](https://github.com/Azure/azureml-examples/tree/main/python-sdk/tutorials/automl-with-azureml#setup-using-a-local-conda-environment).
 
-## Enable code generation for Auto ML experiments
+## Enable code generation for automated ML experiments
 
-You can enable code generation for your automated ML experiments in your AutoMLConfig object. Before submitting your AutoML experiment, you need to set the `enable_code_generation=True` parameter. Confirm that you call `experiment.submit()` from a Conda environment that contains the latest Azure ML SDK with automated ML. This ensures that that code generation is triggered properly for the experiments that are run on a remote compute target.
+You can enable code generation for your automated ML experiments in your AutoMLConfig object. Before submitting your automated ML experiment, you need to set the `enable_code_generation=True` parameter. Confirm that you call `experiment.submit()` from a Conda environment that contains the latest Azure ML SDK with automated ML. This ensures that that code generation is triggered properly for the experiments that are run on a remote compute target.
 
 ```python
 config = AutoMLConfig( task="classification",
@@ -156,7 +156,7 @@ The function `generate_preprocessor_config()`, if present, specifies a preproces
 
 Normally, this preprocessing step only consists of data standardization/normalization using [`sklearn.preprocessing`](https://scikit-learn.org/stable/modules/preprocessing.html).
 
-AutoML only specifies a preprocessing step for non-ensemble classification and regression models.
+Automatd ML only specifies a preprocessing step for non-ensemble classification and regression models.
 
 Here's an example of a generated preprocessor code:
 
@@ -283,7 +283,7 @@ It is similar to the existing automated ML sample notebooks however, there are a
 
 Typically the training environment for automated ML runs is automatically set by the SDK. However, when running a custom script run like the generated code, automated ML is no longer driving the process so the environment must be specified for the script run to succeed.
 
-Code generation reuses the environment that was used in the original AutoML experiment, if possible; this guarantees that the training script run will not fail due to missing
+Code generation reuses the environment that was used in the original automated ML experiment, if possible; this guarantees that the training script run will not fail due to missing
 dependencies and has the side benefit of not needing a Docker image rebuild step, which saves time and compute resources.
 
 If you make changes to `script.py` that require additional dependencies, or you would like to use your own environment, you will need to update the `Create environment` cell in `script_run_notebook.ipynb` accordingly.
@@ -292,7 +292,7 @@ For additional documentation on AzureML environments, see [this page](/python/ap
 
 ### Submitting the experiment
 
-Since the generated code is not driven by AutoML anymore, instead of creating an `AutoMLConfig` and then passing it to `experiment.submit()`, you need to create a [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.scriptrunconfig) and provide the generated code (script.py) to it, like in the following example.
+Since the generated code is not driven by automated ML anymore, instead of creating an `AutoMLConfig` and then passing it to `experiment.submit()`, you need to create a [`ScriptRunConfig`](/python/api/azureml-core/azureml.core.scriptrunconfig) and provide the generated code (script.py) to it, like in the following example.
 
 ```python
 from azureml.core import ScriptRunConfig
@@ -356,7 +356,7 @@ test_data_df.head(5)
 y_predictions = model.predict(test_data_df)
 ```
 
-In an Azure ML Compute Instance you should have all the AML AutoML dependencies so you should be able to load the model and predict from any notebook in a Compute Instance recently created.
+In an Azure ML compute instance you should have all the automated ML dependencies, so you should be able to load the model and predict from any notebook in a compute instance recently created.
 
 However, in order to load that model in a notebook in your custom local Conda environment, you need to have installed all the dependencies coming from the environment used when training (AutoML environment).
 
