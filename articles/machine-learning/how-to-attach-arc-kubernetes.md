@@ -213,7 +213,7 @@ Once the Azure Machine Learning extension is deployed, the following resources a
    |Resource name  |Resource type |Training |Inference |Training and Inference| Description |
    |--|--|--|--|--|--|
    |Azure ServiceBus|Azure resource|**&check;**|**&check;**|**&check;**|Used by gateway to sync job and cluster status to AML services regularly.|
-   |Azure Relay|Azure resource|**&check;**|**&check;**|**&check;**|Route traffic from AML services to the kubernetes cluster.|
+   |Azure Relay|Azure resource|**&check;**|**&check;**|**&check;**|Route traffic from Azure Machine Learning services to the Kubernetes cluster.|
    |aml-operator|Kubernetes deployment|**&check;**|N/A|**&check;**|Manage the lifecycle of training jobs.|
    |{EXTENSION-NAME}-kube-state-metrics|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Export the cluster-related metrics to Prometheus.|
    |{EXTENSION-NAME}-prometheus-operator|Kubernetes deployment|**&check;**|**&check;**|**&check;**| Provide Kubernetes native deployment and management of Prometheus and related monitoring components.|
