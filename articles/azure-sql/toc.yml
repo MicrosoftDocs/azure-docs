@@ -108,6 +108,8 @@
           href: database/authentication-azure-ad-only-authentication.md
         - name: Azure Policy for Azure AD-only authentication
           href: database/authentication-azure-ad-only-authentication-policy.md
+        - name: User-assigned managed identity
+          href: database/authentication-azure-ad-user-assigned-managed-identity.md
       - name: Transparent Data Encryption (TDE)
         items:
         - name: Overview
@@ -334,6 +336,9 @@
       - name: With ledger and digest storage
         displayName: Create Azure SQL Database with ledger
         href: database/ledger-create-a-single-database-with-ledger-enabled.md
+      - name: With user-assigned managed identity
+        displayName: Create Azure SQL Database with user-assigned managed identity
+        href: database/authentication-azure-ad-user-assigned-managed-identity-create-server.md
     - name: Configure
       items:
       - name: Server-level IP firewall rules
@@ -864,6 +869,9 @@
         href: managed-instance/create-template-quickstart.md
       - name: Create instance pools
         href: managed-instance/instance-pools-configure.md
+      - name: With user-assigned managed identity
+        displayName: Create Azure SQL Managed Instance with user-assigned managed identity
+        href: managed-instance/authentication-azure-ad-user-assigned-managed-identity-create-managed-instance.md
     - name: Configure
       items:
       - name: Service-aided subnet configuration
