@@ -122,15 +122,15 @@ APP_SUBNET=`az network vnet subnet show -g ${RESOURCE_GROUP} --vnet-name ${VNET_
 # [PowerShell](#tab/powershell)
 
 ```powershell
-$VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP -n $VNET_NAME --query "id" -o tsv | Out-String)
+$VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP -n $VNET_NAME --query "id" -o tsv)
 ```
 
 ```powershell
-$CONTROL_PLANE_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n control-plane --query "id" -o tsv | Out-String)
+$CONTROL_PLANE_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n control-plane --query "id" -o tsv)
 ```
 
 ```powershell
-$APP_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n applications --query "id" -o tsv | Out-String)
+$APP_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n applications --query "id" -o tsv)
 ```
 
 ---
