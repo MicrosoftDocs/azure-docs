@@ -23,7 +23,7 @@ There are multiple actions you might want to do with this generated model's trai
 
 1. *Learn:* Learn what featurization process and hyperparameters the model algorithm uses
 1. *Track/version/audit*: Train the model with the generated code and store versioned code to track what specific training code is used by the model to be deployed to production.
-1. *Customize*: Customize the training code (i.e. changing hyperparameters applying your ML and algorithms skills/experience) and re-train a new model with your customized code.
+1. *Customize*: Customize the training code by changing hyperparameters or applying your ML and algorithms skills/experience, and retrain a new model with your customized code.
 
 You can generate the code for the following scenarios: 
 
@@ -64,7 +64,7 @@ config = AutoMLConfig( task="classification",
 
 When you enable code generation, automated ML generates the model's training code for each model trained and created for each training run. There are two main files with the generated code,
 
-* **script.py** This is the model's training code, the interesting code you want to analyze with the featurization steps, specific algorithm used and hyperparameters.
+* **script.py** This is the model's training code, the interesting code you want to analyze with the featurization steps, specific algorithm used, and hyperparameters.
 
 * **script_run_notebook.ipynb**: Notebook with boiler-plate code to run the model's training code (script.py) in AzureMLCompute through Azure ML SDK classes such as `ScriptRunConfig`. 
 
@@ -107,7 +107,7 @@ def get_training_dataset():
     return dataset.to_pandas_dataframe()
 ```
 
-When running as part of a script run, `Run.get_context().experiment.workspace` retrieves the correct workspace. However, if this script is run inside of a different workspace or run locally without using `ScriptRunConfig`, [you need to modify the script to specify the appropriate workspace explicitly](/python/api/azureml-core/azureml.core.workspace.workspace?view=azure-ml-py).
+When running as part of a script run, `Run.get_context().experiment.workspace` retrieves the correct workspace. However, if this script is run inside of a different workspace or run locally without using `ScriptRunConfig`, [you need to modify the script to specify the appropriate workspace explicitly](/python/api/azureml-core/azureml.core.workspace.workspace).
 
 Once the workspace has been retrieved, the original dataset is retrieved by its ID. Another dataset can also be specified, either using [`get_by_id()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-id-workspace--id-) if you know
 its ID, or [`get_by_name()`](/python/api/azureml-core/azureml.core.dataset.dataset#get-by-name-workspace--name--version--latest--) if you know its name.
@@ -133,7 +133,7 @@ def prepare_data(dataframe):
 ```
 
 
-Here, the dataframe from the data loading step is passed in. The label column (as well as sample weights, if originally specified) is extracted, then rows containing NaN are dropped from the input data.
+Here, the dataframe from the data loading step is passed in. The label column and sample weights, if originally specified, are extracted.And  then rows containing NaN are dropped from the input data.
 
 If additional data preparation is desired, it can be done in this step.
 
@@ -146,7 +146,7 @@ For example, a possible data transformation that can happen in this function wou
 > [!NOTE] 
 > Transformers are applied depending on each column, so if you have many columns in your dataset (i.e. 50 or 100 columns) you can end up with tens of blocks of code doing the column's data transformations, so the size of this function can be very significant depending on the number of columns in your dataset.
 
-With a classification and regression tasks, featurizers are combined with the corresponding [`DataFrameMappers`](https://github.com/scikit-learn-contrib/sklearn-pandas) into [`TransformerAndMapper`](https://docs.microsoft.com/en-us/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.transformer_and_mapper.transformerandmapper?view=azure-ml-py) objects. These combined objects are wrapped in the [`DataTransformer`](https://docs.microsoft.com/en-us/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.data_transformer.datatransformer?view=azure-ml-py).
+With a classification and regression tasks, featurizers are combined with the corresponding [`DataFrameMappers`](https://github.com/scikit-learn-contrib/sklearn-pandas) into [`TransformerAndMapper`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.transformer_and_mapper.transformerandmapper) objects. These combined objects are wrapped in the [`DataTransformer`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurization.data_transformer.datatransformer).
 
 For time-series forecasting models, multiple time series-aware featurizers are collected into a scikit-learn pipeline, then wrapped in the [`TimeSeriesTransformer`](/python/api/azureml-automl-runtime/azureml.automl.runtime.featurizer.transformer.timeseries.timeseries_transformer.timeseriestransformer).
 
@@ -266,7 +266,7 @@ Once you have the trained model, you can use it for making predictions such as i
 y_pred = model.predict(X)
 ```
 
-Finally, the model is serialized and saved as a .pkl file named "model.pkl":
+Finally, the model is serialized and saved as a `.pkl` file named "model.pkl":
 
 ```python
     joblib.dump(model, 'model.pkl')
@@ -276,17 +276,15 @@ Finally, the model is serialized and saved as a .pkl file named "model.pkl":
 ## `script_run_notebook.ipynb`
 `script_run_notebook.ipynb` serves as an easy way to execute `script.py` on Azure ML compute.
 
-It is similar to the existing AutoML sample notebooks; however, there are a couple of key differences which are explained below.
+It is similar to the existing automated ML sample notebooks however, there are a couple of key differences as explained in the following sections.
 
 ### Environment
-
-Normally, when using AutoML, the training environment will be automatically set by the SDK. However, when running a custom script run like the generated code, AutoML is not anymore driving the process so the environment must be specified for the script run to succeed.
+Typically the training environment for automated ML runs is automatically set by the SDK. However, when running a custom script run like the generated code, automated ML is no longer driving the process so the environment must be specified for the script run to succeed.
 
 Code generation reuses the environment that was used in the original AutoML experiment, if possible; this guarantees that the training script run will not fail due to missing
 dependencies and has the side benefit of not needing a Docker image rebuild step, which saves time and compute resources.
 
-If you make changes to `script.py` that require additional dependencies, or you would like to use your own environment, you will need to update the `Create environment`
-cell in `script_run_notebook.ipynb` accordingly.
+If you make changes to `script.py` that require additional dependencies, or you would like to use your own environment, you will need to update the `Create environment` cell in `script_run_notebook.ipynb` accordingly.
 
 For additional documentation on AzureML environments, see [this page](/python/api/azureml-core/azureml.core.environment.environment).
 
@@ -306,14 +304,14 @@ src = ScriptRunConfig(source_directory=project_folder,
 run = experiment.submit(config=src)
 ```
 
-All of the parameters in the above snippet are regular dependencies needed to run ScriptRunConfig, such as compute, environment, etc. For further information on how to use ScriptRunConfig, read the article [Configure and submit training runs](how-to-set-up-training-targets.md)
+All of the parameters in the above snippet are regular dependencies needed to run `ScriptRunConfig`, such as compute, environment, etc. For further information on how to use ScriptRunConfig, read the article [Configure and submit training runs](how-to-set-up-training-targets.md).
 
 
 ### Downloading and loading the serialized trained model in memory
 
 Once you have a trained model, you can save/serialize it to a .pkl file. It is possible that the model will not serialize/deserialize correctly using `pickle.dump()` and `pickle.load()` due to pickle limitations (for example, lambda functions cannot be serialized using pickle). Hence, `joblib.dump()` and `joblib.load()` should be used instead.
 
-The following example is how you download and load in memory a model that was trained in AML compute with ScriptRunConfig. This code could run in the same notebook you used the Azure ML SDK ScriptRunConfig.
+The following example is how you download and load in memory a model that was trained in AML compute with ScriptRunConfig. This code can run in the same notebook you used the Azure ML SDK ScriptRunConfig.
 
 ```python
 import joblib

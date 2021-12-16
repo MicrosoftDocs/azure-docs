@@ -537,7 +537,7 @@
           - name: Understand charts and metrics
             href: how-to-understand-automated-ml.md
           - name: Generate AutoML training code
-            href: how-to-generate-automl-model-training-code.md
+            href: how-to-generate-automl-training-code.md
           - name: Use ONNX model in .NET application
             href: how-to-use-automl-onnx-model-dotnet.md
           - name: Inference image models with ONNX model 
