@@ -119,7 +119,7 @@ Now, you have created a Key vault, imported a certificate and viewed Certificate
 ## Import a certificate using Azure PowerShell
 
 ```
-Import-AzureKeyVaultCertificate
+Import-AzKeyVaultCertificate
       [-VaultName] <String>
       [-Name] <String>
       -FilePath <String>
