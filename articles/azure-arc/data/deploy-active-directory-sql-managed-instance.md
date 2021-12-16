@@ -25,7 +25,7 @@ Before you proceed, verify that you have:
 * An instance of Data Controller deployed
 * An instance of Active Directory Connector deployed
 
-These instructions are for Bring Your Own Keytab (BYOK) mode of deployment. Hence the instructions expect that the users are able to generate the following in
+These instructions expect that the users are able to generate the following in
 the Active Directory domain and provide to the deployment.
 
 * An Active Directory user account for the SQL Managed Instance
