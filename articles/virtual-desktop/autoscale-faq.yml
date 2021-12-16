@@ -75,3 +75,8 @@ sections:
          Can the autoscale feature turn off all the VMs in a host pool, or does it need to keep at least a few VMs on to work properly?
         answer: |
          The autoscale feature can turn off all the VMs in a host pool if the minimum percentage of hosts is set to **0%** and there are no user sessions on the session host.
+      
+      - question: |
+         How many VMs need to be in a host pool for the autoscale feature to work properly?
+        answer: |
+         At least 1.
