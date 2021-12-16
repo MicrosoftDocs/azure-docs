@@ -18,6 +18,17 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
+## Deploy in parallel two Hybrid Worker instances on the same VM
+
+A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2) on a hybrid worker that already has an Agent based (V1), you would see two entries of the Hybrid Runbook Workers in the group. One with Platform Extension based (V2) and the other Agent based (V1). You can have the two Hybrid Worker instances either in the same or different worker groups. As per your requirement, you can connect to different/same worker groups of different/same automation account to run in parallel.
+
+> [!NOTE]
+> You can have two hybrid worker instances; **Agent based (V1)** and **Extension based (V2)** for the same virtual machine in the same Hybrid Worker Group or a different worker group. Both the Agent based (V1) and Extension based (V2) can connect to different/same worker groups of different/same automation account to run in parallel.
+
+To create both Agent based (V1) and Extension based (V2) on same Virtual Machine:
+1. In **Process Automation**, **Hybrid Workers groups**, select an existing Hybrid Worker Group.
+1. In the Hybrid Worker Group page, click **+Add** to select a **Agent based (V1)** hybrid worker.
+
 ## Prerequisites
 
 ### Machine minimum requirements
