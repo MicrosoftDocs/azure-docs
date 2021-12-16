@@ -105,7 +105,7 @@ The Azure NetApp Files snapshot technology greatly improves the frequency and re
 
 ### Restoring files or directories from online snapshots using single-file snapshot restore
 
-If you do not want to restore the entire snapshot to a new volume or copy large files across the network, you can use the [single-file snapshot restore](snapshots-restore-file-client.md) feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.
+If you do not want to restore the entire snapshot to a new volume or copy large files across the network, you can use the [single-file snapshot restore](snapshots-restore-file-single.md) feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.
 
 This feature does not require that you restore the entire snapshot to a new volume, revert a volume, or copy large files across the network.  You can use this feature to restore individual files directly on the service from a volume snapshot without requiring data copy using an external client. This approach can drastically reduce RTO and network resource usage when restoring large files. 
 The following diagrams describe how single-file snapshot restore works. 
