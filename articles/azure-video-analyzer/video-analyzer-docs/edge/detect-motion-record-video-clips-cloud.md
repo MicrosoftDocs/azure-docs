@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.date: 11/04/2021
 ms.custom: ignite-fall-2021, mode-other, contperf-fy22q2
 ---
-# Quickstart: Detect motion in a simulated live video, record the video to the Video Analyzer account
+# Quickstart: Detect motion in a (simulated) live video, record the video to the Video Analyzer account
 
 [!INCLUDE [header](includes/edge-env.md)]
 
