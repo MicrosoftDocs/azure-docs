@@ -27,11 +27,11 @@ In February 2022, we'll publicly announce an internal preview of the first Micro
 
 ## What is the CloudKnox pricing model?
 
-The pricing model for CloudKnox Cloud Infrastructure Entitlement Management (C-CIEM) is about $100 per resource per year. (A *resource* is defined as anything that uses CPU). We'll announce the Microsoft CloudKnox Cloud Infrastructure Entitlement Management (M-CIEM) pricing plan after we release our Public Preview in early February 2022. 
+For pricing information, see the [Azure pricing](https://azure.microsoft.com/en-us/pricing/) page in the Azure portal.  
 
 ## Does CloudKnox support Oracle?
 
-Oracle and Alibaba are on our future roadmap, current support for Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and VMware (vSphere).
+We currently support Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and VMware (vSphere).
 
 ## Does CloudKnox have Jenkins or Bitbucket integration?  
 
@@ -47,7 +47,7 @@ The [CloudKnox website](https://nam06.safelinks.protection.outlook.com/?url=http
 
 We're also working on an internal SharePoint site to host details about product planning, customer tracking, rhythm of business, dashboards, licensing data, engineering, ActiveX Data Object (ADO) links, competitive landscapes, FAQs, and other resources for learning. 
 
-*For internal users only*, we also have a CloudKnox SharePoint site where we store working documents, specs, slide decks, and history: [Identity & Network Access Division - CloudKnox](https://microsoft.sharepoint.com/teams/activedirectory/Active%20Directory%20Doc%20Library/Forms/AllItems.aspx?id=%2Fteams%2Factivedirectory%2FActive%20Directory%20Doc%20Library%2FCloudKnox&viewid=03b0247d%2D981b%2D46e6%2D8d18%2D9dfbbbd66353).
+*For internal users only*, we also have a CloudKnox SharePoint site where we store working documents, specs, slide decks, and history: [Identity & Network Access Division - CloudKnox](https://microsoft.sharepoint.com/teams/activedirectory/Active%20Directory%20Doc%20Library/Forms/AllItems.aspx?id=%2Fteams%2Factivedirectory%2FActive%20Directory%20Doc%20Library%2FCloudKnox&viewid=03b0247d%2D981b%2D46e6%2D8d18%2D9dfbbbd66353). If you are unable to access this site, contact the CloudKnox Sales team. 
 
 ## I have customers who are interested in learning more about CloudKnox. Who should I contact to find out how to help my customers learn, try, buy, and use CloudKnox? 
 
@@ -60,7 +60,7 @@ To jumpstart discussion and learn how you can help connect your customers to the
 
 We're continuing to deliver support for CloudKnox's multi-IaaS.  We're  onboarding the team, and focusing on a v1 product that uses Azure AD and helps customers manage access and reduce risk across Azure, AWS, Google, and other services.  Over time, we'll build out integrations with Sentinel, Azure Security Center, personal information manager(PIM), and other third-party ecosystem partner products.  
 
-If you have customer scenarios or ideas for other integrations, contact Steve and Balaji so they can consider them in future roadmap considerations.  
+If you have customer scenarios or ideas for other integrations, contact Steve and Balaji.  
 
 <!---## What is the plan for selling the Public Preview version to customers in Europe?--->
 
@@ -74,7 +74,7 @@ We have a rich set of learning assets on the web, so it may be best to begin her
 - [Risk Assessment trial: No Cost, No Obligation Cloud Security Assessment - CloudKnox](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcloudknox.io%2Frisk-assessment%2F&data=04%7C01%7Cstevebal%40microsoft.com%7Ca98b4790ed7146eca57208d988ee444f%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637691379216336270%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=9hluz9JOhE%2BQ2XypUzaYu1erEbhVbd80QPNUtrXGp9g%3D&reserved=0)
 - [Customer case studies: CloudKnox-Customer-Success-Story-Horsley-Bridge-Partners.pdf](https://nam06.safelinks.protection.outlook.com/?url=https%3A%2F%2Fcloudknox.io%2Fwp-content%2Fuploads%2F2019%2F12%2FCloudKnox-Customer-Success-Story-Horsley-Bridge-Partners.pdf&data=04%7C01%7Cstevebal%40microsoft.com%7Ca98b4790ed7146eca57208d988ee444f%7C72f988bf86f141af91ab2d7cd011db47%7C1%7C0%7C637691379216336270%7CUnknown%7CTWFpbGZsb3d8eyJWIjoiMC4wLjAwMDAiLCJQIjoiV2luMzIiLCJBTiI6Ik1haWwiLCJXVCI6Mn0%3D%7C1000&sdata=omFhGtkTrpnskXLrSI1kI4zeHvTq1Rw7D0wMaLNeuHE%3D&reserved=0)
 
-Throughout FY22 Q2, we'll share learning resources through a learning series and interactive sessions. These resources are designed to help you meet the team and learn more about the M-CIEM product and roadmap.
+Throughout FY22 Q2, we'll share learning resources through a learning series and interactive sessions. These resources are designed to help you meet the team and learn more about the M-CIEM product.
 
 ## Recommended content
 

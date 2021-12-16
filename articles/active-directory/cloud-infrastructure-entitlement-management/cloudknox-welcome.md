@@ -24,35 +24,11 @@ The CloudKnox solution requires one Sentry appliance per cloud platform.
 
 - For information on how to install Sentry as your cloud service provider, open the Sentry installation page for the appropriate cloud service provider.
 
-<!---
-    <p>
-    <a class="md-button sentry-install-button md-button-spacing aws-sentry-install-button" href="sentry-install-aws/">
-        <span class="sentry-install-button__wrapper">
-            <span>AWS</span>
-        </span>
-        </a>
-    </p><p>
-        <a class="md-button sentry-install-button md-button-spacing azure-sentry-install-button" href="sentry-install-azure/">
-        <span class="sentry-install-button__wrapper">
-            <span>Azure</span>
-        </span>
-        </a>
-    </p><p>
-        <a class="md-button sentry-install-button md-button-spacing gcp-sentry-install-button" href="sentry-install-gcp/">
-        <span class="sentry-install-button__wrapper">
-            <span>GCP</span>
-        </span>
-        </a>
-    </p><p>
-        <a class="md-button sentry-install-button vcenter-sentry-install-button" href="sentry-install-vcenter/">
-        <span class="sentry-install-button__wrapper">
-            <span>vCenter</span>
-        </span>
-        </a>
-    </p>
+- [Amazon Web Services (AWS)](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
+- [Microsoft Azure](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20Azure%20905a96e3a86844dfa1f952ecc8b6cfbc.html)
+- [Google Cloud Platform (GCP)](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20GCP%205335bc39eca14e0592d7282ab48ba479.html)
+- [vCenter](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20vCenter%20ed8f594160c341aba63b3a50b0d08d34.html)
 
-    <div class="hr hr-spacing"></div>
---->
 ## What's new
 
 ### The CloudKnox dashboard
