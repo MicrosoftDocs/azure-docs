@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to configure a micro agent twi
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 12/15/2021
+ms.date: 12/16/2021
 ms.custom: template-tutorial
 ---
 
@@ -22,6 +22,12 @@ In this tutorial, you learn how to:
 - an Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 - A Defender for IoT subscription.
+
+- An existing IoT Hub with:
+
+    - [A connected device](quickstart-standalone-agent-binary-installation.md).
+
+    - [A micro agent module twin](quickstart-create-micro-agent-module-twin.md).
 
 ## Micro agent configuration
 
