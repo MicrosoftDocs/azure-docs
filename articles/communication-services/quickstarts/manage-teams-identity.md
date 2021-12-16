@@ -15,7 +15,7 @@ ms.custom: mode-other
 ---
 # Quickstart: Set up and manage access tokens for Teams users
 
-In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving an Microsoft Azure Active Directory (Azure AD) user token. You'll then exchange that token for an access token of Teams user with the Azure Communication Services Identity SDK. The access token for Teams user can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
+In this quickstart, you'll build a .NET console application to authenticate a Microsoft 365 user by using the Microsoft Authentication Library (MSAL) and retrieving a Microsoft Azure Active Directory (Azure AD) user token. You'll then exchange that token for an access token of Teams user with the Azure Communication Services Identity SDK. The access token for Teams user can then be used by the Communication Services Calling SDK to build a custom Teams endpoint.
 
 > [!NOTE]
 > When you're in a production environment, we recommend that you implement this exchange mechanism in back-end services, because requests for an exchange are signed with a secret.
