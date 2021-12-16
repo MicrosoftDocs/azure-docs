@@ -315,51 +315,30 @@ Get-AzExpressRouteCircuitRouteTable : The BGP Peering AzurePublicPeering with Se
 StatusCode: 400
 ```
 
-## Use Debug ACL to confirm connectivity
-Debug ACL is a diagnostic tool that allows a user to "count" inbound and outbound packets over private peering at the Microsoft edge of their ExpressRoute circuit, on a Microsoft Enterprise Edge (MSEE) device. It works by applying an Access Control List (ACL) to the MSEE and counting the packets that hit specific ACL rules. Using Debug ACL allows you to confirm connectivity by answering the questions *Are my packets getting to Azure?* and *Are they getting back to on-prem?*
+## Test private peering connectivity
+Test your private peering connectivity by "counting" inbound and outbound packets over private peering at the Microsoft edge of your ExpressRoute circuit, on a Microsoft Enterprise Edge (MSEE) device. This diagnostic tool works by applying an Access Control List (ACL) to the MSEE and counting the packets that hit specific ACL rules. Using this tool allows you to confirm connectivity by answering the questions *Are my packets getting to Azure?* and *Are they getting back to on-prem?*
 
-### Run Debug ACL
-1. To access Debug ACL, navigate to the **Diagnose and solve** tab of your ExpressRoute resource in the Azure portal. ADD IMAGE
+### Run test
+1. To access this diagnostic tool, navigate to the **Diagnose and solve** tab of your ExpressRoute resource in the Azure portal. ADD IMAGE
 1. TODO: Finish the rest of this after walkthrough
 
 ### Interpreting results
-Your Debug ACL results will look like one of the two examples below based on the MSEE device at which your your ExpressRoute circuit terminates. You will have two sets of results for the primary and secondary MSEE devices. In either case, review the number of matches in and out and use the following scenarios to interpret the results:
-* **You see packet matches in and out on both MSEEs:** This indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it is happening downstream from the MSEE.
-* **(If testing PsPing from On-Prem to Azure) _In results show matches, but _Out results show NO matches:** This indicates that traffic is getting inbound to Azure, but is not returning to on-prem. Check for return-path routing issues (are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes? etc).
-* **(If testing PsPing from Azure to On-Prem) _In results show NO matches, but _Out results show matches:** This indicates that traffic is getting to on-premises, but is not getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
+Your test results for each MSEE device will look like the example below. You will have two sets of results for the primary and secondary MSEE devices. Review the number of matches in and out and use the following scenarios to interpret the results:
+* **You see packet matches sent and received on both MSEEs:** This indicates healthy traffic inbound to and outbound from the MSEE on your circuit. If loss is occurring either on-premises or in Azure, it is happening downstream from the MSEE.
+* **(If testing PsPing from On-Prem to Azure) *(received)* results show matches, but *sent* results show NO matches:** This indicates that traffic is getting inbound to Azure, but is not returning to on-prem. Check for return-path routing issues (are you advertising the appropriate prefixes to Azure? Is there a UDR overriding prefixes? etc).
+* **(If testing PsPing from Azure to On-Prem) *(sent)* results show NO matches, but *(receieved)* results show matches:** This indicates that traffic is getting to on-premises, but is not getting back. You should work with your provider to find out why traffic isn't being routed to Azure via your ExpressRoute circuit.
 * **One MSEE shows NO matches, while the other shows good matches:** This indicates that one MSEE isn't receiving or passing any traffic. It could be offline (BGP/ARP down, etc).
 
-#### Example 1
+#### Example
 ```
-Extended IP access list ACIS_port-channel20.126100_In
-    10 permit tcp host 10.199.80.11 host 10.168.36.19 eq 3389 (120 matches)
-    20 permit ip any any (224095 matches)
-Extended IP access list ACIS_port-channel20.126100_Out
-    10 permit tcp host 10.168.36.19 host 10.199.80.11 eq 3389 (120 matches)
-    20 permit ip any any (173609 matches)
+src 10.0.0.0 dst 20.0.0.0 dstport 3389 (received): 120 matches
+src 20.0.0.0 srcport 3389 dst 10.0.0.0 (sent): 120 matches
 ```
-This Debug ACL result has the following properties:
+This test result has the following properties:
 
-* IP Protocol: TCP
 * IP Port: 3389
-* On-Prem IP Address CIDR: 10.199.80.11
-* Azure IP Address CIDR: 10.168.36.19
-
-By creating this ACL, we can count all TCP/3389 traffic between `10.199.80.11/32` and `10.168.36.19/32` on subinterface `port-channel20.126100`
-
-#### Example 2
-```
-Filter: ACIS_et-0/1/4.0_In                                    
-Counters:
-Name                                                Bytes              Packets
-pkts                                               1232310               120
-
-Filter: ACIS_et-0/1/4.0_Out                                   
-Counters:
-Name                                                Bytes              Packets
-pkts                                               1110000               120
-```
-This Debug ACL result has less information, but still details the count of packet matches in and out. The first section lists the count of matches *in* from your on-premises IP to your Azure IP, while the second section lists the count of matches *out* from your Azure IP to your on-premises IP.
+* On-Prem IP Address CIDR: 10.0.0.0
+* Azure IP Address CIDR: 20.0.0.0
 
 ## Next Steps
 For more information or help, check out the following links:
