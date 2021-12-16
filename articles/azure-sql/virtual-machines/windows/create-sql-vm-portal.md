@@ -181,11 +181,11 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 ### Storage configuration
 
 
-On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to open the **Configure storage** page and specify the storage requirements. You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](storage-configuration.md). 
+On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to open the **Configure storage** page and specify storage requirements. You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](storage-configuration.md). 
 
 ![Screenshot that highlights where you can change the storage configuration.](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
 
-Under **Data storage**, choose the location for your data drive, the disk type, and the number of disks. You can also select the checkbox to store your system databases on your data drive. 
+Under **Data storage**, choose the location for your data drive, the disk type, and the number of disks. You can also select the checkbox to store your system databases on your data drive instead of the local C:\ drive. 
 
 ![Screenshot that shows where you can configure the data files storage for your SQL VM](./media/create-sql-vm-portal/storage-configuration-data-storage.png)
 
@@ -211,7 +211,7 @@ If you're a Software Assurance customer, you can use the [Azure Hybrid Benefit](
 
 ![SQL VM License](./media/create-sql-vm-portal/azure-sqlvm-license.png)
 
-If you chose a free license image, such as the developer edition, this option is grayed out. 
+If you chose a free license image, such as the developer edition, the **SQL Server license** option is grayed out. 
 
 ### Automated patching
 

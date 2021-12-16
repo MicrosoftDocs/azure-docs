@@ -69,7 +69,7 @@ Changing the license and edition metadata in the Azure portal is only supported 
 
 ## Storage 
 
-Use the **Configure** page of the SQL virtual machines resource to extend your data, log, and tempdb drives. Review [storage configuration](storage-configuration.md) to learn more. 
+Use the **Storage Configuration** page of the SQL virtual machines resource to extend your data, log, and tempdb drives. Review [storage configuration](storage-configuration.md) to learn more. 
 
 ![Extend storage in the Azure portal using the SQL virtual machines resource](./media/manage-sql-vm-portal/sql-vm-storage-configuration.png)
 
