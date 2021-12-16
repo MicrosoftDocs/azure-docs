@@ -12,6 +12,9 @@ ms.date: 06/21/2021
 # Monitor virtual machines with Azure Monitor: Security monitoring
 This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It describes the Azure services for monitoring security for your virtual machines and how they relate to Azure Monitor. Azure Monitor was designed to monitor the availability and performance of your virtual machines and other cloud resources. While the operational data stored in Azure Monitor might be useful for investigating security incidents, other services in Azure were designed to monitor security. 
 
+> [!NOTE]
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md). 
+
 > [!IMPORTANT]
 > The security services have their own cost independent of Azure Monitor. Before you configure these services, refer to their pricing information to determine your appropriate investment in their usage.
 
