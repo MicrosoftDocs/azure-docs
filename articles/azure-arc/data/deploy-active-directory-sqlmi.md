@@ -32,106 +32,114 @@ the Active Directory domain and provide to the deployment.
 * Service Principal Names (SPNs) under the user account
 * DNS record for the endpoint DNS name for SQL Managed Instance
 
-
 ## Steps Before the Deployment of SQL Managed Instance
 
-### 1. Pre-decide a DNS name for the SQL Managed Instance endpoint.
+1. Identify a DNS name for the SQL Managed Instance endpoint.
 
-You must pre-decide a DNS name for the endpoint SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
-This DNS name should be in the Active Directory domain or its descendant domains.
+   The DNS name for the endpoint the SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
 
-The examples in these instructions will assume the DNS name `sqlmi.contoso.local`.
+   This DNS name should be in the Active Directory domain or its descendant domains.
 
-### 2. Decide a port number for the SQL Managed Instance endpoint.
+   The examples in these instructions use `sqlmi.contoso.local` for the DNS name .
 
-You must decide a port number for the endpoint SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
-This port number must be in the acceptable range of port numbers to Kubernetes cluster.
+2. Identify the port number for the SQL Managed Instance endpoint.
 
-The examples in these instructions will assume the port number `31433`.
+   You must decide a port number for the endpoint SQL Managed Instance will listen on for connections coming from outside the Kubernetes cluster.
 
-### 3. Create an Active Directory account for the SQL Managed Instance.
+   This port number must be in the acceptable range of port numbers to Kubernetes cluster.
 
-Choose a name for the Active Directory account that will represent your SQL Managed Instance. This name should be unique in the Active Directory domain.
-Using `Active Directory Users and Computers` tool on the Domain Controllers, create an account for this chosen name.
-Provide a complex password to this account that is acceptable to the Active Directory domain's password policy. This password will be needed in some of the next steps.
-The account does not need any special permissions. Ensure that the account is enabled.
+   The examples in these instructions use `31433` for the port number.
 
-The examples in these instructions will assume the AD account name `sqlmi-account`.
+3. Create an Active Directory account for the SQL Managed Instance.
 
-### 4. Create a DNS record for the SQL Managed Instance endpoint in the Active Directory DNS servers.
+    Choose a name for the Active Directory account that will represent your SQL Managed Instance. This name should be unique in the Active Directory domain.
 
-In one of the Active Directory DNS servers, create an A record (forward lookup record) for the DNS name chosen in step 1. This DNS record should point to the IP address that the SQL Managed Instance endpoint will listen on for connections from outside the Kubernetes cluster.
+   Use `Active Directory Users and Computers` on the Domain Controllers, create an account for the SQL Managed Instance name.
 
-You do NOT need to create a PTR record (reverse lookup record) in association with the A record.
+   Provide a complex password to this account that is acceptable to the Active Directory domain password policy. This password will be needed in some of the next steps.
 
-### 5. Create Service Principal Names (SPNs)
+   The account does not need any special permissions. Ensure that the account is enabled.
 
-In order for SQL Managed Instance to be able to accept AD authentication against the SQL Managed Instance endpoint DNS name, we need to register
-two SPNs under the account generated in the previous step. These two SPNs should be of the following format:
+   The examples in these instructions use `sqlmi-account` for the AD account name.
 
-```
-MSSQLSvc/<DNS name>
-MSSQLSvc/<DNS name>:<port>
-```
+4. Create a DNS record for the SQL Managed Instance endpoint in the Active Directory DNS servers.
 
-To register the SPNs, run the following commands on one of the domain controllers.
+   In one of the Active Directory DNS servers, create an A record (forward lookup record) for the DNS name chosen in step 1. This DNS record should point to the IP address that the SQL Managed Instance endpoint will listen on for connections from outside the Kubernetes cluster.
 
-```console
-setspn -S MSSQLSvc/<DNS name> <account>
-setspn -S MSSQLSvc/<DNS name>:<port> <account>
-```
+   You do not need to create a PTR record (reverse lookup record) in association with the A record.
 
-With the chosen example DNS name, port number and the account name in this document, the commands should look like the following:
+5. Create Service Principal Names (SPNs)
 
-```console
-setspn -S MSSQLSvc/sqlmi.contoso.local sqlmi-account
-setspn -S MSSQLSvc/sqlmi.contoso.local:31433 sqlmi-account
-```
+   In order for SQL Managed Instance to be able to accept AD authentication against the SQL Managed Instance endpoint DNS name, we need to register two SPNs under the account generated in the previous step. These two SPNs should be of the following format:
 
-### 6. Generate a keytab file containing entries for the account and SPNs
+   ```output
+   MSSQLSvc/<DNS name>
+   MSSQLSvc/<DNS name>:<port>
+   ```
 
-For SQL Managed Instance to be able to authenticate itself to Active Directory and accept authetication from Active Directory users, a keytab file must be provided
-using a Kubernetes secret.
-The keytab file contains encrypted entries for the Active Directory account generated for SQL Managed Instance and the SPNs.
-SQL Server will use this file as its credential against Active Directory.
+   To register the SPNs, run the following commands on one of the domain controllers.
 
-There are multiple tools available to generate a keytab file.
-1. **ktutil**: This tool is available on Linux
-2. **ktpass**: This tool is available on Windows
-3. **adutil**: This tool is available for Linux. See [Introduction to `adutil` - Active Directory utility](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
+   ```console
+   setspn -S MSSQLSvc/<DNS name> <account>
+   setspn -S MSSQLSvc/<DNS name>:<port> <account>
+   ```
 
-To generate the keytab file specifically for SQL Managed Instance, you may use a bash shell script we have published. It wraps ktutil and adutil on Linux.
-The script can be found here: [create-sql-keytab.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.sh).
+   With the chosen example DNS name, port number and the account name in this document, the commands should look like the following:
 
-This script accepts several parameters and will output a keytab file and a yaml spec file for the Kubernetes secret containing the keytab.
-Use the following command to run the script after replacing the parameter values with the ones for your SQL Managed Instance deployment.
+   ```console
+   setspn -S MSSQLSvc/sqlmi.contoso.local sqlmi-account
+   setspn -S MSSQLSvc/sqlmi.contoso.local:31433 sqlmi-account
+   ```
 
-```console
-AD_PASSWORD=<password> ./create-sql-keytab.sh --realm <AD domain in uppercase> --account <AD account name> --port <endpoint port> --dns-name <endpoint DNS name> --keytab-file <keytab file name/path> --secret-name <keytab secret name> --secret-namespace <keytab secret namespace>
-```
+6. Generate a keytab file containing entries for the account and SPNs
 
-The input parameters are expecting the following values : 
-* **--realm** expects the uppercase of the AD domain, such as CONTOSO.LOCAL
-* **--account** expects the AD account under where the SPNs are registered, such sqlmi-account
-* **--port** expects the SQL endpoint port number 31433
-* **--dns-name** expects the DNS name for the SQL endpoint
-* **--keytab-file** expects the path to the keytab file
-* **--secret-name** expects the name of the keytab secret
-* **--secret-namespace** expects the Kubernetes namespace contains the keytab secret
+   For SQL Managed Instance to be able to authenticate itself to Active Directory and accept authentication from Active Directory users, provide a keytab file.
 
+   using a Kubernetes secret.
 
-Using the examples chosen in this document, the command should look like the following.
-Choose a name for the Kubernetes secret hosting the keytab. The namespace should be the same as what the SQL Managed Instance will be deployed in.
+   The keytab file contains encrypted entries for the Active Directory account generated for SQL Managed Instance and the SPNs.
 
-```console
-AD_PASSWORD=<password> ./create-sql-keytab.sh --realm CONTOSO.LOCAL --account sqlmi-account --port 31433 --dns-name sqlmi.contoso.local --keytab-file sqlmi.keytab --secret-name sqlmi-keytab-secret --secret-namespace sqlmi-ns
-```
+   SQL Server will use this file as its credential against Active Directory.
 
-To verify that the keytab is correct, you may run the following command:
+   There are multiple tools available to generate a keytab file.
+   - **`ktutil`**: This tool is available on Linux
+   - **`ktpass`**: This tool is available on Windows
+   - **`adutil`**: This tool is available for Linux. See [Introduction to `adutil` - Active Directory utility](/sql/linux/sql-server-linux-ad-auth-adutil-introduction).
 
-```console
-klist -kte <keytab file>
-```
+   To generate the keytab file specifically for SQL Managed Instance, use a bash shell script we have published. It wraps `ktutil` and `adutil` together. It is for use on Linux.
+
+   The script can be found here: [create-sql-keytab.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/create-sql-keytab.sh).
+
+   This script accepts several parameters and will output a keytab file and a yaml spec file for the Kubernetes secret containing the keytab.
+
+   Use the following command to run the script after replacing the parameter values with the ones for your SQL Managed Instance deployment.
+
+   ```console
+   AD_PASSWORD=<password> ./create-sql-keytab.sh --realm <AD domain in uppercase> --account <AD account name> --port <endpoint port> --dns-name <endpoint DNS name> --keytab-file <keytab file name/path> --secret-name <keytab secret name> --secret-namespace <keytab secret namespace>
+   ```
+
+   The input parameters are expecting the following values : 
+   * **--realm** expects the uppercase of the AD domain, such as CONTOSO.LOCAL
+   * **--account** expects the AD account under where the SPNs are registered, such sqlmi-account
+   * **--port** expects the SQL endpoint port number 31433
+   * **--dns-name** expects the DNS name for the SQL endpoint
+   * **--keytab-file** expects the path to the keytab file
+   * **--secret-name** expects the name of the keytab secret
+   * **--secret-namespace** expects the Kubernetes namespace contains the keytab secret
+
+   Using the examples chosen in this document, the command should look like the following.
+
+   Choose a name for the Kubernetes secret hosting the keytab. The namespace should be the same as what the SQL Managed Instance will be deployed in.
+
+   ```console
+   AD_PASSWORD=<password> ./create-sql-keytab.sh --realm CONTOSO.LOCAL --account sqlmi-account --port 31433 --dns-name sqlmi.contoso.local --keytab-file sqlmi.keytab --secret-name sqlmi-keytab-secret --secret-namespace sqlmi-ns
+   ```
+
+   To verify that the keytab is correct, you may run the following command:
+
+   ```console
+   klist -kte <keytab file>
+   ```
 
 ## Deploy Kubernetes secret for the keytab
 
@@ -155,39 +163,25 @@ Deploy the Kubernetes secret with `kubectl apply -f <file>`. For example:
 kubectl apply –f sqlmi-keytab-secret.yaml
 ```
 
-## SQL Managed instance Spec for Active Directory Authentication
+## SQL Managed Instance Spec for Active Directory Authentication
 
 To support Active Directory authentication on SQL Managed Instance, new spec fields are introduced as follows.
 
-#### 1. spec.security.activeDirectory.connector.name:
-**Required field when AD authentication is desired**
+- **Required** (For AD authentication)
+   - **spec.security.activeDirectory.connector.name** 
+      Name of the pre-existing Active Directory Connector custom resource to join for AD authentication. When provided, system will assume that AD authentication is desired.
+   - **spec.security.activeDirectory.accountName** 
+      Name of the Active Directory account pre-created for this SQL Managed Instance.
+  - **spec.security.activeDirectory.keytabSecret**
+     Name of the Kubernetes secret hosting the pre-created keytab file by users. This secret must be in the same namespace as the SQL Managed Instance.
+  - **spec.services.primary.dnsName**
+     DNS name for the primary endpoint.
+  - **spec.services.primary.port**
+     Port number for the primary endpoint.
 
-Name of the pre-existing Active Directory Connector instance to join for AD authentication. When provided, system will assume that AD authentication is desired.
-
-#### 2. spec.security.activeDirectory.connector.namespace:
-**Optional field**
-
-Kubernetes namespace of the pre-existing Active Directory Connector instance to join for AD authentication. When not provided, system will assume the same namespace as the SQL Managed Instance.
-
-#### 3. spec.security.activeDirectory.accountName:
-**Required field when AD authentication is desired**
-
-Name of the Active Directory account pre-created for this SQL Managed Instance.
-
-#### 4. spec.security.activeDirectory.keytabSecret:
-**Required field when AD authentication is desired**
-
-Name of the Kubernetes secret hosting the pre-created keytab file by users. This secret must be in the same namespace as the SQL Managed Instance.
-
-#### 5. spec.services.primary.dnsName: 
-**Required field when AD authentication is desired**
-
-Pre-decided DNS name for the primary endpoint.
-
-#### 6. spec.services.primary.port: 
-**Required field when AD authentication is desired**
-
-Pre-decided port number for the primary endpoint.
+- **Optional**
+  - **spec.security.activeDirectory.connector.namespace**
+     Kubernetes namespace of the pre-existing Active Directory Connector instance to join for AD authentication. When not provided, system will assume the same namespace as the SQL Managed Instance.
 
 ### Prepare SQL Managed Instance spec
 

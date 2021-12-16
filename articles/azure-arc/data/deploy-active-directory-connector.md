@@ -45,57 +45,54 @@ Following metadata about the AD domain must be available before deploying an ins
 
 Following input fields are exposed to the users in the Active Directory Connector spec:
 
-#### 1. spec.activeDirectory.realm:
-**Required field**
+- **Required**
+   - **spec.activeDirectory.realm**
+     Name of the Active Directory domain in uppercase. This is the AD domain that this instance of AD Connector will be associated with.
 
-Name of the Active Directory domain in uppercase. This is the AD domain that this instance of AD Connector will be associated with.
+   - **spec.activeDirectory.domainControllers.primaryDomainController.hostname**
+      Fully-qualified domain name of the Primary Domain Controller (PDC) in the AD domain.
 
-#### 2. spec.activeDirectory.netbiosDomainName:
-**Optional field**
+      If you do not know which domain controller in the domain is primary, you can find out by running this command on any Windows machine joined to the AD domain: `netdom query fsmo`.
+   
+   - **spec.activeDirectory.dns.nameserverIpAddresses**
+      List of Active Directory DNS server IP addresses. DNS proxy service will forward DNS queries in the provided domain name to these servers.
 
-NETBIOS name of the Active Directory domain. This is the short domain name that represents the Active Directory domain.
-This is often used to qualify accounts in the AD domain. e.g. if the accounts in the domain are referred to as CONTOSO\admin, then CONTOSO is the NETBIOS domain name.
-This field is optional. When not provided, it defaults to the first label of the `spec.activeDirectory.realm` field.
-In most domain environments, this is set to the default value but some domain environments may have a non-default value.
 
-#### 3. spec.activeDirectory.domainControllers.primaryDomainController.hostname:
-**Required field**
+- **Optional**
+   - **spec.activeDirectory.netbiosDomainName**
+      NETBIOS name of the Active Directory domain. This is the short domain name that represents the Active Directory domain.
 
-Fully-qualified domain name of the Primary Domain Controller (PDC) in the AD domain.
-If you do not know which domain controller in the domain is primary, you can find out by running this command on any Windows machine joined to the AD domain: `netdom query fsmo`.
+      This is often used to qualify accounts in the AD domain. e.g. if the accounts in the domain are referred to as CONTOSO\admin, then CONTOSO is the NETBIOS domain name.
+      
+      This field is optional. When not provided, it defaults to the first label of the `spec.activeDirectory.realm` field.
 
-#### 4. spec.activeDirectory.domainControllers.secondaryDomainControllers[*].hostname: 
-**Optional field**
+      In most domain environments, this is set to the default value but some domain environments may have a non-default value.
 
-List of the fully-qualified domain names of the secondary domain controllers in the AD domain.
+  - **spec.activeDirectory.domainControllers.secondaryDomainControllers[*].hostname** 
+      List of the fully-qualified domain names of the secondary domain controllers in the AD domain.
 
-If your domain is served by multiple domain controllers, it is a good practice to provide some of their fully-qualified domain names in this list. This allows high-availability for Kerberos operations.
-This field is optional and not needed if your domain is served by only one domain controller.
+      If your domain is served by multiple domain controllers, it is a good practice to provide some of their fully-qualified domain names in this list. This allows high-availability for Kerberos operations.
 
-#### 5. spec.activeDirectory.dns.domainName: 
-**Optional field**
+      This field is optional and not needed if your domain is served by only one domain controller.
 
-DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
-A DNS lookup for any name belonging to this domain or its descendant domains will get forwarded to Active Directory.
-This field is optional. When not provided, it defaults to the value provided for `spec.activeDirectory.realm` converted to lowercase.
+  - **spec.activeDirectory.dns.domainName** 
+      DNS domain name for which DNS lookups should be forwarded to the Active Directory DNS servers.
 
-#### 6. spec.activeDirectory.dns.nameserverIpAddresses:
-**Required field**
+      A DNS lookup for any name belonging to this domain or its descendant domains will get forwarded to Active Directory.
 
-List of Active Directory DNS server IP addresses. DNS proxy service will forward DNS queries in the provided domain name to these servers.
+      This field is optional. When not provided, it defaults to the value provided for `spec.activeDirectory.realm` converted to lowercase.
 
-#### 7. spec.activeDirectory.dns.replicas: 
-**Optional field**
+  - **spec.activeDirectory.dns.replicas** 
+      Replica count for DNS proxy service. This field is optional and defaults to 1 when not provided.
 
-Replica count for DNS proxy service. This field is optional and defaults to 1 when not provided.
+  - **spec.activeDirectory.dns.preferK8sDnsForPtrLookups**
+      Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
 
-#### 8. spec.activeDirectory.dns.preferK8sDnsForPtrLookups:
-**Optional field**
+      DNS proxy service relies on this field to determine which upstream group of DNS servers to prefer for IP address lookups.
 
-Flag indicating whether to prefer Kubernetes DNS server response over AD DNS server response for IP address lookups.
-DNS proxy service relies on this field to determine which upstream group of DNS servers to prefer for IP address lookups.
-This field is optional. When not provided, it defaults to true i.e. the DNS lookups of IP addresses will be first forwarded to Kubernetes DNS servers.
-If Kubernetes DNS servers fail to answer the lookup, the query is then forwarded to AD DNS servers.
+      This field is optional. When not provided, it defaults to true i.e. the DNS lookups of IP addresses will be first forwarded to Kubernetes DNS servers.
+
+      If Kubernetes DNS servers fail to answer the lookup, the query is then forwarded to AD DNS servers.
 
 
 ## Deploy Active Directory (AD) connector
