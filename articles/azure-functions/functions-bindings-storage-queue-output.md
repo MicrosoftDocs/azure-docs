@@ -324,18 +324,8 @@ def main(req: func.HttpRequest, msg: func.Out[typing.List[str]]) -> func.HttpRes
 ::: zone pivot="programming-language-csharp"
 ## Attributes
 
-Both [in-process](functions-dotnet-class-library.md) and [isolated process](dotnet-isolated-process-guide.md) C# libraries use the <!--attribute API here--> attribute to define the function. C# script instead uses a function.json configuration file.
+The attribute that defines an output binding in C# libraries depends on the mode in which the C# class library runs. C# script instead uses a function.json configuration file.
 
-<!-- If the attribute's constructor takes parameters, you'll need to include a table like this, where the values are from the original table in the Configuration section:
-
-The attribute's constructor takes the following parameters:
-
-|Parameter | Description|
-|---------|----------------------|
-|**Parameter1** |Description 1|
-|**Parameter2** | Description 2|
-
--->
 
 # [In-process](#tab/in-process)
 
@@ -363,13 +353,11 @@ public static string Run([HttpTrigger] dynamic input,  ILogger log)
 }
 ```
 
-For a complete example, see [Output example](#example).
-
 You can use the `StorageAccount` attribute to specify the storage account at class, method, or parameter level. For more information, see Trigger - attributes.
 
 # [Isolated process](#tab/isolated-process)
 
-The attribute's constructor takes the name of the queue, as shown in the following example:
+When running in an isolated process, you use the [QueueOutputAttribute](https://github.com/Azure/azure-functions-dotnet-worker/blob/main/extensions/Worker.Extensions.Storage.Queues/src/QueueOutputAttribute.cs), which takes the name of the queue, as shown in the following example:
 
 :::code language="csharp" source="~/azure-functions-dotnet-worker/samples/Extensions/Queue/QueueFunction.cs" range="13-17":::
 
@@ -394,7 +382,7 @@ The following table explains the binding configuration properties that you set i
 ::: zone pivot="programming-language-java"  
 ## Annotations
 
-The `QueueOutput` annotation allows you to write a message as the output of a function. The following example shows an HTTP-triggered function that creates a queue message.
+The [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation allows you to write a message as the output of a function. The following example shows an HTTP-triggered function that creates a queue message.
 
 ```java
 package com.function;
@@ -421,7 +409,7 @@ public class HttpTriggerQueueOutput {
 |`queueName`  | Declares the queue name in the storage account. |
 |`connection` | Points to the storage account connection string. |
 
-The parameter associated with the `QueueOutput` annotation is typed as an [OutputBinding\<T\>](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/OutputBinding.java) instance.
+The parameter associated with the [QueueOutput](/java/api/com.microsoft.azure.functions.annotation.queueoutput) annotation is typed as an [OutputBinding\<T\>](/java/api/com.microsoft.azure.functions.outputbinding) instance.
 ::: zone-end  
 ::: zone pivot="programming-language-javascript,programming-language-powershell,programming-language-python"  
 ## Configuration

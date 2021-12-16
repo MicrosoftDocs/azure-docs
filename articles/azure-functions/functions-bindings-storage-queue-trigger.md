@@ -305,9 +305,6 @@ The following table explains the binding configuration properties for C# script 
 
 ---
 
-
-For a complete example, see [example](#example).
-
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
 ## Annotations
