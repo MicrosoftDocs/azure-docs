@@ -7,7 +7,7 @@ ms.topic: conceptual
 
 # How to install the Connected Machine agent using Windows PowerShell DSC
 
-Using [Windows PowerShell Desired State Configuration](/powershell/scripting/dsc/getting-started/winGettingStarted) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Connected Machine agent on hybrid Windows machines.
+Using [Windows PowerShell Desired State Configuration](/powershell/dsc/getting-started/winGettingStarted) (DSC), you can automate software installation and configuration for a Windows computer. This article describes how to use DSC to install the Azure Connected Machine agent on hybrid Windows machines.
 
 ## Requirements
 
@@ -64,7 +64,7 @@ The following are the parameters you pass to the PowerShell script to use.
 
 1. In a PowerShell console, navigate to the folder where you saved the `.ps1` file.
 
-2. Run the following PowerShell commands to compile the MOF document (for information about compiling DSC configurations, see [DSC Configurations](/powershell/scripting/dsc/configurations/configurations):
+2. Run the following PowerShell commands to compile the MOF document (for information about compiling DSC configurations, see [DSC Configurations](/powershell/dsc/configurations/configurations):
 
     ```powershell
     .\`AzureConnectedMachineAgent.ps1 -TenantId <TenantId GUID> -SubscriptionId <SubscriptionId GUID> -ResourceGroup '<ResourceGroupName>' -Location '<LocationName>' -Tags '<Tag>' -Credential <psCredential>
@@ -78,7 +78,7 @@ After you install the agent and configure it to connect to Azure Arc-enabled ser
 
 This resource can be added to existing DSC configurations to represent an end-to-end configuration for a machine. For example, you might wish to add this resource to a configuration that sets secure operating system settings.
 
-The [CompositeResource](https://www.powershellgallery.com/packages/compositeresource) module from the PowerShell Gallery can be used to create a [composite resource](/powershell/scripting/dsc/resources/authoringResourceComposite) of the example configuration, to further simplify combining configurations.
+The [CompositeResource](https://www.powershellgallery.com/packages/compositeresource) module from the PowerShell Gallery can be used to create a [composite resource](/powershell/dsc/resources/authoringResourceComposite) of the example configuration, to further simplify combining configurations.
 
 ## Next steps
 

@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
+ms.date: 12/16/2021
 ms.author: b-hchen
 ---
 # How Azure NetApp Files snapshots work
@@ -103,11 +103,38 @@ Most use cases will require that you keep online snapshots on the Azure NetApp F
 
 The Azure NetApp Files snapshot technology greatly improves the frequency and reliability of backups. It incurs minimal performance overhead and can be safely created on an active volume. Azure NetApp Files snapshots allow near-instantaneous, secure, and optionally user-managed restores. This section describes various ways in which data can be accessed or restored from Azure NetApp Files snapshots.
 
-### Restoring files or directories from online snapshots
+### Restoring files or directories from online snapshots using single-file snapshot restore
+
+If you do not want to restore the entire snapshot to a new volume or copy large files across the network, you can use the [single-file snapshot restore](snapshots-restore-file-client.md) feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.
+
+This feature does not require that you restore the entire snapshot to a new volume, revert a volume, or copy large files across the network.  You can use this feature to restore individual files directly on the service from a volume snapshot without requiring data copy using an external client. This approach can drastically reduce RTO and network resource usage when restoring large files. 
+The following diagrams describe how single-file snapshot restore works. 
+
+1. File consists of blocks written to a volume:
+
+   ![A diagram of three files against four grey verticals bars, labeled time, volume, files, block.](../media/azure-netapp-files/single-file-snapshot-restore-one.png)
+
+2. A snapshot is a copy of the pointers that represent the files:
+
+   ![A diagram of three files against four grey verticals bars, labeled time, volume, files, block. A fifth grey bar depicts the snapshots as a write-destination.](../media/azure-netapp-files/single-file-snapshot-restore-two.png)
+
+3. Files on the volume continue to change and new ones are added. Modified data blocks are written to new empty data blocks on the volume:
+
+   ![Diagram depicting changes to directories that will be staged for snapshot copies.](../media/azure-netapp-files/single-file-snapshot-restore-three.png)
+
+4. A new snapshot is taken to capture the new changes and additions.  Each volume supports up to 255 snapshots:
+
+   ![Diagram showing a second set of snapshots being copied to capture new changes in the original file set.](../media/azure-netapp-files/single-file-snapshot-restore-four.png)
+
+5. When a single file is restored in-place (`file2`) or to a new file in the volume (`file2`), only the pointers to existing blocks previously captured in a snapshot are reverted. This operation eliminates copying any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
+
+   ![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)
+
+### Restoring files or directories from online snapshots using a client
 
 If the [Snapshot Path visibility](snapshots-edit-hide-path.md) is not set to `hidden`, you can directly access snapshots to recover from accidental deletion, corruption, or modification of your data. The security of files and directories are retained in the snapshot, and snapshots are read-only by design. As such, the restoration is secure and simple. If the Snapshot Path visibility is set to `hidden`, you can open a support ticket to have a backup admin or system admin restore your files from a snapshot.
 
-The following diagram shows file or directory access to a snapshot: 
+The following diagram shows file or directory access to a snapshot using a client: 
 
 ![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)
 
@@ -202,6 +229,8 @@ Vaulted snapshot history is managed automatically by the applied snapshot policy
 
 * [Manage snapshots by using Azure NetApp Files](azure-netapp-files-manage-snapshots.md)
 * [Monitor volume and snapshot metrics](azure-netapp-files-metrics.md#volumes)
+* [Restore individual files using single-file snapshot restore](snapshots-restore-file-single.md)
+* [Restore a file from a snapshot using a client](snapshots-restore-file-client.md)
 * [Troubleshoot snapshot policies](troubleshoot-snapshot-policies.md)
 * [Resource limits for Azure NetApp Files](azure-netapp-files-resource-limits.md)
 * [Azure NetApp Files Snapshots 101 video](https://www.youtube.com/watch?v=uxbTXhtXCkw)

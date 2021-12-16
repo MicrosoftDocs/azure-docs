@@ -12,9 +12,9 @@ ms.date: 04/02/2020
 ms.author: pankopon
 ---
 
-# Configure RHEL/CentOS for C++
+# Configure RHEL7/CentOS7 for C++
 
-To use the Speech SDK for C++ development on Red Hat Enterprise Linux (RHEL) 8 x64 and CentOS 8 x64, update the C++ compiler and the shared C++ runtime library on your system.
+To use the Speech SDK for C++ development on Red Hat Enterprise Linux (RHEL) 7 x64 and CentOS 7 x64, update the C++ compiler and the shared C++ runtime library on your system.
 
 ## Install dependencies
 
@@ -42,8 +42,8 @@ Next update the compiler and runtime libraries:
 
 ```bash
 # Build GCC 7.5.0 and runtimes and install them under /usr/local
-curl https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.bz2 -O
-tar jxf gcc-7.5.0.tar.bz2
+curl https://ftp.gnu.org/gnu/gcc/gcc-7.5.0/gcc-7.5.0.tar.gz -O
+tar -xf gcc-7.5.0.tar.gz
 mkdir gcc-7.5.0-build && cd gcc-7.5.0-build
 ../gcc-7.5.0/configure --enable-languages=c,c++ --disable-bootstrap --disable-multilib --prefix=/usr/local
 make -j$(nproc)
