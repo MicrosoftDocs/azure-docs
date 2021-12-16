@@ -33,6 +33,12 @@ Microsoft plans to release updates for Defender for IoT no less than once per qu
 
 ## December 2021
 
+**Apache Log4j vulnerability**
+
+Version 10.5.4 of Microsoft Defender for IoT mitigates the Apache Log4j vulnerability. For details see, [https://techcommunity.microsoft.com/t5/microsoft-defender-for-iot/updated-15-dec-defender-for-iot-security-advisory-apache-log4j/m-p/3036844]
+
+**Alerting**
+
 Version 10.5.4 of Microsoft Defender for IoT delivers important alert enhancements:
 
 - Alerts for certain minor events or edge-cases are now disabled.
