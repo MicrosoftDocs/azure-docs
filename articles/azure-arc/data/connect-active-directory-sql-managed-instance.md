@@ -38,7 +38,7 @@ GO
 
 From your domain joined Windows-based client machine or a Linux-based domain aware machine, you can use `sqlcmd` utility, or open [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio (ADS)](/sql/azure-data-studio/download-azure-data-studio) to connect to the Azure Arc-enabled SQL Managed Instance using AD authentication.
 
-For a linux-based domain aware machine, it has /etc/krb5.conf file should be set to point to the AD domain/realm in consideration, and the /etc/resolv.conf file should be set to the Linux machine can perform DNS lookups in the AD domain. 
+A domain-aware Linux-based machine is one where you are able to use Kerberos authentication using kinit. Such machine should have /etc/krb5.conf file set to point to the Active Directory domain (realm) being used. It should also have /etc/resolv.conf file set such that one can run DNS lookups against the Active Directory domain.
 
 
 ### Connect from Linux/Mac OS
