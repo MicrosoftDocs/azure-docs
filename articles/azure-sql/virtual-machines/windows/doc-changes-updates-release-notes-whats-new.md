@@ -11,7 +11,7 @@ ms.subservice: service-overview
 ms.topic: reference
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 11/10/2021
+ms.date: 12/21/2021
 ms.custom: ignite-fall-2021
 ---
 # Documentation changes for SQL Server on Azure Virtual Machines

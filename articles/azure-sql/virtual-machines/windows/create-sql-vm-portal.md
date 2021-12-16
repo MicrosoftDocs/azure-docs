@@ -12,10 +12,10 @@ ms.subservice: deployment
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 12/20/2021
+ms.date: 12/21/2021
 ms.author: pamela
 ms.reviewer: mathoma
-ms.custom: "seo-lt-2019"
+ms.custom: contperf-fy22q1-portal
 ---
 # Provision SQL Server on Azure VM (Azure portal)
 
@@ -84,7 +84,7 @@ On the **Basics** tab, provide the following information:
 
    ![Inbound port rules](./media/create-sql-vm-portal/basics-inbound-port-rules.png)
 
-You also have the option to enable the [Azure Hybrid Benefit](../../../virtual-machines/windows/hybrid-use-benefit-licensing) to use your own SQL Server license and save on licensing cost. 
+You also have the option to enable the [Azure Hybrid Benefit](../../../virtual-machines/windows/hybrid-use-benefit-licensing.md) to use your own SQL Server license and save on licensing cost. 
 
 
 ## Disks
@@ -203,7 +203,7 @@ Select **OK** to save your storage configuration settings.
 
 Select **Change SQL instance settings** to modify SQL Server configuration options, such as the server collation, max degree of parallelism (MAXDOP), SQL Server min and max memory limits, and whether you want to optimize for ad-hoc workloads. 
 
-![Screenshot that shows where you can configure the tempdb storage for your SQL VM](./media/create-sql-vm-portal/sql-instance-settings.png). 
+![Screenshot that shows where you can configure the SQL Server settings for your SQL VM instance](./media/create-sql-vm-portal/sql-instance-settings.png). 
 
 ### SQL Server license
 

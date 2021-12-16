@@ -10,7 +10,7 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 05/30/2021
+ms.date: 12/21/2021
 ms.author: pamela
 ms.reviewer: mathoma
 ms.custom: ignite-fall-2021

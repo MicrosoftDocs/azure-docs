@@ -13,7 +13,7 @@ ms.subservice: management
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
-ms.date: 12/26/2019
+ms.date: 12/21/2021
 ms.author: pamela
 ms.reviewer: mathoma
 ---
@@ -112,7 +112,7 @@ You can modify the disk settings for the drives that were configured during the 
 
 If you placed your tempdb database files on remote storage, you can also configure the settings for tempdb directly from the portal. Select **Configure** to open the tempdb settings page, where you can add more data files: 
 
-![Configure Storage for Existing SQL Server VM](./media/storage-configuration/tempdb-customization.png)
+![Configure tempdb settings for Existing SQL Server VM](./media/storage-configuration/tempdb-customization.png)
 
 
 
