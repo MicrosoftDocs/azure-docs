@@ -213,7 +213,7 @@ LOG_ANALYTICS_WORKSPACE_CLIENT_ID=`az monitor log-analytics workspace show --que
 ```
 
 ```bash
-LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv`
+LOG_ANALYTICS_WORKSPACE_CLIENT_SECRET=`az monitor log-analytics workspace get-shared-keys --query primarySharedKey -g $RESOURCE_GROUP -n $LOG_ANALYTICS_WORKSPACE -o tsv | tr -d '[:space:]'`
 ```
 
 # [PowerShell](#tab/powershell)
