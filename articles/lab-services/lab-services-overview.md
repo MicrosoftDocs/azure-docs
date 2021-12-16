@@ -53,5 +53,6 @@ You can set up labs for several types of classes with Azure Lab Services. See th
 ## Next steps
 See the following tutorials for step-by-step instructions to create a lab account, and create a classroom lab.
 
+- [Quickstart: get started with Azure Lab Services](get-started-manage-labs.md)
 - [Tutorial: setup a lab account](tutorial-setup-lab-account.md)
 - [Tutorial: create a classroom lab](tutorial-setup-classroom-lab.md)
