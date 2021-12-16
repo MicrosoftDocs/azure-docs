@@ -205,8 +205,6 @@ Select **Change SQL instance settings** to modify SQL Server configuration optio
 
 ![Screenshot that shows where you can configure the tempdb storage for your SQL VM](./media/create-sql-vm-portal/sql-instance-settings.png). 
 
-
-
 ### SQL Server license
 
 If you're a Software Assurance customer, you can use the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your own SQL Server license and save on resources. Select **Yes** to enable the Azure Hybrid Benefit, and then confirm that you have Software Assurance by selecting the checkbox. 
