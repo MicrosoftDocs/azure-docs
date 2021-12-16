@@ -36,7 +36,7 @@ Choose a client:
 >The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
 
 >[!Note]
->If you're sure that all backed-up items in the vault are no longer required and want to delete them at once without reviewing, [run this PowerShell script](/azure/backup/backup-azure-delete-vault#script-for-delete-vault&tabs=powershell#script-for-delete-vault). The script will delete all backup items recursively and eventually the entire vault.
+>If you're sure that all backed-up items in the vault are no longer required and want to delete them at once without reviewing, [run this PowerShell script](/azure/backup/backup-azure-delete-vault&tabs=powershell#script-for-delete-vault). The script will delete all backup items recursively and eventually the entire vault.
 
 > [!VIDEO ]
 
