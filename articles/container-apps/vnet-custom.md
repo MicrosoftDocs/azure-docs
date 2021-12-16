@@ -1,15 +1,15 @@
 ---
-title: Use a virtual network in an Azure Container Apps Preview environment
+title: Provide a virtual network to an Azure Container Apps Preview environment
 description: Learn how to provide a VNET to an Azure Container Apps environment.
 services: container-apps
 author: craigshoemaker
 ms.service: container-apps
-ms.topic:  conceptual
-ms.date: 12/15/2021
+ms.topic:  how-to
+ms.date: 12/16/2021
 ms.author: cshoe
 ---
 
-# Use a virtual network in an Azure Container Apps Preview environment
+# Provide a virtual network to an Azure Container Apps Preview environment
 
 As you create an Azure Container Apps [environment](environment.md), a virtual network (VNET) is created for you, or you can provide your own. Network addresses are assigned from a subnet range you define as the environment is created.
 
@@ -122,15 +122,15 @@ APP_SUBNET=`az network vnet subnet show -g ${RESOURCE_GROUP} --vnet-name ${VNET_
 # [PowerShell](#tab/powershell)
 
 ```powershell
-VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP -n $VNET_NAME --query "id" -o tsv | tr -d "[:space:]")
+$VNET_RESOURCE_ID=(az network vnet show -g $RESOURCE_GROUP -n $VNET_NAME --query "id" -o tsv | Out-String)
 ```
 
-```bash
-CONTROL_PLANE_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n control-plane --query "id" -o tsv | tr -d "[:space:]")
+```powershell
+$CONTROL_PLANE_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n control-plane --query "id" -o tsv | Out-String)
 ```
 
-```bash
-APP_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n applications --query "id" -o tsv | tr -d "[:space:]")
+```powershell
+$APP_SUBNET=(az network vnet subnet show -g $RESOURCE_GROUP --vnet-name $VNET_NAME -n applications --query "id" -o tsv | Out-String)
 ```
 
 ---
@@ -201,7 +201,7 @@ az group delete `
 
 ## Restrictions
 
-There are some restrictions on the subnet address ranges for an environment. Subnet address ranges can't overlap with the following reserved ranges:
+Subnet address ranges can't overlap with the following reserved ranges:
 
 - 169.254.0.0/16
 - 172.30.0.0/16
