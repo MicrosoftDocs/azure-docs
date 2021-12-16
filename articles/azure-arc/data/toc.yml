@@ -93,8 +93,14 @@ items:
           href: update-service-principal-credentials.md
     - name: Upgrade
       items:
-        - name: Data controller indirect - CLI
-          href: upgrade-data-controller-indirect-cli.md
+        - name: Indirect connectivity mode
+          items:
+            - name: Data controller indirect - CLI
+              href: upgrade-data-controller-indirect-cli.md
+        - name: Direct connectivity mode
+          items:
+            - name: Data controller direct - CLI
+              href: upgrade-data-controller-direct-cli.md
     - name: Troubleshooting
       items:
         - name: Guide
@@ -207,8 +213,14 @@ items:
               href: delete-managed-instance.md
         - name: Upgrade
           items:
-            - name: Upgrade via CLI
-              href: upgrade-sql-managed-instance-cli.md
+            - name: Direct connectivity mode
+              items:
+                - name: SQL Managed Instance direct - CLI
+                  href: upgrade-sql-managed-instance-direct-cli.md
+            - name: Indirect connectivity mode
+              items:
+                - name: SQL Managed Instance indirect - CLI
+                  href: upgrade-sql-managed-instance-cli.md
         - name: Migrate
           items:
             - name: Migrate to SQL Managed Instance (Azure Arc)
