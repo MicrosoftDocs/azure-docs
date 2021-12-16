@@ -20,7 +20,7 @@ The CloudKnox solution requires one Sentry appliance per cloud platform.
 
  **Installation takes about 30 minutes.**
 
-## How to install Sentry as your cloud service provider
+## How to install Sentry
 
 - For information on how to install Sentry, select the  page for the appropriate cloud service provider.
 

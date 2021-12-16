@@ -13,7 +13,7 @@ ms.author: v-ydequadros
 ---
 
 
-# Microsoft CloudKnox Permissions Management FAQs (For internal users and existing CloudKnox users)
+# Microsoft CloudKnox Permissions Management FAQs (For internal users and existing CloudKnox users only)
 
 This section answers frequently asked questions (FAQs) from internal users and existing Microsoft CloudKnox Permissions Management users only.
 
