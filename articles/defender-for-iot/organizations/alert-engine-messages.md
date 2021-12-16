@@ -9,9 +9,10 @@ ms.topic: how-to
 
 This article provides information on the alert types, descriptions, and severity that may be generated from the Defender for IoT engines. This information can be used to help map alerts into playbooks, define Forwarding rules, Exclusion rules, and custom alerts as well as define the appropriate rules within a SIEM. Alerts appear in the Alerts window, which allows you to manage the alert event.
 
-Note that his article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, it will be removed from this article.
+> [!NOTE]
+> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, it will be removed from this article.
 
-### Alert news
+ ### Alert news
 
 New alerts may be added and existing alerts may be updated or disabled. Certain disabled alerts can be re-enabled from the Support page of the sensor console. Alerts tht can be re-enabled are marked with an asterisk (*) in the tables below.
 
@@ -256,7 +257,7 @@ Operational engine alerts describe detected operational incidents, or malfunctio
 | Suspicion of Unresponsive MODBUS Device | A source device did not respond to a command sent to it. It may have been disconnected when the command was sent. | Minor |
 | Traffic Detected on Sensor Interface | A sensor resumed detecting network traffic on a network interface. | Warning |
 
-* The alert is disabled by default, but can be enabled again. To enable the alert, navigate to the Support page, find the alert and select **Enable**.You need administrative level permissions to access the Support page.
+\* The alert is disabled by default, but can be enabled again. To enable the alert, navigate to the Support page, find the alert and select **Enable**.You need administrative level permissions to access the Support page.
 
 ## Next steps
 
