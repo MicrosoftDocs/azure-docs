@@ -146,10 +146,16 @@ foreach ($w in $apa_w) { if ($null -ne $w.Target -and $null -ne $w.Target.Id -an
 
 If an access package has been configured as incompatible, then a user who has an assignment to that incompatible access package cannot request, nor can an administrator make a new assignment that would be incompatible.
 
-For example, if the **Western Territory** access package has marked the **Eastern Territory** package as incompatible, and a user has an assignment to the **Eastern Territory** access package, then the access package manager for **Western Territory** cannot create an assignment for that user to the **Western Territory**.  In order to proceed with that assignment, the user's existing assignment to the **Eastern Territory** access package must first be removed.
+For example, if the **Production environment** access package has marked the **Development environment** package as incompatible, and a user has an assignment to the **Development environment** access package, then the access package manager for **Production environment** cannot create an assignment for that user to the **Production environment**.  In order to proceed with that assignment, the user's existing assignment to the **Development environment** access package must first be removed.
 
 If there is an exceptional situation where separation of duties rules might need to be overridden, then configuring an additional access package to capture the users who have overlapping access rights will make it clear to the approvers, reviewers, and auditors the exceptional nature of those assignments.
 
+For example, if there was a scenario that some users would need to have access to both production and deployment environments simultaneously, you could create a new access package **Production and development environments**.  That access package could have as its resource roles both the resource roles of the **Production environment** access package and the resource roles of the **Development environment** access package.  Depending on your governance processes, that access package could have as its policy
+
+ - a direct assignments policy, so that only an access package manager would be interacting with the access package, or
+ - a users can request access policy, so that a user can request, with potentially an additional approval stage
+
+This policy could have as its lifecycle settings a much shorter expiration number of days than a policy on other access packages, or require more frequent access reviews, with regular oversight so that users do not retain access longer than necessary.
 
 ## Monitor and report on access assignments
 
