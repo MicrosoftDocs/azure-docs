@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure IoT Central documentation
-summary: Azure IoT Central is an IoT application platform (aPaaS) that simplifies the creation of IoT solutions. Azure IoT Central provides a ready-to-use UX and API surface built to connect, manage, and operate fleets of devices at scale. Learn how to use IoT Central with our quickstarts, tutorials, and REST API documentation. 
+summary: Azure IoT Central is an IoT application platform-as-a-service (aPaaS) that simplifies the creation of IoT solutions. Azure IoT Central provides a ready-to-use UX and API surface built to connect, manage, and operate fleets of devices at scale. Learn how to use IoT Central with our quickstarts, tutorials, and REST API documentation. 
 metadata:
   title: Azure IoT Central documentation
   description: Azure IoT Central application simplifies the creation of IoT solutions. Learn how to create, customize, manage, and use an Azure IoT Central application.
@@ -9,7 +9,7 @@ metadata:
   ms.topic: landing-page 
   author: dominicbetts 
   ms.author: dobett 
-  ms.date: 09/02/2021
+  ms.date: 12/16/2021
   ms.custom: contperf-fy21q3
 
 landingContent:
@@ -21,7 +21,7 @@ landingContent:
             url: core/overview-iot-central.md
           - text: Tour of the UI
             url: core/overview-iot-central-tour.md
-          - text: REST API Overview
+          - text: REST API overview
             url: /rest/api/iotcentral/
       - linkListType: architecture
         links:
@@ -42,9 +42,9 @@ landingContent:
             url: core/overview-iot-central.md
           - text: How do I move between aPaaS and PaaS solution approaches?
             url: core/overview-iot-central.md
-          - text: How do I extend IoT Central if it’s missing something I need?
+          - text: How do I extend IoT Central if it's missing something I need?
             url: core/overview-iot-central.md
-          - text: What are IoT Central’s scale limits?
+          - text: What are IoT Central's scale limits?
             url: core/overview-iot-central.md 
       - linkListType: learn
         links:
@@ -69,11 +69,11 @@ landingContent:
         links:
           - text: Simulate and connect a device
             url: core/tutorial-connect-device.md
-          - text: Set-up device groups for data analysis
+          - text: Set up device groups for data analysis
             url: core/tutorial-use-device-groups.md
           - text: Troubleshoot device connectivity
             url: core/troubleshoot-connection.md
-          - text: 'Connect an IoT Edge device to IoT Central'
+          - text: Connect an IoT Edge device to IoT Central
             url: /learn/modules/connect-iot-edge-device-to-iot-central/
   - title: Manage devices and analyze IoT data
     linkLists:
@@ -87,11 +87,11 @@ landingContent:
             url: core/concepts-app-templates.md
       - linkListType: learn
         links:
-          - text: Manage devices in bulk with Jobs
+          - text: Manage devices in bulk with jobs
             url: core/howto-manage-devices-in-bulk.md
           - text: Create a custom dashboard to monitor devices
             url: core/howto-manage-dashboards.md
-          - text: Find anomalies with Analytics
+          - text: Find anomalies with analytics
             url: core/howto-create-analytics.md
 
   - title: Extend your application
@@ -102,13 +102,13 @@ landingContent:
             url: core/overview-iot-central-solution-builder.md
       - linkListType: learn
         links:
-          - text: 'Use rules to take action on telemetry data'
+          - text: Use rules to take action on telemetry data
             url: /learn/modules/set-up-rules-take-actions-telemetry-data-azure-iot-central/
           - text: Export data to cloud destinations
             url: core/howto-export-data.md           
           - text: Transform data inside your IoT Central application for export
             url: core/howto-transform-data-internally.md
-          - text: 'Manage an IoT Central application with the REST API'
+          - text: Manage an IoT Central application with the REST API
             url: /learn/modules/manage-iot-central-apps-with-rest-api/
 
   - title: Secure and administer your application
