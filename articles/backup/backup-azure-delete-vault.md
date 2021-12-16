@@ -35,36 +35,41 @@ Choose a client:
 >[!WARNING]
 >The following operation is destructive and can't be undone. All backup data and backup items associated with the protected server will be permanently deleted. Proceed with caution.
 
-To delete a vault, follow these steps:
+>[!Note]
+>If you're sure that all backed-up items in the vault are no longer required and want to delete them at once without reviewing, [run this PowerShell script](/azure/backup/backup-azure-delete-vault#script-for-delete-vault). The script will delete all backup items recursively and eventually the entire vault.
 
 > [!VIDEO ]
 
-- **Step 1**: Go to the **vault Overview**, click **Delete**, and then follow the instructions to complete removing the Backup and ASR items for vault deletion as shown below. Each link calls the respective _workload blade_ required to perform the steps.
+To delete a vault, follow these steps:
 
-  Alternately, go to the blades manually by following these steps:
+- **Step 1**: Go to **vault Overview**, click **Delete**, and then follow the instructions to complete the removal of Backup and ASR items for vault deletion as shown below. Each link calls the respective _blade_ to perform the corresponding vault deletion steps.
+
+  See the instructions in the following steps to understand the process. Also, you can go to each blade to delete vaults.
 
   :::image type="content" source="./media/backup-azure-delete-vault/delete-vault-manually.png" alt-text="Screenshot showing to delete vault manually.":::
 
-- <a id="portal-mua">**Step 2**</a>: If Multi-User Authorization (MUA) is enabled, seek necessary permissions from the security administrator before vault deletion. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
+  Alternately, go to the blades manually by following the steps below.
 
-- <a id="portal-disable-soft-delete">**Step 3**</a>: Disable the soft delete feature
+- <a id="portal-mua">**Step 2**</a>: If Multi-User Authorization (MUA) is enabled, seek necessary permissions from the security administrator before vault deletion. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management)
+
+- <a id="portal-disable-soft-delete">**Step 3**</a>: Disable the soft delete and Security features
 
   1. Go to **Properties** -> **Security Settings** and disable the **Soft Delete** feature if enabled. See [how to disable soft delete](/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
-  1. Go to **Properties** -> **Security Settings** and disable **Security Features**, if enabled. [Learn more](/azure/backup/backup-azure-security-feature-cloud). 
+  1. Go to **Properties** -> **Security Settings** and disable **Security Features**, if enabled. [Learn more](/azure/backup/backup-azure-security-feature-cloud)
 
 - <a id="portal-delete-cloud-protected-items">**Step 4**</a>: Delete Cloud protected items
 
-  1. Delete Items in soft-deleted state: After disabling soft delete, check if there are any items previously remaining in the soft deleted state. If there are items in soft deleted state, then you need to *undelete* and *delete* them again. [Follow these steps](./backup-azure-security-feature-cloud.md#permanently-deleting-soft-deleted-backup-items) to find soft delete items and permanently delete them.
+  1. Delete Items in soft-deleted state: After disabling soft delete, check if there are any items previously remaining in the soft deleted state. If there are items in soft deleted state, then you need to *undelete* and *delete* them again. [Follow these steps](/azure/backup/backup-azure-security-feature-cloud#using-azure-portal) to find soft delete items and permanently delete them.
 
      :::image type="content" source="./media/backup-azure-delete-vault/empty-items-list.png" alt-text="Screenshot showing the Delete Backup Items page.":::
 
-  1. Go to the vault dashboard menu > **Backup Items**. All items listed here must be removed with **Stop Backup** or **Delete Backup Data** along with their backup data. [Follow these steps](#delete-protected-items-in-the-cloud) to remove those items.
+  1. Go to the vault dashboard menu -> **Backup Items**. Click **Stop Backup** to stop the backups of all listed items, and then click **Delete Backup Data** to delete. [Follow these steps](#delete-protected-items-in-the-cloud) to remove those items.
       
 - <a id="portal-delete-backup-servers">**Step 5**</a>: Delete Backup Servers
 
-  1. Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. In Protected Servers, select the server to unregister. To delete the vault, you must unregister all the servers. Right-click the protected server and select **Unregister**.
+  1. Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. In Protected Servers, select the server to unregister. To delete the vault, you must unregister all the servers. Right-click each protected server and select **Unregister**.
   
-  1. **MARS protected servers**: Go to the vault dashboard menu > **Backup Infrastructure** > **Protected Servers**. If you have MARS protected servers, then all items listed here must be deleted along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete MARS protected servers.
+  1. **MARS protected servers**: Go to the vault dashboard menu -> **Backup Infrastructure** -> **Protected Servers**. If you have MARS protected servers, then all servers listed here must be deleted along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete MARS protected servers.
   
   1. **MABS or DPM management servers**: Go to the vault dashboard menu > **Backup Infrastructure** > **Backup Management Servers**. If you have DPM or Azure Backup Server (MABS), then all items listed here must be deleted or unregistered along with their backup data. [Follow these steps](#delete-protected-items-on-premises) to delete the management servers.
 
@@ -91,7 +96,7 @@ First, read the **[Before you start](#before-you-start)** section to understand 
 
 To stop protection and delete the backup data, perform the following steps:
 
-1. From the portal, go to **Recovery Services vault**, and then go to **Backup items**. Then, in the **Backup Management Type** list, select the protected items in the cloud (for example, Azure Virtual Machines, Azure Storage [the Azure Files service], or SQL Server on Azure Virtual Machines).
+1. From the portal, go to **Recovery Services vault**, and then go to **Backup items**. Then, in the **Backup Management Type** list, select the protected items in the cloud (for example, Azure Virtual Machines, Azure Storage (the Azure Files), or SQL Server on Azure Virtual Machines).
 
     ![Select the backup type.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
@@ -261,16 +266,18 @@ After you delete the on-premises backup items, follow the next steps from the po
 
 # [PowerShell](#tab/powershell)
 
-First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process. If you're sure that all the items backed up in the vault are no longer required and wish to delete them at once without reviewing, you can directly run the PowerShell script in this section. The script will delete all the backup items recursively and eventually the entire vault.
+First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
 >[!Note]
->To download the PowerShell file to delete your vault, go to vault **Overview** -> **Delete** -> **Delete using PowerShell Script**, and then click **Generate and Download Script** as shown in the screenshot below. This generates a customized script specific to the vault, which requires no additional changes. You can run the script in the PowerShell console by switching the downloaded script’s directory and running the file using: _.\NameofFile.ps1_
+>To download the PowerShell file to delete your vault, go to vault **Overview** -> **Delete** -> **Delete using PowerShell Script**, and then click **Generate and Download Script** as shown in the screenshot below. This generates a customized script specific to the vault, which requires no additional changes. You can run the script in the PowerShell console by switching to the downloaded script’s directory and running the file using: _.\NameofFile.ps1_
+
+If you're sure that all the items backed up in the vault are no longer required and wish to delete them at once without reviewing, you can directly run the PowerShell script in this section. The script will delete all the backup items recursively and eventually the entire vault.
 
 :::image type="content" source="./media/backup-azure-delete-vault/generate-delete-vault-powershell-script-inline.png" alt-text="Screenshot showing the process to generate the delete vault PowerShell script." lightbox="./media/backup-azure-delete-vault/generate-delete-vault-powershell-script-expanded.png":::
 
 Follow these steps:
 
-- **Step 1**: Ensure to get the necessary permissions from the security administrator to delete the vault, if Multi-User Authorization is enabled against the vault. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management).
+- **Step 1**: Seek the necessary permissions from the security administrator to delete the vault if Multi-User Authorization has been enabled against the vault. [Learn more](/azure/backup/multi-user-authorization#authorize-critical-protected-operations-using-azure-ad-privileged-identity-management)
 
 - <a id="powershell-install-az-module">**Step 2**</a>: Install the _Az module_ and upgrade to PowerShell 7 version by performing these steps:
 
@@ -282,7 +289,7 @@ Follow these steps:
 
   1. Open PowerShell 7 as administrator.
     
-  1. Uninstall old Az module and install the version by running the below commands:
+  1. Uninstall old Az module and install the latest version by running the following commands:
   
      ```azurepowershell-interactive
      Uninstall-Module -Name Az.RecoveryServices
@@ -298,13 +305,15 @@ Follow these steps:
 
   :::image type="content" source="./media/backup-azure-delete-vault/delete-vault-using-cloudshell-inline.png" alt-text="Screenshot showing to delete a vault using CloudShell." lightbox="./media/backup-azure-delete-vault/delete-vault-using-cloudshell-expanded.png":::
 
+  <a id="script-for-delete-vault">**Run the script in the PowerShell console**</a>
+
   This script performs the following actions:
 
   1. Disable soft delete and security features
   1. Delete backup items
   1. Unregister servers and storage accounts
+  1. Delete Disaster Recovery items
   1. Remove private endpoints
-  1. Delete Disaster Recovery items 
 
 **Script for delete vault.**
 
@@ -517,7 +526,7 @@ Remove-AzRecoveryServicesVault -Vault $VaultToDelete
 ```
 
 
-To delete an individual backup items or to write your own script, use the following PowerShell commands:
+To delete individual backup items or to write your own script, use the following PowerShell commands:
 
 To stop protection and delete the backup data:
 
