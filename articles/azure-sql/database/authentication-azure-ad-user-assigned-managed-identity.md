@@ -180,7 +180,7 @@ The ARM template used in [Creating an Azure SQL logical server using a user-assi
 
 - This feature is not supported for Azure Synapse Analytics.
 - After a Managed Instance is created, the **Active Directory admin** blade in the Azure portal shows a warning: `Managed Instance needs permissions to access Azure Active Directory. Click here to grant "Read" permissions to your Managed Instance.` If the user-assigned managed identity was given the appropriate permissions discussed in the above [Permissions](#permissions) section, this warning can be ignored.
-- If a user-assigned managed identity is used as the server or instance identity, deleting the UMI will result in the server or instance ability to access Microsoft Graph. Azure AD authentication and other functions will fail. To restore Azure AD functionality, a new UMI must be assigned to the server with appropriate permissions.
+- If a system-assigned or user-assigned managed identity is used as the server or instance identity, deleting the identity will result in the server or instance inability to access Microsoft Graph. Azure AD authentication and other functions will fail. To restore Azure AD functionality, a new SMI or UMI must be assigned to the server with appropriate permissions.
 - Permissions to access Microsoft Graph using UMI or SMI can only be granted using PowerShell. These permissions can't be granted using the Azure portal.
 
 ## Next steps
