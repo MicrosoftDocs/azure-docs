@@ -12,7 +12,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
-ms.date: 07/2/2021
+ms.date: 12/15/2021
 ms.author: ajburnle
 ms.reviewer: 
 ms.collection: M365-identity-device-management
@@ -88,6 +88,68 @@ Follow these steps to view the list of other access packages that have indicated
 1.	In the left menu, click **Separation of duties (preview)**.
 
 1. Click on **Incompatible With**.
+
+## Identifying users who already have incompatible access to another access package
+
+If you are configuring incompatible access settings on an access package that already has users assigned to it, then any of those users will also have a assignment to the incompatible access package or groups will not be able to re-request access.
+
+**Prerequisite role**: Global administrator, Identity Governance administrator, User administrator, Catalog owner or Access package manager
+
+Follow these steps to view the list of users who have assignments to two access packages.
+
+1.	Sign in to the [Azure portal](https://portal.azure.com).
+
+1.  Click **Azure Active Directory**, and then click **Identity Governance**.
+
+1.	In the left menu, click **Access packages** and then open the access package where you will be configuring incompatible assignments.
+
+1.	In the left menu, click **Assignments**.
+
+1.  In the **Status** field, ensure that **Delivered** status is selected.
+
+1.  Click the **Download** button and save the resulting CSV file as the first file with a list of assignments.
+
+1.  In the navigation bar, click **Identity Governance**.
+
+1.	In the left menu, click **Access packages** and then open the access package which you plan to indicate as incompatible.
+
+1.	In the left menu, click **Assignments**.
+
+1.  In the **Status** field, ensure that **Delivered** status is selected.
+
+1.  Click the **Download** button and save the resulting CSV file as the second file with a list of assignments.
+
+1.  Using a spreadsheet program such as Excel, open the two files.
+
+1.  Users who are listed in both files will have already-existing incompatible assignments.
+
+### Identifying users who already have incompatible access programmatically
+
+You can also query the users who have assignments to an access package with the `Get-MgEntitlementManagementAccessPackageAssignment` cmdlet from the [Microsoft Graph PowerShell cmdlets for Identity Governance](https://www.powershellgallery.com/packages/Microsoft.Graph.Identity.Governance/) module version 1.6.0 or later.
+
+For example, if you have two access packages, one with ID `29be137f-b006-426c-b46a-0df3d4e25ccd` and the other with ID `cce10272-68d8-4482-8ba3-a5965c86cfe5`, then you could retrieve the users who have assignments to the first access package, and compare to the users who have assignments to the second access package. and report the users who have assignments delivered to both, using a PowerShell script similar to the following.
+
+```powershell
+$c = Connect-MgGraph -Scopes "EntitlementManagement.Read.All"
+Select-MgProfile -Name "beta"
+$ap_w_id = "29be137f-b006-426c-b46a-0df3d4e25ccd"
+$ap_e_id = "cce10272-68d8-4482-8ba3-a5965c86cfe5"
+$apa_w_filter = "accessPackage/id eq '" + $ap_w_id + "' and assignmentState eq 'Delivered'"
+$apa_e_filter = "accessPackage/id eq '" + $ap_e_id + "' and assignmentState eq 'Delivered'"
+$apa_w = Get-MgEntitlementManagementAccessPackageAssignment -Filter $apa_w_filter -ExpandProperty target -All
+$apa_e = Get-MgEntitlementManagementAccessPackageAssignment -Filter $apa_e_filter -ExpandProperty target -All
+$htt = @{}; foreach ($e in $apa_e) { if ($null -ne $e.Target -and $null -ne $e.Target.Id) {$htt[$e.Target.Id] = $e} }
+foreach ($w in $apa_w) { if ($null -ne $w.Target -and $null -ne $w.Target.Id -and $htt.ContainsKey($w.Target.Id)) { write-output $w.Target.Email } }
+```
+
+## Configuring multiple access packages for override scenarios
+
+If an access package has been configured as incompatible, then a user who has an assignment to that incompatible access package cannot request, nor can an administrator make a new assignment that would be incompatible.
+
+For example, if the **Western Territory** access package has marked the **Eastern Territory** package as incompatible, and a user has an assignment to the **Eastern Territory** access package, then the access package manager for **Western Territory** cannot create an assignment for that user to the **Western Territory**.  In order to proceed with that assignment, the user's existing assignment to the **Eastern Territory** access package must first be removed.
+
+If there is an exceptional situation where these separation of duties rules might need to be overriden, then configuring an additional access package to capture the users who have overlapping access rights will make it clear to the approvers, reviewers and auditors the exceptional nature of those assignments.
+
 
 ## Monitor and report on access assignments
 
