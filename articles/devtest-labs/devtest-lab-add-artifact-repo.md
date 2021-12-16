@@ -1,7 +1,7 @@
 ---
-title: Add a Git repository to a lab in Azure DevTest Labs | Microsoft Docs
+title: Add a Git repository to a lab
 description: Learn how to add a GitHub or Azure DevOps Services Git repository for your custom artifacts source in Azure DevTest Labs.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 
@@ -14,7 +14,7 @@ We offer a [GitHub repository of artifacts](https://github.com/Azure/azure-devte
 When you create a VM, you can save the Resource Manager template, customize it if you want, and then use it later to create more VMs. You must create your own private repository to store your custom Resource Manager templates.  
 
 * To learn how to create a GitHub repository, see [GitHub Bootcamp](https://help.github.com/categories/bootcamp/).
-* To learn how to create an Azure DevOps Services project that has a Git repository, see [Connect to Azure DevOps Services](https://www.visualstudio.com/get-started/setup/connect-to-visual-studio-online).
+* To learn how to create an Azure DevOps Services project that has a Git repository, see [Connect to Azure DevOps Services](https://azure.microsoft.com/services/devops/).
 
 The following figure is an example of how a repository that has artifacts might look in GitHub:  
 

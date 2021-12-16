@@ -4,7 +4,7 @@ description: Sample Azure Resource Manager templates to deploy Log Analytics wor
 ms.topic: sample
 author: bwren
 ms.author: bwren
-ms.date: 05/18/2020 
+ms.date: 08/19/2021
 ms.custom: devx-track-azurepowershell
 
 ---
@@ -58,34 +58,6 @@ The following sample creates a new empty Log Analytics workspace.
         },
         "location": {
           "type": "string",
-          "allowedValues": [
-          "australiacentral", 
-          "australiaeast", 
-          "australiasoutheast", 
-          "brazilsouth",
-          "canadacentral", 
-          "centralindia", 
-          "centralus", 
-          "eastasia", 
-          "eastus", 
-          "eastus2", 
-          "francecentral", 
-          "japaneast", 
-          "koreacentral", 
-          "northcentralus", 
-          "northeurope", 
-          "southafricanorth", 
-          "southcentralus", 
-          "southeastasia",
-          "switzerlandnorth",
-          "switzerlandwest",
-          "uksouth", 
-          "ukwest", 
-          "westcentralus", 
-          "westeurope", 
-          "westus", 
-          "westus2" 
-          ],
           "metadata": {
               "description": "Specifies the location for the workspace."
               }

@@ -4,7 +4,7 @@ description: Handle feedback for your Azure application offer from the Microsoft
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 07/01/2021
 ms.author: mingshen
 author: mingshen-ms
 ---

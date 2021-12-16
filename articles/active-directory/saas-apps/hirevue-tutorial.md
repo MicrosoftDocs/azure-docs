@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with HireVue | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with HireVue'
 description: Learn how to configure single sign-on between Azure Active Directory and HireVue.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 06/03/2021
+ms.date: 09/13/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with HireVue
+# Tutorial: Azure AD SSO integration with HireVue
 
 In this tutorial, you'll learn how to integrate HireVue with Azure Active Directory (Azure AD). When you integrate HireVue with Azure AD, you can:
 
@@ -26,6 +26,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * HireVue single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -138,4 +141,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-Once you configure HireVue you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure HireVue you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

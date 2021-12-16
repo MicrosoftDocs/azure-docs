@@ -1,17 +1,19 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Migration Methods"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Migration Methods"
 description: "Getting the data from the source to target will require using tools or features of MySQL to accomplish the migration."
 ms.service: mysql
 ms.subservice: migration-guide
 ms.topic: how-to
-author: arunkumarthiags 
+author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Migration Methods
+# Migrate MySQL on-premises to Azure Database for MySQL: Migration Methods
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -47,7 +49,7 @@ MySQL Workbench provides a wizard-based UI to do full or partial export and impo
 
 `mysqldump` is typically provided as part of the MySQL installation. It's a [client utility](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html) that can be run to create logical backups that equate to a set of SQL statements that can be replayed to rebuild the database to a point in time. `mysqldump` is not intended as a fast or scalable solution for backing up or migrating large amounts of data. Executing a large set of SQL insert statements can perform poorly due to the disk I/O required to update indexes. However, when combined with other tools that require the original schema, `mysqldump` is a great tool for generating the database and table schemas. The schemas can create the target landing zone environment.
 
-The `mysqldump` utility provides useful features during the data migration phase. Performance considerations need to be evaluated before running the utility. See [Performance considerations.](../../concepts-migrate-dump-restore.md#performance-considerations)
+The `mysqldump` utility provides useful features during the data migration phase. Performance considerations need to be evaluated before running the utility. See [Performance considerations](../../concepts-migrate-dump-restore.md#performance-considerations).
 
 ### mydumper and myloader
 
@@ -97,9 +99,9 @@ There are many paths WWI can take to migrate their MySQL workloads. We've provid
 
 | Objective | Description | Tool | Prerequisites | Advantages | Disadvantages |
 |-----------|-------------|------|---------------|------------|---------------|
-| **Fastest migration possible** | Parallel approach | mydumper and myloader | Linux | Highly parallelized | Target throttling |
-| **Online migration** | Keep the source up for as long as possible | binlog | None | Seamless | Extra processing and storage  |
-| **Offline migration** | Keep the source up for as long as possible | Database Migration Service (DMS) | None | Repeatable process  | Limited to data only, supports all MySQL versions |
+| **Fastest migration possible** | Parallel approach| mydumper and myloader | Linux | Highly parallelized | Target throttling |
+| **Online migration** | Keep the source up for as long as possible | binlog | None | Seamless | Extra processing and storage |
+| **Offline migration** | Keep the source up for as long as possible | Database Migration Service (DMS)| None | Repeatable process | Limited to data only, supports all MySQL versions |
 | **Highly Customized Offline Migration** | Selectively export objects | mysqldump | None | Highly customizable | Manual |
 | **Offline Migration Semi-automated** | UI-based export and import | MySQL Workbench | Download and Install | Semi-automated | Only common sets of switches are supported |
 
@@ -115,6 +117,8 @@ WWI has selected its conference database as its first migration workload. The wo
 
   - Always verify if the data workload supports the method.  
 
+
+## Next steps
 
 > [!div class="nextstepaction"]
 > [Test Plans](./06-test-plans.md)

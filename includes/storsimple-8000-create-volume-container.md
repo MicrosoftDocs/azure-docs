@@ -2,7 +2,7 @@
 author: alkohli
 ms.service: storsimple
 ms.topic: include
-ms.date: 02/09/2021
+ms.date: 07/16/2021
 ms.author: alkohli
 ---
 
@@ -23,7 +23,7 @@ ms.author: alkohli
    3. Select **Enable Cloud Storage Encryption** to enable encryption of the data sent from the device to the cloud.
    4. Provide and confirm a **Cloud Storage Encryption Key** that is 8 to 32 characters long. This key is used by the device to access encrypted data.
    5. Select a **Storage Account** to associate with this volume container. You can choose an existing storage account or the default account that is generated at the time of service creation. You can also use the **Add new** option to specify a storage account that is not linked to this service subscription.
-   6. Select **Unlimited** in the **Specify bandwidth** drop-down list if you wish to consume all the available bandwidth. You can also set this option to **Custom** to employ bandwidth controls, and specify a value between 1 Mbps and 1,000 Mbps.
+   6. Select **Unlimited** in the **Specify bandwidth** drop-down list if you wish to consume all the available bandwidth.
    
       If you have your bandwidth usage information available, you may be able to allocate bandwidth based on a schedule by specifying **Select a bandwidth template**. For a step-by-step procedure, go to [Add a bandwidth template](../articles/storsimple/storsimple-8000-manage-bandwidth-templates.md#add-a-bandwidth-template).
 

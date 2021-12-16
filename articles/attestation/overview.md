@@ -32,6 +32,9 @@ Client applications can be designed to take advantage of SGX enclaves by delegat
 
 Intel® Xeon® Scalable processors only support [ECDSA-based attestation solutions](https://software.intel.com/content/www/us/en/develop/topics/software-guard-extensions/attestation-services.html#Elliptic%20Curve%20Digital%20Signature%20Algorithm%20(ECDSA)%20Attestation) for remotely attesting SGX enclaves. Utilizing ECDSA based attestation model, Azure Attestation supports validation of Intel® Xeon® E3 processors and Intel® Xeon® Scalable processor-based server platforms. 
 
+> [!NOTE]
+> To perform attestation of Intel® Xeon® Scalable processor-based server platforms using Azure Attestation, users are expected to install [Azure DCAP version 1.10.0](https://github.com/microsoft/Azure-DCAP-Client) or higher.
+
 ### Open Enclave
 [Open Enclave](https://openenclave.io/sdk/) (OE) is a collection of libraries targeted at creating a single unified enclaving abstraction for developers to build TEE-based applications. It offers a universal secure app model that minimizes platform specificities. Microsoft views it as an essential stepping-stone toward democratizing hardware-based enclave technologies such as SGX and increasing their uptake on Azure.
 
@@ -70,7 +73,7 @@ Azure Attestation is the preferred choice for attesting TEEs as it offers the fo
 
 ## Business Continuity and Disaster Recovery (BCDR) support
 
-[Business Continuity and Disaster Recovery](../best-practices-availability-paired-regions.md) (BCDR) for Azure Attestation enables to mitigate service disruptions resulting from significant availability issues or disaster events in a region.
+[Business Continuity and Disaster Recovery](../availability-zones/cross-region-replication-azure.md) (BCDR) for Azure Attestation enables to mitigate service disruptions resulting from significant availability issues or disaster events in a region.
 
 Clusters deployed in two regions will operate independently under normal circumstances. In the case of a fault or outage of one region, the following takes place:
 

@@ -28,7 +28,7 @@ $connection1 = New-AzPeeringDirectConnectionObject `
 ```
 
 > [!NOTE]
-> The value for <index>**$peeringLocation[]**<index> in the previous example should correspond to the peering location of your choice.
+> The value for **$peeringLocation[]** in the previous example should correspond to the peering location of your choice.
 
 Create another connection in case you need redundancy at a given peering location.
 

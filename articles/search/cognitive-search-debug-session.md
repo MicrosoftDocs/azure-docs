@@ -29,7 +29,7 @@ If the enrichment pipeline does not have any errors, a debug session can be used
 
 ## Creating a debug session
 
-To start a debug session you must have an existing AI enrichment pipeline including; a data source, a skillset, an indexer, and an index. To configure a debug session, you need to name the session, and provide a general-purpose storage account that will be used to cache the skill executions during the indexer run. You will also need to select the indexer that will be running. The indexer has references stored to the data source, skillset, and index. The debug session will default to the first document in the data source or you can specify a document in the data source to step through.
+You can create a debug session on the **Overview** page of your search service in the Azure portal. To start a debug session you must have an existing AI enrichment pipeline including; a data source, a skillset, an indexer, and an index. To configure a debug session, you need to name the session, and provide a general-purpose storage account that will be used to cache the skill executions during the indexer run. You will also need to select the indexer that will be running. The indexer has references stored to the data source, skillset, and index. The debug session will default to the first document in the data source or you can specify a document in the data source to step through.
 
 > :::image type="content" source="media/cognitive-search-debug/debug-session-new.png" alt-text="Creating a debug session":::
 
@@ -39,13 +39,13 @@ The debug session begins by executing the skillset on the selected document. The
 
 ## AI Enrichments
 
-As skills execute a tree of enrichments, representing the document, grows. Using a tree to visualize the outputs of skills or enrichments provides a comprehensive look at all the enrichments performed. You can look across the entire document and inspect each node of the enrichment tree. This perspective makes it easier to shape objects. This format also provides visual cues to the type, path, and contents of each node in the tree.
+As skills get executed, a tree of enrichments representing the document grows. Using a tree to visualize the outputs of skills or enrichments provides a comprehensive look at all the enrichments performed. You can look across the entire document and inspect each node of the enrichment tree. This perspective makes it easier to shape objects. This format also provides visual cues to the type, path, and contents of each node in the tree.
 
 ## Skill Graph
 
 The **Skill Graph** view provides a hierarchical, visual representation of the skillset. The graph is a top to bottom representation of the order in which the skills are executed. Skills that are dependent upon the output of other skills will be shown lower in the graph. Skills at the same level in the hierarchy can execute in parallel. 
 
-Selecting a skill in the graph will highlight the skills connected to it, the nodes that create its inputs and the nodes that accept its outputs. Each skill node displays its type, errors or warnings, and execution counts. The **Skill Graph** is where you will select which skill to debug or enhance. When you select a skill its details will be displayed in the skill details pane to the right of the graph.
+Selecting a skill in the graph will highlight the skills connected to it, the nodes that create its inputs and the nodes that accept its outputs. Each skill node displays its type, errors or warnings, and execution counts. The **Skill Graph** is where you will select which skill to debug or enhance. When you select a skill, its details will be displayed in the skill details pane to the right of the graph.
 
 > :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Skill Graph":::
 
@@ -81,7 +81,7 @@ This window displays all of the errors and warnings the skillset produces as it 
 
 ## Limitations
 
-Debug sesisons work with all generally available data sources amd most preview data sources. The MongoDB API (preview) and Cassandra API (preview) of Cosmos DB are currently not supported.
+Debug sessions work with all generally available data sources and most preview data sources. The MongoDB API (preview) of Cosmos DB are currently not supported.
 
 ## Next steps
 

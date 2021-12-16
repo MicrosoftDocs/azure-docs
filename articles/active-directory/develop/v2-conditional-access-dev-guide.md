@@ -32,8 +32,8 @@ For developers building apps for Azure AD, this article shows how you can use Co
 Knowledge of [single](quickstart-register-app.md) and [multi-tenant](howto-convert-app-to-be-multi-tenant.md) apps and [common authentication patterns](./authentication-vs-authorization.md) is assumed.
 
 > [!NOTE]
-> Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://azure.microsoft.com/pricing/details/active-directory/).
-> Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
+> Using this feature requires an Azure AD Premium P1 license. To find the right license for your requirements, see [Comparing generally available features of the Free, Basic, and Premium editions](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
+> Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features.
 
 ## How does Conditional Access impact an app?
 
@@ -89,7 +89,7 @@ Developers can take this challenge and append it onto a new request to Azure AD.
 
 ### Prerequisites
 
-Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/active-directory-whatis.md). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/microsoft-365-service-descriptions/microsoft-365-business-service-description) also have access to Conditional Access features.
+Azure AD Conditional Access is a feature included in [Azure AD Premium](../fundamentals/active-directory-whatis.md). Customers with [Microsoft 365 Business licenses](/office365/servicedescriptions/office-365-service-descriptions-technet-library) also have access to Conditional Access features.
 
 ### Considerations for specific scenarios
 

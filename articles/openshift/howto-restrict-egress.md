@@ -26,8 +26,7 @@ The following FQDN / application rules are required:
 
 | Destination FQDN | Port | Use |
 | ----------- | ----------- | ------------- |
-| **`quay.io`** | **HTTPS:443** | Mandatory for the installation, used by the cluster. This is used by the cluster to download the platform container images. |
-| **`*.quay.io`** | **HTTPS:443** | Provides core container images. |
+| **`*.quay.io`** | **HTTPS:443** | Mandatory for the installation, used by the cluster. This is used by the cluster to download the platform container images. |
 | **`registry.redhat.io`** | **HTTPS:443** | Mandatory for core add-ons. This is used by the cluster to download core components such as dev tools, operator-based add-ons, and Red Hat provided container images.
 | **`mirror.openshift.com`** | **HTTPS:443** | This is required in the VDI environment or your laptop to access mirrored installation content and images. It's required in the cluster to download platform release signatures to know what images to pull from quay.io. |
 | **`api.openshift.com`** | **HTTPS:443** | Required  by the cluster to check if there are available updates before downloading the image signatures. |

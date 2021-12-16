@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
-ms.date: 03/16/2021
+ms.date: 07/13/2021
 
 ms.author: justinha
 author: sopand
@@ -37,7 +37,7 @@ The following roles have the required permissions:
 - Security Administrator
 - Global Administrator
 
- An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://azure.microsoft.com/pricing/details/active-directory/).
+ An Azure AD Premium P1 or P2 license is required to access usage and insights. Azure AD Multi-Factor Authentication and self-service password reset (SSPR) licensing information can be found on the [Azure Active Directory pricing site](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing).
 
 ## How it works
 

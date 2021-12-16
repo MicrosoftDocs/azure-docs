@@ -16,7 +16,7 @@ ms.reviewer: jrasnick
 > [!div class="op_single_selector"]
 > * [Azure Data Studio)](get-started-azure-data-studio.md)
 > * [Power BI](get-started-power-bi-professional.md)
-> * [Visual Studio](../sql-data-warehouse/sql-data-warehouse-query-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json)
+> * [Visual Studio](../sql/get-started-visual-studio.md)
 > * [sqlcmd](../sql/get-started-connect-sqlcmd.md)
 > * [SSMS](get-started-ssms.md)
 
@@ -67,7 +67,7 @@ C:\>sqlcmd -S MySqlDw.database.windows.net -d Adventure_Works -G -I
 ```
 
 > [!NOTE]
-> You need to [enable Azure Active Directory Authentication](../sql-data-warehouse/sql-data-warehouse-authentication.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) to authenticate using Active Directory.
+> You need to [enable Azure Active Directory Authentication](../sql/active-directory-authentication.md) to authenticate using Active Directory.
 
 ## 2. Query
 

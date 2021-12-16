@@ -14,6 +14,8 @@ ms.reviewer: cynthn
 
 # Disable or remove the Linux Agent from VMs and images
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 Before removing the Linux Agent, you must understand of what VM will not be able to do after the Linux Agent is removed.
 
 Azure virtual machine (VM) [extensions](../extensions/overview.md) are small applications that provide post-deployment configuration and automation tasks on Azure VMs, extensions are installed and managed by the Azure control plane. It is the job of the [Azure Linux Agent](../extensions/agent-linux.md) to process the platform extension commands and ensure the correct state of the extension inside the VM.
@@ -134,7 +136,7 @@ az vm generalize -g <resource_group> -n <vm_name>
 az image create -g <resource_group> -n <image_name> --source <vm_name>
 ```
 
-**Create an image version in a Shared Image Gallery**
+**Create an image version in a Azure Compute Gallery**
 
 ```azurecli
 az sig image-version create \

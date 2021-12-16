@@ -4,7 +4,7 @@ description: The glossary explains terms that you might encounter as you work wi
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
-ms.date: 05/17/2021
+ms.date: 10/28/2021
 ---
 
 # Language understanding glossary of common vocabulary and concepts
@@ -265,7 +265,7 @@ LUIS quota is the limitation of the Azure subscription tier. The LUIS quota can 
 Your schema includes your intents and entities along with the subentities. The schema is initially planned for then iterated over time. The schema doesn't include app settings, features, or example utterances.
 
 ## Sentiment Analysis
-Sentiment analysis provides positive or negative values of the utterances provided by [Text Analytics](../text-analytics/overview.md).
+Sentiment analysis provides positive or negative values of the utterances provided by the [Language service](../language-service/sentiment-opinion-mining/overview.md).
 
 ## Speech priming
 

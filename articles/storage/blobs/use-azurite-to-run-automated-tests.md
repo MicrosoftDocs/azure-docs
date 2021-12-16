@@ -29,10 +29,10 @@ Learn how to write automated tests against private endpoints for Azure Blob Stor
    ```bash
    # Install Azurite
    npm install -g azurite
-   
+
    # Create an Azurite directory
-   mkdir c:/azurite
-   
+   mkdir c:\azurite
+
    # Launch Azurite locally
    azurite --silent --location c:\azurite --debug c:\azurite\debug.log
    ```
@@ -97,7 +97,7 @@ After running tests, you can see the files in Azurite blob storage by using Azur
 ## Run tests on Azure Pipelines
 
 After running tests locally, make sure the tests pass on [Azure Pipelines](/azure/devops/pipelines). Use a Docker Azurite image as a hosted agent on Azure, or use npm to install Azurite. The following Azure Pipelines example uses npm to install Azurite.
-  
+
 ```yaml
 trigger:
 - master
@@ -111,7 +111,7 @@ steps:
 - bash: |
     pip install -r requirements_tests.txt
   displayName: 'Setup requirements for tests'
-  
+
 - bash: |
     sudo npm install -g azurite
     sudo mkdir azurite

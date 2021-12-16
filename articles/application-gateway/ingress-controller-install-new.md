@@ -39,7 +39,7 @@ Follow the steps below to create an Azure Active Directory (AAD) [service princi
 
 1. Create AD service principal ([Read more about Azure RBAC](../role-based-access-control/overview.md)):
     ```azurecli
-    az ad sp create-for-rbac --skip-assignment -o json > auth.json
+    az ad sp create-for-rbac -o json > auth.json
     appId=$(jq -r ".appId" auth.json)
     password=$(jq -r ".password" auth.json)
     ```
@@ -71,7 +71,7 @@ This step will add the following components to your subscription:
 - [Azure Kubernetes Service](../aks/intro-kubernetes.md)
 - [Application Gateway](./overview.md) v2
 - [Virtual Network](../virtual-network/virtual-networks-overview.md) with 2 [subnets](../virtual-network/virtual-networks-overview.md)
-- [Public IP Address](../virtual-network/virtual-network-public-ip-address.md)
+- [Public IP Address](../virtual-network/ip-services/virtual-network-public-ip-address.md)
 - [Managed Identity](../active-directory/managed-identities-azure-resources/overview.md), which will be used by [AAD Pod Identity](https://github.com/Azure/aad-pod-identity/blob/master/README.md)
 
 1. Download the Azure Resource Manager template and modify the template as needed.
@@ -227,7 +227,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     ## Alternatively you can use Service Principal credentials
     # armAuth:
     #    type: servicePrincipal
-    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --sdk-auth | base64 -w0" >>
+    #    secretJSON: <<Generate this value with: "az ad sp create-for-rbac --subscription <subscription-uuid> --role Contributor --sdk-auth | base64 -w0" >>
     
     ################################################################################
     # Specify if the cluster is Kubernetes RBAC enabled or not
@@ -252,7 +252,7 @@ Kubernetes. We will leverage it to install the `application-gateway-kubernetes-i
     ```
 
    Values:
-     - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.yml#logging-levels) for possible values.
+     - `verbosityLevel`: Sets the verbosity level of the AGIC logging infrastructure. See [Logging Levels](https://github.com/Azure/application-gateway-kubernetes-ingress/blob/463a87213bbc3106af6fce0f4023477216d2ad78/docs/troubleshooting.md#logging-levels) for possible values.
      - `appgw.subscriptionId`: The Azure Subscription ID in which Application Gateway resides. Example: `a123b234-a3b4-557d-b2df-a0bc12de1234`
      - `appgw.resourceGroup`: Name of the Azure Resource Group in which Application Gateway was created. Example: `app-gw-resource-group`
      - `appgw.name`: Name of the Application Gateway. Example: `applicationgatewayd0f0`

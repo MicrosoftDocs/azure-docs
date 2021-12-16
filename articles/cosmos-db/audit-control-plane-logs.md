@@ -1,11 +1,11 @@
 ---
 title: How to audit Azure Cosmos DB control plane operations
 description: Learn how to audit the control plane operations such as add a region, update throughput, region failover, add a VNet etc. in Azure Cosmos DB
-author: SnehaGunda
+ms.author: esarroyo
+author: StefArroyo 
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/05/2020
-ms.author: sngun
+ms.date: 08/13/2021
 
 ---
 
@@ -32,7 +32,7 @@ Consider the following points when turning off the metadata write access:
 
 * Evaluate and ensure that your applications do not make metadata calls that change the above resources (For example, create collection, update throughput, …) by using the SDK or account keys.
 
-* Currently, the Azure portal uses account keys for metadata operations and hence these operations will be blocked. Alternatively, use the Azure CLI, SDKs, or Resource Manager template deployments to perform such operations.
+* When `disableKeyBasedMetadataWriteAccess` is set to true, the metadata operations issued by the SDK are blocked. Alternatively, you can use Azure portal, Azure CLI, Azure PowerShell, or Azure Resource Manager template deployments to perform these operations.
 
 ## Enable diagnostic logs for control plane operations
 
@@ -64,17 +64,17 @@ After you turn on logging, use the following steps to track down operations for 
    | where TimeGenerated >= ago(1h)
    ```
 
-The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account:
+   The following screenshots capture logs when a consistency level is changed for an Azure Cosmos account. The `activityId_g` value from results is different from the activity ID of an operation:
 
-:::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
+   :::image type="content" source="./media/audit-control-plane-logs/add-ip-filter-logs.png" alt-text="Control plane logs when a VNet is added":::
 
-The following screenshots capture logs when the keyspace or a table of a Cassandra account are created and when the throughput is updated. The control plane logs for create and update operations on the database and the container are logged separately as shown in the following screenshot:
+   The following screenshots capture logs when the keyspace or a table of a Cassandra account are created and when the throughput is updated. The control plane logs for create and update operations on the database and the container are logged separately as shown in the following screenshot:
 
-:::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Control plane logs when throughput is updated":::
+   :::image type="content" source="./media/audit-control-plane-logs/throughput-update-logs.png" alt-text="Control plane logs when throughput is updated":::
 
 ## Identify the identity associated to a specific operation
 
-If you want to debug further, you can identify a specific operation in the **Activity log** by using the Activity ID or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the activity ID and find the operations associated with it in the Activity log:
+If you want to debug further, you can identify a specific operation in the **Activity log** by using the `activityId_g` or by the timestamp of the operation. Timestamp is used for some Resource Manager clients where the activity ID is not explicitly passed. The Activity log gives details about the identity with which the operation was initiated. The following screenshot shows how to use the `activityId_g` to find the operations associated with it in the Activity log:
 
 :::image type="content" source="./media/audit-control-plane-logs/find-operations-with-activity-id.png" alt-text="Use the activity ID and find the operations":::
 

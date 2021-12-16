@@ -1,9 +1,9 @@
 ---
 title: 'Deploy Affirmed Private Network Service on Azure'
 description: Learn how to deploy the Affirmed Private Network Service solution on Azure
-services: vnf-manager
+
 author: KumudD
-ms.service: vnf-manager
+ms.service: private-multi-access-edge-compute-mec
 ms.topic: how-to    
 ms.date: 06/16/2021
 ms.author: hollycl

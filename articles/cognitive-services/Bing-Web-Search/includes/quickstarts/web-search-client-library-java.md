@@ -19,7 +19,7 @@ Want to see the code right now? Samples for the [Bing Search client libraries fo
 
 Here are a few things that you'll need before running this quickstart:
 
-* [JDK 7 or 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK 7 or 8](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Apache Maven](https://maven.apache.org/download.cgi) or your favorite build automation tool
 * A subscription key
 

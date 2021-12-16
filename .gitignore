@@ -23,6 +23,5 @@ AzureMigration.ps1
 !/.vscode/extensions.json
 .gitignore
 **/.vscode/settings.json
-!/.vscode/settings.json
 
 desktop.ini

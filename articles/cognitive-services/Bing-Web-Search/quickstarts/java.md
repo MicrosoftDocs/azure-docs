@@ -10,7 +10,7 @@ ms.subservice: bing-web-search
 ms.topic: quickstart
 ms.date: 05/22/2020
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 #Customer intent: As a new developer, I want to make my first call to the Bing Web Search API and receive a response using Java.
 ---
 
@@ -27,7 +27,7 @@ In this quickstart, you'll use a Java application to make your first call to the
 
 Here are a few things that you'll need before running this quickstart:
 
-* [JDK 7 or 8](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* [JDK 7 or 8](/azure/developer/java/fundamentals/java-support-on-azure)
 * [Gson library](https://github.com/google/gson)
 * A subscription key
 

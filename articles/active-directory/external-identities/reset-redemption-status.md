@@ -7,7 +7,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: how-to
-ms.date: 04/06/2021
+ms.date: 10/12/2021
 
 ms.author: mimart
 author: msmimart
@@ -25,22 +25,40 @@ After a guest user has redeemed your invitation for B2B collaboration, there mig
 - The user has moved to a different company, but they still need the same access to your resources
 - The user’s responsibilities have been passed along to another user
 
-To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while retaining the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UPN of the user doesn't change, but the user's sign-in name changes to the new email. The user can subsequently sign in using the new email or an email you've added to the `otherMails` property of the user object.
+To manage these scenarios previously, you had to manually delete the guest user’s account from your directory and reinvite the user. Now you can use PowerShell or the Microsoft Graph invitation API to reset the user's redemption status and reinvite the user while keeping the user's object ID, group memberships, and app assignments. When the user redeems the new invitation, the UPN of the user doesn't change, but the user's sign-in name changes to the new email. Then the user can sign in using the new email or an email you've added to the `otherMails` property of the user object.
 
-## Reset the email address used for sign-in
+## Use the Azure portal to reset redemption status
+
+1. Sign in to the [Azure portal](https://portal.azure.com/) using a Global administrator or User administrator account for the directory.
+1. Search for and select **Azure Active Directory**.
+1. Select **Users**.
+1. In the list, select the user's name to open the user's profile.
+1. If the user wants to sign in using a different email:
+   - Select the **Edit** icon at the top of the page.
+   - In the **Contact info** section, under **Email**, type the new email.
+   - Next to **Alternate email**, select **Edit**. Update the alternate email In the list with the new email, and then select **Update**.
+   - Select the **Save** icon at the top of the page.
+1. In the **Identity** section, under **Invitation accepted**, select **(manage)**.
+1. Under **Redemption status**, next to **Reset invitation status? (Preview)**, select **Yes**.
+1. Select **Yes** to confirm.
+
+
+## Use PowerShell or Microsoft Graph API to reset redemption status
+
+### Reset the email address used for sign-in
 
 If a user wants to sign in using a different email:
 
 1. Make sure the new email address is added to the `mail` or `otherMails` property of the user object. 
-2.  Replace the email address in the `InvitedUserEmailAddress` property with the new email address.
-3. Use one of the methods below to reset the user's redemption status.
+1.  Replace the email address in the `InvitedUserEmailAddress` property with the new email address.
+1. Use one of the methods below to reset the user's redemption status.
 
 > [!NOTE]
 >During public preview, we have two recommendations:
 >- When you're resetting the user's email address to a new address, we recommend setting the `mail` property. This way the user can redeem the invitation by signing into your directory in addition to using the redemption link in the invitation.
 >- When you're resetting the status for a B2B guest user, be sure to do so under the user context. App-only calls are currently not supported.
 >
-## Use PowerShell to reset redemption status
+### Use PowerShell to reset redemption status
 
 Install the latest AzureADPreview PowerShell module and create a new invitation with `InvitedUserEmailAddress` set to the new email address, and `ResetRedemption` set to `true`.
 
@@ -53,9 +71,9 @@ $msGraphUser = New-Object Microsoft.Open.MSGraph.Model.User -ArgumentList $ADGra
 New-AzureADMSInvitation -InvitedUserEmailAddress <<external email>> -SendInvitationMessage $True -InviteRedirectUrl "http://myapps.microsoft.com" -InvitedUser $msGraphUser -ResetRedemption $True 
 ```
 
-## Use Microsoft Graph API to reset redemption status
+### Use Microsoft Graph API to reset redemption status
 
-Using the [Microsoft Graph invitation API](/graph/api/resources/invitation?view=graph-rest-beta&preserve-view=true), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
+Using the [Microsoft Graph invitation API](/graph/api/resources/invitation), set the `resetRedemption` property  to `true` and specify the new email address in the `invitedUserEmailAddress` property.
 
 ```json
 POST https://graph.microsoft.com/beta/invitations  

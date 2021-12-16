@@ -52,7 +52,7 @@ endpoint = "<paste-your-personalizer-endpoint-here>"
 
 ## Object model
 
-The Personalizer client is a [PersonalizerClient](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclien) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
+The Personalizer client is a [PersonalizerClient](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.personalizer_client.personalizerclient) object that authenticates to Azure using Microsoft.Rest.ServiceClientCredentials, which contains your key.
 
 To ask for the single best item of the content, create a [RankRequest](/python/api/azure-cognitiveservices-personalizer/azure.cognitiveservices.personalizer.models.rankrequest), then pass it to client.Rank method. The Rank method returns a RankResponse.
 

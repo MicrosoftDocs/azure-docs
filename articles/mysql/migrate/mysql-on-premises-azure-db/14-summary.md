@@ -1,5 +1,5 @@
 ---
-title: "MySQL on-premises to Azure Database for MySQL migration guide Summary"
+title: "Migrate MySQL on-premises to Azure Database for MySQL: Summary"
 description: "This document has covered several topics related to migrating an application from on-premises MySQL to Azure Database for MySQL."
 ms.service: mysql
 ms.subservice: migration-guide
@@ -8,10 +8,12 @@ author: arunkumarthiags
 ms.author: arthiaga
 ms.reviewer: maghan
 ms.custom:
-ms.date: 06/14/2021
+ms.date: 06/21/2021
 ---
 
-# MySQL on-premises to Azure Database for MySQL migration guide Summary
+# Migrate MySQL on-premises to Azure Database for MySQL: Summary
+
+[!INCLUDE[applies-to-mysql-single-flexible-server](../../includes/applies-to-mysql-single-flexible-server.md)]
 
 ## Prerequisites
 
@@ -40,7 +42,7 @@ In addition, consider these points of contact as appropriate:
 
   - To contact Azure Support or fix an issue with your account, [file a ticket from the Azure portal. ](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 
-  - To provide feedback or to request new features, create an entry via [UserVoice.](https://feedback.azure.com/forums/597982-azure-database-for-mysql)
+  - To provide feedback or to request new features, create an entry via [UserVoice.](https://feedback.azure.com/d365community/forum/47b1e71d-ee24-ec11-b6e6-000d3a4f0da0)
 fwill
 ## Find a partner to help migrate
 

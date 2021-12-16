@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 1/5/2021
+ms.date: 12/06/2021
 ---
 
 # Determine table and relation size
@@ -21,8 +21,8 @@ of distributed table size is obtained as a sum of shard sizes. Hyperscale
 
 <table>
 <colgroup>
-<col style="width: 40%" />
-<col style="width: 59%" />
+<col width="40%" />
+<col width="59%" />
 </colgroup>
 <thead>
 <tr class="header">
@@ -93,3 +93,4 @@ Output:
 
 * Learn to [scale a server group](howto-hyperscale-scale-grow.md) to hold more data.
 * Distinguish [table types](concepts-hyperscale-nodes.md) in a Hyperscale (Citus) server group.
+* See other [useful diagnostic queries](howto-hyperscale-useful-diagnostic-queries.md).

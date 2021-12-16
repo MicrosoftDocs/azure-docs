@@ -248,7 +248,7 @@ CREATE STATISTICS stats_2cols
     WITH SAMPLE 50 PERCENT;
 ```
 
-Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time.
+Because a correlation exists between *product\_category* and *product\_sub\_category*, a multi-column statistics object can be useful if these columns are accessed at the same time. When querying this table, the multi-column statistics will improve cardinality estimations for joins, GROUP BY aggregations, distinct counts, and WHERE filters (so long as the primary statistics column is a part of the filter).
 
 #### Create statistics on all columns in a table
 
@@ -886,6 +886,6 @@ WHERE   st.[user_created] = 1
 
 ## Next steps
 
-To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json) and [Best practices for dedicated SQL pool](best-practices-dedicated-sql-pool.md#maintain-statistics).
+To further improve query performance for dedicated SQL pool, see [Monitor your workload](../sql-data-warehouse/sql-data-warehouse-manage-monitor.md?context=/azure/synapse-analytics/context/context) and [Best practices for dedicated SQL pool](best-practices-dedicated-sql-pool.md#maintain-statistics).
 
 To further improve query performance for serverless SQL pool see [Best practices for serverless SQL pool](best-practices-serverless-sql-pool.md)

@@ -79,7 +79,7 @@ ms.custom: "devx-track-js, devx-track-csharp"
 | **Steps** | Browsers can store information for purposes of caching and history. These cached files are stored in a folder, like the Temporary Internet Files folder in the case of Internet Explorer. When these pages are referred again, the browser displays them from its cache. If sensitive information is displayed to the user (such as their address, credit card details, Social Security Number, or username), then this information could be stored in browser's cache, and therefore retrievable through examining the browser's cache or by simply pressing the browser's "Back" button. Set cache-control response header value to "no-store" for all pages. |
 
 ### Example
-```XML
+```xml
 <configuration>
   <system.webServer>
    <httpProtocol>

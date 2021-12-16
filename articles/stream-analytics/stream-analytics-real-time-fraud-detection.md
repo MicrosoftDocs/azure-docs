@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.custom: contperf-fy21q2
 ms.date: 12/17/2020
 
-#Customer intent: "As an IT admin/developer I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard."
+#Customer intent: As an IT admin/developer, I want to run a Stream Analytics job to analyze phone call data and visualize results in a Power BI dashboard.
 ---
 
 # Tutorial: Analyze fraudulent call data with Stream Analytics and visualize results in Power BI dashboard
@@ -130,7 +130,7 @@ Now that you have a stream of call events, you can create a Stream Analytics job
 
 1. To create a Stream Analytics job, navigate to the [Azure portal](https://portal.azure.com/).
 
-2. Select **Create a resource** and search for **Stream Analytics job**. Select the **Stream Analytics job** tile and select *Create**.
+2. Select **Create a resource** and search for **Stream Analytics job**. Select the **Stream Analytics job** tile and select **Create**.
 
 3. Fill out the **New Stream Analytics job** form with the following values:
 

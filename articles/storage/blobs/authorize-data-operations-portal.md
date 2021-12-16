@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 06/08/2021
+ms.date: 12/10/2021
 ms.author: tamram
 ms.reviewer: ozgun
 ms.subservice: blobs
@@ -16,7 +16,7 @@ ms.custom: contperf-fy21q1
 
 # Choose how to authorize access to blob data in the Azure portal
 
-When you access blob data using the [Azure portal](https://portal.azure.com), the portal makes requests to Azure Storage under the covers. A request to Azure Storage can be authorized using either your Azure AD account or the storage account access key. The portal indicates which method you are using, and enables you to switch between the two if you have the appropriate permissions.  
+When you access blob data using the [Azure portal](https://portal.azure.com), the portal makes requests to Azure Storage under the covers. A request to Azure Storage can be authorized using either your Azure AD account or the storage account access key. The portal indicates which method you are using, and enables you to switch between the two if you have the appropriate permissions.
 
 You can also specify how to authorize an individual blob upload operation in the Azure portal. By default the portal uses whichever method you are already using to authorize a blob upload operation, but you have the option to change this setting when you upload a blob.
 
@@ -50,7 +50,7 @@ To access blob data from the Azure portal using your Azure AD account, both of t
 
 The Azure Resource Manager **Reader** role permits users to view storage account resources, but not modify them. It does not provide read permissions to data in Azure Storage, but only to account management resources. The **Reader** role is necessary so that users can navigate to blob containers in the Azure portal.
 
-For information about the built-in roles that support access to blob data, see [Azure roles for blobs](assign-azure-role-data-access.md#azure-roles-for-blobs).
+For information about the built-in roles that support access to blob data, see [Authorize access to blobs using Azure Active Directory](authorize-access-azure-active-directory.md).
 
 Custom roles can support different combinations of the same permissions provided by the built-in roles. For more information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md) and [Understand role definitions for Azure resources](../../role-based-access-control/role-definitions.md).
 
@@ -104,7 +104,28 @@ To specify how to authorize a blob upload operation, follow these steps:
 
     :::image type="content" source="media/authorize-data-operations-portal/auth-blob-upload.png" alt-text="Screenshot showing how to change authorization method on blob upload":::
 
+## Default to Azure AD authorization in the Azure portal
+
+When you create a new storage account, you can specify that the Azure portal will default to authorization with Azure AD when a user navigates to blob data. You can also configure this setting for an existing storage account. This setting specifies the default authorization method only, so keep in mind that a user can override this setting and choose to authorize data access with the account key.
+
+To specify that the portal will use Azure AD authorization by default for data access when you create a storage account, follow these steps:
+
+1. Create a new storage account, following the instructions in [Create a storage account](../common/storage-account-create.md).
+1. On the **Advanced** tab, in the **Security** section, check the box next to **Default to Azure Active Directory authorization in the Azure portal**.
+
+    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-create-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for new account":::
+
+1. Select the **Review + create** button to run validation and create the account.
+
+To update this setting for an existing storage account, follow these steps:
+
+1. Navigate to the account overview in the Azure portal.
+1. Under **Settings**, select **Configuration**.
+1. Set **Default to Azure Active Directory authorization in the Azure portal** to **Enabled**.
+
+    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for existing account":::
+
 ## Next steps
 
-- [Authenticate access to Azure blobs and queues using Azure Active Directory](../common/storage-auth-aad.md)
+- [Authorize access to data in Azure Storage](../common/authorize-data-access.md)
 - [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)

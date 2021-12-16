@@ -155,13 +155,13 @@ Check that the zipped file is secure, before you deploy it.
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 207157bab39303dca1c2b93562d6f1deaa05aa7c992f480138e17977641163fb
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140334) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
 
     - For Azure Government:
 
         **Scenario** | **Download*** | **Hash value**
         --- | --- | ---
-        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | ca67e8dbe21d113ca93bfe94c1003ab7faba50472cb03972d642be8a466f78ce
+        Physical (85 MB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140338) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
  
 
 ### 3. Run the Azure Migrate installer script
@@ -182,14 +182,15 @@ Run the script as follows:
 3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
 4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    - For the public cloud: 
-    
-        ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1 ```
-    - For Azure Government: 
-    
-        ``` PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1 ```
+   - For the public cloud: 
 
-    The script will launch the appliance web application when it finishes successfully.
+     `PS C:\Users\administrator\Desktop\AzureMigrateInstaller-Server-Public> .\AzureMigrateInstaller.ps1`
+
+   - For Azure Government: 
+
+     `PS C:\Users\Administrators\Desktop\AzureMigrateInstaller-Server-USGov>.\AzureMigrateInstaller.ps1`
+
+     The script will launch the appliance web application when it finishes successfully.
 
 If you come across any issues, you can access the script logs at C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log for troubleshooting.
 

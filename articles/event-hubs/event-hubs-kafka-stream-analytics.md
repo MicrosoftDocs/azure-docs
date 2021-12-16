@@ -20,7 +20,7 @@ You do not need to change your protocol clients or run your own clusters when yo
 To complete this quickstart, make sure you have the following prerequisites:
 
 * An Azure subscription. If you do not have one, create a [free account](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) before you begin.
-* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+* [Java Development Kit (JDK) 1.7+](/azure/developer/java/fundamentals/java-support-on-azure).
 * [Download](https://maven.apache.org/download.cgi) and [install](https://maven.apache.org/install.html) a Maven binary archive.
 * [Git](https://www.git-scm.com/)
 * An **Azure Storage account**. If you don't have one, [create one](../storage/common/storage-account-create.md) before proceeding further. The Stream Analytics job in this walkthrough stores the output data in an Azure blob storage. 

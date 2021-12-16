@@ -72,6 +72,8 @@ landingContent:
         links:  
         - text: Use dynamic config in ASP.NET Core
           url: enable-dynamic-configuration-aspnet-core.md
+        - text: Use dynamic config in ASP.NET (.NET Framework)
+          url: enable-dynamic-configuration-aspnet-netfx.md
         - text: Use dynamic config in .NET Core
           url: enable-dynamic-configuration-dotnet-core.md
         - text: Use dynamic config in .NET Framework
@@ -80,8 +82,10 @@ landingContent:
           url: enable-dynamic-configuration-azure-functions-csharp.md
         - text: Use dynamic config in Spring Boot
           url: enable-dynamic-configuration-java-spring-app.md
-        - text: Integrating dynamic config using the push model
+        - text: Integrating dynamic config using the push model in .NET Core
           url: enable-dynamic-configuration-dotnet-core-push-refresh.md
+        - text: Integrating dynamic config using the push model in Java Spring
+          url: enable-dynamic-configuration-java-spring-push-refresh.md
       - linkListType: tutorial
         links:
         - text: Push data using Azure Pipelines

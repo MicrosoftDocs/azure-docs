@@ -4,7 +4,7 @@ title: Tutorial develop Node.js module for Linux - Azure IoT Edge | Microsoft Do
 description: This tutorial shows you how to create an IoT Edge module with Node.js code and deploy it to an edge device
 services: iot-edge
 author: kgremban
-manager: philmea
+
 
 ms.author: kgremban
 ms.date: 07/30/2020
@@ -98,6 +98,9 @@ The IoT Edge extension tries to pull your container registry credentials from Az
 1. In the VS Code explorer, open the **.env** file.
 2. Update the fields with the **username** and **password** values that you copied from your Azure container registry.
 3. Save this file.
+
+>[!NOTE]
+>This tutorial uses admin login credentials for Azure Container Registry, which are convenient for development and test scenarios. When you're ready for production scenarios, we recommend a least-privilege authentication option like service principals. For more information, see [Manage access to your container registry](production-checklist.md#manage-access-to-your-container-registry).
 
 ### Select your target architecture
 

@@ -2,11 +2,10 @@
 title: How to use Micrometer with Azure Application Insights Java SDK
 description: A step by step guide on using Micrometer with your Application Insights Spring Boot and non-Spring Boot applications.
 ms.topic: conceptual
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
 ms.date: 11/01/2018
-
+author: mattmccleary
+ms.author: mmcc
 ---
 
 # How to use Micrometer with Azure Application Insights Java SDK (not recommended)
@@ -30,7 +29,7 @@ Steps
 
 1. Update the pom.xml file of your Spring Boot application and add the following dependencies in it:
 
-    ```XML
+    ```xml
     <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>applicationinsights-spring-boot-starter</artifactId>
@@ -68,7 +67,7 @@ Steps:
 
 1. Update the pom.xml file of your Spring Boot application and add the following dependency in it:
 
-    ```XML
+    ```xml
     <dependency> 
           <groupId>com.microsoft.azure</groupId>
           <artifactId>azure-spring-boot-metrics-starter</artifactId>
@@ -127,7 +126,7 @@ Steps:
 
 1. Add the following dependencies in your pom.xml or build.gradle file:
 
-    ```XML
+    ```xml
         <dependency>
             <groupId>io.micrometer</groupId>
             <artifactId>micrometer-registry-azure-monitor</artifactId>
@@ -143,7 +142,7 @@ Steps:
 
 2. Put `ApplicationInsights.xml` file in the resources folder:
 
-    ```XML
+    ```xml
     <?xml version="1.0" encoding="utf-8"?>
     <ApplicationInsights xmlns="http://schemas.microsoft.com/ApplicationInsights/2013/Settings" schemaVersion="2014-05-30">
 

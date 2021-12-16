@@ -8,7 +8,8 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 05/20/2020
 ms.author: stefanazaric
-ms.reviewer: jrasnick 
+ms.reviewer: jrasnick
+ms.custom: ignite-fall-2021
 ---
 
 # Create and use views using serverless SQL pool in Azure Synapse Analytics
@@ -76,6 +77,8 @@ from openrowset(
            ) as rows
 ```
 
+Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+
 ## Partitioned views
 
 If you have a set of files that is partitioned in the hierarchical folder structure, you can describe the partition pattern using the wildcards in the file path. Use the  `FILEPATH` function to expose parts of the folder path as partitioning columns.
@@ -115,7 +118,52 @@ The folder name in the `OPENROWSET` function (`yellow` in this example) that is 
 > [!div class="mx-imgBorder"]
 >![Yellow Taxi Delta Lake folder](./media/shared/yellow-taxi-delta-lake.png)
 
-Do not use the `WITH` clause in the `OPENROWSET` function when you query partitioned Delta Lake data. Due to the known issue in the preview, the `WITH` clause will not properly return the values from the underlying partitioning columns. Partition elimination works fine if you are directly using the `OPENROWSET` function with the `WITH` clause (without views).  
+Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+
+## JSON views
+
+The views are the good choice if you need to do some additional processing on top of the result set that is fetched from the files. One example might be parsing JSON files where we need to apply the JSON functions to extract the values from the JSON documents:
+
+```sql
+CREATE OR ALTER VIEW CovidCases
+AS 
+select
+    *
+from openrowset(
+        bulk 'latest/ecdc_cases.jsonl',
+        data_source = 'covid',
+        format = 'csv',
+        fieldterminator ='0x0b',
+        fieldquote = '0x0b'
+    ) with (doc nvarchar(max)) as rows
+    cross apply openjson (doc)
+        with (  date_rep datetime2,
+                cases int,
+                fatal int '$.deaths',
+                country varchar(100) '$.countries_and_territories')
+```
+
+The `OPENJSON` function parses each line from the JSONL file containing one JSON document per line in textual format.
+
+## CosmosDB view
+
+The views can be created on top of the Azure CosmosDB containers if the CosmosDB analytical storage is enabled on the container. CosmosDB account name, database name, and container name should be added as a part of the view, and the read-only access key should be placed in the database scoped credential that the view references.
+
+```sql
+CREATE DATABASE SCOPED CREDENTIAL MyCosmosDbAccountCredential
+WITH IDENTITY = 'SHARED ACCESS SIGNATURE', SECRET = 's5zarR2pT0JWH9k8roipnWxUYBegOuFGjJpSjGlR36y86cW0GQ6RaaG8kGjsRAQoWMw1QKTkkX8HQtFpJjC8Hg==';
+GO
+CREATE OR ALTER VIEW Ecdc
+AS SELECT *
+FROM OPENROWSET(
+      PROVIDER = 'CosmosDB',
+      CONNECTION = 'Account=synapselink-cosmosdb-sqlsample;Database=covid',
+      OBJECT = 'Ecdc',
+      CREDENTIAL = 'MyCosmosDbAccountCredential'
+    ) with ( date_rep varchar(20), cases bigint, geo_id varchar(6) ) as rows
+```
+
+Find more details about [querying CosmosDB containers using Synapse Link here](query-cosmos-db-analytical-store.md).
 
 ## Use a view
 

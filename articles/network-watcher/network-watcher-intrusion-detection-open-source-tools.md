@@ -40,7 +40,7 @@ For all other methods of installation, visit https://suricata.readthedocs.io/en/
     ```
     sudo add-apt-repository ppa:oisf/suricata-stable
     sudo apt-get update
-    sudo sudo apt-get install suricata
+    sudo apt-get install suricata
     ```
 
 1. To verify your installation, run the command `suricata -h` to see the full list of commands.
@@ -75,7 +75,7 @@ While the logs that Suricata produces contain valuable information about what's 
 
 #### Install Elasticsearch
 
-1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-jdk-long-term-support).
+1. The Elastic Stack from version 5.0 and above requires Java 8. Run the command `java -version` to check your version. If you do not have java installed, refer to documentation on the [Azure-suppored JDKs](/azure/developer/java/fundamentals/java-support-on-azure).
 
 1. Download the correct binary package for your system:
 
