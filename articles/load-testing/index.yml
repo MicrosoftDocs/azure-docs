@@ -49,6 +49,9 @@ conceptualContent:
         - url: how-to-parameterize-load-tests.md
           itemType: how-to-guide
           text: Parameterize load tests
+        - url: how-to-read-csv-data.md
+          itemType: how-to-guide
+          text: Read a CSV file in load tests
         - url: how-to-update-rerun-test.md
           itemType: how-to-guide
           text: Configure server-side monitoring
