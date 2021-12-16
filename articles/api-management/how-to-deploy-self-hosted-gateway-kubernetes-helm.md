@@ -88,8 +88,8 @@ This article provides the steps for deploying self-hosted gateway component of A
 1. Run the below command to check the gateway service is running. Your service name and IP addresses will be different.
     ```console
     kubectl get services
-    NAME                           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)                      AGE
-    azure-api-management-gateway   ClusterIP   10.0.229.55     <none>        80:32504/TCP,443:30043/TCP   1m
+    NAME                           TYPE        CLUSTER-IP      EXTERNAL-IP   PORT(S)               AGE
+    azure-api-management-gateway   ClusterIP   10.0.229.55     <none>        8080/TCP,8081/TCP     1m
     ```
 
 1. Return to the Azure portal and confirm that gateway node you deployed is reporting healthy status.
