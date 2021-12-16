@@ -19,6 +19,16 @@ ms.custom: ignite-fall-2021
 
 When you deploy an Azure virtual machine (VM) with SQL Server installed on it, either manually, or through a built-in image, you can leverage Azure features to improve your experience. This article summarizes the documentation changes associated with new features and improvements in the recent releases of [SQL Server on Azure Virtual Machines (VMs)](https://azure.microsoft.com/services/virtual-machines/sql-server/). To learn more about SQL Server on Azure VMs, see the [overview](sql-server-on-azure-vm-iaas-what-is-overview.md). 
 
+## December 2021
+
+
+| Changes | Details |
+| --- | --- |
+| **Deployment configuration improvements** | It's now possible to configure the following options when deploying your SQL Server VM from an Azure marketplace image: System database location, number of tempdb data files, collation, max degree of parallelism, min and max server memory settings, and optimize for ad hoc workloads. Review [Deploy SQL Server VM](create-sql-vm-portal.md) to learn more. | 
+| **Automated backup improvements** | The possible maximum automated backup retention period has changed from 30 days to 90, and you're now able to choose a specific container within the storage account. Review [automated backup](automated-backup.md) to learn more.  | 
+| **Tempdb configuration** | You can now modify tempdb settings directly from the [SQL virtual machines](manage-sql-vm-portal.md) blade in the Azure portal, such as increasing the size, and adding data files. |
+| &nbsp; | &nbsp; |
+
 ## November 2021
 
 | Changes | Details |
