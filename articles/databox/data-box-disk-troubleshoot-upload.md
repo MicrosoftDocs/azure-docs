@@ -25,12 +25,12 @@ When the data is uploaded to Azure at the datacenter, copy log (`_copy.xml` or `
 
 ### Identify the log version
 
-There are two versions of the copy/error log and verbose log, with different formats.<!--Depending on what? I have asked Balaji/Akash. If I don't get an answer, the "Product release" column will have to go.--> To find out the log release number for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
+There are two versions of the copy/error log and verbose log, with different formats. To find out the log release number for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
 
-| Product release | Search copy/error log for... | Log drive release |
-|-----------------|------------------------------|-------------------|
-| XXX             | DriveLogVersion              | 2021-08-01        |
-| XXX             | DriveLog Version             | 2018-10-01        |
+|Log file name   | Parameter        | Log drive release |
+|----------------|------------------|-------------------|
+|_copy.xml       | DriveLogVersion  | 2021-08-01        |
+|_error.xml      | DriveLog Version | 2018-10-01        |
 
 For more information, see the Sample upload logs for log drive release 2021-08-01 and log drive release 2018-10-01. 
 
@@ -86,11 +86,11 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 
 | Field       | Description                                  |
 |-------------|----------------------------------------------|
-| CloudFormat | BlockBlob, PageBlob, or AzureFile            |
+| CloudFormat | BlockBlob, PageBlob, or AzureFile.           |
 | Path        | Path to the file within the storage account. |
 | Size        | File or blob size.                           |
-| crc64       | The checksum if cyclic redundancy check 64 (CRC64) was used to verify data integrity during the data transfer. Either CRC64 or MD5 is used. |
-| md5         | The checksum if Message Digest Algorithm 5 (MD5) was used to verify data integrity during the data transfer. Either CRC64 or MD5 is used. |
+| crc64       | Checksum when cyclic redundancy check 64 (CRC64) was used to verify data integrity during data transfer. |
+| md5         | Checksum when Message Digest Algorithm 5 (MD5) was used to verify data integrity during data transfer.|
 
 > [!NOTE]
 > To find out the drive log version of a verbose log, check the **DriveLogVersion** of the copy log.
@@ -300,25 +300,23 @@ The file level statuses are in `BlobStatus`, which describes any actions taken t
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
-The errors found in the 2018-10-01 error log are described below.<!--1) Missing definitions requested from Akash. Also clarification of which are validation errors (begin with UploadError?) and which are copy errors. 2) In 2021-08-01, the errors have an error category (the name); a numeric error code; and an error message is the description.-->
+The errors found in the 2018-10-01 copy log are described below.
 
-| Error category                      | Error message   |
-|-------------------------------------|-----------------|
-| `UploadErrorNone`                   |XXX              |
-| `UploadErrorWin32`                  |XXX              |
-| `UploadErrorCloudHttp`              |XXX              |
-| `UploadErrorCloudNetwork`           |XXX              |
-| `UploadErrorDataValidataionError`   |XXX              |
-| `UploadErrorFilePropertyError`      |XXX              |
-| `UploadErrorManagedConversionError` |XXX              |
+| Error category                      | Error message     |
+|-------------------------------------|-------------------|
+| `UploadErrorWin32`                  |File system error. |
+| `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).|
+| `UploadErrorDataValidationError`   |CRC computed during data ingestion doesn’t match the CRC computed during upload.<!--Verify. Message description for previous release.--> |
+| `UploadErrorFilePropertyError`      |File Last Write time conversion failure. |
+| `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |
+| `UploadErrorUnknownType`            |Unknown error. |
 | `ContainerRenamed`                  |Renamed the container as the original container name does not follow Azure conventions. |
-| `ShareRenamed`                      |The share for these files didn’t conform to Azure naming conventions and is renamed. <!--Update name format.-->The new name starts with `databox-` and is suffixed with the SHA1 hash of the original name. |
-| `BlobRenamed`                       |These files didn’t conform to Azure naming conventions and were renamed. <!--Update instruction.-->Check the `BlobPath` field for the new name. |
-| `FileRenamed`                       |These files didn’t conform to Azure naming conventions and were renamed. <!--Update instruction.-->Check the `FileStoragePath` field for the new name. |
-| `DiskRenamed`                       |These files didn’t conform to Azure naming conventions and were renamed. <!--Update instruction.-->Check the `BlobPath` field for the new name. |
-| `FileNameTrailsWithSlash`           |XXX              |
-| `ExportCloudHttp`                   |XXX              |
-| `UploadErrorUnknownType`            |XXX              |
+| `ShareRenamed`                      |The original container/share/Blob has been renamed to: DataBox-<*GUID*> :from: New Folder :because either name has invalid character(s) or length is not supported|
+| `BlobRenamed`                       |The original container/share/Blob has been renamed to BlockBlob/DataBox-<*GUID*> :from: <*original  name*> :because either the name has invalid character(s) or the length is not supported.|
+| `FileRenamed`                       |The original container/share/Blob has been renamed to: AzureFile/DataBox-<*GUID*> :from: <*original name*> :because either the name has invalid character(s) or the length is not supported. |
+| `DiskRenamed`                       |The original container/share/Blob has been renamed to: ManagedDisk/DataBox-<*GUID*> :from: <*original name*> :because either the name has invalid character(s) or the length is not supported. |
+| `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. |
+| `ExportCloudHttp`                   |Unsupported blob type. |
 
 
 ### [Log version: 2018-10-01](#tab/log-version-2018-10-01)
@@ -327,8 +325,7 @@ The errors generated when uploading the data to Azure are summarized in the foll
 
 | Error code | Description                   |
 |-------------|------------------------------|
-|`None` |  Completed successfully.           |
-|`Renamed` | Successfully renamed the blob.   |
+|`Renamed` | Successfully renamed the blob.  |
 |`CompletedWithErrors` | Upload completed with errors. The details of the files in error are included in the log file.  |
 |`Corrupted`|CRC computed during data ingestion doesn’t match the CRC computed during upload.  |  
 |`StorageRequestFailed` | Azure storage request failed.   |     
@@ -352,4 +349,5 @@ The errors generated when uploading the data to Azure are summarized in the foll
 
 ## Next steps
 
+- [Review non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).
 - [Open a Support ticket for Data Box Disk issues](data-box-disk-contact-microsoft-support.md).
