@@ -14,7 +14,7 @@ ms.topic: how-to
 
 # Tutorial – Deploy AD-integrated SQL Managed Instance
 
-This article explains how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory (AD) authentication using Bring Your Own Keytab (BYOK) mode.
+This article explains how to deploy Azure Arc-enabled SQL Managed Instance with Active Directory (AD) authentication.
 Before you proceed, you need to complete the steps explained in [Tutorial – Deploy Active Directory Connector](deploy-active-directory-connector.md).
 
 ## Prerequisites
