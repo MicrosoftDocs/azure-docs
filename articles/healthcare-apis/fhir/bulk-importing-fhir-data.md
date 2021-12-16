@@ -39,7 +39,7 @@ To use the tool, follow the prerequisite steps below:
 1. [Register a confidential client application](../register-application-cli-rest.md) with a client secret.
 1. [Grant permissions](../configure-azure-rbac-using-scripts.md) to the client application.
 1. [Deploy FHIR Importer](https://github.com/microsoft/healthcare-apis-samples/tree/main/src/FhirImporter) using the CLI scripts and the ARM template. The Azure Function runtime is set to 2.0 by default, but it can be changed to 3.0 from the Azure portal.
-1. Review and modify the application settings for the Azure Function. For example, change `MaxDegreeOfParallelism` from 16 to a smaller number, and set `UUIDtoResourceTypeConversion` to **false** to ingest data without the conversion from a "urn:uuid" string to a corresponding FHIR resource type.
+1. Review and modify the application settings for the Azure Function. For example, change `MaxDegreeOfParallelism` from 16 to a smaller number, and set `UUIDtoResourceTypeConversion` to **false** to ingest data without the conversion from a "urn : uuid" string to a corresponding FHIR resource type.
 
    [![Image of user interface of Update Azure Function AppSettings.](media/bulk-import/importer-appsettings.png)](media/bulk-import/importer-appsettings.png#lightbox)
 
@@ -71,4 +71,3 @@ In this article, you've learned about the tools and the steps for bulk-importing
 
 >[!div class="nextstepaction"]
 >[Moving data from Azure API for FHIR to Azure Synapse Analytics](move-to-synapse.md)
-
