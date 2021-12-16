@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: conceptual
-ms.date: 10/28/2021
+ms.date: 12/16/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -125,4 +125,6 @@ Location in risk detections is determined by IP address lookup.
 ## Next steps
 
 - [Policies available to mitigate risks](concept-identity-protection-policies.md)
+- [Investigate risk](howto-identity-protection-investigate-risk.md)
+- [Remediate and unblock users](howto-identity-protection-remediate-unblock.md)
 - [Security overview](concept-identity-protection-security-overview.md)
