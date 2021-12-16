@@ -112,14 +112,27 @@ Then, on Tuesday at 10 for 6 hours, full backups of all databases start again.
 
 ## Configure new VMs
 
-Use the Azure portal to configure Automated Backup v2 when you create a new SQL Server 2016 or 2017 virtual machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Backup v2 when you create a new SQL Server 2016 or later machine in the Resource Manager deployment model.
 
-In the **SQL Server settings** tab, select **Enable** under **Automated backup**. The following Azure portal screenshot shows the **SQL Automated Backup** settings.
+In the **SQL Server settings** tab, select **Enable** under **Automated backup**. 
+When you enable SQL automated backup, you can configure the following settings:
+
+* Retention period for backups (up to 90 days)
+* Storage account, and storage container, to use for backups
+* Encryption option and password for backups
+* Backup system databases
+* Configure backup schedule
+
+To encrypt the backup, select **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate. 
+
+Choose **Select Storage Container** to specify the container where you want to store your backups. 
+
+By default the schedule is set automatically, but you can create your own schedule by selecting **Manual**, which allows you to configure the backup frequency, backup time window, and the log backup frequency in minutes.
+
+The following Azure portal screenshot shows the **SQL Automated Backup** settings when you create a new SQL Server VM:
 
 ![SQL Automated Backup configuration in the Azure portal](./media/automated-backup/automated-backup-blade.png)
 
-> [!NOTE]
-> Automated Backup v2 is disabled by default.
 
 ## Configure existing VMs
 
