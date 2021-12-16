@@ -21,14 +21,17 @@ Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Sear
 
 Through OCR, you can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Through image analysis, you can generate a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
-This article explains how to work with images in an AI enrichment pipeline. To work with image content, you'll need:
+This article explains how to work with images in an AI enrichment pipeline, and describes several common scenarios such as working with embedded images, custom skills, and overlaying visualizations on original images.
 
-+ Source files that include images
-+ A search indexer, configured for image actions
-+ A skillset with built-in or custom skills that invoke OCR or image analysis
-+ A search index with fields to receive the analyzed text output, with output field mappings in the indexer that provide the association.
+To work with image content in a skillset, you'll need:
 
-Optionally, you can define projections to accept analyzed output into a [knowledge store](knowledge-store-concept-intro.md) for data mining scenarios. 
+> [!div class="checklist"]
+> + Source files that include images
+> + A search indexer, configured for image actions
+> + A skillset with built-in or custom skills that invoke OCR or image analysis
+> + A search index with fields to receive the analyzed text output, with output field mappings in the indexer that provide the association.
+
+Optionally, you can define projections to accept image-analyzed output into a [knowledge store](knowledge-store-concept-intro.md) for data mining scenarios.
 
 ## Source files
 
@@ -120,7 +123,7 @@ Whenever you invoke OCR or image analysis, the parsing mode must be "default". P
 > [!NOTE]
 > The parsing mode applies equally to all files in the container. If the container contains text-only files that you want to parse using another mode, such as JSON or JSON arrays, you will need to place those files into a separate container and set up a second indexer with the appropriate configuration.
 
-## Define a skillset
+## Skillsets for image processing
 
 This section supplements the [skill reference](cognitive-search-predefined-skills.md) articles by providing a holistic introduction to skill inputs, outputs, and patterns, as they relate to image processing.
 
@@ -160,7 +163,7 @@ Whether you're using OCR and image analysis in the same, inputs have virtually t
     }
 ```
 
-### Expected output
+## Outputs of image processing
 
 Output is always text, represented as nodes in an internal enriched document tree, which must be mapped to fields in a search index or projections in a knowledge store to make the content available in your app. The "outputs" section of a skill tells you what content gets created as nodes in the enriched document:
 
@@ -270,21 +273,6 @@ Output from image analysis includes a caption for each image, while tags are lis
     . . .
 ```
 
-## Use custom image skills
-
-Images can also be passed into and returned from custom skills. The skillset base64-encodes the image being passed into the custom skill. To use the image within the custom skill, set `"/document/normalized_images/*/data"` as the input to the custom skill. Within your custom skill code, base64-decode the string before converting it to an image. To return an image to the skillset, base64-encode the image before returning it to the skillset.
-
- The image is returned as an object with the following properties.
-
-```json
- { 
-  "$type": "file", 
-  "data": "base64String" 
- }
-```
-
-The [Azure Search python samples](https://github.com/Azure-Samples/azure-search-python-samples) repository has a complete sample implemented in Python of a custom skill that enriches images.
-
 ## Processing embedded images in PDF and other files
 
 When you run OCR over source files that included documents with embedded images, the output is a single string containing all file contents, both text and image-origin text, achieved with this workflow:  
@@ -351,7 +339,7 @@ The following example skillset creates a "merged_text" field containing the text
 
 Now that you have a merged_text field, you could map it as a searchable field in your indexer definition. All of the content of your files, including the text of the images, will be searchable.
 
-## Visualize bounding boxes of extracted text
+## Visualizing bounding boxes of extracted text
 
 Another common scenario is visualizing search results layout information. For example, you might want to highlight where a piece of text was found in an image as part of your search results.
 
@@ -400,7 +388,22 @@ public static Point GetOriginalCoordinates(Point normalized,
 }
 ```
 
-## Passing images to custom skills
+## Using custom skills
+
+Images can also be passed into and returned from custom skills. The skillset base64-encodes the image being passed into the custom skill. To use the image within the custom skill, set `"/document/normalized_images/*/data"` as the input to the custom skill. Within your custom skill code, base64-decode the string before converting it to an image. To return an image to the skillset, base64-encode the image before returning it to the skillset.
+
+ The image is returned as an object with the following properties.
+
+```json
+ { 
+  "$type": "file", 
+  "data": "base64String" 
+ }
+```
+
+The [Azure Search python samples](https://github.com/Azure-Samples/azure-search-python-samples) repository has a complete sample implemented in Python of a custom skill that enriches images.
+
+### Passing images to custom skills
 
 For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The [Python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) image-processing demonstrates the workflow. The following skillset is from the sample.
 
@@ -441,7 +444,7 @@ The following skillset takes the normalized image (obtained during document crac
 }
 ```
 
-### Custom skill
+### Custom skill example
 
 The custom skill itself is external to the skillset. In this case, it is Python code that first loops thorough the batch of request records in the custom skill format, then converts the base64-encoded string to an image.
 
