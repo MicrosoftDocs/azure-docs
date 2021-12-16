@@ -115,7 +115,7 @@ You'll create the application gateway using the tabs on the **Create an applicat
 2. For Azure to communicate between the resources that you create, it needs a virtual network. You can either create a new virtual network or use an existing one. In this example, you'll create a new virtual network at the same time that you create the application gateway. Application Gateway instances are created in separate subnets. You create two subnets in this example: one for the application gateway, and another for the backend servers.
 
 > [!Note]
-[Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview) are currently not supported in an Application Gateway subnet.
+[Virtual network service endpoint policies](../virtual-network/virtual-network-service-endpoint-policies-overview.md) are currently not supported in an Application Gateway subnet.
 
 Under Configure virtual network, create a new virtual network by selecting Create new. In the Create virtual network window that opens, enter the following values to create the virtual network and two subnets:
 
@@ -207,9 +207,9 @@ Skip Application identity.
 
 For additional information on configuring Access Policy permissions and Key Vault Firewall permissions, please read below articles. 
 
-[Delegate user-assigned managed identity to Key Vault](key-vault-certs#delegate-user-assigned-managed-identity-to-key-vault.md)
+[Delegate user-assigned managed identity to Key Vault](key-vault-certs#delegate-user-assigned-managed-identity-to-key-vault)
 
-[Verify Firewall Permissions to Key Vault](key-vault-certs#verify-firewall-permissions-to-key-vault.md)
+[Verify Firewall Permissions to Key Vault](key-vault-certs#verify-firewall-permissions-to-key-vault)
 
 ### Point the TLS/SSL certificate to your key vault by assigning the user-managed identity to the application gateway
 
@@ -238,7 +238,7 @@ context so the customer can determine why they would click the link.
 ## Next steps
 [Learn more about TLS termination](ssl-overview.md)
 
-[Learn more about Key Vault](../key-vault/general/)
+[Learn more about Key Vault](https://docs.microsoft.com/en-us/azure/key-vault/general/)
 
 <!--
 Remove all the comments in this template before you sign-off or merge to the 
