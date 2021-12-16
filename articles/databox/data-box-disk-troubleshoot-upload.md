@@ -251,7 +251,6 @@ The errors found in the 2018-10-01 copy log are described below.
 | `BlobRenamed`                       |Renamed the blob because the original blob name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to BlockBlob/DataBox-<*GUID*> from <*original name*>.|
 | `FileRenamed`                       |Renamed the file because the original file name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*>. |
 | `DiskRenamed`                       |Renamed the managed disk file because the original file name doesn't follow [Azure naming conventions](data-box-disk-limits.md#managed-disk-naming-conventions). The original managed disk file was renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*>. |
-<!--| `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. A blob name or file name that ends with a trailing backslash or forward slash can't be exported to the Data Box. |-->
 | `ExportCloudHttp`                   |Unsupported blob type. |
 
 
