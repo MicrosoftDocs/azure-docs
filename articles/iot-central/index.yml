@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure IoT Central documentation
-summary: Azure IoT Central is an IoT application platform-as-a-service (aPaaS) that simplifies the creation of IoT solutions. Azure IoT Central provides a ready-to-use UX and API surface built to connect, manage, and operate fleets of devices at scale. Learn how to use IoT Central with our quickstarts, tutorials, and REST API documentation. 
+summary: Azure IoT Central is an IoT application platform (aPaaS) that simplifies the creation of IoT solutions. Azure IoT Central provides a ready-to-use UX and API surface built to connect, manage, and operate fleets of devices at scale. Learn how to use IoT Central with our quickstarts, tutorials, and REST API documentation. 
 metadata:
   title: Azure IoT Central documentation
   description: Azure IoT Central application simplifies the creation of IoT solutions. Learn how to create, customize, manage, and use an Azure IoT Central application.
