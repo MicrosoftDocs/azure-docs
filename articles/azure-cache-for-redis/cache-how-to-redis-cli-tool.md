@@ -15,7 +15,7 @@ ms.custom: devx-track-azurepowershell
 
 The tool is available for Windows platforms by downloading the [Redis command-line tools for Windows](https://github.com/MSOpenTech/redis/releases/). 
 
-If you want to run the command-line tool on another platform, download Azure Cache for Redis from [https://redis.io/download](https://redis.io/download).
+If you want to run the command-line tool on another platform, download official Redis from [https://redis.io/download](https://redis.io/download).
 
 ## Gather cache access information
 

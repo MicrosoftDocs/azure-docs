@@ -19,12 +19,12 @@ A well-planned deployment of a data governance platform (such as Azure Purview),
 
 ## Prerequisites
 
-* Access to Microsoft Azure with a development or production subscription
-* Ability to create Azure resources including Purview
-* Access to data sources such as Azure Data Lake Storage or Azure SQL in test, development, or production environments
-  * For Data Lake Storage, the required role to scan is Reader Role
-  * For SQL, the identity must be able to query tables for sampling of classifications
-* Access to Azure Security Center or ability to collaborate with Security Center Admin for data labeling
+- Access to Microsoft Azure with a development or production subscription
+- Ability to create Azure resources including Purview
+- Access to data sources such as Azure Data Lake Storage or Azure SQL in test, development, or production environments
+  - For Data Lake Storage, the required role to scan is Reader Role
+  - For SQL, the identity must be able to query tables for sampling of classifications
+- Access to Microsoft Defender for Cloud or ability to collaborate with Defender for Cloud Admin for data labeling
 
 ## Identify objectives and goals
 

@@ -41,7 +41,7 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: basic
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/endpoints/batch/batch-endpoint.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/endpoints/batch/batch-endpoint.yml":::
 
 ## Next steps
 

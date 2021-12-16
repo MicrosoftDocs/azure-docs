@@ -19,13 +19,14 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 
 - [adminusername-should-not-be-literal](./linter-rule-admin-username-should-not-be-literal.md)
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
+- [no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md)
 - [no-unused-params](./linter-rule-no-unused-parameters.md)
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
 
-You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config.md).
+You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 
 ## Use in Visual Studio Code
 
@@ -55,5 +56,5 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Next steps
 
-* For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config.md).
+* For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 * For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

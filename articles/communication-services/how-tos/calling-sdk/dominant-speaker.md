@@ -15,7 +15,6 @@ ms.custom: template-how-to
 
 # Get active speakers within a call
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 During an active call, you may want to get a list of active speakers in order to render or display them differently. Here's how.
 

@@ -9,7 +9,7 @@ ms.topic: how-to
 ms.reviewer: larryfr
 ms.author: jhirono
 author: jhirono
-ms.date: 10/21/2021
+ms.date: 11/05/2021
 ms.custom: contperf-fy20q4, tracking-python, contperf-fy21q1, references_regions
 
 ---
@@ -28,7 +28,7 @@ In this article, you learn how to secure training environments with a virtual ne
 > * [Use custom DNS](how-to-custom-dns.md)
 > * [Use a firewall](how-to-access-azureml-behind-firewall.md)
 >
-> For a tutorial on creating a secure workspace, compute cluster, and compute instance, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md).
+> For a tutorial on creating a secure workspace, see [Tutorial: Create a secure workspace](tutorial-create-secure-workspace.md) or [Tutorial: Create a secure workspace using a template](tutorial-create-secure-workspace-template.md).
 
 In this article you learn how to secure the following training compute resources in a virtual network:
 > [!div class="checklist"]

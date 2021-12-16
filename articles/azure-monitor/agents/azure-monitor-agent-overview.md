@@ -28,12 +28,12 @@ In addition to consolidating this functionality into a single agent, the Azure M
 ### Current limitations
 When compared with the existing agents, this new agent doesn't yet have full parity.
 - **Comparison with Log Analytics agents (MMA/OMS):**
-	- Not all Log Analytics solutions are supported today. See [what's supported](#supported-services-and-features).
-	- No support for Azure Private Links.
-	- No support for collecting file based logs or IIS logs.
+  - Not all Log Analytics solutions are supported today. See [what's supported](#supported-services-and-features).
+  - No support for Azure Private Links.
+  - No support for collecting file based logs or IIS logs.
 - **Comparison with Azure Diagnostics extensions (WAD/LAD):**
-	- No support for Event Hubs and Storage accounts as destinations.
-	- No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
+  - No support for Event Hubs and Storage accounts as destinations.
+  - No support for collecting file based logs, IIS logs, ETW events, .NET events and crash dumps.
 
 ### Changes in data collection
 The methods for defining data collection for the existing agents are distinctly different from each other. Each method has challenges that are addressed with the Azure Monitor agent.
@@ -72,8 +72,8 @@ The following table shows the current support for the Azure Monitor agent with o
 
 | Azure service | Current support | More information |
 |:---|:---|:---|
-| [Azure Security Center](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
-| [Azure Sentinel](../../sentinel/overview.md) | <ul><li>Windows Event Forwarding (WEF): Private preview</li><li>Windows Security Events: [Public preview](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Sign-up link](https://aka.ms/AMAgent) </li><li>No sign-up needed</li></ul> |
+| [Microsoft Defender for Cloud](../../security-center/security-center-introduction.md) | Private preview | [Sign-up link](https://aka.ms/AMAgent) |
+| [Microsoft Sentinel](../../sentinel/overview.md) | <ul><li>Windows Event Forwarding (WEF): Private preview</li><li>Windows Security Events: [Public preview](../../sentinel/connect-windows-security-events.md?tabs=AMA)</li></ul>  | <ul><li>[Sign-up link](https://aka.ms/AMAgent) </li><li>No sign-up needed</li></ul> |
 
 The following table shows the current support for the Azure Monitor agent with Azure Monitor features.
 
@@ -88,7 +88,7 @@ The following table shows the current support for the Azure Monitor agent with A
 
 | Solution | Current support | More information |
 |:---|:---|:---|
-| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Azure Security Center private preview.  | [Sign-up link](https://aka.ms/AMAgent) |
+| [Change Tracking](../../automation/change-tracking/overview.md) | Supported as File Integrity Monitoring in the Microsoft Defender for Cloud private preview.  | [Sign-up link](https://aka.ms/AMAgent) |
 | [Update Management](../../automation/update-management/overview.md) | Use Update Management v2 (private preview) that doesn't require an agent. | [Sign-up link](https://www.yammer.com/azureadvisors/threads/1064001355087872) |
 
 ## Coexistence with other agents
@@ -129,18 +129,17 @@ The Azure Monitor agent extensions for Windows and Linux can communicate either 
 
 1. Use this flowchart to determine the values of the *setting* and *protectedSetting* parameters first.
 
-   ![Flowchart to determine the values of setting and protectedSetting parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
-
+    ![Flowchart to determine the values of setting and protectedSetting parameters when you enable the extension.](media/azure-monitor-agent-overview/proxy-flowchart.png)
 
 2. After the values for the *setting* and *protectedSetting* parameters are determined, provide these additional parameters when you deploy the Azure Monitor agent by using PowerShell commands. The following examples are for Azure virtual machines.
 
-	| Parameter | Value |
-	|:---|:---|
-	| Setting | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
-	| ProtectedSetting | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"username": "[username]","password": "[password]"}}. |
-
+    | Parameter | Value |
+    |:---|:---|
+    | Setting | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"mode":"application","address":"http://[address]:[port]","auth": false}}. |
+    | ProtectedSetting | A JSON object from the preceding flowchart converted to a string. Skip if not applicable. An example is {"proxy":{"username": "[username]","password": "[password]"}}. |
 
 # [Windows VM](#tab/PowerShellWindows)
+
 ```powershell
 Set-AzVMExtension -ExtensionName AzureMonitorWindowsAgent -ExtensionType AzureMonitorWindowsAgent -Publisher Microsoft.Azure.Monitor -ResourceGroupName <resource-group-name> -VMName <virtual-machine-name> -Location <location> -TypeHandlerVersion 1.0 -Setting <settingString> -ProtectedSetting <protectedSettingString>
 ```

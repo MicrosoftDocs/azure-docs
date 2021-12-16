@@ -89,7 +89,9 @@
   - name: UWP React Native sample overview
     href: uwp-react.md
 - name: Concepts
-  items: 
+  items:
+  - name: Availability zones
+    href: availability-zones.md
   - name: Transport Layer Security (TLS)
     href: notification-hubs-tls12.md
   - name: Enterprise push architecture guidance

@@ -9,14 +9,23 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 10/22/2021
+ms.date: 12/16/2021
 ms.author: henrymbugua
 ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
+zone_pivot_groups: web-app-tutorial
 ---
 
 # Tutorial: Call the Microsoft Graph API from a web application
 
-<!-- ::: zone pivot="devlang-asp-net" -->
+::: zone pivot="devlang-asp-net"
+
 [!INCLUDE [asp.net](./includes/web-app/asp-net-tutorial-04-call-web-api-graph.md)]
-<!--::: zone-end -->
+
+::: zone-end
+
+::: zone pivot="devlang-openjdk"
+
+[!INCLUDE [openjdk](./includes/web-app/open-jdk-tutorial-04-call-web-api-graph.md)]
+
+::: zone-end

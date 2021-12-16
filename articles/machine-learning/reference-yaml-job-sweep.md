@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Reference documentation for the CLI (v2) sweep job YAML schema.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: reference
 
 author: mx-iao
@@ -203,11 +203,11 @@ Examples are available in the [examples GitHub repository](https://github.com/Az
 
 ## YAML: hello sweep
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/basics/hello-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/basics/hello-sweep.yml":::
 
 ## YAML: basic Python model hyperparameter tuning
 
-:::code language="yaml" source="~/azureml-examples-cli-preview/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
+:::code language="yaml" source="~/azureml-examples-main/cli/jobs/single-step/scikit-learn/iris/job-sweep.yml":::
 
 ## Next steps
 

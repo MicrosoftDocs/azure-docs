@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 10/10/2021
+ms.date: 11/09/2021
 ms.topic: conceptual
 ---
 

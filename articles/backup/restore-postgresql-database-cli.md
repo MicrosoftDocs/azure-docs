@@ -10,7 +10,7 @@ ms.author: v-amallick
 
 # Restore Azure PostgreSQL databases using Azure CLI
 
-This article explains how to restore [Azure PostgreSQL databases](/azure/postgresql/overview#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
+This article explains how to restore [Azure PostgreSQL databases](../postgresql/overview.md#azure-database-for-postgresql---single-server) to an Azure PostgreSQL server backed-up by Azure Backup.
 
 Being a PaaS database, the Original-Location Recovery (OLR) option to restore by replacing the existing database (from where the backups were taken) isn't supported. You can restore from a recovery point to create a new database in the same Azure PostgreSQL server or in any other PostgreSQL server. This is called Alternate-Location Recovery (ALR) that helps to keep both - the source database and the restored (new) database.
 
@@ -28,9 +28,9 @@ We'll refer to an existing Backup vault _TestBkpVault_, under the resource group
 
 Backup vault uses Managed Identity to access other Azure resources. To restore from backup, Backup vault’s managed identity requires a set of permissions on the Azure PostgreSQL server to which the database should be restored.
 
-To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to backup Azure PostgreSQL database](/azure/backup/backup-azure-database-postgresql-overview#set-of-permissions-needed-for-azure-postgresql-database-restore).
+To assign the relevant permissions for vault's system-assigned managed identity on the target PostgreSQL server, see the [set of permissions needed to backup Azure PostgreSQL database](./backup-azure-database-postgresql-overview.md#set-of-permissions-needed-for-azure-postgresql-database-restore).
 
-To restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](/azure/backup/restore-azure-database-postgresql#restore-permissions-on-the-target-storage-account).
+To restore the recovery point as files to a storage account, the [Backup vault's system-assigned managed identity needs access on the target storage account](./restore-azure-database-postgresql.md#restore-permissions-on-the-target-storage-account).
 
 ### Fetch the relevant recovery point
 
@@ -213,7 +213,7 @@ You can also validate if the JSON file will succeed to create new resources usin
 Use the [az dataprotection backup-instance restore trigger](/cli/azure/dataprotection/backup-instance/restore?view=azure-cli-latest&preserve-view=true#az_dataprotection_backup_instance_restore_trigger) command to trigger the restore operation with the request prepared above.
 
 ```azurecli-interactive
-az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 --parameters OssRestoreReq.JSON
+az dataprotection backup-instance restore trigger -g testBkpVaultRG --vault-name TestBkpVault --backup-instance-name testpostgresql-empdb11-957d23b1-c679-4c94-ade6-c4d34635e149 --restore-request-object OssRestoreReq.JSON
 ```
 
 ## Tracking job

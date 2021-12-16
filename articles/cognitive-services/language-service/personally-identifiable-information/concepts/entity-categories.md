@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-service
 ms.topic: article
-ms.date: 11/02/2021
+ms.date: 11/15/2021
 ms.author: aahi
 ms.custom: language-service-pii, ignite-fall-2021
 ---
@@ -42,7 +42,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Names of people. Also returned with `domain=phi`.
+        Names of people. Returned as both PII and PHI.
 
         To get this entity category, add `Person` to the `pii-categories` parameter. `Person` will be returned in the API response if detected.
       
@@ -99,7 +99,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Phone numbers (US and EU phone numbers only). Also returned with `domain=phi`.
+        Phone numbers (US and EU phone numbers only). Returned as both PII and PHI.
 
         To get this entity category, add `PhoneNumber` to the `pii-categories` parameter. `PhoneNumber` will be returned in the API response if detected.
       
@@ -129,7 +129,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. Also returned with `domain=phi`.
+        Companies, political groups, musical bands, sport clubs, government bodies, and public organizations. Nationalities and religions are not included in this entity type. Returned as both PII and PHI.
 
         To get this entity category, add `Organization` to the `pii-categories` parameter. `Organization` will be returned in the API response if detected.
       
@@ -230,7 +230,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Full mailing address. Also returned with `domain=phi`.
+        Full mailing address. Returned as both PII and PHI.
 
         To get this entity category, add `Address` to the `pii-categories` parameter. `Address` will be returned in the API response if detected.
       
@@ -259,7 +259,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Email addresses. Also returned with `domain=phi`.
+        Email addresses. Returned as both PII and PHI.
       
         To get this entity category, add `Email` to the `pii-categories` parameter. `Email` will be returned in the API response if detected.
 
@@ -287,7 +287,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        URLs to websites. Also returned with `domain=phi`.
+        URLs to websites. Returned as both PII and PHI.
 
         To get this entity category, add `URL` to the `pii-categories` parameter. `URL` will be returned in the API response if detected.
       
@@ -316,7 +316,7 @@ This category contains the following entity:
     :::column span="2":::
         **Details**
 
-        Network IP addresses. Also returned with `domain=phi`.
+        Network IP addresses. Returned as both PII and PHI.
 
         To get this entity category, add `IP` to the `pii-categories` parameter. `IP` will be returned in the API response if detected.
       
@@ -371,7 +371,7 @@ The entity in this category can have the following subcategories.
     :::column span="2":::
         **Details**
 
-        Calender dates. Also returned with `domain=phi`.
+        Calender dates. Returned as both PII and PHI.
 
         To get this entity category, add `Date` to the `pii-categories` parameter. `Date` will be returned in the API response if detected.
       
@@ -440,7 +440,7 @@ The entity in this category can have the following subcategories.
 
 ### Azure information
 
-These entity categories includes identifiable Azure information, including authentication information and connection strings. Not returned with the `domain=phi` parameter.
+These entity categories includes identifiable Azure information, including authentication information and connection strings. Not returned as PHI.
 
 :::row:::
     :::column span="":::

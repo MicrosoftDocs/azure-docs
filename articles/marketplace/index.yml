@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page
   author: mingshen-ms 
   ms.author: mingshen
-  ms.date: 06/01/2021
+  ms.date: 12/13/2021
 
 landingContent:
   - title: Working in the commercial marketplace
@@ -84,11 +84,11 @@ landingContent:
         url: marketplace-virtual-machines.md
       - text: Azure applications
         url: azure-app-offer-setup.md
-      - text: Dynamics 365 for Customer Engagement & Power Apps
+      - text: Dynamics 365 apps on Dataverse and Power Apps
         url: dynamics-365-customer-engage-offer-setup.md
       - text: Dynamics 365 Business Central
         url: dynamics-365-business-central-offer-setup.md
-      - text: Dynamics 365 for Operations
+      - text: Dynamics 365 Operations Apps
         url: dynamics-365-operations-offer-setup.md
       - text: More offer types
         url: publisher-guide-by-offer-type.md
@@ -117,7 +117,7 @@ landingContent:
       - text: API prerequisites
         url: cloud-partner-portal-api-prerequisites.md
       - text: SaaS fulfillment APIs
-        url: partner-center-portal/pc-saas-fulfillment-api-v2.md
+        url: partner-center-portal/pc-saas-fulfillment-apis.md
       - text: Marketplace metering service APIs
         url: marketplace-metering-service-apis-faq.yml
       - text: Reporting API (PDF)
@@ -133,3 +133,5 @@ landingContent:
         url: cloud-partner-portal-api-troubleshooting-authentication-errors.md
       - text: Geographic availability and currencies
         url: marketplace-geo-availability-currencies.md
+      - text: Troubleshoot Private Plans
+        url: azure-private-plan-troubleshooting.md
