@@ -134,7 +134,7 @@ You can use ```--config``` or ```--config-protected``` to specify list of key-va
 > [!WARNING]
 > If Nvidia Device Plugin, is already installed in your cluster, reinstalling them may result in an extension installation error. Set `installNvidiaDevicePlugin` to `False` to prevent deployment errors.
 >
-> By default, the deployed kubernetes deployment resources are randomly deployed to 1 or more nodes of the cluster, and daemonset resources are deployed to ALL nodes. If you want to restrict the extension deployment to specific nodes, please use `nodeSelector` configuration setting.
+> By default, the deployed Kubernetes deployment resources are randomly deployed to **1 or more** nodes on the cluster, and daemonset resources are deployed to **all** nodes. If you want to restrict the extension deployment to specific nodes, use `nodeSelector` configuration setting.
 
 
 ### Deploy extension for training workloads <a id="training"></a>
