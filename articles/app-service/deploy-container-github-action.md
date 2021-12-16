@@ -77,6 +77,8 @@ In the example, replace the placeholders with your subscription ID, resource gro
 
 # [OpenID Connect](#tab/openid)
 
+OpenID Connect is a more secure authentication method that uses short-lived tokens. Setting up [OpenID Connect with GitHub Actions](https://docs.github.com/en/actions/deployment/security-hardening-your-deployments/about-security-hardening-with-openid-connect) is more complex authentication but also offers hardened security. 
+
 1.  If you do not have an existing application, register a [new Active Directory application and service principal that can access resources](/azure/active-directory/develop/howto-create-service-principal-portal). Create the Active Directory application. 
 
     ```azurecli-interactive
