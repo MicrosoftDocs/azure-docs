@@ -49,7 +49,7 @@ Based on these assumptions, we focus mostly on the products and services present
 ![SAP services in scope](./media/scenario-azure-first-sap-identity-integration/sap-services-in-scope.png)
 
 > [!NOTE]
-> Most of the guidance here applies to [Azure Active Directory B2C](https://docs.microsoft.com/azure/active-directory-b2c/overview) as well, but there are some important differences. See [Using Azure AD B2C as the Identity Provider](#using-azure-ad-b2c-as-the-identity-provider) for more information.
+> Most of the guidance here applies to [Azure Active Directory B2C](../../active-directory-b2c/overview) as well, but there are some important differences. See [Using Azure AD B2C as the Identity Provider](#using-azure-ad-b2c-as-the-identity-provider) for more information.
 
 ## Recommendations
 
