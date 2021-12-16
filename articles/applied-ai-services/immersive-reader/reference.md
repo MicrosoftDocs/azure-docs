@@ -17,7 +17,7 @@ ms.author: metang
 
 The Immersive Reader SDK contains a JavaScript library that allows you to integrate the Immersive Reader into your application.
 
-You may use `npm`, `yarn` or an `HTML` `<script>` element to include the library of the latest stable build in your web application:
+You may use `npm`, `yarn`, or an `HTML` `<script>` element to include the library of the latest stable build in your web application:
 
 ```html
 <script type='text/javascript' src='https://ircdname.azureedge.net/immersivereadersdk/immersive-reader-sdk.1.2.0.js'></script>
@@ -45,7 +45,7 @@ The SDK exposes the functions:
 
 ## launchAsync
 
-Launches the Immersive Reader within an `HTML` `iframe` element in your web application. Note that the size of your content is limited to a maximum of 50 MB.
+Launches the Immersive Reader within an `HTML` `iframe` element in your web application. The size of your content is limited to a maximum of 50 MB.
 
 ```typescript
 launchAsync(token: string, subdomain: string, content: Content, options?: Options): Promise<LaunchResponse>;
@@ -55,8 +55,8 @@ launchAsync(token: string, subdomain: string, content: Content, options?: Option
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| `token` | string | The Azure AD authentication token. See [How-To Create an Immersive Reader Resource](./how-to-create-immersive-reader.md) for more details. |
-| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. See [How-To Create an Immersive Reader Resource](./how-to-create-immersive-reader.md) for more details. |
+| `token` | string | The Azure AD authentication token. For more information, see [How-To Create an Immersive Reader Resource](./how-to-create-immersive-reader.md). |
+| `subdomain` | string | The custom subdomain of your Immersive Reader resource in Azure. For more information, see [How-To Create an Immersive Reader Resource](./how-to-create-immersive-reader.md). |
 | `content` | [Content](#content) | An object containing the content to be shown in the Immersive Reader. |
 | `options` | [Options](#options) | Options for configuring certain behaviors of the Immersive Reader. Optional. |
 
@@ -74,7 +74,7 @@ The returned `Promise` will be rejected with an [`Error`](#error) object if the 
 
 Closes the Immersive Reader.
 
-An example use case for this function is if the exit button is hidden by setting ```hideExitButton: true``` in [options](#options). Then, a different button (for example a mobile header's back arrow) can call this ```close``` function when it is clicked.
+An example use case for this function is if the exit button is hidden by setting ```hideExitButton: true``` in [options](#options). Then, a different button (for example a mobile header's back arrow) can call this ```close``` function when it's clicked.
 
 ```typescript
 close(): void;
@@ -84,7 +84,7 @@ close(): void;
 
 ## Immersive Reader Launch Button
 
-The SDK provides default styling for the button for launching the Immersive Reader. Use the `immersive-reader-button` class attribute to enable this styling. See [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) for more details.
+The SDK provides default styling for the button for launching the Immersive Reader. Use the `immersive-reader-button` class attribute to enable this styling. For more information, see [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md).
 
 ```html
 <div class='immersive-reader-button'></div>
@@ -104,9 +104,9 @@ Use the following attributes to configure the look and feel of the button.
 
 ## renderButtons
 
-The ```renderButtons``` function isn't necessary if you are using the [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) guidance.
+The ```renderButtons``` function isn't necessary if you're using the [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) guidance.
 
-This function styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then the buttons will be rendered within each element provided in ```options.elements```. Using the ```options.elements``` parameter is useful when you have multiple sections in your document on which to launch the Immersive Reader, and want a simplified way to render multiple buttons with the same styling, or want to render the buttons with a simple and consistent design pattern. To use this function with the [renderButtons options](#renderbuttons-options) parameter, call ```ImmersiveReader.renderButtons(options: RenderButtonsOptions);``` on page load as demonstrated in the below code snippet. Otherwise, the buttons will be rendered within the document's elements which have the class ```immersive-reader-button``` as shown in [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md) .
+This function styles and updates the document's Immersive Reader button elements. If ```options.elements``` is provided, then the buttons will be rendered within each element provided in ```options.elements```. Using the ```options.elements``` parameter is useful when you have multiple sections in your document on which to launch the Immersive Reader, and want a simplified way to render multiple buttons with the same styling, or want to render the buttons with a simple and consistent design pattern. To use this function with the [renderButtons options](#renderbuttons-options) parameter, call ```ImmersiveReader.renderButtons(options: RenderButtonsOptions);``` on page load as demonstrated in the below code snippet. Otherwise, the buttons will be rendered within the document's elements that have the class ```immersive-reader-button``` as shown in [How-To Customize the Immersive Reader button](./how-to-customize-launch-button.md).
 
 ```typescript
 // This snippet assumes there are two empty div elements in
@@ -155,7 +155,7 @@ Required: false
 
 ## LaunchResponse
 
-Contains the response from the call to `ImmersiveReader.launchAsync`. Note that a reference to the `HTML` `iframe` element that contains the Immersive Reader can be accessed via `container.firstChild`.
+Contains the response from the call to `ImmersiveReader.launchAsync`. A reference to the `HTML` `iframe` element that contains the Immersive Reader can be accessed via `container.firstChild`.
 
 ```typescript
 {
@@ -169,7 +169,7 @@ Contains the response from the call to `ImmersiveReader.launchAsync`. Note that 
 
 | Setting | Type | Description |
 | ------- | ---- | ----------- |
-| container | HTMLDivElement | HTML element which contains the Immersive Reader `iframe` element. |
+| container | HTMLDivElement | HTML element that contains the Immersive Reader `iframe` element. |
 | sessionId | String | Globally unique identifier for this session, used for debugging. |
 | charactersProcessed | number | Total number of characters processed |
  
@@ -188,7 +188,7 @@ Contains information about an error.
 
 | Setting | Type | Description |
 | ------- | ---- | ----------- |
-| code | String | One of a set of error codes. See [Error codes](#error-codes). |
+| code | String | One of a set of error codes. For more information, see [Error codes](#error-codes). |
 | message | String | Human-readable representation of the error. |
 
 #### Error codes
@@ -255,8 +255,8 @@ A single chunk of data, which will be passed into the Content of the Immersive R
 | Name | Type | Description |
 | ---- | ---- |------------ |
 | content | String | The string that contains the content sent to the Immersive Reader. |
-| lang | String | Language of the text, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Language will be detected automatically if not specified. See [Supported Languages](#supported-languages). |
-| mimeType | string | Plain text, MathML, HTML & Microsoft Word DOCX formats are supported. See [Supported MIME types](#supported-mime-types) for more details. |
+| lang | String | Language of the text, the value is in IETF BCP 47-language tag format, for example, en, es-ES. Language will be detected automatically if not specified. For more information, see [Supported Languages](#supported-languages). |
+| mimeType | string | Plain text, MathML, HTML & Microsoft Word DOCX formats are supported. For more information, see [Supported MIME types](#supported-mime-types). |
 
 ##### `content`
 ```Parameters
@@ -323,25 +323,25 @@ Contains properties that configure certain behaviors of the Immersive Reader.
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| uiLang | String | Language of the UI, the value is in IETF BCP 47 language tag format, e.g. en, es-ES. Defaults to browser language if not specified. |
-| timeout | Number | Duration (in milliseconds) before [launchAsync](#launchasync) fails with a timeout error (default is 15000 ms). This timeout only applies to the initial launch of the Reader page, where success is observed when the Reader page opens and the spinner starts. Adjustment of the timeout should not be necessary. |
+| uiLang | String | Language of the UI, the value is in IETF BCP 47-language tag format, for example, en, es-ES. Defaults to browser language if not specified. |
+| timeout | Number | Duration (in milliseconds) before [launchAsync](#launchasync) fails with a timeout error (default is 15,000 ms). This timeout only applies to the initial launch of the Reader page, when the Reader page opens successfully and the spinner starts. Adjustment of the timeout should'nt be necessary. |
 | uiZIndex | Number | Z-index of the `HTML` `iframe` element that will be created (default is 1000). |
 | useWebview | Boolean| Use a webview tag instead of an `HTML` `iframe` element, for compatibility with Chrome Apps (default is false). |
 | onExit | Function | Executes when the Immersive Reader exits. |
 | customDomain | String | Reserved for internal use. Custom domain where the Immersive Reader webapp is hosted (default is null). |
 | allowFullscreen | Boolean | The ability to toggle fullscreen (default is true). |
-| parent | Node | Node in which the `HTML` `iframe` element or `Webview` container is placed. If the element does not exist, iframe is placed in `body`. |
-| hideExitButton | Boolean | Whether or not to hide the Immersive Reader's exit button arrow (default is false). This should only be true if there is an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow). |
-| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Setting for the Immersive Reader's cookie usage (default is *CookiePolicy.Disable*). It's the responsibility of the host application to obtain any necessary user consent in accordance with EU Cookie Compliance Policy. See [Cookie Policy Options](#cookiepolicy-options). |
+| parent | Node | Node in which the `HTML` `iframe` element or `Webview` container is placed. If the element doesn't exist, iframe is placed in `body`. |
+| hideExitButton | Boolean | Hides the Immersive Reader's exit button arrow (default is false). This value should only be true if there's an alternative mechanism provided to exit the Immersive Reader (e.g a mobile toolbar's back arrow). |
+| cookiePolicy | [CookiePolicy](#cookiepolicy-options) | Setting for the Immersive Reader's cookie usage (default is *CookiePolicy.Disable*). It's the responsibility of the host application to obtain any necessary user consent following EU Cookie Compliance Policy. For more information, see [Cookie Policy Options](#cookiepolicy-options). |
 | disableFirstRun | Boolean | Disable the first run experience. |
 | readAloudOptions | [ReadAloudOptions](#readaloudoptions) | Options to configure Read Aloud. |
 | translationOptions | [TranslationOptions](#translationoptions) | Options to configure translation. |
-| displayOptions | [DisplayOptions](#displayoptions) | Options to configure text size, font, theme, etc. |
-| preferences | String | String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader. See [Settings Parameters](#settings-parameters) and [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
-| onPreferencesChanged | Function | Executes when the user's preferences have changed. See [How-To Store User Preferences](./how-to-store-user-preferences.md) for more information. |
+| displayOptions | [DisplayOptions](#displayoptions) | Options to configure text size, font, theme, and so on. |
+| preferences | String | String returned from onPreferencesChanged representing the user's preferences in the Immersive Reader. For more information, see [Settings Parameters](#settings-parameters) and [How-To Store User Preferences](./how-to-store-user-preferences.md). |
+| onPreferencesChanged | Function | Executes when the user's preferences have changed. For more information, see [How-To Store User Preferences](./how-to-store-user-preferences.md). |
 | disableTranslation | Boolean | Disable the word and document translation experience. |
-| disableGrammar | Boolean | Disable the Grammar experience. This option will also disable Syllables, Parts of Speech as well as Picture Dictionary, which depends on Parts of Speech. |
-| disableLanguageDetection | Boolean | Disable Language Detection to ensure the Immersive Reader only uses the language which is explicitly specified on the [Content](#content)/[Chunk[]](#chunk). This option should be used sparingly, primarily in situations where language detection may not be working correctly (for instance, this can happen more readily with short passages of less than 100 characters). You should be certain about the language you are sending, as text-to-speech will not have the correct voice, and Syllables, Parts of Speech and Picture Dictionary will not work correctly if the language is not correct. |
+| disableGrammar | Boolean | Disable the Grammar experience. This option will also disable Syllables, Parts of Speech and Picture Dictionary, which depends on Parts of Speech. |
+| disableLanguageDetection | Boolean | Disable Language Detection to ensure the Immersive Reader only uses the language that is explicitly specified on the [Content](#content)/[Chunk[]](#chunk). This option should be used sparingly, primarily in situations where language detection isn't working, for instance, this issue is more likely to happen with short passages of fewer than 100 characters. You should be certain about the language you're sending, as text-to-speech won't have the correct voice. Syllables, Parts of Speech and Picture Dictionary won't work correctly if the language isn't correct. |
 
 ##### `uiLang`
 ```Parameters
@@ -412,7 +412,7 @@ type ReadAloudOptions = {
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| voice | String | Voice, either "Female" or "Male". Note that not all languages support both genders. |
+| voice | String | Voice, either "Female" or "Male". Not all languages support both genders. |
 | speed | Number | Playback speed, must be between 0.5 and 2.5, inclusive. |
 | autoPlay | Boolean | Automatically start Read Aloud when the Immersive Reader loads. |
 
@@ -451,7 +451,7 @@ type TranslationOptions = {
 
 | Name | Type | Description |
 | ---- | ---- |------------ |
-| language | String | Sets the translation language, the value is in IETF BCP 47 language tag format, e.g. fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation. |
+| language | String | Sets the translation language, the value is in IETF BCP 47-language tag format, for example, fr-FR, es-MX, zh-Hans-CN. Required to automatically enable word or document translation. |
 | autoEnableDocumentTranslation | Boolean | Automatically translate the entire document. |
 | autoEnableWordTranslation | Boolean | Automatically enable word translation. |
 
@@ -460,7 +460,7 @@ type TranslationOptions = {
 Type: String
 Required: true
 Default value: null 
-Values available: See the Supported Languages section
+Values available: For more information, see the Supported Languages section
 ```
 
 <br>
@@ -470,8 +470,6 @@ Values available: See the Supported Languages section
 ```typescript
 enum ThemeOption { Light, Dark }
 ```
-
-<br>
 
 ## DisplayOptions
 
@@ -517,7 +515,7 @@ Values available: "Calibri", "Sitka", "ComicSans"
 enum CookiePolicy { Disable, Enable }
 ```
 
-**The settings listed below are for informational purposes only**. The Immersive Reader stores its settings, or user preferences, in cookies. This *cookiePolicy* option **disables** the use of cookies by default in order to comply with EU Cookie Compliance laws. Should you want to re-enable cookies and restore the default functionality for Immersive Reader user preferences, you will need to ensure that your website or application obtains the proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the *cookiePolicy* option to *CookiePolicy.Enable* when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the *cookiePolicy* option is enabled.
+**The settings listed below are for informational purposes only**. The Immersive Reader stores its settings, or user preferences, in cookies. This *cookiePolicy* option **disables** the use of cookies by default to follow EU Cookie Compliance laws. If you want to re-enable cookies and restore the default functionality for Immersive Reader user preferences, your website or application will need proper consent from the user to enable cookies. Then, to re-enable cookies in the Immersive Reader, you must explicitly set the *cookiePolicy* option to *CookiePolicy.Enable* when launching the Immersive Reader. The table below describes what settings the Immersive Reader stores in its cookie when the *cookiePolicy* option is enabled.
 
 #### Settings Parameters
 
@@ -529,14 +527,14 @@ enum CookiePolicy { Disable, Enable }
 | formattingEnabled | Boolean | Sets whether HTML formatting is toggled on or off. |
 | theme | String | Sets the chosen theme (e.g "Light", "Dark"...). |
 | syllabificationEnabled | Boolean | Sets whether syllabification toggled on or off. |
-| nounHighlightingEnabled | Boolean | that sets whether noun highlighting is toggled on or off. |
-| nounHighlightingColor | String | Sets the chosen noun highlighting color. |
-| verbHighlightingEnabled | Boolean | Sets whether verb highlighting is toggled on or off. |
-| verbHighlightingColor | String | Sets the chosen verb highlighting color. |
-| adjectiveHighlightingEnabled | Boolean | Sets whether adjective highlighting is toggled on or off. |
-| adjectiveHighlightingColor | String | Sets the chosen adjective highlighting color. |
-| adverbHighlightingEnabled | Boolean | Sets whether adverb highlighting is toggled on or off. |
-| adverbHighlightingColor | String | Sets the chosen adverb highlighting color. |
+| nounHighlightingEnabled | Boolean | Sets whether noun-highlighting is toggled on or off. |
+| nounHighlightingColor | String | Sets the chosen noun-highlighting color. |
+| verbHighlightingEnabled | Boolean | Sets whether verb-highlighting is toggled on or off. |
+| verbHighlightingColor | String | Sets the chosen verb-highlighting color. |
+| adjectiveHighlightingEnabled | Boolean | Sets whether adjective-highlighting is toggled on or off. |
+| adjectiveHighlightingColor | String | Sets the chosen adjective-highlighting color. |
+| adverbHighlightingEnabled | Boolean | Sets whether adverb-highlighting is toggled on or off. |
+| adverbHighlightingColor | String | Sets the chosen adverb-highlighting color. |
 | pictureDictionaryEnabled | Boolean | Sets whether Picture Dictionary is toggled on or off. |
 | posLabelsEnabled | Boolean | Sets whether the superscript text label of each highlighted Part of Speech is toggled on or off.  |
 
@@ -544,7 +542,7 @@ enum CookiePolicy { Disable, Enable }
 
 ## Supported Languages
 
-The translation feature of Immersive Reader supports many languages. See [Language Support](./language-support.md) for more details.
+The translation feature of Immersive Reader supports many languages. For more information, see [Language Support](./language-support.md).
 
 <br>
 

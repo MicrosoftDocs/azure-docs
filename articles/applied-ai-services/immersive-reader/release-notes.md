@@ -45,8 +45,6 @@ This release contains new features, security vulnerability fixes, bug fixes, upd
 * Fixes multiple security vulnerabilities by upgrading TypeScript packages
 * Fixes bug where renderButton rendered a duplicate icon and label in the button
 
-<br>
-
 ## Version 1.1.0
 
 This release contains new features, security vulnerability fixes, bug fixes, updates to code samples, and configuration options.
