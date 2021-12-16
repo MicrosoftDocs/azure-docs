@@ -527,6 +527,9 @@ The device is now provisioned with X.509 certificate.
     set IOTHUB_DEVICE_X509_KEY=mytestselfcertprimary_key.pem
     ```
 
+    > [!TIP]
+    > You set the other required environment variables when you completed the [Create and connect a client application to your Azure IoT Central application](./tutorial-connect-device.md) tutorial.
+
 1. Execute the script and verify the device is provisioned successfully:
 
     ```cmd/sh
