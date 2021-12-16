@@ -178,10 +178,6 @@ HVCI is a powerful system mitigation that uses VBS to protect Windows kernel-mod
 
 Windows Defender Credential Guard uses VBS to isolate and protect secrets so that only privileged system software can access them. This prevents unauthorized access to these secrets and credential theft attacks, such as Pass-the-Hash attacks.
 
-### Deploy Trusted Launch in your Azure Virtual Desktop environment
-
-Azure Virtual Desktop doesn't currently support automatically configuring Trusted Launch during the host pool setup process. To use trusted launch in your Azure Virtual Desktop environment, you'll need to deploy Trusted Launch normally and then manually add the virtual machine to your desired host pool.
-
 ## Nested virtualization
 
 The following operating systems support running nested virtualization on Azure Virtual Desktop:

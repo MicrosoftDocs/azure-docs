@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 08/24/2021
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Quickstart: Create a demo app in the portal (Azure Cognitive Search)

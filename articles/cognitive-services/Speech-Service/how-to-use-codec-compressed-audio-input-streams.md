@@ -1,5 +1,5 @@
 ---
-title: Stream codec compressed audio with the Speech SDK - Speech service
+title: Stream codec-compressed audio with the Speech SDK - Speech service
 titleSuffix: Azure Cognitive Services
 description: Learn how to stream compressed audio to the Speech service with the Speech SDK. Available for C++, C#, and Java for Linux, Java in Android and Objective-C in iOS.
 services: cognitive-services
@@ -12,9 +12,9 @@ ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-eight
 ---
 
-# Use codec compressed audio input
+# Use codec-compressed audio input
 
-The Speech SDK and Speech CLI can accept compressed audio formats using GStreamer. GStreamer decompresses the audio before it is sent over the wire to the Speech service as raw PCM.
+The Speech SDK and Speech CLI can accept compressed audio formats using GStreamer. GStreamer decompresses the audio before it's sent over the wire to the Speech service as raw PCM.
 
 Platform | Languages | Supported GStreamer version
 | :--- | ---: | :---:
@@ -35,22 +35,25 @@ gstreamer1.0-plugins-ugly
 ```
 ## Installing GStreamer on Windows
 
-For more information, see [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c). 
+Make sure that packages of the same platform (x64 or x86) are installed. For example, if you installed the x64 package for Python, then you need to install the x64 GStreamer package. The instructions below are for the x64 packages. 
 
-* Create a folder c:\gstreamer
-* Download [installer](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) 
-* Copy the installer to c:\gstreamer
-* Open PowerShell as an administrator.
-* Run the following command in the PowerShell:
+1. Create a folder c:\gstreamer
+1. Download [installer](https://gstreamer.freedesktop.org/data/pkg/windows/1.18.3/msvc/gstreamer-1.0-msvc-x86_64-1.18.3.msi) 
+1. Copy the installer to c:\gstreamer
+1. Open PowerShell as an administrator.
+1. Run the following command in the PowerShell:
 
-```powershell
-cd c:\gstreamer
-msiexec /passive INSTALLLEVEL=1000 INSTALLDIR=C:\gstreamer /i gstreamer-1.0-msvc-x86_64-1.18.3.msi
-```
-* Add the system variables GST_PLUGIN_PATH with value C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0
-* Add the system variables GSTREAMER_ROOT_X86_64 with value C:\gstreamer\1.0\msvc_x86_64
-* Add another entry in the path variable as C:\gstreamer\1.0\msvc_x86_64\bin
-* Reboot the machine
+    ```powershell
+    cd c:\gstreamer
+    msiexec /passive INSTALLLEVEL=1000 INSTALLDIR=C:\gstreamer /i gstreamer-1.0-msvc-x86_64-1.18.3.msi
+    ```
+
+1. Add the system variables GST_PLUGIN_PATH with value C:\gstreamer\1.0\msvc_x86_64\lib\gstreamer-1.0
+1. Add the system variables GSTREAMER_ROOT_X86_64 with value C:\gstreamer\1.0\msvc_x86_64
+1. Add another entry in the path variable as C:\gstreamer\1.0\msvc_x86_64\bin
+1. Reboot the machine
+
+For more information about GStreamer, see [Windows installation instructions](https://gstreamer.freedesktop.org/documentation/installing/on-windows.html?gi-language=c). 
 
 ## Using GStreamer in Android
 Look at the Java tab above for the details about building libgstreamer_android.so 
