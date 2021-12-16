@@ -25,7 +25,7 @@ When using Azure AD authentication with Azure SQL Managed Instance, a managed id
 > [!NOTE]
 > A system-assigned managed identity is automatically assigned to a managed instance when it is created.
 >
-> user-assigned managed identity is not supported for Azure Synapse Analytics.
+> User-assigned managed identity is not supported for Azure Synapse Analytics.
 
 ## Benefits of using user-assigned managed identities
 
