@@ -67,7 +67,7 @@ In the Azure portal:
 1. Under modules, select the Video Analyzer edge module (such as **avaedge**)
 1. Select **</> Direct Method** 
 1. Enter **remoteDeviceAdapterSet** for the Method Name
-1. Enter the following for **Payload** :
+1. Enter the following for **Payload**:
 
 ```
  {
@@ -182,6 +182,7 @@ After creating the live pipeline, the pipeline can be activated to start recordi
 ### Prerequisites
 - Retrieve your Azure Active Directory [Tenant ID](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
   - Register an application with Microsoft identity platform to get app registration [Client ID](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
+  - [Give the application “Owner” access to the subscription you are using](../../../active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application)
 - [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions:
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) on your development machine.
@@ -205,7 +206,7 @@ After creating the live pipeline, the pipeline can be activated to start recordi
 | TokenAudience | Provide token audience (example: https://management.core.windows.net) |
 | PrivateCameraTunnelingDeviceId | Provide IoT device ID |
 | IotHubNameForPrivateCamera | Provide IoT Hub name |
-| PrivateCameraSourceRTSPURL | Provide RTSP source url |
+| PrivateCameraSourceRTSPURL | Provide RTSP source url (localhost) |
 | PrivateCameraSourceRTSPUserName | Provide RTSP source username |
 | PrivateCameraSourceRTSPPassword | Provide RTSP source password |
 | PrivateCameraVideoName | Provide unique video name to capture live video from this RTSP source|
@@ -214,7 +215,15 @@ After creating the live pipeline, the pipeline can be activated to start recordi
 
 - Start a debugging session in VS code. If this project is not set as default, you can set it as default project to run on hitting F5 by modifying the files in .vscode folder: 
   -	launch.json - Update the "program" and "cwd" to launch PrivateCameraPipelineSampleCode.
+  ```
+    "program": "${workspaceFolder}/src/cloud-video-processing/capture-from-rtsp-camera-behind-firewall/bin/Debug/netcoreapp3.1/PrivateCameraPipelineSampleCode.dll",
+    "args": [],
+    "cwd": "${workspaceFolder}/src/cloud-video-processing/capture-from-rtsp-camera-behind-firewall",
+  ```
   -	tasks.json - Update "args" to point to PrivateCameraPipelineSampleCode.csproj.
+  ```
+     "${workspaceFolder}/src/cloud-video-processing/ingest-from-rtsp-camera-behind-firewall/PrivateCameraPipelineSampleCode.csproj"
+  ```
 -	Alternatively, go to TERMINAL window in the Visual Studio Code, navigate using `cd <path>` to `src\cloud-video-processing\ingest-from-rtsp-camera-behind-firewall`. Type commands **dotnet build** and **dotnet run** to compile and run the program respectively.
 -	You will start seeing some messages printed in the TERMINAL window regarding creation of the topologies and pipelines. If console app runs successfully, a live pipeline is created and activated. Code walkthrough is available [here](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/cloud-video-processing/capture-from-rtsp-camera-behind-firewall).
 -	Console Terminal window pauses after this step so that you can examine the program's output in the TERMINAL window, see the recorded video in portal and will wait for user input to proceed.
