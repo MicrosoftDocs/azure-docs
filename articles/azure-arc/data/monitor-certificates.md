@@ -20,11 +20,22 @@ You can specify these certificates when you deploy the data controller. This art
 - Azure `az` CLI `arcdata` extension
 - Kubernetes native deployment
 
+The following table describes the requirements for each certificate and key. 
+
+|Requirement|Logs certificate|Metrics certificate|
+|-----|-----|-----|
+|CN|`logsui-svc`|`metricsui-svc`|
+|SANs| `logsui-external-svc.${NAMESPACE}.svc.cluster.local`<br/><br>`logsui-svc` | `metricsui-external-svc.${NAMESPACE}.svc.cluster.local`<br/><br>`metricsui-svc`|
+|keyUsage|`digitalsignature`<br/><br>`keyEncipherment`|`digitalsignature`<br/><br>`keyEncipherment`|
+|extendedKeyUsage|`serverAuth`|`serverAuth`|
+
 ## Specify during deployment with CLI
 
 1. Generate a certificate/private key for each endpoint. 
 
-   See example {create-monitoring-tls-files.sh}
+   The Azure Arc samples GitHub repository provides an example of one way to generate a certificate and private key for an endpoint. See the following code from [create-monitoring-tls-files.sh](https://github.com/microsoft/azure_arc/tree/main/arc_data_services/deploy/scripts/monitoring).
+
+   :::code language="bash" source="~/azure_arc_sample/deploy/scripts/monitoring/create-monitoring-tls-files.sh":::
 
 1. Use the following arguments with `dc create ...`
 
