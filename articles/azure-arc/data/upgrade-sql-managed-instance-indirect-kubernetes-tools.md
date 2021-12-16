@@ -1,13 +1,13 @@
 ---
 title: Upgrade indirect mode Azure Arc-enabled Managed Instance - Kubernetes
-description: Upgrade indirect mode Azure Arc-enabled Managed Instance using Kubernetes
+description: Describes how to upgrade indirect mode Azure Arc-enabled Managed Instance using Kubernetes
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 11/02/2021
+ms.date: 11/08/2021
 ms.topic: how-to
 ---
 
@@ -22,7 +22,7 @@ Before you can proceed with the tasks in this article you need:
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
 
-You need an indirect mode data controller with the imageTag v1.0.0_2021-07-30 or greater.
+You need an indirect mode data controller with the `imageTag v1.0.0_2021-07-30` or greater.
 
 ## Limitations
 
@@ -34,7 +34,7 @@ Currently, only one Managed Instance can be upgraded at a time.
 
 ### General Purpose
 
-During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](https://docs.microsoft.com/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency.
+During a SQL Managed Instance General Purpose upgrade, the containers in the pod will be upgraded and will be reprovisioned. This will cause a short amount of downtime as the new pod is created. You will need to build resiliency into your application, such as connection retry logic, to ensure minimal disruption. Read [Overview of the reliability pillar](/azure/architecture/framework/resiliency/overview) for more information on architecting resiliency.
 
 Use a kubectl command to view the existing spec in yaml. 
 

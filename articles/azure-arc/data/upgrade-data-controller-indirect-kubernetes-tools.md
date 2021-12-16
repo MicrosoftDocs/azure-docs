@@ -1,19 +1,19 @@
 ---
 title: Upgrade indirect mode Azure Arc data controller using Kubernetes tools
-description: Upgrade indirect mode Azure Arc data controller using Kubernetes tools
+description: Article explains how to upgrade indirect mode Azure Arc data controller using Kubernetes tools
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: grrlgeek
 ms.author: jeschult
 ms.reviewer: mikeray
-ms.date: 10/28/2021
+ms.date: 12/09/2021
 ms.topic: how-to
 ---
 
 # Upgrade indirect mode Azure Arc data controller using Kubernetes tools
 
-This article explains how to upgrade an indirectly-connected Azure Arc-enabled data controller with Kubernetes tools.
+This article explains how to upgrade an indirectly connected Azure Arc-enabled data controller with Kubernetes tools.
 
 During a data controller upgrade, portions of the data control plane such as Custom Resource Definitions (CRDs) and containers may be upgraded. An upgrade of the data controller will not cause downtime for the data services (SQL Managed Instance or PostgreSQL Hyperscale server).
 
@@ -37,7 +37,7 @@ Prior to beginning the upgrade of the Azure Arc data controller, you will need:
 - To connect and authenticate to a Kubernetes cluster
 - An existing Kubernetes context selected
 
-You need an indirectly connected data controller with the imageTag v1.0.0_2021-07-30 or greater.
+You need an indirectly connected data controller with the `imageTag: v1.0.0_2021-07-30` or greater.
 
 ### Install tools
 
