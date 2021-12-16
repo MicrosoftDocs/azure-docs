@@ -231,7 +231,7 @@ Once the Azure Machine Learning extension is deployed, the following resources a
    |gateway|Kubernetes deployment|**&check;**|**&check;**|**&check;**|Send nodes and cluster resource information to Azure service.|
    |csi-blob-controller|Kubernetes deployment|**&check;**|N/A|**&check;**|CSI for Azure blob.|
    |csi-blob-node|Kubernetes daemonset|**&check;**|N/A|**&check;**|CSI for Azure blob.|
-   |fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Gather infra components' log.|
+   |fluent-bit|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Gather infrastructure components' log.|
    |k8s-host-device-plugin-daemonset|Kubernetes daemonset|**&check;**|**&check;**|**&check;**|Expose fuse to pods on each node.|
    |nfd-worker|Kubernetes daemonset|**&check;**|N/A|**&check;**|Node feature discovery.|
    |prometheus-prom-prometheus|Kubernetes statefulset|**&check;**|**&check;**|**&check;**|Gather and send job metrics to Azure.|
