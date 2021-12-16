@@ -278,7 +278,7 @@ Use ```k8s-extension update``` CLI command to update the mutable properties of  
 > *`privateEndpointILB`
 > *  To update `logAnalyticsWS` from `True` to `False`, provide all original `configurationProtectedSettings`. Otherwise, those settings are considered obsolete and deleted.
 
-## Extension delete
+## Delete Azure Machine Learning extension
 
 Use [`k8s-extension delete`](/cli/azure/k8s-extension?view=azure-cli-latest#az_k8s_extension_delete) CLI command to delete the Azure Machine Learning extension. 
 
