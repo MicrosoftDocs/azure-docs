@@ -194,7 +194,7 @@ kubectl create --namespace arc -f C:\arc-data-services\controller-login-secret.y
 
 ## Create certificates for logs and metrics dashboards
 
-Optionally, you can create SSL/TLS certificates for the logs and metrics dashboards. Follow the instructions at [Specify during Kubernetes native tools deployment](monitor-certificates.md#specify-during-kubernetes-native-tools-deployment).
+Optionally, you can create SSL/TLS certificates for the logs and metrics dashboards. Follow the instructions at [Specify during Kubernetes native tools deployment](monitor-certificates.md).
 
 ## Create the webhook deployment job, cluster role and cluster role binding
 
