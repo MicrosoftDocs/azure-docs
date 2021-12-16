@@ -357,7 +357,9 @@ See the [Example section](#example) for complete examples.
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
-## <a name="encoding"></a>Usage
+## Usage
+
+<a name="encoding"></a>
 
 > [!NOTE]
 > Functions expect a *base64* encoded string. Any adjustments to the encoding type (in order to prepare data as a *base64* encoded string) need to be implemented in the calling service.
