@@ -18,14 +18,16 @@ This article describes the issues you see when you upload data in the Azure data
 
 ## About upload logs
 
-When the data is uploaded in the Azure datacenter, a copy/error log and a verbose log are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data.
+When the data from a Data Box Disk is uploaded in the Azure datacenter, a copy/error log and a verbose log are generated for each storage account. These logs are uploaded to the same storage account that was used to upload data.
 
-* The copy/error log has descriptions of the events that occurred while copying the data from the disk to the Azure Storage account, and a summary of errors by error category.
-* The verbose log has a complete listing of the copy operation on every blob and file.
+* The copy/error log has descriptions of the events that occurred for all failed copy operations from the disk to the Azure Storage account, and a summary of errors by error category.
+* The verbose log has a listing of all copy operations that succeeded on every blob and file.
 
 ### Identify log version
 
-There are two versions of the copy/error log and verbose log, with different formats. Along with the verbose log, you'll see either a copy log (`_copy.xml`) or an error log (`_error.xml`), depending on the drive release. The log versions are discussed separately in the sections that follow.
+There are two versions of the copy/error log and verbose log, with different formats. The log versions are discussed separately in the sections that follow.
+
+Along with the verbose log, you'll see either a copy log (`_copy.xml`) or an error log (`_error.xml`), depending on the drive release.
 
 To find out the log release for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
 
@@ -41,13 +43,13 @@ The log location is different for log versions.
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
-Take the following steps to locate **version 2021-08-01** upload logs.
+Take the following steps to locate **version 2021-08-01** logs.
 
 [!INCLUDE [data-box-disk-locate-logs.md](../../includes/data-box-disk-locate-logs.md)]
 
 ### [Log version: 2018-10-01](#tab/log-version-2018-10-01)
 
-Take the following steps to locate **version 2018-10-01**  upload logs.
+Take the following steps to locate **version 2018-10-01**  logs.
 
 1. If there are any errors when uploading the data to Azure, the portal displays a path to the folder where the diagnostics logs are located.
 
@@ -63,7 +65,7 @@ In each case, you see the error logs and the verbose logs. Select each log and d
 
 ## Sample upload logs
 
-The log formats for upload logs differ for the two log versions.
+The log formats of copy/error log and verbose log differ for the two log versions.
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
@@ -84,7 +86,6 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 #### Sample verbose log: 2021-08-01
 
 [!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
-
 
 ### Copy log
 
@@ -241,16 +242,15 @@ The errors found in the 2018-10-01 copy log are described below.
 |-------------------------------------|-------------------|
 | `UploadErrorWin32`                  |File system error. |
 | `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).|
-| `UploadErrorDataValidationError`    |CRC computed during data ingestion doesn’t match the CRC computed during upload.<!--Verify. Message description for previous release.--> |
-| `UploadErrorFilePropertyError`      |File Last Write time conversion failure. |
+| `UploadErrorDataValidationError`    |CRC computed during data ingestion doesn’t match the CRC computed during upload. |
 | `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |
 | `UploadErrorUnknownType`            |Unknown error. |
-| `ContainerRenamed`                  |Renamed the container as the original container name does not follow Azure conventions. |
-| `ShareRenamed`                      |The original container/share/Blob has been renamed to DataBox-<*GUID*> from <*New Folder*> because either the name has invalid character(s) or the length is not supported. |
-| `BlobRenamed`                       |The original container/share/Blob has been renamed to BlockBlob/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported.|
-| `FileRenamed`                       |The original container/share/Blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported. |
-| `DiskRenamed`                       |The original container/share/Blob has been renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported. |
-| `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. |
+| `ContainerRenamed`                  |Renamed the container because the original container name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original container has been renamed to DataBox-<*GUID*> from <*original container name*>. |
+| `ShareRenamed`                      |Renamed the share because the original share name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original share has been renamed to DataBox-<*GUID*> from <*original folder name*>. |
+| `BlobRenamed`                       |Renamed the blob because the original blob name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to BlockBlob/DataBox-<*GUID*> from <*original name*>.|
+| `FileRenamed`                       |Renamed the file because the original file name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*>. |
+| `DiskRenamed`                       |Renamed the managed disk file because the original file name doesn't follow [Azure naming conventions](data-box-disk-limits.md#managed-disk-namging-conventions). The original managed disk file was renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*>. |
+<!--| `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. A blob name or file name that ends with a trailing backslash or forward slash can't be exported to the Data Box. |-->
 | `ExportCloudHttp`                   |Unsupported blob type. |
 
 
@@ -281,6 +281,7 @@ The errors generated when uploading the data to Azure are summarized in the foll
 |`FileRenamed` |These files didn’t conform to Azure naming conventions and were renamed. Check the `FileStoragePath` field for the new name. |
 |`DiskRenamed` |These files didn’t conform to Azure naming conventions and were renamed. Check the `BlobPath` field for the new name. |
 
+---
 
 ## Next steps
 
