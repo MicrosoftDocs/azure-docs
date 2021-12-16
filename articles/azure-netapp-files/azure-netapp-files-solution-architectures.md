@@ -30,6 +30,7 @@ This section provides references for solutions for Linux OSS applications and da
 ### Linux OSS Apps
 
 * [AIX UNIX on-premises to Azure Linux migration - Azure Example Scenarios](/azure/architecture/example-scenario/unix-migration/migrate-aix-azure-linux)
+* [Leverage Azure NetApp Files for R Studio workloads](https://techcommunity.microsoft.com/t5/azure-storage-blog/leverage-azure-netapp-files-for-r-studio-workloads/ba-p/2935878)
 
 ### Mainframe refactor
 
