@@ -9,7 +9,7 @@ ms.service: api-management
 ms.topic: tutorial
 ms.date: 12/14/2021
 ms.author: danlep
-ms.custom: fasttrack-edit
+ms.custom: fasttrack-edit, devdivchpfy22
 
 ---
 
@@ -31,7 +31,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 
 1. Navigate to your API Management service in the Azure portal and select **APIs** from the menu.
 2. From the left menu, select **+ Add API**.
-3. Select **Blank API** from the list.  
+3. Select **HTTP** from the list.  
     ![Blank API](media/add-api-manually/blank-api-1.png)  
 4. Enter settings for the API. The settings are explained in the [Import and publish your first API](import-and-publish.md#import-and-publish-a-backend-api) tutorial.
 5. Select **Create**.
@@ -55,7 +55,7 @@ This section shows how to add a "/get" operation to map it to the back end "http
 
 ### Test an operation
 
-Test the operation in the Azure portal. Instead, you can test it in the **Developer portal**.
+Test the operation in the Azure portal. You can also test it in the **Developer portal**.
 
 1. Select the **Test** tab.
 2. Select **FetchData**.
@@ -77,7 +77,7 @@ This section shows how to add an operation that takes a parameter. In this case,
 
 ### Test the operation
 
-Test the operation in the Azure portal.  Instead, you can test it in the **Developer portal**.
+Test the operation in the Azure portal. You can also test it in the **Developer portal**.
 
 1. Select the **Test** tab.
 2. Select **GetStatus**. By default the code value is set to "*200*". You can change it to test other values. For example, type "*418*".
@@ -99,7 +99,7 @@ This section shows how to add a wildcard operation. A wildcard operation lets yo
 
 ### Test the operation 
 
-Test the operation in the Azure portal. Instead, you can test it in the **Developer portal**.
+Test the operation in the Azure portal. You can test it in the **Developer portal**.
 
 1. Select the **Test** tab.
 2. Select **WildcardGet**. Try the GET operations that you tested in previous sections, or try a different supported GET operation.
