@@ -77,7 +77,7 @@ Disabling these alerts also disables monitoring of related traffic. Specifically
 - Unauthorized HTTP User Agent alert and HTTP User Agents Data Mining traffic
 - Unauthorized HTTP SOAP Action and HTTP SOAP Actions Data Mining traffic
 
-### Updated Alert Functionality
+### Updated alert functionality
 
 **Unauthorized Database Operation alert**
 Previously, this alert covered DDL and DML alerting and Data Mining reporting. Now:
@@ -87,7 +87,7 @@ Previously, this alert covered DDL and DML alerting and Data Mining reporting. N
 **New Asset Detected alert**
 This alert is disabled for new devices detected in IT subnets. The New Asset Detected alert is still triggered for new devices discovered in OT subnets. OT subnets are detected automatically and can be updated by users if required.
 
-### Minimized Alerting
+### Minimized alerting
 
 Alert triggering for specific scenarios has been minimized to help reduce alert volume and simplify alert investigation. In these scenarios, if a device performs repeated activity on targets, an alert is triggered once.  Previously, a new alert was triggered each time the same activity was carried out.
 
