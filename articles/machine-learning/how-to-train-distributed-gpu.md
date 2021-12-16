@@ -263,7 +263,7 @@ To run multi-node Lightning training on Azure ML, follow the [per-node-launch](#
 To run an experiment using multiple nodes with multiple GPUs:
 
 - Define `MpiConfiguration` and specify `node_count`. Don't specify `process_count` because Lightning internally handles launching the worker processes for each node.
-- For PyTorch jobs, Azure ML handles setting the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables that Lightning requires.:
+- For PyTorch jobs, Azure ML handles setting the MASTER_ADDR, MASTER_PORT, and NODE_RANK environment variables that Lightning requires:
 
    ```python
    import os
@@ -292,7 +292,7 @@ To run an experiment using multiple nodes with multiple GPUs:
            pass
    ```
 
-- Lightning handles computing the world size from the Trainer flags `--gpus` and `--num_nodes` and manage rank and local rank internally:
+- Lightning handles computing the world size from the Trainer flags `--gpus` and `--num_nodes` and manages rank and local rank internally:
 
    ```python
    from azureml.core import ScriptRunConfig, Experiment
