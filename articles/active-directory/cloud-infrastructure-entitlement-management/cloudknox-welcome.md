@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/14/2021
+ms.date: 12/16/2021
 ms.author: v-ydequadros
 ---
 
@@ -22,7 +22,7 @@ The CloudKnox solution requires one Sentry appliance per cloud platform.
 
 ## How to install Sentry as your cloud service provider
 
-- For information on how to install Sentry as your cloud service provider, open the Sentry installation page for the appropriate cloud service provider.
+- For information on how to install Sentry, select the  page for the appropriate cloud service provider.
 
 - [Amazon Web Services (AWS)](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20AWS%20bef8e66cf2834aa69867b628f4b0a203.html)
 - [Microsoft Azure](https://docs.cloudknox.io/Product%20Documentation%2098db130474114c96be4b3c4f27a0b297/Sentry%20Installation%20-%20Azure%20905a96e3a86844dfa1f952ecc8b6cfbc.html)
