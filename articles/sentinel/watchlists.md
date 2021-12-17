@@ -1,5 +1,5 @@
 ---
-title: Use watchlists in Microsoft Sentinel
+title: What is a watchlist - Microsoft Sentinel
 description: Learn what watchlists are in Microsoft and when to use them.
 author: yelevin
 ms.author: yelevin
@@ -16,7 +16,9 @@ Use watchlists in your search, detection rules, threat hunting, and response pla
 
 Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs and are cached for optimal query performance and low latency.
 
-## Common scenarios for using watchlists
+## When to use watchlists
+
+Use watchlists to help you with following scenarios:
 
 - **Investigate threats** and respond to incidents quickly with the rapid import of IP addresses, file hashes, and other data from CSV files. After you import the data, use watchlist name-value pairs for joins and filters in alert rules, threat hunting, workbooks, notebooks, and general queries.
 
@@ -28,6 +30,8 @@ Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs a
 
 ## Limitations of watchlists
 
+Before you create a watchlist, be aware of the following limitations:
+
 - The use of watchlists should be limited to reference data, as they are not designed for large data volumes.
 - The **total number of active watchlist items** across all watchlists in a single workspace is currently limited to **10 million**. Deleted watchlist items do not count against this total. If you require the ability to reference large data volumes, consider ingesting them using [custom logs](../azure-monitor/agents/data-sources-custom-logs.md) instead.
 - Watchlists can only be referenced from within the same workspace. Cross-workspace and/or Lighthouse scenarios are currently not supported.
@@ -35,9 +39,14 @@ Watchlists are stored in your Microsoft Sentinel workspace as name-value pairs a
 
 ## Options to create watchlists
 
-Create a watchlist from a local file or by using a template. Each watchlist template has it's own set of data listed in a CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md).
+You can create a watchlist from a local file you created or by using a template (in public preview).
 
-For more information, see [Create watchlists in Microsoft Sentinel](watchlists-create.md)
+To create a watchlist from a template, download the watchlist templates from Microsoft Sentinel and populate it with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.  
+
+For more information, see the following articles:
+
+- [Create watchlists in Microsoft Sentinel](watchlists-create.md)
+- [Built-in watchlist schemas](watchlist-schemas.md)
 
 ## Watchlists in queries for searches and detection rules
 
@@ -87,12 +96,13 @@ The following example query uses the watchlist inline with the query and the sea
 
 For more information, see [Build queries and detection rules with watchlists in Microsoft Sentinel](watchlists-queries.md).
 
-
 ## Next steps
 
 To learn more about Microsoft Sentinel, see the following articles:
 
 - [Create watchlists](watchlists-create.md)
+- [Build queries and detection rules with watchlists](watchlists-queries.md)
+- [Manage watchlists](watchlists-manage.md)
 - Learn how to [get visibility into your data and potential threats](get-visibility.md).
 - Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
 - [Use workbooks](monitor-your-data.md) to monitor your data.

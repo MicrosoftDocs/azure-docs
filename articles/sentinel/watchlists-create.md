@@ -1,6 +1,6 @@
 ---
-title: Create watchlists in Microsoft Sentinel
-description: Use Microsoft Sentinel watchlists to create allowlists or blocklists, enrich event data, and assist in investigating threats.
+title: Create watchlists - Microsoft Sentinel
+description: Create watchlist in  Microsoft Sentinel for allowlists, blocklists, enrich event data, and assist in investigating threats.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to

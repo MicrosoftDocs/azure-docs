@@ -1,5 +1,5 @@
 ---
-title: Build queries and detection rules with watchlists in Microsoft Sentinel
+title: Build queries and rules with watchlists - Microsoft Sentinel
 description: Use watchlists in Microsoft Sentinel in searches and detection rules.
 author: yelevin
 ms.author: yelevin

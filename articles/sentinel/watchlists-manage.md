@@ -1,5 +1,5 @@
 ---
-title: Manage watchlists in Microsoft Sentinel
+title: Edit watchlist - Microsoft Sentinel
 description: Edit or add items to watchlists in Microsoft Sentinel watchlists.
 author: yelevin
 ms.author: yelevin
