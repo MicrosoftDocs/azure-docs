@@ -19,7 +19,7 @@ ms.author: Thwimmer
 
 # Tutorial: Configure frankli for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both frankli and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [frankli](https://www.frankli.io/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to do in both frankli and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [frankli](https://www.frankli.io/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
@@ -34,7 +34,7 @@ This tutorial describes the steps you need to perform in both frankli and Azure 
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator).
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. For example Application Administrator, Cloud Application administrator, Application Owner or Global Administrator.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -43,7 +43,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure frankli to support provisioning with Azure AD
 
-1. Login to [Frankli](https://beta.frankli.io/login) using your admin account. 
+1. Log in to [Frankli](https://beta.frankli.io/login) using your admin account. 
 1. Navigate to **Admin -> Integrations -> Azure Active Directory**.
 ![Active Directory Integration Page](media/frankli-io-provisioning-tutorial/ad-setup.png)
 1. Click on **Setup a Directory**.
@@ -51,11 +51,11 @@ The scenario outlined in this tutorial assumes that you already have the followi
 ![Active Directory Integration Page](media/frankli-io-provisioning-tutorial/ad-name.png)
 1. Click on **Create Directory**.
 ![Active Directory Integration Page](media/frankli-io-provisioning-tutorial/ad-details.png)
-1. Take note of the **Base URL** and the **Bearer Token**, you will only be seeing this information once and you will need it later to configure user provisioning.
+1. Take note of the **Base URL** and the **Bearer Token**.The **Base URL** will be entered into the **Tenant URL** field in the Azure portal. The **Bearer Token** will be entered into the **Secret Token** field in the Azure portal.
 
 ## Step 3. Add frankli from the Azure AD application gallery
 
-Add frankli from the Azure AD application gallery to start managing provisioning to frankli. If you have previously setup frankli for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
+Add frankli from the Azure AD application gallery to start managing provisioning to frankli. If you have previously setup frankli for SSO, you can use the same application. However it's recommended you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
 ## Step 4. Define who will be in scope for provisioning 
 
@@ -68,7 +68,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 ## Step 5. Configure automatic user provisioning to frankli 
 
-This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and/or groups in frankli based on user and/or group assignments in Azure AD.
+This section guides you through the steps to configure the Azure AD provisioning service to create, update, and disable users and groups in frankli based on user and group assignments in Azure AD.
 
 ### To configure automatic user provisioning for frankli in Azure AD:
 
@@ -124,11 +124,11 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Provisioning Status Toggled On](common/provisioning-toggle-on.png)
 
-1. Define the users and/or groups that you would like to provision to frankli by choosing the desired values in **Scope** in the **Settings** section.
+1. Define the users and groups that you would like to provision to frankli by choosing the appropriate values in **Scope** in the **Settings** section.
 
 	![Provisioning Scope](common/provisioning-scope.png)
 
-1. When you are ready to provision, click **Save**.
+1. When you're ready to provision, click **Save**.
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
@@ -138,7 +138,7 @@ This operation starts the initial synchronization cycle of all users and groups 
 Once you've configured provisioning, use the following resources to monitor your deployment:
 
 * Use the [provisioning logs](../reports-monitoring/concept-provisioning-logs.md) to determine which users have been provisioned successfully or unsuccessfully
-* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it is to completion
+* Check the [progress bar](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md) to see the status of the provisioning cycle and how close it's to completion
 * If the provisioning configuration seems to be in an unhealthy state, the application will go into quarantine. Learn more about quarantine states [here](../app-provisioning/application-provisioning-quarantine-status.md).  
 
 ## More resources
