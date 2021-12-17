@@ -6,7 +6,9 @@ ms.date: 12/15/2021
 ms.author: danlep
 ---
 
-## Troubleshooting* **Unsuccessful initial deployment of API Management service into a subnet** 
+## Troubleshooting
+
+* **Unsuccessful initial deployment of API Management service into a subnet** 
   * Deploy a virtual machine into the same subnet. 
   * Connect to the virtual machine and validate connectivity to one of each of the following resources in your Azure subscription:
     * Azure Storage blob
@@ -21,7 +23,7 @@ ms.author: danlep
   * After deploying API Management into the subnet, use the portal to check the connectivity of your instance to dependencies, such as Azure Storage. 
   * In the portal, in the left-hand menu, under **Deployment and infrastructure**, select **Network connectivity status**.
 
-   :::image type="content" source="media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verify network connectivity status in the portal":::
+   :::image type="content" source="../articles/api-management/media/api-management-using-with-vnet/verify-network-connectivity-status.png" alt-text="Verify network connectivity status in the portal":::
 
   | Filter | Description |
   | ----- | ----- |

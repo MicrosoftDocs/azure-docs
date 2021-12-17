@@ -8,9 +8,11 @@ ms.author: danlep
 
 ## Configure NSG rules
 
-Configure custom rules in the API Management subnet's NSG. The following are the minimum rules recommended to ensure proper operation and access to your instance. We recommend configuring these rules with [service tags](../virtual-network/network-security-groups-overview.md#service-tags), as shown in the following table.
+Configure custom network rules in the API Management subnet to filter traffic to and from your API Management instance. We recommend the following minimum NSG rules to ensure proper operation and access to your instance. 
 
-Depending on your use of monitoring and other features, you may need to configure additional rules. For detailed settings, see [Virtual network configuration reference](virtual-network-configuration-reference.md).
+  * We recommend using [service tags](../virtual-network/service-tags-overview.md) to specify network sources and destinations. 
+  * Set the priority of these rules higher than that of the default rules.
+  * Depending on your use of monitoring and other features, you may need to configure additional rules. For detailed settings, see [Virtual network configuration reference](virtual-network-configuration-reference.md#required-ports).
 
 ### [stv2](#tab/stv2)
 

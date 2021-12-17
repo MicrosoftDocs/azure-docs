@@ -82,7 +82,7 @@ GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/
 
 API Management uses a public IP address for connections outside the VNet and a private IP address for connections within the VNet.
 
-When API management is deployed in the [internal VNet configuration](api-management-using-with-internal-vnet.md) and API management connects to private (intranet-facing) backends, internal IP addresses from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. Therefore in this configuration, if a requirement exists to restrict traffic between API Management and an internal backend, it is better to use the whole API Management subnet prefix with an IP rule and not just the private IP address associated with the API Management resource.
+When API management is deployed in the [internal VNet configuration](api-management-using-with-internal-vnet.md) and API management connects to private (intranet-facing) backends, internal IP addresses (dynamic IP, or DIP addresses) from the subnet are used for the runtime API traffic. When a request is sent from API Management to a private backend, a private IP address will be visible as the origin of the request. Therefore in this configuration, if IP restriction lists secure resources within the VNet, it is recommended to use the whole API Management [subnet range](virtual-network-concepts.md#subnet-size) with an IP rule and not just the private IP address associated with the API Management resource.
 
 When a request is sent from API Management to a public-facing (internet-facing) backend, a public IP address will always be visible as the origin of the request.
 
@@ -103,3 +103,5 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * [Availability zones](zone-redundancy.md) are enabled, added, or removed.
 
 In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
+
+After aou may need to update DNS registrations, routing rules, and IP restriction lists within the VNET.
