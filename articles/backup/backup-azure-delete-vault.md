@@ -42,7 +42,7 @@ Choose a client:
 
 To delete a vault, follow these steps:
 
-- **Step 1**: Go to **vault Overview**, click **Delete**, and then follow the instructions to complete the removal of Backup and ASR items for vault deletion as shown below. Each link calls the respective _blade_ to perform the corresponding vault deletion steps.
+- **Step 1**: Go to **vault Overview**, click **Delete**, and then follow the instructions to complete the removal of Azure Backup and Azure Site Recovery (ASR) items for vault deletion as shown below. Each link calls the respective _blade_ to perform the corresponding vault deletion steps.
 
   See the instructions in the following steps to understand the process. Also, you can go to each blade to delete vaults.
 
@@ -302,9 +302,9 @@ Follow these steps:
   
   The file prompts the user for authentication. Provide the user details to start the vault deletion process.
   
-  Alternately, you can use CloudShell in Azure portal for vaults with fewer backups.
+  Alternately, you can use Cloud Shell in Azure portal for vaults with fewer backups.
 
-  :::image type="content" source="./media/backup-azure-delete-vault/delete-vault-using-cloudshell-inline.png" alt-text="Screenshot showing to delete a vault using CloudShell." lightbox="./media/backup-azure-delete-vault/delete-vault-using-cloudshell-expanded.png":::
+  :::image type="content" source="./media/backup-azure-delete-vault/delete-vault-using-cloud-shell-inline.png" alt-text="Screenshot showing to delete a vault using Cloud Shell." lightbox="./media/backup-azure-delete-vault/delete-vault-using-cloud-shell-expanded.png":::
 
   **Run the script in the PowerShell console**
 
