@@ -70,6 +70,8 @@ and the JVM arg will point you to your custom keystore.
 
 ### If using the default Java keystore:
 
+Typically the default Java keystore will already have all of the CA root certificates. However there might be some exceptions, such as the ingestion endpoint certificate might be signed by a different root certificate. So we recommend the following three steps to resolve this issue:
+
 1.	Check if the SSL certificate that was used to sign the Application Insights endpoint is already present in the default keystore. The trusted CA certificates, by default, are stored in `$JAVA_HOME/jre/lib/security/cacerts`. To list certificates in a Java keystore use the following command:
     > `keytool -list -v -keystore $PATH_TO_KEYSTORE_FILE`
  
@@ -110,9 +112,11 @@ We recommend the following two steps to resolve this issue:
 
 3.  Later, you have to click on the "Certificate Path" -> Select the Leaf Certificate -> Click on 'View Certificate'. This will pop up a new certificate menu and you can download the certificate, from the new menu.
 
-    :::image type="content" source="media/java-ipa/troubleshooting/leaf-certificate.png" alt-text="Screenshot of how to select the leaf certificate." lightbox="media/java-ipa/troubleshooting/leaf-certificate.png":::
+    :::image type="content" source="media/java-ipa/troubleshooting/root-certificate.png" alt-text="Screenshot of how to select the root certificate." lightbox="media/java-ipa/troubleshooting/root-certificate.png":::
 
-    There are some instances where you will not be able to download the leaf certificate, in this case our recommendation is to download intermediate certificate that is owned by Microsoft. 
+    There are some instances where you want to download the intermediate or the leaf certificate that are owned by Microsoft for stringent security reasons, in this case our recommendation is to download the certificates as shown below:
+
+    :::image type="content" source="media/java-ipa/troubleshooting/leaf-certificate.png" alt-text="Screenshot of how to select the leaf certificate." lightbox="media/java-ipa/troubleshooting/leaf-certificate.png":::
      
     :::image type="content" source="media/java-ipa/troubleshooting/intermediate-certificate.png" alt-text="Screenshot of how to select the intermediate certificate." lightbox="media/java-ipa/troubleshooting/intermediate-certificate.png":::
 
