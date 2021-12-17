@@ -33,11 +33,11 @@
         - name: Azure API Management
           href: apis-api-management.md
         - name: Azure Container Apps
-          href: apis.md
+          href: apis-container-apps.md
         - name: Azure Logic Apps
-          href: apis.md
+          href: apis-logic-apps.md
         - name: Azure Web Apps
-          href: apis.md
+          href: apis-web-apps.md
     - name: Configuration
       items:
         - name: Configuration overview
