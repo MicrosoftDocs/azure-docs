@@ -231,36 +231,31 @@ The attribute's constructor takes the following parameters:
 
 # [In-process](#tab/in-process)
 
-In [C# class libraries](functions-dotnet-class-library.md), use the following attributes to configure a blob trigger:
+In [C# class libraries](functions-dotnet-class-library.md), the attribute's constructor takes a path string that indicates the container to watch and optionally a [blob name pattern](#blob-name-patterns). Here's an example:
 
-- [BlobTriggerAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Blobs/BlobTriggerAttribute.cs)
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+  [BlobTrigger("sample-images/{name}")] Stream image,
+  [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+  ....
+}
+```
 
-  The attribute's constructor takes a path string that indicates the container to watch and optionally a [blob name pattern](#blob-name-patterns). Here's an example:
+You can set the `Connection` property to specify the storage account to use, as shown in the following example:
 
-  ```csharp
-  [FunctionName("ResizeImage")]
-  public static void Run(
-      [BlobTrigger("sample-images/{name}")] Stream image,
-      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
-  {
-      ....
-  }
-  ```
+```csharp
+[FunctionName("ResizeImage")]
+public static void Run(
+  [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
+  [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
+{
+  ....
+}
+```
 
-  You can set the `Connection` property to specify the storage account to use, as shown in the following example:
-
-  ```csharp
-  [FunctionName("ResizeImage")]
-  public static void Run(
-      [BlobTrigger("sample-images/{name}", Connection = "StorageConnectionAppSetting")] Stream image,
-      [Blob("sample-images-md/{name}", FileAccess.Write)] Stream imageSmall)
-  {
-      ....
-  }
-  ```
-
-  For a complete example, see [Trigger example](#example).
-
+For a complete example, see [Trigger example](#example).
 
 # [Isolated process](#tab/isolated-process)
 
@@ -272,7 +267,6 @@ Here's an `BlobTrigger` attribute in a method signature:
 # [C# script](#tab/csharp-script)
 
 C# script uses a *function.json* file for configuration instead of attributes.
-
 
 |function.json property | Description|
 |---------|----------------------|
