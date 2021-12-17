@@ -323,7 +323,7 @@ Test your private peering connectivity by "counting" inbound and outbound packet
 2. Select the **Connectivity issues** card under **Common problems**.
 3. In the dropdown for **Tell us more about the problem your are experiencing**, select "Connectivity to Azure Private, Azure Public, or Dynamics 365 services."
 4. Scroll down to the **Test your private peering connectivity** section and expand it.
-5. Execute the [PsPing test]() from your on-premises IP address to your Azure IP address and keep it running for the duration of the connectivity test.
+5. Execute the [PsPing test](https://docs.microsoft.com/sysinternals/downloads/psping) from your on-premises IP address to your Azure IP address and keep it running for the duration of the connectivity test.
 6. Fill out the fields of the form, making sure to enter the same on-premises and Azure IP addresses used in Step 5.
 7. Select **Submit** and then wait for your results to load. Once your results are ready, review the information for interpreting them below.
 
