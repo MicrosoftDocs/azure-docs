@@ -1,6 +1,7 @@
 ---
 title: Moving application authentication from AD FS to Azure Active Directory
 description: Learn how to use Azure Active Directory to replace Active Directory Federation Services (AD FS), giving users single sign-on to all their applications.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG
@@ -13,7 +14,7 @@ ms.author: davidmu
 ms.reviewer: alamaral
 ---
 
-# Moving application authentication from Active Directory Federation Services to Azure Active Directory
+# Move application authentication to Azure Active Directory
 
 [Azure Active Directory (Azure AD)](../fundamentals/active-directory-whatis.md) offers a universal identity platform that provides your people, partners, and customers a single identity to access applications and collaborate from any platform and device. Azure AD has a [full suite of identity management capabilities](../fundamentals/active-directory-whatis.md). Standardizing your application authentication and authorization to Azure AD provides these benefits.
 
@@ -409,7 +410,7 @@ Depending on how you configure your app, verify that SSO works properly.
 | :- | :- |
 | OAuth / OpenID Connect| Select **Enterprise applications > Permissions** and ensure you have consented to the application in the user settings for your app.|
 | SAML-based SSO | Use the [Test SAML Settings](debug-saml-sso-issues.md) button found under **Single Sign-On**. |
-| Password-Based SSO |  Download and install the [MyApps Secure Sign](../user-help/my-apps-portal-end-user-access.md)[-](../user-help/my-apps-portal-end-user-access.md)[in Extension](../user-help/my-apps-portal-end-user-access.md). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
+| Password-Based SSO |  Download and install the [MyApps Secure Sign](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[-](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510)[in Extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
 | Application Proxy | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](../app-proxy/application-proxy-troubleshoot.md) for further assistance. |
 
 > [!NOTE]

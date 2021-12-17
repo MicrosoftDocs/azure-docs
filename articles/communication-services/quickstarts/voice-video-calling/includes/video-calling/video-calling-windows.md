@@ -30,7 +30,7 @@ Check `Microphone` to access the audio feed of the microphone.
 Check `WebCam` to access the camera of the device. 
 
 Add the following code to your `Package.appxmanifest` by right-clicking and choosing View Code. 
-```XML
+```xml
 <Extensions>
 <Extension Category="windows.activatableClass.inProcessServer">
 <InProcessServer>
@@ -157,8 +157,7 @@ private async void InitCallAgentAndDeviceManager()
     deviceManager = await callClient.GetDeviceManager();
 
     CommunicationTokenCredential token_credential = new CommunicationTokenCredential("<USER_ACCESS_TOKEN>");
-    callClient = new CallClient();
-
+    
     CallAgentOptions callAgentOptions = new CallAgentOptions()
     {
         DisplayName = "<DISPLAY_NAME>"
@@ -331,5 +330,7 @@ private async void HangupButton_Click(object sender, RoutedEventArgs e)
 You can build and run the code on Visual Studio. Please note that for solution platforms we support `ARM64`, `x64` and `x86`. 
 
 You can make an outbound video call by providing a user ID in the text field and clicking the `Start Call` button. 
+
+Note: Calling `8:echo123` will stop the video stream because echo bot does not support video streaming. 
 
 For more information on user IDs (identity) check the [User Access Tokens](../../../access-tokens.md) guide. 

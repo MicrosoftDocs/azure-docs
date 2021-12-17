@@ -2,7 +2,7 @@
 title: Zone-redundant registry for high availability
 description: Learn about enabling zone redundancy in Azure Container Registry. Create a container registry or replication in an Azure availability zone. Zone redundancy is a feature of the Premium service tier.
 ms.topic: article
-ms.date: 02/23/2021
+ms.date: 09/13/2021
 ms.custom: references_regions, devx-track-azurecli
 ---
 
@@ -16,7 +16,12 @@ Zone redundancy is a **preview** feature of the Premium container registry servi
 
 ## Preview limitations
 
-* Currently supported in the following regions: East US, East US 2, West US 2, North Europe, West Europe, Japan East.
+* Currently supported in the following regions: 
+  
+    |Americas  |Europe  |Africa  |Asia Pacific  |
+    |---------|---------|---------|---------|
+    |Brazil South<br/>Canada Central<br/>Central US<br/>East US<br/>East US 2<br/>South Central US<br/>US Government Virginia<br/>West US 2<br/>West US 3     |France Central<br/>Germany West Central<br/>North Europe<br/>Norway East<br/>West Europe<br/>UK South      |South Africa North<br/>        |Australia East<br/>Central India<br/>Japan East<br/>Korea Central<br/>  |
+
 * Region conversions to availability zones aren't currently supported. To enable availability zone support in a region, the registry must either be created in the desired region, with availability zone support enabled, or a replicated region must be added with availability zone support enabled.
 * Zone redundancy can't be disabled in a region.
 * [ACR Tasks](container-registry-tasks-overview.md) doesn't yet support availability zones.

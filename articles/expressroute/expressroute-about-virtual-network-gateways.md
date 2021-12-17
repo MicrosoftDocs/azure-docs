@@ -106,11 +106,6 @@ Zone-redundant gateways use specific new gateway SKUs for ExpressRoute gateway.
 
 The new gateway SKUs also support other deployment options to best match your needs. When creating a virtual network gateway using the new gateway SKUs, you also have the option to deploy the gateway in a specific zone. This is referred to as a zonal gateway. When you deploy a zonal gateway, all the instances of the gateway are deployed in the same Availability Zone.
 
-> [!IMPORTANT]
-> If you plan to use IPv6-based private peering over ExpressRoute, make sure to select an AZ SKU for the gateway you deploy in a dual stack gateway subnet.
-> 
->
-
 ## <a name="fastpath"></a>FastPath
 
 ExpressRoute virtual network gateway is designed to exchange network routes and route network traffic. FastPath is designed to improve the data path performance between your on-premises network and your virtual network. When enabled, FastPath sends network traffic directly to virtual machines in the virtual network, bypassing the gateway.

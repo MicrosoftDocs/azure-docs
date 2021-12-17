@@ -3,7 +3,7 @@ title: Tutorial - Develop C# module for Linux using Azure IoT Edge
 description: This tutorial shows you how to create an IoT Edge module with C# code and deploy it to a Linux IoT Edge device.
 services: iot-edge
 author: kgremban
-manager: philmea
+
 
 ms.author: kgremban
 ms.date: 07/30/2020

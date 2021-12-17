@@ -24,7 +24,10 @@ This article demonstrates how to set up each of these items in production for [b
 Key Vault integration is not available for:
 
 - [Staging versions of your static web app](./review-publish-pull-requests.md). Key Vault integration is only supported in the production environment.
-- [Static web apps using managed functions](./apis.md). 
+- [Static web apps using managed functions](./apis.md).
+
+> [!NOTE]
+> Using managed identity is only available in the Azure Static Web Apps Standard plan.
 
 ## Prerequisites
 

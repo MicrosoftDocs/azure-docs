@@ -1497,12 +1497,12 @@
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/shared-images.md",
-            "redirect_url": "/azure/virtual-machines/shared-images-cli",
+            "redirect_url": "/azure/virtual-machines/image-version",
             "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/windows/shared-images.md",
-            "redirect_url": "/azure/virtual-machines/shared-images-powershell",
+            "redirect_url": "/azure/virtual-machines/image-version",
             "redirect_document_id": false
           },
           {
@@ -1519,6 +1519,16 @@
             "source_path_from_root": "/articles/virtual-machines/windows/sizes.md",
             "redirect_url": "/azure/virtual-machines/sizes",
             "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/linux/snapshot-copy-managed-disk.md",
+            "redirect_url": "/azure/virtual-machines/snapshot-copy-managed-disk",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/snapshot-copy-managed-disk.md",
+            "redirect_url": "/azure/virtual-machines/snapshot-copy-managed-disk",
+            "redirect_document_id": true
           },
           {
             "source_path_from_root": "/articles/virtual-machines/linux/b-series-burstable.md",
@@ -2281,9 +2291,19 @@
             "redirect_document_id": false
           },
           {
-            "source_path_from_root": "/articles/virtual-machines/windows/classic/resize-vm.md",
-            "redirect_url": "/azure/virtual-machines/windows/resize-vm",
+            "source_path_from_root": "/articles/virtual-machines/linux/change-vm-size.md",
+            "redirect_url": "/azure/virtual-machines/resize-vm",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/resize-vm.md",
+            "redirect_url": "/azure/virtual-machines/resize-vm",
             "redirect_document_id": true
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/classic/resize-vm.md",
+            "redirect_url": "/azure/virtual-machines/resize-vm",
+            "redirect_document_id": false
           },
           {
             "source_path_from_root": "/articles/virtual-machines/windows/capture-image.md",
@@ -2696,6 +2716,26 @@
             "redirect_document_id": true
           },
           {
+            "source_path_from_root": "/articles/virtual-machines/vm-generalized-image-version-powershell.md",
+            "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/vm-generalized-image-version-cli.md",
+            "redirect_url": "/azure/virtual-machines/vm-generalized-image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/update-image-resources-powershell.md",
+            "redirect_url": "/azure/virtual-machines/update-image-resources",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/update-image-resources-cli.md",
+            "redirect_url": "/azure/virtual-machines/update-image-resources",
+            "redirect_document_id": false
+          },
+          {
             "source_path": "articles/virtual-machines/linux/cloudinit-prepare-custom-image.md",
             "redirect_url": "/azure/virtual-machines/linux/redhat-create-upload-vhd",
             "redirect_document_id": false
@@ -2706,9 +2746,106 @@
             "redirect_document_id": false
           },
           {
+            "source_path": "articles/virtual-machines/shared-images-cli.md",
+            "redirect_url": "/azure/virtual-machines/create-gallery",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/windows/shared-images-portal.md",
+            "redirect_url": "/azure/virtual-machines/capture-image-portal",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/shared-images-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },  
+          {
+            "source_path": "articles/virtual-machine-scale-sets/shared-images-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machine-scale-sets/shared-images-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },  
+          {
+            "source_path": "articles/virtual-machines/image-version-another-gallery-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },   
+          {
+            "source_path": "articles/virtual-machines/image-version-another-gallery-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          }, 
+          {
+            "source_path": "articles/virtual-machines/image-version-managed-image-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-managed-image-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-snapshot-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-snapshot-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-vm-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/image-version-vm-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/vm-specialized-image-version-powershell.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path": "articles/virtual-machines/vm-specialized-image-version-cli.md",
+            "redirect_url": "/azure/virtual-machines/image-version",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/linux/dedicated-hosts-cli.md",
+            "redirect_url": "/azure/virtual-machines/dedicated-hosts-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/windows/dedicated-hosts-powershell.md",
+            "redirect_url": "/azure/virtual-machines/dedicated-hosts-how-to",
+            "redirect_document_id": false
+          },
+          {
+            "source_path_from_root": "/articles/virtual-machines/dedicated-hosts-portal.md",
+            "redirect_url": "/azure/virtual-machines/dedicated-hosts-how-to",
+            "redirect_document_id": false
+          },
+          {
             "source_path_from_root": "/articles/virtual-machines/linux/deploy-ibm-db2-purescale-azure.md",
             "redirect_url": "/azure/virtual-machines/workloads/mainframe-rehosting/ibm/deploy-ibm-db2-purescale-azure",
+            "redirect_document_id": false
+          }
+          ,
+          {
+            "source_path_from_root": "/articles/virtual-machines/workloads/sap/automation-bom-templates-hana.md",
+            "redirect_url": "/azure/virtual-machines/workloads/sap/automation-bom-templates-db",
             "redirect_document_id": false
           }                                                                                                                                                                
     ]
 }
+

@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 06/16/2021
+ms.date: 09/09/2021
 ---
 
 # Copy data to and from Azure Databricks Delta Lake using Azure Data Factory or Azure Synapse Analytics
@@ -65,6 +65,30 @@ For cluster configuration details, see [Configure clusters](/azure/databricks/cl
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to Azure Databricks Delta Lake using UI
+
+Use the following steps to create a linked service to Azure Databricks Delta Lake in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for delta and select the Azure Databricks Delta Lake connector.
+
+    :::image type="content" source="media/connector-azure-databricks-delta-lake/azure-databricks-delta-lake-connector.png" alt-text="Screenshot of the Azure Databricks Delta Lake connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-azure-databricks-delta-lake/configure-azure-databricks-delta-lake-linked-service.png" alt-text="Screenshot of configuration for an Azure Databricks Delta Lake linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties that define entities specific to an Azure Databricks Delta Lake connector.
 

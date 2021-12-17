@@ -75,7 +75,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the left menu, select **Create a resource** > **Integration** > **Data Factory**:
 
-   ![New data factory creation](./media/doc-common-process/new-azure-data-factory-menu.png)
+   :::image type="content" source="./media/doc-common-process/new-azure-data-factory-menu.png" alt-text="New data factory creation":::
 
 1. On the **New data factory** page, under **Name**, enter **ADFTutorialDataFactory**.
 
@@ -111,11 +111,11 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the home page of Azure Data Factory, select the **Ingest** tile to launch the Copy Data tool.
 
-   ![Screenshot that shows the Azure Data Factory home page.](./media/doc-common-process/get-started-page.png)
+   :::image type="content" source="./media/doc-common-process/get-started-page.png" alt-text="Screenshot that shows the Azure Data Factory home page.":::
 
 1. On the **Properties** page of the Copy Data tool, choose **Built-in copy task** under **Task type**, then select **Next**.
 
-     ![Screenshot that shows the Properties page](./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png)
+     :::image type="content" source="./media/tutorial-copy-data-tool/copy-data-tool-properties-page.png" alt-text="Screenshot that shows the Properties page":::
     
 1. On the **Source data store** page, complete the following steps:
 
@@ -135,7 +135,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the **File format settings** page, enable the checkbox for *First row as header*. Notice that the tool automatically detects the column and row delimiters, and you can preview data and view the schema of the input data by selecting **Preview data** button on this page. Then select **Next**. 
 
-   ![File format settings](./media/tutorial-copy-data-tool/file-format-settings-page.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/file-format-settings-page.png" alt-text="File format settings":::
 
 1. On the **Destination data store** page, completes the following steps:
 
@@ -145,7 +145,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
    c. On the **New connection (Azure SQL Database)** page, select your Azure subscription, server name and database name from the dropdown list. Then select **SQL authentication** under **Authentication type**, specify the username and password. Test connection and select **Create**.
 
-   ![Configure Azure SQL DB](./media/tutorial-copy-data-tool/config-azure-sql-db.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/config-azure-sql-db.png" alt-text="Configure Azure SQL DB":::
 
    d. Select the newly created linked service as sink, then select **Next**.
 
@@ -153,7 +153,7 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the **Column mapping** page, notice that the second and the third columns in the input file are mapped to the **FirstName** and **LastName** columns of the **emp** table. Adjust the mapping to make sure that there is no error, and then select **Next**.
 
-   ![Column mapping page](./media/tutorial-copy-data-tool/column-mapping.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/column-mapping.png" alt-text="Column mapping page":::
 
 1. On the **Settings** page, under **Task name**, enter **CopyFromBlobToSqlPipeline**, and then select **Next**.
 
@@ -163,21 +163,21 @@ Prepare your Blob storage and your SQL Database for the tutorial by performing t
 
 1. On the **Deployment** page, select **Monitor** to monitor the pipeline (task).
 
-   ![Monitor pipeline](./media/tutorial-copy-data-tool/monitor-pipeline.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/monitor-pipeline.png" alt-text="Monitor pipeline":::
 
 1. On the Pipeline runs page, select **Refresh** to refresh the list. Select the link under **Pipeline name** to view activity run details or rerun the pipeline. 
 
-   ![Pipeline run](./media/tutorial-copy-data-tool/pipeline-run.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/pipeline-run.png" alt-text="Pipeline run":::
 
 1. On the "Activity runs" page, select the **Details** link (eyeglasses icon) under **Activity name** column for more details about copy operation. To go back to the "Pipeline runs" view, select the **All pipeline runs** link in the breadcrumb menu. To refresh the view, select **Refresh**.
 
-   ![Monitor activity runs](./media/tutorial-copy-data-tool/activity-monitoring.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/activity-monitoring.png" alt-text="Monitor activity runs":::
 
 1. Verify that the data is inserted into the **dbo.emp** table in your SQL Database.
 
 1. Select the **Author** tab on the left to switch to the editor mode. You can update the linked services, datasets, and pipelines that were created via the tool by using the editor. For details on editing these entities in the Data Factory UI, see [the Azure portal version of this tutorial](tutorial-copy-data-portal.md).
 
-   ![Select Author tab](./media/tutorial-copy-data-tool/author-tab.png)
+   :::image type="content" source="./media/tutorial-copy-data-tool/author-tab.png" alt-text="Select Author tab":::
 
 ## Next steps
 The pipeline in this sample copies data from Blob storage to a SQL Database. You learned how to:

@@ -11,7 +11,7 @@ metadata:
   ms.subservice: domain-services
   ms.workload: identity
   ms.topic: how-to
-  ms.date: 06/18/2021
+  ms.date: 10/08/2021
   ms.author: justinha
     
 title: Frequently asked questions (FAQs) about Azure Active Directory (AD) Domain Services
@@ -86,9 +86,9 @@ sections:
           No. A managed domain resource forest supports up to five one-way outbound forest trusts to on-premises forests. 
 
       - question: |
-          Can I move an existing Azure AD Domain Services managed domain to a different subscription, resource group, region, or virtual network?
+          Can I move a managed domain?
         answer: |
-          No. After you create an Azure AD Domain Services managed domain, you can't then move the managed domain to a different resource group, virtual network, subscription, etc. Take care to select the most appropriate subscription, resource group, region, and virtual network when you deploy the managed domain.
+          No. After you create an Azure AD Domain Services managed domain, you can't move it to a different subscription, resource group, region, virtual network, or subnet. As a workaround, you can [delete the managed domain](delete-aadds.md) by using PowerShell or the Azure portal and re-create it with your desired setup. No restore operations can be provided while the managed domain is re-created.
 
       - question: |
           Can I rename an existing Azure AD Domain Services domain name?

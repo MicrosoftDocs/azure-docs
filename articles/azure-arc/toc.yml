@@ -8,11 +8,11 @@
   items:
   - name: Azure Resource Graph queries
     href: ./resource-graph-samples.md
-- name: Arc-enabled servers >
+- name: Azure Arc-enabled servers >
   href: ./servers/overview.md
-- name: Arc-enabled Kubernetes >
+- name: Azure Arc-enabled Kubernetes >
   href: ./kubernetes/overview.md
-- name: Arc-enabled data services  >
+- name: Azure Arc-enabled data services  >
   href: ./data/overview.md
 - name: SQL Server on Azure Arc-enabled servers >
   href: /sql/sql-server/azure-arc/overview

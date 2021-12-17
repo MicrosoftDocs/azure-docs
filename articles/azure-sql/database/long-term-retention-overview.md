@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: SQLSourabh
 ms.author: sourabha
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 07/13/2021
 ---
 # Long-term retention - Azure SQL Database and Azure SQL Managed Instance
@@ -22,8 +22,6 @@ Long-term retention can be enabled for Azure SQL Database, and is available in p
 > [!NOTE]
 > You can use SQL Agent jobs to schedule [copy-only database backups](/sql/relational-databases/backup-restore/copy-only-backups-sql-server) as an alternative to LTR beyond 35 days.
 
-> [!IMPORTANT]
-> Long-term retention on Managed Instance is currently available in public preview in Azure Public regions only. 
 
 
 ## How long-term retention works
@@ -50,13 +48,13 @@ Examples of the LTR policy:
 
    Each weekly full backup will be kept for 12 weeks.
 
-- W=6, M=12, Y=10, WeekOfYear=16
+- W=6, M=12, Y=10, WeekOfYear=20
 
-   Each weekly full backup will be kept for six weeks. Except first full backup of each month, which will be kept for 12 months. Except the full backup taken on 16th week of year, which will be kept for 10 years. 
+   Each weekly full backup will be kept for six weeks. Except first full backup of each month, which will be kept for 12 months. Except the full backup taken on 20th week of year, which will be kept for 10 years. 
 
 The following table illustrates the cadence and expiration of the long-term backups for the following policy:
 
-W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear=15 (week after April 15)
+W=12 weeks (84 days), M=12 months (365 days), Y=10 years (3650 days), WeekOfYear=20 (week after May 13)
 
    ![ltr example](./media/long-term-retention-overview/ltr-example.png)
 
@@ -82,8 +80,6 @@ You can configure long-term backup retention using the Azure portal and PowerShe
 To learn how to configure long-term retention or restore a database from backup for SQL Database using the Azure portal or PowerShell, see [Manage Azure SQL Database long-term backup retention](long-term-backup-retention-configure.md).
 
 To learn how to configure long-term retention or restore a database from backup for SQL Managed Instance using the Azure portal or PowerShell, see [Manage Azure SQL Managed Instance long-term backup retention](../managed-instance/long-term-backup-retention-configure.md).
-
-To restore a database from the LTR storage, you can select a specific backup based on its timestamp. The database can be restored to any existing server under the same subscription as the original database. To learn how to restore your database from an LTR backup, using the Azure portal, or PowerShell, see [Manage Azure SQL Database long-term backup retention](long-term-backup-retention-configure.md). 
 
 ## Next steps
 

@@ -11,7 +11,7 @@ ms.date: 05/28/2021
 
 # Configure DHCP on L2 stretched VMware HCX networks
 
-DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter.  NSX, by default, blocks all DHCP requests from traversing the L2 stretch. To send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, you'll need to configure DHCP on L2 stretched VMware HCX networks.
+DHCP does not work for virtual machines (VMs) on the VMware HCX L2 stretch network when the DHCP server is in the on-premises datacenter. This is because NSX, by default, blocks all DHCP requests from traversing the L2 stretch. Therefore, to send DHCP requests from your Azure VMware Solution VMs to a non-NSX-T DHCP server, you'll need to configure DHCP on L2 stretched VMware HCX networks.
 
 1. (Optional) If you need to locate the segment name of the L2 extension:
 

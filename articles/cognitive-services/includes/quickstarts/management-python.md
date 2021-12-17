@@ -16,6 +16,7 @@ ms.author: pafarley
 
 * A valid Azure subscription - [Create one for free](https://azure.microsoft.com/free/).
 * [Python 3.x](https://www.python.org/)
+* [!INCLUDE [contributor-requirement](./contributor-requirement.md)]
 * [!INCLUDE [terms-azure-portal](./terms-azure-portal.md)]
 
 [!INCLUDE [Create a service principal](./create-service-principal.md)]

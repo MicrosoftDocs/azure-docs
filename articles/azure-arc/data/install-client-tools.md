@@ -13,14 +13,14 @@ ms.topic: how-to
 
 # Install client tools for deploying and managing Azure Arc-enabled data services
 
-This article points you to resources to install the tools to manage Arc-enabled data services.
+This article points you to resources to install the tools to manage Azure Arc-enabled data services.
 
 > [!IMPORTANT]
 > If you are updating to a new release, update to the latest version of Azure Data Studio, the Azure Arc extension for Azure Data Studio, Azure (`az`) command line interface (CLI), and the [!INCLUDE [azure-data-cli-azdata](../../../includes/azure-data-cli-azdata.md)].
 >
 > [!INCLUDE [use-insider-azure-data-studio](includes/use-insider-azure-data-studio.md)] 
 
-The [`arcdata` extension for Azure CLI (`az`)](reference/reference-az-arcdata-dc.md) replaces `azdata` for Arc-enabled data services.
+The [`arcdata` extension for Azure CLI (`az`)](reference/reference-az-arcdata-dc.md) replaces `azdata` for Azure Arc-enabled data services.
 
 ## Tools for creating and managing Azure Arc-enabled data services
 
@@ -28,8 +28,8 @@ The following table lists common tools required for creating and managing Azure 
 
 | Tool | Required | Description | Installation |
 |---|---|---|---|
-| Azure CLI (`az`)<sup>1</sup> | Yes | Modern command-line interface for managing Azure services. Used to manage Azure services in general and also specifically Arc-enabled data services using the CLI or in scripts for both indirectly connected mode (available now) and directly connected mode (available soon). ([More info](/cli/azure/)). | [Install](/cli/azure/install-azure-cli) |
-| `arcdata` extension for Azure (`az`) CLI | Yes | Command-line tool for managing Arc enabled data services as an extension to the Azure CLI (`az`) | [Install](install-arcdata-extension.md) |
+| Azure CLI (`az`)<sup>1</sup> | Yes | Modern command-line interface for managing Azure services. Used to manage Azure services in general and also specifically Azure Arc-enabled data services using the CLI or in scripts for both indirectly connected mode (available now) and directly connected mode (available soon). ([More info](/cli/azure/)). | [Install](/cli/azure/install-azure-cli) |
+| `arcdata` extension for Azure (`az`) CLI | Yes | Command-line tool for managing Azure Arc-enabled data services as an extension to the Azure CLI (`az`) | [Install](install-arcdata-extension.md) |
 | Azure Data Studio | Yes | Rich experience tool for connecting to and querying a variety of databases including Azure SQL, SQL Server, PostrgreSQL, and MySQL. Extensions to Azure Data Studio provide an administration experience for Azure Arc-enabled data services. | [Install](/sql/azure-data-studio/download-azure-data-studio) |
 | Azure Arc extension for Azure Data Studio | Yes | Extension for Azure Data Studio that provides a management experience for Azure Arc-enabled data services.| Install from the extensions gallery in Azure Data Studio.|
 | PostgreSQL extension in Azure Data Studio | No | PostgreSQL extension for Azure Data Studio that provides management capabilities for PostgreSQL. | <!--{need link} [Install](../azure-data-studio/data-virtualization-extension.md) --> Install from extensions gallery in Azure Data Studio.|
@@ -47,4 +47,4 @@ The following table lists common tools required for creating and managing Azure 
 
 ## Next steps
 
-[Create the Azure Arc data controller](create-data-controller.md)
+[Plan an Azure Arc-enabled data services deployment](plan-azure-arc-data-services.md)

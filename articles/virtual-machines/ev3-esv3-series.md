@@ -11,6 +11,8 @@ ms.author: mimckitt
 
 # Ev3 and Esv3-series
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 The Ev3 and Esv3-series run on Intel® Xeon® Platinum 8272CL (Cascade Lake), or Intel® Xeon® 8171M 2.1 GHz (Skylake), or the Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) processor in a hyper-threaded configuration, providing a better value proposition for most general purpose workloads, and bringing the Ev3 into alignment with the general purpose VMs of most other clouds.  Memory has been expanded (from 7 GiB/vCPU to 8 GiB/vCPU) while disk and network limits have been adjusted on a per core basis to align with the move to hyperthreading. The Ev3 is the follow up to the high memory VM sizes of the D/Dv2 families.
 
 ## Ev3-series
@@ -29,6 +31,7 @@ Ev3-series VM’s feature Intel® Hyper-Threading Technology.
 [VM Generation Support](generation-2.md): Generation 1<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Not Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
 | Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max temp storage throughput: IOPS / Read MBps / Write MBps | Max NICs / Network bandwidth |
@@ -60,9 +63,10 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 [VM Generation Support](generation-2.md): Generation 1 and 2<br>
 [Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Ephemeral OS Disks](ephemeral-os-disks.md): Supported <br>
+[Nested Virtualization](/virtualization/hyper-v-on-windows/user-guide/nested-virtualization): Supported <br>
 <br>
 
-| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Burst cached and temp storage throughput: IOPS/MBps<sup>3</sup> | Max uncached disk throughput: IOPS/MBps |  Burst uncached disk throughput: IOPS/MBps<sup>3</sup>| Max NICs/Expected network bandwidth (Mbps) |
+| Size | vCPU | Memory: GiB | Temp storage (SSD) GiB | Max data disks | Max cached and temp storage throughput: IOPS/MBps (cache size in GiB) | Burst cached and temp storage throughput: IOPS/MBps<sup>3</sup> | Max uncached disk throughput: IOPS/MBps |  Burst uncached disk throughput: IOPS/MBps<sup>3</sup>| Max NICs/ Expected network bandwidth  (Mbps) |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_E2s_v3<sup>4</sup>                | 2  | 16  | 32  | 4  | 4000/32 (50)       | 4000/100    | 3200/48    | 4000/100 | 2/1000 |
 | Standard_E4s_v3 <sup>1</sup>   | 4  | 32  | 64  | 8  | 8000/64 (100)      | 8000/200    | 6400/96    | 8000/200 | 2/2000 |
@@ -90,8 +94,10 @@ Esv3-series VM’s feature Intel® Hyper-Threading Technology.
 - [GPU optimized](sizes-gpu.md)
 - [High performance compute](sizes-hpc.md)
 - [Previous generations](sizes-previous-gen.md)
-- [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
-- For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
+
+Pricing Calculator : [Pricing Calculator](https://azure.microsoft.com/pricing/calculator/)
+
+For more information on disk types, see [What disk types are available in Azure?](disks-types.md)
 
 ## Next steps
 

@@ -3,7 +3,7 @@ title: Use community widgets in developer portal
 titleSuffix: Azure API Management
 description: Learn about community widgets for the API Management developer portal and how to inject and use them in your code. 
 author: dlepow
-ms.author: apimpm
+ms.author: danlep
 ms.date: 03/25/2021
 ms.service: api-management
 ms.topic: how-to

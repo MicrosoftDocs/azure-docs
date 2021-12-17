@@ -1,0 +1,50 @@
+### YamlMime:FAQ
+metadata:
+  title: Microsoft Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ) 
+  description: Find answer to common questions about Azure IoT Hub Device Provisioning Service.
+  author: wesmc7777
+  ms.author: wesmc
+  ms.date: 11/08/2021
+  ms.topic: conceptual
+  ms.service: iot-dps
+  services: iot-dps
+  
+    
+title: Azure IoT Hub Device Provisioning Service frequently asked questions (FAQ)
+summary: |
+  This article answers to common questions about Azure IoT Hub Device Provisioning Service. The following topics are covered:
+  
+  * DPS Management
+  * DPS Billing
+
+  
+
+sections:
+  - name: DPS Management
+    questions:
+      - question: |
+         What is the recommended way to update a linked hub when the primary key for the IoT Hub access policy is regenerated? 
+        answer: |
+         The primary key is embedded inside the connection string that DPS uses for authentication. Whenever the primary connection string is modified, the primary key will also be modified, and you'll need to relink the hub to your DPS.
+  - name: DPS Billing
+    questions:
+      - question: |
+         Which Device Provisioning Service API operations are billable and what are their prices?” 
+        answer: |
+         For information on which operations are billable and their prices, see [Billable service operations and pricing for Microsoft Device Provisioning Service](about-iot-dps.md#billable-service-operations-and-pricing)
+
+additionalContent: |
+
+  ## Next steps
+  
+  If this FAQ doesn’t answer your question, you can contact us through the following channels (in escalating order):
+
+  * The comments section of this article.
+  * [MSFT Q&A page for Azure DPS](https://docs.microsoft.com/answers/topics/azure-iot-dps.html?sort=viewCount).
+  * Microsoft Support. To create a new support request, in the [Azure portal](https://portal.azure.com/), on the Help tab, select the **Help +** support button, and then select **New support request**.
+  
+
+  > [!div class="nextstepaction"]
+  > [Troubleshoot DPS](how-to-troubleshoot-dps.md)
+  
+

@@ -79,7 +79,7 @@ Review the [MySQL documentation](https://dev.mysql.com/doc/refman/5.7/en/innodb-
 |Memory Optimized|16|65498251264|134217728|65498251264|
 |Memory Optimized|32|132070244352|134217728|132070244352|
 
-#### Servers on [general purpose storage v1 (supporting up to 16-TB)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
+#### Servers on [general purpose storage v2 (supporting up to 16-TB)](concepts-pricing-tiers.md#general-purpose-storage-v2-supports-up-to-16-tb-storage)
 
 |**Pricing Tier**|**vCore(s)**|**Default value (bytes)**|**Min value (bytes)**|**Max value (bytes)**|
 |---|---|---|---|---|
@@ -273,6 +273,13 @@ To save the state of the buffer pool at server shutdown set server parameter `in
 ### time_zone
 
 Upon initial deployment, an Azure for MySQL server includes systems tables for time zone information, but these tables are not populated. The time zone tables can be populated by calling the `mysql.az_load_timezone` stored procedure from a tool like the MySQL command line or MySQL Workbench. Refer to the [Azure portal](howto-server-parameters.md#working-with-the-time-zone-parameter) or [Azure CLI](howto-configure-server-parameters-using-cli.md#working-with-the-time-zone-parameter) articles for how to call the stored procedure and set the global or session-level time zones.
+
+### binlog_expire_logs_seconds 
+
+In Azure Database for MySQL this parameter specifies the number of seconds the service waits before purging the binary log file.
+
+The binary log contains “events” that describe database changes such as table creation operations or changes to table data. It also contains events for statements that potentially could have made changes. The binary log are used mainly for two purposes , replication and data recovery operations.  Usually, the binary logs are purged as soon as the handle is free from service, backup or the replica set. In case of multiple replica, it would wait for the slowest replica to read the changes before it is been purged. If you want to persist binary logs for a more duration of time you can configure the parameter binlog_expire_logs_seconds. If the binlog_expire_logs_seconds is set to 0 which is the default value, it will purge as soon as the handle to the binary log is freed. if binlog_expire_logs_seconds > 0 then it would wait for the until the seconds configured before it purges. For Azure database for MySQL, managed features like backup and read replica purging of binary files are handled internally . When you replicate the data-out from the Azure Database for MySQL service, this parameter needs to be set in primary to avoid purging of binary logs before the replica reads from the changes from the primary. If you set the binlog_expire_logs_seconds to a higher value, then the binary logs will not get purged soon enough and can lead to increase in the storage billing. 
+
 
 ## Non-configurable server parameters
 

@@ -11,6 +11,9 @@ ms.author: mimckitt
 
 ---
 # Introduction to FreeBSD on Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article provides an overview of running a FreeBSD virtual machine in Azure.
 
 ## Overview

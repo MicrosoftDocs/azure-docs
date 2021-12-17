@@ -1,19 +1,17 @@
 ---
-title: Encrypt OS disks using customer-managed keys in Azure DevTest Labs
-description: Learn how to encrypt operating system (OS) disks using customer-managed keys in Azure DevTest Labs. 
-ms.topic: article
-ms.date: 09/01/2020
+title: Encrypt disks using customer-managed keys
+description: Learn how to encrypt disks using customer-managed keys in Azure DevTest Labs. 
+ms.topic: how-to
+ms.date: 09/29/2021
 ---
 
-# Encrypt operating system (OS) disks using customer-managed keys in Azure DevTest Labs
+# Encrypt disks using customer-managed keys in Azure DevTest Labs
 Server-side encryption (SSE) protects your data and helps you meet your organizational security and compliance commitments. SSE automatically encrypts your data stored on managed disks in Azure (OS and data disks) at rest by default when persisting it to the cloud. Learn more about [Disk Encryption](../virtual-machines/disk-encryption.md) on Azure. 
 
-Within DevTest Labs, all OS disks and data disks created as part of a lab are encrypted using platform-managed keys. However, as a lab owner you can choose to encrypt lab virtual machine OS disks using your own keys. If you choose to manage encryption with your own keys, you can specify a **customer-managed key** to use for encrypting data in lab OS disks. To learn more on Server-side encryption (SSE) with customer-managed keys, and other managed disk encryption types, see [Customer-managed keys](../virtual-machines/disk-encryption.md#customer-managed-keys). Also, see [restrictions with using customer-managed keys](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
+Within DevTest Labs, all OS disks and data disks created as part of a lab are encrypted using platform-managed keys. However, as a lab owner you can choose to encrypt lab virtual machine disks using your own keys. If you choose to manage encryption with your own keys, you can specify a **customer-managed key** to use for encrypting data in lab disks. To learn more on Server-side encryption (SSE) with customer-managed keys, and other managed disk encryption types, see [Customer-managed keys](../virtual-machines/disk-encryption.md#customer-managed-keys). Also, see [restrictions with using customer-managed keys](../virtual-machines/disks-enable-customer-managed-keys-portal.md#restrictions).
 
 > [!NOTE]
-> - Currently disk encryption with a customer-managed key is supported only for OS disks in DevTest Labs. 
-> 
-> - The setting applies to newly created OS disks in the lab. If you choose to change the disk encryption set at some point, older disks in the lab will continue to remain encrypted using the previous disk encryption set. 
+> - The setting applies to newly created disks in the lab. If you choose to change the disk encryption set at some point, older disks in the lab will continue to remain encrypted using the previous disk encryption set. 
 
 The following section shows how a lab owner can set up encryption using a customer-managed key.
 
@@ -22,12 +20,12 @@ The following section shows how a lab owner can set up encryption using a custom
 1. If you don’t have a disk encryption set, follow this article to [set up a Key Vault and a Disk Encryption Set](../virtual-machines/disks-enable-customer-managed-keys-portal.md). Note the following requirements for the disk encryption set: 
 
     - The disk encryption set needs to be **in same region and subscription as your lab**. 
-    - Ensure you (lab owner) have at least a **reader-level access** to the disk encryption set that will be used to encrypt lab OS disks. 
+    - Ensure you (lab owner) have at least a **reader-level access** to the disk encryption set that will be used to encrypt lab disks. 
 1. For labs created prior to 8/1/2020, lab owner will need to ensure lab system assigned identity is enabled. To do so, lab owner can go to their lab, click on **Configuration and policies**, click on **Identity (Preview)** blade, change System Assigned identity **Status** to **On** and click on **Save**. For new labs created after 8/1/2020 lab's system assigned identity will be enabled by default. 
 
     > [!div class="mx-imgBorder"]
     > :::image type="content" source="./media/encrypt-disks-customer-managed-keys/managed-keys.png" alt-text="Managed keys":::
-1. For the lab to handle encryption for all the lab OS disks, lab owner needs to explicitly grant the lab’s **system-assigned identity** reader role on the disk encryption set as well as virtual machine contributor role on the underlying Azure subscription. Lab owner can do so by completing the following steps:
+1. For the lab to handle encryption for all the lab disks, lab owner needs to explicitly grant the lab’s **system-assigned identity** reader role on the disk encryption set as well as virtual machine contributor role on the underlying Azure subscription. Lab owner can do so by completing the following steps:
 
    
     1. Ensure you are a member of [User Access Administrator role](../role-based-access-control/built-in-roles.md#user-access-administrator) at the Azure subscription level so that you can manage user access to Azure resources. 
@@ -67,7 +65,7 @@ The following section shows how a lab owner can set up encryption using a custom
     :::image type="content" source="./media/encrypt-disks-customer-managed-keys/disk-encryption-set.png" alt-text="Enable encryption with customer-managed key":::
 1. On the message box with the following text: *This setting will apply to newly created machines in the lab. Old OS disk will remain encrypted with the old disk encryption set*, select **OK**. 
 
-    Once configured, lab OS disks will be encrypted with the customer-managed key provided using the disk encryption set. 
+    Once configured, lab disks will be encrypted with the customer-managed key provided using the disk encryption set. 
    
 ## How to validate if disks are being encrypted
 

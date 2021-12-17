@@ -1,11 +1,11 @@
 ---
 title: 'Tutorial: Database migration tool for Azure Cosmos DB'
 description: 'Tutorial: Learn how to use the open-source Azure Cosmos DB data migration tools to import data to Azure Cosmos DB from various sources including MongoDB, SQL Server, Table storage, Amazon DynamoDB, CSV, and JSON files. CSV to JSON conversion.'
-author: deborahc
+author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: tutorial
-ms.date: 10/23/2020
+ms.date: 08/26/2021
 ms.author: dech
 
 ---
@@ -63,10 +63,17 @@ While the import tool includes a graphical user interface (dtui.exe), it can als
 
 ## <a id="Install"></a>Installation
 
-The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally then run either:
+### Download executable package
 
-* **Dtui.exe**: Graphical interface version of the tool
-* **Dt.exe**: Command-line version of the tool
+  * Download a zip of the latest signed **dt.exe** and **dtui.exe** Windows binaries [here](https://github.com/Azure/azure-documentdb-datamigrationtool/releases/tag/1.8.3)
+  * Unzip into any directory on your computer and open the extracted directory to find the binaries
+
+### Build from source
+
+  The migration tool source code is available on GitHub in [this repository](https://github.com/azure/azure-documentdb-datamigrationtool). You can download and compile the solution locally then run either:
+
+  * **Dtui.exe**: Graphical interface version of the tool
+  * **Dt.exe**: Command-line version of the tool
 
 ## Select data source
 
@@ -619,6 +626,10 @@ In this tutorial, you've done the following tasks:
 > * Exported from Azure Cosmos DB to JSON
 
 You can now proceed to the next tutorial and learn how to query data using Azure Cosmos DB.
+
+Trying to do capacity planning for a migration to Azure Cosmos DB?
+  * If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](convert-vcore-to-request-unit.md) 
+  * If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-with-capacity-planner.md)
 
 > [!div class="nextstepaction"]
 >[How to query data?](../cosmos-db/tutorial-query-sql-api.md)

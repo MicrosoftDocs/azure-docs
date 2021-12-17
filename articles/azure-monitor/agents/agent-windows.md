@@ -28,7 +28,7 @@ This article provides details on installing the Log Analytics agent on Windows c
 See [Overview of Azure Monitor agents](agents-overview.md#supported-operating-systems) for a list of Windows versions supported by the Log Analytics agent.
 
 ### SHA-2 Code Signing Support Requirement 
-The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Azure Security Center, Azure Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
+The Windows agent will begin to exclusively use SHA-2 signing on August 17, 2020. This change will impact customers using the Log Analytics agent on a legacy OS as part of any Azure service (Azure Monitor, Azure Automation, Azure Update Management, Azure Change Tracking, Microsoft Defender for Cloud, Microsoft Sentinel, Windows Defender ATP). The change does not require any customer action unless you are running the agent on a legacy OS version (Windows 7, Windows Server 2008 R2 and Windows Server 2008). Customers running on a legacy OS version are required to take the following actions on their machines before August 17, 2020 or their agents will stop sending data to their Log Analytics workspaces:
 
 1. Install the latest Service Pack for your OS. The required service pack versions are:
     - Windows 7 SP1
@@ -103,13 +103,13 @@ The following table highlights the specific parameters supported by setup for th
 1. To extract the agent installation files, from an elevated command prompt run `MMASetup-<platform>.exe /c` and it will prompt you for the path to extract files to.  Alternatively, you can specify the path by passing the arguments `MMASetup-<platform>.exe /c /t:<Full Path>`.  
 2. To silently install the agent and configure it to report to a workspace in Azure commercial cloud, from the folder you extracted the setup files to type: 
    
-     ```dos
+    ```shell
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=0 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
 
    or to configure the agent to report to Azure US Government cloud, type: 
 
-     ```dos
+    ```shell
     setup.exe /qn NOAPM=1 ADD_OPINSIGHTS_WORKSPACE=1 OPINSIGHTS_WORKSPACE_AZURE_CLOUD_TYPE=1 OPINSIGHTS_WORKSPACE_ID="<your workspace ID>" OPINSIGHTS_WORKSPACE_KEY="<your workspace key>" AcceptEndUserLicenseAgreement=1
     ```
     >[!NOTE]

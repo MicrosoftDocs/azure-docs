@@ -93,11 +93,13 @@ The following steps show how to link your app to Azure Static Web Apps. Once in 
     | _Repository_ | Select **nextjs-starter**. |
     | _Branch_ | Select **main**. |
 
-1. In the _Build Details_ section, select **Custom** from the _Build Presets_ drop-down and keep the default values.
+1. In the _Build Details_ section, select **Custom** from the _Build Presets_. Add the following values as for the build configuration.
 
-1. In the _App location_, enter **/** in the box.
-1. Leave the _Api location_ box empty.
-1. In the _Output location_ box, enter **out**.
+    | Property | Value |
+    | --- | --- |
+    | _App location_ | Enter **/** in the box. |
+    | _Api location_ | Leave this box empty. |
+    | _Output location_ | Enter **out** in the box. |
 
 ### Review and create
 

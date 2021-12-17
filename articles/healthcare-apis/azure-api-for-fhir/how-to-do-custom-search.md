@@ -1,6 +1,6 @@
 ---
 title:  How to do custom search in Azure API for FHIR 
-description: This article describes how you can define your own custom search parameters to be used in the database. 
+description: This article describes how you can define your own custom search parameters in Azure API for FHIR to be used in the database. 
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir

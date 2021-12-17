@@ -2,7 +2,7 @@
 author: v-dalc
 ms.service: databox  
 ms.topic: include
-ms.date: 07/01/2021
+ms.date: 08/17/2021
 ms.author: alkohli
 ---
 
@@ -16,11 +16,11 @@ To create a management resource for a device ordered through the Azure Edge Hard
     
        The **Configure hardware** option appears after a device is shipped. 
 
-       ![Illustration showing how to create a management resource from an order item in the Azure Edge Hardware Center](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-a.png#lightbox) 
+       ![Illustration showing 4 steps to start management resource creation from an order item in the Azure Edge Hardware Center.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-a.png#lightbox) 
     
     - In Azure Stack Edge: Search for and select **Azure Stack Edge**. Select **+ Create**. Then select **Create management resource**.
     
-       ![Illustration showing how to create a management resource from Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-b.png#lightbox) 
+       ![Illustration showing 3 steps to start management resource creation in Azure Stack Edge.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-01-b.png#lightbox) 
 
     The **Create management resource** wizard opens.
 
@@ -38,16 +38,22 @@ To create a management resource for a device ordered through the Azure Edge Hard
 
     <sup>2</sup> When you use **Configure hardware** from the order item, the device type is taken from the order item, and **DEVICE DETAILS** aren't displayed. 
 
-    ![Screenshot of the Basics tab in the Create management resource wizard, with example field entries](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)
+    ![Screenshot of the Basics tab for Create Management Resource. The Basics tab, options, and Review Plus Create button are highlighted.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-02.png)
 
     Select **Review + create** to continue.
 
 5. On the **Review + create** tab, review basic settings for the management resource and the terms of use. Then select **Create**.
 
+    - If you started this procedure by clicking **Configure hardware** for a delivered item in an Azure Edge Hardware Center order, the device, order resource name, and order status are listed at the top of the screen. 
+
+      ![Screenshot of Review Plus Create tab when an Azure Stack Edge management resource is created for an order item in Azure Edge Hardware Center. Device order info is highlighted.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-03.png)
+
+    - If you started in Azure Stack Edge, instead of device order information, you'll see the device type listed in **Basics**. 
+
+      ![Screenshot of Review Plus Create tab when an Azure Stack Edge management resource is started in Azure Stack Edge. The device type is highlighted in Basics.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-04.png)  
+
     The **Create** button isn't available until all validation checks have passed.
 
-    ![Screenshot showing the Review + create screen when creating a new management resource in Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-03.png) 
+6. When the process completes, the Overview pane for new resource opens.
 
-6. When the process completes, the Overview pane for new resource opens. 
-
-    ![Screenshot showing a completed management resource in Azure Stack Edge](media/azure-edge-hardware-center-create-management-resource/create-management-resource-04.png#lightbox) 
+    ![Screenshot showing a completed management resource in Azure Stack Edge.](media/azure-edge-hardware-center-create-management-resource/create-management-resource-05\.png) 

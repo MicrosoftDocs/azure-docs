@@ -6,13 +6,13 @@ author: ArchangelSDY
 
 ms.service: azure-web-pubsub
 ms.topic: article
-ms.date: 07/13/2021
+ms.date: 11/08/2021
 ms.author: dayshen
 ---
 
 # Secure Azure Web PubSub outbound traffic through Shared Private Endpoints
 
-If you're using [event handler](https://azure.github.io/azure-webpubsub/concepts/service-internals#event_handler) in Azure Web PubSub Service, you might have outbound traffic to upstream. Upstream such as
+If you're using [event handler](concept-service-internals.md#event_handler) in Azure Web PubSub Service, you might have outbound traffic to upstream. Upstream such as
 Azure Web App and Azure Functions, can be configured to accept connections from a list of virtual networks and refuse outside connections that originate from a public network. You can create an outbound [private endpoint connection](../private-link/private-endpoint-overview.md) to reach these endpoints.
 
    :::image type="content" alt-text="Shared private endpoint overview." source="media\howto-secure-shared-private-endpoints\shared-private-endpoint-overview.png" border="false" :::
@@ -43,7 +43,7 @@ The rest of the examples show how the _contoso-webpubsub_ service can be configu
 You can make the following API call with the [Azure CLI](/cli/azure/) to create a shared private link resource:
 
 ```dotnetcli
-az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json
+az rest --method put --uri https://management.azure.com/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/contoso/providers/Microsoft.SignalRService/webPubSub/contoso-webpubsub/sharedPrivateLinkResources/func-pe?api-version=2021-06-01-preview --body @create-pe.json --debug
 ```
 
 The contents of the *create-pe.json* file, which represent the request body to the API, are as follows:

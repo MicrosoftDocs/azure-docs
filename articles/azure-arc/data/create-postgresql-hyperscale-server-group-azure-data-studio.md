@@ -4,8 +4,8 @@ description: Create Azure Arc-enabled PostgreSQL Hyperscale using Azure Data Stu
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
-author: TheJY
-ms.author: jeanyd
+author: grrlgeek
+ms.author: jeschult
 ms.reviewer: mikeray
 ms.date: 07/30/2021
 ms.topic: how-to
@@ -94,4 +94,3 @@ While indicating 1 worker works, we do not recommend you use it. This deployment
 - [Scale out your Azure Database for PostgreSQL Hyperscale server group](scale-out-in-postgresql-hyperscale-server-group.md)
 - [Storage configuration and Kubernetes storage concepts](storage-configuration.md)
 - [Kubernetes resource model](https://github.com/kubernetes/community/blob/master/contributors/design-proposals/scheduling/resources.md#resource-quantities)
-

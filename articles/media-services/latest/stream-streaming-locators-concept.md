@@ -82,7 +82,7 @@ See [Filters: associate with Streaming Locators](filters-concept.md#associating-
 
 ## Filter, order, page Streaming Locator entities
 
-See [Filtering, ordering, paging of Media Services entities](filter-order-page-entitites-how-to.md).
+See [Filtering, ordering, paging of Media Services entities](filter-order-page-entities-how-to.md).
 
 ## List Streaming Locators by Asset name
 

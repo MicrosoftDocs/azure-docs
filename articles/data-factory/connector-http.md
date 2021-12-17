@@ -7,7 +7,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 03/17/2021
+ms.date: 09/09/2021
 ms.author: jianleishen
 ---
 # Copy data from an HTTP endpoint by using Azure Data Factory or Azure Synapse Analytics
@@ -23,7 +23,7 @@ This article outlines how to use Copy Activity in Azure Data Factory and Azure S
 The difference among this HTTP connector, the [REST connector](connector-rest.md) and the [Web table connector](connector-web-table.md) are:
 
 - **REST connector** specifically support copying data from RESTful APIs; 
-- **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before REST connector becomes available, you may happen to use the HTTP connector to copy data from RESTful API, which is supported but less functional comparing to REST connector.
+- **HTTP connector** is generic to retrieve data from any HTTP endpoint, e.g. to download file. Before REST connector becomes available, you may happen to use the HTTP connector to copy data from RESTful APIs, which is supported but less functional comparing to REST connector.
 - **Web table connector** extracts table content from an HTML webpage.
 
 ## Supported capabilities
@@ -51,6 +51,30 @@ You can use this HTTP connector to:
 ## Get started
 
 [!INCLUDE [data-factory-v2-connector-get-started](includes/data-factory-v2-connector-get-started.md)]
+
+## Create a linked service to an HTTP source using UI
+
+Use the following steps to create a linked service to an HTTP source in the Azure portal UI.
+
+1. Browse to the Manage tab in your Azure Data Factory or Synapse workspace and select Linked Services, then click New:
+
+    # [Azure Data Factory](#tab/data-factory)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service.png" alt-text="Screenshot of creating a new linked service with Azure Data Factory UI.":::
+
+    # [Azure Synapse](#tab/synapse-analytics)
+
+    :::image type="content" source="media/doc-common-process/new-linked-service-synapse.png" alt-text="Screenshot of creating a new linked service with Azure Synapse UI.":::
+
+2. Search for HTTP and select the HTTP connector.
+
+    :::image type="content" source="media/connector-http/http-connector.png" alt-text="Screenshot of the HTTP connector.":::    
+
+1. Configure the service details, test the connection, and create the new linked service.
+
+    :::image type="content" source="media/connector-http/configure-http-linked-service.png" alt-text="Screenshot of configuration for an HTTP linked service.":::
+
+## Connector configuration details
 
 The following sections provide details about properties you can use to define entities that are specific to the HTTP connector.
 

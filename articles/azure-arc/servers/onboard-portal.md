@@ -1,11 +1,11 @@
 ---
-title: Connect hybrid machines to Azure from the Azure portal
-description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers from the Azure portal.
-ms.date: 07/16/2021
+title: Connect hybrid machines to Azure using a deployment script
+description: In this article, you learn how to install the agent and connect machines to Azure by using Azure Arc-enabled servers using the deployment script you create in the Azure portal.
+ms.date: 08/17/2021
 ms.topic: conceptual
 ---
 
-# Connect hybrid machines to Azure from the Azure portal
+# Connect hybrid machines to Azure using a deployment script
 
 You can enable Azure Arc-enabled servers for one or a small number of Windows or Linux machines in your environment by performing a set of steps manually. Or you can use an automated method by running a template script that we provide. This script automates the download and installation of both agents.
 
@@ -53,7 +53,7 @@ You can install the Connected Machine agent manually by running the Windows Inst
 >* To install or uninstall the agent, you must have *Administrator* permissions.
 >* You must first download and copy the Installer package to a folder on the target server, or from a shared network folder. If you run the Installer package without any options, it starts a setup wizard that you can follow to install the agent interactively.
 
-If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described in the steps below. This command sets the proxy server system environment variable `https_proxy`.
+If the machine needs to communicate through a proxy server to the service, after you install the agent you need to run a command that's described in the steps below. This command sets the proxy server system environment variable `https_proxy`. Using this configuration, the agent communicates through the proxy server using the HTTP protocol.
 
 If you are unfamiliar with the command-line options for Windows Installer packages, review [Msiexec standard command-line options](/windows/win32/msi/standard-installer-command-line-options) and [Msiexec command-line options](/windows/win32/msi/command-line-options).
 
@@ -112,7 +112,7 @@ The Connected Machine agent for Linux is provided in the preferred package forma
 
 * Installs the Hybrid Resource Provider package.
 
-Optionally, you can configure the agent with your proxy information by including the `--proxy "{proxy-url}:{proxy-port}"` parameter.
+Optionally, you can configure the agent with your proxy information by including the `--proxy "{proxy-url}:{proxy-port}"` parameter. Using this configuration, the agent communicates through the proxy server using the HTTP protocol.
 
 The script also contains logic to identify the supported and unsupported distributions, and it verifies the permissions that are required to perform the installation.
 
@@ -122,17 +122,17 @@ The following example downloads the agent and installs it:
 # Download the installation package.
 wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-# Install the connected machine agent.
+# Install the Azure Connected Machine agent.
 bash ~/Install_linux_azcmagent.sh
 ```
 
-1. To download and install the agent, including the `--proxy` parameter for configuring the agent to communicate through your proxy server, run the following commands:
+1. To download and install the agent, run the following commands. If your machine needs to communicate through a proxy server to connect to the internet, include the `--proxy` parameter. 
 
     ```bash
     # Download the installation package.
     wget https://aka.ms/azcmagent -O ~/Install_linux_azcmagent.sh
 
-    # Install the connected machine agent.
+    # Install the AZure Connected Machine agent.
     bash ~/Install_linux_azcmagent.sh --proxy "{proxy-url}:{proxy-port}"
     ```
 

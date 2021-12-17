@@ -9,7 +9,7 @@ ms.author: brjohnst
 ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 09/16/2021
 ms.custom: devx-track-csharp
 ---
 

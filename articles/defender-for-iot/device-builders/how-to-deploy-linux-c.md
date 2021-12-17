@@ -2,7 +2,7 @@
 title: Install & deploy Linux C agent
 description: Learn how to install and deploy the Defender for IoT C-based security agent on Linux
 ms.topic: conceptual
-ms.date: 05/26/2021
+ms.date: 11/09/2021
 ---
 
 # Deploy Defender for IoT C based security agent for Linux
@@ -56,24 +56,24 @@ This script performs the following function:
 
 For additional help, run the script with the –help parameter:
 
-```./InstallSecurityAgent.sh --help```
+`./InstallSecurityAgent.sh --help`
 
 ### Uninstall the agent
 
 To uninstall the agent, run the script with the –-uninstall parameter:
 
-```./InstallSecurityAgent.sh -–uninstall```
+`./InstallSecurityAgent.sh -–uninstall`
 
 ## Troubleshooting
 
 Check the deployment status by running:
 
-```systemctl status ASCIoTAgent.service```
+`systemctl status ASCIoTAgent.service`
 
 ## Next steps
 
 - Read the Defender for IoT service [Overview](overview.md)
 - Learn more about Defender for IoT [What is agent-based solution for device builders](architecture-agent-based.md)
 - Enable the [service](quickstart-onboard-iot-hub.md)
-- Read the [Azure Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
+- Read the [Microsoft Defender for IoT agent frequently asked questions](resources-agent-frequently-asked-questions.md)
 - Understand [security alerts](concept-security-alerts.md)

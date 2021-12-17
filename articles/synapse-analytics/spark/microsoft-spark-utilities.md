@@ -46,7 +46,7 @@ Follow these steps to make sure your Azure AD and workspace MSI have access to t
 
 You can access data on ADLS Gen2 with Synapse Spark via the following URL:
 
-<code>abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path></code>
+`abfss://<container_name>@<storage_account_name>.dfs.core.windows.net/<path>`
 
 ### Configure access to Azure Blob Storage  
 
@@ -64,7 +64,7 @@ Follow these steps to add a new linked service for an Azure Blob Storage account
 
 You can access data on Azure Blob Storage with Synapse Spark via following URL:
 
-<code>wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path></code>
+`wasb[s]://<container_name>@<storage_account_name>.blob.core.windows.net/<path>`
 
 Here is a code example:
 
@@ -449,9 +449,17 @@ FS.Rm("file path", true) // Set the last parameter as True to remove all files a
 
 ::: zone-end
 
-:::zone pivot = "programming-language-python"
+
 
 ## Notebook utilities 
+
+:::zone pivot = "programming-language-csharp"
+
+Not supported.
+
+::: zone-end
+
+:::zone pivot = "programming-language-python"
 
 You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
 Run the following command to get an overview of the available methods:
@@ -469,8 +477,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### Run a notebook
-Runs a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
+### Reference a notebook
+Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
 
 ```python
 
@@ -534,10 +542,7 @@ Sample1 run success with input is 20
 ```
 ::: zone-end
 
-
 :::zone pivot = "programming-language-scala"
-
-## Notebook utilities 
 
 You can use the MSSparkUtils Notebook Utilities to run a notebook or exit a notebook with a value. 
 Run the following command to get an overview of the available methods:
@@ -555,8 +560,8 @@ run(path: String, timeoutSeconds: int, arguments: Map): String -> This method ru
 
 ```
 
-### Run a notebook
-Runs a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
+### Reference a notebook
+Reference a notebook and returns its exit value. You can run nesting function calls in a notebook interactively or in a pipeline. The notebook being referenced will run on the Spark pool of which notebook calls this function.  
 
 ```scala
 
@@ -567,7 +572,7 @@ mssparkutils.notebook.run("notebook path", <timeoutSeconds>, <parameterMap>)
 For example:
 
 ```scala
-mssparkutils.notebook.run("folder/Sample1", 90, {"input": 20 })
+mssparkutils.notebook.run("folder/Sample1", 90, Map("input" -> 20))
 ```
 
 ### Exit a notebook
@@ -673,7 +678,7 @@ Returns Azure AD token for a given audience, name (optional). The table below li
 |--|--|
 |Audience Resolve Type|'Audience'|
 |Storage Audience Resource|'Storage'|
-|Data Warehouse Audience Resource|'DW'|
+|Dedicated SQL pools (Data warehouse)|'DW'|
 |Data Lake Audience Resource|'AzureManagement'|
 |Vault Audience Resource|'DataLakeStore'|
 |Azure OSSDB Audience Resource|'AzureOSSDB'|
@@ -1086,9 +1091,36 @@ Env.GetClusterId()
 
 ::: zone-end
 
+
+## Runtime Context
+
+Mssparkutils runtime utils exposed 3 runtime properties, you can use the mssparkutils runtime context to get the properties listed as below:
+- **Notebookname** - The name of current notebook, will always return value for both interactive mode and pipeline mode.
+- **Pipelinejobid** - The pipeline run ID, will return value in pipeline mode and return empty string in interactive mode.
+- **Activityrunid** - The notebook activity run ID, will return value in pipeline mode and return empty string in interactive mode.
+
+Currently runtime context support both Python and Scala.
+
+:::zone pivot = "programming-language-python"
+
+```python
+mssparkutils.runtime.context
+```
+::: zone-end
+
+:::zone pivot = "programming-language-scala"
+
+```scala
+%%spark
+mssparkutils.runtime.context
+```
+::: zone-end
+
 ## Next steps
 
 - [Check out Synapse sample notebooks](https://github.com/Azure-Samples/Synapse/tree/master/Notebooks)
 - [Quickstart: Create an Apache Spark pool in Azure Synapse Analytics using web tools](../quickstart-apache-spark-notebook.md)
 - [What is Apache Spark in Azure Synapse Analytics](apache-spark-overview.md)
 - [Azure Synapse Analytics](../index.yml)
+- [How to play with file mount/unmount API in Synapse](./synapse-file-mount-api.md)
+

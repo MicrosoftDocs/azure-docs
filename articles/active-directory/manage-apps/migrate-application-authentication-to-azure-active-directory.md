@@ -498,7 +498,7 @@ Depending on how you configure your app, verify that SSO works properly.
 | ------------------------ | --------------------------------------------------- |
 | **OAuth / OpenID Connect** | Select **Enterprise applications &gt; Permissions** and ensure you have consented to the application to be used in your organization in the user settings for your app. |
 | **SAML-based SSO** | Use the [Test SAML Settings](./debug-saml-sso-issues.md) button found under **Single Sign-On.** |
-| **Password-Based SSO** | Download and install the [MyApps Secure Sign-in Extension](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
+| **Password-Based SSO** | Download and install the [MyApps Secure Sign-in Extension](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension). This extension helps you start any of your organization's cloud apps that require you to use an SSO process. |
 
 | **[Application Proxy](../app-proxy/application-proxy.md)** | Ensure your connector is running and assigned to your application. Visit the [Application Proxy troubleshooting guide](../app-proxy/application-proxy-troubleshoot.md) for further assistance. |
 
@@ -548,7 +548,7 @@ Once you have migrated the apps, you can enrich your user’s experience in many
 
 **Make apps discoverable**
 
-**Point your user** to the [MyApps](../user-help/my-apps-portal-end-user-access.md#download-and-install-the-my-apps-secure-sign-in-extension)portal experience. Here, they can access all cloud-based apps, apps you make available by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), and apps using [Application Proxy](../app-proxy/application-proxy.md) provided they have permissions to access those apps.
+**Point your user** to the [MyApps](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510#download-and-install-the-my-apps-secure-sign-in-extension)portal experience. Here, they can access all cloud-based apps, apps you make available by using [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md), and apps using [Application Proxy](../app-proxy/application-proxy.md) provided they have permissions to access those apps.
 
 You can guide your users on how to discover their apps:
 
@@ -570,7 +570,7 @@ Users can download an **Intune-managed browser**:
 
 **Let users open their apps from a browser extension.**
 
-Users can [download the MyApps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) in [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) [FireFox,](https://addons.mozilla.org/firefox/addon/access-panel-extension/) or [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) and can launch apps right from their browser bar to:
+Users can [download the MyApps Secure Sign-in Extension](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) in [Chrome,](https://chrome.google.com/webstore/detail/my-apps-secure-sign-in-ex/ggjhpefgjjfobnfoldnjipclpcfbgbhl) or [Microsoft Edge](https://www.microsoft.com/p/my-apps-secure-sign-in-extension/9pc9sckkzk84?rtc=1&activetab=pivot%3Aoverviewtab) and can launch apps right from their browser bar to:
 
 - **Search for their apps and have their most-recently-used apps appear**
 
