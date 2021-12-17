@@ -11,7 +11,7 @@ This article describes how to create and delete a classroom lab. It also shows y
 
 ## Prerequisites
 
-To set up a classroom lab in a lab plan, you must be a member of the **Lab Creator** role in the lab plan. The account you used to create a lab plan is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
+To set up a classroom lab in a lab plan, you must be a member of the **Lab Creator** role in the lab plan. The account you used to create a lab plan is automatically added to this role. A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
 
 ## Create a classroom lab
 

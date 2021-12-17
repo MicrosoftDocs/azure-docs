@@ -241,5 +241,5 @@ If they haven't yet linked their GitHub account to a Microsoft account, they can
 See the following articles:
 
 - For administrators: [Create and manage lab plans](how-to-manage-lab-plans.md)
-- For lab owners: [Create and manage labs](how-to-manage-classroom-labs.md) and [Set up and publish templates](how-to-create-manage-template.md)
+- For lab owners: [Create and manage labs](how-to-manage-classroom-labs-2.md) and [Set up and publish templates](how-to-create-manage-template.md)
 - For lab users: [Access labs](how-to-use-classroom-lab.md)
