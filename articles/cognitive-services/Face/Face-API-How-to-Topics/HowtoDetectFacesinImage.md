@@ -11,6 +11,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 08/04/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

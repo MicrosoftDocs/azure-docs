@@ -6,8 +6,8 @@ ms.subservice: security
 ms.topic: conceptual
 author: GithubMirek
 ms.author: mireks
-ms.reviewer: vanto
-ms.date: 10/21/2021
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 12/15/2021
 ---
 
 # Azure Active Directory service principal with Azure SQL
@@ -46,7 +46,7 @@ Supporting this functionality is useful in Azure AD application automation proce
 
 To enable an Azure AD object creation in SQL Database on behalf of an Azure AD application, the following settings are required:
 
-1. Assign the server identity. The assigned server identity represents the Managed Service Identity (MSI). Currently, the server identity for Azure SQL does not support user-assigned managed identities (UMI).
+1. Assign the server identity. The assigned server identity represents the Managed Service Identity (MSI). The server identity can be system-assigned or user-assigned managed identity. For more information, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md).
     - For a new Azure SQL logical server, execute the following PowerShell command:
     
     ```powershell
@@ -73,13 +73,15 @@ To enable an Azure AD object creation in SQL Database on behalf of an Azure AD a
     - The Azure AD user who is granting this permission must be part of the Azure AD **Global Administrator** or **Privileged Roles Administrator** role.
 
 > [!IMPORTANT]
-> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission. Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application.
+> With [Microsoft Graph](/graph/overview) support for Azure SQL, the Directory Readers role can be replaced with using lower level permissions. For more information, see [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md)
+>
+> Steps 1 and 2 must be executed in the above order. First, create or assign the server identity, followed by granting the [**Directory Readers**](../../active-directory/roles/permissions-reference.md#directory-readers) permission, or lower level permissions discussed in [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md). Omitting one of these steps, or both will cause an execution error during an Azure AD object creation in Azure SQL on behalf of an Azure AD application.
 >
 > You can assign the **Directory Readers** role to a group in Azure AD. The group owners can then add the managed identity as a member of this group, which would bypass the need for a **Global Administrator** or **Privileged Roles Administrator** to grant the **Directory Readers** role. For more information on this feature, see [Directory Readers role in Azure Active Directory for Azure SQL](authentication-aad-directory-readers-role.md).
 
 ## Troubleshooting and limitations
 
-- When creating Azure AD objects in Azure SQL on behalf of an Azure AD application without enabling server identity and granting **Directory Readers** permission, the operation will fail with the following possible errors. The example error below is for a PowerShell command execution to create a SQL Database user `myapp` in the article [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
+- When creating Azure AD objects in Azure SQL on behalf of an Azure AD application without enabling server identity and granting **Directory Readers** permission, or lower level permissions discussed in [User-assigned managed identity in Azure AD for Azure SQL](authentication-azure-ad-user-assigned-managed-identity.md), the operation will fail with the following possible errors. The example error below is for a PowerShell command execution to create a SQL Database user `myapp` in the article [Tutorial: Create Azure AD users using Azure AD applications](authentication-aad-service-principal-tutorial.md).
     - `Exception calling "ExecuteNonQuery" with "0" argument(s): "'myapp' is not a valid login or you do not have permission. Cannot find the user 'myapp', because it does not exist, or you do not have permission."`
     - `Exception calling "ExecuteNonQuery" with "0" argument(s): "Principal 'myapp' could not be resolved. Error message:
     'Server identity is not configured. Please follow the steps in "Assign an Azure AD identity to your server and add

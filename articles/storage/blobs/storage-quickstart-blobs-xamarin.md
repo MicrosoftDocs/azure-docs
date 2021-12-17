@@ -7,7 +7,7 @@ ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-csharp, mode-other
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Azure Blob Storage client library v12 with Xamarin

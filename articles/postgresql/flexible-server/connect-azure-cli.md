@@ -4,7 +4,7 @@ description: This quickstart provides several ways to connect with Azure CLI wit
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc, devx-track-azurecli, mode-other
+ms.custom: mvc, devx-track-azurecli, mode-api
 ms.topic: quickstart
 ms.date: 11/30/2021
 ---
@@ -91,13 +91,6 @@ postgres> exit
 Goodbye!
 Local context is turned on. Its information is saved in working directory C:\sunitha. You can run `az local-context off` to turn it off.
 Your preference of  are now saved to local context. To learn more, type in `az local-context --help`
-```
-
-## Run Single Query
-You can execute a single query with the command using ```--querytext``` argument, ```-q```.
-
-```azurecli
-az postgres flexible-server execute -n <server-name> -u <username> -p "<password>" -d <database-name> -q "<query-text>"
 ```
 
 **Example:** 

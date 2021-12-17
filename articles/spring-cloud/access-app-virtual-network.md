@@ -202,7 +202,7 @@ az spring-cloud app update \
 
 ## Access application private FQDN
 
-After the assignment, you can access the private FQDN of your application in the private network. For example, you can create a jumpbox machine in the same virtual network, or a peered virtual network. Then on that jumpbox or virtual machine the private FQDN is accessible.
+After the assignment, you can access the application's private FQDN in the private network. For example, you can create a jumpbox machine in the same virtual network, or a peered virtual network. Then, on that jumpbox or virtual machine, the private FQDN is accessible.
 
 ![Access private endpoint in vnet](media/spring-cloud-access-app-vnet/access-private-endpoint.png)
 

@@ -67,6 +67,9 @@ At the end of each execution of the automatic sync process, your transactional d
 > [!NOTE]
 > Your transactional data will be synchronized to analytical store even if your transactional TTL is smaller than 2 minutes. 
 
+> [!NOTE]
+> Please note that if you delete your container, analytical store is also deleted.
+
 ## Scalability & elasticity
 
 By using horizontal partitioning, Azure Cosmos DB transactional store can elastically scale the storage and throughput without any downtime. Horizontal partitioning in the transactional store provides scalability & elasticity in auto-sync to ensure data is synced to the analytical store in near real time. The data sync happens regardless of the transactional traffic throughput, whether it is 1000 operations/sec or 1 million operations/sec, and  it doesn't impact the provisioned throughput in the transactional store. 
@@ -155,23 +158,45 @@ The following constraints are applicable on the operational data in Azure Cosmos
   * \t
   * = (Equal sign)
   * " (Quotation mark)
+
+> [!NOTE]
+> White spaces are also listed in the Spark error message returned when you reach this limitation. But we have added a special treatment for white spaces, please check out more details in the items below.
  
 * If you have properties names using the characters listed above, the alternatives are:
    * Change your data model in advance to avoid these characters.
    * Since we currently we don't support schema reset, you can change your application to add a redundant property with a similar name, avoiding these characters.
    * Use Change Feed to create a materialized view of your container without these characters in properties names.
-   * Use the brand new `dropColumn` Spark option to ignore the affected columns when loading data into a DataFrame. The syntax for dropping a hypothetical column named "FirstName,LastNAme", that contains a comma, is:
+   * Use the `dropColumn` Spark option to ignore the affected columns and load all other columns into a DataFrame. The syntax is:
 
 ```Python
+# Removing one column:
 df = spark.read\
      .format("cosmos.olap")\
      .option("spark.synapse.linkedService","<your-linked-service-name>")\
      .option("spark.synapse.container","<your-container-name>")\
      .option("spark.synapse.dropColumn","FirstName,LastName")\
      .load()
+     
+# Removing multiple columns:
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.synapse.dropColumn","FirstName,LastName;StreetName,StreetNumber")\
+     .option("spark.cosmos.dropMultiColumnSeparator", ";")\
+     .load()  
 ```
 
-* Azure Synapse Spark now supports properties with whitespaces in their names.
+* Azure Synapse Spark now supports properties with white spaces in their names. For that, you need to use the `allowWhiteSpaceInFieldNames` Spark option to load the affected columns into a DataFrame, keeping the original name. The syntax is:
+
+```Python
+df = spark.read\
+     .format("cosmos.olap")\
+     .option("spark.synapse.linkedService","<your-linked-service-name>")\
+     .option("spark.synapse.container","<your-container-name>")\
+     .option("spark.cosmos.allowWhiteSpaceInFieldNames", "true")\
+    .load()
+```
 
 * The following BSON datatypes are not supported and won't be represented in analytical store:
   * Decimal128
@@ -187,6 +212,7 @@ df = spark.read\
 
 * SQL serverless pools in Azure Synapse support result sets with up to 1000 columns, and exposing nested columns also counts towards that limit. Please consider this information when designing your data architecture and modeling your transactional data.
 
+* If you rename a property, in one or many documents, it will be considered a new column. If you execute the same rename in all documents in the collection, all data will be migrated to the new column and the old column will be represented with `NULL` values.
 
 ### Schema representation
 
@@ -397,6 +423,7 @@ Some points to consider:
 *	While transactional TTL can be set at the container or item level, analytical TTL can only be set at the container level currently.
 *	You can achieve longer retention of your operational data in the analytical store by setting analytical TTL >= transactional TTL at the container level.
 *	The analytical store can be made to mirror the transactional store by setting analytical TTL = transactional TTL.
+*	If you have analytical TTL bigger than transactional TTL, at some point in time you will have data that only exists in analytical store. This data is read only.
 
 How to enable analytical store on a container:
 

@@ -187,9 +187,9 @@ items:
     - name: SDKs
       items:
       - name: .NET
-        href: /dotnet/api/azure.ai.textanalytics?view=azure-dotnet-preview&preserve-view=true
+        href: /dotnet/api/azure.ai.language.conversations?view=azure-dotnet-preview&preserve-view=true
       - name: Python
-        href: /python/api/azure-ai-textanalytics/azure.ai.textanalytics?view=azure-python-preview&preserve-view=true
+        href: /python/api/azure-ai-language-conversations/azure.ai.language.conversations?view=azure-python-preview&preserve-view=true
 - name: Entity linking
   items:
   - name: Overview
@@ -573,12 +573,16 @@ items:
     items: 
     - name: REST API
       items:
-      - name: Answers API 
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
-      - name: Prebuilt API
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
-      - name: Authoring API
-        href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+      - name: Prebuilt
+        items:
+        - name: Runtime API
+          href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers-from-text
+      - name: Custom
+        items:
+          - name: Authoring API
+            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering-projects
+          - name: Runtime API 
+            href: https://docs.microsoft.com/rest/api/cognitiveservices/questionanswering/question-answering/get-answers
 - name: Sentiment analysis and Opinion mining
   items:
   - name: Overview
@@ -765,6 +769,12 @@ items:
   items:
   - name: Multilingual and emoji support
     href: concepts/multilingual-emoji-support.md
+  - name: Migrate from LUIS, QnA Maker, and Text Analytics
+    href: concepts/migrate.md
+  - name: Model lifecycle
+    href: concepts/model-lifecycle.md
+  - name: Send requests asynchronously
+    href: concepts/use-asynchronously.md 
 - name: Tutorials
   items:
   - name: Use Cognitive Services in canvas apps
@@ -781,5 +791,5 @@ items:
   items:
     - name: Support and help options
       href: ../cognitive-services-support-options.md?context=/azure/cognitive-services/language-service/context/context
-    - name: Migrate from Text Analytics v2
-      href: concepts/migrate-from-text-analytics-v2.md
+    - name: Migrate to the latest version
+      href: concepts/migrate-language-service-latest.md

@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Virtual Desktop Windows 10 or 7 - Azure
+title: Connect to Azure Virtual Desktop with the Windows Desktop client - Azure
 description: How to connect to Azure Virtual Desktop using the Windows Desktop client.
 author: Heidilohr
 ms.topic: how-to
