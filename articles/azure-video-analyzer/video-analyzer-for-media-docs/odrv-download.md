@@ -368,7 +368,7 @@ namespace VideoIndexerArm
         private const string SubscriptionId = ""; // Your Azure subscription
         private const string ResourceGroup = ""; // Your resource group
         private const string AccountName = ""; // Your account name
-        private const string VideoUrl = ""; // The video URL you want to index
+        private const string VideoUrl = ""; // The video URL from Onedrive you want to index
 
         public static async Task Main(string[] args)
         {
