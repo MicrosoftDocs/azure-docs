@@ -1,4 +1,18 @@
-# Form Recognizer with Logic Apps Tutorial
+---
+title: Form Recognizer with Logic Apps
+titleSuffix: Azure Applied AI Services
+description: A tutorial outlining how to use Form Recognizer with Logic Apps.
+author: laujan
+manager: nitinme
+ms.service: applied-ai-services
+ms.subservice: forms-recognizer
+ms.topic: tutorial
+ms.date: 12/17/2021
+ms.author: bemabonsu
+recommendations: false
+#Customer intent: As a developer of form-processing software, I want to learn how to use the Form Recognizer service with Logic Apps.
+---
+# Tutorial: Form Recognizer with Logic Apps 
 
 ## Introduction to Logic Apps
 
