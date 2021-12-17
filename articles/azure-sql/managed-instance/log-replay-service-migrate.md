@@ -156,7 +156,7 @@ Azure Blob Storage is used as intermediary storage for backup files between SQL 
 1. [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal).
 2. [Crete a blob container](../../storage/blobs/storage-quickstart-blobs-portal.md) inside the storage account.
 
-### Copy database backups from SQL Server to Blob Storage
+### Copy backups from SQL Server to Blob Storage
 
 In migrating databases to a managed instance by using LRS, you can use the following approaches to upload backups to Blob Storage:
 - Using SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality
@@ -167,7 +167,7 @@ In migrating databases to a managed instance by using LRS, you can use the follo
 > To migrate multiple databases using the same Azure Blob Storage container, place all backup files of an individual database into a separate folder inside the container. Use flat-file structure for each database folder, as nested folders are not supported.
 > 
 
-### Make database backups from SQL Server directly to Blob Storage
+### Make backups from SQL Server directly to Blob Storage
 If your corporate and network policies allow it, an alternative is to make backups from SQL Server directly to Blob Storage by using the SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) option. If you can pursue this option, you don't need to make backups on the local storage and upload them to Blob Storage.
 
 As the first step, this operation requires you to generate an SAS authentication token for Blob Storage and then import the token to SQL Server. The second step is to make backups with the `TO URL` option in T-SQL. Ensure that all backups are made with the `CHEKSUM` option enabled.
@@ -201,15 +201,15 @@ Below is an example of folder structure inside Azure Blob Storage container requ
 ```URI
 -- Place all backup files for database 1 in a separate "database1" folder in a flat-file structure.
 -- Do not use nested folders inside database1 folder.
-https://<mystorageaccountname>.blob.core.windows.net/<containername>/database1/<all database 1 backup files>
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/database1/<all-database1-backup-files>
 
 -- Place all backup files for database 2 in a separate "database2" folder in a flat-file structure.
 -- Do not use nested folders inside database2 folder.
-https://<mystorageaccountname>.blob.core.windows.net/<containername>/database2/<all database 2 backup files>
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/database2/<all-database2-backup-files>
 
 -- Place all backup files for database 3 in a separate "database3" folder in a flat-file structure. 
 -- Do not use nested folders inside database3 folder.
-https://<mystorageaccountname>.blob.core.windows.net/<containername>/database3/<all database 3 backup files>
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/database3/<all-database3-backup-files>
 ```
 
 ### Generate a Blob Storage SAS authentication token for LRS
@@ -411,10 +411,10 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 ## Functional limitations
 
 Functional limitations of LRS are:
-- Databases migrated cannot be used for read-only access on Managed Instance during the migration process.
-- System-managed software patches are blocked for 36 hours once the LRS has been started. When this time window expires, the next software update will stop LRS. You will need to restart LRS from scratch.
+- During the migration process databases being migrated cannot be used for read-only access on Managed Instance.
+- System-managed software patches are blocked for 36 hours once the LRS has been started. After this time window expires, the next software maintenance update will stop LRS. You will need to restart LRS from scratch.
 - LRS requires databases on SQL Server to be backed up with the `CHECKSUM` option enabled.
-- The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only Read and List permissions. For example, if you grant Read, List and Write permissions, LRS will not be able to start because of the extra Write permission.
+- The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have Read and List permissions only. For example, if you grant Read, List and Write permissions, LRS will not be able to start because of the extra Write permission.
 - Backup files containing % and $ characters in the file name cannot be consumed by LRS. Consider renaming such file names.
 - Backup files for different databases must be placed in separate folders on Blob Storage in a flat-file structure. Nested folders inside individual database folders are not supported.
 - LRS must be started separately for each database pointing to the full URI path containing an individual database folder. 
@@ -426,7 +426,7 @@ After you start LRS, use the monitoring cmdlet (`get-azsqlinstancedatabaselogrep
 
 - Does an existing database on SQL Managed Instance have the same name as the one you're trying to migrate from SQL Server? Resolve this conflict by renaming one of databases.
 - Was the database backup on SQL Server made via the `CHECKSUM` option?
-- Are the permissions on the SAS token only read and list for LRS?
+- Are the permissions granted for the SAS token Read and List only?
 - Did you copy the SAS token for LRS after the question mark (`?`), with content starting like this: `sv=2020-02-10...`? 
 - Is the SAS token validity time applicable for the time window of starting and completing the migration? There might be mismatches due to the different time zones used for SQL Managed Instance and the SAS token. Try regenerating the SAS token and extending the token validity of the time window before and after the current date.
 - Are the database name, resource group name, and managed instance name spelled correctly?
