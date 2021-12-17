@@ -3,7 +3,7 @@ title: 'Tutorial: Node.js app with MongoDB'
 description: Learn how to get a Node.js app working in Azure, with connection to a MongoDB database in Azure (Cosmos DB). Sails.js and Angular 12 are used in the tutorial.
 
 ms.assetid: 0b4d7d0e-e984-49a1-a57a-3c0caa955f0e
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 07/13/2021
 ms.custom: mvc, cli-validate, seodec18, devx-track-js, devx-track-azurecli
@@ -97,7 +97,7 @@ To stop Node.js at any time, press `Ctrl+C` in the terminal.
 
 In this step, you create a MongoDB database in Azure. When your app is deployed to Azure, it uses this cloud database.
 
-For MongoDB, this tutorial uses [Azure Cosmos DB](/azure/cosmos-db/). Cosmos DB supports MongoDB client connections.
+For MongoDB, this tutorial uses [Azure Cosmos DB](../cosmos-db/index.yml). Cosmos DB supports MongoDB client connections.
 
 ### Create a resource group
 
@@ -575,5 +575,5 @@ Advance to the next tutorial to learn how to map a custom DNS name to the app.
 
 Or, check out other resources:
 
-> [!div class="nextstepaction"]
-> [Configure Node.js app](configure-language-nodejs.md)
+- [Configure Node.js app](configure-language-nodejs.md)
+- [Environment variables and app settings reference](reference-app-settings.md)

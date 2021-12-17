@@ -73,7 +73,7 @@ Most of the **Environment Variables** for the IoT Edge Module are already set in
 "EULA": { 
     "value": "accept"
 },
-"ENDPOINT":{ 
+"BILLING":{ 
     "value": "<Use a key from your Computer Vision resource>"
 },
 "APIKEY":{

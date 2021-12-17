@@ -10,7 +10,7 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/26/2019
 ms.author: shoatman
-ms.custom: aaddev
+ms.custom: aaddev, has-adal-ref
 ms.reviewer: shoatman
 ---
 

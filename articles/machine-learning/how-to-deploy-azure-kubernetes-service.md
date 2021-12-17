@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: 'Learn how to deploy your Azure Machine Learning models as a web service using Azure Kubernetes Service.'
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: how-to
 ms.custom: contperf-fy21q1, deploy
 ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
-ms.date: 07/28/2021
+ms.date: 10/21/2021
 ---
 
 # Deploy a model to an Azure Kubernetes Service cluster
@@ -89,6 +89,8 @@ Azureml-fe scales both up (vertically) to use more cores, and out (horizontally)
 
 When scaling down and in, CPU usage is used. If the CPU usage threshold is met, the front end will first be scaled down. If the CPU usage drops to the scale-in threshold, a scale-in operation happens. Scaling up and out will only occur if there are enough cluster resources available.
 
+<a id="connectivity"></a>
+
 ## Understand connectivity requirements for AKS inferencing cluster
 
 When Azure Machine Learning creates or attaches an AKS cluster, AKS cluster is deployed with one of the following two network models:
@@ -100,6 +102,8 @@ For Kubenet networking, the network is created and configured properly for Azure
 The following diagram shows the connectivity requirements for AKS inferencing. Black arrows represent actual communication, and blue arrows represent the domain names. You may need to add entries for these hosts to your firewall or to your custom DNS server.
 
  ![Connectivity Requirements for AKS Inferencing](./media/how-to-deploy-aks/aks-network.png)
+
+For general AKS connectivity requirements, see [Control egress traffic for cluster nodes in Azure Kubernetes Service](../aks/limit-egress-traffic.md).
 
 ### Overall DNS resolution requirements
 
@@ -157,6 +161,7 @@ To deploy a model to Azure Kubernetes Service, create a __deployment configurati
 ```python
 from azureml.core.webservice import AksWebservice, Webservice
 from azureml.core.model import Model
+from azureml.core.compute import AksCompute
 
 aks_target = AksCompute(ws,"myaks")
 # If deploying to a cluster configured for dev/test, ensure that it was created with enough
@@ -295,7 +300,7 @@ Add another version to your endpoint and configure the scoring traffic percentil
 > [!TIP]
 > The second version, created by the following code snippet, accepts 10% of traffic. The first version is configured for 20%, so only 30% of the traffic is configured for specific versions. The remaining 70% is sent to the first endpoint version, because it is also the default version.
 
- ```python
+```python
 from azureml.core.webservice import AksEndpoint
 
 # add another model deployment to the same endpoint as above
@@ -314,7 +319,7 @@ Update existing versions or delete them in an endpoint. You can change the versi
 > [!TIP]
 > After the following code snippet, the second version is now default. It is now configured for 40%, while the original version is still configured for 20%. This means that 40% of traffic is not accounted for by version configurations. The leftover traffic will be routed to the second version, because it is now default. It effectively receives 80% of the traffic.
 
- ```python
+```python
 from azureml.core.webservice import AksEndpoint
 
 # update the version's scoring traffic percentage and if it is a default or control type
@@ -379,7 +384,7 @@ print(token)
 
 ### Vulnerability scanning
 
-Azure Security Center provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Azure Security Center to scan your resources and follow its recommendations. For more, see [Azure Kubernetes Services integration with Security Center](../security-center/defender-for-kubernetes-introduction.md).
+Microsoft Defender for Cloud provides unified security management and advanced threat protection across hybrid cloud workloads. You should allow Microsoft Defender for Cloud to scan your resources and follow its recommendations. For more, see [Azure Kubernetes Services integration with Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md).
 
 ## Next steps
 

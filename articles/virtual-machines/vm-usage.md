@@ -13,10 +13,13 @@ ms.date: 07/28/2020
 ---
 
 # Understanding Azure virtual machine usage
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 By analyzing your Azure usage data, powerful consumption insights can be gained – insights that can enable better cost management and allocation throughout your organization. This document provides a deep dive into your Azure Compute consumption details. For more details on general Azure usage, navigate to [Understanding your bill](../cost-management-billing/understand/review-individual-bill.md).
 
 ## Download your usage details
-To begin, [download your usage details](../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md#download-usage-in-azure-portal). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
+To begin, [download your usage details](../cost-management-billing/understand/download-azure-daily-usage.md). The table below provides the definition and example values of usage for Virtual Machines deployed via the Azure Resource Manager. This document does not contain detailed information for VMs deployed via our classic model.
 
 
 | Field | Meaning | Example Values | 

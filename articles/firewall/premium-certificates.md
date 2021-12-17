@@ -5,15 +5,13 @@ author: vhorne
 ms.service: firewall
 services: firewall
 ms.topic: conceptual
-ms.date: 07/15/2021
+ms.date: 08/02/2021
 ms.author: victorh
 ---
 
 # Azure Firewall Premium certificates 
 
-
-
- To properly configure Azure Firewall Premium TLS inspection, you must provide a valid intermediate CA certificate and deposit it in Azure Key vault.
+To properly configure Azure Firewall Premium TLS inspection, you must provide a valid intermediate CA certificate and deposit it in Azure Key vault.
 
 ## Certificates used by Azure Firewall Premium
 
@@ -195,6 +193,18 @@ Write-Host "   - interCA.pfx - Intermediate CA pkcs12 package which could be upl
 Write-Host "================"
 
 ```
+
+## Certificate auto-generation (preview)
+
+For non-production deployments, you can use the Azure Firewall Premium Certification Auto-Generation mechanism, which automatically creates  the following three resources for you:
+
+- Managed Identity
+- Key Vault
+- Self-signed Root CA certificate
+
+Just choose the new preview managed identity, and it ties the three resources together in your Premium policy and sets up TLS inspection. 
+
+:::image type="content" source="media/premium-certificates/auto-gen-certs.png" alt-text="Auto-generated certificates":::
 
 ## Troubleshooting
 

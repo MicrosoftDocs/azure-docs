@@ -1,28 +1,41 @@
 ---
-title: Remove VMs from Azure Automation Update Management
-description: This article tells how to remove machines managed with Update Management.
+title: Remove machines from Azure Automation Update Management
+description: This article tells how to remove Azure and non-Azure machines managed with Update Management.
 services: automation
 ms.topic: conceptual
-ms.date: 06/03/2021
+ms.date: 10/26/2021
 ms.custom: mvc
 ---
 # Remove VMs from Update Management
 
-When you're finished managing updates on your VMs in your environment, you can stop managing VMs with the [Update Management](overview.md) feature. To stop managing them, you will edit the saved search query `MicrosoftDefaultComputerGroup` in your Log Analytics workspace that is linked to your Automation account.
+When you're finished managing updates on your Azure or non-Azure machines in your environment, you can stop managing them with the [Update Management](overview.md) feature. To stop managing them, you will edit the saved search query `MicrosoftDefaultComputerGroup` in your Log Analytics workspace that is linked to your Automation account.
 
 ## Sign into the Azure portal
 
 Sign in to the [Azure portal](https://portal.azure.com).
 
-## To remove your VMs
+## To remove your machines
 
 1. In the Azure portal, launch **Cloud Shell** from the top navigation of the Azure portal. If you are unfamiliar with Azure Cloud Shell, see [Overview of Azure Cloud Shell](../../cloud-shell/overview.md).
 
-2. Use the following command to identify the UUID of a machine that you want to remove from management.
+2. Use the following method to identify the UUID of an Azure virtual machine or non-Azure machine that you want to remove from management.
 
-    ```azurecli
-    az vm show -g MyResourceGroup -n MyVm -d
-    ```
+   # [Azure VM](#tab/azure-vm)
+
+   ```azurecli
+   az vm show -g MyResourceGroup -n MyVm -d
+   ```
+
+   # [Non-Azure machine](#tab/non-azure-machine)
+
+   ```kusto
+   Heartbeat
+   | where TimeGenerated > ago(30d)
+   | where ComputerEnvironment == "Non-Azure"
+   | summarize by Computer, VMUUID
+   ```
+
+   ---
 
 3. In the Azure portal, navigate to **Log Analytics workspaces**. Select your workspace from the list.
 
@@ -32,7 +45,7 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 6. From the table, click the icon **Run query** to the right of the item **MicrosoftDefaultComputerGroup** with the **Legacy category** value **Updates**.
 
-7. In the query editor, review the query and find the UUID for the VM. Remove the UUID for the VM and repeat the steps for any other VMs you want to remove.
+7. In the query editor, review the query and find the UUID for the machine. Remove the UUID for the machine and repeat the steps for any other machines you want to remove.
 
    > [!NOTE]
    > For added protection, before making edits be sure to make a copy of the query. Then you can restore it if a problem occurs.
@@ -56,4 +69,4 @@ Sign in to the [Azure portal](https://portal.azure.com).
 
 ## Next steps
 
-To re-enable managing your virtual machine, see [Enable Update Management by browsing the Azure portal](enable-from-portal.md) or [Enable Update Management from an Azure VM](enable-from-vm.md).
+To re-enable managing your Azure or non-Azure machine, see [Enable Update Management by browsing the Azure portal](enable-from-portal.md) or [Enable Update Management from an Azure VM](enable-from-vm.md).

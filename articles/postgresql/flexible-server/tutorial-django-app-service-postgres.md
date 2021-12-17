@@ -1,19 +1,16 @@
 ---
-title: 'Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server (Preview) in virtual network'
-description:  Deploy Django app with App Serice and Azure Database for PostgreSQL - Flexible Server (Preview)  in virtual network
+title: Tutorial on how to Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server in virtual network
+description:  Deploy Django app with App Serice and Azure Database for PostgreSQL - Flexible Server  in virtual network
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
 ms.devlang: azurecli
 ms.topic: tutorial
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ms.custom: mvc, devx-track-azurecli
 ---
 
-# Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server (Preview)
-
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+# Tutorial: Deploy Django app with App Service and Azure Database for PostgreSQL - Flexible Server 
 
 In this tutorial you will learn how to deploy a Django application in Azure using App Services and Azure Database for PostgreSQL - Flexible Server in a virtual network.
 

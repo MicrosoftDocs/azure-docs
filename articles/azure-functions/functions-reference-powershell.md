@@ -571,7 +571,7 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-When running locally, app settings are read from the [local.settings.json](functions-run-local.md#local-settings-file) project file.
+When running locally, app settings are read from the [local.settings.json](functions-develop-local.md#local-settings-file) project file.
 
 ## Concurrency
 

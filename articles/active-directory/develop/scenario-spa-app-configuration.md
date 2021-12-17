@@ -33,6 +33,8 @@ In an MSAL library, the application registration information is passed as config
 # [JavaScript (MSAL.js v2)](#tab/javascript2)
 
 ```javascript
+import * as Msal from "@azure/msal-browser"; // if using CDN, 'Msal' will be available in global scope
+
 // Configuration object constructed.
 const config = {
     auth: {
@@ -41,7 +43,7 @@ const config = {
 };
 
 // create PublicClientApplication instance
-const publicClientApplication = new PublicClientApplication(config);
+const publicClientApplication = new Msal.PublicClientApplication(config);
 ```
 
 For more information on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).
@@ -49,6 +51,8 @@ For more information on the configurable options, see [Initializing application 
 # [JavaScript (MSAL.js v1)](#tab/javascript1)
 
 ```javascript
+import * as Msal from "msal"; // if using CDN, 'Msal' will be available in global scope
+
 // Configuration object constructed.
 const config = {
     auth: {
@@ -57,7 +61,7 @@ const config = {
 };
 
 // create UserAgentApplication instance
-const userAgentApplication = new UserAgentApplication(config);
+const userAgentApplication = new Msal.UserAgentApplication(config);
 ```
 
 For more information on the configurable options, see [Initializing application with MSAL.js](msal-js-initializing-client-applications.md).

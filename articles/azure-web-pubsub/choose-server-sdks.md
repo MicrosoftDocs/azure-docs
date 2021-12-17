@@ -5,25 +5,25 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: reference 
-ms.date: 03/11/2021
+ms.date: 11/08/2021
 ---
 
 # Choose the server SDKs
 
-The Azure Web PubSub service provides server SDK with 4 languages: C#, Java, JavaScript and Python. 
+The Azure Web PubSub service provides server SDK with four languages: C#, Java, JavaScript, and Python. 
 
 ## Server SDK - C#
 
-[C# Server SDK instruction](https://azure.github.io/azure-webpubsub/references/server-sdks/csharp-server-sdks)
+[C# Server SDK instruction](reference-server-sdk-csharp.md)
 
 ## Server SDK - Java
 
-[Java Server SDK instruction](https://azure.github.io/azure-webpubsub/references/server-sdks/java-server-sdks)
+[Java Server SDK instruction](reference-server-sdk-java.md)
 
 ## Server SDK - JavaScript
 
-[JavaScript Server SDK instruction](https://azure.github.io/azure-webpubsub/references/server-sdks/js-server-sdks)
+[JavaScript Server SDK instruction](reference-server-sdk-js.md)
 
 ## Server SDK - Python
 
-[Python Server SDK instruction](https://azure.github.io/azure-webpubsub/references/server-sdks/python-server-sdks)
+[Python Server SDK instruction](reference-server-sdk-python.md)

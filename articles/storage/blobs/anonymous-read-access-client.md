@@ -42,7 +42,7 @@ public static void CreateAnonymousBlobClient()
     // Get a reference to a container that's available for anonymous access.
     CloudBlobContainer container = blobClient.GetContainerReference("sample-container");
 
-    // Read the container's properties. 
+    // Read the container's properties.
     // Note this is only possible when the container supports full public read access.
     container.FetchAttributes();
     Console.WriteLine(container.Properties.LastModified);

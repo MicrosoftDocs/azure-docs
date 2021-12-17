@@ -292,7 +292,7 @@ This load-balancing algorithm uses all the available multipaths to the active co
     Login to [iface: eth1, target: iqn.1991-05.com.microsoft:storsimple8100-shx0991003g00dv-target, portal: 10.126.162.26,3260] successful.
     ```
 
-    If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/Red_Hat_Enterprise_Linux/5/html/Online_Storage_Reconfiguration_Guide/iscsioffloadmain.html).
+    If you see only one host interface and two paths here, then you need to enable both the interfaces on host for iSCSI. You can follow the [detailed instructions in Linux documentation](https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/5/html/online_storage_reconfiguration_guide/ifacesetup-iscsioffload).
 
 1. A volume is exposed to the CentOS server from the StorSimple device. For more information, see [Step 6: Create a volume](storsimple-8000-deployment-walkthrough-u2.md#step-6-create-a-volume) via the Azure portal on your StorSimple device.
 

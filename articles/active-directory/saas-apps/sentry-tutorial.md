@@ -87,8 +87,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	> [!NOTE]
 	> These values are not real. Update these values with the actual values Identifier, Reply URL, and Sign-on URL. For more information about finding these values, see the [Sentry documentation](https://docs.sentry.io/product/accounts/sso/azure-sso/#installation). You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
-1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy the **App 
-Metadata Url** value, and then save it on your computer.
+1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section, click the copy icon to copy the **App Metadata URL** value, and then save it on your computer.
 
    ![The Certificate download link](common/copy-metadataurl.png)
 	
@@ -140,8 +139,8 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 #### Either mode:
 
-You can use the My Apps portal to test the application in any mode. When you click the Sentry tile in the My Apps portal, if configured in SP mode, you are redirected to the application sign-on page to initiate the sign-in flow. If configured in IDP mode, you should be automatically signed in to the Sentry application for which you set up the SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](../user-help/my-apps-portal-end-user-access.md).
+You can use the My Apps portal to test the application in any mode. When you click the Sentry tile in the My Apps portal, if configured in SP mode, you are redirected to the application sign-on page to initiate the sign-in flow. If configured in IDP mode, you should be automatically signed in to the Sentry application for which you set up the SSO. For more information about the My Apps portal, see [Sign in and start apps from the My Apps portal](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Sentry you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Sentry you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

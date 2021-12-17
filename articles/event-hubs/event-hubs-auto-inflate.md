@@ -23,6 +23,9 @@ Event Hubs traffic is controlled by TUs (standard tier). For the limits such as 
 - Automatically scale to the specified upper limit without throttling issues.
 - More control over scaling, because you control when and how much to scale.
 
+> [!NOTE]
+> Auto-inflate does not *automatically* scale down the number of TUs when ingress or egress rates drop below the limits. 
+
  ## Enable Auto-inflate on a namespace
 You can enable or disable Auto-inflate on a standard tier Event Hubs namespace by using either [Azure portal](https://portal.azure.com) or an [Azure Resource Manager template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.eventhub/eventhubs-create-namespace-and-enable-inflate).
 
@@ -50,7 +53,7 @@ To enable the Auto-inflate feature and modify its settings for an existing, foll
 4. (optional) Update the **minimum** number of throughput units at the top of this page.
 
 > [!NOTE]
-> When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. To enable diagnostic logging for an event hub, select **Diagnostic settings** on the left menu on the Event Hub page in the Azure portal. For more information, see [Set up diagnostic logs for an Azure event hub](event-hubs-diagnostic-logs.md).
+> When you apply the auto-inflate configuration to increase throughput units, the Event Hubs service emits diagnostic logs that give you information about why and when the throughput increased. To enable diagnostic logging for an event hub, select **Diagnostic settings** on the left menu on the Event Hub page in the Azure portal. For more information, see [Set up diagnostic logs for an Azure event hub](monitor-event-hubs-reference.md#resource-logs).
 
 
 ## Use an Azure Resource Manager template

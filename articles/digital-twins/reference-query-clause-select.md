@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - SELECT clauses
+title: Azure Digital Twins query language reference - SELECT clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language SELECT clause
 author: baanders

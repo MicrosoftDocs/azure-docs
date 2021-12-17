@@ -3,7 +3,7 @@ title: Tutorial - Custom Java module tutorial using Azure IoT Edge
 description: This tutorial shows you how to create an IoT Edge module with Java code and deploy it to an edge device.
 services: iot-edge
 author: kgremban
-manager: philmea
+
 
 ms.author: kgremban
 ms.date: 07/30/2020

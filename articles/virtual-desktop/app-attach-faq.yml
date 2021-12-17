@@ -106,7 +106,7 @@ sections:
           - Antivirus programs
 
       - question: |
-          How many MISX applications can I add to each session host?
+          How many MSIX applications can I add to each session host?
         answer: |
           Each session host has different limits based on their CPU, memory, and OS. Going over these limits can affect application performance and overall user experience. However, MSIX app attach itself has no limit on how many applications it can use.
 
@@ -121,6 +121,11 @@ sections:
 
           In other words, the host pool's limits would be the same as if you're installing and running the apps locally.          
 
+      - question: |
+          Should I timestamp my MSIX packages?
+        answer: |
+          Check the [MSIX packaging overview](/windows/msix/package/signing-package-overview#timestamping) to see Microsoft's recommendations for using timestamps.
+      
 additionalContent: |
 
   ## Next steps

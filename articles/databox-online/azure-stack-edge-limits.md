@@ -1,6 +1,6 @@
 ---
-title: Azure Stack Edge Pro FPGA limits | Microsoft Docs
-description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro FPGA, including service limits, device limits, and storage limits.
+title: Azure Stack Edge Pro GPU/Pro FPGA limits | Microsoft Docs
+description: Learn about limits and recommended sizes as you deploy and operate Azure Stack Edge Pro GPU/ Pro FPGA, including service limits, device limits, and storage limits.
 services: databox
 author: alkohli
 
@@ -11,9 +11,9 @@ ms.date: 10/12/2020
 ms.author: alkohli
 ---
 
-# Azure Stack Edge Pro FPGA limits
+# Azure Stack Edge limits
 
-Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro FPGA solution. 
+Consider these limits as you deploy and operate your Microsoft Azure Stack Edge Pro GPU or Azure Stack Edge Pro FPGA solution. 
 
 ## Azure Stack Edge service limits
 
@@ -21,16 +21,14 @@ Consider these limits as you deploy and operate your Microsoft Azure Stack Edge 
 
 ## Azure Stack Edge device limits
 
-The following table describes the limits for the Azure Stack Edge Pro FPGA device. 
-
 The following table describes the limits for the Azure Stack Edge device.
 
 | Description | Value |
 |---|---|
 |No. of files per device |100 million |
 |No. of shares per container |1 |
-|Maximum no. of share endpoints and REST endpoints per device| 24 |
-|Maximum no. of tiered storage accounts per device| 24|
+|Maximum no. of share endpoints and REST endpoints per device (GPU devices only)| 24 |
+|Maximum no. of tiered storage accounts per device (GPU devices only)| 24|
 |Maximum file size written to a share| 5 TB |
 |Maximum number of resource groups per device| 800 |
 
@@ -53,4 +51,5 @@ The following table describes the limits for the Azure Stack Edge device.
 
 ## Next steps
 
+- [Prepare to deploy Azure Stack Edge Pro GPU](azure-stack-edge-gpu-deploy-prep.md)
 - [Prepare to deploy Azure Stack Edge Pro FPGA](azure-stack-edge-deploy-prep.md)

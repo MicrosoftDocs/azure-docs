@@ -267,7 +267,7 @@ documentation.
 
 
 > [!NOTE]
-> Azure App Service Environment for PowerApps or API management in a virtual network with a public IP are both not natively supported.
+> Azure App Service Environment for Power Apps or API management in a virtual network with a public IP are both not natively supported.
 
 ## Next steps
 

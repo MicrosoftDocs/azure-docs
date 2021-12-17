@@ -1,5 +1,5 @@
 ---
-title: PowerShell - Create custom image from VHD file in Azure Lab Services
+title: PowerShell - Create custom image from VHD file
 description: This PowerShell script creates a custom image from a VHD file in Azure Lab Services.    
 ms.devlang: azurecli
 ms.topic: sample

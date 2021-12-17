@@ -1,29 +1,25 @@
 ---
-title: Upload usage data to Azure Monitor
-description: Upload usage Azure Arc-enabled data services data to Azure Monitor
+title: Upload usage data to Azure
+description: Upload usage Azure Arc-enabled data services data to Azure
 services: azure-arc
 ms.service: azure-arc
 ms.subservice: azure-arc-data
 author: twright-msft
 ms.author: twright
 ms.reviewer: mikeray
-ms.date: 07/13/2021
+ms.date: 11/03/2021
 ms.topic: how-to
-zone_pivot_groups: client-operating-system-macos-and-linux-windows-powershell
 ---
 
-# Upload usage data to Azure Monitor
+# Upload usage data to Azure in **indirect** mode
 
 Periodically, you can export out usage information. The export and upload of this information creates and updates the data controller, SQL managed instance, and PostgreSQL Hyperscale server group resources in Azure.
 
 > [!NOTE] 
-> During the preview period, there is no cost for using Azure Arc-enabled data services.
-
-[!INCLUDE [azure-arc-data-preview](../../../includes/azure-arc-data-preview.md)]
+> Usage information is automatically uploaded for Azure Arc data controller deployed in **direct** connectivity mode. The instructions in this article only apply to uploading usage information for Azure Arc data controller deployed in **indirect** connectivity mode..
 
 
-> [!NOTE]
-> Wait at least 24 hours after creating the Azure Arc data controller before uploading usage data.
+Wait at least 24 hours after creating the Azure Arc data controller before uploading usage data.
 
 ## Create service principal and assign roles
 
@@ -31,21 +27,80 @@ Before you proceed, make sure you have created the required service principal an
 * [Create service principal](upload-metrics-and-logs-to-azure-monitor.md#create-service-principal).
 * [Assign roles to the service principal](upload-metrics-and-logs-to-azure-monitor.md#assign-roles-to-the-service-principal)
 
+[!INCLUDE [azure-arc-angle-bracket-example](../../../includes/azure-arc-angle-bracket-example.md)]
+
 ## Upload usage data
 
 Usage information such as inventory and resource usage can be uploaded to Azure in the following two-step way:
 
 1. Export the usage data using `az arcdata dc export` command, as follows:
 
-   ```console
-   az arcdata dc export --type usage --path usage.json
+> [!NOTE]
+> Exporting usage/billing information, metrics, and logs using the command `az arcdata dc export` requires bypassing SSL verification for now.  You will be prompted to bypass SSL verification or you can set the `AZDATA_VERIFY_SSL=no` environment variable to avoid prompting.  There is no way to configure an SSL certificate for the data controller export API currently.
+
+   ```azurecli
+   az arcdata dc export --type usage --path usage.json --k8s-namespace <namespace> --use-k8s
    ```
  
    This command creates a `usage.json` file with all the Azure Arc-enabled data resources such as SQL managed instances and PostgreSQL Hyperscale instances etc. that are created on the data controller.
 
-2. Upload the usage data using ```azdata upload``` command
 
-   ```console
+For now, the file is not encrypted so that you can see the contents. Feel free to open in a text editor and see what the contents look like.
+
+You will notice that there are two sets of data: `resources` and `data`. The `resources` are the data controller, PostgreSQL Hyperscale server groups, and SQL Managed Instances. The `resources` records in the data capture the pertinent events in the history of a resource - when it was created, when it was updated, and when it was deleted. The `data` records capture how many cores were available to be used by a given instance for every hour.
+
+Example of a `resource` entry:
+
+```console
+    {
+        "customObjectName": "<resource type>-2020-29-5-23-13-17-164711",
+        "uid": "4bc3dc6b-9148-4c7a-b7dc-01afc1ef5373",
+        "instanceName": "sqlInstance001",
+        "instanceNamespace": "arc",
+        "instanceType": "<resource>",
+        "location": "eastus",
+        "resourceGroupName": "production-resources",
+        "subscriptionId": "482c901a-129a-4f5d-86e3-cc6b294590b2",
+        "isDeleted": false,
+        "externalEndpoint": "32.191.39.83:1433",
+        "vCores": "2",
+        "createTimestamp": "05/29/2020 23:13:17",
+        "updateTimestamp": "05/29/2020 23:13:17"
+    }
+```
+
+Example of a `data` entry:
+
+```console
+        {
+          "requestType": "usageUpload",
+          "clusterId": "4b0917dd-e003-480e-ae74-1a8bb5e36b5d",
+          "name": "DataControllerTestName",
+          "subscriptionId": "482c901a-129a-4f5d-86e3-cc6b294590b2",
+          "resourceGroup": "production-resources",
+          "location": "eastus",
+          "uploadRequest": {
+            "exportType": "usages",
+            "dataTimestamp": "2020-06-17T22:32:24Z",
+            "data": "[{\"name\":\"sqlInstance001\",
+                       \"namespace\":\"arc\",
+                       \"type\":\"<resource type>\",
+                       \"eventSequence\":1, 
+                       \"eventId\":\"50DF90E8-FC2C-4BBF-B245-CB20DC97FF24\",
+                       \"startTime\":\"2020-06-17T19:11:47.7533333\",
+                       \"endTime\":\"2020-06-17T19:59:00\",
+                       \"quantity\":1,
+                       \"id\":\"4BC3DC6B-9148-4C7A-B7DC-01AFC1EF5373\"}]",
+           "signature":"MIIE7gYJKoZIhvcNAQ...2xXqkK"
+          }
+        }
+```
+
+
+
+2. Upload the usage data using the `upload` command.
+
+   ```azurecli
    az arcdata dc upload --path usage.json
    ```
 
@@ -56,8 +111,8 @@ If you want to upload metrics and logs on a scheduled basis, you can create a sc
 In your favorite text/code editor, add the following script to the file and save as a script executable file such as `.sh` (Linux/Mac) or `.cmd`, `.bat`, or `.ps1`.
 
 ```azurecli
-az arcdata dc export --type metrics --path metrics.json --force
-az arcdata dc upload --path metrics.json
+az arcdata dc export --type usage --path usage.json --force --k8s-namespace <namespace> --use-k8s
+az arcdata dc upload --path usage.json
 ```
 
 Make the script file executable
@@ -66,7 +121,7 @@ Make the script file executable
 chmod +x myuploadscript.sh
 ```
 
-Run the script every 20 minutes:
+Run the script every day for usage:
 
 ```console
 watch -n 1200 ./myuploadscript.sh

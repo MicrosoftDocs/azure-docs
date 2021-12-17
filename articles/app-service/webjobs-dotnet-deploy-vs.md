@@ -4,6 +4,7 @@ description: Learn how to develop Azure WebJobs in Visual Studio and deploy them
 author: ggailey777
 ms.assetid: a3a9d320-1201-4ac8-9398-b4c9535ba755
 ms.topic: conceptual
+ms.devlang: csharp
 ms.custom: "devx-track-csharp, vs-azure"
 ms.date: 06/24/2021
 ms.author: glenga
@@ -102,7 +103,7 @@ To create a new WebJobs-enabled project, use the console app project template an
 > 
 
 #### <a id="createnolink"></a> Use the WebJobs new-project template for an independent WebJob
-1. Select **File** > **New** > **Project**. In the **Crete a new project** dialog box, search for and select **Azure WebJob (.NET Framework)** for C#.
+1. Select **File** > **New** > **Project**. In the **Create a new project** dialog box, search for and select **Azure WebJob (.NET Framework)** for C#.
    
 2. Follow the previous directions to [make the console app project an independent WebJobs project](#convertnolink).
 

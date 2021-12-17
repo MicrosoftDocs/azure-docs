@@ -17,9 +17,9 @@ For Azure Relay, the management of namespaces and all related resources through 
 
 | Role | Description | 
 | ---- | ----------- | 
-| Azure Relay Owner | Use this role to grant **full** access to Azure Relay resources. |
-| Azure Relay Listener | Use this role to grant **listen and entity read** access to Azure Relay resources. |
-| Azure Relay Sender | Use this role to grant **send and entity read** access to Azure Relay resources. | 
+| [Azure Relay Owner](../../role-based-access-control/built-in-roles.md#azure-relay-owner) | Use this role to grant **full** access to Azure Relay resources. |
+| [Azure Relay Listener](../../role-based-access-control/built-in-roles.md#azure-relay-listener) | Use this role to grant **listen and entity read** access to Azure Relay resources. |
+| [Azure Relay Sender](../../role-based-access-control/built-in-roles.md#azure-relay-sender) | Use this role to grant **send and entity read** access to Azure Relay resources. | 
 
 ## Resource scope
 Before you assign an Azure role to a security principal, determine the scope of access that the security principal should have. Best practices dictate that it's always best to grant only the narrowest possible scope.
@@ -32,5 +32,5 @@ The following list describes the levels at which you can scope access to Azure R
 - **Subscription**: Role assignment applies to all the Relay resources in all of the resource groups in the subscription.
 
 > [!NOTE]
-> Keep in mind that Azure role assignments may take up to five minutes to propagate. For more information about how built-in roles are defined, see [Understand role definitions](../../role-based-access-control/role-definitions.md#management-and-data-operations). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md). 
+> Keep in mind that Azure role assignments may take up to five minutes to propagate. For more information about how built-in roles are defined, see [Understand role definitions](../../role-based-access-control/role-definitions.md#control-and-data-actions). For information about creating Azure custom roles, see [Azure custom roles](../../role-based-access-control/custom-roles.md). 
 

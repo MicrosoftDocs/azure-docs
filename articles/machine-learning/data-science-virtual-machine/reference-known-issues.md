@@ -5,10 +5,10 @@ description: Get a list of the known issues, workarounds, and troubleshooting fo
 services: machine-learning
 ms.service: data-science-vm
 
-author: timoklimmer
-ms.author: tklimmer
+author: michalmar
+ms.author: mimarusa
 ms.topic: reference
-ms.date: 07/19/2021
+ms.date: 08/02/2021
 
 ---
 
@@ -19,6 +19,42 @@ Virtual Machine.
 
 
 ## Ubuntu
+
+### Fix GPU on NVIDIA A100 GPU Chip - Azure NDasrv4 Series 
+
+The ND A100 v4 series virtual machine is a new flagship addition to the Azure GPU family, designed for high-end Deep Learning training and tightly-coupled scale-up and scale-out HPC workloads.
+
+Due to different architecture it requires different setup for your high-demanding workloads to benefit from GPU acceleration using TensorFlow or PyTorch frameworks.
+
+We are working towards supporting the ND A100 machines GPUs out-of-the-box. Meanwhile you can make your GPU working by adding NVIDIA's Fabric Manager and updating drivers. 
+
+Follow these simple steps while in Terminal:
+
+1. Add NVIDIA's repository to install/update drivers - step-by-step instructions can be found [here](https://docs.nvidia.com/datacenter/tesla/tesla-installation-notes/index.html#ubuntu-lts)
+2. [OPTIONAL] You can also update your CUDA drivers (from repository above)
+3. Install NVIDIA's Fabric Manager drivers:
+
+    ```
+    sudo apt-get install cuda-drivers-460
+    sudo apt-get install cuda-drivers-fabricmanager-460
+    ```
+
+4. Reboot your VM (to get your drivers ready)
+5. Enable and start newly installed NVIDIA Fabric Manager service:
+
+    ```
+    sudo systemctl enable nvidia-fabricmanager
+    sudo systemctl start nvidia-fabricmanager
+    ```
+
+You can now check your drivers and GPU working by running:
+```
+systemctl status nvidia-fabricmanager.service
+``` 
+
+After which you should see Fabric Manager service running
+![nvidia-fabric-manager-status](./media/nvidia-fabricmanager-status-ok-marked.png)
+
 
 ### Connection to desktop environment fails
 

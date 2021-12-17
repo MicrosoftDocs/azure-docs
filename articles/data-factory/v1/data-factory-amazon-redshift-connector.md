@@ -3,8 +3,9 @@ title: Move data from Amazon Redshift by using Azure Data Factory
 description: Learn how to move data from Amazon Redshift by using Azure Data Factory Copy Activity.
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
 ---
@@ -96,7 +97,7 @@ This example copies data from Amazon Redshift to Azure Synapse Analytics. The ex
 
 For this sample use case, Copy Activity first unloads the data from Amazon Redshift to Amazon S3 as configured in the  **redshiftUnloadSettings** option. Next, the data is copied from Amazon S3 to Azure Blob storage as specified in the **stagingSettings** option. Finally, PolyBase loads the data into Azure Synapse Analytics. All of the interim formats are handled by Copy Activity.
 
-![Copy workflow from Amazon Redshift to Azure Synapse Analytics](media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png)
+:::image type="content" source="media/data-factory-amazon-redshift-connector/redshift-to-sql-dw-copy-workflow.png" alt-text="Copy workflow from Amazon Redshift to Azure Synapse Analytics":::
 
 ```json
 {

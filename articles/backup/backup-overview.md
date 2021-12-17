@@ -2,7 +2,7 @@
 title: What is Azure Backup?
 description: Provides an overview of the Azure Backup service, and how it contributes to your business continuity and disaster recovery (BCDR) strategy.
 ms.topic: overview
-ms.date: 04/24/2019
+ms.date: 07/28/2021
 ms.custom: mvc
 ---
 # What is the Azure Backup service?

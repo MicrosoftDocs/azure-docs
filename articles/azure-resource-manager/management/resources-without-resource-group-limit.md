@@ -2,7 +2,7 @@
 title: Resources without 800 count limit
 description: Lists the Azure resource types that can have more than 800 instances in a resource group.
 ms.topic: conceptual
-ms.date: 07/13/2021
+ms.date: 10/20/2021
 ---
 
 # Resources not limited to 800 instances per resource group
@@ -11,6 +11,7 @@ By default, you can deploy up to 800 instances of a resource type in each resour
 
 For some resource types, you need to contact support to have the 800 instance limit removed. Those resource types are noted in this article.
 
+Some resources have a limit on the number instances per region. This limit is different than the 800 instances per resource group. To check your instances per region, use the Azure portal. Select your subscription and **Usage + quotas** in the left pane. For more information, see [Check resource usage against limits](../../networking/check-usage-against-limits.md).
 
 ## Microsoft.AlertsManagement
 
@@ -131,6 +132,7 @@ For some resource types, you need to contact support to have the 800 instance li
 * netAppAccounts/capacityPools/volumes
 * netAppAccounts/capacityPools/volumes/mountTargets
 * netAppAccounts/capacityPools/volumes/snapshots
+* netAppAccounts/capacityPools/volumes/subvolumes
 * netAppAccounts/snapshotPolicies
 * netAppAccounts/volumeGroups
 

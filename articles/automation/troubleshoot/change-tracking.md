@@ -131,7 +131,8 @@ Here are possible causes specific to this issue:
 
 Verify that the daemon for the Log Analytics agent for Linux (**omsagent**) is running on your machine. Run the following query in the Log Analytics workspace that's linked to your Automation account.
 
-```loganalytics Copy
+```loganalytics
+Copy
 Heartbeat
 | summarize by Computer, Solutions
 ```
@@ -148,7 +149,7 @@ The Log Analytics agent for Linux might not be configured correctly for log and 
 
 ##### FIM conflicts
 
-Azure Security Center's FIM feature might be incorrectly validating the integrity of your Linux files. Verify that FIM is operational and correctly configured for Linux file monitoring. See [Change Tracking and Inventory overview](../change-tracking/overview.md).
+Microsoft Defender for Cloud's FIM feature might be incorrectly validating the integrity of your Linux files. Verify that FIM is operational and correctly configured for Linux file monitoring. See [Change Tracking and Inventory overview](../change-tracking/overview.md).
 
 ## Next steps
 

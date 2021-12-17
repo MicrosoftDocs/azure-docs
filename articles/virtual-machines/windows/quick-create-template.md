@@ -8,11 +8,12 @@ ms.topic: quickstart
 ms.workload: infrastructure
 ms.date: 06/04/2020
 ms.author: cynthn
-ms.custom: subject-armqs
-
+ms.custom: subject-armqs, mode-arm
 ---
 
 # Quickstart: Create a Windows virtual machine using an ARM template
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 This quickstart shows you how to use an Azure Resource Manager template (ARM template) to deploy a Windows virtual machine (VM) in Azure.
 
