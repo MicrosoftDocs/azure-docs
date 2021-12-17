@@ -64,7 +64,8 @@ After the application receives an access token, the SDK and/or application sends
 | x-ms-client-id | 30d7cc….9f55        |
 | Authorization  | Bearer eyJ0e….HNIVN |
 
-> [!NOTE] > `x-ms-client-id` is the Azure Maps account-based GUID that appears on the Azure Maps authentication page.
+> [!NOTE] 
+> `x-ms-client-id` is the Azure Maps account-based GUID that appears on the Azure Maps authentication page.
 
 Here's an example of an Azure Maps route request that uses an Azure AD OAuth Bearer token:
 
@@ -279,7 +280,8 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 | :------------ | :------------------- |
 | Authorization | jwt-sas eyJ0e….HNIVN |
 
-> [!NOTE] > `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
+> [!NOTE] 
+> `jwt-sas` is the authentication scheme to denote using SAS token. Do not include `x-ms-client-id` or other Authorization headers or `subscription-key` query string parameter.
 
 ## Cross Origin Resource Sharing (CORS)
 
@@ -287,7 +289,12 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 
 Cross Origin Resource Sharing (CORS) is in preview.
 
-[Cross Origin Resource Sharing (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain.```
+
+### Prerequisites
+
+[Cross Origin Resource Sharing (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. CORS protocol is non-specific to Azure Map and is a standard specification.
+
+### Azure Maps Account CORS
 
 You can set a CORS rule on the Azure Maps account properties through Azure Maps Management SDK, Azure Maps Management REST API, and portal. Once you set the CORS rule for the service, then a properly authorized request made to the service from a different domain will be evaluated to determine whether it is allowed according to the rule you have specified.
 
@@ -399,12 +406,15 @@ See [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps)
 
 To learn more about Azure RBAC, see
 
-> [!div class="nextstepaction"] > [Azure role-based access control](../role-based-access-control/overview.md)
+> [!div class="nextstepaction"] 
+> [Azure role-based access control](../role-based-access-control/overview.md)
 
 To learn more about authenticating an application with Azure AD and Azure Maps, see
 
-> [!div class="nextstepaction"] > [Manage authentication in Azure Maps](./how-to-manage-authentication.md)
+> [!div class="nextstepaction"] 
+> [Manage authentication in Azure Maps](./how-to-manage-authentication.md)
 
 To learn more about authenticating the Azure Maps Map Control with Azure AD, see
 
-> [!div class="nextstepaction"] > [Use the Azure Maps Map Control](./how-to-use-map-control.md)
+> [!div class="nextstepaction"] 
+> [Use the Azure Maps Map Control](./how-to-use-map-control.md)
