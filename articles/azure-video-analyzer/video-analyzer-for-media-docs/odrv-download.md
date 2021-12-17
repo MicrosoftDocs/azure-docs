@@ -50,7 +50,7 @@ After your video is downloaded from Onedrive, Video Analyzer for Media starts in
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Screenshot that shows the progress of an upload.":::
 
-Once Video Analyzer for Media is done analyzing, you get an email with a link to your video. The email also includes a short description of what was found in your video (for example: people, topics, optical character recognition).
+Once Video Analyzer for Media is done analyzing, you will receive an email with a link to your indexed video. The email also includes a short description of what was found in your video (for example: people, topics, optical character recognition).
 
 ## Upload and index a video by using the API
 
