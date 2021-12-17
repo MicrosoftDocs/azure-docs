@@ -128,6 +128,6 @@ For the rule about hardcoded environment URLs, you can customize which URLs are 
 
 ## Next steps
 
-* [Configure your Bicep environment](bicep-config.md)
-* [Add module settings in Bicep config](bicep-config-modules.md)
-* Learn about the [Bicep linter](linter.md)
+- [Configure your Bicep environment](bicep-config.md)
+- [Add module settings in Bicep config](bicep-config-modules.md)
+- Learn about the [Bicep linter](linter.md)

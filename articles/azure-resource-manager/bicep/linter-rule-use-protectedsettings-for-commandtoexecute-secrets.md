@@ -2,13 +2,13 @@
 title: Linter rule - use protectedSettings for commandToExecute secrets
 description: Linter rule - use protectedSettings for commandToExecute secrets
 ms.topic: conceptual
-ms.date: 12/15/2021
+ms.date: 12/17/2021
 ---
 
 # Linter rule - use protectedSettings for commandToExecute secrets
 
 This rule finds possible exposure of secrets in the settings property of a custom script resource.
- 
+
 ## Linter rule code
 
 Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
@@ -17,11 +17,12 @@ Use the following value in the [Bicep configuration file](bicep-config-linter.md
 
 ## Solution
 
-For custom script resources, the `commandToExecute` value should be placed under the `protectedSettings` property object instead of the `settings` property object if it includes secret data such as a password. For example, secret data could be found in secure parameters, [`list*`](https://docs.microsoft.com/azure/azure-resource-manager/bicep/bicep-functions-resource#list) functions such as listKeys, or in custom scripts arguments.
+For custom script resources, the `commandToExecute` value should be placed under the `protectedSettings` property object instead of the `settings` property object if it includes secret data such as a password. For example, secret data could be found in secure parameters, [`list*`](./bicep-functions-resource.md#list) functions such as listKeys, or in custom scripts arguments.
 
-Don't use secret data in the `settings` object because it uses clear text. For more information, see [Microsoft.Compute virtualMachines/extensions](https://docs.microsoft.com/azure/templates/microsoft.compute/virtualmachines/extensions), [Custom Script Extension for Windows](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-windows), and [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](https://docs.microsoft.com/azure/virtual-machines/extensions/custom-script-linux).
+Don't use secret data in the `settings` object because it uses clear text. For more information, see [Microsoft.Compute virtualMachines/extensions](/azure/templates/microsoft.compute/virtualmachines/extensions), [Custom Script Extension for Windows](/azure/virtual-machines/extensions/custom-script-windows), and [Use the Azure Custom Script Extension Version 2 with Linux virtual machines](/azure/virtual-machines/extensions/custom-script-linux).
 
 The following example fails because `commandToExecute` is specified under `settings` and uses a secure parameter.
+
 ```bicep
 param vmName string
 param location string
@@ -48,6 +49,7 @@ resource customScriptExtension 'Microsoft.HybridCompute/machines/extensions@2019
 ```
 
 You can fix it by moving the commandToExecute property to the `protectedSettings` object.
+
 ```bicep
 param vmName string
 param location string

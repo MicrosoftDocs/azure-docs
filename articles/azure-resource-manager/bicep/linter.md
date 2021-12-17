@@ -59,5 +59,5 @@ You can integrate these checks as a part of your CI/CD pipelines. You can use a 
 
 ## Next steps
 
-* For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
-* For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).
+- For more information about customizing the linter rules, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
+- For more information about using Visual Studio Code and the Bicep extension, see [Quickstart: Create Bicep files with Visual Studio Code](./quickstart-create-bicep-use-visual-studio-code.md).

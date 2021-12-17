@@ -7,11 +7,12 @@ ms.date: 12/15/2021
 
 # Linter rule - use stable VM image
 
-Virtual machines shouldn't use preview images. This rule checks the following properties under "imageReference" and fails if any of them contain the string "preview": 
+Virtual machines shouldn't use preview images. This rule checks the following properties under "imageReference" and fails if any of them contain the string "preview":
+
 * offer
 * sku
 * version
- 
+
 ## Linter rule code
 
 Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
@@ -39,6 +40,7 @@ resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
 ```
 
 You can fix it by using an image that does not contain the string `preview` in the imageReference.
+
 ```bicep
 resource vm 'Microsoft.Compute/virtualMachines@2020-06-01' = {
   name: 'virtualMachineName'
