@@ -10,6 +10,7 @@ ms.subservice: anomaly-detector
 ms.topic: tutorial
 ms.date: 06/27/2021
 ms.author: juaduan
+ms.devlang: python
 ---
 
 # Tutorial: Learn Multivariate Anomaly Detection in one hour
