@@ -8,11 +8,7 @@ ms.date: 12/12/2021
 
 # Az.LabServices PowerShell module (preview) for Azure Lab Services resources
 
-The [Az.LabServices (preview)](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) PowerShell module simplifies the management of Azure Lab Services. This module provides composable functions to create, query, update and delete resources, such as:
-+ Labs
-+ Lab accounts
-+ VMs
-+ Images
+The [Az.LabServices (preview)](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Modules/Library) PowerShell module simplifies the management of Azure Lab Services. This module provides composable functions to create, query, update and delete resources, such as labs, lab accounts, VMs, and images.
 
 ## Install and launch
 
