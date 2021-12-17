@@ -16,10 +16,10 @@ The NoHostAvailableException is a top-level wrapper exception with many possible
 ## Driver Settings
 One of the most common causes of a NoHostAvailableException is because of the default driver settings. We advised the following [settings](#code-sample).
 
-1. The default value of the connections per host is 1, which is not recommended for CosmosDB, a minimum value of 10 is advised. While more aggregated RUs are provisioned, increase connection count. The general guideline is 10 connections per 200k RU.
-2. Use cosmos retry policy to handle intermittent throttling responses, please reference [cosmosdb extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions)(https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1)
-3. For multi-region account, CosmosDB load-balancing policy in the extension should be used.
-4. Read request timeout should be set greater than 1 minute. We recommend 90 seconds.
+- The default value of the connections per host is 1, which is not recommended for CosmosDB, a minimum value of 10 is advised. While more aggregated RUs are provisioned, increase connection count. The general guideline is 10 connections per 200k RU.
+- Use cosmos retry policy to handle intermittent throttling responses, please reference [cosmosdb extension library](https://github.com/Azure/azure-cosmos-cassandra-extensions)(https://github.com/Azure/azure-cosmos-cassandra-extensions/tree/release/java-driver-4/1.0.1)
+- For multi-region account, CosmosDB load-balancing policy in the extension should be used.
+- Read request timeout should be set greater than 1 minute. We recommend 90 seconds.
 
 ## Exception Messages
 If exception still persists after the recommended settings, review the exception messages below. Follow the recommendation, if your error log contains any of these messages.
@@ -43,9 +43,9 @@ Instead of tuning the `max requests per connection`, we advise making sure the `
 OverloadException is thrown when the request rate is too large. Which may be because of insufficient throughput being provisioned for the table and the RU budget being exceeded. Learn more about [large request](../sql/troubleshoot-request-rate-too-large.md#request-rate-is-large) and [server-side retry](prevent-rate-limiting-errors.md)
 #### Recommendation
 We recommend using either of the following options:
-1. If throttling is persistent, increase provisioned RU.
-2. If throttling is intermittent, use the CosmosRetryPolicy.
-3. If the extension library cannot be referenced [enable server side retry](prevent-rate-limiting-errors.md).
+- If throttling is persistent, increase provisioned RU.
+- If throttling is intermittent, use the CosmosRetryPolicy.
+- If the extension library cannot be referenced [enable server side retry](prevent-rate-limiting-errors.md).
 
 ### All hosts tried for query failed
 When the client is set to connect to a different region other than the primary contact point region, you will get below exception during the initial a few seconds upon start-up.
