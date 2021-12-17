@@ -11,7 +11,7 @@ zone_pivot_groups: programming-languages-set-two
 
 ## Create a speech project in Visual Studio
 
-[!INCLUDE [Create project](../../../includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
+[!INCLUDE [Create project](~/includes/cognitive-services-speech-service-quickstart-cpp-create-proj.md)]
 
 ## Open your project in Visual Studio
 
