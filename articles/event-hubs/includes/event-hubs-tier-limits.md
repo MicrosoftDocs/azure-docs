@@ -18,7 +18,7 @@ The following table shows limits that may be different for basic, standard, and 
 | Maximum size of Event Hubs publication | 256 KB | 1 MB | 1 MB |  1 MB |
 | Number of consumer groups per event hub | 1 | 20 | 100 | 1000<br/>No limit per CU  |
 | Number of brokered connections per namespace | 100 | 5,000 | 10000 per processing unit per PU | 100, 000 per CU |
-| Maximum retention period of event data | 1 day | 7 days | 90 days<br/>1 TB per PU | 90 days<br/>10 TB per CU |
+| Maximum retention period of event data | 1 day | 7 days | 90 days | 90 days |
 | Maximum TUs or PUs or CUs | 40 TUs | 40 TUs | 16 PUs | 20 CUs |
 | Number of partitions per event hub | 32 | 32 | 100 per event hub, 200 per PU | 1024 per event hub<br/> 2000 per CU |
 | Number of namespaces per subscription | 1000 | 1000 | 1000 | 1000 (50 per CU) |

@@ -5,7 +5,7 @@ author: enkrumah
 ms.author: ebnkruma
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 08/25/2020
+ms.date: 12/13/2021
 ---
 
 # Azure Cosmos DB output from Azure Stream Analytics
@@ -31,6 +31,10 @@ The following table describes the properties for creating an Azure Cosmos DB out
 | Container name | The container name to be used, which must exist in Cosmos DB. Example:  <br /><ul><li> _MyContainer_: A container named "MyContainer" must exist.</li>|
 | Document ID |Optional. The name of the field in output events that's used to specify the primary key on which insert or update operations are based.
 
+
+> [!Note]
+> Cosmos DB Output for Azure Stream Analytics uses .NET V3 SDK. When writing to multiple regions, the SDK automatically picks the best region available.  
+  
 ## Partitioning
 
 The partition key is based on the PARTITION BY clause in the query. The number of output writers follows the input partitioning for [fully parallelized queries](stream-analytics-scale-jobs.md). Stream Analytics converts the Cosmos DB output partition key to a string. For example, if you have a partition key with a value of 1 of type bigint, it is converted to "1" of type string. This conversion always happens regardless of whether the partition property is written to Cosmos DB.

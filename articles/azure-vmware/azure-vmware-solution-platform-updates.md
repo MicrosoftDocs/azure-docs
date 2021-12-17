@@ -9,6 +9,18 @@ ms.date: 11/23/2021
 
 Azure VMware Solution will apply important updates starting in March 2021. You'll receive a notification through Azure Service Health that includes the timeline of the maintenance. For more information, see [Host maintenance and lifecycle management](concepts-private-clouds-clusters.md#host-maintenance-and-lifecycle-management).
 
+## December 12, 2021
+
+VMware has announced a security advisory [VMSA-2021-0028](https://www.vmware.com/security/advisories/VMSA-2021-0028.html), addressing a critical vulnerability in Apache Log4j identified by CVE-2021-44228.
+
+Azure VMware Solution is actively monitoring this issue. We are addressing this issue by applying VMware recommended workarounds or patches for AVS managed VMware components as they become available.
+
+Please note that you may experience intermittent connectivity to these components when we apply a fix.
+
+We strongly recommend that you read the advisory and patch or apply the recommended workarounds for any additional VMware products that you may have deployed in Azure VMware Solution.
+
+If you need any assistance or have questions, please [contact us](https://ms.portal.azure.com).
+
 ## November 23, 2021
 
 Per VMware security advisory [VMSA-2021-0027](https://www.vmware.com/security/advisories/VMSA-2021-0027.html), multiple vulnerabilities in VMware vCenter server have been reported to VMware.

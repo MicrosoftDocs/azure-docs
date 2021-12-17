@@ -105,4 +105,3 @@ Defender for IoT in the Azure portal in Azure is used to help you:
 
 [Defender for IoT FAQ](resources-frequently-asked-questions.md)
 
-[System prerequisites](quickstart-system-prerequisites.md)
