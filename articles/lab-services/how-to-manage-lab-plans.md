@@ -9,12 +9,15 @@ ms.date: 10/26/2021
 
 In Azure Lab Services, a lab plan is a container for managed lab types such as labs. An administrator sets up a lab plan with Azure Lab Services and provides access to lab owners who can create labs in the plan. This article describes how to create a lab plan, view all lab plans, or delete a lab plan.
 
+> [!NOTE]
+> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
+
 ## Create a lab plan
 
-The following steps illustrate how to use the Azure portal to create a lab plan with Azure Lab Services. 
+The following steps illustrate how to use the Azure portal to create a lab plan with Azure Lab Services.
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
-2. Select **All Services** on the left menu. Type **lab** in the search filter. Then, select **Azure Lab Services**. If you select star (`*`) next to **Azure Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Azure Lab Services** under **FAVORITES**.
+2. Select **All Services** on the left menu. Select **DevOps** from **Categories**. Then, select **Azure Lab Services**. If you select star (`*`) next to **Azure Lab Services**, it's added to the **FAVORITES** section on the left menu. From the next time onwards, you select **Azure Lab Services** under **FAVORITES**.
 
     :::image type="content" source="./media/tutorial-setup-lab-plan/select-lab-plans-service.png" alt-text="All Services -> Lab Plans":::
 3. On the **lab plans** page, select **Add** on the toolbar or **Create lab plan** on the page.
@@ -62,7 +65,7 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
 
 ## Delete a lab plan
 
-Follow instructions from the previous section that displays lab plans in a list. Use the following instructions to delete a lab plan: 
+Follow instructions from the previous section that displays lab plans in a list. Use the following instructions to delete a lab plan:
 
 1. Select the **lab plan** that you want to delete.
 1. Select **Delete** from the toolbar.
@@ -72,9 +75,6 @@ Follow instructions from the previous section that displays lab plans in a list.
 1. Select **Delete**.
 
     :::image type="content" source="./media/how-to-manage-lab-plans/delete-lab-plan-confirmation.png" alt-text="Delete lab plan - confirmation":::
-
-> [!NOTE]
-> You can also use the Az.LabServices PowerShell module (preview) to manage lab plans. For more information, see the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
 
 ## Next steps
 

@@ -15,12 +15,12 @@ This topic will cover the steps to test a virtual machine (VM) image for deploym
 
 ## Deploy an Azure VM
 
-To deploy a VM from the Shared Image Gallery image:
+To deploy a VM from the Azure Compute Gallery (formerly know as Shared Image Gallery) image:
 
-1. Navigate to the Shared Image Gallery image version
-1. Click Create VM
-1. Provide a Virtual Machine Name and select a VM Size
-1. Click Review + create. Once validation is passed, click Create
+1. Navigate to the Azure Compute Gallery image version.
+1. Select **Create VM**.
+1. Provide a Virtual Machine Name and select a VM Size.
+1. Select **Review + create**. Once validation is passed, select **Create**.
 
 > [!NOTE]
 > If you need to create a VM from a vhd file, follow the instructions in the following articles, [Prepare an Azure Resource Manager template](#connect-the-certification-tool-to-a-vm-image) or [Deploy an Azure VM using PowerShell](#how-to-use-powershell-to-consume-the-self-test-api).
@@ -29,7 +29,7 @@ This article describes how to test and submit a virtual machine (VM) image in th
 
 Complete these steps before submitting your VM offer:
 
-- Deploy an Azure VM using your generalized image; see [Create a virtual machine using an approved base](azure-vm-create-using-approved-base.md) or [create a virtual machine using your own image](azure-vm-create-using-own-image.md).
+- Deploy an Azure VM using your generalized image; see [Create a virtual machine using an approved base](azure-vm-use-approved-base.md) or [create a virtual machine using your own image](azure-vm-use-own-image.md).
 - Run validations.
 
 ## Run validations

@@ -173,11 +173,9 @@ _**Solution:**_
 
 ### IPv6 coexistence
 
-[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols and deployment on a subnet with an IPv6 prefix isn't supported.
+[Virtual Network NAT](nat-overview.md) supports IPv4 UDP and TCP protocols. NAT cannot be associated to an IPv6 Public IP address or IPv6 Public IP Prefix. However, NAT can be deployed on a dual stack subnet.
 
-_**Solution:**_ Deploy NAT gateway on a subnet without IPv6 prefix.
-
-You can indicate interest in additional capabilities through [Virtual Network NAT UserVoice](https://aka.ms/natuservoice).
+_**Solution:**_ Deploy NAT gateway on a dual stack subnet.
 
 ### Connection doesn't originate from NAT gateway IP(s)
 
@@ -196,4 +194,3 @@ If you are still having trouble, open a support case for further troubleshooting
 * Learn about [Virtual Network NAT](nat-overview.md)
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
 * Learn about [metrics and alerts for NAT gateway resources](nat-metrics.md).
-* [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).

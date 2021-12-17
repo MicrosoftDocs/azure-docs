@@ -15,18 +15,20 @@ In this article, we'll show how to set up a virtual machine template in a lab wi
 
 ## Lab configuration
 
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [Tutorial to Setup a Lab Account](tutorial-setup-lab-account.md).  You can also use an existing lab account.
+> [!NOTE]
+> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
-### Lab account settings
+To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
->[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](./specify-marketplace-images.md).
+### Lab plan settings
 
-| Lab account setting | Instructions |
+Enable the settings described in the table below for the lab plan. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](./specify-marketplace-images.md).
+
+| Lab plan setting | Instructions |
 | ------------------- | ------------ |
-|Marketplace image| Enable the ‘SQL Server 2019 Standard on Windows Server 2019’ image for use within your lab account.|
+|Marketplace image| Enable the ‘SQL Server 2019 Standard on Windows Server 2019’ image.|
 
 ### Lab settings
 
@@ -51,7 +53,8 @@ Here is an example of a possible cost estimate for this class:
 
 25 students \* (20 scheduled hours + 10 quota hours) \* 0.42 USD per hour  = 315.00 USD
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+>[!IMPORTANT]
+> Cost estimate is for example purposes only.  For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).  
 
 ## Conclusion
 
@@ -61,8 +64,8 @@ This article walked you through the steps necessary to create a lab for basic da
 
 Next steps are common to setting up any lab.
 
-- [Create and publish a lab](tutorial-setup-classroom-lab.md)
-- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
+- [Publish the lab](tutorial-setup-classroom-lab.md#publish-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)
+- [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Email registration links to students](how-to-configure-student-usage.md#send-invitations-to-users)

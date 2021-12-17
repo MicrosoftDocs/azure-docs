@@ -15,33 +15,38 @@ If you're using a [campus-wide license](https://www.mathworks.com/academia/tah-s
 
 In this article, we'll show how to set up a class that uses MATLAB client software with a license server.
 
+>[!NOTE]
+> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
+
+To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
 ## License server
 
-Before modifying the template machine for your lab, you'll need to set up the server to run the [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) software.  These instructions are only applicable for institutions that choose the networking licensing option for MATLAB, which allows users to share a pool of license keys.  You'll also need to save the license file and file installation key for later.  For detailed instructions on how to download a license file, see the first step in the [install Network License Manager with internet connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html) article.
+Before creating the lab plan, you'll need to set up the server to run the [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) software.  These instructions are only applicable for institutions that choose the networking licensing option for MATLAB, which allows users to share a pool of license keys.  You'll also need to save the license file and file installation key for later.  For detailed instructions on how to download a license file, see the first step in the [install Network License Manager with internet connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html) article.
 
 Detailed instructions to covering how to install a licensing server are available at [install Network License Manager with Internet Connection](https://www.mathworks.com/help/install/ug/install-network-license-manager-with-internet-connection.html).  To enable borrowing, see the [Borrow License](https://www.mathworks.com/help/install/license/borrow-licenses.html) article.
 
-Assuming the license server is located in an on-premise network or a private network within Azure, don’t forget to [peer the virtual network](how-to-connect-peer-virtual-network.md) to your [lab account](tutorial-setup-lab-account.md).  The network peering must be done before creating the lab so the lab virtual machines can access the license server.
+Assuming the license server is located in an on-premise network or a private network within Azure, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) when creating your [lab plan](./tutorial-setup-lab-plan.md).
 
->[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts, and virtual networks replace peer virtual networks. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+> [!IMPORTANT]
+> [Advanced networking](how-to-connect-vnet-injection.md#add-the-virtual-network-at-the-time-of-lab-plan-creation) must be enabled during the creation of your lab plan.  It can not be added later.
 
 ## Lab configuration
 
-To set up this lab, you need an Azure subscription to get started.  If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing account.  To create a new lab account, see the [setup a lab account tutorial](tutorial-setup-lab-account.md).
+Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md).  If using [Network License Manager](https://www.mathworks.com/help/install/administer-network-licenses.html) on a license server, enable [advanced networking](how-to-connect-vnet-injection.md#add-the-virtual-network-at-the-time-of-lab-plan-creation) when creating your lab plan. You can also use an existing lab plan.
 
-To create a new lab, follow [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).  Apply the following settings:
+### Lab settings
 
-| Virtual machine size | Image |
-| -------------------- | ----- |
-| Medium | Windows 10 |
+For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
-MATLAB is supported on more operating systems.  See [MATLAB system requirements](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) for details.
+| Lab settings | Value |
+| ------------ | ------------------ |
+| Virtual machine (VM) size | Medium |
+| VM image | Windows 10 |
 
-> [!WARNING]
-> Don’t forget to [peer the virtual network](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) for the lab account to the virtual network for the license server before creating the lab.
+MATLAB is supported on more operating systems than Windows 10.  See [MATLAB system requirements](https://www.mathworks.com/support/requirements/matlab-system-requirements.html) for details.
 
-## Template machine
+## Template machine configuration
 
 After the template machine is created, start the machine and connect to it to complete the following major tasks.
 
@@ -107,9 +112,10 @@ Here is an example of a possible cost estimate for this class:
 
 ## Next steps
 
-Next steps are common to setting up any lab.
+The template image can now be published to the lab. See [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) for further instructions.
 
-- [Create and publish a lab](tutorial-setup-classroom-lab.md)
+As you set up your lab, see the following articles:
+
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

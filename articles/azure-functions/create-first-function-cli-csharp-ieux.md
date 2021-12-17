@@ -1,9 +1,9 @@
 ---
-title: Create a C# function from the command line - Azure Functions
-description: Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions.
+title: "Create a C# function from the command line - Azure Functions"
+description: "Learn how to create a C# function from the command line, then publish the local project to serverless hosting in Azure Functions."
 ms.date: 10/03/2020
 ms.topic: quickstart
-ms.custom: [devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell]
+ms.custom: devx-track-csharp, devx-track-azurecli, devx-track-azurepowershell, mode-other
 ROBOTS: NOINDEX,NOFOLLOW
 ---
 

@@ -7,7 +7,7 @@ author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 03/31/2020
+ms.date: 10/28/2021
 ms.author: pafarley
 ms.custom: seodec18
 ---
@@ -33,7 +33,7 @@ These Cognitive Services are language agnostic and don't have limitations based 
 
 * [Language Understanding (LUIS)](./luis/luis-language-support.md)
 * [QnA Maker](./qnamaker/overview/language-support.md)
-* [Text Analytics](./text-analytics/language-support.md)
+* [Language service](./text-analytics/language-support.md)
 * [Translator](./translator/language-support.md)
 
 ## Speech

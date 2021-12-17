@@ -3,7 +3,7 @@ title: Delegate a subnet to Azure NetApp Files | Microsoft Docs
 description: Learn how to delegate a subnet to Azure NetApp Files. Specify the delegated subnet when you create a volume.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Delegate a subnet to Azure NetApp Files 
 

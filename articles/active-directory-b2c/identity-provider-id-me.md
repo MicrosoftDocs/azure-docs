@@ -35,7 +35,7 @@ zone_pivot_groups: b2c-policy-type
 
 ## Create an ID.me application
 
-To enable sign-in for users with an ID.me account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [ID.me Developer Resources for API & SDK](https://developers.id.me/). For more information, see [OAuth Integration Guide](https://developers.id.me/documentation/oauth/overview/kyc). If you don't already have an ID.me developer account, you can sign up at [https://developers.id.me/registration/new](https://developers.id.me/registration/new).
+To enable sign-in for users with an ID.me account in Azure Active Directory B2C (Azure AD B2C), you need to create an application in [ID.me Developer Resources for API & SDK](https://developers.id.me/). For more information, see [OAuth Integration Guide](https://developers.id.me/documentation/). If you don't already have an ID.me developer account, you can sign up at [https://developers.id.me/registration/new](https://developers.id.me/registration/new).
 
 1. Sign in to the [ID.me Developer Resources for API & SDK](https://developers.id.me/) with your ID.me account credentials.
 1. Select **View My Applications**, and select **Continue**.

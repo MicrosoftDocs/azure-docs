@@ -101,7 +101,7 @@ If your proxy server requires credentials, and those credentials aren't configur
 
 To set credentials, you must go to the Proxy Settings dialog (**Edit** > **Configure Proxy**).
 
-This option is in preview because not all features currently support system proxy. See [features that support system proxy](#features-that-support-system-proxy) for a complete list of features. When system proxy is enabled, features that don't support system proxy won't make any attempt to connect to a proxy.
+This option is in preview because not all features currently support system proxy. See [features that do not support system proxy](#features-that-do-not-support-system-proxy) for a complete list of features which do not support it. When system proxy is enabled, features that don't support system proxy won't make any attempt to connect to a proxy.
 
 If you come across an issue while using system proxy with a supported feature, [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new).
 
@@ -117,7 +117,7 @@ If you have configured Storage Explorer to use **system proxy**, then proxy serv
 
 ## Which proxy source should I choose?
 
-If you're only using [features that support system proxy](#features-that-support-system-proxy), then you should first try using [**system proxy**](#use-system-proxy-preview). If you come across an issue while using system proxy with a supported feature, [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new).
+If you're using features not listed [here](#features-that-do-not-support-system-proxy), then you should first try using [**system proxy**](#use-system-proxy-preview). If you come across an issue while using system proxy with a supported feature, [open an issue on GitHub](https://github.com/Microsoft/AzureStorageExplorer/issues/new).
 
 If you're using features that don't support system proxy, then [**app settings**](#use-app-proxy-settings) is probably the next best option. The GUI-based experience for configuring the proxy configuration helps reduce the chance of entering your proxy information correctly. However, if you already have proxy environment variables configured, then it might be better to use [**environment variables**](#use-environment-variables).
 
@@ -140,60 +140,19 @@ You have multiple options for resolving such errors:
 - Import a copy of the SSL certificate/s causing the error/s.
 - Disable SSL certificate. (**not recommended**)
 
-## Features that support system proxy
+## Features that do not support system proxy
 
-The following is a list of features that support **system proxy**:
+The following is a list of features that do not support **system proxy**:
 
-- Checking for and downloading updates
-- Listing subscriptions
 - Storage Account Features
-  - Listing
-- Blob Features
-  - Containers
-    - Create
-    - Listing
-    - Managing stored access policies
-    - Changing public access level
-    - Leasing
-    - Properties
-    - Delete
-  - Blobs
-    - Listing
-    - Statistics
-    - Undelete
-  - ADLS Gen2 Blobs
-    - Listing
-    - Statistics
-    - Managing ACLs (only viewing and modifying existing entities)
-    - Propagate ACLs
-    - Move
-    - Rename
-    - Create folder
-- Queue Features
-  - Queues
-    - Create
-    - Listing
-    - Managing access policies
-    - Properties
-    - Delete
-    - Clear
-  - Queue Messages
-    - Listing
-    - Move
-    - Add
-    - Dequeue
-- File Share Features
-  - Files & Folders
-    - New folder
-    - Properties
-- Disk Features
-  - Listing resource groups
-  - Listing disks
-  - Uploading disks
-  - Downloading disks
-  - Copying disks
-  - Creating snapshots
-  - Deleting disks
+  - Setting default access tier
+- Table Features
+  - Manage access policies
+  - Configure CORS
+  - Generate SAS
+  - Copy & Paste Table
+  - Clone Table
+- All ADLS Gen1 features
 
 ## Next steps
 

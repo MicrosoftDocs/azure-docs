@@ -125,7 +125,7 @@ The **Sign-up form: OAuth** widget represents a form used for signing up with OA
 1. You're redirected to the signup policy you configured in the previous section. Choose to sign up by using your email address or one of your existing social accounts.
 
    > [!NOTE]
-   > If Azure Active Directory B2C is the only option enabled on the **Identities** tab in the publisher portal, you'll be redirected to the signup policy directly.
+   > If Azure Active Directory B2C is the only option enabled on the **Identities** tab in the Azure portal, you'll be redirected to the signup policy directly.
 
    :::image type="content" source="media/api-management-howto-aad-b2c/b2c-dev-portal-b2c-options.png" alt-text="Sign up options in legacy developer portal":::
 

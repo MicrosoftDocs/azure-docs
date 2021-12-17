@@ -1,5 +1,5 @@
 ---
-title:  Create and use managed identity with bring-your-own-storage (BYOS) 
+title: Create and use managed identity with bring-your-own-storage (BYOS)
 titleSuffix: Azure Applied AI Services
 description: Understand how to create and  use managed identity with BYOS accounts
 author: laujan
@@ -9,6 +9,7 @@ ms.subservice: forms-recognizer
 ms.topic: how-to
 ms.date: 10/07/2021
 ms.author: lajanuar
+ms.custom: ignite-fall-2021
 ---
 
 # Create and use managed identity for your Form Recognizer resource
@@ -23,12 +24,16 @@ Azure managed identity is a service principal that creates an Azure Active Direc
 Managed identity supports both privately and publicly accessible Azure blob storage accounts.  For storage accounts with public access, you can opt to use a shared access signature (SAS) to grant limited access.   In this article, you'll learn to enable a system-assigned managed identity for your Form Recognizer instance.
 
 ## Private storage account access
+> [!NOTE]
+>
+> Form Recognizer only supports system-assigned managed identities today. User-assigned managed identities is on the roadmap and will be enabled in the near future. 
+
 
  Private Azure storage account access and authentication is supported by [managed identities for Azure resources](../../active-directory/managed-identities-azure-resources/overview.md). If you have an Azure storage account protected by a Virtual Network (VNet) or firewall or have enabled bring-your-own-storage (BYOS), Form Recognizer cannot directly access your storage account data; however, once a managed identity is enabled, the Form Recognizer service can access your storage account using an assigned managed identity credential.
 
 > [!NOTE]
 >
-> * If you intend to analyze your storage data with the [**Form Recognizer sample labeling tool (FOTT)**](https://fott-2-1.azurewebsites.net/), you must deploy the tool behind your VNet or firewall.
+> * If you intend to analyze your storage data with the [**Form Recognizer Sample Labeling tool (FOTT)**](https://fott-2-1.azurewebsites.net/), you must deploy the tool behind your VNet or firewall.
 >
 > * The  Analyze [**Receipt**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeReceiptAsync), [**Business Card**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeBusinessCardAsync), [**Invoice**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5ed8c9843c2794cbb1a96291), [**ID document**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/5f74a7738978e467c5fb8707), and [**Custom Form**](https://westus.dev.cognitive.microsoft.com/docs/services/form-recognizer-api-v2-1/operations/AnalyzeWithCustomForm) APIs can extract data from a single document by posting requests as raw binary content. In these scenarios, there is no requirement for a managed identity credential.
 

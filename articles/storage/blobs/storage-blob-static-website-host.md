@@ -5,12 +5,11 @@ author: normesta
 ms.service: storage
 ms.subservice: blobs
 ms.topic: tutorial
-ms.date: 1/22/2020
+ms.date: 11/04/2021
 ms.author: normesta
 ms.reviewer: dineshm
+#Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.
 ---
-
-<!---Customer intent: I want to host files for a static website in Blob storage and access the website from an Azure endpoint.--->
 
 # Tutorial: Host a static website on Blob Storage
 
@@ -21,6 +20,8 @@ In this tutorial, you learn how to:
 > [!div class="checklist"]
 > - Configure static website hosting
 > - Deploy a Hello World website
+
+[!INCLUDE [static websites vs static web apps](../../../includes/storage-blob-static-website-vs-static-web-app.md)]
 
 ## Prerequisites
 

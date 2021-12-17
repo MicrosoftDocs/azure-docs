@@ -14,40 +14,45 @@ ms.author: enewman
 This article will focus on solely RStudio and R as a building block for a class that requires the use of statistical computing.  The [deep learning](class-type-deep-learning-natural-language-processing.md) and [Python and Jupyter Notebooks](class-type-jupyter-notebook.md)
 class types setup RStudio differently.  Each article describes how to use the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804) marketplace image, which has many [data science related tools](../machine-learning/data-science-virtual-machine/tools-included.md), including RStudio, pre-installed.  
 
-## Lab Account configuration
-
->[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
-
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
-
-### Lab account settings
-
-Enable your lab account settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
-
-| Lab account setting | Instructions |
-| -------------------- | ----- |
-| Marketplace images | Ubuntu Server 18.04 LTS |
-| [Enable peer virtual network](how-to-connect-peer-virtual-network.md) | Enable if:<ul><li>Class requires a shared R Server.</li><li>Class requires large data files that you want to store externally and not on the student VM.</li></ul> |
-
-> [!IMPORTANT]
-> If you choose to enable peer virtual network, this must be done before the lab is created.
-
 ## Lab configuration
 
-For instructions to create a new lab and apply the needed settings, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  When creating the lab, apply the following settings:
+>[!NOTE]
+> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
+
+To set up this lab, you need an Azure subscription and lab plan to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+
+### External resource configuration
+
+Some classes require files, such as large data files, to be stored externally.  See [use external file storage in Azure Lab Services](how-to-attach-external-storage.md) for options and setup instructions.
+
+If you choose to have a shared R Server for the students, the server should be set up before the lab is created.  For more information on how to set up a shared server, see [how to create a lab with a shared resource in Azure Lab Services](how-to-create-a-lab-with-shared-resource.md).  For instructions to create an RStudio Server, see [Download RStudio Server for Debian & Ubuntu](https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/) and [Accessing RStudio Server Open-Source](https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started).
+
+If you choose to use any external resources, you’ll need to [Connect to your virtual network in Azure Lab Services](how-to-connect-vnet-injection.md) with your [lab plan](./tutorial-setup-lab-plan.md)
+
+> [!IMPORTANT]
+> [Advanced networking](how-to-connect-vnet-injection.md#add-the-virtual-network-at-the-time-of-lab-plan-creation) must be enabled during the creation of your lab plan.  It can't be added later.
+
+### Lab plan settings
+
+Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+
+Enable your lab plan settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
+
+| Lab plan setting | Instructions |
+| -------------------- | ----- |
+| Marketplace images | Enable **Ubuntu Server 18.04 LTS** image. |
+
+### Lab settings
+
+For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 | Lab setting | Value and description |
 | ------------ | ------------------ |
 | Virtual Machine Size | Small GPU (Compute)|
 | VM image | Ubuntu Server 18.04 LTS |
-| Enable remote desktop connection | This setting should be enabled if you choose to use RDP.  This setting isn't needed if you choose [X2Go to connect to lab machines](how-to-use-remote-desktop-linux-student.md).  You'll need to connect to the Linux VM using SSH the first time and install the RDP/X2Go and GUI packages.  For more information, see [enable graphical remote desktop for Linux VMs](how-to-enable-remote-desktop-linux.md). |
+| Enable remote desktop connection | This setting should be enabled if you choose to use RDP.  This setting isn't needed if you choose [X2Go to connect to lab machines](how-to-use-remote-desktop-linux-student.md). |
 
-## External resource configuration
-
-Some classes require files, such as large data files, to be stored externally.  See [use external file storage in Azure Lab Services](how-to-attach-external-storage.md) for options and setup instructions.
-
-If you choose to have a shared R Server for the students, the server should be set up before the lab is created.  For more information on how to set up a shared server, see [how to create a lab with a shared resource in Azure Lab Services](how-to-create-a-lab-with-shared-resource.md).  For instructions to create an RStudio Server, see [Download RStudio Server for Debian & Ubuntu](https://www.rstudio.com/products/rstudio/download-server/debian-ubuntu/) and [Accessing RStudio Server Open-Source](https://support.rstudio.com/hc/en-us/articles/200552306-Getting-Started).
+If you choose to instead use RDP, you will need to connect to the Linux VM using SSH and install the RDP and GUI packages before publishing the lab.  Then, students can connect to the Linux VM using RDP later.  For more information, see [Enable graphical remote desktop for Linux VMs](how-to-enable-remote-desktop-linux.md).
 
 ## Template configuration
 
@@ -62,7 +67,7 @@ sudo apt upgrade
 
 ### Install X2Go Server
 
-If you choose to use X2Go, install the server.  You'll first need to [connect using ssh](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to install the server component.  Once that is completed, the rest of the setup can be completed after [connecting using the X2Go client](how-to-use-remote-desktop-linux-student.md).
+If you choose to use X2Go, [install the server](https://aka.ms/azlabs/scripts/LinuxDesktop).  You'll first need to [connect using ssh](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to install the server component.  Once that is completed, the rest of the setup can be completed after [connecting using the X2Go client](how-to-use-remote-desktop-linux-student.md).
 
 The default installation of X2Go isn't compatible with RStudio.  To work around this issue, update the x2goagent options file.
 
@@ -149,7 +154,6 @@ The template image can now be published to the lab. See [publish the template VM
 
 As you set up your lab, see the following articles:
 
-- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

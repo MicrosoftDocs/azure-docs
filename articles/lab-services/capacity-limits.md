@@ -21,7 +21,9 @@ These actions may also be disabled if you have already reached the cores limit.
 
 ## Subscriptions with default limit of zero cores
 
-Some rare subscription types that are more commonly used for fraud can have a default limit of 0 standard cores and 0 GPU cores. If you are using one of these subscription types, the admin who creates your lab plan will need to request a limit increase before you can use Azure Lab Services. 
+Some rare subscription types that are more commonly used for fraud can have a default limit of 0 standard cores and 0 GPU cores. If you are using one of these subscription types, the admin who creates your lab plan will need to request a limit increase before you can use Azure Lab Services.
+
+To create a support request, you must be an [Owner](/azure/role-based-access-control/built-in-roles), [Contributor](/azure/role-based-access-control/built-in-roles) or be assigned to the [Support Request Contributor](/azure/role-based-access-control/built-in-roles) role at the subscription level. For information about creating support requests in general, see how to create a [How to create an Azure support request](/azure/azure-portal/supportability/how-to-create-azure-support-request).
 
 The admin can follow these steps to request a limit increase:  
 
@@ -31,7 +33,7 @@ The admin can follow these steps to request a limit increase:
 
 ## Per-customer assigned capacity
 
-Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren’t visible to customers. Previously, VM capacity was available from a large pool shared across many customers. With the November 2021 Update, VM capacity is now dedicated to each customer.
+Azure Lab Services hosts lab resources, including VMs, within special Microsoft-managed Azure subscriptions that aren’t visible to customers. Previously, VM capacity was available from a large pool shared across many customers. With the January 2022 Update, VM capacity is now dedicated to each customer.
 
 Before you set up a large number of VMs across your labs, we recommend that you open a support ticket to pre-request VM capacity. Requests should include VM size, number, and region. Pre-requesting capacity helps us to ensure that you create your labs in a region that has a sufficient number of VM cores for the VM size that you need for your labs.  We can now assign VM capacity on a per-customer basis when you submit a support ticket to request capacity.
 
@@ -39,7 +41,7 @@ Before you set up a large number of VMs across your labs, we recommend that you 
 
 If you reach the cores limit, you can request a limit increase to continue using Azure Lab Services. The request process is a checkpoint to ensure your subscription isn't involved in any cases of fraud or unintentional, sudden large-scale deployments.
 
-The messages about the virtual machine cores limit in the Azure Lab Services portal includes a link to request a limit increase. The link opens a new browser tab where you can create a new support request. The issue type, subscription, and quota type information will be automatically filled out for you as shown in the following image: 
+The messages about the virtual machine cores limit in the Azure Lab Services portal includes a link to request a limit increase. The link opens a new browser tab where you can create a new support request. The issue type, subscription, and quota type information will be automatically filled out for you as shown in the following image:
 
 ![New support request](./media/capacity-limits/new-support-request.png)
 
@@ -49,7 +51,7 @@ Then, you will be prompted to provide more information about the limit increase.
 - Virtual machine size you are using for this lab
 - Number of virtual machines you need
 
-Once you submit the support request, we will review the request. If necessary, we will contact you to get additional details. 
+Once you submit the support request, we will review the request. If necessary, we will contact you to get additional details.
 
 ## Next steps
 

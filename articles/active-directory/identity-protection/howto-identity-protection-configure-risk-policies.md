@@ -6,7 +6,7 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: identity-protection
 ms.topic: how-to
-ms.date: 05/27/2021
+ms.date: 10/26/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
@@ -38,7 +38,7 @@ Configured trusted [network locations](../conditional-access/location-condition.
 
 ### Risk remediation
 
-Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR). 
+Organizations can choose to block access when risk is detected. Blocking sometimes stops legitimate users from doing what they need to. A better solution is to allow self-remediation using Azure AD Multi-Factor Authentication (MFA) and self-service password reset (SSPR).
 
 - When a user risk policy triggers: 
    - Administrators can require a secure password reset, requiring Azure AD MFA be done before the user creates a new password with SSPR, resetting the user risk. 
@@ -65,6 +65,8 @@ There are two locations where these policies may be configured, Conditional Acce
 
 > [!VIDEO https://www.youtube.com/embed/zEsbbik-BTE]
 
+Before enabling remediation policies, organizations may want to [investigate](howto-identity-protection-investigate-risk.md) and [remediate](howto-identity-protection-remediate-unblock.md) any active risks.
+
 ### User risk with Conditional Access
 
 1. Sign in to the **Azure portal** as a global administrator, security administrator, or Conditional Access administrator.
@@ -76,8 +78,12 @@ There are two locations where these policies may be configured, Conditional Acce
    1. Under **Exclude**, select **Users and groups** and choose your organization's emergency access or break-glass accounts. 
    1. Select **Done**.
 1. Under **Cloud apps or actions** > **Include**, select **All cloud apps**.
-1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. Under **Configure user risk levels needed for policy to be enforced** select **High**, then select **Done**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require password change**, and select **Select**.
+1. Under **Conditions** > **User risk**, set **Configure** to **Yes**. 
+   1. Under **Configure user risk levels needed for policy to be enforced** select **High**.
+   1. Select **Done**.
+1. Under **Access controls** > **Grant**.
+   1. Select **Grant access**, **Require password change**.
+   1. Select **Select**.
 1. Confirm your settings, and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 
@@ -95,7 +101,9 @@ There are two locations where these policies may be configured, Conditional Acce
 1. Under **Conditions** > **Sign-in risk**, set **Configure** to **Yes**. Under **Select the sign-in risk level this policy will apply to** 
    1. Select **High** and **Medium**.
    1. Select **Done**.
-1. Under **Access controls** > **Grant**, select **Grant access**, **Require multi-factor authentication**, and select **Select**.
+1. Under **Access controls** > **Grant**.
+   1. Select **Grant access**, **Require multi-factor authentication**.
+   1. Select **Select**.
 1. Confirm your settings and set **Enable policy** to **On**.
 1. Select **Create** to create to enable your policy.
 

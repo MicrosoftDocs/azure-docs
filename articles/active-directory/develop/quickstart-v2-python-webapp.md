@@ -5,14 +5,13 @@ description: In this quickstart, learn how a Python web app can sign in users, g
 services: active-directory
 author: abhidnya13
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/25/2019
 ms.author: abpati
-ms.custom: aaddev, devx-track-python, scenarios:getting-started, languages:Python
+ms.custom: aaddev, devx-track-python, "scenarios:getting-started", "languages:Python", mode-api
 ---
 
 # Quickstart: Add sign-in with Microsoft to a Python web app
@@ -57,7 +56,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > 1. Select **Add a platform** > **Web**.
 > 1. Add `http://localhost:5000/getAToken` as **Redirect URIs**.
 > 1. Select **Configure**.
-> 1. Under **Manage**, select the **Certificates & secrets**  and from the **Client secrets** section, select **New client secret**.
+> 1. Under **Manage**, select the **Certificates & secrets** and from the **Client secrets** section, select **New client secret**.
 > 1. Type a key description (for instance app secret), leave the default expiration, and select **Add**.
 > 1. Note the **Value** of the **Client Secret** for later use.
 > 1. Under **Manage**, select **API permissions** > **Add a permission**.
@@ -109,7 +108,7 @@ See [How the sample works](#how-the-sample-works) for an illustration.
 > Where:
 >
 > - `Enter_the_Application_Id_here` - is the Application Id for the application you registered.
-> - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets**  for the application you registered.
+> - `Enter_the_Client_Secret_Here` - is the **Client Secret** you created in **Certificates & Secrets** for the application you registered.
 > - `Enter_the_Tenant_Name_Here` - is the **Directory (tenant) ID** value of the application you registered.
 
 > [!div class="sxs-lookup" renderon="portal"]

@@ -5,7 +5,7 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 12/02/2020
+ms.date: 11/02/2021
 ms.custom: devx-track-java
 ---
 
@@ -13,7 +13,7 @@ ms.custom: devx-track-java
 
 This article includes specifications for the use of Azure Spring Cloud in a virtual network.
 
-When Azure Spring Cloud is deployed in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operational purposes, Azure Spring Cloud must access certain ports and fully qualified domain names (FQDNs). These endpoints are required to communicate with the Azure Spring Cloud management plane and to download and install core Kubernetes cluster components and security updates.
+When Azure Spring Cloud is deployed in your virtual network, it has outbound dependencies on services outside of the virtual network. For management and operational purposes, Azure Spring Cloud must access certain ports and fully qualified domain names (FQDNs). Azure Spring Cloud requires these endpoints to communicate with the management plane and to download and install core Kubernetes cluster components and security updates.
 
 By default, Azure Spring Cloud has unrestricted outbound (egress) internet access. This level of network access allows applications you run to access external resources as needed. If you wish to restrict egress traffic, a limited number of ports and addresses must be accessible for maintenance tasks. The simplest solution to secure outbound addresses is use of a firewall device that can control outbound traffic based on domain names. Azure Firewall, for example, can restrict outbound HTTP and HTTPS traffic based on the FQDN of the destination. You can also configure your preferred firewall and security rules to allow these required ports and addresses.
 
@@ -55,9 +55,12 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 | <i>*login.microsoft.com</i>       | HTTPS:443 | Azure Active Directory authentication.                       |
 | <i>packages.microsoft.com</i>     | HTTPS:443 | Microsoft packages repository.                               |
 | <i>acs-mirror.azureedge.net</i>   | HTTPS:443 | Repository required to install required binaries like kubenet and Azure CNI. |
-| *mscrl.microsoft.com*             | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
-| *crl.microsoft.com*               | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
-| *crl3.digicert.com*               | HTTPS:80  | Third Party TLS/SSL Certificate Chain Paths.                 |
+| *mscrl.microsoft.com*<sup>1</sup> | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
+| *crl.microsoft.com*<sup>1</sup>   | HTTPS:80  | Required Microsoft Certificate Chain Paths.                  |
+| *crl3.digicert.com*<sup>1</sup>   | HTTPS:80  | Third-Party TLS/SSL Certificate Chain Paths.                 |
+
+<sup>1</sup> Please note that these FQDNs aren't included in the FQDN tag.
+
 
 ## Azure Spring Cloud optional FQDN for third-party application performance management
 
@@ -74,4 +77,4 @@ Azure Firewall provides the FQDN tag **AzureKubernetesService** to simplify the 
 ## See also
 
 * [Access your application in a private network](access-app-virtual-network.md)
-* [Expose apps using Application Gateway and Azure Firewall](expose-apps-gateway-azure-firewall.md)
+* [Expose applications to the internet using Application Gateway](expose-apps-gateway.md)

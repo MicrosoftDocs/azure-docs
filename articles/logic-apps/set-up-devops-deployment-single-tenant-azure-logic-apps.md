@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
-ms.date: 08/11/2021
+ms.date: 11/02/2021
 
 # As a developer, I want to automate deployment for workflows hosted in single-tenant Azure Logic Apps by using DevOps tools and processes.
 ---
@@ -220,12 +220,19 @@ Currently, only the *preview* version for this extension is available. If you ha
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
 
-To get the latest extension, which is version 0.1.1, run these commands to remove the existing extension and then install the latest version from the source:
+To get the latest extension, which is version 0.1.2, run these commands to remove the existing extension and then install the latest version from the source:
 
 ```azurecli-interactive
 az extension remove --name logicapp
 az extension add --yes --source "https://aka.ms/logicapp-latest-py2.py3-none-any.whl"
 ```
+
+> [!NOTE]
+> If a new extension version is available, the current and later versions show a message. 
+> While this extension is in preview, you can use the following command to upgrade to the 
+> latest version without manually removing and installing again:
+>
+> `az logicapp upgrade`
 
 <a name="create-resource-group"></a>
 

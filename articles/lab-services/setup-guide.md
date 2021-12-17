@@ -1,6 +1,6 @@
 ---
 title: Accelerated lab setup guide for Azure Lab Services
-description: If you're a lab creator, this guide can help you quickly set up a lab account at your school.
+description: If you're a lab creator, this guide can help you quickly set up a lab plan at your school.
 ms.topic: how-to
 ms.date: 06/26/2020
 ---
@@ -44,12 +44,14 @@ For guidance on selecting the appropriate VM size, see:
 > Because compute size availability varies by region, fewer sizes might be available to your lab. Generally, you should select the smallest compute size that suits your needs. With Azure Lab Services, you can set up a new lab with a greater compute capacity later, if you need to.
 
 ### What dependencies does the class have on external Azure or network resources?
+
 Your lab VMs might need access to external resources, such as a database, a file share, or a licensing server.  To allow your lab VMs to use external resources, coordinate with your IT administrators.
 
 > [!NOTE]
 > You should consider whether you can reduce your lab's dependency on external resources by providing network resources directly on the VM. For example, to eliminate the need to read data from an external database, you can install the database directly on the VM.  
 
 ### How will you control costs?
+
 Lab Services uses a pay-as-you-go pricing model, which means that you pay only for the time that a lab VM is running. To control costs, use any or all of the following options:
 
 - **Schedule**: Use schedules to automatically control when your lab VMs are started and shut down.
@@ -57,10 +59,12 @@ Lab Services uses a pay-as-you-go pricing model, which means that you pay only f
 - **Automatic shutdown**: When you enable the auto-shutdown setting, Windows VMs automatically shut down after a student has disconnected from a Remote Desktop Protocol (RDP) session. By default, this setting is disabled.
 
 For more information about controlling costs, see:
+
 - [Estimate costs](./cost-management-guide.md#estimate-the-lab-costs)
 - [Manage costs](./cost-management-guide.md#manage-costs)
 
 ### How will students save their work?
+
 Each individual student is assigned a VM for the lifetime of the lab. Students can save their work:
 
 - To the VM.
@@ -70,11 +74,13 @@ Each individual student is assigned a VM for the lifetime of the lab. Students c
 > To ensure that your students have continued access to their saved work outside of the lab and after the class ends, we recommend that they save their work to an external repository.
 
 ### How will students connect to their VMs?
+
 For RDP connections to Windows VMs, we recommend that students use the [Microsoft Remote Desktop client](/windows-server/remote/remote-desktop-services/clients/remote-desktop-clients). The Remote Desktop client supports Mac, Chromebook, and Windows devices.
 
 For Linux VMs, students can use either the Secure Shell (SSH) or RDP protocol. To have students connect by using RDP, you must install and configure the necessary RDP and graphical user interface (GUI) packages.
 
 ### Will students also use Microsoft Teams?
+
 Azure Lab Services integrates with Microsoft Teams so that faculty members can create and manage their labs in Teams.  Similarly, students can access their labs in Teams.
 
 For more information, see [Azure Lab Services in Microsoft Teams](./lab-services-within-teams-overview.md).
@@ -86,13 +92,14 @@ After you understand the requirements for your class's lab, you're ready to set 
 1. **Create a lab**. See the following tutorials:
     - [Create a classroom lab](./tutorial-setup-classroom-lab.md#create-a-classroom-lab)
     - [Create a lab in Teams](./how-to-get-started-create-lab-within-teams.md)
-
-    > [!NOTE]
-    > If your class requires nested virtualization, see [Enable nested virtualization](./how-to-enable-nested-virtualization-template-vm.md).
+    - [Create a lab in Canvas](how-to-get-started-create-lab-within-canvas.md)
 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
     - [Create and manage a template VM](./tutorial-setup-classroom-lab.md#publish-the-lab)
     - [Use a shared image gallery](./how-to-use-shared-image-gallery.md)
+ 
+    > [!NOTE]
+    > If your class requires nested virtualization, see [Enable nested virtualization](./how-to-enable-nested-virtualization-template-vm.md).
 
     > [!NOTE]
     > If you're using Windows, also see [Set up a Windows template VM](./how-to-prepare-windows-template.md). These instructions include steps for setting up OneDrive and Microsoft Office for your students.

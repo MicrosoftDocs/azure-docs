@@ -7,12 +7,15 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/27/2021
+ms.date: 10/26/2021
 ---
 
 # Azure Consumption Commitment enrollment
 
 This article is for commercial marketplace publishers and describes Microsoft Azure Consumption Commitment (MACC), a contractual commitment customers make with Microsoft for specific amounts of Azure spend over time. For information about how MACC benefits customers, see [Azure Consumption Commitment benefit](/marketplace/azure-consumption-commitment-benefit).
+
+> [!TIP]
+> To see the customer's view of consumption commitment benefits in Azure Marketplace, see [Azure consumption commitment benefit](/marketplace/azure-consumption-commitment-benefit).
 
 ## MACC program
 

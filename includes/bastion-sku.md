@@ -1,13 +1,13 @@
 ---
 author: cherylmc
 ms.author: cherylmc
-ms.date: 08/27/2021
+ms.date: 10/20/2021
 ms.service: bastion
 ms.topic: include
 
 ---
 
-| Feature | Basic SKU | Standard SKU (Preview) |
+| Feature | Basic SKU | Standard SKU |
 |---|---|---|
 | Connect to target VMs in peered virtual networks | Available | Available |
 | Access Linux VM Private Keys in Azure Key Vault (AKV) | Available | Available |

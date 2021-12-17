@@ -9,6 +9,7 @@ ms.subservice: sql
 ms.date: 07/23/2021
 ms.author: vvasic
 ms.reviewer: jrasnick, wiassaf
+ms.custom: ignite-fall-2021
 ---
 
 # Create and use native external tables using SQL pools in Azure Synapse Analytics
@@ -173,7 +174,7 @@ CREATE EXTERNAL TABLE Covid (
 );
 ```
 
-Delta Lake is in public preview and there are some known issues and limitations. Review the known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
+External tables cannot be created on a partitioned folder. Review the other known issues on [Synapse serverless SQL pool self-help page](resources-self-help-sql-on-demand.md#delta-lake).
 
 ## Use an external table
 

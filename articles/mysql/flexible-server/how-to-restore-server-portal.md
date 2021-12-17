@@ -1,5 +1,5 @@
 ---
-title: Restore an Azure Database for MySQL Flexible Server with Azure portal. 
+title: Restore an Azure Database for MySQL Flexible Server with Azure portal.
 description: This article describes how to perform restore operations in Azure Database for MySQL Flexible server through the Azure portal
 author: mksuni
 ms.author: sumuth
@@ -8,12 +8,9 @@ ms.topic: how-to
 ms.date: 04/01/2021
 ---
 
-# Point-in-time restore of a Azure Database for MySQL - Flexible Server (Preview) using Azure portal
+# Point-in-time restore of a Azure Database for MySQL Flexible Server using Azure portal
 
 [!INCLUDE[applies-to-mysql-flexible-server](../includes/applies-to-mysql-flexible-server.md)]
-
-> [!IMPORTANT]
-> Azure Database for MySQL - Flexible Server is currently in public preview.
 
 This article provides step-by-step procedure to perform point-in-time recoveries in flexible server using backups.
 
@@ -44,6 +41,54 @@ Follow these steps to restore your flexible server using an earliest existing ba
 7. Click **OK**.
 
 8. A notification will be shown that the restore operation has been initiated.
+
+
+## Restore to a fastest restore point
+
+Follow these steps to restore your flexible server using an existing full backup as the fastest restore point. 
+
+1. In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from. 
+
+2. Click **Overview** from the left panel. 
+
+3. From the overview page, click **Restore**. 
+
+4. Restore page will be shown with an option to choose between Latest restore point, Custom restore point and Fastest Restore Point. 
+
+5. Select option **Select fastest restore point (Restore using full backup)**. 
+
+6. Select the desired full backup from the **Fastest Restore Point (UTC)** drop down list . 
+ 
+    :::image type="content" source="./media/how-to-restore-server-portal/fastest-restore-point.png" alt-text="Fastest Restore Point":::
+
+7. Provide a new server name in the **Restore to new server** field.
+
+8. Click **Review + Create**. 
+
+9. Post clicking **Create**, a notification will be shown that the restore operation has been initiated.  
+
+## Restore from a full backup through the Backup and Restore blade
+
+Follow these steps to restore your flexible server using an existing full backup. 
+
+1. In the [Azure portal](https://portal.azure.com/), choose your flexible server that you want to restore the backup from. 
+
+2. Click **Backup and Restore** from the left panel. 
+
+3. View Available Backups page will be shown with the option to restore from all full automated backups taken for the server within the retention period.  
+
+4. Select the desired full backup from the list by clicking on corresponding **Restore** action. 
+ 
+    :::image type="content" source="./media/how-to-restore-server-portal/view-available-backups.png" alt-text="View Available Backups":::
+
+5. Restore page will be shown with the Fastest Restore Point option selected by default and the desired full backup timestamp selected on the View Available backups page. 
+
+6. Provide a new server name in the **Restore to new server** field.
+
+7. Click **Review + Create**. 
+
+8. Post clicking **Create**, a notification will be shown that the restore operation has been initiated.  
+
 
 ## Geo-restore to latest restore point
 

@@ -32,9 +32,9 @@ For more information on the use and configuration of app enforced restrictions, 
 
 ## Conditional Access application control
 
-Conditional Access App Control uses a reverse proxy architecture and is uniquely integrated with Azure AD Conditional Access. Azure AD Conditional Access allows you to enforce access controls on your organization’s apps based on certain conditions. The conditions define who (user or group of users) and what (which cloud apps) and where (which locations and networks) a Conditional Access policy is applied to. After you’ve determined the conditions, you can route users to [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) where you can protect data with Conditional Access App Control by applying access and session controls.
+Conditional Access App Control uses a reverse proxy architecture and is uniquely integrated with Azure AD Conditional Access. Azure AD Conditional Access allows you to enforce access controls on your organization’s apps based on certain conditions. The conditions define who (user or group of users) and what (which cloud apps) and where (which locations and networks) a Conditional Access policy is applied to. After you’ve determined the conditions, you can route users to [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) where you can protect data with Conditional Access App Control by applying access and session controls.
 
-Conditional Access App Control enables user app access and sessions to be monitored and controlled in real time based on access and session policies. Access and session policies are used within the Cloud App Security portal to further refine filters and set actions to be taken on a user. With the access and session policies, you can:
+Conditional Access App Control enables user app access and sessions to be monitored and controlled in real time based on access and session policies. Access and session policies are used within the Defender for Cloud Apps portal to further refine filters and set actions to be taken on a user. With the access and session policies, you can:
 
 - Prevent data exfiltration: You can block the download, cut, copy, and print of sensitive documents on, for example, unmanaged devices.
 - Protect on download: Instead of blocking the download of sensitive documents, you can require documents to be labeled and protected with Azure Information Protection. This action ensures the document is protected and user access is restricted in a potentially risky session.
@@ -71,14 +71,17 @@ For more information, see the article [Configure authentication session manageme
 
 ## Customize continuous access evaluation
 
-[Continuous access evaluation](concept-continuous-access-evaluation.md) is auto enabled as part of an organization's Conditional Access policies. For organizations who wish to disable or strictly enforce continuous access evaluation, this configuration is now an option within the session control within Conditional Access. Admins can make this selection while creating a new policy or while editing an existing Conditional Access policy. 
+[Continuous access evaluation](concept-continuous-access-evaluation.md) is auto enabled as part of an organization's Conditional Access policies. For organizations who wish to disable or strictly enforce continuous access evaluation, this configuration is now an option within the session control within Conditional Access. Continuous access evaluation policies can be scoped to all users or specific users and groups. Admins can make the following selections while creating a new policy or while editing an existing Conditional Access policy.
 
-**Disable** works when **All cloud apps** are selected, and no conditions are selected.
+- **Disable** only work when **All cloud apps** are selected, no conditions are selected, and **Disable** is selected under **Session** > **Customize continuous access evaluation** in a Conditional Access policy. You can choose to disable all users or specific users and groups.
+- **Strict enforcement** can be used to further strengthen the security benefits from CAE. It will make sure that any critical event and policy will be enforced in real time.  There are two additional scenarios where CAE will enforce when strict enforcement mode is turned on:
+   - Non-CAE capable clients will not be allowed to access CAE-capable services.
+   - Access will be rejected when client's IP address seen by resource provider isn't in the Conditional Access's allowed range.
 
-**Strict enforcement** means that any critical event and policy will be enforced in real time. All CAE-capable services always get CAE tokens, whatever the client or user might ask for or do. There are two scenarios where CAE won't come into play when strict enforcement mode is turned on:
+> [!NOTE] 
+> You should only enable strict enforcement after you ensure that all the client applications support CAE and you have included all your IP addresses seen by Azure AD and the resource providers, like Exchange online and Azure Resource Mananger, in your location policy under Conditional Access. Otherwise, users in your tenants could be blocked.
 
-- Non-CAE capable clients shouldn't get a regular token for CAE-capable services.
-- Reject when IP seen by resource provider isn't in the allowed range.
+:::image type="content" source="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png" alt-text="CAE Settings in a new Conditional Access policy in the Azure portal." lightbox="media/concept-conditional-access-session/continuous-access-evaluation-session-controls.png":::
 
 ## Disable resilience defaults (Preview)
 
