@@ -104,12 +104,18 @@
           href: linter-rule-no-unused-parameters.md
         - name: No unused variables
           href: linter-rule-no-unused-variables.md
+        - name: Outputs should not contain secrets
+          href: linter-rule-outputs-should-not-contain-secrets
         - name: Prefer interpolation
           href: linter-rule-prefer-interpolation.md
         - name: Secure parameter default
           href: linter-rule-secure-parameter-default.md
         - name: Simplify interpolation
           href: linter-rule-simplify-interpolation.md
+        - name: Use protectedSettings for commandToExecute secrets
+          href: linter-rule-use-protectedsettings-for-commandtoexecute-secrets
+        - name: Use stable VM image
+          href: linter-rule-use-stable-vm-image.md
     - name: Best practices
       href: best-practices.md
     - name: Patterns
