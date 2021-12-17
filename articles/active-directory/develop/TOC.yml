@@ -21,13 +21,7 @@
       displayName: permissions, scp, scp claims
       href: quickstart-configure-app-access-web-apis.md
   - name: Single-page app (SPA)
-    items:
-    - name: Angular
-      href: quickstart-v2-javascript-auth-code-angular.md
-    - name: JavaScript
-      href: quickstart-v2-javascript-auth-code.md
-    - name: React
-      href: quickstart-v2-javascript-auth-code-react.md
+    href: single-page-app-quickstart.md
   - name: Web app
     items:
     - name: ASP.NET
@@ -86,10 +80,30 @@
       href: tutorial-v2-javascript-auth-code.md
     - name: React
       href: tutorial-v2-react.md
+    - name: React
+      items:
+      - name: 1 - Prepare your app for auth
+        href: single-page-app-tutorial-01-prepare-app.md
+      - name: 2 - Prepare Azure AD for your app
+        href: single-page-app-tutorial-02-prepare-azure-ad.md
+      - name: 3 - Sign in users
+        href: single-page-app-tutorial-03-sign-in-users.md
+      - name: 4 - Get user data from web API
+        href: single-page-app-tutorial-04-call-web-api-graph.md
   - name: Web app
     items:
     - name: ASP.NET
       href: tutorial-v2-asp-webapp.md
+    - name: Web app
+      items:
+      - name: 1- Prepare your app for auth
+        href: web-app-tutorial-01-prepare-app.md 
+      - name: 2 - Prepare Azure AD for your app
+        href: web-app-tutorial-02-prepare-azure-ad.md
+      - name: 3 - Sign in users
+        href: web-app-tutorial-03-sign-in-users.md
+      - name: 4 - Get user data from web API
+        href: web-app-tutorial-04-call-web-api-graph.md
     - name: Blazor Server
       href: tutorial-blazor-server.md
     - name: Node.js web app tutorial
@@ -166,6 +180,8 @@
     href: authentication-flows-app-scenarios.md
   - name: Applications and service principals
     href: app-objects-and-service-principals.md
+  - name: Workload identities
+    href: workload-identities-overview.md
   - name: Workload identity federation
     href: workload-identity-federation.md
   - name: Identity platform best practices
@@ -173,6 +189,8 @@
   - name: App security
     displayName: least privilege, secure app configuration, conditional access
     items:
+    - name: Zero trust best practices for app developers
+      href: zero-trust-for-developers.md
     - name: Best practices for least privileged access for apps
       href: secure-least-privileged-access.md
     - name: Security best practices for Azure AD application registration
@@ -340,6 +358,8 @@
       href: test-setup-environment.md
     - name: Throttling and service limits
       href: test-throttle-service-limits.md
+    - name: Run automated integration tests as a user
+      href: test-automate-integration-testing.md
   - name: Work with the Microsoft Authentication Library
     displayName: MSAL
     items:

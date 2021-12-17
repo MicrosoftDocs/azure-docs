@@ -19,6 +19,7 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 
 - [adminusername-should-not-be-literal](./linter-rule-admin-username-should-not-be-literal.md)
 - [no-hardcoded-env-urls](./linter-rule-no-hardcoded-environment-urls.md)
+- [no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md)
 - [no-unused-params](./linter-rule-no-unused-parameters.md)
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)

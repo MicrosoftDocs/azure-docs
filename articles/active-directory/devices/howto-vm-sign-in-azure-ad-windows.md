@@ -17,7 +17,7 @@ ms.collection: M365-identity-device-management
 ---
 # Login to Windows virtual machine in Azure using Azure Active Directory authentication
 
-Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** or **Windows 10 1809** and later. Additionally, you will be able to centrally control and enforce Azure RBAC and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD based authentication.
+Organizations can now improve the security of Windows virtual machines (VMs) in Azure by integrating with Azure Active Directory (AD) authentication. You can now use Azure AD as a core authentication platform to RDP into a **Windows Server 2019 Datacenter edition** and later or **Windows 10 1809** and later. Additionally, you will be able to centrally control and enforce Azure RBAC and Conditional Access policies that allow or deny access to the VMs. This article shows you how to create and configure a Windows VM and login with Azure AD based authentication.
 
 There are many security benefits of using Azure AD based authentication to login to Windows VMs in Azure, including:
 - Use your corporate AD credentials to login to Windows VMs in Azure.
@@ -38,7 +38,7 @@ There are many security benefits of using Azure AD based authentication to login
 
 The following Windows distributions are currently supported for this feature:
 
-- Windows Server 2019 Datacenter
+- Windows Server 2019 Datacenter and later
 - Windows 10 1809 and later
 
 > [!IMPORTANT]
@@ -247,7 +247,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
 
 1. RDP to the VM using the local administrator account and examine the `CommandExecution.log` file under:
    
-   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\0.3.1.0.`
+   `C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.ActiveDirectory.AADLoginForWindows\1.0.0.1\`
 
    > [!NOTE]
    > If the extension restarts after the initial failure, the log with the deployment error will be saved as `CommandExecution_YYYYMMDDHHMMSSSSS.log`. 
@@ -261,7 +261,7 @@ The AADLoginForWindows extension must install successfully in order for the VM t
    | `curl -H @{"Metadata"="true"} "http://169.254.169.254/metadata/identity/oauth2/token?resource=urn:ms-drs:enterpriseregistration.windows.net&api-version=2018-02-01"` | Valid access token issued by Azure Active Directory for the managed identity that is assigned to this VM |
 
    > [!NOTE]
-   > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `appid` in the access token matches the managed identity assigned to the VM.
+   > The access token can be decoded using a tool like [calebb.net](http://calebb.net/). Verify the `oid` in the access token matches the managed identity assigned to the VM.
 
 1. Ensure the required endpoints are accessible from the VM using PowerShell:
    
@@ -289,7 +289,7 @@ This exit code translates to `DSREG_E_MSI_TENANTID_UNAVAILABLE` because the exte
 
    - RDP to the VM as a local administrator and verify the endpoint returns valid Tenant ID by running this command from an elevated PowerShell window on the VM:
       
-      - `curl -H Metadata:true http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
+      - `curl -H @{"Metadata"="true"} http://169.254.169.254/metadata/identity/info?api-version=2018-02-01`
 
 1. The VM admin attempts to install the AADLoginForWindows extension, but a system assigned managed identity has not enabled the VM first. Navigate to the Identity blade of the VM. From the System assigned tab, verify Status is toggled to On.
 
@@ -364,7 +364,19 @@ Verify that the Windows 10 PC you are using to initiate the remote desktop conne
 Verify that the AADLoginForWindows extension was not uninstalled after the Azure AD join finished.
 
 Also, make sure that the security policy "Network security: Allow PKU2U authentication requests to this computer to use online identities" is enabled on both the server **and** the client.
- 
+
+#### Password change required
+
+If you see the following error message when you initiate a remote desktop connection to your VM: 
+
+- Your credentials did not work.
+
+![Your credentials did not work](./media/howto-vm-sign-in-azure-ad-windows/your-credentials-did-not-work.png)
+
+Verify that the user doesn't have a temporary password. If the user has just been created, or if the user password has just been reset, the user's password is temporary and must be changed on the next sign-in. Temporary passwords cannot be used to log in to a remote desktop connection.
+
+To resolve the issue, log in to the user account in a web browser, for instance by opening the [Azure portal](https://portal.azure.com) in a private browsing window. If you are prompted to change the password, set a new password and connect to the remote desktop connection with that new password.
+
 #### MFA sign-in method required
 
 If you see the following error message when you initiate a remote desktop connection to your VM: 

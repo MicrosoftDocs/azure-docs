@@ -23,6 +23,8 @@
     href: video-indexer-use-apis.md
   - name: Logic Apps connector
     href: logic-apps-connector-tutorial.md
+  - name: Deploy using ARM template
+    href: deploy-with-arm-template.md
 - name: Samples
   items:
   - name: Video Analyzer for Media samples
@@ -39,7 +41,7 @@
     href: language-identification-model.md
   - name: Live stream analysis
     href: live-stream-analysis.md
-  - name: Observed in a video people  
+  - name: Observed people in a video   
     href: observed-people-tracing.md
   - name: People's detected clothing
     href: detected-clothing.md

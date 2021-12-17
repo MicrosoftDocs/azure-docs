@@ -16,7 +16,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/29/2018
 ms.author: terrylan
-#Customer intent: As an IT Pro or decision maker I am looking for information on the network security controls available in Azure.
+#Customer intent: As an IT Pro or decision maker, I am looking for information on the network security controls available in Azure.
 
 ---
 # Azure network security overview

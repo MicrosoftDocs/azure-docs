@@ -1,8 +1,6 @@
 ---
 title: Using rendering capabilities
 description: How to use Azure Batch rendering capabilities. Try using the Batch Explorer application, either directly or invoked from a client application plug-in.
-author: mscurrell
-ms.author: markscu
 ms.date: 03/12/2020
 ms.topic: how-to
 ---

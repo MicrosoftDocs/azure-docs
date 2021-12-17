@@ -1,23 +1,37 @@
 ---
-title: "Tutorial: Call the Microsoft Graph API from a single-page application"
+title: "Tutorial: Call the Microsoft Graph API from a ASP.NET web application"
 titleSuffix: Microsoft identity platform
-description: In this tutorial, you will use a React single-page application to call the Microsoft Graph API
+description: In this tutorial, you will use a ASP.NET web application to call the Microsoft Graph API
 author: henrymbuguakiarie
 manager: CelesteDG
 
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 11/23/2021
+ms.workload: identity
+ms.date: 12/17/2021
 ms.author: henrymbugua
 ms.reviewer: marsma, dhruvmu
-#
-# Customer intent: As a developer, I want to follow steps to learn how to
-# add core auth features like signing in Azure AD users and calling a
-# protected web API like Microsoft Graph by using the Microsoft identity platform and
-# the Microsoft Authentication Library (MSAL).
+ms.custom: aaddev, devx-track-js
+zone_pivot_groups: web-app-tutorial
 ---
 
-# Tutorial: Call the Microsoft Graph API from a single-page application
+# Tutorial: Call the Microsoft Graph API from a web application
+
+::: zone pivot="devlang-asp-net"
+
+[!INCLUDE [asp.net](./includes/web-app/asp-net-tutorial-04-call-web-api-graph.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-openjdk"
+
+[!INCLUDE [openjdk](./includes/web-app/open-jdk-tutorial-04-call-web-api-graph.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-python-flask"
 
 [!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-04-call-web-api-graph.md)]
+
+::: zone-end

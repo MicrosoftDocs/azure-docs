@@ -125,7 +125,7 @@ After you load and configure your data, set up your remote compute target and se
             ----|---|---
             Compute name |	A unique name that identifies your compute context. | bike-compute
             Min / Max nodes| To profile data, you must specify 1 or more nodes.|Min nodes: 1<br>Max nodes: 6
-            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|1800 (default)
+            Idle seconds before scale down | Idle time before  the cluster is automatically scaled down to the minimum node count.|120 (default)
             Advanced settings | Settings to configure and authorize a virtual network for your experiment.| None 
   
         1. Select **Create** to get the compute target. 

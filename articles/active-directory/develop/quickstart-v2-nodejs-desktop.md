@@ -5,12 +5,12 @@ description: In this quickstart, you learn how a Node.js Electron desktop applic
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.date: 02/17/2021
 ms.author: marsma
+ms.custom: mode-api
 #Customer intent: As an application developer, I want to learn how my Node.js Electron desktop application can get an access token and call an API that's protected by a Microsoft identity platform endpoint.
 ---
 

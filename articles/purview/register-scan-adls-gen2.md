@@ -16,7 +16,7 @@ This article outlines the process to register an Azure Data Lake Storage Gen2 da
 
 |**Metadata Extraction**|  **Full Scan**  |**Incremental Scan**|**Scoped Scan**|**Classification**|**Access Policy**|**Lineage**|
 |---|---|---|---|---|---|---|
-| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| Yes | Limited** |
+| [Yes](#register) | [Yes](#scan)|[Yes](#scan) | [Yes](#scan)|[Yes](#scan)| [Yes](#access-policy) | Limited** |
 
 \** Lineage is supported if dataset is used as a source/sink in [Data Factory Copy activity](how-to-link-azure-data-factory.md) 
 
@@ -58,7 +58,7 @@ It is important to register the data source in Azure Purview prior to setting up
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-select-data-source.png" alt-text="Screenshot that allows selection of the data source":::
 
-1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and select **Apply**
+1. Provide a suitable **Name** for the data source, select the relevant **Azure subscription**, existing **Data Lake Store account name** and the **collection** and select **Apply**. Leave the **Data use governance** toggle on the **disabled** position until you have a chance to carefully go over this [document](./how-to-access-policies-storage.md).
 
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-data-source-details.png" alt-text="Screenshot that shows the details to be entered in order to register the data source":::
 
@@ -250,6 +250,12 @@ It is important to give your service principal the permission to scan the ADLS G
     :::image type="content" source="media/register-scan-adls-gen2/register-adls-gen2-review-scan.png" alt-text="review scan":::
 
 [!INCLUDE [view and manage scans](includes/view-and-manage-scans.md)]
+
+## Access policy
+[!INCLUDE [supported regions](./includes/storage-access-policy-regions.md)]
+[!INCLUDE [access policy enablement storage](./includes/storage-access-policy-enable.md)]
+
+Follow this configuration guide to [enable access policies on an Azure Storage account](./how-to-access-policies-storage.md)
 
 ## Next steps
 

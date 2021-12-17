@@ -4,7 +4,7 @@ description: Learn how to update the backup storage redundancy using Azure CLI, 
 author: kanshiG
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 11/16/2021
+ms.date: 12/03/2021
 ms.author: govindk
 ms.reviewer: sngun
 
@@ -13,7 +13,17 @@ ms.reviewer: sngun
 # Update backup storage redundancy for Azure Cosmos DB periodic backup accounts
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-By default, Azure Cosmos DB stores periodic mode backup data in geo-redundant [blob storage](../storage/common/storage-redundancy.md) that is replicated to a [paired region](../best-practices-availability-paired-regions.md). You can override the default backup storage redundancy. This article explains how to update the backup storage redundancy using Azure CLI and PowerShell. It also shows how to configure an Azure policy on your accounts to enforce the required storage redundancy.
+By default, Azure Cosmos DB stores periodic mode backup data in geo-redundant [blob storage](../storage/common/storage-redundancy.md) that is replicated to a [paired region](../availability-zones/cross-region-replication-azure.md). You can override the default backup storage redundancy. This article explains how to update the backup storage redundancy using Azure CLI and PowerShell. It also shows how to configure an Azure policy on your accounts to enforce the required storage redundancy.
+
+## Update using Azure portal
+
+Use the following steps to update backup storage redundancy from the Azure portal:
+
+1. Sign into the [Azure portal](https://portal.azure.com/) and navigate to your Azure Cosmos DB account.
+
+1. Open the **Backup & Restore** pane, update the backup storage redundancy and select **Submit**. It takes few minutes for the operation to complete:
+
+   :::image type="content" source="./media/update-backup-storage-redundancy/update-backup-storage-redundancy-portal.png" alt-text="Update backup storage redundancy from the Azure portal":::
 
 ## Update using CLI
 

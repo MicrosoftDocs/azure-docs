@@ -8,9 +8,11 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
-ms.date: 11/23/2021
+ms.date: 12/16/2021
 ms.author: henrymbugua
 ms.reviewer: marsma, dhruvmu
+ms.custom: aaddev, devx-track-js
+zone_pivot_groups: web-app-tutorial
 #
 # Customer intent: As a developer, I want to follow steps to learn how to
 # add core auth features like signing in Azure AD users and calling a
@@ -20,4 +22,22 @@ ms.reviewer: marsma, dhruvmu
 
 # Tutorial: Prepare a web application for auth
 
+<!--| WRAPPER | WEB APP|-->
+
+::: zone pivot="devlang-asp-net"
+
+[!INCLUDE [asp.net](./includes/web-app/asp-net-tutorial-01-prepare-app.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-openjdk"
+
+[!INCLUDE [openjdk](./includes/web-app/open-jdk-tutorial-01-prepare-app.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-python-flask"
+
 [!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-01-prepare-app.md)]
+
+::: zone-end

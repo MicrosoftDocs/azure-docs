@@ -5,7 +5,7 @@ author: yelevin
 ms.author: yelevin
 ms.topic: quickstart
 ms.date: 11/09/2021
-ms.custom: references_regions, ignite-fall-2021
+ms.custom: references_regions, ignite-fall-2021, mode-other
 #Customer intent: As a security operator, connect all my data sources in one place so I can monitor and protect my environment.
 ---
 
@@ -103,7 +103,7 @@ For more information, see:
 
 - **Alternate deployment / management options**:
 
-    - [Deploy Microsoft Sentinel via ARM template](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-all-in-one-accelerator/ba-p/1807933)
+    - [Deploy Microsoft Sentinel via ARM template](https://github.com/Azure/Azure-Sentinel/tree/master/Tools/Sentinel-All-In-One)
     - [Manage Microsoft Sentinel via API](/rest/api/securityinsights/)
     - [Manage Microsoft Sentinel via PowerShell](https://www.powershellgallery.com/packages/Az.SecurityInsights/0.1.0)
 

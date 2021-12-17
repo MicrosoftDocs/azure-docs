@@ -1,14 +1,8 @@
 ---
 title: How to protect Windows Admin Center servers with Microsoft Defender for Cloud
 description: This article explains how to integrate Microsoft Defender for Cloud with Windows Admin Center
-services: security-center
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: conceptual
 ms.date: 11/09/2021
-ms.author: memildin
-
 ---
 # Protect Windows Admin Center resources with Microsoft Defender for Cloud
 
@@ -18,7 +12,7 @@ Windows Admin Center is a management tool for your Windows servers. It's a singl
 
 > [!NOTE]
 > Your Azure subscription and the associated Log Analytics workspace both need to have Microsoft Defender for Cloud's enhanced security features enabled in order to enable the Windows Admin Center integration.
-> Enhanced security features are free for the first 30 days if you haven't previously used it on the subscription and workspace. For pricing details in your currency of choice and according to your region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
+> Enhanced security features are free for the first 30 days if you haven't previously used it on the subscription and workspace. For pricing details in your local currency or region, see the [pricing page](https://azure.microsoft.com/pricing/details/security-center/).
 >
 
 When you've successfully onboarded a server from Windows Admin Center to Microsoft Defender for Cloud, you can:

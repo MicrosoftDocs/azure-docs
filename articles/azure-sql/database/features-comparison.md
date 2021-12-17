@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: bonova, mathoma, danil
-ms.date: 09/21/2021
+ms.reviewer: kendralittle, bonova, mathoma, danil
+ms.date: 12/14/2021
 ---
 
 # Features comparison: Azure SQL Database and Azure SQL Managed Instance
@@ -56,7 +56,7 @@ The following table lists the major features of SQL Server and provides informat
 | [Columnstore indexes](/sql/relational-databases/indexes/columnstore-indexes-overview) | Yes - [Premium tier, Standard tier - S3 and above, General Purpose tier, Business Critical, and HyperScale tiers](/sql/relational-databases/indexes/columnstore-indexes-overview) |Yes |
 | [Common language runtime - CLR](/sql/relational-databases/clr-integration/common-language-runtime-clr-integration-programming-concepts) | No | Yes, but without access to file system in `CREATE ASSEMBLY` statement - see [CLR differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#clr) |
 | [Credentials](/sql/relational-databases/security/authentication-access/credentials-database-engine) | Yes, but only [database scoped credentials](/sql/t-sql/statements/create-database-scoped-credential-transact-sql). | Yes, but only **Azure Key Vault** and `SHARED ACCESS SIGNATURE` are supported - see [details](../managed-instance/transact-sql-tsql-differences-sql-server.md#credential) |
-| [Cross-database/three-part name queries](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic queries](elastic-query-overview.md) | Yes, plus [Elastic queries](elastic-query-overview.md) |
+| [Cross-database/three-part name queries](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No - see [Elastic queries](elastic-query-overview.md) | Yes|
 | [Cross-database transactions](/sql/relational-databases/linked-servers/linked-servers-database-engine) | No | Yes, within the instance. See [Linked server differences](../managed-instance/transact-sql-tsql-differences-sql-server.md#linked-servers) for cross-instance queries. |
 | [Database mail - DbMail](/sql/relational-databases/database-mail/database-mail) | No | Yes |
 | [Database mirroring](/sql/database-engine/database-mirroring/database-mirroring-sql-server) | No | [No](../managed-instance/transact-sql-tsql-differences-sql-server.md#database-mirroring) |

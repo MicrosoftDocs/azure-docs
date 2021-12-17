@@ -58,6 +58,9 @@ Requirements for training data in machine learning:
 - Data must be in tabular form.
 - The value to predict, target column, must be in the data.
 
+> [!IMPORTANT]
+> Automated ML experiments do not support training with datasets that use [identity-based data access](how-to-identity-based-data-access.md).
+
 **For remote experiments**, training data must be accessible from the remote compute. Automated ML only accepts [Azure Machine Learning TabularDatasets](/python/api/azureml-core/azureml.data.tabulardataset) when working on a remote compute. 
 
 Azure Machine Learning datasets expose functionality to:
