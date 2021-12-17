@@ -49,8 +49,8 @@ LRS does not require a specific naming convention for backup files. It scans all
 
 If you're migrating several databases, you need to:
 
-- Place backup files for each database in a separate folder on Blob Storage in a flat-file structure. For example, use separate database folders: `bolbcontainer/database1/files`, `blobcontainer/database2/files`, etc.
-- Do not use nested folders inside database folders as this is not supported. For example, do not use: `blobcontainer/database1/subfolder/files`.
+- Place backup files for each database in a separate folder on Azure Blob Storage in a flat-file structure. For example, use separate database folders: `bolbcontainer/database1/files`, `blobcontainer/database2/files`, etc.
+- Do not use nested folders inside database folders as this is not supported. For example, do not use subfolders: `blobcontainer/database1/subfolder/files`.
 - Start LRS separately for each database.
 - Specify different URI path to separate database folders on Azure Blob Storage. 
 
@@ -96,10 +96,12 @@ Running LRS through the provided clients requires one of the following Azure rol
 We recommend the following best practices:
 - Run [Data Migration Assistant](/sql/dma/dma-overview) to validate that your databases are ready to be migrated to SQL Managed Instance. 
 - Split full and differential backups into multiple files, instead of using a single file.
-- Use `CHECKSUM` for backing up databases, and enable backup compression.
+- Use the full recovery model (mandatory).
+- Use `CHECKSUM` for backups (mandatory).
+- Enable backup compression.
+- Place backup files for an individual database inside a separate folder. Use flat-file structure as nested folders are not supported.
 - Use Cloud Shell to run PowerShell or CLI scripts, because it will always be updated to the latest cmdlets released.
 - Plan to complete the migration within 36 hours after you start LRS. This is a grace period during which system-managed software patches are postponed.
-- Place all backup files for an individual database inside a single folder. Use flat-file structure as nested folders are not supported.
 
 > [!IMPORTANT]
 > - You can't use databases being restored through LRS until the migration process completes. 
@@ -115,7 +117,7 @@ You can make database backups on SQL Server by using either of the following opt
 - Back up to the local disk storage, and then upload files to Azure Blob Storage, if your environment restricts direct backups to Blob Storage.
 - Back up directly to Blob Storage with the `TO URL` option in T-SQL, if your environment and security procedures allow it. 
 
-Set databases that you want to migrate to the full recovery mode to allow log backups.
+Set databases that you want to migrate to the full recovery model to allow log backups.
 
 ```SQL
 -- To permit log backups, before the full database backup, modify the database to use the full recovery
