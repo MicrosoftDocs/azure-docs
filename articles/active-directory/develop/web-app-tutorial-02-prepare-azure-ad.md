@@ -10,10 +10,11 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/15/2021
+ms.date: 12/16/2021
 ms.author: henrymbugua
 ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
+zone_pivot_groups: web-app-tutorial
 ---
 
 # Tutorial: Prepare Azure AD by registering your web app
@@ -28,6 +29,14 @@ ms.custom: aaddev, devx-track-js
 
 <!-- ::: zone pivot="devlang-react" -->
 
+::: zone pivot="devlang-asp-net"
+
+[!INCLUDE [asp.net](./includes/web-app/asp-net-tutorial-02-prepare-azure-ad.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-openjdk"
+
 [!INCLUDE [openjdk](./includes/web-app/open-jdk-tutorial-02-prepare-azure-ad.md)]
 
-<!--::: zone-end -->
+::: zone-end

@@ -1,12 +1,11 @@
 ---
 author: henrymbuguakiarie
 ms.author: henrymbugua
-ms.date: 12/15/2021
+ms.date: 12/16/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
 ---
-
 
 In this tutorial, you register a web app that uses the Microsoft Authentication Library (MSAL) in the Microsoft Identity platform.
 
@@ -16,6 +15,7 @@ Follow the steps in this tutorial to:
 >
 > - Register your application with Azure AD
 > - Configure redirect URIs in your single-page app
+
 ## Register your application with Azure AD
 
 ## Configure a redirect URI
@@ -25,5 +25,6 @@ Follow the steps in this tutorial to:
 In this tutorial, you <!-- $TASKS_COMPLETED_AND_LEARNINGS_HERE -->.
 
 In the next tutorial, you build on these learnings by <!-- $TASKS_AND_LEARNINGS_IN_NEXT_TUTORIAL_HERE -->.
+
 > [!div class="nextstepaction"]
-> [Tutorial: $TITLE](../../web-app-tutorial-04-call-web-api-graph.md)
+> [Tutorial: $TITLE](../../web-app-tutorial-03-sign-in-users.md)

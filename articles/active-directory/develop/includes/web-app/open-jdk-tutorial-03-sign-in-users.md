@@ -1,7 +1,7 @@
 ---
 author: henrymbuguakiarie
 ms.author: henrymbugua
-ms.date: 12/15/2021
+ms.date: 12/17/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: include
@@ -17,26 +17,20 @@ Follow the steps in this tutorial to:
 > - Sign in users
 > - Display logged-in content
 > - Display MSAL provider content
+
 ## Initialize the auth SDK
 
 ## Sign in users
 
-### Sign in users with a pop-up
-
-### Sign in users with redirects
-
-### Add log in button
-
 ## Display logged in content
 
-
 ## Display MSAL provider content
-
 
 ## Next steps
 
 In this tutorial, you <!-- $TASKS_COMPLETED_AND_LEARNINGS_HERE -->.
 
 In the next tutorial, you build on these learnings by <!-- $TASKS_AND_LEARNINGS_IN_NEXT_TUTORIAL_HERE -->.
->   [!div class="nextstepaction"]
->   [Tutorial: $TITLE](../../web-app-tutorial-04-call-web-api-graph.md)
+
+> [!div class="nextstepaction"] 
+> [Tutorial: $TITLE](../../web-app-tutorial-04-call-web-api-graph.md)
