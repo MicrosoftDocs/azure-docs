@@ -60,7 +60,7 @@ Each issuer has a single key set used for signing, updating, and recovery. This 
 
 ### Azure AD Verifiable Credentials service
 
-![Microsoft Azure AD Verifiable Credentials service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-api.png)
+![Microsoft Azure AD Verifiable Credentials service](media/plan-issuance-solution/plan-for-issuance-solution-azure-active-directory-verifiable-credentials-vc-services.png)
 
 The Azure AD Verifiable Credentials service enables you to issue and revoke VCs based on your configuration. The service:
 
@@ -69,6 +69,8 @@ The Azure AD Verifiable Credentials service enables you to issue and revoke VCs 
 * Provisions key sets to Key Vault. 
 
 * Stores the configuration metadata used by the issuance service and Microsoft Authenticator.
+
+* Provides REST APIs interface for issuer and verifier web front ends
 
 ### ION
 
