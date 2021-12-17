@@ -11,7 +11,7 @@ ms.author: cshoe
 
 # API support in Azure Static Web Apps with Azure API Management
 
-[!INCLUDE [validate CNAME](../../includes/static-web-apps-apis-overview.md)]
+[!INCLUDE [APIs overview](../../includes/static-web-apps-apis-overview.md)]
 
 
 ## Next steps
