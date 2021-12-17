@@ -78,6 +78,8 @@ In this step, you create a VPN gateway with the corresponding BGP parameters.
 
    * If you are creating an active-active VPN gateway, the BGP section will show an additional **Second Custom Azure APIPA BGP IP address**. From the allowed APIPA range (**169.254.21.0** to **169.254.22.255**), select another IP address. The second IP address must be different than the first address.
 
+   * You can enter multiple addresses for **Azure APIPA BGP IP address** and **Second Custom Azure APIPA BGP IP address**. Additional inputs will only appear after you enter your first APIPA BGP IP address.
+
    > [!IMPORTANT]
    >
    > * By default, Azure assigns a private IP address from the GatewaySubnet prefix range automatically as the Azure BGP IP address on the Azure VPN gateway. The custom Azure APIPA BGP address is needed when your on premises VPN devices use an APIPA address (169.254.0.1 to 169.254.255.254) as the BGP IP. Azure VPN Gateway will choose the custom APIPA address if the corresponding local network gateway resource (on-premises network) has an APIPA address as the BGP peer IP. If the local network gateway uses a regular IP address (not APIPA), Azure VPN Gateway will revert to the private IP address from the GatewaySubnet range.
