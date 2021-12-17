@@ -53,7 +53,7 @@ To find the logs from a data upload, do the following steps.
 
      |Log type   |URL format|
      |-----------|----------|
-     |copy log   |<*storage-account-name*>/waies/<*order-name*>_<*device-serial-number*>_CopyLog_<*GUID*>.xml |
+     |error log  |<*storage-account-name*>/waies/<*order-name*>_<*device-serial-number*>_CopyLog_<*GUID*>.xml   |
      |verbose log|<*storage-account-name*>/waies/<*order-name*>_<*device-serial-number*>_VerboseLog_<*GUID*>.xml|
 
    > [!NOTE]
