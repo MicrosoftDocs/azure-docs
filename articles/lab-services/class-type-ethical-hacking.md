@@ -16,17 +16,22 @@ This article has two main sections. The first section covers how to create the c
 ## Lab configuration
 
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
-To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can either create a new lab account in Azure Lab Services or use an existing account. See the following tutorial for creating a new lab account: [Tutorial to setup a lab account](tutorial-setup-lab-account.md).
+To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-Follow [this tutorial](tutorial-setup-classroom-lab.md) to create a new lab and then apply the following settings:
+Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
 
-| Virtual machine size | Image |
-| -------------------- | ----- |
-| Medium (Nested Virtualization) | Windows Server 2019 Datacenter |
+### Lab settings
 
-## Template machine
+For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
+
+| Lab settings | Value |
+| ------------ | ------------------ |
+| Virtual machine (VM) size | Medium (Nested Virtualization) |
+| VM image | Windows Server 2019 Datacenter |
+
+## Template machine configuration
 
 After the template machine is created, start the machine and connect to it to complete the following three major tasks.
 
@@ -34,7 +39,9 @@ After the template machine is created, start the machine and connect to it to co
 2. Set up the [Kali](https://www.kali.org/) Linux image. Kali is a Linux distribution that includes tools for penetration testing and security auditing.
 3. Set up the Metasploitable image. For this example, the [Metasploitable3](https://github.com/rapid7/metasploitable3) image will be used. This image is created to purposely have security vulnerabilities.
 
-The rest of this article will cover the manual steps to completing the tasks above.  Alternatively, you can run the [Lab Services Hyper-V Scripts](https://aka.ms/azlabs/scripts/hyperV) and [Lab Services Ethical Hacking Scripts](https://aka.ms/azlabs/classtypes/EthicalHacking).
+You can complete the tasks above by executing the [Lab Services Hyper-V Script](https://aka.ms/azlabs/scripts/hyperV) and [Lab Services Ethical Hacking Script](https://aka.ms/azlabs/classtypes/EthicalHacking) PowerShell scripts on the template machine. Once scripts have been executed, continue to [Next steps](#next-steps).
+
+If you choose to set up the template machine manually, continue reading.  The rest of this article will cover the manual completion of template configuration tasks.  
 
 ### Prepare template machine for nested virtualization
 
@@ -55,7 +62,7 @@ Kali is a Linux distribution that includes tools for penetration testing and sec
     1. On the **Select destination image format** page, choose **VHD/VHDX**.  Select **Next**.
     1. On the **Select option for VHD/VHDX image format** page, choose **VHDX growable image**.  Select **Next**.
     1. On the **Select destination file name** page, accept the default file name.  Select **Convert**.
-    1. On the **Converting** page, wait for the image to be converted.  This may take several minutes.  Select **Finish** when the conversion is completed.
+    1. On the **Converting** page, wait for the image to be converted.  Conversion may take several minutes.  Select **Finish** when the conversion is completed.
 1. Create a new Hyper-V virtual machine.
     1. Open **Hyper-V Manager**.
     1. Choose **Action** -> **New** -> **Virtual Machine**.
@@ -89,7 +96,7 @@ The Rapid7 Metasploitable image is an image purposely configured with security v
     1. On the **Select destination image format** page, choose **VHD/VHDX**.  Select **Next**.
     1. On the **Select option for VHD/VHDX image format** page, choose **VHDX growable image**.  Select **Next**.
     1. On the **Select destination file name** page, accept the default file name.  Select **Convert**.
-    1. On the **Converting** page, wait for the image to be converted.  This may take several minutes.  Select **Finish** when the conversion is completed.
+    1. On the **Converting** page, wait for the image to be converted.  Conversion may take several minutes.  Select **Finish** when the conversion is completed.
 1. Create a new Hyper-V virtual machine.
     1. Open **Hyper-V Manager**.
     1. Choose **Action** -> **New** -> **Virtual Machine**.
@@ -136,9 +143,10 @@ This article walked you through the steps to create a lab for ethical hacking cl
 
 ## Next steps
 
-Next steps are common to setting up any lab:
+The template image can now be published to the lab. See [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) for further instructions.
 
-- [Create and publish a lab](tutorial-setup-classroom-lab.md)
+As you set up your lab, see the following articles:
+
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

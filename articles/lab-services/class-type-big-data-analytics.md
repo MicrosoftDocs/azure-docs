@@ -19,36 +19,37 @@ Another interesting aspect of this lab, is that we will deploy HDP Sandbox on th
 
 ## Lab configuration
 
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see [Tutorial to Setup a Lab Account](tutorial-setup-lab-account.md).  You can also use an existing lab account.
-
-### Lab account settings
-
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see [Specify Marketplace images available to lab creators](./specify-marketplace-images.md).
+To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-| Lab account setting | Instructions |
+### Lab plan settings
+
+Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+
+Enable your lab plan settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
+
+| Lab plan setting | Instructions |
 | ------------------- | ------------ |
-|Marketplace image| Enable the Windows 10 Pro image for use within your lab account.|
+|Marketplace image| Enable the **Windows 10 Pro** image.|
 
 ### Lab settings
 
-Use the settings in the table below when setting up a classroom lab.  For more information how to create a classroom lab, see [set up a classroom lab tutorial](tutorial-setup-classroom-lab.md).
+For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |
-|Virtual Machine Size| Medium (Nested Virtualization). This VM size is best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.|  
+|Virtual Machine Size| **Medium (Nested Virtualization)**. This VM size is best suited for relational databases, in-memory caching, and analytics.  This size also supports nested virtualization.|  
 |Virtual Machine Image| Windows 10 Pro|
 
-> [!NOTE] 
-> We need to use Medium (Nested Virtualization) since deploying HDP Sandbox using Docker requires:
->   - Windows Hyper-V with nested virtualization
->   - At least 10 GB of RAM
+> [!NOTE]
+> We need to use Medium (Nested Virtualization) since deploying HDP Sandbox using Docker requires Windows Hyper-V with nested virtualization and at least 10 GB of RAM
 
 ## Template machine configuration
 
 To set up the template machine, we will:
+
 - Install Docker
 - Deploy HDP Sandbox
 - Use PowerShell and Windows Task Scheduler to automatically start the Docker containers
@@ -71,7 +72,7 @@ To use Docker containers, you must first install Docker Desktop on the template 
 
     > [!WARNING]
     > If you inadvertently check the **Use Windows containers instead of Linux containers** option when installing Docker, you won't see the memory configuration settings.  To fix this, you can switch to using Linux containers by [clicking on the Docker icon in Windows System tray](https://docs.docker.com/docker-for-windows/#docker-settings-dialog); when the Docker Desktop menu opens, select **Switch to Linux containers**.
- 
+
 ### Deploy HDP Sandbox
 
 In this section, you will deploy HDP Sandbox and then also access HDP Sandbox using the browser.
@@ -83,15 +84,15 @@ In this section, you will deploy HDP Sandbox and then also access HDP Sandbox us
    - Deploy HDP Sandbox
    - Verify HDP Sandbox
 
-    > [!WARNING] 
+    > [!WARNING]
     > When you download the latest .zip file for HDP, ensure that you do *not* save the .zip file in a directory path that includes whitespace.
 
-    > [!NOTE] 
+    > [!NOTE]
     > If you receive an exception during deployment stating **Drive has not been shared**, you need to share your C drive with Docker so that HDP's Linux containers can access local Windows files.  To fix this, [click on the Docker icon in Windows System tray](https://docs.docker.com/docker-for-windows/#docker-settings-dialog) to open the Docker Desktop menu and select **Settings**.  When **Docker's Settings** dialog opens, select **Resources > File Sharing** and check the **C** drive.  You can then repeat the steps to deploy HDP Sandbox.
 
 1. Once the Docker containers for HDP Sandbox are deployed and running, you can access the environment by launching your browser and following Cloudera's instructions for opening the [Sandbox Welcome Page](https://www.cloudera.com/tutorials/learning-the-ropes-of-the-hdp-sandbox.html#welcome-page) and launching the HDP Dashboard.
 
-    > [!NOTE] 
+    > [!NOTE]
     > These instructions assume that you have first mapped the local IP address of the sandbox environment to the sandbox-hdp.hortonworks.com in the host file on your template VM.  If you do **not** do this mapping, you can access the Sandbox Welcome page by navigating to `http://localhost:8080`.
 
 ### Automatically start Docker containers when students log in
@@ -109,9 +110,11 @@ To set this up, follow these steps: [Big Data Analytics scripting](https://aka.m
 If you would like to estimate the cost of this lab, you can use the following example.
 
 For a class of 25 students with 20 hours of scheduled class time and 10 hours of quota for homework or assignments, the price for the lab would be:
-  - 25 students * (20 + 10) hours * 55 Lab Units * 0.01 USD per hour = 412.50 USD
+  
+25 students \* (20 + 10) hours \* 55 Lab Units \* 0.01 USD per hour = 412.50 USD
 
-Further more details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
+>[!IMPORTANT]
+>Cost estimate is for example purposes only. For current details on pricing, see [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
 ## Conclusion
 
@@ -119,9 +122,10 @@ This article walked you through the steps necessary to create a lab for a big da
 
 ## Next steps
 
-Next steps are common to setting up any lab.
+The template image can now be published to the lab. See [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) for further instructions.
 
-- [Create and publish a lab](tutorial-setup-classroom-lab.md)
+As you set up your lab, see the following articles:
+
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

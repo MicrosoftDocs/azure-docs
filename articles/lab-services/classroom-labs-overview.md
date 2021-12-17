@@ -12,7 +12,7 @@ Azure Lab Services enables you to quickly set up a classroom lab environment in 
 The labs are managed lab types that are managed by Azure. The service itself handles all the infrastructure management for a managed lab type, from spinning up virtual machines (VMs) to handling errors, and scaling the infrastructure. You specify what kind of infrastructure you need and install any tools or software that's required for the class.
 
 >[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the November 2021 Update](lab-services-whats-new.md). The new experience is in preview.
+> For the latest experience in Azure Lab Services, see [What's New in the January 2022 Update](lab-services-whats-new.md). The new experience is in preview.
 
 ## Automatic management of Azure infrastructure and scale
 
@@ -20,7 +20,7 @@ Azure Lab Services is a managed service, which means that provisioning and manag
 
 ## Simple experience for your lab users
 
-Users who are invited to your lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines they have access to across multiple labs. They can click on a single button to connect to the virtual machines and start working. Users don’t need Azure subscriptions to use the service. 
+Users who are invited to your lab get immediate access to the resources you give them inside your labs. They just need to sign in to see the full list of virtual machines they have access to across multiple labs. They can click on a single button to connect to the virtual machines and start working. Users don’t need Azure subscriptions to use the service.
 
 ## Cost optimization and tracking
 
@@ -28,7 +28,7 @@ Keep your budget in check by controlling exactly how many hours your lab users c
 
 ## Example class types
 
-You can set up labs for several types of classes with Azure Lab Services. See the [Example class types on Azure Lab Services](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services. 
+You can set up labs for several types of classes with Azure Lab Services. See the [Example class types on Azure Lab Services](class-types.md) article for a few example types of classes for which you can set up labs with Azure Lab Services.
 
 ## Next steps
 

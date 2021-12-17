@@ -19,32 +19,36 @@ To use Creative Cloud on a lab VM, you must use [Named User Licensing](https://h
 
 ## Lab configuration
 
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to set up a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
-
-### Lab account settings
-
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
-Enable the settings described in the table below for the lab account. For more information about how to enable marketplace images, see the article on [how to specify Marketplace images available to lab creators](./specify-marketplace-images.md).
+To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-| Lab account setting | Instructions |
+### Lab plan settings
+
+Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
+
+Enable the settings described in the table below for the lab plan. For more information about how to enable marketplace images, see the article on [how to specify Marketplace images available to lab creators](./specify-marketplace-images.md).
+
+| Lab plan setting | Instructions |
 | ------------------- | ------------ |
-|Marketplace image| Enable the Windows 10 image for use within your lab account.|
+| Marketplace image | Enable the Windows 10 image, if not done already.|
 
 ### Lab settings
 
-The size of VM that you need to use for your lab depends on the types of projects that your students will create.  Most [Creative Cloud apps](https://helpx.adobe.com/creative-cloud/system-requirements.html) support GPU-based acceleration and require a GPU for features to work properly.  To ensure that you select the appropriate VM size, we recommend that you test the projects that your students will create to ensure adequate performance.  The below table shows the recommended [VM size](./administrator-guide.md#vm-sizing) to use with Creative Cloud.  
+For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
 | Lab settings | Value/instructions |
 | ------------ | ------------------ |
 |Virtual Machine Size| **Small GPU (Visualization)**.  This VM is best suited for remote visualization, streaming, gaming, encoding using frameworks such as OpenGL and DirectX.|  
 |Virtual Machine Image| Windows 10 |
 
-> [!NOTE]
+The size of VM that you need to use for your lab depends on the types of projects that your students will create.  Most [Creative Cloud apps](https://helpx.adobe.com/creative-cloud/system-requirements.html) support GPU-based acceleration and require a GPU for features to work properly.  To ensure that you select the appropriate VM size, we recommend that you test the projects that your students will create to ensure adequate performance.  The below table shows the recommended [VM size](./administrator-guide.md#vm-sizing) to use with Creative Cloud. 
+
+> [!WARNING]
 > The **Small GPU (Visualization)** virtual machine size is configured to enable a high-performing graphics experience and meets [Adobe’s system requirements for each application](https://helpx.adobe.com/creative-cloud/system-requirements.html).  Make sure to choose Small GPU (Visualization) not Small GPU (Compute).  For more information about this virtual machine size, see the article on [how to set up a lab with GPUs](./how-to-setup-lab-gpu.md).
 
-## Template virtual machine configuration
+## Template machine configuration
 
 ### Creative Cloud deployment package
 
@@ -57,7 +61,7 @@ With self-service enabled, you don’t install the entire Creative Cloud collect
 
 - The entire Creative Cloud install is about 25 GB.  If students install only the apps they need on-demand, this helps optimize disk space. Lab VMs have a disk size of 128 GB.
 - You can choose to install a subset of the apps on the template VM before publishing.  This way the student VMs will have some apps installed by default and students can add more apps on their own as needed.
-- You can avoid republishing the template VM because students can install additional apps on their VM at any point during the lifetime of the lab.  Otherwise, either IT or the teacher would need to install additional apps on the template VM and republish.  Republishing causes the students’ VMs to be reset and any work that isn’t saved externally is lost.
+- You can avoid republishing the template VM because students can install more apps on their VM at any point during the lifetime of the lab.  Otherwise, either IT or the teacher would need to install more apps on the template VM and republish.  Republishing causes the students’ VMs to be reset and any work that isn’t saved externally is lost.
 
 If you use a managed deployment package with self-service disabled, students won’t have the ability to install their own apps.  In this case, IT must specify the Creative Cloud apps that will be installed.
 
@@ -71,11 +75,11 @@ After the template machine is created, follow the steps below to set up your lab
 1. To install Creative Cloud, download the deployment package given to you by IT or directly from [Adobe’s Admin Console](https://adminconsole.adobe.com/).
 1. Run the deployment package file.  Depending on whether self-service is enabled or disabled, this will install Creative Cloud desktop app and\or the specified Creative Cloud apps.
 Read [Adobe’s deployment steps](https://helpx.adobe.com/enterprise/admin-guide.html/enterprise/using/deploy-packages.ug.html) for more information.
-1. Once the template VM is set up, [publish the template VM’s image](how-to-create-manage-template.md) which is used to create all of the students’ VMs in the lab.
+1. Once the template VM is set up, [publish the template VM’s image](how-to-create-manage-template.md) that is used to create all of the students’ VMs in the lab.
 
 ### Storage
 
-As mentioned earlier, Azure Lab VMs have a disk size of 128 GB.  If your students need additional storage for saving large media assets or they need to access shared media assets, you should consider using external file storage.  For more information, read the following articles:
+As mentioned earlier, Azure Lab VMs have a disk size of 128 GB.  If your students need extra storage for saving large media assets or they need to access shared media assets, you should consider using external file storage.  For more information, read the following articles:
 
 - [Using external file storage in Lab Services](how-to-attach-external-storage.md)
 - [Install and configure OneDrive](./how-to-prepare-windows-template.md#install-and-configure-onedrive)
@@ -98,9 +102,10 @@ In this section, we’ll look at a possible cost estimate for this class.  We’
 
 ## Next steps
 
-Next steps are common to setting up any lab.
+The template image can now be published to the lab. See [publish the template VM](how-to-create-manage-template.md#publish-the-template-vm) for further instructions.
 
-- [Create and publish a lab](tutorial-setup-classroom-lab.md)
+As you set up your lab, see the following articles:
+
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

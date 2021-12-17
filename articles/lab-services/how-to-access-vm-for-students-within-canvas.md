@@ -1,19 +1,19 @@
 ---
-title:  Access a VM (student view) in Azure Lab from Canvas
-description: Learn how to access a VM (student view) in Azure Lab from Canvas. 
+title:  Access a VM (student view) in Azure Lab Services from Canvas
+description: Learn how to access a VM (student view) in Azure Lab Services from Canvas. 
 ms.topic: how-to
 ms.date: 11/01/2021
 ---
 
-# Access a VM (student view) in Azure Lab from Canvas
+# Access a VM (student view) in Azure Lab Services from Canvas
 
-When a lab is created within Canvas, users can view and access all the VMs provisioned by the team owner. Once the lab is published and VMs are created, users will be automatically registered to the lab and assigned a VM on their first login to Azure Lab Services. Users can view and access the VM's assigned to them by selecting the tab containing **Azure Lab Services** app.
+When a lab is created within [Canvas](https://www.instructure.com/canvas), students can view and access all the VMs provisioned by the course educator. Once the lab is published and VMs are created, students will be automatically assigned a VM. Students can view and access the VMs assigned to them by selecting the tab containing **Azure Lab Services** app.
 
-Users must be authenticated to Azure Lab Services as well as Canvas to access the lab. If students are signed into Canvas, they get a single sign-on experience to Azure Lab Services.
+Students must access their VMs through Canvas.  Their Canvas credentials will be used to log into Azure Lab Services.  
 
 ## Lab unavailable
 
-If the lab is yet to be published or a sync is yet to be triggered after they are added to the team, similar messaging will be shown to the students.
+If the lab hasn't been published or a synced in a while, students may see a message indicating the lab isn't available yet. Educators should [publish](how-to-manage-classroom-labs-2.md#publish-the-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) to solve the problem.
 
 :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
 
