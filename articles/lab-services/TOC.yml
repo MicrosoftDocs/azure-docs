@@ -114,7 +114,7 @@
     - name: Manage labs
       href: manage-labs-2.md
     - name: Configure auto-shutdown of VMs for a lab plan
-      href: how-to-configure-autoshutdown-lab-plans.md
+      href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Add a lab creator
       href: add-lab-creator.md
     - name: Connect to a virtual network

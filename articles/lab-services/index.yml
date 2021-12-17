@@ -42,7 +42,7 @@ landingContent:
     - linkListType: how-to-guide
       links:
         - text: Configure autoshutdown with lab plans
-          url: how-to-configure-autoshutdown-lab-plans.md
+          url: how-to-configure-auto-shutdown-lab-plans.md
   - title: Labs
     linkLists:
     - linkListType: overview

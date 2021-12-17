@@ -29,7 +29,7 @@ There are three types of schedules: Standard, Start only and Stop only.
 - **Start only**.   This schedule will start all student VMs at the specified  time.  Student VMs won't be stop until a student stops their VM through the Azure Lab Services portal or a stop only schedule occurs.
 - **Stop only**.  This schedule will stop all student VMs at the specified time.
 
-- ### Quota hours
+### Quota hours
 
 Students can access their VMs at any time during scheduled class time without impacting their quota hours. Quota hours are set for the entire semester and determine the number of hours a student can use their VM outside of regularly scheduled class time.
 
@@ -39,7 +39,7 @@ For more information, see [Set quota](how-to-configure-student-usage.md#set-quot
 
 To help keep down costs and save students' quota hours, automatic shutdowns are enabled for the labs. Automatic shutdowns will turn off VMs after a period of inactivity (no mouse or keyboard inputs). Automatic shutdowns work in two stages, first a student will be disconnected from the VM after a period of inactivity. At this point, the VM is still **Running** so the students are able to connect. After another period of inactivity as specified by lab settings, the VM will shut itself down.
 
-For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-autoshutdown-lab-plans.md).
+For more information, see [Configure automatic shutdown of VMs for a lab plan](how-to-configure-auto-shutdown-lab-plans.md).
 
 ### Managing Virtual Machines
 
