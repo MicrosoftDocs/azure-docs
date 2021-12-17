@@ -38,7 +38,7 @@
     - name: Automation runbook types
       href: automation-runbook-types.md
     - name: PowerShell DSC
-      href: /powershell/scripting/dsc/overview/overview
+      href: /powershell/dsc/overview/overview
     - name: Automation network configuration details
       href: automation-network-configuration.md
     - name: Security
@@ -319,7 +319,7 @@
         - name: Work with scope configurations
           href: update-management/scope-configuration.md
         - name: Disable
-          items: 
+          items:
             - name: Remove Update Management
               href: update-management/remove-feature.md
             - name: Remove machines

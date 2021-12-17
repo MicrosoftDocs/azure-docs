@@ -18,7 +18,7 @@ ms.custom: ignite-fall-2021
 
 You can create [video resources](terminology.md#video) in your Azure Video Analyzer account by either recording from an RTSP camera, or exporting a portion of such a recording. If you are building a [VMS](terminology.md#vms) using Video Analyzer APIs, then this article will help you understand how you can view videos. After reading this article, you should proceed to review the article on [access policies](access-policies.md) and on the [Video Analyzer player widget](player-widget.md). 
 
-If you are evaluating the capabilities of Video Analyzer, then you can use one of the [quickstarts](edge/detect-motion-record-video-clips-cloud.md) or [tutorials](edge/use-continuous-video-recording.md), and make use of the Azure portal to view the videos.
+If you are evaluating the capabilities of Video Analyzer, then you can go through [Quickstart: Detect motion in a (simulated) live video, record the video to the Video Analyzer account](edge/detect-motion-record-video-clips-cloud.md) or [Tutorial: Continuous video recording and playback](edge/use-continuous-video-recording.md). Make use of the Azure portal to view the videos.
 <!-- TODO - add a section here about 1P/3P SaaS and how to use widgets to allow end users to view videos without talking to ARM APIs -->
 
 ## Creating videos
