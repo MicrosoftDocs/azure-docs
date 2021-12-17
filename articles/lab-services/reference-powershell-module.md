@@ -18,7 +18,6 @@ The [Az.LabServices (preview)](https://github.com/Azure/azure-devtestlab/tree/ma
     ```powershell
     Import-Module .\Az.LabServices.psm1
     ```
-    
    Some example commands: 
     ```powershell
     # To list all the labs in your subscription:
