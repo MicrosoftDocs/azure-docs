@@ -35,9 +35,9 @@ The Azure Cognitive Search blob indexer can extract text from the following docu
 
 [!INCLUDE [search-blob-data-sources](../../includes/search-blob-data-sources.md)]
 
-By default, blobs with structured content, such as JSON or CSV, are indexed as a single chunk of text. But if the JSON or CSV documents have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element. For more information, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md).
+By default, most blobs are indexed as a single search document in the index, including blobs with structured content, such as JSON or CSV, which are indexed as a single chunk of text. But if the JSON or CSV documents have an internal structure (delimiters), you can assign parsing modes to generate individual search documents for each line or element. For more information, see [Indexing JSON blobs](search-howto-index-json-blobs.md) and [Indexing CSV blobs](search-howto-index-csv-blobs.md).
 
-A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or a .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field.
+A compound or embedded document (such as a ZIP archive, a Word document with embedded Outlook email containing attachments, or a .MSG file with attachments) is also indexed as a single document. For example, all images extracted from the attachments of an .MSG file will be returned in the normalized_images field within the same search document.
 
 ## Define the data source
 
@@ -94,7 +94,7 @@ The SAS should have the list and read permissions on the container. For more inf
 > [!NOTE]
 > If you use SAS credentials, you will need to update the data source credentials periodically with renewed signatures to prevent their expiration. If SAS credentials expire, the indexer will fail with an error message similar to "Credentials provided in the connection string are invalid or have expired".  
 
-## Define index fields for blob data
+## Define search fields for blob data
 
 A [search index](search-what-is-an-index.md) specifies the fields in a search document, attributes, and other constructs that shape the search experience. All indexers require that you specify a search index definition as the destination.
 
@@ -124,7 +124,7 @@ A [search index](search-what-is-an-index.md) specifies the fields in a search do
      > [!NOTE]
      > If there is no explicit mapping for the key field in the index, Azure Cognitive Search automatically uses `metadata_storage_path` as the key and base-64 encodes key values.
 
-1. Add a "content" field if you want to import the content, or text, extracted from blobs. You aren't required to name the field "content", but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a "content" field of type Edm.String in the index, with no field mappings required.
+1. Add a "content" field if you want to import the content, or text, extracted from blobs. You aren't required to name the field "content", but doing lets you take advantage of implicit field mappings. The blob indexer can send blob contents to a "content" field of type `Edm.String` in the index, with no field mappings required.
 
 1. Add more fields for any blob metadata that you want in the index. The indexer can read custom metadata properties, [standard metadata](#indexing-blob-metadata) properties, and [content-specific metadata](search-blob-metadata-properties.md) properties.
 
@@ -132,7 +132,7 @@ A [search index](search-what-is-an-index.md) specifies the fields in a search do
 
 Field mappings are a section in the indexer definition that maps source fields to destination fields in the search index.
 
-In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping "content" and metadata properties to fields in an index, as along as the field name matches the blob property name, and the search field's data type is a string.
+In blob indexing, you can often omit field mappings because the indexer has built-in support for mapping the "content" property and [blob metadata properties](#indexing-blob-metadata) to fields in an index, as along as the search field name matches the blob property name, and is of the expected data type.
 
 Reasons for [creating an explicit field mapping](search-indexer-field-mappings.md) might be to handle naming or data type differences, or to add functions such as base64encoding, as illustrated in the following examples.
 
@@ -170,9 +170,13 @@ PUT /indexers/blob-indexer?api-version=2020-06-30
 }
 ```
 
+<a name="PartsOfBlobToIndex"></a>
+
 ## Set parameters
 
-Blob indexer provide parameters that optimize indexing for specific content types (JSON, CSV, PDF). For the full list, see [Blob configuration parameters reference](/rest/api/searchservice/create-indexer#blob-configuration-parameters).
+Blob indexers include parameters that optimize indexing for specific use cases, such as content types (JSON, CSV, PDF), or to specify which parts of the blob to index.
+
+This section describes several of the more frequently used parameters. For the full list, see [Blob configuration parameters reference](/rest/api/searchservice/create-indexer#blob-configuration-parameters).
 
 1. [Create or update an indexer](/rest/api/searchservice/create-indexer) to set its parameters:
 
@@ -188,8 +192,6 @@ Blob indexer provide parameters that optimize indexing for specific content type
         }
    }
    ```
-
-<a name="PartsOfBlobToIndex"></a>
 
 1. Set `"dataToExtract"` to control which parts of the blobs are indexed:
 
@@ -281,7 +283,7 @@ If both `indexedFileNameExtensions` and `excludedFileNameExtensions` parameters 
 
 ### Add "skip" metadata the blob
 
-The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob storage. When the indexer encounters this properties, it will skip the blob or its content in the indexing run.
+The indexer configuration parameters apply to all blobs in the container or folder. Sometimes, you want to control how *individual blobs* are indexed. You can do this by adding the following metadata properties and values to blobs in Blob storage. When the indexer encounters this property, it will skip the blob or its content in the indexing run.
 
 | Property name | Property value | Explanation |
 | ------------- | -------------- | ----------- |
