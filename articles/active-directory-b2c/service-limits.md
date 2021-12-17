@@ -23,7 +23,7 @@ This article outlines the usage constraints and other service limits for the Azu
 
 ## User/consumption related limits
 
-The amount of users able to authenticate through an Azure AD B2C tenant is gated through request limits. The below table illustrates the request limits for your Azure AD B2C tenant.
+The number of users able to authenticate through an Azure AD B2C tenant is gated through request limits. The following table illustrates the request limits for your Azure AD B2C tenant.
 
 |Category |Limit    |
 |---------|---------|
@@ -74,7 +74,7 @@ When you add more features to a User Flow, such as multifactor authentication, m
 
 |Feature |Additional requests consumed    |
 |---------|---------|
-|Azure multifactor authentication          |2   |
+|Azure Multi-Factor Authentication          |2   |
 |Email one-time password      |2   |
 |Age gating     |2   |
 |Federated identity provider  |2   |
@@ -143,11 +143,11 @@ Tokens/sec = 200/requests-consumed
 
 You can optimize the token issuance rate by considering the following configuration options:
 
-1. Increasing access and refresh [token lifetimes](./configure-tokens.md).
-1. Increasing the Azure AD B2C [web session lifetime](./session-behavior.md).
-1. Enabling [Keep Me Signed In](./session-behavior.md#enable-keep-me-signed-in-kmsi).
-1. Caching the [OpenId Connect metadata](./openid-connect.md#validate-the-id-token) documents at your API's.
-1. Enforcing conditional MFA using [Conditional Access](./conditional-access-identity-protection-overview.md).
+- Increasing access and refresh [token lifetimes](./configure-tokens.md).
+- Increasing the Azure AD B2C [web session lifetime](./session-behavior.md).
+- Enabling [Keep Me Signed In](./session-behavior.md#enable-keep-me-signed-in-kmsi).
+- Caching the [OpenId Connect metadata](./openid-connect.md#validate-the-id-token) documents at your API's.
+- Enforcing conditional MFA using [Conditional Access](./conditional-access-identity-protection-overview.md).
 
 ## Azure AD B2C configuration limits
 
