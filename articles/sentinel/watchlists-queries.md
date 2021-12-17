@@ -1,13 +1,13 @@
 ---
-title: Build queries and rules with watchlists - Microsoft Sentinel
-description: Use watchlists in Microsoft Sentinel in searches and detection rules.
+title: Build queries or rules with watchlists - Microsoft Sentinel
+description: Use watchlists in searches or detection rules for Microsoft Sentinel.
 author: yelevin
 ms.author: yelevin
 ms.topic: how-to
 ms.date: 12/15/2021
 ---
 
-# Build queries and detection rules with watchlists in Microsoft Sentinel
+# Build queries or detection rules with watchlists in Microsoft Sentinel
 
 Query data in any table against data from a watchlist by treating the watchlist as a table for joins and lookups. When you create a watchlist, you define the *SearchKey*. The search key is the name of a column in your watchlist that you expect to use as a join with other data or as a frequent object of searches.
 
