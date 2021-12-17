@@ -53,7 +53,7 @@ To fix it, you will need to remove the secret data from the output.
 
 ## Silencing false positives
 
-Sometimes this rule will alert on template outputs that do not actually contain secrets. For instance, not all [`list*`](./bicep-functions-resource.md#list) functions actually return sensitive data. In these cases, you can disable the warning for this line by adding `&#35;disable-next-line outputs-should-not-contain-secrets` before the line with the warning.
+Sometimes this rule will alert on template outputs that do not actually contain secrets. For instance, not all [`list*`](./bicep-functions-resource.md#list) functions actually return sensitive data. In these cases, you can disable the warning for this line by adding `#disable-next-line outputs-should-not-contain-secrets` before the line with the warning.
 
 ```bicep
 #disable-next-line outputs-should-not-contain-secrets // Does not contain a password

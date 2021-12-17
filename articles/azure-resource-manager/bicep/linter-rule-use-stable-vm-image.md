@@ -9,9 +9,9 @@ ms.date: 12/15/2021
 
 Virtual machines shouldn't use preview images. This rule checks the following properties under "imageReference" and fails if any of them contain the string "preview":
 
-* offer
-* sku
-* version
+- offer
+- sku
+- version
 
 ## Linter rule code
 
