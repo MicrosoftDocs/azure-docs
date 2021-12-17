@@ -38,18 +38,16 @@ Optionally, you can define projections to accept image-analyzed output into a [k
 
 Image processing is indexer-driven, which means that the raw inputs must be a supported file type (as determined by the skills you choose) from a [supported data source](search-indexer-overview.md#supported-data-sources). 
 
-+ OCR supports JPEG, PNG, GIF, TIF, and BMP
 + Image analysis supports JPEG, PNG, GIF, and BMP
++ OCR supports JPEG, PNG, GIF, BMP, and TIF
 
 Images can be binary files or embedded in documents (PDF, RTF, and Microsoft application files). A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. 
 
 Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search.
 
-1. [Create a data source](/rest/api/searchservice/create-data-source) of type `"azureblob"` that connects to the blob container storing your files.
+1. [Create a data source](/rest/api/searchservice/create-data-source) of type "azureblob" that connects to the blob container storing your files.
 
-1. Optionally, set file type criteria if the workload targets a specific file type. [Blob indexer configuration](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) includes file inclusion and exclusion settings so that you can filter out files you don't want.
-
-<!-- In addition to connections to external data, Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to [include multi-service key](cognitive-search-attach-cognitive-services.md) to a Cognitive Services resource in the same region as your Cognitive Search service. -->
+1. Optionally, [set file type criteria](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings so that you can filter out files you don't want.
 
 <a name="get-normalized-images"></a>
 
@@ -132,7 +130,13 @@ When "imageAction" is set to a value other then "none", the new *normalized_imag
 
 This section supplements the [skill reference](cognitive-search-predefined-skills.md) articles by providing a holistic introduction to skill inputs, outputs, and patterns, as they relate to image processing.
 
-### Inputs for image processing
+1. [Create or update a skillset](/rest/api/searchservice/create-skillset) to add skills.
+
+1. Add templates for OCR and Image Analysis from the portal, or copy the definitions from the skillset reference.
+
+1. If necessary, [include multi-service key](cognitive-search-attach-cognitive-services.md) in the Cognitive Services property of the skillset. Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to to a Cognitive Services resource in the same region as your Cognitive Search service.
+
+### About inputs for image processing
 
 As noted, images are extracted during document cracking and then normalized as a preliminary step. The normalized images are the inputs to any image processing skill, and are always represented in an enriched document tree in either one of two ways:
 
@@ -276,15 +280,15 @@ POST /indexes/[index name]/docs/search?api-version=[api-version]
 }
 ```
 
-Content and merged_content will be the same if there is no image processing. 
+OCR fields ("text" and "layoutText") will be empty if source documents are pure text or pure imagery. Similarly, image analysis fields ("imageCaption" and "imageTags") will be empty for source documents that are strictly text. If you later add downstream skills that process imaging output, your index may begin to emit warnings if imaging inputs are empty. Such warnings are to be expected when nodes are unpopulated in the enriched document.
 
-OCR fields (text and layoutText) will be empty if source documents are pure text or pure imagery. If you subsequently add downstream skills that process imaging output, your index may begin to emit warnings if OCR inputs are empty. Such warnings are to be expected when nodes are unpopulated in the enriched document.
+An alternate query might include the "content" and "merged_content" fields. Notice that those fields will be the same on files where there was no image processing.
 
 ### About skill outputs
 
 Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "captions" (image analysis), "tags" (image analysis):
 
-+ `"text"` stores OCR-generated output. This node is mapped to field of type `Collection(Edm.String)`. There is one "text" field per search document consisting of comma-delimited strings for documents that contain multiple images. The following illustration shows OCR output for three documents. First is a document containing one image with no text. Second is a document containing one image  with the word "Microsoft". Third is a document containing multiple images, some with without any text (`"",`).
++ "text" stores OCR-generated output. This node is mapped to field of type `Collection(Edm.String)`. There is one "text" field per search document consisting of comma-delimited strings for documents that contain multiple images. The following illustration shows OCR output for three documents. First is a document containing a file with no images. Second is a document (image file) containing one word, "Microsoft". Third is a document containing multiple images, some without any text (`"",`).
 
     ```json
     "value": [
@@ -313,19 +317,21 @@ Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "capti
     ]
     ```
 
-+ `"layoutText"` stores OCR-generated information about text location on the page, described in terms of bounding boxes and coordinates of the normalized image. This node is mapped to field of type `Collection(Edm.String)`. There is one "layoutText" field per search document consisting of comma-delimited strings.
++ "layoutText" stores OCR-generated information about text location on the page, described in terms of bounding boxes and coordinates of the normalized image. This node is mapped to field of type `Collection(Edm.String)`. There is one "layoutText" field per search document consisting of comma-delimited strings.
 
-+ `"merged_content"` stores the output of a Text Merge skill, and it will be one large field of type `Edm.String` that contains raw text from the source document, with embedded "text" in place of an image. If files are text-only, then OCR and image analysis have nothing to do, and "merged_content" will be the same as "content" (a blob property that contains the content of the blob).
++ "merged_content" stores the output of a Text Merge skill, and it will be one large field of type `Edm.String` that contains raw text from the source document, with embedded "text" in place of an image. If files are text-only, then OCR and image analysis have nothing to do, and "merged_content" will be the same as "content" (a blob property that contains the content of the blob).
 
-+ `"ImageCaption"` captures a description of an image as individuals tags and a longer text description.
++ "imageCaption" captures a description of an image as individuals tags and a longer text description.
 
-+ `"ImageTags"` stores tags about an image as a collection of keywords, one collection for all images in the source document. The example below demonstrates that tags will repeat. There is no aggregation or grouping.
++ "imageTags" stores tags about an image as a collection of keywords, one collection for all images in the source document. The example below demonstrates that tags will repeat. There is no aggregation or grouping.
 
-For the following embedded images in a PDF:
+The following screenshot illustrates "imageCaption" and "imageTags" for the following embedded images in a PDF:
 
 :::image type="content" source="media/cognitive-search-concept-image-scenarios/state-of-birds-screenshot.png" alt-text="Screenshot of three images in a PDF" border="true":::
 
-Output from image analysis includes a caption for each image, while tags are listed in the order of creation:
+Image analysis detected three images in the example above. Output includes a caption for each one in the "imageCaption" array, while "imageTags" are listed in the order of creation. 
+
+Within "imageCaption", the "text" parameter for each image is "a flock of seagulls are swimming in the water", "map", and "a close up of a bird".
 
 ```json
  "imageCaption": [
@@ -363,9 +369,13 @@ Output from image analysis includes a caption for each image, while tags are lis
 When you run OCR over source files that included documents with embedded images, the output is a single string containing all file contents, both text and image-origin text, achieved with this workflow:  
 
 1. The indexer cracks source documents, extracts text and images, and queues each content type for text and image processing.
+
 1. Images are normalized and passed into enriched documents as a [`"document/normalized_images"`](#get-normalized-images) node.
+
 1. OCR runs using `"/document/normalized_images"` as input.
+
 1. [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string.
+
 1. Indexers reference output field mappings to send skill outputs to fields in a search index.
 
 The following example skillset creates a "merged_text" field containing the textual content of your document. It also includes the OCRed text from each of the embedded images. 
