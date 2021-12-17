@@ -475,6 +475,7 @@ groups:
     title: JavaScript
   - id: devlang-react
     title: React
+## Web app ##
 - id: web-app-tutorial
   title: web-app-tutorial
   prompt: Choose a language or framework
