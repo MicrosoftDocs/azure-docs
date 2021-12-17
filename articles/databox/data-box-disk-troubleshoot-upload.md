@@ -168,7 +168,7 @@ The verbose log contains complete information about the status of the copy opera
 
 The error log has the same structure as the verbose log, but filters out successful operations.
 
-### Sample verbose log: 2018-10-01
+### Sample verbose log
 
 A sample of the `_verbose.xml` is shown below. In this case, the order has completed successfully with no errors.
 
@@ -215,7 +215,7 @@ A sample of the `_verbose.xml` is shown below. In this case, the order has compl
 </DriveLog>
 ```
 
-### Sample error logs: 2018-10-01
+### Sample error logs
 
 For the same order, a sample of the `_error.xml` is shown below.
 
