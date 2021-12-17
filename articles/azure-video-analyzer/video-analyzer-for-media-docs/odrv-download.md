@@ -1,5 +1,5 @@
 ---
-title: Download videos from Onderive and index with Azure Video Analyzer for Media (formerly Video Indexer)
+title: Index videos stored on Onedrive with Azure Video Analyzer for Media (formerly Video Indexer)
 description: Learn how to index videos stored on Ondedrive by using Azure Video Analyzer for Media (formerly Video Indexer).
 ms.service: azure-video-analyzer
 ms.topic: article
@@ -10,24 +10,9 @@ ms.date: 12/17/2021
 
 This article shows how to index videos stored on Onedrive by using the Azure Video Analyzer for Media (formerly Video Indexer) website 
 
-When you're creating a Video Analyzer for Media account, you choose between:
-
-- A free trial account. Video Analyzer for Media provides up to 600 minutes of free indexing to website users and up to 2,400 minutes of free indexing to API users. 
-- A paid option where you're not limited by a quota. You create a Video Analyzer for Media account that's [connected to your Azure subscription and an Azure Media Services account](connect-to-azure.md). You pay for indexed minutes. 
-
-For more information about account types, see [Media Services pricing](https://azure.microsoft.com/pricing/details/media-services/).
-
 ## Supported file formats
 
 For a list of file formats that you can use with Video Analyzer for Media, see [Standard Encoder formats and codecs](../../media-services/latest/encode-media-encoder-standard-formats-reference.md).
-
-## Storage of video files
-
-When you use Video Analyzer for Media, video files are stored in Azure Storage through Media Services. The limits are 30 GB in size and 4 hours in length.
-
-You can always delete your video and audio files, along with any metadata and insights that Video Analyzer for Media has extracted from them. After you delete a file from Video Analyzer for Media, the file and its metadata and insights are permanently removed from Video Analyzer for Media. However, if you've implemented your own backup solution in Azure Storage, the file remains in Azure Storage.
-
-The persistence of a video is identical whether you upload by using the Video Analyzer for Media website or by using the Upload Video API.
    
 ## Index a video by using the website
 
