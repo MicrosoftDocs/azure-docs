@@ -15,11 +15,11 @@ ms.author: cshoe
 
 ## Overview
 
-Azure Web Apps is a managed platform for hosting web apps that execute code on servers. It supports many runtimes and frameworks including Node.js, ASP.NET Core, PHP, Java, and Python.
+Azure Web Apps is a managed platform for hosting web applications that execute code on servers. It supports many runtimes and frameworks including Node.js, ASP.NET Core, PHP, Java, and Python.
 
 When you link your Azure Web Apps instance to your static web app, any requests to your static web app with a route that starts with `/api/` will be proxied to the same route on the Azure Web Apps instance.
 
-By default, when a Web Apps instance is linked to a static web app, the Web Apps instance will only accept requests that are proxied through the linked static web app. An Azure Web Apps instance can be linked to a single static web app at a time.
+By default, when a Web Apps instance is linked to a static web app, the Web Apps instance only accepts requests that are proxied through the linked static web app. An Azure Web Apps instance can be linked to a single static web app at a time.
 
 > [!NOTE]
 > Currently, you cannot link a Web Apps instance to a Static Web Apps [pre-production environment](review-publish-pull-requests.md).
@@ -28,7 +28,7 @@ By default, when a Web Apps instance is linked to a static web app, the Web Apps
 
 To link an Azure Web Apps instance to a static web app, follow these steps:
 
-1. In the Azure Portal, navigate to the static web app.
+1. In the Azure portal, navigate to the static web app.
 
 1. Select **APIs** from the navigation menu.
 
@@ -46,7 +46,7 @@ When the linking process is complete, requests to routes beginning with `/api/` 
 
 To unlink an Azure Web Apps instance from a static web app, follow these steps:
 
-1. In the Azure Portal, navigate to the static web app.
+1. In the Azure portal, navigate to the static web app.
 
 1. Select **APIs** from the navigation menu.
 

@@ -6,7 +6,7 @@ ms.date: 12/17/2021
 ms.author: cshoe
 ---
 
-It's common for a front-end web app to call backend APIs. By default, Azure Static Web Apps provides built-in serverless API endpoints via [Azure Functions](../articles/static-web-apps/apis.md). If you prefer to expose existing Azure resources as API endpoints in your static web app, Azure Static Web Apps also integrates with the following Azure services:
+It's common for a front-end web app to call backend APIs. By default, Azure Static Web Apps provides built-in serverless API endpoints via [Azure Functions](../articles/static-web-apps/apis.md). If you'd rather expose existing Azure resources as API endpoints in your static web app, Azure Static Web Apps integrates with the following Azure services:
 
 * [Azure Functions](../articles/static-web-apps/apis.md)
 * [Azure API Management](../articles/static-web-apps/apis-api-management.md)
