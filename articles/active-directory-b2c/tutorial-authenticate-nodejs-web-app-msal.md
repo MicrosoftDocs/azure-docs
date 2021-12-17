@@ -488,7 +488,7 @@ app.listen(process.env.SERVER_PORT, () => {
    :::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-login-page.png" alt-text="Screenshot that shows a Node web app sign-in page.":::
 
 ### Test sign-in
-1. After the page with a **Sign in** button finishes loading, select **Sign in**. You're prompted to sign in.
+1. After the page with the **Sign in** button finishes loading, select **Sign in**. You're prompted to sign in.
 1. Enter your sign-in credentials, such as email address and password. If you don't have an account, select **Sign up now** to create an account. If you have an account but have forgotten your password, select **Forgot your password?** to recover your password. After you successfully sign in or sign up, you should see the following page that shows sign-in status.
 
    :::image type="content" source="./media/tutorial-authenticate-nodejs-webapp-msal/tutorial-dashboard-page.png" alt-text="Screenshot that shows Node web app sign-in status.":::

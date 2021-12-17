@@ -474,7 +474,7 @@ To test the web API, start both the web API and the web app. Make sure they're r
     ```
 1. In your browser, navigate to http://localhost:3000 to access your web app. You should see a page like the one shown below:
 
-:::image type="content" source="./media/tutorial-call-api-using-access-token/tutorial-call-api-sign-in-page.png" alt-text="Web page for tutorial call api sign in page.":::
+    :::image type="content" source="./media/tutorial-call-api-using-access-token/tutorial-call-api-sign-in-page.png" alt-text="Web page for tutorial call api sign in page.":::
 
 ### Test the public API
 After the web app page completes loading, select **Or call the Red API** button. You should see a page like the one below. 
