@@ -105,7 +105,7 @@ The Azure NetApp Files snapshot technology greatly improves the frequency and re
 
 ### Restoring files or directories from online snapshots using single-file snapshot restore
 
-If you do not want to restore the entire snapshot to a new volume or copy large files across the network, you can use the [single-file snapshot restore](snapshots-restore-file-client.md) feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.
+If you do not want to restore the entire snapshot to a new volume or copy large files across the network, you can use the [single-file snapshot restore](snapshots-restore-file-single.md) feature to recover individual files directly within a volume from a snapshot, without requiring an external client data copy.
 
 This feature does not require that you restore the entire snapshot to a new volume, revert a volume, or copy large files across the network.  You can use this feature to restore individual files directly on the service from a volume snapshot without requiring data copy using an external client. This approach can drastically reduce RTO and network resource usage when restoring large files. 
 The following diagrams describe how single-file snapshot restore works. 
@@ -126,7 +126,7 @@ The following diagrams describe how single-file snapshot restore works.
 
    ![Diagram showing a second set of snapshots being copied to capture new changes in the original file set.](../media/azure-netapp-files/single-file-snapshot-restore-four.png)
 
-5. When a single file is restored in-place (`file2`) or to a new file in the volume (`file2`), only the pointers to existing blocks previously captured in a snapshot are reverted. This operation eliminates copying any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
+5. When a single file is restored in-place (`file2`) or to a new file in the volume (`file2’`), only the pointers to existing blocks previously captured in a snapshot are reverted. This operation eliminates copying any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
 
    ![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)
 
