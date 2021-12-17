@@ -34,14 +34,16 @@ Administrators have the following options to remediate:
 
 ### Remediation framework
 
-1. If the account is confirmed to be compromised:
+1. If the account is confirmed compromised:
    1. Select the event or user and choose “Confirm compromised”.
-   1. If a risk policy or a CA policy was not triggered at part of the risk detection, and the risk was not [self-remediated](#self-remediation-with-risk-policy), then:
+   1. If a risk policy or a Conditional Access policy wasn't triggered at part of the risk detection, and the risk wasn't [self-remediated](#self-remediation-with-risk-policy), then:
       1. [Request a password reset](#manual-password-reset).
-      1. Block the user if you suspect the attacker is able to reset the password or perform mfa on behalf of the user.
+      1. Block the user if you suspect the attacker can reset the password or do multi-factor authentication for the user.
       1. Revoke refresh tokens.
       1. [Disable any devices](../devices/device-management-azure-portal.md) considered compromised.
       1. If using [continuous access evaluation](../conditional-access/concept-continuous-access-evaluation.md), revoke all access tokens.
+
+For more information about what happens when confirming compromise, see the section [How should I give risk feedback and what happens under the hood?](howto-identity-protection-risk-feedback.md#how-should-i-give-risk-feedback-and-what-happens-under-the-hood).
 
 ### Self-remediation with risk policy
 

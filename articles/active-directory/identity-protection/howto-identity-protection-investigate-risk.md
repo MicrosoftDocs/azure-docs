@@ -93,20 +93,42 @@ Administrators can then choose to return to the user's risk or sign-ins report t
 
 ## Investigation framework
 
+Organizations may use the following frameworks to begin their investigation into any detections. Investigations may require having a conversation with the user in question, review of the [sign-in logs]((../reports-monitoring/concept-sign-ins.md)), or review of the [audit logs]((../reports-monitoring/concept-audit-logs.md)) to name a few.
+
 1. Check the logs and validate whether the suspicious activity is typical for the given user.
    1. Look at the following properties to see if they match the ones in the user’s past activities.
-      1. App
+      1. Application
       1. Device 
       1. Location – Is the user traveling to a different location or accessing devices from multiple locations. 
       1. IP address 
       1. User agent string
-   1. If you have access to other security tools like [Microsoft Sentinel](../../sentinel/overview.md), check for corresponding alerts that might indicate that there is a larger issue.
-1. Reach out to the user of the to confirm if they recognize the sign-in. Methods such as email or Teams may be compromised.
+   1. If you have access to other security tools like [Microsoft Sentinel](../../sentinel/overview.md), check for corresponding alerts that might indicate a larger issue.
+1. Reach out to the user to confirm if they recognize the sign-in. Methods such as email or Teams may be compromised.
    1. Confirm the information you have such as:
       1. Application
       1. Device 
       1. Location 
       1. IP address 
+
+### Investigate Azure AD threat intelligence detections
+
+To investigate an Azure AD Threat Intelligence risk detection, follow these steps: 
+
+If more information is shown for the detection:
+
+1. Sign-in was from a suspicious IP Address:
+   1. Confirm if the IP address shows suspicious behavior in your environment.
+   1. Does the IP generate a high number of failures for a user or set of users in your directory?
+   1. Is the traffic of the IP coming from an unexpected protocol or application, for example Exchange legacy protocols?
+   1. If the IP address corresponds to a cloud service provider, rule out that there are no legitimate enterprise applications running from the same IP.
+1. This account was attacked by a Password spray:
+   1. Validate that no other users in your directory are targets of the same attack.
+   1. Do other users have sign-ins with similar atypical patterns seen in the detected sign-in within the same time frame? Password spray attacks may display unusual patterns in:
+      1. User agent string
+      1. Application
+      1. Protocol
+      1. Ranges of IPs/ASNs
+      1. Time and frequency of sign-ins
 
 ## Next steps
 
