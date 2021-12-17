@@ -708,6 +708,6 @@ An event has the following top-level data:
 
 ## See also
 
-- [event grid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.event grid/)
-- [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/event grid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [event grid .NET SDK that includes Media Service events](https://www.nuget.org/packages/Microsoft.Azure.eventgrid/)
+- [Definitions of Media Services events](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
 - [Live Event error codes](../live-event-error-codes-reference.md)
