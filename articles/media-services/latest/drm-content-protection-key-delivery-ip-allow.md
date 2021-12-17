@@ -10,7 +10,6 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/11/2021
 ms.author: johndeu

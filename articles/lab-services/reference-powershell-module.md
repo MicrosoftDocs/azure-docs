@@ -1,8 +1,9 @@
 ---
-title: PowerShell module for Azure Lab Services | Microsoft Docs
-description: This article provides information about a PowerShell module that helps with managing artifacts in Azure Lab Services. 
+title: PowerShell module for Azure Lab Services
+titleSuffix: ""
+description: Learn how to install and launch Az.LabServices PowerShell module
 ms.topic: how-to
-ms.date: 06/26/2020
+ms.date: 12/12/2021
 ---
 
 # Az.LabServices PowerShell module (preview)
@@ -40,7 +41,13 @@ Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
     ```powershell
     Get-AzLabAccount | Get-AzLab
     ```
+    
+1. To stop all running VMs in all labs:
 
+    ```powershell
+    Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
+    ```
+    
 ## Next steps
 
 See the [Az.LabServices home page on GitHub](https://aka.ms/azlabs/samples/PowerShellModule).
