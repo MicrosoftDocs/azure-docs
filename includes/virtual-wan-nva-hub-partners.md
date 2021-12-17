@@ -1,5 +1,5 @@
 ---
- author: wellee
+ author: wtnlee
  ms.service: virtual-wan
  ms.topic: include
  ms.date: 12/09/2022  
@@ -19,6 +19,6 @@ The following dual-role SD-WAN connectivity and security (Next-Generation Firewa
 
 |Partners|Configuration/How-to/Deployment Guide| Dedicated Support Model |
 |---|---| --- | 
-| [Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall) | To access the preview of Fortinet NGFW deployed in the Virtual WAN hub, reach out to virtualwan@fortinet.com with your subscription ID. For more information about the offering, please see the following [Fortinet blog post](https://www.fortinet.com/blog/business-and-technology/fortigate-vm-first-ngfw-and-secure-sd-wan-integration-in-microsoft-azure-virtual-wan). | No|
+| [Fortinet Next-Generation Firewall (NGFW)](https://www.fortinet.com/products/next-generation-firewall) | To access the preview of Fortinet NGFW deployed in the Virtual WAN hub, reach out to azurevwan@fortinet.com with your subscription ID. For more information about the offering, please see the following [Fortinet blog post](https://www.fortinet.com/blog/business-and-technology/fortigate-vm-first-ngfw-and-secure-sd-wan-integration-in-microsoft-azure-virtual-wan). | No|
 
 
