@@ -34,7 +34,7 @@ This tutorial describes the steps you need to do in both frankli and Azure Activ
 The scenario outlined in this tutorial assumes that you already have the following prerequisites:
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
-* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. For example Application Administrator, Cloud Application administrator, Application Owner or Global Administrator.
+* A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning. For example Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -45,12 +45,12 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 1. Log in to [Frankli](https://beta.frankli.io/login) using your admin account. 
 1. Navigate to **Admin -> Integrations -> Azure Active Directory**.
-![Active Directory Integration Page](media/frankli-io-provisioning-tutorial/ad-setup.png)
+![Active Directory Setup](media/frankli-io-provisioning-tutorial/ad-setup.png)
 1. Click on **Setup a Directory**.
 1. Define a name for your new external directory.
-![Active Directory Integration Page](media/frankli-io-provisioning-tutorial/ad-name.png)
+![Active Directory Name](media/frankli-io-provisioning-tutorial/ad-name.png)
 1. Click on **Create Directory**.
-![Active Directory Integration Page](media/frankli-io-provisioning-tutorial/ad-details.png)
+![Active Directory Details](media/frankli-io-provisioning-tutorial/ad-details.png)
 1. Take note of the **Base URL** and the **Bearer Token**.The **Base URL** will be entered into the **Tenant URL** field in the Azure portal. The **Bearer Token** will be entered into the **Secret Token** field in the Azure portal.
 
 ## Step 3. Add frankli from the Azure AD application gallery
@@ -63,7 +63,7 @@ The Azure AD provisioning service allows you to scope who will be provisioned ba
 
 * When assigning users and groups to frankli, you must select a role other than **Default Access**. Users with the Default Access role are excluded from provisioning and will be marked as not effectively entitled in the provisioning logs. If the only role available on the application is the default access role, you can [update the application manifest](../develop/howto-add-app-roles-in-azure-ad-apps.md) to add more roles. 
 
-* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control this by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
+* Start small. Test with a small set of users and groups before rolling out to everyone. When scope for provisioning is set to assigned users and groups, you can control provisioning by assigning one or two users or groups to the app. When scope is set to all users and groups, you can specify an [attribute based scoping filter](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md). 
 
 
 ## Step 5. Configure automatic user provisioning to frankli 
@@ -100,7 +100,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Under the **Mappings** section, select **Synchronize Azure Active Directory Users to frankli**.
 
-1. Review the user attributes that are synchronized from Azure AD to frankli in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in frankli for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the frankli API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
+1. Review the user attributes that are synchronized from Azure AD to frankli in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in frankli for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you'll need to ensure that the frankli API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
    |Attribute|Type|Supported for filtering|Required by frankliio
    |---|---|---|---|
@@ -132,7 +132,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 	![Saving Provisioning Configuration](common/provisioning-configuration-save.png)
 
-This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than subsequent cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
+This operation starts the initial synchronization cycle of all users and groups defined in **Scope** in the **Settings** section. The initial cycle takes longer to perform than next cycles, which occur approximately every 40 minutes as long as the Azure AD provisioning service is running. 
 
 ## Step 6. Monitor your deployment
 Once you've configured provisioning, use the following resources to monitor your deployment:
