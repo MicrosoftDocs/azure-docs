@@ -38,11 +38,11 @@
     - name: Web app
       items: 
       - name: Sign in and sign out user Nodejs tutorial
-        href: tutorial-authenticate-nodejs-webapp-msal.md
+        href: tutorial-authenticate-nodejs-web-app-msal.md
       - name: Acquire access token Nodejs tutorial
         href: tutorial-acquire-access-token.md
       - name: Call a protected API Nodejs tutorial
-        href: tutorial-call-api-using-access-token.md
+        href: tutorial-call-api-with-access-token.md
 - name: Samples
   items:
   - name: Integrate Azure AD B2C with your applications

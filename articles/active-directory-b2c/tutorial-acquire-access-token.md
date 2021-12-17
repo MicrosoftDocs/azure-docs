@@ -68,17 +68,17 @@ Create a folder to host your node application, such as  `tutorial-acquire-access
 1. In your terminal, change directory into your node app folder, such as `cd tutorial-acquire-access-token`, and run `npm init -y`. This command creates a default package.json file for your Node.js project.
 2. In your terminal, run `npm install express`. This command installs the Express framework.
 3. Create more folders and files to achieve the following project structure:
-
-        ```
-        tutorial-acquire-access-token/
-        ├── index.js
-        └── package.json
-        └── .env
-        └── views/
-            └── layouts/
-                └── main.hbs
-            └── signin.hbs
-        ```
+    
+    ```
+    tutorial-acquire-access-token/
+    ├── index.js
+    └── package.json
+    └── .env
+    └── views/
+        └── layouts/
+            └── main.hbs
+        └── signin.hbs
+    ```
         
     The `views` folder contains handlebars files for the web app's UI. 
 
@@ -86,12 +86,12 @@ Create a folder to host your node application, such as  `tutorial-acquire-access
 
 In your terminal, install the `dotenv`, `express-handlebars`, `express-session`, and `@azure/msal-node` packages by running the following commands:
 
-        ```
-    npm install dotenv
-    npm install express-handlebars
-    npm install express-session
-    npm install @azure/msal-node
-        ```
+```
+npm install dotenv
+npm install express-handlebars
+npm install express-session
+npm install @azure/msal-node
+```
 
  
 
@@ -406,8 +406,4 @@ After you sign in, select **Sign out**. You should see the page with a **Sign in
 
 ## Next steps
 
-- Learn how to [Call a web API protected by Azure AD B2C](tutorial-call-api-using-access-token.md).
-
-
-
-
+- Learn how to [Call a web API protected by Azure AD B2C](tutorial-call-api-with-access-token.md).

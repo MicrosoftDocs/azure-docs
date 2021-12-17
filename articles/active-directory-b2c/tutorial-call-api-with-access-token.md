@@ -42,7 +42,7 @@ Follow the steps in this tutorial to:
 
 
 ## Prerequisites
-- Complete the steps in [Tutorial: Sign in and sign out users with Azure AD B2C in a Node.js web app](tutorial-authenticate-nodejs-webapp-msal.md). The tutorial shows you how to configure scopes for a web API, and grant permissions to a web app, such as *webapp1*. It also acquires an access token for calling a web API. The acquired access token is what we'll use to call a protected web API in this tutorial. 
+- Complete the steps in [Tutorial: Sign in and sign out users with Azure AD B2C in a Node.js web app](tutorial-authenticate-nodejs-web-app-msal.md). The tutorial shows you how to configure scopes for a web API, and grant permissions to a web app, such as *webapp1*. It also acquires an access token for calling a web API. The acquired access token is what we'll use to call a protected web API in this tutorial. 
 
 ## Create the web API
 
