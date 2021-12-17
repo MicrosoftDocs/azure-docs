@@ -29,7 +29,7 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **SDKs**. The Azure Lab Services PowerShell will now be integrated with the Az PowerShell module and will release with the next monthly update of the Az module. Also, check out the C# SDK.
 
-[Give it a try!](tutorial-setup-lab-plan.md) Updated documentation is at [Introduction to labs](classroom-labs-overview.md)
+[Give it a try!](tutorial-setup-lab-plan.md)
 
 In this release, there remain a few known issues:
 

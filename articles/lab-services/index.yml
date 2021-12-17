@@ -45,10 +45,6 @@ landingContent:
           url: how-to-configure-auto-shutdown-lab-plans.md
   - title: Labs
     linkLists:
-    - linkListType: overview
-      links:
-        - text: About labs
-          url: classroom-labs-overview.md
     - linkListType: tutorial
       links:
         - text: Set up a lab
