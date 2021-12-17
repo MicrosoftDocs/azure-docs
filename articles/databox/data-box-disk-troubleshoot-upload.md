@@ -304,4 +304,4 @@ The errors generated when uploading the data to Azure are summarized in the foll
 
 ## Next steps
 
-[Contact Support](data-box-disk-contact-microsoft-support.md).
+[Contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
