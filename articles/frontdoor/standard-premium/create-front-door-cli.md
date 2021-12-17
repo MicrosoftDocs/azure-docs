@@ -1,6 +1,6 @@
 ---
 title: Create an Azure Front Door Standard/Premium with the Azure CLI
-description: Learn how to create an Azure Front Door Standard/Premium (preview) with the Azure CLI that you can use to protect your web apps against vulnerabilities.
+description: Learn how to create an Azure Front Door Standard/Premium (preview) with the Azure CLI. Use the Front Door to protect your web apps against vulnerabilities.
 ms.topic: sample
 author: duau
 ms.author: duau
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Quickstart: Create an Azure Front Door Standard/Premium - Azure CLI
 
-In this quickstart, you learn how to create an Azure Front Door Standard/Premium profile using the Azure CLI. You can create the Azure Front Door Standard/Premium profile with basic or advanced configurations. You'll create the Azure Front Door Standard/Premium profile using the two Web Apps as your origin. You'll then verify connectivity to your Web Apps using the Azure Front Door Standard/Premium frontend hostname.
+In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using the Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door Standard/Premium frontend hostname.
 
 > [!NOTE]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
@@ -23,11 +23,9 @@ In this quickstart, you learn how to create an Azure Front Door Standard/Premium
 
 ## Create a resource group
 
-In Azure, you allocate related resources to a resource group. You can either use an existing resource group or create a new one.
+For this quickstart, you'll need two resource groups. One in *Central US* and the second in *East US*.
 
-For this tutorial, you need two resource groups. One in *Central US* and the second in *East US*.
-
-Create a resource group with [az group create](/cli/azure/group#az_group_create):
+Run [az group create](/cli/azure/group#az_group_create) to create resource groups.
 
 ```azurecli
 az group create \
@@ -53,15 +51,15 @@ az afd profile create \
 
 ## Create two instances of a web app
 
-Two instances of a web application that run in different Azure regions is required for this tutorial. Both the web application instances run in Active/Active mode, so either one can service traffic.
+You need two instances of a web application that run in different Azure regions for this tutorial. Both the web application instances run in Active/Active mode, so either one can service traffic.
 
 If you don't already have a web app, use the following script to set up two example web apps.
 
 ### Create app service plans
 
-Before you can create the web apps you will need two app service plans, one in *Central US* and the second in *East US*.
+Before you can create the web apps you'll need two app service plans, one in *Central US* and the second in *East US*.
 
-Create app service plans with [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true):
+Run [az appservice plan create](/cli/azure/appservice/plan#az_appservice_plan_create&preserve-view=true) to create your app service plans.
 
 ```azurecli
 az appservice plan create \
@@ -237,7 +235,7 @@ To test instant global failover, we'll use the following steps:
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the Front Door, delete both resource groups. When you delete the resource group, you also delete the Front Door and all its related resources.
+When you don't need the resources for the Front Door, delete both resource groups. Deleting the resource groups also deletes the Front Door and all its related resources.
 
 Run [az group delete](/cli/azure/group#az_group_delete&preserve-view=true):
 
