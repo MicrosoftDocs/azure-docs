@@ -42,7 +42,7 @@ Choose a client:
 
 To delete a vault, follow these steps:
 
-- **Step 1**: Go to **vault Overview**, click **Delete**, and then follow the instructions to complete the removal of Azure Backup and Azure Site Recovery (ASR) items for vault deletion as shown below. Each link calls the respective _blade_ to perform the corresponding vault deletion steps.
+- **Step 1**: Go to **vault Overview**, click **Delete**, and then follow the instructions to complete the removal of Azure Backup and Azure Site Recovery items for vault deletion as shown below. Each link calls the respective _blade_ to perform the corresponding vault deletion steps.
 
   See the instructions in the following steps to understand the process. Also, you can go to each blade to delete vaults.
 
