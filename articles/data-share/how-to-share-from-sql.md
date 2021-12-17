@@ -98,7 +98,7 @@ When you share data from a SQL source, the following mappings are used from SQL 
 To share data snapshots from your Azure SQL resources, you first need to prepare your environment. You'll need:
 
 * An Azure subscription: If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
-* An [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace) with tables and views that you want to share.
+* An [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md) with tables and views that you want to share.
 * [An Azure Data Share account](share-your-data-portal.md#create-a-data-share-account).
 * Your data recipient's Azure sign-in e-mail address (using their e-mail alias won't work).
 * If your Azure SQL resource is in a different Azure subscription than your Azure Data Share account, register the [Microsoft.DataShare resource provider](concepts-roles-permissions.md#resource-provider-registration) in the subscription where your source Azure SQL resource is located.
@@ -251,7 +251,7 @@ If you choose to receive data into Azure Storage, complete these prerequisites b
 
 For a SQL server where you're the **Azure Active Directory admin** of the SQL server, complete these prerequisites before accepting a data share:
 
-* An [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace).
+* An [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md).
 * Permission to write to the databases on SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the Azure RBAC **Contributor** role.
 * SQL Server Firewall access:
     1. In the [Azure portal](https://portal.azure.com/), navigate to your SQL server. Select **Firewalls and virtual networks** from left navigation.
@@ -263,7 +263,7 @@ For a SQL server where you're **not** the **Azure Active Directory admin**, comp
 
 You can follow the [step by step demo video](https://youtu.be/aeGISgK1xro), or the steps below to configure prerequisites.
 
-* An [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace).
+* An [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md) or [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md).
 * Permission to write to databases on the SQL server: *Microsoft.Sql/servers/databases/write*. This permission exists in the Azure RBAC **Contributor** role. 
 * Permission for the Data Share resource's managed identity to access the Azure SQL Database or Azure Synapse Analytics: 
     1. In the [Azure portal](https://portal.azure.com/), navigate to the SQL server and set yourself as the **Azure Active Directory Admin**.
