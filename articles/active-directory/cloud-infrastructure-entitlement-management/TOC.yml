@@ -12,9 +12,26 @@
       href: cloudknox-api.md
     - name: Integration with ServiceNow
       href: cloudknox-servicenow.md     
+  - name: Installation
+    expanded: true
+    items:
+    - name: Integration with HashiCorp Terraform
+      href: cloudknox-hashicorp-terraform.md
+    - name: Integration with Saviynt
+      href: cloudknox-saviynt.md
+    - name: Integration with Securonix
+      href: cloudknox-securonix.md
+    - name: Integration with Splunk
+      href: cloudknox-splunk.md
+    - name: CloudKnox integration with ServiceNow
+      href: cloudknox-product-dashboard.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
-    - name: Install CloudKnox with AWS role
+    - name: Install CloudKnox Sentry
+      href: cloudknox-welcome.md
+    - name: Install CloudKnox on GCP
+      href: cloudknox-sentry-install-gcp.md
+    - name: Install CloudKnox with an AWS role
       href: cloudknox-install-aws-agentless-deployment.md
     - name: Install CloudKnox Sentry on AWS
       href: cloudknox-sentry-install-aws.md
@@ -44,6 +61,13 @@
     items: 
     - name: The Permissions Analytics report
       href: cloudknox-product-permissions-analytics-reports.md
+  - name: Reference
+    expanded: true
+    items:
+    - name: FAQs (Internal and existing users)
+      href: cloudknox-faqs.md
+    - name: Multi-cloud glossary
+      href: cloudknox-multi-cloud-glossary.md
     - name: Create and save product alerts
       href: cloudknox-product-alerts.md
     - name: Filter and query user activity

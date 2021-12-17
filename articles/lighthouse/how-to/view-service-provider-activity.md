@@ -1,7 +1,7 @@
 ---
 title: Monitor service provider activity
 description: Customers can monitor logged activity to see actions performed by service providers through Azure Lighthouse.
-ms.date: 07/16/2021
+ms.date: 12/16/2021
 ms.topic: how-to
 ---
 

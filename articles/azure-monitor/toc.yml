@@ -551,6 +551,8 @@ items:
       items:  
       - name: Manage log alerts
         href: alerts/alerts-log.md
+      - name: Edit log alerts created in previous versions
+        href: alerts/alerts-manage-alerts-previous-version.md
       - name: Optimizing alert queries
         href: alerts/alerts-log-query.md
       - name: Using Resource Manager template
