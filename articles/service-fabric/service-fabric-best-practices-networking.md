@@ -75,9 +75,9 @@ More information about the inbound security rules:
 
 * **Azure portal**. This port is used by the Service Fabric Resource Provider to query information about your cluster in order to display in the Azure Management Portal. If this port is not accessible from the Service Fabric Resource Provider then you will see a message such as 'Nodes Not Found' or 'UpgradeServiceNotReachable' in the Azure portal and your node and application list will appear empty. This means that if you wish to have visibility of your cluster in the Azure Management Portal then your load balancer must expose a public IP address and your NSG must allow incoming 19080 traffic.
 
-* **Client API**. The client connection endpoint for APIs used by PowerShell. Please open the port for the integration with Azure DevOps by using [AzureDevOps](/virtual-network/service-tags-overview) as Virtual Network Service Tag. 
+* **Client API**. The client connection endpoint for APIs used by PowerShell. Please open the port for the integration with Azure DevOps by using [AzureDevOps](/azure/virtual-network/service-tags-overview) as Virtual Network Service Tag. 
 
-* **SFX + Client API**. This port is used by Service Fabric Explorer to browse and manage your cluster. In the same way it's used by most common APIs like REST/PowerShell (Microsoft.ServiceFabric.PowerShell.Http)/CLI/.NET. This port is recommended for extended management operations from the Service Fabric Resource Provider to guarantee higher reliability. Please open the port for the integration with Azure API Management by using [ApiManagement](/virtual-network/service-tags-overview) as Virtual Network Service Tag.
+* **SFX + Client API**. This port is used by Service Fabric Explorer to browse and manage your cluster. In the same way it's used by most common APIs like REST/PowerShell (Microsoft.ServiceFabric.PowerShell.Http)/CLI/.NET. This port is recommended for extended management operations from the Service Fabric Resource Provider to guarantee higher reliability. Please open the port for the integration with Azure API Management by using [ApiManagement](/azure/virtual-network/service-tags-overview) as Virtual Network Service Tag.
 
 * **Cluster**. Used for inter-node communication; should never be blocked.
 
