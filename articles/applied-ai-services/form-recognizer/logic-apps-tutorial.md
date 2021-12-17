@@ -35,7 +35,7 @@ Before we jump into creating the Logic app, we to have to set up a One drive fol
  
 4.You should see the new folder in your files. For now we are done with OneDrive. Open a new tab you will need to access this folder later. 
 
-:::image border="true" type="content" source="../media/quickstarts/onedrive-setup.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/onedrive-setup.gif" alt-text="Logic App Connector Demo":::
 
 ### Create a Form Recognizer resource 
 
@@ -49,7 +49,7 @@ Now we are going to create a Form recognizer resource in the Azure portal. If yo
   
 4. Select the Create button. 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-one.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-one.gif" alt-text="Logic App Connector Demo":::
 
 5. Now you are going to fill out the "Create Form Recognizer" fields with the following values:
 
@@ -61,17 +61,17 @@ Now we are going to create a Form recognizer resource in the Azure portal. If yo
 
 6. Once you are done you should see something similar to the screenshot below. (Note: your Subscription, resource group , region and name may be different.) After you are done with this select "Review + Create".
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-two.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-two.gif" alt-text="Logic App Connector Demo":::
 
 7. Azure will run a quick validation check, after a few seconds you should see a green banner that says "Validation Passed". After you see this banner, select "Create" in the bottom left. 
 
 8.	After you click create you should be redirected to a new page that says “Deployment in proggress". After a few seconds you should see a message that says “Your deployment is complete”. Once you receive this message click the “Go to tesource” button.
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-three.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-three.gif" alt-text="Logic App Connector Demo":::
 
 9.	You should see a screen like the one below. Open your favorite notes app and Copy “KEY 1” and the "Endpoint" URL into the notes app be sure to label which is which. You will need this information later. If your overview page does not have the keys and endpoint visible, you can click the keys and endpoint button on the left navigation bar and get them from there. Now you have a Form Recognizer resource we will make a logic app resource 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-four.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-four.gif" alt-text="Logic App Connector Demo":::
 
 ### Creating a logic app resource
 
@@ -83,7 +83,7 @@ Now that you have the Form Recognizer resource set up it is time to create an Az
 
 3. Select the create button
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-five.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-five.gif" alt-text="Logic App Connector Demo":::
 
 4. On the basics page do the following:
 * Select your Subscription from the dropdown box.
@@ -94,21 +94,21 @@ Now that you have the Form Recognizer resource set up it is time to create an Az
 
 5. When you are done you should have something similar to the image below (note: Resource group, Logic App name, and Region may be different.) After checking these values select "Review and create" in the bottom left. 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-six.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-six.gif" alt-text="Logic App Connector Demo":::
 
 6.	A short validation should run after it completes select "Create" in the bottom left/
 
 7.	You will be redirected to a screen that says “Deployment in progress” give azure some time to deploy this can take a couple minutes. After the deployment is complete you should see a banner that says, “Your deployment is complete”. When you reach this screen select "Go to resource". 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-seven.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-seven.gif" alt-text="Logic App Connector Demo":::
 
 8. You should be redirected to the Logic Apps Designer. There is a short video for a quick introduction to Logic Apps avaialbe on the home screen. When you are ready to begin designing the Logic App, select the "Blank Logic App" button.
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-eight.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-eight.gif" alt-text="Logic App Connector Demo":::
 
 9. Now you should see a screen that looks like the one below. Now you are ready to start designing and Implementing your Logic App. 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-nine.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-nine.gif" alt-text="Logic App Connector Demo":::
 
 ### Creating automation flow
 
@@ -120,7 +120,7 @@ Now that you have the Logic App connector resource set up and configured the onl
 
 3. After your account is connected select the folder you created earlier in your OneDrive leave the other values to their defaults. Your window should look similar to the one below. (Note you folder name may vary from the example showN.) 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-ten.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-ten.gif" alt-text="Logic App Connector Demo":::
 
 4.	Now we are going to add another step to the workflow. Click the plus button underneath the newly created OneDrive node.
 
@@ -128,21 +128,21 @@ Now that you have the Logic App connector resource set up and configured the onl
 
 6. Now you should see a window that says, “Create connection”. What we are going to do here is connect your Form Recognizer resource to the Logic Apps Designer Studio. First Choose a connection name. It should be something easily recognizable. Then for “Endpoint URL” and “Account Key” use the endpoint and key you copied into your note pad from earlier. If you skipped this step earlier or lost the codes, you can navigate back to your Form Recognizer resource and re-copy them.  Your screen should look something like the screenshot below. When you are done click "Create". 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-eleven.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-eleven.gif" alt-text="Logic App Connector Demo":::
 
 7. Now you should see the parameters tab for the analyze invoice connector. Select the “Document/Image File field a dynamic content pop-up should appear if it does not select the add dynamic content button below the field. select "File content" form the pop up. This is essentially sending the file(s) that were created to be analyzed by the Form recognizer invoice prebuilt. Once you see the "File content" badge show up in the "Document /Image file content" you have don’t this correctly. 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-twelve.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-twelve.gif" alt-text="Logic App Connector Demo":::
 
 8. Now we need to add the last step. Once again click the "+" button and add another action.
 
 9. In the search bar search "Outlook.com" in the actions bar scroll down until you see “send an email” select this action.
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-thirteen.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-thirteen.gif" alt-text="Logic App Connector Demo":::
 
 10.	Just like with OneDrive you will be asked to sign into your outlook.com account after you sign in you should see a window like the one below. In this window we are going to format the email to be sent with the dynamic content we have gotten from Form Recognizer.
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-fourteen.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-fourteen.gif" alt-text="Logic App Connector Demo":::
 
 11.	We are almost done! Make the following changes to the following fields:
 
@@ -154,11 +154,11 @@ Now that you have the Logic App connector resource set up and configured the onl
 * Type “Amount due:” and append “amount due field amount due (number)”.
 * Lastly, because the amount due is an important number we also want to send the confidence score for this extraction in the email to do this add the dynamic content “Amount due field confidence of amount due”. When you are done the window should look similar to the screen below.
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-fifteen.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-fifteen.gif" alt-text="Logic App Connector Demo":::
 
 12. The logic app desinger view should look something like this. Congratulations you are done!. Click save in the upper left corner
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-sixteen.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-sixteen.gif" alt-text="Logic App Connector Demo":::
 
 ### Testing automation flow
 
@@ -176,7 +176,7 @@ Now that we have created the flow the last thing to do is to test it and make su
 
 3. You should see a sample run of your Logic App run if all the steps have green check marks it means the run was successful. 
 
-:::image border="true" type="content" source="../media/quickstarts/logic-app-connector-demo-seventeen.gif" alt-text="Logic App Connector Demo":::
+:::image border="true" type="content" source="/media/logic-apps-tutorial/logic-app-connector-demo-seventeen.gif" alt-text="Logic App Connector Demo":::
 
 4.	Check your email and you should see a new email with the information we pre-specified. Congratulations! You have officially completed the tutorial. Be sure to pause or delete the Logic App after you are done so usage stops. 
 
