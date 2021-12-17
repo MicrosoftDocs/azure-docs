@@ -38,7 +38,7 @@ Choose a client:
 >[!Note]
 >If you're sure that all backed-up items in the vault are no longer required and want to delete them at once without reviewing, [run this PowerShell script](/azure/backup/backup-azure-delete-vault&tabs=powershell#script-for-delete-vault). The script will delete all backup items recursively and eventually the entire vault.
 
-> [!VIDEO ]
+
 
 To delete a vault, follow these steps:
 
@@ -55,7 +55,7 @@ To delete a vault, follow these steps:
 - <a id="portal-disable-soft-delete">**Step 3**</a>: Disable the soft delete and Security features
 
   1. Go to **Properties** -> **Security Settings** and disable the **Soft Delete** feature if enabled. See [how to disable soft delete](/azure/backup/backup-azure-security-feature-cloud#enabling-and-disabling-soft-delete).
-  1. Go to **Properties** -> **Security Settings** and disable **Security Features**, if enabled. [Learn more](/azure/backup/backup-azure-security-feature-cloud)
+  1. Go to **Properties** -> **Security Settings** and disable **Security Features**, if enabled. [Learn more](/azure/backup/backup-azure-security-feature)
 
 - <a id="portal-delete-cloud-protected-items">**Step 4**</a>: Delete Cloud protected items
 
@@ -269,10 +269,8 @@ After you delete the on-premises backup items, follow the next steps from the po
 First, read the **[Before you start](#before-you-start)** section to understand the dependencies and vault deletion process.
 
 >[!Note]
->To download the PowerShell file to delete your vault, go to vault **Overview** -> **Delete** -> **Delete using PowerShell Script**, and then click **Generate and Download Script** as shown in the screenshot below. This generates a customized script specific to the vault, which requires no additional changes. You can run the script in the PowerShell console by switching to the downloaded script’s directory and running the file using: _.\NameofFile.ps1_
-
->[!Note]
->Ensure PowerShell version 7 or later and the latest _Az module_ are installed. To install the same, see the [instructions here](/azure/backup/backup-azure-delete-vault?branch=pr-en-us-182669&tabs=powershell#powershell-install-az-module).
+>- To download the PowerShell file to delete your vault, go to vault **Overview** -> **Delete** -> **Delete using PowerShell Script**, and then click **Generate and Download Script** as shown in the screenshot below. This generates a customized script specific to the vault, which requires no additional changes. You can run the script in the PowerShell console by switching to the downloaded script’s directory and running the file using: _.\NameofFile.ps1_
+>- Ensure PowerShell version 7 or later and the latest _Az module_ are installed. To install the same, see the [instructions here](/azure/backup/backup-azure-delete-vault?branch=pr-en-us-182669&tabs=powershell#powershell-install-az-module).
 
 If you're sure that all the items backed up in the vault are no longer required and wish to delete them at once without reviewing, you can directly run the PowerShell script in this section. The script will delete all the backup items recursively and eventually the entire vault.
 
