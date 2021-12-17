@@ -22,12 +22,6 @@ Follow the steps in this tutorial to:
 
 ## Sign in users
 
-### Sign in users with a pop-up
-
-### Sign in users with redirects
-
-### Add log in button
-
 ## Display logged in content
 
 ## Display MSAL provider content
