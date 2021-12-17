@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 12/10/2021
+ms.date: 12/16/2021
 ms.author: lajanuar
 keywords: on-premises, Docker, container, identify
 ms.custom: ignite-fall-2021
@@ -17,7 +17,7 @@ ms.custom: ignite-fall-2021
 
 > [!IMPORTANT]
 >
-> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://aka.ms/csgate), and receive approval. See [**Request approval to run container**](#request-approval-to-run-the-container) below for more information.
+> * Form Recognizer containers are in gated preview. To use them, you must submit an [online request](https://aka.ms/csgate), and receive approval. For more information, *see* [**Request approval to run container**](#request-approval-to-run-the-container) below.
 >
 > * The online request form requires that you provide a valid email address that belongs to the organization that owns the Azure subscription ID and that you have or have been granted access to that subscription.
 
@@ -63,7 +63,7 @@ The host is a x64-based computer that runs the Docker container. It can be a com
 
 #### Required containers
 
-The following table lists the additional supporting container(s) for each Form Recognizer container you download. Please refer to the [Billing](#billing) section for more information.
+The following table lists the additional supporting container(s) for each Form Recognizer container you download. Refer to the [Billing](#billing) section for more information.
 
 | Feature container | Supporting container(s) |
 |---------|-----------|
@@ -133,7 +133,7 @@ If you are only making analyze calls, the host machine requirements are as follo
 
 ### [Layout](#tab/layout)
 
-Below is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_API_KEY} values for your Layout container instance.
+Below is a self-contained `docker compose`  example to run the Form Recognizer Layout container.  With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {{FORM_RECOGNIZER_API_KEY} values for your Layout container instance.
 
 ```yml
 version: "3.9"
@@ -162,7 +162,7 @@ docker-compose up
 
 ### [Business Card](#tab/business-card)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Business Card container instance. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} for your Computer Vision Read container.
+Below is a self-contained `docker compose` example to run Form Recognizer Business Card and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Business Card container instance. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} for your Computer Vision Read container.
 
 ```yml
 version: "3.9"
@@ -202,7 +202,7 @@ docker-compose up
 
 ### [ID Document](#tab/id-document)
 
-Below is a self-contained `docker compose` example to run Form Recognizer ID Document and Read containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your ID document container. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} values for your Computer Vision Read container.
+Below is a self-contained `docker compose` example to run Form Recognizer ID Document and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your ID document container. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} values for your Computer Vision Read container.
 
 ```yml
 version: "3.9"
@@ -242,7 +242,7 @@ docker-compose up
 
 ### [Invoice](#tab/invoice)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Invoice and Layout containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration.  Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Invoice and Layout containers.
+Below is a self-contained `docker compose` example to run Form Recognizer Invoice and Layout containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.  Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Invoice and Layout containers.
 
 ```yml
 version: "3.9"
@@ -283,7 +283,7 @@ docker-compose up
 
 ### [Receipt](#tab/receipt)
 
-Below is a self-contained `docker compose` example to run Form Recognizer Receipt and Read containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Receipt container. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} values for your Computer Vision Read container.
+Below is a self-contained `docker compose` example to run Form Recognizer Receipt and Read containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration. Enter {FORM_RECOGNIZER_ENDPOINT_URI} and {FORM_RECOGNIZER_API_KEY} values for your Receipt container. Enter {COMPUTER_VISION_ENDPOINT_URI} and {COMPUTER_VISION_API_KEY} values for your Computer Vision Read container.
 
 ```yml
 version: "3.9"
@@ -434,7 +434,7 @@ http {
 * On the left pane of the tool, select the connections tab.
 * Select to create a new project and give it a name and description.
 * For the provider, choose the local file system option. For the local folder, make sure you enter the path to the folder where you stored the sample data files.
-* Navigate back to the home tab and select the “Use custom to train a model with labels and key value pairs option”.
+* Navigate back to the home tab and select the "Use custom to train a model with labels and key value pairs option".
 * Select the train button on the left pane to train the labeled model.
 * Save this connection and use it to label your requests.
 * You can choose to analyze the file of your choice against the trained model.
@@ -443,7 +443,7 @@ http {
 
 1. Name this file **docker-compose.yml**
 
-2. Below is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application’s services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
+2. Below is a self-contained `docker compose` example to run Form Recognizer Layout, Label Tool, Custom API, and Custom Supervised containers together. With `docker compose`, you use a YAML file to configure your application's services. Then, with `docker-compose up` command, you create and start all the services from your configuration.
 
   ```yml
   version: '3.3'
@@ -573,8 +573,8 @@ There are several ways to validate that the container is running:
   Request URL    | Purpose
   ----------- | --------
   |**http://<span></span>localhost:5000/** | The container provides a home page.
-  |**http://<span></span>localhost:5000/ready**     | Requested with GET, this provides a verification that the container is ready to accept a query against the model. This request can be used for Kubernetes liveness and readiness probes.
-  |**http://<span></span>localhost:5000/status** | Requested with GET, this verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes liveness and readiness probes.
+  |**http://<span></span>localhost:5000/ready**     | Requested with GET, this request provides a verification that the container is ready to accept a query against the model. This request can be used for Kubernetes liveness and readiness probes.
+  |**http://<span></span>localhost:5000/status** | Requested with GET, this request verifies if the api-key used to start the container is valid without causing an endpoint query. This request can be used for Kubernetes liveness and readiness probes.
   |**http://<span></span>localhost:5000/swagger** | The container provides a full set of documentation for the endpoints and a Try it out feature. With this feature, you can enter your settings into a web-based HTML form and make the query without having to write any code. After the query returns, an example CURL command is provided to demonstrate the HTTP headers and body format that's required.
   |
 
