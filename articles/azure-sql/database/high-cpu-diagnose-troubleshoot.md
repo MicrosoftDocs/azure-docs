@@ -46,7 +46,7 @@ GO
 ```
 
 > [!NOTE]
-> For databases the using [Hyperscale service tier](service-tier-hyperscale.md), the number of visible online schedulers in sys.dm_os_schedulers will be equivalent to the vCore count shown in the Azure portal when you use Gen5 hardware.
+> For databases using Gen4 hardware, the number of visible online schedulers in `sys.dm_os_schedulers` may be double the number of vCores specified at database creation and shown in Azure portal.
 
 ## Identify the causes of high CPU
 You can measure and analyze CPU utilization using the Azure portal, Query Store interactive tools in SSMS, and Transact-SQL queries in SSMS and Azure Data Studio.
