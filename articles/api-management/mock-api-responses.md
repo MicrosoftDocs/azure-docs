@@ -12,7 +12,13 @@ ms.author: danlep
 ---
 # Tutorial: Mock API responses
 
-Backend APIs can be imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial show you how to use APIM to create an HTTP API, manage it manually, and then set a policy on an API so it returns a mocked response. This method enables developers to continue with the implementation and testing of the APIM instance even if the backend isn't available to send real responses.
+Backend APIs can be imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial, show you how to:
+
++ Use APIM to create an HTTP API
++ Manage an HTTP API manually
++ Set a policy on an API
+
+This method lets developers continue with the implementation and testing of the APIM instance even if the backend isn't available to send real responses.
 
 The ability to mock up responses can be useful in many scenarios:
 
@@ -22,11 +28,10 @@ The ability to mock up responses can be useful in many scenarios:
 In this tutorial, you learn how to:
 
 > [!div class="checklist"]
-> * Create a test API 
+> * Create a test API
 > * Add an operation to the test API
 > * Enable response mocking
 > * Test the mocked API
-
 
 :::image type="content" source="media/mock-api-responses/mock-api-response-02.png" alt-text="Mocked API response":::
 
@@ -39,7 +44,6 @@ In this tutorial, you learn how to:
 ## Create a test API
 
 The steps in this section show how to create an HTTP API with no backend.
-
 
 1. Sign in to the Azure portal, and then navigate to your API Management instance.
 1. Select **APIs** > **+ Add API** > **HTTP** tile.
@@ -83,7 +87,6 @@ An API exposes one or more operations. In this section, you'll add an operation 
     :::image type="content" source="media/mock-api-responses/add-representation.png" alt-text="Add representation to the API operation":::
 
 Although not required for this example, more settings for an API operation can be configured on other tabs, including:
-
 
 |Tab      |Description  |
 |---------|---------|
