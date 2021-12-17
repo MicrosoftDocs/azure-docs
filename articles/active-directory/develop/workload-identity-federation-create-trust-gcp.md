@@ -1,7 +1,7 @@
 ---
-title: Create a trust relationship between an app and Google Cloud
+title: Access Azure resources from Google Cloud without credentials
 titleSuffix: Microsoft identity platform
-description: Set up a trust relationship between an app in Azure AD and Google Cloud.  This allows a service running in Google Cloud to access Azure AD protected resources without using secrets or certificates. 
+description: Access Azure AD protected resources from a service running in Google Cloud without using secrets or certificates.  Use workload identity federation to set up a trust relationship between an app in Azure AD and an identity in Google Cloud.  
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,7 +13,7 @@ ms.workload: identity
 ms.date: 12/16/2021
 ms.author: ryanwi
 ms.custom: aaddev
-ms.reviewer: keyam, udayh, vakarand
+ms.reviewer: udayh
 #Customer intent: As an application developer, I want to create a trust relationship with Google Cloud so my service can access Azure AD protected resources without managing secrets.
 ---
 
@@ -45,14 +45,14 @@ You need these claim values to configure a trust relationship with an Azure AD a
 
 ## Configure an Azure AD app to trust Google Cloud
 
-Configure a federated identity credential on your Azure AD application to set up the trust relationship. You can add up to twenty of these trusts to each Azure AD application.  See this article for steps to [Create a federated identity credential](workload-identity-federation-create-trust.md#create-a-federated-identity-credential),
+Configure a federated identity credential on your Azure AD application to set up the trust relationship. You can add up to 20 of these trusts to each Azure AD application.  See this article for steps to [Create a federated identity credential](workload-identity-federation-create-trust.md#create-a-federated-identity-credential),
 
 The most important fields for creating the federated identity credential are:
 
 - *object ID*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
-- *subject*: this should match the `sub` claim in the token issued by another identity provider, such as Google. This is the Unique ID of the service account you plan to use.
-- *issuer*: this should match the `iss` claim in the token issued by the identity provider. This needs to be an URL that must comply with the [OIDC Discovery spec](https://openid.net/specs/openid-connect-discovery-1_0.html). Azure AD will use this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the issuer is `https://accounts.google.com`.
-- *audiences*: this should match the `aud` claim in the token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The Microsoft recommended value is “api://AzureADTokenExchange”.
+- *subject*: must match the `sub` claim in the token issued by another identity provider, such as Google. This is the Unique ID of the service account you plan to use.
+- *issuer*: must match the `iss` claim in the token issued by the identity provider. A URL that complies with the [OIDC Discovery spec](https://openid.net/specs/openid-connect-discovery-1_0.html). Azure AD uses this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the issuer is `https://accounts.google.com`.
+- *audiences*: must match the `aud` claim in the token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The Microsoft recommended value is “api://AzureADTokenExchange”.
 
 ## Exchange a Google token for an access token
 
