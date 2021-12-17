@@ -154,8 +154,6 @@
       href: cognitive-search-incremental-indexing-conceptual.md
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
-    - name: Image enrichments
-      href: cognitive-search-concept-image-scenarios.md
     - name: Debug sessions
       href: cognitive-search-debug-session.md
     - name: Knowledge store 
@@ -385,10 +383,8 @@
       href: cognitive-search-concept-annotations-syntax.md
     - name: Map to index fields
       href: cognitive-search-output-field-mapping.md
-    - name: Use OCR
-      href: cognitive-search-how-to-use-ocr-skill.md
-    - name: Use image analysis
-      href: cognitive-search-how-to-use-image-analysis-skill.md
+    - name: Process image files
+      href: cognitive-search-concept-image-scenarios.md
     - name: Cache (incremental) enrichment
       href: search-howto-incremental-index.md
     - name: Design tips
