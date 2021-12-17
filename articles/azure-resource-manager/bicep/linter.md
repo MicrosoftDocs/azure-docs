@@ -22,9 +22,12 @@ The default set of linter rules is minimal and taken from [arm-ttk test cases](.
 - [no-unnecessary-dependson](./linter-rule-no-unnecessary-dependson.md)
 - [no-unused-params](./linter-rule-no-unused-parameters.md)
 - [no-unused-vars](./linter-rule-no-unused-variables.md)
+- [outputs-should-not-contain-secrets](./linter-rule-outputs-should-not-contain-secrets.md)
 - [prefer-interpolation](./linter-rule-prefer-interpolation.md)
 - [secure-parameter-default](./linter-rule-secure-parameter-default.md)
 - [simplify-interpolation](./linter-rule-simplify-interpolation.md)
+- [use-protectedsettings-for-commandtoexecute-secrets](./linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md)
+- [use-stable-vm-image](./linter-rule-use-stable-vm-image.md)
 
 You can customize how the linter rules are applied. To overwrite the default settings, add a **bicepconfig.json** file and apply custom settings. For more information about applying those settings, see [Add custom settings in the Bicep config file](bicep-config-linter.md).
 
