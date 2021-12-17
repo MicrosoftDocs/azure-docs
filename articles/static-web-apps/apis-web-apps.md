@@ -55,7 +55,7 @@ To unlink an Azure Web Apps instance from a static web app, follow these steps:
 When the unlinking process is complete, requests to routes beginning with `/api/` are no longer proxied to your Web Apps instance.
 
 > [!NOTE]
-> To prevent accidental exposure of your Web Apps instance to anonymous traffic, the identity provider created when by the linking process is not automatically deleted. You can delete the identity provider named *Azure Static Web Apps (Linked)* from the Web Apps instance's authentication settings.
+> To prevent accidentally exposing your Web Apps instance to anonymous traffic, the identity provider created by the linking process is not automatically deleted. You can delete the identity provider named *Azure Static Web Apps (Linked)* from the Web Apps instance's authentication settings.
 
 ## Next steps
 
