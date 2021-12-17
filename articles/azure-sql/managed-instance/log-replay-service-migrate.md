@@ -50,7 +50,7 @@ LRS does not require a specific naming convention for backup files. It scans all
 If you're migrating several databases, you need to:
 
 - Place backup files for each database in a separate folder on Blob Storage in a flat-file structure. For example, use separate database folders: `bolbcontainer/database1/files`, `blobcontainer/database2/files`, etc.
-- Do not use nested folders inside database folders as this is not supported. For example, do not use nested subfolders: `blobcontainer/database1/subfolder/files`.
+- Do not use nested folders inside database folders as this is not supported. For example, do not use: `blobcontainer/database1/subfolder/files`.
 - Start LRS separately for each database.
 - Specify different URI path to separate database folders on Azure Blob Storage. 
 
@@ -108,11 +108,11 @@ We recommend the following best practices:
 
 ## Steps to execute
 
-### Make backups of SQL Server
+### Make database backups on SQL Server
 
-You can make backups of SQL Server by using either of the following options:
+You can make database backups on SQL Server by using either of the following options:
 
-- Back up to local disk storage, and then upload files to Azure Blob Storage, if your environment restricts direct backups to Blob Storage.
+- Back up to the local disk storage, and then upload files to Azure Blob Storage, if your environment restricts direct backups to Blob Storage.
 - Back up directly to Blob Storage with the `TO URL` option in T-SQL, if your environment and security procedures allow it. 
 
 Set databases that you want to migrate to the full recovery mode to allow log backups.
@@ -154,7 +154,7 @@ Azure Blob Storage is used as intermediary storage for backup files between SQL 
 1. [Create a storage account](../../storage/common/storage-account-create.md?tabs=azure-portal).
 2. [Crete a blob container](../../storage/blobs/storage-quickstart-blobs-portal.md) inside the storage account.
 
-### Copy backups from SQL Server to Blob Storage
+### Copy database backups from SQL Server to Blob Storage
 
 In migrating databases to a managed instance by using LRS, you can use the following approaches to upload backups to Blob Storage:
 - Using SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) functionality
@@ -165,7 +165,7 @@ In migrating databases to a managed instance by using LRS, you can use the follo
 > To migrate multiple databases using the same Azure Blob Storage container, place all backup files of an individual database into a separate folder inside the container. Use flat-file structure for each database folder, as nested folders are not supported.
 > 
 
-### Make backups from SQL Server directly to Blob Storage
+### Make database backups from SQL Server directly to Blob Storage
 If your corporate and network policies allow it, an alternative is to make backups from SQL Server directly to Blob Storage by using the SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) option. If you can pursue this option, you don't need to make backups on the local storage and upload them to Blob Storage.
 
 As the first step, this operation requires you to generate an SAS authentication token for Blob Storage and then import the token to SQL Server. The second step is to make backups with the `TO URL` option in T-SQL. Ensure that all backups are made with the `CHEKSUM` option enabled.
@@ -192,21 +192,21 @@ WITH COMPRESSION, CHECKSUM
 
 ### Migration of multiple databases
 
-You must place backup files for different databases in separate folders inside Azure Blob Storage container. All backup files for a single database must be placed inside the same folder in a flat-file structure, as there must not exist nested subfolders for an individual database. 
+In case of migrating multiple databases using the same Azure Blob Storage container, you must place backup files for different databases in separate folders inside the container. All backup files for a single database must be placed in a flat-file structure inside a database folder, and there must not exist nested folders within as this structure is not supported.
 
 Below is an example of folder structure inside Azure Blob Storage container required to migrate multiple databases using LRS.
 
 ```URI
 -- Place all backup files for database 1 in a separate "database1" folder in a flat-file structure.
--- Do not use nested folders inside this database folder.
+-- Do not use nested folders inside database1 folder.
 https://<mystorageaccountname>.blob.core.windows.net/<containername>/database1/<all database 1 backup files>
 
 -- Place all backup files for database 2 in a separate "database2" folder in a flat-file structure.
--- Do not use nested folders inside this database folder.
+-- Do not use nested folders inside database2 folder.
 https://<mystorageaccountname>.blob.core.windows.net/<containername>/database2/<all database 2 backup files>
 
 -- Place all backup files for database 3 in a separate "database3" folder in a flat-file structure. 
--- Do not use nested folders inside this database folder.
+-- Do not use nested folders inside database3 folder.
 https://<mystorageaccountname>.blob.core.windows.net/<containername>/database3/<all database 3 backup files>
 ```
 
