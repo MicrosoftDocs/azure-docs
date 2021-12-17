@@ -184,10 +184,6 @@ The steps to publish a policy are as follows
 > - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
 > - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
 
->[!Important]
-> - Publish is a background operation. It can take up to **2 hours** for the changes to be reflected in the data source.
-> - There is no need to publish a policy again for it to take effect if the data resource continues to be the same.
-
 ## Additional information
 
 ### Limits
