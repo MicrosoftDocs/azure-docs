@@ -40,8 +40,8 @@ To find the logs from a data upload, do the following steps.
 
      |Log type   |URL format|
      |-----------|----------|
-     |copy log   |<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_CopyLog_<*GUID*>.xml |
-     |verbose log|<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_VerboseLog_<*GUID*>.xml|
+     |copy log   |<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_CopyLog_<*job-ID*>.xml |
+     |verbose log|<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_VerboseLog_<*job-ID*>.xml|
 
    * For your earlier orders, the display might look like the following screen. 
    
@@ -49,12 +49,12 @@ To find the logs from a data upload, do the following steps.
 
       ![Screenshot of the Overview pane for an earlier Data Box Disk order with completed copies. The Copy Log Paths are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-2018.png)
    
-     The logs are uploaded to a `waies` container in the storage account. The URLs have these formats: *UPDATE FORMATS!*
+     The logs are uploaded to a `waies` container in the storage account. The URLs have these formats:
 
      |Log type   |URL format|
      |-----------|----------|
-     |error log  |<*storage-account-name*>/waies/<*order-name*>_<*device-serial-number*>_CopyLog_<*GUID*>.xml   |
-     |verbose log|<*storage-account-name*>/waies/<*order-name*>_<*device-serial-number*>_VerboseLog_<*GUID*>.xml|
+     |error log  |<*storage-account-name*>/databoxlogs-<*order-name*>/waies/ri-<*order-name*>-guid_<*drive-ID*>_<*timestamp*>_error.xml   |
+     |verbose log|<*storage-account-name*>/databoxlogs-<*order-name*>/waies/ri-<*order-name*>-guid_<*drive-ID*>_<*timestamp*>_verbose.xml |
 
    > [!NOTE]
    > Logs in the **databoxcopylog** container have a different format than logs in the `waies` container. For help interpreting the logs, use the instructions for the associated drive log version. See [Identify log version](#identify-log-version) for more information.
