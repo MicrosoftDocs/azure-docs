@@ -29,17 +29,13 @@ This article provides the steps for deploying self-hosted gateway component of A
 1. Add Azure API Management as a new Helm repository.
 
    ```console
-   $ helm repo add azure-apim-gateway https://azure.github.io/api-management-self-hosted-gateway/helm-charts/
-   "azure-apim-gateway" has been added to your repositories
+   helm repo add azure-apim-gateway https://azure.github.io/api-management-self-hosted-gateway/helm-charts/
    ```
 
 2. Update repo to fetch the latest Helm charts.
 
    ```console
-   $ helm repo update
-   Hang tight while we grab the latest from your chart repositories...
-   ...Successfully got an update from the "azure-apim-gateway" chart repository
-   Update Complete. ⎈Happy Helming!⎈
+   helm repo update
    ```
 
 3. Verify your Helm configuration by listing all available charts.
@@ -76,7 +72,7 @@ This article provides the steps for deploying self-hosted gateway component of A
 > 
 > For example, you can expose it through a load balancer by adding `--set service.type=LoadBalancer`
 
-8. Run the below command to check the gateway pod is running. Your pod name will be different.
+8. Run the following command to check the gateway pod is running. Your pod name will be different.
 
    ```console
    kubectl get pods
@@ -84,7 +80,7 @@ This article provides the steps for deploying self-hosted gateway component of A
    azure-api-management-gateway-59f5fb94c-s9stz   1/1       Running   0          1m
    ```
 
-9. Run the below command to check the gateway service is running. Your service name and IP addresses will be different.
+9. Run the following command to check the gateway service is running. Your service name and IP addresses will be different.
 
     ```console
     kubectl get services
