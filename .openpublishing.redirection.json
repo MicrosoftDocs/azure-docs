@@ -5914,6 +5914,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/create-aks-cluster-data-controller.md",
       "redirect_url": "/azure/azure-arc/data/create-complete-managed-instance-indirectly-connected",
       "redirect_document_id": false
@@ -45141,6 +45146,11 @@
     {
       "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
       "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
+      "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
     }
   ]
