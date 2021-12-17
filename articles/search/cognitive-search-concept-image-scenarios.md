@@ -358,7 +358,7 @@ Output from image analysis includes a caption for each image, while tags are lis
     . . .
 ```
 
-## Embedded images scenario
+## Scenario: Embedded images
 
 When you run OCR over source files that included documents with embedded images, the output is a single string containing all file contents, both text and image-origin text, achieved with this workflow:  
 
@@ -424,7 +424,7 @@ The following example skillset creates a "merged_text" field containing the text
 
 Now that you have a merged_text field, you could map it as a searchable field in your indexer definition. All of the content of your files, including the text of the images, will be searchable.
 
-## Visualize bounding box scenario
+## Scenario: Visualize bounding boxes
 
 Another common scenario is visualizing search results layout information. For example, you might want to highlight where a piece of text was found in an image as part of your search results.
 
@@ -473,7 +473,7 @@ public static Point GetOriginalCoordinates(Point normalized,
 }
 ```
 
-## Custom skill scenario
+## Scenario: Custom image skills
 
 Images can also be passed into and returned from custom skills. The skillset base64-encodes the image being passed into the custom skill. To use the image within the custom skill, set `"/document/normalized_images/*/data"` as the input to the custom skill. Within your custom skill code, base64-decode the string before converting it to an image. To return an image to the skillset, base64-encode the image before returning it to the skillset.
 
