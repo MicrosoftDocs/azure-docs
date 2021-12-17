@@ -5,7 +5,7 @@ author: normesta
 ms.subservice: data-lake-storage-gen2
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 12/17/2021
 ms.author: normesta
 ms.reviewer: sachins
 ---
@@ -13,6 +13,11 @@ ms.reviewer: sachins
 # Best practices for using Azure Data Lake Storage Gen2
 
 This article provides best practice guidelines that help you optimize performance, reduce costs, and secure your Data Lake Storage Gen2 enabled Azure Storage account. 
+
+For general suggestions around structuring a data lake, see the these articles:
+
+- [Overview of Azure Data Lake Storage for the data management and analytics scenario](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-overview?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
+- [Provision three Azure Data Lake Storage Gen2 accounts for each data landing zone](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-services?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)
 
 ## Find documentation
 
@@ -70,6 +75,10 @@ The following table summarizes the key settings for several popular ingestion to
 > The overall performance of your ingest operations depend on other factors that are specific to the tool that you're using to ingest data. For the best up-to-date guidance, see the documentation for each tool that you intend to use.
 
 Your account can scale to provide the necessary throughput for all analytics scenarios. By default, a Data Lake Storage Gen2 enabled account provides enough throughput in its default configuration to meet the needs of a broad category of use cases. If you run into the default limit, the account can be configured to provide more throughput by contacting [Azure Support](https://azure.microsoft.com/support/faq/).
+
+## Structure a data lake
+
+
 
 ## Structure data sets
 
@@ -196,6 +205,7 @@ Azure Storage logs in Azure Monitor can be enabled through the Azure portal, Pow
 
 ## See also
 
+- [Key considerations for Azure Data Lake Storage](/azure/cloud-adoption-framework/scenarios/data-management/best-practices/data-lake-key-considerations)
 - [Access control model in Azure Data Lake Storage Gen2](data-lake-storage-access-control-model.md)
 - [The hitchhiker's guide to the Data Lake](https://github.com/rukmani-msft/adlsguidancedoc/blob/master/Hitchhikers_Guide_to_the_Datalake.md)
 - [Overview of Azure Data Lake Storage Gen2](data-lake-storage-introduction.md)
