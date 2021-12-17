@@ -3,13 +3,13 @@ title: "Custom Speech overview - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Custom Speech is a set of online tools that allow you to evaluate and improve the Microsoft speech-to-text accuracy for your applications, tools, and products. 
 services: cognitive-services
-author: PatrickFarley
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/08/2021
-ms.author: pafarley
+ms.author: eur
 ms.custom: contperf-fy21q2, references_regions
 ---
 
@@ -67,9 +67,6 @@ After you create an Azure account and a Speech service subscription, you'll need
 Content like data, models, tests, and endpoints are organized into *projects* in the [Speech Studio](https://speech.microsoft.com/customspeech). Each project is specific to a domain and country/language. For example, you might create a project for call centers that use English in the United States.
 
 To create your first project, select **Speech-to-text/Custom speech**, and then select **New Project**. Follow the instructions provided by the wizard to create your project. After you create a project, you should see four tabs: **Data**, **Testing**, **Training**, and **Deployment**. Use the links provided in [Next steps](#next-steps) to learn how to use each tab.
-
-> [!IMPORTANT]
-> The [Speech Studio](https://aka.ms/speechstudio) (formerly known as "Custom Speech portal") was recently updated! If you created previous data, models, tests, and published endpoints in the CRIS.ai portal or with APIs, you need to create a new project in the new portal to connect to these old entities.
 
 ## Model and Endpoint lifecycle
 

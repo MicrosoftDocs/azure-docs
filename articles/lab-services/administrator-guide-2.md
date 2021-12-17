@@ -7,7 +7,12 @@ ms.date: 11/22/2021
 
 # Azure Lab Services - Administrator guide
 
-Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school. After they've set up a lab plan, administrators or educators create the labs that are associated with the plan. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
+Information technology (IT) administrators who manage a university's cloud resources are ordinarily responsible for setting up the lab plan for their school.
+
+> [!NOTE]
+> This article focuses on the January 2022 Update, where lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
+
+After they've set up a lab plan, administrators or educators create the labs that are associated with the plan. This article provides a high-level overview of the Azure resources that are involved and the guidance for creating them.
 
 ![Diagram of a high-level view of Azure resources in a lab plan.](./media/administrator-guide/high-level-view.png)
 
@@ -32,7 +37,7 @@ Labs and their virtual machines (VMs) are managed and hosted for you within a su
 
 A subscription contains one or more resource groups. Resource groups are used to create logical groupings of Azure resources that are used together within the same solution.  
 
-When you create a lab plan, you must configure the resource group that contains the lab plan. 
+When you create a lab plan, you must configure the resource group that contains the lab plan.
 
 A resource group is also required when you create a [shared image gallery](#shared-image-gallery). You can place your lab plan and shared image gallery in the same resource group or in two separate resource groups. You might want to take this second approach if you plan to share the image gallery across various solutions.
 
@@ -46,7 +51,7 @@ The following list highlights scenarios where more than one lab plan might be be
 
 - **Manage different policy requirements across labs**
 
-  When you set up a lab plan, you set policies that apply to *all* labs under the lab plan, such as:
+  When you set up a lab plan, you set policies that apply to all newly created labs, such as:
 
   - The Azure virtual network with shared resources that the lab can access. For example, you might have a set of labs that need access to a shared data set within a virtual network.
   - The virtual machine images that the labs can use to create VMs. For example, you might have a set of labs that need access to the [Data Science VM for Linux](https://azuremarketplace.microsoft.com/marketplace/apps/microsoft-dsvm.ubuntu-1804) Azure Marketplace image.
@@ -82,7 +87,7 @@ When you're determining how to structure your labs, consider the following point
 
     Similar to quota setting, if you need to set different schedules for users, you need to create a separate lab for each schedule.
 
-By default, each lab has its own virtual network.  If you have virtual network peering enabled, each lab will have its own subnet peered with the specified virtual network.
+By default, each lab has its own virtual network.  If you have [virtual network injection](how-to-connect-vnet-injection.md) enabled, each lab will used the specified network.
 
 ## Shared image gallery
 
@@ -114,7 +119,7 @@ To logically group shared images, you can do either of the following:
 As you get started with Azure Lab Services, we recommend that you establish naming conventions for resource groups, lab plans, labs, and the shared image gallery. Although the naming conventions that you establish will be unique to the needs of your organization, the following table provides general guidelines:
 
 | Resource type | Role | Suggested pattern | Examples |
-| ------------- | ---- | ----------------- | -------- | 
+| ------------- | ---- | ----------------- | -------- |
 | Resource group | Contains one or more lab plans and one or more shared image galleries | \<organization short name\>-\<environment\>-rg<ul><li>**Organization short name** identifies the name of the organization that the resource group supports.</li><li>**Environment** identifies the environment for the resource, such as *pilot* or *production*.</li><li>**Rg** stands for the resource type *resource group*.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
 | Lab plan | Contains one or more labs | \<organization short name\>-\<environment\>-la<ul><li>**Organization short name** identifies the name of the organization that the resource group supports.</li><li>**Environment** identifies the environment for the resource, such as *pilot* or *production*.</li><li>**La** stands for the resource type *lab plan*.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
 | Lab | Contains one or more VMs |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Class name** identifies the name of the class that the lab supports.</li><li>**Timeframe** identifies the timeframe in which the class is offered.</li>**Educator identifier** identifies the educator who owns the lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
@@ -122,9 +127,9 @@ As you get started with Azure Lab Services, we recommend that you establish nami
 
 For more information about naming other Azure resources, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
 
-## Regions\locations
+## Regions
 
-When you set up your Azure Lab Services resources, you're required to provide a region or location of the datacenter that will host the resources. The next sections describe how a region or location might affect each resource that's involved with setting up a lab.
+When you set up your Azure Lab Services resources, you're required to provide a region or location of the datacenter that will host the resources. Lab plan enable one or more region in which labs may be created. The next sections describe how a region or location might affect each resource that's involved with setting up a lab.
 
 ### Resource group
 
@@ -134,22 +139,20 @@ The region specifies the datacenter where information about a resource group is 
 
 A lab plan's location indicates the region that a resource exists in.  
 
-when a lab plan is connected to your own virtual network, the network must be in the same region as the lab plan. In addition, labs can only be created in the same Azure region as that virtual network.
+When a lab plan is connected to your own virtual network, the network must be in the same region as the lab plan. In addition, labs will be created in the same Azure region as that virtual network.
 
 ### Lab
 
-The location that a lab exists in varies, and doesn't need to be in the same location as the lab plan. However, when a lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.
+The location that a lab exists in varies, and doesn't need to be in the same location as the lab plan. Administrators control which regions labs can be created in through the lab plan settings.  However, when a lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.
 
 A general rule is to set a resource's region to one that's closest to its users. For labs, this means creating the lab that's closest to your students. For online courses whose students are located all over the world, use your best judgment to create a lab that's centrally located. Or you can split a class into multiple labs according to your students' regions.
 
 > [!NOTE]
-> To help ensure that a region has sufficient VM capacity, it's important to first request capacity through the lab plan when you're creating the lab.
+> To help ensure that a region has sufficient VM capacity, it's important to first [request capacity](capacity-limits.md#request-a-limit-increase).
 
 ## VM sizing
 
 When administrators or Lab Creators create a lab, they can choose from a variety of VM sizes, depending on the needs of their classroom. Remember that the size availability depends on the region that your lab plan is located in.
-
-In the November 2021 Update, we show compute size name, number of cores, amount of memory, OS disk size, and disk type. Sizes are no longer listed in families, so you know exactly what you are getting. All lab virtual machines now use solid state disks (SSD) and you have a choice between Standard SSD and Premium SSD.
 
 For information on VM sizes and their cost, see the [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
@@ -160,7 +163,7 @@ For information on VM sizes and their cost, see the [Azure Lab Services Pricing]
 
 By using [Azure role-based access control (RBAC)](../role-based-access-control/overview.md) for access to lab plans and labs, you can assign the following roles:
 
-- Lab plan **Owner**
+- **Owner**
 
     An administrator who creates a lab plan is automatically assigned the lab plan Owner role. The Owner role can:
 
@@ -169,7 +172,7 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
     - Grant educators access to labs as a Creator, Owner, or Contributor.
     - Create and manage all labs in the lab plan.
 
-- Lab plan **Contributor**
+- **Contributor**
 
     An administrator who's assigned the Contributor role can:
 
@@ -182,17 +185,17 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
 
     When set in the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They will have full control over any labs they create as they are assigned as Owner to those created labs. For more information, see [Add a user to the Lab Creator role](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
 
-- Lab **Owner** or **Contributor**
+- **Lab Contributor**
 
     When applied to an existing lab, this role enables the user to fully manage the lab. When applied to a resource group enables the user account to fully manage existing labs and create new labs in that resource group.
 
     A key difference between the lab Owner and Contributor roles is that only an Owner can grant other users access to manage a lab. A Contributor *can't* grant other users access to manage a lab.
 
-- Lab **Operator**
+- **Lab Operator**
 
     When applied to a resource group or a lab, this role enables the user to have limited ability to manage existing labs. This role won’t give the user the ability to create new labs. In an existing lab, the user can manage users, adjust individual users’ quota, manage schedules, and start/stop VMs. The user account will be able to publish a lab. The user will not have the ability to change lab capacity or change quota at the lab level. The user won’t be able to change the template title or description.
 
-- Lab **Assistant**
+- **Lab Assistant**
 
     When applied to a resource group or a lab, enables the user to view an existing lab and can only perform actions on the lab VMs (reset, start, stop, connect) and send invites to the lab. The user will not have the ability to change create a lab, publish a lab, change lab capacity, or manage quota and schedules. This user can’t adjust individual quota.
 
@@ -203,10 +206,6 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
 - **Lab Services Reader**
 
     When applied to a resource group, enables the user to view, but not change, all lab plans and lab resources. External resources like image galleries and virtual networks that may be connected to a lab plan are not included.
-
-- **Shared image gallery**
-
-    When you attach a shared image gallery to a lab plan, lab plan Owners and Contributors and Lab Creators, lab Owners, and lab Contributors are automatically granted access to view and save images in the gallery.
 
 When you're assigning roles, it helps to follow these tips:
 
@@ -219,16 +218,18 @@ When you're assigning roles, it helps to follow these tips:
 Your school may need to do content filtering to prevent students from accessing inappropriate websites.  For example, to comply with the [Children's Internet Protection Act (CIPA)](https://www.fcc.gov/consumers/guides/childrens-internet-protection-act).  Lab Services doesn't offer built-in support for content filtering.
 
 There are two approaches that schools typically consider for content filtering:
-- Configure a firewall to filter content at the network level.
+
+- Configure a firewall to filter content at the network level. 
 - Install 3rd party software directly on each computer that performs content filtering.
 
-The first approach isn't currently supported by Lab Services.  Lab Services hosts each lab's virtual network within a Microsoft-managed Azure subscription.  As a result, you don't have access to the underlying virtual network to do content filtering at the network level.  For more information on Lab Services' architecture, read the article [Architecture Fundamentals](./classroom-labs-fundamentals.md).
+Lab Services hosts each lab's virtual network within a Microsoft-managed Azure subscription.  You'll need to use [advanced networking](how-to-connect-vnet-injection.md) in the lab plan.  Make sure to check known limitation os virtual network injection before proceeding.
 
-Instead, we recommend the second approach which is to install 3rd party software on each lab's template VM.  There are a few key points to highlight as part of this solution:
+We recommend the second approach which is to install 3rd party software on each lab's template VM.  There are a few key points to highlight as part of this solution:
+
 - If you plan to use the [auto-shutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you will need to unblock several Azure host names with the 3rd party software.  The auto-shutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the auto-shutdown settings will fail to enable for the lab.
 - You may also want to have each student use a non-admin account on their VM so that they can't uninstall the content filtering software.  By default, Lab Services creates an admin account that each student uses to sign into their VM.  It is possible to add a non-admin account using a specialized image, but there are some known limitations.
 
-If your school needs to do content filtering, contact us via the [Azure Lab Services' forums](https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices) for more information.
+If your school needs to do content filtering, contact us via the [Azure Lab Services' Q&A](https://aka.ms/azlabs/questions) for more information.
 
 ## Endpoint management
 
@@ -248,7 +249,7 @@ To learn about pricing, see [Azure Lab Services pricing](https://azure.microsoft
 
 ### Shared Image Gallery
 
-You also need to consider the pricing for the Shared Image Gallery service if you plan to use shared image galleries for storing and managing image versions. 
+You also need to consider the pricing for the Shared Image Gallery service if you plan to use shared image galleries for storing and managing image versions.
 
 Creating a shared image gallery and attaching it to your lab plan is free. No cost is incurred until you save an image version to the gallery. The pricing for using a shared image gallery is ordinarily fairly negligible, but it's important to understand how it's calculated, because it isn't included in the pricing for Azure Lab Services.  
 
@@ -258,15 +259,15 @@ To store image versions, a shared image gallery uses standard hard disk drive (H
 
 #### Replication and network egress charges
 
-When you save an image version by using a lab template VM, Azure Lab Services first stores it in a source region and then automatically replicates the source image version to one or more target regions. 
-
-It's important to note that Azure Lab Services automatically replicates the source image version to all [target regions within the geography](https://azure.microsoft.com/global-infrastructure/regions/) where the lab is located. For example, if your lab is in the US geography, an image version is replicated to each of the eight regions that exist within the US.
+When you save an image version by using a lab template VM, Azure Lab Services first stores it in a source region.  However, you will most likely need to replicate the source image version to one or more target regions.
 
 A network egress charge occurs when an image version is replicated from the source region to additional target regions. The amount charged is based on the size of the image version when the image's data is initially transferred outbound from the source region.  For pricing details, see [Bandwidth pricing details](https://azure.microsoft.com/pricing/details/bandwidth/).
 
-Egress charges might be waived for [Education Solutions](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) customers. To learn more, contact your account manager. 
+Egress charges might be waived for [Education Solutions](https://www.microsoft.com/licensing/licensing-programs/licensing-for-industries?rtc=1&activetab=licensing-for-industries-pivot:primaryr3) customers. To learn more, contact your account manager.
 
 For more information, see "What data transfer programs exist for academic customers and how do I qualify?" in the FAQ section of the [Programs for educational institutions](https://azure.microsoft.com/pricing/details/bandwidth/) page.
+
+For information about costs to store images and their replications, see [billing in an Azure Compute Gallery](/azure/virtual-machines/shared-image-galleries).
 
 #### Pricing example
 
@@ -274,23 +275,23 @@ Let's look at an example of the cost of saving a template VM image to a shared i
 
 - You have one custom VM image.
 - You're saving two versions of the image.
-- Your lab is in the US, which has a total of eight regions.
-- Each image version is 32 GB in size; as a result, the HDD-managed disk price is $1.54 per month.
+- Your replicated the image to eight regions.
+- Each image version is 32 GB in
 
 The total cost per month is estimated as:
 
-* *Number of images &times; number of versions &times; number of replicas &times; managed disk price = total cost per month*
+Number of images &times; number of versions &times; number of replicas &times; managed disk price = total cost per month
 
 In this example, the cost is:
 
-* 1 custom image (32 GB) &times; 2 versions &times; 8 US regions &times; $1.54 = $24.64 per month
+1 custom image (32 GB) &times; 2 versions &times; 8 US regions &times; $1.54 = $24.64 per month
 
 > [!NOTE]
 > The preceding calculation is for example purposes only. It covers storage costs associated with using Shared Image Gallery and does *not* include egress costs. For actual pricing for storage, see [Managed Disks pricing](https://azure.microsoft.com/pricing/details/managed-disks/).
 
 #### Cost management
 
-It's important for lab plan administrators to manage costs by routinely deleting unneeded image versions from the gallery. 
+It's important for lab plan administrators to manage costs by routinely deleting unneeded image versions from the gallery.
 
 Don't delete replication to specific regions as a way to reduce the costs, though this option exists in the shared image gallery. Replication changes might have adverse effects on the ability of Azure Lab Services to publish VMs from images saved within a shared image gallery.
 

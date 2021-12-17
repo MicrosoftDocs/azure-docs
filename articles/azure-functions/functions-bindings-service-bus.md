@@ -39,26 +39,27 @@ Working with the trigger and bindings requires that you reference the appropriat
 
 #### Service Bus extension 5.x and higher
 
-A new version of the Service Bus bindings extension is available in preview. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
+A new version of the Service Bus bindings extension is now available. It introduces the ability to [connect using an identity instead of a secret](./functions-reference.md#configure-an-identity-based-connection). For a tutorial on configuring your function apps with managed identities, see the [creating a function app with identity-based connections tutorial](./functions-identity-based-connections-tutorial.md). For .NET applications, the new extension version also changes the types that you can bind to, replacing the types from `Microsoft.ServiceBus.Messaging` and `Microsoft.Azure.ServiceBus` with newer types from [Azure.Messaging.ServiceBus](/dotnet/api/azure.messaging.servicebus).
 
-This extension version is available as a [preview NuGet package] or can be added from the preview extension bundle v3 by adding the following in your `host.json` file:
+This extension version is available by installing the [NuGet package], version 5.x, or it can be added from the extension bundle v3 by adding the following in your `host.json` file:
 
 ```json
 {
   "version": "2.0",
   "extensionBundle": {
-    "id": "Microsoft.Azure.Functions.ExtensionBundle.Preview",
-    "version": "[3.*, 4.0.0)"
+    "id": "Microsoft.Azure.Functions.ExtensionBundle",
+    "version": "[3.3.0, 4.0.0)"
   }
 }
 ```
 
+[!INCLUDE [functions-bindings-bundle-v3-tables-note](../../includes/functions-bindings-bundle-v3-tables-note.md)]
+
 To learn more, see [Update your extensions].
 
-[preview NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus/5.0.0-beta.6
 [core tools]: ./functions-run-local.md
 [extension bundle]: ./functions-bindings-register.md#extension-bundles
-[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.Storage
+[NuGet package]: https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.ServiceBus
 [Update your extensions]: ./functions-bindings-register.md
 [Azure Tools extension]: https://marketplace.visualstudio.com/items?itemName=ms-vscode.vscode-node-azure-pack
 
@@ -138,7 +139,8 @@ The example host.json file below contains only the settings for version 5.0.0 an
             "maxConcurrentCalls": 16,
             "maxConcurrentSessions": 8,
             "maxMessages": 1000,
-            "sessionIdleTimeout": "00:01:00"
+            "sessionIdleTimeout": "00:01:00",
+            "enableCrossEntityTransactions": false
         }
     }
 }
@@ -155,6 +157,7 @@ When using service bus extension version 5.x and higher, the following global co
 |maxConcurrentSessions|8|The maximum number of sessions that can be handled concurrently per scaled instance.|
 |maxMessages|1000|The maximum number of messages that will be passed to each function call. This only applies for functions that receive a batch of messages.|
 |sessionIdleTimeout|n/a|The maximum amount of time to wait for a message to be received for the currently active session. After this time has elapsed, the processor will close the session and attempt to process another session.|
+|enableCrossEntityTransactions|false|Whether or not to enable transactions that span multiple entities on a Service Bus namespace.|
 
 ### Retry settings
 

@@ -16,19 +16,9 @@ Here's how schedules affect lab virtual machines:
 - All virtual machines (whether claimed by a user or not) are stopped based on the lab schedule.
 
 > [!IMPORTANT]
-> The scheduled running time of VMs does not count against the quota allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs. 
+> The scheduled running time of VMs does not count against the [quota](classroom-labs-concepts.md#quota) allotted to a user. The quota is for the time outside of schedule hours that a student spends on VMs.
 
-Users can create, edit, and delete lab schedules within Canvas just as in the [labs website](https://labs.azure.com). Refer to the article on [creating and managing schedules](how-to-create-schedules-within-canvas.md).
-
-## Automatic shutdown and disconnect settings
-
-You can enable several autoshutdown cost control features to proactively prevent additional costs when the virtual machines are not being actively used. The combination of the following three automatic shutdown and disconnect features catches most of the cases where users accidentally leave their virtual machines running:
- 
-- Automatically disconnect users from virtual machines that the OS deems idle.
-- Automatically shut down virtual machines when users disconnect.
-- Automatically shut down virtual machines that are started but users don't connect.
-
-For more details, refer to the article on [configuring auto-shutdown settings for a lab](how-to-enable-shutdown-disconnect.md).
+Users can create, edit, and delete lab schedules within Canvas just as in the [labs website](https://labs.azure.com). Refer to the article on [creating and managing schedules](how-to-create-schedules-within-canvas.md) for further details.
 
 ## Next steps
 

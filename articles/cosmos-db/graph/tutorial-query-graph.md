@@ -6,7 +6,7 @@ ms.author: mansha
 ms.service: cosmos-db
 ms.subservice: cosmosdb-graph
 ms.topic: tutorial
-ms.date: 12/03/2018
+ms.date: 11/08/2021
 ms.reviewer: sngun
 ms.custom: devx-track-csharp
 ---
@@ -46,7 +46,7 @@ g.V().hasLabel('person').has('age', gt(40))
 You can project certain properties in the query results using the `values` step:
 
 ```
-g.V().hasLabel('person').values('firstName')
+g.V().hasLabel('person').values('name')
 ```
 
 ## Find related edges and vertices

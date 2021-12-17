@@ -1,14 +1,14 @@
 ---
 title: Set up image labeling project
 titleSuffix: Azure Machine Learning
-description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task. 
+description: Create a project to label images with the data labeling tool. Enable ML assisted labeling, or human in the loop labeling, to aid with the task.
 author: sdgilley
 ms.author: sgilley
 ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
-ms.date: 09/24/2021
-ms.custom: data4ml
+ms.date: 10/21/2021
+ms.custom: data4ml, ignite-fall-2021
 ---
 
 # Create an image labeling project and export labels
@@ -122,9 +122,12 @@ For bounding boxes, important questions include:
 
 The **ML-assisted labeling** page lets you trigger automatic machine learning models to accelerate labeling tasks. Medical images (".dcm") are not included in assisted labeling.
 
-At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class. This training does not include active learning.
+At the beginning of your labeling project, the items are shuffled into a random order to reduce potential bias. However, any biases that are present in the dataset will be reflected in the trained model. For example, if 80% of your items are of a single class, then approximately 80% of the data used to train the model will be of that class.
 
-Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling, which consists of two phases:
+Select *Enable ML assisted labeling* and specify a GPU to enable assisted labeling. If you don't have one in your workspace, a GPU cluster will be created for you and added to your workspace.   The cluster is created with a minimum of 0 nodes, which means it doesn't cost anything when it's not in use.
+
+
+ML-assisted labeling consists of two phases:
 
 * Clustering
 * Prelabeling

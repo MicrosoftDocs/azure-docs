@@ -76,6 +76,9 @@ To register a web application in your Azure AD B2C tenant, you can use our new u
 
 * * *
 
+> [!TIP]
+> If you don't see the app(s) you created under **App registrations**, refresh the portal.
+
 ## Create a client secret
 
 For a web application, you need to create an application secret. The client secret is also known as an *application password*. The secret will be used by your application to exchange an authorization code for an access token.

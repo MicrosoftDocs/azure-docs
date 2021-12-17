@@ -1,5 +1,5 @@
 ---
-title: Search over encrypted Azure Blob Storage content
+title: Index encrypted Azure Blob Storage content
 titleSuffix: Azure Cognitive Search
 description: Learn how to index and extract text from encrypted documents in Azure Blob Storage with Azure Cognitive Search.
 
@@ -9,12 +9,12 @@ ms.author: chalton
 ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/02/2020
+ms.date: 11/19/2021
 ---
 
 # How to index encrypted blobs using blob indexers and skillsets in Azure Cognitive Search
 
-This article shows you how to use [Azure Cognitive Search](search-what-is-azure-search.md) to index documents that have been previously encrypted within [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) using [Azure Key Vault](../key-vault/general/overview.md). Normally, an indexer cannot extract content from encrypted files because it doesn't have access to the encryption key. However, by leveraging the [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) custom skill followed by the [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), you can provide controlled access to the key to decrypt the files and then have content extracted from them. This unlocks the ability to index these documents without compromising the encryption status of your stored documents.
+This article shows you how to use [Azure Cognitive Search](search-what-is-azure-search.md) to index documents that have been previously encrypted within [Azure Blob Storage](../storage/blobs/storage-blobs-introduction.md) using [Azure Key Vault](../key-vault/general/overview.md). Normally, an indexer cannot extract content from encrypted files because it doesn't have access to the encryption key. However, by leveraging the [DecryptBlobFile](https://github.com/Azure-Samples/azure-search-power-skills/blob/main/Utils/DecryptBlobFile) custom skill, followed by the [DocumentExtractionSkill](cognitive-search-skill-document-extraction.md), you can provide controlled access to the key to decrypt the files and then have content extracted from them. This unlocks the ability to index these documents without compromising the encryption status of your stored documents.
 
 Starting with previously encrypted whole documents (unstructured text) such as PDF, HTML, DOCX, and PPTX in Azure Blob Storage, this guide uses Postman and the Search REST APIs to perform the following tasks:
 
@@ -84,7 +84,7 @@ Operationally, the DecryptBlobFile skill takes the URL and SAS token for each bl
 
 ### Cognitive Services
 
-AI enrichment and skillset execution are backed by Cognitive Services, including Text Analytics and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
+AI enrichment and skillset execution are backed by Cognitive Services, including Language service and Computer Vision for natural language and image processing. If your objective was to complete an actual prototype or project, you would at this point provision Cognitive Services (in the same region as Azure Cognitive Search) so that you can attach it to indexing operations.
 
 For this exercise, however, you can skip resource provisioning because Azure Cognitive Search can connect to Cognitive Services behind the scenes and give you 20 free transactions per indexer run. After it processes 20 documents, the indexer will fail unless a Cognitive Services key is attached to the skillset. For larger projects, plan on provisioning Cognitive Services at the pay-as-you-go S0 tier. For more information, see [Attach Cognitive Services](cognitive-search-attach-cognitive-services.md). Note that a Cognitive Services key is required to run a skillset with more than 20 documents even if none of your selected cognitive skills connect to Cognitive Services (such as with the provided skillset if no skills are added to it).
 

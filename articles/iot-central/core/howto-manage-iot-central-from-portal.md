@@ -27,7 +27,7 @@ To create an application, navigate to the [IoT Central Application](https://ms.p
 
 * **Template** is the type of IoT Central application you want to create. You can create a new application either from the list of industry-relevant templates to help you get started quickly, or start from scratch using the **Custom application** template.
 
-* **Location** is the [geography](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
+* **Location** is the [Azure region](https://azure.microsoft.com/global-infrastructure/geographies/) where you'd like to create your application. Typically, you should choose the location that's physically closest to your devices to get optimal performance. Azure IoT Central is currently available in the following locations:
     
     * Australia
     * East Central US
@@ -59,6 +59,9 @@ When you select an application in the search results, the Azure portal shows you
 
 ![Screenshot that shows the "Overview" page with the "IoT Central Application URL" highlighted.](media/howto-manage-iot-central-from-portal/highlight-application.png)
 
+> [!NOTE]
+> Use the **IoT Central Application URL** to access the application for the first time.
+
 To move the application to a different resource group, select **change** beside the resource group. On the **Move resources** page, choose the resource group you'd like to move this application to:
 
 ![Screenshot that shows the "Overview" page with the "Resource group (change)" highlighted.](media/howto-manage-iot-central-from-portal/highlight-resource-group.png)
@@ -69,7 +72,13 @@ To move the application to a different subscription, select  **change** beside t
 
 ## Configure a managed identity
 
-When you configure a data export in your IoT Central application, you can choose to configure the connection to the destination with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Using a managed identity is more secure because you don't need to store the credentials for the destination in your IoT Central application. IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To create the managed identity for your application, you use either the Azure portal or the REST API.
+When you configure a data export in your IoT Central application, you can choose to configure the connection to the destination with a *connection string* or a [managed identity](../../active-directory/managed-identities-azure-resources/overview.md). Managed identities are more secure because:
+
+* You don't store the credentials for your resource in a connection string in your IoT Central application.
+* The credentials are automatically tied to the lifetime of your IoT Central application.
+* Managed identities automatically rotate their security keys regularly.
+
+IoT Central currently uses [system-assigned managed identities](../../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types). To create the managed identity for your application, you use either the Azure portal or the REST API.
 
 > [!NOTE]
 > You can only add a managed identity to an IoT Central application that was created in a region. All new applications are created in a region. To learn more, see [Updates](https://azure.microsoft.com/updates/azure-iot-central-new-and-updated-features-august-2021/).

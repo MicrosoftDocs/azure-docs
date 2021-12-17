@@ -358,9 +358,13 @@ For source SQL tables with dynamic data masking, data will appear masked on the 
 ## SQL snapshot performance
 SQL snapshot performance is impacted by a number of factors. It is always recommended to conduct your own performance testing. Below are some example factors impacting performance.
 
+* Source or destination data store input/output operations per second (IOPS) and bandwidth.
 * Hardware configuration (e.g. vCores, memory, DWU) of the source and target SQL data store. 
-* Concurrent access to the source and target data stores. If you are sharing multiple tables and views from the same SQL data store, or receive multiple tables and views into the same SQL data store, performance will be impacted.   
-* Location of source and target data stores. 
+* Concurrent access to the source and target data stores. If you are sharing multiple tables and views from the same SQL data store, or receive multiple tables and views into the same SQL data store, performance will be impacted.
+* Network bandwidth between the source and destination data stores, and location of source and target data stores.
+* Size of the tables and views being shared. SQL snapshot sharing does a full copy of the entire table. If the size of the table grows over time, snapshot will take longer. 
+
+For large tables where incremental updates are desired, you can export updates to storage account and leverage storage account’s incremental sharing capability for faster performance.
 
 ## Troubleshoot SQL snapshot failure
 The most common cause of snapshot failure is that Data Share does not have permission to the source or target data store. In order to grant Data Share permission to the source or target Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW), you must run the provided SQL script when connecting to the SQL database using Azure Active Directory authentication. To troubleshoot additional SQL snapshot failure, refer to [Troubleshoot snapshot failure](data-share-troubleshoot.md#snapshots).

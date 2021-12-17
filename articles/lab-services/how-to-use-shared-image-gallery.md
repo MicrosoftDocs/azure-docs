@@ -19,10 +19,10 @@ This article shows how educators/lab admins can create and save a custom image f
 
 ## Scenarios
 
-Here are the couple of scenarios supported by this feature: 
+Here are the couple of scenarios supported by this feature:
 
 - A lab plan admin attaches a shared image gallery to the lab plan, and uploads an image to the shared image gallery outside the context of a lab. Then, lab creators can use that image from the shared image gallery to create labs.
-- A lab plan admin attaches a shared image gallery to the lab plan. A lab creator (instructor) saves the customized image of his/her lab to the shared image gallery. Then, other lab creators can select this image from the shared image gallery to create a template for their labs. 
+- A lab plan admin attaches a shared image gallery to the lab plan. A lab creator (instructor) saves the customized image of his/her lab to the shared image gallery. Then, other lab creators can select this image from the shared image gallery to create a template for their labs.
 
     When an image is saved to a shared image gallery, Azure Lab Services replicates the saved image to other regions available in the same [geography](https://azure.microsoft.com/global-infrastructure/geographies/). It ensures that the image is available for labs created in other regions in the same geography. Saving images to a shared image gallery incurs an additional cost, which includes cost for all replicated images. This cost is separate from the Azure Lab Services usage cost. For more information about Shared Image Gallery pricing, see [Shared Image Gallery – Billing](../virtual-machines/shared-image-galleries.md#billing).
 
@@ -33,7 +33,7 @@ Here are the couple of scenarios supported by this feature:
 
 ## Save an image to the shared image gallery
 
-After a shared image gallery is attached, a lab plan admin or an educator can save an image to the shared image gallery so that it can be reused by other educators. 
+After a shared image gallery is attached, a lab plan admin or an educator can save an image to the shared image gallery so that it can be reused by other educators.
 
 1. On the **Template** page for the lab, select **Export to Shared Image Gallery** on the toolbar.
 
@@ -51,10 +51,8 @@ After a shared image gallery is attached, a lab plan admin or an educator can sa
 
     After you save the image to the shared image gallery, you can use that image from the gallery when creating another lab. You can also upload an image to the shared image gallery outside the context of a lab. For more information, see:
 
-
     - [Shared image gallery overview](../virtual-machines/shared-image-galleries.md)
     - [Recommended approaches for creating custom images](approaches-for-custom-image-creation.md)
-
 
     > [!IMPORTANT]
     > When you [save a template image of a lab](how-to-use-shared-image-gallery.md#save-an-image-to-the-shared-image-gallery) in Azure Lab Services to a shared image gallery, the image is uploaded to the gallery as a **specialized image**. [Specialized images](../virtual-machines/shared-image-galleries.md#generalized-and-specialized-images) keep machine-specific information and user profiles. You can still directly upload a generalized image to the gallery outside of Azure Lab Services.
@@ -68,13 +66,13 @@ An educator can pick a custom image available in the shared image gallery for th
 > [!NOTE]
 > You can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
 
-If you modify the disk size, note that the November 2021 Update allows additional options.
+If you modify the disk size, note that the January 2022 Update allows additional options.
 
 ### Re-save a custom image to shared image gallery
 
 After you've created a lab from a custom image in a shared image gallery, you can make changes to the image using the template VM and reexport the image to shared image gallery.  When you reexport, you have the option to either create a new image or to update the original image.
 
- ![Reexport to Shared Image Gallery dialog](./media/how-to-use-shared-image-gallery/reexport-to-shared-image-gallery-dialog.png) 
+ ![Reexport to Shared Image Gallery dialog](./media/how-to-use-shared-image-gallery/reexport-to-shared-image-gallery-dialog.png)
 
 If you choose **Create new image**, a new [image definition](../virtual-machines/shared-image-galleries.md#image-definitions) is created.  This allows you to save an entirely new custom image without changing the original custom image that already exists in shared image gallery.
 

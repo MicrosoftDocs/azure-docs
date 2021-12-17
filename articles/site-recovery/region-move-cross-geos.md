@@ -51,11 +51,10 @@ Make sure your Azure account has permissions for replication of VMs to Azure.
 
 ### Set up an Azure network
 
-Set up a the target [Azure network](../virtual-network/quick-create-portal.md).
+Set up the target [Azure network](../virtual-network/quick-create-portal.md).
 
 - Azure VMs are placed in this network when they're created after failover.
 - The network should be in the same region as the Recovery Services vault
-
 
 ### Set up an Azure storage account
 

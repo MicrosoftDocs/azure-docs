@@ -16,13 +16,6 @@ ms.subservice: blobs
 
 Blob soft delete protects an individual blob, snapshot, or version from accidental deletes or overwrites by maintaining the deleted data in the system for a specified period of time. During the retention period, you can restore a soft-deleted object to its state at the time it was deleted. After the retention period has expired, the object is permanently deleted.
 
-> [!IMPORTANT]
-> Soft delete in accounts that have the hierarchical namespace feature enabled is currently in PREVIEW, and is available globally in all Azure regions.
-> See the [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) for legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
->
->
-> To enroll in the preview, see [this form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR4mEEwKhLjlBjU3ziDwLH-pUOVRVOUpDRUtHVUtDUUtMVTZUR0tUMjZWNy4u).
-
 ## Recommended data protection configuration
 
 Blob soft delete is part of a comprehensive data protection strategy for blob data. For optimal protection for your blob data, Microsoft recommends enabling all of the following data protection features:
@@ -147,14 +140,12 @@ The following table describes the expected behavior for delete and write operati
 
 This table shows how this feature is supported in your account and the impact on support when you enable certain capabilities.
 
-| Storage account type                | Blob Storage (default support)   | Data Lake Storage Gen2 <sup>1</sup>                        | NFS 3.0 <sup>1</sup>
-|-----------------------------|---------------------------------|------------------------------------|--------------------------------------------------|
-| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>  <sup>3</sup>            | ![No](../media/icons/no-icon.png) |
-| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png)  <sup>2</sup>  <sup>3</sup>            | ![No](../media/icons/no-icon.png) |
+| Storage account type | Blob Storage (default support) | Data Lake Storage Gen2 <sup>1</sup> | NFS 3.0 <sup>1</sup> | SFTP <sup>1</sup> |
+|--|--|--|--|--|
+| Standard general-purpose v2 | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) <sup>3</sup>            | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium block blobs          | ![Yes](../media/icons/yes-icon.png) |![Yes](../media/icons/yes-icon.png) <sup>3</sup>            | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
 
-<sup>1</sup>    Data Lake Storage Gen2 and the Network File System (NFS) 3.0 protocol both require a storage account with a hierarchical namespace enabled.
-
-<sup>2</sup>    Feature is supported at the preview level.
+<sup>1</sup> Data Lake Storage Gen2, Network File System (NFS) 3.0 protocol, and SSH File Transfer Protocol (SFTP) support all require a storage account with a hierarchical namespace enabled.
 
 <sup>3</sup>    For more information, see [Known issues with Azure Data Lake Storage Gen2](data-lake-storage-known-issues.md). These issues apply to all accounts that have the hierarchical namespace feature enabled.
 

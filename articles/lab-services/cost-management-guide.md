@@ -20,6 +20,7 @@ This estimate might not show all the possible costs. A few resources aren't incl
 - The template preparation cost. It can vary significantly in the amount of time needed to create the template. The cost to run the template is the same as the overall lab cost per hour.
 - Any [shared image gallery](how-to-use-shared-image-gallery.md) costs, because a gallery can be shared among multiple labs.
 - Hours incurred when the lab creator starts a virtual machine (VM).
+- Networking costs if the lab is using [advanced networking](how-to-connect-vnet-injection.md).
 
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows the dashboard cost estimate.](./media/cost-management-guide/dashboard-cost-estimation.png)
@@ -54,7 +55,7 @@ The following screenshot is an example of a cost analysis.
 
 By default, there are six columns: **Resource**, **Resource type**, **Location**, **Resource group name**, **Tags**, and **Cost**. The **Resource** column contains the information about the lab plan, lab name, and VM. The rows that show the lab plan, lab name, and default (second and third rows) are the cost for the lab. The used VMs have a cost that you can see for the rows that show the lab plan, lab name, default, and VM name.
 
-In this example, adding the first and second rows (both start with **aaalab / dockerlab**) will give you the total cost for the lab "dockerlab" in the "aaalab" lab plan.
+In this example, adding the first and second rows (both start with **aaalab / dockerlab**) will give you the total cost for the lab "dockerlab" in the "aaalab" lab account or lab plan.
 
 To get the overall cost for the image gallery, change the resource type to `Microsoft.Compute/Galleries`. A shared image gallery might not show up in the costs, depending on where the gallery is stored.
 
@@ -63,13 +64,15 @@ To get the overall cost for the image gallery, change the resource type to `Micr
 
 ## Separate the costs
 
-Some universities have used the lab plan and the resource group as ways to separate the classes. Each class has its own lab plan and resource group.
+Since cost entries are tied to the lab account, some schools use the lab account and the resource group as ways to separate the classes. Each class has its own lab plan and resource group.
 
 In the cost analysis pane, add a filter based on the resource group name with the appropriate resource group name for the class. Then, only the costs for that class will be visible. This allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
 
-In the November 2021 Update:
+In the [January 2022 Update](lab-services-whats-new.md):
 
-- Labs get tagged with the name of the lab plan they were created from, so you can filter by the lab plan tag to view total cost across labs created from a lab plan.
+- Cost entries are tied to a lab VM, *not* the lab plan.  
+- Cost entries get tagged with the name of the lab the VM is tied to. You can filter by the lab name tag to view total cost across VM in that lab.
+- Cost entries get tagged with the id of the lab plan used for the creation of the lab tied to the VM. You can filter by the lab plan tag to view total cost across labs created from a lab plan.
 - You can set custom tags on labs or resource groups containing the labs to organize and analyze cost.
 
 ## Manage costs
@@ -83,13 +86,11 @@ Automatic shutdown features enable you to prevent wasted VM usage hours in the l
 > [!div class="mx-imgBorder"]
 > ![Screenshot that shows the three automatic shutdown settings.](./media/cost-management-guide/auto-shutdown-disconnect.png)
 
-You can configure these settings at both the lab plan level and the lab level. If you enable them at the lab plan level, they're applied to all labs within the lab plan. For all new lab plans, these settings are turned on by default.
+You can configure these settings at both the lab plan/lab account level and the lab level.
 
-### Scheduled time vs. quota time
+### Scheduled time and quota time
 
-See the [Schedules](classroom-labs-concepts.md#schedules) section in the Lab Concepts article.
-
-### Scheduled event: stop only
+[Schedules](classroom-labs-concepts.md#schedules) and [Quota](classroom-labs-concepts.md#quota) are two ways of allowing access to the lab VMs.
 
 In the schedule, you can add a stop-only event type that will stop all machines at a specific time. Some lab owners have set a stop-only event for every day at midnight to reduce the cost and quota usage when a student forgets to shut down the VM they're using. The downside to this type of event is that all VMs will be shut down, even if a student is using a VM.
 

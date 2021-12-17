@@ -208,6 +208,18 @@ Some common use cases for global headers include:
 - Custom caching rules
 - Enforcing security policies
 - Encoding settings
+- Configuring cross-origin resource sharing ([CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS))
+
+The following is an example of how to implement a custom CORS configuration.
+
+```json
+{
+  "globalHeaders": {
+    "Access-Control-Allow-Origin": "https://example.com",
+    "Access-Control-Allow-Methods": "POST, GET, OPTIONS"
+  }
+}
+```
 
 ## Response overrides
 
@@ -434,7 +446,7 @@ Based on the above configuration, review the following scenarios.
 
 The following restrictions exist for the _staticwebapp.config.json_ file.
 
-- Max file size is 100 KB
+- Max file size is 20 KB
 - Max of 50 distinct roles
 
 See the [Quotas article](quotas.md) for general restrictions and limitations.

@@ -77,16 +77,13 @@ You can view a [Video](https://azure.microsoft.com/documentation/videos/azure-ex
     | Virtual network | Select *TestVNet*. |
     | Public IP address | Select **Create new**.|
     | Public IP address name | Provide a name for the public IP address. |
-    | Public IP address SKU | Provide a SKU for the public IP address. Choose *Standard* for a dual-stack gateway. |
 
     > [!IMPORTANT]
-    > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static.
+    > If you plan to use IPv6-based private peering over ExpressRoute, please make sure to create your gateway with a Public IP address of type Standard, Static using the [PowerShell instructions](./expressroute-howto-add-gateway-resource-manager.md#add-a-gateway).
     > 
     > 
 
 1. Select **Review + Create**, and then **Create** to begin creating the gateway. The settings are validated and the gateway deploys. Creating virtual network gateway can take up to 45 minutes to complete.
-
-    :::image type="content" source="./media/expressroute-howto-add-gateway-portal-resource-manager/gateway.png" alt-text="Create virtual network gateway page fields":::
 
 ## Clean up resources
 

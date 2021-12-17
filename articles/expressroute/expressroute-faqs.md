@@ -80,7 +80,7 @@ ExpressRoute supports [three routing domains](expressroute-circuit-peerings.md) 
 
 **Supported:**
 
-* Virtual networks, including all virtual machines and cloud services
+* Virtual networks, including all virtual machines and cloud services like [Azure Virtual Desktop RDP Shortpath](../virtual-desktop/shortpath.md)
 
 ### Microsoft peering
 
@@ -99,7 +99,6 @@ If your ExpressRoute circuit is enabled for Azure Microsoft peering, you can acc
 
 * CDN
 * Azure Front Door
-* [Windows Virtual Desktop](https://azure.microsoft.com/services/virtual-desktop/)
 * Multi-factor Authentication Server (legacy)
 * Traffic Manager
 * Logic Apps
@@ -299,7 +298,7 @@ You can update the bandwidth of the ExpressRoute circuit using the Azure Portal,
 
 ### I received a notification about maintenance on my ExpressRoute circuit. What is the technical impact of this maintenance?
 
-You should experience minimal to no impact during maintenance if you operate your circuit in [active-active mode](./designing-for-high-availability-with-expressroute.md#active-active-connections). We perform maintenance on the primary and secondary connections of your circuit separately. Scheduled maintenance will usually be performed outside of business hours in the time zone of the peering location, and you cannot select a maintenance time.
+You should experience minimal to no impact during maintenance if you operate your circuit in [active-active mode](./designing-for-high-availability-with-expressroute.md#active-active-connections). We perform maintenance on the primary and secondary connections of your circuit separately. During maintenance you may see longer AS-path prepend over one of the connections. The reason is to gracefully shift traffic from one connection to another. You must not ignore longer AS path, as it can cause asymmetric routing, resulting in a service outage. It is advisable to configure [BFD](expressroute-bfd.md) for faster BGP failover between Primary and Secondary connection in the event a BGP failure is detected during maintenance. Scheduled maintenance will usually be performed outside of business hours in the time zone of the peering location, and you cannot select a maintenance time.
 
 ### I received a notification about a software upgrade or maintenance on my ExpressRoute gateway. What is the technical impact of this maintenance?
 
@@ -353,6 +352,8 @@ Yes. ExpressRoute premium charges apply on top of ExpressRoute circuit charges a
 ### What is ExpressRoute Local?
 
 ExpressRoute Local is a SKU of ExpressRoute circuit, in addition to the Standard SKU and the Premium SKU. A key feature of Local is that a Local circuit at an ExpressRoute peering location gives you access only to one or two Azure regions in or near the same metro. In contrast, a Standard circuit gives you access to all Azure regions in a geopolitical area and a Premium circuit to all Azure regions globally. Specifically, with a Local SKU you can only advertise routes (over Microsoft and private peering) from the corresponding local region of the ExpressRoute circuit. You won't be able to receive routes for other regions different than the defined Local region.
+
+ExpressRoute Local may not be available for a ExpressRoute Location. For peering location and supported Azure local region, see [locations and connectivity providers](expressroute-locations-providers.md#partners).
 
 ### What are the benefits of ExpressRoute Local?
 

@@ -7,19 +7,31 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
-ms.date: 07/20/2021
+ms.date: 12/07/2021
 ms.custom: references_regions 
 ---
 # What's new in Azure Cognitive Search
 
-Learn what's new in the service. Bookmark this page to keep up to date with the service. Check out the [Preview feature list](search-api-preview.md) to view a comprehensive list of features that are not yet generally available.
+Learn what's new in the service. Bookmark this page to keep up to date with service updates. Check out the [**Preview feature list**](search-api-preview.md) for an itemized list of features that are not yet approved for production workloads.
+
+## December 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Enhanced configuration for semantic search](semantic-how-to-query-request.md#create-a-semantic-configuration) | Semantic configurations are a multi-part specification of the fields used during semantic ranking, captions, and answers. This is a new addition to the 2021-04-30-Preview API, and are now required for semantic queries. | Public preview REST APIs (no portal support at this time).|
+
+## November 2021
+
+|Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
+|------------------------------------|--------------|---------------|
+| [Azure Files indexer (preview)](./search-file-storage-integration.md) | Adds REST API support for creating indexers for [Azure Files](https://azure.microsoft.com/services/storage/files/) | Public preview in the portal and preview REST APIs.|
 
 ## July 2021
 
 |Feature&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  |  Description | Availability  |
 |------------------------------------|--------------|---------------|
 | [Search REST API 2021-04-30-Preview](/rest/api/searchservice/index-preview) | Adds REST API support for indexer connections made using [managed identities](search-howto-managed-identities-data-sources.md) and Azure Active Directory (Azure AD) authentication. | Public preview |
-| [Role-based authorization (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and new built-in roles for data plane access to indexes and indexing, eliminating or reducing the dependency on API keys. | Public preview ([by request](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#step-1-preview-sign-up)). After your subscription is on-boarded, use Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
+| [Role-based access control for data plane (preview)](search-security-rbac.md) | Authenticate using Azure Active Directory and new built-in roles for data plane access to indexes and indexing, eliminating or reducing the dependency on hard-coded API keys on connections. | Public preview ([by request](./search-security-rbac.md?tabs=config-svc-portal%2croles-portal%2ctest-portal#step-1-preview-sign-up)). After your subscription is on-boarded, use Azure portal or the Management REST API version 2021-04-01-Preview to configure a search service for data plane authentication.|
 | [Management REST API 2021-04-01-Preview](/rest/api/searchmanagement/) | Modifies [Create or Update Service](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update) to support new [DataPlaneAuthOptions](/rest/api/searchmanagement/2021-04-01-preview/services/create-or-update#dataplaneauthoptions). | Public preview |
 
 ## May 2021
@@ -30,7 +42,7 @@ Learn what's new in the service. Bookmark this page to keep up to date with the 
 |[Azure Data Lake Storage Gen2](search-howto-index-azure-data-lake-storage.md) | The ADLS Gen2 data source used by indexers is now generally available. | Generally available, using REST api-version=2020-06-30 and Azure portal. |
 |[MySQL support (preview)](search-howto-index-mysql.md) | For indexer-based indexing, announcing preview data source support for Azure MySQL. | Public preview, REST api-version=2020-06-30-Preview, [.NET SDK 11.2.1](/dotnet/api/azure.search.documents.indexes.models.searchindexerdatasourcetype.mysql), and Azure portal. |
 | [More queryLanguages for spell check and semantic results](/rest/api/searchservice/preview-api/search-documents#queryLanguage) | For query requests that invoke spell check or queryType=semantic, you can now set the queryLanguage to a non-English language for [38 languages](/rest/api/searchservice/preview-api/search-documents#queryLanguage). </br></br>[Announcement (techcommunity blog)](https://techcommunity.microsoft.com/t5/azure-ai/introducing-multilingual-support-for-semantic-search-on-azure/ba-p/2385110) | Public preview ([by request](https://aka.ms/SemanticSearchPreviewSignup)). </br></br>Use [Search Documents (REST)](/rest/api/searchservice/preview-api/search-documents) api-version=2020-06-30-Preview, [Azure.Search.Documents 11.3.0-beta.2](https://www.nuget.org/packages/Azure.Search.Documents/11.3.0-beta.2), or [Search explorer](search-explorer.md) in Azure portal. </br></br>[Region and tier](semantic-search-overview.md#availability-and-pricing) restrictions apply. |
-| [Double encryption availability](search-security-manage-encryption-keys.md#double-encryption) | For search indexes and objects that are encrypted through customer-managed keys, double encryption (encryption of both static and temporary disks) is now implemented in all supported regions. | In all regions, subject to [service creation dates](search-security-manage-encryption-keys.md#double-encryption). |
+| [More regions for double encryption](search-security-manage-encryption-keys.md#double-encryption) | For search indexes and objects that are encrypted through customer-managed keys, double encryption (encryption of both static and temporary disks) is now implemented in all supported regions. | In all regions, subject to [service creation dates](search-security-manage-encryption-keys.md#double-encryption). |
 
 ## April 2021
 

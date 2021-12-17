@@ -41,7 +41,7 @@ Azure AD terms of use policies have the following capabilities:
 - Require employees or guests to accept your terms of use policy prior to registering security information in Azure AD Multi-Factor Authentication (MFA).
 - Require employees to accept your terms of use policy prior to registering security information in Azure AD self-service password reset (SSPR).
 - Present a general terms of use policy for all users in your organization.
-- Present specific terms of use policies based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
+- Present specific terms of use policies based on a user attributes (such as doctors versus nurses, or domestic versus international employees) by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
 - Present specific terms of use policies when accessing high business impact applications, like Salesforce.
 - Present terms of use policies in different languages.
 - List who has or hasn't accepted to your terms of use policies.

@@ -9,7 +9,7 @@ manager: CelesteDG
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 09/15/2021
+ms.date: 11/10/2021
 ms.author: kengaderdus
 ms.subservice: B2C
 zone_pivot_groups: b2c-policy-type
@@ -60,10 +60,10 @@ Next, store the SendGrid API key in an Azure AD B2C policy key for your policies
 
 With a SendGrid account created and SendGrid API key stored in an Azure AD B2C policy key, create a SendGrid [dynamic transactional template](https://sendgrid.com/docs/ui/sending-email/how-to-send-an-email-with-dynamic-transactional-templates/).
 
-1. On the SendGrid site, open the [transactional templates](https://sendgrid.com/dynamic_templates) page and select **Create Template**.
-1. Enter a unique template name like `Verification email` and then select **Save**.
-1. To begin editing your new template, select **Add Version**.
-1. Select **Code Editor** and then **Continue**.
+1. On the SendGrid site, open the [transactional templates](https://sendgrid.com/dynamic_templates) page and select **Create a Dynamic Template**.
+1. Enter a unique template name like `Verification email` and then select **Create**.
+1. To begin editing your new template, select the template i.e. `Verification email`, then select **Add Version**.
+1. Select **Blank Template** and then **Code Editor**.
 1. In the HTML editor, paste following HTML template or use your own. The `{{otp}}` and `{{email}}` parameters will be replaced dynamically with the one-time password value and the user email address.
 
     ```HTML
@@ -158,10 +158,14 @@ With a SendGrid account created and SendGrid API key stored in an Azure AD B2C p
     </html>
     ```
 
-1. Expand **Settings** on the left, and for **Email Subject**, enter `{{subject}}`.
-1. Select **Save Template**.
+1. Expand **Settings** on the left, and for **Version Name**, enter a template version. 
+1. For **Subject**, enter `{{subject}}`.
+1. A the top of the page, select **Save**.
 1. Return to the **Transactional Templates** page by selecting the back arrow.
 1. Record the **ID** of template you created for use in a later step. For example, `d-989077fbba9746e89f3f6411f596fb96`. You specify this ID when you [add the claims transformation](#add-the-claims-transformation).
+
+
+[!INCLUDE [active-directory-b2c-important-for-custom-email-provider](../../includes/active-directory-b2c-important-for-custom-email-provider.md)]
 
 ## Add Azure AD B2C claim types
 
@@ -383,7 +387,7 @@ As with the OTP technical profiles, add the following technical profiles to the 
 
 ## Make a reference to the DisplayControl
 
-In the final step, add a reference to the DisplayControl you created. Replace your existing `LocalAccountSignUpWithLogonEmail` and `LocalAccountDiscoveryUsingEmailAddress` self-asserted technical profiles with the following. If you used an earlier version of Azure AD B2C policy. These technical profiles use `DisplayClaims` with a reference to the DisplayControl.
+In the final step, add a reference to the DisplayControl you created. Override your existing `LocalAccountSignUpWithLogonEmail` and `LocalAccountDiscoveryUsingEmailAddress` self-asserted technical profiles that are configured in the base policy with the following XML snippet. If you used an earlier version of Azure AD B2C policy, these technical profiles use `DisplayClaims` with a reference to the `DisplayControl`.
 
 For more information, see [Self-asserted technical profile](restful-technical-profile.md) and [DisplayControl](display-controls.md).
 
@@ -392,13 +396,6 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
   <DisplayName>Local Account</DisplayName>
   <TechnicalProfiles>
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">
-      <Metadata>
-        <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
-        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
-      </Metadata>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
         <DisplayClaim ClaimTypeReferenceId="displayName" Required="true" />
@@ -409,13 +406,6 @@ For more information, see [Self-asserted technical profile](restful-technical-pr
       </DisplayClaims>
     </TechnicalProfile>
     <TechnicalProfile Id="LocalAccountDiscoveryUsingEmailAddress">
-      <Metadata>
-        <!--OTP validation error messages-->
-        <Item Key="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</Item>
-        <Item Key="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</Item>
-        <Item Key="UserMessageIfInvalidCode">You have entered the wrong code.</Item>
-        <Item Key="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</Item>
-      </Metadata>
       <DisplayClaims>
         <DisplayClaim DisplayControlReferenceId="emailVerificationControl" />
       </DisplayClaims>
@@ -468,7 +458,7 @@ To localize the email, you must send localized strings to SendGrid, or your emai
     <!--
     <BuildingBlocks> -->
       <Localization Enabled="true">
-        <SupportedLanguages DefaultLanguage="en" MergeBehavior="Append">
+        <SupportedLanguages DefaultLanguage="en" MergeBehavior="ReplaceAll">
           <SupportedLanguage>en</SupportedLanguage>
           <SupportedLanguage>es</SupportedLanguage>
         </SupportedLanguages>
@@ -550,10 +540,11 @@ The Localization element allows you to support multiple locales or languages in 
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="DisplayName">Verification Code</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="UserHelpText">Verification code received in the email.</LocalizedString>
     <LocalizedString ElementType="ClaimType" ElementId="emailVerificationCode" StringId="AdminHelpText">Verification code received in the email.</LocalizedString>
-    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Eamil</LocalizedString>
+    <LocalizedString ElementType="ClaimType" ElementId="email" StringId="DisplayName">Email</LocalizedString>
     <!-- Email validation error messages-->
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionDoesNotExist">You have exceeded the maximum time allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxRetryAttempted">You have exceeded the number of retries allowed.</LocalizedString>
+    <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfMaxNumberOfCodeGenerated">You have exceeded the number of code generation attempts allowed.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfInvalidCode">You have entered the wrong code.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfSessionConflict">Cannot verify the code, please try again later.</LocalizedString>
     <LocalizedString ElementType="ErrorMessage" StringId="UserMessageIfVerificationFailedRetryAllowed">The verification has failed, please try again.</LocalizedString>
@@ -561,13 +552,10 @@ The Localization element allows you to support multiple locales or languages in 
 </LocalizedResources>
 ```
 
-After you add the localized strings, remove the OTP validation error messages metadata from the LocalAccountSignUpWithLogonEmail and LocalAccountDiscoveryUsingEmailAddress technical profiles.
 
 ## Next steps
 
-You can find an example of a custom email verification policy on GitHub:
-
-- [Custom email verification - DisplayControls](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol)
+- You can find an example of [Custom email verification - DisplayControls custom policy](https://github.com/azure-ad-b2c/samples/tree/master/policies/custom-email-verifcation-displaycontrol/policy/SendGrid) on GitHub.
 - For information about using a custom REST API or any HTTP-based SMTP email provider, see [Define a RESTful technical profile in an Azure AD B2C custom policy](restful-technical-profile.md).
 
 ::: zone-end

@@ -487,7 +487,7 @@ If the SDK is installed at build time as shown in this article, you don't need t
 
 ### Can I enable Application Insights monitoring by using tools like Azure Monitor Application Insights Agent (formerly Status Monitor v2)?
 
-No, [Azure Monitor Application Insights Agent](./status-monitor-v2-overview.md) currently supports only ASP.NET 4.x.
+ Yes. Starting from [Application Insights Agent 2.0.0-beta1](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/2.0.0-beta1), ASP.NET Core applications hosted in IIS are supported.
 
 ### If I run my application in Linux, are all features supported?
 

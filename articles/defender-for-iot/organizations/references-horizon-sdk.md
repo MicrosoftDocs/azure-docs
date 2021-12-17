@@ -1,7 +1,7 @@
 ---
 title: Horizon SDK 
-description: The Horizon SDK lets Azure Defender for IoT developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
-ms.date: 1/13/2021
+description: The Horizon SDK lets Microsoft Defender for IoT developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
+ms.date: 11/09/2021
 ms.topic: article
 ---
 
@@ -19,7 +19,7 @@ This environment provides the following solutions for customers and technology p
 
 - The security of allowing proprietary development without divulging sensitive information.
 
-The Horizon SDK lets Azure Defender for IoT developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
+The Horizon SDK lets Microsoft Defender for IoT developers design dissector plugins that decode network traffic so it can be processed by automated Defender for IoT network analysis programs.
 
 Protocol dissectors are developed as external plugins and are integrated with an extensive range of Defender for IoT services. For example,  services that provide monitoring, alerting and reporting capabilities.
 
@@ -1612,7 +1612,7 @@ The Horizon console **Overview** window provides information about the plugin yo
 | Field | Description |
 |--|--|
 | Application | The name of the plugin you uploaded. |
-| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="The on and off switch."::: | Toggle **On** or **Off** the plugin. Defender for IoT will not handle protocol traffic defined in the plugin when you toggle off the plugin. |
+| :::image type="content" source="media/references-horizon-sdk/switch.png" alt-text="The on/off switch."::: | Toggle **On** or **Off** the plugin. Defender for IoT will not handle protocol traffic defined in the plugin when you toggle off the plugin. |
 | Time | The time the data was last analyzed. Updated every 5 seconds. |
 | PPS | The number of packets per second. |
 | Bandwidth | The average bandwidth detected within the last 5 seconds. |

@@ -11,7 +11,7 @@ This article provides information about connecting a lab plan to your virtual ne
 
 Some organizations have advanced network requirements and configurations, such as network traffic control, ports management, access to resources in an internal network, etc., that they want to apply to labs. Until now, we offered limited control over the network of the labs, and you could only peer to custom virtual networks (VNet). The peering experience was limited in what admins could control through the peered network.
 
-In the Azure Lab Services November 2021 Update, customers have the option to take full control of the network for the labs. Instead of peering to your VNet, you can now tell us which VNet to use, and we’ll inject the lab resources into your network.
+In the Azure Lab Services January 2022 Update, customers have the option to take full control of the network for the labs. Instead of peering to your VNet, you can now tell us which VNet to use, and we’ll inject the lab resources into your network.
 
 With VNet injection. you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).
 

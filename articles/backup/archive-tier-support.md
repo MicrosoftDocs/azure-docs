@@ -1,5 +1,5 @@
 ---
-title: Archive Tier support overview
+title: Azure Backup - Archive Tier overview 
 description: Learn about Archive Tier Support for Azure Backup.
 ms.topic: overview
 ms.date: 10/23/2021
@@ -9,7 +9,7 @@ ms.service: backup
 ms.author: v-amallick
 ---
 
-# About Archive Tier support
+# Overview of Archive Tier in Azure Backup
 
 Customers rely on Azure Backup to store backup data including their Long-Term Retention (LTR) backup data as per the retention needs defined by the organization's compliance rules. In most cases, the older backup data is rarely accessed and is only stored for compliance needs.
 
@@ -32,9 +32,9 @@ Archive tier supports the following workloads:
 
 Archive tier supports the following clients:
 
-- [PowerShell](/azure/backup/use-archive-tier-support?pivots=client-powershelltier)
-- [CLI](/azure/backup/use-archive-tier-support?pivots=client-clitier)
-- [Azure portal](/azure/backup/use-archive-tier-support?pivots=client-portaltier)
+- [PowerShell](./use-archive-tier-support.md?pivots=client-powershelltier)
+- [CLI](./use-archive-tier-support.md?pivots=client-clitier)
+- [Azure portal](./use-archive-tier-support.md?pivots=client-portaltier)
 
 ## How Azure Backup moves recovery points to the vault-archive tier?
 

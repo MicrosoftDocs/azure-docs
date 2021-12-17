@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to install and set up the Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.topic: how-to
 
 author: lostmygithubaccount
 ms.author: copeters
-ms.date: 05/25/2021
+ms.date: 10/21/2021
 ms.reviewer: laobri
 ms.custom: devx-track-azurecli, devplatv2
 ---
@@ -71,9 +71,20 @@ If you have access to multiple Azure subscriptions, you can set your active subs
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
+Optionally, setup common variables in your shell for usage in subsequent commands:
+
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="set_variables":::
+
+> [!WARNING]
+> This uses Bash syntax for setting variables -- adjust as needed for your shell. You can also replace the values in commands below inline rather than using variables.
+
 If it doesn't already exist, you can create the Azure resource group:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_group_create":::
+
+And create a machine learning workspace:
+
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 
@@ -82,12 +93,15 @@ Machine learning subcommands require the `--workspace/-w` and `--resource-group/
 > [!TIP]
 > Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
 
-Now create the machine learning workspace:
+You can show your current defaults using `--list-defaults/-l`:
 
-:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="list_defaults":::
+
+> [!TIP]
+> Combining with `--output/-o` allows for more readable output formats.
 
 ## Next steps
 
-- [Train models using Machine Learning CLI extension (preview)](how-to-train-cli.md)
+- [Train models using CLI (v2)](how-to-train-cli.md)
 - [Set up the Visual Studio Code Azure Machine Learning extension](how-to-setup-vs-code.md)
 - [Train an image classification TensorFlow model using the Azure Machine Learning Visual Studio Code extension](tutorial-train-deploy-image-classification-model-vscode.md)

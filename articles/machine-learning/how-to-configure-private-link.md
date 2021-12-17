@@ -10,7 +10,7 @@ ms.custom: devx-track-azurecli
 ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
-ms.date: 09/07/2021
+ms.date: 10/21/2021
 ---
 
 # Configure a private endpoint for an Azure Machine Learning workspace
@@ -150,6 +150,9 @@ Finally, select __Create__ to create the private endpoint.
 ## Remove a private endpoint
 
 Use one of the following methods to remove a private endpoint from a workspace:
+
+> [!IMPORTANT]
+> Public access is not enabled when you delete a private endpoint for a workspace. To enable public access, see the [Enable public access section](how-to-configure-private-link.md#enable-public-access).
 
 # [Python](#tab/python)
 

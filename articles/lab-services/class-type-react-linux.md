@@ -16,23 +16,25 @@ This article will show how to install [Visual Studio Code](https://code.visualst
 ## Lab configuration
 
 >[!NOTE]
-> In the November 2021 Update, lab plans replace lab accounts. For more information, see [What's New in the November 2021 Update](lab-services-whats-new.md).
+> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
-To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin. Once you get an Azure subscription, you can create a new lab account in Azure Lab Services. For more information about creating a new lab account, see the tutorial on [how to setup a lab account](./tutorial-setup-lab-account.md). You can also use an existing lab account.
+To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 
-### Lab account settings
+### Lab plan settings
 
-Enable your lab account settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
+Once you get have Azure subscription, you can create a new lab plan in Azure Lab Services. For more information about creating a new lab plan, see the tutorial on [how to set up a lab plan](./tutorial-setup-lab-plan.md). You can also use an existing lab plan.
 
-| Lab account setting | Instructions |
+Enable your lab plan settings as described in the following table. For more information about how to enable Azure Marketplace images, see [Specify the Azure Marketplace images available to lab creators](./specify-marketplace-images.md).
+
+| Lab plan setting | Instructions |
 | ----------- | ------------ |  
-| Marketplace images | Enable the 'Ubuntu Server 18.04 LTS' image for use within your lab account. |
+| Marketplace images | Enable the 'Ubuntu Server 18.04 LTS' image. |
 
 ### Lab settings
 
-The size of the virtual machine (VM) that we recommend depends on the types of workloads that your students need to do.  
+For instructions on how to create a lab, see [Tutorial: Set up a classroom lab](tutorial-setup-classroom-lab.md).  Use the following settings when creating the lab.
 
-| Lab setting | Value and description |
+| Lab setting | Value |
 | ------------ | ------------------ |
 | Virtual Machine Size | **Small**.|
 
@@ -110,7 +112,6 @@ The template image can now be published to the lab. See [publish the template VM
 
 As you set up your lab, see the following articles:
 
-- [Create and publish a lab](tutorial-setup-classroom-lab.md)
 - [Add users](tutorial-setup-classroom-lab.md#add-users-to-the-lab)
 - [Set quota](how-to-configure-student-usage.md#set-quotas-for-users)
 - [Set a schedule](tutorial-setup-classroom-lab.md#set-a-schedule-for-the-lab)

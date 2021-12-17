@@ -121,6 +121,8 @@ If you want to update to the most recent version of IoT Edge, use the following 
 
 >[!NOTE]
 >Currently, there is not support for IoT Edge version 1.2 running on Linux for Windows virtual machines.
+>
+>To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=linuxonwindows).
 
 :::moniker-end
 <!-- end 1.2 -->
@@ -132,6 +134,19 @@ If you want to update to the most recent version of IoT Edge, use the following 
 >If you are updating a device from the public preview version of IoT Edge for Linux on Windows to the generally available version, you need to uninstall and reinstall Azure IoT Edge.
 >
 >To find out if you're currently using the public preview version, navigate to **Settings** > **Apps** on your Windows device. Find **Azure IoT Edge** in the list of apps and features. If your listed version is 1.0.x, you are running the public preview version. Uninstall the app and then [Install and provision IoT Edge for Linux on Windows](how-to-provision-single-device-linux-on-windows-symmetric.md) again. If your listed version is 1.1.x, you are running the generally available version and can receive updates through Microsoft Update.
+
+>[!IMPORTANT]
+>If you are updating a Windows Server SKU device previous to 1.1.2110.03111 version of IoT Edge for Linux on Windows to the latest available version, you need to do a manual migration.
+>
+>Update [1.1.2110.0311](https://github.com/Azure/iotedge-eflow/releases/tag/1.1.2110.03111) introduced a change to the VM technology (HCS to VMMS) used for EFLOW Windows Server deployments. You can execute the VM migration with the following steps:
+> 1. Using Microsoft Update, download and install the 1.1.2110.03111 update (same as any other EFLOW update, no need for manual steps as long as EFLOW updates are turned on).
+> 2. Once EFLOW update is finshed, open an elevated PowerShell session.
+> 3. Run the migration script:
+>  ```powershell
+>   Migrate-EflowVmFromHcsToVmms
+>   ```
+>
+> Note: Fresh EFLOW 1.1.2110.0311 msi installations on Windows Server SKUs will result in EFLOW deployments using VMMS technology, so no migration is needed.
 
 With IoT Edge for Linux on Windows, IoT Edge runs in a Linux virtual machine hosted on a Windows device. This virtual machine is pre-installed with IoT Edge, and you cannot manually update or change the IoT Edge components. Instead, the virtual machine is managed with Microsoft Update to keep the components up to date automatically.
 
@@ -158,6 +173,8 @@ To receive IoT Edge for Linux on Windows updates, the Windows host should be con
 
 >[!NOTE]
 >Currently, there is not support for IoT Edge version 1.2 running on Windows devices.
+>
+>To view the steps for updating IoT Edge for Linux on Windows, see [IoT Edge 1.1](?view=iotedge-2018-06&preserve-view=true&tabs=windows).
 
 :::moniker-end
 <!-- end 1.2 -->
