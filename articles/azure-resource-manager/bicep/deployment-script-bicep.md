@@ -38,7 +38,7 @@ The deployment script resource is only available in the regions where Azure Cont
 
 ### Microsoft Learn
 
-To learn more about the ARM template test toolkit, and for hands-on guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
+If you would rather learn about the ARM template test toolkit through step-by-step guidance, see [Extend ARM templates by using deployment scripts](/learn/modules/extend-resource-manager-template-deployment-scripts) on **Microsoft Learn**.
 
 ## Configure the minimum permissions
 

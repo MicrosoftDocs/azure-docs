@@ -7702,16 +7702,6 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
-      "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
-      "redirect_url": "/azure/azure-monitor/app/performance-counters",
-      "redirect_document_id": true
-    },
-    {
       "source_path_from_root": "/articles/application-insights/app-insights-platforms.md",
       "redirect_url": "/azure/azure-monitor/app/platforms",
       "redirect_document_id": true
@@ -24695,7 +24685,7 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/connect-dns.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#domain-name-server",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-dns-server-preview",
       "redirect_document_id": false
     },
     {
@@ -40739,6 +40729,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/batch-low-pri-vms.md",
+      "redirect_url": "/azure/batch/batch-spot-vms",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
@@ -45141,6 +45136,11 @@
     {
       "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
       "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
+      "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
       "redirect_document_id": false
     }
   ]

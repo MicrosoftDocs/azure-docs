@@ -5,6 +5,7 @@ description: Learn how to authenticated client certificates on TLS. Azure App Se
 ms.assetid: cd1d15d3-2d9e-4502-9f11-a306dac4453a
 ms.topic: article
 ms.date: 12/11/2020
+ms.devlang: csharp
 ms.custom: "devx-track-csharp, seodec18"
 
 ---
@@ -78,6 +79,9 @@ public class Startup
         {
             options.ForwardedHeaders =
                 ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto;
+            // Only loopback proxies are allowed by default. Clear that restriction to enable this explicit configuration.
+            options.KnownNetworks.Clear();
+            options.KnownProxies.Clear();
         });       
         
         // Configure the application to client certificate forwarded the frontend load balancer
