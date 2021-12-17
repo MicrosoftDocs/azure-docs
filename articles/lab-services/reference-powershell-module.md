@@ -23,13 +23,13 @@ ms.date: 12/12/2021
     
 ## Example commands
 
-+ Run the following command to list all the labs in your subscription.
++ To list all the labs in your subscription:
 
     ```powershell
     Get-AzLabAccount | Get-AzLab
     ```
     
-+ Here is an example of using a PowerShell command to stop all the running VMs in all labs.
++ To stop all the running VMs in all labs:
 
     ```powershell
     Get-AzLabAccount | Get-AzLab | Get-AzLabVm -Status Running | Stop-AzLabVm
