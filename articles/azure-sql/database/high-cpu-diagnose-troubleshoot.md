@@ -17,23 +17,25 @@ ms.date: 12/15/2021
 
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-[Azure SQL Database](sql-database-paas-overview.md) provides built-in tools to identify the causes of high CPU usage and to optimize CPU performance. You can use these tools to troubleshoot high CPU usage while it's occurring, or reactively after the incident has completed. You can also enable [automatic tuning](automatic-tuning-overview.md) to proactively reduce CPU usage over time for your database. This article teaches you to diagnose and troubleshoot high CPU with built-in tools in Azure SQL Database and explains [when to add CPU resources](#when-to-add-cpu-resources).
+[Azure SQL Database](sql-database-paas-overview.md) provides built-in tools to identify the causes of high CPU usage and to optimize workload performance. You can use these tools to troubleshoot high CPU usage while it's occurring, or reactively after the incident has completed. You can also enable [automatic tuning](automatic-tuning-overview.md) to proactively reduce CPU usage over time for your database. This article teaches you to diagnose and troubleshoot high CPU with built-in tools in Azure SQL Database and explains [when to add CPU resources](#when-to-add-cpu-resources).
 
 ## Understand vCore count
 
-It's helpful to understand the number of virtual cores (vCores) available to your database when diagnosing a high CPU incident. The number of vCores helps you understand the CPU resources available to your database.
+It's helpful to understand the number of virtual cores (vCores) available to your database when diagnosing a high CPU incident. A vCore is equivalent to a logical CPU. The number of vCores helps you understand the CPU resources available to your database.
 
 ### Identify vCore count in the Azure portal
 
-You can quickly identify the vCore count for a database in the Azure portal if you are using a [vCore-based service tier](service-tiers-vcore.md) with the provisioned compute tier. In this case, the **pricing tier** listed for the database on its **Overview** page will contain the core count. For example, a database's pricing tier might be 'General Purpose: Gen5, 16 vCores'.
+You can quickly identify the vCore count for a database in the Azure portal if you are using a [vCore-based service tier](service-tiers-vcore.md) with the provisioned compute tier. In this case, the **pricing tier** listed for the database on its **Overview** page will contain the vCore count. For example, a database's pricing tier might be 'General Purpose: Gen5, 16 vCores'. 
 
-If you are using a database under the [DTU-based purchase model](service-tiers-dtu.md) or the [serverless](serverless-tier-overview.md) compute tier, you will need to use Transact-SQL to query the database's vCore count.
+For databases in the [serverless](serverless-tier-overview.md) compute tier, vCore count will always be equivalent to the max vCore setting for the database. VCore count will show in the **pricing tier** listed for the database on its **Overview** page. For example, a database's pricing tier might be 'General Purpose: Serverless, Gen5, 16 vCores'.
+
+If you are using a database under the [DTU-based purchase model](service-tiers-dtu.md), you will need to use Transact-SQL to query the database's vCore count.
 
 ### Identify vCore count with Transact-SQL
 
-You can identify the current vCore count for any database with Transact-SQL.  VCores for a database in the [serverless](serverless-tier-overview.md) compute tier will vary depending on your min and max vCore setting, resource demand, and resource availability.
+You can identify the current vCore count for any database with Transact-SQL. You can run Transact-SQL against Azure SQL Database with [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [the Azure portal's query editor (preview)](connect-query-portal.md).
 
-Open [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms) or [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), connect to your database, and run the following query:
+Connect to your database and run the following query:
 
 ```sql
 SELECT 
@@ -42,6 +44,9 @@ FROM sys.dm_os_schedulers
 WHERE status = N'VISIBLE ONLINE';
 GO
 ```
+
+> [!NOTE]
+> For databases the using [Hyperscale service tier](service-tier-hyperscale.md), the number of visible online schedulers in sys.dm_os_schedulers will be equivalent to the vCore count shown in the Azure portal when you use Gen5 hardware.
 
 ## Identify the causes of high CPU
 You can measure and analyze CPU utilization using the Azure portal, Query Store interactive tools in SSMS, and Transact-SQL queries in SSMS and Azure Data Studio.
@@ -52,9 +57,9 @@ Common causes of new and unusual high CPU utilization are:
 
 * New queries in the workload that use a large amount of CPU.
 * An increase in the frequency of regularly running queries.
-* Query plan regression due to [queries that have parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md) resulting in one or more queries consuming more CPU.
+* Query plan regression, including regression due to [parameter sensitive plan (PSP) problems](../identify-query-performance-issues.md), resulting in one or more queries consuming more CPU.
 * A significant increase in compilation or recompilation of query plans.
-* Databases where queries use [excessive parallelism](configure-max-degree-of-parallelism.md#excessive-parallelism)
+* Databases where queries use [excessive parallelism](configure-max-degree-of-parallelism.md#excessive-parallelism).
 
 To understand what is causing your high CPU incident, identify when high CPU utilization is occurring against your database and the top queries using CPU at that time.
 
@@ -69,6 +74,10 @@ Examine:
     - [Use interactive Query Store tools in SSMS to identify top queries by CPU time](#use-interactive-query-store-tools-to-identify-top-queries-by-cpu-time)
 1. Is there evidence of a large amount of compilation or recompilation occurring? Query the [most frequently compiled queries by query hash](#query-the-most-frequently-compiled-queries-by-query-hash) and review how frequently they compile.
 1. Are queries using excessive parallelism? Query your [MAXDOP database scoped configuration](configure-max-degree-of-parallelism.md#maxdop-database-scoped-configuration-1) and review your [vCore count](#understand-vcore-count). Excessive parallelism often occurs in databases where MAXDOP is set to 0 with a core count higher than eight.
+
+> [!Note]
+> Azure SQL Database requires compute resources to implement core service features such as high availability and disaster recovery, database backup and restore, monitoring, Query Store, Automatic tuning, etc. Use of these compute resources may be particularly noticeable on databases with low vCore counts or databases in dense [Elastic pools](elastic-pool-overview.md). Learn more in [Resource management in Azure SQL Database](resource-limits-logical-server.md#resource-consumption-by-user-workloads-and-internal-processes).
+
 
 ### Review CPU usage metrics and related top queries in the Azure portal
 
@@ -90,11 +99,12 @@ Select each query ID exhibiting high CPU to open details for the query. Details 
 Follow these steps to use a query ID in SSMS's interactive Query Store tools to examine the query's execution plan over time.
 
 1. Open SSMS
-1. Connect to your Azure SQL Database in Object Explorer. 
+1. Connect to your Azure SQL Database in Object Explorer.
 1. Expand the database node in Object Explorer
 1. Expand the **Query Store** folder. 
 1. Open the **Tracked Queries** pane. 
 1. Enter the query ID in the **Tracking query** box at the top left of the screen and press enter.
+1. If necessary, select **Configure** to adjust the time interval to match the time when high CPU utilization was occurring.
  
 The page will show the execution plan(s) and related metrics for the query over the most recent 24 hours.
 
@@ -105,34 +115,26 @@ The page will show the execution plan(s) and related metrics for the query over 
 
 Transact-SQL allows you to identify currently running queries with CPU time they have used so far. You can also use Transact-SQL to query recent CPU usage in your database, top queries by CPU, and queries that compiled the most often.
 
-To query CPU metrics, open SSMS or Azure Data Studio. Open a new query against your database. Find currently running queries with CPU usage and execution plans by executing the following query.
+You can query CPU metrics with [SQL Server Management Studio (SSMS)](/sql/ssms/download-sql-server-management-studio-ssms), [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio), or [the Azure portal's query editor (preview)](connect-query-portal.md). When using SSMS or Azure Data Studio, open a new query window and connect it to your database (not the master database).
+
+Find currently running queries with CPU usage and execution plans by executing the following query:
 
 ```sql
-SELECT 
-   req.session_id,
-   req.status,
-   req.start_time,
-   req.cpu_time 'cpu_time_ms',
-   req.logical_reads,
-   req.dop,
-   s.login_name,
-   s.host_name,
-   s.program_name,
-   object_name(st.objectid,st.dbid) 'ObjectName',
-   substring
-      (REPLACE
-        (REPLACE
-          (SUBSTRING
-            (st.text
-            , (req.statement_start_offset/2) + 1
-            , (
-               (CASE req.statement_end_offset
-                  WHEN -1
-                  THEN DATALENGTH(st.text)  
-                  ELSE req.statement_end_offset
-                  END
-                    - req.statement_start_offset)/2) + 1)
-       , CHAR(10), ' '), CHAR(13), ' '), 1, 512)  AS statement_text,
+SELECT
+	req.session_id,
+	req.status,
+	req.start_time,
+	req.cpu_time 'cpu_time_ms',
+	req.logical_reads,
+	req.dop,
+	s.login_name,
+	s.host_name,
+	s.program_name,
+	object_name(st.objectid,st.dbid) 'ObjectName',
+	REPLACE (REPLACE (SUBSTRING (st.text,(req.statement_start_offset/2) + 1,
+		((CASE req.statement_end_offset	WHEN -1	THEN DATALENGTH(st.text) 
+		ELSE req.statement_end_offset END - req.statement_start_offset)/2) + 1),
+		CHAR(10), ' '), CHAR(13), ' ') AS statement_text,
     qp.query_plan,
     qsx.query_plan as query_plan_with_transient_statistics
 FROM sys.dm_exec_requests as req  
