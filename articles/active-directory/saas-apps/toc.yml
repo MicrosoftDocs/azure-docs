@@ -2541,6 +2541,8 @@
         href: foodee-provisioning-tutorial.md
       - name: Fortes Change Cloud
         href: fortes-change-cloud-provisioning-tutorial.md
+      - name: frankli.io
+        href: frankli-io-provisioning-tutorial.md
       - name: Freshservice Provisioning
         href: freshservice-provisioning-tutorial.md
       - name: Fuze
@@ -2703,8 +2705,6 @@
         href: peakon-provisioning-tutorial.md
       - name: Proware
         href: proware-provisioning-tutorial.md
-      - name: PureCloud by Genesys
-        href: purecloud-by-genesys-provisioning-tutorial.md
       - name: Real Links
         href: real-links-provisioning-tutorial.md
       - name: Reward Gateway
