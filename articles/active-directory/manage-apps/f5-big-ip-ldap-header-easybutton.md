@@ -394,7 +394,7 @@ There may be cases where the Guided Configuration templates lack the flexibility
 For those scenarios, go ahead and deploy using the Guided Configuration. Then navigate to **Access > Guided Configuration** and select the small padlock icon on the far right of the row for your applications’ configs. At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
 >[!NOTE]
->Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the manual approach for production services.
+>Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, so use this with caution for production services.
 
 ## Troubleshooting
 
