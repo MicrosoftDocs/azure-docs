@@ -150,6 +150,16 @@ The load-balanced public and private IP addresses can be found on the **Overview
 
 For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
 
+The load-balanced public and private IP addresses can be found on the **Overview** blade in the Azure portal.
+
+> [!NOTE]
+> The VIP address(es) of the API Management instance will change when:
+> * The VNet is enabled or disabled. 
+> * API Management is moved from **External** to **Internal** virtual network mode, or vice versa.
+> * [Zone redundancy](zone-redundancy.md) settings are enabled, updated, or disabled in a location for your instance (Premium SKU only).
+>
+> You may need to update DNS registrations, routing rules, and IP restriction lists within the VNet.
+
 ### VIP and DIP addresses
 
 Dynamic IP (DIP) addresses will be assigned to each underlying virtual machine in the service and used to access resources *within* the VNet. The API Management service's public virtual IP (VIP) address will be used to access resources *outside* the VNet. If IP restriction lists secure resources within the VNet, you must specify the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
@@ -169,7 +179,7 @@ If the destination endpoint has allow-listed only a fixed set of DIPs, connectio
 
 Learn more about:
 
-* [Network configuration when setting up Azure API Management in a VNet][Common network configuration problems]
+* [Virtual network configuration reference](virtual-network-reference.md)
 * [VNet FAQs](../virtual-network/virtual-networks-faq.md)
 * [Creating a record in DNS](/previous-versions/windows/it-pro/windows-2000-server/bb727018(v=technet.10))
 
@@ -178,7 +188,8 @@ Learn more about:
 [api-management-custom-domain-name]: ./media/api-management-using-with-internal-vnet/updated-api-management-custom-domain-name.png
 
 [Create API Management service]: get-started-create-service-instance.md
-[Common network configuration problems]: api-management-using-with-vnet.md#network-configuration-issues
+
+[Common network configuration problems]: virtual-network-reference.md
 
 [ServiceTags]: ../virtual-network/network-security-groups-overview.md#service-tags
 

@@ -11,9 +11,9 @@ ms.custom:
 ---
 # Use a virtual network with Azure API Management
 
-With Azure Virtual Networks (VNets), you can place your Azure resources in a non-internet-routable network to which you control access. You can then connect VNets to your on-premises networks using various VPN technologies. To learn more about Azure VNets, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
+With Azure virtual etworks (VNets), you can place ("inject") your API Management instance in a non-internet-routable network to which you control access. You can then connect VNets to your on-premises networks using various VPN technologies. To learn more about Azure VNets, start with the information in the [Azure Virtual Network Overview](../virtual-network/virtual-networks-overview.md).
 
-This article explains VNet connectivity options, requirements, and considerations for your API Management instance. You can use the Azure portal, Azure CLI, Azure Resource Manager templates, or other tools for the deployment. You control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups].
+This article explains VNet connectivity options, requirements, and considerations for your API Management instance. You can use the Azure portal, Azure CLI, Azure Resource Manager templates, or other tools for the configuration. You control inbound and outbound traffic into the subnet in which API Management is deployed by using [network security groups][NetworkSecurityGroups].
 
 For detailed deployment steps and network configuration, see:
 
@@ -54,7 +54,7 @@ The following are virtual network resource requirements for API Management. Some
 * The subnet used to connect to the API Management instance may contain other Azure resource types.
 * A [network security group](../virtual-network/network-security-groups-overview.md) attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. 
 * The API Management service, virtual network and subnet, and public IP address resource must be in the same region and subscription.
-* For multi-region API Management deployments, you configure virtual network resources separately for each location.
+* For multi-region API Management deployments, configure virtual network resources separately for each location.
 
 ### [stv1](#tab/stv1)
 
@@ -67,7 +67,7 @@ The following are virtual network resource requirements for API Management. Some
 
 ## Subnet size
 
-The minimum size of the subnet in which API Management can be deployed is /29, which gives three usable IP addresses. Each extra scale unit of API Management requires two more IP addresses. The minimum size requirement is based on the following considerations:
+The minimum size of the subnet in which API Management can be deployed is /29, which gives three usable IP addresses. Each extra scale [unit](api-management-capacity.md) of API Management requires two more IP addresses. The minimum size requirement is based on the following considerations:
 
 * Azure reserves some IP addresses within each subnet that can't be used. The first and last IP addresses of the subnets are reserved for protocol conformance. Three more addresses are used for Azure services. For more information, see [Are there any restrictions on using IP addresses within these subnets?](../virtual-network/virtual-networks-faq.md#are-there-any-restrictions-on-using-ip-addresses-within-these-subnets).
 
@@ -85,16 +85,18 @@ Learn more about the [IP addresses of API Management](api-management-howto-ip-ad
 
 ## DNS
 
-In external mode, the VNet enables [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) for your API Management endpoints and other Azure resources. It does not provide name resolution for on-premises resources. 
+* In external mode, the VNet enables [Azure-provided name resolution](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#azure-provided-name-resolution) by default for your API Management endpoints and other Azure resources. It does not provide name resolution for on-premises resources. Optionally, configure your own DNS solution.
 
-In internal mode, you must provide your own DNS solution to ensure name resolution for API Management endpoints and other required Azure resources. We recommend configuring an Azure [private DNS zone](../dns/private-dns-overview.md).
+* In internal mode, you must provide your own DNS solution to ensure name resolution for API Management endpoints and other required Azure resources. We recommend configuring an Azure [private DNS zone](../dns/private-dns-overview.md).
+
+For more information, see the DNS guidance when deploying your API Management instance into an [external VNet](./api-management-using-with-vnet.md#routing) or [internal VNet](./api-management-using-with-internal-vnet.md#routing).
 
 For more information, see: 
 * [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
 * [Create an Azure private DNS zone](../dns/private-dns-getstarted-portal.md)
 
 > [!IMPORTANT]
-> If you plan to use a custom DNS solution for the VNet, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates).
+> If you plan to use a custom DNS solution for the VNet, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates), or by selecting **Apply network configuration** in the service instance's network configuration window in the Azure portal.
 
 ## Limitations
 

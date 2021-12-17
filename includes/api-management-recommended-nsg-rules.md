@@ -10,9 +10,9 @@ ms.author: danlep
 
 Configure custom network rules in the API Management subnet to filter traffic to and from your API Management instance. We recommend the following minimum NSG rules to ensure proper operation and access to your instance. 
 
-  * We recommend using [service tags](../virtual-network/service-tags-overview.md) to specify network sources and destinations. 
+  * For most scenarios, use [service tags](../articles/virtual-network/service-tags-overview.md) to specify network sources and destinations. 
   * Set the priority of these rules higher than that of the default rules.
-  * Depending on your use of monitoring and other features, you may need to configure additional rules. For detailed settings, see [Virtual network configuration reference](virtual-network-configuration-reference.md#required-ports).
+  * Depending on your use of monitoring and other features, you may need to configure additional rules. For detailed settings, see [Virtual network configuration reference](../articles/api-management/virtual-network-configuration-reference.md#required-ports).
 
 ### [stv2](#tab/stv2)
 
@@ -27,7 +27,7 @@ Configure custom network rules in the API Management subnet to filter traffic to
 
 ### [stv1](#tab/stv1)
 
-| Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose                                                  | VNET type |
+| Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                                  | VNET type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
 | * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                   | External             |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell        | External & Internal  |

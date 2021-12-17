@@ -90,7 +90,7 @@ In external VNet mode, Azure manages the DNS by default. You can optionally conf
 
 The API Management service depends on several Azure services. When API Management is hosted in a VNet with a custom DNS server, it needs to resolve the hostnames of those Azure services.  
 * For guidance on custom DNS setup, including forwarding for Azure-provided hostnames, see [Name resolution for resources in Azure virtual networks](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server).  
-* Outbound network access on port `53` is required for communication with DNS servers. For more settings, see the [Virtual network configuration reference](virtual-network-refrence.md).
+* Outbound network access on port `53` is required for communication with DNS servers. For more settings, see [Virtual network configuration reference](virtual-network-reference.md).
 
 > [!IMPORTANT]
 > If you plan to use a custom DNS server(s) for the VNet, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS Server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates).
@@ -109,6 +109,7 @@ For more information and considerations, see [IP addresses of Azure API Manageme
 
 Learn more about:
 
+* [Virtual network configuration reference](virtual-network-reference.md)
 * [Connecting a virtual network to backend using VPN Gateway](../vpn-gateway/design.md#s2smulti)
 * [Connecting a virtual network from different deployment models](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [Debug your APIs using request tracing](api-management-howto-api-inspector.md)

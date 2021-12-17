@@ -8,14 +8,14 @@ ms.author: danlep
 
 ## Prerequisites
 
-Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
+Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](../articles/api-management/compute-infrastructure.md) hosting your API Management instance.
 
 > [!TIP]
 > When you use the portal to create or update the network connection of an existing API Management instance, the instance is hosted on the `stv2` compute platform.
 
 ### [stv2](#tab/stv2)
 
-+ **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
++ **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
 
 * **A virtual network and subnet** in the same region and subscription as your API Management instance. The subnet may contain other Azure resources.
 
@@ -25,7 +25,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
   * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
 
-  * When creating a public IP resource, ensure you assign a "DNS Name Label" to it. The label you choose to use does not matter but a label is required if this resource will be assigned to an API Management Service.
+  * When creating a public IP resource, ensure you assign a **DNS name label** to it. The label you choose to use does not matter but a label is required if this resource will be assigned to an API Management service.
 
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 
@@ -33,7 +33,7 @@ Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [co
 
 ### [stv1](#tab/stv1)
 
-+ **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
++ **An API Management instance.** For more information, see [Create an Azure API Management instance](../articles/api-management/get-started-create-service-instance.md).
 
 * **A virtual network and subnet** in the same region and subscription as your API Management instance.
 

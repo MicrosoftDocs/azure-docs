@@ -1,6 +1,6 @@
 ---
 title: VNet configuration settings | Azure API Management
-description: Reference for configuration settings when deploying an Azure API Management instance to a virtual network
+description: Reference for network configuration settings when deploying Azure API Management to a virtual network
 services: api-management
 author: dlepow
 
@@ -143,7 +143,7 @@ When adding virtual machines running Windows to the VNet, allow outbound connect
 The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address. In some cases, two IP addresses are listed. Permit both IP addresses.
 
 > [!IMPORTANT]
-> Where possible, we recommend using the **ApiManagement** [service tag](../virtual-network/service-tags-overview.md) in NSG rules instead of API Management control plane IP addresses. The IP address prefixes encompassed by service tags are subject to frequent changes.   
+> Control plane IP addresses should be configured for network access rules only when needed in certain hybrid networking scenarios. In most cases, we recommend using the **ApiManagement** [service tag](../virtual-network/service-tags-overview.md) in NSG rules instead of control plane IP addresses. The IP addresses encompassed by service tags are subject to frequent changes.   
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|

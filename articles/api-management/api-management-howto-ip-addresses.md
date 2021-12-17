@@ -50,11 +50,11 @@ In [multi-regional deployments](api-management-howto-deploy-multi-region.md), ea
 
 ## IP addresses of API Management service in VNet
 
-If your API Management service is inside a virtual network, it will have two types of IP addresses - public and private.
+If your API Management service is inside a virtual network, it will have two types of IP addresses: public and private.
 
-Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNet configuration, they are also used for runtime API traffic.
+* Public IP addresses are used for internal communication on port `3443` - for managing configuration (for example, through Azure Resource Manager). In the external VNet configuration, they are also used for runtime API traffic.
 
-Private virtual IP (VIP) addresses, available **only** in the [internal VNet mode](api-management-using-with-internal-vnet.md), are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
+* Private virtual IP (VIP) addresses, available **only** in the [internal VNet mode](api-management-using-with-internal-vnet.md), are used to connect from within the network to API Management endpoints - gateways, the developer portal, and the management plane for direct API access. You can use them for setting up DNS records within the network.
 
 You will see addresses of both types in the Azure portal and in the response of the API call:
 
@@ -103,5 +103,3 @@ In the Developer, Basic, Standard, and Premium tiers of API Management, the publ
 * [Availability zones](zone-redundancy.md) are enabled, added, or removed.
 
 In [multi-regional deployments](api-management-howto-deploy-multi-region.md), the regional IP address changes if a region is vacated and then reinstated.
-
-After aou may need to update DNS registrations, routing rules, and IP restriction lists within the VNET.
