@@ -11,21 +11,7 @@
     - name: Integration with the CloudKnox API
       href: cloudknox-api.md
     - name: Integration with ServiceNow
-<<<<<<< HEAD
       href: cloudknox-servicenow.md     
-=======
-      href: cloudknox-sentry-install-azure.md
-    - name: Integration with HashiCorp Terraform
-      href: cloudknox-hashicorp-terraform.md
-    - name: Integration with Saviynt
-      href: cloudknox-saviynt.md
-    - name: Integration with Securonix
-      href: cloudknox-securonix.md
-    - name: Integration with Splunk
-      href: cloudknox-splunk.md
-    - name: CloudKnox integration with ServiceNow
-      href: cloudknox-product-dashboard.md
->>>>>>> fbee547fcce8b5e634823bb7a99cd5c168a9dbef
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
     - name: Install CloudKnox with AWS role
