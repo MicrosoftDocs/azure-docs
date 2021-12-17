@@ -18,19 +18,9 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
-## Install Extension-based (V2) on existing Agent-based (V1) Hybrid Worker
-
-A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. To install Extension based (V2) on a hybrid worker that already has an Agent based (V1): 
-
-1. In **Process Automation**, select **Hybrid Workers groups** and in your existing hybrid worker group, select Hybrid Worker Group page.
-1. In the Hybrid Worker Group, select Hybrid Workers.
-1. Select **+Add** to go to the Add machines as hybrid worker page.
-1. Select existing Agent based (V1) Hybrid worker checkbox.
-1. Select **Add** to add the machine to the group. </br>
-The platform field shows the same worker as both Agent based (V1) and Extension based (V2). Delete the Agent based (V1) Hybrid Worker after you are sure on the working of Extension based (V2) worker.
 
 > [!NOTE]
-> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. [Learn more](/azure/automation/extension-based-hybrid-runbook-worker-install#add-a-machine-to-a-hybrid-worker-group)
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. [**Learn more**](#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
 
 ## Prerequisites
 
@@ -136,6 +126,18 @@ You can also add machines to an existing hybrid worker group.
 1. Select **Add** to add the machine to the group. Once added, you can see the machine type as Azure virtual machine or Arc-enabled server. The **Platform** field shows the worker as **Agent based (V1)** or **Extension based (V2)**.
 
    :::image type="content" source="./media/extension-based-hybrid-runbook-worker-install/hybrid-worker-group-platform.png" alt-text="Platform field showing agent or extension based.":::
+
+## Install Extension-based (V2) on existing Agent-based (V1) Hybrid Worker
+
+A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. To install Extension based (V2) on a hybrid worker that already has an Agent based (V1): 
+
+1. Under **Process Automation**, select **Hybrid Workers groups** and then your existing hybrid worker group to go to the **Hybrid Worker Group** page.
+1. Under **Hybrid worker group**, select **Hybrid Workers**.
+1. Select **+ Add** to go to the **Add machines as hybrid worker** page.
+1. Select the checkbox next to existing Agent based (V1) Hybrid worker checkbox.
+1. Select **Add** to add the machine to the group. </br>
+The **Platform** field shows the same worker as both **Agent based (V1)** and **Extension based (V2)**. Delete the Agent based (V1) Hybrid Worker after you are sure about the working of Extension based (V2) worker.
+
 
 ## Delete a Hybrid Runbook Worker
 
