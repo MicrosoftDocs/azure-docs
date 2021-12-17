@@ -6,7 +6,7 @@ ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
 ms.localizationpriority: high 
-ms.date: 12/14/2021
+ms.date: 12/17/2021
 ms.author: alkohli
 
 # Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
@@ -31,7 +31,7 @@ Before you begin, make sure that you have completed the [Tutorial: Return Azure 
 
 Once the disks are picked up by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
-![Screenshot of the Overview pane for a Data Box Disk import order in Picked Up state. The Overview option and Picked Up order status are highlighted.](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
+![Screenshot of the Overview pane for a Data Box Disk import order in Picked Up state. The Overview option and Picked Up order status are highlighted.](media/data-box-disk-deploy-picked-up/data-box-portal-picked-up.png)
 
 When Microsoft receives and scans the disk, job status is updated to **Received**. 
 
