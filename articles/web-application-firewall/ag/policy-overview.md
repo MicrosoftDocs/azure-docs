@@ -5,7 +5,7 @@ services: web-application-firewall
 ms.topic: article
 author: winthrop28
 ms.service: web-application-firewall
-ms.date: 11/20/2020
+ms.date: 12/17/2021
 ms.author: victorh
 ---
 
@@ -14,6 +14,9 @@ ms.author: victorh
 Web Application Firewall Policies contain all the WAF settings and configurations. This includes exclusions, custom rules, managed rules, and so on. These policies are then associated to an application gateway (global), a listener (per-site), or a path-based rule (per-URI) for them to take effect.
 
 There's no limit on the number of policies you can create. When you create a policy, it must be associated to an application gateway to take effect. It can be associated with any combination of application gateways, listeners, and path-based rules.
+
+> [!Note]
+> Application Gateway has two versions of WAF enabled gateways; Application Gateway WAF_v1 and Application Gateway WAF_v2. WAF policies are only supported to be associated to Application Gateway WAF v2 gateways.
 
 ## Global WAF policy
 
