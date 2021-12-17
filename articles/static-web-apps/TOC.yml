@@ -22,12 +22,20 @@
   items:
     - name: APIs
       items:
-        - name: API support with Azure Functions
+        - name: Azure Functions
+          items:
+            - name: Overview
+              href: apis.md
+            - name: Add an API
+              href: add-api.md
+            - name: Bring your own functions
+              href: functions-bring-your-own.md
+        - name: Azure API Management
           href: apis.md
-        - name: Add an API
-          href: add-api.md
-        - name: Bring your own functions
-          href: functions-bring-your-own.md
+        - name: Azure Container Apps
+          href: apis.md
+        - name: Azure Web Apps
+          href: apis.md
     - name: Configuration
       items:
         - name: Configuration overview
