@@ -506,7 +506,7 @@ For the details on installation, refer to the [GitOps Connector](https://github.
 | AZURE_VOTE_IMAGE_REPO | The full path to the Azure Vote App repository, for example azurearctest.azurecr.io/azvote |
 | MANIFESTS_BRANCH | `master` |
 | MANIFESTS_FOLDER | `arc-cicd-cluster` |
-| MANIFESTS_REPO | https://github.com/your-organization/arc-cicd-demo-gitops |
+| MANIFESTS_REPO | `https://github.com/your-organization/arc-cicd-demo-gitops` |
 | VOTE_APP_TITLE | Voting Application |
 | AKS_RESOURCE_GROUP | AKS Resource group. Needed for automated testing. |
 | AKS_NAME | AKS Name. Needed for automated testing. |

@@ -8,7 +8,7 @@ ms.subservice: core
 ms.topic: reference
 ms.author: larryfr
 author: BlackMist
-ms.date: 11/01/2021
+ms.date: 12/07/2021
 ---
 
 # Azure Machine Learning Python SDK release notes
@@ -17,9 +17,40 @@ In this article, learn about Azure Machine Learning Python SDK releases.  For th
 
 __RSS feed__: Get notified when this page is updated by copying and pasting the following URL into your feed reader:
 `https://docs.microsoft.com/api/search/rss?search=%22Azure+machine+learning+release+notes%22&locale=en-us`
+## 2021-12-13
+
+### Azure Machine Learning SDK for Python v1.37.0
++ **Breaking changes**
+  + **azureml-core**
+    + Starting in version 1.37.0, AzureML SDK uses MSAL as the underlying authentication library. MSAL uses Azure Active Directory (Azure AD) v2.0 authentication flow to provide more functionality and increases security for token cache. For more details, see [Overview of the Microsoft Authentication Library (MSAL)](https://docs.microsoft.com/azure/active-directory/develop/msal-overview).
+    + Update AML SDK dependencies to the latest version of Azure Resource Management Client Library for Python (azure-mgmt-resource>=15.0.0,<20.0.0) & adopt track2 SDK.
+    + Starting in version 1.37.0, azure-ml-cli extension should be compatible with the latest version of Azure CLI >=2.30.0.
+    + When using Azure CLI in a pipeline, like as Azure DevOps, ensure all tasks/stages are using versions of Azure CLI above v2.30.0 for MSAL-based Azure CLI. Azure CLI 2.30.0 is not backward compatible with prior versions and throws an error when using incompatible versions.
+  
++ **Bug fixes and improvements**
+  + **azureml-core**
+    + Removed instance types from the attach workflow for Kubernetes compute. Instance types can now directly be set up in the Kubernetes cluster. For more details, please visit aka.ms/amlarc/doc.
+  + **azureml-interpret**
+    + updated azureml-interpret to interpret-community 0.22.*
+  + **azureml-pipeline-steps**
+    + Fixed a bug where the experiment "placeholder" might be created on submission of a Pipeline with an AutoMLStep.
+  + **azureml-responsibleai**
+    + update azureml-responsibleai and compute instance environment to responsibleai and raiwidgets 0.15.0 release
+    + update azureml-responsibleai package to latest responsibleai 0.14.0.
+  + **azureml-tensorboard**
+    + You can now use `Tensorboard(runs, use_display_name=True)` to mount the TensorBoard logs to folders named after the `run.display_name/run.id` instead of `run.id`.
+  + **azureml-train-automl-client**
+    + Fixed a bug where the experiment "placeholder" might be created on submission of a Pipeline with an AutoMLStep.
+    + Update AutoMLConfig test_data and test_size docs to reflect preview status.
+  + **azureml-train-automl-runtime**
+    + Added new feature that allows users to pass time series grains with one unique value. 
+    + In certain scenarios, an AutoML model can predict NaNs. The rows that correspond to these NaN predictions will be removed from test datasets and predictions before computing metrics in test runs.
+
+
 ## 2021-11-08
 
 ### Azure Machine Learning SDK for Python v1.36.0
++ **Bug fixes and improvements**
   + **azureml-automl-dnn-vision**
     + Cleaned up minor typos on some error messages.
   + **azureml-contrib-reinforcementlearning**
@@ -46,6 +77,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-10-11
 
 ### Azure Machine Learning SDK for Python v1.35.0
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Enable binary metrics calculation
   + **azureml-contrib-fairness**
@@ -72,6 +104,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-09-07
 
 ### Azure Machine Learning SDK for Python v1.34.0
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Added support for re-fitting a previously trained forecasting pipeline.
     + Added ability to get predictions on the training data (in-sample prediction) for forecasting.
@@ -120,6 +153,7 @@ __RSS feed__: Get notified when this page is updated by copying and pasting the 
 ## 2021-08-02
 
 ### Azure Machine Learning SDK for Python v1.33.0
++ **Bug fixes and improvements**
   + **azureml-automl-core**
     + Improved error handling around XGBoost model retrieval.
     + Added possibility to convert the predictions from float to integers for forecasting and regression tasks.
@@ -441,7 +475,7 @@ The `ml` extension to the Azure CLI is the next-generation interface for Azure M
   + **azureml-core**
     + [Experimental feature] Add support to link synapse workspace into AML as an linked service
     + [Experimental feature] Add support to attach synapse spark pool into AML as a compute
-    + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' AAD token or managed identity of compute target will be used for authentication. Learn more [here](./how-to-identity-based-data-access.md).
+    + [Experimental feature] Add support for identity based data access. Users can register datastore or datasets without providing credentials. In such case, users' Azure AD token or managed identity of compute target will be used for authentication. Learn more [here](./how-to-identity-based-data-access.md).
   + **azureml-pipeline-steps**
     + [Experimental feature] Add support for [SynapseSparkStep](/python/api/azureml-pipeline-steps/azureml.pipeline.steps.synapsesparkstep)
   + **azureml-synapse**

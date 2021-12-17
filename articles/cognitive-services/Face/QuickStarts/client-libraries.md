@@ -11,7 +11,7 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 09/27/2021
 ms.author: pafarley
-ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-other
+ms.custom: devx-track-python, devx-track-csharp, cog-serv-seo-aug-2020, mode-api
 keywords: face search by image, facial recognition search, facial recognition, face recognition app
 ---
 

@@ -7615,8 +7615,8 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/model-versioning.md",
-      "redirect_url": "/azure/cognitive-services/language-service/overview",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/model-lifecycle",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-external-community.md",
@@ -7699,16 +7699,6 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-devops-with-github.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-devops-automation",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
-      "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
-      "redirect_url": "/azure/azure-monitor/app/performance-counters",
       "redirect_document_id": true
     },
     {
@@ -26519,7 +26509,7 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-faliure.md",
+      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
       "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
       "redirect_document_id": false
     },
@@ -40736,6 +40726,11 @@
     {
       "source_path": "articles/batch/batch-certificates.md",
       "redirect_url": "/azure/batch/credential-access-key-vault",
+      "redirect_document_id": false
+    },
+    {
+      "source_path": "articles/batch/batch-low-pri-vms.md",
+      "redirect_url": "/azure/batch/batch-spot-vms",
       "redirect_document_id": false
     },
     {
