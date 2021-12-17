@@ -20,6 +20,9 @@ ms.author: genli
 
 Outbound email messages that are sent directly to external domains (like outlook.com and gmail.com) on TCP port 25 from a virtual machine (VM) is possible only when the VM is deployed in certain subscription types.
 
+> [!IMPORTANT]
+> For all examples below, the process applies *only* to Virtual Machines & VM Scale Sets resources (`Microsoft.Compute/virtualMachines` & `Microsoft.Compute/virtualMachineScaleSets`). Sending email on Port 25 is unsupported from all Azure Platform-as-a-Service (PaaS) resources, including [Azure App Service](https://azure.microsoft.com/services/app-service) and [Azure Functions](https://azure.microsoft.com/services/functions).
+
 ## Recommended method of sending email
 
 We recommend you use authenticated SMTP relay services to send email from Azure VMs or from Azure App Service. (These relay services typically connect through TCP port 587, but they support other ports.) These services are used to maintain IP and domain reputation to minimize the possibility that external domains reject your messages or put them to the SPAM folder. [SendGrid](https://sendgrid.com/partners/azure/) is one such SMTP relay service, but there are others. You might also have an authenticated SMTP relay service on your on-premises servers.

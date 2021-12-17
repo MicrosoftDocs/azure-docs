@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/09/2020
+ms.date: 08/11/2021
 ms.author: jeedes
 ---
 
@@ -32,7 +32,7 @@ To get started, you need the following items:
 
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
-* Cisco AnyConnect supports **IDP** initiated SSO
+* Cisco AnyConnect supports **IDP** initiated SSO.
 
 ## Adding Cisco AnyConnect from the gallery
 
@@ -71,10 +71,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 1. On the **Set up single sign-on with SAML** page, enter the values for the following fields (note that the values are case-sensitive):
 
    1. In the **Identifier** text box, type a URL using the following pattern:  
-      `https://*.YourCiscoServer.com/saml/sp/metadata/TGTGroup`
+      `https://<SUBDOMAIN>.YourCiscoServer.com/saml/sp/metadata/<Tunnel_Group_Name>`
 
    1. In the **Reply URL** text box, type a URL using the following pattern:  
-      `https://YOUR_CISCO_ANYCONNECT_FQDN/+CSCOE+/saml/sp/acs?tgname=TGTGroup`
+      `https://<YOUR_CISCO_ANYCONNECT_FQDN>/+CSCOE+/saml/sp/acs?tgname=<Tunnel_Group_Name>`
 
     > [!NOTE]
     > For clarification about these values, contact Cisco TAC support. Update these values with the actual Identifier and Reply URL provided by Cisco TAC. Contact the [Cisco AnyConnect Client support team](https://www.cisco.com/c/en/us/support/index.html) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
@@ -88,7 +88,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
 > [!NOTE]
-> If you would like to on board multiple TGTs of the server then you need to add multiple instance of the Cisco AnyConnect application from the gallery. Also you can choose to upload your own certificate in Azure AD for all these application instances. That way you can have same certificate for the applications but you can configure different Identifier and Reply URL for every application.
+> If you would like to on board multiple TGTs of the server then you need to add multiple instances of the Cisco AnyConnect application from the gallery. You can also choose to upload your own certificate in Azure AD for all these application instances. That way you can have same certificate for the applications but you can configure different Identifier and Reply URL for every application.
 
 ### Create an Azure AD test user
 
@@ -165,7 +165,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
     ```
 
     > [!NOTE]
-    > There is a feature with the SAML IdP configuration - If you make changes to the IdP config you need to remove the saml identity-provider config from your Tunnel Group and re-apply it for the changes to become effective.
+    > There is a work around with the SAML IdP configuration. If you make changes to the IdP configuration you need to remove the saml identity-provider configuration from your Tunnel Group and re-apply it for the changes to become effective.
 
 ### Create Cisco AnyConnect test user
 
@@ -176,8 +176,8 @@ In this section, you create a user called Britta Simon in Cisco AnyConnect. Work
 In this section, you test your Azure AD single sign-on configuration with following options.
 
 * Click on Test this application in Azure portal and you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO
-* You can use Microsoft Access Panel. When you click the Cisco AnyConnect tile in the Access Panel, you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+* You can use Microsoft Access Panel. When you click the Cisco AnyConnect tile in the Access Panel, you should be automatically signed in to the Cisco AnyConnect for which you set up the SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Next steps
 
-Once you configure Cisco AnyConnect you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Cisco AnyConnect you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -146,7 +146,7 @@ The following diagram shows the general network flow for access to Azure PaaS se
 1. A private connection is made to Azure by using ExpressRoute. ExpressRoute private peering with forced tunneling is used to force all customer virtual network traffic over ExpressRoute and back to on-premises. Microsoft Peering isn't required.
 2. Azure VPN Gateway, when used in conjunction with ExpressRoute and Microsoft Peering, can overlay end-to-end IPSec encryption between the customer virtual network and the on-premises edge. 
 3. Network connectivity to the customer virtual network is controlled by using network security groups that allow customers to permit/deny traffic based on IP, port, and protocol.
-4. Traffic to and from the customer private virtual network is monitored through Azure Network Watcher and data is analyzed using Log Analytics and Azure Security Center.
+4. Traffic to and from the customer private virtual network is monitored through Azure Network Watcher and data is analyzed using Log Analytics and Microsoft Defender for Cloud.
 5. The customer virtual network extends to the PaaS service by creating a service endpoint for the customer's service.
 6. The PaaS service endpoint is secured to **default deny all** and to only allow access from specified subnets within the customer virtual network.  Securing service resources to a virtual network provides improved security by fully removing public Internet access to resources and allowing traffic only from your virtual network.
 7. Other Azure services that need to access resources within the customer virtual network should either be:  
@@ -163,8 +163,7 @@ Virtual network injection enables customers to selectively deploy dedicated inst
 
 An increasing number of Azure multitenant services offer *service endpoints*. Service endpoints are an alternate method for integrating to Azure virtual networks. Virtual network service endpoints extend your virtual network IP address space and the identity of your virtual network to the service over a direct connection. Traffic from the virtual network to the Azure service always stays within the Azure backbone network. 
 
-After you enable a service endpoint for a service, use policies exposed by the service
-to restrict connections for the service to that virtual network. Access checks are enforced in the platform by the Azure service. Access to a locked resource is granted only if the request originates from the allowed virtual network or subnet, or from the two IPs that are used to identify your on-premises traffic if you use ExpressRoute. Use this method to effectively prevent inbound/outbound traffic from directly leaving the PaaS service.
+After you enable a service endpoint for a service, use policies exposed by the service to restrict connections for the service to that virtual network. Access checks are enforced in the platform by the Azure service. Access to a locked resource is granted only if the request originates from the allowed virtual network or subnet, or from the two IPs that are used to identify your on-premises traffic if you use ExpressRoute. Use this method to effectively prevent inbound/outbound traffic from directly leaving the PaaS service.
 
 :::image type="content" source="./media/tic-diagram-g.png" alt-text="Service endpoints overview" border="false":::
 

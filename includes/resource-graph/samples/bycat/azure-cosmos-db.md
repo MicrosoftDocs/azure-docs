@@ -1,15 +1,15 @@
 ---
-author: DCtheGeek
+author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 07/07/2021
-ms.author: dacoulte
+ms.date: 10/12/2021
+ms.author: gwallace
 ms.custom: generated
 ---
 
-### List Cosmos DB with specific write locations
+### List Azure Cosmos DB with specific write locations
 
-The following query limits to Cosmos DB resources, uses `mv-expand` to expand the property bag for **properties.writeLocations**, then project specific fields and limit the results further to **properties.writeLocations.locationName** values matching either 'East US' or 'West US'.
+The following query limits to Azure Cosmos DB resources, uses `mv-expand` to expand the property bag for **properties.writeLocations**, then project specific fields and limit the results further to **properties.writeLocations.locationName** values matching either 'East US' or 'West US'.
 
 ```kusto
 Resources

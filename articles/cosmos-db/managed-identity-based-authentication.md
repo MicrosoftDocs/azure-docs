@@ -92,23 +92,23 @@ az role assignment create --assignee $principalId --role "DocumentDB Account Con
 
 Now we have a function app that has a system-assigned managed identity with the **DocumentDB Account Contributor** role in the Azure Cosmos DB permissions. The following function app code will get the Azure Cosmos DB keys, create a CosmosClient object, get the temperature of the aquarium, and then save this to Azure Cosmos DB.
 
-This sample uses the [List Keys API](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-keys) to access your Azure Cosmos DB account keys.
+This sample uses the [List Keys API](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/database-accounts/list-keys) to access your Azure Cosmos DB account keys.
 
 > [!IMPORTANT] 
-> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2021-04-15/database-accounts/list-read-only-keys). This will populate just the read-only keys.
+> If you want to [assign the Cosmos DB Account Reader](#grant-access-to-your-azure-cosmos-account) role, you'll need to use the [List Read Only Keys API](/rest/api/cosmos-db-resource-provider/2021-04-01-preview/database-accounts/list-read-only-keys). This will populate just the read-only keys.
 
 The List Keys API returns the `DatabaseAccountListKeysResult` object. This type isn't defined in the C# libraries. The following code shows the implementation of this class:  
 
 ```csharp 
 namespace Monitor 
 {
-  public class DatabaseAccountListKeysResult
-  {
-      public string primaryMasterKey {get;set;}
-      public string primaryReadonlyMasterKey {get; set;}
-      public string secondaryMasterKey {get; set;}
-      public string secondaryReadonlyMasterKey {get;set;}
-  }
+    public class DatabaseAccountListKeysResult
+    {
+        public string primaryMasterKey { get; set; }
+        public string primaryReadonlyMasterKey { get; set; }
+        public string secondaryMasterKey { get; set; }
+        public string secondaryReadonlyMasterKey { get; set; }
+    }
 }
 ```
 
@@ -124,7 +124,6 @@ namespace Monitor
         public string id { get; set; } = Guid.NewGuid().ToString();
         public DateTime RecordTime { get; set; }
         public int Temperature { get; set; }
-
     }
 }
 ```
@@ -183,7 +182,7 @@ namespace Monitor
             var result = await httpClient.PostAsync(endpoint, new StringContent(""));
 
             // Get the result back as a DatabaseAccountListKeysResult.
-            DatabaseAccountListKeysResult keys = await result.Content.ReadAsAsync<DatabaseAccountListKeysResult>();
+            DatabaseAccountListKeysResult keys = await result.Content.ReadFromJsonAsync<DatabaseAccountListKeysResult>();
 
             log.LogInformation("Starting to create the client");
 

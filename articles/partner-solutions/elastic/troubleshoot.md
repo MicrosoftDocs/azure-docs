@@ -1,11 +1,8 @@
 ---
 title: Troubleshooting Elastic - Azure partner solutions
 description: This article provides information about troubleshooting Elastic integration with Azure
-ms.service: partner-services
 ms.topic: conceptual
-ms.date: 05/20/2021
-author: tfitzmac
-ms.author: tomfitz
+ms.date: 09/02/2021
 ---
 
 # Troubleshooting Elastic integration with Azure

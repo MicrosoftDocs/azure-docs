@@ -2,12 +2,12 @@
 title: Actions in the Standard rules engine for Azure CDN | Microsoft Docs
 description: Reference documentation for actions in the Standard rules engine for Azure Content Delivery Network (Azure CDN).
 services: cdn
-author: asudbring
+author: duongau
 
 ms.service: azure-cdn
 ms.topic: article
 ms.date: 08/04/2020
-ms.author: allensu
+ms.author: duau
 
 ---
 

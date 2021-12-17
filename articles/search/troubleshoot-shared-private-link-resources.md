@@ -72,9 +72,9 @@ In addition, the specified `groupId` needs to be valid for the specified resourc
 
 ### Azure Resource Manager deployment failures
 
-Once search has accepted the request to create a shared private link resource, the Azure Resource Manager deployment that it kicks off can also fail for any number of reasons. In all cases, when customers query for the status of the asynchronous operation (described [here](search-indexer-howto-access-private.md#step-1-create-a-shared-private-link-resource-to-the-storage-account)), an appropriate error message and any available details will be presented.
+A search service initiates the request to create a shared private link, but Azure Resource Manager performs the actual work. You can [check the deployment's status](search-indexer-howto-access-private.md#step-3-check-the-status-of-the-private-endpoint-creation) in the portal or by query, and address any errors that might occur.
 
-Shared private link resources that have failed Azure Resource Manager deployment will show up in [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) and [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) API calls, but will have a "Provisioning State" of `Failed`. Once the reason of the Azure Resource Manager deployment failure has been ascertained, delete the `Failed` resource and re-create it after applying the appropriate resolution from the table below.
+Shared private link resources that have failed Azure Resource Manager deployment will show up in [List](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/list-by-service) and [Get](/rest/api/searchmanagement/2021-04-01-preview/shared-private-link-resources/get) API calls, but will have a "Provisioning State" of `Failed`. Once the reason of the Azure Resource Manager deployment failure has been ascertained, delete the `Failed` resource and re-create it after applying the appropriate resolution from the following table.
 
 | Deployment failure reason | Description | Resolution |
 | --- | --- | --- |

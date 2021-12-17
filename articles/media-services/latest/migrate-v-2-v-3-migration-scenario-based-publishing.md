@@ -21,14 +21,14 @@ ms.author: inhenkel
 
 This article gives you scenario-based guidance for packaging and delivery that will assist you in migrating from Azure Media Services v2 to v3.
 
-Major changes to the way content is published in v3 API. The new publishing model is simplified and uses fewer entities to create a Streaming Locator. The API reduced down to just two entities vs. the four entities previously required. Content Key Policies and Streaming Locators now replace the need for `ContentKeyAuthoriationPolicy`, `AssetDeliveyPolicy`, `ContentKey`, and `AccessPolicy`.
+Major changes to the way content is published in v3 API. The new publishing model is simplified and uses fewer entities to create a Streaming Locator. The API reduced down to just two entities vs. the four entities previously required. Content Key Policies and Streaming Locators now replace the need for `ContentKeyAuthorizationPolicy`, `AssetDeliveryPolicy`, `ContentKey`, and `AccessPolicy`.
 
 ## Packaging and delivery in v3
 
 1. Create [Content Key Policies](drm-content-key-policy-concept.md).
 1. Create [Streaming Locators](stream-streaming-locators-concept.md).
 1. Get the [Streaming paths](create-streaming-locator-build-url.md) 
-    1. Configure it for a [DASH](encode-dynamic-packaging-concept.md#mpeg-dash-protocol) or [HLS](encode-dynamic-packaging-concept.md#hls-protocol) player.
+    1. Configure it for a [DASH](encode-dynamic-packaging-concept.md#deliver-dash) or [HLS](encode-dynamic-packaging-concept.md#deliver-hls) player.
 
 See publishing concepts, tutorials and how to guides below for specific steps.
 

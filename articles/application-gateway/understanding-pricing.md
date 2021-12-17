@@ -340,9 +340,9 @@ Monthly price estimates are based on 730 hours of usage per month.
 
 Fixed Price = $0.443 * 730 (Hours) =  $323.39
 
-Variable Costs = $0.0144  * 730 (Hours) * {Max (25/50, 8.88/2.22)} = $23.36 (4 Capacity units required to handle 8.88 Mbps)
+Variable Costs = $0.0144  * 730 (Hours) * {Max (25/50, 8.88/2.22)} = $42.048 (4 Capacity units required to handle 8.88 Mbps)
 
-Total Costs = $323.39 + $23.36 = $346.75
+Total Costs = $323.39 + $42.048 = $365.438
 
 ### Example 5 (a) – Standard_V2 with Autoscaling, time-based calculations
 
@@ -396,4 +396,4 @@ Observed Capacity Units in metrics = 49.23
 See the following articles to learn more about how pricing works in Azure Application Gateway:
 
 * [Azure Application Gateway pricing page](https://azure.microsoft.com/pricing/details/application-gateway/)
-* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/en-us/pricing/calculator/?service=application-gateway)
+* [Azure Application Gateway pricing calculator](https://azure.microsoft.com/pricing/calculator/?service=application-gateway)

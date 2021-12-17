@@ -63,7 +63,7 @@ If you choose one of the standard plans, you need to provide billing information
 
 - The Azure subscription you're using.
 - The directory that contains the subscription you're using.
-- The location to host your application. IoT Central uses Azure geographies as locations: United States, Europe, Asia Pacific, Australia, United Kingdom, or Japan.
+- The location to host your application. IoT Central uses Azure regions as locations: Australia East, Central US, East US, East US 2, Japan East, North Europe, Southeast Asia, UK South, West Europe, West US.
 
 ## Azure IoT Central site
 
@@ -108,7 +108,7 @@ When you create an application template, it includes the following items from yo
 - The default application dashboard, including the dashboard layout and all the tiles you've defined.
 - Device templates, including measurements, settings, properties, commands, and dashboard.
 - Rules. All rule definitions are included. However actions, except for email actions, aren't included.
-- Device sets, including their conditions and dashboards.
+- Device groups, including their queries.
 
 > [!WARNING]
 > If a dashboard includes tiles that display information about specific devices, then those tiles show **The requested resource was not found** in the new application. You must reconfigure these tiles to display information about devices in your new application.

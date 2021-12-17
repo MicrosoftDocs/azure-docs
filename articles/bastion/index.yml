@@ -49,9 +49,13 @@ landingContent:
           - text: Create a Bastion host
             url: ./tutorial-create-host-portal.md
           - text: Connect to a virtual machine (Linux)
-            url: bastion-connect-vm-ssh.md
+            url: bastion-connect-vm-ssh-linux.md
           - text: Connect to a virtual machine (Windows)
-            url: bastion-connect-vm-rdp.md
+            url: bastion-connect-vm-rdp-windows.md
+      - linkListType: learn
+        links:
+          - text: Connect to a VM using Azure Bastion
+            url: /learn/modules/connect-vm-with-azure-bastion/
       - linkListType: video
         links:
           - text: Working with Azure Bastion

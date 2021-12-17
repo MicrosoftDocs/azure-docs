@@ -23,7 +23,7 @@ With Azure Front Door Standard/Premium, you can transform your global consumer a
 
 Azure Front Door Standard/Premium works at Layer 7 (HTTP/HTTPS layer) using anycast protocol with split TCP and Microsoft's global network to improve global connectivity. Based on your customized routing method using rules set, you can ensure that Azure Front Door will route your client requests to the fastest and most available origin. An application origin is any Internet-facing service hosted inside or outside of Azure. Azure Front Door Standard/Premium provides a range of traffic-routing methods and origin health monitoring options to suit different application needs and automatic failover scenarios. Similar to Traffic Manager, Front Door is resilient to failures, including failures to an entire Azure region.
 
-Azure Front Door also protect your app at the edges with integrated Web Application Firewall protection, Bot Protection, and built-in layer 3/layer 4 distributed denial of service (DDoS) protection. It also secures your private back-ends with private link service. Azure Front Door gives you Microsoft’s best-in-practice security at global scale.  
+Azure Front Door also protects your app at the edges with integrated Web Application Firewall protection, Bot Protection, and built-in layer 3/layer 4 distributed denial of service (DDoS) protection. It also secures your private back-ends with private link service. Azure Front Door gives you Microsoft’s best-in-practice security at global scale.  
 
 >[!NOTE]
 > Azure provides a suite of fully managed load-balancing solutions for your scenarios.
@@ -48,7 +48,7 @@ Key features included with Azure Front Door Standard/Premium (Preview):
 
 - Accelerated application performance by using **[split TCP-based](../front-door-routing-architecture.md#splittcp)** anycast protocol.
 
-- Intelligent **[health probe](concept-health-probes.md)** monitoring and load balancing among **[origins](concept-origin.md)**.
+- Intelligent **[health probe](/azure/frontdoor/front-door-health-probes)** monitoring and load balancing among **[origins](concept-origin.md)**.
 
 - Define your own **[custom domain](how-to-add-custom-domain.md)** with flexible domain validation.
 

@@ -19,6 +19,40 @@ The following resources are also available:
 - <a href="https://azure.microsoft.com/resources/samples/?service=service-fabric&sort=0" target="blank">Code Samples</a>
 
 
+## Service Fabric 8.2
+
+We are excited to announce that 8.2 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.
+
+### Key announcements
+- Expose an API in Cluster Manager to note if upgrade is impactful
+
+### Service Fabric 8.2 releases
+| Release date | Release | More info |
+|---|---|---|
+| October 29, 2021 | [Azure Service Fabric 8.2](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-2-release/ba-p/2895108)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_82.md)|
+
+
+## Service Fabric 8.1
+
+We are excited to announce that 8.1 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.
+
+### Key announcements
+- Added support for Auxiliary Replica
+- **Preview** Added support for .NET 6.0 Service Fabric applications
+- Added API support for updating application descriptions
+- Added periodic ping between Reconfiguration Agent (RA) and Reconfiguration Agent Proxy (RAP) to detect IPC failure and process stuck
+- Added support for liveness and readiness probes for non containerized applications
+- Made cluster upgrade for node capacity updates impactless
+
+### Service Fabric 8.1 releases
+| Release date | Release | More info |
+|---|---|---|
+| July 28, 2021 | [Azure Service Fabric 8.1](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-release/ba-p/2594194)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81.md)|
+| August 13, 2021 | [Azure Service Fabric 8.1 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-first-refresh-release/ba-p/2638798) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU1.md) |
+| September 09, 2021 | [Azure Service Fabric 8.1 Second Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-second-refresh-release/ba-p/2734904) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU2.md) |
+| October 06 2021 | [Azure Service Fabric 8.1 Third Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-1-third-refresh-release/ba-p/2816117) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_81CU3.md) |
+
+
 ## Service Fabric 8.0
 
 We are excited to announce that 8.0 release of the Service Fabric runtime has started rolling out to the various Azure regions along with tooling and SDK updates. The updates for .NET SDK, Java SDK and Service Fabric runtime are available through Web Platform Installer, NuGet packages and Maven repositories.
@@ -41,13 +75,13 @@ We are excited to announce that 8.0 release of the Service Fabric runtime has st
 - Fixed StateManager to release the reference as soon as safe to release
 - Block Central Secret Service removal while storing user secrets
 
-
 ### Service Fabric 8.0 releases
 | Release date | Release | More info |
 |---|---|---|
 | April 08, 2021 | [Azure Service Fabric 8.0](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-release/ba-p/2260016)  | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80.md)|
 | May 17, 2021 | [Azure Service Fabric 8.0 First Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-first-refresh-release/ba-p/2362556) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU1.md) |
 | June 17, 2021 | [Azure Service Fabric 8.0 Second Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-second-refresh-release/ba-p/2462979) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU2.md) |
+| July 28, 2021 | [Azure Service Fabric 8.0 Third Refresh Release](https://techcommunity.microsoft.com/t5/azure-service-fabric/azure-service-fabric-8-0-third-refresh-release/ba-p/2594180) | [Release notes](https://github.com/microsoft/service-fabric/blob/master/release_notes/Service_Fabric_ReleaseNotes_80CU3.md) |
 
 
 ## Previous versions

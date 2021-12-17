@@ -1,7 +1,7 @@
 ---
 title: "Quickstart: Your first Java query"
 description: In this quickstart, you follow the steps to enable the Resource Graph Maven packages for Java and run your first query.
-ms.date: 03/30/2021
+ms.date: 07/09/2021
 ms.topic: quickstart
 ms.custom: devx-track-java
 ---
@@ -56,7 +56,7 @@ install the required Maven packages.
     <dependency>
         <groupId>com.azure.resourcemanager</groupId>
         <artifactId>azure-resourcemanager-resourcegraph</artifactId>
-        <version>1.0.0-beta.1</version>
+        <version>1.0.0</version>
     </dependency>
    ```
 

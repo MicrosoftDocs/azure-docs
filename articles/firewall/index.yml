@@ -43,19 +43,19 @@ landingContent:
 
 
   # Card
-  - title: Learn about Azure Firewall Premium Preview
+  - title: Learn about Azure Firewall Premium
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Firewall Premium Preview features 
+          - text: Azure Firewall Premium features 
             url: premium-features.md
       - linkListType: concept
         links:
-          - text: Azure Firewall Premium Preview certificates
+          - text: Azure Firewall Premium certificates
             url: premium-certificates.md
       - linkListType: how-to-guide
         links:
-          - text: Deploy and configure Azure Firewall Premium Preview
+          - text: Deploy and configure Azure Firewall Premium
             url: premium-deploy.md
 
 

@@ -9,6 +9,7 @@ ms.subservice: edge
 ms.topic: how-to
 ms.date: 06/30/2021
 ms.author: alkohli
+ms.custom: has-adal-ref
 #Customer intent: As an IT admin, I need to understand how to create and manage virtual machines (VMs) on my Azure Stack Edge Pro device using APIs so that I can efficiently manage my VMs.
 ---
 
@@ -18,7 +19,7 @@ ms.author: alkohli
 
 [!INCLUDE [azure-stack-edge-gateway-deploy-virtual-machine-overview](../../includes/azure-stack-edge-gateway-deploy-virtual-machine-overview.md)]
 
-This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Azure Command Line Interface (CLI) and Python.
+This tutorial describes how to create and manage a VM on your Azure Stack Edge Pro device using Python and the Azure API.
 
 ## VM deployment workflow
 

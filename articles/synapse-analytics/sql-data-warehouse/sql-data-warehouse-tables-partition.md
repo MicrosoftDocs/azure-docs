@@ -1,15 +1,15 @@
 ---
-title: Partitioning tables
-description: Recommendations and examples for using table partitions in dedicated SQL pool 
+title: Partitioning tables in dedicated SQL pool 
+description: Recommendations and examples for using table partitions in dedicated SQL pool.
 services: synapse-analytics
-author: XiaoyuMSFT
 manager: craigg
 ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
-ms.date: 03/18/2019
-ms.author: xiaoyul
-ms.reviewer: igorstan
+ms.date: 11/02/2021
+author: WilliamDAssafMSFT
+ms.author: wiassaf
+ms.reviewer: 
 ms.custom: seo-lt-2019, azure-synapse
 ---
 
@@ -37,7 +37,7 @@ Partitioning can also be used to improve query performance. A query that applies
 
 For example, if the sales fact table is partitioned into 36 months using the sales date field, then queries that filter on the sale date can skip searching in partitions that don't match the filter.
 
-## Sizing partitions
+## Partition sizing
 
 While partitioning can be used to improve performance some scenarios, creating a table with **too many** partitions can hurt performance under some circumstances.  These concerns are especially true for clustered columnstore tables. 
 
@@ -55,7 +55,7 @@ Dedicated SQL pool introduces a way to define partitions that is simpler than SQ
 
 While the syntax of partitioning may be slightly different from SQL Server, the basic concepts are the same. SQL Server and dedicated SQL pool support one partition column per table, which can be ranged partition. To learn more about partitioning, see [Partitioned Tables and Indexes](/sql/relational-databases/partitions/partitioned-tables-and-indexes?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true).
 
-The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement to partition the FactInternetSales table on the OrderDateKey column:
+The following example uses the [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement to partition the `FactInternetSales` table on the `OrderDateKey` column:
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales]
@@ -81,7 +81,7 @@ WITH
 ;
 ```
 
-## Migrating partitioning from SQL Server
+## Migrate partitions from SQL Server
 
 To migrate SQL Server partition definitions to dedicated SQL pool simply:
 
@@ -129,6 +129,8 @@ GROUP BY    s.[name]
 Dedicated SQL pool supports partition splitting, merging, and switching. Each of these functions is executed using the [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql?toc=/azure/synapse-analytics/sql-data-warehouse/toc.json&bc=/azure/synapse-analytics/sql-data-warehouse/breadcrumb/toc.json&view=azure-sqldw-latest&preserve-view=true) statement.
 
 To switch partitions between two tables, you must ensure that the partitions align on their respective boundaries and that the table definitions match. As check constraints are not available to enforce the range of values in a table, the source table must contain the same partition boundaries as the target table. If the partition boundaries are not then same, then the partition switch will fail as the partition metadata will not be synchronized.
+
+A partition split requires the respective partition (not necessarily the whole table) to be empty if the table has a clustered columnstore index (CCI). Other partitions in the same table can contain data. A partition that contains data cannot be split, it will result in error: `ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.` As a workaround to split a partition containing data, see [How to split a partition that contains data](#how-to-split-a-partition-that-contains-data). 
 
 ### How to split a partition that contains data
 
@@ -187,8 +189,10 @@ The following split command receives an error message:
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
+```
 Msg 35346, Level 15, State 1, Line 44
 SPLIT clause of ALTER PARTITION statement failed because the partition is not empty. Only empty partitions can be split in when a columnstore index exists on the table. Consider disabling the columnstore index before issuing the ALTER PARTITION statement, then rebuilding the columnstore index after ALTER PARTITION is complete.
+```
 
 However, you can use `CTAS` to create a new table to hold the data.
 
@@ -274,6 +278,11 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
 ```
 
 ### Table partitioning source control
+
+> [!NOTE]
+> If your source control tool is not configured to ignore partition schemas, altering a table's schema to update partitions may cause a table to be dropped and recreated as part of the deployment, which may be unfeasible. A custom solution to implement such a change, as described below, may be necessary. Check that your continuous integration/continuous deployment (CI/CD) tool allows for this. In SQL Server Data Tools (SSDT), look for the Advanced Publish Settings "Ignore partition schemes" to avoid a generated script that cause a table to be dropped and recreated.
+
+This example is useful when updating partition schemas of an empty table. To continuously deploy partition changes on a table with data, follow the steps in [How to split a partition that contains data](#how-to-split-a-partition-that-contains-data) alongside deployment to temporarily move data out of each partition before applying the partition SPLIT RANGE. This is necessary since the CI/CD tool isn't aware of which partitions have data.
 
 To avoid your table definition from **rusting** in your source control system, you may want to consider the following approach:
 

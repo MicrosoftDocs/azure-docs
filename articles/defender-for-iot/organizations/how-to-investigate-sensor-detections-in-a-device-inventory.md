@@ -1,7 +1,7 @@
 ---
 title: Gain insight into devices discovered by a specific sensor
 description: The device inventory displays an extensive range of device attributes that a sensor detects. 
-ms.date: 12/06/2020
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -17,9 +17,9 @@ The device inventory displays an extensive range of device attributes that a sen
 
  - Create groups for display in the device map.
 
-## View device attributes in the device inventory
+## View device attributes in the Device inventory
 
-The following attributes appear in the device inventory table.
+The following attributes appear in the Device inventory table.
 
 | Parameter | Description |
 |--|--|
@@ -39,8 +39,22 @@ The following attributes appear in the device inventory table.
 | Groups | The groups that this device participates in. |
 | Last Activity | The last activity that the device performed. |
 | Discovered | When this device was first seen in the network. |
+| **PLC mode (preview)** | The PLC operating mode includes the Key state (physical) and run state (logical). Possible **Key** states include, Run, Program, Remote, Stop, Invalid, Programming Disabled.Possible Run. The possible **Run** states are Run, Program, Stop, Paused, Exception, Halted, Trapped, Idle, Offline. if both states are the same, only oe state is presented. |
 
-To view the device inventory:
+## What is an Inventory device?
+
+The Defender for IoT Device inventory displays an extensive range of asset attributes that are detected by sensors monitoring the organizations networks and managed endpoints.
+
+Defender for IoT will identify and classify devices as a single unique network device in the inventory for:
+
+1. Standalone IT/OT/IoT devices (w/ 1 or multiple NICs)
+1. Devices composed of multiple backplane components (including all racks/slots/modules)
+1. Devices acting as network infrastructure such as Switch/Router (w/ multiple NICs). 
+
+Public internet IP addresses, multicast groups, and broadcast groups are not considered inventory devices.
+Devices that have been inactive for more than 60 days are classified as inactive Inventory devices.
+
+**To view the device inventory:**
 
 1. In the left pane, select **Devices**. The **Devices** pane opens on the right.
 
@@ -72,7 +86,7 @@ You can save a filter or a combination of filters that you need and reapply them
 
 The filters that you save are also saved as device map groups. This feature provides an additional level of granularity in viewing network devices on the map.
 
-To create filters:
+**To create filters:**
 
 1. In the column that you want to filter, select :::image type="icon" source="media/how-to-work-with-asset-inventory-information/filter-icon.png" border="false":::.
 
@@ -166,7 +180,7 @@ You can deploy the script once or schedule ongoing queries by using standard aut
 
 - If you run the script again in the same location, these files are overwritten.
 
-To run the script:  
+**To run the script:** 
 
 1. Copy the script to a local drive and unzip it. The following files appear:
 
@@ -194,7 +208,7 @@ Files generated from the queries can be placed in one folder that you can access
 
 Don't update file names.
 
-To import:
+**To import:**
 
 1. Select **Import Settings** from the **Import Windows Configuration** dialog box.
 
@@ -205,6 +219,49 @@ To import:
 3. Select **Close**. The device registry information is imported. If there's a problem uploading one of the files, you'll be informed which file upload failed.
 
    :::image type="content" source="media/how-to-work-with-asset-inventory-information/add-new-file.png" alt-text="Upload of added files was successful.":::
+
+## View and delete inactive devices from the inventory
+
+You may want to view devices in your network that have been inactive and delete them.
+Devices may become inactive because of:
+- Misconfigured SPAN ports
+- Changes in network coverage
+- Unplugging from the network
+
+Deleting inactive devices helps:
+
+- Defender for IoT create a more accurate representation of current network activity
+- Better evaluate committed devices when managing subscriptions
+- Reduce clutter on your screen
+
+### View inactive devices
+
+You can filter the inventory to display devices that are inactive:
+
+- for 7 days or more
+- for 14 days or more
+- 30 days or more
+- 90 days or more
+
+**To filter the inventory:**
+  
+1. Select the **Last Seen** filter icon in the Inventory.
+1. Select a filter option.
+1. Select **Apply**.
+
+### Delete inactive devices
+
+Devices you delete from the Inventory are removed from the map and won't be calculated when generating Defender for IoT reports, for example Data Mining, Risk Assessment, and Attack Vector reports.
+
+You will be prompted to record a reason for deleting devices. This information, as well as the time/date and number of devices deleted, appears in the Event timeline.
+
+**To delete devices from the inventory:**
+  
+1. Select the **Last Seen** filter icon in the Inventory.
+1. Select a filter option.
+1. Select **Apply**.
+1. Select **Delete Inactive Devices**.
+1. In the confirmation dialog box that opens, enter the reason for the deletion and select **Delete**. All devices detected within the range of the filter will be deleted. If you  delete a large number of devices, the delete process may take a few minutes.
 
 ## Export device inventory information
 

@@ -75,7 +75,7 @@ The claims challenge should be passed as a part of all calls to Azure AD's [/aut
 To populate the claims parameter, the developer has to:
 
 1. Decode the base64 string received earlier.
-2. URL Encode the string and add again to the **claims** parameter.
+2. URL-encode the string and add again to the **claims** parameter.
 
 Upon completion of this flow, the application will receive an Access Token that has the additional claims that prove that the user satisfied the conditions required.
 

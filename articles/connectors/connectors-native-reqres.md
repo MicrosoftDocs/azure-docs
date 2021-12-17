@@ -3,9 +3,9 @@ title: Receive and respond to calls by using HTTPS
 description: Handle inbound HTTPS requests from external services by using Azure Logic Apps
 services: logic-apps
 ms.suite: integration
-ms.reviewers: jonfan, logicappspm
+ms.reviewers: estfan, azla
 ms.topic: conceptual
-ms.date: 11/19/2020
+ms.date: 08/04/2021
 tags: connectors
 ---
 
@@ -24,6 +24,10 @@ For example, you can have your logic app:
 This article shows how to use the Request trigger and Response action so that your logic app can receive and respond to inbound calls.
 
 For more information about security, authorization, and encryption for inbound calls to your logic app, such as [Transport Layer Security (TLS)](https://en.wikipedia.org/wiki/Transport_Layer_Security), previously known as Secure Sockets Layer (SSL), [Azure Active Directory Open Authentication (Azure AD OAuth)](../active-directory/develop/index.yml), exposing your logic app with Azure API Management, or restricting the IP addresses that originate inbound calls, see [Secure access and data - Access for inbound calls to request-based triggers](../logic-apps/logic-apps-securing-a-logic-app.md#secure-inbound-requests).
+
+> [!NOTE]
+> For the **Logic App (Standard)** resource type in single-tenant Azure Logic Apps, Azure AD OAuth is currently 
+> unavailable for inbound calls to request-based triggers, such as the Request trigger and HTTP Webhook trigger.
 
 ## Prerequisites
 
@@ -147,6 +151,23 @@ Your logic app keeps an inbound request open only for a [limited time](../logic-
       ```
 
 1. To check that the inbound call has a request body that matches your specified schema, follow these steps:
+
+   1. To enforce the inbound message to have the same exact fields that your schema describes, in your schema, add the `required` property and specify the required fields. Add the `addtionalProperties` and set the value to `false`. 
+   
+      For example, the following schema specifies that the inbound message must have the `msg` field and not any other fields:
+
+      ```json
+      {
+         "properties": {
+           "msg": {
+              "type": "string"
+           }
+         },
+         "type": "object",
+         "required": ["msg"],
+         "additionalProperties": false
+      }
+      ```
 
    1. In the Request trigger's title bar, select the ellipses button (**...**).
 

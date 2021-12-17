@@ -173,7 +173,7 @@ Many tools and methods can be used to assess the MySQL data workloads and enviro
 
 ### Azure migrate
 
-Although [Azure Migrate](/azure/migrate/migrate-services-overview) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](/azure/migrate/concepts-dependency-visualization) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent gathers the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
+Although [Azure Migrate](../../../migrate/migrate-services-overview.md) doesn't support migrating MySQL database workloads directly, it can be used when administrators are unsure of what users and applications are consuming the data, whether hosted in a virtual or hardware-based machine. [Dependency analysis](../../../migrate/concepts-dependency-visualization.md) can be accomplished by installing and running the monitoring agent on the machine hosting the MySQL workload. The agent gathers the information over a set period, such as a month. The dependency data can be analyzed to find unknown connections being made to the database. The connection data can help identify application owners that need to be notified of the pending migration.
 
 In addition to the dependency analysis of applications and user connectivity data, Azure Migrate can also be used to analyze the [Hyper-V, VMware, or physical servers](../../../migrate/migrate-appliance-architecture.md) to provide utilization patterns of the database workloads to help suggest the proper target environment.
 
@@ -235,7 +235,7 @@ After reviewing the initial costs, WWI's CIO confirmed they are on Azure for a p
 As the table above shows, backups, network egress, and any read replicas must be considered in the total cost of ownership (TCO). As more databases are added, the storage and network traffic generated would be the only extra cost-based factor to consider.
 
 > [!NOTE]
-> The estimates above don't include any [ExpressRoute](/azure/expressroute/expressroute-introduction), [Azure App Gateway](/azure/application-gateway/overview), [Azure Load Balancer](/azure/load-balancer/load-balancer-overview), or [App Service](/azure/app-service/overview) costs for the application layers.
+> The estimates above don't include any [ExpressRoute](../../../expressroute/expressroute-introduction.md), [Azure App Gateway](../../../application-gateway/overview.md), [Azure Load Balancer](../../../load-balancer/load-balancer-overview.md), or [App Service](../../../app-service/overview.md) costs for the application layers.
 >
 > The above pricing can change at any time and varies based on region.
 

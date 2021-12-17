@@ -3,10 +3,12 @@ title: How to mitigate latency when using the Face service
 titleSuffix: Azure Cognitive Services
 description: Learn how to mitigate latency when using the Face service.
 services: cognitive-services
-manager: chrhoder
+author: PatrickFarley
+manager: nitinme
 ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 1/5/2021
+ms.author: pafarley
 ---
 
 # How to: mitigate latency when using the Face service
@@ -60,11 +62,11 @@ Mitigations:
 var faces = await client.Face.DetectWithUrlAsync("https://csdx.blob.core.windows.net/resources/Face/Images/Family1-Daughter1.jpg");
 ```
 - Consider uploading a smaller file.
-	- See the guidelines regarding [input data for face detection](../concepts/face-detection.md#input-data) and [input data for face recognition](../concepts/face-recognition.md#input-data).
-	- For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size will increase processing speed. When using detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080.
-	- For face recognition, reducing the face size to 200x200 pixels does not affect the accuracy of the recognition model.
-	- The performance of the `DetectWithUrlAsync` and `DetectWithStreamAsync` methods also depends on how many faces are in an image. The Face service can return up to 100 faces for an image. Faces are ranked by face rectangle size from large to small.
-	- If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. For example, if you need to detect faces in two images to perform a face comparison:
+    - See the guidelines regarding [input data for face detection](../concepts/face-detection.md#input-data) and [input data for face recognition](../concepts/face-recognition.md#input-data).
+    - For face detection, when using detection model `DetectionModel.Detection01`, reducing the image file size will increase processing speed. When using detection model `DetectionModel.Detection02`, reducing the image file size will only increase processing speed if the image file is smaller than 1920x1080.
+    - For face recognition, reducing the face size to 200x200 pixels does not affect the accuracy of the recognition model.
+    - The performance of the `DetectWithUrlAsync` and `DetectWithStreamAsync` methods also depends on how many faces are in an image. The Face service can return up to 100 faces for an image. Faces are ranked by face rectangle size from large to small.
+    - If you need to call multiple service methods, consider calling them in parallel if your application design allows for it. For example, if you need to detect faces in two images to perform a face comparison:
 ```csharp
 var faces_1 = client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1MzAyNzYzOTgxNTE0NTEz/john-f-kennedy---mini-biography.jpg");
 var faces_2 = client.Face.DetectWithUrlAsync("https://www.biography.com/.image/t_share/MTQ1NDY3OTIxMzExNzM3NjE3/john-f-kennedy---debating-richard-nixon.jpg");

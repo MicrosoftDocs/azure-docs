@@ -1,9 +1,9 @@
 ---
 title: Set up AWS integration with Azure Cost Management
-description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Azure Cost Management.
+description: This article walks you through setting up and configuring AWS Cost and Usage report integration with Cost Management.
 author: bandersmsft
 ms.author: banders
-ms.date: 06/08/2021
+ms.date: 10/07/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: cost-management
@@ -12,7 +12,7 @@ ms.reviewer: matrive
 
 # Set up and configure AWS Cost and Usage report integration
 
-With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you monitor and control your AWS spending in Azure Cost Management. The integration allows a single location in the Azure portal where you monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you can use Azure Cost Management features to analyze costs and review budgets.
+With Amazon Web Services (AWS) Cost and Usage report (CUR) integration, you monitor and control your AWS spending in Cost Management. The integration allows a single location in the Azure portal where you monitor and control spending for both Azure and AWS. This article explains how to set up the integration and configure it so that you can use Cost Management features to analyze costs and review budgets.
 
 Cost Management processes the AWS Cost and Usage report stored in an S3 bucket by using your AWS access credentials to get report definitions and download report GZIP CSV files.
 
@@ -54,7 +54,7 @@ It can take up to 24 hours for AWS to start delivering reports to your Amazon S3
 
 ## Create a role and policy in AWS
 
-Azure Cost Management accesses the S3 bucket where the Cost and Usage report is located several times a day. The service needs access to credentials to check for new data. You create a role and policy in AWS to allow Cost Management to access it.
+Cost Management accesses the S3 bucket where the Cost and Usage report is located several times a day. The service needs access to credentials to check for new data. You create a role and policy in AWS to allow Cost Management to access it.
 
 To enable role-based access to an AWS account in Cost Management, the role is created in the AWS console. You need to have the _role ARN_ and _external ID_ from the AWS console. Later, you use them on the **Create an AWS connector** page in Cost Management.
 
@@ -66,7 +66,7 @@ Use the Create a New Role wizard:
 4. On the next page, select **Another AWS account**.
 5. In **Account ID**, enter **432263259397**.
 6. In **Options**, select **Require external ID (Best practice when a third party will assume this role)**.
-7. In **External ID**, enter the external ID which is a shared passcode between the AWS role and Azure Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
+7. In **External ID**, enter the external ID which is a shared passcode between the AWS role and Cost Management. The same external ID is also used on the **New Connector** page in Cost Management. Microsoft recommends that you use a strong passcode policy when entering the external ID.
     > [!NOTE]
     > Don't change the selection for **Require MFA**. It should remain cleared.
 8. Select **Next: Permissions**.
@@ -109,7 +109,7 @@ Add permission for AWS Organizations:
 5. Select **Next: Review**.
 6. Enter a name for the new role. Check that you entered the correct information, and then select **Create Role**.
 
-    Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Azure Cost Management connector.
+    Note the role ARN and the external ID used in the preceding steps when you created the role. You'll use them later when you set up the Cost Management connector.
 
 The policy JSON should resemble the following example. Replace _bucketname_ with the name of your S3 bucket.
 

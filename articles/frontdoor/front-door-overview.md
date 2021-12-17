@@ -63,7 +63,7 @@ Key features included with Front Door:
 
 ## Pricing
 
-For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). See [SLA for Azure Front Door](https://azure.microsoft.com/en-us/support/legal/sla/frontdoor/v1_0/).
+For pricing information, see [Front Door Pricing](https://azure.microsoft.com/pricing/details/frontdoor/). See [SLA for Azure Front Door](https://azure.microsoft.com/support/legal/sla/frontdoor/v1_0/).
 
 ## What's new?
 
@@ -71,5 +71,6 @@ Subscribe to the RSS feed and view the latest Azure Front Door feature updates o
 
 ## Next steps
 
-- Learn how to [create a Front Door](quickstart-create-front-door.md).
+- [Quickstart: Create a Front Door](quickstart-create-front-door.md).
+- [Learn module: Introduction to Azure Front Door](/learn/modules/intro-to-azure-front-door/).
 - Learn [how Front Door works](front-door-routing-architecture.md).

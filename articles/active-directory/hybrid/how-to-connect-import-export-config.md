@@ -42,6 +42,9 @@ To import previously exported settings:
 > [!NOTE]
 > Override settings on this page like the use of SQL Server instead of LocalDB or the use of an existing service account instead of a default VSA. These settings aren't imported from the configuration settings file. They are there for information and comparison purposes.
 
+>[!NOTE]
+>It is not supported to modify the exported JSON file to change the configuration
+
 ### Import installation experience 
 
 The import installation experience is intentionally kept simple with minimal inputs from the user to easily provide reproducibility of an existing server.

@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 03/11/2020
-ms.author: trbye
+ms.author: eur
 ---
 
 One of the core features of the Speech service is the ability to recognize and transcribe human speech (often referred to as speech-to-text). In this quickstart, you learn how to use the Speech SDK in your apps and products to perform high-quality speech-to-text conversion.
@@ -18,25 +18,9 @@ This article assumes:
 
 * You have an Azure account and Speech service subscription. If you don't have and account and subscription -- [Try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
-## Install and import the Speech SDK
+## Install the Speech SDK
 
-Before you can do anything, you'll need to install the Speech SDK.
-
-```Python
-pip install azure-cognitiveservices-speech
-```
-
-If you're on macOS and run into install issues, you may need to run this command first.
-
-```Python
-python3 -m pip install --upgrade pip
-```
-
-After the Speech SDK is installed, import it into your Python project.
-
-```Python
-import azure.cognitiveservices.speech as speechsdk
-```
+[!INCLUDE [Get the Speech SDK include](../../get-speech-sdk-python.md)]
 
 ## Create a speech configuration
 
@@ -115,7 +99,7 @@ elif result.reason == speechsdk.ResultReason.Canceled:
 
 ## Continuous recognition
 
-The previous examples use single-shot recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
+The previous examples use at-start recognition, which recognizes a single utterance. The end of a single utterance is determined by listening for silence at the end or until a maximum of 15 seconds of audio is processed.
 
 In contrast, continuous recognition is used when you want to **control** when to stop recognizing. It requires you to connect to the `EventSignal` to get the recognition results, and to stop recognition, you must call [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition--) or [stop_continuous_recognition()](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.recognizer#stop-continuous-recognition-async--). Here's an example of how continuous recognition is performed on an audio input file.
 
@@ -206,7 +190,7 @@ Single words or complete phrases can be added to a Phrase List. During recogniti
 >
 > The Phrase List feature should be used with no more than a few hundred phrases. If you have a larger list or for languages that are not currently supported, [training a custom model](../../../custom-speech-overview.md) will likely be the better choice to improve accuracy.
 >
-> Do not use the Phrase List feature with custom endpoints. Instead, train a custom model that includes the phrases.
+> The Phrase List feature is not supported with custom endpoints. Do not use it with custom endpoints. Instead, train a custom model that includes the phrases.
 
 To use a phrase list, first create a [`PhraseListGrammar`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar) object, then add specific words and phrases with [`addPhrase`](/python/api/azure-cognitiveservices-speech/azure.cognitiveservices.speech.phraselistgrammar#addphrase-phrase--str-).
 

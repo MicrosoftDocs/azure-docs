@@ -12,6 +12,7 @@ ms.date: 12/18/2020
 ms.author: mbaldwin
 #Customer intent: As an Azure Key Vault administrator, I want to enable logging so I can monitor how my key vaults are accessed.
 ---
+
 # Azure Key Vault logging
 
 After you create one or more key vaults, you'll likely want to monitor how and when your key vaults are accessed, and by whom. You can do this by enabling logging for Azure Key Vault, which saves information in an Azure storage account that you provide. For step by step guidance on setting this up, see [How to enable Key Vault logging](howto-logging.md).

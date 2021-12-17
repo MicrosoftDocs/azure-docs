@@ -6,11 +6,11 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: compliance
 ms.topic: how-to
-ms.date: 07/06/2021
+ms.date: 07/12/2021
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: jocastel
 
 ms.collection: M365-identity-device-management
@@ -41,7 +41,7 @@ Azure AD terms of use policies have the following capabilities:
 - Require employees or guests to accept your terms of use policy prior to registering security information in Azure AD Multi-Factor Authentication (MFA).
 - Require employees to accept your terms of use policy prior to registering security information in Azure AD self-service password reset (SSPR).
 - Present a general terms of use policy for all users in your organization.
-- Present specific terms of use policies based on a user attributes (ex. doctors vs nurses or domestic vs international employees, by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
+- Present specific terms of use policies based on a user attributes (such as doctors versus nurses, or domestic versus international employees) by using [dynamic groups](../enterprise-users/groups-dynamic-membership.md)).
 - Present specific terms of use policies when accessing high business impact applications, like Salesforce.
 - Present terms of use policies in different languages.
 - List who has or hasn't accepted to your terms of use policies.
@@ -198,16 +198,10 @@ Users are only required to accept the terms of use policy once and they will not
 
 Users can review and see the terms of use policies that they have accepted by using the following procedure.
 
-1. Sign in to [https://myapps.microsoft.com](https://myapps.microsoft.com).
-1. In the upper right corner, click your name and select **Profile**.
-
-    ![MyApps site with the user's pane open](./media/terms-of-use/tou14.png)
-
-1. On your Profile page, click **Review terms of use**.
-
-    ![Profile page for a user showing the Review terms of use link](./media/terms-of-use/tou13a.png)
-
-1. From there, you can review the terms of use policies you have accepted.
+1. Sign in to [https://myaccount.microsoft.com/](https://myaccount.microsoft.com/).
+1. Select **Settings & Privacy**.
+1. Select **Privacy**.
+1. Under **Organization's notice**, select **View** next to the terms of use statement you want to review.
 
 ## Edit terms of use details
 
@@ -308,7 +302,7 @@ If the user's device is not joined, they will receive a message that they need t
 
 ### Join a Windows 10 device
 
-If a user is using Windows 10 and Microsoft Edge, they will receive a message similar to the following to [join their device](../user-help/user-help-join-device-on-network.md#to-join-an-already-configured-windows-10-device).
+If a user is using Windows 10 and Microsoft Edge, they will receive a message similar to the following to [join their device](https://support.microsoft.com/account-billing/join-your-work-device-to-your-work-or-school-network-ef4d6adb-5095-4e51-829e-5457430f3973#to-join-an-already-configured-windows-10-device).
 
 ![Windows 10 and Microsoft Edge - Message indicating your device must be registered](./media/terms-of-use/per-device-win10-edge.png)
 
@@ -425,7 +419,7 @@ A: You can [review previously accepted terms of use policies](#how-users-can-rev
 A: If you have configured both Azure AD terms of use and [Intune terms and conditions](/intune/terms-and-conditions-create), the user will be required to accept both. For more information, see the [Choosing the right Terms solution for your organization blog post](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409).
 
 **Q: What endpoints does the terms of use service use for authentication?**<br />
-A: Terms of use utilizes the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allow list of URLs for enrollment, you will need to add these endpoints to your allow list, along with the Azure AD endpoints for sign-in.
+A: Terms of use utilizes the following endpoints for authentication: https://tokenprovider.termsofuse.identitygovernance.azure.com and https://account.activedirectory.windowsazure.com. If your organization has an allowlist of URLs for enrollment, you will need to add these endpoints to your allowlist, along with the Azure AD endpoints for sign-in.
 
 ## Next steps
 

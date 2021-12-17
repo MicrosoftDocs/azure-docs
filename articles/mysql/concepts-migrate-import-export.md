@@ -45,7 +45,7 @@ To get connected, do the following:
 > [!TIP]
 > For scenarios where you want to dump and restore the entire database, use the [dump and restore](concepts-migrate-dump-restore.md) approach instead.
 
-In the following scenarios, use MySQL tools to import and export databases into your MySQL database. For other tools, go to the "Migration Methods" section (page 22) of the [MySQL to Azure Database migration guide](https://github.com/Azure/azure-mysql/blob/master/MigrationGuide/MySQL%20Migration%20Guide_v1.1.pdf). 
+In the following scenarios, use MySQL tools to import and export databases into your MySQL database. For other tools, go to the "Migration Methods" section (page 22) of the [MySQL to Azure Database migration guide](https://github.com/Azure/azure-mysql/tree/master/MigrationGuide). 
 
 - When you need to selectively choose a few tables to import from an existing MySQL database into your Azure MySQL database, it's best to use the import and export technique. By doing so, you can omit any unneeded tables from the migration to save time and resources. For example, use the `--include-tables` or `--exclude-tables` switch with [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables), and the `--tables` switch with [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables).
 - When you're moving database objects other than tables, explicitly create those objects. Include constraints (primary key, foreign key, and indexes), views, functions, procedures, triggers, and any other database objects that you want to migrate.
@@ -75,7 +75,7 @@ For optimal data import and export performance, we recommend that you do the fol
 There are two ways to export and import data in MySQL Workbench: from the object browser context menu or from the Navigator pane. Each method serves a different purpose.
 
 > [!NOTE]
-> If you're adding a connection to MySQL Single Server or Flexible Server (Preview) on MySQL Workbench, do the following:
+> If you're adding a connection to MySQL Single Server or Flexible Server on MySQL Workbench, do the following:
 >
 > - For MySQL Single Server, make sure that the user name is in the format *\<username@servername>*.
 > - For MySQL Flexible Server, use *\<username>* only. If you use *\<username@servername>* to connect, the connection will fail.

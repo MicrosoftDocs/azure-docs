@@ -2,7 +2,7 @@
 title: Service quotas and limits
 description: Learn about default Azure Batch quotas, limits, and constraints, and how to request quota increases
 ms.topic: conceptual
-ms.date: 04/06/2021
+ms.date: 12/13/2021
 ms.custom: seodec18
 ---
 
@@ -28,7 +28,7 @@ Also note that quotas are not guaranteed values. Quotas can vary based on change
 
 ### Cores quotas in Batch service mode
 
-Core quotas exist for each VM series supported by Batch. These core quotas are displayed on the **Quotas** page in the Azure portal. VM series quota limits can be updated with a support request, as detailed below. For dedicated nodes, Batch enforces a core quota limit for each VM series, as well as a total core quota limit for the entire Batch account. For low priority nodes, Batch enforces only a total core quota for the Batch account without any distinction between different VM series.
+Core quotas exist for each VM series supported by Batch. These core quotas are displayed on the **Quotas** page in the Azure portal. VM series quota limits can be updated with a support request, as detailed below. For dedicated nodes, Batch enforces a core quota limit for each VM series, as well as a total core quota limit for the entire Batch account. For Spot nodes, Batch enforces only a total core quota for the Batch account without any distinction between different VM series.
 
 ### Cores quotas in user subscription mode
 
@@ -47,7 +47,7 @@ Pool size limits are set by the Batch service. Unlike [resource quotas](#resourc
 | Batch subscription pool allocation mode | 80 |
 | **Compute nodes in [pool created with a managed image resource](batch-custom-images.md)**<sup>1</sup> ||
 | Dedicated nodes | 2000 |
-| Low-priority nodes | 1000 |
+| [Spot nodes](batch-spot-vms.md) | 1000 |
 
 <sup>1</sup> For pools that are not inter-node communication enabled.
 
@@ -58,7 +58,7 @@ These additional limits are set by the Batch service. Unlike [resource quotas](#
 | **Resource** | **Maximum Limit** |
 | --- | --- |
 | [Concurrent tasks](batch-parallel-node-tasks.md) per compute node | 4 x number of node cores |
-| [Applications](batch-application-packages.md) per Batch account | 20 |
+| [Applications](batch-application-packages.md) per Batch account | 200 |
 | Application packages per application | 40 |
 | Application packages per pool | 10 |
 | Maximum task lifetime | 180 days<sup>1</sup> |
@@ -105,11 +105,11 @@ Once you've submitted your support request, Azure support will contact you. Quot
        Quota types include:
 
        - **Per Batch account**  
-         Use this option to request quota increases specific to a single Batch account, including dedicated and low-priority cores, and the number of jobs and pools.
+         Use this option to request quota increases specific to a single Batch account, including dedicated and Spot cores, and the number of jobs and pools.
 
          If you select this option, specify the Batch account to which this request should apply, and then select the quota(s) you'd like to update. Provide the new limit you are requesting for each resource.
 
-         Low-priority quota is a single value across all VM series. If you need constrained SKUs, you must select **Low-priority cores** and include the VM families to request.
+         Spot quota is a single value across all VM series. If you need constrained SKUs, you must select **Spot cores** and include the VM families to request.
 
        - **All accounts in this region**  
          Use this option to request quota increases that apply to all Batch accounts in a region, such as the number of Batch accounts per region per subscription.
@@ -133,7 +133,7 @@ For details and examples, see [Request a quota increase using the Azure Support 
 The following resources are created for each 100 pool nodes in a virtual network:
 
 - One [network security group](../virtual-network/network-security-groups-overview.md#network-security-groups)
-- One [public IP address](../virtual-network/public-ip-addresses.md)
+- One [public IP address](../virtual-network/ip-services/public-ip-addresses.md)
 - One [load balancer](../load-balancer/load-balancer-overview.md)
 
 These resources are limited by the subscription's [resource quotas](../azure-resource-manager/management/azure-subscription-service-limits.md). If you plan large pool deployments in a virtual network, you may need to request a quota increase for one or more of these resources.

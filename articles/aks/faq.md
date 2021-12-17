@@ -48,7 +48,7 @@ For Windows Server nodes, Windows Update does not automatically run and apply th
 
 ### Are there additional security threats relevant to AKS that customers should be aware of?
 
-Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Azure Security Center](https://azure.microsoft.com/services/security-center/). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
+Microsoft provides guidance on additional actions you can take to secure your workloads through services like [Microsoft Defender for Cloud](https://azure.microsoft.com/services/security-center/). The following is a list of additional security threats related to AKS and Kubernetes that customers should be aware of:
 
 * [New large-scale campaign targets Kubeflow](https://techcommunity.microsoft.com/t5/azure-security-center/new-large-scale-campaign-targets-kubeflow/ba-p/2425750) - June 8, 2021
 
@@ -282,6 +282,10 @@ The issue has been resolved by Kubernetes v1.20, refer [Kubernetes 1.20: Granula
 ## Can I use FIPS cryptographic libraries with deployments on AKS?
 
 FIPS-enabled nodes are currently available in preview on Linux-based node pools. For more details, see [Add a FIPS-enabled node pool (preview)](use-multiple-node-pools.md#add-a-fips-enabled-node-pool-preview).
+
+## Can I configure NSGs with AKS?
+
+AKS doesn't apply Network Security Groups (NSGs) to its subnet and will not modify any of the NSGs associated with that subnet. AKS will only modify the NSGs at the NIC level. If you're using CNI, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR ranges. If you're using kubenet, you also must ensure the security rules in the NSGs allow traffic between the node and pod CIDR. For more details, see [Network security groups](concepts-network.md#network-security-groups).
 
 <!-- LINKS - internal -->
 

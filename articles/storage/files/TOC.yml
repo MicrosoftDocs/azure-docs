@@ -9,14 +9,8 @@
   items:
   - name: Create / use file shares - Windows
     href: storage-files-quick-create-use-windows.md
-  - name: Create file shares - Portal
+  - name: Create file shares
     href: storage-how-to-use-files-portal.md
-  - name: Create file shares - PowerShell
-    href: storage-how-to-use-files-powershell.md
-  - name: Create file shares - CLI
-    href: storage-how-to-use-files-cli.md
-  - name: Create file shares - Storage Explorer
-    href: storage-how-to-use-files-storage-explorer.md
 - name: Tutorials
   items:
   - name: Extend Windows file servers with Azure File Sync
@@ -59,6 +53,8 @@
     href: ../common/storage-compliance-offerings.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
   - name: FAQ
     href: storage-files-faq.md
+  - name: What's new in Azure Files?
+    href: files-whats-new.md
 - name: How-to guides
   items:
   - name: Deploy
@@ -165,22 +161,22 @@
         href: ../../backup/manage-afs-powershell.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: REST API
         href: ../../backup/manage-azure-file-share-rest-api.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-  - name: Monitor Azure Files
-    href: storage-files-monitoring.md
+  - name: Monitor
+    items:
+    - name: Monitor Azure Files
+      href: storage-files-monitoring.md
   - name: Migrate
     items:
     - name: Migrate to Azure file shares
       href: storage-files-migration-overview.md
     - name: Target a cloud-only deployment
       items:
-      - name: RoboCopy to to Azure file shares
+      - name: RoboCopy to migrate to Azure file shares
         href: storage-files-migration-robocopy.md
       - name: Migrate from an on-premises NAS to Azure file shares with DataBox
         href: storage-files-migration-nas-cloud-databox.md
     - name: Target a hybrid deployment
       items:
-      - name: Migrate bulk data to Azure File Sync with Azure Data Box
-        href: ../file-sync/file-sync-offline-data-transfer.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
       - name: Migrate from Linux to a hybrid file server with Azure File Sync
         href: storage-files-migration-linux-hybrid.md
       - name: Migrate from an on-premises NAS to a hybrid file server with Azure File Sync
@@ -193,10 +189,6 @@
         href: storage-files-migration-storsimple-8000.md
       - name: StorSimple 1200 migration guide
         href: storage-files-migration-storsimple-1200.md
-  - name: Performance
-    items:
-    - name: Enable SMB Multichannel
-      href: storage-files-enable-smb-multichannel.md
   - name: Develop
     items:
     - name: Configure connection strings
@@ -223,7 +215,7 @@
           href: ../common/customer-managed-keys-configure-key-vault-hsm.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Enable infrastructure encryption for the account
       href: ../common/infrastructure-encryption-enable.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
-    - name: Configure Azure Defender for threat protection
+    - name: Enable threat protection with Microsoft Defender for Storage
       href: ../common/azure-defender-storage-configure.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
     - name: Configure firewalls and virtual networks
       href: ../common/storage-network-security.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
@@ -261,7 +253,7 @@
       href: ../../backup/troubleshoot-azure-files.md?toc=%2fazure%2fstorage%2ffiles%2ftoc.json
 - name: Reference
   items:
-  - name: Azure Files reference
+  - name: Azure Files API reference
     href: ../files/reference.md
   - name: Monitoring Azure Files reference
     href: storage-files-monitoring-reference.md

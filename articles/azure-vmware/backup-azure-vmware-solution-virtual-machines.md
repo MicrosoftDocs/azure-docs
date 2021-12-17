@@ -7,7 +7,7 @@ ms.date: 02/04/2021
 
 # Back up Azure VMware Solution VMs with Azure Backup Server
 
-In this article, we'll back up VMware virtual machines (VMs) running on Azure VMware Solution with Azure Backup Server. First, thoroughly go through [Set up Microsoft Azure Backup Server for Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
+This article shows you how to back up VMware virtual machines (VMs) running on Azure VMware Solution with Azure Backup Server.  First, thoroughly go through [Set up Microsoft Azure Backup Server for Azure VMware Solution](set-up-backup-server-for-azure-vmware-solution.md).
 
 Then, we'll walk through all of the necessary procedures to:
 
@@ -199,7 +199,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
 1. On the **Review Disk Storage Allocation** page, review the disk space provided for the VM backups.
 
-   - The recommended disk allocations are based on the retention range you specified, the type of workload, and the size of the protected data. Make any changes required, and then select **Next**.
+   - The recommended disk allocations are based on the retention range you specified, the workload type, and the protected data size. Make any changes required, and then select **Next**.
    - **Data size:** Size of the data in the protection group.
    - **Disk space:** Recommended amount of disk space for the protection group. If you want to modify this setting, select space lightly larger than the amount you estimate each data source grows.
    - **Storage pool details:** Shows the status of the storage pool, which includes total and remaining disk size.
@@ -248,7 +248,7 @@ Protection groups gather multiple VMs and apply the same data retention and back
 
 ## Monitor with the Azure Backup Server console
 
-After you configure the protection group to back up Azure VMware Solution VMs, you can monitor the status of the backup job and alert by using the Azure Backup Server console. Here's what you can monitor.
+After you configure the protection group to back up Azure VMware Solution VMs, you can monitor the backup job status and alert by using the Azure Backup Server console. Here's what you can monitor.
 
 - In the **Monitoring** task area:
    - Under **Alerts**, you can monitor errors, warnings, and general information.  You can view active and inactive alerts and set up email notifications.
@@ -274,7 +274,7 @@ In the Azure Backup Server Administrator Console, there are two ways to find rec
 
    :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/recovery-points.png" alt-text="Screenshot showing the available recovery points for VMware server.":::
 
-1. In the **Recovery points for** pane, select a date when a recovery point was taken. Calendar dates in bold have available recovery points. Alternately, you can right-click the VM and select **Show all recovery points** and then select the recovery point from the list.
+1. In the **Recovery points for** pane, select a date when a recovery point was taken. For example, calendar dates in bold have available recovery points. Alternately, you can right-click the VM, select **Show all recovery points**, and then select the recovery point from the list.
 
    > [!NOTE] 
    > For short-term protection, select a disk-based recovery point for faster recovery. After short-term recovery points expire, you see only **Online** recovery points to recover.
@@ -316,7 +316,7 @@ You can restore individual files from a protected VM recovery point. This featur
 
    :::image type="content" source="../backup/media/restore-azure-backup-server-vmware/vmware-rp-disk.png" alt-text="Screenshot showing the recovery points for VMware server.":::
 
-1. In the **Recovery points for** pane, use the calendar to select the date that contains the wanted recovery points. Depending on how the backup policy was configured, dates can have more than one recovery point. 
+1. In the **Recovery points for** pane, use the calendar to select the wanted recovery points' date. Depending on how the backup policy was configured, dates can have more than one recovery point. 
 
 1. After you select the day when the recovery point was taken, make sure you choose the correct **Recovery time**. 
 
@@ -354,4 +354,4 @@ You can restore individual files from a protected VM recovery point. This featur
 Now that you've covered backing up your Azure VMware Solution VMs with Azure Backup Server, you may want to learn about: 
 
 - [Troubleshooting when setting up backups in Azure Backup Server](../backup/backup-azure-mabs-troubleshoot.md).
-- [Lifecycle management of Azure VMware Solution VMs](lifecycle-management-of-azure-vmware-solution-vms.md).
+- [Lifecycle management of Azure VMware Solution VMs](./integrate-azure-native-services.md).

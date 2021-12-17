@@ -1,8 +1,8 @@
 ---
 title: Using Industrial IoT to pull data into Azure Data Explorer
 description: In this tutorial, you learn how to move IIoT data into ADX and create a dashboard to view it.
-author: v-condav
-ms.author: v-condav
+author: eross-msft
+ms.author: lizross
 ms.service: industrial-iot
 ms.topic: tutorial
 ms.date: 6/16/2021
@@ -26,7 +26,7 @@ Before you start this tutorial, you will need an Azure account. If you do not ha
 
 ## Deploy an S1 IoT Hub
 
-The first thing you need to do with your Azure subscription is go to [the portal](https://docs.microsoft.com/azure/azure-portal/azure-portal-quickstart-center) and [deploy an S1 IoT Hub](https://docs.microsoft.com/azure/iot-hub/iot-hub-create-through-portal). Your free Azure account gives you 400,000 4K messages per day. Since you can fit about 15 OPC UA PubSub data tags into a single 4K message, you will have 6 million data tags per day, enough for this use case. Once the IoT Hub is deployed, copy the *iothubowner* primary connection string (under shared access policies, iothubowner). You need it for the IoT Edge installation.
+The first thing you need to do with your Azure subscription is go to [the portal](../azure-portal/azure-portal-quickstart-center.md) and [deploy an S1 IoT Hub](../iot-hub/iot-hub-create-through-portal.md). Your free Azure account gives you 400,000 4K messages per day. Since you can fit about 15 OPC UA PubSub data tags into a single 4K message, you will have 6 million data tags per day, enough for this use case. Once the IoT Hub is deployed, copy the *iothubowner* primary connection string (under shared access policies, iothubowner). You need it for the IoT Edge installation.
 
 ## Deploy IoT Edge
 
@@ -160,7 +160,7 @@ opcua_telemetry
 
 ## Create line graph of the data
 
-Now, let's create a line graph of the data by casting it all to floating-point numbers. If the cast fails, then the data is ignored. Use the hosted Azure Data Explorer dashboard for this. Click on **Open in Web UI** and in the new window, click on **Dashboards**, select **Create new Dashboard**, and choose **Add tile**. Then select **Data source** and enter the name of our Azure Data Explorer instance in the form https://<YourInstanceName>.<Your RegionName>.kusto.windows.net. Select your database and hit **apply**. Then enter the following query.
+Now, let's create a line graph of the data by casting it all to floating-point numbers. If the cast fails, then the data is ignored. Use the hosted Azure Data Explorer dashboard for this. Click on **Open in Web UI** and in the new window, click on **Dashboards**, select **Create new Dashboard**, and choose **Add tile**. Then select **Data source** and enter the name of our Azure Data Explorer instance in the form `https://<YourInstanceName>.<Your RegionName>.kusto.windows.net`. Select your database and hit **apply**. Then enter the following query.
 
 ```
 opcua_telemetry

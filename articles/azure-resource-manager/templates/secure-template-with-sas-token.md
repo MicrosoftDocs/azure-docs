@@ -1,20 +1,27 @@
 ---
-title: Securely deploy template with SAS token
-description: Deploy resources to Azure with an Azure Resource Manager template that is protected by a SAS token. Shows Azure PowerShell and Azure CLI.
+title: Deploy ARM template with SAS token - Azure Resource Manager | Microsoft Docs
+description: Learn how to use Azure CLI or Azure PowerShell to securely deploy a private ARM template with a SAS token. Protect and manage access to your templates.
 ms.topic: conceptual
-ms.date: 08/25/2020 
-ms.custom: devx-track-azurepowershell, devx-track-azurecli
+ms.date: 09/17/2021
+ms.custom: devx-track-azurepowershell, devx-track-azurecli, seo-azure-cli
+keywords: private template, sas token template, storage account, template security, azure arm template, azure resource manager template
 ---
-# Deploy private ARM template with SAS token
+# How to deploy private ARM template with SAS token
 
-When your Azure Resource Manager template (ARM template) is located in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This article explains how to use Azure PowerShell or Azure CLI to deploy a template with a SAS token.
+When your Azure Resource Manager template (ARM template) is located in a storage account, you can restrict access to the template to avoid exposing it publicly. You access a secured template by creating a shared access signature (SAS) token for the template, and providing that token during deployment. This article explains how to use Azure PowerShell or Azure CLI to securely deploy an ARM template with a SAS token.
+
+You will find information on how to protect and manage access to your private ARM templates with directions on how to do the following:
+
+* Create storage account with secured container
+* Upload template to storage account
+* Provide SAS token during deployment
 
 > [!IMPORTANT]
-> Instead of securing your template with a SAS token, consider using [template specs](template-specs.md). With template specs, you can share your templates with other users in your organization and manage access to the templates through Azure RBAC.
+> Instead of securing your private template with a SAS token, consider using [template specs](template-specs.md). With template specs, you can share your templates with other users in your organization and manage access to the templates through Azure RBAC.
 
 ## Create storage account with secured container
 
-The following script creates a storage account and container with public access turned off.
+The following script creates a storage account and container with public access turned off for template security.
 
 # [PowerShell](#tab/azure-powershell)
 
@@ -59,7 +66,7 @@ az storage container create \
 
 ---
 
-## Upload template to storage account
+## Upload private template to storage account
 
 Now, you're ready to upload your template to the storage account. Provide the path to the template you want to use.
 
@@ -88,7 +95,7 @@ az storage blob upload \
 To deploy a private template in a storage account, generate a SAS token and include it in the URI for the template. Set the expiry time to allow enough time to complete the deployment.
 
 > [!IMPORTANT]
-> The blob containing the template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. A SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
+> The blob containing the private template is accessible to only the account owner. However, when you create a SAS token for the blob, the blob is accessible to anyone with that URI. If another user intercepts the URI, that user is able to access the template. A SAS token is a good way of limiting access to your templates, but you should not include sensitive data like passwords directly in the template.
 >
 
 # [PowerShell](#tab/azure-powershell)

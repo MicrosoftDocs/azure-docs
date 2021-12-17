@@ -27,9 +27,9 @@ A solution builder:
 An IoT Central application can have one or more dashboards that operators use to view and interact with the application. As a solution builder, you can customize the default dashboard and create specialized dashboards:
 
 - To view some examples of customized dashboards, see [Industry focused templates](concepts-app-templates.md#industry-focused-templates).
-- To learn more about dashboards, see [Create and manage multiple dashboards](howto-create-personal-dashboards.md) and [Configure the application dashboard](howto-add-tiles-to-your-dashboard.md).
+- To learn more about dashboards, see [Create and manage multiple dashboards](howto-manage-dashboards.md) and [Configure the application dashboard](howto-manage-dashboards.md).
 
-When a device connects to an IoT Central, the device is associated with a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. As a solution developer, you can create and customize the available views for a device type. To learn more, see [Add views](howto-set-up-template.md#add-views).
+When a device connects to an IoT Central, the device is associated with a device template for the device type. A device template has customizable views that an operator uses to manage individual devices. As a solution developer, you can create and customize the available views for a device type. To learn more, see [Add views](howto-set-up-template.md#views).
 
 ## Use built-in rules and analytics
 
@@ -49,7 +49,8 @@ As a solution builder, you can use the data export and rules capabilities in IoT
 - [Use workflows to integrate your Azure IoT Central application with other cloud services](howto-configure-rules-advanced.md)
 - [Extend Azure IoT Central with custom rules using Stream Analytics, Azure Functions, and SendGrid](howto-create-custom-rules.md)
 - [Extend Azure IoT Central with custom analytics using Azure Databricks](howto-create-custom-analytics.md)
-- [Visualize and analyze your Azure IoT Central data in a Power BI dashboard](howto-connect-powerbi.md)
+
+You can use IoT Edge devices connected to your IoT Central application to integrate with [Azure Video Analyzer](../../azure-video-analyzer/video-analyzer-docs/overview.md). To learn more, see the [Azure IoT Central gateway module for Azure Video Analyzer](https://github.com/iot-for-all/iotc-ava-gateway/blob/main/README.md) on GitHub.
 
 ## APIs
 
@@ -58,6 +59,10 @@ IoT Central APIs let you build deep integrations with other services in your IoT
 You use data plane APIs to access the entities in and the capabilities of your IoT Central application. For example managing devices, device templates, users, and roles. The IoT Central REST API operations are *data plane* operations. To learn more, see [How to use the IoT Central REST API to manage users and roles](howto-manage-users-roles-with-rest-api.md).
 
 You use the *control plane* to manage IoT Central-related resources in your Azure subscription. You can use the Azure CLI and Resource Manager templates for control plane operations. For example, you can use the Azure CLI to create an IoT Central application. To learn more, see [Manage IoT Central from Azure CLI](howto-manage-iot-central-from-cli.md).
+
+## Transform data at ingress
+
+Devices may send complex telemetry that needs to be simplified before it's used in IoT Central or exported. In some scenarios you need to normalize the telemetry from different devices so that you can display and process the telemetry consistently. To learn more, see [Map telemetry on ingress to IoT Central](howto-map-data.md).
 
 ## Next steps
 

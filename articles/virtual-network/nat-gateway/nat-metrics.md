@@ -38,7 +38,7 @@ NAT gateway resources provide the following multi-dimensional metrics in Azure M
 | Dropped packets | Packets dropped by the NAT gateway | Sum | / |
 | SNAT Connection Count | State transitions per interval | Sum | Connection State, Protocol (6 TCP; 17 UDP) |
 | Total SNAT connection count | Current active SNAT connections (~ SNAT ports in use) | Sum | Protocol (6 TCP; 17 UDP) |
-
+| Datapath availability (Preview) | Availability of the data path of the NAT gateway. Used to determine whether the NAT gateway endpoints are available for outbound traffic flow. | Avg | Availability (0, 100) |
 
 ## Alerts
 
@@ -52,8 +52,6 @@ Resource Health isn't supported.
 
 * Learn about [Virtual Network NAT](nat-overview.md)
 * Learn about [NAT gateway resource](nat-gateway-resource.md)
-* Learn about [Azure Monitor](/azure/azure-monitor/overview)
+* Learn about [Azure Monitor](../../azure-monitor/overview.md)
 * Learn about [troubleshooting NAT gateway resources](troubleshoot-nat.md).
 * [Tell us what to build next for Virtual Network NAT in UserVoice](https://aka.ms/natuservoice).
-
-

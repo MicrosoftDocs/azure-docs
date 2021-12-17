@@ -66,7 +66,7 @@ zip -j series.zip series/*.csv
 
 #### Python code zipping & uploading data to Azure Blob Storage
 
-You could refer to [this doc](/azure/storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) to learn how to upload a file to Azure Blob.
+You could refer to [this doc](../../../storage/blobs/storage-quickstart-blobs-portal.md#upload-a-block-blob) to learn how to upload a file to Azure Blob.
 
 Or, you could refer to the sample code below that can do the zipping and uploading for you. You could copy and save the Python code in this section as a .py file (for example, `zipAndUpload.py`) and run it using command lines like these:
 
@@ -166,7 +166,8 @@ Here is a sample request body and the sample code in Python to train an MVAD mod
         "fillNAMethod": "Linear", 
         "paddingValue": 0
     },
-    "source": "YOUR_SAMPLE_ZIP_FILE_LOCATED_IN_AZURE_BLOB_STORAGE_WITH_SAS",
+    // This could be your own ZIP file of training data stored on Azure Blob and a SAS url could be used here
+    "source": "https://aka.ms/AnomalyDetector/MVADSampleData", 
     "startTime": "2021-01-01T00:00:00Z", 
     "endTime": "2021-01-02T12:00:00Z", 
     "displayName": "Contoso model"
@@ -355,7 +356,7 @@ A sample response looks like this
             // more variables
           ],
           "setupInfo": {
-            "source": "https://multiadsample.blob.core.windows.net/data/sample_data_2_1000.zip?sp=rl&st=2020-12-04T06:03:47Z&se=2022-12-05T06:03:00Z&sv=2019-12-12&sr=b&sig=AZTbvZ7fcp3MdqGY%2FvGHJXJjUgjS4DneCGl7U5omq5c%3D",
+            "source": "https://aka.ms/AnomalyDetector/MVADSampleData",
             "startTime": "2019-04-01T00:15:00Z",
             "endTime": "2019-04-01T00:40:00Z"
           }

@@ -36,6 +36,9 @@ Azure Cosmos DB supports data replication natively, so moving data from one regi
 
     To remove a region from an Azure Cosmos DB account, see [Add/remove regions from your Azure Cosmos DB account](how-to-manage-database-account.md#addremove-regions-from-your-database-account).
 
+> [!NOTE]
+> If you perform a failover operation or add/remove a new region while an [asynchronous throughput scaling operation](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover or add/remove region operation is complete. 
+
 ## Migrate Azure Cosmos DB account metadata
 
 Azure Cosmos DB does not natively support migrating account metadata from one region to another. To migrate both the account metadata and customer data from one region to another, you must create a new account in the desired region and then copy the data manually. 

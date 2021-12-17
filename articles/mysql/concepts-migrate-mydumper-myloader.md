@@ -127,3 +127,4 @@ After the database is restored, it’s always recommended to validate the data c
 * Learn [How to migrate large MySQL databases](https://techcommunity.microsoft.com/t5/azure-database-for-mysql/best-practices-for-migrating-large-databases-to-azure-database/ba-p/1362699).
 * [Tutorial: Minimal Downtime Migration of Azure Database for MySQL – Single Server to Azure Database for MySQL – Flexible Server](howto-migrate-single-flexible-minimum-downtime.md)
 * Learn more about Data-in replication  [Replicate data into Azure Database for MySQL Flexible Server](flexible-server/concepts-data-in-replication.md) and [Configure Azure Database for MySQL Flexible Server Data-in replication](./flexible-server/how-to-data-in-replication.md)
+* Commonly encountered [migration errors](./howto-troubleshoot-common-errors.md)

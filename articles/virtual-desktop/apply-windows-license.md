@@ -29,7 +29,7 @@ Update-AzVM -ResourceGroupName <resourceGroupName> -VM $vm
 ```
 
 ## Verify your session host VM is utilizing the licensing benefit
-After deploying your VM, run this cmdlet ot verify the license type:
+After deploying your VM, run this cmdlet to verify the license type:
 ```powershell
 Get-AzVM -ResourceGroupName <resourceGroupName> -Name <vmName>
 ```
@@ -59,4 +59,4 @@ $vms | Where-Object {$_.LicenseType -like "Windows_Client"} | Select-Object Reso
 
 ## Requirements for deploying Windows Server Remote Desktop Services
 
-If you deploy Windows Server 2019, 2016, or 2012 R2 as Azure Virtual Desktop hosts in your deployment, a Remote Desktop Services license server must be accessible from those virtual machines. The Remote Desktop Services license server can be located on-premises or in Azure. For more information, see [Activate the Remote Desktop Services license server](/windows-server/remote/remote-desktop-services/rds-activate-license-server).
+If you deploy Windows Server as Azure Virtual Desktop hosts in your deployment, a Remote Desktop Services license server must be accessible from those virtual machines. The Remote Desktop Services license server can be located on-premises or in Azure. For more information, see [Activate the Remote Desktop Services license server](/windows-server/remote/remote-desktop-services/rds-activate-license-server).

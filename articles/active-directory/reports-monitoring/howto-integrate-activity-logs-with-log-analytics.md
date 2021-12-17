@@ -4,7 +4,7 @@ description: Learn how to integrate Azure Active Directory logs with Azure Monit
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 2c3db9a8-50fa-475a-97d8-f31082af6593
@@ -14,9 +14,10 @@ ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 06/11/2021
+ms.date: 07/09/2021
 ms.author: markvi
 ms.reviewer: besiler
+ms.custom: has-adal-ref
 
 ms.collection: M365-identity-device-management
 ---
@@ -27,9 +28,11 @@ Follow the steps in this article to integrate Azure Active Directory (Azure AD) 
 
 Use the integration of Azure AD activity logs in Azure Monitor logs to perform tasks like:
 
- * Compare your Azure AD sign-in logs against security logs published by Azure Security Center.
+ * Compare your Azure AD sign-in logs against security logs published by Microsoft Defender for Cloud.
   
  * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
+
+ * Analyze Identity Protection risky users and risk detections logs to detect threats in your environment (public preview)
  
  * Identify sign-ins from applications that use the Active Directory Authentication Library (ADAL) for authentication. [ADAL is nearing end-of-support](../develop/msal-migration.md).
 
@@ -44,9 +47,9 @@ You can route audit activity logs and sign-in activity logs to Azure Monitor log
 * **Audit logs**: The [audit logs activity report](concept-audit-logs.md) gives you access to the history of every task that's performed in your tenant.
 * **Sign-in logs**: With the [sign-in activity report](concept-sign-ins.md), you can determine who performed the tasks that are reported in the audit logs.
 * **Provisioning logs**: With the [provisioning logs](../app-provisioning/application-provisioning-log-analytics.md), you can monitor which users have been created, updated, and deleted in all your third-party applications. 
+* **Risky users logs (public preview)**: With the [risky users logs](../identity-protection/howto-identity-protection-investigate-risk.md#risky-users), you can monitor changes in user risk level and remediation activity. 
+* **Risk detections logs (public preview)**: With the [risk detections logs](../identity-protection/howto-identity-protection-investigate-risk.md#risk-detections), you can monitor user's risk detections and analyze trends in risk activity detected in your organization. 
 
-> [!NOTE]
-> Azure AD B2C audit and sign-in activity logs are currently unsupported.
 
 ## Prerequisites 
 
@@ -76,9 +79,16 @@ If you want to know for how long the activity data is stored in a Premium tenant
 
 4. Select the Log Analytics workspace you want to send the logs to, or create a new workspace in the provided dialog box.  
 
-5. Do either or both of the following:
+5. Do any or all of the following:
     * To send audit logs to the Log Analytics workspace, select the **AuditLogs** check box. 
     * To send sign-in logs to the Log Analytics workspace, select the **SignInLogs** check box.
+    * To send non-interactive user sign-in logs to the Log Analytics workspace, select the **NonInteractiveUserSignInLogs** check box.
+    * To send service principle sign-in logs to the Log Analytics workspace, select the **ServicePrincipleSignInLogs** check box.
+    * To send managed identity sign-in logs to the Log Analytics workspace, select the **ManagedIdentitySignInLogs** check box.
+    * To send provisioning logs to the Log Analytics workspace, select the **ProvisioningLogs** check box.
+    * To send Active Directory Federation Services (ADFS) sign-in logs to the Log Analytics workspace, select **ADFSSignInLogs**.
+    * To send risky users logs to the Log Analytics workspace, select the **RiskyUsers** check box. (public preview)
+    * To send risk detections logs to the Log Analytics workspace, select the **UserRiskEvents** check box. (public preview)
 
 6. Select **Save** to save the setting.
 

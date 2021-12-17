@@ -373,6 +373,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
 - The Virtual Network Topology shows the top ribbon for selection of parameters like a virtual network's (Inter virtual network Connections/Active/Inactive), External Connections, Active Flows, and Malicious flows of the virtual network.
 - You can filter the Virtual Network Topology based on subscriptions, workspaces, resource groups and time interval. Additional filters that help you understand the flow are:
   Flow Type (InterVNet, IntraVNET, and so on), Flow Direction (Inbound, Outbound), Flow Status (Allowed, Blocked), VNETs (Targeted and Connected), Connection Type (Peering or Gateway - P2S and S2S), and NSG. Use these filters to focus on VNets that you want to examine in detail.
+- You can zoom-in and zoom-out while viewing Virtual Network Topology using mouse scroll wheel. Left-click and moving the mouse lets you drag the topology in desired direction. You can also use keyboard shortcuts to achieve these actions: A (to drag left), D (to drag right), W (to drag up), S (to drag down), + (to zoom in), - (to zoom out), R (to zoom reset).
 - The Virtual Network Topology shows the traffic distribution to a virtual network with regard to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and network security groups, for example:
 
     ![Virtual network topology showcasing traffic distribution and flow details](./media/traffic-analytics/virtual-network-topology-showcasing-traffic-distribution-and-flow-details.png)
@@ -387,6 +388,7 @@ Some of the insights you might want to gain after Traffic Analytics is fully con
     - Knowing which subnet is conversing to which subnet. If you see unexpected conversations, you can correct your configuration.
     - If rogue networks are conversing with a subnet, you are able to correct it by configuring NSG rules to block the rogue networks.
 - The Subnets Topology shows the top ribbon for selection of parameters such as Active/Inactive subnet, External Connections, Active Flows, and Malicious flows of the subnet.
+- You can zoom-in and zoom-out while viewing Virtual Network Topology using mouse scroll wheel. Left-click and moving the mouse lets you drag the topology in desired direction. You can also use keyboard shortcuts to achieve these actions: A (to drag left), D (to drag right), W (to drag up), S (to drag down), + (to zoom in), - (to zoom out), R (to zoom reset).
 - The Subnet Topology shows the traffic distribution to a virtual network with regard to flows (Allowed/Blocked/Inbound/Outbound/Benign/Malicious), application protocol, and NSGs, for example:
 
     ![Subnet topology showcasing traffic distribution a virtual network subnet with regards to flows](./media/traffic-analytics/subnet-topology-showcasing-traffic-distribution-to-a-virtual-subnet-with-regards-to-flows.png)
@@ -417,6 +419,22 @@ Do you have malicious traffic in your environment? Where is it originating from?
 
 ![Malicious traffic flows detail in log search](./media/traffic-analytics/malicious-traffic-flows-detail-in-log-search.png)
 
+### View information about public IPs interacting with your deployment
+
+**Look for**
+
+- Which public IPs are conversing with my network? What is the WHOIS data and geographic location of all public IPs?
+- Which malicious IPs are sending traffic to my deployments? What is the threat type and threat description for malicious IPs?
+	- The Public IP Information section, gives a summary of all types of public IPs present in your network traffic. 
+	  Select the public IP type of interest to view details. This [schema document](./traffic-analytics-schema.md#public-ip-details-schema) defines the data fields presented.
+	  
+	  :::image type="content" source="./media/traffic-analytics/public-ip-information.png" alt-text="Public IP information" lightbox="./media/traffic-analytics/public-ip-information.png":::
+	  
+	- On the traffic analytics dashboard, click on any IP to view its information	
+	
+	  :::image type="content" source="./media/traffic-analytics/external-public-ip-details.png" alt-text="external IP information in tool tip" lightbox="./media/traffic-analytics/external-public-ip-details.png":::
+	  
+	  :::image type="content" source="./media/traffic-analytics/malicious-ip-details.png" alt-text="malicious IP information in tool tip" lightbox="./media/traffic-analytics/malicious-ip-details.png":::
 
 ### Visualize the trends in NSG/NSG rules hits
 

@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: pod
 ms.topic: article
-ms.date: 06/28/2021
+ms.date: 11/03/2021
 ms.author: alkohli
 ---
 # Azure Data Box limits
@@ -29,8 +29,7 @@ Consider these limits as you deploy and operate your Microsoft Azure Data Box. T
 
 [!INCLUDE [data-box-storage-limits](../../includes/data-box-storage-limits.md)]
 
-## Data upload caveats
-
+## Data copy and upload caveats
 
 ### For import order
 
