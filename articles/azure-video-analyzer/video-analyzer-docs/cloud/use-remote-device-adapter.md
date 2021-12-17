@@ -245,7 +245,7 @@ Bitrate is set to 1500 kbps by default but can be edited on `line 282 of Program
   ```
 -	Alternatively, go to TERMINAL window in the Visual Studio Code, navigate using `cd <path>` to `src\cloud-video-processing\ingest-from-rtsp-camera-behind-firewall`. Type commands **dotnet build** and **dotnet run** to compile and run the program respectively.
 -	You will start seeing some messages printed in the TERMINAL window regarding creation of the topologies and pipelines. If console app runs successfully, a live pipeline is created and activated. Code walkthrough is available [here](https://github.com/Azure-Samples/video-analyzer-csharp/tree/main/src/cloud-video-processing/capture-from-rtsp-camera-behind-firewall).
--	Console Terminal window pauses after this step so that you can examine the program's output in the TERMINAL window, see the recorded video in portal and will wait for user input to proceed.
+-	The terminal window pauses after this step so that you can examine the program's output in the TERMINAL window, see the recorded video in portal and will wait for user input to proceed.
 
 
 ### Playback recorded video in the Azure portal
