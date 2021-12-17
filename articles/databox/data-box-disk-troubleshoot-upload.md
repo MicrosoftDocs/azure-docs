@@ -47,7 +47,7 @@ To find the logs from a data upload, do the following steps.
    
       If there are any errors when uploading the data to Azure, **Copy logs** displays a path to the folder where the diagnostics logs are located. 
 
-      ![Link to logs in the portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-2018.png)
+      ![Screenshot of the Overview pane for an earlier Data Box Disk order with completed copies. The Copy Log Paths are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-2018.png)
    
      The logs are uploaded to a `waies` container in the storage account. The URLs have these formats: *UPDATE FORMATS!*
 
@@ -61,7 +61,7 @@ To find the logs from a data upload, do the following steps.
 
 3. To view the logs, open the container that stores the logs in your storage account. The following illustration shows the logs in a `waies` container.
 
-    ![error and verbose logs](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+    ![Screenshot of error logs and verbose logs in a storage account for an Azure Data Box Disk order. The logs in the W-A-I-E-S containers are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
    
 4. Select each log and download a local copy.
 
