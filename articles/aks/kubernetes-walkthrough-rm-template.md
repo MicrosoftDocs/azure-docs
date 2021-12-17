@@ -38,10 +38,10 @@ To access AKS nodes, you connect using an SSH key pair (public and private), whi
 
 1. Go to [https://shell.azure.com](https://shell.azure.com) to open Cloud Shell in your browser.
 
-1. Run the `ssh-keygen` command. The following example creates an SSH key pair using RSA encryption and a bit length of 2048:
+1. Run the `ssh-keygen` command. The following example creates an SSH key pair using RSA encryption and a bit length of 4096:
 
     ```console
-    ssh-keygen -t rsa -b 2048
+    ssh-keygen -t rsa -b 4096
     ```
 
 For more information about creating SSH keys, see [Create and manage SSH keys for authentication in Azure][ssh-keys].
