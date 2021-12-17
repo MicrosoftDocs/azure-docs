@@ -23,24 +23,26 @@ The contents of the file should satisfy the following json schema:
     "$schema" : "http://json-schema.org/schema#",
     "description" : "ARR ConversionSettings Schema",
     "type" : "object",
-    "definitions" : {
+    "definitions" : 
+    {
         "position_attribute" : {"type" : "string", "description" : "Destination format of the position attribute", "enum" : [ "32_32_32_FLOAT", "16_16_16_16_FLOAT" ]},
         "color_attribute" : {"type" : "string", "description" : "Destination format of the color attribute", "enum" : [ "NONE", "8_8_8_8_UNSIGNED_NORMALIZED" ]},
         "vector_attribute" : {"type" : "string", "description" : "Destination format of the normals, tangents and binormals attributes", "enum" : [ "NONE", "8_8_8_8_SIGNED_NORMALIZED", "16_16_16_16_FLOAT" ]},
         "texcoord_attribute" : {"type" : "string", "description" : "Destination format of the texture coordinates attribute", "enum" : [ "NONE", "32_32_FLOAT", "16_16_FLOAT" ]}
     },
-    "properties" : {
-        "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0},
-        "recenterToOrigin" : { "type" : "boolean", "default" : false},
-        "opaqueMaterialDefaultSidedness" : {" type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided"},
-        "material-override" : { "type" : "string", "default" : ""},
-        "gammaToLinearMaterial" : { "type" : "boolean", "default" : false},
-        "gammaToLinearVertex" : { "type" : "boolean", "default" : false},
-        "sceneGraphMode" : { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic"},
-        "generateCollisionMesh" : { "type" : "boolean", "default" : true},
-        "unlitMaterials" : { "type" : "boolean", "default" : false},
-        "deduplicateMaterials" : {"type" : "boolean", "default" : true},
-        "fbxAssumeMetallic" : {"type" : "boolean", "default" : true},
+    "properties" : 
+    {
+        "scaling" : { "type" : "number", "exclusiveMinimum" : 0, "default" : 1.0 },
+        "recenterToOrigin" : { "type" : "boolean", "default" : false },
+        "opaqueMaterialDefaultSidedness" : {" type" : "string", "enum" : [ "SingleSided", "DoubleSided" ], "default" : "DoubleSided" },
+        "material-override" : { "type" : "string", "default" : "" },
+        "gammaToLinearMaterial" : { "type" : "boolean", "default" : false },
+        "gammaToLinearVertex" : { "type" : "boolean", "default" : false },
+        "sceneGraphMode" : { "type" : "string", "enum" : [ "none", "static", "dynamic" ], "default" : "dynamic" },
+        "generateCollisionMesh" : { "type" : "boolean", "default" : true },
+        "unlitMaterials" : { "type" : "boolean", "default" : false },
+        "deduplicateMaterials" : {"type" : "boolean", "default" : true },
+        "fbxAssumeMetallic" : {"type" : "boolean", "default" : true },
         "axis" : {
             "type" : "array",
             "items" : {
