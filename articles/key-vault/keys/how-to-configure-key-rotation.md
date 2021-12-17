@@ -143,7 +143,7 @@ Key rotation policy can also be configured using ARM templates.
                 "description": "The name of the key to be created."
             }
         },
-        "rotateTimeAfterCreation": {
+        "rotateTimeAfterCreate": {
             "defaultValue": "P18M",
             "type": "String",
             "metadata": {
@@ -179,7 +179,7 @@ Key rotation policy can also be configured using ARM templates.
                     "lifetimeActions": [
                         {
                             "trigger": {
-                                "timeAfterCreate": "[parameters('rotateTimeAfterCreation')]",
+                                "timeAfterCreate": "[parameters('rotateTimeAfterCreate')]",
                                 "timeBeforeExpiry": ""
                             },
                             "action": {
