@@ -88,7 +88,7 @@ To delete a vault, follow these steps:
 
   After you've completed these steps, you can continue to [delete the vault](/azure/backup/backup-azure-delete-vault&tabs=portal#delete-the-recovery-services-vault).
 
-  If you're **still unable to delete the vault** that contain no dependencies then follow the steps listed in [**deleting vault using ARM client**](/azure/backup/backup-azure-delete-vault&tabs=arm#tabpanel_1_arm).
+  If you're **still unable to delete the vault** that contain no dependencies then follow the steps listed in [**deleting vault using Azure Resource Manager client**](/azure/backup/backup-azure-delete-vault&tabs=arm#tabpanel_1_arm).
 
 ### Delete protected items in the cloud
 
@@ -648,9 +648,9 @@ To delete existing Recovery Services vault, perform the following steps:
 
     For more information, see this [article](/cli/azure/backup/vault)
 
-# [ARM](#tab/arm)
+# [Azure Resource Manager](#tab/arm)
 
-Delete the Recovery Services vault using Azure Resource Manager (ARM) is recommended only if all of the dependencies are removed and you're still getting the *Vault deletion error*. Try any or all of the following tips:
+Delete the Recovery Services vault using Azure Resource Manager is recommended only if all of the dependencies are removed and you're still getting the *Vault deletion error*. Try any or all of the following tips:
 
 - From the **Essentials** pane in the vault menu, verify that there aren't any backup items, backup management servers, or replicated items listed. If there are backup items, refer to the [Before you start](#before-you-start) section.
 - Try [deleting the vault from the portal](#delete-the-recovery-services-vault) again.
