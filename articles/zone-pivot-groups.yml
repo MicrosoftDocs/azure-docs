@@ -484,6 +484,8 @@ groups:
     title: ASP.NET
   - id: devlang-openjdk
     title: OpenJDK
+  - id: devlang-python-flask
+    title: Python Flask
 ############ END MICROSOFT IDENTITY PLATFORM
 #Owner: antchu
 - id: runtime-version-programming-functions

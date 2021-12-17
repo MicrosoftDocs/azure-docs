@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: tutorial
 ms.workload: identity
-ms.date: 12/16/2021
+ms.date: 12/17/2021
 ms.author: henrymbugua
 ms.reviewer: marsma, dhruvmu
 ms.custom: aaddev, devx-track-js
@@ -27,5 +27,11 @@ zone_pivot_groups: web-app-tutorial
 ::: zone pivot="devlang-openjdk"
 
 [!INCLUDE [openjdk](./includes/web-app/open-jdk-tutorial-04-call-web-api-graph.md)]
+
+::: zone-end
+
+::: zone pivot="devlang-python-flask"
+
+[!INCLUDE [python-flask](./includes/web-app/python-flask-tutorial-04-call-web-api-graph.md)]
 
 ::: zone-end
