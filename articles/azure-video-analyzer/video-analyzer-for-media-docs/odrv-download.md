@@ -1,7 +1,7 @@
 ---
 title: Index videos stored on Onedrive with Azure Video Analyzer for Media (formerly Video Indexer)
 description: Learn how to index videos stored on Ondedrive by using Azure Video Analyzer for Media (formerly Video Indexer).
-ms.service: azure-video-analyzer
+ms.subservice: azure-video-analyzer-media
 ms.topic: article
 ms.date: 12/17/2021
 ---
@@ -16,38 +16,38 @@ For a list of file formats that you can use with Video Analyzer for Media, see [
    
 ## Index a video by using the website
 
-Sign into the [Video Analyzer for Media](https://www.videoindexer.ai/) website, and then select **Upload**.
+1. Sign into the [Video Analyzer for Media](https://www.videoindexer.ai/) website, and then select **Upload**.
 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Screenshot that shows the Upload button.":::
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/video-indexer-get-started/video-indexer-upload.png" alt-text="Screenshot that shows the Upload button.":::
 
-Click on **enter a file URL** button 
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-get-started/avam-enter-file-url.png" alt-text="Screenshot that shows the enter file URL button.":::
+1. Click on **enter a file URL** button 
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/video-indexer-get-started/avam-enter-file-url.png" alt-text="Screenshot that shows the enter file URL button.":::
 
-Next, go to your video/audio file located on your Onedrive using a webbrowser. Select the file you want to index, at the top select **embed**
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-get-started/avam-odrv-embed.png" alt-text="Screenshot that shows the embed code button.":::
+1. Next, go to your video/audio file located on your Onedrive using a webbrowser. Select the file you want to index, at the top select **embed**
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/video-indexer-get-started/avam-odrv-embed.png" alt-text="Screenshot that shows the embed code button.":::
 
-On the right click on **Generate** to generate an embed url.
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-get-started/avam-odrv-embed-generate.png" alt-text="Screenshot that shows the embed code generate button.":::
+1. On the right click on **Generate** to generate an embed url.
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/video-indexer-get-started/avam-odrv-embed-generate.png" alt-text="Screenshot that shows the embed code generate button.":::
 
-Copy the embed code and extract only the URL part inlcuding the key. For example:
-`https://onedrive.live.com/embed?cid=5BC591B7C713B04F&resid=5DC518B6B713C40F%2110126&authkey=HnsodidN_50oA3lLfk`
-Replace **embed** with **download**. You will now have a url that looks like this:
-`https://onedrive.live.com/download?cid=5BC591B7C713B04F&resid=5DC518B6B713C40F%2110126&authkey=HnsodidN_50oA3lLfk`
+1. Copy the embed code and extract only the URL part inlcuding the key. For example:
+   `https://onedrive.live.com/embed?cid=5BC591B7C713B04F&resid=5DC518B6B713C40F%2110126&authkey=HnsodidN_50oA3lLfk`
+   Replace **embed** with **download**. You will now have a url that looks like this:
+   `https://onedrive.live.com/download?cid=5BC591B7C713B04F&resid=5DC518B6B713C40F%2110126&authkey=HnsodidN_50oA3lLfk`
 
-Now enter this URL in the Azure Video Analyzer for Media portal in the URL field.
-> [!div class="mx-imgBorder"]
-> :::image type="content" source="./media/video-indexer-get-started/avam-odrv-url.png" alt-text="Screenshot that shows the onedrive url field.":::
+1. Now enter this URL in the Azure Video Analyzer for Media portal in the URL field.
+   > [!div class="mx-imgBorder"]
+   > :::image type="content" source="./media/video-indexer-get-started/avam-odrv-url.png" alt-text="Screenshot that shows the onedrive url field.":::
 
 After your video is downloaded from Onedrive, Video Analyzer for Media starts indexing and analyzing the video.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Screenshot that shows the progress of an upload.":::
 
-After Video Analyzer for Media is done analyzing, you get an email with a link to your video. The email also includes a short description of what was found in your video (for example: people, topics, optical character recognition).
+Once Video Analyzer for Media is done analyzing, you get an email with a link to your video. The email also includes a short description of what was found in your video (for example: people, topics, optical character recognition).
 
 ## Upload and index a video by using the API
 
