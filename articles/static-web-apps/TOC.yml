@@ -31,8 +31,10 @@
             - name: Bring your own functions
               href: functions-bring-your-own.md
         - name: Azure API Management
-          href: apis.md
+          href: apis-api-management.md
         - name: Azure Container Apps
+          href: apis.md
+        - name: Azure Logic Apps
           href: apis.md
         - name: Azure Web Apps
           href: apis.md
