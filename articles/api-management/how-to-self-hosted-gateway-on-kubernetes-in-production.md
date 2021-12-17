@@ -88,14 +88,14 @@ The self-hosted gateway is a crucial component in the infrastructure and has to 
 Consider protecting the self-hosted gateway against [disruption](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/).
 
 > [!TIP]
-> When installing with Helm, easily enable high availability by enabling the `highAvailability.enabled` configuration option.
+> When installing with Helm, easily enable high available scheduling by enabling the `highAvailability.enabled` configuration option.
 
 ### Preventing against node failures
 To prevent impact due to data center failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
 
 This allows you to schedule the self-hosted gateway's pod on nodes spread across the availability zones by using:
-- Pod Topology Spread Constraints (Recommended - Kubernetes v1.19+)
-- Pod Anti-Affinity
+- [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) (Recommended - Kubernetes v1.19+)
+- [Pod Anti-Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 
 > [!Note]
 > If you are using Azure Kubernetes Service, learn how to use availability zones [this article](./../aks/availability-zones.md).
