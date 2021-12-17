@@ -11,6 +11,7 @@ ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: chschrae
 ms.devlang: cpp, csharp
+zone_pivot_groups: programming-languages-set-nine
 ms.custom: devx-track-cpp, devx-track-csharp, mode-other
 ---
 
