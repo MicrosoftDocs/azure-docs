@@ -178,11 +178,28 @@ The RTSP URL IP address must be **localhost**. Ensure that the`bitrateKbps` valu
 
 After creating the live pipeline, the pipeline can be activated to start recording to the Video Analyzer video resource. [The quickstart](get-started-livepipelines-portal.md#deploy-a-live-pipeline) mentioned in the previous step also outlines how to activate a live pipeline in Azure portal.
 
+
+### Playback recorded video in the Azure portal
+1. After activating the live pipeline, the video resource will be available under the Video Analyzer account **Videos** pane in Azure portal. The status will indicate **Is in use** as pipeline is active and recording.
+1. Select the video resource that was defined in the live pipeline to view the video.
+
+> [!div class="mx-imgBorder"]
+> :::image type="content" source="./media/camera-1800s-mkv.png" alt-text="Screenshot of the live video captured by live pipeline in the cloud.":::
+
+If you encounter errors while attempting to playback the video, follow the steps in [this troubleshooting guide](troubleshoot.md#unable-to-play-video-after-activating-live-pipeline).
+
+[!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
+
+To deactivate the pipeline, go to your Video Analyzer account, and select Live-> Pipelines on the left panel. Select the pipeline then select `Deactivate` in pipeline grid, this will stop the recording.
+
+### Next steps
+Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial](export-portion-of-video-as-mp4.md).
+
 ## [C# SDK sample](#tab/csharp-sdk-sample)
 ### Prerequisites
 - Retrieve your Azure Active Directory [Tenant ID](../../../active-directory/fundamentals/active-directory-how-to-find-tenant.md).
   - Register an application with Microsoft identity platform to get app registration [Client ID](../../../active-directory/develop/quickstart-register-app.md#register-an-application) and [Client secret](../../../active-directory/develop/quickstart-register-app.md#add-a-client-secret).
-  - [Give the application “Owner” access to the subscription you are using](../../../active-directory/develop/howto-create-service-principal-portal#assign-a-role-to-the-application)
+  - [Give the application “Owner” access to the subscription you are using](../../../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)
 - [Visual Studio Code](https://code.visualstudio.com/) on your development machine with following extensions:
     * [C#](https://marketplace.visualstudio.com/items?itemName=ms-dotnettools.csharp).
 - [.NET Core 3.1 SDK](https://dotnet.microsoft.com/download/dotnet-core/3.1) on your development machine.
@@ -231,7 +248,7 @@ Bitrate is set to 1500 kbps by default but can be edited on `line 282 of Program
 -	Console Terminal window pauses after this step so that you can examine the program's output in the TERMINAL window, see the recorded video in portal and will wait for user input to proceed.
 
 
-## Playback recorded video in the Azure portal
+### Playback recorded video in the Azure portal
 
 1. After activating the live pipeline, the video resource will be available under the Video Analyzer account **Videos** pane in Azure portal. The status will indicate **Is in use** as pipeline is active and recording.
 1. Select the video resource that was defined in the live pipeline to view the video.
@@ -243,6 +260,8 @@ If you encounter errors while attempting to playback the video, follow the steps
 
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
-## Next steps
+In the terminal window, pressing `Enter` will deactivate the pipeline, delete the pipeline and delete the topology. Program.cs calls CleanUpResourcesAsync() method to cleanup the deployed resources.
+
+### Next steps
 
 Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial](export-portion-of-video-as-mp4.md).
