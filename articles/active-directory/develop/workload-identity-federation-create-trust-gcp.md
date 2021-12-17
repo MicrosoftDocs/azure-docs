@@ -17,21 +17,17 @@ ms.reviewer: keyam, udayh, vakarand
 #Customer intent: As an application developer, I want to create a trust relationship with Google Cloud so my service can access Azure AD protected resources without managing secrets.
 ---
 
-# Access Azure AD protected resources from a service in Google Cloud (preview)
+# Access Azure AD protected resources from an app in Google Cloud (preview)
 
-Applications or services running in Google Cloud need an Azure Active Directory (Azure AD) application to authenticate and access Azure AD protected resources. A common practice is to configure the application with a secret and use that secret in their service in Google to request an access token for that application from Azure AD. These secrets pose a security risk if they are not stored securely and rotated regularly.
+Software workloads running in Google Cloud need an Azure Active Directory (Azure AD) application to authenticate and access Azure AD protected resources. A common practice is to configure that application with credentials (a secret or certificate). The credentials are used by a Google Cloud workload to request an access token from Microsoft identity platform. These credentials pose a security risk and have to be stored securely and rotated regularly. You also run the risk of service downtime if the credentials expire.
 
-Using [workload identity federation](workload-identity-federation.md), you can avoid creating these secrets in Azure AD when your services are running in Google Cloud. Instead, you can configure your Azure AD application to trust a token issued by Google.
+[Workload identity federation](workload-identity-federation.md) allows you to access Azure AD protected resources from services running in Google Cloud without needing to manage secrets. Instead, you can configure your Azure AD application to trust a token issued by Google and exchange it for an access token from Microsoft identity platform.
 
 ## Create an app registration in Azure AD
 
-[Create an app registration](quickstart-register-app.md) in Azure AD. Grant your app the necessary permissions to the Azure resources targeted by your software workload running in Google Cloud.
+[Create an app registration](quickstart-register-app.md) in Azure AD. Grant your app the permissions necessary to access the Azure AD protected resources targeted by your software workload running in Google Cloud.
 
-Find the object ID of the app (not the application (client) ID), which you need in the following steps. You can find the object ID of the app in the Azure portal.
-
-Go to the [list of registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal and select your app registration.
-
-In **Overview**->**Essentials**, find the **Object ID** which you need in later steps.
+Take note of the *object ID* of the app (not the application (client) ID) which you need in the following steps.  Go to the [list of registered applications](https://portal.azure.com/#blade/Microsoft_AAD_IAM/ActiveDirectoryMenuBlade/RegisteredApps) in the Azure portal, select your app registration, and find the **Object ID** in **Overview**->**Essentials**.
 
 ## Set up an identity in Google Cloud
 
@@ -55,18 +51,18 @@ The most important fields for creating the federated identity credential are:
 
 - *object ID*: the object ID of the app (not the application (client) ID) you previously registered in Azure AD.
 - *subject*: this should match the `sub` claim in the token issued by another identity provider, such as Google. This is the Unique ID of the service account you plan to use.
-- *issuer*: this should match the `iss` claim in the token issued by the identity provider. This needs to be an URL that must comply with the [OIDC Discovery spec](https://openid.net/specs/openid-connect-discovery-1_0.html). Azure AD will use this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google cloud, the issuer is `https://accounts.google.com`.
+- *issuer*: this should match the `iss` claim in the token issued by the identity provider. This needs to be an URL that must comply with the [OIDC Discovery spec](https://openid.net/specs/openid-connect-discovery-1_0.html). Azure AD will use this issuer URL to fetch the keys that are necessary to validate the token. In the case of Google Cloud, the issuer is `https://accounts.google.com`.
 - *audiences*: this should match the `aud` claim in the token. For security reasons, you should pick a value that is unique for tokens meant for Azure AD. The Microsoft recommended value is “api://AzureADTokenExchange”.
 
 ## Exchange a Google token for an access token
 
-Now that you have configured the Azure AD application to trust the Google service account, you are ready to get a token from Google and exchange it for an Azure AD access token.
+Now that you have configured the Azure AD application to trust the Google service account, you are ready to get a token from Google and exchange it for an access token from Microsoft identity platform.
 
 ### Get an ID token for your Google service account
 
-As mentioned earlier, Google cloud resources such as App Engine automatically use the default service account of your Cloud project. You can also configure the app to use a different service account when you deploy your service. Your service can [request an ID token](https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature) for that service account from the “metadata service endpoint” that handles such requests. With this approach, you don't need any keys for your service account: these are all managed by Google.
+As mentioned earlier, Google cloud resources such as App Engine automatically use the default service account of your Cloud project. You can also configure the app to use a different service account when you deploy your service. Your service can [request an ID token](https://cloud.google.com/compute/docs/instances/verifying-instance-identity#request_signature) for that service account from the metadata server that handles such requests. With this approach, you don't need any keys for your service account: these are all managed by Google.
 
-Here’s an example in Node.js of how to request Google provide an ID token to identity your service account to Azure AD:
+Here’s an example in Node.js of how to request an ID token from the Google metadata server:
 
 ```nodejs
 async function googleIDToken() {
@@ -81,14 +77,14 @@ async function googleIDToken() {
 
 ### Exchange the identity token for an Azure AD access token
 
-Now that you have an identity token from Google, we can exchange this for an Azure AD access token. The [Microsoft Authentication Library (MSAL)](msal-overview.md) has been updated to allow you to pass the Google token as a client assertion.
-
-Using this support in MSAL, you can write your token class that implements the `TokenCredential` interface, which can then be used with different Azure SDKs. The following MSAL versions have support for client assertions:
+Now that you have an identity token from Google, you can exchange it for an access token from Microsoft identity platform. Use the [Microsoft Authentication Library (MSAL)](msal-overview.md) to pass the Google token as a client assertion. The following MSAL versions support client assertions:
 - [MSAL Go (Preview)](https://github.com/AzureAD/microsoft-authentication-library-for-go)
 - [MSAL Node](https://github.com/AzureAD/microsoft-authentication-library-for-js/tree/dev/lib/msal-node)
 - [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 - [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
+
+Using MSAL, you write a token class (implementing the `TokenCredential` interface) exchange the ID token.  The token class is used to with different client libraries to access Azure AD protected resources. 
 
 The following Node.js sample code snippet implements the `TokenCredential` interface, gets an ID token from Google (using the `googleIDToken` method previously defined), and exchanges the ID token for an access token.
 
@@ -137,7 +133,7 @@ class ClientAssertionCredential implements TokenCredential {
 }
 ```
 
-Here’s an example of how you can access Azure Blog storage using `ClientAssertionCredential` and the Azure Blob Storage client library. When you make requests to the `BlobServiceClient` to access storage, the `BlobServiceClient` calls the `getToken` method on the `ClientAssertionCredential` object. This results in a request for a fresh ID token from the metatdata server, which then gets exchanged for an Azure AD access token.  
+Here’s an example of how you can access Azure Blob storage using `ClientAssertionCredential` token class and the Azure Blob Storage client library. When you make requests to the `BlobServiceClient` to access storage, the `BlobServiceClient` calls the `getToken` method on the `ClientAssertionCredential` object get a fresh ID token and exchange it for an access token.  
 
 The following Node.js example initializes a new `ClientAssertionCredential` object and then creates a new `BlobServiceClient` object.
 
