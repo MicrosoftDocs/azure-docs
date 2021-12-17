@@ -33,7 +33,7 @@ For this scenario, we have a legacy application using HTTP authorization headers
 
 Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introduce inevitable costs, and risk potential downtime.
 
-Instead, a BIG-IP Virtual Edition (VE) deployed between the internet and the internal Azure VNet application is connected and will be used to gate inbound access, along with Azure AD for its extensive choice of authentication and authorization capabilities.
+Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet application is connected and will be used to gate inbound access to the application, along with Azure AD for its extensive choice of authentication and authorization capabilities.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO. It significantly improves the overall security posture of the application, and allows the business to continue operating at pace, without interruption.
 
@@ -189,10 +189,9 @@ Some of these are global settings that can be reused for publishing more applica
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
 3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** from your registered application
+4. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**
 
 ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-ldap/config-properties.png)
-
-Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
 
 ### Service Provider
 
@@ -395,7 +394,7 @@ There may be cases where the Guided Configuration templates lack the flexibility
 For those scenarios, go ahead and deploy using the Guided Configuration. Then navigate to **Access > Guided Configuration** and select the small padlock icon on the far right of the row for your applications’ configs. At that point, changes via the wizard UI are no longer possible, but all BIG-IP objects associated with the published instance of the application will be unlocked for direct management.
 
 >[!NOTE]
->Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, therefore we recommend the manual approach for production services.
+>Re-enabling strict mode and deploying a configuration will overwrite any settings performed outside of the Guided Configuration UI, so use this with caution for production services.
 
 ## Troubleshooting
 
@@ -425,7 +424,7 @@ If you don’t see a BIG-IP error page, then the issue is probably more related 
 
  ```ldapsearch -xLLL -H 'ldap://192.168.0.58' -b "CN=partners,dc=contoso,dc=lds" -s sub -D "CN=f5-apm,CN=partners,DC=contoso,DC=lds" -w 'P@55w0rd!' "(cn=testuser)" ```
 
-For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
+For more information, visit this F5 knowledge article [Configuring LDAP remote authentication for Active Directory](https://support.f5.com/csp/article/K11072). There’s also a great BIG-IP reference table to help diagnose LDAP-related issues in this F5 knowledge article on [LDAP Query](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/5.html).
 
  
 
