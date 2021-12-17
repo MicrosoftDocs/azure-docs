@@ -179,9 +179,9 @@ Change the failover location as appropriate for your environment.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="12-15":::
 
-## Create the failover server
+## Create the secondary server
 
-Use this script to create a failover server with the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command.
+Use this script to create a secondary server with the [az sql server create](/cli/azure/sql/server#az_sql_server_create) command.
 > [!NOTE]
 > The server login and firewall settings must match that of your primary server.
 
@@ -207,7 +207,7 @@ This portion of the tutorial uses the following Azure CLI cmdlets:
 
 ## 3 - Test failover
 
-In this step, you'll fail your failover group over to the failover server, and then fail back using the Azure portal.
+In this step, you will fail your failover group over to the secondary server, and then fail back using the Azure portal.
 
 # [Azure portal](#tab/azure-portal)
 
@@ -305,7 +305,7 @@ Use this script to confirm the roles of each server with the [az sql failover-gr
 
 ## Fail over to the secondary server
 
-Use this script to failover to the failover server and verify a successful failover with the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) and [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) commands.
+Use this script to failover to the secondary server and verify a successful failover with the [az sql failover-group set-primary](/cli/azure/sql/failover-group#az_sql_failover_group_set_primary) and [az sql failover-group show](/cli/azure/sql/failover-group#az_sql_failover_group_show) commands.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="36-41":::
 
@@ -360,7 +360,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 # [Azure CLI](#tab/azure-cli)
 
-## Delete the resource group by using the Azure CLI.
+## Delete the resource group by using the Azure CLI
 
 Use this script to delete the resource group with the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command.
 
