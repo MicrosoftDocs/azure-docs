@@ -239,7 +239,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-In a synchonous function, you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
+In a synchronous function, you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
 
 ### context.bindingData property
 
