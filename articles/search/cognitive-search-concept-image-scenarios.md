@@ -16,11 +16,10 @@ ms.custom: devx-track-csharp
 Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Search gives you several options for creating and extracting searchable text inside images, including:
 
 + [OCR](cognitive-search-skill-ocr.md) for optical character recognition of text and digits
-+ [Image Analysis](cognitive-search-skill-image-analysis.md) that describe images through captions and tags
++ [Image Analysis](cognitive-search-skill-image-analysis.md) that describe images through visual features
 + [Custom skills](#passing-images-to-custom-skills) to invoke any external image processing that you want to provide
 
 Through OCR, you can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Through image analysis, you can generate a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
-
 
 This article explains how to work with images in an AI enrichment pipeline, and describes several common scenarios such as working with embedded images, custom skills, and overlaying visualizations on original images.
 
@@ -30,7 +29,7 @@ To work with image content in a skillset, you'll need:
 > + Source files that include images
 > + A search indexer, configured for image actions
 > + A skillset with built-in or custom skills that invoke OCR or image analysis
-> + A search index with fields to receive the analyzed text output, with output field mappings in the indexer that provide the association.
+> + A search index with fields to receive the analyzed text output, plus output field mappings in the indexer that establish association.
 
 Optionally, you can define projections to accept image-analyzed output into a [knowledge store](knowledge-store-concept-intro.md) for data mining scenarios.
 
@@ -78,19 +77,23 @@ You cannot turn off image normalization. Skills that iterate over images, such a
     }
     ```
 
-1. Set the `"dataToExtract`" parameter to `"contentAndMetadata"` (required).
+1. Set `"dataToExtract`" to `"contentAndMetadata"` (required).
 
-1. Verify that the `"parsingMode`" is set to default (required). This parameter determines the granularity of search documents created in the index. The default mode sets up a one-to-one correspondence so that one blob results in one search document. If documents are large, or if skills require smaller chunks of text, you can add Text Split skill that subdivides a document into paging for processing purposes. But for search scenarios, one blob per document is required if enrichment includes image processing. 
+1. Verify that the `"parsingMode`" is set to default (required). 
 
-1. Set the `"imageAction"` parameter to enable the *normalized_images* node in an enrichment tree (required). The parameter default is "none. To enable image normalization and processing, set it to one of the following values:
+   This parameter determines the granularity of search documents created in the index. The default mode sets up a one-to-one correspondence so that one blob results in one search document. If documents are large, or if skills require smaller chunks of text, you can add Text Split skill that subdivides a document into paging for processing purposes. But for search scenarios, one blob per document is required if enrichment includes image processing. 
 
-   + `"generateNormalizedImages"` to generate an array of normalized images as part of document cracking. 
-   + `"generateNormalizedImagePerPage"` to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image. The functionality is the same as "generateNormalizedImages" for non-PDF file types.
+1. Set `"imageAction"` to enable the *normalized_images* node in an enrichment tree (required):
 
-1. Optionally, adjust the width or height of normalized images:
+   + `"generateNormalizedImages"` to generate an array of normalized images as part of document cracking.
+ 
+   + `"generateNormalizedImagePerPage"` (applies to PDF only) to generate an array of normalized images where each page in the PDF is rendered to one output image. For non-PDF files, the behavior of this parameter is same as if you had set "generateNormalizedImages".
 
-   + `"normalizedImageMaxWidth"` sets the maximum width (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000. 
-   + `"normalizedImageMaxHeight"` sets the maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.
+1. Optionally, adjust the width or height of the generated normalized images:
+
+   + `"normalizedImageMaxWidth"` (in pixels). Default is 2000. Maximum value is 10000.
+
+   + `"normalizedImageMaxHeight"` (in pixels). Default is 2000. Maximum value is 10000.
 
    The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). The [OCR skill](cognitive-search-skill-ocr.md) supports a maximum width and height of 4200 for non-English languages, and 10000 for English.  If you increase the maximum limits, processing could fail on larger images depending on your skillset definition and the language of the documents. 
 
@@ -132,16 +135,17 @@ This section supplements the [skill reference](cognitive-search-predefined-skill
 
 1. [Create or update a skillset](/rest/api/searchservice/create-skillset) to add skills.
 
-1. Add templates for OCR and Image Analysis from the portal, or copy the definitions from the skillset reference.
+1. Add templates for OCR and Image Analysis from the portal, or copy the definitions from the [skill reference](cognitive-search-predefined-skills.md) documentation.
 
-1. If necessary, [include multi-service key](cognitive-search-attach-cognitive-services.md) in the Cognitive Services property of the skillset. Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to to a Cognitive Services resource in the same region as your Cognitive Search service.
+1. If necessary, [include multi-service key](cognitive-search-attach-cognitive-services.md) in the Cognitive Services property of the skillset. Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to access a Cognitive Services resource in the same region as your Cognitive Search service.
 
 ### About inputs for image processing
 
 As noted, images are extracted during document cracking and then normalized as a preliminary step. The normalized images are the inputs to any image processing skill, and are always represented in an enriched document tree in either one of two ways:
 
-+ `"/document/normalized_images/*"` is for documents that are processed whole
-+ `"/document/normalized_images/*/pages"` is for documents that are processed in chunks (pages)
++ `"/document/normalized_images/*"` is for documents that are processed whole.
+
++ `"/document/normalized_images/*/pages"` is for documents that are processed in chunks (pages).
 
 Whether you're using OCR and image analysis in the same, inputs have virtually the same construction:
 
@@ -197,7 +201,9 @@ Output is always text, represented as nodes in an internal enriched document tre
     }
     ```
 
-1. [Create or update a search index](/rest/api/searchservice/create-index) to add fields to accept the skill outputs. In the fields collection below, content is blob content. Metadata_storage_name returns the name of the file (make sure it is "retrievable"). Merged_content is output from Text Merge (useful when images are embedded). Text and layoutText are skill output and must be a string collection in order to the capture all of the OCR-generated output for the entire document.
+1. [Create or update a search index](/rest/api/searchservice/create-index) to add fields to accept the skill outputs. 
+
+   In the fields collection below, "content" is blob content. "Metadata_storage_name" returns the name of the file (make sure it is "retrievable"). "Merged_content" is output from Text Merge (useful when images are embedded). "Text" and "layoutText" are skill outputs and must be a string collection in order to the capture all of the OCR-generated output for the entire document.
 
     ```json
       "fields": [
@@ -251,7 +257,9 @@ Output is always text, represented as nodes in an internal enriched document tre
       ],
     ```
 
-1. [Update the indexer](/rest/api/searchservice/update-indexer) to map skillset output (nodes in an enrichment tree) to index fields. Enriched documents are internal. To "externalize" the nodes, an output field mapping specifies the data structure that is accessed by your app. Below is an example of a "text" node (OCR output) mapped to a "text" field in a search index.
+1. [Update the indexer](/rest/api/searchservice/update-indexer) to map skillset output (nodes in an enrichment tree) to index fields.
+
+   Enriched documents are internal. To "externalize" the nodes, an output field mapping specifies the data structure that is accessed by your app. Below is an example of a "text" node (OCR output) mapped to a "text" field in a search index.
 
     ```json
       "outputFieldMappings": [
@@ -323,15 +331,17 @@ Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "capti
 
 + "imageCaption" captures a description of an image as individuals tags and a longer text description.
 
-+ "imageTags" stores tags about an image as a collection of keywords, one collection for all images in the source document. The example below demonstrates that tags will repeat. There is no aggregation or grouping.
++ "imageTags" stores tags about an image as a collection of keywords, one collection for all images in the source document. 
 
-The following screenshot illustrates "imageCaption" and "imageTags" for the following embedded images in a PDF:
+The following screenshot illustrates descriptions and tags for the following embedded images in a PDF. Image analysis detected three images. Other text in the example (including titles, headings, and body text) are text in the source document as well, and therefore were not included in OCR or image processing.
 
 :::image type="content" source="media/cognitive-search-concept-image-scenarios/state-of-birds-screenshot.png" alt-text="Screenshot of three images in a PDF" border="true":::
 
-Image analysis detected three images in the example above. Output includes a caption for each one in the "imageCaption" array, while "imageTags" are listed in the order of creation. 
+Image analysis output is illustrated in the JSON below (search result). In this exercise, the skill specifies tags and description, but [more features](cognitive-search-skill-image-analysis.md#skill-parameters) are available.
 
-Within "imageCaption", the "text" parameter for each image is "a flock of seagulls are swimming in the water", "map", and "a close up of a bird".
++ "imageCaption" is an array of descriptions, one per image, with tags and longer text that describes the image. For each image, the longer "text" consists of "a flock of seagulls are swimming in the water", "map", and "a close up of a bird".
+
++ "imageTags" is an array of tags, listed in the order of creation. Notice that tags will repeat. There is no aggregation or grouping.
 
 ```json
  "imageCaption": [
