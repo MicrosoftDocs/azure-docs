@@ -371,7 +371,6 @@ The following table explains the binding configuration properties that you set i
 |**name** |  The name of the variable that represents the queue in function code. Set to `$return` to reference the function return value.|
 |**queueName** | The name of the queue. |
 |**connection** | The name of an app setting or setting collection that specifies how to connect to Azure Queues. See [Connections](#connections).|
----
 
 ::: zone-end  
 ::: zone pivot="programming-language-java"  
