@@ -50,6 +50,9 @@ Consider using a specific version tag in production to avoid unintentional upgra
 
 You can [download a full list of available tags](https://mcr.microsoft.com/v2/azure-api-management/gateway/tags/list).
 
+> [!TIP]
+> When installing with Helm, image tagging is optimized for you. The Helm chart's application version pins the gateway to a given version and does not rely on `latest`.
+
 ## DNS policy
 DNS name resolution plays a critical role in a self-hosted gateway's ability to connect to dependencies in Azure and dispatch API calls to backend services.
 
@@ -67,15 +70,41 @@ If you use custom domain names for the API Management endpoints, especially if y
 In this scenario, if the SSL certificate that's used by the Management endpoint isn't signed by a well-known CA certificate, you must make sure that the CA certificate is trusted by the pod of the self-hosted gateway.
 
 ## Configuration backup
-To learn about self-hosted gateway behavior in the presence of a temporary Azure connectivity outage, see [Self-hosted gateway overview](self-hosted-gateway-overview.md#connectivity-to-azure).
 
 Configure a local storage volume for the self-hosted gateway container, so it can persist a backup copy of the latest downloaded configuration. If connectivity is down, the storage volume can use the backup copy upon restart. The volume mount path must be <code>/apim/config</code>. See an example on [GitHub](https://github.com/Azure/api-management-self-hosted-gateway/blob/master/examples/self-hosted-gateway-with-configuration-backup.yaml).
 To learn about storage in Kubernetes, see the [Kubernetes website](https://kubernetes.io/docs/concepts/storage/volumes/).
+
+> [!NOTE]
+> To learn about self-hosted gateway behavior in the presence of a temporary Azure connectivity outage, see [Self-hosted gateway overview](self-hosted-gateway-overview.md#connectivity-to-azure).
 
 ## Local logs and metrics
 The self-hosted gateway sends telemetry to [Azure Monitor](api-management-howto-use-azure-monitor.md) and [Azure Application Insights](api-management-howto-app-insights.md) according to configuration settings in the associated API Management service.
 When [connectivity to Azure](self-hosted-gateway-overview.md#connectivity-to-azure) is temporarily lost, the flow of telemetry to Azure is interrupted and the data is lost for the duration of the outage.
 Consider [setting up local monitoring](how-to-configure-local-metrics-logs.md) to ensure the ability to observe API traffic and prevent telemetry loss during Azure connectivity outages.
+
+## High Availability
+The self-hosted gateway is a crucial component in the infrastructure and has to be highly available. However, failure will and can happen.
+
+Consider protecting the self-hosted gateway against [disruption](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/).
+
+> [!TIP]
+> When installing with Helm, easily enable high availability by enabling the `highAvailability.enabled` configuration option.
+
+### Preventing against node failures
+To prevent impact due to data center failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
+
+This allows you to schedule the self-hosted gateway's pod on nodes spread across the availability zones by using:
+- Pod Topology Spread Constraints (Recommended - Kubernetes v1.19+)
+- Pod Anti-Affinity
+
+> [!Note]
+> If you are using Azure Kubernetes Service, learn how to use availability zones [this article](./../aks/availability-zones.md).
+
+### Preventing against pod disruption
+
+Pods can be experience disruption due to [various](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#voluntary-and-involuntary-disruptions) reasons such as changes manual pod deletion, node maintenance, etc.
+
+Consider using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) to enforce a minimum number of pods to be available at any given time.
 
 ## Next steps
 
