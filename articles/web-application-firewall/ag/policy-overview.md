@@ -16,7 +16,7 @@ Web Application Firewall Policies contain all the WAF settings and configuration
 There's no limit on the number of policies you can create. When you create a policy, it must be associated to an application gateway to take effect. It can be associated with any combination of application gateways, listeners, and path-based rules.
 
 > [!Note]
-> Application Gateway has two versions of WAF enabled gateways; Application Gateway WAF_v1 and Application Gateway WAF_v2. WAF policies are only supported to be associated to Application Gateway WAF v2 gateways.
+> Application Gateway has two versions of WAF enabled gateways: Application Gateway WAF_v1 and Application Gateway WAF_v2. WAF policies are only supported to be associated to Application Gateway WAF v2 gateways.
 
 ## Global WAF policy
 
