@@ -190,7 +190,7 @@ If you encounter errors while attempting to playback the video, follow the steps
 
 [!INCLUDE [activate-deactivate-pipeline](../edge/includes/common-includes/activate-deactivate-pipeline.md)]
 
-To deactivate the pipeline, go to your Video Analyzer account, and select Live-> Pipelines on the left panel. Select the pipeline then select `Deactivate` in pipeline grid, this will stop the recording.
+To deactivate the pipeline, go to your Video Analyzer account, and select **Live** > **Pipelines** on the left panel. Select the pipeline and then select `Deactivate` in the pipeline grid to stop the recording.
 
 ### Next steps
 Now that a video exists in your Video Analyzer account, you can export a clip of this recorded video to MP4 format using [this tutorial](export-portion-of-video-as-mp4.md).
@@ -216,7 +216,7 @@ Now that a video exists in your Video Analyzer account, you can export a clip of
 | ResourceGroup | Provide resource group name |
 | AccountName | Provide Video Analyzer account name |
 | TenantId | Provide tenant ID |
-| ClientId | Provide app registration client id |
+| ClientId | Provide app registration client ID |
 | Secret | Provide app registration client secret |
 | AuthenticationEndpoint | Provide authentication end point (example: https://login.microsoftonline.com) |
 | ArmEndPoint | Provide ARM end point (example: https://management.azure.com) |
