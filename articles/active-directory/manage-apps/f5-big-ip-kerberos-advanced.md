@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
-description: Learn how to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+description: Learn how to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP advanced configuration.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
 
-In this tutorial, you’ll learn to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+In this tutorial, you’ll learn how to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP advanced configuration. 
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
@@ -441,7 +441,7 @@ As a user, launch a browser and connect to the application’s external URL. You
 
 ### Azure AD B2B guest access
 
-SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-cloud-to-on-premises.md). Guest identities are synchronized from your Azure AD tenant to your target Kerberos domain. To have a local representation of guest objects is necessary for BIG-IP to perform KCD SSO to the backend application. 
+SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-cloud-to-on-premises.md). Guest identities are synchronized from your Azure AD tenant to your target Kerberos domain. It is necessary to have a local representation of guest objects for BIG-IP to perform KCD SSO to the backend application. 
 
 ## Troubleshooting
 

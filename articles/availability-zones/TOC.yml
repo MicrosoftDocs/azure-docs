@@ -118,7 +118,3 @@
     href: https://azure.microsoft.com/roadmap/
   - name: Azure Regions
     href: https://azure.microsoft.com/global-infrastructure/geographies/
-- name: Azure Orbital Documentation
-  items:
-  - name: What is Azure Orbital?
-    href: ../networking/azure-orbital-overview.md

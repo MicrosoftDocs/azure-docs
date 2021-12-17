@@ -43,6 +43,8 @@ ms.custom: "include file"
 | Maximum size for a single post | 30 MB | Split larger volumes into multiple posts. |
 | Maximum size for field values  | 32 KB | Fields longer than 32 KB are truncated. |
 
+<a name="la-query-api"></a>
+
 **Query API**
 
 | Category | Limit | Comments |

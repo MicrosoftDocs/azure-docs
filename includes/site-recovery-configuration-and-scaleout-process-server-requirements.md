@@ -71,7 +71,7 @@ MYSQL | MySQL should be installed. You can install manually, or Site Recovery ca
 |
 
 > [!NOTE]
-> Upgrading MySql on the configuration server is not supported.
+> Upgrading MySQL on the configuration server is not supported.
 
 ## Sizing and capacity requirements
 
