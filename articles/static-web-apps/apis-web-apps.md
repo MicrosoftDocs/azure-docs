@@ -19,7 +19,7 @@ Azure Web Apps is a managed platform for hosting web applications that execute c
 
 When you link your Azure Web Apps instance to your static web app, any requests to your static web app with a route that starts with `/api/` will be proxied to the same route on the Azure Web Apps instance.
 
-By default, when a Web Apps instance is linked to a static web app, the Web Apps instance only accepts requests that are proxied through the linked static web app. An Azure Web Apps instance can be linked to a single static web app at a time.
+By default, when a Web Apps instance is linked to a static web app, the Web Apps instance only accepts requests that are proxied through the linked static web app. An Azure Web Apps instance can be linked to a single static web app at a time. All Azure Web Apps hosting plans are supported.
 
 > [!NOTE]
 > Currently, you cannot link a Web Apps instance to a Static Web Apps [pre-production environment](review-publish-pull-requests.md).
