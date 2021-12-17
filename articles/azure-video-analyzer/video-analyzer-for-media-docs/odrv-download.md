@@ -33,7 +33,7 @@ For a list of file formats that you can use with Video Analyzer for Media, see [
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/video-indexer-get-started/avam-odrv-embed-generate.png" alt-text="Screenshot that shows the embed code generate button.":::
 
-1. Copy the embed code and extract only the URL part inlcuding the key. For example:
+1. Copy the embed code and extract only the URL part including the key. For example:
 
    `https://onedrive.live.com/embed?cid=5BC591B7C713B04F&resid=5DC518B6B713C40F%2110126&authkey=HnsodidN_50oA3lLfk`
    
