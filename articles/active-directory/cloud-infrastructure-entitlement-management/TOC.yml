@@ -10,6 +10,8 @@
       href: cloudknox-product-integrations.md
     - name: Integration with the CloudKnox API
       href: cloudknox-api.md
+    - name: Integration with ServiceNow
+      href: cloudknox-servicenow.md     
   - name: Installation
     expanded: true
     items:
@@ -31,6 +33,12 @@
       href: cloudknox-sentry-install-gcp.md
     - name: Install CloudKnox with an AWS role
       href: cloudknox-install-aws-agentless-deployment.md
+    - name: Install CloudKnox Sentry on AWS
+      href: cloudknox-sentry-install-aws.md
+    - name: Install CloudKnox Sentry on Azure
+      href: cloudknox-sentry-install-azure.md
+    - name: The CloudKnox dashboard
+      href: cloudknox-product-dashboard.md
     - name: The CloudKnox Account Explorer
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
@@ -48,6 +56,11 @@
       href: cloudknox-product-autopilot.md
     - name: Collect data sources
       href: cloudknox-product-data-sources.md
+  - name: Reports 
+    expanded: true
+    items: 
+    - name: The Permissions Analytics report
+      href: cloudknox-product-permissions-analytics-reports.md
   - name: Reference
     expanded: true
     items:

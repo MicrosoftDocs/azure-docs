@@ -1,6 +1,6 @@
 ---
-title: Microsoft CloudKnox Permissions Management product integration - ServiceNow
-description: How to configure and use ServiceNow.
+title: Microsoft CloudKnox Permissions Management dashboard
+description: How to use the Microsoft CloudKnox Permissions Management dashboard.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -8,11 +8,11 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/15/2021
 ms.author: v-ydequadros
 ---
 
-# Microsoft CloudKnox Permissions Management product integration - ServiceNow
+# Microsoft CloudKnox Permissions Management dashboard
 
 Microsoft CloudKnox Permissions Management provides a visual, operational dashboard that summarizes and updates key statistics and data about an authorization system on an hourly basis. This dashboard is available for Amazon Web Services (AWS), Google Cloud Platform (GCP), Microsoft Azure, and vCenter Server virtual machine.
 
