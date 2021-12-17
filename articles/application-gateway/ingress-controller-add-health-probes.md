@@ -42,7 +42,6 @@ spec:
 
 Kubernetes API Reference:
 * [Container Probes](https://kubernetes.io/docs/concepts/workloads/pods/pod-lifecycle/#container-probes)
-* [HttpGet Action](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.18/#httpgetaction-v1-core)
 
 > [!NOTE]
 > * `readinessProbe` and `livenessProbe` are supported when configured with `httpGet`.
