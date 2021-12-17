@@ -15,21 +15,25 @@ ms.date: 12/10/2021
 
 # Input validation in Azure Stream Analytics queries
 
-Azure Stream Analytics (ASA) jobs process data coming from input streams. When configuring a [streaming input](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs), only the **event serialization format** has to be defined (CSV, JSON, AVRO...). With ASA, the schema of the incoming data doesn't need to be set at the input level. By schema we mean the list of fields and their data types. ASA doesn't require it because it's capable of handling **dynamic input schemas**. This means ASA expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
+Azure Stream Analytics (ASA) jobs process data coming from input streams. When configuring a [streaming input](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs), only the **event serialization format** has to be defined (CSV, JSON, AVRO...). With ASA, the schema of the incoming data doesn't need to be set at the input level. By schema we mean the list of fields and their data types. ASA instead supports **dynamic input schemas** natively. This means ASA expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
 
-**Dynamic schema handling** is a powerful feature, key to stream processing. Data streams often contain multiple event types, each with a unique schema. To route, filter, and process events on such streams, ASA has to ingest them all regardless of their schema. But that freedom comes with a downside if left unchecked: it allows malformed events to flow through the query logic. This can in turn generate errors and crashes as the query logic (and built-in functions it uses) will expect certain fields and types in arguments.
+<Illustration>
 
-As an example, using [ROUND](https://docs.microsoft.com/en-us/stream-analytics-query/round-azure-stream-analytics) on a `NVARCHAR(MAX)` may not end well. ASA will be able to implicitly cast it as long as the field contains a numeric value stored as a string in the input events. But when an event has that field set to `"NaN"`, then the job may fail.
+**Dynamic schema handling** is a powerful feature, key to stream processing. Data streams often contain data from multiple sources, with multiple event types, each with a unique schema. To route, filter, and process events on such streams, ASA has to ingest them all regardless of their schema.
 
-**Input query validation** is the technic to use to protect the query logic from malformed or unexpected events. It adds a first step to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. This article describes this technic.
+But that freedom comes with a potential downside. If the input data is not validated in the first steps of a query, then unexpected events can flow through the main query logic and break it. This will in turn generate errors and crashes as the built-in functions used in the logic will expect certain fields and types in arguments.
+
+As an example, using [ROUND](https://docs.microsoft.com/en-us/stream-analytics-query/round-azure-stream-analytics) on a `NVARCHAR(MAX)` may not end well. ASA will be able to implicitly cast it as long as the field contains a numeric value stored as a string in the input events. But when an event has that field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
+
+**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. This article describes this technic.
 
 ## Problem statement
 
 We will be building a new ASA job that will ingest data from a single event hub. As is most often the case, we are not responsible for the data producers. Here producers are IoT devices sourced from multiple hardware vendors.
 
-After a series of meetings, we were able to define a serialization format (JSON) and schema for the events to be pushed from the devices to the event hub.
+After a series of meetings, we were able to define a serialization format (JSON) and a schema for the events to be pushed from the devices to the event hub.
 
-The schema is defined as follow:
+The schema contract is defined as follow:
 
 |Field name|Field type|Field description|
 |-|-|-|
@@ -51,14 +55,26 @@ Which in turns gives us the following sample message:
 }
 ```
 
-We can already realize a discrepancy between the schema contract and its implementation. In JSON there is no data type for datetime. It will transmitted as a string (see `message_Ts` above). ASA will be able to easily address the issue, but it shows how little trust we can have in some serialization formats to respect types. CSV is notoriously poor in that regard. This makes query validation all the more important here.
+We can already realize a discrepancy between the schema contract and its implementation. In JSON there is no data type for datetime. It will be transmitted as a string (see `message_Ts` above). ASA will be able to easily address the issue, but it shows how little trust we can have in some serialization formats to respect types. CSV is notoriously poor in that regard. This makes query validation all the more important here.
 
-Another discrepancy exists between the incoming field types and the type system used by ASA.
+Another discrepancy exists between the incoming field types and the type system used by ASA. If ASA has built-in types for integer (big int), datetime, string (NVARCHAR(MAX)) and arrays, it only supports numeric via float. In certain edge cases it could cause slight drifts in precision if the input numeric was a fixed decimal and not an approximate number. If that was the case, we would also convert the numeric value to string for post processing in a system that supports fixed decimal and could detect and correct potential drifts.
 
 ## Prerequisites
 
+## First implementation
+
+Fails
+
 ## Input query validation
 
+Define the expectations
+Add the preliminary steps
+Check
+
 ## Testing input validation with unit-testing
+
+Add test cases for malformed events that could break the query but we haven't seen yet
+Prep the data and write the config files
+Test the query
 
 ## Next Steps
