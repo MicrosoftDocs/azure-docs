@@ -27,7 +27,7 @@ You can create Azure DevOps pipelines to perform the deployment or removal of th
 
 1. Import the automation repository https://github.com/Azure/sap-automation.git into the Azure Devops repository. [Importing a repository](https://docs.microsoft.com/en-us/azure/devops/repos/git/import-git-repository?view=azure-devops)
 
-1. [Create the Azure Resource Manager service connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use the service principal from step 5. of the prerequesites
+1. [Create the Azure Resource Manager service connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use the service principal from step 5. of the prerequisites
 
 1. Create a general variable groups "sap-deployment-general-variables" including:
    * ANSIBLE_HOST_KEY_CHECKING = false
@@ -44,12 +44,12 @@ You can create Azure DevOps pipelines to perform the deployment or removal of th
    * ARM_CLIENT_SECRET = <service principle password>
    * ARM_SUBSCRIPTION_ID = <Azure subscription id>
    * ARM_TENANT_ID = <Azure tenant id>
-   * AZURECONNECTIONNAME = <the connectione name specified in step 3.>
+   * AZURE_CONNECTION_NAME = <the connection name specified in step 3.>
    * S-Username = <SAP Support user>
    * S-Password = <SAP Support user password>
    * Agent = WestEurope
 
-# Create Azure DevOps Pipelines
+## Create Azure DevOps Pipelines
   
 Some pipelines will add files to the devops repository and require therefore pull permissions. 
   
@@ -117,7 +117,44 @@ Some pipelines will add files to the devops repository and require therefore pul
   Verify the result in Azure: Are the VMs deployed and running?
   Check the configuration files in the ADO Repo
   
+# Register the Deployer as a Azure DevOps agent
 
+You will use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. This requires that the Deployer needs to be added into an [Agent Pool](/azure/devops/pipelines/agents/pools-queues). As a one-time step, you must register the agent. Someone with permission to administer the agent queue must complete these steps.  
+
+## Prerequisites
+
+
+1. Connect to your Azure DevOps instance Sign in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and write down the URL to the Azure DevOps project.
+
+1. Create an Agent Pool by navigating to the Organizational Settings and selecting *Agent Pools* from the Pipelines section. Click the *Add Pool* button and choose Self-hosted as the pool type. Name the pool to align with the control plane, for example `MGMT-WEEU-POOL`. Ensure *Grant access permission to all pipelines* is selected and create the pool using the *Create* button.
+
+1. Sign in with the user account you plan to use in your Azure DevOps organization (https://dev.azure.com). 
+
+1. From your home page, open your user settings, and then select *Personal access tokens*.
+
+:::image type="content" source="./media/automation-deployment-framework/select-personal-access-tokens.png" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
+
+
+1. Create a personal access token. Ensure that *Read & manage* is selected for *Agent Pools* and *Read & write* is selected for *Code*. Write down the created token value.
+
+:::image type="content" source="./media/automation-deployment-framework/automation-new-pat.png" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
+## Configuring the Agent
+
+1. Connect to the Deployer using the steps described here [Using Visual Studio Code](automation-tools-configuration.md#configuring-visual-studio-code) 
+
+1. Open a Terminal window and run
+
+    ```bash
+    cd ~/Azure_SAP_Automated_Deployment/
+
+    sudo $DEPLOYMENT_REPO_PATH/deploy/scripts/setup_ado.sh
+
+    ```
+
+Accept the license. When prompted for server URL, enter the URL you captured in the previous step. For authentication choose PAT and enter the token value from the previous step. 
+Enter the application pool name you created in the previous step when prompted. Accept the default agent name. Accept the default work folder name.
+
+The agent will now be configured and stated,
 
 # Next steps
 
