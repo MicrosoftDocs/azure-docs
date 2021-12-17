@@ -83,8 +83,8 @@ most common causes are firewall misconfiguration or user error.
    create a firewall rule for an appropriately limited IP address or address
    range.
 2. On all firewalls between the client and the internet, make sure that port
-   5432 is open for outbound connections (and 6432 if using
-   [concepts-hyperscale-connection-pool.md](connection pooling)).
+   5432 is open for outbound connections (and 6432 if using [connection
+   pooling](concepts-hyperscale-connection-pool.md)).
 3. Verify your connection string and other connection settings.
 4. Check the service health in the dashboard.
 
