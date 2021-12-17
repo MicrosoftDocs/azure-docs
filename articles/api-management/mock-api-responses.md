@@ -12,7 +12,7 @@ ms.author: danlep
 ---
 # Tutorial: Mock API responses
 
-Backend APIs can be imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial show you how to use APIM to create a blank API, manage it manually, and then set a policy on an API so it returns a mocked response. This method enables developers to continue with the implementation and testing of the APIM instance even if the backend isn't available to send real responses.
+Backend APIs can be imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial show you how to use APIM to create an HTTP API, manage it manually, and then set a policy on an API so it returns a mocked response. This method enables developers to continue with the implementation and testing of the APIM instance even if the backend isn't available to send real responses.
 
 The ability to mock up responses can be useful in many scenarios:
 
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Create a test API
 
-The steps in this section show how to create a blank API with no backend.
+The steps in this section show how to create an HTTP API with no backend.
 
 
 1. Sign in to the Azure portal, and then navigate to your API Management instance.
@@ -54,7 +54,7 @@ The steps in this section show how to create a blank API with no backend.
 
 ## Add an operation to the test API
 
-An API exposes one or more operations. In this section, you'll add an operation to the HTTP API you created. Calling the operation after completing steps in this section produces an error. After you complete the steps later in the [Enable response mocking](#enable-response-mocking) section, you'll get no errors.
+An API exposes one or more operations. In this section, you'll add an operation to the HTTP API you created. Calling the operation after completing steps in this section gives an error. After you complete the steps in the [Enable response mocking](#enable-response-mocking) section, you'll get no errors.
 
 ### [Portal](#tab/azure-portal)
 
