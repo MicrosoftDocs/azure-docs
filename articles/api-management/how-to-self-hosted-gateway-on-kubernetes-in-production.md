@@ -91,9 +91,9 @@ Consider protecting the self-hosted gateway against [disruption](https://kuberne
 > When installing with Helm, easily enable high available scheduling by enabling the `highAvailability.enabled` configuration option.
 
 ### Preventing against node failures
-To prevent impact due to data center failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
+To prevent being affected due to data center or node failures, consider using a Kubernetes cluster that uses availability zones to achieve high availability on the node-level.
 
-This allows you to schedule the self-hosted gateway's pod on nodes spread across the availability zones by using:
+Availability zones allow you to schedule the self-hosted gateway's pod on nodes spread across the zones by using:
 - [Pod Topology Spread Constraints](https://kubernetes.io/docs/concepts/workloads/pods/pod-topology-spread-constraints/) (Recommended - Kubernetes v1.19+)
 - [Pod Anti-Affinity](https://kubernetes.io/docs/concepts/scheduling-eviction/assign-pod-node/)
 
@@ -102,7 +102,7 @@ This allows you to schedule the self-hosted gateway's pod on nodes spread across
 
 ### Preventing against pod disruption
 
-Pods can be experience disruption due to [various](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#voluntary-and-involuntary-disruptions) reasons such as changes manual pod deletion, node maintenance, etc.
+Pods can experience disruption due to [various](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#voluntary-and-involuntary-disruptions) reasons such as changes manual pod deletion, node maintenance, etc.
 
 Consider using [Pod Disruption Budgets](https://kubernetes.io/docs/concepts/workloads/pods/disruptions/#pod-disruption-budgets) to enforce a minimum number of pods to be available at any given time.
 
