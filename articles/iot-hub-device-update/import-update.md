@@ -9,7 +9,7 @@ ms.service: iot-hub-device-update
 ---
 
 # Add an update to Device Update for IoT Hub
-Learn how to add a new update into Device Update for IoT Hub.
+Learn how to obtain a new update and import it into Device Update for IoT Hub.
 
 ## Prerequisites
 

@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
-description: Learn how to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+description: Learn how to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP advanced configuration.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
 
-In this tutorial, you’ll learn to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+In this tutorial, you’ll learn how to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP advanced configuration. 
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
