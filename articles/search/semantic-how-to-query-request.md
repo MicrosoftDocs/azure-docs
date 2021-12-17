@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 12/17/2021
 ---
 
 # Create a query that invokes semantic ranking and returns semantic captions
