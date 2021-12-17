@@ -587,7 +587,7 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 ```
 ### Default metrics captured by Java agent
 
-| Metric  | Metric Type | Description  | Filterable |
+| Metric name  | Metric type | Description  | Filterable |
 |---|---|---|---|
 | `Current Thread Count` | custom metrics | java.lang:type=Threading / ThreadCount. | yes |
 | `Loaded Class Count` | custom metrics | java.lang:type=ClassLoading / LoadedClassCount.| yes |
