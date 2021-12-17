@@ -90,7 +90,7 @@ To set this property using an ARM template, update your existing template or exp
 ```
 
 > [!IMPORTANT]
-> Make sure you include the other properties for your account and child resources when redploying with this property. Do not deploy this template as is or it will reset all of your account properties.
+> Make sure you include the other properties for your account and child resources when redeploying with this property. Do not deploy this template as is or it will reset all of your account properties.
 
 ### Set via Azure CLI
 

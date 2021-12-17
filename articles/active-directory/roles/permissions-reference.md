@@ -2209,6 +2209,8 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](#deprecate
 
 Column headings represent the roles that can reset passwords. Table rows contain the roles for which their password can be reset.
 
+The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
+
 Password can be reset | Password Admin | Helpdesk Admin | Authentication Admin | User Admin | Privileged Authentication Admin | Global Admin
 ------ | ------ | ------ | ------ | ------ | ------ | ------
 Authentication Admin | &nbsp; | &nbsp; | :heavy_check_mark: | &nbsp; | :heavy_check_mark: | :heavy_check_mark:

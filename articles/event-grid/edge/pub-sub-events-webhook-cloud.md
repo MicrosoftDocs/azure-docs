@@ -8,6 +8,7 @@ ms.reviewer: spelluru
 ms.subservice: iot-edge
 ms.date: 05/10/2021
 ms.topic: article
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
