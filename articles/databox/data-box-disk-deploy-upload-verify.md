@@ -31,7 +31,7 @@ Before you begin, make sure that you have completed the [Tutorial: Return Azure 
 
 Once the disks are picked up by your carrier, the order status in the portal updates to **Picked up**. A tracking ID is also displayed.
 
-![Screenshot the of Overview pane for a Data Box Disk import order in Picked Up state. The Overview option and Picked Up order status are highlighted.](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
+![Screenshot of the Overview pane for a Data Box Disk import order in Picked Up state. The Overview option and Picked Up order status are highlighted.](media/data-box-disk-deploy-picked-up/data-box-portal-pickedup.png)
 
 When Microsoft receives and scans the disk, job status is updated to **Received**. 
 
