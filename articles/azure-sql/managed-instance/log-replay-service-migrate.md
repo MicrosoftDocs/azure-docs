@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 09/21/2021
+ms.date: 12/17/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -48,8 +48,9 @@ LRS monitors Blob Storage for any new differential or log backups added after th
 LRS does not require a specific naming convention for backup files. It scans all files placed on Blob Storage and constructs the backup chain from reading the file headers only. Databases are in a "restoring" state during the migration process. Databases are restored in [NORECOVERY](/sql/t-sql/statements/restore-statements-transact-sql#comparison-of-recovery-and-norecovery) mode, so they can't be used for reading or writing until the migration process is completed. 
 
 If you're migrating several databases, you need to:
- 
-- Place backups for each database in a separate folder on Blob Storage.
+
+- Place backup files for each database in a separate folder on Blob Storage. For example, use separate database folders: `bolbcontainer/database1/files`, `blobcontainer/database2/files`.
+- Use flat-file structure inside each folder as nested folders are not supported. For example, do not use nested subfolders: `blobcontainer/database1/subfolder/files`.
 - Start LRS separately for each database.
 - Specify different paths to separate Blob Storage folders. 
 
@@ -160,6 +161,10 @@ In migrating databases to a managed instance by using LRS, you can use the follo
 - Using [AzCopy](../../storage/common/storage-use-azcopy-v10.md) or [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer) to upload backups to a blob container
 - Using Storage Explorer in the Azure portal
 
+> [!NOTE]
+> To migrate multiple databases using the same Azure Blob Storage container, place all backup files of an individual database into a separate folder inside the container. Use flat-file structure for each database folder, as nested folders are not supported.
+> 
+
 ### Make backups from SQL Server directly to Blob Storage
 If your corporate and network policies allow it, an alternative is to make backups from SQL Server directly to Blob Storage by using the SQL Server native [BACKUP TO URL](/sql/relational-databases/backup-restore/sql-server-backup-to-url) option. If you can pursue this option, you don't need to make backups on the local storage and upload them to Blob Storage.
 
@@ -170,19 +175,39 @@ For reference, the following sample code makes backups to Blob Storage. This exa
 ```SQL
 -- Example of how to make a full database backup to a URL
 BACKUP DATABASE [SampleDB]
-TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_full.bak'
+TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<containername>/<databasefolder>/SampleDB_full.bak'
 WITH INIT, COMPRESSION, CHECKSUM
 GO
 -- Example of how to make a differential database backup to a URL
 BACKUP DATABASE [SampleDB]
-TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_diff.bak'  
+TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<containername>/<databasefolder>/SampleDB_diff.bak'  
 WITH DIFFERENTIAL, COMPRESSION, CHECKSUM
 GO
 
 -- Example of how to make a transactional log backup to a URL
 BACKUP LOG [SampleDB]
-TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/SampleDB_log.trn'  
+TO URL = 'https://<mystorageaccountname>.blob.core.windows.net/<containername>/<databasefolder>/SampleDB_log.trn'  
 WITH COMPRESSION, CHECKSUM
+```
+
+### Migration of multiple databases
+
+You must place backup files for different databases in separate folders inside Azure Blob Storage container. All backup files for a single database must be placed inside the same folder in a flat-file structure, as there must not exist nested subfolders for an individual database. 
+
+Below is an example of folder structure inside Azure Blob Storage container required to migrate multiple databases using LRS.
+
+```URI
+-- Place all backup files for database 1 in a separate "database1" folder in a flat-file structure.
+-- Do not use nested folders inside this database folder.
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/database1/<all database 1 backup files>
+
+-- Place all backup files for database 2 in a separate "database2" folder in a flat-file structure.
+-- Do not use nested folders inside this database folder.
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/database2/<all database 2 backup files>
+
+-- Place all backup files for database 3 in a separate "database3" folder in a flat-file structure. 
+-- Do not use nested folders inside this database folder.
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/database3/<all database 3 backup files>
 ```
 
 ### Generate a Blob Storage SAS authentication token for LRS
@@ -236,6 +261,7 @@ Copy the parameters as follows:
    
 > [!NOTE]
 > Don't include the question mark when you copy either part of the token.
+> 
 
 ### Log in to Azure and select a subscription
 
@@ -259,6 +285,10 @@ When you use autocomplete mode, the migration will finish automatically when the
 
 When you use continuous mode, the service will continuously restore any new backup files that were added. The migration will finish on the manual cutover only. 
 
+> [!NOTE]
+> When migrating multiple databases, LRS must be started separately for each database pointing to the full URI path of Azure Blob storage container and the individual database folder.
+> 
+
 ### Start LRS in autocomplete mode
 
 To start LRS in autocomplete mode, use the following PowerShell or Azure CLI commands. Specify the last backup file name by using the `-LastBackupName` parameter. Upon restoring the last of the specified backup files, the service will automatically initiate a cutover.
@@ -270,7 +300,7 @@ Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
 	-Collation "SQL_Latin1_General_CP1_CI_AS" `
-	-StorageContainerUri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>" `
+	-StorageContainerUri "https://<mystorageaccountname>.blob.core.windows.net/<containername>/<databasefolder>" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D" `
 	-AutoCompleteRestore `
 	-LastBackupName "last_backup.bak"
@@ -280,7 +310,7 @@ Here's an example of starting LRS in autocomplete mode by using the Azure CLI:
 
 ```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb -a --last-bn "backup.bak"
-	--storage-uri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>"
+	--storage-uri "https://<mystorageaccountname>.blob.core.windows.net/<containername>/<databasefolder>"
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
@@ -292,7 +322,7 @@ Here's an example of starting LRS in continuous mode by using PowerShell:
 Start-AzSqlInstanceDatabaseLogReplay -ResourceGroupName "ResourceGroup01" `
 	-InstanceName "ManagedInstance01" `
 	-Name "ManagedDatabaseName" `
-	-Collation "SQL_Latin1_General_CP1_CI_AS" -StorageContainerUri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>" `
+	-Collation "SQL_Latin1_General_CP1_CI_AS" -StorageContainerUri "https://<mystorageaccountname>.blob.core.windows.net/<containername>/<databasefolder>" `
 	-StorageContainerSasToken "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
@@ -300,7 +330,7 @@ Here's an example of starting LRS in continuous mode by using the Azure CLI:
 
 ```CLI
 az sql midb log-replay start -g mygroup --mi myinstance -n mymanageddb
-	--storage-uri "https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>"
+	--storage-uri "https://<mystorageaccountname>.blob.core.windows.net/<containername>/<databasefolder>"
 	--storage-sas "sv=2019-02-02&ss=b&srt=sco&sp=rl&se=2023-12-02T00:09:14Z&st=2019-11-25T16:09:14Z&spr=https&sig=92kAe4QYmXaht%2Fgjocqwerqwer41s%3D"
 ```
 
@@ -376,22 +406,6 @@ To complete the migration process in LRS continuous mode through the Azure CLI, 
 az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last-backup-name "backup.bak"
 ```
 
-### Migration of multiple databases
-You must place backup files for different databases in separate folders inside Azure Blob Storage container. All backup files for a single database must be placed inside the same folder, as there must not exist subfolders for an individual database. LRS must be started separately for each database pointing to the full URI path of Azure Blob storage container and the individual database folder.
-
-Below is an example of the folder structure and URI specification required when invoking LRS for multiple databases. Start LRS separately for each database, specifying the full URI path to the Azure Blob Storage container and the individual database folder.
-
-```URI
--- Place all backup files for database 1 in its own separate folder within a storage container. No further subfolders are allowed under database1 folder for this database.
-https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database1/<all database 1 backup files>
-
--- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database2 folder for this database.
-https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database2/<all database 2 backup files>
-
--- Place all backup files for database 2 in its own separate folder within a storage container. No further subfolders are allowed under database3 folder for this database.
-https://<mystorageaccountname>.blob.core.windows.net/<mycontainername>/database3/<all database 3 backup files>
-```
-
 ## Functional limitations
 
 Functional limitations of LRS are:
@@ -401,7 +415,7 @@ Functional limitations of LRS are:
 - The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only read and list permissions.
 - Backup files for different databases must be placed in separate folders on Blob Storage.
 - Backup files containing % and $ characters in the file name cannot be consumed by LRS. Consider renaming such file names.
-- Placing backups into subfolders for an individual database is not supported. All backups for a single database must be placed in the root of a single folder.
+- Nested folders inside individual database folders are not supported. All backups for a single database must be placed in a flat-file structure inside a single folder.
 - In case of multiple databases, backup files must be placed in a separate folder for each database. LRS must be started separately for each database pointing to the full URI path containing an individual database folder. 
 - LRS can support up to 100 simultaneous restore processes per single managed instance.
 
