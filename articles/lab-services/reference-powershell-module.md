@@ -14,7 +14,7 @@ The [Az.LabServices (preview)](https://github.com/Azure/azure-devtestlab/tree/ma
 + VMs
 + Images
 
-## Install & launch
+## Install and launch
 
 1. Install [Azure PowerShell](/powershell/azure/) if it doesn't exist on your machine. 
 
