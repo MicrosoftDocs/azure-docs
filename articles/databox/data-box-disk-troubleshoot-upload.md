@@ -63,37 +63,10 @@ To find the logs from a data upload, do the following steps.
 
     ![error and verbose logs](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
    
-    Select each log and download a local copy.
+4. Select each log and download a local copy.
 
-<!--BEGIN LEGACY.
 
-The log location is different for log versions.
-
-### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
-
-Take the following steps to locate **version 2021-08-01** logs.
-
-[!INCLUDE [data-box-disk-locate-logs.md](../../includes/data-box-disk-locate-logs.md)]
-
-### [Log version: 2018-10-01](#tab/log-version-2018-10-01)
-
-Take the following steps to locate **version 2018-10-01**  logs.
-
-1. If there are any errors when uploading the data to Azure, the portal displays a path to the folder where the diagnostics logs are located.
-
-    ![Link to logs in the portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs.png)
-
-2. Go to **waies**.
-
-    ![error and verbose logs](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
-
-In each case, you see the error logs and the verbose logs. Select each log and download a local copy.
-
----
-
--->
-
-### Identify log version
+## Identify log version
 
 There are two versions of the copy/error log and verbose log, with different formats. The log versions are discussed separately in the sections that follow.
 
@@ -113,7 +86,7 @@ The following illustration shows the `DriveLogVersion` in the summary section of
 
 ## Sample upload logs
 
-The log formats of copy/error log and verbose log differ for the two log versions.
+The log formats of copy/error log and verbose log differ for the two log versions. If you aren't sure which version of the logs you have, see [Identify log version](#identify-log-version).
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
@@ -128,10 +101,9 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 | CloudFormat | BlockBlob, PageBlob, or AzureFile.           |
 | Path        | Path to the file within the storage account. |
 | Size        | File or blob size.                           |
-| crc64       | Checksum when cyclic redundancy check 64 (CRC64) was used to verify data integrity during data transfer. |
-| md5         | Checksum when Message Digest Algorithm 5 (MD5) was used to verify data integrity during data transfer.|
+| crc64       | The cyclic redundancy check 64 (CRC64) checksum that was used to verify data integrity during data transfer. |
 
-#### Sample verbose log: 2021-08-01
+#### Sample verbose log
 
 [!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
 
@@ -156,7 +128,7 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 *	Summary of validation errors by error category
 *	Summary of copy errors by error category
 
-#### Sample copy log: 2021-08-01
+#### Sample copy log
 
 [!INCLUDE [data-box-disk-sample-copy-log.md](../../includes/data-box-disk-sample-copy-log.md)]
 
@@ -280,7 +252,7 @@ The file level statuses are in `BlobStatus`, which describes any actions taken t
 
 ## Data upload errors
 
-The errors reported in the logs vary slightly in the two log versions.
+The errors reported in the logs vary slightly in the two log versions. If you aren't sure which version of the logs you have, see [Identify log version](#identify-log-version).
 
 ### [Log version: 2021-08-01](#tab/log-version-2021-08-01)
 
