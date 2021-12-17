@@ -11,6 +11,7 @@ ms.subservice: content-moderator
 ms.topic: tutorial
 ms.date: 01/29/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 #Customer intent: As a developer at an e-commerce company, I want to use machine learning to both categorize product images and tag objectionable images for further review by my team.
