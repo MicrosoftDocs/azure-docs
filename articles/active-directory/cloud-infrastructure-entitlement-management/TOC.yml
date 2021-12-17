@@ -13,6 +13,16 @@
   - name: Installation
     expanded: true
     items:
+    - name: Integration with HashiCorp Terraform
+      href: cloudknox-hashicorp-terraform.md
+    - name: Integration with Saviynt
+      href: cloudknox-saviynt.md
+    - name: Integration with Securonix
+      href: cloudknox-securonix.md
+    - name: Integration with Splunk
+      href: cloudknox-splunk.md
+    - name: CloudKnox integration with ServiceNow
+      href: cloudknox-product-dashboard.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
     - name: Install CloudKnox Sentry
@@ -25,9 +35,11 @@
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
       href: cloudknox-product-account-settings.md
-  - name: User management
+  - name: Data management
     expanded: true
     items:
+    - name: User management
+      href: cloudknox-product-user-management.md
     - name: View usage analytics about users
       href: cloudknox-product-usage-analytics.md
     - name: Adjust permissions with the Just Enough Privilege Controller
@@ -43,6 +55,17 @@
       href: cloudknox-faqs.md
     - name: Multi-cloud glossary
       href: cloudknox-multi-cloud-glossary.md
+    - name: Create and save product alerts
+      href: cloudknox-product-alerts.md
+    - name: Filter and query user activity
+      href: cloudknox-product-audit-trail.md
+    - name: Create and system and custom reports
+      href: cloudknox-product-reports.md
+  - name: Reference
+    expanded: true
+    items:
+    - name: Compliance with established guidelines
+      href: cloudknox-product-compliance.md
   #- name: Concepts
     #expanded: true
     #items: 
