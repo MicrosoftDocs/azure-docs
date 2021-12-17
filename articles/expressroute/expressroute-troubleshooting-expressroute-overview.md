@@ -319,8 +319,13 @@ StatusCode: 400
 Test your private peering connectivity by "counting" inbound and outbound packets over private peering at the Microsoft edge of your ExpressRoute circuit, on a Microsoft Enterprise Edge (MSEE) device. This diagnostic tool works by applying an Access Control List (ACL) to the MSEE and counting the packets that hit specific ACL rules. Using this tool allows you to confirm connectivity by answering the questions *Are my packets getting to Azure?* and *Are they getting back to on-prem?*
 
 ### Run test
-1. To access this diagnostic tool, navigate to the **Diagnose and solve** tab of your ExpressRoute resource in the Azure portal. ADD IMAGE
-1. TODO: Finish the rest of this after walkthrough
+1. To access this diagnostic tool, navigate to the **Diagnose and solve** tab of your ExpressRoute resource in the Azure portal.
+2. Select the **Connectivity issues** card under **Common problems**.
+3. In the dropdown for **Tell us more about the problem your are experiencing**, select "Connectivity to Azure Private, Azure Public, or Dynamics 365 services."
+4. Scroll down to the **Test your private peering connectivity** section and expand it.
+5. Execute the [PsPing test]() from your on-premises IP address to your Azure IP address and keep it running for the duration of the connectivity test.
+6. Fill out the fields of the form, making sure to enter the same on-premises and Azure IP addresses used in Step 5.
+7. Select **Submit** and then wait for your results to load. Once your results are ready, review the information for interpreting them below.
 
 ### Interpreting results
 Your test results for each MSEE device will look like the example below. You will have two sets of results for the primary and secondary MSEE devices. Review the number of matches in and out and use the following scenarios to interpret the results:
