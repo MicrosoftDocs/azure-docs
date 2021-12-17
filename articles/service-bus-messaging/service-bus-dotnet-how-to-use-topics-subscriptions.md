@@ -5,7 +5,7 @@ ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
 ms.devlang: csharp
-ms.custom: contperf-fy22q2, mode-other
+ms.custom: contperf-fy22q2, mode-api
 ---
 
 # Get started with Azure Service Bus topics and subscriptions (.NET)
