@@ -103,7 +103,7 @@ Ensure your client meets the following requirements:
 - TCP connectivity from the client to either the public or private IP of the VM (ProxyCommand or SSH forwarding to a machine with connectivity also works).
 
 > [!IMPORTANT]
-> SSH clients based on PuTTy do not support openSSH certificates and cannot be used to login with Azure AD openSSH certiicate-based authentication.
+> SSH clients based on PuTTy do not support openSSH certificates and cannot be used to login with Azure AD openSSH certificate-based authentication.
 
 ## Enabling Azure AD login in for Linux VM in Azure
 

@@ -24,7 +24,7 @@ For more information, see:
 
 - [Azure Data Explorer documentation](/azure/data-explorer/)
 - [Azure Data Explorer blog](https://azure.microsoft.com/blog/tag/azure-data-explorer/)
-- [General architectures for long-term security log retention with Azure Data Explorer](/architecture/example-scenario/security/security-log-retention-azure-data-explorer)
+- [General architectures for long-term security log retention with Azure Data Explorer](/azure/architecture/example-scenario/security/security-log-retention-azure-data-explorer)
 
 ### When to integrate with Azure Data Explorer
 

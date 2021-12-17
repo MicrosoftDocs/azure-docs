@@ -2,7 +2,7 @@
 title: Configure Node.js apps
 description: Learn how to configure a Node.js app in the native Windows instances, or in a pre-built Linux container, in Azure App Service. This article shows the most common configuration tasks. 
 ms.custom: devx-track-js, devx-track-azurecli
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: article
 ms.date: 04/23/2021
 zone_pivot_groups: app-service-platform-windows-linux
