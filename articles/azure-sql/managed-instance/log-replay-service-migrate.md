@@ -15,9 +15,9 @@ ms.date: 12/17/2021
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
 [!INCLUDE[appliesto-sqlmi](../includes/appliesto-sqlmi.md)]
 
-This article explains how to manually configure database migration from SQL Server 2008-2019 to Azure SQL Managed Instance by using Log Replay Service (LRS), currently in public preview. LRS is a cloud service that's enabled for SQL Managed Instance and is based on SQL Server log-shipping technology. 
+This article explains how to manually configure database migration from SQL Server 2008-2019 to Azure SQL Managed Instance by using Log Replay Service (LRS), currently in public preview. LRS is a cloud service enabled for SQL Managed Instance based on SQL Server log-shipping technology.
 
-[Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md) and LRS use the same underlying migration technology and the same APIs. By releasing LRS, we're further enabling complex custom migrations and hybrid architecture between on-premises SQL Server and SQL Managed Instance.
+[Azure Database Migration Service](../../dms/tutorial-sql-server-to-managed-instance.md) and LRS use the same underlying migration technology and the same APIs. By releasing LRS, we're further enabling complex custom migrations and hybrid architectures between on-premises SQL Server and SQL Managed Instance.
 
 ## When to use Log Replay Service
 
@@ -26,11 +26,11 @@ When you can't use Azure Database Migration Service for migration, you can use L
 You might consider using LRS in the following cases:
 - You need more control for your database migration project.
 - There's little tolerance for downtime on migration cutover.
-- The Database Migration Service executable file can't be installed in your environment.
-- The Database Migration Service executable file doesn't have file access to database backups.
+- Database Migration Service executable file can't be installed in your environment.
+- Database Migration Service executable file doesn't have file access to your database backups.
 - No access to the host OS is available, or there are no administrator privileges.
 - You can't open network ports from your environment to Azure.
-- Network throttling, or proxy blocking issues in your environment.
+- Network throttling, or proxy blocking issues exist in your environment.
 - Backups are stored directly to Azure Blob Storage through the `TO URL` option.
 - You need to use differential backups.
 
@@ -39,9 +39,9 @@ You might consider using LRS in the following cases:
 
 ## How it works
 
-Building a custom solution by using LRS to migrate databases to the cloud requires several orchestration steps, as shown in the diagram and table later in this section.
+Building a custom solution to migrate databases to the cloud with LRS requires several orchestration steps, as shown in the diagram and a table later in this section.
 
-The migration consists of making full database backups on SQL Server with `CHECKSUM` enabled, and copying backup files to Azure Blob Storage. LRS is used to restore backup files from Blob Storage to SQL Managed Instance. Blob Storage is intermediary storage between SQL Server and SQL Managed Instance.
+The migration consists of making database backups on SQL Server with `CHECKSUM` enabled, and copying backup files to Azure Blob Storage. Full, log and differential backups are supported. LRS cloud service is used to restore backup files from Azure Blob Storage to SQL Managed Instance. Blob Storage is intermediary storage between SQL Server and SQL Managed Instance.
 
 LRS monitors Blob Storage for any new differential or log backups added after the full backup has been restored. LRS then automatically restores these new files. You can use the service to monitor the progress of backup files being restored on SQL Managed Instance, and you can stop the process if necessary.
 
@@ -49,16 +49,16 @@ LRS does not require a specific naming convention for backup files. It scans all
 
 If you're migrating several databases, you need to:
 
-- Place backup files for each database in a separate folder on Blob Storage. For example, use separate database folders: `bolbcontainer/database1/files`, `blobcontainer/database2/files`.
-- Use flat-file structure inside each folder as nested folders are not supported. For example, do not use nested subfolders: `blobcontainer/database1/subfolder/files`.
+- Place backup files for each database in a separate folder on Blob Storage in a flat-file structure. For example, use separate database folders: `bolbcontainer/database1/files`, `blobcontainer/database2/files`, etc.
+- Do not use nested folders inside database folders as this is not supported. For example, do not use nested subfolders: `blobcontainer/database1/subfolder/files`.
 - Start LRS separately for each database.
-- Specify different paths to separate Blob Storage folders. 
+- Specify different URI path to separate database folders on Azure Blob Storage. 
 
-You can start LRS in either *autocomplete* or *continuous* mode. When you start it in autocomplete mode, the migration will finish automatically when the last of the specified backup files has been restored. When you start LRS in continuous mode, the service will continuously restore any new backup files added, and the migration will finish on the manual cutover only. 
+You can start LRS in either *autocomplete* or *continuous* mode. When you start it in autocomplete mode, the migration will complete automatically when the last of the specified backup files has been restored. When you start LRS in continuous mode, the service will continuously restore any new backup files added, and the migration will complete on the manual cutover only. 
 
 We recommend that you manually cut over after the final log-tail backup has been taken and is shown as restored on SQL Managed Instance. The final cutover step will make the database come online and available for read and write use on SQL Managed Instance.
 
-After LRS is stopped, either automatically through autocomplete or manually through cutover, you can't resume the restore process for a database that was brought online on SQL Managed Instance. To restore additional backup files after the migration finishes through autocomplete or cutover, you need to delete the database. You also need to restore the entire backup chain from scratch by restarting LRS.
+After LRS is stopped, either automatically through autocomplete, or manually through cutover, you can't resume the restore process for a database that was brought online on SQL Managed Instance. For example, once migration has been completed you are no longer able to restore additinal differential backups for an online database on Managed Instance. To restore additional backup files after the migration completes through autocomplete or cutover, you need to delete the database and perform the migration again from the scratch. 
 
 :::image type="content" source="./media/log-replay-service-migrate/log-replay-service-conceptual.png" alt-text="Diagram that explains the Log Replay Service orchestration steps for SQL Managed Instance." border="false":::
 	
@@ -96,15 +96,15 @@ Running LRS through the provided clients requires one of the following Azure rol
 We recommend the following best practices:
 - Run [Data Migration Assistant](/sql/dma/dma-overview) to validate that your databases are ready to be migrated to SQL Managed Instance. 
 - Split full and differential backups into multiple files, instead of using a single file.
-- Enable backup compression.
-- Use Cloud Shell to run scripts, because it will always be updated to the latest cmdlets released.
-- Plan to complete the migration within 36 hours after you start LRS. This is a grace period that prevents the installation of system-managed software patches.
-- Place all backup files for an individual database to a single folder. Do not use subfolders for the same database.
+- Use `CHECKSUM` for backing up databases, and enable backup compression.
+- Use Cloud Shell to run PowerShell or CLI scripts, because it will always be updated to the latest cmdlets released.
+- Plan to complete the migration within 36 hours after you start LRS. This is a grace period during which system-managed software patches are postponed.
+- Place all backup files for an individual database inside a single folder. Use flat-file structure as nested folders are not supported.
 
 > [!IMPORTANT]
-> - You can't use the database that's being restored through LRS until the migration process finishes. 
+> - You can't use databases being restored through LRS until the migration process completes. 
 > - LRS doesn't support read-only access to databases during the migration.
-> - After migration finishes, the migration process is finalized because LRS doesn't support resuming the restore process.
+> - After the migration completes, the migration process is finalized and cannot be resumed with additional differential backups.
 
 ## Steps to execute
 
@@ -281,9 +281,9 @@ Select-AzSubscription -SubscriptionId <subscription ID>
 
 You start the migration by starting LRS. You can start the service in either autocomplete or continuous mode. 
 
-When you use autocomplete mode, the migration will finish automatically when the last of the specified backup files has been restored. This option requires the start command to specify the filename of the last backup file. 
+When you use autocomplete mode, the migration will complete automatically when the last of the specified backup files has been restored. This option requires the start command to specify the filename of the last backup file. 
 
-When you use continuous mode, the service will continuously restore any new backup files that were added. The migration will finish on the manual cutover only. 
+When you use continuous mode, the service will continuously restore any new backup files that were added. The migration will complete on the manual cutover only. 
 
 > [!NOTE]
 > When migrating multiple databases, LRS must be started separately for each database pointing to the full URI path of Azure Blob storage container and the individual database folder.
@@ -342,7 +342,7 @@ During this wait, the command won't return control to the command prompt. If you
 $lrsjob = Start-AzSqlInstanceDatabaseLogReplay <required parameters> -AsJob
 ```
 
-When you start a background job, a job object returns immediately, even if the job takes an extended time to finish. You can continue to work in the session without interruption while the job runs. For details on running PowerShell as a background job, see the [PowerShell Start-Job](/powershell/module/microsoft.powershell.core/start-job#description) documentation.
+When you start a background job, a job object returns immediately, even if the job takes an extended time to complete. You can continue to work in the session without interruption while the job runs. For details on running PowerShell as a background job, see the [PowerShell Start-Job](/powershell/module/microsoft.powershell.core/start-job#description) documentation.
 
 Similarly, to start an Azure CLI command on Linux as a background process, use the ampersand (`&`) at the end of the LRS start command:
 
@@ -409,14 +409,13 @@ az sql midb log-replay complete -g mygroup --mi myinstance -n mymanageddb --last
 ## Functional limitations
 
 Functional limitations of LRS are:
-- The database that you're restoring can't be used for read-only access during the migration process.
-- System-managed software patches are blocked for 36 hours after you start LRS. After this time window expires, the next software update will stop LRS. You then need to restart LRS from scratch.
+- Databases migrated cannot be used for read-only access on Managed Instance during the migration process.
+- System-managed software patches are blocked for 36 hours once the LRS has been started. When this time window expires, the next software update will stop LRS. You will need to restart LRS from scratch.
 - LRS requires databases on SQL Server to be backed up with the `CHECKSUM` option enabled.
-- The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only read and list permissions.
-- Backup files for different databases must be placed in separate folders on Blob Storage.
+- The SAS token that LRS will use must be generated for the entire Azure Blob Storage container, and it must have only Read and List permissions. For example, if you grant Read, List and Write permissions, LRS will not be able to start because of the extra Write permission.
 - Backup files containing % and $ characters in the file name cannot be consumed by LRS. Consider renaming such file names.
-- Nested folders inside individual database folders are not supported. All backups for a single database must be placed in a flat-file structure inside a single folder.
-- In case of multiple databases, backup files must be placed in a separate folder for each database. LRS must be started separately for each database pointing to the full URI path containing an individual database folder. 
+- Backup files for different databases must be placed in separate folders on Blob Storage in a flat-file structure. Nested folders inside individual database folders are not supported.
+- LRS must be started separately for each database pointing to the full URI path containing an individual database folder. 
 - LRS can support up to 100 simultaneous restore processes per single managed instance.
 
 ## Troubleshooting
