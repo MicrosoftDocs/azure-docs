@@ -9,11 +9,11 @@ ms.date: 11/11/2021
 
 This article provides step-by-step instructions for enabling diagnostic settings for Event Grid resources. These settings allow you to capture and view diagnostic information so that you can troubleshoot any failures. The following table shows the settings available for different types of Event Grid resources - custom topics, system topics, and domains.
 
-| Diagnostic setting |  Event Grid topics | Event Grid system topics | Event Grid domains |
-| ------------- |  --------- | ----------- | ----------- |
-| [DeliveryFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes |
-| [PublishFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes |
-| [DataPlaneRequests](diagnostic-logs.md#schema-for-data-plane-requests) | Yes | No | Yes |
+| Diagnostic setting |  Event Grid topics | Event Grid system topics | Event Grid domains | Event Grid partner namespaces |
+| ------------- |  --------- | ----------- | ----------- | ----------- |
+| [DeliveryFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | Yes | Yes | No |
+| [PublishFailures](diagnostic-logs.md#schema-for-publishdelivery-failure-logs)  | Yes | No | Yes | Yes |
+| [DataPlaneRequests](diagnostic-logs.md#schema-for-data-plane-requests) | Yes | No | Yes | Yes |
 
 > [!IMPORTANT]
 > For schemas of delivery failures, publish failures, and data plane requests, see [Diagnostic logs](diagnostic-logs.md). 
