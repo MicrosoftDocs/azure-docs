@@ -502,8 +502,6 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 
 # [Azure CLI](#tab/azure-cli)
 
-## Delete the resource group by using the Azure CLI.
-
 Use this script to delete the resource group with the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command.
 
    ```azurecli

@@ -171,7 +171,7 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 In this step, you create your failover group and add your database to it using the Azure CLI.
 
-## Set additional parameter values to create failover group
+## Set additional parameter values
 
 Set these additional parameter values for use in creating the failover group, in addition to the values defined in the preceding script that created the primary resource group and server.
 
@@ -359,8 +359,6 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 | [Remove-AzResourceGroup](/powershell/module/az.resources/remove-azresourcegroup) | Removes a resource group |
 
 # [Azure CLI](#tab/azure-cli)
-
-## Delete the resource group by using the Azure CLI
 
 Use this script to delete the resource group with the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command.
 
