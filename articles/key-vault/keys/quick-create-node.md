@@ -7,6 +7,7 @@ ms.date: 12/13/2021
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
+ms.devlang: javascript
 ms.custom: devx-track-js, mode-api
 ---
 
