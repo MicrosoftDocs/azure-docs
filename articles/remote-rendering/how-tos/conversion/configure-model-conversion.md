@@ -43,13 +43,13 @@ The contents of the file should satisfy the following json schema:
         "fbxAssumeMetallic" : {"type" : "boolean", "default" : true},
         "axis" : {
             "type" : "array",
-                "items" : {
-                    "type" : "string",
-                    "enum" : [ "default", "+x", "-x", "+y", "-y", "+z", "-z" ]
-                },
-                "minItems" : 3,
-                "maxItems" : 3
+            "items" : {
+                "type" : "string",
+                "enum" : [ "default", "+x", "-x", "+y", "-y", "+z", "-z" ]
             },
+            "minItems" : 3,
+            "maxItems" : 3
+        },
         "vertex" : {
             "type" : "object",
             "properties" : {
