@@ -6,7 +6,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: how-to
-ms.date: 12/10/2021
+ms.date: 12/17/2021
 
 ---
 
@@ -33,9 +33,9 @@ With a private endpoint and Private Link, you can:
 
 ## Limitations
 
-* To use this feature in preview, please contact [...] to enable your subscription.
+* To use this feature in preview, contact [...] to enable your subscription.
 * Only the API Management instance's Gateway endpoint currently supports Private Link connections. Connections are not supported on the [self-hosted gateway](self-hosted-gateway-overview.md). 
-* Each API Management instance currently supportss at most 100 private endpoint connections.
+* Each API Management instance currently supports at most 100 private endpoint connections.
 * Currently not supported in the following regions: [...]
 
 ## Prerequisites
@@ -57,7 +57,7 @@ With a private endpoint and Private Link, you can:
 
 ### Disable network policies in subnet
 
-[Disable network policies](../private-link/disable-private-endpoint-network-policy.md) such as network security groups in the subnet used for the private endpoint. When you use the Azure portal to create a private endpoint, the `PrivateEndpointNetworkPolicies` setting is automatically disabled as part of the create process. 
+[Disable network policies](../private-link/disable-private-endpoint-network-policy.md) such as network security groups in the subnet used for the private endpoint. When you use the Azure portal to create a private endpoint, the `PrivateEndpointNetworkPolicies` setting is automatically disabled as part of the creation process. 
 
 If you use other tools such as Azure PowerShell, the Azure CLI, or REST API, update the subnet configuration manually. For examples, see [Manage network policies for private endpoints](../private-link/disable-private-endpoint-network-policy.md).
 
@@ -229,7 +229,7 @@ API calls initiated within the virtual network to the default Gateway endpoint s
 
 ### Test from internet
 
-From outside the private endpoint path, attempt to cal the API Management instance's default Gateway endpoint. If public access is disabled, output will include an error with status code `403` and a message similar to:
+From outside the private endpoint path, attempt to call the API Management instance's default Gateway endpoint. If public access is disabled, output will include an error with status code `403` and a message similar to:
 
 ```
 Request originated from client public IP address xxx.xxx.xxx.xxx, public network access on this 'Microsoft.ApiManagement/service/my-apim-service' is disabled.
