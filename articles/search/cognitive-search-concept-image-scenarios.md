@@ -21,6 +21,7 @@ Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Sear
 
 Through OCR, you can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Through image analysis, you can generate a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
+
 This article explains how to work with images in an AI enrichment pipeline, and describes several common scenarios such as working with embedded images, custom skills, and overlaying visualizations on original images.
 
 To work with image content in a skillset, you'll need:
@@ -35,24 +36,26 @@ Optionally, you can define projections to accept image-analyzed output into a [k
 
 ## Set up source files
 
-Image processing is indexer-driven, which means that the raw inputs must be a supported file type (as determined by the skills you choose) from a [supported data source](search-indexer-overview.md#supported-data-sources). OCR supports JPEG, PNG, GIF, TIF, and BMP. Image analysis supports JPEG, PNG, GIF, and BMP. Images can be binary files or embedded in documents (PDF, RTF, and Microsoft application files). Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search. [Blob indexer configuration](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) includes file exclusion settings so that you can import files of a selected type.
+Image processing is indexer-driven, which means that the raw inputs must be a supported file type (as determined by the skills you choose) from a [supported data source](search-indexer-overview.md#supported-data-sources). 
 
-Connections to source files is specified in an indexer data source object. As with any indexer, the connection will be made using either key-based authentication or Azure Active Directory and role-based authorization.
++ OCR supports JPEG, PNG, GIF, TIF, and BMP
++ Image analysis supports JPEG, PNG, GIF, and BMP
 
-In addition to connections to external data, Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to include multi-service key to a Cognitive Services resource in the same region as your Cognitive Search service.
+Images can be binary files or embedded in documents (PDF, RTF, and Microsoft application files). A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. 
 
-## Configure indexers for image processing
+Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search.
 
-Parameters in indexer configuration enable image processing:
+1. [Create a data source](/rest/api/searchservice/create-data-source) of type `"azureblob"` that connects to the blob container storing your files.
 
-+ imageAction (image normalization)
-+ parsingMode
+1. Optionally, set file type criteria if the workload targets a specific file type. [Blob indexer configuration](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) includes file inclusion and exclusion settings so that you can filter out files you don't want.
+
+<!-- In addition to connections to external data, Cognitive Search makes calls to a billable Azure Cognitive Services resource for OCR and image analysis. Your skillset will need to [include multi-service key](cognitive-search-attach-cognitive-services.md) to a Cognitive Services resource in the same region as your Cognitive Search service. -->
 
 <a name="get-normalized-images"></a>
 
-### Enable image normalization
+## Configure indexers for image processing
 
-Image processing requires image normalization to make images more uniform for downstream processing. This step occurs automatically and is internal to indexer processing. As a developer, your only action is to enable image normalization by setting the "imageAction" parameter in indexer configuration.
+Image processing requires image normalization to make images more uniform for downstream processing. This step occurs automatically and is internal to indexer processing. As a developer, your only action is to enable image normalization by setting the `"imageAction"` parameter in indexer configuration.
 
 Image normalization includes the following operations:
 
@@ -61,28 +64,39 @@ Image normalization includes the following operations:
 
 You cannot turn off image normalization. Skills that iterate over images, such as OCR and image analysis, expect normalized images.
 
-| Configuration Parameter | Description |
-|-------------------------|-------------|
-| imageAction	| Set to "none" if no action should be taken when embedded images or image files are encountered. </p>Set to "generateNormalizedImages" to generate an array of normalized images as part of document cracking. </p>Set to "generateNormalizedImagePerPage" to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image.  The functionality is the same as "generateNormalizedImages" for non-PDF file types. </p>For any option that is not "none", the images will be exposed in the *normalized_images* field. </p>The default is "none." This configuration is only pertinent to blob data sources, when "dataToExtract" is set to "contentAndMetadata". </p>A maximum of 1000 images will be extracted from a given document. If there are more than 1000 images in a document, the first 1000 will be extracted and a warning will be generated. |
-|  normalizedImageMaxWidth | The maximum width (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000. | 
-|  normalizedImageMaxHeight | The maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.|
+1. [Create or Update an indexer](/rest/api/searchservice/create-indexer) to set the configuration properties:
 
-The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). The [OCR skill](cognitive-search-skill-ocr.md) supports a maximum width and height of 4200 for non-English languages, and 10000 for English.  If you increase the maximum limits, processing could fail on larger images depending on your skillset definition and the language of the documents. 
-
-You specify the imageAction in the parameters configuration section of the [indexer definition](/rest/api/searchservice/create-indexer) as follows:
-
-```json
-{
-  "parameters":
-  {
-    "configuration": 
+    ```json
     {
-    	"dataToExtract": "contentAndMetadata",
-     	"imageAction": "generateNormalizedImages"
+      "parameters":
+      {
+        "configuration": 
+        {
+           "dataToExtract": "contentAndMetadata",
+           "parsingMode": "default",
+           "imageAction": "generateNormalizedImages"
+        }
+      }
     }
-  }
-}
-```
+    ```
+
+1. Set the `"dataToExtract`" parameter to `"contentAndMetadata"` (required).
+
+1. Verify that the `"parsingMode`" is set to default (required). This parameter determines the granularity of search documents created in the index. The default mode sets up a one-to-one correspondence so that one blob results in one search document. If documents are large, or if skills require smaller chunks of text, you can add Text Split skill that subdivides a document into paging for processing purposes. But for search scenarios, one blob per document is required if enrichment includes image processing. 
+
+1. Set the `"imageAction"` parameter to enable the *normalized_images* node in an enrichment tree (required). The parameter default is "none. To enable image normalization and processing, set it to one of the following values:
+
+   + `"generateNormalizedImages"` to generate an array of normalized images as part of document cracking. 
+   + `"generateNormalizedImagePerPage"` to generate an array of normalized images where, for PDFs in your data source, each page is rendered to one output image. The functionality is the same as "generateNormalizedImages" for non-PDF file types.
+
+1. Optionally, adjust the width or height of normalized images:
+
+   + `"normalizedImageMaxWidth"` sets the maximum width (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000. 
+   + `"normalizedImageMaxHeight"` sets the maximum height (in pixels) for normalized images generated. The default is 2000. The maximum value allowed is 10000.
+
+   The default of 2000 pixels for the normalized images maximum width and height is based on the maximum sizes supported by the [OCR skill](cognitive-search-skill-ocr.md) and the [image analysis skill](cognitive-search-skill-image-analysis.md). The [OCR skill](cognitive-search-skill-ocr.md) supports a maximum width and height of 4200 for non-English languages, and 10000 for English.  If you increase the maximum limits, processing could fail on larger images depending on your skillset definition and the language of the documents. 
+
+### About normalized images
 
 When "imageAction" is set to a value other then "none", the new *normalized_images* field will contain an array of images. Each  image is a complex type that has the following members:
 
@@ -113,15 +127,6 @@ When "imageAction" is set to a value other then "none", the new *normalized_imag
   }
 ]
 ```
-
-### Check the parsingMode (Blob storage only)
-
-Blob indexers include a "parsingMode" parameter that determines the granularity of search documents created in the index. The default mode sets up a one-to-one correspondence so that one blob results in one search document, but it also accepts values that result in one blob and many search documents. 
-
-Whenever you invoke OCR or image analysis, the parsing mode must be "default". Parsing applies to text, not images, but if indexer configuration includes "imageAction" set to anything other than "none", then the "parsingMode" must be "default".
-
-> [!NOTE]
-> The parsing mode applies equally to all files in the container. If the container contains text-only files that you want to parse using another mode, such as JSON or JSON arrays, you will need to place those files into a separate container and set up a second indexer with the appropriate configuration.
 
 ## Define skillsets for image processing
 
@@ -165,37 +170,117 @@ Whether you're using OCR and image analysis in the same, inputs have virtually t
 
 ## Map outputs to search fields
 
-Output is always text, represented as nodes in an internal enriched document tree, which must be mapped to fields in a search index or projections in a knowledge store to make the content available in your app. The "outputs" section of a skill tells you what content gets created as nodes in the enriched document:
+Output is always text, represented as nodes in an internal enriched document tree, which must be mapped to fields in a search index or projections in a knowledge store to make the content available in your app. 
 
-```json
-{
-  "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
-  "context": "/document/normalized_images/*",
-  "detectOrientation": true,
-  "inputs": [ ],
-  "outputs": [
+1. In the skillset, review the "outputs" section of each skill to determine which nodes exist in the enriched document:
+
+    ```json
     {
-      "name": "text",
-      "targetName": "text"
-    },
-    {
-      "name": "layoutText",
-      "targetName": "layoutText"
+      "@odata.type": "#Microsoft.Skills.Vision.OcrSkill",
+      "context": "/document/normalized_images/*",
+      "detectOrientation": true,
+      "inputs": [ ],
+      "outputs": [
+        {
+          "name": "text",
+          "targetName": "text"
+        },
+        {
+          "name": "layoutText",
+          "targetName": "layoutText"
+        }
+      ]
     }
-  ]
+    ```
+
+1. [Create or update a search index](/rest/api/searchservice/create-index) to add fields to accept the skill outputs. In the fields collection below, content is blob content. Metadata_storage_name returns the name of the file (make sure it is "retrievable"). Merged_content is output from Text Merge (useful when images are embedded). Text and layoutText are skill output and must be a string collection in order to the capture all of the OCR-generated output for the entire document.
+
+    ```json
+      "fields": [
+        {
+          "name": "content",
+          "type": "Edm.String",
+          "filterable": false,
+          "retrievable": true,
+          "searchable": true,
+          "sortable": false
+        },
+        {
+          "name": "metadata_storage_name",
+          "type": "Edm.String",
+          "filterable": true,
+          "retrievable": true,
+          "searchable": true,
+          "sortable": false
+        },
+        {
+          "name": "metadata_storage_path",
+          "type": "Edm.String",
+          "filterable": false,
+          "key": true,
+          "retrievable": true,
+          "searchable": false,
+          "sortable": false
+        },
+        {
+          "name": "merged_content",
+          "type": "Edm.String",
+          "filterable": false,
+          "retrievable": true,
+          "searchable": true,
+          "sortable": false
+        },
+        {
+          "name": "text",
+          "type": "Collection(Edm.String)",
+          "filterable": false,
+          "retrievable": true,
+          "searchable": true
+        },
+        {
+          "name": "layoutText",
+          "type": "Collection(Edm.String)",
+          "filterable": false,
+          "retrievable": true,
+          "searchable": true
+        }
+      ],
+    ```
+
+1. [Update the indexer](/rest/api/searchservice/update-indexer) to map skillset output (nodes in an enrichment tree) to index fields. Enriched documents are internal. To "externalize" the nodes, an output field mapping specifies the data structure that is accessed by your app. Below is an example of a "text" node (OCR output) mapped to a "text" field in a search index.
+
+    ```json
+      "outputFieldMappings": [
+        {
+          "sourceFieldName": "/document/normalized_images/*/text",
+          "targetFieldName": "text"
+        },
+        {
+          "sourceFieldName": "/document/normalized_images/*/layoutText",
+          "targetFieldName": "layoutText"
+        }
+      ]
+    ```
+
+1. Run the indexer to invoke source document retrieval, image processing, and indexing.
+
+### Verify results
+
+Run a query against the index to check the results of image processing. Use [Search Explorer](search-explorer.md) as a search client, or any tool that sends HTTP requests. The following query selects fields that contain the output of image processing.
+
+```http
+POST /indexes/[index name]/docs/search?api-version=[api-version]
+{
+    "search": "*",
+    "select": "metadata_storage_name, text, layoutText, imageCaption, imageTags"
 }
 ```
 
-Enriched documents are internal. To "externalize" their nodes, you'll create an output field mapping to a data structure that can be used by your app. Below is an example of a "text" node (OCR output) mapped to a "text" field in a search index. Output field mappings are made in the indexer configuration.
+Content and merged_content will be the same if there is no image processing. 
 
-```json
-  "outputFieldMappings": [
-    {
-      "sourceFieldName": "/document/normalized_images/*/text",
-      "targetFieldName": "text"
-    }
-  ]
-```
+OCR fields (text and layoutText) will be empty if source documents are pure text or pure imagery. If you subsequently add downstream skills that process imaging output, your index may begin to emit warnings if OCR inputs are empty. Such warnings are to be expected when nodes are unpopulated in the enriched document.
+
+### About skill outputs
 
 Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "captions" (image analysis), "tags" (image analysis):
 
