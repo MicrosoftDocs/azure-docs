@@ -84,7 +84,7 @@ The following table lists the additional supporting container(s) for each Form R
 | Container | Minimum | Recommended |
 |-----------|---------|-------------|
 | Read 3.2 | 8 cores, 16-GB memory | 8 cores, 24-GB memory|
-| Layout 2.1-preview | 8 cores, 16-GB memory | 8 core, 24-GB memory |
+| Layout 2.1-preview | 8 cores, 16-GB memory | 8 cores, 24-GB memory |
 | Business Card 2.1-preview | 2 cores, 4-GB memory | 4 cores, 4-GB memory |
 | ID Document 2.1-preview | 1 core, 2-GB memory |2 cores, 2-GB memory |
 | Invoice 2.1-preview | 4 cores, 8-GB memory | 8 cores, 8-GB memory |
@@ -594,7 +594,7 @@ The Form Recognizer containers send billing information to Azure by using a Form
 
 Queries to the container are billed at the pricing tier of the Azure resource that's used for the `ApiKey`. You will be billed for each container instance used to process your documents and images. Thus, If you use the business card feature, you will be billed for the Form Recognizer `BusinessCard` and `Compuer Vision Read` container instances. For the invoice feature, you will be billed for the Form Recognizer `Invoice` and `Layout` container instances. *See*, [Form Recognizer](https://azure.microsoft.com/pricing/details/form-recognizer/) and Computer Vision [Read feature](https://azure.microsoft.com/pricing/details/cognitive-services/computer-vision/) container pricing.
 
-Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. You must enable the containers to communicate billing information with the billing endpoint at all times. Cognitive Services containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
+Azure Cognitive Services containers aren't licensed to run without being connected to the metering / billing endpoint. Containers must be enabled to communicate billing information with the billing endpoint at all times. Cognitive Services containers don't send customer data, such as the image or text that's being analyzed, to Microsoft.
 
 ### Connect to Azure
 
@@ -619,7 +619,7 @@ That's it! In this article, you learned concepts and workflows for downloading, 
 * Form Recognizer provides seven Linux containers for Docker.
 * Container images are downloaded from mcr.
 * Container images run in Docker.
-* You must specify the billing information when you instantiate a container.
+* The billing information must be specified when you instantiate a container.
 
 > [!IMPORTANT]
 > Cognitive Services containers are not licensed to run without being connected to Azure for metering. Customers need to enable the containers to communicate billing information with the metering service at all times. Cognitive Services containers do not send customer data (for example, the image or text that is being analyzed) to Microsoft.

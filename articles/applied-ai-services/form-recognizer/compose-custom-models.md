@@ -44,11 +44,11 @@ In the Form Recognizer UI:
 
 1. Select **Use Custom to train a model with labels and get key value pairs**.
   
-      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: fott tool selection of custom option.":::
+      :::image type="content" source="media/label-tool/fott-use-custom.png" alt-text="Screenshot: FOTT tool select custom option.":::
 
 1. In the next window, select **New project**:
 
-    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: fott tool selection of new project."::: 
+    :::image type="content" source="media/label-tool/fott-new-project.png" alt-text="Screenshot: FOTT tool select new project."::: 
 
 ## Create your models
 
