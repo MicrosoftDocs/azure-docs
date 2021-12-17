@@ -193,7 +193,7 @@ Under **Log storage**, you can choose to use the same drive as the data drive fo
 
 ![Screenshot that shows where you can configure the transaction log storage for your SQL VM](./media/create-sql-vm-portal/storage-configuration-log-storage.png)
 
-Configure your tempdb database settings under **Tempdb storage**, such as the location of the database files, as well as the number of files, initial size, and autogrowth size in MB. 
+Configure your tempdb database settings under **Tempdb storage**, such as the location of the database files, as well as the number of files, initial size, and autogrowth size in MB. Currently, the max number of tempdb files. Currently, during deployment, the max number of tempdb files is 8, but more files can be added after the SQL Server VM is deployed.
 
 ![Screenshot that shows where you can configure the tempdb storage for your SQL VM](./media/create-sql-vm-portal/storage-configuration-tempdb-storage.png)
 
@@ -215,7 +215,7 @@ If you chose a free license image, such as the developer edition, the **SQL Serv
 
 ### Automated patching
 
-**Automated patching** is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. Specify a day of the week, time, and duration for a maintenance window. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale. If you do not want Azure to automatically patch SQL Server and the operating system, select **Disable**.  
+**Automated patching** is enabled by default. Automated patching allows Azure to automatically apply SQL Server and operating system security updates. Specify a day of the week, time, and duration for a maintenance window. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale. If you do not want Azure to automatically patch SQL Server and the operating system, select **Disable**.  
 
 ![SQL VM automated patching](./media/create-sql-vm-portal/azure-sqlvm-automated-patching.png)
 

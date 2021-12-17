@@ -49,7 +49,7 @@ Choose the drive location for your data files and log files, specifying the disk
 
 The disk configuration is completely customizable so that you can configure the storage topology, disk type and IOPs you need for your SQL Server VM workload. You also have the ability to use UltraSSD (preview) as an option for the **Disk type** if your SQL Server VM is in one of the supported regions (East US 2, SouthEast Asia and North Europe) and you've enabled [ultra disks for your subscription](../../../virtual-machines/disks-enable-ultra-ssd.md).
 
-Configure your tempdb database settings under **Tempdb storage**, such as the location of the database files, as well as the number of files, initial size, and autogrowth size in MB: 
+Configure your tempdb database settings under **Tempdb storage**, such as the location of the database files, as well as the number of files, initial size, and autogrowth size in MB. Currently, during deployment, the max number of tempdb files is 8, but more files can be added after the SQL Server VM is deployed.
 
 ![Screenshot that shows where you can configure the tempdb storage for your SQL VM](./media/create-sql-vm-portal/storage-configuration-tempdb-storage.png)
 
@@ -110,7 +110,7 @@ You can modify the disk settings for the drives that were configured during the 
 
 ![Configure Storage for Existing SQL Server VM](./media/storage-configuration/sql-vm-storage-extend-drive.png)
 
-If you placed your tempdb database files on remote storage, you can also configure the settings for tempdb directly from the portal. Select **Configure** to open the tempdb settings page, where you can add more data files: 
+You can also configure the settings for tempdb directly from the portal. Select **Configure** to open the tempdb settings page, where you can add more data files: 
 
 ![Configure tempdb settings for Existing SQL Server VM](./media/storage-configuration/tempdb-customization.png)
 

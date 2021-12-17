@@ -112,10 +112,10 @@ Then, on Tuesday at 10 for 6 hours, full backups of all databases start again.
 
 ## Configure new VMs
 
-Use the Azure portal to configure Automated Backup v2 when you create a new SQL Server 2016 or later machine in the Resource Manager deployment model.
+Use the Azure portal to configure Automated Backup when you create a new SQL Server 2016 or later machine in the Resource Manager deployment model.
 
 In the **SQL Server settings** tab, select **Enable** under **Automated backup**. 
-When you enable SQL automated backup, you can configure the following settings:
+When you enable automated backup, you can configure the following settings:
 
 * Retention period for backups (up to 90 days)
 * Storage account, and storage container, to use for backups
@@ -129,9 +129,9 @@ Choose **Select Storage Container** to specify the container where you want to s
 
 By default the schedule is set automatically, but you can create your own schedule by selecting **Manual**, which allows you to configure the backup frequency, backup time window, and the log backup frequency in minutes.
 
-The following Azure portal screenshot shows the **SQL Automated Backup** settings when you create a new SQL Server VM:
+The following Azure portal screenshot shows the **Automated Backup** settings when you create a new SQL Server VM:
 
-![SQL Automated Backup configuration in the Azure portal](./media/automated-backup/automated-backup-blade.png)
+![Automated Backup configuration in the Azure portal](./media/automated-backup/automated-backup-blade.png)
 
 
 ## Configure existing VMs
@@ -140,9 +140,9 @@ For existing SQL Server virtual machines, go to the [SQL virtual machines resour
 
 Select **Enable** to configure your automated backup settings. 
 
-You can configure the retention period (up to 90 days), the container for the storage account where you want to store your backups, as well as the encryption, and the backup schedule. My default, the schedule is automated.
+You can configure the retention period (up to 90 days), the container for the storage account where you want to store your backups, as well as the encryption, and the backup schedule. By default, the schedule is automated.
 
-![SQL Automated Backup for existing VMs](./media/automated-backup/sql-server-configuration.png)
+![Automated Backup for existing VMs](./media/automated-backup/sql-server-configuration.png)
 
 If you want to set your own backup schedule, choose **Manual** and configure the backup frequency, whether or not you want system databases backed up, and the transaction log backup interval in minutes. 
 
