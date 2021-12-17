@@ -470,6 +470,8 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 ## Create a device enrollment entry
 
+::: zone pivot="programming-language-ansi-c, programming-language-nodejs, programming-language-python, programming-language-java"
+
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
 2. On the left-hand menu or on the portal page, select **All resources**.
@@ -483,13 +485,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 6. In the **Add Enrollment** panel, enter the following information:
 
    * Select **TPM** as the identity attestation *Mechanism*.
-::: zone pivot="programming-language-ansi-c, programming-language-nodejs, programming-language-python, programming-language-java"
    * Enter the *Registration ID* and *Endorsement key* for your TPM device from the values you noted previously.
-::: zone-end
-::: zone pivot="programming-language-csharp"
-   * Enter the *Endorsement key* you retrieved earlier from your HSM.
-   * Enter a unique *Registration ID* for your device. You will also use this registration ID when registering your device, so make a note of it for later.
-::: zone-end
    * Select an IoT hub linked with your provisioning service.
    * Optionally, you may provide the following information:
        * Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
@@ -499,6 +495,37 @@ In this section, you'll build and execute a sample that reads the endorsement ke
       ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
 
 7. Select **Save**.
+
+::: zone-end
+
+::: zone pivot="programming-language-csharp"
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+2. On the left-hand menu or on the portal page, select **All resources**.
+
+3. Select your Device Provisioning Service.
+
+4. In the **Settings** menu, select **Manage enrollments**.
+
+5. At the top of the page, select **+ Add individual enrollment**.
+
+6. In the **Add Enrollment** panel, enter the following information:
+
+   * Select **TPM** as the identity attestation *Mechanism*.
+   * Enter the *Endorsement key* you retrieved earlier from your HSM.
+   * Enter a unique *Registration ID* for your device. You will also use this registration ID when registering your device, so make a note of it for later.
+   * Select an IoT hub linked with your provisioning service.
+   * Optionally, you may provide the following information:
+       * Enter a unique *Device ID* (you can use the suggested **test-docs-device** or provide your own). Make sure to avoid sensitive data while naming your device. If you choose not to provide one, the registration ID will be used to identify the device instead.
+       * Update the **Initial device twin state** with the desired initial configuration for the device.
+   * Once complete, press the **Save** button.
+
+      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
+
+7. Select **Save**.
+
+::: zone-end
 
 ## Register the device
 
@@ -580,7 +607,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
    cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
    ```
 
-4. Run the following command to register your device. Replace `<IdScope>` with the value for the DPS you just copied and `<RegistrationId>` with the value you used when creating your device enrollment.
+4. Run the following command to register your device. Replace `<IdScope>` with the value for the DPS you just copied and `<RegistrationId>` with the value you used when creating the device enrollment.
 
     ```cmd
     dotnet run -s <IdScope> -r <RegistrationId>
