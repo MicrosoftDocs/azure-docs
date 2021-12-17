@@ -1,6 +1,6 @@
 ---
 title: Create watchlists - Microsoft Sentinel
-description: Create watchlist in  Microsoft Sentinel for allowlists, blocklists, enrich event data, and assist in investigating threats.
+description: Create watchlist in  Microsoft Sentinel for allowlists or blocklists,  to enrich event data, and help investigate threats.
 author: cwatson-cat
 ms.author: cwatson
 ms.topic: how-to
@@ -9,7 +9,7 @@ ms.date: 12/14/2021
 
 # Create watchlists in Microsoft Sentinel
 
-Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high value assets, terminated employees, or service accounts in your enviroment.
+Watchlists in Microsoft Sentinel allow you to correlate data from a data source you provide with the events in your Microsoft Sentinel environment. For example, you might create a watchlist with a list of high value assets, terminated employees, or service accounts in your environment.
 
 Create a watchlist from a local file or by using a template.
 
@@ -45,7 +45,7 @@ You can upload a CSV file from your local machine to create a watchlist.
     :::image type="content" source="./media/watchlists/sentinel-watchlist-source.png" alt-text="watchlist source page" lightbox="./media/watchlists/sentinel-watchlist-source.png":::
 
 
-1. Review the information, verify that it is correct, wait for the *Validation passed* message, and then select **Create**.
+1. Review the information, verify that it's correct, wait for the **Validation passed** message, and then select **Create**.
 
     :::image type="content" source="./media/watchlists/sentinel-watchlist-review.png" alt-text="watchlist review page":::
 
@@ -58,7 +58,7 @@ You can upload a CSV file from your local machine to create a watchlist.
 
 Download one of the watchlist templates from Microsoft Sentinel to populate with your data. Then upload that file when you create the watchlist in Microsoft Sentinel.
 
-Each built-in watchlist template has it's own set of data listed in the CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md).
+Each built-in watchlist template has its own set of data listed in the CSV file attached to the template. For more information, see [Built-in watchlist schemas](watchlist-schemas.md).
 
 The ability to create a watchlist by using a template is currently in preview. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
