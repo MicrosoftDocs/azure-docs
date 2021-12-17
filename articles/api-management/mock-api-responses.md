@@ -47,7 +47,9 @@ The steps in this section show how to create an HTTP API with no backend.
 
 1. Sign in to the Azure portal, and then navigate to your API Management instance.
 1. Select **APIs** > **+ Add API** > **HTTP** tile.
+
    :::image type="content" source="media/mock-api-responses/http-api.png" alt-text="Define a HTTP API":::
+
 1. In the **Create an HTTP API** window, select **Full**.
 1. Enter *Test API* for **Display name**.
 1. Select **Unlimited** for **Products**.
@@ -84,6 +86,7 @@ An API exposes one or more operations. In this section, you'll add an operation 
 1. Enter *application/json* into the search box and select the **application/json** content type.
 1. In the **Sample** text box, enter  `{ "sampleField" : "test" }`.
 1. Select **Save**.
+
     :::image type="content" source="media/mock-api-responses/add-representation.png" alt-text="Add representation to the API operation":::
 
 Although not required for this example, more settings for an API operation can be configured on other tabs, including:
