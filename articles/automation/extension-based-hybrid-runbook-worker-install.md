@@ -26,8 +26,11 @@ A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Ext
 1. In the Hybrid Worker Group, select Hybrid Workers.
 1. Select **+Add** to go to the Add machines as hybrid worker page.
 1. Select existing Agent based (V1) Hybrid worker checkbox.
-1. Select Add to add the machine to the group.
+1. Select **Add** to add the machine to the group. </br>
 The platform field shows the same worker as both Agent based (V1) and Extension based (V2). Delete the Agent based (V1) Hybrid Worker after you are sure on the working of Extension based (V2) worker.
+
+> [!NOTE]
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. [Learn more](/azure/automation/extension-based-hybrid-runbook-worker-install#add-a-machine-to-a-hybrid-worker-group)
 
 ## Prerequisites
 
