@@ -9,7 +9,8 @@ ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
-ms.custom: devx-track-java, mode-other
+ms.devlang: java
+ms.custom: devx-track-java, mode-api
 ms.author: aahi
 ---
 # Quickstart: Send a search request to the Bing Entity Search REST API using Java

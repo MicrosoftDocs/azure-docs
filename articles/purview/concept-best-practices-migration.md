@@ -19,11 +19,6 @@ This article provides guidance on backup and recovery strategy when your organiz
 
 - The goal is to perform one time migration. If you wish to continuously "sync" assets between two accounts, there are other steps which will not be covered in detail by this article. You have to use [Azure Purview's Event Hub to subscribe and create entities to another account](manage-kafka-dotnet.md). However, Event Hub only has Atlas information. Azure Purview has added other capabilities such as **glossaries** and **contacts** which won't be available via Event Hub.
 
-## Intended audience
-* Data architecture team
-* Data governance and management teams
-* Data security team
-
 ## Identify key requirements
 Most of enterprise organizations have critical requirement for Azure Purview for capabilities such as Backup, Business Continuity, and Disaster Recovery (BCDR). To get into more details of this requirement, you need to differentiate between Backup, High Availability (HA), and Disaster recovery (DR).
 
@@ -94,7 +89,7 @@ This section provides high level guidance on required tasks to copy assets, glos
 
 ### Create the new account
 You will need to create a new Azure Purview account by following below instruction:
-* [Quickstart: Create an Azure Purview account in the Azure portal](https://docs.microsoft.com/azure/purview/create-catalog-portal)
+* [Quickstart: Create an Azure Purview account in the Azure portal](create-catalog-portal.md)
 
 It’s crucial to plan ahead on configuration items that you cannot change later:
 * Account name
@@ -103,7 +98,7 @@ It’s crucial to plan ahead on configuration items that you cannot change later
 * Manage resource group name
 
 ### Migrate configuration items
-Below steps are referring to [Azure Purview API documentation](https://docs.microsoft.com/rest/api/purview) so that you can programmatically stand up the backup account quickly:
+Below steps are referring to [Azure Purview API documentation](/rest/api/purview/) so that you can programmatically stand up the backup account quickly:
 
 |Task|Description|
 |-------------|-----------------|
@@ -114,7 +109,7 @@ Below steps are referring to [Azure Purview API documentation](https://docs.micr
 |**Resource set rule**|Create and maintain resource set rule. You can call the [Get resource set rule API](/rest/api/purview/accountdataplane/resource-set-rules/get-resource-set-rule) to get the rule details|
 |**Data sources**|Call the [Get all data sources API](/rest/api/purview/scanningdataplane/scans/list-by-data-source) to list data sources with details. You also have to get the triggers by calling [Get trigger API](/rest/api/purview/scanningdataplane/triggers/get-trigger). There is also [Create data sources API](/rest/api/purview/scanningdataplane/data-sources/create-or-update) if you need to re-create the sources in bulk in the new account.|
 |**Credentials**|Create and maintain credentials used while scanning. There is no API to extract credentials, so this must be redone in the new account.|
-|**Self-hosted integration runtime (SHIR)**|Get a list of SHIR and get updated keys from the new account then update the SHIRs. This must be done [manually inside the SHIRs' hosts](https://docs.microsoft.com/azure/purview/manage-integration-runtimes#create-a-self-hosted-integration-runtime)|
+|**Self-hosted integration runtime (SHIR)**|Get a list of SHIR and get updated keys from the new account then update the SHIRs. This must be done [manually inside the SHIRs' hosts](manage-integration-runtimes.md#create-a-self-hosted-integration-runtime).|
 |**ADF connections**|Currently an ADF can be connected to one Purview at a time. You must disconnect ADF from failed Purview account and reconnect it to the new account later.|
 
 
@@ -330,7 +325,7 @@ To complete the asset migration, you must remap the relationships. There are thr
 > Before migrating terms, you need to migrate the term templates. This step should be already covered in the custom `typedef` migration.
 
 #### Using Azure Purview Portal
-The quickest way to migrate glossary terms is to [export terms to a .csv file](https://review.docs.microsoft.com/azure/purview/how-to-create-import-export-glossary?branch=main). You can do this using the Purview Studio.
+The quickest way to migrate glossary terms is to [export terms to a .csv file](how-to-create-import-export-glossary.md). You can do this using the Purview Studio.
 
 #### Using Azure Purview API
 To automate glossary migration, you first need to get the glossary `guid` (`glossaryGuid`) via [List Glossaries API](/rest/api/purview/catalogdataplane/glossary/list-glossaries). The `glossaryGuid` is the top/root level glossary `guid`.

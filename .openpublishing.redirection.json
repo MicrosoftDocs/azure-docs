@@ -5914,6 +5914,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/azure-arc/data/create-aks-cluster-data-controller.md",
       "redirect_url": "/azure/azure-arc/data/create-complete-managed-instance-indirectly-connected",
       "redirect_document_id": false
@@ -7615,8 +7620,8 @@
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/concepts/model-versioning.md",
-      "redirect_url": "/azure/cognitive-services/language-service/overview",
-      "redirect_document_id": false
+      "redirect_url": "/azure/cognitive-services/language-service/concepts/model-lifecycle",
+      "redirect_document_id": true
     },
     {
       "source_path_from_root": "/articles/cognitive-services/text-analytics/text-analytics-resource-external-community.md",
@@ -7699,16 +7704,6 @@
     {
       "source_path": "articles/cognitive-services/LUIS/luis-how-to-devops-with-github.md",
       "redirect_url": "/azure/cognitive-services/LUIS/luis-concept-devops-automation",
-      "redirect_document_id": true
-    },
-    {
-      "source_path_from_root": "/articles/azure-monitor/app/app-insights-dashboards.md",
-      "redirect_url": "/azure/azure-monitor/app/overview-dashboard",
-      "redirect_document_id": false
-    },
-    {
-      "source_path_from_root": "/articles/application-insights/app-insights-performance-counters.md",
-      "redirect_url": "/azure/azure-monitor/app/performance-counters",
       "redirect_document_id": true
     },
     {
@@ -24695,7 +24690,7 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/connect-dns.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#domain-name-server",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-dns-server-preview",
       "redirect_document_id": false
     },
     {
@@ -26519,9 +26514,9 @@
       "redirect_document_id": true
     },
     {
-      "source_path_from_root": "/articles/storage/common/storage-enable-and-view-metrics.md",
-      "redirect_url": "/azure/storage/common/monitor-storage",
-      "redirect_document_id": true
+      "source_path_from_root": "/articles/cloud-services-extended-support/role-startup-failure.md",
+      "redirect_url": "/troubleshoot/azure/cloud-services/role-startup-failure",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/common/storage-metrics-in-azure-monitor.md",
@@ -26751,7 +26746,7 @@
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics.md",
       "redirect_url": "/azure/storage/common/storage-enable-and-view-metrics",
-      "redirect_document_id": true
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/storage/storage-enable-and-view-metrics-classic-portal.md",
@@ -40739,6 +40734,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/batch/batch-low-pri-vms.md",
+      "redirect_url": "/azure/batch/batch-spot-vms",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/cognitive-services/QnAMaker/Quickstarts/quickstart-rest-curl.md",
       "redirect_url": "azure/cognitive-services/QnAMaker/Quickstarts/quickstart-sdk",
       "redirect_document_id": false
@@ -45141,6 +45141,16 @@
     {
       "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
       "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
+      "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
+      "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
     }
   ]

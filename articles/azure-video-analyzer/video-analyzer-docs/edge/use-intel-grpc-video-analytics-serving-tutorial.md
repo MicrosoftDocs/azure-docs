@@ -1,5 +1,5 @@
 ---
-title: Analyze live videos by using Intel OpenVINO™ DL Streamer – Edge AI Extension via gRPC with Azure Video Analyzer
+title: Analyze live video with Intel OpenVINO™ DL Streamer – Edge AI Extension 
 description: This tutorial shows you how to use the Intel OpenVINO™ DL Streamer – Edge AI Extension from Intel to analyze a live video feeds from a (simulated) IP camera.
 ms.topic: tutorial
 ms.service: azure-video-analyzer
