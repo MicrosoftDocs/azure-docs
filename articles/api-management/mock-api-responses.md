@@ -6,7 +6,7 @@ author: dlepow
 ms.service: api-management
 ms.custom: mvc, devx-track-azurecli, devdivchpfy22
 ms.topic: tutorial
-ms.date: 12/16/2021
+ms.date: 12/17/2021
 ms.author: danlep
 
 ---
@@ -47,14 +47,14 @@ The steps in this section show how to create a blank API with no backend.
 1. In the **Create an HTTP API** window, select **Full**.
 1. Enter *Test API* for **Display name**.
 1. Select **Unlimited** for **Products**.
-1. Ensure **Managed** is selected in **Gateways**.
+1. Ensure that **Managed** is selected for **Gateways**.
 1. Select **Create**.
 
     :::image type="content" source="media/mock-api-responses/create-http-api.png" alt-text="Create an HTTP API":::
 
 ## Add an operation to the test API
 
-An API exposes one or more operations. In this section, add an operation to the blank API you created. Calling the operation after completing steps in this section produces an error. You'll get no errors after you complete steps later in the [Enable response mocking](#enable-response-mocking) section.
+An API exposes one or more operations. In this section, you'll add an operation to the HTTP API you created. Calling the operation after completing steps in this section produces an error. After you complete the steps later in the [Enable response mocking](#enable-response-mocking) section, you'll get no errors.
 
 ### [Portal](#tab/azure-portal)
 
@@ -126,8 +126,8 @@ Keep this operation for use in the rest of this article.
 ## Enable response mocking
 
 1. Select the API you created in [Create a test API](#create-a-test-api).
-1. Select the test operation that you added.
 1. In the window on the right, ensure that the **Design** tab is selected.
+1. Select the test operation that you added.
 1. In the **Inbound processing** window, select **+ Add policy**.
 
     :::image type="content" source="media/mock-api-responses/add-policy.png" alt-text="Add processing policy" border="false":::
