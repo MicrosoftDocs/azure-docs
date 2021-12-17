@@ -21,7 +21,7 @@ To complete this quick start, you are going to need:
 * An Azure subcription - Create one for free here: [Create an Azure subscription](https://azure.microsoft.com/en-us/free/cognitive-services/)
 * A OneDrive account - Create one for free here: [Create a One drive account](https://onedrive.live.com/signup)
 * An Outlook online email account - Create one for free here: [Create an outlook online email account](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca)
-* a sample invoice to test your azure logic app - Download a sample [here](need to link invoice here)
+* a sample invoice to test your azure logic app - Download a sample [here]( https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
 ### Setting up One-Drive 
 
@@ -170,7 +170,7 @@ Let's quickly review what we have done before we test our flow.
 
 Now that we have created the flow the last thing to do is to test it and make sure we are getting the expected behavior. 
 
-1. Now to test the logic app first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Now add this file to the OneDrive folder [Sample invoice.]()
+1. Now to test the logic app first open a new tab and navigate to the OneDrive folder you set up at the beginning of this tutorial. Now add this file to the OneDrive folder [Sample invoice.]( https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
 2. Return to the Logic App designer tab and click the "Run trigger" button in the menu bar. 
 
