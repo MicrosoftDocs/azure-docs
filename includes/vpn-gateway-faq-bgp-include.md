@@ -52,7 +52,7 @@ If your on-premises VPN routers use **APIPA** IP addresses (169.254.x.x) as the 
 
 ### What are the requirements for the BGP peer IP addresses on my VPN device?
 
-Your on-premises BGP peer address must not be the same as the public IP address of your VPN device or from the virtual network address space of the VPN gateway. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device (either a regular IP address or an APIPA address). If your device uses an APIPA address for BGP, you must specify one or more APIPA BGP IP addresses on your Azure VPN gateway, as described in [Configure BGP](../articles/vpn-gateway/bgp-howto.md). Specify this address in the corresponding local network gateway representing the location.
+Your on-premises BGP peer address must not be the same as the public IP address of your VPN device or from the virtual network address space of the VPN gateway. Use a different IP address on the VPN device for your BGP peer IP. It can be an address assigned to the loopback interface on the device (either a regular IP address or an APIPA address). If your device uses an APIPA address for BGP, you must specify one or more APIPA BGP IP addresses on your Azure VPN gateway, as described in [Configure BGP](../articles/vpn-gateway/bgp-howto.md). Specify these addresses in the corresponding local network gateway representing the location.
 
 ### What should I specify as my address prefixes for the local network gateway when I use BGP?
 
