@@ -17,7 +17,8 @@ Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Sear
 
 + [OCR](cognitive-search-skill-ocr.md) for optical character recognition of text and digits
 + [Image Analysis](cognitive-search-skill-image-analysis.md) that describe images through visual features
-+ [Custom skills](#passing-images-to-custom-skills) to invoke any external image processing that you want to provide
++ [Custom skills](#
+passing-images-to-custom-skills) to invoke any external image processing that you want to provide
 
 Through OCR, you can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Through image analysis, you can generate a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
 
@@ -508,7 +509,7 @@ Images can also be passed into and returned from custom skills. The skillset bas
 
 The [Azure Search python samples](https://github.com/Azure-Samples/azure-search-python-samples) repository has a complete sample implemented in Python of a custom skill that enriches images.
 
-### Pass images to custom skills
+### Passing images to custom skills
 
 For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The [Python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) image-processing demonstrates the workflow. The following skillset is from the sample.
 
