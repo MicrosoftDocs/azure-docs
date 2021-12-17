@@ -20,7 +20,7 @@ After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid
 
 
 > [!NOTE]
-> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install **Extension based (V2)** on a hybrid worker already running **Agent based (V1)**, then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform **Extension based (V2)** and the other **Agent based (V1)**. [**Learn more**](#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
 
 ## Prerequisites
 
@@ -136,7 +136,7 @@ A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Ext
 1. Select **+ Add** to go to the **Add machines as hybrid worker** page.
 1. Select the checkbox next to existing Agent based (V1) Hybrid worker checkbox.
 1. Select **Add** to add the machine to the group. </br>
-The **Platform** field shows the same worker as both **Agent based (V1)** and **Extension based (V2)**. Delete the Agent based (V1) Hybrid Worker after you are sure about the working of Extension based (V2) worker.
+The **Platform** field shows the same worker as both **Agent based (V1)** and **Extension based (V2)**. Delete the Agent based (V1) Hybrid Worker after you are sure on the working of Extension based (V2) worker.
 
 
 ## Delete a Hybrid Runbook Worker
