@@ -131,12 +131,13 @@ You can also add machines to an existing hybrid worker group.
 
 A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. To install Extension based (V2) on a hybrid worker that already has an Agent based (V1): 
 
-1. Under **Process Automation**, select **Hybrid Workers groups** and then your existing hybrid worker group to go to the **Hybrid Worker Group** page.
-1. Under **Hybrid worker group**, select **Hybrid Workers**.
-1. Select **+ Add** to go to the **Add machines as hybrid worker** page.
-1. Select the checkbox next to existing Agent based (V1) Hybrid worker checkbox.
-1. Select **Add** to add the machine to the group. </br>
-The **Platform** field shows the same worker as both **Agent based (V1)** and **Extension based (V2)**. Delete the Agent based (V1) Hybrid Worker after you are sure on the working of Extension based (V2) worker.
+  1.  Under **Process Automation**, select **Hybrid Workers groups** and then your existing hybrid worker group to go to the **Hybrid Worker Group** page.
+  1.  Under **Hybrid worker group**, select **Hybrid Workers**.
+  1.  Select **+ Add** to go to the **Add machines as hybrid worker** page.
+  1.  Select the checkbox next to existing Agent based (V1) Hybrid worker.
+  1.  Select **Add** to add the machine to the group. </br>
+
+The **Platform** column shows the same worker as both **Agent based (V1)** and **Extension based (V2)**. Delete the Agent based (V1) Hybrid Worker after you are sure on the working of Extension based (V2) worker.
 
 
 ## Delete a Hybrid Runbook Worker
