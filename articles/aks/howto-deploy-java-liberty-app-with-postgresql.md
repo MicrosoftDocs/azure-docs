@@ -27,28 +27,39 @@ For more information on Open Liberty, see [the Open Liberty project page](https:
 
 [!INCLUDE [azure-cli-prepare-your-environment.md](../../includes/azure-cli-prepare-your-environment.md)]
 
-* This article requires the latest version of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+* This article requires at least version 2.31.0 of Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 * If running the commands in this guide locally (instead of Azure Cloud Shell):
   * Prepare a local machine with Unix-like operating system installed (for example, Ubuntu, macOS, Windows Subsystem for Linux).
   * Install a Java SE implementation (for example, [AdoptOpenJDK OpenJDK 8 LTS/OpenJ9](https://adoptopenjdk.net/?variant=openjdk8&jvmVariant=openj9)).
   * Install [Maven](https://maven.apache.org/download.cgi) 3.5.0 or higher.
   * Install [Docker](https://docs.docker.com/get-docker/) for your OS.
-  * Create a user-assigned managed identity and assign `Contributor` role to that identity by following the steps in [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities).
+  * Create a user-assigned managed identity and assign `Contributor` role to that identity by following the steps in [Manage user-assigned managed identities](/azure/active-directory/managed-identities-azure-resources/how-manage-user-assigned-managed-identities). Return to this document after creating the identity and assigning it the necessary role.
 
 ## Create a Jakarta EE runtime using the portal
 
 The steps in this section guide you to create a Jakarta EE runtime on AKS. After completing these steps, you will have an Azure Container Registry and an Azure Kubernetes Service cluster for the sample application.
 
-1. Visit the [Azure portal](https://aka.ms/publicportal), and search for **IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service** and select **Create** to start.
+1. Visit the [Azure portal](https://aka.ms/publicportal). In the search box at the top of the page, type **IBM WebSphere Liberty and Open Liberty on Azure Kubernetes Service**. When the suggestions start appearing, select the one and only match that appears in the **Marketplace** section.
+1. Select **Create** to start.
 1. In **Basics** tab, create a new resource group called *java-liberty-project-rg*.
 1. Select *East US* as **Region**.
 1. Select the user-assigned managed identity you created above.
-1. Leave all other values at the defaults and start creating the cluster. This may take over fifteen minutes.
-1. After the deployment is complete, visit the Azure Container Registry Access Keys page, save the **Login server**, **Username**, and **Password** aside for later use in this article.
+1. Leave all other values at the defaults and start creating the cluster by selecting **Review + create**. 
+1. When the validation completes, select **Create**. This may take up to ten minutes.
+1. After the deployment is complete, select the resource group into which you deployed the resources.
+   1. In the list of resources in the resource group, select the resource with **Type** of **Container registry**.
+   1. Save aside the values for **Registry name**, **Login server**, **Username** and **password**. You may use the copy icon at the right of each field to copy the value of that field to the system clipboard.
+1. Navigate again to the resource group into which you deployed the resources.
+1. In the **Settings** section, select **Deployments**.
+1. Select the bottom most deployment.  The **Deployment name** will match the publisher ID of the offer. It will contain the string **ibm**.
+1. In the left pane, select **Outputs**.
+1. Using the same copy technique as with the preceding values, save aside the values for  the following outputs.
 
-   **PENDING: Zheng, please add a screenshot here, as described in https://review.docs.microsoft.com/en-us/help/contribute/contribute-how-to-create-screenshot?branch=master **
+   **clusterName**
+   **appDeploymentTemplateYamlEncoded**
+   **cmdToConnectToCluster**
 
-1. **PENDING: Zheng: enumerate the exact steps to get to the deployments page.  Also, include a screenshot using the same guidelines. Also, find a better way to direct them to the correct deployment.  I know ibm-usa-ny-armonk is correct, but that name may change if we fix the publisher ID, as Reza long ago requested.  Perhaps it is the first or last deployment?**  Go to the deployment output page, select on the deployment named like *ibm-usa-ny-armonk-hq-**, save *clusterName* and *appDeploymentTemplateYamlEncoded* aside for later use in this article.
+   These values will be used later in this article. Note that several other useful commands are listed in the outputs.
 
 ## Create an Azure Database for PostgreSQL server
 
@@ -73,7 +84,7 @@ The steps in this section guide you through creating an Azure Database for Postg
    export DB_NAME=youruniquedbname
    export DB_ADMIN_USERNAME=myadmin
    export DB_ADMIN_PASSWORD=<server_admin_password>
-   az postgres server create --resource-group $RESOURCE_GROUP_NAME --name $DB_NAME  --location eastus --admin-user $DB_ADMIN_USERNAME --admin-password $DB_ADMIN_PASSWORD --sku-name GP_Gen5_2
+   az postgres server create --resource-group $RESOURCE_GROUP_NAME --name $DB_NAME  --location eastus --admin-user $DB_ADMIN_USERNAME --admin-password $DB_ADMIN_PASSWORD --sku-name GP_Gen5_2 --ssl-enforcement Disabled
    ```
 
 1. Allow Azure Services, such as our Open Liberty and WebSphere Liberty application, to access the Azure PostgreSQL server.
@@ -85,8 +96,18 @@ The steps in this section guide you through creating an Azure Database for Postg
                                            --start-ip-address "0.0.0.0" \
                                            --end-ip-address "0.0.0.0"
    ```
+   
+1. Allow your local IP address to access the Azure PostgreSQL server. This is necessary to allow the `liberty:devc` to access the database.
 
-If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-firewall-rules#connecting-from-azure). Return to this document after creating and configuring the database server.
+   ```bash
+   az postgres server firewall-rule create --resource-group $RESOURCE_GROUP_NAME \
+                                           --server-name $DB_NAME   \
+                                           --name "AllowMyIp" \
+                                           --start-ip-address YOUR_IP_ADDRESS \
+                                           --end-ip-address YOUR_IP_ADDRESS
+   ```
+
+If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-firewall-rules#connecting-from-azure). Make sure to disable SSL and allow access from your local IP.  Return to this document after creating and configuring the database server.
 
 ## Configure and deploy the sample application
 
@@ -148,13 +169,13 @@ export LOGIN_SERVER=<Azure_Container_Registery_Login_Server_URL>
 export REGISTRY_NAME=<Azure_Container_Registery_Name>
 export USER_NAME=<Azure_Container_Registery_Username>
 export PASSWORD=<Azure_Container_Registery_Password>
-export DB_SERVER_NAME=<DB_NAME>.postgres.database.azure.com
+export DB_SERVER_NAME=${DB_NAME}.postgres.database.azure.com
 export DB_PORT_NUMBER=5432
 export DB_TYPE=postgres
-export DB_USER=<DB_ADMIN_USER_NAME>@<DB_NAME>
-export DB_PASSWORD=<DB_ADMIN_PASSWORD>
-export NAMESPACE=<NAMESPACE>
-export PULL_SECRET=<PULL_SECRET>
+export DB_USER=${DB_ADMIN_USERNAME}@${DB_NAME}
+export DB_PASSWORD=${DB_ADMIN_PASSWORD}
+export NAMESPACE=<metada.namespace>
+export PULL_SECRET=<pullSecret>
 
 mvn clean install
 ```
@@ -164,11 +185,7 @@ mvn clean install
 Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
 We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the sample application.
 
-1. Start your local docker environment if you haven't done so already.
-
-   ```bash
-   sudo dockerd
-   ```
+1. Start your local docker environment if you haven't done so already. The instructions for donig this vary depending on the host operating system.
 
 1. Start the application in `liberty:devc` mode
 
@@ -184,7 +201,7 @@ We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the s
 
 1. Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
 
-1. Press `Ctrl+C` to stop `liberty:devc` mode.  Alternatively, you could use the `jps` command to find the pid of the runner process and kill it with `kill -9`.
+1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
 ### Build image for AKS deployment
 
@@ -222,15 +239,15 @@ The steps in this section deploy and test the application.
 
 1. Connect to the AKS cluster
 
-  ```bash
-   az aks get-credentials --resource-group java-liberty-project-rg --name <AKS_CLUSTER_NAME>
-   ```
+   Paste the value of **cmdToConnectToCluster** into a bash shell.
 
 1. Apply the DB secret
 
    ```bash
    kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/postgres/target/db-secret.yaml
    ```
+   
+   You will see the output `secret/db-secret-postgres created`.
 
 1. Apply the deployment file
 
@@ -244,6 +261,15 @@ The steps in this section deploy and test the application.
 
    ```bash
    kubectl get pods -n $NAMESPACE --watch
+   ```
+   
+   You should see output similar to the following to indicate that all the pods are running.
+   
+   ```bash
+   NAME                                  READY   STATUS    RESTARTS   AGE
+   javaee-cafe-cluster-67cdc95bc-2j2gr   1/1     Running   0          29s
+   javaee-cafe-cluster-67cdc95bc-fgtt8   1/1     Running   0          29s
+   javaee-cafe-cluster-67cdc95bc-h47qm   1/1     Running   0          29s
    ```
 
 1. Verify the results
