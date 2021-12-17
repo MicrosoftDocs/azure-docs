@@ -35,7 +35,7 @@ To run the Notebook, you should get a valid Anomaly Detector API **subscription 
 
 ## Region support
 
-The preview of Anomaly Detector multivariate is currently available in 10 Azure regions: Southeast Asia, Australia East, Canada Central, North Europe, West Europe, East US, East US 2, South Central US, West US 2, and UK South.
+The preview of Multivariate Anomaly Detector is currently available in 26 Azure regions: Southeast Asia, Australia East, Canada Central, North Europe, West Europe, East US, East US 2, South Central US, West US, West US 2, West US 3, UK South, Japan East, Brazil South, Central US, Norway East, Korea Central, East Asia, Germany West Central, Central India, UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West.
 
 ## Algorithms
 
