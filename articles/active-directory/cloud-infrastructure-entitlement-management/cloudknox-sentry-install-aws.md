@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/15/2021
+ms.date: 12/17/2021
 ms.author: v-ydequadros
 ---
 
@@ -167,7 +167,7 @@ Create a cross-account role that allows the Sentry's EC2 instance to assume the 
 
          (This value is configurable.)
   
-2. Modify the role's trust relationship.   
+2. Modify the role's trust relationship.
    In this step, you limit who and what can assume this cross-account role by specifying the instanceId of the Sentry.
 
    1. Select the **Trust relationships** tab.
