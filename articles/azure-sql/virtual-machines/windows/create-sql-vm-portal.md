@@ -1,6 +1,6 @@
 ---
-title: Provision a Windows virtual machine with the Azure portal
-description: This guide covers options available for using the Azure portal to provision SQL Server on a Windows virtual machine.
+title: Provision SQL Server on Azure VM (Azure portal)
+description: This detailed guide explains available configuration options when deploying your SQL Server on Azure VM by using the Azure portal. 
 services: virtual-machines-windows
 documentationcenter: na
 author: bluefooted
@@ -12,69 +12,64 @@ ms.subservice: deployment
 ms.topic: how-to
 ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: infrastructure-services
-ms.date: 11/07/2019
+ms.date: 12/21/2021
 ms.author: pamela
 ms.reviewer: mathoma
-ms.custom: "seo-lt-2019"
+ms.custom: contperf-fy22q1-portal
 ---
-# How to use the Azure portal to provision a Windows virtual machine with SQL Server
+# Provision SQL Server on Azure VM (Azure portal)
 
 [!INCLUDE[appliesto-sqlvm](../../includes/appliesto-sqlvm.md)]
 
-This guide covers options available for using the Azure portal to provision SQL Server on a Windows virtual machine (VM). This article covers more configuration options than the [SQL Server VM quickstart](sql-vm-create-portal-quickstart.md), which focuses more deeply on a single configuration. 
+This article provides a detailed description of the available configuration options when deploying your SQL Server on Azure Virtual Machines (VMs) by using the Azure portal. For a quick guide, see the [SQL Server VM quickstart](sql-vm-create-portal-quickstart.md) instead. 
 
-Use this guide to create your own SQL Server VM. Or, use it as a reference for the available options in the Azure portal.
 
-> [!TIP]
-> If you have questions about SQL Server virtual machines, see the [Frequently Asked Questions](frequently-asked-questions-faq.yml).
+## Prerequisites 
 
-If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.
+An Azure subscription. Create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) to get started. 
 
-## <a id="select"></a> SQL Server virtual machine gallery images
 
-When you create a SQL Server virtual machine, you can select one of several pre-configured images from the virtual machine gallery. The following steps demonstrate how to select one of the SQL Server 2017 images.
+## <a id="select"></a> Choose Marketplace image
 
-1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box. 
+Use the Azure Marketplace to choose one of several pre-configured images from the virtual machine gallery. 
 
-   You can also select the star next to **Azure SQL** to save it as a favorite and add it as an item in the left-hand navigation. 
+The Developer edition is used in this article because it is a full-featured, free edition of SQL Server for development testing. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this walkthrough. For a description of available images, see the [SQL Server Windows Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
 
-1. Select **+ Add** to open the **Select SQL deployment option** page. You can view additional information by selecting **Show details**. 
-1. Type *2017* in the SQL Server image search box on the **SQL virtual machines** tile, and then select **Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016** from the drop-down. 
+Licensing costs for SQL Server are incorporated into the per-second pricing of the VM you create and varies by edition and cores. However, SQL Server Developer edition is free for development and testing, not production. Also, SQL Express is free for lightweight workloads (less than 1 GB of memory, less than 10 GB of storage). You can also bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. For more information on these options, see [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md).
+
+To choose an image, follow these steps: 
+
+1. Select **Azure SQL** in the left-hand menu of the Azure portal. If **Azure SQL** is not in the list, select **All services**, then type *Azure SQL* in the search box. You can select the star next to **Azure SQL** to save it as a favorite to pin it to the left-hand navigation. 
+
+1. Select **+ Create** to open the **Select SQL deployment option** page. Select the **Image** drop-down and then type **2019** in the SQL Server image search box. Choose a SQL Server image, such as **Free SQL Server License: SQL 2019 on Windows Server 2019** from the drop-down.  Choose **Show details** for additional information about the image. 
+
 
    ![Select SQL VM image](./media/create-sql-vm-portal/select-sql-vm-image-portal.png)
-
-   > [!TIP]
-   > The Developer edition is used in this article because it is a full-featured, free edition of SQL Server for development testing. You pay only for the cost of running the VM. However, you are free to choose any of the images to use in this walkthrough. For a description of available images, see the [SQL Server Windows Virtual Machines overview](sql-server-on-azure-vm-iaas-what-is-overview.md#payasyougo).
-
-   > [!TIP]
-   > Licensing costs for SQL Server are incorporated into the per-second pricing of the VM you create and varies by edition and cores. However, SQL Server Developer edition is free for development and testing, not production. Also, SQL Express is free for lightweight workloads (less than 1 GB of memory, less than 10 GB of storage). You can also bring-your-own-license (BYOL) and pay only for the VM. Those image names are prefixed with {BYOL}. 
-   >
-   > For more information on these options, see [Pricing guidance for SQL Server Azure VMs](pricing-guidance.md).
-
 
 1. Select **Create**.
 
 
-## 1. Configure basic settings
+## Basic settings
+
+The **Basics** tab allows you to select the subscription, resource group, and instance details. 
+
+Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../active-directory-b2c/overview.md).
 
 On the **Basics** tab, provide the following information:
 
-* Under **Project Details**, make sure the correct subscription is selected. 
-* In the **Resource group** section, either select an existing resource group from the list or choose **Create new** to create a new resource group. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.). 
+*  Under **Project Details**, make sure the correct subscription is selected. 
+*  In the **Resource group** section, either select an existing resource group from the list or choose **Create new** to create a new resource group. A resource group is a collection of related resources in Azure (virtual machines, storage accounts, virtual networks, etc.). 
 
   ![Subscription](./media/create-sql-vm-portal/basics-project-details.png)
 
-  > [!NOTE]
-  > Using a new resource group is helpful if you are just testing or learning about SQL Server deployments in Azure. After you finish with your test, delete the resource group to automatically delete the VM and all resources associated with that resource group. For more information about resource groups, see [Azure Resource Manager Overview](../../../active-directory-b2c/overview.md).
-
-
-* Under **Instance details**:
+*  Under **Instance details**:
 
     1. Enter a unique **Virtual machine name**.  
     1. Choose a location for your **Region**. 
     1. For the purpose of this guide, leave **Availability options** set to _No infrastructure redundancy required_. To find out more information about availability options, see [Availability](../../../virtual-machines/availability.md). 
-    1. In the **Image** list, select _Free SQL Server License: SQL Server 2017 Developer on Windows Server 2016_.  
-    1. Choose to **Change size** for the **Size** of the virtual machine and select the **A2 Basic** offering. Be sure to clean up your resources once you're done with them to prevent any unexpected charges. For production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](./performance-guidelines-best-practices-checklist.md).
+    1. In the **Image** list, select _Free SQL Server License: SQL Server 2019 Developer on Windows Server 2019_ if it's not already selected.
+    1. Choose **Standard** for **Security type**. 
+    1. Select **See all sizes** for the **Size** of the virtual machine and search for the **E4ds_v5** offering. This is one of the minimum recommended VM sizes for SQL Server on Azure VMs. If this is for testing purposes, be sure to clean up your resources once you're done with them to prevent any unexpected charges. For production workloads, see the recommended machine sizes and configuration in [Performance best practices for SQL Server in Azure Virtual Machines](./performance-guidelines-best-practices-vm-size.md).
 
     ![Instance details](./media/create-sql-vm-portal/basics-instance-details.png)
 
@@ -89,23 +84,22 @@ On the **Basics** tab, provide the following information:
 
    ![Inbound port rules](./media/create-sql-vm-portal/basics-inbound-port-rules.png)
 
+You also have the option to enable the [Azure Hybrid Benefit](../../../virtual-machines/windows/hybrid-use-benefit-licensing.md) to use your own SQL Server license and save on licensing cost. 
 
-## 2. Configure optional features
 
-### Disks
+## Disks
 
 On the **Disks** tab, configure your disk options. 
 
 * Under **OS disk type**, select the type of disk you want for your OS from the drop-down. Premium is recommended for production systems but is not available for a Basic VM. To use a Premium SSD, change the virtual machine size. 
 * Under **Advanced**, select **Yes** under use **Managed Disks**.
 
-   > [!NOTE]
-   > Microsoft recommends Managed Disks for SQL Server. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For more information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use managed disks for VMs in availability set](../../../virtual-machines/availability.md).
+Microsoft recommends Managed Disks for SQL Server. Managed Disks handles storage behind the scenes. In addition, when virtual machines with Managed Disks are in the same availability set, Azure distributes the storage resources to provide appropriate redundancy. For more information, see [Azure Managed Disks Overview](../../../virtual-machines/managed-disks-overview.md). For specifics about managed disks in an availability set, see [Use managed disks for VMs in availability set](../../../virtual-machines/availability.md).
 
-![SQL VM Disk settings](./media/create-sql-vm-portal/azure-sqlvm-disks.png)
+
   
   
-### Networking
+## Networking
 
 On the **Networking** tab, configure your networking options. 
 
@@ -115,19 +109,14 @@ On the **Networking** tab, configure your networking options.
 
 * You can make other changes to network settings, or keep the default values.
 
-![SQL VM Networking settings](./media/create-sql-vm-portal/azure-sqlvm-networking.png)
+## Management
 
-#### Monitoring
-
-On the **Monitoring** tab, configure monitoring and auto-shutdown. 
+On the **Management** tab, configure monitoring and auto-shutdown. 
 
 * Azure enables **Boot diagnostics** by default with the same storage account designated for the VM. On this tab, you can change these settings and enable **OS guest diagnostics**. 
 * You can also enable **System assigned managed identity** and **auto-shutdown** on this tab. 
 
-![SQL VM management settings](./media/create-sql-vm-portal/azure-sqlvm-management.png)
-
-
-## 3. Configure SQL Server settings
+## SQL Server settings
 
 On the **SQL Server settings** tab, configure specific settings and optimizations for SQL Server. You can configure the following settings for SQL Server:
 
@@ -135,6 +124,7 @@ On the **SQL Server settings** tab, configure specific settings and optimization
 - [Authentication](#authentication)
 - [Azure Key Vault integration](#azure-key-vault-integration)
 - [Storage configuration](#storage-configuration)
+- [SQL instance settings](#sql-instance-settings)
 - [Automated patching](#automated-patching)
 - [Automated backup](#automated-backup)
 - [Machine Learning Services](#machine-learning-services)
@@ -190,29 +180,42 @@ For more information, see [Configure Azure Key Vault Integration for SQL Server 
 
 ### Storage configuration
 
-On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to open the Performance Optimized Storage Configuration page and specify the storage requirements.
+
+On the **SQL Server settings** tab, under **Storage configuration**, select **Change configuration** to open the **Configure storage** page and specify storage requirements. You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](storage-configuration.md). 
 
 ![Screenshot that highlights where you can change the storage configuration.](./media/create-sql-vm-portal/sql-vm-storage-configuration-provisioning.png)
 
-Under **Storage optimized for**, select one of the following options:
+Under **Data storage**, choose the location for your data drive, the disk type, and the number of disks. You can also select the checkbox to store your system databases on your data drive instead of the local C:\ drive. 
 
-* **General** is the default setting and supports most workloads.
-* **Transactional processing** optimizes the storage for traditional database OLTP workloads.
-* **Data warehousing** optimizes the storage for analytic and reporting workloads.
+![Screenshot that shows where you can configure the data files storage for your SQL VM](./media/create-sql-vm-portal/storage-configuration-data-storage.png)
 
-![SQL VM Storage configuration](./media/create-sql-vm-portal/sql-vm-storage-configuration.png)
+Under **Log storage**, you can choose to use the same drive as the data drive for your transaction log files, or you can choose to use a separate drive from the drop-down. You can also choose the name of the drive, the disk type, and the number of disks. 
 
-You can choose to leave the values at default, or you can manually change the storage topology to suit your IOPS needs. For more information, see [storage configuration](storage-configuration.md). 
+![Screenshot that shows where you can configure the transaction log storage for your SQL VM](./media/create-sql-vm-portal/storage-configuration-log-storage.png)
+
+Configure your tempdb database settings under **Tempdb storage**, such as the location of the database files, as well as the number of files, initial size, and autogrowth size in MB. Currently, the max number of tempdb files. Currently, during deployment, the max number of tempdb files is 8, but more files can be added after the SQL Server VM is deployed.
+
+![Screenshot that shows where you can configure the tempdb storage for your SQL VM](./media/create-sql-vm-portal/storage-configuration-tempdb-storage.png)
+
+Select **OK** to save your storage configuration settings. 
+
+### SQL instance settings 
+
+Select **Change SQL instance settings** to modify SQL Server configuration options, such as the server collation, max degree of parallelism (MAXDOP), SQL Server min and max memory limits, and whether you want to optimize for ad-hoc workloads. 
+
+![Screenshot that shows where you can configure the SQL Server settings for your SQL VM instance](./media/create-sql-vm-portal/sql-instance-settings.png). 
 
 ### SQL Server license
 
-If you're a Software Assurance customer, you can use the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your own SQL Server license and save on resources. 
+If you're a Software Assurance customer, you can use the [Azure Hybrid Benefit](https://azure.microsoft.com/pricing/hybrid-benefit/) to bring your own SQL Server license and save on resources. Select **Yes** to enable the Azure Hybrid Benefit, and then confirm that you have Software Assurance by selecting the checkbox. 
 
 ![SQL VM License](./media/create-sql-vm-portal/azure-sqlvm-license.png)
 
+If you chose a free license image, such as the developer edition, the **SQL Server license** option is grayed out. 
+
 ### Automated patching
 
-**Automated patching** is enabled by default. Automated patching allows Azure to automatically patch SQL Server and the operating system. Specify a day of the week, time, and duration for a maintenance window. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale. If you do not want Azure to automatically patch SQL Server and the operating system, select **Disable**.  
+**Automated patching** is enabled by default. Automated patching allows Azure to automatically apply SQL Server and operating system security updates. Specify a day of the week, time, and duration for a maintenance window. Azure performs patching in this maintenance window. The maintenance window schedule uses the VM locale. If you do not want Azure to automatically patch SQL Server and the operating system, select **Disable**.  
 
 ![SQL VM automated patching](./media/create-sql-vm-portal/azure-sqlvm-automated-patching.png)
 
@@ -224,13 +227,17 @@ Enable automatic database backups for all databases under **Automated backup**. 
 
 When you enable SQL automated backup, you can configure the following settings:
 
-* Retention period (days) for backups
-* Storage account to use for backups
+* Retention period for backups (up to 90 days)
+* Storage account, and storage container, to use for backups
 * Encryption option and password for backups
 * Backup system databases
 * Configure backup schedule
 
-To encrypt the backup, select **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate. By default the schedule is set automatically, but you can create a manual schedule by selecting **Manual**. 
+To encrypt the backup, select **Enable**. Then specify the **Password**. Azure creates a certificate to encrypt the backups and uses the specified password to protect that certificate. 
+
+Choose **Select Storage Container** to specify the container where you want to store your backups. 
+
+By default the schedule is set automatically, but you can create your own schedule by selecting **Manual**, which allows you to configure the backup frequency, backup time window, and the log backup frequency in minutes.
 
 ![SQL VM automated backups](./media/create-sql-vm-portal/automated-backup.png)
 
