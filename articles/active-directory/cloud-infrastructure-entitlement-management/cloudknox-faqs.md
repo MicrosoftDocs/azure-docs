@@ -15,7 +15,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management FAQs (For internal users and existing CloudKnox users only)
 
-This section answers frequently asked questions (FAQs) from internal users and existing Microsoft CloudKnox Permissions Management users only.
+This section answers frequently asked questions (FAQs) from internal and existing Microsoft CloudKnox Permissions Management users only.
 
 ## Now that Microsoft has bought CloudKnox, will it drop multi-cloud support or reduce Ping, Okta, and other IDP integration?
 
@@ -27,7 +27,7 @@ In February 2022, we'll publicly announce an internal preview of the first Micro
 
 ## What is the CloudKnox pricing model?
 
-For pricing information, see the [Azure pricing](https://azure.microsoft.com/en-us/pricing/) page in the Azure portal.  
+For pricing information, see the [Azure pricing](https://azure.microsoft.com/pricing) page in the Azure portal.  
 
 ## Does CloudKnox support Oracle?
 
