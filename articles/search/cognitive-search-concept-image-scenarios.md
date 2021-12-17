@@ -44,9 +44,9 @@ Images can be binary files or embedded in documents (PDF, RTF, and Microsoft app
 
 Azure Blob Storage is the most frequently used storage for image processing in Cognitive Search.
 
-1. [Create a data source](/rest/api/searchservice/create-data-source) of type "azureblob" that connects to the blob container storing your files.
+- [Create a data source](/rest/api/searchservice/create-data-source) of type "azureblob" that connects to the blob container storing your files.
 
-1. Optionally, [set file type criteria](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings so that you can filter out files you don't want.
+- Optionally, [set file type criteria](search-howto-indexing-azure-blob-storage.md#how-to-control-which-blobs-are-indexed) if the workload targets a specific file type. Blob indexer configuration includes file inclusion and exclusion settings so that you can filter out files you don't want.
 
 <a name="get-normalized-images"></a>
 
@@ -508,7 +508,7 @@ Images can also be passed into and returned from custom skills. The skillset bas
 
 The [Azure Search python samples](https://github.com/Azure-Samples/azure-search-python-samples) repository has a complete sample implemented in Python of a custom skill that enriches images.
 
-### Passing images to custom skills
+### Pass images to custom skills
 
 For scenarios where you require a custom skill to work on images, you can pass images to the custom skill, and have it return text or images. The [Python sample](https://github.com/Azure-Samples/azure-search-python-samples/tree/master/Image-Processing) image-processing demonstrates the workflow. The following skillset is from the sample.
 
