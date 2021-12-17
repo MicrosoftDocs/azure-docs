@@ -27,7 +27,7 @@ To complete this quick start, you are going to need:
 
 Before we jump into creating the Logic app, we to have to set up a OneDrive folder. 
 
-1. Go to your one drive home page - [OneDrive home page](https://onedrive.live.com/)
+1. Go to your OneDrive home page - [OneDrive home page](https://onedrive.live.com/)
 
 2. Select "+New" in the upper left corner and select Folder.
   
@@ -75,11 +75,11 @@ Now we are going to create a Form recognizer resource in the Azure portal. If yo
 
 ### Creating a Logic App resource
 
-Now that you have the Form Recognizer resource set up it is time to create an Azure logic app resource. 
+Now that you have the Form Recognizer resource set up it is time to create an Azure Logic App resource. 
 
 1. First select create a resource from the Azure home page.
 
-2. Search logic app in the search bar and select the logic app tile. 
+2. Search "Logic App" in the search bar and select the Logic App tile. 
 
 3. Select the create button
 
