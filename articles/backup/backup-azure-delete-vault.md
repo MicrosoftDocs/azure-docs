@@ -564,7 +564,7 @@ To stop protection and delete the backup data:
 
     [Learn more](/powershell/module/az.recoveryservices/disable-azrecoveryservicesbackupprotection) about disables protection for a Backup-protected item.
 
-After deleting the backed-up data, un-register any on-premises containers and management servers.
+After deleting the backed-up data, unregister any on-premises containers and management servers.
 
 - For on-premises Files and Folders protected using Azure Backup Agent (MARS) backing up to Azure:
 
