@@ -40,8 +40,8 @@ To find the logs from a data upload, do the following steps.
 
      |Log type   |URL format|
      |-----------|----------|
-     |copy log   |<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_CopyLog_<*job-ID*>.xml |
-     |verbose log|<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_VerboseLog_<*job-ID*>.xml|
+     |copy log   |<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>&#95;CopyLog&#95;<*job-ID*>.xml |
+     |verbose log|<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>&#95;VerboseLog&#95;<*job-ID*>.xml|
 
    * For your earlier orders, the display might look like the following screen. 
    
