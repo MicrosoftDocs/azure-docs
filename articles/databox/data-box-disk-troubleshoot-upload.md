@@ -36,7 +36,7 @@ To find the logs from a data upload, do the following steps.
 
      ![Screenshot of the Overview pane for a Data Box Disk order with Copy Completed With Warnings status. A Copy Log Path and Verbose Log Path are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-2021.png)
 
-     The logs are uploaded to a container (for blob imports) or share (for imports to Azure Files) in the storage account. The container is named **databoxcopylog**. The URLs have these formats:
+     The logs are uploaded to a container (for blob imports) or share (for imports to Azure Files) in the storage account. The container is named `databoxcopylog`. The URLs have these formats:
 
      |Log type   |URL format|
      |-----------|----------|
@@ -49,7 +49,7 @@ To find the logs from a data upload, do the following steps.
 
       ![Link to logs in the portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-2018.png)
    
-     The logs are uploaded to a **waies** container in the storage account. The URLs have these formats: *UPDATE FORMATS!*
+     The logs are uploaded to a `waies` container in the storage account. The URLs have these formats: *UPDATE FORMATS!*
 
      |Log type   |URL format|
      |-----------|----------|
@@ -57,9 +57,9 @@ To find the logs from a data upload, do the following steps.
      |verbose log|<*storage-account-name*>/waies/<*order-name*>_<*device-serial-number*>_VerboseLog_<*GUID*>.xml|
 
    > [!NOTE]
-   > Logs in the **databoxcopylog** container have a different format than logs in the **waies** container. For help interpreting the logs, use the instructions for the associated drive log version. See [Identify log version](#identify-log-version) for more information.
+   > Logs in the **databoxcopylog** container have a different format than logs in the `waies` container. For help interpreting the logs, use the instructions for the associated drive log version. See [Identify log version](#identify-log-version) for more information.
 
-3. To view the logs, open the container that stores the logs in your storage account. The following illustration shows the logs in a **waies** container.
+3. To view the logs, open the container that stores the logs in your storage account. The following illustration shows the logs in a `waies` container.
 
     ![error and verbose logs](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
    
@@ -136,7 +136,7 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 
 In drive log version 2018-10-01, the data upload produces an error log and a verbose log. Both the logs are in the same format and contain XML descriptions of the events that occurred while copying the data from the disk to the Azure Storage account.
 
-The verbose log contains complete information about the status of the copy operation for every blob or file, whereas the error log contains only the information for blobs or files that encountered errors during the upload.
+The verbose log contains complete about the status of the copy operation for every blob or file, whereas the error log contains only the information for blobs or files that encountered errors during the upload.
 
 The error log has the same structure as the verbose log, but filters out successful operations.
 
