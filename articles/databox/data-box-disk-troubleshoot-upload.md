@@ -8,7 +8,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 12/16/2021
+ms.date: 12/17/2021
 ms.author: alkohli
 ---
 
@@ -24,21 +24,48 @@ When the data from a Data Box Disk is uploaded in the Azure datacenter, a copy/e
 
 * The verbose log has a listing of all copy operations that succeeded on every blob and file.
 
-### Identify log version
-
-There are two versions of the copy/error log and verbose log, with different formats. The log versions are discussed separately in the sections that follow.
-
-Along with the verbose log, you'll see either a copy log (`_copy.xml`) or an error log (`_error.xml`), depending on the drive release.
-
-To find out the log release for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
-
-|Log file name   | Field            | Drive log version |
-|----------------|------------------|-------------------|
-|_copy.xml       | DriveLogVersion  | 2021-08-01        |
-|_error.xml      | DriveLog Version | 2018-10-01        |
-
-
 ## Locate the logs
+
+To find the logs from a data upload, do the following steps.
+
+1. Open your order in the [Azure portal](https://ms.portal.azure.com).
+
+2. As the data upload completes for each disk, the **Overview** pane displays the disk status and the paths to diagnostics logs for the disk.
+
+   * For new orders, the disk details look like those in the following screen. A copy log is saved automatically. If you chose to save verbose logs when you placed your order, you'll also see the path to the verbose log.
+
+     ![Screenshot of the Overview pane for a Data Box Disk order with Copy Completed With Warnings status. A Copy Log Path and Verbose Log Path are highlighted.](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-2021.png)
+
+     The logs are uploaded to a container (for blob imports) or share (for imports to Azure Files) in the storage account. The container is named **databoxcopylog**. The URLs have these formats:
+
+     |Log type   |URL format|
+     |-----------|----------|
+     |copy log   |<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_CopyLog_<*GUID*>.xml |
+     |verbose log|<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>_VerboseLog_<*GUID*>.xml|
+
+   * For your earlier orders, the display might look like the following screen. 
+   
+      If there are any errors when uploading the data to Azure, **Copy logs** displays a path to the folder where the diagnostics logs are located. 
+
+      ![Link to logs in the portal](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-2018.png)
+   
+     The logs are uploaded to a **waies** container in the storage account. The URLs have these formats: *UPDATE FORMATS!*
+
+     |Log type   |URL format|
+     |-----------|----------|
+     |copy log   |<*storage-account-name*>/waies/<*order-name*>_<*device-serial-number*>_CopyLog_<*GUID*>.xml |
+     |verbose log|<*storage-account-name*>/waies/<*order-name*>_<*device-serial-number*>_VerboseLog_<*GUID*>.xml|
+
+   > [!NOTE]
+   > Logs in the **databoxcopylog** container have a different format than logs in the **waies** container. For help interpreting the logs, use the instructions for the associated drive log version. See [Identify log version](#identify-log-version) for more information.
+
+3. To view the logs, open the container that stores the logs in your storage account. The following illustration shows the logs in a **waies** container.
+
+    ![error and verbose logs](./media/data-box-disk-troubleshoot-upload/data-box-disk-portal-logs-1.png)
+   
+    Select each log and download a local copy.
+
+<!--BEGIN LEGACY.
 
 The log location is different for log versions.
 
@@ -63,6 +90,26 @@ Take the following steps to locate **version 2018-10-01**  logs.
 In each case, you see the error logs and the verbose logs. Select each log and download a local copy.
 
 ---
+
+-->
+
+### Identify log version
+
+There are two versions of the copy/error log and verbose log, with different formats. The log versions are discussed separately in the sections that follow.
+
+Along with the verbose log, you'll see either a copy log (`_copy.xml`) or an error log (`_error.xml`), depending on the drive release.
+
+To find out the log release for both the copy/error log and the accompanying verbose log, check the drive log version in the copy/error log.
+
+|Log file name   | Field            | Drive log version |
+|----------------|------------------|-------------------|
+|_copy.xml       | DriveLogVersion  | 2021-08-01        |
+|_error.xml      | DriveLog Version | 2018-10-01        |
+
+The following illustration shows the `DriveLogVersion` in the summary section of a copy log.
+
+![Illustration of the Summary section of a copy log for a Data Box Disk order. The Drive Log Version is highlighted.](./media/data-box-disk-troubleshoot-upload/drive-log-version.png)
+
 
 ## Sample upload logs
 
