@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 10/13/2021
+ms.date: 12/17/2021
 ---
 
 # Resource management in dense elastic pools
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-Azure SQL Database [elastic pools](./elastic-pool-overview.md) is a cost-effective solution for managing many databases with varying resource usage. All databases in an elastic pool share the same allocation of resources, such as CPU, memory, worker threads, storage space, tempdb, on the assumption that **only a subset of databases in the pool will use compute resources at any given time**. This assumption allows elastic pools to be cost-effective. Instead of paying for all resources each individual database could potentially need, customers pay for a much smaller set of resources, shared among all databases in the pool.
+Azure SQL Database [elastic pools](./elastic-pool-overview.md) is a cost-effective solution for managing many databases with varying resource usage. All databases in an elastic pool share the same allocation of resources, such as CPU, memory, worker threads, storage space, `tempdb`, on the assumption that **only a subset of databases in the pool will use compute resources at any given time**. This assumption allows elastic pools to be cost-effective. Instead of paying for all resources each individual database could potentially need, customers pay for a much smaller set of resources, shared among all databases in the pool.
 
 ## Resource governance
 
@@ -108,9 +108,43 @@ It is recommended to limit the number of databases per server to a lower number 
 
 ## Examples
 
+### View individual database capacity settings
+
+Use the `sys.dm_user_db_resource_governance` dynamic management view to view the actual configuration and capacity settings used by resource governance in the current database or elastic pool. For more information, see [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database). 
+
+Execute this query in any database in an elastic pool, one row per database in the pool is returned.
+
+```sql
+SELECT * FROM sys.dm_user_db_resource_governance AS rg
+ORDER BY rg.dtu_limit DESC, rg.cpu_limit DESC, rg.database_name;
+```
+
+### Monitoring overall elastic pool resource consumption
+
+Use the `sys.elastic_pool_resource_stats` system catalog view to monitor the resource consumption of the entire pool. For more information, see [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database).
+
+This sample query to view the last 10 minutes of data for the desired elastic pool should be executed in the `master` database of the logical Azure SQL server. 
+
+```sql
+SELECT * FROM sys.elastic_pool_resource_stats AS rs
+WHERE rs.start_time > DATEADD(mi, -10, SYSUTCDATETIME()) 
+AND rs.elastic_pool_name = '<elastic pool name>';
+```
+
+### Monitoring individual database resource consumption
+
+Use the `sys.dm_db_resource_stats` system catalog view to monitor the resource consumption of individual databases. For more information, see [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database). One row exists for every 15 seconds, even if there is no activity. Historical data is maintained for approximately one hour.
+
+This sample query to view the last 10 minutes of data should be executed in the desired database. 
+
+```sql
+SELECT * FROM sys.dm_db_resource_stats AS rs
+WHERE rs.end_time > dateadd(mi, -10, sysutcdatetime());
+```
+
 ### Monitoring memory utilization
 
-This query calculates the `oom_per_second` metric for each resource pool, over the last 32 minutes. This query can be executed in any database in an elastic pool.
+This query calculates the `oom_per_second` metric for each resource pool, over the last 32 minutes. This sample query helps identify the recent average number of failed memory allocations in the pool. This query can be executed in any database in an elastic pool.
 
 ```sql
 SELECT pool_id,
