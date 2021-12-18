@@ -17,7 +17,7 @@ When you create an Azure Maps account, keys and a client ID are generated. The k
 
 ## Prerequisites
 
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
 - If you are unfamiliar with managed identities for Azure resources, check out the [overview section](../active-directory/managed-identities-azure-resources/overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 ## View authentication details

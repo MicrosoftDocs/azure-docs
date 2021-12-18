@@ -246,7 +246,7 @@ there are 2 options to revoke access for SAS token(s):
 
 ### Create SAS tokens
 
-To create SAS tokens you must have `Contributor` role access to both manage Azure Maps accounts and User Assigned Identities in the Azure subscription.
+To create SAS tokens you must have `Contributor` role access to both manage Azure Maps accounts and user-assigned identities in the Azure subscription.
 
 > [!IMPORTANT]
 > Existing Azure Maps accounts created in the Azure location `global` don't support managed identities.
@@ -292,13 +292,13 @@ Cross Origin Resource Sharing (CORS) is in preview.
 
 ### Prerequisites
 
-To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain. [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints on your function app.
-- If you're unfamiliar with CORS check out [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account.
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain. 
+
+- If you're unfamiliar with CORS check out [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS), it lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account. CORS protocol is non-specific to Azure Maps.
 
 ### Account CORS
 
-[CORS](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. CORS protocol is non-specific to Azure Maps. Azure Maps account resource supports the ability to configure allowed origins for which can access the account.
+[CORS](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. Azure Maps account resource supports the ability to configure allowed origins for your app which can access the Azure Maps REST API.
 
 > [!IMPORTANT]
 > CORS is not an authorization mechanism. Any request made to a map account using REST API, when CORS is enabled, also needs a valid map account authentication scheme such as Shared Key, Azure AD, or SAS token.
@@ -317,7 +317,7 @@ A CORS request from an origin domain may consist of two separate requests:
 
 The preflight request is done not only as a security measure to ensure that the server understands the method and headers that will be sent in the actual request and that the server knows and trusts the source of the request, but it also queries the CORS restrictions that have been established for the map account. The web browser (or other user agent) sends an OPTIONS request that includes the request headers, method and origin domain. The map account service tries to fetch any CORS rules if account authentication is possible through the CORS preflight protocol. 
 
-If authentication is not possible, the maps service evaluates the intended operation based on a pre-configured set of CORS rules that specify which origin domains, request methods, and request headers may be specified on an actual request against the maps service. By default, a maps account is configured to allow all origins to enable seamless integration into web browsers.
+If authentication is not possible, the maps service evaluates pre-configured set of CORS rules that specify which origin domains, request methods, and request headers may be specified on an actual request against the maps service. By default, a maps account is configured to allow all origins to enable seamless integration into web browsers.
 
 The service will respond to the preflight request with the required Access-Control headers if the following criteria are met:
 
@@ -339,7 +339,7 @@ The service will reject preflight requests if the following conditions occur:
 
 Once the preflight request is accepted and the response is returned, the browser will dispatch the actual request against the map service. The browser will deny the actual request immediately if the preflight request is rejected.
 
-The actual request is treated as a normal request against the map service. The presence of the Origin header indicates that the request is a CORS request and the service will then validate against the CORS rules. If a match is found, the Access-Control headers are added to the response and sent back to the client. If a match is not found, the response will return a `403 (Forbidden)` indicating a CORS origin error.
+The actual request is treated as a normal request against the map service. The presence of the `Origin` header indicates that the request is a CORS request and the service will then validate against the CORS rules. If a match is found, the Access-Control headers are added to the response and sent back to the client. If a match is not found, the response will return a `403 (Forbidden)` indicating a CORS origin error.
 
 ### Enable CORS policy
 
