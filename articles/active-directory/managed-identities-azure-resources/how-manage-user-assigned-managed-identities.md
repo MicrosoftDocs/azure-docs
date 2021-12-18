@@ -17,6 +17,8 @@ zone_pivot_groups: identity-mi-methods
 
 # Manage user-assigned managed identities
 
+
+
 Managed identities for Azure resources eliminate the need to manage credentials in code. You can use them to get an Azure Active Directory (Azure AD) token your applications can use when you access resources that support Azure AD authentication. Azure manages the identity so you don't have to.
 
 There are two types of managed identities: system-assigned and user-assigned. The main difference between them is that system-assigned managed identities have their lifecycle linked to the resource where they're used. User-assigned managed identities can be used on multiple resources. To learn more about managed identities, see [What are managed identities for Azure resources?](overview.md).
