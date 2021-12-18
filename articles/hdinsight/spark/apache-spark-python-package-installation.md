@@ -46,7 +46,6 @@ For Spark 3.1.2 cluster, Pyspark kernel is removed and a new Python 3.8 environm
 export PYSPARK_PYTHON=${PYSPARK_PYTHON:-/usr/bin/miniforge/envs/py38/bin/python}
 export PYSPARK3_PYTHON=${PYSPARK_PYTHON:-/usr/bin/miniforge/envs/py38/bin/python}
 
-The default Spark and Livy versions are still set to 2.7 and can change config to 3.8. 
 
 
 ## Safely install external Python packages
