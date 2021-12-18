@@ -18,7 +18,7 @@ When you create an Azure Maps account, keys and a client ID are generated. The k
 ## Prerequisites
 
 - If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
-- If you are unfamiliar with managed identities for Azure resources, check out the [overview section](../active-directory/managed-identities-azure-resources/overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types).
+- If you are unfamiliar with managed identities for Azure resources, check out the [overview section](../active-directory/managed-identities-azure-resources/overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
 
 ## View authentication details
 
@@ -50,7 +50,7 @@ To enable SAS token authentication with the Azure Maps REST API you need to add 
 
 ### Create a managed identity
 
-You can create a managed identity before or after creating a map account using user-assigned managed identity. You can add the managed identity through the portal, Azure management SDKs, or the Azure Resource Manager (ARM) template. To add a user-assigned managed identity through an ARM template, specify the resource identifier of the user-assigned managed identity. See example below:
+You can create a user-assigned managed identity before or after creating a map account. You can add the managed identity through the portal, Azure management SDKs, or the Azure Resource Manager (ARM) template. To add a user-assigned managed identity through an ARM template, specify the resource identifier of the user-assigned managed identity. See example below:
 
 ```json
 "identity": {

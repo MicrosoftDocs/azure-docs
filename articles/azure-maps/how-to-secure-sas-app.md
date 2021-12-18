@@ -23,7 +23,7 @@ This scenario assumes:
 1. If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 1. The current user must have subscription `Owner` role permissions on the Azure subscription to create a Azure Key Vault, User Assigned Managed Identity, assign the Managed Identity a role, and create an Azure Maps Account.
 1. Azure CLI is installed to deploy the resources. Read more on [How to install the Azure CLI](/cli/azure/install-azure-cli).
-1. The current user is signed-in to Azure CLI with an active Azure subscription.
+1. The current user is signed-in to Azure CLI with an active Azure subscription using `az login`.
 
 ## Scenario: SAS token
 
@@ -357,7 +357,7 @@ The following steps describe how to create and configure an Azure Maps account w
     > We save the SAS token into the Azure Key Vault to prevent its credentials from appearing in the Azure deployment logs. The Azure Key Vault SAS token secret's `tags` also contain the start, expiry, and signing key name to help understand when the SAS token will expire.
 
     ```azurecli
-    az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[1])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
+    az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[2])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
     ```
 
 1. Locate, then save a copy of the single SAS token secret from Azure Key Vault.
@@ -389,7 +389,7 @@ az provider register --namespace Microsoft.Maps
 $id = $(az rest --method GET --url 'https://graph.microsoft.com/v1.0/me?$select=id' --headers 'Content-Type=application/json' --query "id")
 az group create --name {group-name} --location "East US"
 $outputs = $(az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./prereq.azuredeploy.json" --parameters objectId=$id --query "[properties.outputs.keyVaultName.value, properties.outputs.userAssignedIdentityPrincipalId.value, properties.outputs.userIdentityResourceId.value]" --output tsv)
-az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[1])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
+az deployment group create --name ExampleDeployment --resource-group {group-name} --template-file "./azuredeploy.json" --parameters keyVaultName="$($outputs[0])" userAssignedIdentityPrincipalId="$($outputs[1])" userAssignedIdentityResourceId="$($outputs[2])" allowedOrigins="['http://localhost']" allowedRegions="['eastus', 'westus2', 'westcentralus']" maxRatePerSecond="10"
 $secretId = $(az keyvault secret list --vault-name $outputs[0] --query "[? contains(name,'map')].id" --output tsv)
 $sasToken = $(az keyvault secret show --id "$secretId" --query "value" --output tsv)
 

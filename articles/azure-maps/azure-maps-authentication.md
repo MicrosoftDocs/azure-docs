@@ -13,7 +13,7 @@ ms.custom: mvc
 
 # Authentication with Azure Maps
 
-Azure Maps supports two ways to authenticate requests: Shared Key authentication and [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) authentication. This article explains both authentication methods to help guide your implementation of Azure Maps services.
+Azure Maps supports three ways to authenticate requests: Shared Key authentication, [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis.md) authentication, and Shared Access Signature (SAS) Token authentication. This article explains authentication methods to help guide your implementation of Azure Maps services. The article also describes additional account controls such as disabling local authentication for Azure Policy and Cross-Origin Resource Sharing (CORS).
 
 > [!NOTE]
 > To improve secure communication with Azure Maps, we now support Transport Layer Security (TLS) 1.2, and we're retiring support for TLS 1.0 and 1.1. If you currently use TLS 1.x, evaluate your TLS 1.2 readiness and develop a migration plan with the testing described in [Solving the TLS 1.0 Problem](/security/solving-tls1-problem).
@@ -181,11 +181,11 @@ Functional key differences of SAS token from Azure AD Access tokens:
 
 SAS tokens are immutable. This means that once a token is created, the SAS token is valid until the expiry has been met and the configuration of the allowed regions, rate limits, and user-assigned managed identity cannot be changed. Read more below on [understanding access control](./azure-maps-authentication.md#understand-sas-token-access-control) for SAS token revocation and changes to access control.
 
-### Understand SAS token Rate Limits
+### Understand SAS token rate limits
 
 #### SAS token maximum rate limit can control billing for an Azure Maps resource
 
-By specifying a maximum rate limit on the token (`maxRatePerSecond`), the excess rate will not be billed to the account allowing you to set an upper limit of billable transactions for the account, when using the token. However, the application will receive client error responses with `429 (TooManyRequests)` for all transactions once that limit it reached. It is the responsibility of the application to manage retry and distribution of SAS tokens. There is no limit on how many SAS tokens can be created for an account. To allow for an increase or decrease in an existing token's limit; a new SAS token must be created but remember that the old SAS token is still valid.
+By specifying a maximum rate limit on the token (`maxRatePerSecond`), the excess rate will not be billed to the account allowing you to set an upper limit of billable transactions for the account, when using the token. However, the application will receive client error responses with `429 (TooManyRequests)` for all transactions once that limit it reached. It is the responsibility of the application to manage retry and distribution of SAS tokens. There is no limit on how many SAS tokens can be created for an account. To allow for an increase or decrease in an existing token's limit; a new SAS token must be created but remember that the old SAS token is still valid until its expiration.
 
 Estimated Example:
 
@@ -235,13 +235,14 @@ there are 2 options to revoke access for SAS token(s):
 1. Remove the role assignment for the Managed Identity on the associated map account.
 
 > [!WARNING]
-> Revoking access control will cause instances of your application using the SAS token and managed identity to intentionally return `401 Unauthorized` or `403 Forbidden` from Azure Maps REST APIs which will create application disruption.
+> Deleting a managed identity used by a SAS token or revoking access control of the managed identity will cause instances of your application using the SAS token and managed identity to intentionally return `401 Unauthorized` or `403 Forbidden` from Azure Maps REST APIs which will create application disruption.
 >
 > To avoid disruption:
 >
 > 1. Add a second managed identity to the Map Account and grant the new managed identity the correct role assignment.
 > 1. Create a SAS token using `secondaryKey` as the `signingKey` and distribute the new SAS token to the application.
 > 1. Regenerate the primary key, remove the managed identity from the account, and remove the role assignment for the managed identity.
+
 
 ### Create SAS tokens
 
@@ -298,7 +299,6 @@ To prevent malicious code execution on the client, modern browsers block request
 ### Account CORS
 
 [CORS](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. CORS protocol is non-specific to Azure Maps. Azure Maps account resource supports the ability to configure allowed origins for which can access the account.
-You can set a CORS rule on the Azure Maps account properties through Azure Maps Management SDK, Azure Maps Management REST API, and portal. Once you set the CORS rule for the service, then a properly authorized request made to the service from a different domain will be evaluated to determine whether it is allowed according to the rule you have specified.
 
 > [!IMPORTANT]
 > CORS is not an authorization mechanism. Any request made to a map account using REST API, when CORS is enabled, also needs a valid map account authentication scheme such as Shared Key, Azure AD, or SAS token.
@@ -317,13 +317,13 @@ A CORS request from an origin domain may consist of two separate requests:
 
 The preflight request is done not only as a security measure to ensure that the server understands the method and headers that will be sent in the actual request and that the server knows and trusts the source of the request, but it also queries the CORS restrictions that have been established for the map account. The web browser (or other user agent) sends an OPTIONS request that includes the request headers, method and origin domain. The map account service tries to fetch any CORS rules if account authentication is possible through the CORS preflight protocol. 
 
-If authentication is not established, the maps service evaluates the intended operation based on a pre-configured set of CORS rules that specify which origin domains, request methods, and request headers may be specified on an actual request against the maps service. By default, a maps account is configured to allow all origins to enable seamless integration into web browsers.
+If authentication is not possible, the maps service evaluates the intended operation based on a pre-configured set of CORS rules that specify which origin domains, request methods, and request headers may be specified on an actual request against the maps service. By default, a maps account is configured to allow all origins to enable seamless integration into web browsers.
 
 The service will respond to the preflight request with the required Access-Control headers if the following criteria are met:
 
 1. The OPTIONS request contains the required CORS headers (the Origin and Access-Control-Request-Method headers)
 1. Authentication was successful and A CORS rule is enabled for the account which matches the preflight request.
-1. Authentication was skipped due to required `Authorization` request headers which are not specified on preflight request.
+1. Authentication was skipped due to required `Authorization` request headers which cannot be specified on preflight request.
 
 When preflight request is successful, the service responds with status code `200 (OK)`, and includes the required Access-Control headers in the response.
 
@@ -343,7 +343,7 @@ The actual request is treated as a normal request against the map service. The p
 
 ### Enable CORS policy
 
-When creating or updating an existing Map account, the Map account properties can specify the allowed origins to be configured. See an example below:
+When creating or updating an existing Map account, the Map account properties can specify the allowed origins to be configured. You can set a CORS rule on the Azure Maps account properties through Azure Maps Management SDK, Azure Maps Management REST API, and portal. Once you set the CORS rule for the service, then a properly authorized request made to the service from a different domain will be evaluated to determine whether it is allowed according to the rule you have specified. See an example below:
 
 ```json
 {
@@ -400,9 +400,6 @@ Azure Maps does not count billing transactions for:
 - CORS preflight requests
 
 See [Azure Maps pricing](https://azure.microsoft.com/pricing/details/azure-maps) for information on pricing tiers.
-
-> [!WARNING]
-> SAS token authentication failures may occur when removing or deleting a managed identity used for SAS token creation. This is usually caused by deleting the Azure Active Directory service principal object. To prevent this application interruption, use a second identity and distribute SAS tokens based on the new identity before removing the old token.
 
 ## Next steps
 
