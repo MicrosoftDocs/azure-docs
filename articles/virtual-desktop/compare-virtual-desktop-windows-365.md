@@ -16,7 +16,7 @@ Azure Virtual Desktop and Windows 365 are both great solutions for customers who
 
 The following table describes high-level differences in the technical features between Azure Virtual Desktop and Windows 365.
 
-| Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
+| Feature | Azure Virtual Desktop (single-session)| Azure Virtual Desktop (multisession)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
 |Design|Designed to be flexible.|Designed to be flexible.|Designed to be simple and easy to use.|Designed to be simple and easy to use.|
 |Type of desktop|Pooled (single and multi-session) desktop|Pooled (single and multi-session) desktop|Personal desktop|Personal desktop|
@@ -36,7 +36,7 @@ The following table describes high-level differences in the technical features b
 
 The following table describes differences deploying and managing Azure Virtual Desktop and Windows 365.
 
-| Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
+| Feature | Azure Virtual Desktop (single-session)| Azure Virtual Desktop (multisession)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
 |Hybrid (on-premises) or multi-cloud support|Supported with Azure Stack HCI (public preview), Citrix, and VMware|Supported with Azure Stack HCI (public preview), Citrix, and VMware|Unavailable|Unavailable|
 |On-premises connection|Supported by ExpressRoute, VPN, Azure Gateway, and SD-WAN|Supported by ExpressRoute, VPN, Azure Gateway, and SD-WAN|Supported by ExpressRoute, VPN, Azure Gateway, and SD-WAN|Supported by ExpressRoute, VPN, Azure Gateway, and SD-WAN|
@@ -44,7 +44,7 @@ The following table describes differences deploying and managing Azure Virtual D
 |Image management|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management|Custom images and Microsoft-managed image management| Microsoft-managed image management only|
 |Screen capture protection|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|Yes (feature currently in preview)|
 |Updating and patching process|Similar to physical PC|Similar to physical PC|Similar to physical PC|Similar to physical PC|
-|Autoscaling|Supported with the Autoscaling tool (preview)|Supported with the Autoscaling tool (preview)|N/A|N/A|
+|Autoscaling|N/A|Supported with the Autoscaling tool (preview)|N/A|N/A|
 |Application delivery|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Microsoft Endpoint Manager, MSIX app attach, custom images, or Microsoft-approved partner solutions|Same as physical PC|Same as physical PC|
 |Monitoring|Azure Virtual Desktop Insights, powered by Azure Monitor|Azure Virtual Desktop Insights, powered by Azure Monitor|Similar to physical PC|Similar to physical PC|
 |Environment validation|[Required URL check tool](safe-url-list.md)|[Required URL check tool](safe-url-list.md)|Offered as SaaS|Offered as SaaS|
@@ -54,7 +54,7 @@ The following table describes differences deploying and managing Azure Virtual D
 
 The following table compares user experience when using Azure Virtual Desktop and Windows 365.
 
-| Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
+| Feature | Azure Virtual Desktop (single-session)| Azure Virtual Desktop (multisession)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
 |Client|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|Windows, Mac, iOS, Android, HTML, Linux SDK|
 |Printing|Universal Print and print redirection support, network printers|Universal Print and print redirection support, network printers|Universal print and print redirection support|Universal print and print redirection support|
@@ -65,7 +65,7 @@ The following table compares user experience when using Azure Virtual Desktop an
 
 The following table describes the difference in licensing and pricing costs for both Azure Virtual Desktop and Windows 365.
 
-| Feature | Azure Virtual Desktop (personal)| Azure Virtual Desktop (pooled)| Windows 365 Enterprise | Windows 365 Business |
+| Feature | Azure Virtual Desktop (single-session)| Azure Virtual Desktop (multisession)| Windows 365 Enterprise | Windows 365 Business |
 |-------|--------|--------|--------|---------|
 |License costs|Use existing internal license (internal users only) or use monthly per-user access pricing (for commercial remote app streaming to external users only)|Use existing internal license (internal users only) or use monthly per-user access pricing (for commercial remote app streaming to external users only)|Monthly per-user pricing|Monthly per-user pricing|
 |Infrastructure costs|Based on consumption|Based on consumption|Included except for egress charges over base quota|Included|
