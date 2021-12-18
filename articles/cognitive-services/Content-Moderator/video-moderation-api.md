@@ -11,6 +11,7 @@ ms.subservice: content-moderator
 ms.topic: how-to
 ms.date: 10/27/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 #Customer intent: As a C# developer of content management software, I want to analyze video content for offensive or inappropriate material so that I can categorize and handle it accordingly.
