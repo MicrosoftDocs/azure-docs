@@ -14,7 +14,7 @@ ms.date: 12/16/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: udayh
-#Customer intent: As an application developer, I want to create a trust relationship with Google Cloud so my service can access Azure AD protected resources without managing secrets.
+#Customer intent: As an application developer, I want to create a trust relationship with a Google Cloud identity so my service in Google Cloud can access Azure AD protected resources without managing secrets.
 ---
 
 # Access Azure AD protected resources from an app in Google Cloud (preview)
@@ -43,7 +43,7 @@ The *issuer* claim in the tokens will be `https://accounts.google.com`.
 
 You need these claim values to configure a trust relationship with an Azure AD application, which allows your application to trust tokens issued by Google to your service account.
 
-## Configure an Azure AD app to trust Google Cloud
+## Configure an Azure AD app to trust a Google Cloud identity
 
 Configure a federated identity credential on your Azure AD application to set up the trust relationship. You can add up to 20 of these trusts to each Azure AD application.  See this article for steps to [Create a federated identity credential](workload-identity-federation-create-trust.md#create-a-federated-identity-credential),
 
@@ -84,7 +84,7 @@ Now that you have an identity token from Google, you can exchange it for an acce
 - [MSAL Python](https://github.com/AzureAD/microsoft-authentication-library-for-python)
 - [MSAL Java](https://github.com/AzureAD/microsoft-authentication-library-for-java)
 
-Using MSAL, you write a token class (implementing the `TokenCredential` interface) exchange the ID token.  The token class is used to with different client libraries to access Azure AD protected resources. 
+Using MSAL, you write a token class (implementing the `TokenCredential` interface) exchange the ID token.  The token class is used to with different client libraries to access Azure AD protected resources.
 
 The following Node.js sample code snippet implements the `TokenCredential` interface, gets an ID token from Google (using the `googleIDToken` method previously defined), and exchanges the ID token for an access token.
 
