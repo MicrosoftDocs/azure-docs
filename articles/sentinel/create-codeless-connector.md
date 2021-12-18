@@ -7,7 +7,7 @@ ms.author: bagol
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: how-to
-ms.date: 12/07/2021
+ms.date: 12/18/2021
 ---
 
 # Create a codeless connector for Microsoft Sentinel (Public preview)
@@ -54,32 +54,32 @@ Each data connector page in Microsoft Sentinel has the following areas, configur
 
 |UI area  |Description  |
 |---------|---------|
-|**Title**     |   The title displayed for your data connector      |
-|**Icon**     |   The icon displayed for your data connector      |
-|**Status**     |  Displays whether or not your data connector is connected to Microsoft Sentinel       |
-|**Data charts**     |    Displays relevant queries and the amount of ingested data in the last two weeks.     |
-|**Instructions tab**     | Includes a **Prerequisites** section, with a list of minimal validations before the user can enable the connector, and an **Instructions**, with a list of instructions to guide the user in enabling the connector. This section can include text, buttons, forms, tables, and other common widgets to simplify the process.        |
+|**Title**     |   The title displayed for your data connector.      |
+|**Icon**     |   The icon displayed for your data connector.      |
+|**Status**     |  Describes whether or not your data connector is connected to Microsoft Sentinel.       |
+|**Data charts**     |    Displays relevant queries and the amount of ingested data in the last two weeks.   |
+|**Instructions tab**     | Includes a **Prerequisites** section, with a list of minimal validations before the user can enable the connector, and an **Instructions**, with a list of instructions to guide the user in enabling the connector. <br><br>This section can include text, buttons, forms, tables, and other common widgets to simplify the process.        |
 |**Next steps tab**     |   Includes useful information for understanding how to find data in the event logs, such as sample queries.     |
 |     |         |
 
-For example, see: TBD
+<!--For example, see: TBD-->
 
 The `connectorUiConfig` section of the configuration file includes the following properties:
 
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**id**     |  GUID       |  A distinct ID for the connector       |
-|**title**     |  String       |Title displayed in the data connector page         |
-|**publisher**     |    String     |  Your company name       |
-|**descriptionMarkdown**     |  String, in markdown       |   A description for the connector      |
-|**additionalRequirementBanner**     |   String, in markdown      |    Text for the **Prerequisites** section of the **Instructions** tab     |
+|**id**     |  GUID       |  A distinct ID for the connector.       |
+|**title**     |  String       |Title displayed in the data connector page.         |
+|**publisher**     |    String     |  Your company name.       |
+|**descriptionMarkdown**     |  String, in markdown       |   A description for the connector.      |
+|**additionalRequirementBanner**     |   String, in markdown      |    Text for the **Prerequisites** section of the **Instructions** tab.     |
 | **graphQueriesTableName** | String | Defines the name of the Log Analytics table from which data for your queries is pulled. <br><br>The table name can be any string, but must end in `_CL`. For example: `TableName_CL`
 |**graphQueries**     |   [GraphQuery[]](#graphquery)      |   Queries that present data ingestion over the last two weeks in the **Data charts** pane.<br><br>Provide either one query for all of the data connector's data types, or a different query for each data type.     |
 |**sampleQueries**     | [SampleQuery[]](#samplequery)       | Sample queries for the customer to understand how to find the data in the event log, to be displayed in the **Next steps** tab.        |
 |**dataTypes**     | [DataTypes[]](#datatypes)        | A list of all data types for your connector, and a query to fetch the time of the last event for each data type.        |
 |**connectivityCriteria**     |   [ConnectivityCriteria[]](#connectivitycriteria)      |An object that defines how to verify if the connector is correctly defined.          |
-|**availability**     | `{`<br>`  status: Number,`<br>`  isPreview: Boolean`<br>`}`        |  One of the following values: <br><br>- **1**: Connector is available to customers <br>- **isPreview**: Indicates that the connector is not yet generally available.       |
+|**availability**     | `{`<br>`  status: Number,`<br>`  isPreview: Boolean`<br>`}`        |  One of the following values: <br><br>- **1**: Connector is generally available to customers. <br>- **isPreview**: Indicates that the connector is not yet generally available.       |
 |**permissions**     | [RequiredConnectorPermissions[]](#requiredconnectorpermissions)        | Lists the permissions required to enable or disable the connector.        |
 |**instructionsSteps**     | [InstructionStep[]](#instructionstep)        |     An array of widget parts that explain how to install the connector, displayed on the **Instructions** tab.    |
 |**metadata**     |   [Metadata](#metadata)      |  ARM template metadata, for deploying the connector as an ARM template.       |
@@ -89,7 +89,7 @@ The `connectorUiConfig` section of the configuration file includes the following
 
 Defines a query that presents data ingestion over the last two weeks in the **Data charts** pane.
 
-Provide either one query for all of the data connector's data types, or a different query for each data type.   
+Provide either one query for all of the data connector's data types, or a different query for each data type.
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -103,8 +103,8 @@ Provide either one query for all of the data connector's data types, or a differ
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **Description** | String | A meaningful description for the sample query <br><br>Example: `Top 10 vulnerabilities detected` |
-| **Query** | String | Sample query used to fetch the data type's data <br><br>Example: `{{graphQueriesTableName}}\n | sort by TimeGenerated\n | take 10` |
+| **Description** | String | A meaningful description for the sample query.<br><br>Example: `Top 10 vulnerabilities detected` |
+| **Query** | String | Sample query used to fetch the data type's data. <br><br>Example: `{{graphQueriesTableName}}\n | sort by TimeGenerated\n | take 10` |
 | | | |
 
 ### DataTypes
@@ -120,7 +120,7 @@ Provide either one query for all of the data connector's data types, or a differ
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **type** | ENUM | Always use `SentinelKindsV2` |
+| **type** | ENUM | Always define this value as `SentinelKindsV2`. |
 | **value** | deprecated |N/A |
 | | | |
 
@@ -136,31 +136,31 @@ Provide either one query for all of the data connector's data types, or a differ
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **tenant** | ENUM | Lists required permissions as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>Example: The **tenant** value displays displays in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
-| **licenses** | ENUM | Lists required licenses as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
-| **customs** | String | Description of any custom permissions required for your data connection, in the following syntax: `{`<br>`  name:string,`<br>` description:string`<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
-| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Description of prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
-| | |
+| **tenant** | ENUM | Defines the required permissions, as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>Example: The **tenant** value displays displays in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
+| **licenses** | ENUM | Defines the required licenses, as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
+| **customs** | String | Describes any custom permissions required for your data connection, in the following syntax: <br>`{`<br>`  name:string,`<br>` description:string`<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
+| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Describes any prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
+| | | |
 
 #### ResourceProviderPermissions
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **provider** | 	ENUM	| Resource provider, one of the following values: <br>- `Microsoft.OperationalInsights/workspaces` <br>- `Microsoft.OperationalInsights/solutions`<br>- `Microsoft.OperationalInsights/workspaces/datasources`<br>- `microsoft.aadiam/diagnosticSettings`<br>- `Microsoft.OperationalInsights/workspaces/sharedKeys`<br>- `Microsoft.Authorization/policyAssignments` |
-| **providerDisplayName** | 	String	| Query that should return one row, indicating the last time that data was received, or no data if there is no relevant data. |
-| **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions |
-| **requiredPermissions** | 	[RequiredPermissionSet](#requiredpermissionset) | Describes the minimum permissions required for the connector. One of the following values: `read`, `write`, `delete`, `action` |
-| **Scope** | 	ENUM	 | One of the following values: `Subscription`, `ResourceGroup`, `Workspace` |
+| **provider** | 	ENUM	| Describes the resource provider, with one of the following values: <br>- `Microsoft.OperationalInsights/workspaces` <br>- `Microsoft.OperationalInsights/solutions`<br>- `Microsoft.OperationalInsights/workspaces/datasources`<br>- `microsoft.aadiam/diagnosticSettings`<br>- `Microsoft.OperationalInsights/workspaces/sharedKeys`<br>- `Microsoft.Authorization/policyAssignments` |
+| **providerDisplayName** | 	String	| A query that should return one row, indicating the last time that data was received, or no data if there is no relevant data. |
+| **permissionsDisplayText** | 	String	| Display text for *Read*, *Write*, or *Read and Write* permissions. |
+| **requiredPermissions** | 	[RequiredPermissionSet](#requiredpermissionset) | Describes the minimum permissions required for the connector as one of the following values: `read`, `write`, `delete`, `action` |
+| **Scope** | 	ENUM	 | Describes the scope of the data connector, as one of the following values: `Subscription`, `ResourceGroup`, `Workspace` |
 | | | |
 
 ### RequiredPermissionSet
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**read**	| boolean | Determines whether *read* permissions are required |
-| **write** | boolean | Determines whether *write* permissions are required |
-| **delete** | boolean | Determines whether *delete* permissions are required |
-| **action** | 	boolean	| Determines whether *action* permissions are required |
+|**read**	| boolean | Determines whether *read* permissions are required. |
+| **write** | boolean | Determines whether *write* permissions are required. |
+| **delete** | boolean | Determines whether *delete* permissions are required. |
+| **action** | 	boolean	| Determines whether *action* permissions are required. |
 | | | |
 
 ### Metadata
@@ -169,22 +169,23 @@ This section provides metadata used when you're [deploying your data connector a
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **id** | 	String | Define a GUID for your ARM tempalte.  |
-| **kind** 	| String | Define as	`dataConnector` |
-| **source** | 	String |Describe your data source using the following syntax: <br>`{`<br>`  kind:string`<br>`  name:string`<br>`}`|
-| **author** |	String | Describe the data connector author using the following syntax: <br>`{`<br>`  name:string`<br>`}`| 
-| **support** |	String | Describe the support provided for the data connector using the following syntax: <br>	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`| 
+| **id** | 	String | Defines a GUID for your ARM template.  |
+| **kind** 	| String | Defines the kind of ARM template you're creating. Always use `dataConnector`. |
+| **source** | 	String |Describes your data source, using the following syntax: <br>`{`<br>`  kind:string`<br>`  name:string`<br>`}`|
+| **author** |	String | Describes the data connector author, using the following syntax: <br>`{`<br>`  name:string`<br>`}`|
+| **support** |	String | Describe the support provided for the data connector using the following syntax: <br>	`{`<br>`      "tier": string,`<br>`      "name": string,`<br>`"email": string,`<br>      `"link": string`<br>`    }`|
 | | | |
 
 ### Instructions
 
 This section provides parameters that define the set of instructions that appear on your data connector page in Microsoft Sentinel.
 
+
 |Name  |Type  |Description  |
 |---------|---------|---------|
-| **title**	| String | A title for your instructions (optional) |
-| **description** | 	String	| A meaningful description for your instructions (optional) |
-| **innerSteps**	| [InstructionStep](#instructionstep) | An array of inner instruction steps (optional) |
+| **title**	| String | Optional. Defines a title for your instructions. |
+| **description** | 	String	| Optional. Defines a meaningful description for your instructions. |
+| **innerSteps**	| [InstructionStep](#instructionstep) | Optional. Defines an array of inner instruction steps. |
 | **bottomBorder** | 	Boolean	| When `true`, adds a bottom border to the instructions area on the connector page in Microsoft Sentinel |
 | **isComingSoon** |	Boolean	| When `true`, adds a **Coming soon** title on the connector page in Microsoft Sentinel |
 | | | |
@@ -211,14 +212,14 @@ instructions: [
                 }),
             ]
 ```
- 
+
 **Parameters**: `CopyableLabelInstructionParameters`
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |**fillWith**     |  ENUM       | Optional. Array of environment variables used to populate a placeholder. Separate multiple placeholders with commas. For example: `{0},{1}`  <br><br>Supported values: `workspaceId`, `workspaceName`, `primaryKey`, `MicrosoftAwsAccount`, `subscriptionId`      |
-|**label**     |  String       |   The label above the text box      |
-|**value**     |  String       |  The value to present, supports placeholders       |
+|**label**     |  String       |  Defines the text for the label above a text box.      |
+|**value**     |  String       |  Defines the value to present in the text box, supports placeholders.       |
 |**rows**     |   Rows      |  Optional. Defines the rows in the user interface area. By default, set to **1**.       |
 |**wideLabel**     |Boolean         | Optional. Determines a wide label for long strings. By default, set to `false`.        |
 |    |         |         |
@@ -256,9 +257,9 @@ instructions: [
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**text**     |    String     |   The text to display in the message.      |
+|**text**     |    String     |   Define the text to display in the message.      |
 |**visible**     |   Boolean      |    Determines whether the message is displayed.     |
-|**inline**     |   Boolean      |   Setting to `true` shows the information message embedded in the instructions (recommended). Setting to `false` adds a blue background.     |
+|**inline**     |   Boolean      |   Determines how the information message is displayed. <br><br>- `true`: (Recommended) Shows the information message embedded in the instructions. <br>- `false`: Adds a blue background.     |
 |     |         |         |
 
 
@@ -283,10 +284,10 @@ new LinkInstructionModel({ linkType: LinkType.OpenAzureActivityLog } )
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**linkType**     |   ENUM      |  One of the following values: <br><br>`InstallAgentOnWindowsVirtualMachine`<br>`InstallAgentOnWindowsNonAzure`<br> `InstallAgentOnLinuxVirtualMachine`<br> `InstallAgentOnLinuxNonAzure`<br>`OpenSyslogSettings`<br>`OpenCustomLogsSettings`<br>`OpenWaf`<br> `OpenAzureFirewall` `OpenMicrosoftAzureMonitoring` <br> `OpenFrontDoors` <br>`OpenCdnProfile` <br>`AutomaticDeploymentCEF` <br> `OpenAzureInformationProtection` <br> `OpenAzureActivityLog` <br> `OpenIotPricingModel` <br> `OpenPolicyAssignment` <br> `OpenAllAssignmentsBlade` <br> `OpenCreateDataCollectionRule`       |
-|**policyDefinitionGuid**     | String        |  Optional. For policy-based connectors, the GUID of the built-in policy definition.        |
-|**assignMode**     |   ENUM      |   Optional. For policy-based connectors, the assign mode. One of the following values: `Initiative`, `Policy`      |
-|**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors. One of the following: `SecurityEvent`,  `ForwardEvent`       |
+|**linkType**     |   ENUM      |  Determines the link type, as one of the following values: <br><br>`InstallAgentOnWindowsVirtualMachine`<br>`InstallAgentOnWindowsNonAzure`<br> `InstallAgentOnLinuxVirtualMachine`<br> `InstallAgentOnLinuxNonAzure`<br>`OpenSyslogSettings`<br>`OpenCustomLogsSettings`<br>`OpenWaf`<br> `OpenAzureFirewall` `OpenMicrosoftAzureMonitoring` <br> `OpenFrontDoors` <br>`OpenCdnProfile` <br>`AutomaticDeploymentCEF` <br> `OpenAzureInformationProtection` <br> `OpenAzureActivityLog` <br> `OpenIotPricingModel` <br> `OpenPolicyAssignment` <br> `OpenAllAssignmentsBlade` <br> `OpenCreateDataCollectionRule`       |
+|**policyDefinitionGuid**     | String        |  Optional. For policy-based connectors, defines the GUID of the built-in policy definition.        |
+|**assignMode**     |   ENUM      |   Optional. For policy-based connectors, defines the assign mode, as one of the following values: `Initiative`, `Policy`      |
+|**dataCollectionRuleType**     |  ENUM       |   Optional. For DCR-based connectors, defines the type of data collection rule type as one of the following: `SecurityEvent`,  `ForwardEvent`       |
 |     |         |         |
 
 To define an inline link using markdown, use the following example as a guide:
@@ -309,9 +310,10 @@ To define a link as an ARM template, use the following example as a guide:
 The code sample listed above shows a link button that looks like the following image:
 
  :::image type="content" source="media/create-codeless-connector/sample-markdown-link-button.png" alt-text="Screenshot of the link button created by the earlier sample markdown.":::
+
 #### InstructionStep
 
-Displays a group of instructions, expandable (accordion) or non-expandable, separate from the main instructions section.
+Displays a group of instructions, as an expandable accordion or non-expandable, separate from the main instructions section.
 
 For example:
 
@@ -322,7 +324,7 @@ For example:
 |Name  |Type  |Description  |
 |---------|---------|---------|
 |**title**     |    String     |  Defines the title for the instruction step.       |
-|**instructionSteps**     |  [InstructionStep[]](#instructionstep)       | An array of inner instruction steps (Optional)        |
+|**instructionSteps**     |  [InstructionStep[]](#instructionstep)       | Optional. Defines an array of inner instruction steps.       |
 |**canCollapseAllSections**     |  Boolean       |  Optional. Determines whether the section is a collapsible accordion or not.       |
 |**noFxPadding**     |   Boolean      |  Optional. If `true`, reduces the height padding to save space.       |
 |**expanded**     |   Boolean      |   Optional. If `true`, shows as expanded by default.      |
@@ -353,14 +355,14 @@ The following code shows the syntax of the `pollingConfig` section of the [CCP c
 
 The `pollingConfig` section includes the following properties:
 
-|Name  |Description  |Options  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
-|**id**     |   Uniquely identifies a rule / configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in a Cosmos DB       |  Mandatory, string       |
-|**auth**     |   Describes the authentication properties for polling the data.     |    For more information, see  [auth configuration](#auth-configuration).   |
-|<a name="authtype"></a>**auth.authType**     |   Defines the type of authentication, nested inside the `auth` object.       |  Mandatory, supports the following values: `Basic`, `APIKey`, `OAuth2`, `Session`        |
-|**request**     |  Describes the request payload for polling the data, such as the API endpoint.       | Mandatory, nested JSON. For more information, see [request configuration](#request-configuration).         |
-|**response**     |  Describes the response object and nested message returned from the API when polling the data.      |    Mandatory, nested JSON. For more information, see [response configuration](#response-configuration).     |
-|**paging**     |  Describe tha pagination payload when polling the data.       | Optional, nested JSON. For more information, see [paging configuration](#paging-configuration).         |
+|**id**     |  String | Mandatory. Defines a unique identifier for a rule or configuration entry, using one of the following values: <br><br>- A GUID (recommended) <br>- A document ID, if the data source resides in a Cosmos DB       |
+|**auth**     | String | Describes the authentication properties for polling the data.  For more information, see  [auth configuration](#auth-configuration).   |
+|<a name="authtype"></a>**auth.authType**     |   String | Mandatory. Defines the type of authentication, nested inside the `auth` object, as  one of the following values: `Basic`, `APIKey`, `OAuth2`, `Session`        |
+|**request**     |  Nested JSON | Mandatory. Describes the request payload for polling the data, such as the API endpoint.     For more information, see [request configuration](#request-configuration).         |
+|**response**     | Nested JSON |  Mandatory. Describes the response object and nested message returned from the API when polling the data. For more information, see [response configuration](#response-configuration).     |
+|**paging**     | Nested JSON. |  Optional. Describes the pagination payload when polling the data.  For more information, see [paging configuration](#paging-configuration).         |
 |     |         |         |
 
 For more information, see [Sample pollingConfig code](#sample-pollingconfig-code).
@@ -371,48 +373,48 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 
 #### APIKey authType parameters
 
-|Name  |Description  |Options  |
+|Name  |Type   |Description  |
 |---------|---------|---------|
-|**APIKeyName**     |Defines the name of your API key as one of the following values: <br><br>- `XAuthToken` <br>- `Authorization`        | Optional, string        |
-|**IsAPIKeyInPostPayload**     |True if API Key is definied in POST request payload, false is definied in header     |   Boolean: false/true      |
-|**APIKeyIdentifier**     |  Defines the name of the identifier for the API key. <br><br>For example, where the authorization is defined as  `"Authorization": "token <secret>"`, this parameter is defined as: `{APIKeyIdentifier: “token”})`     |   Optional, string      |
+|**APIKeyName**     |String | Optional. Defines the name of your API key, as one of the following values: <br><br>- `XAuthToken` <br>- `Authorization`        |
+|**IsAPIKeyInPostPayload**     |Boolean | Determines where your API key is defined. <br><br>True: API key is defined in the POST request payload <br>False: API key is defined in the header     |
+|**APIKeyIdentifier**     |  String | Optional. Defines the name of the identifier for the API key. <br><br>For example, where the authorization is defined as  `"Authorization": "token <secret>"`, this parameter is defined as: `{APIKeyIdentifier: “token”})`     |
 | | | |
 
 #### Session authType parameters
 
-|Name  |Description  |Options  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
-|**QueryParameters**     |     <!--description-->      |   Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }        |
-|**IsPostPayloadJson**     |    <!--should options be boolean?-->Define this parameter as `true` if the query parameters are in JSON format       |   Optional, string      |
-|**Headers**     |    Header used when calling the endpoint to get the session ID, and when calling the endpoint API.     |   Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }        |
-|**SessionTimeoutInMinutes**     |    <!--description-->     |  Optional, string       |
-|**SessionIdName**     |    <!--description-->     |      Optional, string   |
-|**SessionLoginRequestUri**     |  <!--description-->       |   Optional, string      |
+|**QueryParameters**     |    String     | Optional. A list of query parameters, in the serialized `dictionary<string, string>` format: <br><br>{'<attr_name>': '<val>', '<attr_name>': '<val>'... }        |
+|**IsPostPayloadJson**     |   Boolean | Optional. Determines whether the query parameters are in JSON format.  |
+|**Headers**     |    String. | Optional. Defines the header used when calling the endpoint to get the session ID, and when calling the endpoint API.  <br><br> Define the string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }        |
+|**SessionTimeoutInMinutes**     |   String | Optional. Defines a session timeout, in minutes.       |
+|**SessionIdName**     |    String | Optional. Defines an ID name for the session.  |
+|**SessionLoginRequestUri**     |  String | Optional. Defines a session login request URI. |
 | | | |
 
 
 #### OAuth2 authType parameters
 
-|Name  |Description  |Options  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
-|**AccessToken** |<!--description--> |Optional, string |
-|**RefreshToken** |<!--description--> |Optional, string |
-|**TokenEndpoint** |<!--description--> | Optional, string|
-|**AuthorizationEndpoint** |<!--description--> | Optional, string|
-|**RedirectionEndpoint** |<!--description--> | Optional, string|
-| **AccessTokenExpirationDateTimeInUtc**|<!--description--> | Optional, string|
-| **RefreshTokenExpirationDateTimeInUtc**|<!--description--> | Optional, string|
-|**TokenEndpointHeaders** | <!--description-->| Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
-|**AuthorizationEndpointHeaders** |<!--description--> | Optional, string|
-|**AuthorizationEndpointQueryParameters** | <!--description-->| Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
-|**TokenEndpointQueryParameters** | <!--description-->| Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
-|**IsTokenEndpointPostPayloadJson** | If true, determines that query parameters are in JSON format | Optional, boolean|
-| **IsClientSecretInHeader**| If true, when the **client_id** and **client_secret** is defined in the header, as in the Basic authentication schema instead of in the POST payload| Optional, boolean|
-|**RefreshTokenLifetimeinSecAttributeName** |The attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds | Optional, string in the following syntax: `{<attr_name>: <val>}`|
-|**IsJwtBearFlow** | Set to `true` if using JWT | Optional, boolean|
-|**JwtHeaderInJson** |<!--description--> | Optional, string in the following syntax: `{<attr_name>: <val>}`|
-|**JwtClaimsInJson** | <!--description-->| Optional, string in the following syntax: `{<attr_name>: <val>}`|
-|**JwtPem** |<!--description--> | Optional, a secret key in PEM Pkcs8 format|
+|**AccessToken** |String | Optional. <!--description--> |
+|**RefreshToken** |String | Optional. <!--description--> |
+|**TokenEndpoint** |String | Optional. <!--description--> |
+|**AuthorizationEndpoint** |String | Optional. <!--description--> |
+|**RedirectionEndpoint** |String | Optional. <!--description--> |
+| **AccessTokenExpirationDateTimeInUtc**|String | Optional. <!--description--> |
+| **RefreshTokenExpirationDateTimeInUtc**|String | Optional. <!--description--> |
+|**TokenEndpointHeaders** | String. | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
+|**AuthorizationEndpointHeaders** |String | Optional. <!--description--> |
+|**AuthorizationEndpointQueryParameters** | String | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
+|**TokenEndpointQueryParameters** | String. | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
+|**IsTokenEndpointPostPayloadJson** | Boolean. | Optional. Determines whether query parameters are in JSON format. |
+| **IsClientSecretInHeader**| Boolean | Determines whether the **client_id** and **client_secret** values are defined in the header, as is done in the Basic authentication schema, instead of in the POST payload.|
+|**RefreshTokenLifetimeinSecAttributeName** |String. | Optional. Defines the attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds. <br><br>Define a string in the `{<attr_name>: <val>}`|
+|**IsJwtBearFlow** | Boolean | Optional. Determines whether you are using JWT. |
+|**JwtHeaderInJson** |String | Optional. <!--description--> <br><br>Define a string in the following syntax: `{<attr_name>: <val>}`|
+|**JwtClaimsInJson** |String | Optional. <!--description--> <br><br>Define a string in the following syntax: `{<attr_name>: <val>}`|
+|**JwtPem** |String | Optional. Defines a secret key, in PEM Pkcs8 format.|
 | | | |
 
 
@@ -420,7 +422,7 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 
 The `request` section of the [pollingConfig](#polling-configuration) configuration includes the following parameters:
 
-|Name  |Description  |Options  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
 |**apiEndpoint**     |   The endpoint to pull data from.      |   Mandatory, string      |
 |**httpMethod**     | The API method: `GET` or `POST`       |    Mandatory, string.     |
