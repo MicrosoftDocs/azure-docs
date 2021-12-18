@@ -15,6 +15,11 @@ custom.ms: subject-rbac-steps
 
 When you create an Azure Maps account, keys and a client ID are generated. The keys and client ID are used to support Azure Active Directory (Azure AD) authentication and Shared Key authentication.
 
+## Prerequisites
+
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
+- If you are unfamiliar with managed identities for Azure resources, check out the [overview section](../active-directory/managed-identities-azure-resources/overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](overview.md#managed-identity-types).
+
 ## View authentication details
 
 > [!IMPORTANT]
@@ -41,11 +46,11 @@ Depending on your application needs, there are specific pathways to application 
 
 ## How to add and remove Managed identities
 
-To enable Sas token authentication with Azure Maps REST APIs you must to add a user assigned identity to your Maps account.
+To enable SAS token authentication with the Azure Maps REST API you need to add a user-assigned managed identity to your Azure Maps account.
 
 ### Create a managed identity
 
-You can create a managed identity before or after creating a map account using User Assigned Managed Identities. You can add the managed identity through the portal, Azure management SDKs, or the Azure Resource Manager template. To add a User Assigned Managed Identity through Azure Resource Manager template specify the resource identifier of the User Assigned Identity. See example below:
+You can create a managed identity before or after creating a map account using user-assigned managed identity. You can add the managed identity through the portal, Azure management SDKs, or the Azure Resource Manager (ARM) template. To add a user-assigned managed identity through an ARM template, specify the resource identifier of the user-assigned managed identity. See example below:
 
 ```json
 "identity": {
@@ -72,20 +77,20 @@ To remove all identities by using the Azure Resource Manager template, update th
 
 ## Choose an authentication and authorization scenario
 
-This table outlines common authentication and authorization scenarios in Azure Maps. Use the links to learn detailed configuration information for each scenario.
+This table outlines common authentication and authorization scenarios in Azure Maps. Each scenario describes a type of app which can be used to access Azure Maps REST API. Use the links to learn detailed configuration information for each scenario.
 
 > [!IMPORTANT]
 > For production applications, we recommend implementing Azure AD with Azure role-based access control (Azure RBAC).
 
-| Scenario                                                                                    | Authentication | Authorization | Development effort | Operational effort |
-| ------------------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
-| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Shared Key     | N/A           | Medium             | High               |
-| [Trusted daemon / non-interactive client application](./how-to-secure-daemon-app.md)        | Azure AD       | High          | Low                | Medium             |
-| [Web single page application with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium             | Medium             |
-| [Web single page application with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium             | Medium             |
-| [Web and daemon / non-interactive sign-on](./how-to-secure-sas-app.md)                      | Sas Token      | High          | Medium             | Low                |
-| [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)          | Azure AD       | High          | High               | Medium             |
-| [IoT device / input constrained device](./how-to-secure-device-code.md)                     | Azure AD       | High          | Medium             | Medium             |
+| Scenario                                                                            | Authentication | Authorization | Development effort | Operational effort |
+| ----------------------------------------------------------------------------------- | -------------- | ------------- | ------------------ | ------------------ |
+| [Trusted daemon app or non-interactive client app](./how-to-secure-daemon-app.md)   | Shared Key     | N/A           | Medium             | High               |
+| [Trusted daemon or non-interactive client app](./how-to-secure-daemon-app.md)       | Azure AD       | High          | Low                | Medium             |
+| [Web single page app with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium             | Medium             |
+| [Web single page app with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium             | Medium             |
+| [Web app, daemon app, or non-interactive sign-on app](./how-to-secure-sas-app.md)   | Sas Token      | High          | Medium             | Low                |
+| [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)  | Azure AD       | High          | High               | Medium             |
+| [IoT device or an input constrained application](./how-to-secure-device-code.md)    | Azure AD       | High          | Medium             | Medium             |
 
 ## View built-in Azure Maps role definitions
 

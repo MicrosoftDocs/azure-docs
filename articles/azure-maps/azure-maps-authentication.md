@@ -289,13 +289,15 @@ After the application receives a SAS token, the Azure Maps SDK and/or applicatio
 
 Cross Origin Resource Sharing (CORS) is in preview.
 
-
 ### Prerequisites
 
-[Cross Origin Resource Sharing (CORS)](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. CORS protocol is non-specific to Azure Map and is a standard specification.
+To prevent malicious code execution on the client, modern browsers block requests from web applications to resources running in a separate domain. [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints on your function app.
+- If you're unfamiliar with CORS check out [Cross-origin resource sharing (CORS)](https://developer.mozilla.org/docs/Web/HTTP/CORS) lets an `Access-Control-Allow-Origin` header declare which origins are allowed to call endpoints of an Azure Maps account.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/) before you continue.
 
-### Azure Maps Account CORS
+### Account CORS
 
+[CORS](https://fetch.spec.whatwg.org/#http-cors-protocol) is an HTTP protocol that enables a web application running under one domain to access resources in another domain. Web browsers implement a security restriction known as [same-origin policy](https://www.w3.org/Security/wiki/Same_Origin_Policy) that prevents a web page from calling APIs in a different domain; CORS provides a secure way to allow one domain (the origin domain) to call APIs in another domain. CORS protocol is non-specific to Azure Maps. Azure Maps account resource supports the ability to configure allowed origins for which can access the account.
 You can set a CORS rule on the Azure Maps account properties through Azure Maps Management SDK, Azure Maps Management REST API, and portal. Once you set the CORS rule for the service, then a properly authorized request made to the service from a different domain will be evaluated to determine whether it is allowed according to the rule you have specified.
 
 > [!IMPORTANT]
@@ -303,7 +305,7 @@ You can set a CORS rule on the Azure Maps account properties through Azure Maps 
 >
 > CORS is supported for all map account pricing tiers, data-plane endpoints, and locations.
 
-### Understand CORS requests
+### CORS requests
 
 A CORS request from an origin domain may consist of two separate requests:
 
