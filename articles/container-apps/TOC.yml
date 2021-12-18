@@ -19,6 +19,8 @@
           href: quickstart-portal.md
         - name: Azure CLI
           href: get-started.md
+        - name: ARM template
+          href: quickstart-arm-template.md
       - name: With a custom container image
         expanded: true
         items:
