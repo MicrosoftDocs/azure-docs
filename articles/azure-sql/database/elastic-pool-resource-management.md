@@ -81,13 +81,16 @@ In addition to monitoring current resource utilization, customers using dense po
 
 ## Operational recommendations
 
-**Leave sufficient resource headroom**. If resource contention and performance degradation occurs, mitigation may involve moving some databases out of the affected elastic pool, or scaling up the pool, as noted earlier. However, these actions require additional compute resources to complete. In particular, for Premium and Business Critical pools, these actions require transferring all data for the databases being moved, or for all databases in the elastic pool if the pool is scaled up. Data transfer is a long running and resource-intensive operation. If the pool is already under high resource pressure, the mitigating operation itself will degrade performance even further. In extreme cases, it may not be possible to solve resource contention via database move or pool scale-up because the required resources are not available. In this case, temporarily reducing query workload on the affected elastic pool may be the only solution.
+**Leave sufficient resource headroom**. If resource contention and performance degradation occur, mitigation may involve moving some databases out of the affected elastic pool, or scaling up the pool, as noted earlier. However, these actions require additional compute resources to complete. In particular, for Premium and Business Critical pools, these actions require transferring all data for the databases being moved, or for all databases in the elastic pool if the pool is scaled up. Data transfer is a long running and resource-intensive operation. If the pool is already under high resource pressure, the mitigating operation itself will degrade performance even further. In extreme cases, it may not be possible to solve resource contention via database move or pool scale-up because the required resources are not available. In this case, temporarily reducing query workload on the affected elastic pool may be the only solution.
 
 Customers using dense pools should closely monitor resource utilization trends as described earlier, and take mitigating action while metrics remain within the recommended ranges and there are still sufficient resources in the elastic pool.
 
-To configure Alerting on eDTU resource consumption, consider creating alerts via the [Azure porta](alerts-insights-configure-portal.md) or the [Add-AzMetricAlertRulev2](/powershell/module/az.monitor/add-azmetricalertrulev2) PowerShell cmdlet. For a sample scenario, see [Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app](saas-dbpertenant-performance-monitoring).
+To configure Alerting on eDTU resource consumption, consider creating alerts via the [Azure portal](alerts-insights-configure-portal.md) or the [Add-AzMetricAlertRulev2](/powershell/module/az.monitor/add-azmetricalertrulev2) PowerShell cmdlet. For a sample scenario, see [Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app](saas-dbpertenant-performance-monitoring.md).
 
 Resource utilization depends on multiple factors that change over time for each database and each elastic pool. Achieving optimal price/performance ratio in dense pools requires continuous monitoring and rebalancing, that is moving databases from more utilized pools to less utilized pools, and creating new pools as necessary to accommodate increased workload.
+
+> [!NOTE]
+> Resource consumption for elastic pool eDTUs is not a MAX or a SUM of individual database utilization, it is an average utilization of various metrics. It is possible that an individual database can reach a specific resource limit (CPU, log write, etc.), even when the eDTU reporting for the pool indicates no limit been reached.
 
 **Do not move "hot" databases**. If resource contention at the pool level is primarily caused by a small number of highly utilized databases, it may be tempting to move these databases to a less utilized pool, or make them standalone databases. However, doing this while a database remains highly utilized is not recommended, because the move operation will further degrade performance, both for the database being moved, and for the entire pool. Instead, either wait until high utilization subsides, or move less utilized databases instead to relieve resource pressure at the pool level. But moving databases with very low utilization does not provide any benefit in this case, because it does not materially reduce resource utilization at the pool level.
 
@@ -106,7 +109,7 @@ If used pool space (total size of data in all databases in a pool, not including
 
 **Avoid overly dense servers**. Azure SQL Database [supports](./resource-limits-logical-server.md) up to 5000 databases per server. Customers using elastic pools with thousands of databases may consider placing multiple elastic pools on a single server, with the total number of databases up to the supported limit. However, servers with many thousands of databases create operational challenges. Operations that require enumerating all databases on a server, for example viewing databases in the portal, will be slower. Operational errors, such as incorrect modification of server level logins or firewall rules, will affect a larger number of databases. Accidental deletion of the server will require assistance from Microsoft Support to recover databases on the deleted server, and will cause a prolonged outage for all affected databases.
 
-It is recommended to limit the number of databases per server to a lower number than the maximum supported. In many scenarios, using up to 1000-2000 databases per server is optimal. To reduce the likelihood of accidental server deletion, place a [delete lock](../../azure-resource-manager/management/lock-resources.md) on the server or its resource group.
+Limit the number of databases per server to a lower number than the maximum supported. In many scenarios, using up to 1000-2000 databases per server is optimal. To reduce the likelihood of accidental server deletion, place a [delete lock](../../azure-resource-manager/management/lock-resources.md) on the server or its resource group.
 
 ## Examples
 
@@ -114,18 +117,18 @@ It is recommended to limit the number of databases per server to a lower number 
 
 Use the `sys.dm_user_db_resource_governance` dynamic management view to view the actual configuration and capacity settings used by resource governance in the current database or elastic pool. For more information, see [sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database). 
 
-Execute this query in any database in an elastic pool, one row per database in the pool is returned.
+Execute this query in any database in an elastic pool. All databases in the pool have the same resource governance settings. 
 
 ```sql
 SELECT * FROM sys.dm_user_db_resource_governance AS rg
-ORDER BY rg.dtu_limit DESC, rg.cpu_limit DESC, rg.database_name;
+WHERE database_id = DB_ID();
 ```
 
 ### Monitoring overall elastic pool resource consumption
 
 Use the `sys.elastic_pool_resource_stats` system catalog view to monitor the resource consumption of the entire pool. For more information, see [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database).
 
-This sample query to view the last 10 minutes of data for the desired elastic pool should be executed in the `master` database of the logical Azure SQL server. 
+This sample query to view the last 10 minutes should be executed in the `master` database of the logical Azure SQL server containing the desired elastic pool. 
 
 ```sql
 SELECT * FROM sys.elastic_pool_resource_stats AS rs
@@ -141,7 +144,7 @@ This sample query to view the last 10 minutes of data should be executed in the 
 
 ```sql
 SELECT * FROM sys.dm_db_resource_stats AS rs
-WHERE rs.end_time > dateadd(mi, -10, sysutcdatetime());
+WHERE rs.end_time > DATEADD(mi, -10, SYSUTCDATETIME());
 ```
 
 ### Monitoring memory utilization
