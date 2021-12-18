@@ -374,7 +374,7 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 |Name  |Description  |Options  |
 |---------|---------|---------|
 |**APIKeyName**     |Defines the name of your API key as one of the following values: <br><br>- `XAuthToken` <br>- `Authorization`        | Optional, string        |
-|**IsAPIKeyInPostPayload**     |    <!--description-->     |   Boolean: false/true      |
+|**IsAPIKeyInPostPayload**     |True if API Key is definied in POST request payload, false is definied in header     |   Boolean: false/true      |
 |**APIKeyIdentifier**     |  Defines the name of the identifier for the API key. <br><br>For example, where the authorization is defined as  `"Authorization": "token <secret>"`, this parameter is defined as: `{APIKeyIdentifier: “token”})`     |   Optional, string      |
 | | | |
 
@@ -382,9 +382,9 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 
 |Name  |Description  |Options  |
 |---------|---------|---------|
-|**QueryParameters**     |     <!--description-->      |   Optional, string      |
+|**QueryParameters**     |     <!--description-->      |   Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }        |
 |**IsPostPayloadJson**     |    <!--should options be boolean?-->Define this parameter as `true` if the query parameters are in JSON format       |   Optional, string      |
-|**Headers**     |    Header used when calling the endpoint to get the session ID, and when calling the endpoint API.     |   <!---tbd-->      |
+|**Headers**     |    Header used when calling the endpoint to get the session ID, and when calling the endpoint API.     |   Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }        |
 |**SessionTimeoutInMinutes**     |    <!--description-->     |  Optional, string       |
 |**SessionIdName**     |    <!--description-->     |      Optional, string   |
 |**SessionLoginRequestUri**     |  <!--description-->       |   Optional, string      |
@@ -402,10 +402,10 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 |**RedirectionEndpoint** |<!--description--> | Optional, string|
 | **AccessTokenExpirationDateTimeInUtc**|<!--description--> | Optional, string|
 | **RefreshTokenExpirationDateTimeInUtc**|<!--description--> | Optional, string|
-|**TokenEndpointHeaders** | <!--description-->| Optional, string|
+|**TokenEndpointHeaders** | <!--description-->| Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
 |**AuthorizationEndpointHeaders** |<!--description--> | Optional, string|
-|**AuthorizationEndpointQueryParameters** | <!--description-->| Optional, string in the following syntax: `{<attr_name>: <val>}`|
-|**TokenEndpointQueryParameters** | <!--description-->| Optional, string in the following syntax: `{<attr_name>: <val>}`|
+|**AuthorizationEndpointQueryParameters** | <!--description-->| Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
+|**TokenEndpointQueryParameters** | <!--description-->| Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
 |**IsTokenEndpointPostPayloadJson** | If true, determines that query parameters are in JSON format | Optional, boolean|
 | **IsClientSecretInHeader**| If true, when the **client_id** and **client_secret** is defined in the header, as in the Basic authentication schema instead of in the POST payload| Optional, boolean|
 |**RefreshTokenLifetimeinSecAttributeName** |The attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds | Optional, string in the following syntax: `{<attr_name>: <val>}`|
@@ -430,13 +430,13 @@ The `request` section of the [pollingConfig](#polling-configuration) configurati
 |**queryTimeIntervalAttributeName**     |  The name of the attribute that defines the query time interval       |  Optional, string       |
 |**queryTimeIntervalDelimiter**     |    The query time interval delimiter     |   Optional, string      |
 |**queryWindowInMin**     |  The available query window, in minutes       |  Optional, string <br><br>Minimum: 5 minutes       |
-|**queryParameters**     |   Parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.     |   Optional, string in the following syntax:  `dictionary<string, string>`     |
+|**queryParameters**     |   Parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.     |   Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }       |
 |**queryParametersTemplate**     | The query parameters template, to use when passing query parameters in advanced scenarios <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`      |   Optional, string object      |
 |**isPostPayloadJson**     | Set to `true` if the POST payload is in JSON format        |   Optional, boolean      |
 |**rateLimitQPS**     |   <!--description tbd-->      |    Optional, double     |
 |**timeoutInSeconds**     |  The request timeout, in seconds       |   Optional, integer      |
 |**retryCount**     |   The number of request retries to try if needed      |  Optional, integer       |
-|**headers**     |  Request header value       |  Optional, string in the following format: `dictionary<string, string>`        |
+|**headers**     |  Request header value       |  Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }         |
 |     |         |         |
 
 
@@ -446,10 +446,10 @@ The `response` section of the [pollingConfig](#polling-configuration) configurat
 
 |Name  |Description  |Options  |
 |---------|---------|---------|
-|  <a name="eventsjsonpaths"></a> **eventsJsonPaths**  |    Defines the path to the message in the response JSON     |  Mandatory, list of strings       |
+|  <a name="eventsjsonpaths"></a> **eventsJsonPaths**  |    Defines the path to the message in the response JSON. A JSON path expression specifies a path to an element (or a set of elements) in a JSON structure     |  Mandatory, list of strings       |
 | **successStatusJsonPath**    |  Defines the path to the success message in the response JSON       |   Optional, string      |
 |  **successStatusValue**   |  Defines the path to the success message value in the response JSON       |   Optional, string      |
-|  **isGzipCompressed**   |   Determines whether the response is compressed in a zip file       |  Optional, boolean       |
+|  **isGzipCompressed**   |   Determines whether the response is compressed in a gzip file       |  Optional, boolean       |
 |     |         |         |
 
 The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) value for a top-level message:
@@ -467,13 +467,16 @@ The `paging` section of the [pollingConfig](#polling-configuration) configuratio
 
 |Name  |Description  |Options  |
 |---------|---------|---------|
-|  **pagingType**   | Determines the paging type to use in results        |    Mandatory, string. One of the following values: `None`, `PageToken`, `PageCount`, `TimeStamp`     |
-| **nextPageParaName**    |  Defines the name of a next page attribute       |     Optional, string     |
+|  **pagingType**   | Determines the paging type to use in results        |    Mandatory, string. One of the following values: `None`, `LinkHeader`, `NextPageToken`, `NextPageUrl`, `Offset`     |
+| **linkHeaderTokenJsonPath**    |  Defines JSON path of link header in the response JSON if LinkHeader isn't defined in response header       |     Optional, string     |
 | **nextPageTokenJsonPath**    |  Defines the path to a next page token JSON       |   Optional, string       |
-|  **pageCountAttributePath**   |   Defines the path to a page count attribute      |    Optional, string      |
-| **pageTotalCountAttributePath**    |Defines the path to a page total count attribute|  Optional, string        |
-|  **pageTimeStampAttributePath**   | Defines the path to a paging time stamp attribute        |   Optional, string       |
-| **searchTheLatestTimeStampFromEventsList**    |   Determines whether to search for the latest time stamp in the events list   | Optional, boolean        |
+| **hasNextFlagJsonPath**    |Defines the path to HasNextPage flag attribute |  Optional, string        |
+|  **nextPageTokenResponseHeader**   | Defines next page token header name in response        |   Optional, string       |
+| **nextPageParaName**    |   Determines next page name in the request   | Optional, string        |
+| **nextPageRequestHeader**    |   Determines next page header name in the request   | Optional, string        |
+| **nextPageUrl**    |   Determines next page URL if next page URL is different from the initial request URL   | Optional, string        |
+| **nextPageUrlQueryParameters**    |   Determines next page URL's query parameters if next page URL is different from the initial request URL   | Optional, string in the serialized `dictionary<string, object>` format: {'<attr_name>': <val>, '<attr_name>': <val>... }        |
+|  **offsetParaName**   |    Defines the name of the offset parameter     |   Optional, string      |
 |  **pageSizeParaName**   |    Defines the name of the page size parameter     |   Optional, string      |
 | **PageSize**    |     Defines the paging size    | Optional, integer        |
 |     |         |         |
