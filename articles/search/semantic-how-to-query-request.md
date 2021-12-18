@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 12/17/2021
 ---
 
 # Create a query that invokes semantic ranking and returns semantic captions
@@ -93,11 +93,11 @@ A semantic configuration contains properties to list three different types of fi
 + **Content fields** - Content fields should contain text in natural language form. Common examples of content are the text of a document, the description of a product, or other free-form text.
 + **Keyword fields** - Keyword fields should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. 
 
-You can only specify a single title field as part of your semantic configuration but you can specify as many content and keyword fields as you like. However, it's important that you list the content and keyword fields in priority order because lower priority fields may get truncated. Fields listed first will be given higher priority. Any field of type `Edm.String` or `Collection(Edm.String)` can be used as part of a semantic configuration.
+You can only specify a single title field as part of your semantic configuration but you can specify as many content and keyword fields as you like. However, it's important that you list the content and keyword fields in priority order because lower priority fields may get truncated. Fields listed first will be given higher priority. 
 
 You're only required to specify one field between `titleField`, `prioritizedContentFields`, and `prioritizedKeywordsFields`, but it's best to add the fields to your semantic configuration if they exist in your search index.
 
-Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index). When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
+Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index) and can be updated at any time without rebuilding your index. When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
 
 ### [**REST API**](#tab/rest)
 
@@ -161,10 +161,23 @@ definition.SemanticSettings = semanticSettings;
 adminClient.CreateOrUpdateIndex(definition);
 ```
 
+---
+
 To see an example of creating a semantic configuration and using it to issue a semantic query, check out the
 [semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
 
----
+### Allowed data types
+
+When selecting fields for your semantic configuration, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
+
+| Data type | Example from hotels-sample-index |
+|-----------|----------------------------------|
+| Edm.String | HotelName, Category, Description |
+| Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
+| Collection(Edm.String) | Tags (a comma-delimited list of strings) |
+
+> [!NOTE]
+> Subfields of Collection(Edm.ComplexType) fields are not currently supported by semantic search and won't be used for semantic ranking, captions, or answers.
 
 ## Query using REST
 
@@ -175,7 +188,7 @@ The following example uses the [hotels-sample-index](search-get-started-portal.m
 ### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
 
 ```http
-POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2020-06-30-Preview      
+POST https://[service name].search.windows.net/indexes/hotels-sample-index/docs/search?api-version=2021-04-30-Preview      
 {
     "search": "newer hotel near the water with a great restaurant",
     "queryType": "semantic",
@@ -199,8 +212,8 @@ The following table summarizes the parameters used in a semantic query. For a li
 | queryLanguage | String | Required for semantic queries. The lexicon you specify applies equally to semantic ranking, captions, answers, and spell check. For more information, see [supported languages (REST API reference)](/rest/api/searchservice/preview-api/search-documents#queryLanguage). |
 | semanticConfiguration | String | Required for semantic queries. The name of your [semantic configuration](#create-a-semantic-configuration). </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Create a semantic configuration](#create-a-semantic-configuration). |
 | speller | String | Optional parameter, not specific to semantic queries, that corrects misspelled terms before they reach the search engine. For more information, see [Add spell correction to queries](speller-how-to-add.md). |
-| answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of ten. The default is one. This example shows a count of three answers: `extractive\|count-3`. For more information, see [Return semantic answers](semantic-answers.md).|
-| captions |String | Optional parameters that specify whether semantic captions are included in the result. Currently, only "extractive" is implemented. Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive\|highlight-false`. For more information, see [Return semantic answers](semantic-answers.md).|
+| answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of ten. The default is one. This example shows a count of three answers: `extractive|count-3`. For more information, see [Return semantic answers](semantic-answers.md).|
+| captions |String | Optional parameters that specify whether semantic captions are included in the result. Currently, only "extractive" is implemented. Captions can be configured to return results with or without highlights. The default is for highlights to be returned. This example returns captions without highlights: `extractive|highlight-false`. For more information, see [Return semantic answers](semantic-answers.md).|
 
 ### [**searchFields**](#tab/searchFields)
 
@@ -228,7 +241,7 @@ The following table summarizes the parameters used in a semantic query. For a li
 | queryLanguage | String | Required for semantic queries. The lexicon you specify applies equally to semantic ranking, captions, answers, and spell check. For more information, see [supported languages (REST API reference)](/rest/api/searchservice/preview-api/search-documents#queryLanguage). |
 | searchFields | String | A comma-delimited list of searchable fields. Specifies the fields over which semantic ranking occurs, from which captions and answers are extracted. </br></br>In contrast with simple and full query types, the order in which fields are listed determines precedence. For more usage instructions, see [Step 2: Set searchFields](#searchfields). |
 | speller | String | Optional parameter, not specific to semantic queries, that corrects misspelled terms before they reach the search engine. For more information, see [Add spell correction to queries](speller-how-to-add.md). |
-| answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of ten. The default is one. This example shows a count of three answers: `extractive\|count-3`. For more information, see [Return semantic answers](semantic-answers.md).|
+| answers |String | Optional parameters that specify whether semantic answers are included in the result. Currently, only "extractive" is implemented. Answers can be configured to return a maximum of ten. The default is one. This example shows a count of three answers: `extractive|count-3`. For more information, see [Return semantic answers](semantic-answers.md).|
 
 ---
 

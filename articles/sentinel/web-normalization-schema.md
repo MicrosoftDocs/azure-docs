@@ -81,9 +81,11 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only Web sessions that **started** at or after this time. |
 | **endtime** | datetime | Filter only Web sessions that **started** running at or before this time. |
-| **srcipaddr_has_any_ipv4_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. |
 | **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned.|  
-| **httpuseragent_has_any** | dynamic | Filter only Web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. |  
+| **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. | 
+| **ventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 
+| **eventresult** | string | Filter only network sessions with a specific **EventResult** value. |
 | | | |
 
 For example, to filter only Web sessions for a specified list of domain names, use:
@@ -126,7 +128,9 @@ HTTP sessions are application layer sessions that utilize TCP/IP as the underlyi
 
 The following ASIM Network Session schema have specific guidelines when used for a Web Session event:
 - The alias IpAddr should preferably alias [SrcNatIpAddr](network-normalization-schema.md#srcnatipaddr) rather than [SrcIpAddr](network-normalization-schema.md#srcipaddr).
-- The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails) 
+- The alias User should refer to the [SrcUsername](network-normalization-schema.md#srcusername) and not to [DstUsername](network-normalization-schema.md#dstusername).
+- The field [EventOriginalResultDetails](normalization-about-schemas.md#eventoriginalresultdetails) can hold any result reported by the source in addition to the HTTP status code stored in [EventResultDetails](#eventresultdetails).
+- For Web Sessions, the primary destination field is the [Url Field](#url). The [DstDomain](network-normalization-schema.md#dstdomain) is optional rather than recommended. Specifically, if not available, there is no need to extract it from the URL in the parser.
 
 ### <a name="Intermediary"></a>Intermediary device fields
 

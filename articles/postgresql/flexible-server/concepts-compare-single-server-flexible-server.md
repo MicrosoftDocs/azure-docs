@@ -5,7 +5,7 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 12/06/2021
+ms.date: 12/08/2021
 ---
 
 # Comparison chart - Azure Database for PostgreSQL Single Server and Flexible Server
@@ -19,7 +19,7 @@ The following table provides a high-level features and capabilities comparisons 
 | **General**  | | |
 | General availability | GA since 2018 | GA since 2021|
 | PostgreSQL | Community | Community |
-| Versions | 9.6, 10, 11 | 11, 12, 13 |
+| Supported versions | 10, 11 | 11, 12, 13 |
 | Underlying O/S | Windows | Linux  |
 | AZ selection for application colocation | No | Yes |
 | Built-in connection pooler | No | Yes (PgBouncer)|
@@ -81,8 +81,8 @@ The following table provides a high-level features and capabilities comparisons 
 | PITR capability to any time within the retention period | Yes | Yes
 | Ability to restore on a different zone | N/A | Yes |
 | Ability to restore to a different VNET | No | Yes |
-| Ability to restore to a different region | Yes (Geo-redundant) | No |
-| Ability to restore a deleted server | Limited via API | No |
+| Ability to restore to a different region | Yes (Geo-redundant) | Yes (in Preview in [selected regions](overview.md#azure-regions)) |
+| Ability to restore a deleted server | Limited via API | Limited via support ticket |
 | **Read Replica** | | |
 | Support for read replicas | Yes | No |
 | Number of read replicas | 5 | N/A |

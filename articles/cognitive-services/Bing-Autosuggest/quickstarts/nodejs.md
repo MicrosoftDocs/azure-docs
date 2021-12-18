@@ -10,7 +10,8 @@ ms.subservice: bing-autosuggest
 ms.topic: quickstart
 ms.date: 05/06/2020
 ms.author: aahi
-ms.custom: devx-track-js, mode-other
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Suggest search queries with the Bing Autosuggest REST API and Node.js
