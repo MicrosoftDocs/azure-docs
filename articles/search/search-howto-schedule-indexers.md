@@ -21,16 +21,6 @@ By default, an indexer normally runs once, immediately after it is created. Afte
 
 * Source data is very large and you want to spread the indexer processing over time. Indexer jobs are subject to a maximum running time of 24 hours for regular data sources and 2 hours for indexers with skillsets. If indexing cannot complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, as evidenced by an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents) beyond the interval allowed for a single job. For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
-Visually, a schedule might look like the following: starting on January 1 and running every 50 minutes.
-
-```json
-{
-    "dataSourceName" : "myazuresqldatasource",
-    "targetIndexName" : "target index name",
-    "schedule" : { "interval" : "PT50M", "startTime" : "2021-01-01T00:00:00Z" }
-}
-```
-
 > [!NOTE]
 > The scheduler is a built-in feature of Azure Cognitive Search. There is no support for external schedulers.
 
@@ -42,6 +32,16 @@ A schedule is part of the indexer definition. If the **schedule** property is om
 |----------|-------------|
 |**Interval** | (required) The amount of time between the start of two consecutive indexer executions. The smallest interval allowed is 5 minutes, and the longest is 1440 minutes (24 hours). It must be formatted as an XSD "dayTimeDuration" value (a restricted subset of an [ISO 8601 duration](https://www.w3.org/TR/xmlschema11-2/#dayTimeDuration) value). The pattern for this is: `P(nD)(T(nH)(nM))`. <br/><br/>Examples: `PT15M` for every 15 minutes, `PT2H` for every 2 hours.|
 | **Start Time (UTC)** | (optional) Indicates when scheduled executions should begin. If omitted, the current UTC time is used. This time can be in the past, in which case the first execution is scheduled as if the indexer has been running continuously since the original **startTime**.<br/><br/>Examples: `2021-01-01T00:00:00Z` starting at midnight on January 1, `2021-01-05T22:28:00Z` starting at 10:28 p.m. on January 5.|
+
+Visually, a schedule might look like the following: starting on January 1 and running every 50 minutes.
+
+```json
+{
+    "dataSourceName" : "hotels-ds",
+    "targetIndexName" : "hotels-idx",
+    "schedule" : { "interval" : "PT50M", "startTime" : "2021-01-01T00:00:00Z" }
+}
+```
 
 ## Scheduling behavior
 
