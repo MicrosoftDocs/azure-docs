@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/02/2021
+ms.date: 12/17/2021
 ms.author: lajanuar
 recommendations: false
 ms.custom: ignite-fall-2021, mode-api
@@ -26,20 +26,25 @@ To learn more about Form Recognizer features and development options, visit our 
 
 In this quickstart you'll use following features to analyze and extract data and values from forms and documents:
 
-* [🆕 **General document**](#try-it-general-document-model)—Analyze and extract text, tables, structure, key-value pairs and named entities.
+* [🆕 **General document**](#general-document-model)—Analyze and extract text, tables, structure, key-value pairs and named entities.
 
-* [**Layout**](#try-it-layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
+* [**Layout**](#layout-model)—Analyze and extract tables, lines, words, and selection marks like radio buttons and check boxes in forms documents, without the need to train a model.
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
+* [**Prebuilt Invoice**](#prebuilt-model)—Analyze and extract common fields from specific document types using a pre-trained model.
 
 ## Prerequisites
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/).
 * A [Java Development Kit (JDK)](/java/azure/jdk/?view=azure-java-stable&preserve-view=true
-), version 8 or later
+), version 8 or later.
+* The latest version of [Visual Studio Code](https://code.visualstudio.com/) or your preferred IDE. For more information, *see* [Java in Visual Studio Code](https://code.visualstudio.com/docs/languages/java).
+
+  >[!TIP]
+  > Visual Studio Code offers a **Coding Pack for Java** for Windows and macOS.The coding pack is a bundle of VS Code, the Java Development Kit (JDK), and a collection of suggested extensions by Microsoft. The Coding Pack can also be used to fix an existing development environment.
+
 * A Cognitive Services or Form Recognizer resource. Once you have your Azure subscription, create a [single-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) or [multi-service](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesAllInOne) Form Recognizer resource in the Azure portal to get your key and endpoint. You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.
 
-> [!TIP] 
+> [!TIP]
 > Create a Cognitive Services resource if you plan to access multiple cognitive services under a single endpoint/key. For Form Recognizer access only, create a Form Recognizer resource. Please note that you'lll need a single-service resource if you intend to use [Azure Active Directory authentication](../../../active-directory/authentication/overview-authentication.md).
 
 * After your resource deploys, click **Go to resource**. You need the key and endpoint from the resource you create to connect your application to the Form Recognizer API. You'll paste your key and endpoint into the code below later in the quickstart:
@@ -48,91 +53,93 @@ In this quickstart you'll use following features to analyze and extract data and
 
 ## Set up
 
-### Create a new Gradle project
+#### Create a new Gradle project
 
-In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
+1. In a console window (such as cmd, PowerShell, or Bash), create a new directory for your app called **form-recognizer-app**, and navigate to it.
 
-```console
-mkdir form-recognizer-app && form-recognizer-app
-```
+    ```console
+    mkdir form-recognizer-app && form-recognizer-app
+    ```
 
-Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
+1. Run the `gradle init` command from your working directory. This command will create essential build files for Gradle, including *build.gradle.kts*, which is used at runtime to create and configure your application.
 
-```console
-gradle init --type basic
-```
+    ```console
+    gradle init --type basic
+    ```
 
 1. When prompted to choose a **DSL**, select **Kotlin**.
 
 1. Accept the default project name (form-recognizer-app)
 
-### Install the client library
+#### Install the client library
 
 This quickstart uses the Gradle dependency manager. You can find the client library and information for other dependency managers on the [Maven Central Repository](https://mvnrepository.com/artifact/com.azure/azure-ai-formrecognizer).
 
-In your project's *build.gradle.kts* file, include the client library as an `implementation` statement, along with the required plugins and settings.
+1. In your project's *build.gradle.kts* file, include the client library as an `implementation` statement, along with the required plugins and settings.
 
-```kotlin
-plugins {
-    java
-    application
-}
-application {
-    mainClass.set("FormRecognizer")
-}
-repositories {
-    mavenCentral()
-}
-dependencies {
-    implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.1")
-}
-```
+    ```kotlin
+    plugins {
+        java
+        application
+    }
+    application {
+        mainClass.set("FormRecognizer")
+    }
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        implementation(group = "com.azure", name = "azure-ai-formrecognizer", version = "4.0.0-beta.1")
+    }
+    ```
 
-### Create a Java file
+#### Create a Java file
 
-From your working directory, run the following command:
+1. From your working directory, run the following command:
 
-```console
-mkdir -p src/main/java
-```
+    ```console
+    mkdir -p src/main/java
+    ```
 
-You will create the following directory structure:
+    You will create the following directory structure:
 
-:::image type="content" source="../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
+    :::image type="content" source="../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
 
-Navigate to the new folder and create a file called *FormRecognizer.java* (created during the `gradle init` command). Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
+1. Navigate to the new folder and create a file called *FormRecognizer.java* (created during the `gradle init` command). Open it in your preferred editor or IDE and add the following package declaration and  `import` statements:
 
-```java
-package com.azure.ai.formrecognizer;
+    ```java
+    package com.azure.ai.formrecognizer;
 
-import com.azure.ai.formrecognizer.models.AnalyzeDocumentOptions;
-import com.azure.ai.formrecognizer.models.AnalyzedDocument;
-import com.azure.core.credential.AzureKeyCredential;
-import com.azure.core.http.HttpPipeline;
-import com.azure.core.http.HttpPipelineBuilder;
-import com.azure.core.util.Context;
+    import com.azure.ai.formrecognizer.models.AnalyzeDocumentOptions;
+    import com.azure.ai.formrecognizer.models.AnalyzedDocument;
+    import com.azure.core.credential.AzureKeyCredential;
+    import com.azure.core.http.HttpPipeline;
+    import com.azure.core.http.HttpPipelineBuilder;
+    import com.azure.core.util.Context;
 
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.io.IOException;
-import java.io.InputStream;
-import java.nio.file.Files;
-import java.util.Arrays;
-```
+    import java.io.ByteArrayInputStream;
+    import java.io.File;
+    import java.io.IOException;
+    import java.io.InputStream;
+    import java.nio.file.Files;
+    import java.util.Arrays;
+    ```
 
-### Select a code sample to copy and paste into your application's main method:
+#### Select a code sample to copy and paste into your application's main method:
 
-* [**General document**](#try-it-general-document-model)
+* [**General document**](#general-document-model)
 
-* [**Layout**](#try-it-layout-model)
+* [**Layout**](#layout-model)
 
-* [**Prebuilt Invoice**](#try-it-prebuilt-model)
+* [**Prebuilt Invoice**](#prebuilt-model)
 
 > [!IMPORTANT]
 >
 > Remember to remove the key from your code when you're done, and never post it publicly. For production, use secure methods to store and access your credentials. See the Cognitive Services [security](../../../cognitive-services/cognitive-services-security.md) article for more information.
 
-## **Try it**: General document model
+## General document model
+
+Extract text, tables, structure, key-value pairs, and named entities from documents.
 
 > [!div class="checklist"]
 >
@@ -141,7 +148,9 @@ import java.util.Arrays;
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+#### Update the **FormRecognizer** class:
+
+Replace the existing FormRecognizer class with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
 
 ```java
 public class FormRecognizer {
@@ -268,9 +277,9 @@ public class FormRecognizer {
     }
 ```
 
-## **Try it**: Layout model
+## Layout model
 
-Extract text, selection marks, text styles, and table structures, along with their bounding region coordinates from documents.
+Extract text, selection marks, text styles, table structures, and bounding region coordinates from documents.
 
 > [!div class="checklist"]
 >
@@ -278,7 +287,9 @@ Extract text, selection marks, text styles, and table structures, along with the
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocumentFromUrl` method and pass `prebuilt-layout` as the model Id. The returned value is an `AnalyzeResult` object containing data about the submitted document.
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 
-Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+#### Update the **FormRecognizer** class:
+
+Replace the existing FormRecognizer class with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
 
 ```java
 public class FormRecognizer {
@@ -337,7 +348,7 @@ public class FormRecognizer {
     }
 ```
 
-## **Try it**: Prebuilt model
+## Prebuilt model
 
 Extract and analyze data from common document types using a pre-trained model.
 
@@ -359,7 +370,9 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
 
-Update your application's **FormRecognizer** class, with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+#### Update the **FormRecognizer** class:
+
+Replace the existing FormRecognizer class with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
 
 ```java
 
@@ -525,7 +538,9 @@ gradle build
 gradle run
 ```
 
-Congratulations! In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
+That's it, congratulations!
+
+In this quickstart, you used the Form Recognizer Java SDK to analyze various forms and documents in different ways. Next, explore the reference documentation to learn about Form Recognizer API in more depth.
 
 ## Next steps
 
