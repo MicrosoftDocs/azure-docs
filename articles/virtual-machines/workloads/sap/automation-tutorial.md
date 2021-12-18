@@ -147,6 +147,15 @@ A valid SAP user account (SAP-User or S-User account) with software download pri
     az account list --query "[?isDefault].{Name: name, CloudName: cloudName, SubscriptionId: id, State: state, IsDefault: isDefault}" --output=table
     ```
 
+1. Optionally remove all the deployment artifacts. Use this if you want to remove all remnants of previous deployment artifacts.
+
+    ```cloudshell-interactive
+    
+    cd ~
+
+    rm -rf Azure_SAP_Automated_Deployment .sap_deployment_automation .terraform.d
+    ```
+
 1. Create the deployment folder and clone the repository.
 
     ```cloudshell-interactive
