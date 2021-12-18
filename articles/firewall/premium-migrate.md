@@ -241,7 +241,7 @@ The minimum Azure PowerShell version requirement is 6.5.0. For more information,
 
    ```azurepowershell
    $azfw = Get-AzFirewall -Name -Name "<firewall-name>" -ResourceGroupName "<resource-group-name>"
-   $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWAN-name>"
+   $hub = get-azvirtualhub -ResourceGroupName "<resource-group-name>" -name "<vWANhub-name>"
    $azfw.Sku.Tier="Premium"
    $azfw.Allocate($hub.id)
    Set-AzFirewall -AzureFirewall $azfw
