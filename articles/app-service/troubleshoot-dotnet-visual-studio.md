@@ -2,7 +2,7 @@
 title: Troubleshoot with Visual Studio
 description: Learn how to troubleshoot an App Service app by using remote debugging, tracing, and logging tools that are built in to Visual Studio 2013.
 ms.assetid: def8e481-7803-4371-aa55-64025d116c97
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 08/29/2016
 ms.custom: "devx-track-csharp, seodec18"
