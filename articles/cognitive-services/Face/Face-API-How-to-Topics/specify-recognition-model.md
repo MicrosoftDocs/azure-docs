@@ -10,6 +10,7 @@ ms.subservice: face-api
 ms.topic: conceptual
 ms.date: 03/05/2021
 ms.author: longl
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

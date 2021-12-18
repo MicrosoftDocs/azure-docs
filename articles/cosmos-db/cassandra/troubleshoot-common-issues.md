@@ -41,6 +41,8 @@ This error might be caused by source network address translation (SNAT) exhausti
 
 The error might also be an idle timeout issue where the Azure load balancer has four minutes of idle timeout by default. See [Load balancer idle timeout](../../load-balancer/load-balancer-tcp-idle-timeout.md?tabs=tcp-reset-idle-portal). [Enable keep-alive for the Java driver](#enable-keep-alive-for-the-java-driver) and set the `keepAlive` interval on the operating system to less than four minutes.
 
+See [troubleshoot NoHostAvailableException](troubleshoot-nohostavailable-exception.md) for more ways of handling the exception.
+
 ## OverloadedException (Java)
 
 Requests are throttled because the total number of request units consumed is higher than the number of request units that you provisioned on the keyspace or table.
