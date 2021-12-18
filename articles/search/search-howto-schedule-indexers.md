@@ -19,7 +19,7 @@ By default, an indexer normally runs once, immediately after it is created. Afte
 
 * A search index will be populated from multiple data sources, and you want the indexers to run at different times to reduce conflicts.
 
-* Source data is very large and you want to spread the indexer processing over time. Indexer jobs are subject to a maximum running time of 24 hours for regular data sources and 2 hours for indexers with skillsets. If indexing cannot complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, as evidenced by an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2 hour schedule allows it to process a very large data set (many millions of documents) beyond the interval allowed for a single job. For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
+* Source data is very large and you want to spread the indexer processing over time. Indexer jobs are subject to a maximum running time of 24 hours for regular data sources and 2 hours for indexers with skillsets. If indexing cannot complete within the maximum interval, you can configure a schedule that runs every 2 hours. Indexers can automatically pick up where they left off, as evidenced by an internal high water mark that marks where indexing last ended. Running an indexer on a recurring 2-hour schedule allows it to process a very large data set (many millions of documents) beyond the interval allowed for a single job. For more information about indexing large data volumes, see [How to index large data sets in Azure Cognitive Search](search-howto-large-index.md).
 
 Visually, a schedule might look like the following: starting on January 1 and running every 50 minutes.
 
@@ -62,23 +62,26 @@ Schedules are specified in an indexer definition. To set up a schedule, you can 
 
 ### [**Azure portal**](#tab/portal)
 
-1. On the search service Overview page, select the **Indexers** tab.
+1. [Sign in to Azure portal](https://portal.azure.com) and open the search service page.
+1. On the **Overview** page, select the **Indexers** tab.
 1. Select an indexer.
 1. Select **Settings**.
-1. Scroll down to **Schedule**, and then choose Hourly, Daily, or Custom to specify a specific date, time, or custom interval.
+1. Scroll down to **Schedule**, and then choose Hourly, Daily, or Custom to set a specific date, time, or custom interval.
 
 ### [**REST**](#tab/rest)
 
-Call [Create Indexer](/rest/api/searchservice/create-indexer) or [Update Indexer](/rest/api/searchservice/update-indexer) to set the schedule property.
+1. Call [Create Indexer](/rest/api/searchservice/create-indexer) or [Update Indexer](/rest/api/searchservice/update-indexer).
 
-```http
-PUT /indexers/<indexer-name>?api-version=2020-06-30
-{
-    "dataSourceName" : "myazuresqldatasource",
-    "targetIndexName" : "my-target-index-name",
-    "schedule" : { "interval" : "PT10M", "startTime" : "2021-01-01T00:00:00Z" }
-}
-```
+1. Set the schedule property in the body of the request:
+
+    ```http
+    PUT /indexers/<indexer-name>?api-version=2020-06-30
+    {
+        "dataSourceName" : "myazuresqldatasource",
+        "targetIndexName" : "my-target-index-name",
+        "schedule" : { "interval" : "PT10M", "startTime" : "2021-01-01T00:00:00Z" }
+    }
+    ```
 
 ### [**.NET SDK**](#tab/csharp)
 
