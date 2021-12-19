@@ -2,7 +2,7 @@
 title: Reference table for all Microsoft Defender for Cloud recommendations for AWS resources
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your AWS resources.
 ms.topic: reference
-ms.date: 11/29/2021
+ms.date: 12/19/2021
 ms.custom: generated
 ---
 # Security recommendations for AWS resources - a reference guide
@@ -20,23 +20,19 @@ impact on your secure score.
 
 ## <a name='recs-aws-compute'></a> AWS Compute recommendations
 
-[!INCLUDE [asc-recs-aws-compute](../../includes/asc-recs-aws-compute.md)]
-
-## <a name='recs-aws-container'></a> AWS Container recommendations
-
-[!INCLUDE [asc-recs-aws-container](../../includes/asc-recs-aws-container.md)]
+[!INCLUDE [asc-recs-aws-compute](../../includes/mdfc/mdfc-recs-aws-compute.md)]
 
 ## <a name='recs-aws-data'></a> AWS Data recommendations
 
-[!INCLUDE [asc-recs-aws-data](../../includes/asc-recs-aws-data.md)]
+[!INCLUDE [asc-recs-aws-data](../../includes/mdfc/mdfc-recs-aws-data.md)]
 
 ## <a name='recs-aws-identityandaccess'></a> AWS IdentityAndAccess recommendations
 
-[!INCLUDE [asc-recs-aws-identityandaccess](../../includes/asc-recs-aws-identityandaccess.md)]
+[!INCLUDE [asc-recs-aws-identityandaccess](../../includes/mdfc/mdfc-recs-aws-identityandaccess.md)]
 
 ## <a name='recs-aws-networking'></a> AWS Networking recommendations
 
-[!INCLUDE [asc-recs-aws-networking](../../includes/asc-recs-aws-networking.md)]
+[!INCLUDE [asc-recs-aws-networking](../../includes/mdfc/mdfc-recs-aws-networking.md)]
 
 ## Next steps
 
