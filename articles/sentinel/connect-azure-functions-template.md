@@ -32,7 +32,7 @@ Make sure that you have the following permissions and credentials before using A
 
 - You must have read and write permissions on the Microsoft Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md#workspace-id-and-key).
 
 - You must have read and write permissions on Azure Functions to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 
