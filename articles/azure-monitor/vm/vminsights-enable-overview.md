@@ -26,8 +26,8 @@ The following table shows the installation methods available for different suppo
 |:---|:---|
 | [Azure portal](vminsights-enable-portal.md) | Single Azure virtual machine,  Azure virtual machine scale set, or Azure Arc machine |
 | [Azure Policy](vminsights-enable-policy.md) | Multiple Azure virtual machines,  Azure virtual machine scale sets, or Azure Arc machines |
-| [PowerShell](vminsights-enable-powershell.md) |  Multiple Azure virtual machines,  Azure virtual machine scale sets, or Azure Arc machines |s
-| [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises other cloud environment |s
+| [PowerShell](vminsights-enable-powershell.md) |  Multiple Azure virtual machines,  Azure virtual machine scale sets, or Azure Arc machines |
+| [Manual install](vminsights-enable-hybrid.md) | Virtual machines or physical computers on-premises other cloud environments |
 
 
 ## Supported Azure Arc machines
