@@ -139,7 +139,7 @@ Provide either one query for all of the data connector's data types, or a differ
 | **tenant** | ENUM | Defines the required permissions, as one or more of the following values: `GlobalAdmin`, `SecurityAdmin`,  `SecurityReader`, `InformationProtection` <br><br>Example: The **tenant** value displays displays in Microsoft Sentinel as: **Tenant Permissions: Requires `Global Administrator` or `Security Administrator` on the workspace's tenant**|
 | **licenses** | ENUM | Defines the required licenses, as one of the following values: `OfficeIRM`,`OfficeATP`, `Office365`, `AadP1P2`, `Mcas`, `Aatp`, `Mdatp`, `Mtp`, `IoT` <br><br>Example: The **licenses** value displays in Microsoft Sentinel as: **License: Required Azure AD Premium P2**|
 | **customs** | String | Describes any custom permissions required for your data connection, in the following syntax: <br>`{`<br>`  name:string,`<br>` description:string`<br>`}` <br><br>Example: The **customs** value displays in Microsoft Sentinel as: **Subscription: Contributor permissions to the subscription of your IoT Hub.** |
-| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Describes any prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required. **<br>**Keys: read permissions to shared keys for the workspace are required.**|
+| **resourceProvider**	| [ResourceProviderPermissions](#resourceproviderpermissions) | Describes any prerequisites for your Azure resource. <br><br>Example: The **resourceProvider** value displays in Microsoft Sentinel as: <br>**Workspace: write permission is required.**<br>**Keys: read permissions to shared keys for the workspace are required.**|
 | | | |
 
 #### ResourceProviderPermissions
@@ -422,23 +422,25 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 
 The `request` section of the [pollingConfig](#polling-configuration) configuration includes the following parameters:
 
+<!--where do the asterisks go to?-->
+
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**apiEndpoint**     |   The endpoint to pull data from.      |   Mandatory, string      |
-|**httpMethod**     | The API method: `GET` or `POST`       |    Mandatory, string.     |
-|**queryTimeFormat**     |   The format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp.  |    Mandatory, string     |
-|**startTimeAttributeName**     |  The name of the attribute that defines the query start time.        |   Mandatory<sup>*</sup>, string      |
-|**endTimeAttributeName**     |   The name of the attribute that defines the query end time.      |   Mandatory<sup>*</sup>, string      |
-|**queryTimeIntervalAttributeName**     |  The name of the attribute that defines the query time interval       |  Optional, string       |
-|**queryTimeIntervalDelimiter**     |    The query time interval delimiter     |   Optional, string      |
-|**queryWindowInMin**     |  The available query window, in minutes       |  Optional, string <br><br>Minimum: 5 minutes       |
-|**queryParameters**     |   Parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.     |   Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }       |
-|**queryParametersTemplate**     | The query parameters template, to use when passing query parameters in advanced scenarios <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`      |   Optional, string object      |
-|**isPostPayloadJson**     | Set to `true` if the POST payload is in JSON format        |   Optional, boolean      |
-|**rateLimitQPS**     |   <!--description tbd-->      |    Optional, double     |
-|**timeoutInSeconds**     |  The request timeout, in seconds       |   Optional, integer      |
-|**retryCount**     |   The number of request retries to try if needed      |  Optional, integer       |
-|**headers**     |  Request header value       |  Optional, string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }         |
+|**apiEndpoint**     |   String | Mandatory. Defines the endpoint to pull data from.      |
+|**httpMethod**     |String | Mandatory. Defines the API method: `GET` or `POST`       |
+|**queryTimeFormat**     |  String, or *UnixTimestamp* or *UnixTimestampInMills* | Mandatory.  Defines the format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp.  |
+|**startTimeAttributeName**     |  String | Mandatory<sup*</sup>Defines the name of the attribute that defines the query start time.        |
+|**endTimeAttributeName**     |  String | Mandatory<sup>*</sup>. Defines the name of the attribute that defines the query end time.      |
+|**queryTimeIntervalAttributeName**     | String. | Optional. Defines the name of the attribute that defines the query time interval. |
+|**queryTimeIntervalDelimiter**     |   String | Optional. Defines the query time interval delimiter. |
+|**queryWindowInMin**     |  String | Optional. Defines the available query window, in minutes. <br><br>Minimum value: `5` |
+|**queryParameters**     |  String | Optional. Defines the parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.  <br><br>Define the string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }       |
+|**queryParametersTemplate**     | String object | Optiona. Defines the query parameters template to use when passing query parameters in advanced scenarios. <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`      |
+|**isPostPayloadJson**     | Boolean | Optional. Determines whether the POST payload is in JSON format.  |
+|**rateLimitQPS**     |   <!--type tbd-->      |    Optional.  <!--description tbd--> |
+|**timeoutInSeconds**     |  Integer | Optional. Defines the request timeout, in seconds. |
+|**retryCount**     |   Integer | Optional. Defines the number of request retries to try if needed. |
+|**headers**     |  String | Optional. Defines the request header value, in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }         |
 |     |         |         |
 
 
@@ -446,12 +448,12 @@ The `request` section of the [pollingConfig](#polling-configuration) configurati
 
 The `response` section of the [pollingConfig](#polling-configuration) configuration includes the following parameters:
 
-|Name  |Description  |Options  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
-|  <a name="eventsjsonpaths"></a> **eventsJsonPaths**  |    Defines the path to the message in the response JSON. A JSON path expression specifies a path to an element (or a set of elements) in a JSON structure     |  Mandatory, list of strings       |
-| **successStatusJsonPath**    |  Defines the path to the success message in the response JSON       |   Optional, string      |
-|  **successStatusValue**   |  Defines the path to the success message value in the response JSON       |   Optional, string      |
-|  **isGzipCompressed**   |   Determines whether the response is compressed in a gzip file       |  Optional, boolean       |
+|  <a name="eventsjsonpaths"></a> **eventsJsonPaths**  |   List of strings | Mandatory.  Defines the path to the message in the response JSON. <br><br>A JSON path expression specifies a path to an element, or a set of elements, in a JSON structure |
+| **successStatusJsonPath**    |  String | Optional. Defines the path to the success message in the response JSON. |
+|  **successStatusValue**   | String | Optional. Defines the path to the success message value in the response JSON    |
+|  **isGzipCompressed**   |   Boolean | Optional. Determines whether the response is compressed in a gzip file.      |
 |     |         |         |
 
 The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) value for a top-level message:
@@ -467,26 +469,26 @@ The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) v
 
 The `paging` section of the [pollingConfig](#polling-configuration) configuration includes the following parameters:
 
-|Name  |Description  |Options  |
+|Name  |Type  |Description  |
 |---------|---------|---------|
-|  **pagingType**   | Determines the paging type to use in results        |    Mandatory, string. One of the following values: `None`, `LinkHeader`, `NextPageToken`, `NextPageUrl`, `Offset`     |
-| **linkHeaderTokenJsonPath**    |  Defines JSON path of link header in the response JSON if LinkHeader isn't defined in response header       |     Optional, string     |
-| **nextPageTokenJsonPath**    |  Defines the path to a next page token JSON       |   Optional, string       |
-| **hasNextFlagJsonPath**    |Defines the path to HasNextPage flag attribute |  Optional, string        |
-|  **nextPageTokenResponseHeader**   | Defines next page token header name in response        |   Optional, string       |
-| **nextPageParaName**    |   Determines next page name in the request   | Optional, string        |
-| **nextPageRequestHeader**    |   Determines next page header name in the request   | Optional, string        |
-| **nextPageUrl**    |   Determines next page URL if next page URL is different from the initial request URL   | Optional, string        |
-| **nextPageUrlQueryParameters**    |   Determines next page URL's query parameters if next page URL is different from the initial request URL   | Optional, string in the serialized `dictionary<string, object>` format: {'<attr_name>': <val>, '<attr_name>': <val>... }        |
-|  **offsetParaName**   |    Defines the name of the offset parameter     |   Optional, string      |
-|  **pageSizeParaName**   |    Defines the name of the page size parameter     |   Optional, string      |
-| **PageSize**    |     Defines the paging size    | Optional, integer        |
+|  **pagingType**   | String | Mandatory. Determines the paging type to use in results, as one of the following values: `None`, `LinkHeader`, `NextPageToken`, `NextPageUrl`, `Offset`     |
+| **linkHeaderTokenJsonPath**    |  String | Optional. Defines the JSON path to link header in the response JSON, if the `LinkHeader` isn't defined in the response header. |
+| **nextPageTokenJsonPath**    |  String | Optional. Defines the path to a next page token JSON. |
+| **hasNextFlagJsonPath**    |String | Optional. Defines the path to the `HasNextPage` flag attribute. |
+|  **nextPageTokenResponseHeader**   | String | Optional. Defines the *next page* token header name in the response. |
+| **nextPageParaName**    |  String | Optional.  Determines the *next page* name in the request. |
+| **nextPageRequestHeader**    |   String | Optional. Determines the *next page* header name in the request.   |
+| **nextPageUrl**    |   String | Optional. Determines the *next page* URL, if it's different from the initial request URL. |
+| **nextPageUrlQueryParameters**    |  String | Optional.  Determines the *next page* URL's query parameters if it's different from the initial request's URL. <br><br>Define the string in the serialized `dictionary<string, object>` format: {'<attr_name>': <val>, '<attr_name>': <val>... }        |
+|  **offsetParaName**   |    String | Optional. Defines the name of the offset parameter. |
+|  **pageSizeParaName**   |   String | Optional. Defines the name of the page size parameter. |
+| **PageSize**    |     Integer | Defines the paging size. |
 |     |         |         |
 
 
 ### Sample pollingConfig code
 
-The following code shows an example of the `pollingConfig` section of the CCP configuration file:
+The following code shows an example of the `pollingConfig` section of the [CCP configuration](#connector-configuration) file:
 
 ```rest
 "pollingConfig": {
@@ -527,7 +529,7 @@ The following code shows an example of the `pollingConfig` section of the CCP co
 
 You may want to create a JSON configuration file template, with placeholders parameters, to reuse across multiple connectors, or even to create a connector with data that you don't currently have.
 
-To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your JSON file, using the following syntax:
+To create placeholder parameters, define an additional array named `userRequestPlaceHoldersInput` in the [Instructions](#instructions) section of your [CCP JSON configuration](#connector-configuration) file, using the following syntax:
 
 ```json
 "instructions": [
@@ -551,10 +553,10 @@ The `userRequestPlaceHoldersInput` parameter includes the following attributes:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**DisplayText**     |  String       | The text box display value, which is displayed to the user when connecting.       |
-|**RequestObjectKey** |String | The ID used to identify where in the request section of the API call to replace the placeholder value with a user value. <br><br>If you don't use this attribute, use the `PollingKeyPaths` attribute instead. |
-|**PollingKeyPaths** |String |An array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead.  |
-|**PlaceHolderName** |String |The name of the placeholder parameter in the JSON template file. This can be any unique value, such as {{placeHolder}}. |
+|**DisplayText**     |  String       | Defines the text box display value, which is displayed to the user when connecting.       |
+|**RequestObjectKey** |String | Defines the ID used to identify where in the request section of the API call to replace the placeholder value with a user value. <br><br>If you don't use this attribute, use the `PollingKeyPaths` attribute instead. |
+|**PollingKeyPaths** |String |Defines an array of [JsonPath](https://www.npmjs.com/package/JSONPath) objects that directs the API call to anywhere in the template, to replace a placeholder value with a user value.<br><br>**Example**: `"pollingKeyPaths":["$.request.queryParameters.test1"]` <br><br>If you don't use this attribute, use the `RequestObjectKey` attribute instead.  |
+|**PlaceHolderName** |String |Defines the name of the placeholder parameter in the JSON template file. This can be any unique value, such as `{{placeHolder}}`. |
 | | |
 
 
@@ -570,11 +572,12 @@ After creating your [JSON configuration file](#connector-configuration), includi
 
     The advantage of deploying via an ARM template is that several values are built-in to the template, and you don't need to define them manually in an API call.
 
-    TBD on procedure
+    <!--TBD on procedure-->
 
     > [!TIP]
     > Make sure to either define the workspace for the ARM template to deploy, or select the workspace when you deploy the ARM template, to make sure that your data connector is deployed in the correct workspace.
     >
+
     # [API](#tab/api)
 
     1. Authenticate to the Azure API. For more information, see [Getting started with REST](/rest/api/azure/).
@@ -591,7 +594,7 @@ After creating your [JSON configuration file](#connector-configuration), includi
 
     In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
 
-    The data connector page in Microsoft Sentinel is controlled by the `instructionSteps` configuration in the `connectorUiConfig` element of the CCP JSON configuration file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
+    The data connector page in Microsoft Sentinel is controlled by the [InstructionStep](#instructionstep) configuration in the `connectorUiConfig` element of the [CCP JSON configuration](#connector-configuration) file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
 
     # [API](#tab/api)
 
