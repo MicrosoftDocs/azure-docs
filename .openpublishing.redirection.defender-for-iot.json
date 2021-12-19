@@ -544,7 +544,7 @@
             "source_path_from_root": "/articles/defender-for-iot/device-builders/concept-security-posture.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/overview",
             "redirect_document_id": false
-        }
+        },
         {
             "source_path_from_root": "/articles/defender-for-iot/device-builders/architecture-agent-based.md",
             "redirect_url": "/azure/defender-for-iot/device-builders/overview",
