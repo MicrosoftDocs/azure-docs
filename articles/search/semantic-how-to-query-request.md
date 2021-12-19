@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 12/17/2021
 ---
 
 # Create a query that invokes semantic ranking and returns semantic captions
@@ -97,7 +97,7 @@ You can only specify a single title field as part of your semantic configuration
 
 You're only required to specify one field between `titleField`, `prioritizedContentFields`, and `prioritizedKeywordsFields`, but it's best to add the fields to your semantic configuration if they exist in your search index.
 
-Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index). When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
+Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index) and can be updated at any time without rebuilding your index. When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
 
 ### [**REST API**](#tab/rest)
 
@@ -161,10 +161,10 @@ definition.SemanticSettings = semanticSettings;
 adminClient.CreateOrUpdateIndex(definition);
 ```
 
+---
+
 To see an example of creating a semantic configuration and using it to issue a semantic query, check out the
 [semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
-
----
 
 ### Allowed data types
 
