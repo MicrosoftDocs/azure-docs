@@ -38,6 +38,8 @@ Choose a client:
 >[!Note]
 >If you're sure that all backed-up items in the vault are no longer required and want to delete them at once without reviewing, [run this PowerShell script](/azure/backup/backup-azure-delete-vault?tabs=powershell#script-for-delete-vault). The script will delete all backup items recursively and eventually the entire vault.
 
+<br><br>
+
 > [!VIDEO https://www.microsoft.com/videoplayer/embed/RWQGC5]
 
 To delete a vault, follow these steps:
