@@ -590,7 +590,6 @@ After creating your [JSON configuration file](#connector-configuration), includi
 
     For more information, see [Deploy a local template](/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-powershell) in the Azure Resource Manager documentation.
 
-
     # [API](#tab/api)
 
     1. Authenticate to the Azure API. For more information, see [Getting started with REST](/rest/api/azure/).
