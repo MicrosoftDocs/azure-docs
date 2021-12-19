@@ -55,7 +55,7 @@ You can capture the data churn rate information and source data upload rate info
 1. Go to the Log Analytics workspace and click on **Advanced Settings**.
 2. Click on **Connected Sources** page and further select **Windows Servers**.
 3. Download the Windows Agent (64 bit) on the Process Server. 
-4. [Obtain the workspace ID and key](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key)
+4. [Obtain the workspace ID and key](../azure-monitor/agents/agent-windows.md#workspace-id-and-key)
 5. [Configure agent to use TLS 1.2](../azure-monitor/agents/agent-windows.md#configure-agent-to-use-tls-12)
 6. [Complete the agent installation](../azure-monitor/agents/agent-windows.md#install-agent-using-setup-wizard) by providing the obtained workspace ID and key.
 7. Once the installation is complete, go to Log Analytics workspace and click on **Advanced Settings**. Go to the **Data** page and further click on **Windows Performance Counters**. 
