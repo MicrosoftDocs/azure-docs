@@ -49,6 +49,6 @@ The deprecated Defender-IoT-micro-agent documentation will be moved to the *Agen
 
 This feature set is available with the current public preview cloud release.
 
-## Next stepsi
+## Next steps
 
 [Onboard to Defender for IoT](quickstart-onboard-iot-hub.md)
