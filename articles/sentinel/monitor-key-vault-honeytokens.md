@@ -315,9 +315,13 @@ An audit recommendation, with a link to the **SOCHTManagement** workbook, is add
 
 For more information, see the [Microsoft Defender for Cloud documentation](/azure/security-center/security-center-recommendations).
 
-## Next steps
+## Watch our video
 
-Watch our demo! See [Deploy and monitor Azure Key Vault honeytokens with Microsoft Sentinel](https://youtu.be/WEzteImYuDs)
+Watch our end-to-end demo video!
+
+> [!VIDEO https://www.microsoft.com/videoplayer/embed/RWPOxX]
+
+## Next steps
 
 For more information, see:
 
