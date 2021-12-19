@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 11/30/2021
+ms.date: 12/19/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -87,6 +87,8 @@ In the following tables, the term alphanumeric refers to:
 > | policyAssignments | scope of assignment | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policyDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
 > | policySetDefinitions | scope of definition | 1-128 display name<br><br>1-64 resource name<br><br>1-24 resource name at management group scope | Display name can contain any characters.<br><br>Resource name can't use:<br>`<>*%&:\?.+/` or control characters. <br><br>Can't end with period or space. |
+> | roleAssignments | resource, resource group, and subscription scoped assignments: subscription<br />management group-scoped  assignments: management group<br />tenant-scoped assignments: Azure AD tenant | 36 | Must be a globally unique identifier (GUID). |
+> | roleDefinitions | resource, resource group, and subscription scoped assignments: subscription<br />management group-scoped definitions: management group<br />tenant-scoped assignments: Azure AD tenant | 36 | Must be a globally unique identifier (GUID). |
 
 ## Microsoft.Automation
 
