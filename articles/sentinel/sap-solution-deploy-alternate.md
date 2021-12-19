@@ -44,7 +44,7 @@ spname=<sp-name>
 
 kvname=<keyvaultname>
 # Optional when Azure MI not enabled - Create sp user for AZ cli connection, save details for env.list file
-az ad sp create-for-rbac –name $spname 
+az ad sp create-for-rbac –name $spname --role Contributor
 
 SpID=$(az ad sp list –display-name $spname –query “[].appId” --output tsv
 
@@ -175,6 +175,8 @@ We recommend that you perform this procedure after you have a key vault ready wi
     # env.list template for Credentials
     SAPADMUSER=<SET_SAPCONTROL_USER>
     SAPADMPASSWORD=<SET_SAPCONTROL_PASS>
+    LOGWSID=<SET SENTINEL WORKSPACE id>
+    LOGWSPUBLICKEY=<SET SENTINEL WORKSPACE KEY>
     ABAPUSER=SET_ABAP_USER>
     ABAPPASS=<SET_ABAP_PASS>
     JAVAUSER=<SET_JAVA_OS_USER>

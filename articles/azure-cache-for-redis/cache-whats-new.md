@@ -18,9 +18,9 @@ ms.date: 10/11/2021
 Azure Cache for Redis 6.0 is now generally available. The new version includes:
 
 - Redis Streams, a new data type
-- performance enhancements
-- enhanced developer productivity
-- boosts security
+- Performance enhancements
+- Enhanced developer productivity
+- Boosts security
 
 You can now use an append-only data structure, Redis Streams, to ingest, manage, and make sense of data that is continuously being generated.
 

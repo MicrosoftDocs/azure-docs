@@ -3,7 +3,7 @@ title: Search backups of Azure NetApp Files volumes | Microsoft Docs
 description: Describes how to display and search backups of Azure NetApp Files volumes at the volume level and the NetApp account level. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Search backups of Azure NetApp Files volumes
 

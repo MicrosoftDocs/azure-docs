@@ -7,7 +7,7 @@ ms.subservice: scenario
 ms.topic: conceptual
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 01/25/2019
 ms.custom: seoapril2019, sqldbrb=1
 ---

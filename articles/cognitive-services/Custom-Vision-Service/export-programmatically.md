@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: conceptual
 ms.date: 06/28/2021
 ms.author: pafarley
+ms.devlang: python
 ---
 
 # Export a model programmatically

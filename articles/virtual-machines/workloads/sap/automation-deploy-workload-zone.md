@@ -80,7 +80,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
 
 Assign the correct permissions to the Service Principal: 
 
-```azurecli-interactive
+```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
 ```
 
@@ -95,16 +95,26 @@ Running the command below will deploy the SAP Workload Zone.
 > [!TIP]
 > Perform this task from the deployer.
 
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+```bash
+cd ~/Azure_SAP_Automated_Deployment
+
+cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+
+```
+
+
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
-subscriptionID=<subscriptionID>
-appId=<appID>
-spn_secret=<password>
-tenant_id=<tenant>
-keyvault=<keyvaultName>
-storageaccount=<storageaccountName>
-statefile_subscription=<statefile_subscription>
+export subscriptionID=<subscriptionID>
+export appId=<appID>
+export spn_secret=<password>
+export tenant_id=<tenant>
+export keyvault=<keyvaultName>
+export storageaccount=<storageaccountName>
+export statefile_subscription=<statefile_subscription>
 
 ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars   \
@@ -112,10 +122,21 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
         --state_subscription $statefile_subscription           \
         --subscription $subscriptionID                         \
         --spn_id $appID                                        \
-        --spn_secret "$spn_secret"                             \
+        --spn_secret $spn_secret                               \
         --tenant_id $tenant_id
 ```
 # [Windows](#tab/windows)
+
+You can copy the sample configuration files to start testing the deployment automation framework.
+
+```powershell
+
+cd C:\Azure_SAP_Automated_Deployment
+
+xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+
+```
+
 
 ```powershell
 $subscription="<subscriptionID>"
@@ -128,7 +149,7 @@ $statefile_subscription=<statefile_subscription>
 
 cd C:\Azure_SAP_Automated_Deployment\WORKSPACES\LANDSCAPE\DEV-WEEU-SAP01-INFRASTRUCTURE
 
-New-SAPWorkloadZone -Parameterfile .DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
+New-SAPWorkloadZone -Parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars 
 -Subscription $subscription -SPN_id $appId -SPN_password $spn_secret -Tenant_id $tenant_id
 -State_subscription $statefile_subscription -Vault $keyvault -$StorageAccountName $storageaccount
 ```
@@ -138,8 +159,8 @@ New-SAPWorkloadZone -Parameterfile .DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
 > Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
-> Replace `<keyvaultName>` with the deployer key vault name
-> Replace `<storageaccountName>` with the name of the storage account containing the Terraform state files
+> Replace `<keyvault>` with the deployer key vault name
+> Replace `<storageaccount>` with the name of the storage account containing the Terraform state files
 > Replace `<statefile_subscription>` with the subscription ID for the storage account containing the Terraform state files
 
 ## Next step

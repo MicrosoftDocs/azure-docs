@@ -1,15 +1,8 @@
 ---
 title: Visualize your data using Azure Monitor Workbooks in Microsoft Sentinel | Microsoft Docs
 description: Learn how to visualize your data using workbooks in Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

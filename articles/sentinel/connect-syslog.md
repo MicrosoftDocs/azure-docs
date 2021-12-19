@@ -1,15 +1,8 @@
 ---
 title: Connect Syslog data to Microsoft Sentinel | Microsoft Docs
 description: Connect any machine or appliance that supports Syslog to Microsoft Sentinel by using an agent on a Linux machine between the appliance and Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

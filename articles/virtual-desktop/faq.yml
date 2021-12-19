@@ -5,7 +5,7 @@ metadata:
   author: Heidilohr
   ms.topic: conceptual
   ms.service: virtual-desktop
-  ms.date: 03/09/2021
+  ms.date: 12/17/2021
   ms.author: helohr 
   ms.custom: devx-track-azurepowershell
   manager: femila
@@ -171,4 +171,13 @@ sections:
           | Availability set (newly created by user) | Gallery | 
           | Availability set (newly created by user) | Blob storage |
           
-          
+      - question: |
+         Should I use Windows Defender Application Control or AppLocker to control which applications and drivers are allowed to run on my Windows 10 devices?
+        answer: |
+          We recommend you use Windows Defender Application Control instead of AppLocker. 
+
+      - question: |
+         When I'm testing migration, can I have the two different Windows Virtual Desktop environments exist in the same tenant?
+        answer: |
+          Yes. You can have both deployments within the same Azure Active Directory tenant.
+

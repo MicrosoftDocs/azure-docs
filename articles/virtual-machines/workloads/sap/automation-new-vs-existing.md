@@ -46,21 +46,21 @@ In this scenario, the automation framework creates all Azure components, and use
 
 To test this scenario: 
 
-Clone the [SAP deployment automation framework](https://github.com/Azure/sap-hana/) repository and copy the sample files to your root folder for parameter files:
+Clone the [SAP deployment automation framework](https://github.com/Azure/sap-automation/) repository and copy the sample files to your root folder for parameter files:
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 mkdir -p WORKSPACES/DEPLOYER
-cp sap-hana/deploy/samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE WORKSPACES/DEPLOYER/. -r
+cp sap-automation/samples/WORKSPACES/DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE WORKSPACES/DEPLOYER/. -r
 
 mkdir -p WORKSPACES/LIBRARY
-cp sap-hana/deploy/samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY WORKSPACES/LIBRARY/. -r
+cp sap-automation/samples/WORKSPACES/LIBRARY/MGMT-WEEU-SAP_LIBRARY WORKSPACES/LIBRARY/. -r
 
 mkdir -p WORKSPACES/LANDSCAPE
-cp sap-hana/deploy/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE WORKSPACES/LANDSCAPE/. -r
+cp sap-automation/samples/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE WORKSPACES/LANDSCAPE/. -r
 
 mkdir -p WORKSPACES/SYSTEM
-cp sap-hana/deploy/samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00 WORKSPACES/SYSTEM/. -r
+cp sap-automation/samples/WORKSPACES/SYSTEM/DEV-WEEU-SAP01-X00 WORKSPACES/SYSTEM/. -r
 cd WORKSPACES
 ```
     
@@ -74,7 +74,7 @@ appId=<appID>
 spn_secret=<password>
 tenant_id=<tenant>
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana/"
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation/"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
 $DEPLOYMENT_REPO_PATH/scripts/prepare_region.sh
@@ -196,16 +196,16 @@ Copy the sample files to your root folder for parameter files:
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 mkdir -p WORKSPACES/DEPLOYER
-cp sap-hana/deploy/samples/WORKSPACES/DEPLOYER/MGMT-EUS2-DEP01-INFRASTRUCTURE WORKSPACES/DEPLOYER/. -r
+cp sap-automation/samples/WORKSPACES/DEPLOYER/MGMT-EUS2-DEP01-INFRASTRUCTURE WORKSPACES/DEPLOYER/. -r
     
 mkdir -p WORKSPACES/LIBRARY
-cp sap-hana/deploy/samples/WORKSPACES/LIBRARY/MGMT-EUS2-SAP_LIBRARY WORKSPACES/LIBRARY/. -r
+cp sap-automation/samples/WORKSPACES/LIBRARY/MGMT-EUS2-SAP_LIBRARY WORKSPACES/LIBRARY/. -r
     
 mkdir -p WORKSPACES/LANDSCAPE
-cp sap-hana/deploy/samples/WORKSPACES/LANDSCAPE/QA-EUS2-SAP03-INFRASTRUCTURE WORKSPACES/LANDSCAPE/. -r
+cp sap-automation/samples/WORKSPACES/LANDSCAPE/QA-EUS2-SAP03-INFRASTRUCTURE WORKSPACES/LANDSCAPE/. -r
     
 mkdir -p WORKSPACES/SYSTEM
-cp sap-hana/deploy/samples/WORKSPACES/SYSTEM/QA-EUS2-SAP03-X01 WORKSPACES/SYSTEM/. -r
+cp sap-automation/samples/WORKSPACES/SYSTEM/QA-EUS2-SAP03-X01 WORKSPACES/SYSTEM/. -r
 cd WORKSPACES
 ```
 
@@ -221,7 +221,7 @@ appId=<appID>
 spn_secret=<password>
 tenant_id=<tenant>
 
-export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-hana/"
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation/"
 export ARM_SUBSCRIPTION_ID="${subscriptionID}"
 
 $DEPLOYMENT_REPO_PATH/scripts/prepare_region.sh

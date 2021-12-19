@@ -6,7 +6,7 @@ ms.service: storage
 ms.topic: how-to
 ms.author: jukullam
 ms.reviewer: dineshm
-ms.date: 09/17/2021
+ms.date: 11/19/2021
 ms.subservice: blobs
 ms.custom: devx-track-javascript, github-actions-azure, devx-track-azurecli
 
@@ -87,7 +87,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
     on:
         push:
-            branches: [ master ]
+            branches: [ main ]
     ```
 
 1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
@@ -97,7 +97,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
     on:
         push:
-            branches: [ master ]
+            branches: [ main ]
 
     jobs:
       build:
@@ -115,13 +115,11 @@ In the example above, replace the placeholders with your subscription ID and res
         - name: Upload to blob storage
           uses: azure/CLI@v1
           with:
-            azcliversion: 2.0.72
             inlineScript: |
                 az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME>  --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
-            azcliversion: 2.0.72
             inlineScript: |
                az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
     ```
@@ -133,7 +131,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
     on:
         push:
-            branches: [ master ]
+            branches: [ main ]
 
     jobs:
       build:
@@ -147,13 +145,11 @@ In the example above, replace the placeholders with your subscription ID and res
         - name: Upload to blob storage
           uses: azure/CLI@v1
           with:
-            azcliversion: 2.0.72
             inlineScript: |
                 az storage blob upload-batch --account-name <STORAGE_ACCOUNT_NAME> --auth-mode key -d '$web' -s .
         - name: Purge CDN endpoint
           uses: azure/CLI@v1
           with:
-            azcliversion: 2.0.72
             inlineScript: |
                az cdn endpoint purge --content-paths  "/*" --profile-name "CDN_PROFILE_NAME" --name "CDN_ENDPOINT" --resource-group "RESOURCE_GROUP"
 

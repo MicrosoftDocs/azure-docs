@@ -10,10 +10,10 @@ ms.topic: conceptual
 ---
 # SAP deployment automation framework on Azure
 
-The [SAP deployment automation framework on Azure](https://github.com/Azure/sap-hana) is an open-source orchestration tool for
+The [SAP deployment automation framework on Azure](https://github.com/Azure/sap-automation) is an open-source orchestration tool for
 deploying, installing and maintaining SAP environments. You can create infrastructure for SAP landscapes based on SAP HANA and NetWeaver with AnyDB on any of the SAP-supported operating system versions and deploy them into any Azure region.
 
-The [automation framework](https://github.com/Azure/sap-hana) has two main components:
+The [automation framework](https://github.com/Azure/sap-automation) has two main components:
 -	Deployment infrastructure (control plane) 
 -	SAP Infrastructure (SAP Workload)
 
@@ -25,7 +25,11 @@ The following diagram shows the key components of the control plane and workload
 
 :::image type="content" source="./media/automation-deployment-framework/automation-diagram-full.png" alt-text="Diagram showing the SAP deployment automation framework environment.":::
 
-The framework uses [Terraform](https://www.terraform.io/) for infrastructure deployment, and [Ansible](https://www.ansible.com/) for the operating system and application configuration.
+The framework uses [Terraform](https://www.terraform.io/) for infrastructure deployment, and [Ansible](https://www.ansible.com/) for the operating system and application configuration. 
+
+Hashicorp [Terraform](https://www.terraform.io/) is an open-source tool for provisioning and managing cloud infrastructure. It codifies infrastructure in configuration files that describe the topology of cloud resources. 
+
+[Ansible](https://www.ansible.com/) is an open-source platform by Red Hat that automates cloud provisioning, configuration management, and application deployments. Using Ansible, you can automate deployment and configuration of resources in your environment.
 
 > [!NOTE]
 > This automation framework is based on Microsoft best practices and principles for SAP on Azure. Review the [get-started guide for SAP on Azure virtual machines (Azure VMs)](get-started.md) to understand how to use certified virtual machines and storage solutions for stability, reliability, and performance.
@@ -64,8 +68,11 @@ The key components of the control plane are:
 - Deployment virtual machine 
 - Storage account for Terraform state files
 - Storage account for SAP installation media
-- Keyvault for deployment credentials
+- Azure Key Vault for deployment credentials
 
+### Deployer Virtual Machine
+
+This virtual machine is used to run the orchestration scripts that will deploy the Azure resources using Terraform. It is also the Ansible Controller and is used to execute the Ansible playbooks on all the managed nodes, i.e the virtual machines of an SAP deployment.
 
 ## About the SAP Workload
 

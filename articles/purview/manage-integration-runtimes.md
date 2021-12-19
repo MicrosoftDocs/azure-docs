@@ -153,6 +153,8 @@ Here are the domains and ports that will need to be allowed through corporate an
 | `*.frontend.clouddatahub.net` | 443            | Global infrastructure Purview uses to run its scans. Wildcard required as there is no dedicated resource. |
 | `<managed Purview storage account>.core.windows.net`          | 443            | Used by the self-hosted integration runtime to connect to the managed Azure storage account.|
 | `<managed Purview storage account>.queue.core.windows.net` | 443            | Queues used by purview to run the scan process. |
+| `*.login.windows.net`          | 443            | Sign in to Azure Active Directory.|
+| `*.login.microsoftonline.com` | 443            | Sign in to Azure Active Directory. |
 | `download.microsoft.com` | 443           | Optional for SHIR updates. |
 
 Based on your sources, you may also need to allow the domains of other Azure or external sources. A few examples are provided below, as well as the Azure Key Vault domain, if you are connecting to any credentials stored in the Key Vault.

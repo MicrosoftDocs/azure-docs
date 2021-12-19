@@ -6,8 +6,8 @@ ms.suite: integration
 ms.reviewer: estfan, reylons, archidda, sopai, azla
 ms.topic: how-to
 ms.date: 11/02/2021
-## Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ms.custom: ignite-fall-2021
+#Customer intent: As a developer, I want to learn how to create and deploy automated Logic Apps workflows that can run anywhere that Kubernetes can run.
 ---
 
 # Create and deploy single-tenant based logic app workflows with Azure Arc-enabled Logic Apps (Preview)

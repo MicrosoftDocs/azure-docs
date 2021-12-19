@@ -1,14 +1,7 @@
 ---
 title: Commonly used Microsoft Sentinel workbooks | Microsoft Docs
 description: Learn about the most commonly used workbooks to use popular, out-of-the-box Microsoft Sentinel resources.
-services: sentinel
-cloud: na
-documentationcenter: na
 author: batamig
-manager: rkarlin
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: reference
 ms.date: 11/09/2021
 ms.author: bagol

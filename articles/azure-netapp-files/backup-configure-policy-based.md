@@ -3,7 +3,7 @@ title: Configure policy-based backups for Azure NetApp Files | Microsoft Docs
 description: Describes how to configure policy-based (scheduled) backups for Azure NetApp Files volumes. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 10/13/2021
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Configure policy-based backups for Azure NetApp Files 
 

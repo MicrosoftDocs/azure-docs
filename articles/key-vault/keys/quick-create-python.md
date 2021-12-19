@@ -7,8 +7,8 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: keys
 ms.topic: quickstart
-ms.custom: devx-track-python, devx-track-azurecli
-
+ms.devlang: python
+ms.custom: devx-track-python, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Azure Key Vault keys client library for Python
