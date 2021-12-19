@@ -572,11 +572,24 @@ After creating your [JSON configuration file](#connector-configuration), includi
 
     The advantage of deploying via an ARM template is that several values are built-in to the template, and you don't need to define them manually in an API call.
 
-    <!--TBD on procedure-->
+    1. Prepare your ARM templates using the following examples: <!--links TBD-->
 
-    > [!TIP]
-    > Make sure to either define the workspace for the ARM template to deploy, or select the workspace when you deploy the ARM template, to make sure that your data connector is deployed in the correct workspace.
-    >
+        > [!TIP]
+        > Make sure to either define the workspace for the ARM template to deploy, or select the workspace when you deploy the ARM template, to make sure that your data connector is deployed in the correct workspace.
+        >
+
+    1. In the Azure portal, search for **Deploy a custom template**.
+
+    1. On the **Custom deployment** page, select **Build your own template in the editor** > **Load file**. Browse to and select your local ARM template, and then save your changes.
+
+    1. Select your subscription and resource group, and then enter the Log Analytics workspace where you want to deploy your custom connector.
+
+    1. Select **Review + create** to deploy your custom connector to Microsoft Sentinel.
+
+    1. In Microsoft Sentinel, go to the **Data connectors** page, search for your new connector. Configure it to start ingesting data.
+
+    For more information, see [Deploy a local template](/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-powershell) in the Azure Resource Manager documentation.
+
 
     # [API](#tab/api)
 
