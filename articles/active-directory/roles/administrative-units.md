@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.topic: overview
 ms.subservice: roles
 ms.workload: identity
-ms.date: 11/17/2021
+ms.date: 12/20/2021
 ms.author: rolyon
 ms.reviewer: anandy
 ms.custom: oldportal;it-pro;
