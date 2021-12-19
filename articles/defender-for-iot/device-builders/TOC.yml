@@ -1,7 +1,7 @@
 - name: Microsoft Defender for IoT for device builders
   href: index.yml
   items:
-- name: overview
+- name: Overview
   expanded: true
   items: 
   - name: What is Defender for IoT for device builders?
