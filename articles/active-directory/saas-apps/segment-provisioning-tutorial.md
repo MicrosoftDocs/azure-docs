@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 2. Configure Segment to support provisioning with Azure AD
 
-1. The Tenant URL is `http://scim.segmentapis.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Segment application in the Azure portal.
+1. The Tenant URL is `https://scim.segmentapis.com/scim/v2`. This value will be entered in the **Tenant URL** field in the Provisioning tab of your Segment application in the Azure portal.
 
 2. Login to [Segment](https://www.segment.com/) app.
 

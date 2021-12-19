@@ -7,7 +7,7 @@ ms.date: 06/22/2021
 ms.service: storage
 ms.subservice: files
 ms.topic: quickstart
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Develop for Azure Files with C++
@@ -180,4 +180,4 @@ In this quickstart, you learned how to upload, download, and list files using C+
 To see a C++ Blob Storage sample, continue to:
 
 > [!div class="nextstepaction"]
-> [Azure Storage Files Share SDK v12 for C++ samples](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-files-shares/sample)
+> [Azure Storage Files Share SDK v12 for C++ samples](https://github.com/Azure/azure-sdk-for-cpp/tree/main/sdk/storage/azure-storage-files-shares/samples)

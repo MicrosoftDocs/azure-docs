@@ -43,7 +43,7 @@
   - name: Container Registry events
     href: ../container-registry/container-registry-event-grid-quickstart.md?toc=%2fazure%2fevent-grid%2ftoc.json
   - name: Handle Azure Communication Services events
-    href: ../communication-services/quickstarts/telephony-sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json  
+    href: ../communication-services/quickstarts/sms/handle-sms-events.md?toc=%2fazure%2fevent-grid%2ftoc.json  
   - name: Azure Cache for Redis events 
     href: ../azure-cache-for-redis/cache-event-grid-quickstart-portal.md?toc=%2fazure%2fevent-grid%2ftoc.json
 - name: Tutorials
@@ -128,6 +128,8 @@
         href: event-schema-app-service.md
       - name: Azure Blob Storage
         href: event-schema-blob-storage.md
+      - name: Azure Cache for Redis
+        href: event-schema-azure-cache.md
       - name: Azure Communication Services
         items:
         - name: Overview
@@ -150,6 +152,8 @@
         href: event-schema-iot-hub.md
       - name: Azure Key Vault
         href: event-schema-key-vault.md
+      - name: Azure Kubernetes Service
+        href: event-schema-aks.md
       - name: Azure Machine Learning
         href: event-schema-machine-learning.md
       - name: Azure Maps
@@ -166,10 +170,6 @@
         href: event-schema-azure-signalr.md
       - name: Azure subscriptions
         href: event-schema-subscriptions.md
-      - name: Azure Cache for Redis
-        href: event-schema-azure-cache.md
-      - name: Azure Kubernetes Service (Preview)
-        href: event-schema-aks.md
   - name: Partner Events
     items:
     - name: Overview of Partner Events

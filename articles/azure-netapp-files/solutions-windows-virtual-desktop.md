@@ -3,7 +3,7 @@ title: Using Azure Virtual Desktop with Azure NetApp Files | Microsoft Docs
 description: Provides best practice guidance and sample blueprints on deploying Azure Virtual Desktop with Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/13/2020
-ms.author: b-juche
+ms.author: b-hchen
 ---
 # Benefits of using Azure NetApp Files with Azure Virtual Desktop 
 

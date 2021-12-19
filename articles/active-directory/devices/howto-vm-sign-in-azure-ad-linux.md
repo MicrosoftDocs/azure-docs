@@ -103,7 +103,7 @@ Ensure your client meets the following requirements:
 - TCP connectivity from the client to either the public or private IP of the VM (ProxyCommand or SSH forwarding to a machine with connectivity also works).
 
 > [!IMPORTANT]
-> SSH clients based on PuTTy do not support openSSH certificates and cannot be used to login with Azure AD openSSH certiicate-based authentication.
+> SSH clients based on PuTTy do not support openSSH certificates and cannot be used to login with Azure AD openSSH certificate-based authentication.
 
 ## Enabling Azure AD login in for Linux VM in Azure
 
@@ -209,7 +209,7 @@ The following example uses [az role assignment create](/cli/azure/role/assignmen
 
 ```azurecli-interactive
 username=$(az account show --query user.name --output tsv)
-vm=$(az vm show --resource-group AzureADLinuxVMPreview --name myVM --query id -o tsv)
+vm=$(az vm show --resource-group AzureADLinuxVM --name myVM --query id -o tsv)
 
 az role assignment create \
     --role "Virtual Machine Administrator Login" \
@@ -341,7 +341,7 @@ Virtual machine scale sets are supported, but the steps are slightly different f
 1. Create a virtual machine scale set or choose one that already exists. Enable a system assigned managed identity for your virtual machine scale set.
 
 ```azurecli
-az vmss identity assign --vmss-name myVMSS --resource-group AzureADLinuxVM
+az vmss identity assign --name myVMSS --resource-group AzureADLinuxVM
 ```
 
 2. Install the Azure AD extension on your virtual machine scale set.
