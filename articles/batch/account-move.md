@@ -17,7 +17,7 @@ For more information on Resource Manager and templates, see [Quickstart: Create 
 ## Prerequisites
 
 - Make sure that the services and features that your Batch account uses are supported in the new target region.
-- It's recommended to move the storage account associated with your Batch account to the new target region. Following the steps in [Move an Azure Storage account to another region](../storage/common/storage-account-move.md). If you prefer, you can leave the storage account in the original region. Typically, performance is better when your storage account is in the same region as your Batch account. This article assumes you've already migrated your storage account.
+- It's recommended to move the storage account associated with your Batch account to the new target region. Follow the steps in [Move an Azure Storage account to another region](../storage/common/storage-account-move.md). If you prefer, you can leave the storage account in the original region. Typically, performance is better when your storage account is in the same region as your Batch account. This article assumes you've already migrated your storage account.
 
 ## Prepare the template
 
@@ -118,7 +118,7 @@ Some features won't export to a template, so you'll have to recreate them in the
 - Certificates
 - Application packages
 
-Be sure to configure  features as needed in the new account as needed. You can look at how you've configured these features in your source Batch account for reference.
+Be sure to configure features in the new account as needed. You can look at how you've configured these features in your source Batch account for reference.
 
 ## Discard or clean up
 
