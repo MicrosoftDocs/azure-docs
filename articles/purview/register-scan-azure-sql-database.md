@@ -75,34 +75,16 @@ It's important to register the data source in Azure Purview before setting up a 
 To scan your data source, you'll need to configure an authentication method in the Azure SQL Database.
 The following options are supported:
 
-* **SQL Authentication**
+* [**SQL Authentication**](#using-sql-authentication-for-scanning)
 
-* **System-assigned managed identity** - As soon as the Azure Purview account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant, and has the same name as your Azure Purview account. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to be able to scan.
+* [**System-assigned managed identity**](#using-a-system-or-user-assigned-managed-identity-for-scanning) - As soon as the Azure Purview account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant, and has the same name as your Azure Purview account. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to be able to scan.
 
-* **User-assigned managed identity** (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. Depending on the type of resource, specific RBAC role assignments are required when using a UAMI credential to run scans.
+* [**User-assigned managed identity**](#using-a-system-or-user-assigned-managed-identity-for-scanning) (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. Depending on the type of resource, specific RBAC role assignments are required when using a UAMI credential to run scans.
 
-* **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
+* [**Service Principal**](#using-service-principal-for-scanning) - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
 >[!IMPORTANT]
 > If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
-
-##### Configure Azure AD authentication in the database account
-
-The service principal or managed identity needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
-
-- [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
-- Create Azure AD user in Azure SQL Database with the exact Purview's managed identity or your own service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
-
-    ```sql
-    CREATE USER [Username] FROM EXTERNAL PROVIDER
-    GO
-    
-    EXEC sp_addrolemember 'db_datareader', [Username]
-    GO
-    ```
-
-    > [!Note]
-    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
 
 #### Using SQL Authentication for scanning
 
@@ -138,6 +120,26 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 >[!IMPORTANT]
 > If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
 
+##### Configure Azure AD authentication in the database account
+
+The managed identity needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
+
+- If you haven't already, [configure Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Create Azure AD user in Azure SQL Database with the exact Purview's managed identity by following tutorial on [create the user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+
+    ```sql
+    CREATE USER [Username] FROM EXTERNAL PROVIDER
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [Username]
+    GO
+    ```
+
+    > [!Note]
+    > The `Username` is your Purview's managed identity name. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
+
+##### Configure Portal Authentication
+
 It is important to give your Purview account's system-managed identity or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the Azure SQL DB. You can add the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on the breadth of the scan.
 
 > [!Note] 
@@ -164,6 +166,24 @@ Copy the **Application (client) ID** present in the **Overview** of the [_Servic
 :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-appln-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
 
 ##### Granting the Service Principal access to your Azure SQL Database
+
+The service principal needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
+
+- If you haven't already, [configure Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Create Azure AD user in Azure SQL Database with your service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+
+    ```sql
+    CREATE USER [Username] FROM EXTERNAL PROVIDER
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [Username]
+    GO
+    ```
+
+    > [!Note]
+    > The `Username` is your own service principal's name. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
+
+##### Create the credential
 
 1. Navigate to your key vault in the Azure portal
 
