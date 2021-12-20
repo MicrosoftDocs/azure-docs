@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 11/29/2021
+ms.date: 12/20/2021
 ms.author: alkohli
 ---
 # Use the Azure portal to manage your Azure Edge Hardware Center orders
@@ -32,6 +32,8 @@ Follow these steps in the Azure portal to track the order you created using the 
 2. In the selected order resource, go to **Overview**. In the right pane, you can view the status of the order. For example, here the order was delivered to the customer.
 
     ![View order status for the created Edge Hardware Center order](media/azure-edge-hardware-center-manage-order/track-order-status-1.png)
+
+    You can see the tracking information for your order after the hardware is shipped. 
 
 ## Cancel order
 
