@@ -109,6 +109,6 @@ Change analysis for app changes can be accessed through tile shortcuts, **Applic
 
 Post your questions or feedback at [UserVoice](https://feedback.azure.com/d365community/forum/b09330d1-c625-ec11-b6e6-000d3a4f0f1c​​​​​​​​​​​​​​) by adding "[Diag]" in the title.
 
-# More resources
+## More resources
 
 [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
