@@ -1,4 +1,3 @@
-
 ---
 title: Configure F5 BIG-IP Easy Button for Kerberos SSO
 description: Learn to implement Secure Hybrid Access (SHA) with Single Sign-on to Kerberos applications using F5’s BIG-IP Easy Button guided configuration..
@@ -54,22 +53,14 @@ Secure hybrid access for this scenario supports both SP and IdP initiated flows.
 
 ![Scenario architecture](./media/f5-big-ip-kerberos-easy-button/scenario-architecture.png)
 
-| Steps| Description |
-
+| Steps| Description|
 | -------- |-------|
-
 | 1| User connects to application endpoint (BIG-IP) |
-
 | 2| BIG-IP access policy redirects user to Azure AD (SAML IdP) |
-
 | 3| Azure AD pre-authenticates user and applies any enforced CA policies |
-
 | 4| User is redirected to BIG-IP (SAML SP) and SSO is performed using issued SAML token |
-
 | 5| BIG-IP requests Kerberos ticket from KDC |
-
 | 6| BIG-IP sends request to backend application, along with Kerberos ticket for SSO |
-
 | 7| Application authorizes request and returns payload |
 
 ## Prerequisites
@@ -77,25 +68,25 @@ Prior BIG-IP experience isn’t necessary, but you will need:
 
 * An Azure AD free subscription or above
 
-*An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide.md)
+* An existing BIG-IP or [deploy a BIG-IP Virtual Edition (VE) in Azure](./f5-bigip-deployment-guide.md)
 
-*Any of the following F5 BIG-IP license offers
+* Any of the following F5 BIG-IP license offers
 
-    *F5 BIG-IP® Best bundle
+    * F5 BIG-IP® Best bundle
 
-    *F5 BIG-IP APM standalone license
+    * F5 BIG-IP APM standalone license
 
-    *F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
+    * F5 BIG-IP APM add-on license on an existing BIG-IP F5 BIG-IP® Local Traffic Manager™ (LTM)
 
-    *90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
+    * 90-day BIG-IP full feature [trial license](https://www.f5.com/trial/big-ip-trial.php).
 
-*User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created directly within Azure AD and flowed back to your on-premises directory
+* User identities [synchronized](../hybrid/how-to-connect-sync-whatis.md) from an on-premises directory to Azure AD, or created directly within Azure AD and flowed back to your on-premises directory
 
-*An account with Azure AD Application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
+* An account with Azure AD Application admin [permissions](/azure/active-directory/users-groups-roles/directory-assign-admin-roles#application-administrator)
 
-*Web server [certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS or use default BIG-IP certs while testing
+* Web server [certificate](./f5-bigip-deployment-guide.md) for publishing services over HTTPS or use default BIG-IP certs while testing
 
-*An existing Kerberos application or [setup an IIS (Internet Information Services) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO
+* An existing Kerberos application or [setup an IIS (Internet Information Services) app](https://active-directory-wp.com/docs/Networking/Single_Sign_On/SSO_with_IIS_on_Windows.html) for KCD SSO
 
 ## BIG-IP deployment methods
 
@@ -112,75 +103,75 @@ The advanced approach provides a more flexible way of implementing SHA by manual
 
 Before a client or service can access Microsoft Graph, it must be trusted by the Microsoft identity platform. Registering with Azure AD establishes a trust relationship between your application and the IdP. BIG-IP must also be registered as a client in Azure AD, before the Easy Button wizard is trusted to access Microsoft Graph.
 
-1.Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights
+1. Sign-in to the [Azure AD portal](https://portal.azure.com/) using an account with Application Administrative rights
 
-2.From the left navigation pane, select the **Azure Active Directory** service
+2. From the left navigation pane, select the **Azure Active Directory** service
 
-3.Under Manage, select **App registrations > New registration**
+3. Under Manage, select **App registrations > New registration**
 
-4.Enter a display name for your application. For example, *F5 BIG-IP Easy Button*
+4. Enter a display name for your application. For example, *F5 BIG-IP Easy Button*
 
-5.Specify who can use the application > **Accounts in this organizational directory only**
+5. Specify who can use the application > **Accounts in this organizational directory only**
 
-6.Select **Register** to complete the initial app registration
+6. Select **Register** to complete the initial app registration
 
-7.Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
+7. Navigate to **API permissions** and authorize the following Microsoft Graph permissions:
 
-  * Application.Read.All
+   * Application.Read.All
 
-  * Application.ReadWrite.All
+   * Application.ReadWrite.All
 
-  * Application.ReadWrite.OwnedBy
+   * Application.ReadWrite.OwnedBy
 
-  * Directory.Read.All
+   * Directory.Read.All
 
-  * Group.Read.All
+   * Group.Read.All
 
-  * IdentityRiskyUser.Read.All
+   * IdentityRiskyUser.Read.All
 
-  * Policy.Read.All
+   * Policy.Read.All
 
-  * Policy.ReadWrite.ApplicationConfiguration
+   * Policy.ReadWrite.ApplicationConfiguration
 
-  * Policy.ReadWrite.ConditionalAccess
+   * Policy.ReadWrite.ConditionalAccess
 
-  * User.Read.All
+   * User.Read.All
 
 8. Grant admin consent for your organization
 
 9. In the **Certificates & Secrets** blade, generate a new **client secret** and note it down
 
-10.From the **Overview** blade, note the **Client ID** and **Tenant ID**
+10. From the **Overview** blade, note the **Client ID** and **Tenant ID**
 
 ## Configure Easy Button
 
 Next, step through the Easy Button configurations, and complete the trust to start publishing the internal application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for SHA enabled services.
 
-1.From a browser, sign-in to the **F5 BIG-IP management console**
+1. From a browser, sign-in to the **F5 BIG-IP management console**
 
-2.Navigate to **System > Certificate Management > Traffic Certificate Management SSL Certificate List > Import**
+2. Navigate to **System > Certificate Management > Traffic Certificate Management SSL Certificate List > Import**
 
-3.Select **PKCS 12 (IIS)** and import your certificate along with its private key
+3. Select **PKCS 12 (IIS)** and import your certificate along with its private key
 
-Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
+   Once provisioned, the certificate can be used for every application published through Easy Button. You can also choose to upload a separate certificate for individual applications.
 
-![Screenshot for Configure Easy Button- Import SSL certificates and keys](/./media/f5-big-ip-kerberos-easy-button/config-easy-button.png)
+   ![Screenshot for Configure Easy Button- Import SSL certificates and keys](./media/f5-big-ip-kerberos-easy-button/config-easy-button.png)
 
-4.Navigate to **Access > Guided Configuration > Microsoft Integration and select Azure AD Application**
+4. Navigate to **Access > Guided Configuration > Microsoft Integration and select Azure AD Application**
 
-You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
+   You can now access the Easy Button functionality that provides quick configuration steps to set up the APM as a SAML Service Provider (SP) and Azure AD as an Identity Provider (IdP) for your application.
 
-![Screenshot for Configure Easy Button- Install the template](/./media/f5-big-ip-kerberos-easy-button/easy-button-template.PNG)
+   ![Screenshot for Configure Easy Button- Install the template](./media/f5-big-ip-kerberos-easy-button/easy-button-template.png)
 
-5.Review the list of configuration steps and select **Next**
+5. Review the list of configuration steps and select **Next**
 
-![Screenshot for Configure Easy Button - List configuration steps](/./media/f5-big-ip-kerberos-easy-button/config-steps.png)
+   ![Screenshot for Configure Easy Button - List configuration steps](./media/f5-big-ip-kerberos-easy-button/config-steps.png)
 
 ## Configuration steps
 
 The **Easy Button** template will display the sequence of steps required to publish your application.
 
-![Configuration steps flow](/./media/f5-big-ip-kerberos-easy-button/config-steps-flow.png)
+![Configuration steps flow](./media/f5-big-ip-kerberos-easy-button/config-steps-flow.png)
 
 ### Configuration Properties
 
@@ -188,13 +179,13 @@ These are general and service account properties. Consider this section to be th
 
 Some of these are global settings so can be re-used for publishing more applications, further reducing deployment time and effort.
 
-1.Enter **Configuration Name.** A unique name that enables an admin to easily distinguish between Easy Button configurations for published applications
+1. Enter **Configuration Name.** A unique name that enables an admin to easily distinguish between Easy Button configurations for published applications
 
-2.Enable **Single Sign-On (SSO) & HTTP Headers**
+2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
-3.Enter the **Tenant Id, Client ID,** and **Client Secret** from your registered application
+3. Enter the **Tenant Id, Client ID,** and **Client Secret** from your registered application
 
-![Screenshot for Configuration General and Service Account properties](/./media/f5-big-ip-kerberos-easy-button/azure-configuration-properties.png)
+   ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-kerberos-easy-button/azure-configuration-properties.png)
 
 Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
 
@@ -202,21 +193,21 @@ Before you select **Next**, confirm that BIG-IP can successfully connect to your
 
 The Service Provider settings define the SAML SP properties for the APM instance representing the application protected through SHA.
 
-1.Enter **Host.** This is the public FQDN of the application being secured. You’ll need a corresponding DNS record for clients to resolve this address, but using a localhost record is fine during testing
+1. Enter **Host.** This is the public FQDN of the application being secured. You’ll need a corresponding DNS record for clients to resolve this address, but using a localhost record is fine during testing
 
-2.Enter **Entity ID.** This is the identifier Azure AD will use to identify the SAML SP requesting a token
+2. Enter **Entity ID.** This is the identifier Azure AD will use to identify the SAML SP requesting a token
 
- ![Screenshot for Service Provider settings](/./media/f5-big-ip-kerberos-easy-button/service-provider.png)
+   ![Screenshot for Service Provider settings](./media/f5-big-ip-kerberos-easy-button/service-provider.png)
 
-    Next, under security settings, enter information for Azure AD to encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides additional assurance that the content tokens can't be intercepted, and personal or corporate data be compromised.
+    Next, under security settings, enter information for Azure AD to encrypt issued SAML assertions. Encrypting assertions between Azure AD and the BIG-IP APM provides    additional assurance that the content tokens can't be intercepted, and personal or corporate data be compromised.
 
-3.Check **Enable Encrypted Assertion (Optional).** Enable to request Azure AD to encrypt SAML assertions
+3. Check **Enable Encrypted Assertion (Optional).** Enable to request Azure AD to encrypt SAML assertions
 
-4.Select **Assertion Decryption Private Key.** The private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
+4. Select **Assertion Decryption Private Key.** The private key for the certificate that BIG-IP APM will use to decrypt Azure AD assertions
 
-5.Select **Assertion Decryption Certificate.** This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions. This can be the certificate you provisioned earlier
+5. Select **Assertion Decryption Certificate.** This is the certificate that BIG-IP will upload to Azure AD for encrypting the issued SAML assertions. This can be the certificate you provisioned earlier
 
-![Screenshot for Service Provider security settings](/./media/f5-big-ip-kerberos-easy-button/service-provider-security-settings.png)
+   ![Screenshot for Service Provider security settings](./media/f5-big-ip-kerberos-easy-button/service-provider-security-settings.png)
 
 ### Azure Active Directory
 
@@ -228,25 +219,25 @@ The Easy Button wizard provides a set of pre-defined application templates for O
 
 #### Azure Configuration
 
-1.Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users will see in [MyApps portal](https://myapplications.microsoft.com/).
+1. Enter **Display Name** of app that the BIG-IP creates in your Azure AD tenant, and the icon that the users will see in [MyApps portal](https://myapplications.microsoft.com/).
 
-2.Leave the **Sign On URL (optional)** blank to enable IdP initiated sign-on.
+2. Leave the **Sign On URL (optional)** blank to enable IdP initiated sign-on.
 
-![Screenshot for Azure configuration add display info](/./media/f5-big-ip-kerberos-easy-button/azure-config-display-name)
+   ![Screenshot for Azure configuration add display info](./media/f5-big-ip-kerberos-easy-button/azure-config-display-name.png)
 
-3.Select **Signing key.** The IdP SAML signing certificate you provisioned earlier 
+3. Select **Signing key.** The IdP SAML signing certificate you provisioned earlier 
 
-4.Select the same certificate for **Singing Certificate**
+4. Select the same certificate for **Singing Certificate**
 
-5.Enter the certificate’s password in **Passphrase**
+5. Enter the certificate’s password in **Passphrase**
 
-6.Select **Signing Options**. It can be enabled optionally to ensure the BIG-IP only accepts tokens and claims that have been signed by your Azure AD tenant
+6. Select **Signing Options**. It can be enabled optionally to ensure the BIG-IP only accepts tokens and claims that have been signed by your Azure AD tenant
 
-![Screenshot for Azure configuration - Add signing certificates info](/./media/f5-big-ip-kerberos-easy-button/azure-configuration-sign-certificates.png)
+   ![Screenshot for Azure configuration - Add signing certificates info](./media/f5-big-ip-kerberos-easy-button/azure-configuration-sign-certificates.png)
 
-7.**User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. **Add** a user or group that you can use later for testing, otherwise all access will be denied![Graphical user interface, text, application, email
+7. **User and User Groups** are dynamically queried from your Azure AD tenant and used to authorize access to the application. **Add** a user or group that you can use later for testing, otherwise all access will be denied![Graphical user interface, text, application, email
 
-![Screenshot for Azure configuration - Add users and groups](/./media/f5-big-ip-kerberos-easy-button/azure-configuration-add-user-groups.png)
+   ![Screenshot for Azure configuration - Add users and groups](./media/f5-big-ip-kerberos-easy-button/azure-configuration-add-user-groups.png)
 
 #### User Attributes & Claims
 
@@ -254,13 +245,13 @@ When a user successfully authenticates to Azure AD, it issues a SAML token with 
 
 As our AD infrastructure is based on a .com domain suffix used both, internally and externally, we don’t require any additional attributes to achieve a functional KCD SSO implementation. See the [advanced tutorial](f5-big-ip-kerberos-advanced.md) for cases where you have multiple domains or user’s login using an alternate suffix. 
 
-![Screenshot for user attributes and claims](/./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
+![Screenshot for user attributes and claims](./media/f5-big-ip-kerberos-easy-button/user-attributes-claims.png)
 
 #### Additional User Attributes
 
 In the **Additional User Attributes tab**, you can enable session augmentation required by various distributed systems such as Oracle, SAP, and other JAVA based implementations requiring attributes stored in other directories. Attributes fetched from an LDAP source can then be injected as additional SSO headers to further control access based on roles, Partner IDs, etc.![Graphical user interface, text, application, email
 
-![Screenshot for additional user attributes](/./media/f5-big-ip-kerberos-easy-button/additional-user-attributes.png)
+![Screenshot for additional user attributes](./media/f5-big-ip-kerberos-easy-button/additional-user-attributes.png)
 
 >[!NOTE] 
 >This feature has no correlation to Azure AD but is another source of attributes.
@@ -275,13 +266,13 @@ The **Selected Policies** list, by default, displays all policies targeting All 
 
 To select a policy to be applied to the application being published:
 
-1.Select the desired policy in the **Available Policies** list
+1. Select the desired policy in the **Available Policies** list
 
-2.Select the right arrow and move it to the **Selected Policies** list
+2. Select the right arrow and move it to the **Selected Policies** list
 
-Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. **Exclude** all policies while testing. You can go back and enable them later.
+   Selected policies should either have an **Include** or **Exclude** option checked. If both options are checked, the selected policy is not enforced. **Exclude** all policies while testing. You can go back and enable them later.
 
-  ![Screenshot for CA policies](/./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
+  ![Screenshot for CA policies](./media/f5-big-ip-kerberos-easy-button/conditional-access-policy.png)
 
 >[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
@@ -298,19 +289,19 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the prerequisites or leave the default if testing
 
-    ![Screenshot for Virtual server](/./media/f5-big-ip-kerberos-easy-button/virtual-server.png)
+    ![Screenshot for Virtual server](./media/f5-big-ip-kerberos-easy-button/virtual-server.png)
 
 ### Pool Properties
 
 The **Application Pool tab** details the services behind a BIG-IP that are represented as a pool, containing one or more application servers.
 
-1.Choose from **Select a Pool.** Create a new pool or select an existing one
+1. Choose from **Select a Pool.** Create a new pool or select an existing one
 
-2.Choose the **Load Balancing Method** as *Round Robin*
+2. Choose the **Load Balancing Method** as *Round Robin*
 
-3.Update **Pool Servers.** Select an existing server node or specify an IP and port for the backend node hosting the header-based application
+3. Update **Pool Servers.** Select an existing server node or specify an IP and port for the backend node hosting the header-based application
 
-![Screenshot for Application pool](/./media/f5-big-ip-kerberos-easy-button/application-pool.png)
+   ![Screenshot for Application pool](./media/f5-big-ip-kerberos-easy-button/application-pool.png)
 
 Our backend application runs on HTTP port 80. You can switch this to 443 if your application runs on HTTPS.
 
@@ -324,7 +315,7 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
 
 * **User Realm Source:** Required if the user domain is different to the BIG-IP’s kerberos realm. In that case, the APM session variable would contain the logged in user domain. For example,*session.saml.last.attr.name.domain*
 
-![Screenshot for SSO and HTTP headers](/./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
+![Screenshot for SSO and HTTP headers](./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
 
 * **KDC:** IP of a Domain Controller (Or FQDN if DNS is configured & efficient)
 
@@ -334,7 +325,7 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
 
 * **Send Authorization:** Disable for applications that prefer negotiating authentication instead of receiving the kerberos token in the first request. For example, *Tomcat.*
 
-![Screenshot for SSO method configuration](/./media/f5-big-ip-kerberos-easy-button/sso-method-config.png)
+![Screenshot for SSO method configuration](./media/f5-big-ip-kerberos-easy-button/sso-method-config.png)
 
 
 ### Session Management
