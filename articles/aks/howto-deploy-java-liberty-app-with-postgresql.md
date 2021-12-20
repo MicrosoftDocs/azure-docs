@@ -69,7 +69,7 @@ The steps in this section guide you through creating an Azure Database for Postg
 
    An Azure resource group is a logical group in which Azure resources are deployed and managed.  
 
-   Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location. This resource group will be used later for creating the Azure Container Registry (ACR) instance and the AKS cluster. **PENDING: Zheng: I don't see how the resource group created here relates to the ACR. It looks to me like we are using the ACR created by the offer. If this is true, I think this statement should be deleted.**
+   Create a resource group called *java-liberty-project-postgresql* using the [az group create](/cli/azure/group#az_group_create) command  in the *eastus* location.
 
    ```bash
    RESOURCE_GROUP_NAME=java-liberty-project-postgresql
