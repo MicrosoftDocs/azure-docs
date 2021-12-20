@@ -115,7 +115,7 @@ Continue configuring the product after saving it. In your API Management instanc
 
 Products are associations of one or more APIs. You can include many APIs and offer them to developers through the developer portal. During the product creation, you can add one or more existing APIs. You can also add APIs to the product later, either from the Products **Settings** page or while creating an API.
 
-Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the APIM instance, you're an administrator already, so you're subscribed to every product by default.
+Developers must first subscribe to a product to get access to the API. When they subscribe, they get a subscription key that is good for any API in that product. If you created the API Management instance, you're an administrator already, so you're subscribed to every product by default.
 
 ### Add an API to an existing product
 
