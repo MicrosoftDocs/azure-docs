@@ -2,7 +2,7 @@
 title: Mount Azure NetApp Files volumes for virtual machines | Microsoft Docs
 description: Learn how to mount an Azure NetApp Files volume for Windows or Linux virtual machines.
 author: b-hchen
-ms.author: b-hchen
+ms.author: anfdocs
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: how-to

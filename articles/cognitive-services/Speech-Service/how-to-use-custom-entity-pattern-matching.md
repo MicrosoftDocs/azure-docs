@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/15/2021
 ms.author: chschrae
+ms.devlang: cpp
 ms.custom: devx-track-cpp
 ---
 

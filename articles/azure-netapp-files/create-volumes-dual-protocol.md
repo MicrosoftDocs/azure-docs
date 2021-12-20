@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 12/09/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Create a dual-protocol volume for Azure NetApp Files
 
