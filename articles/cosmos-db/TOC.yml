@@ -1159,6 +1159,8 @@
           href: mongodb/tutorial-global-distribution-mongodb.md
     - name: Concepts
       items:
+        - name: API version 4.2
+          href: mongodb/feature-support-42.md
         - name: API version 4.0
           href: mongodb/feature-support-40.md
         - name: API version 3.6
