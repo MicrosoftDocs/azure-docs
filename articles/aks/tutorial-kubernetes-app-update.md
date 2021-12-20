@@ -78,7 +78,7 @@ The updated values provided in the *config_file.cfg* file are displayed in your 
 
 ### [Azure CLI](#tab/azure-cli)
 
-To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list](az-acr-list) command:
+To correctly use the updated image, tag the *azure-vote-front* image with the login server name of your ACR registry. Get the login server name with the [az acr list][az-acr-list] command:
 
 ```azurecli
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
