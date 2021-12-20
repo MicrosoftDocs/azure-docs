@@ -70,7 +70,7 @@ You can also drive Azure Digital Twins from other data sources, using REST APIs 
 
 ### Output to ADX, TSI, storage, and analytics
 
-The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. This functionality is provided through **event routes**, which use [Event Hub](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to drive your data flows.
+The data in your Azure Digital Twins model can be routed to downstream Azure services for more analytics or storage. This functionality is provided through **event routes**, which use [Event Hubs](../event-hubs/event-hubs-about.md), [Event Grid](../event-grid/overview.md), or [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md) to drive your data flows.
 
 Some things you can do with event routes include:
 * Sending digital twin data to ADX for querying with the [Azure Digital Twins query plugin for Azure Data Explorer (ADX)](concepts-data-explorer-plugin.md)
