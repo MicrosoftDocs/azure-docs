@@ -113,6 +113,28 @@ sections:
         answer: |
           Yes. You can use the dashboard filters to view the widgets on the dashboard based on the filtered criteria you choose.
 
+      - question: How can we reconcile this revenue report to the usage and transaction history report?
+        answer: |
+          The primary purpose of the revenue dashboard is to enable partners to reconcile between billed sales, payouts, and analytics reports (such as orders, usage, and customers).
+          
+          Use purchase record ID and line-item id in the revenue report as the unique identifier to match entities across transaction history, usage, and orders reports. See this information on the [data dictionary](revenue-dashboard.md#data-dictionary-table).
+
+      - question: What is the relationship between the timing of the revenue report and the usage report? If the revenue report is based on billing, would we compare the current month revenue report to the prior month usage or the current month usage?
+        answer: |
+          Revenue report for current month captures the billed amount for previous month offer consumption or usage. You can download the revenue report on or after the 4th of every month to verify accurate revenue figures for the customer's offer usage in the previous month.
+
+      - question: What is the reporting logic for the revenue amount? Why are tThere are entries with revenue amounts but no transaction or earning amount.
+        answer: |
+          The revenue dashboard contains information about billed sales. It may take some time for earnings to be realized due to the license agreement with the customer or the payment instrument used in the transaction.
+
+          The dashboard contains billed sales of all customer transactions, not necessarily those with entries on the transaction history report. The current transaction history report shows transactions for which earnings have been sent, are unprocessed. or are in upcoming status.
+
+          However, there can also be billed transactions with other statuses, such as uncollected, when a customer is yet to make a payment for their offer usage or purchase. See the **Other** statuses in the revenue dashboard. 
+
+      - question: How is the estimated payout month determined?
+        answer: |
+          See the payout schedules for Enterprise agreement, Microsoft customer agreement, or CSP transactions at [Payout schedules and processes](/partner-center/payout-policy-details). 
+
 additionalContent: |
 
   ## Next steps
