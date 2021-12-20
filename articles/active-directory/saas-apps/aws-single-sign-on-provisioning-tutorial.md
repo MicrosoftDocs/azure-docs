@@ -168,7 +168,7 @@ Once you've configured provisioning, use the following resources to monitor your
 ## Troubleshooting Tips
 
 ### Missing attributes
-When exporting a user to AWS, they are requried to have the following attributes
+When exporting a user to AWS, they are required to have the following attributes
 
 * firstName
 * lastName
@@ -195,7 +195,7 @@ There are two ways to resolve this
 2. Remove the duplicate attributes. For example, having two different attributes being mapped from Azure AD both mapped to "phoneNumber___" on the AWS side  would result in the error if both attributes have values in Azure AD. Only having one attribute mapped to a "phoneNumber____ " attribute would resolve the error.
 
 ### Invalid characters
-Currently AWS SSO is not allowing some other characters that Azure AD support like tab (\t), new line (\n), return carriage (\r), and characters such as " < | > | ; | : | % " .
+Currently AWS SSO is not allowing some other characters that Azure AD supports like tab (\t), new line (\n), return carriage (\r), and characters such as " <|>|;|:% ".
 
 You can also check the AWS SSO troubleshooting tips [here](https://docs.aws.amazon.com/singlesignon/latest/userguide/azure-ad-idp.html#azure-ad-troubleshooting) for more troubleshooting tips
 
