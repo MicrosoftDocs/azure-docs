@@ -661,7 +661,7 @@
       href: /python/api/overview/azure/mediaservices/management
       displayName: SDK, Python SDK, Python, Python docs, Python reference, reference Python, developer, develop, Python library, pypi, package, pip, pip install
     - name: Node.js
-      href: /javascript/api/overview/azure/mediaservices/management
+      href: /javascript/api/overview/azure/arm-mediaservices-readme
       displayName: SDK, Node SDK, Node.js, Nodejs, Nodejs SDk, Node.js SDk, Javscript, Javascript SDK, Typescript, Typescript SDK, Javascript docs, Node docs, Node.js Docs, Node.js reference, reference Node, developer, develop, Node.js library, Typescript library, package, npm, npm install
     - name: Go
       href: https://aka.ms/ams-v3-go-ref
