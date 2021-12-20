@@ -1,14 +1,13 @@
 ---
-title: Index videos stored on Onedrive with Azure Video Analyzer for Media (formerly Video Indexer)
+title: Index videos stored on Ondedrive - Azure Video Analyzer for media
 description: Learn how to index videos stored on Ondedrive by using Azure Video Analyzer for Media (formerly Video Indexer).
-ms.subservice: azure-video-analyzer-media
 ms.topic: article
 ms.date: 12/17/2021
 ---
 
 # Index your videos stored on Onedrive 
 
-This article shows how to index videos stored on Onedrive by using the Azure Video Analyzer for Media (formerly Video Indexer) website 
+This article shows how to index videos stored on Onedrive by using the Azure Video Analyzer for Media (formerly Video Indexer) website.
 
 ## Supported file formats
 
