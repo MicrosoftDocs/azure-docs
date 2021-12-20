@@ -59,6 +59,7 @@ $VMHT = @{
   OpenPorts            = @(80,3389)
   Credential           = $Cred
 }
+New-AzVm @VMHT
 ```
 
 [!INCLUDE [ephemeral-ip-note.md](../../../includes/ephemeral-ip-note.md)]
