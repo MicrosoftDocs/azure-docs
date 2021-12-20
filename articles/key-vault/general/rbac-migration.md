@@ -182,7 +182,7 @@ Once a new policy is assigned, it can take up to 24 hours to complete the scan. 
 :::image type="content" source="../media/rbac/migration-policy.png" alt-text="RBAC policy compliance":::
 
 For more information, see
-- [Implement a new custom policy](../../governance/policy/tutorials/create-and-manage#implement-a-new-custom-policy.md)
+- [Implement a new custom policy](../../governance/policy/tutorials/create-and-manage.md#implement-a-new-custom-policy.md)
 - [Integrate Azure Key Vault with Azure Policy](azure-policy.md)
 
 ## Troubleshooting
