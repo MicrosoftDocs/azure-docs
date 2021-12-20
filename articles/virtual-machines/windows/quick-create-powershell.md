@@ -78,8 +78,8 @@ Get-AzPublicIpAddress -ResourceGroupName "MyResourceGroup" |
 Use the following command to create a remote desktop session from your local computer. Replace the IP address with the public IP address of your VM. 
 
 ```powershell
-$IP  = Get-AzPublicIpAddress -ResourceGroupName "myResourceGroup" | 
-  Select-object -Expand  'IpAddress'  
+$IP  = Get-AzPublicIpAddress -ResourceGroupName "MyResourceGroup" | 
+  Select-Object -ExpandProperty  'IpAddress'  
 mstsc /v:$IP
 ```
 
