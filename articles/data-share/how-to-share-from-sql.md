@@ -234,7 +234,7 @@ Confirm that all pre-requisites are complete before accepting a data share invit
     - [Azure Storage](../storage/common/storage-account-create.md)
     - [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
     - [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md)
-    - [Azure Synapse Analytics (workspace) dedicated SQL pool](..synapse-analytics/get-started-analyze-sql-pool.md)
+    - [Azure Synapse Analytics (workspace) dedicated SQL pool](../synapse-analytics/get-started-analyze-sql-pool.md)
 
 There are also prerequisites for the resource where the received data will be stored. 
 Select your resource type and follow the steps:
