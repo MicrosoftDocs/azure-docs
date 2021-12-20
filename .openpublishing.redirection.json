@@ -11,6 +11,11 @@
       "redirect_document_id": false
     },
     {
+      "source_path": "articles/machine-learning/classic/azure-ml-netsharp-reference-guide.md",
+      "redirect_url": "/previous-versions/azure/machine-learning/classic/azure-ml-netsharp-reference-guide",
+      "redirect_document_id": false
+    },
+    {
       "source_path": "articles/machine-learning/classic/consume-web-services.md",
       "redirect_url": "/previous-versions/azure/machine-learning/classic/consume-web-services",
       "redirect_document_id": false
@@ -2386,6 +2391,16 @@
     {
       "source_path_from_root": "/articles/aks/windows-node-limitations.md",
       "redirect_url": "/azure/aks/windows-faq",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/kubernetes-dashboard.md",
+      "redirect_url": "/azure/aks/kubernetes-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/egress.md",
+      "redirect_url": "/azure/aks/load-balancer-standard",
       "redirect_document_id": false
     },
     {
@@ -5906,6 +5921,11 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
       "redirect_document_id": false
     },
     {
@@ -45131,6 +45151,16 @@
     {
       "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
       "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
+      "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
+      "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
     }
   ]
