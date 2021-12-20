@@ -108,6 +108,83 @@ There are many differences between Azure RBAC and vault access policy permission
 > [!NOTE]
 > When Azure RBAC permission model is enabled, all scripts which attempt to update access policies will fail. It is important to update those scripts to use Azure RBAC.
 
+## Migrations governance
+
+You can govern RBAC permission model migration across your vaults using Azure Policy service. You can create custom policy definition to audit existing key vaults and enforce all new key vaults to use Azure RBAC permission model.
+
+### Create and assign policy definition for Key Vault Azure RBAC permission model
+1. Navigate to Policy resource
+1. Select **Definitions** under **Authoring** in the left side of the Azure Policy page.
+1. Select **+ Policy definition** at the top of the page. This button opens to the Policy definition page.
+1. Enter the following information:
+    - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
+    - The name of the policy definition, e.g. "Key Vault should use Role-Based Access Control (RBAC) permission model"
+    - Select **Use existing** and choose **Key Vault** category
+    - Paste following JSON code in **POLICY RULE** 
+    ```json
+    {
+	"mode": "Indexed",
+	"policyRule": {
+	  "if": {
+		  "allOf": [
+			{
+			  "field": "type",
+			  "equals": "Microsoft.KeyVault/vaults"
+			},
+			{
+			  "not": {
+				"field": "Microsoft.KeyVault/vaults/createMode",
+				"equals": "recover"
+			  }
+			},
+			{
+			  "anyOf": [
+				{
+				  "field": "Microsoft.KeyVault/vaults/enableRbacAuthorization",
+				  "exists": "false"
+				},
+				{
+				  "field": "Microsoft.KeyVault/vaults/enableRbacAuthorization",
+				  "equals": "false"
+				}
+			  ]
+			}
+		  ]
+		},
+		"then": {
+		  "effect": "[parameters('effect')]"
+		}
+	},
+	"parameters": {
+		"effect": {
+		  "type": "String",
+		  "metadata": {
+			"displayName": "Effect",
+			"description": "Enable or disable the execution of the policy"
+		  },
+		  "allowedValues": [
+			"Audit",
+			"Deny",
+			"Disabled"
+		  ],
+		  "defaultValue": "Audit"
+		}
+	  }
+   }
+    ```
+1. Select **Save**
+1. Select **Assign**
+1. Select **Review + create**
+1. Select **Create**
+
+Once new policy is assigned it can take up to 24 hours to complete the scan. After scan is completed, you can see compliance results like below.
+
+:::image type="content" source="../media/rbac/migration-policy.png" alt-text="RBAC policy compliance":::
+
+For more information, see
+- [Implement a new custom policy](../../governance/policy/tutorials/create-and-manage#implement-a-new-custom-policy.md)
+- [Integrate Azure Key Vault with Azure Policy](azure-policy.md)
+
 ## Troubleshooting
 -  Role assignment not working after several minutes - there are situations when role assignments can take longer. It's important to write retry logic in code to cover those cases.
 - Role assignments disappeared when Key Vault was deleted (soft-delete) and recovered - it's currently a limitation of soft-delete feature across all Azure services. It's required to recreate all role assignments after recovery.    
