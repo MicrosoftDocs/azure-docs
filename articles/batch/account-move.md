@@ -104,7 +104,6 @@ Deploy the template to create a new Batch account in the target region.
    - **Subscription**: Select an Azure subscription.
 
    - **Resource group**: Select the resource group that you created when moving the associated storage account.
-   - 
    - **Region**: Select the Azure region where you want to move the account.
 
 1. Select **Review and create**, then select **Create**.
