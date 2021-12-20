@@ -30,6 +30,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 ## December 2021
 
 - [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace)
+- [Apache Log4j Vulnerability Detection Solution in Content hub](#apache-log4j-vulnerability-detection-solution-in-content-hub)
 
 ### Ingest GitHub logs into your Microsoft Sentinel workspace
 
@@ -45,6 +46,10 @@ For example, view the number of users that were added or removed from GitHub rep
 
 For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md) and [instructions](data-connectors-reference.md#github-preview) for installing the GitHub data connector.
 
+### Apache Log4j vulnerability detection solution in content hub
+Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 Dec 2021. The vulnerability allows unauthenticated remote code execution, and it is triggered when a specially crafted string provided by the attacker through a variety of different input vectors is parsed and processed by the Log4j 2 vulnerable component. For more technical and mitigation information about the vulnerability, please read the [Microsoft Security Response Center blog](https://msrc-blog.microsoft.com/2021/12/11/microsofts-response-to-cve-2021-44228-apache-log4j2/). 
+
+This solution provides content to monitor, detect and investigate signals related to exploitation of this vulnerability in Microsoft Sentinel.
 
 ## November 2021
 
