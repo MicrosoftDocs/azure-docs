@@ -58,49 +58,32 @@ Refer to the inspect tab and data preview to verify your output is mapped proper
 
 ```
 source(output(
-		name as string,
-		location as string,
-		satellites as string[],
-		goods as (trade as boolean, customers as string[], orders as (orderId as string, orderTotal as double, shipped as (orderItems as (itemName as string, itemQty as string)[]))[])
+		AddressID as integer,
+		AddressLine1 as string,
+		AddressLine2 as string,
+		City as string,
+		StateProvince as string,
+		CountryRegion as string,
+		PostalCode as string,
+		rowguid as string,
+		ModifiedDate as timestamp
 	),
 	allowSchemaDrift: true,
 	validateSchema: false,
-	ignoreNoFilesFound: false,
-	documentForm: 'documentPerLine') ~> JsonSource
+	isolationLevel: 'READ_UNCOMMITTED',
+	format: 'table') ~> source1
 source(output(
-		movieId as string,
-		title as string,
-		genres as string
+		CustomerID as integer,
+		AddressID as integer,
+		AddressType as string,
+		rowguid as string,
+		ModifiedDate as timestamp
 	),
 	allowSchemaDrift: true,
 	validateSchema: false,
-	ignoreNoFilesFound: false) ~> CsvSource
-JsonSource derive(jsonString = toString(goods)) ~> StringifyJson
-StringifyJson parse(json = jsonString ? (trade as boolean,
-		customers as string[]),
-	format: 'json',
-	documentForm: 'arrayOfDocuments') ~> ParseJson
-CsvSource derive(csvString = 'Id|name|year\n\'1\'|\'test1\'|\'1999\'') ~> CsvString
-CsvString parse(csv = csvString ? (id as integer,
-		name as string,
-		year as string),
-	format: 'delimited',
-	columnNamesAsHeader: true,
-	columnDelimiter: '|',
-	nullValue: '',
-	documentForm: 'documentPerLine') ~> ParseCsv
-ParseJson select(mapColumn(
-		jsonString,
-		json
-	),
-	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> KeepStringAndParsedJson
-ParseCsv select(mapColumn(
-		csvString,
-		csv
-	),
-	skipDuplicateMapInputs: true,
-	skipDuplicateMapOutputs: true) ~> KeepStringAndParsedCsv
+	isolationLevel: 'READ_UNCOMMITTED',
+	format: 'table') ~> source2
+source1, source2 assert(expectExists(AddressLine1 == AddressLine1, false, 'nonUS', true(), 'only valid for U.S. addresses')) ~> Assert1
 ```
 
 ## Data flow script
