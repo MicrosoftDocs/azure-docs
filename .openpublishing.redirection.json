@@ -6,11 +6,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/api-management/api-management-using-with-vnet.md#network-configuration-issues",
-      "redirect_url": "/azure/api-management/virtual-network-reference",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/classic/algorithm-parameters-optimize.md",
       "redirect_url": "/previous-versions/azure/machine-learning/classic/algorithm-parameters-optimize",
       "redirect_document_id": false
