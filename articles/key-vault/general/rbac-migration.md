@@ -110,7 +110,7 @@ There are many differences between Azure RBAC and vault access policy permission
 
 ## Migrations governance
 
-You can govern RBAC permission model migration across your vaults using Azure Policy service. You can create custom policy definition to audit existing key vaults and enforce all new key vaults to use Azure RBAC permission model.
+Using the Azure Policy service, you can govern RBAC permission model migration across your vaults. You can create a custom policy definition to audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model.
 
 ### Create and assign policy definition for Key Vault Azure RBAC permission model
 1. Navigate to Policy resource
@@ -118,9 +118,9 @@ You can govern RBAC permission model migration across your vaults using Azure Po
 1. Select **+ Policy definition** at the top of the page. This button opens to the Policy definition page.
 1. Enter the following information:
     - The management group or subscription in which the policy definition is saved. Select by using the ellipsis on **Definition location**.
-    - The name of the policy definition, e.g. "Key Vault should use Role-Based Access Control (RBAC) permission model"
+    - The name of the policy definition, e.g., "Key Vault should use Role-Based Access Control (RBAC) permission model"
     - Select **Use existing** and choose **Key Vault** category
-    - Paste following JSON code in **POLICY RULE** 
+    - Paste the following JSON code in **POLICY RULE** 
     ```json
     {
 	"mode": "Indexed",
@@ -177,7 +177,7 @@ You can govern RBAC permission model migration across your vaults using Azure Po
 1. Select **Review + create**
 1. Select **Create**
 
-Once new policy is assigned it can take up to 24 hours to complete the scan. After scan is completed, you can see compliance results like below.
+Once a new policy is assigned, it can take up to 24 hours to complete the scan. After the scan is completed, you can see compliance results like below.
 
 :::image type="content" source="../media/rbac/migration-policy.png" alt-text="RBAC policy compliance":::
 
