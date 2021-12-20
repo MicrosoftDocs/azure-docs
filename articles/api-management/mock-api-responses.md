@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Mock API responses in API Management - Azure portal  | Microsoft Docs
-description: In this tutorial, you use API Management to set a policy on an API. It returns a mocked response even if the backend isn't available to send real responses.
+description: In this tutorial, you use API Management to set a policy on an API. The policy returns a mocked response even if the backend isn't available to send real responses.
 
 author: dlepow
 ms.service: api-management
@@ -12,15 +12,15 @@ ms.author: danlep
 ---
 # Tutorial: Mock API responses
 
-Backend APIs can be imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial, show you how to:
+Backend APIs are imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial, show you how to:
 
-+ Use APIM to create an HTTP API
++ Use API Management to create an HTTP API
 + Manage an HTTP API manually
 + Set a policy on an API
 
-This method lets developers continue with the implementation and testing of the APIM instance even if the backend isn't available to send real responses.
+This method lets developers continue with the implementation and testing of the API Management instance even if the backend isn't available to send real responses.
 
-The ability to mock up responses can be useful in many scenarios:
+The ability to mock up responses is useful in many scenarios:
 
 + When the API façade is designed first and the backend implementation comes later. Or, the backend is being developed in parallel.
 + When the backend is temporarily not operational or not able to scale.
@@ -60,7 +60,7 @@ The steps in this section show how to create an HTTP API with no backend.
 
 ## Add an operation to the test API
 
-An API exposes one or more operations. In this section, you'll add an operation to the HTTP API you created. Calling the operation after completing steps in this section gives an error. After you complete the steps in the [Enable response mocking](#enable-response-mocking) section, you'll get no errors.
+An API exposes one or more operations. In this section, you'll add an operation to the HTTP API you created. Calling the operation after completing the steps in this section triggers an error. After you complete the steps in the [Enable response mocking](#enable-response-mocking) section, you'll get no errors.
 
 ### [Portal](#tab/azure-portal)
 
@@ -89,11 +89,11 @@ An API exposes one or more operations. In this section, you'll add an operation 
 
     :::image type="content" source="media/mock-api-responses/add-representation.png" alt-text="Add representation to the API operation":::
 
-Although not required for this example, more settings for an API operation can be configured on other tabs, including:
+Although not required for this example, you can configure more settings for an API operation on other tabs, including:
 
 |Tab      |Description  |
 |---------|---------|
-|**Query**     |  Add query parameters. Besides providing a name and description, you can also provide values that are assigned to a query parameter. One of the values can be marked as default (optional).        |
+|**Query**     |  Add query parameters. Besides providing a name and description, you can also provide values that are assigned to a query parameter. You can mark one of the values as default (optional).        |
 |**Request**     |  Define request content types, examples, and schemas.       |
 
 ### [Azure CLI](#tab/azure-cli)
@@ -149,7 +149,7 @@ Keep this operation for use in the rest of this article.
 1. Select **Save**.
 
     > [!TIP]
-    > A yellow bar with the text **Mocking is enabled** is displayed. This indicates that the responses returned from API Management are mocked by the [mocking policy](api-management-advanced-policies.md#mock-response) and are not produced by the backend.
+    > A yellow bar with the text **Mocking is enabled** displays. This indicates that the responses returned from API Management are mocked by the [mocking policy](api-management-advanced-policies.md#mock-response) and aren't produced by the backend.
 
 ## Test the mocked API
 
