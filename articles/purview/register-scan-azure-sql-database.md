@@ -161,7 +161,8 @@ It is important to give your Purview account's system-managed identity or [user-
 
 If you do not have a service principal, you can [follow the service principal guide to create one.](./create-service-principal-azure.md)
 
->[!NOTE] To create a service principal, it's required to register an application in your Azure AD tenant. If you do not have access to do this, your Azure AD Global Administrator, or other roles like Application Administrator can perform this operation.
+> [!NOTE]
+> To create a service principal, it's required to register an application in your Azure AD tenant. If you do not have access to do this, your Azure AD Global Administrator, or other roles like Application Administrator can perform this operation.
 
 ##### Granting the Service Principal access to your Azure SQL Database
 
