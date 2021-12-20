@@ -742,6 +742,10 @@ You can parameterize the key column used here for updating your target Azure SQL
 
 :::image type="content" source="media/data-flow/prepost1.png" alt-text="pre and post SQL processing scripts":::
 
+> [!TIP]
+> 1. It's recommended to break scripts with multiple commands into multiple batches 
+> 2. Only Data Definition Language (DDL) and Data Manipulation Language (DML) statements that return a simple update count can be run as part of a batch. Learn more from [Performing batch operations](https://docs.microsoft.com/en-us/sql/connect/jdbc/performing-batch-operations)
+
 ### Error row handling
 
 When writing to Azure SQL DB, certain rows of data may fail due to constraints set by the destination. Some common errors include:
