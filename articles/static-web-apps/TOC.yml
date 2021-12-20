@@ -32,12 +32,12 @@
               href: functions-bring-your-own.md
         - name: Azure API Management
           href: apis-api-management.md
+        - name: Azure App Service
+          href: apis-app-service.md
         - name: Azure Container Apps
           href: apis-container-apps.md
         - name: Azure Logic Apps
           href: apis-logic-apps.md
-        - name: Azure Web Apps
-          href: apis-web-apps.md
     - name: Configuration
       items:
         - name: Configuration overview
