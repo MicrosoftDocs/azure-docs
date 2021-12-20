@@ -18,11 +18,6 @@ ms.author: bagol
 
 Microsoft Sentinel and Microsoft Defender for IoT help to bridge the gap between IT and OT security challenges, and to empower SOC teams with out-of-the-box capabilities to efficiently and effectively detect and respond to OT threats. The integration between Microsoft Defender for IoT and Microsoft Sentinel helps organizations to quickly detect multistage attacks, which often cross IT and OT boundaries.
 
-<!--On the one hand, you are saying we are securing the "entire OT environment", but then refer to "OT innovations", which suggests you are talking about the Device Builders offering. OT and Device Builders are two different offerings, audiences etc.
-If the integration covers both Defender for IoT for end-users AND device builders, then the sentence may need to be reworked.
-
-are we covering the value sufficiently?-->
-
 In this tutorial, you:
 
 > [!div class="checklist"]
@@ -49,7 +44,6 @@ For more information, see [Permissions in Microsoft Sentinel](roles.md) and [Qui
 > Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
 >
 
-<!--what do we need to warn users about here?-->
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
 
@@ -72,7 +66,6 @@ Start by enabling the **Defender for IoT** data connector to stream all your Def
 For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md).
 
 ## View Defender for IoT alerts
-<!--naming - are these not renamed?-->
 
 
 View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
