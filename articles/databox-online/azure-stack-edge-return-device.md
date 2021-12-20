@@ -55,7 +55,6 @@ If you used the Azure Edge Hardware Center to order your device, follow these st
 [!INCLUDE [Initiate device return from Edge Hardware Center order resource](../../includes/azure-stack-edge-initiate-device-return.md)]
 
 
-
 The next step is to package the device.
 
 
