@@ -328,8 +328,6 @@
               href: limit-egress-traffic.md
             - name: Use a user defined route for egress
               href: egress-outboundtype.md
-            - name: Use a basic load balancer and static IP address
-              href: egress.md
             - name: Managed NAT Gateway (preview)
               href: nat-gateway.md              
         - name: Customize CoreDNS

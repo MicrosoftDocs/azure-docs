@@ -12,6 +12,7 @@ ms.date: 01/16/2020
 ms.author: jhakulin
 zone_pivot_groups: programming-languages-set-two
 ROBOTS: NOINDEX
+ms.devlang: cpp, csharp, java, python
 ---
 
 # Configure OpenSSL for Linux
