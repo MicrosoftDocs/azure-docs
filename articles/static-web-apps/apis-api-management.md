@@ -15,11 +15,11 @@ ms.author: cshoe
 
 ## Overview
 
-Azure API Management is a service that allows you to create a consistent and modern API gateway for existing back-end services.
+[Azure API Management](../api-management/api-management-key-concepts.md) is a service that allows you to create a modern API gateway for existing back-end services.
 
-When you link your Azure API Management instance to your static web app, any requests to your static web app with a route that starts with `/api/` will be proxied to the same route on the Azure API Management instance.
+When you link your Azure API Management instance to your static web app, any requests to your static web app with a route that starts with `/api/` are proxied to the same route on the Azure API Management instance.
 
-An Azure API Management instance can be linked to multiple static web apps at a time. An API Management product is created for each linked static web app. Any APIs added to the product is available to the associated static web app.
+An Azure API Management instance can be linked to multiple static web apps at the same time. An API Management product is created for each linked static web app. Any APIs added to the product is available to the associated static web app.
 
 All Azure API Management pricing tiers are available for use with Azure Static Web Apps.
 
@@ -50,22 +50,24 @@ Azure API Management has a feature named *products* that defines how APIs are su
 
 The linking process also automatically configures your API Management instance with the following:
 
-* The product associated with the linked static web app requires a subscription to access.
+* Access to product associated with the linked static web app is configured to require a subscription.
 
-* A subscription named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)` is created. It's scoped to the product linked to the static web app.
+* A subscription named `Azure Static Web Apps - <STATIC_WEB_APP_AUTO_GENERATED_HOSTNAME> (Linked)` is created. It's scoped to the product with the same name.
 
 * An inbound *validate-jwt* policy is added to the product to allow only requests that contain a valid access token from the linked static web app.
 
-* The linked static web app is configured to call the API Management instance with the subscription's primary key and a valid access token.
+* The linked static web app is configured to include the subscription's primary key and a valid access token when proxying requests to the API Management instance.
 
 > [!IMPORTANT]
-> Changing the *validate-jwt* policy or regenerating the subscription's primary key will prevent your static web app from proxying requests to the API Management instance. Do not modify or delete the subscription or product associated with your static web app while it is linked to your API Management instance.
+> Changing the *validate-jwt* policy or regenerating the subscription's primary key will prevent your static web app from proxying requests to the API Management instance. Do not modify or delete the subscription or product associated with your static web app while they are linked.
 
 ## Re-link an Azure API Management instance
 
+The re-link action regenerates the subscription keys and ensures the link between the static web app and the Azure API Management instance is valid.
+
 There are two reasons to re-link an Azure API Management instance:
 
-* You want to regenerate the primary key of the subscription associated with the linked static web app without downtime.
+* You want to regenerate the primary and secondary keys of the subscription associated with the linked static web app without downtime.
 
 * You've made changes to your API Management instance and it is no longer accessible from the linked static web app.
 
@@ -89,7 +91,7 @@ To unlink an Azure API Management instance from a static web app, follow these s
 
 1. Select **Unlink**.
 
-When the unlinking process is complete, requests to routes beginning with `/api/` are no longer proxied to your Web Apps instance.
+When the unlinking process is complete, requests to routes beginning with `/api/` are no longer proxied to your API Management instance.
 
 > [!NOTE]
 > The product and subscription associated with the linked static web app are not automatically deleted. You can delete them from the API Management instance.

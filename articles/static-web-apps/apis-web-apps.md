@@ -15,9 +15,9 @@ ms.author: cshoe
 
 ## Overview
 
-Azure Web Apps is a managed platform for hosting web applications that execute code on servers. It supports many runtimes and frameworks including Node.js, ASP.NET Core, PHP, Java, and Python.
+[Azure Web Apps](../app-service/overview.md) is a managed platform for hosting web applications that execute code on servers. It supports many runtimes and frameworks including Node.js, ASP.NET Core, PHP, Java, and Python.
 
-When you link your Azure Web Apps instance to your static web app, any requests to your static web app with a route that starts with `/api/` will be proxied to the same route on the Azure Web Apps instance.
+When you link your Azure Web Apps instance to your static web app, any requests to your static web app with a route that starts with `/api/` are proxied to the same route on the Azure Web Apps instance.
 
 By default, when a Web Apps instance is linked to a static web app, the Web Apps instance only accepts requests that are proxied through the linked static web app. An Azure Web Apps instance can be linked to a single static web app at a time.
 
@@ -42,7 +42,7 @@ To link an Azure Web Apps instance as the API backend for a static web app, foll
 
 1. Select **Link**.
 
-When the linking process is complete, requests to routes beginning with `/api/` are proxied to your Web Apps instance.
+When the linking process is complete, requests to routes beginning with `/api/` are proxied to the linked Web Apps instance.
 
 ### Manage access to Azure Web Apps
 
