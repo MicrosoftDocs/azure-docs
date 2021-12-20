@@ -180,7 +180,7 @@ targetRegion=<validRegion>
 
 az login
 az account set --subscription $subscriptionId
-az group deployment create -g $resourceGroupName \
+az deployment group create -g $resourceGroupName \
 --template-uri https://raw.githubusercontent.com/Azure-Samples/managed-disks-powershell-getting-started/master/CrossRegionCopyOfSnapshots/CopyStartIncrementalSnapshots.json \
 --parameters "name=$name" "sourceSnapshotResourceId=$sourceSnapshotResourceId" "targetRegion=$targetRegion"
 az resource show -n $name -g $resourceGroupName --namespace Microsoft.Compute --resource-type snapshots --api-version 2020-12-01 --query [properties.completionPercent] -o tsv
