@@ -225,8 +225,11 @@ if __name__ == "__main__":
             '--momentum', 0.92],
     )
 
-    # use curated pytorch environment 
-    env = ws.environments['AzureML-PyTorch-1.3-CPU']
+    # set up pytorch environment
+    env = Environment.from_conda_specification(
+        name='pytorch-env',
+        file_path='pytorch-env.yml'
+    )
     config.run_config.environment = env
 
     run = experiment.submit(config)
