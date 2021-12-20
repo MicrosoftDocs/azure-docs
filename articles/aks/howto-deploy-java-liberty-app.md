@@ -127,16 +127,15 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 
 Follow the instructions below to set up an Azure SQL Database single database for connectivity.
 
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart)
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart). Return to this document after creating and configuring the database server.
     > [!NOTE]
     >
     > * At **Basics** step, write down **Database name**, ***Server name**.database.windows.net*, **Server admin login** and **Password**.
     > * At **Networking** step, set **Connectivity method** to **Public endpoint**, **Allow Azure services and resources to access this server** to **Yes**, and **Add current client IP address** to **Yes**.
     >
     >   ![Screenshot of configuring SQL database networking](./media/howto-deploy-java-liberty-app/create-sql-database-networking.png)
-    > * At **Additional settings** step, set **Enable advanced data security** to **Not now**.
 
-2. Once your database is created, open **your SQL server** > **Firewalls and virtual networks** > Set **Minimal TLS Version** to **>1.0** > Select **Save**.
+2. Once your database is created, open **your SQL server** > **Firewalls and virtual networks** > Set **Minimal TLS Version** to **> 1.0** > Select **Save**.
 
     ![Screenshot of configuring SQL database minimum TLS version](./media/howto-deploy-java-liberty-app/sql-database-minimum-TLS-version.png)
 
@@ -168,12 +167,13 @@ To deploy and run your Liberty application on the AKS cluster, containerize your
 
 # [with DB connection](#tab/with-sql)
 
-### We assume the application is:
-* Managed using Maven
-* Using the `liberty-maven-plugin` to configure DB connection
+Follow the steps in this section to deploy the sample application on the Jakarta EE runtime. These steps use Maven and the `liberty-maven-plugin`.  To learn more about the `liberty-maven-plugin` see [Building a web application with Maven](https://openliberty.io/guides/maven-intro.html).
 
 ### Check out the application
-Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). There are three samples in the repository, and we will use *javaee-app-db-using-actions/mssql*. The file structure is as follows:
+
+Clone the sample code for this guide. The sample is on [GitHub](https://github.com/Azure-Samples/open-liberty-on-aks). 
+There are three samples in the repository. We will use *javaee-app-db-using-actions/mssql*. Here is the file structure of the application.
+
 ```
 javaee-app-db-using-actions/mssql
 ├─ src/main/
@@ -193,28 +193,30 @@ javaee-app-db-using-actions/mssql
 ├─ pom.xml
 ```
 
-* Directory *java*, *resources*, and *webapp* contains the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
+The directories *java*, *resources*, and *webapp* contain the source code of the sample application. The code declares and uses a data source named `jdbc/JavaEECafeDB`.
 
-* In directory *aks* we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. *openlibertyapplication.yaml* is used to deploy the application image.
+In directory *aks* we placed two deployment files. *db-secret.xml* is used to create [Kubernetes Secrets](https://kubernetes.io/docs/concepts/configuration/secret/) with DB connection credentials. The file *openlibertyapplication.yaml* is used to deploy the application image.
 
-* In directory *docker*, we place four Dockerfiles. *Dockerfile-local* is used for local debug and *Dockerfile* is used to build image for AKS deployment, they both work with Open Liberty. *Dockerfile-wlp-local* is used for local debug and *Dockerfile-wlp* is used to build image for AKS deployment, they both work with WebSphere Liberty.
+In directory *docker*, we place four Dockerfiles. *Dockerfile-local* is used for local debug and *Dockerfile* is used to build image for AKS deployment. They all work with Open Liberty. *Dockerfile-wlp-local* is used for local debug and *Dockerfile-wlp* is used to build image for AKS deployment, they all work with WebSphere Liberty.
 
-* In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty/WebSphere Liberty cluster.
+In directory *liberty/config*, the *server.xml* is used to configure the DB connection for the Open Liberty and WebSphere Liberty cluster.
 
 ### Build project
-Build your application.
+
+Now that you have gathered the necessary properties, you can build the application.  The POM file for the project reads many properties from the environment.
+
 ```bash
 cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
 
 # The following variables will be used for deployment file generation
-export LOGIN_SERVER=<Azure_Container_Registery_Login_Server_URL>
-export REGISTRY_NAME=<Azure_Container_Registery_Name>
-export USER_NAME=<Azure_Container_Registery_Username>
-export PASSWORD=<Azure_Container_Registery_Password>
+export LOGIN_SERVER=${LOGIN_SERVER}
+export REGISTRY_NAME=${REGISTRY_NAME}
+export USER_NAME=${USER_NAME}
+export PASSWORD=${PASSWORD}
 export DB_SERVER_NAME=<Server name>.database.windows.net
 export DB_PORT_NUMBER=1433
 export DB_NAME=<Database name>
-export DB_USER=<Server admin username>@<Database name>
+export DB_USER=<Server admin login>@<Database name>
 export DB_PASSWORD=<Server admin password>
 export PULL_SECRET=acr-secret
 export NAMESPACE=${OPERATOR_NAMESPACE}
@@ -225,11 +227,10 @@ mvn clean install
 Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
 We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the sample application.
 
-* Start your local docker environment if you haven't done so already.
-  ```bash
-  sudo dockerd
-  ```
-* Start the application in `liberty:devc` mode
+1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
+
+1. Start the application in `liberty:devc` mode
+
   ```bash
   cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
 
@@ -239,11 +240,15 @@ We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the s
   # If you are running with WebSphere Liberty
   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-wlp-local
   ```
-* Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
-* Press `Ctrl+C` to stop `liberty:devc` mode.
+
+1. Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
+
+1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
 ### Build image for AKS deployment
-Run the `docker build` command to build the image.
+
+After successfully running the app in the Liberty Docker container, you can run the `docker build` command to build the image.
+
 ```bash
 cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
 
@@ -261,7 +266,9 @@ docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile-wlp .
 ```
 
 ### Upload image to ACR
+
 Now, we upload the built image to the ACR created in the offer.
+
 ```bash
 docker tag ${IMAGE_NAME}:${IMAGE_VERSION} ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
 docker login -u ${USER_NAME} -p ${PASSWORD} ${LOGIN_SERVER}
@@ -304,6 +311,8 @@ docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
 
 ## Deploy application on the AKS cluster
 
+The steps in this section deploy the application.
+
 # [with DB connection](#tab/with-sql)
 
 1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
@@ -322,6 +331,7 @@ docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
    ```
 
 1. Apply DB secret and deployment file by running the following command:
+
    ```bash
    cd <path-to-your-repo>/javaee-app-db-using-actions/mssql/target
    
@@ -347,6 +357,7 @@ docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
 1. Wait until you see `3/3` under the `READY` column and `3` under the `AVAILABLE` column, use `CTRL-C` to stop the `kubectl` watch process.
 
 # [without DB connection](#tab/without-sql)
+
 Follow steps below to deploy the Liberty application on the AKS cluster.
 
 1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
@@ -385,6 +396,7 @@ Follow steps below to deploy the Liberty application on the AKS cluster.
 ---
 
 ### Test the application
+
 When the application runs, a Kubernetes load balancer service exposes the application front end to the internet. This process can take a while to complete.
 
 To monitor progress, use the [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) command with the `--watch` argument.
