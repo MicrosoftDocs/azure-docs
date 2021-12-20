@@ -9,7 +9,7 @@ ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 09/09/2019
-ms.custom: "seodec18, devx-track-csharp"
+ms.custom: "seodec18"
 ---
 
 # Call the Image Analysis API

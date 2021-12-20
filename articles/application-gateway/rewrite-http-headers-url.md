@@ -75,17 +75,23 @@ Application Gateway uses regular expressions for pattern matching in the conditi
 
 To capture a substring for later use, put parentheses around the subpattern that matches it in the condition regex definition. The first pair of parentheses stores its substring in 1, the second pair in 2, and so on. You may use as many parentheses as you like; Perl just keeps defining more numbered variables for you to represent these captured strings. Some examples from [ref](https://docstore.mik.ua/orelly/perl/prog3/ch05_07.htm): 
 
-*  /(\d)(\d)/ # Match two digits, capturing them into groups 1 and 2 
+* (\d)(\d) # Match two digits, capturing them into groups 1 and 2 
 
-* /(\d+)/ # Match one or more digits, capturing them all into group 1 
+* (\d+) # Match one or more digits, capturing them all into group 1 
 
-* /(\d)+/ # Match a digit one or more times, capturing the last into group 1
+* (\d)+ # Match a digit one or more times, capturing the last into group 1
+
+> [!Note]
+> Use of */* to prefix and suffix the pattern should not be specified in the pattern to match value. For example, (\d)(\d) will match two digits. /(\d)(\d)/ will not match two digits.
 
 Once captured, you can reference them in the action set using the following format:
 
 * For a request header capture, you must use {http_req_headerName_groupNumber}. For example, {http_req_User-Agent_1} or {http_req_User-Agent_2}
 * For a response header capture, you must use {http_resp_headerName_groupNumber}. For example, {http_resp_Location_1} or {http_resp_Location_2}
 * For a server variable, you must use {var_serverVariableName_groupNumber}. For example, {var_uri_path_1} or {var_uri_path_2}
+
+> [!Note]
+> The case of the condition variable needs to match case of the capture variable.  For example, if my condition variable is User-Agent, my capture variable must be in the case of User-Agent (i.e. {http_req_User-Agent_2}).  If my condition variable is defined as user-agent, my capture variable must be in the case of user-agent (i.e. {http_req_user-agent_2}).
 
 If you want to use the whole value, you should not mention the number. Simply use the format {http_req_headerName}, etc. without the groupNumber.
 

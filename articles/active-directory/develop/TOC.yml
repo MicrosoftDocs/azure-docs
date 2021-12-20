@@ -150,6 +150,8 @@
     href: authentication-flows-app-scenarios.md
   - name: Applications and service principals
     href: app-objects-and-service-principals.md
+  - name: Workload identities
+    href: workload-identities-overview.md
   - name: Workload identity federation
     href: workload-identity-federation.md
   - name: Identity platform best practices
@@ -157,6 +159,8 @@
   - name: App security
     displayName: least privilege, secure app configuration, conditional access
     items:
+    - name: Zero trust best practices for app developers
+      href: zero-trust-for-developers.md
     - name: Best practices for least privileged access for apps
       href: secure-least-privileged-access.md
     - name: Security best practices for Azure AD application registration
