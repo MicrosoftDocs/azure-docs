@@ -322,9 +322,19 @@ For more information on customer-managed keys and high business impact workspace
 
 To get information about a workspace, use the following command:
 
+# [1.0 CLI](#tab/workspaceupdatev1)
+
 ```azurecli-interactive
 az ml workspace show -w <workspace-name> -g <resource-group-name>
 ```
+
+# [2.0 CLI - preview](#tab/workspaceupdatev2)
+
+```azurecli-interactive
+az ml workspace show -n <workspace-name> -g <resource-group-name>
+```
+
+---
 
 For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az_ml_workspace_show) documentation.
 
@@ -332,9 +342,20 @@ For more information, see the [az ml workspace show](/cli/azure/ml/workspace#az_
 
 To update a workspace, use the following command:
 
+# [1.0 CLI](#tab/workspaceupdatev1)
+
 ```azurecli-interactive
 az ml workspace update -w <workspace-name> -g <resource-group-name>
 ```
+
+# [2.0 CLI - preview](#tab/workspaceupdatev2)
+
+```azurecli-interactive
+az ml workspace update -n <workspace-name> -g <resource-group-name>
+```
+
+---
+
 
 For more information, see the [az ml workspace update](/cli/azure/ml/workspace#az_ml_workspace_update) documentation.
 
@@ -342,9 +363,19 @@ For more information, see the [az ml workspace update](/cli/azure/ml/workspace#a
 
 If you change access keys for one of the resources used by your workspace, it takes around an hour for the workspace to synchronize to the new key. To force the workspace to sync the new keys immediately, use the following command:
 
+# [1.0 CLI](#tab/workspacesynckeysv1)
+
 ```azurecli-interactive
 az ml workspace sync-keys -w <workspace-name> -g <resource-group-name>
 ```
+
+# [2.0 CLI - preview](#tab/workspacesynckeysv2)
+
+```azurecli-interactive
+az ml workspace sync-keys -n <workspace-name> -g <resource-group-name>
+```
+
+---
 
 For more information on changing keys, see [Regenerate storage access keys](how-to-change-storage-access-key.md).
 
@@ -356,9 +387,20 @@ For more information on the sync-keys command, see [az ml workspace sync-keys](/
 
 To delete a workspace after it is no longer needed, use the following command:
 
+# [1.0 CLI](#tab/workspacedeletev1)
+
 ```azurecli-interactive
 az ml workspace delete -w <workspace-name> -g <resource-group-name>
 ```
+
+# [2.0 CLI - preview](#tab/workspacedeletev2)
+
+```azurecli-interactive
+az ml workspace delete -n <workspace-name> -g <resource-group-name>
+```
+
+---
+
 
 > [!IMPORTANT]
 > Deleting a workspace does not delete the application insight, storage account, key vault, or container registry used by the workspace.

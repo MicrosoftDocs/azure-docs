@@ -48,6 +48,9 @@ Based on these assumptions, we focus mostly on the products and services present
 
 ![SAP services in scope](./media/scenario-azure-first-sap-identity-integration/sap-services-in-scope.png)
 
+> [!NOTE]
+> Most of the guidance here applies to [Azure Active Directory B2C](../../active-directory-b2c/overview.md) as well, but there are some important differences. See [Using Azure AD B2C as the Identity Provider](#using-azure-ad-b2c-as-the-identity-provider) for more information.
+
 ## Recommendations
 
 ### Summary
@@ -122,9 +125,9 @@ We recommend that you don't put any authorization directly in Azure AD itself an
 
 #### Why this recommendation?
 
-When the application is federated through IAS, from the point of view of Azure AD the user is essentially "authenticating to IAS" during the sign-in flow.  This means that Azure AD has no information about which final BTP application the user is trying to sign in to. That also implies that authorization in Azure AD can only be used to do very coarse-grained authorization, for example allowing the user to sign in to *any* application in BTP, or to *none*. This also emphasizes SAP's strategy to isolate apps and authentication mechanisms on BTP Subaccount level.
+When the application is federated through IAS, from the point of view of Azure AD the user is essentially "authenticating to IAS" during the sign-in flow.  This means that Azure AD has no information about which final BTP application the user is trying to sign in to. That also implies that authorization in Azure AD can only be used to do very coarse-grained authorization, for example allowing the user to sign in to *any* application in BTP, or to *none*. This also emphasizes SAP's strategy to isolate apps and authentication mechanisms on the BTP Subaccount level.
 
-While that could be a valid reason for using "User assignment required", it does mean there are now potentially two different places where authorization information needs to be maintained: both in Azure AD on the Enterprise Application (where it applies to *all* BTP applications), as well as in each BTP Subaccount. This could lead to confusion and misconfigurations where authorization settings are updated in one place but not the other. For example:a user was allowed in BTP but not assigned to the application in Azure AD resulting in a failed authentication.
+While that could be a valid reason for using "User assignment required", it does mean there are now potentially two different places where authorization information needs to be maintained: both in Azure AD on the Enterprise Application (where it applies to *all* BTP applications), as well as in each BTP Subaccount. This could lead to confusion and misconfigurations where authorization settings are updated in one place but not the other. For example: a user was allowed in BTP but not assigned to the application in Azure AD resulting in a failed authentication.
 
 #### Summary of implementation
 
@@ -163,7 +166,7 @@ In Azure AD:
 
 - Create groups to which users can be added that need access to applications in BTP (for example, create an Azure AD group for each Role Collection in BTP).
 - On the Azure AD Enterprise Application representing the federation relation with IAS, configure the SAML User Attributes & Claims to [add a group claim for security groups](../hybrid/how-to-connect-fed-group-claims.md#add-group-claims-to-tokens-for-saml-applications-using-sso-configuration):
-    - Set the Source attribute to "Group ID" and the Name to `Groups` (spelled exactly like this, with upper case ‘G').
+    - Set the Source attribute to "Group ID" and the Name to `Groups` (spelled exactly like this, with upper case 'G').
     - Further, in order to keep claims payloads small and to avoid running into the limitation whereby Azure AD will limit the number of group claims to 150 in SAML assertions, we highly recommend limiting the groups returned in the claims to only those groups that explicitly were assigned:  
         - Under "Which groups associated with the user should be returned in the claim?" answer with "Groups assigned to the application".  Then for the groups you want to include as claims, assign them to the Enterprise Application using the "Users and Groups" section and selecting "Add user/group".
 
@@ -173,9 +176,15 @@ In IAS:
 
 - On the Corporate Identity Provider configuration, under the Identity Federation options, ensure that you disable "[Use Identity Authentication user store](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/LATEST/en-US/c029bbbaefbf4350af15115396ba14e2.html)"; otherwise, the group information from Azure AD would not be preserved in the SAML token towards BTP and authorization would fail.
 
+> [!NOTE]
+> If you *need* to use the Identity Authentication user store (for example, to include claims which cannot be sourced from Azure AD but that are available in the IAS user store), you can keep this setting enabled. In that case however, you will need to [configure the Default Attributes sent to the application](https://help.sap.com/viewer/6d6d63354d1242d185ab4830fc04feb1/Cloud/en-US/a2f1e4692e7d4379ab82144ab309e7b3.html) to include the relevant claims coming from Azure AD (for example with the `${corporateIdP.Groups}` format).
+
 In BTP:
 
 - On the Role Collections that are used by the applications in that Subaccount, [map the Role Collections to User Groups](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/51acfc82c0c54db59de0a528f343902c.html) by adding a configuration for the IAS Identity Provider and setting the Name to the Group ID (Object ID) of the Azure AD group.
+
+> [!NOTE]
+> In case you would have another claim in Azure AD to contain the authorization information to be used in BTP, you don't *have* to use the `Groups` claim name. This is what BTP uses when you map the Role Collections to user groups as above, but you can also [map the Role Collections to User Attributes](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/b3fbb1a9232d4cf99967a0b29dd85d4c.html) which gives you a bit more flexibility.
 
 ### 4 - Use a single BTP Subaccount only for applications that have similar Identity requirements
 
@@ -248,3 +257,19 @@ If the certificates are allowed to expire, or when they are replaced in time but
 [Add an email notification address for certificate expiration](../manage-apps/manage-certificates-for-federated-single-sign-on.md#add-email-notification-addresses-for-certificate-expiration) in Azure AD and set it to a group mailbox so that it isn't sent to a single individual (who may even no longer have an account by the time the certificate is about to expire). By default, only the user who created the Enterprise Application will receive a notification.
 
 Consider building automation to execute the entire certificate rollover process.  For example, one can periodically check for expiring certificates and replace them while updating all relying parties with the new metadata.
+
+## Using Azure AD B2C as the Identity Provider
+
+[Azure Active Directory B2C](../../active-directory-b2c/overview.md) provides business-to-customer identity as a service. Given that the integration with Azure AD B2C is similar to how you would allow enterprise users to sign in with Azure AD, the recommendations above still mostly apply when you want to use Azure AD B2C for your customers, consumers or citizens and allow them to use their preferred social, enterprise, or local account identities. There are a few important differences, however.
+
+### Registering a SAML application in Azure AD B2C
+
+Azure AD B2C doesn't have a gallery of enterprise applications that you can use to easily configure the trust relationship towards the Corporate Identity Provider in IAS. Instead, you will have to use [custom policies](../../active-directory-b2c/custom-policy-overview.md) to [register a SAML application](../../active-directory-b2c/saml-service-provider.md) in Azure AD B2C. This SAML application plays the same logical role as the enterprise application in Azure AD, however, so the same guidance around rollover of SAML certificates applies, for example.
+
+### Authorization with Azure AD B2C
+
+Azure AD B2C doesn't natively support the use of groups to create collections of users that you can assign access to, which means that the guidance to [use Azure AD groups for authorization through Role Collections in BTP](#3---use-azure-ad-groups-for-authorization-through-role-collections-in-iasbtp) has to be implemented differently.
+
+Fortunately, Azure AD B2C is highly customizable, so you can configure the SAML tokens it sends to IAS to include any custom information. For various options on supporting authorization claims, see the documentation accompanying the [Azure AD B2C App Roles sample](https://github.com/azure-ad-b2c/api-connector-samples/tree/main/Authorization-AppRoles), but in summary: through its [API Connector](../../active-directory-b2c/api-connectors-overview.md) extensibility mechanism you can optionally still use groups, app roles, or even a custom database to determine what the user is allowed to access.
+
+Regardless of where the authorization information comes from, it can then be emitted as the `Groups` attribute inside the SAML token by configuring that attribute name as the [default partner claim type on the claims schema](../../active-directory-b2c/claimsschema.md#defaultpartnerclaimtypes) or by overriding the [partner claim type on the output claims](../../active-directory-b2c/relyingparty.md#outputclaims). Note however that BTP allows you to [map Role Collections to User Attributes](https://help.sap.com/products/BTP/65de2977205c403bbc107264b8eccf4b/b3fbb1a9232d4cf99967a0b29dd85d4c.html), which means that *any* attribute name can be used for authorization decisions, even if you don't use the `Groups` attribute name.
