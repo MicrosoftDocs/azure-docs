@@ -378,7 +378,7 @@ As the BIG-IP doesn’t support group Managed Service Accounts (gMSA), create a 
 
 5. You can use any SPN you see defined against a web application’s service account, but in the interest of security it’s best to use a dedicated SPN matching the host header of the application. For example, as our web application host header is myexpenses.contoso.com we would add HTTP/myexpenses.contoso.com to the applications service account object in AD.
 
-  ```Set-AdUser -Identity web_svc_account -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
+    ```Set-AdUser -Identity web_svc_account -ServicePrincipalNames @{Add="http/myexpenses.contoso.com"} ```
 
     Or if the app ran in the machine context, we would add the SPN to the object of the computer account in AD.
 
@@ -429,8 +429,6 @@ For increased security, organizations using this pattern could also consider blo
 ### Azure AD B2B guest access
 
 SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-cloud-to-on-premises.md). Azure AD B2B guest access is also possible by having guest identities flowed down from your Azure AD tenant to the directory that your application. It is necessary to have a local representation of guest objects for BIG-IP to perform KCD SSO to the backend application. 
-
-You can test this scenario by using a [script](../b2b/hybrid-cloud-to-on-premises%23create-b2b-guest-user-objects-through-a-script-preview.md) or Microsoft Identity Manager (MIM) [guidance](../b2b/hybrid-cloud-to-on-premises%23create-b2b-guest-user-objects-through-mim.md) to synchronize the guest accounts to AD.
 
 ## Advanced deployment
 
