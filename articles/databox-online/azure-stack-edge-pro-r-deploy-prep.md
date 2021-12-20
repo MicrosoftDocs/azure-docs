@@ -80,8 +80,6 @@ Before you begin, make sure that:
 
 If you have an existing Azure Stack Edge resource to manage your physical device, skip this step and go to [Get the activation key](#get-the-activation-key).
 
----
-
 ### [Azure Edge Hardware Center (Preview)](#tab/azure-edge-hardware-center)
 
 Azure Edge Hardware Center (Preview) lets you explore and order a variety of hardware from the Azure hybrid portfolio including Azure Stack Edge Pro devices.
