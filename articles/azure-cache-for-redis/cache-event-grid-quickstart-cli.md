@@ -54,7 +54,7 @@ Replace `<your-site-name>` with a unique name for your web app. The web app name
 ```azurecli-interactive
 sitename=<your-site-name>
 
-az group deployment create \
+az deployment group create \
   --resource-group <resource_group_name> \
   --template-uri "https://raw.githubusercontent.com/Azure-Samples/azure-event-grid-viewer/master/azuredeploy.json" \
   --parameters siteName=$sitename hostingPlanName=viewerhost
@@ -73,7 +73,7 @@ In this step, you'll subscribe to a topic to tell Event Grid which events you wa
 The endpoint for your web app must include the suffix `/api/updates/`.
 
 ```azurecli-interactive
-cacheId=$(az redis show --name <cache_name> --resource-group <resource_group_name> --query id --subscription <subscription_id>)
+cacheId=$(az redis show --name <cache_name> --resource-group <resource_group_name> --query id --subscription <subscription_id> --output tsv)
 endpoint=https://$sitename.azurewebsites.net/api/updates
 
 az eventgrid event-subscription create \

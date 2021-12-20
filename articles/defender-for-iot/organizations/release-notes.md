@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT
 description: This article lets you know what's new in the latest release of Defender for IoT.
 ms.topic: overview
-ms.date: 12/09/2021
+ms.date: 12/19/2021
 ---
 
 # What's new in Microsoft Defender for IoT?
@@ -19,7 +19,7 @@ Listed below are the support, breaking change policies for Microsoft Defender fo
 
 ### Servicing information and timelines
 
-Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on-premises management console is supported for up to nine months after its release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
+Microsoft plans to release updates for Defender for IoT no less than once per quarter. Each general availability (GA) version of the Defender for IoT sensor, and on-premises management console is supported for nine months after release. Fixes, and new functionality will be applied to the current GA version that are currently in support, and will not be applied to older GA versions.
 
 ### Versions and support dates
 
