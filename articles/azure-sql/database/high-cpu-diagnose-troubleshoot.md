@@ -136,7 +136,7 @@ SELECT
 		ELSE req.statement_end_offset END - req.statement_start_offset)/2) + 1),
 		CHAR(10), ' '), CHAR(13), ' ') AS statement_text,
     qp.query_plan,
-    qsx.query_plan as query_plan_with_transient_statistics
+    qsx.query_plan as query_plan_with_in_flight_statistics
 FROM sys.dm_exec_requests as req  
 JOIN sys.dm_exec_sessions as s on req.session_id=s.session_id
 CROSS APPLY sys.dm_exec_sql_text(req.sql_handle) as st
@@ -148,7 +148,7 @@ GO
 
 This query returns two copies of the execution plan. The column `query_plan` contains the execution plan from [sys.dm_exec_query_plan()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-plan-transact-sql). This version of the query plan contains only estimates of row counts and does not contain any execution statistics.
 
-If the column `query_plan_with_transient_statistics` returns an execution plan, this plan provides more information. The `query_plan_with_transient_statistics` column returns data from [sys.dm_exec_query_statistics_xml()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql), which includes transient statistics such as the actual number of rows returned so far.
+If the column `query_plan_with_in_flight_statistics` returns an execution plan, this plan provides more information. The `query_plan_with_in_flight_statistics` column returns data from [sys.dm_exec_query_statistics_xml()](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-query-statistics-xml-transact-sql), which includes "in flight" execution statistics such as the actual number of rows returned so far by a currently running query.
 
 ### Review CPU usage metrics for the last hour
 
