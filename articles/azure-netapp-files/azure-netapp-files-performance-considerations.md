@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/19/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Performance considerations for Azure NetApp Files
 
