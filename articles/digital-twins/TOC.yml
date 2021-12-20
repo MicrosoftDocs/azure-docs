@@ -271,7 +271,7 @@
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_instance
       - name: Digital Twins instance data source
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/data-sources/digital_twins_instance
-      - name: Event Hub endpoint resource
+      - name: Event Hubs endpoint resource
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventhub
       - name: Event Grid endpoint resource
         href: https://registry.terraform.io/providers/hashicorp/azurerm/latest/docs/resources/digital_twins_endpoint_eventgrid

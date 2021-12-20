@@ -15,7 +15,7 @@ ms.custom: references_regions, ignite-fall-2021
 
 # Language and voice support for the Speech service
 
-Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-Text](#speech-to-text), [Text-to-Speech](#text-to-speech), [Speech translation](#speech-translation) and [Speaker Recognition](#speaker-recognition) service offerings.
+Language support varies by Speech service functionality. The following tables summarize language support for [Speech-to-Text](#speech-to-text), [Text-to-Speech](#text-to-speech), [Speech translation](#speech-translation), and [Speaker Recognition](#speaker-recognition) service offerings.
 
 ## Speech-to-Text
 
@@ -383,8 +383,8 @@ Below table lists out the prebuilt neural voices supported in each language. You
 | Spanish (Paraguay) | `es-PY` | Male | `es-PY-MarioNeural` <sup>New</sup>  | General |
 | Spanish (Peru) | `es-PE` | Female | `es-PE-CamilaNeural` <sup>New</sup>  | General |
 | Spanish (Peru) | `es-PE` | Male | `es-PE-AlexNeural` <sup>New</sup>  | General |
-| Spanish (Puerto Rico) | `es-PR` | Female | `es-PR-Karina Neural` <sup>New</sup>  | General |
-| Spanish (Puerto Rico) | `es-PR` | Male | `es-PR-Victor Neural` <sup>New</sup>  | General |
+| Spanish (Puerto Rico) | `es-PR` | Female | `es-PR-KarinaNeural` <sup>New</sup>  | General |
+| Spanish (Puerto Rico) | `es-PR` | Male | `es-PR-VictorNeural` <sup>New</sup>  | General |
 | Spanish (Spain) | `es-ES` | Female | `es-ES-ElviraNeural` | General |
 | Spanish (Spain) | `es-ES` | Male | `es-ES-AlvaroNeural` | General |
 | Spanish (Uruguay) | `es-UY` | Female | `es-UY-ValentinaNeural` <sup>New</sup>  | General |
@@ -505,7 +505,7 @@ With the cross-lingual feature (preview), you can transfer you custom neural voi
 
 ## Speech translation
 
-The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the  [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages are available for [speech synthesis](language-support.md#text-languages).
+The **Speech Translation** API supports different languages for speech-to-speech and speech-to-text translation. The source language must always be from the Speech-to-text language table. The available target languages depend on whether the translation target is speech or text. You may translate incoming speech into any of the  [supported languages](https://www.microsoft.com/translator/business/languages/). A subset of languages is available for [speech synthesis](language-support.md#text-languages).
 
 ### Text languages
 
@@ -609,20 +609,20 @@ Speaker recognition is mostly language agnostic. We built a universal model for 
 
 | Language | Locale (BCP-47) | Text-dependent verification | Text-independent verification | Text-independent identification |
 |----|----|----|----|----|
-|English (US)  |  `en-US`  |  yes  |  yes  |  yes |
-|Chinese (Mandarin, simplified) | `zh-CN`     |     n/a |     yes |     yes|
-|English (Australia)     | `en-AU`    | n/a     | yes     | yes|
-|English (Canada)     | `en-CA`     | n/a |     yes |     yes|
-|English (India)     | `en-IN`     | n/a |     yes |     yes|
-|English (UK)     | `en-GB`     | n/a     | yes     | yes|
-|French (Canada)     | `fr-CA`     | n/a     | yes |     yes|
-|French (France)     | `fr-FR`     | n/a     | yes     | yes|
-|German (Germany)     | `de-DE`     | n/a     | yes     | yes|
-|Italian | `it-IT`     |     n/a     | yes |     yes|
-|Japanese     | `ja-JP` | n/a     | yes     | yes|
-|Portuguese (Brazil) | `pt-BR` |     n/a |     yes |     yes|
-|Spanish (Mexico)     | `es-MX`     | n/a |     yes |     yes|
-|Spanish (Spain)     | `es-ES` | n/a     | yes |     yes|
+|English (US)  |  `en-US`  |  Yes  |  Yes  |  Yes |
+|Chinese (Mandarin, simplified) | `zh-CN`     |     n/a |     Yes |     Yes|
+|English (Australia)     | `en-AU`    | n/a     | Yes     | Yes|
+|English (Canada)     | `en-CA`     | n/a |     Yes |     Yes|
+|English (India)     | `en-IN`     | n/a |     Yes |     Yes|
+|English (UK)     | `en-GB`     | n/a     | Yes     | Yes|
+|French (Canada)     | `fr-CA`     | n/a     | Yes |     Yes|
+|French (France)     | `fr-FR`     | n/a     | Yes     | Yes|
+|German (Germany)     | `de-DE`     | n/a     | Yes     | Yes|
+|Italian | `it-IT`     |     n/a     | Yes |     Yes|
+|Japanese     | `ja-JP` | n/a     | Yes     | Yes|
+|Portuguese (Brazil) | `pt-BR` |     n/a |     Yes |     Yes|
+|Spanish (Mexico)     | `es-MX`     | n/a |     Yes |     Yes|
+|Spanish (Spain)     | `es-ES` | n/a     | Yes |     Yes|
 
 ## Custom Keyword and Keyword Verification
 

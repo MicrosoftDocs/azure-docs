@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: python
 ms.topic: how-to
 ms.date: 11/18/2020
 ms.author: inhenkel
@@ -93,6 +93,11 @@ pip3 install azure-mgmt-media
     ```
 
 1. Run the file
+
+
+## Additional samples
+
+Additional samples are available in GitHub in the [Azure Media Services v3 Python Samples](https://github.com/Azure-Samples/media-services-v3-python) repo.
 
 ## Next steps
 
