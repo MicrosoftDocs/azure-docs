@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/16/2021
+ms.date: 12/20/2021
 ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
@@ -125,7 +125,7 @@ This feature does not require that you restore the entire snapshot to a new volu
 
 The following diagram describes how single-file snapshot restore works:
 
-1. When a single file is restored in-place (`file2`) or to a new file in the volume (`file2’`), only the *pointers* to existing blocks previously captured in a snapshot are reverted. This operation eliminates the copying of any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
+When a single file is restored in-place (`file2`) or to a new file in the volume (`file2’`), only the *pointers* to existing blocks previously captured in a snapshot are reverted. This operation eliminates the copying of any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
 
    ![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)
 

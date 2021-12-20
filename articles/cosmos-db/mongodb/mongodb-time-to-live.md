@@ -5,7 +5,7 @@ author: gahl-levy
 ms.author: gahllevy
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: javascript
+ms.devlang: csharp, java, javascript
 ms.topic: how-to
 ms.date: 12/26/2018
 ms.custom: devx-track-js, devx-track-csharp
