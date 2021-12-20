@@ -159,7 +159,7 @@ For sample queries for this table, see [Resource Graph sample queries for resour
   - Sample query: [Remove columns from results](../samples/samples-by-category.md#remove-columns-from-results)
   - Sample query: [Secure score per management group](../samples/samples-by-category.md#secure-score-per-management-group)
 - Microsoft.Resources/subscriptions/resourceGroups (Resource groups)
-  - Sample query: [Combine results from two queries into a single result](../samples/samples-by-category.md#combine-results-from-two-queries-into-a-single-result)
+  - Sample query: [Combine results from two queries into a single result](../samples/samples-by-category.md)
   - Sample query: [Find storage accounts with a specific case-insensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-insensitive-tag-on-the-resource-group)
   - Sample query: [Find storage accounts with a specific case-sensitive tag on the resource group](../samples/samples-by-category.md#find-storage-accounts-with-a-specific-case-sensitive-tag-on-the-resource-group)
 
@@ -918,7 +918,7 @@ For sample queries for this table, see [Resource Graph sample queries for securi
   - Sample query: [List Container Registry vulnerability assessment results](../samples/samples-by-category.md#list-container-registry-vulnerability-assessment-results)
   - Sample query: [List Qualys vulnerability assessment results](../samples/samples-by-category.md#list-qualys-vulnerability-assessment-results)
 - microsoft.security/insights/classification (Data Sensitivity Security Insights (Preview))
-  - Sample query: [Get sensitivity insight of a specific resource](../samples/samples-by-category.md#get-sensitivity-insight-of-a-specific-resource)
+  - Sample query: [Get sensitivity insight of a specific resource](../samples/samples-by-category.md)
 - microsoft.security/iotalerts
   - Sample query: [Get all IoT alerts on hub, filtered by type](../samples/samples-by-category.md#get-all-iot-alerts-on-hub-filtered-by-type)
   - Sample query: [Get specific IoT alert](../samples/samples-by-category.md#get-specific-iot-alert)
