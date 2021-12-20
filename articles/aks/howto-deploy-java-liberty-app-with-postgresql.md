@@ -174,7 +174,7 @@ export DB_PORT_NUMBER=5432
 export DB_TYPE=postgres
 export DB_USER=${DB_ADMIN_USERNAME}@${DB_NAME}
 export DB_PASSWORD=${DB_ADMIN_PASSWORD}
-export NAMESPACE=<metada.namespace>
+export NAMESPACE=<metadata.namespace>
 export PULL_SECRET=<pullSecret>
 
 mvn clean install
@@ -185,7 +185,7 @@ mvn clean install
 Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
 We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the sample application.
 
-1. Start your local docker environment if you haven't done so already. The instructions for donig this vary depending on the host operating system.
+1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
 
 1. Start the application in `liberty:devc` mode
 
