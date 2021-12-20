@@ -146,10 +146,10 @@ After the script completes, select **Refresh** above the file folders. You'll se
 
 ## Create a Python environment
 
-Create a new Python file in the **get-started** folder called `pytorch-env`:
+Create a new Python file in the **get-started** folder called `pytorch-env.yml`:
 
 ```yml
-name: pytorch-aml-env
+name: pytorch-env
 channels:
     - defaults
     - pytorch
@@ -347,7 +347,7 @@ compare metrics.
 The `train.py` script just took a new dependency on `azureml.core`. Update `pytorch-env.yml` to reflect this change:
 
 ```yml
-name: pytorch-aml-env
+name: pytorch-env
 channels:
     - defaults
     - pytorch
