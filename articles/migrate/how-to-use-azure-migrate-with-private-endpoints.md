@@ -116,7 +116,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2160648) | 3C00F9EB54CC6C55E127EDE47DFA28CCCF752697377EB1C9F3435E75DA5AA029
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2160648) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
 
 > [!NOTE]
 > The same script can be used to set up an appliance with private endpoint connectivity for any of the chosen scenarios, such as VMware, Hyper-V, physical or other to deploy an appliance with the desired configuration.
