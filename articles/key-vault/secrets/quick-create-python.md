@@ -7,6 +7,7 @@ ms.date: 09/03/2020
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
+ms.devlang: python
 ms.custom: devx-track-python, devx-track-azurepowershell, devx-track-azurecli, mode-api
 ---
 

@@ -44,14 +44,16 @@ When scanning Snowflake, Purview supports:
 
 ### Required permissions for scan
 
-Azure Purview supports basic authentication (username and password) for scanning Snowflake. The default role of the given user will be used. The Snowflake user must have read access to system tables in order to access advanced metadata. Here is a sample walkthrough to set up the permission. If you choose to use an existing user, make sure it has adequate rights.
+Azure Purview supports basic authentication (username and password) for scanning Snowflake. The default role of the given user will be used to perform the scan. The Snowflake user must have usage rights on a warehouse and the database(s) to be scanned, and read access to system tables in order to access advanced metadata.
+
+Here is a sample walkthrough to create a user specifically for Purview scan and set up the permissions. If you choose to use an existing user, make sure it has adequate rights to the warehouse and database objects.
 
 1. Set up a `purview_reader` role. You will need _ACCOUNTADMIN_ rights to do this.
 
    ```sql
    USE ROLE ACCOUNTADMIN;
    
-   --create role to allow read only access - this will later be assigned to the purview USER
+   --create role to allow read only access - this will later be assigned to the Purview user
    CREATE OR REPLACE ROLE purview_reader;
    
    --make sysadmin the parent role
@@ -75,7 +77,7 @@ Azure Purview supports basic authentication (username and password) for scanning
    GRANT USAGE ON WAREHOUSE purview_wh TO ROLE purview_reader;
    ```
 
-3. Create a USER `purview` for Purview scan.
+3. Create a user `purview` for Purview scan.
 
    ```sql
    CREATE OR REPLACE USER purview 
@@ -90,23 +92,25 @@ Azure Purview supports basic authentication (username and password) for scanning
 
 4. Grant reader rights to the database objects.
 
-```sql
---grant reader access to all the database structures that purview can currently scan
-GRANT USAGE ON ALL SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE ON ALL FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE ON ALL PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
-GRANT SELECT ON ALL TABLES IN DATABASE <your_database_name> TO role purview_reader;
-GRANT SELECT ON ALL VIEWS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE, READ on ALL STAGES IN DATABASE <your_database_name> TO role purview_reader;
+    ```sql
+    GRANT USAGE ON DATABASE <your_database_name> TO purview_reader;
 
---grant reader access to any future objects that could be created
-GRANT USAGE ON FUTURE SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE ON FUTURE FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE ON FUTURE PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
-GRANT SELECT ON FUTURE TABLES IN DATABASE <your_database_name> TO role purview_reader;
-GRANT SELECT ON FUTURE VIEWS IN DATABASE <your_database_name> TO role purview_reader;
-GRANT USAGE, READ ON FUTURE STAGES IN DATABASE <your_database_name> TO role purview_reader;
-```
+    --grant reader access to all the database structures that purview can currently scan
+    GRANT USAGE ON ALL SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON ALL FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON ALL PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON ALL TABLES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON ALL VIEWS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE, READ on ALL STAGES IN DATABASE <your_database_name> TO role purview_reader;
+
+    --grant reader access to any future objects that could be created
+    GRANT USAGE ON FUTURE SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON FUTURE FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON FUTURE PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON FUTURE TABLES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON FUTURE VIEWS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE, READ ON FUTURE STAGES IN DATABASE <your_database_name> TO role purview_reader;
+    ```
 
 ## Register
 
