@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/16/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # How Azure NetApp Files snapshots work
 
