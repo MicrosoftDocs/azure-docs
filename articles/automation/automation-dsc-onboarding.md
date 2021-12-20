@@ -57,9 +57,7 @@ You can use the [Register-AzAutomationDscNode](/powershell/module/az.automation/
 
 The best way to register VMs from other Azure subscriptions is to use the DSC extension in an Azure Resource Manager deployment template. Examples are provided in [Desired State Configuration extension with Azure Resource Manager templates](../virtual-machines/extensions/dsc-template.md).
 
-To find the registration key and registration URL to use as parameters in the template, see [Enable machines securely using registration](#enable-machines-securely-using-registration).
-
-## Use DSC metaconfiguration to securely register hybrid machines
+## Use DSC metaconfiguration to register hybrid machines
 
 You can enable machines securely for an Azure Automation account through the DSC metaconfiguration. The protocols implemented in DSC use information from the
 metaconfiguration to authenticate to Azure Automation State Configuration. The node registers with the service at the registration URL and authenticates using
@@ -203,7 +201,7 @@ Proxy support for metaconfigurations is controlled by the [Local Configuration M
    DscMetaConfigs @Params
    ```
 
-1. Fill in the registration key and URL for your Automation account, as well as the names of the machines to enable. All other parameters are optional. To find the registration key and registration URL for your Automation account, see [Enable machines securely using registration](#enable-machines-securely-using-registration).
+1. Fill in the registration key and URL for your Automation account, as well as the names of the machines to enable. All other parameters are optional. To find the registration key and registration URL for your Automation account, see [Use DSC metaconfiguration to register hybrid machines](#Use-DSC-metaconfiguration-to-register-hybrid-machines).
 
 1. If you want the machines to report DSC status information to Azure Automation State Configuration, but not pull configuration or PowerShell modules, set the `ReportOnly` parameter to true.
 
@@ -269,7 +267,7 @@ You can enable Linux servers running on-premises or in other cloud environments 
 
      `/opt/microsoft/dsc/Scripts/Register.py <Automation account registration key> <Automation account registration URL>`
 
-   - To find the registration key and registration URL for your Automation account, see [Enable machines securely using registration](#enable-machines-securely-using-registration).
+   - To find the registration key and registration URL for your Automation account, see [Use DSC metaconfiguration to register hybrid machines](#Use-DSC-metaconfiguration-to-register-hybrid-machines).
 
 3. If the PowerShell DSC Local Configuration Manager (LCM) defaults don't match your use case, or you want to enable machines that only report to Azure Automation State Configuration, follow steps 4-7. Otherwise, proceed directly to step 7.
 
