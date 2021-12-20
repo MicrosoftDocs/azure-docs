@@ -38,7 +38,7 @@ New-AzResourceGroup -Name MyResourceGroup -Location 'EastUS'
 
 Create a VM with [New-AzVM](/powershell/module/az.compute/new-azvm). Provide names for each of the resources and the `New-AzVM` cmdlet creates if they don't already exist.
 
-When prompted, provide a username and password to be used as the sign-in credentials for the VM:
+Update the user name and password below, then create the VM like this:
 
 ```azurepowershell-interactive
 # Create Credential for user
@@ -75,7 +75,7 @@ Get-AzPublicIpAddress -ResourceGroupName "MyResourceGroup" |
   Select-Object -Property  'IpAddress'
 ```
 
-Use the following command to create a remote desktop session from your local computer. Replace the IP address with the public IP address of your VM. 
+Use the following command to create a remote desktop session from your local computer.
 
 ```powershell
 $IP  = Get-AzPublicIpAddress -ResourceGroupName "MyResourceGroup" | 
@@ -119,7 +119,7 @@ Remove-AzResourceGroup -Name MyResourceGroup
 
 ## Next steps
 
-In this quickstart, you deployed a simple virtual machine, open a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
+In this quickstart, you deployed a simple virtual machine, opened a network port for web traffic, and installed a basic web server. To learn more about Azure virtual machines, continue to the tutorial for Windows VMs.
 
 > [!div class="nextstepaction"]
 > [Azure Windows virtual machine tutorials](./tutorial-manage-vm.md)
