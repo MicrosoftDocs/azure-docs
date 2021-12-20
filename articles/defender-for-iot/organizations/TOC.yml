@@ -49,8 +49,8 @@
       href: tutorial-splunk.md
     - name: Integrate ServiceNow
       href: tutorial-servicenow.md
-  - name: Detect threats with Microsoft Sentinel
-    href: ../../sentinel/iot-solution.md
+    - name: Detect threats with Microsoft Sentinel
+      href: ../../sentinel/iot-solution.md
 - name: Concepts
   items:  
     - name: Key concepts
