@@ -69,12 +69,14 @@
         href: azure-netapp-files-smb-performance.md
       - name: Azure virtual machine SKUs best practices
         href: performance-virtual-machine-sku.md 
-  - name: Application volume groups
-    items: 
-    - name: Understand application volume group for SAP HANA
-      href: application-volume-group-introduction.md
-    - name: Requirements and considerations for application volume group for SAP HANA
-      href: application-volume-group-considerations.md
+  - name: Application volume groups 
+    items:
+      - name: Application volume groups for SAP HANA
+        items: 
+        - name: Understand application volume group for SAP HANA
+          href: application-volume-group-introduction.md
+        - name: Requirements and considerations for application volume group for SAP HANA
+          href: application-volume-group-considerations.md
   - name: Data protection 
     items:
     - name: How Azure NetApp Files snapshots work
@@ -171,6 +173,8 @@
         href: configure-ldap-extended-groups.md
       - name: Configure an NFS client for Azure NetApp Files
         href: configure-nfs-clients.md
+      - name: Convert an NFS volume between NFSv3 and NFSv4.1
+        href: convert-nfsv3-nfsv41.md
     - name: Manage SMB volumes
       items:
       - name: Create an SMB volume
@@ -189,9 +193,9 @@
         href: configure-unix-permissions-change-ownership-mode.md
       - name: Configure network features for a volume
         href: configure-network-features.md
-    - name: Mount or unmount a volume
+    - name: Mount volumes
       items:
-      - name: Mount or unmount a volume
+      - name: Mount a volume for Windows or Linux VMs
         href: azure-netapp-files-mount-unmount-volumes-for-virtual-machines.md
     - name: Manage volume capacity and performance 
       items:
@@ -201,20 +205,22 @@
         href: azure-netapp-files-resize-capacity-pools-or-volumes.md
       - name: Dynamically change the service level of a volume
         href: dynamic-change-volume-service-level.md
-  - name: Manage application volume groups
-    items: 
-    - name: Deploy the first SAP HANA host
-      href: application-volume-group-deploy-first-host.md
-    - name: Add hosts to a multiple-host SAP HANA system
-      href: application-volume-group-add-hosts.md
-    - name: Add volumes for an SAP HANA system as a secondary database in HSR
-      href: application-volume-group-add-volume-secondary.md
-    - name: Add volumes for an SAP HANA system as a DR system
-      href: application-volume-group-disaster-recovery.md
-    - name: Manage volumes in an application volume group
-      href: application-volume-group-manage-volumes.md
-    - name: Delete an application volume group
-      href: application-volume-group-delete.md
+  - name: Manage application volume groups 
+    items:
+      - name: Manage application volume groups for SAP HANA
+        items: 
+        - name: Deploy the first SAP HANA host
+          href: application-volume-group-deploy-first-host.md
+        - name: Add hosts to a multiple-host SAP HANA system
+          href: application-volume-group-add-hosts.md
+        - name: Add volumes for an SAP HANA system as a secondary database in HSR
+          href: application-volume-group-add-volume-secondary.md
+        - name: Add volumes for an SAP HANA system as a DR system
+          href: application-volume-group-disaster-recovery.md
+        - name: Manage volumes in an application volume group
+          href: application-volume-group-manage-volumes.md
+        - name: Delete an application volume group
+          href: application-volume-group-delete.md
   - name: Manage data protection  
     items:
     - name: Manage volume snapshots
@@ -227,6 +233,8 @@
         href: snapshots-edit-hide-path.md
       - name: Restore a snapshot to a new volume
         href: snapshots-restore-new-volume.md
+      - name: Restore individual files using single-file snapshot restore
+        href: snapshots-restore-file-single.md
       - name: Restore a file from a snapshot using a client
         href: snapshots-restore-file-client.md
       - name: Restore a volume using snapshot revert

@@ -55,7 +55,7 @@ As an Application Delivery Controller (ADC) and SSL-VPN, a BIG-IP system provide
 
 Its Local Traffic Manager (LTM) allows secure publishing of services through reverse proxy functionality. At the same time, a sophisticated Access Policy Manager (APM) extends the BIG-IP with a richer set of capabilities, enabling federation and Single sign-on (SSO).
 
-The integration is based on a standard federation trust between the APM and Azure AD, common to most SHA use cases that includes the [SSL-VPN scenario](f5-aad-password-less-vpn.md). Security Assertion Markup Language (SAML), OAuth and Open ID Connect (OIDC) resources are no exception either, as they too can be secured for remote access. There could also be scenarios where a BIG-IP becomes a choke point for Zero Trust access to all services, including SaaS apps.
+The integration is based on a standard federation trust between the APM and Azure AD, common to most SHA use cases including the [SSL-VPN scenario](f5-aad-password-less-vpn.md). Security Assertion Markup Language (SAML), OAuth and Open ID Connect (OIDC) resources are no exception either, as they too can be secured for remote access. There could also be scenarios where a BIG-IP becomes a choke point for Zero Trust access to all services, including SaaS apps.
 
 A BIG-IP’s ability to integrate with Azure AD is what enables the protocol transitioning required to secure legacy or non-Azure AD-integrated services with modern controls such as [Password-less authentication](https://www.microsoft.com/security/business/identity/passwordless) and [Conditional Access](../conditional-access/overview.md). In this scenario, a BIG-IP continues to fulfill its role as a reverse proxy, while handing off pre-authentication and authorization to Azure AD, on a per service basis.
 
@@ -134,7 +134,7 @@ The following tutorials provide detailed guidance on implementing some of the mo
 
 - [F5 BIG-IP in Azure deployment walk-through](f5-bigip-deployment-guide.md)
 
-- [F5 BIG-IP APM and Azure AD SSO to Kerberos applications](../saas-apps/kerbf5-tutorial.md#configure-f5-single-sign-on-for-kerberos-application)
+- [F5 BIG-IP APM and Azure AD SSO to Kerberos applications](f5-big-ip-kerberos-advanced.md)
 
 - [F5 BIG-IP APM and Azure AD SSO to Header-based applications](f5-big-ip-header-advanced.md)
 
@@ -143,6 +143,8 @@ The following tutorials provide detailed guidance on implementing some of the mo
 - [Configure Azure AD B2C with F5 BIG-IP](../../active-directory-b2c/partner-f5.md)
 
 - [F5 BIG-IP APM and Azure AD SSO to forms-based applications](f5-big-ip-forms-advanced.md)
+
+- [F5 BIG-IP Easy Button for SSO to header-based and LDAP applications](f5-big-ip-ldap-header-easybutton.md)
 
 ## Additional resources
 

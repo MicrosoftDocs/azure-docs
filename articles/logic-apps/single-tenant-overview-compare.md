@@ -5,7 +5,7 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: conceptual
-ms.date: 09/13/2021
+ms.date: 12/06/2021
 ms.custom: ignite-fall-2021
 ---
 
@@ -270,6 +270,8 @@ For the **Logic App (Standard)** resource, these capabilities have changed, or t
 
     * Some [triggers and actions for integration accounts](../connectors/managed.md#integration-account-connectors) are unavailable, for example, the AS2 (V2) actions and RosettaNet actions.
 
+    * The Gmail connector currently isn't supported.
+  
     * [Custom managed connectors](../connectors/apis-list.md#custom-apis-and-connectors) currently aren't currently supported. However, you can create *custom built-in operations* when you use Visual Studio Code. For more information, review [Create single-tenant based workflows using Visual Studio Code](create-single-tenant-workflows-visual-studio-code.md#enable-built-in-connector-authoring).
 
 * **Authentication**: The following authentication types are currently unavailable for the **Logic App (Standard)** resource type:

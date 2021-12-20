@@ -2,7 +2,7 @@
 title: System topics in Azure Event Grid
 description: Describes system topics in Azure Event Grid. 
 ms.topic: conceptual
-ms.date: 07/19/2021
+ms.date: 12/16/2021
 ---
 
 # System topics in Azure Event Grid
@@ -18,12 +18,14 @@ Here is the current list of Azure services that support creation of system topic
 - [Azure App Configuration](event-schema-app-configuration.md)
 - [Azure App Service](event-schema-app-service.md)
 - [Azure Blob Storage](event-schema-blob-storage.md)
+- [Azure Cache for Redis](event-schema-azure-cache.md)
 - [Azure Communication Services](event-schema-communication-services.md) 
 - [Azure Container Registry](event-schema-container-registry.md)
 - [Azure Event Hubs](event-schema-event-hubs.md)
 - [Azure FarmBeats](event-schema-farmbeats.md)
 - [Azure IoT Hub](event-schema-iot-hub.md)
 - [Azure Key Vault](event-schema-key-vault.md)
+- [Azure Kubernetes Service](event-schema-aks.md)
 - [Azure Machine Learning](event-schema-machine-learning.md)
 - [Azure Maps](event-schema-azure-maps.md)
 - [Azure Media Services](event-schema-media-services.md)
@@ -32,7 +34,7 @@ Here is the current list of Azure services that support creation of system topic
 - [Azure Service Bus](event-schema-service-bus.md)
 - [Azure SignalR](event-schema-azure-signalr.md)
 - [Azure subscriptions](event-schema-subscriptions.md)
-- [Azure Cache for Redis](event-schema-azure-cache.md)
+
 
 ## System topics as Azure resources
 In the past, a system topic was implicit and wasn't exposed for simplicity. System topics are now visible as Azure resources and provide the following capabilities:
@@ -45,7 +47,7 @@ In the past, a system topic was implicit and wasn't exposed for simplicity. Syst
 ## Lifecycle of system topics
 You can create a system topic in two ways: 
 
-- Create an [event subscription on an Azure resource as an extension resource](/rest/api/eventgrid/version2020-06-01/eventsubscriptions/createorupdate), which automatically creates a system topic with the name in the format: `<Azure resource name>-<GUID>`. The system topic created in this way is automatically deleted when the last event subscription for the topic is deleted. 
+- Create an [event subscription on an Azure resource as an extension resource](/rest/api/eventgrid/version2021-06-01-preview/event-subscriptions/create-or-update), which automatically creates a system topic with the name in the format: `<Azure resource name>-<GUID>`. The system topic created in this way is automatically deleted when the last event subscription for the topic is deleted. 
 - Create a system topic for an Azure resource, and then create an event subscription for that system topic. When you use this method, you can specify a name for the system topic. The system topic isn't deleted automatically when the last event subscription is deleted. You need to manually delete it. 
 
     When you use the Azure portal, you are always using this method. When you create an event subscription using the [**Events** page of an Azure resource](blob-event-quickstart-portal.md#subscribe-to-the-blob-storage), the system topic is created first and then the subscription for the topic is created. You can explicitly create a system topic first by using the [**Event Grid System Topics** page](create-view-manage-system-topics.md#create-a-system-topic) and then create a subscription for that topic. 

@@ -32,8 +32,6 @@ Customers can create multiple ASEs within a single Azure region or across multip
 
 ASEs host applications from only one customer and do so in one of their VNets. Customers have fine-grained control over inbound and outbound application network traffic. Applications can establish high-speed secure connections over VPNs to on-premises corporate resources.
 
-* ASE comes with its own pricing tier, learn how the [Isolated offering](https://channel9.msdn.com/Shows/Azure-Friday/Security-and-Horsepower-with-App-Service-The-New-Isolated-Offering?term=app%20service%20environment) helps drive hyper-scale and security.
-* [App Service Environments v2](https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud?term=app%20service%20environment) provide a surrounding to safeguard your apps in a subnet of your network and provides your own private deployment of Azure App Service.
 * Multiple ASEs can be used to scale horizontally. For more information, see [how to set up a geo-distributed app footprint](app-service-app-service-environment-geo-distributed-scale.md).
 * ASEs can be used to configure security architecture, as shown in the AzureCon Deep Dive. To see how the security architecture shown in the AzureCon Deep Dive was configured, see the [article on how to implement a layered security architecture](app-service-app-service-environment-layered-security.md) with App Service environments.
 * Apps running on ASEs can have their access gated by upstream devices, such as web application firewalls (WAFs). For more information, see [Web application firewall (WAF)][AppGW].
@@ -66,8 +64,6 @@ An ASE can be either internet-facing with a public IP address or internal-facing
 Apps also frequently need to access corporate resources such as internal databases and web services. If you deploy the ASE in a virtual network that has a VPN connection to the on-premises network, the apps in the ASE can access the on-premises resources. This capability is true regardless of whether the VPN is a [site-to-site](../../vpn-gateway/vpn-gateway-multi-site.md) or [Azure ExpressRoute](https://azure.microsoft.com/services/expressroute/) VPN.
 
 For more information on how ASEs work with virtual networks and on-premises networks, see [App Service Environment network considerations][ASENetwork].
-
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/Azure-Application-Service-Environments-v2-Private-PaaS-Environments-in-the-Cloud/player]
 
 ## App Service Environment v1
 

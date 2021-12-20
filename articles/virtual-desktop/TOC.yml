@@ -98,6 +98,8 @@
     href: apply-windows-license.md
   - name: Customize session host image
     items:
+      - name: Set up golden image in Azure
+        href: set-up-golden-image.md
       - name: Set up a master VHD image
         href: set-up-customize-master-image.md
       - name: Install Office on a master VHD image
@@ -280,7 +282,7 @@
     href: /windows-server/remote/remote-desktop-services/clients/rdp-files?context=/azure/virtual-desktop/context/context
   - name: Virtual machine sizing guidance
     href: /windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context
-  - name: Azure command-line interface (CLI)
+  - name: Azure CLI
     href: /cli/azure/
   - name: Azure example scenarios
     href: /azure/architecture/example-scenario/wvd/windows-virtual-desktop
@@ -310,4 +312,3 @@
     href: https://azure.microsoft.com/resources/microsoft-azure-compliance-offerings/
   - name: Azure Advisor
     href: ../advisor/advisor-overview.md
-

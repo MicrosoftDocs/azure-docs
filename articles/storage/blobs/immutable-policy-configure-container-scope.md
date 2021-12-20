@@ -7,7 +7,7 @@ author: tamram
 
 ms.service: storage
 ms.topic: how-to
-ms.date: 08/16/2021
+ms.date: 12/01/2021
 ms.author: tamram
 ms.subservice: blobs
 ms.custom: devx-track-azurepowershell
@@ -17,7 +17,7 @@ ms.custom: devx-track-azurepowershell
 
 Immutable storage for Azure Blob Storage enables users to store business-critical data in a WORM (Write Once, Read Many) state. While in a WORM state, data cannot be modified or deleted for a user-specified interval. By configuring immutability policies for blob data, you can protect your data from overwrites and deletes. Immutability policies include time-based retention policies and legal holds. For more information about immutability policies for Blob Storage, see [Store business-critical blob data with immutable storage](immutable-storage-overview.md).
 
-An immutability policy may be scoped either to an individual blob version (preview) or to a container. This article describes how to configure a container-level immutability policy. To learn how to configure version-level immutability policies, see [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md).
+An immutability policy may be scoped either to an individual blob version or to a container. This article describes how to configure a container-level immutability policy. To learn how to configure version-level immutability policies, see [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md).
 
 ## Configure a retention policy on a container
 
@@ -83,7 +83,7 @@ To modify an unlocked time-based retention policy in the Azure portal, follow th
 To delete an unlocked policy, select the **More** button, then **Delete**.
 
 > [!NOTE]
-> You can enable version-level immutability policies (preview) by selecting the Enable version-level immutability checkbox. For more information about enabling version-level immutability policies, see [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md).
+> You can enable version-level immutability policies by selecting the Enable version-level immutability checkbox. For more information about enabling version-level immutability policies, see [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md).
 
 ### [PowerShell](#tab/azure-powershell)
 
@@ -255,4 +255,4 @@ az storage container legal-hold clear \
 - [Store business-critical blob data with immutable storage](immutable-storage-overview.md)
 - [Time-based retention policies for immutable blob data](immutable-time-based-retention-policy-overview.md)
 - [Legal holds for immutable blob data](immutable-legal-hold-overview.md)
-- [Configure immutability policies for blob versions (preview)](immutable-policy-configure-version-scope.md)
+- [Configure immutability policies for blob versions](immutable-policy-configure-version-scope.md)
