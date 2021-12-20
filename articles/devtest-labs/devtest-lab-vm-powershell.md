@@ -209,9 +209,8 @@ If ($VmProperties.expirationDate -eq $null) {
 Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 ```
 
-You can find more [PowerShell scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) at the public [DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab). Use them as-is, or customize and store them in your own [private Git repository](devtest-lab-add-artifact-repo.md).
-
 ## Next steps
+See the following content: [Azure PowerShell documentation for Azure DevTest Labs](/powershell/module/az.devtestlabs/)
 - [Azure PowerShell documentation for Azure DevTest Labs](/powershell/module/az.devtestlabs/)
 - [Create a custom image from a VHD file by using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
 - [Upload a VHD file to a lab's storage account by using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
