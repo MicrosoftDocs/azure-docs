@@ -110,19 +110,7 @@ ParseCsv select(mapColumn(
 ### Examples
 
 ```
-parse(json = jsonString ? (trade as boolean,
-                                customers as string[]),
-                format: 'json|XML|delimited',
-                documentForm: 'singleDocument') ~> ParseJson
-
-parse(csv = csvString ? (id as integer,
-                                name as string,
-                                year as string),
-                format: 'delimited',
-                columnNamesAsHeader: true,
-                columnDelimiter: '|',
-                nullValue: '',
-                documentForm: 'documentPerLine') ~> ParseCsv
+source1, source2 assert(expectExists(AddressLine1 == AddressLine1, false, 'nonUS', true(), 'only valid for U.S. addresses')) ~> Assert1
 ```    
 
 ## Next steps
