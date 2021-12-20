@@ -1,6 +1,6 @@
 ---
-title: Create an Azure Front Door Standard/Premium with the Azure CLI
-description: Learn how to create an Azure Front Door Standard/Premium (preview) with the Azure CLI. Use the Front Door to protect your web apps against vulnerabilities.
+title: Add delivery rules to Azure Front Door with the Azure CLI
+description: Learn how to create an Azure Front Door Standard/Premium (Preview) with the Azure CLI. Then, add delivery rules to enhance control over your web app behavior.
 ms.topic: sample
 author: duau
 ms.author: duau
@@ -10,18 +10,31 @@ ms.custom: devx-track-azurecli
 
 ---
 
-# Quickstart: Create an Azure Front Door Standard/Premium - Azure CLI
+# Tutorial: Add and customize delivery rules for Azure Front Door Standard/Premium (Preview) with Azure CLI
 
-In this quickstart, you'll learn how to create an Azure Front Door Standard/Premium profile using the Azure CLI. You'll create this profile using two Web Apps as your origin, and add a WAF security policy. You can then verify connectivity to your Web Apps using the Azure Front Door Standard/Premium frontend hostname.
+Azure Front Door Standard/Premium (Preview) is a fast, reliable, and secure modern cloud CDN that uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web apps.
 
 > [!NOTE]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
+
+In this tutorial, you'll learn how to:
+
+> [!div class="checklist"]
+> - Create an Azure Front Door profile.
+> - Create two instances of a web app.
+> - Create a new security policy.
+> - Verify connectivity to your web apps.
+> - Create a rule set.
+> - Create a rule and add it to the rule set.
+> - Add actions or conditions to your rules.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [azure-cli-prepare-your-environment](../../../includes/azure-cli-prepare-your-environment.md)]
 
-## Create a resource group
+## Create an Azure Front Door
+
+### Create a resource group
 
 For this quickstart, you'll need two resource groups. One in *Central US* and the second in *East US*.
 
@@ -37,7 +50,7 @@ az group create \
     --location eastus
 ```
 
-## Create an Azure Front Door profile
+### Create an Azure Front Door profile
 
 Run [az afd profile create](/cli/azure/afd/profile#az_afd_profile_create) to create an Azure Front Door profile.
 
@@ -49,13 +62,13 @@ az afd profile create \
     --subscription mysubscription
 ```
 
-## Create two instances of a web app
+### Create two instances of a web app
 
 You need two instances of a web application that run in different Azure regions for this tutorial. Both the web application instances run in Active/Active mode, so either one can service traffic.
 
 If you don't already have a web app, use the following script to set up two example web apps.
 
-### Create app service plans
+#### Create app service plans
 
 Before you can create the web apps you'll need two app service plans, one in *Central US* and the second in *East US*.
 
@@ -71,7 +84,7 @@ az appservice plan create \
     --resource-group myRGFDEast
 ```
 
-### Create web apps
+#### Create web apps
 
 Run [az webapp create](/cli/azure/webapp#az_webapp_create&preserve-view=true) to create a web app in each of the app service plans in the previous step. Web app names have to be globally unique.
 
@@ -93,7 +106,7 @@ az webapp create \
 
 Make note of the default host name of each web app so you can define the backend addresses when you deploy the Front Door in the next step.
 
-## Add an endpoint
+### Add an endpoint
 
 Run [az afd endpoint create](/cli/azure/afd/endpoint#az_afd_endpoint_create) to create an endpoint in your profile. You can create multiple endpoints in your profile after finishing the create experience.
 
@@ -106,7 +119,7 @@ az afd endpoint create \
     --enabled-state Enabled
 ```
 
-## Create an origin group
+### Create an origin group
 
 Run [az afd origin-group create](/cli/azure/afd/origin-group#az_afd_origin_group_create) to create an origin group that contains your two web apps.
 
@@ -124,7 +137,7 @@ az afd origin-group create \
     --additional-latency-in-milliseconds 50
 ```
 
-## Add an origin to the group
+#### Add origins to the group
 
 Run [az afd origin create](/cli/azure/afd/origin#az_afd_origin_create) to add an origin to your origin group.
 
@@ -160,7 +173,7 @@ az afd origin create \
     --https-port 443
 ```
 
-## Add a route
+### Add a route
 
 Run [az afd route create](/cli/azure/afd/route#az_afd_route_create) to map your frontend endpoint to the origin group. This route forwards requests from the endpoint to *og1*.
 
@@ -232,6 +245,80 @@ To test instant global failover, we'll use the following steps:
 6. Refresh your browser. This time, you should see an error message.
 
     :::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
+
+## Create a secret
+
+Secrets are used to reference your own certificate stored in Azure Key Vault. You must specify the secret name when creating a custom domain if you want to use your own certificate for TLS encryption.
+
+Run [az afd secret create](/cli/azure/afd/secret#az_afd_secret_create) to create a new secret in your Azure Front Door profile.
+
+```azurecli
+az afd secret create \
+    --profile-name contosoafd \
+    --resource-group myRGFDCentral \
+    --secret-name contosocert \
+    --secret-source /subscriptions/mysubscription/resourceGroups/myRGFDCentral/providers/Microsoft.KeyVault/vaults/contosokeyvault/certificates/contosocert \
+    --use-latest-version true
+```
+
+## Create a rule set
+
+By adding a rule set, you can customize how HTTP requests are handled at the edge and provide more controls over your web application behaviors. Run [az afd rule-set create](/cli/azure/afd/rule-set#az_afd_rule_set_create) to create a rule set in your Azure Front Door profile.
+
+```azurecli
+az afd rule-set create \
+    --profile-name contosoafd \
+    --resource-group myRGFDCentral \
+    --rule-set-name contosorules
+```
+
+## Create a delivery rule and add it to your rule set
+
+Create a new delivery rule within your new rule set. Run [az afd rule create](/cli/azure/afd/rule#az_afd_rule_create) to create a delivery rule in your rule set. For this example, we'll create a rule for an http to https redirect.
+
+```azurecli
+az afd rule create \
+    --resource-group myRGFDCentral \
+    --rule-set-name contosorules \
+    --profile-name contosoafd \
+    --order 1 \
+    --match-variable RequestScheme \
+    --operator Equal \
+    --match-values HTTP \
+    --rule-name "redirect" \
+    --action-name "UrlRedirect" \
+    --redirect-protocol Https \
+    --redirect-type Moved
+```
+
+## Add an action or condition to your delivery rule
+
+You might find that you need to further customize your new delivery rule. You can add actions or conditions as needed after creation. Run [az afd rule action add](/cli/azure/afd/rule/action#az_afd_rule_action_add) or [az afd rule condition add](/cli/azure/afd/rule/condition#az_afd_rule_condition_add) to update your rule.
+
+### Add an action
+
+```azurecli
+az afd rule action add \
+    --resource-group myRGFDCentral \
+    --rule-set-name contosorules \
+    --profile-name contosoafd \
+    --rule-name redirect \
+    --action-name "CacheExpiration" \
+    --cache-behavior BypassCache
+```
+
+### Add a condition
+
+```azurecli
+az afd rule condition add \
+    --resource-group myRGFDCentral \
+    --rule-set-name contosorules \
+    --profile-name contosoafd \
+    --rule-name redirect \
+    --match-variable RemoteAddress \
+    --operator GeoMatch \
+    --match-values "TH"
+```
 
 ## Clean up resources
 
