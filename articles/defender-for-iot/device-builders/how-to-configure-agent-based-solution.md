@@ -21,7 +21,7 @@ This article describes how to configure data collection in Microsoft Defender fo
 
 1. Under **Microsoft Defender for IoT**, ensure that **Enable Microsoft Defender for IoT** is enabled.
 
-:::image type="content" source="media/how-to-configure-agent-based-solution/enable-data-collection.png" alt-text="Screenshot showing you how to enable data collection.":::
+    :::image type="content" source="media/how-to-configure-agent-based-solution/enable-data-collection.png" alt-text="Screenshot showing you how to enable data collection.":::
 
 ## Geolocation and IP address handling
 
