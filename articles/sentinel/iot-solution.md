@@ -135,7 +135,7 @@ View Defender for IoT alerts in the Microsoft Sentinel **Logs** area.
 >
 ## Install the Defender for IoT solution
 
-The **IoT OT Threat Monitoring with Defender for IoT solution** is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS).
+The **IoT OT Threat Monitoring with Defender for IoT** solution is a set of bundled content, including analytics rules, workbooks, and playbooks, configured specifically for Defender for IoT data. This solution currently supports only Operational Networks (OT/ICS).
 
 > [!TIP]
 > Microsoft Sentinel [solutions](sentinel-solutions.md) can help you onboard Microsoft Sentinel security content for a specific data connector using a single process. For example, the **IoT OT Threat Monitoring with Defender for IoT** supports the integration with Microsoft Sentinel's security orchestration, automation, and response (SOAR) capabilities by providing out-of-the-box and OT-optimized playbooks with automated response and prevention capabilities.
