@@ -22,7 +22,7 @@ This feature enables end-to-end zero-touch rotation for encryption at rest for A
 
 ## Pricing (Preview)
 
-Key rotation feature is free during preview. Additional cost will occur when a key is automatically rotated once feature GA. For more information, see [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/)
+Key rotation feature is free during preview. Additional cost will occur when a key is automatically rotated once the feature GA. For more information, see [Azure Key Vault pricing page](https://azure.microsoft.com/pricing/details/key-vault/)
 
 ## Permissions required
 
@@ -101,7 +101,7 @@ az keyvault key rotation-policy update --vault-name <vault-name> --name <key-nam
 Key rotation can be invoked manually.
 
 ### Portal
-Click 'Rotate Now' to invoke rotation
+Click 'Rotate Now' to invoke rotation.
 
 :::image type="content" source="../media/keys/key-rotation/key-rotation-4.png" alt-text="Rotation on-demand":::
 
