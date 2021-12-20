@@ -19,14 +19,16 @@ Azure Web Apps is a managed platform for hosting web applications that execute c
 
 When you link your Azure Web Apps instance to your static web app, any requests to your static web app with a route that starts with `/api/` will be proxied to the same route on the Azure Web Apps instance.
 
-By default, when a Web Apps instance is linked to a static web app, the Web Apps instance only accepts requests that are proxied through the linked static web app. An Azure Web Apps instance can be linked to a single static web app at a time. All Azure Web Apps hosting plans are supported.
+By default, when a Web Apps instance is linked to a static web app, the Web Apps instance only accepts requests that are proxied through the linked static web app. An Azure Web Apps instance can be linked to a single static web app at a time.
+
+All Azure Web Apps hosting plans are available for use with Azure Static Web Apps.
 
 > [!NOTE]
 > Currently, you cannot link a Web Apps instance to a Static Web Apps [pre-production environment](review-publish-pull-requests.md).
 
 ## Link an Azure Web Apps instance
 
-To link an Azure Web Apps instance to a static web app, follow these steps:
+To link an Azure Web Apps instance as the API backend for a static web app, follow these steps:
 
 1. In the Azure portal, navigate to the static web app.
 
@@ -40,7 +42,11 @@ To link an Azure Web Apps instance to a static web app, follow these steps:
 
 1. Select **Link**.
 
-When the linking process is complete, requests to routes beginning with `/api/` are proxied to your Web Apps instance. Your Web Apps instance is configured with an identity provider named *Azure Static Web Apps (Linked)* that permits only traffic that is proxied through the static web app. To make your Web Apps instance accessible to other applications, update its authentication configuration to add another identity provider or change the security settings to allow unauthenticated access.
+When the linking process is complete, requests to routes beginning with `/api/` are proxied to your Web Apps instance.
+
+### Manage access to Azure Web Apps
+
+Your Web Apps instance is configured with an identity provider named `Azure Static Web Apps (Linked)` that permits only traffic that is proxied through the static web app. To make your Web Apps instance accessible to other applications, update its authentication configuration to add another identity provider or change the security settings to allow unauthenticated access.
 
 ## Unlink an Azure Web Apps instance
 
