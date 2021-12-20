@@ -77,7 +77,7 @@ Only write to directories you have access rights to. For example, the `/tmp` dir
 
 ## Run doesn't complete on GPU local deployment
 
-GPU base images can't be used for local deployment, unless the local deployment is on an Azure ML compute instance.  GPU base images are supported only on Microsoft Azure Services such as Azure Machine Learning compute clusters and instances, Azure Container Instance (ACI), Azure VMs or Azure Kubernetes Service (AKS).
+GPU base images can't be used for local deployment, unless the local deployment is on an Azure Machine Learning compute instance.  GPU base images are supported only on Microsoft Azure Services such as Azure Machine Learning compute clusters and instances, Azure Container Instance (ACI), Azure VMs, or Azure Kubernetes Service (AKS).
 
 ## Image built based on the prebuilt Docker image can't boot up
 

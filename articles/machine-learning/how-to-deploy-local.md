@@ -37,7 +37,7 @@ The most reliable way to locally run an Azure Machine Learning model is with a D
 It's possible to attach a debugger to a process running in Docker. (See [Attach to a running container](https://code.visualstudio.com/docs/remote/attach-container).) But you might prefer to debug and iterate your Python code without involving Docker. In this scenario, it's important that your local machine uses the same libraries that are used when you run your experiment in Azure Machine Learning. To manage Python dependencies, Azure uses [conda](https://docs.conda.io/). You can re-create the environment by using other package managers, but installing and configuring conda on your local machine is the easiest way to synchronize. 
 
 > [!IMPORTANT]
-> GPU base images can't be used for local deployment, unless the local deployment is on an Azure ML compute instance.  GPU base images are supported only on Microsoft Azure Services such as Azure Machine Learning compute clusters and instances, Azure Container Instance (ACI), Azure VMs or Azure Kubernetes Service (AKS).
+> GPU base images can't be used for local deployment, unless the local deployment is on an Azure Machine Learning compute instance.  GPU base images are supported only on Microsoft Azure Services such as Azure Machine Learning compute clusters and instances, Azure Container Instance (ACI), Azure VMs, or Azure Kubernetes Service (AKS).
 
 ## Prepare your entry script
 
