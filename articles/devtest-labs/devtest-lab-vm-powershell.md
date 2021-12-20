@@ -211,8 +211,8 @@ Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 
 ## Next steps
 See the following content: [Azure PowerShell documentation for Azure DevTest Labs](/powershell/module/az.devtestlabs/)
-- [Azure PowerShell documentation for Azure DevTest Labs](/powershell/module/az.devtestlabs/)
-- [Create a custom image from a VHD file by using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
-- [Upload a VHD file to a lab's storage account by using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
-- [Add an external user to a lab using by PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
-- [Create a lab custom role by using PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
+* [Azure PowerShell documentation for Azure DevTest Labs](/powershell/module/az.devtestlabs/)
+* [Create a custom image from a VHD file by using PowerShell](devtest-lab-create-custom-image-from-vhd-using-powershell.md)
+* [Upload a VHD file to a lab's storage account by using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
+* [Add an external user to a lab using by PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
+* [Create a lab custom role by using PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
