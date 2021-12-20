@@ -36,7 +36,7 @@ Before you start, make sure you have the following requirements on your workspac
 
 - **Contributor** permissions on the subscription you want to connect
 
-- Defender for IoT must be **enabled** on your relevant IoT Hub instances
+- Defender for IoT must be enabled on your relevant IoT Hub instances. For more information, see [Configure data collection](/azure/defender-for-iot/device-builders/how-to-configure-agent-based-solution#configure-data-collection) in the device builder documentation.
 
 For more information, see [Permissions in Microsoft Sentinel](roles.md) and [Quickstart: Get started with Defender for IoT](/azure/defender-for-iot/organizations/getting-started).
 
@@ -59,11 +59,12 @@ Start by enabling the **Defender for IoT** data connector to stream all your Def
 
     If you've made any connection changes, it can take 10 seconds or more for the **Subscription** list to update.
 
-    > [!NOTE]
-    > You'll see an error message if Defender for IoT isn't enabled on at least one IoT Hub instance within a selected subscription. To remediate the error, enable Defender for IoT within that IoT Hub.
+    > [!TIP]
+    > If you see an error message, make sure that you have [Defender for IoT enabled](/azure/defender-for-iot/device-builders/how-to-configure-agent-based-solution#configure-data-collection) on at least one IoT Hub instance within your selected subscription.
     >
 
 For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md).
+
 
 ## View Defender for IoT alerts
 
