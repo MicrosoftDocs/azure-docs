@@ -2,11 +2,10 @@
 title: Enable Automanage for virtual machines through Azure Policy
 description: Learn how to enable Azure Automanage for VMs through a built-in Azure Policy in the Azure portal.
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 09/04/2020
+ms.date: 12/10/2021
 ms.author: jushiman
 ---
 
