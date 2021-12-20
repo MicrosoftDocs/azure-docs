@@ -15,17 +15,22 @@ ms.date: 12/17/2021
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The assert transformation enables custom rules to be set inside your mapping data flows that will determine whether data values per row and per column meet an expected set of values or uniqueness. Essentially, you will assert that the data flowing through your data flow meets a set of criteria which you will define.
+The assert transformation enables custom rules to be set inside your mapping data flows that will determine whether data values per row and per column meet an expected set of values or uniqueness. Essentially, you will assert that the data flowing through your data flow meets a set of criteria which you will define. You can use this transformation to ensure data quality rules are met and to set custom error messages when data validation rules are not met.
 
 ## Configuration
 
-In the assert transformation configuration panel, you will choose the type of assert, provide a unique name for the assertion, optional decription, and define the expression and optional filter.
+In the assert transformation configuration panel, you will choose the type of assert, provide a unique name for the assertion, optional decription, and define the expression and optional filter. The data preview pane will indicate which rows failed your assertions. Additionally, you can test each row tag downstream using ```isError()``` and ```hasError()``` for rows that failed assertions.
+
+:::image type="content" source="media/data-flow/assert-output.png" alt-text="Assert settings":::
+
+### Assert type
 
 :::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert settings":::
 
-### Column
-
-Similar to derived columns and aggregates, this is where you will either modify an exiting column by selecting it from the drop-down picker. Or you can type in the name of a new column here. ADF will store the parsed source data in this column. In most cases, you will want to define a new column that parses the incoming embedded document field.
+1. Expect true: The result of your expression must evaluate to a boolean true result. Use this to validate domain value ranges in your data.
+2. Expect unique: Set a column or an expression as a uniqenuess rule in your data. Use this to tag duplicate rows.
+3. Expect exists: This option is only available when you have selected a second incoming stream. This will look at both streams and determine if the rows exists in both streams
+based on the columns or the expressions that you have specified.
 
 ### Expression
 
