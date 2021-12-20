@@ -48,6 +48,20 @@ When the linking process is complete, requests to routes beginning with `/api/` 
 
 Your Web Apps instance is configured with an identity provider named `Azure Static Web Apps (Linked)` that permits only traffic that is proxied through the static web app. To make your Web Apps instance accessible to other applications, update its authentication configuration to add another identity provider or change the security settings to allow unauthenticated access.
 
+## Re-link an Azure Web Apps instance
+
+The re-link action ensures the link between the static web app and the Azure Web Apps instance is valid. It is useful if you've made changes to your Web Apps instance and it is no longer accessible from the linked static web app.
+
+To re-link an Azure Web Apps instance as the API backend for a static web app, follow these steps:
+
+1. In the Azure portal, navigate to the static web app.
+
+1. Select **APIs** from the navigation menu.
+
+    Confirm that the static web app is linked to the correct Azure Web Apps instance.
+
+1. Select **Re-link**.
+
 ## Unlink an Azure Web Apps instance
 
 To unlink an Azure Web Apps instance from a static web app, follow these steps:

@@ -77,7 +77,7 @@ To re-link an Azure API Management instance as the API backend for a static web 
 
 1. Select **APIs** from the navigation menu.
 
-    Confirm that the static web app is linked to an Azure API Management instance.
+    Confirm that the static web app is linked to the correct Azure API Management instance.
 
 1. Select **Re-link**.
 
