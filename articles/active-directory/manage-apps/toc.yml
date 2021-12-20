@@ -163,6 +163,7 @@
       - name: Troubleshoot SAML-based single sign-on
         href: troubleshoot-saml-based-sso.md
       - name: Troubleshoot Microsoft Application Network sign-in
+        href: troubleshoot-app-publishing.md
       - name: Debug SAML-based single sign-on
         href: debug-saml-sso-issues.md
       - name: Unexpected consent prompt
