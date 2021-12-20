@@ -123,7 +123,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Palantir Foundry SSO
 
-1. Log in to the Palantir Foundry as an administator.
+1. Log in to the Palantir Foundry as an administrator.
 
 1. In Foundry Control Panel tab, go to the **Authentication** and click **Add SAML provider**. 
 
