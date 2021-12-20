@@ -48,8 +48,8 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
 ## Prerequisites
 
-1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs in the **same** region. For instance, you may create a Virtual WAN with two Virtual Hubs in East US. 
-2. Convert your Virtual WAN Hub into a Secured Virtual WAN Hub by deploying an Azure Firewall into the Virtual Hubs in the chosen region. For more information on converting your Virtual WAN Hub to a Secured Virtual WAN Hub, please see this [document](howto-firewall.md).
+1. Create a Virtual WAN. Make sure you create at least two Virtual Hubs in the **same** region. For instance, you may create a Virtual WAN with two Virtual Hubs in East US. Note that if you only wish to inspect branch-to-branch traffic, you may deploy a single Virtual WAN Hub as opposed to multiple Hubs in the same region.
+2. Convert your Virtual WAN Hub into a Secured Virtual WAN Hub by deploying an Azure Firewall into the Virtual Hubs in the chosen region. For more information on converting your Virtual WAN Hub to a Secured Virtual WAN Hub, please see [How to secure your Virtual WAN Hub](howto-firewall.md).
 3. Deploy any Site-to-site VPN, Point-to-site VPN and ExpressRoute Gateways you will use for testing. Reach out to **previewinterhub@microsoft.com**  with the **Virtual WAN Resource ID** and the **Azure Virtual hub Region** you wish to configure Routing Policies in. To locate the Virtual WAN ID, open Azure portal, navigate to your Virtual WAN resource and select Settings > Properties > Resource ID. For example: 
     ```
     /subscriptions/<subscriptionID>/resourceGroups/<resourceGroupName>/providers/Microsoft.Network/virtualWans/<virtualWANname>
@@ -93,7 +93,7 @@ While Private Traffic  includes both branch and Virtual Network address prefixes
 
     :::image type="content" source="./media/routing-policies/routing-policies-private-nva.png"alt-text="Screenshot showing how to configure NVA private routing policies."lightbox="./media/routing-policies/routing-policies-private-nva.png":::
 
-4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks advertising non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
+4. If you want to configure a Private Traffic Routing Policy and have branches or virtual networks using non-IANA RFC1918 Prefixes, select **Additional Prefixes** and specify the non-IANA RFC1918 prefix ranges in the text box that comes up. Select **Done**. 
 
     :::image type="content" source="./media/routing-policies/private-prefixes-nva.png"alt-text="Screenshot showing how to configure additional private prefixes for NVA  routing policies."lightbox="./media/routing-policies/private-prefixes-nva.png":::
 
