@@ -95,9 +95,9 @@ To add an Azure Blob trigger to a logic app workflow in single-tenant Azure Logi
 
    1. Select your blob container. On the container navigation menu, under **Settings**, select **Properties**.
 
-   1. Copy the **URL** value, which is the path to the blob. The path resembles `https://<storage-container-name>/<folder-name>/{name}`. Provide your container name and folder name instead, but keep the `{name}` literal string.
+   1. Enter the name of the folder from the container as 'Blob Path' value.
 
-      :::image type="content" source="./media/connectors-create-api-azureblobstorage/standard-trigger-configure.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with a Blob Storage trigger and parameters configuration.":::
+      :::image type="content" source="https://user-images.githubusercontent.com/68615669/146825359-691c1fcf-2350-4935-9328-231e8ce75d6b.png" alt-text="Screenshot showing the workflow designer for a Standard logic app workflow with a Blob Storage trigger and parameters configuration.":::
 
 1. Continue creating your workflow by adding one or more actions.
 
