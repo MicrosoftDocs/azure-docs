@@ -50,7 +50,7 @@ Your App Service app is configured with an identity provider named `Azure Static
 
 ## Re-link an Azure App Service app
 
-The re-link action ensures the link between the static web app and the Azure App Service app is valid. It is useful if you've made changes to your App Service app and it is no longer accessible from the linked static web app.
+The re-link action ensures the connection between the static web app and the Azure App Service app is correctly configured. It's useful if you've made changes to your App Service app and it's no longer accessible from the linked static web app.
 
 To re-link an Azure App Service app as the API backend for a static web app, follow these steps:
 

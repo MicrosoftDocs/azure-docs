@@ -63,7 +63,7 @@ The linking process also automatically configures your API Management instance w
 
 ## Re-link an Azure API Management instance
 
-The re-link action regenerates the subscription keys and ensures the link between the static web app and the Azure API Management instance is valid.
+The re-link action regenerates the subscription keys and ensures the link between the static web app and the Azure API Management instance is correctly configured.
 
 There are two reasons to re-link an Azure API Management instance:
 
