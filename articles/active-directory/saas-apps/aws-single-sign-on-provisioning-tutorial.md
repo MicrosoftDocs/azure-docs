@@ -176,7 +176,8 @@ When exporting a user to AWS, they are required to have the following attributes
 * userName 
 
 Users who don't have these attributes will fail with the following error
-![image](https://user-images.githubusercontent.com/83957767/146800598-ad499e7b-797c-42bf-a35a-1c8a62624aaa.png)
+
+![errorcode](https://user-images.githubusercontent.com/83957767/146811532-8b95a90b-2a32-4094-87a3-1b8180793a66.png)
 
 
 ### Multi-valued attributes
@@ -187,7 +188,8 @@ AWS does not support the following multi-valued attributes:
 
 Trying to flow the above as multi-valued attributes will result in the following error message
 
-![image](https://user-images.githubusercontent.com/83957767/146800636-ad0ecf31-8a69-485d-9544-7ca1648e5030.png)
+![errorcode2](https://user-images.githubusercontent.com/83957767/146811704-8980c317-aa6b-43ad-bfb8-a17534fcb9d0.png)
+
 
 There are two ways to resolve this
 
