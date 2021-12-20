@@ -219,8 +219,8 @@ This sample includes a .NET class library project, which you can incorporate int
 
 The sample application within the project demonstrates these operations:
 
-1. Selecting specific attributes to download only the properties you need
-2. Filtering on state transition times to download only changes since the last query
+- Selecting specific attributes to download only the properties you need
+- Filtering on state transition times to download only changes since the last query
 
 For example, the following method appears in the BatchMetrics library. It returns an ODATADetailLevel that specifies that only the `id` and `state` properties should be obtained for the entities that are queried. It also specifies that only entities whose state has changed since the specified `DateTime` parameter should be returned.
 
