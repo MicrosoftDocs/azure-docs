@@ -53,6 +53,7 @@ Media Services currently supports the following built-in analyzer presets:
 * Italian ('it-IT')
 * Japanese ('ja-JP')
 * Norwegian ('nb-NO')
+* Persian ('fa-IR')
 * Portugal Portuguese ('pt-PT')
 * Russian ('ru-RU')
 * Spanish ('es-ES' and 'es-MX')
