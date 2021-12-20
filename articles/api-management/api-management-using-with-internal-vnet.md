@@ -172,6 +172,10 @@ if you deploy 1 [capacity unit](api-management-capacity.md) of API Management in
 
 If the destination endpoint has allow-listed only a fixed set of DIPs, connection failures will result if you add new units in the future. For this reason and since the subnet is entirely in your control, we recommend allow-listing the entire subnet in the backend.
 
+## <a name="network-configuration-issues"> </a>Common network configuration issues
+
+This section has moved. See [Virtual network configuration reference](virtual-network-reference.md).
+
 [!INCLUDE [api-management-virtual-network-troubleshooting](../../includes/api-management-virtual-network-troubleshooting.md)]
 
 

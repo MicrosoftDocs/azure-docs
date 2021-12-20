@@ -16,11 +16,6 @@
       "redirect_document_id": false
     },
     {
-      "source_path": "articles/machine-learning/classic/azure-ml-netsharp-reference-guide.md",
-      "redirect_url": "/previous-versions/azure/machine-learning/classic/azure-ml-netsharp-reference-guide",
-      "redirect_document_id": false
-    },
-    {
       "source_path": "articles/machine-learning/classic/consume-web-services.md",
       "redirect_url": "/previous-versions/azure/machine-learning/classic/consume-web-services",
       "redirect_document_id": false

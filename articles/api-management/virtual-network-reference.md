@@ -12,7 +12,7 @@ ms.custom: references_regions
 ---
 # Virtual network configuration reference: API Management
 
-This reference provides detailed network configuration settings for an API Management instance deployed in the [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md mode.
+This reference provides detailed network configuration settings for an API Management instance deployed in an Azure virtual network in the [external](api-management-using-with-vnet.md) or [internal](api-management-using-with-internal-vnet.md) mode.
 
 For VNet connectivity options, requirements, and considerations, see [Using a virtual network with Azure API Management](virtual-network-concepts.md).
 
@@ -23,16 +23,16 @@ Control inbound and outbound traffic into the subnet in which API Management is 
 When an API Management service instance is hosted in a VNet, the ports in the following table are used. Some requirements differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
 
 >[!IMPORTANT]
-> * **Bold** items in the *Purpose* column indicate port configurations required for successful deployment and operation of the API Management service. Configurations labeled "recommended" or "optional" enable specific features, as noted. They are not required for the overall health of the service. 
+> * **Bold** items in the *Purpose* column indicate port configurations required for successful deployment and operation of the API Management service. Configurations labeled "optional" enable specific features, as noted. They are not required for the overall health of the service. 
 >
-> * We recommend using [service tags](../virtual-network/service-tags-overview.md) instead of IP addresses in NSG rules to specify network sources and destinations. The IP address prefixes encompassed by service tags are subject to frequent changes.      
+> * We recommend using [service tags](../virtual-network/service-tags-overview.md) instead of IP addresses in NSG rules to specify network sources and destinations. The IP addresses encompassed by service tags are subject to change.      
 
 
 ### [stv2](#tab/stv2)
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                            | VNet type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management (recommended)                     | External             |
+| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | **Client communication to API Management**                     | External only            |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | **Management endpoint for Azure portal and PowerShell**         | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) and Azure Key Vault dependency (optional)              | External & Internal  |
@@ -51,7 +51,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 
 | Source / Destination Port(s) | Direction          | Transport protocol |   [Service Tags](../virtual-network/network-security-groups-overview.md#service-tags) <br> Source / Destination   | Purpose                                                  | VNet type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management (recommended)                     | External             |
+| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | **Client communication to API Management**                     | External only          |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | **Management endpoint for Azure portal and PowerShell**       | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | **Dependency on Azure Storage**                             | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / AzureActiveDirectory | [Azure Active Directory](api-management-howto-aad.md) dependency  (optional)                | External & Internal  |
@@ -106,7 +106,7 @@ Allow outbound network connectivity for the developer portal's CAPTCHA, which re
 Enable publishing the [developer portal](api-management-howto-developer-portal.md) for an API Management instance in a VNet by allowing outbound connectivity to blob storage in the West US region. For example, use the **Storage.WestUS** service tag in an NSG rule. Currently, connectivity to blob storage in the West US region is required to publish the developer portal for any API Management instance.
 
 ## Azure portal diagnostics  
-  When using the API Management diagnostics xtension from inside a VNet, outbound access to `dc.services.visualstudio.com` on port `443` is required to enable the flow of diagnostic logs from Azure portal. This access helps in troubleshooting issues you might face when using the extension.
+  When using the API Management diagnostics extension from inside a VNet, outbound access to `dc.services.visualstudio.com` on port `443` is required to enable the flow of diagnostic logs from Azure portal. This access helps in troubleshooting issues you might face when using the extension.
 
 ## Azure load balancer  
   You're not required to allow inbound requests from service tag `AZURE_LOAD_BALANCER` for the Developer SKU, since only one compute unit is deployed behind it. However, inbound connectivity from `AZURE_LOAD_BALANCER` becomes **critical** when scaling to a higher SKU, such as Premium, because failure of the health probe from load balancer then blocks all inbound access to the control plane and data plane.
@@ -143,7 +143,7 @@ When adding virtual machines running Windows to the VNet, allow outbound connect
 The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address. In some cases, two IP addresses are listed. Permit both IP addresses.
 
 > [!IMPORTANT]
-> Control plane IP addresses should be configured for network access rules only when needed in certain hybrid networking scenarios. In most cases, we recommend using the **ApiManagement** [service tag](../virtual-network/service-tags-overview.md) in NSG rules instead of control plane IP addresses. The IP addresses encompassed by service tags are subject to frequent changes.   
+> Control plane IP addresses should be configured for network access rules only when needed in certain networking scenarios. In most cases, we recommend using the **ApiManagement** [service tag](../virtual-network/service-tags-overview.md) in NSG rules instead of control plane IP addresses. The IP addresses encompassed by service tags are subject to change.   
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|

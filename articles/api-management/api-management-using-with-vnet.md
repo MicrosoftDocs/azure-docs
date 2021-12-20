@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 12/20/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---
@@ -102,6 +102,10 @@ The API Management service depends on several Azure services. When API Managemen
 + An IP address from a subnet IP range (DIP) is used to access resources within the VNet.
 
 For more information and considerations, see [IP addresses of Azure API Management](api-management-howto-ip-addresses.md#ip-addresses-of-api-management-service-in-vnet).
+
+## <a name="network-configuration-issues"> </a>Common network configuration issues
+
+This section has moved. See [Virtual network configuration reference](virtual-network-reference.md).
 
 [!INCLUDE [api-management-virtual-network-troubleshooting](../../includes/api-management-virtual-network-troubleshooting.md)]
 

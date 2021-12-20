@@ -16,9 +16,9 @@ Configure custom network rules in the API Management subnet to filter traffic to
 
 ### [stv2](#tab/stv2)
 
-| Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                                  | VNET type |
+| Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                                  | VNet type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                   | External             |
+| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                   | External only          |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell        | External & Internal  |
 | * / 6390                       | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer (required for Premium service tier)                        | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure Storage                             | External & Internal  |
@@ -27,9 +27,9 @@ Configure custom network rules in the API Management subnet to filter traffic to
 
 ### [stv1](#tab/stv1)
 
-| Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                                  | VNET type |
+| Source / Destination Port(s) | Direction          | Transport protocol |   Service tags <br> Source / Destination   | Purpose                                                  | VNet type |
 |------------------------------|--------------------|--------------------|---------------------------------------|-------------------------------------------------------------|----------------------|
-| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                   | External             |
+| * / [80], 443                  | Inbound            | TCP                | INTERNET / VIRTUAL_NETWORK            | Client communication to API Management                   | External only          |
 | * / 3443                     | Inbound            | TCP                | ApiManagement / VIRTUAL_NETWORK       | Management endpoint for Azure portal and PowerShell        | External & Internal  |
 | * / *                       | Inbound            | TCP                | AZURE_LOAD_BALANCER / VIRTUAL_NETWORK | Azure Infrastructure Load Balancer (required for Premium service tier)                          | External & Internal  |
 | * / 443                  | Outbound           | TCP                | VIRTUAL_NETWORK / Storage             | Dependency on Azure Storage                             | External & Internal  |
