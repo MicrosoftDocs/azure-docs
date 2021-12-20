@@ -108,7 +108,8 @@ There are also source-specific prerequisites for sharing. Select your data share
 * [Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)](#prerequisitesforsharingazuresqlorsynapse)
 * [Azure Synapse Analytics (workspace) SQL pool](#prerequisitesforsharingazuresynapseworkspace)
 
-### <a id="prerequisitesforsharingazuresqlorsynapse">Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)</a>
+<a id="prerequisitesforsharingazuresqlorsynapse"></a>
+### Prerequisites for sharing from Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)
 
 You can use one of these methods to authenticate with Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW):
 * [Azure Active Directory authentication](#azure-active-directory-authentication)
@@ -151,7 +152,8 @@ You can follow the [step by step demo video](https://youtu.be/hIE-TjJD8Dc) to co
     1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
     1. Select **Save**. 
 
-### <a id="prerequisitesforsharingazuresynapseworkspace">Prerequisites for sharing from Azure Synapse Analytics (workspace) SQL pool</a>
+<a id="prerequisitesforsharingazuresynapseworkspace"></a>
+### Prerequisites for sharing from Azure Synapse Analytics (workspace) SQL pool
 
 * Permission to write to the SQL pool in Synapse workspace: *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the **Contributor** role.
 * Permission for the Data Share resource's managed identity to access Synapse workspace SQL pool: 
@@ -232,6 +234,7 @@ Confirm that all pre-requisites are complete before accepting a data share invit
     - [Azure Storage](../storage/common/storage-account-create.md)
     - [Azure SQL Database](../azure-sql/database/single-database-create-quickstart.md)
     - [Azure Synapse Analytics (formerly Azure SQL DW)](../synapse-analytics/get-started-create-workspace.md)
+    - [Azure Synapse Analytics (workspace) dedicated SQL pool](..synapse-analytics/get-started-analyze-sql-pool.md)
 
 There are also prerequisites for the resource where the received data will be stored. 
 Select your resource type and follow the steps:
@@ -247,7 +250,8 @@ If you choose to receive data into Azure Storage, complete these prerequisites b
 * Permission to write to the storage account: *Microsoft.Storage/storageAccounts/write*. This permission exists in the Azure RBAC **Contributor** role. 
 * Permission to add role assignment of the Data Share resource's managed identity to the storage account: which is present in *Microsoft.Authorization/role assignments/write*. This permission exists in the Azure RBAC **Owner** role.  
 
-### <a id="prerequisitesforreceivingtoazuresqlorsynapse">Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW)</a>
+<a id="prerequisitesforreceivingtoazuresqlorsynapse"></a>
+### Prerequisites for receiving data into Azure SQL Database or Azure Synapse Analytics (formerly Azure SQL DW) 
 
 For a SQL server where you're the **Azure Active Directory admin** of the SQL server, complete these prerequisites before accepting a data share:
 
@@ -285,7 +289,8 @@ You can follow the [step by step demo video](https://youtu.be/aeGISgK1xro), or t
     1. Select **+Add client IP**. Client IP address can change, so you may need to add your client IP again next time you share data from the portal.
     1. Select **Save**. 
  
-### <a id="prerequisitesforreceivingtoazuresynapseworkspacepool">Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool</a>
+<a id="prerequisitesforreceivingtoazuresynapseworkspacepool"></a>
+### Prerequisites for receiving data into Azure Synapse Analytics (workspace) SQL pool
 
 * An Azure Synapse Analytics (workspace) dedicated SQL pool. Receiving data into serverless SQL pool is not currently supported.
 * Permission to write to the SQL pool in Synapse workspace: *Microsoft.Synapse/workspaces/sqlPools/write*. This permission exists in the Azure RBAC **Contributor** role.
