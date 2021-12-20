@@ -30,7 +30,7 @@ Low-overhead snapshots are made possible by the unique features of the underlayi
 
 The following diagrams illustrate the concepts:  
 
-1. Files consist of metadata and data blocks written to a volume. In this scenario, there are three files-file 1, file 2, and file 3, each consisting of three blocks.
+1. Files consist of metadata and data blocks written to a volume. In this scenario, there are three files: file 1, file 2, and file 3, each consisting of three blocks.
 
    ![A diagram of three files against four grey verticals bars, labeled time, volume, files, block.](../media/azure-netapp-files/single-file-snapshot-restore-one.png)
 
@@ -38,7 +38,7 @@ The following diagrams illustrate the concepts:
 
    ![A diagram of three files against four grey verticals bars, labeled time, volume, files, block. A fifth grey bar depicts the snapshots as a write-destination.](../media/azure-netapp-files/single-file-snapshot-restore-two.png)
 
-3. Files on the volume continue to change, and new files are added. Modified data blocks are written as new data blocks on the volume. The blocks that were previously captured in ‘Snapshot1’ remain unchanged: 
+3. Files on the volume continue to change, and new files are added. Modified data blocks are written as new data blocks on the volume. The blocks that were previously captured in `Snapshot1` remain unchanged: 
 
    ![Diagram depicting changes to directories that will be staged for snapshot copies.](../media/azure-netapp-files/single-file-snapshot-restore-three.png)
 
