@@ -8,7 +8,7 @@ metadata:
   author: smannepalle
   ms.author: smannepalle
   ms.reviewer: sroy
-  ms.date: 09/27/2021
+  ms.date: 12/20/2021
     
 title: Commercial marketplace analytics common questions
 summary: This article addresses commonly asked questions about analytics messages in Partner Center.
@@ -39,7 +39,54 @@ sections:
           
           - If you're receiving this message, it means you have analytics data but there isn't data for the computation period that you have selected. Select a different computation period or month range to view any data since 2010.
           - If you have selected one or more categories from the various dimensions in the filter selection, you may not have analytics data for the selection. Try resetting the filter or make different selections from the filter.
+
+      - question: |
+          How do I enroll in the commercial marketplace?
+        answer: |
+          There are two ways to create an account:
+          - If you're new to Partner Center and don't have a Microsoft Partner Network (MPN) account, continue to [Create a Partner Center account and enroll in the commercial marketplace](create-account.md#create-a-partner-center-account-and-enroll-in-the-commercial-marketplace).
+          - If you're already enrolled in the Microsoft Partner Network or a developer program, create an account directly from Partner Center. See [Use an existing Partner Center account to enroll in the commercial marketplace](create-account.md#use-an-existing-partner-center-account-to-enroll-in-the-commercial-marketplace).
+
+      - question: |
+          Where can I create a commercial marketplace offer?
+        answer: |
+          1. Go to the commercial marketplace offers [Overview page](https://partner.microsoft.com/dashboard/marketplace-offers/overview).
+          2. Select **+ New offer** on the left.
+          3. Select the type of offer to create.
+
+      - question: |
+          I can't register and publish an offer using my personal email ID.
+        answer: |
+          See [Publishing guide by offer type](publisher-guide-by-offer-type.md) to learn how to create, publish, and manage your offers.
+
+      - question: |
+          What roles are required to view commercial marketplace analytics?
+        answer: |
+          To learn more about roles required to view commercial marketplace analytics reports, see [Assign user roles and permissions](user-roles.md).
+
+      - question: |
+          Can I view ratings and review of my offers listed in the Office store?
+        answer: |
+          No, currently we only provide ratings and reviews reporting to offers listed in the commercial marketplace program. For more information, see [Ratings and Reviews dashboard for the commercial marketplace](ratings-reviews.md). Reviews and ratings of Office apps will be available soon.
+
+          Commercial marketplace offers are listed on Microsoft AppSource and Azure Marketplace. They include Azure applications, Azure containers, Azure virtual machines, Dynamics 365 apps on Dataverse and Power Apps, Dynamics 365 Operations Apps, IoT Edge Modules, and Software as a Service.
+
+      - question: |
+          Why do I see daily adjustments to estimated charges in my usage report?
+        answer: |
+          The billed charges for current customer usage in an open month can have adjustments due to things like discounts and refunds. The accurate estimated charges in the usage report are reflected on the 4th day of the month following use of the offer.
+
+      - question: |
+          How do I get started with programmatic access to commercial marketplace analytics reports?
+        answer: |
+          See [Prerequisites to programmatically access analytics data](analytics-prerequisites.md).
+
+      - question: |
+          Can I create custom queries apart from the listed system queries?
+        answer: |
+          Yes, the system queries are only for reference purposes. You can either use system queries or create a custom query by selectively querying on specific attributes.          
           
+      
 additionalContent: |
 
   ## Next steps
