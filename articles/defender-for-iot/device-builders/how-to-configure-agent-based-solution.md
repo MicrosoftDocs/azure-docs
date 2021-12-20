@@ -13,9 +13,9 @@ This article describes how to configure data collection in Microsoft Defender fo
 
 **To configure data collection in Microsoft Defender for IoT agent-based solution**:
 
-1. Navigate to the Azure portal, and select the IoT Hub that the Defender for IoT is attached to
+1. Navigate to the Azure portal, and select the IoT Hub that the Defender for IoT is attached to.
 
-1. Select **Defender for IoT > Settings > Data Collection**..
+1. Select **Defender for IoT > Settings > Data Collection**.
 
     :::image type="content" source="media/how-to-configure-agent-based-solution/data-collection.png" alt-text="Select data collection from the security menu settings.":::
 
