@@ -36,14 +36,21 @@ Before you start, make sure you have the following requirements on your workspac
 
 - **Contributor** permissions on the subscription you want to connect
 
-- Defender for IoT must be enabled on your relevant IoT Hub instances. For more information, see [Configure data collection](/azure/defender-for-iot/device-builders/how-to-configure-agent-based-solution#configure-data-collection) in the device builder documentation.
+- <a name="enablehub"></a>Defender for IoT must be enabled on your relevant IoT Hub instances.
+
+    Use the following procedure to verify or enable this setting if needed:
+
+    1. Go to the IoT Hub instance that you'd defined when onboarding your sensors in Defender for IoT.
+
+    1. Select **Defender for IoT > Settings > Data Collection**.
+
+    1. Under **Microsoft Defender for IoT**, select **Enable Microsoft Defender for IoT**.
 
 For more information, see [Permissions in Microsoft Sentinel](roles.md) and [Quickstart: Get started with Defender for IoT](/azure/defender-for-iot/organizations/getting-started).
 
 > [!IMPORTANT]
 > Currently, having both the Microsoft Defender for IoT and the [Microsoft Defender for Cloud](data-connectors-reference.md#microsoft-defender-for-cloud) data connectors enabled on the same Microsoft Sentinel workspace simultaneously may result in duplicate alerts in Microsoft Sentinel. We recommend that you disconnect the Microsoft Defender for Cloud data connector before connecting to Microsoft Defender for IoT.
 >
-
 
 ## Connect your data from Defender for IoT to Microsoft Sentinel
 
@@ -60,7 +67,7 @@ Start by enabling the **Defender for IoT** data connector to stream all your Def
     If you've made any connection changes, it can take 10 seconds or more for the **Subscription** list to update.
 
     > [!TIP]
-    > If you see an error message, make sure that you have [Defender for IoT enabled](/azure/defender-for-iot/device-builders/how-to-configure-agent-based-solution#configure-data-collection) on at least one IoT Hub instance within your selected subscription.
+    > If you see an error message, make sure that you have [Defender for IoT enabled](#enablehub) on at least one IoT Hub instance within your selected subscription.
     >
 
 For more information, see [Connect Microsoft Sentinel to Azure, Windows, Microsoft, and Amazon services](connect-azure-windows-microsoft-services.md).
