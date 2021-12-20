@@ -5,12 +5,11 @@ services: api-management
 documentationcenter: ''
 author: dlepow
 editor: ''
-
 ms.service: api-management
 ms.topic: tutorial
 ms.date: 12/10/2021
 ms.author: danlep
-
+ms.custom: devdivchpfy22
 ---
 
 # Tutorial: Debug your APIs using request tracing
