@@ -35,6 +35,8 @@ Follow these steps in the Azure portal to track the order you created using the 
 
     You can see the tracking information for your order after the hardware is shipped. 
 
+    ![View tracking number after the hardware is shipped](media/azure-edge-hardware-center-manage-order/track-order-status-2.png)
+
 ## Cancel order
 
 Follow these steps in the Azure portal to track the order you created using the Edge Hardware Center.
@@ -48,6 +50,12 @@ Follow these steps in the Azure portal to track the order you created using the 
 3. You see a notification that the order is being canceled. Once the order is canceled, the order status updates to **Canceled**.
 
     ![Order in Canceled state](media/azure-edge-hardware-center-manage-order/cancel-order-3.png)
+
+    If your order item shows up as **Confirmed** and you need to cancel it for some reason, send an email to [Operations team](mailto:email@example.com) with your request.
+
+## Return hardware
+
+
 
 ## Next steps
 

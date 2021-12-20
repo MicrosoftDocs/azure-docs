@@ -39,7 +39,7 @@ sections:
           Yes. While creating the order, you can input quantity in the **Shipping + quantity** tab. You can order a maximum of up to 20 units per order. To order more than 20 units at one time, you will need to create multiple orders.  
 
       - question: |
-          3.	Can I ship different hardware units within a single order to different locations?
+          Can I ship different hardware units within a single order to different locations?
         answer: |
           Yes. While creating the order, you can add multiple shipping addresses in the **Shipping + quantity** tab. Make sure that all the addresses are within the same country. To ship hardware to addresses across different countries, you will have to create separate orders.            
 
