@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 06/17/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
