@@ -111,7 +111,7 @@ Additionally, you can also add users using the command prompt:
 
 ## Considerations 
 
-You cannot assign groups to the device administrator role, only individual users are allowed.
+You previously could not assign groups to the device administrator role, as only individual users were allowed. This changed with the introduction of role-assignable groups, which were introduced in July of 2021. For an overview of role-assignable groups, see [Create a role-assignable group in Azure Active Directory](https://docs.microsoft.com/en-us/azure/active-directory/roles/groups-create-eligible).
 
 Device administrators are assigned to all Azure AD Joined devices. They can't be scoped to a specific set of devices.
 
