@@ -29,10 +29,9 @@ In this tutorial, you:
 >
 > * Connect Microsoft Sentinel to Defender for IoT
 > * Use Log Analytics to query for Defender for IoT alerts
-> * Install the Defender for IoT solution
-> * Learn about Defender for IoT’s solution workbooks
-> * Learn about Defender for IoT’s solution analytic rules
-> * Learn about Defender for IoT’s solution playbooks
+> * Install the Microsoft Sentinel solution for Defender for IoT
+> * Learn about the analytics rules, workbooks, and playbooks deployed to your Microsoft Sentinel workspace with the Defender for IoT solution
+
 
 ## Prerequisites
 
