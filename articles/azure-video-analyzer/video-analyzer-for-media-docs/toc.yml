@@ -25,7 +25,7 @@
     href: logic-apps-connector-tutorial.md
   - name: Deploy using ARM template
     href: deploy-with-arm-template.md
-  - name: Index Video from Onedrive
+  - name: Index Video from OneDrive
     href: odrv-download.md
 - name: Samples
   items:

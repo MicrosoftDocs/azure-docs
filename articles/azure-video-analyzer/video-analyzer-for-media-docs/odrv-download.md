@@ -1,13 +1,13 @@
 ---
-title: Index videos stored on Ondedrive - Azure Video Analyzer for media
-description: Learn how to index videos stored on Ondedrive by using Azure Video Analyzer for Media (formerly Video Indexer).
+title: Index videos stored on OneDrive - Azure Video Analyzer for media
+description: Learn how to index videos stored on OneDrive by using Azure Video Analyzer for Media (formerly Video Indexer).
 ms.topic: article
 ms.date: 12/17/2021
 ---
 
-# Index your videos stored on Onedrive 
+# Index your videos stored on OneDrive 
 
-This article shows how to index videos stored on Onedrive by using the Azure Video Analyzer for Media (formerly Video Indexer) website.
+This article shows how to index videos stored on OneDrive by using the Azure Video Analyzer for Media (formerly Video Indexer) website.
 
 ## Supported file formats
 
@@ -24,7 +24,7 @@ For a list of file formats that you can use with Video Analyzer for Media, see [
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/video-indexer-get-started/avam-enter-file-url.png" alt-text="Screenshot that shows the enter file URL button.":::
 
-1. Next, go to your video/audio file located on your Onedrive using a webbrowser. Select the file you want to index, at the top select **embed**
+1. Next, go to your video/audio file located on your OneDrive using a web browser. Select the file you want to index, at the top select **embed**
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/video-indexer-get-started/avam-odrv-embed.png" alt-text="Screenshot that shows the embed code button.":::
 
@@ -44,7 +44,7 @@ For a list of file formats that you can use with Video Analyzer for Media, see [
    > [!div class="mx-imgBorder"]
    > :::image type="content" source="./media/video-indexer-get-started/avam-odrv-url.png" alt-text="Screenshot that shows the onedrive url field.":::
 
-After your video is downloaded from Onedrive, Video Analyzer for Media starts indexing and analyzing the video.
+After your video is downloaded from OneDrive, Video Analyzer for Media starts indexing and analyzing the video.
 
 > [!div class="mx-imgBorder"]
 > :::image type="content" source="./media/video-indexer-get-started/progress.png" alt-text="Screenshot that shows the progress of an upload.":::
@@ -179,7 +179,7 @@ public async Task Sample()
     var content = new MultipartFormDataContent();
     Console.WriteLine("Uploading...");
     // Get the video from URL
-    var videoUrl = "VIDEO_URL"; // Replace with the video URL from Onedrive
+    var videoUrl = "VIDEO_URL"; // Replace with the video URL from OneDrive
 
     // As an alternative to specifying video URL, you can upload a file.
     // Remove the videoUrl parameter from the query parameters below and add the following lines:
@@ -367,7 +367,7 @@ namespace VideoIndexerArm
         private const string SubscriptionId = ""; // Your Azure subscription
         private const string ResourceGroup = ""; // Your resource group
         private const string AccountName = ""; // Your account name
-        private const string VideoUrl = ""; // The video URL from Onedrive you want to index
+        private const string VideoUrl = ""; // The video URL from OneDrive you want to index
 
         public static async Task Main(string[] args)
         {
