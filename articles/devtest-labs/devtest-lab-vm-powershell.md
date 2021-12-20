@@ -209,5 +209,6 @@ If ($VmProperties.expirationDate -eq $null) {
 Set-AzureRmResource -ResourceId $VmResourceId -Properties $VmProperties -Force
 ```
 
+
 ## Next steps
 See the following content: [Azure PowerShell documentation for Azure DevTest Labs](/powershell/module/az.devtestlabs/)
