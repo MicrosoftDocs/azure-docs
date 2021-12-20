@@ -5,7 +5,7 @@ author: StefArroyo
 ms.author: esarroyo
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.custom: devx-track-dotnet
