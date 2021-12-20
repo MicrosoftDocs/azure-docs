@@ -466,9 +466,9 @@ BIG-IP logs are a great source of information for isolating all sorts of authent
 
 Then reproduce your issue before looking at the logs but remember to switch this back when finished. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
 
-1.Navigate to **Access > Overview > Access reports**
+1. Navigate to **Access > Overview > Access reports**
 
-2.Run the report for the last hour to see logs provide any clues. The **View session variables** link for your session will also help understand if the APM is receiving the expected claims from Azure AD.
+2. Run the report for the last hour to see logs provide any clues. The **View session variables** link for your session will also help understand if the APM is receiving the expected claims from Azure AD.
 
 If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application. 
 
@@ -480,10 +480,10 @@ F5 provides a great BIG-IP specific paper to help diagnose KCD related issues, s
 
 ## Additional resources
 
-*[BIG-IP Advanced configuration](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
+* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
-*[The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
+* [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 
-*[What is Conditional Access?](../conditional-access/overview.md)
+* [What is Conditional Access?](../conditional-access/overview.md)
 
-*[Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
+* [Microsoft Zero Trust framework to enable remote work](https://www.microsoft.com/security/blog/2020/04/02/announcing-microsoft-zero-trust-assessment-tool/)
