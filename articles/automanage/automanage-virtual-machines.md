@@ -3,7 +3,6 @@ title: Azure Automanage for virtual machines
 description: Learn about Azure Automanage for virtual machines.
 author: mmccrory
 ms.service: automanage
-ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 10/19/2021

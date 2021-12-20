@@ -3,7 +3,6 @@ title: Azure Automanage for Windows Server
 description: Learn about Azure Automanage for virtual machines best practices for services that are automatically onboarded and configured for Windows Server machines.
 author: mmccrory
 ms.service: automanage
-ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 12/10/2021

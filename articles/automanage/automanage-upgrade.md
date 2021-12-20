@@ -3,7 +3,6 @@ title: Upgrade your Azure Automanage machines to the latest Automanage version
 description: Learn how to upgrade your machines to the latest Azure Automanage version
 author: mmccrory
 ms.service: automanage
-ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 10/20/2021

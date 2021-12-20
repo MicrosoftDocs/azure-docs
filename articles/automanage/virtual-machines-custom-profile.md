@@ -3,7 +3,6 @@ title: Create a custom profile in Azure Automanage for VMs
 description: Learn how to create a custom profile in Azure Automanage and select your services and settings.
 author: ju-shim
 ms.service: automanage
-ms.subservice: automanage
 ms.workload: infrastructure
 ms.topic: how-to
 ms.date: 12/10/2021

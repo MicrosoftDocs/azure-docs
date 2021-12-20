@@ -2,7 +2,6 @@
 title: Azure Automanage for Azure Arc-enabled servers
 description: Learn about Azure Automanage for Azure Arc-enabled servers
 ms.service: automanage
-ms.subservice: automanage
 ms.collection: linux
 ms.workload: infrastructure
 ms.topic: conceptual
