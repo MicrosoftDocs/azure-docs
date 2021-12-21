@@ -7,6 +7,8 @@ ms.topic: article
 
 # OT threat monitoring in enterprise SOCs
 
+## About the digital transformation in business critical industries
+
 As the digital transformation in business-critical industries connects OT systems with IT infrastructures, the OT/IT convergence puts data, systems, and safety at risk.  
 
 This means CISOs and Security Operations Center (SOC) teams are increasingly responsible for new threats from OT network segments that they traditionally did not manage, for example from cyber-physical systems.  
