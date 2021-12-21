@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
 ms.date: 12/14/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
