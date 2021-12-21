@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create a Go app that uses Azur
 author: abhirockzz
 ms.author: abhishgu
 ms.service: cache
-ms.devlang: go
+ms.devlang: golang
 ms.topic: quickstart
 ms.date: 01/08/2021
 ms.custom: mode-api

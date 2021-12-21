@@ -4,7 +4,7 @@ description: How to use Node.js to create an app that connects to Azure Cosmos D
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: anfeldma

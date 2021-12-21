@@ -34,7 +34,7 @@ Direct costs impacting Azure Purview pricing are based on the following three di
 
 - The **Data map** is the foundation of the Purview architecture and so needs to be up to date with asset information in the data estate at any given point
 
-- The data map is charged in terms of **Capacity Unit** (CU). The data map is provisioned at one CU if the catalog is storing up to 2 GB of metadata storage and serves up to 25 data map operations/sec
+- The data map is charged in terms of **Capacity Unit** (CU). The data map is provisioned at one CU if the catalog is storing up to 10 GB of metadata storage and serves up to 25 data map operations/sec
 
 - While provisioning an account initially, the data map is always provisioned at one CU
 

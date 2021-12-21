@@ -5,7 +5,7 @@ author: sakash279
 ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: reference
 ms.date: 11/03/2021
 ms.custom: devx-track-dotnet

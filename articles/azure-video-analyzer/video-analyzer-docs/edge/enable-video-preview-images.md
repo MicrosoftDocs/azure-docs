@@ -51,7 +51,7 @@ Example:
           },
           "videoCreationProperties": {
             "title": "{$parameter-for-specifying-unique-title-for-each-pipeline}",
-            "description": "{$parameter-for-specifying-unique-description-for-each-pipeline}k",
+            "description": "{$parameter-for-specifying-unique-description-for-each-pipeline}",
             "segmentLength": "PT30S"
           },
           "localMediaCachePath": "/var/lib/videoanalyzer/tmp/",

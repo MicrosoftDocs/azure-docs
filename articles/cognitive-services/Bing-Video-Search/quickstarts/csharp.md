@@ -10,6 +10,7 @@ ms.subservice: bing-video-search
 ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: clschott
+ms.devlang: csharp
 ms.custom: devx-track-csharp, mode-api
 ---
 
