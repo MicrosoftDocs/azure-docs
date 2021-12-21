@@ -69,7 +69,7 @@ Follow these steps:
 >[!Note]
 >- We support the Enhanced policy configuration through [Recovery Services vault](/azure/backup/backup-azure-arm-vms-prepare) and [VM Manage blade](/azure/backup/backup-during-vm-creation#start-a-backup-after-creating-the-vm) only. Configuration through Backup center is currently not supported.
 >- For hourly backups, the last backup of the day is transferred to the vault. If the backup fails, the first backup of the next day is transferred to the vault.
->- Currently, Enhanced policy is supported for VMs only at the time of protection configuration. Any VM that is earlier being protected with Standard policy is not supported for Enhanced policy.
+>- Enhanced policy can be only availed for unprotected VMs that are new to Azure Backup. Note that Azure VMs that are protected with existing policy can't be moved to Enhanced policy.
 
 ## Next steps
 
