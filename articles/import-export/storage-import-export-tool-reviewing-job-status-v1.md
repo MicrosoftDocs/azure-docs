@@ -39,6 +39,9 @@ For export jobs, a manifest file is saved to the disk. *NEEDS VERIFICATION:* If 
 
 Each data transfer for a disk generates a copy log. If you chose to save a verbose log when you created the order, there’s also a verbose log in the same folder.
 
+> [!NOTE]
+> For your earlier orders, you might find an error log (_error.xml) along with the verbose log in a `waies` container in the storage account. The `DriveLog Version`, shown in the error log summary, will be `2018-10-01`. The log formats differ from those described in this article.
+
 ## Review import logs
 
 During an import, the Import/Export service generates a verbose log and a copy log for each disk. 
