@@ -49,7 +49,7 @@ Microsoft Sentinel is a scalable, cloud-native, security information event manag
 
 By bringing rich telemetry into Microsoft Sentinel from Microsoft Defender for IoT, SOC teams can bridge the gap between IT and OT security sectors. This allows SOC teams to detect and respond faster during the entire attack timeline — enhancing communication, processes and response time for both security analysts and OT personnel.  
 
-:::image type="content" source="media/concept-sentinel-integration/chart.png" alt-text="Screenshot of a user-added customized rule.":::
+:::image type="content" source="media/concept-sentinel-integration/chart.png" alt-text="Screenshot of a chart showing alert flow.":::
 
 **OT Security Alerts**
 
@@ -63,7 +63,7 @@ MITRE ATT&CK® for ICS is a knowledge base used for describing the actions an ad
 
 The Microsoft Defender for IoT integration delivers a library of mappings that link Sentinel incidents to MITRE ATT&CK for ICS tactics.
 
-:::image type="content" source="media/concept-sentinel-integration/mitreattack.png" alt-text="Screenshot of a user-added customized rule.":::
+:::image type="content" source="media/concept-sentinel-integration/mitreattack.png" alt-text="Screenshot of a MITRE ATT&CK in Sentinel.":::
 
 ## Workbooks, analytics rules and SOAR playbooks
 
@@ -71,7 +71,7 @@ The Microsoft Defender for IoT integration delivers a library of mappings that l
 
 To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
-The Defender for IoT workbooks provides guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also providing a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture. 
+The Defender for IoT workbooks provides guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also providing a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
 
 For example:  
 
@@ -79,13 +79,13 @@ For example:
 
 Sentinel Alert Workbook shows alerts by type (policy violation, protocol violation, malware, etc.); severity; OT device type (PLC, HMI, engineering workstation); OT equipment vendor; and alerts over time.
 
-:::image type="content" source="media/concept-sentinel-integration/workbookalerttype.png" alt-text="Screenshot of a user-added customized rule.":::
+:::image type="content" source="media/concept-sentinel-integration/workbookalerttype.png" alt-text="Screenshot of a workbook.":::
 
 **MITRE ATT&CK for ICS Workbook** 
 
 Sentinel MITRE ATT&CK for ICS Workbook show the result of mapping alerts to MITRE ATT&CK for ICS tactics, plus the distribution of tactics by count and time period.
 
-:::image type="content" source="media/concept-sentinel-integration/mitreattack.png" alt-text="Screenshot of a user-added customized rule.":::
+:::image type="content" source="media/concept-sentinel-integration/mitreattack.png" alt-text="Screenshot of a MITRE ATT&CK":::
 
 The Workbooks described in the Defender for IoT anSentinel Tutorial ) are deployed to your Microsoft Sentinel workspace as part of the **IoT OT Threat Monitoring with Defender for IoT solution**.
 
