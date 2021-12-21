@@ -228,7 +228,7 @@ This metric reflects the number of incoming server requests that were received b
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Count | Count | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| Count Per Second | Count | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ### Server response time (requests/duration)
 
