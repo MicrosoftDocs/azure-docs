@@ -40,7 +40,7 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 1. Select the volume you want to enable file access logs for. 
 2. Select *Diagnostic settings* from the left-hand pane.
 ![Azure Diagnostic settings menu showing how to add ANF file access logs](../media/azure-netapp-files/logs-diagnostic-settings-add.jpg)
-3. In the *Diagnostic settings* page, provide a diagnostic setting name, select *ANFFileAcess* and then set the retention period of the logs. 
+3. In the *Diagnostic settings* page, provide a diagnostic setting name, select *ANFFileAccess* and then set the retention period of the logs. 
 ![Azure Diagnostic settings menu showing how to enable ANF file access logs](../media/azure-netapp-files/logs-diagnostic-settings-enable.jpg)
 4. Select one of the four destinations for the logs:
     * Send to Log Analytics workspace
