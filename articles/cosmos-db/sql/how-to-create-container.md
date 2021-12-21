@@ -6,7 +6,8 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/16/2020
-ms.author: mjbrown 
+ms.author: mjbrown
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
