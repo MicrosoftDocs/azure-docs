@@ -9,7 +9,7 @@ ms.author: saharsh
 
 # Frequently asked questions about Infrastructure Service 
 
-Service Fabric Infrastructure Service is responsible for coordinating all Infrastructure related updates to the underlying virtual machine scale sets with Service Fabric cluster and ensuring all operations on the clusters are performed in a safe manner. It is available for all node types with Durability level Silver and above. 
+Infrastructure Service is a system service of Azure Service Fabric, which is responsible for coordinating all Infrastructure related updates to the underlying virtual machine scale sets with Service Fabric cluster and ensuring all operations on the clusters are performed in a safe manner. It is available for all node types with Durability level Silver and above. 
 
 This document covers most of the frequently asked questions about Infrastructure Service: 
 
@@ -32,6 +32,7 @@ All Tenant update operations in a Service fabric clusters are carried out if and
 
 ### Is there any way to use Infrasturcture Service for any other operations. 
 
-### I want to bypass Infrastructure Service and perform operations on my cluster. How do I do that ? 
+### I want to bypass Infrastructure Service and perform operations on my cluster. How do I do that ?
+You can use this/tool in order to approve Tenant Updates on your cluster. However, be very sure before doing so, since its a potentially dangerous operation and can lead to weird situations and potential data loss. 
 
 
