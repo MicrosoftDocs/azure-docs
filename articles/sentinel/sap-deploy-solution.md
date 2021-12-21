@@ -127,7 +127,9 @@ This procedure describes how to use the Azure CLI to deploy an Ubuntu server 18.
 
 **To deploy and prepare your Ubuntu VM, do the following**:
 
-1. Make sure that you have enough disk space for the Docker container runtime environment so that you'll have enough space for your operation agent logs. For example, in Ubuntu, you can mount a disk to the `/var/lib/docker` directory before installing the container, as by default you may have little space allocated to the `/var` directory.
+1. Make sure that you have enough disk space for the Docker container runtime environment so that you'll have enough space for your operation agent logs. 
+
+    For example, in Ubuntu, you can mount a disk to the `/var/lib/docker` directory before installing the container, as by default you may have little space allocated to the `/var` directory.
 
     For more information, see [Recommended virtual machine sizing](sap-solution-detailed-requirements.md#recommended-virtual-machine-sizing).
 
