@@ -451,7 +451,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 In this section, you'll build and execute a sample that reads the endorsement key from your TPM 2.0 hardware security module. This value will be used for device enrollment with your Device Provisioning Service instance.
 
-1. In a command prompt with administrator permissions, change directories to the project directory for the TPM device provisioning sample.
+1. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
     ```cmd
     cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
@@ -460,7 +460,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 2. Type the following command to build and run the TPM device provisioning sample. Copy the endorsement key returned from your TPM 2.0 hardware security module to use later when enrolling your device.
 
     ```cmd
-    dotnet run -e
+    dotnet run -- -e
     ```
 
 ::: zone-end
@@ -601,7 +601,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
     ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-csharp.png)
 
-3. In a command prompt with administrator permissions, change directories to the project directory for the TPM device provisioning sample.
+3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
    ```cmd
    cd .\azure-iot-samples-csharp\provisioning\Samples\device\TpmSample
@@ -610,7 +610,22 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 4. Run the following command to register your device. Replace `<IdScope>` with the value for the DPS you just copied and `<RegistrationId>` with the value you used when creating the device enrollment.
 
     ```cmd
-    dotnet run -s <IdScope> -r <RegistrationId>
+    dotnet run -- -s <IdScope> -r <RegistrationId>
+    ```
+
+    If the device registration was successful, you'll see the following messages:
+
+    ```cmd/sh
+    Initializing security using the local TPM...
+    Initializing the device provisioning client...
+    Initialized for registration Id <RegistrationId>.
+    Registering with the device provisioning service...
+    Registration status: Assigned.
+    Device <RegistrationId> registered to <HubName>.azure-devices.net.
+    Creating TPM authentication for IoT Hub...
+    Testing the provisioned device with IoT Hub...
+    Sending a telemetry message...
+    Finished.
     ```
 
 ::: zone-end
