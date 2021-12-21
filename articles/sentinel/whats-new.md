@@ -29,18 +29,18 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## December 2021
 
-- [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution)
-- [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace)
-- [Apache Log4j Vulnerability Detection solution](#apache-log4j-vulnerability-detection-solution)
+- [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
+- [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace-public-preview)
+- [Apache Log4j Vulnerability Detection solution](#apache-log4j-vulnerability-detection-solution-public-preview)
 
-### IoT OT Threat Monitoring with Defender for IoT solution
+### IoT OT Threat Monitoring with Defender for IoT solution (Public preview)
 
 The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT  security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
 
 For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
 
 
-### Ingest GitHub logs into your Microsoft Sentinel workspace
+### Ingest GitHub logs into your Microsoft Sentinel workspace (Public preview)
 
 Use the new [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution and [data connector](data-connectors-reference.md#github-preview) to ingest your GitHub logs into your Microsoft Sentinel workspace.
 
@@ -54,7 +54,7 @@ For example, view the number of users that were added or removed from GitHub rep
 
 For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md) and [instructions](data-connectors-reference.md#github-preview) for installing the GitHub data connector.
 
-### Apache Log4j Vulnerability Detection solution
+### Apache Log4j Vulnerability Detection solution (Public preview)
 
 Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 Dec 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component. 
 
