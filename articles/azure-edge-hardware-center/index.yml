@@ -33,7 +33,7 @@ landingContent:
             url: azure-edge-hardware-center-faq.yml
 
   # Card
-  - title: "Create, track, cancel orders"
+  - title: "Create, manage orders"
     linkLists:
       - linkListType: deploy
         links:
@@ -44,7 +44,12 @@ landingContent:
           - text: Cancel your order
             url: azure-edge-hardware-center-manage-order.md#cancel-order  
           - text: Track your order
-            url: azure-edge-hardware-center-manage-order.md#track-order      
+            url: azure-edge-hardware-center-manage-order.md#track-order  
+          - text: Return hardware
+            url: azure-edge-hardware-center-manage-order.md#return-hardware
+          - text: Move order resource
+            url: azure-edge-hardware-center-resource-move-subscription-resource-group.md
+
 
   # Card
   - title: Troubleshoot orders

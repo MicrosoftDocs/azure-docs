@@ -7,12 +7,22 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 11/29/2021
+ms.date: 12/21/2021
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Edge Hardware Center ordering issues
 
 This article describes how to troubleshoot Azure Edge Hardware Center ordering issues.
+
+## Unsupported subscription or region
+
+**Error Description:** In Azure portal, you get this error:
+
+*Selected subscription or region is not supported. Choose a different subscription or region.*
+
+**Suggested solution:**  Make sure that you used a supported subscription such as [Microsoft Enterprise Agreement (EA)](https://azure.microsoft.com/overview/sales-number/), [Cloud Solution Provider (CSP)](/partner-center/azure-plan-lp), or [Microsoft Azure Sponsorship](https://azure.microsoft.com/offers/ms-azr-0036p/). Pay-as-you-go subscriptions aren't supported. For more information, see [Azure Edge Hardware Center resource prerequisites](azure-edge-hardware-center-create-order.md#prerequisites).
+
+There's the possibility that Microsoft may allow a subscription type upgrade on a case-by-case basis. Contact [Microsoft support](https://azure.microsoft.com/support/options/) so that they can understand your needs and adjust these limits appropriately.
 
 ## Resource provider not registered for subscription
 
@@ -28,7 +38,7 @@ This article describes how to troubleshoot Azure Edge Hardware Center ordering i
 
 *Resource &lt;resource name&gt; was disallowed by policy. (Code: RequestDisallowedByPolicy). Initiative: Deny generally unwanted Resource Types. Policy: Not allowed resource types.*
 
-**Suggested solution:** This error occurs due to an existing Azure Policy assignment that blocks the resource creation. Azure Policy definitions and assignments are set by an organization's system administrator to ensure compliance while using or creating Azure resources. If any such policy assignment is blocking Azure Stack Edge resource creation, contact your system administrator to edit your Azure Policy definition.
+**Suggested solution:** This error occurs due to an existing Azure Policy assignment that blocks the resource creation. Azure Policy definitions and assignments are set by an organization's system administrator to ensure compliance while using or creating Azure resources. If any such policy assignment is blocking Azure Edge Hardware Center resource creation, contact your system administrator to edit your Azure Policy definition.
 
 ## Selected subscription type not supported
 

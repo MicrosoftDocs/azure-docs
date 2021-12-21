@@ -18,6 +18,8 @@
     items:
     - name: Track, cancel your order
       href: azure-edge-hardware-center-manage-order.md
+    - name: Move order resource
+      href: azure-edge-hardware-center-resource-move-subscription-resource-group.md
     - name: Troubleshoot orders
       href: azure-edge-hardware-center-troubleshoot-order.md
   - name: References
