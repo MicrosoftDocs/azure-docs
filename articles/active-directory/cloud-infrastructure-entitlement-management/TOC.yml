@@ -83,15 +83,15 @@
       href: cloudknox-product-reports.md
     - name: The Permissions Analytics report
       href: cloudknox-product-permissions-analytics-reports.md
-  - name: Compliance
+  #- name: Compliance
+    #expanded: true
+    #items:
+    #- name: Compliance with established guidelines
+      #href: cloudknox-product-compliance.md
+  - name: Reference
     expanded: true
     items:
-    - name: Compliance with established guidelines
-      href: cloudknox-product-compliance.md
-  - name: Reference 
-    expanded: true
-    items: 
-    - name: FAQs (Internal and existing users)
+    - name: FAQs
       href: cloudknox-faqs.md
     - name: Multi-cloud glossary
       href: cloudknox-multi-cloud-glossary.md
