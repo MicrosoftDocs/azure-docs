@@ -64,6 +64,8 @@
         href: howto-create-serviceclient-with-javascript-and-azure-identity.md
       - name: Create `WebPubSubServiceClient` with Azure Identity and Python
         href: howto-create-serviceclient-with-python-and-azure-identity.md
+    - name: Move across regions
+      href: howto-move-across-regions.md
   - name: Monitor
     items:
     - name: Audit compliance using Azure Policy
