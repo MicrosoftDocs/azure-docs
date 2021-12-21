@@ -86,15 +86,16 @@ source1, source2 assert(expectExists(AddressLine1 == AddressLine1, false, 'nonUS
 
 ## Data flow script
 
-### Syntax
-
 ### Examples
 
 ```
-source1, source2 assert(expectExists(AddressLine1 == AddressLine1, false, 'nonUS', true(), 'only valid for U.S. addresses')) ~> Assert1
+source1, source2 assert(expectTrue(CountryRegion == 'United States', false, 'nonUS', null, 'only valid for U.S. addresses'),
+	expectExists(source1@AddressID == source2@AddressID, false, 'assertExist', StateProvince == 'Washington', toString(source1@AddressID) + ' already exists in Washington'),
+	expectUnique(source1@AddressID, false, 'uniqueness', null, toString(source1@AddressID) + ' is not unqiue')) ~> Assert1
+
 ```    
 
 ## Next steps
 
-* Use the [Flatten transformation](data-flow-flatten.md) to pivot rows to columns.
-* Use the [Derived column transformation](data-flow-derived-column.md) to pivot columns to rows.
+* Use the [Select transformation](data-flow-select.md) to select and validate columns.
+* Use the [Derived column transformation](data-flow-derived-column.md) to transform column values.
