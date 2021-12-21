@@ -12,6 +12,10 @@ ms.date: 12/17/2021
 
 # Guidance for running self-hosted gateway on Kubernetes in production
 
+In order to run the self-hosted gateway in production, there are various aspects to take in to mind. For example, it should be deployed in a highly-available manner, use configuration backups to handle temporary disconnects and many more.
+
+This article provides guidance on how to run [self-hosted gateway](./self-hosted-gateway-overview.md) on Kubernetes for production workloads to ensure that it will run smoothly and reliably.
+
 ## Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
 
