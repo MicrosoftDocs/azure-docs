@@ -313,7 +313,6 @@
         "articles/marketplace/**/*.md": "mingshen-ms",
         "articles/media-services/**/**/*.md": "Juliako",
         "articles/media-services/**/*.md": "Juliako",
-        "articles/notebooks/*.md": "JoshuaPartlow",
         "articles/search/*.md": "HeidiSteen",
         "articles/notebooks/*.md": "j-martens",
         "articles/service-bus-messaging/*.md": "spelluru",
