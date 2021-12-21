@@ -122,7 +122,7 @@ Application settings can be deleted through the Azure CLI.
    ```
 
   > [!TIP]
-  > You can delete multiple settings by passing multiple name-value pairs to `--setting-names`.
+  > You can delete multiple settings by passing multiple setting names to `--setting-names`.
 
 ## Next steps
 
