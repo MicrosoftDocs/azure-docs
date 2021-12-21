@@ -331,7 +331,7 @@
               href: api-management-howto-use-managed-service-identity.md
             - name: Self-hosted gateway
               items:
-              - name: Production guidance for running on Kubernetes
+              - name: Guidance for running on Kubernetes
                 href: how-to-self-hosted-gateway-on-kubernetes-in-production.md
             - name: Integrate with Service Fabric
               items:
