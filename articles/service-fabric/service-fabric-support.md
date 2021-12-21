@@ -49,7 +49,6 @@ To report issues related to Service Fabric clusters running on-premises or on ot
 
 Learn more about:
 
-- [Professional Support from Microsoft for on-premises](https://support.microsoft.com/en-us/gp/offerprophone?wa=wsignin1.0).
 - [Microsoft premier support](https://support.microsoft.com/en-us/premier).
 
 ## Post a question to Microsoft Q&A

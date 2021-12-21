@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Data ingress and egress
 titleSuffix: Azure Digital Twins
-description: Understand the ingress and egress requirements for integrating Azure Digital Twins with other services.
+description: Learn about the data ingress and egress requirements for integrating Azure Digital Twins with other services.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 6/1/2021
+ms.date: 12/07/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,7 +17,7 @@ ms.service: digital-twins
 
 # Data ingress and egress for Azure Digital Twins
 
-Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in different kinds of ways.
+Azure Digital Twins is typically used together with other services to create flexible, connected solutions that use your data in different kinds of ways. This article covers data ingress and egress for Azure Digital Twins and Azure services that can be used to take advantage of it.
 
 Using [event routes](concepts-route-events.md), Azure Digital Twins can receive data from upstream services such as [IoT Hub](../iot-hub/about-iot-hub.md) or [Logic Apps](../logic-apps/logic-apps-overview.md), which are used to deliver telemetry and notifications. 
 
@@ -36,7 +36,7 @@ You can also learn how to connect Azure Digital Twins to a Logic Apps trigger in
 ## Data egress services
 
 Azure Digital Twins can send data to connected **endpoints**. Supported endpoints can be:
-* [Event Hub](../event-hubs/event-hubs-about.md)
+* [Event Hubs](../event-hubs/event-hubs-about.md)
 * [Event Grid](../event-grid/overview.md)
 * [Service Bus](../service-bus-messaging/service-bus-messaging-overview.md)
 

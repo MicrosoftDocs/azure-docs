@@ -2,7 +2,7 @@
 author: georgewallace
 ms.service: resource-graph
 ms.topic: include
-ms.date: 10/12/2021
+ms.date: 12/20/2021
 ms.author: gwallace
 ms.custom: generated
 ---
@@ -126,6 +126,39 @@ Search-AzGraph -Query "SecurityResources | where type =~ 'microsoft.security/iot
 - Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/SecurityResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.security%2fiotalerts%27%20and%20id%20contains%20%27%7bhub_id%7d%27%20and%20properties.alertType%20contains%20%27%7balert_type%7d%27" target="_blank">portal.azure.com</a>
 - Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/SecurityResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.security%2fiotalerts%27%20and%20id%20contains%20%27%7bhub_id%7d%27%20and%20properties.alertType%20contains%20%27%7balert_type%7d%27" target="_blank">portal.azure.us</a>
 - Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/SecurityResources%0a%7c%20where%20type%20%3d%7e%20%27microsoft.security%2fiotalerts%27%20and%20id%20contains%20%27%7bhub_id%7d%27%20and%20properties.alertType%20contains%20%27%7balert_type%7d%27" target="_blank">portal.azure.cn</a>
+
+---
+
+### Get sensitivity insight of a specific resource
+
+Returns sensitivity insight of a specific resource (replace placeholder {resource_id}).
+
+```kusto
+SecurityResources
+| where type == 'microsoft.security/insights/classification'
+| where properties.associatedResource contains '$resource_id'
+| project SensitivityInsight = properties.insightProperties.purviewCatalogs[0].sensitivity
+```
+
+# [Azure CLI](#tab/azure-cli)
+
+```azurecli-interactive
+az graph query -q "SecurityResources | where type == 'microsoft.security/insights/classification' | where properties.associatedResource contains '\$resource_id' | project SensitivityInsight = properties.insightProperties.purviewCatalogs[0].sensitivity"
+```
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+```azurepowershell-interactive
+Search-AzGraph -Query "SecurityResources | where type == 'microsoft.security/insights/classification' | where properties.associatedResource contains '$resource_id' | project SensitivityInsight = properties.insightProperties.purviewCatalogs[0].sensitivity"
+```
+
+# [Portal](#tab/azure-portal)
+
+:::image type="icon" source="../../../../articles/governance/resource-graph/media/resource-graph-small.png"::: Try this query in Azure Resource Graph Explorer:
+
+- Azure portal: <a href="https://portal.azure.com/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/SecurityResources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.security%2finsights%2fclassification%27%0a%7c%20where%20properties.associatedResource%20contains%20%27%24resource_id%27%0a%7c%20project%20SensitivityInsight%20%3d%20properties.insightProperties.purviewCatalogs%5b0%5d.sensitivity" target="_blank">portal.azure.com</a>
+- Azure Government portal: <a href="https://portal.azure.us/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/SecurityResources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.security%2finsights%2fclassification%27%0a%7c%20where%20properties.associatedResource%20contains%20%27%24resource_id%27%0a%7c%20project%20SensitivityInsight%20%3d%20properties.insightProperties.purviewCatalogs%5b0%5d.sensitivity" target="_blank">portal.azure.us</a>
+- Azure China 21Vianet portal: <a href="https://portal.azure.cn/?feature.customportal=false#blade/HubsExtension/ArgQueryBlade/query/SecurityResources%0a%7c%20where%20type%20%3d%3d%20%27microsoft.security%2finsights%2fclassification%27%0a%7c%20where%20properties.associatedResource%20contains%20%27%24resource_id%27%0a%7c%20project%20SensitivityInsight%20%3d%20properties.insightProperties.purviewCatalogs%5b0%5d.sensitivity" target="_blank">portal.azure.cn</a>
 
 ---
 

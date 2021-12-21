@@ -15,7 +15,7 @@ ms.devlang: na
 ms.topic: how-to
 ms.date: 12/09/2021
 ms.custom: references_regions
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Configure network features for an Azure NetApp Files volume
 

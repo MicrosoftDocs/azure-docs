@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/16/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 
 # Restore a file from a snapshot using a client with Azure NetApp Files

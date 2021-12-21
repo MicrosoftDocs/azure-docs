@@ -2,8 +2,7 @@
 title: Hotpatch for Windows Server Azure Edition (preview)
 description: Learn how Hotpatch for Windows Server Azure Edition works and how to enable it
 author: ju-shim
-ms.service: virtual-machines
-ms.subservice: hotpatch
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 02/22/2021
