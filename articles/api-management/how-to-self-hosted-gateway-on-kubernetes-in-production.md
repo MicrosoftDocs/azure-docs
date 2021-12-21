@@ -1,6 +1,6 @@
 ---
 title: Self-hosted gateway on Kubernetes in production | Azure API Management
-description: Learn about deployment considerations to run a self-hosted gateway on Kubernetes for production workloads
+description: Learn about guidance to run a self-hosted gateway on Kubernetes for production workloads
 author: tomkerkhove
 manager: mrcarlosdev
 ms.service: api-management
@@ -10,7 +10,7 @@ ms.author: tomkerkhove
 ms.date: 12/17/2021
 ---
 
-# Considerations for running self-hosted gateway on Kubernetes in production
+# Guidance for running self-hosted gateway on Kubernetes in production
 
 ## Access token
 Without a valid access token, a self-hosted gateway can't access and download configuration data from the endpoint of the associated API Management service. The access token can be valid for a maximum of 30 days. It must be regenerated, and the cluster configured with a fresh token, either manually or via automation before it expires.
