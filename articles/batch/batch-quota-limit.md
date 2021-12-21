@@ -76,7 +76,7 @@ To view your Batch account quotas in the Azure portal:
 1. On the Batch account's menu, under **Settings**, select **Quotas**.
 1. Review the quotas currently applied to the Batch account.
 
-:::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Screenshot of Batch account's quota page in the Azure portal. Highlights for the quota page in menu, button to request quota increase, and quota column in resource list.":::
+    :::image type="content" source="./media/batch-quota-limit/account-quota-portal.png" alt-text="Screenshot of Batch account's quota page in the Azure portal. Highlights for the quota page in menu, button to request quota increase, and quota column in resource list.":::
 
 ## Increase a quota
 
@@ -118,15 +118,15 @@ Next, fill out your support request.
 
     1. For **Summary**, enter a description of your issue.
 
-    2. For **Issue Type**, select **Service and subscription limits (quotas)**.
+    1. For **Issue Type**, select **Service and subscription limits (quotas)**.
 
-    3. For **Subscription**, select the Azure subscription where your Batch account is.
+    1. For **Subscription**, select the Azure subscription where your Batch account is.
 
-    4. For **Quota type**, select **Batch**.
+    1. For **Quota type**, select **Batch**.
 
-    5. Select **Next: Solutions** to continue. The **Solutions** tab is skipped.
+    1. Select **Next: Solutions** to continue. The **Solutions** tab is skipped.
 
-:::image type="content" source="./media/batch-quota-limit/support-request.png" alt-text="Screenshot of new support request in the Azure portal, showing quota as the issue type and Batch as the quota type.":::
+        :::image type="content" source="./media/batch-quota-limit/support-request.png" alt-text="Screenshot of new support request in the Azure portal, showing quota as the issue type and Batch as the quota type.":::
 
 1. On the **Details** tab:
 
