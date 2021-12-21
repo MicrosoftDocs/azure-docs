@@ -29,9 +29,13 @@ In the assert transformation configuration panel, you will choose the type of as
 
 1. Expect true: The result of your expression must evaluate to a boolean true result. Use this to validate domain value ranges in your data.
 2. Expect unique: Set a column or an expression as a uniqueness rule in your data. Use this to tag duplicate rows.
-3. Expect exists: This option is only available when you have selected a second incoming stream. Exists will look at both streams and determine if the rows exists in both streams based on the columns or the expressions that you have specified.
+3. Expect exists: This option is only available when you have selected a second incoming stream. Exists will look at both streams and determine if the rows exists in both streams based on the columns or the expressions that you have specified. To add the second stream for exists, select ```Additional streams```.
 
 :::image type="content" source="media/data-flow/assert-configuration.png" alt-text="Assert configuration":::
+
+### Fail data flow
+
+Select ```fail data flow``` if you wish to have your data flow activity fail immediately as soon as the assertion rule fails.
 
 ### Assert ID
 
