@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 12/17/2021
+ms.date: 12/20/2021
 ---
 
 # Resource management in dense elastic pools
@@ -49,6 +49,8 @@ To avoid performance degradation due to resource contention, customers using den
 
 Azure SQL Database provides several metrics that are relevant for this type of monitoring. Exceeding the recommended average value for each metric indicates resource contention in the pool, and should be addressed using one of the actions mentioned earlier.
 
+To configure Alerting on eDTU resource consumption, consider creating alerts via the [Azure portal](alerts-insights-configure-portal.md) or the [Add-AzMetricAlertRulev2](/powershell/module/az.monitor/add-azmetricalertrulev2) PowerShell cmdlet. For a sample scenario, see [Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app](saas-dbpertenant-performance-monitoring.md).
+
 |Metric name|Description|Recommended average value|
 |----------|--------------------------------|------------|
 |`avg_instance_cpu_percent`|CPU utilization of the SQL process associated with an elastic pool, as measured by the underlying operating system. Available in the [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) view in every database, and in the [sys.elastic_pool_resource_stats](/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) view in the `master` database. This metric is also emitted to Azure Monitor, where it is [named](../../azure-monitor/essentials/metrics-supported.md#microsoftsqlserverselasticpools) `sqlserver_process_core_percent`, and can be viewed in Azure portal. This value is the same for every database in the same elastic pool.|Below 70%. Occasional short spikes up to 90% may be acceptable.|
@@ -85,12 +87,10 @@ In addition to monitoring current resource utilization, customers using dense po
 
 Customers using dense pools should closely monitor resource utilization trends as described earlier, and take mitigating action while metrics remain within the recommended ranges and there are still sufficient resources in the elastic pool.
 
-To configure Alerting on eDTU resource consumption, consider creating alerts via the [Azure portal](alerts-insights-configure-portal.md) or the [Add-AzMetricAlertRulev2](/powershell/module/az.monitor/add-azmetricalertrulev2) PowerShell cmdlet. For a sample scenario, see [Monitor and manage performance of Azure SQL Database in a multi-tenant SaaS app](saas-dbpertenant-performance-monitoring.md).
-
 Resource utilization depends on multiple factors that change over time for each database and each elastic pool. Achieving optimal price/performance ratio in dense pools requires continuous monitoring and rebalancing, that is moving databases from more utilized pools to less utilized pools, and creating new pools as necessary to accommodate increased workload.
 
 > [!NOTE]
-> Resource consumption for elastic pool eDTUs is not a MAX or a SUM of individual database utilization, it is an average utilization of various metrics. It is possible that an individual database can reach a specific resource limit (CPU, log write, etc.), even when the eDTU reporting for the pool indicates no limit been reached.
+> Resource consumption for elastic pool eDTUs is not a MAX or a SUM of individual database utilization, it is an average utilization of various metrics. It is possible that an individual database can reach a specific resource limit (CPU, log write, etc.), even when the eDTU reporting for the pool indicates no limit been reached. For the same number of DTUs, resources provided to an elastic pool may exceed the resources provided to a single database outside of an elastic pool. This means it is possible for the eDTU utilization of an elastic pool to be less than the summation of DTU utilization across databases within the pool, depending on workload patterns.
 
 **Do not move "hot" databases**. If resource contention at the pool level is primarily caused by a small number of highly utilized databases, it may be tempting to move these databases to a less utilized pool, or make them standalone databases. However, doing this while a database remains highly utilized is not recommended, because the move operation will further degrade performance, both for the database being moved, and for the entire pool. Instead, either wait until high utilization subsides, or move less utilized databases instead to relieve resource pressure at the pool level. But moving databases with very low utilization does not provide any benefit in this case, because it does not materially reduce resource utilization at the pool level.
 
