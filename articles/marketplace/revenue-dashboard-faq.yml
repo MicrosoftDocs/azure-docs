@@ -123,7 +123,7 @@ sections:
         answer: |
           Revenue report for current month captures the billed amount for previous month offer consumption or usage. You can download the revenue report on or after the 4th of every month to verify accurate revenue figures for the customer's offer usage in the previous month.
 
-      - question: What is the reporting logic for the revenue amount? Why are tThere are entries with revenue amounts but no transaction or earning amount.
+      - question: What is the reporting logic for the revenue amount? Why are there are entries with revenue amounts but no transaction or earning amount?
         answer: |
           The revenue dashboard contains information about billed sales. It may take some time for earnings to be realized due to the license agreement with the customer or the payment instrument used in the transaction.
 

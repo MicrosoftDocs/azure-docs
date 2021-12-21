@@ -170,7 +170,7 @@ Details widget with expandable and collapsible view.
 
 [ ![Illustrates the expandable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-1.png) ](./media/revenue-dashboard/details-widget-1.png#lightbox)
 
-[ ![Illustrates the collapsable view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
+[ ![Illustrates the collapsible view of the Revenue details section of the Revenue dashboard.](./media/revenue-dashboard/details-widget-2.png) ](./media/revenue-dashboard/details-widget-2.png#lightbox)
 
 Note the following:
 
