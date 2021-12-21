@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Cache for Redis client-side issues
 description: Learn how to resolve common client-side issues with Azure Cache for Redis such as Redis client memory pressure, traffic burst, high CPU, limited bandwidth, large requests or large response size.
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: troubleshooting
 ms.date: 12/01/2021
@@ -32,44 +32,18 @@ High memory pressure on the client can be mitigated several ways:
 
 ## Traffic burst
 
-Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
-
-Monitor how your `ThreadPool` statistics change over time using [an example `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can use  `TimeoutException` messages from StackExchange.Redis like below to further investigate:
-
-```output
-    System.TimeoutException: Timeout performing EVAL, inst: 8, mgr: Inactive, queue: 0, qu: 0, qs: 0, qc: 0, wr: 0, wq: 0, in: 64221, ar: 0,
-    IOCP: (Busy=6,Free=999,Min=2,Max=1000), WORKER: (Busy=7,Free=8184,Min=2,Max=8191)
-```
-
-In the preceding exception, there are several issues that are interesting:
-
-- Notice that in the `IOCP` section and the `WORKER` section you have a `Busy` value that is greater than the `Min` value. This difference means your `ThreadPool` settings need adjusting.
-- You can also see `in: 64221`. This value indicates that 64,211 bytes have been received at the client's kernel socket layer but haven't been read by the application. This difference typically means that your application (for example, StackExchange.Redis) isn't reading data from the network as quickly as the server is sending it to you.
-
-You can [configure your `ThreadPool` Settings](cache-management-faq.yml#important-details-about-threadpool-growth) to make sure that your thread pool scales up quickly under burst scenarios.
+Moved.
+<!-- Moved Traffic burst section to cache-troubleshoot-timeouts.md -->
 
 ## High client CPU usage
 
-High client CPU usage indicates the system can't keep up with the work it's been asked to do. Even though the cache sent the response quickly, the client may fail to process the response in a timely fashion.
-
-Monitor the client's system-wide CPU usage using metrics available in the Azure portal or through performance counters on the machine. Be careful not to monitor *process* CPU because a single process can have low CPU usage but the system-wide CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. High CPU may also cause high `in: XXX` values in `TimeoutException` error messages as described in the [Traffic burst](#traffic-burst) section.
-
-> [!NOTE]
-> StackExchange.Redis 1.1.603 and later includes the `local-cpu` metric in `TimeoutException` error messages. Ensure you using the latest version of the [StackExchange.Redis NuGet package](https://www.nuget.org/packages/StackExchange.Redis/). There are bugs constantly being fixed in the code to make it more robust to timeouts so having the latest version is important.
->
-
-To mitigate a client's high CPU usage:
-
-- Investigate what is causing CPU spikes.
-- Upgrade your client to a larger VM size with more CPU capacity.
+Moved.
+<!-- Moved to high CPU on clients section in cache-troubleshoot-timeouts.md -->
 
 ## Client-side bandwidth limitation
 
-Depending on the architecture of client machines, they may have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data isn't processed on the client side as quickly as the server is sending it. This situation can lead to timeouts.
-
-Monitor how your Bandwidth usage change over time using [an example `BandwidthLogger`](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). This code may not run successfully in some environments with restricted permissions (like Azure web sites).
-
-To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity. For more information, see [Large request or response size](cache-best-practices-development.md#large-request-or-response-size).
+Moved.
+<!-- Moved to  Network bandwidth limitation in client hosts section of  cache-troubleshoot-timeouts.md -->
 
 ## High client connections
 
@@ -83,5 +57,6 @@ If the high connections are all legitimate and required client connections, upgr
 
 These articles provide more information on troubleshooting and performance testing:
 
-- [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md)
+- [Troubleshoot Azure Cache for Redis server issues](cache-troubleshoot-server.md)
+- [Troubleshoot Azure Cache for Redis latency and timeouts](cache-troubleshoot-timeouts.md)
 - [How can I benchmark and test the performance of my cache?](cache-management-faq.yml#how-can-i-benchmark-and-test-the-performance-of-my-cache-)
