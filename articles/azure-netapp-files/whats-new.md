@@ -21,9 +21,9 @@ ms.author: anfdocs
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
 
-* [File access logs](manage-file-access-logs.md)
+* [File access logs](manage-file-access-logs.md) (Preview)
 
-    The Azure NetApp Files access logs feature provides the option to enable logging of file access operations (data plane logging) on your volumes. With this feature, administrators can enable logging and view and reports on file access operations via the Azure Activity log platform. Standard file system operations will be captured in the logs.
+    The Azure NetApp Files access logs feature provides the option to enable logging of file access operations (data plane logging) on your volumes. With this feature, administrators can enable logging and view and reports on file access operations via the Azure Activity log platform. Standard file system operations will be captured in the logs.
 
 ## December 2021
 
