@@ -58,7 +58,7 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 
 [!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
 
-## Copy logs
+### Copy logs
 
 The copy log contains an error entry for each file that failed to import or export, with error detail. The copy log ends with a summary of validation and copy errors that occurred during the data transfer.
 
@@ -79,7 +79,7 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 *	Summary of validation errors by error category
 *	Summary of copy errors by error category
 
-### Sample copy log: import
+#### Sample copy log: import
 
 [!INCLUDE [data-box-disk-sample-copy-log.md](../../includes/data-box-disk-sample-copy-log.md)]
 
@@ -102,9 +102,7 @@ The verbose log for an export is a simple listing of all files that were success
 
 #### Sample verbose log: export
 
-In the following sample verbose log, the export job successfully transferred three blobs from Azure Blob storage.
-
-<!--Simplify the Path entries!-->
+In the following sample verbose log, the export job successfully transferred three blobs from Azure Blob storage. *TBD: Simplify paths in these log entries!*
 
 ```xml
 <File CloudFormat="BlockBlob" ETag="0x8D804D87F976907" Path="export-ut-invaliddirblobpath/movie/sc%3Aifi/block.blob" Size="4096" crc64="16033727819182370206">
@@ -121,7 +119,7 @@ The copy log for an export reports issues such as a data transfer that fail beca
 
 #### Sample copy log: export
 
-The following sample is a copy log for an export that came across three file system errors ( `UploadErrorWin32`) that caused the export of three files to fail. Error 267 indicates the directory name is invalid. Error 123 indicates an incorrect filename, directory name, or volume label syntax.
+The following sample is a copy log for an export that came across three file system errors ( `UploadErrorWin32`) that caused the export of three files to fail. Error **267** indicates the directory name is invalid. Error **123** indicates an incorrect filename, directory name, or volume label syntax.
 
 ```xml
 <ErroredEntity CloudFormat="BlockBlob" Path="export-ut-invaliddirblobpath/movie/sc:Aifi/block.blob">
