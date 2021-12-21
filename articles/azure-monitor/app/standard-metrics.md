@@ -236,7 +236,7 @@ This metric reflects the time it took for the servers to process incoming reques
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| MilliSeconds | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ## Usage metrics
 
