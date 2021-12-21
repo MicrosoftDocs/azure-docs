@@ -84,7 +84,7 @@ The steps in this section guide you through creating an Azure Database for Postg
    export DB_NAME=youruniquedbname
    export DB_ADMIN_USERNAME=myadmin
    export DB_ADMIN_PASSWORD=<server_admin_password>
-   az postgres server create --resource-group $RESOURCE_GROUP_NAME --name $DB_NAME  --location eastus --admin-user $DB_ADMIN_USERNAME --admin-password $DB_ADMIN_PASSWORD --sku-name GP_Gen5_2 --ssl-enforcement Disabled
+   az postgres server create --resource-group $RESOURCE_GROUP_NAME --name $DB_NAME  --location eastus --admin-user $DB_ADMIN_USERNAME --admin-password $DB_ADMIN_PASSWORD --sku-name GP_Gen5_2
    ```
 
 1. Allow Azure Services, such as our Open Liberty and WebSphere Liberty application, to access the Azure PostgreSQL server.
@@ -107,7 +107,7 @@ The steps in this section guide you through creating an Azure Database for Postg
                                            --end-ip-address YOUR_IP_ADDRESS
    ```
 
-If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-firewall-rules#connecting-from-azure). Make sure to disable SSL and allow access from your local IP.  Return to this document after creating and configuring the database server.
+If you don't want to use the CLI, you may use the Azure portal by following the steps in [Quickstart: Create an Azure Database for PostgreSQL server by using the Azure portal](/azure/postgresql/quickstart-create-server-database-portal). You must also grant access to Azure services by following the steps in [Firewall rules in Azure Database for PostgreSQL - Single Server](/azure/postgresql/concepts-firewall-rules#connecting-from-azure). Return to this document after creating and configuring the database server.
 
 ## Configure and deploy the sample application
 
@@ -193,13 +193,13 @@ We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the s
    cd <path-to-your-repo>/javaee-app-db-using-actions/postgres
 
    # If you are running with Open Liberty
-   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_TYPE} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-local
+   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_TYPE} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-local
 
    # If you are running with WebSphere Liberty
-   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_TYPE} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-wlp-local
+   mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_TYPE} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
    ```
 
-1. Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
+1. Verify the application works as expected. You should see `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
 1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
