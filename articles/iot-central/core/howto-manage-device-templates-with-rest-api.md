@@ -986,7 +986,7 @@ You can use ODATA filters to filter the results returned by the list device temp
 
 Use the **$top** filter to set the result size, the maximum returned result size is 100, the default size is 25.
 
-Use the following request to retrieve a top 10 device templates from your application:
+Use the following request to retrieve the top 10 device templates from your application:
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$top=10
@@ -1051,17 +1051,17 @@ The response includes a **nextLink** value that you can use to retrieve the next
 
 ### $filter
 
-Use the **$filter** to create expressions that filter the list of device templates. The following table shows the comparison operators you can use:
+Use **$filter** to create expressions that filter the list of device templates. The following table shows the comparison operators you can use:
 
 
 | Comparison Operator | Symbol | Example                        |
 | -------------------- | ------ | ------------------------------ |
 | Equals               | eq     | '@id' eq 'dtmi:example:test;1' |
 | Not Equals           | ne     | displayName ne 'template 1'    |
-| Less or Equals       | le     | displayName le 'template A'    |
+| Less than or equals       | le     | displayName le 'template A'    |
 | Less than            | lt     | displayName lt 'template B'    |
-| Great or Equals      | ge     | displayName ge 'template A'    |
-| Great than           | gt     | displayName gt 'template B'    |
+| Greater than or equals      | ge     | displayName ge 'template A'    |
+| Greater than           | gt     | displayName gt 'template B'    |
 
 The following table shows the logic operators you can use in *$filter* expressions:
 
@@ -1070,7 +1070,7 @@ The following table shows the logic operators you can use in *$filter* expressio
 | AND            | and    | '@id' eq 'dtmi:example:test;1' and capabilityModelId eq 'dtmi:example:test:model1;1' |
 | OR             | or     | '@id' eq 'dtmi:example:test;1' or displayName ge 'template'                          |
 
-Currently *$filter* supported field list for device template list API are:
+Currently, *$filter* works with the following device template fields:
 
 | FieldName         | Type   | Description                         |
 | ----------------- | ------ | ----------------------------------- |
@@ -1087,7 +1087,7 @@ $filter=contains(displayName, 'template1')
 $filter=contains(displayName, 'template1) eq false
 ```
 
-The following example shows how to retrieve all the devices where the display name contains the string `thermostat`:
+The following example shows how to retrieve all the device templates where the display name contains the string `thermostat`:
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=contains(displayName, 'thermostat')
@@ -1170,14 +1170,14 @@ The response to this request looks like the following example:
 
 ### $orderby
 
-Use the **$orderby** filter sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order, use **desc** to sort in descending order, for example:
+Use **$orderby** to sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order, use **desc** to sort in descending order, for example:
 
 ```
 $orderby=displayName
 $orderby=displayName desc
 ```
 
-The following example shows how to retrieve all the device templates where the result is orderby by `displayName` :
+The following example shows how to retrieve all the device templates where the result is sorted by `displayName` :
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$orderby=displayName
@@ -1258,7 +1258,7 @@ The response to this request looks like the following example:
 }
 ```
 
-You can also combine one or more filters
+You can also combine two or more filters
 
 The following example shows how to retrieve top 2 device templates where the display name contains the string `thermostat`
 
