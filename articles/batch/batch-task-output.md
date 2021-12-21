@@ -64,12 +64,12 @@ When you design your Batch solution, consider the following factors.
 
 Compute nodes are often transient, especially in Batch pools with autoscaling enabled. You can only see output from a task:
 
-1. While the node where the task is running exists.
-1. During the file retention period that you set for the task.
+- While the node where the task is running exists.
+- During the file retention period that you set for the task.
 
 When you view a Batch task in the Azure portal, and select **Files on node**, you see all files for that task, not just the output files. To retrieve task output directly from the compute nodes in your pool, you need the file name and its output location on the node.
 
-If you want to keep task output data longer, configure the task to upload its output files to a data store. It's recommended to use Azure storage as the data store. There's integration for writing task output data to Azure Storage in the Batch service API. You can use other durable storage to keep your data. However, you need to write the application logic for other storage options yourself. 
+If you want to keep task output data longer, configure the task to upload its output files to a data store. It's recommended to use Azure storage as the data store. There's integration for writing task output data to Azure Storage in the Batch service API. You can use other durable storage options to keep your data. However, you need to write the application logic for other storage options yourself. 
 
 To view your output data in Azure Storage, use the [Azure portal](https://portal.azure.com) or an Azure Storage client application, such as [Azure Storage Explorer](https://storageexplorer.com/). Note your output file's location, and go to that location directly.
 
