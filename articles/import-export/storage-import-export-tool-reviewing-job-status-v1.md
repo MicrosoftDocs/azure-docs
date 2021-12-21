@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 12/21/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -39,7 +39,9 @@ For export jobs, a manifest file is saved to the disk. *NEEDS VERIFICATION >**If
 
 Each data transfer for a disk generates a copy log. If you chose to save a verbose log when you created the order, there’s also a verbose log in the same folder.
 
-## Verbose logs
+## Review import logs
+
+### Verbose logs
 
 The verbose log is an optional file that you can enable during ordering. It's a simple listing of all files that were successfully imported from the drive, with the following information for each file. The verbose log doesn’t provide summary information.
 
@@ -50,33 +52,9 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 | Size        | File or blob size.                           |
 | crc64       | The cyclic redundancy check 64 (CRC64) checksum that was used to verify data integrity during data transfer. |
 
-### Sample verbose log: import
+#### Sample verbose log: import
 
 [!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
-
-### Sample verbose log: export
-
-In the following sample verbose log, the export job transferred three blobs from Azure Blob storage.
-
-<!--Simplify the Path entries!-->
-
-```xml
-<File CloudFormat="BlockBlob" ETag="0x8D804D87F976907" Path="export-ut-invaliddirblobpath/movie/sc%3Aifi/block.blob" Size="4096" crc64="16033727819182370206">
-</File><File CloudFormat="BlockBlob" ETag="0x8D804D889880CC6" Path="export-ut-invaliddirblobpath/movie/sc#Aifi/block.blob" Size="4096" crc64="16033727819182370206">
-</File><File CloudFormat="BlockBlob" ETag="0x8D804D8F1BC81C0" Path="export-ut-invaliddirblobpath/@GMT-2001.03.30-14.44.00/block.blob" Size="4096" crc64="16033727819182370206">
-</File>
-```
-
-Each entry in the verbose log for an export has the following fields:
-
-| Field       | Description                                  |
-|-------------|----------------------------------------------|
-| CloudFormat | BlockBlob, PageBlob, or AzureFile.           |
-| Etag        | The entity tag (ETag) for the resource, which is used for concurrency checking during the data transfer. |
-| Path        | Path to the file within the storage account. |
-| Size        | File or blob size.                           |
-| crc64       | Checksum when cyclic redundancy check 64 (CRC64) was used to verify data integrity during data transfer. |
-| md5         | Checksum when Message Digest Algorithm 5 (MD5) was used to verify data integrity during data transfer. |
 
 
 ## Copy logs
@@ -105,7 +83,41 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 [!INCLUDE [data-box-disk-sample-copy-log.md](../../includes/data-box-disk-sample-copy-log.md)]
 
 
-### Sample copy log: export
+## Review export logs
+
+### Verbose log
+
+The verbose log for an export is a simple listing of all files that were successfully exported from the Azure storage account to the drive, with the following information for each file. The verbose log doesn’t provide summary information.
+
+| Field       | Description                                  |
+|-------------|----------------------------------------------|
+| CloudFormat | BlockBlob, PageBlob, or AzureFile.           |
+| Etag        | The entity tag (ETag) for the resource, which is used for concurrency checking during the data transfer. |
+| Path        | Path to the file within the storage account. |
+| Size        | File or blob size.                           |
+| crc64       | Checksum when cyclic redundancy check 64 (CRC64) was used to verify data integrity during data transfer. |
+| md5         | Checksum when Message Digest Algorithm 5 (MD5) was used to verify data integrity during data transfer. |
+
+#### Sample verbose log: export
+
+In the following sample verbose log, the export job successfully transferred three blobs from Azure Blob storage.
+
+<!--Simplify the Path entries!-->
+
+```xml
+<File CloudFormat="BlockBlob" ETag="0x8D804D87F976907" Path="export-ut-invaliddirblobpath/movie/sc%3Aifi/block.blob" Size="4096" crc64="16033727819182370206">
+</File><File CloudFormat="BlockBlob" ETag="0x8D804D889880CC6" Path="export-ut-invaliddirblobpath/movie/sc#Aifi/block.blob" Size="4096" crc64="16033727819182370206">
+</File><File CloudFormat="BlockBlob" ETag="0x8D804D8F1BC81C0" Path="export-ut-invaliddirblobpath/@GMT-2001.03.30-14.44.00/block.blob" Size="4096" crc64="16033727819182370206">
+</File>
+```
+
+### Copy log
+
+The copy log for an export contains an error entry for each file that failed to transfer successfully from Azure Storage to the disk, with error detail. The copy log ends with a summary of validation and copy errors that occurred during the data transfer.
+
+The copy log for an export reports issues such as a data transfer that fail because of a damaged drive or a storage account key that changed during data transfer. For a list of issues, see [Data transfer errors](#data-transfer-errors).
+
+#### Sample copy log: export
 
 The following is a sample copy log for an export that encountered three file system errors ( `UploadErrorWin32`) that caused the export of three files to fail. Error 267 indicates the directory name is invalid. Error 123 indicates an incorrect filename, directory name, or volume label syntax.
 
@@ -145,24 +157,24 @@ The following is a sample copy log for an export that encountered three file sys
 </CopyLog>
 ```
 
+
 ## Data transfer errors
 
-The following errors are found in the copy logs for import job and/or export jobs.
+You'll find the following errors in the copy logs for import jobs and/or export jobs.
 
 | Error category                      | Error message     | Imports | Exports |
 |-------------------------------------|-------------------|---------|---------|
 | `UploadErrorWin32`                  |File system error. | Yes     | Yes     |
 | `UploadErrorCloudHttp`              |Unsupported blob type. For more information about errors in this category, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors).|Yes |Yes |
-| `UploadErrorDataValidationError`   |CRC computed during data ingestion doesn’t match the CRC computed during upload. |Yes |Yes |
-| `UploadErrorFilePropertyError`      |File Last Write time conversion failure. |Yes |Yes |
+| `UploadErrorDataValidationError`    |CRC computed during data ingestion doesn’t match the CRC computed during upload. |Yes |Yes |
 | `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |Yes |Yes |
 | `UploadErrorUnknownType`            |Unknown error. |Yes |Yes |
-| `ContainerRenamed`                  |Renamed the container as the original container name does not follow Azure conventions. |No |Yes |
-| `ShareRenamed`                      |The original container/share/Blob has been renamed to DataBox-<*GUID*> from <*New Folder*> because either the name has invalid character(s) or the length is not supported |No |Yes |
-| `BlobRenamed`                       |The original container/share/Blob has been renamed to BlockBlob/DataBox-<*GUID*> from: <*original name*> because either the name has invalid character(s) or the length is not supported.|No |Yes |
-| `FileRenamed`                       |The original container/share/Blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*> because either the name has invalid character(s) or the length is not supported. |No |Yes |
-| `DiskRenamed`                       |The original container/share/Blob-<*original name*> has been renamed to ManagedDisk/DataBox-<*new name*> because either the name has invalid character(s) or the length is not supported. |No |Yes |
-| `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. |Yes |No |
+| `ContainerRenamed`                  |Renamed the container because the original container name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original container has been renamed to DataBox-<*GUID*> from <*original container name*>.|No |Yes |
+| `ShareRenamed`                      |Renamed the share because the original share name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original share has been renamed to DataBox-<*GUID*> from <*original folder name*>. |No |Yes |
+| `BlobRenamed`                       |Renamed the blob because the original blob name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to BlockBlob/DataBox-<*GUID*> from <*original name*>.|No |Yes |
+| `FileRenamed`                       |Renamed the file because the original file name doesn't follow [Azure naming conventions](data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*>.. |No |Yes |
+| `DiskRenamed`                       |Renamed the managed disk file because the original file name doesn't follow [Azure naming conventions for managed disks](data-box-disk-limits.md#managed-disk-naming-conventions). The original managed disk file was renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*>. |No |Yes |
+| `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. A blob name or file name that ends with a trailing backslash or forward slash can't be exported to disk. |No |Yes |
 | `ExportCloudHttp`                   |Unsupported blob type. |Yes |Yes |
 
 
