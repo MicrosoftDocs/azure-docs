@@ -34,7 +34,7 @@ This article shows you how to add the Azure Maps to an Android app. It walks you
 Create a new Azure Maps account with the following steps:
 
 1. In the upper left-hand corner of the [Azure portal](https://portal.azure.com), select **Create a resource**.
-2. In the *Search the Marketplace* box, type **Azure Maps**, then select **Azure Maps** from the search  results.
+2. In the *Search the Marketplace* box, type **Azure Maps**, then select **Azure Maps** from the search results.
 3. Select the **Create** button that appears below the map.
 4. On the **Create Maps Account** page, enter the following values:
     * The *Subscription* that you want to use for this account.
@@ -64,7 +64,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 First, create a new project with an empty activity. Complete these steps to create an Android Studio project:
 
 1. Under **Choose your project**, select **Phone and Tablet**. Your application will run on this form factor.
-2. On the **Phone and Tablet** tab, select **Empty  Activity**, and then select **Next**.
+2. On the **Phone and Tablet** tab, select **Empty Activity**, and then select **Next**.
 3. Under **Configure your project**, select `API 21: Android 5.0.0 (Lollipop)` as the minimum SDK. This is the earliest version supported by the Azure Maps Android SDK.
 4. Accept the default `Activity Name` and `Layout Name` and select **Finish**.
 
