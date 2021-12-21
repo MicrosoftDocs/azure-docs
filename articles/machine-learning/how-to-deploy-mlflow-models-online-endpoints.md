@@ -1,5 +1,5 @@
 ---
-title: Deploy MLflow models to managed online endpoint (preview)
+title: Deploy MLflow models to online endpoint (preview)
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your MLflow model as a web service that's automatically managed by Azure.
 services: machine-learning
