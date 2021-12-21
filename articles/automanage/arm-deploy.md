@@ -1,11 +1,10 @@
 ---
 title: Onboard a machine to Azure Automanage with an ARM template
 description: Learn how to onboard a machine to Azure Automanage with an Azure Resource Manager template.
-ms.service: virtual-machines
-ms.subservice: automanage
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 04/09/2021
+ms.date: 12/10/2021
 ---
 
 # Onboard a machine to Automanage with an Azure Resource Manager (ARM) template

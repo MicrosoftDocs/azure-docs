@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: sample
 ms.date: 08/26/2021
+ms.devlang: java
 ms.custom: devx-track-java
 ms.author: anfeldma
 
