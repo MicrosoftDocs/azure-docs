@@ -10,7 +10,7 @@ ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 12/20/2021
+ms.date: 12/21/2021
 ---
 
 # Resource management in dense elastic pools
@@ -70,8 +70,8 @@ In addition to these metrics, Azure SQL Database provides a view that returns ac
 |[sys.dm_user_db_resource_governance](/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database)|Returns actual configuration and capacity settings used by resource governance mechanisms in the current database or elastic pool.|
 |[sys.dm_resource_governor_resource_pools](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-transact-sql)|Returns information about the current resource pool state, the current configuration of resource pools, and cumulative resource pool statistics.|
 |[sys.dm_resource_governor_workload_groups](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-transact-sql)|Returns cumulative workload group statistics and the current configuration of the workload group. This view can be joined with sys.dm_resource_governor_resource_pools on the `pool_id` column to get resource pool information.|
-|[sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Returns resource pool utilization statistics for the last 32 minutes. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
-|[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Returns workload group utilization statistics for the last 32 minutes. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
+|[sys.dm_resource_governor_resource_pools_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-resource-pools-history-ex-azure-sql-database)|Returns resource pool utilization statistics for recent history, based on the number of snapshots available. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
+|[sys.dm_resource_governor_workload_groups_history_ex](/sql/relational-databases/system-dynamic-management-views/sys-dm-resource-governor-workload-groups-history-ex-azure-sql-database)|Returns workload group utilization statistics for recent history, based on the number of snapshots available. Each row represents a 20-second interval. The `delta_` columns return the change in each statistic during the interval.|
 |||
 
 > [!TIP]
@@ -149,7 +149,7 @@ WHERE rs.end_time > DATEADD(mi, -10, SYSUTCDATETIME());
 
 ### Monitoring memory utilization
 
-This query calculates the `oom_per_second` metric for each resource pool, over the last 32 minutes. This sample query helps identify the recent average number of failed memory allocations in the pool. This query can be executed in any database in an elastic pool.
+This query calculates the `oom_per_second` metric for each resource pool for recent history, based on the number of snapshots available. This sample query helps identify the recent average number of failed memory allocations in the pool. This query can be executed in any database in an elastic pool.
 
 ```sql
 SELECT pool_id,
