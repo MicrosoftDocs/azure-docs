@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Cache for Redis server issues
 description: Learn how to resolve common server issues, such as memory pressure, high CPU, long running commands, or bandwidth limitations, when using Azure Cache for Redis.
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 12/01/2021
@@ -27,6 +27,8 @@ High server load means the Redis server is very busy and is unable to keep up wi
 For more information, see [Avoid client connection Spikes](cache-best-practices-connection.md#avoid-client-connection-spikes).
 
 ### Long running or expensive commands
+
+Moved.
 
 For troubleshooting further, see <!--link to server-side verification in the timeouts for long running commands -->
 
@@ -59,9 +61,9 @@ Several possible can cause this memory pressure:
 
 Validate that the `maxmemory-reserved` and `maxfragmentationmemory-reserved` values are set appropriately. For recommendations on memory management, see [Best practices for memory management](cache-best-practices-memory-management.md).
 
-<!--old stuff
-
 ## Memory pressure on Redis server
+
+<!-- There is a high memory usage section in cache-troubleshoot-timeouts.md -->
 
 Memory pressure on the server side leads to all kinds of performance problems that can delay processing of requests. When memory pressure hits, the system may page data to disk. This _page faulting_ causes the system to slow down significantly. There are several possible causes of this memory pressure:
 
@@ -81,35 +83,19 @@ There are several possible changes you can make to help keep memory usage health
 
 ## High CPU usage or server load
 
-A high server load or CPU usage means the server can't process requests in a timely fashion. The server might be slow to respond and unable to keep up with request rates.
-
-[Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) such as CPU or server load. Watch for spikes in CPU usage that correspond with timeouts.
-
-There are several changes you can make to mitigate high server load:
-
-- Investigate what is causing CPU spikes such as [long-running commands](#long-running-commands) noted below or page faulting because of high memory pressure.
-- [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
-- [Scale](cache-how-to-scale.md) out to more shards to distribute load across multiple Redis processes or scale up to a larger cache size with more CPU cores. For more information, see  [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
+Moved. 
+<!-- Moved to high cpu load section in cache-troubleshoot-timeouts.md -->
 
 ## Long-running commands
 
-Some Redis commands are more expensive to execute than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. Because Redis command processing is single-threaded, a command that takes time to run blocks all others that come after it. Review the commands that you're issuing to your Redis server to understand their performance impacts. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
+Moved. 
+<!-- There is a long running commands section in cache-troubleshoot-timeouts.md -->
 
-Using the [SLOWLOG GET](https://redis.io/commands/slowlog-get) command, you can measure expensive commands being executed against the server.
- 
+
 
 ## Server-side bandwidth limitation
-
-Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data won't be sent to the client as quickly. Clients requests could time out because the server can't push data to the client fast enough.
-
-The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) in the portal.
-
-To mitigate situations where network bandwidth usage is close to maximum capacity:
-
-- Change client call behavior to reduce network demand.
-- [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
-- [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity. For more information, see [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
--->
+Moved. 
+<!-- There is a Network bandwidth exceeded section in cache-troubleshoot-timeouts.md -->
 
 ## Additional information
 
