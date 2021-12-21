@@ -12,7 +12,7 @@ ms.custom: devx-track-azurecli
 
 # Tutorial: Add and customize delivery rules for Azure Front Door Standard/Premium (Preview) with Azure CLI
 
-Azure Front Door Standard/Premium (Preview) is a fast, reliable, and secure modern cloud CDN that uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web apps.
+Azure Front Door Standard/Premium (Preview) is a fast, reliable, and secure modern cloud CDN that uses the Microsoft global edge network and integrates with intelligent threat protection. Azure Front Door Standard focuses on content delivery. Azure Front Door Premium adds extensive security capabilities and customization. This tutorial focuses on creating an Azure Front Door profile, then adding delivery rules for more granular control over your web app behaviors.
 
 > [!NOTE]
 > This documentation is for Azure Front Door Standard/Premium (Preview). Looking for information on Azure Front Door? View [Azure Front Door Docs](../front-door-overview.md).
@@ -246,24 +246,9 @@ To test instant global failover, we'll use the following steps:
 
     :::image type="content" source="../media/create-front-door-portal/web-app-stopped-message.png" alt-text="Both instances of the web app stopped":::
 
-## Create a secret
-
-Secrets are used to reference your own certificate stored in Azure Key Vault. You must specify the secret name when creating a custom domain if you want to use your own certificate for TLS encryption.
-
-Run [az afd secret create](/cli/azure/afd/secret#az_afd_secret_create) to create a new secret in your Azure Front Door profile.
-
-```azurecli
-az afd secret create \
-    --profile-name contosoafd \
-    --resource-group myRGFDCentral \
-    --secret-name contosocert \
-    --secret-source /subscriptions/mysubscription/resourceGroups/myRGFDCentral/providers/Microsoft.KeyVault/vaults/contosokeyvault/certificates/contosocert \
-    --use-latest-version true
-```
-
 ## Create a rule set
 
-By adding a rule set, you can customize how HTTP requests are handled at the edge and provide more controls over your web application behaviors. Run [az afd rule-set create](/cli/azure/afd/rule-set#az_afd_rule_set_create) to create a rule set in your Azure Front Door profile.
+Create a rule set to customize how HTTP requests are handled at the edge. Delivery rules added to the rule set provide more control over your web application behaviors. Run [az afd rule-set create](/cli/azure/afd/rule-set#az_afd_rule_set_create) to create a rule set in your Azure Front Door profile.
 
 ```azurecli
 az afd rule-set create \
@@ -274,7 +259,7 @@ az afd rule-set create \
 
 ## Create a delivery rule and add it to your rule set
 
-Create a new delivery rule within your new rule set. Run [az afd rule create](/cli/azure/afd/rule#az_afd_rule_create) to create a delivery rule in your rule set. For this example, we'll create a rule for an http to https redirect.
+Create a new delivery rule within your rule set. Run [az afd rule create](/cli/azure/afd/rule#az_afd_rule_create) to create a delivery rule in your rule set. For this example, we'll create a rule for an http to https redirect.
 
 ```azurecli
 az afd rule create \
