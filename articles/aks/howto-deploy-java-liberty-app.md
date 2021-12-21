@@ -125,7 +125,7 @@ aks-nodepool1-xxxxxxxx-yyyyyyyyyy   Ready    agent   76s     v1.18.10
 
 ## Create an Azure SQL Database(Only if your application requires)
 
-Follow the instructions below to set up an Azure SQL Database single database for connectivity.
+The steps in this section guide you through creating an Azure SQL Database single database for use with your app.
 
 1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure SQL Database single database](/azure/azure-sql/database/single-database-create-quickstart). Return to this document after creating and configuring the database server.
     > [!NOTE]
@@ -235,13 +235,13 @@ We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the s
   cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
 
   # If you are running with Open Liberty
-  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-local
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-local
   
   # If you are running with WebSphere Liberty
-  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-wlp-local
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
   ```
 
-1. Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
+1. Verify the application works as expected. You should see `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser verify the application is accessible and all functions are working.
 
 1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
@@ -267,7 +267,7 @@ docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile-wlp .
 
 ### Upload image to ACR
 
-Now, we upload the built image to the ACR created in the offer.
+Now, we upload the built image to the ACR created in the previous steps.
 
 ```bash
 docker tag ${IMAGE_NAME}:${IMAGE_VERSION} ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
@@ -314,6 +314,8 @@ docker push ${LOGIN_SERVER}/${IMAGE_NAME}:${IMAGE_VERSION}
 The steps in this section deploy the application.
 
 # [with DB connection](#tab/with-sql)
+
+Follow steps below to deploy the Liberty application on the AKS cluster.
 
 1. Create a pull secret so that the AKS cluster is authenticated to pull image from the ACR instance.
 
