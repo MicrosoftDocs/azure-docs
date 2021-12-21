@@ -30,26 +30,23 @@ To use Azure DevOps you will need an Azure DevOps account, to create an account 
 
 1. Open (https:/dev.azure.com) and create a new project by clicking on the *New Project* button, for more info see [Create a Project in Azure DevOps](azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project). Enter the project details and click create.
 
-:::image type="content" source="./media/automation-devops/automation-create-project.png" alt-text="Diagram showing the Create Project dialog.":::
- 
-
 1. Navigate to the Repositories section in the left navigation and choose Import a repository.
-
-:::image type="content" source="./media/automation-devops/automation-import-repo.png" alt-text="Diagram showing the Repository dialog.":::
 
 1. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure Devops. For more info see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops) 
 
-1. [Create the Azure Resource Manager service connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use the service principal from step 5. of the prerequisites
+1. [Create the Azure Resource Manager service connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use a service principal. 
 
-1. Create a general variable groups "sap-deployment-general-variables" including:
-   * ANSIBLE_HOST_KEY_CHECKING = false
-   * ANSIBLE_CALLBACK_WHITELIST = profile_tasks
-   * Deployment_Configuration_Path = samples/WORKSPACES
-   * Repository = https://github.com/Azure/sap-automation
-   * Branch = private-preview
-   optional variables:
-   * advice.detachedHead = false
-   * skipComponentGovernanceDetection = true
+1. Create a new Variable group "sap-deployment-general-variables" in the Library Section and name it "sap-deployment-specific-variables". Add the following variables
+
+| Variable                         | Value                                   |
+| -------------------------------- | --------------------------------------- |
+| ANSIBLE_HOST_KEY_CHECKING        | false                                   |
+| ANSIBLE_CALLBACK_WHITELIST       | profile_tasks                           |
+| Deployment_Configuration_Path    | samples/WORKSPACES                      |
+| Repository                       | https://github.com/Azure/sap-automation |
+| Branch                           | private-preview                         |
+| advice.detachedHead              | false                                   |
+| skipComponentGovernanceDetection | true                                    |
 
 5. Create a specific variable groups "sap-deployment-specific-variables" including:
    * ARM_CLIENT_ID = `<service principal app id>`
@@ -63,7 +60,7 @@ To use Azure DevOps you will need an Azure DevOps account, to create an account 
 
 ## Create Azure DevOps Pipelines
   
-Some pipelines will add files to the devops repository and require therefore pull permissions. 
+Some pipelines will add files to the devops repository and require pull permissions. 
   
   Go to Repositories -> Manage repositories -> All Repositories -> Tab: Security 
   Under Users mark "SAP-Deployment Build Service (organization)" 
@@ -79,10 +76,13 @@ Some pipelines will add files to the devops repository and require therefore pul
 | -------- | ----------------------------------------- |
 | Branch   | private-preview                           |
 | Path     | `deploy/pipelines/01-prepare-region.yaml` |
+| Name     | Control Plane Deployment                  |
+
 
 Save the Pipeline, to see the Save option click the chevron next to the Run button.
 
 Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three dot menu on the right.
+
   ## Pipeline 2 for the sap workload zone (landscape)
   
     Same process for pipeline 02-sap-workload-zone.yaml
