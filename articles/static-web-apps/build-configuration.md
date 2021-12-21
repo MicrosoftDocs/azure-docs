@@ -24,7 +24,7 @@ The following table lists the available configuration settings.
 | `app_build_command` | For Node.js applications, you can define a custom command to build the static content application.<br><br>For example, to configure a production build for an Angular application create an npm script named `build-prod` to run `ng build --prod` and enter `npm run build-prod` as the custom command. If left blank, the workflow tries to run the `npm run build` or `npm run build:azure` commands. | No |
 | `api_build_command` | For Node.js applications, you can define a custom command to build the Azure Functions API application. | No |
 | `skip_app_build` | Set the value to `true` to skip building the front-end app. | No |
-| `cwd` (Azure Pipelines only) | Absolute path to the working folder. Defaults to `System.DefaultWorkingDirectory`. | No |
+| `cwd`<br />(Azure Pipelines only) | Absolute path to the working folder. Defaults to `$(System.DefaultWorkingDirectory)`. | No |
 | `build_timeout_in_minutes` | Set this value to customize the build timeout. Defaults to `15`. | No |
 
 With these settings, you can set up GitHub Actions or [Azure Pipelines](publish-devops.md) to run continuous integration/continuous delivery (CI/CD) for your static web app.
