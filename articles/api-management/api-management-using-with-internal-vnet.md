@@ -63,20 +63,12 @@ After successful deployment, you should see your API Management service's **priv
 
 > [!NOTE]
 > Since the gateway URL is not registered on the public DNS, the test console available on the Azure portal will not work for an **internal** VNet deployed service. Instead, use the test console provided on the **developer portal**.
+ 
+### Enable connectivity using a Resource Manager template (`stv2` platform)
 
-### Enable connectivity using a Resource Manager template
-
-#### API version 2021-01-01-preview (`stv2` platform)
-
-* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-publicip)
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet-publicip) (API version 2021-01-01-preview )
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet-publicip%2Fazuredeploy.json)
-
-#### API version 2020-12-01 (`stv1` platform)
-
-* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-internal-vnet)
-
-     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-internal-vnet%2Fazuredeploy.json)
 
 ### Enable connectivity using Azure PowerShell cmdlets (`stv1` platform)
 
@@ -115,7 +107,7 @@ When you create an API Management service (`contosointernalvnet`, for example), 
 | Direct management endpoint | `contosointernalvnet.management.azure-api.net` |
 | Git | `contosointernalvnet.scm.azure-api.net` |
 
-To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the [private virtual IP address](#routing) for your service is 10.1.0.5, you can map the hosts file as follows. On Windows, this file is at `%SystemDrive%\drivers\etc\hosts`. 
+To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the VNet in which API Management is deployed. Assuming the [private virtual IP address](#routing) for your service is 10.1.0.5, you can map the hosts file as follows. The hosts mapping file is at  `%SystemDrive%\drivers\etc\hosts` (Windows) or `/etc/hosts` (Linux, macOS). 
 
 | Internal virtual IP address | Endpoint configuration |
 | ----- | ----- |

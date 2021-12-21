@@ -7,7 +7,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: article
-ms.date: 04/13/2021
+ms.date: 12/21/2021
 ms.author: apimpm
 ms.custom: fasttrack-edit
 ---
@@ -94,7 +94,7 @@ For traffic restriction purposes, you can use the range of IP addresses of Azure
 
 ## Changes to the IP addresses
 
-In the Developer, Basic, Standard, and Premium tiers of API Management, the public IP addresses (VIP) are static for the lifetime of a service, with the following exceptions:
+In the Developer, Basic, Standard, and Premium tiers of API Management, the public IP addresses (VIP) and private IP addresses (if configured in the internal VNet mode) are static for the lifetime of a service, with the following exceptions:
 
 * The service is deleted and then re-created.
 * The service subscription is [suspended](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) or [warned](https://github.com/Azure/azure-resource-manager-rpc/blob/master/v1.0/subscription-lifecycle-api-reference.md#subscription-states) (for example, for nonpayment) and then reinstated.

@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 12/21/2021
 ms.author: danlep
 ms.custom: devx-track-azurepowershell
 ---
@@ -32,7 +32,6 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
 1. Go to the [Azure portal](https://portal.azure.com) to find your API management instance. Search for and select **API Management services**.
 1. Choose your API Management instance.
-
 1. Select **Virtual network**.
 1. Select the **External** access type.
     :::image type="content" source="media/api-management-using-with-vnet/api-management-menu-vnet.png" alt-text="Select VNet in Azure portal.":::
@@ -52,31 +51,16 @@ For configurations specific to the *internal* mode, where the endpoints are acce
 
     It can take 15 to 45 minutes to update the API Management instance.
 
-### Enable connectivity using a Resource Manager template
+### Enable connectivity using a Resource Manager template (`stv2` compute platform)
 
-Use the following templates to deploy an API Management instance and connect to a VNet. The templates differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) hosting your API Management instance.
-
-### [stv2](#tab/stv2)
-
-#### API version 2021-01-01-preview 
-
-* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip)
+* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet-publicip) (API version 2021-01-01-preview)
 
      [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet-publicip%2Fazuredeploy.json)
 
-### [stv1](#tab/stv1)
 
-#### API version 2020-12-01
-
-* Azure Resource Manager [template](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.apimanagement/api-management-create-with-external-vnet)
-
-     [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.apimanagement%2Fapi-management-create-with-external-vnet%2Fazuredeploy.json)
-
-### Enable connectivity using Azure PowerShell cmdlets 
+### Enable connectivity using Azure PowerShell cmdlets (`stv1` platform)
 
 [Create](/powershell/module/az.apimanagement/new-azapimanagement) or [update](/powershell/module/az.apimanagement/update-azapimanagementregion) an API Management instance in a VNet.
-
----
 
 [!INCLUDE [api-management-recommended-nsg-rules](../../includes/api-management-recommended-nsg-rules.md)]
 

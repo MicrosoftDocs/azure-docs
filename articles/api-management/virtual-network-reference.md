@@ -25,7 +25,7 @@ When an API Management service instance is hosted in a VNet, the ports in the fo
 >[!IMPORTANT]
 > * **Bold** items in the *Purpose* column indicate port configurations required for successful deployment and operation of the API Management service. Configurations labeled "optional" enable specific features, as noted. They are not required for the overall health of the service. 
 >
-> * We recommend using [service tags](../virtual-network/service-tags-overview.md) instead of IP addresses in NSG rules to specify network sources and destinations. The IP addresses encompassed by service tags are subject to change.      
+> * We recommend using [service tags](../virtual-network/service-tags-overview.md) instead of IP addresses in NSG rules to specify network sources and destinations. Service tags prevent downtime when infrastructure improvements necessitate IP address changes.      
 
 
 ### [stv2](#tab/stv2)
@@ -143,7 +143,7 @@ When adding virtual machines running Windows to the VNet, allow outbound connect
 The following IP addresses are divided by **Azure Environment**. When allowing inbound requests, IP addresses marked with **Global** must be permitted, along with the **Region**-specific IP address. In some cases, two IP addresses are listed. Permit both IP addresses.
 
 > [!IMPORTANT]
-> Control plane IP addresses should be configured for network access rules only when needed in certain networking scenarios. In most cases, we recommend using the **ApiManagement** [service tag](../virtual-network/service-tags-overview.md) in NSG rules instead of control plane IP addresses. The IP addresses encompassed by service tags are subject to change.   
+> Control plane IP addresses should be configured for network access rules only when needed in certain networking scenarios. We recommend using the **ApiManagement** [service tag](../virtual-network/service-tags-overview.md) instead of control plane IP addresses to prevent downtime when infrastructure improvements necessitate IP address changes.   
 
 | **Azure Environment**|   **Region**|  **IP address**|
 |-----------------|-------------------------|---------------|
