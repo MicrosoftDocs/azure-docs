@@ -169,7 +169,7 @@ The application tier defines the infrastructure for the application tier, which 
 > [!div class="mx-tdCol2BreakAll "]
 > | Variable                               | Description                                                          | Type      | Notes  |
 > | -------------------------------------- | -------------------------------------------------------------------- | ----------| ------ |
-> | `scs_high_availability`	               | Defines if the Central Services is highly available                  | Optional	| See [High availability configuration ](automation-configure-system.md#high-availability-configuration) |
+> | `scs_high_availability`	               | Defines if the Central Services is highly available                  | Optional	| See [High availability configuration](automation-configure-system.md#high-availability-configuration) |
 > | `scs_instance_number`	                 | The instance number of SCS                                           | Optional  |        |
 > | `ers_instance_number`	                 | The instance number of ERS                                           | Optional	|        |
 > | `scs_server_count`	                   | Defines the number of scs servers                                    | Required	|        |
