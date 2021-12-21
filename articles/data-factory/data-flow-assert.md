@@ -25,7 +25,7 @@ In the assert transformation configuration panel, you will choose the type of as
 
 ### Assert type
 
-:::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert settings":::
+:::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert type":::
 
 1. Expect true: The result of your expression must evaluate to a boolean true result. Use this to validate domain value ranges in your data.
 2. Expect unique: Set a column or an expression as a uniqueness rule in your data. Use this to tag duplicate rows.
