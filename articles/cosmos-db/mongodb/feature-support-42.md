@@ -142,15 +142,22 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $listSessions | No |
 | $lookup | Partial |
 | $match | Yes |
+| $merge | Yes |
 | $out | Yes |
+| $planCacheStats | Yes |
 | $project | Yes |
 | $redact | Yes |
+| $regexFind | Yes |
+| $regexFindAll | Yes |
+| $regexMatch | Yes |
 | $replaceRoot | Yes |
-| $replaceWith | No |
+| $replaceWith | Yes |
 | $sample | Yes |
+| $set | Yes |
 | $skip | Yes |
 | $sort | Yes |
 | $sortByCount | Yes |
+| $unset | Yes |
 | $unwind | Yes |
 
 > [!NOTE]
@@ -223,9 +230,30 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 | $mod | Yes |
 | $multiply | Yes |
 | $pow | Yes |
+| $round | Yes |
 | $sqrt | Yes |
 | $subtract | Yes |
 | $trunc | Yes |
+
+### Trigonometry expressions
+
+| Command | Supported |
+|---------|---------|
+| $acos | Yes |
+| $acosh | Yes |
+| $asin | Yes |
+| $asinh | Yes |
+| $atan | Yes |
+| $atan2 | Yes |
+| $atanh | Yes |
+| $cos | Yes |
+| $cosh | Yes |
+| $degreesToRadians | Yes |
+| $radiansToDegrees | Yes |
+| $sin | Yes |
+| $sinh | Yes |
+| $tan | Yes |
+| $tanh | Yes |
 
 ### String expressions
 
@@ -283,9 +311,11 @@ Azure Cosmos DB's API for MongoDB supports the following database commands:
 
 | Command | Supported |
 |---------|---------|
+| $$CLUSTERTIME | Yes |
 | $$CURRENT | Yes |
 | $$DESCEND | Yes |
 | $$KEEP | Yes |
+| $$NOW | Yes |
 | $$PRUNE | Yes |
 | $$REMOVE | Yes |
 | $$ROOT | Yes |
@@ -536,6 +566,12 @@ When using the `findOneAndUpdate` operation, sort operations on a single field a
 
 ## Indexing
 The API for MongoDB [supports a variety of indexes](mongodb-indexing.md) to enable sorting on multiple fields, improve query performance, and enforce uniqueness.
+
+## Client-level field encryption
+
+Client-level field encryption is a driver feature and is compatible with the API for MongoDB. Explicit encryption - were the driver explicitly encrypts each field when written is supported. Explicit decryption and automatic decryption is supported.
+
+The mongocryptd should not be run since it is not needed to perform any of the supported operations.  
 
 ## GridFS
 
