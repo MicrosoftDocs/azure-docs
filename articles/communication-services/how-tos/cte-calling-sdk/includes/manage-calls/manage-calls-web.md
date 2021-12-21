@@ -29,7 +29,8 @@ const oneToOneCall = callAgent.startCall([userCallee], { threadId: '<THREAD_ID>'
 To place a call to a public switched telephone network (PSTN), use the `startCall` method on `callAgent` and pass the recipient's `PhoneNumberIdentifier` and `threadId` for a chat thread between caller and recipient. Your Communication Services resource must be configured to allow PSTN calling.
 
 > [!NOTE]
-> PSTN calling is currently in public preview with the Azure terms of use. Graph API doesn't allow creating a group chat thread for a single participant. If you want to start a call with only PSTN participants, create a group chat thread with two participants via Graph API. Then remove the second participant. As a result, you will have a valid `threadId` for the start call method. 
+> PSTN calling is currently in public preview with the Azure terms of use. Graph API doesn't allow creating a group chat thread for a single participant. If you want to start a call with only PSTN participants, create a group chat thread with two participants via Graph API. Then remove the second participant. As a result, you will have a valid `threadId` for the start call method.
+ 
 For a 1:1 call to a PSTN number, use the following code:
 ```js
 const pstnCallee = { phoneNumber: '<PHONE_NUMBER_E164_FORMAT>' }

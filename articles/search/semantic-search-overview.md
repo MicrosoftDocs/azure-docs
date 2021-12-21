@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 12/17/2021
 ms.custom: references_regions
 ---
 # Semantic search in Azure Cognitive Search
@@ -25,7 +25,6 @@ Semantic search is a premium feature. We recommend this article for background, 
 > * [Enable semantic search](#enable-semantic-search) on your search service.
 > * Create or modify queries to [return semantic captions and highlights](semantic-how-to-query-request.md).
 > * Add a few more query properties to also return [semantic answers](semantic-answers.md).
-> * Optionally, invoke [spell check](speller-how-to-add.md) to maximize precision and recall.
 
 ## What is semantic search?
 
@@ -36,7 +35,6 @@ Semantic search is collection of features that improve the quality of search res
 | [Semantic re-ranking](semantic-ranking.md) | Uses the context or semantic meaning to compute a new relevance score over existing results. |
 | [Semantic captions and highlights](semantic-how-to-query-request.md) | Extracts sentences and phrases from a document that best summarize the content, with highlights over key passages for easy scanning. Captions that summarize a result are useful when individual content fields are too dense for the results page. Highlighted text elevates the most relevant terms and phrases so that users can quickly determine why a match was considered relevant. |
 | [Semantic answers](semantic-answers.md) | An optional and additional substructure returned from a semantic query. It provides a direct answer to a query that looks like a question. It requires that a document have text with the characteristics of an answer. |
-| [Spell check](speller-how-to-add.md) | Corrects typos before the query terms reach the search engine. |
 
 ## How semantic ranking works
 

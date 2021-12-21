@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
-description: Learn how to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+description: Learn how to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP advanced configuration.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
 
-In this tutorial, you’ll learn to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+In this tutorial, you’ll learn how to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP advanced configuration. 
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
@@ -32,7 +32,9 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 For this scenario, you will configure a critical line of business (LOB) application for **Kerberos authentication**, also known as **Integrated Windows Authentication (IWA)**.
 
-To integrate the application directly with Azure AD, it’d need to support some form of federation-based protocol such as Security Assertion Markup Language (SAML), or better. But as modernizing the application introduces risk of potential downtime, there are other options. While using Kerberos Constrained Delegation (KCD) for SSO, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) to access the application remotely. In this arrangement, you can achieve the protocol transitioning required to bridge the legacy application to the modern identity control plane. Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC). This enables overlay of the application with Azure AD pre-authentication and KCD SSO, and significantly improves the overall Zero Trust posture of the application.
+To integrate the application directly with Azure AD, it’d need to support some form of federation-based protocol such as Security Assertion Markup Language (SAML), or better. But as modernizing the application introduces risk of potential downtime, there are other options. While using Kerberos Constrained Delegation (KCD) for SSO, you can use [Azure AD Application Proxy](../app-proxy/application-proxy.md) to access the application remotely. 
+
+In this arrangement, you can achieve the protocol transitioning required to bridge the legacy application to the modern identity control plane. Another approach is to use an F5 BIG-IP Application Delivery Controller (ADC). This enables overlay of the application with Azure AD pre-authentication and KCD SSO, and significantly improves the overall Zero Trust posture of the application.
 
 ## Scenario architecture
 
@@ -241,7 +243,7 @@ These settings define the SAML SP properties that the APM will use for overlayin
 
     ![Create a new SAML SP service](./media/f5-big-ip-kerberos-advanced/create-new-saml-sp-service.png)
 
-4. You need not specify  **SP Name Settings** if the SAML entity ID is an exact match with the URL for the published application. For example, if the entity ID were urn:myexpenses:contosoonline then you would need to provide the **Scheme** and **Host** as https myexpenses.contoso.com. Whereas if the entity ID was [https://myexpenses.contoso.com](https://myexpenses.contoso.com/) then not.
+4. You need not specify  **SP Name Settings** if the SAML entity ID is an exact match with the URL for the published application. For example, if the entity ID were urn:myexpenses:contosoonline then you would need to provide the **Scheme** and **Host** as https myexpenses.contoso.com. Whereas if the entity ID was `https://myexpenses.contoso.com` then not.
 
 ### Configure external IdP connector 
 
@@ -439,7 +441,7 @@ As a user, launch a browser and connect to the application’s external URL. You
 
 ### Azure AD B2B guest access
 
-SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-cloud-to-on-premises.md). Guest identities are synchronized from your Azure AD tenant to your target Kerberos domain. To have a local representation of guest objects is necessary for BIG-IP to perform KCD SSO to the backend application. 
+SHA also supports [Azure AD B2B guest access](../external-identities/hybrid-cloud-to-on-premises.md). Guest identities are synchronized from your Azure AD tenant to your target Kerberos domain. It is necessary to have a local representation of guest objects for BIG-IP to perform KCD SSO to the backend application. 
 
 ## Troubleshooting
 
@@ -480,7 +482,7 @@ F5 provides a great BIG-IP specific paper to help diagnose KCD related issues, s
 
 ## Additional resources
 
-* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
+* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 * [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 

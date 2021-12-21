@@ -3,7 +3,7 @@ title: Microsoft Sentinel content hub catalog  | Microsoft Docs
 description: This article displays and details the currently available Microsoft Sentinel content hub packages.
 author: batamig
 ms.topic: reference
-ms.date: 12/01/2021
+ms.date: 12/20/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -26,6 +26,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 
 |Name    |Includes  |Categories |Supported by  |
 |---------|---------|---------|---------|
+|**Apache Log4j Vulnerability Detection** | Analytics rules, hunting queries | Application, Security - Threat Protection, Security - Vulnerability Management | Microsoft|
 |**Microsoft Insider Risk Management** (IRM) |[Data connector](data-connectors-reference.md#microsoft-365-insider-risk-management-irm-preview), workbook, analytics rules, hunting queries |Security - Insider threat | Microsoft|
 | **Microsoft MITRE ATT&CK solution for Cloud**| Workbooks, analytics rules, hunting queries|Security - Threat protection, Security - Others |Microsoft |
 | **Microsoft Sentinel Deception** | [Workbooks, analytics rules, watchlists](monitor-key-vault-honeytokens.md)  | Security - Threat Protection  |Microsoft |
@@ -247,6 +248,7 @@ For more information, see [Centrally discover and deploy Microsoft Sentinel out-
 |---------|---------|---------|---------|
 |**Microsoft Sentinel 4 Microsoft Dynamics 365**     |   [Data connector](data-connectors-reference.md#dynamics-365), workbooks, analytics rules, and hunting queries |      Application   |Microsoft         |
 |**Microsoft Sentinel for Teams**     | Analytics rules, playbooks, hunting queries      |   Application      |    Microsoft     |
+| **IoT OT Threat Monitoring with Defender for IoT** | [Analytics rules, playbooks, workbook](iot-solution.md) | Internet of Things (IoT), Security - Threat Protection | Microsoft |
 | | | | |
 
 
