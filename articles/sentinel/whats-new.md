@@ -35,6 +35,11 @@ Microsoft Sentinel now provides a new MITRE coverage page, which highlights the 
 
 For more information, see TBD.
 
+Reconnaissance - included in V9
+Resource Development - included in V9
+Impair Process Control - ICS tactics
+Inhibit Response Function -ICS tactics
+
 ## January 2022
 ## December 2021
 
