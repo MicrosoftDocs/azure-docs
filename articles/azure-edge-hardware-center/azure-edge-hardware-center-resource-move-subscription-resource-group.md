@@ -99,4 +99,4 @@ If you moved to another resource group, you can delete the source resource group
 
 In this tutorial, you moved an Azure Edge Hardware Center resource from one subscription or resource group to another by using the Azure portal and then cleaned up the source resources that aren't needed. To learn more about moving resources in Azure, see:
 
-- [Move resources to a new resource group or subscription](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-move-resources)
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
