@@ -27,7 +27,7 @@ The following items are needed to ensure you're set up to begin the onboarding p
 - A datastore with minimum 100 GB of free disk space that is available through the resource pool. 
 - On the vCenter Server, allow inbound connections on TCP port 443, so that the Arc resource bridge and VMware cluster extension can communicate with the vCenter server. 
 
->[!NOTE]
+> [!NOTE]
 > Only the default port of 443 is supported if you use a different port, Appliance VM creation will fail. 
 
 At this point, you should've already deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
@@ -50,7 +50,7 @@ Alternatively, users can log into their Subscription, navigate to the **Resource
 
 For feature registration, users will need to log into their **Subscription**, navigate to the **Preview features** tab, and search for "Azure Arc for Azure VMware Solution". Once registered, no other permissions are required for users to access Arc.
 
-To verify registration
+Use the following features to verify registration.
 
 ```azurecli
 az feature show --name ConnectedVMwarePreview --namespace Microsoft.ConnectedVMwarevSphere 
@@ -88,7 +88,7 @@ While invoking the script, you'll be required to define one of the following ope
 
 Use the steps below to onboard in Arc for Azure VMware Solution preview.
 
-1. Sign in to the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
+1. Log into the jumpbox VM and extract the contents from the compressed file from the following [location path](). The extracted file contains the scripts to install the preview software.
 1. Open the 'config_avs.json' file and populate all the variables.
 
     **Config JSON**
@@ -152,7 +152,7 @@ Use the steps below to onboard in Arc for Azure VMware Solution preview.
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy ByPass; .\run.ps1 -Operation onboard -FilePath {config-json-path}
     ```
     # [Linux based jump box/VM](#tab/linux)
-    Add execution permission for the script and run it.
+    Add execution permission for the script and run the following commands.
     
     ```
     $ chmod +x run.sh  
@@ -160,13 +160,13 @@ Use the steps below to onboard in Arc for Azure VMware Solution preview.
     ```
 ---
 
-4. You'll see extra (new) Azure Resources being created in your Resource Group.
+4. You'll now see additional Azure Resources being created in your Resource Group.
     - Resource bridge
     - Custom location
     - VMware vCenter
 
->[!IMPORTANT]
->You cannot create the resources in a separate resource group. You'll need to use the Resource Group from where the Azure VMware Solution private cloud was created to create the resources. 
+> [!IMPORTANT]
+> You can't create the resources in a separate resource group. You'll need to use the Resource Group from where the Azure VMware Solution private cloud was created to create the resources. 
  
 ## Overview of the Onboarding/Off boarding process 
 
