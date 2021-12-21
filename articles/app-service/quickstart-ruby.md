@@ -5,6 +5,7 @@ keywords: azure app service, linux, oss, ruby, rails
 ms.assetid: 6d00c73c-13cb-446f-8926-923db4101afa
 ms.topic: quickstart
 ms.date: 04/27/2021
+ms.devlang: ruby
 ms.custom: mvc, cli-validate, seodec18, devx-track-azurecli, mode-other
 ---
 

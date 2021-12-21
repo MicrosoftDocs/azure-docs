@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/19/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Requirements and considerations for application volume group for SAP HANA 
 
