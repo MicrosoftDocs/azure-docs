@@ -29,7 +29,7 @@ landingContent:
             url: azure-edge-hardware-center-overview.md   
       - linkListType: concept
         links:
-          - text: FAQ for Azure Edge Hardware Center
+          - text: FAQ
             url: azure-edge-hardware-center-faq.yml
 
   # Card
