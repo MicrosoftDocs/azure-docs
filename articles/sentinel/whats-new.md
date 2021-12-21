@@ -27,6 +27,15 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## February 2022
+
+### View MITRE support coverage
+
+Microsoft Sentinel now provides a new MITRE coverage page, which highlights the MITRE tactic coverage you currently have, and can configure, in your organization.
+
+For more information, see TBD.
+
+## January 2022
 ## December 2021
 
 - [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
