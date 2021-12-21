@@ -98,7 +98,7 @@ PublicClientApplication pca = PublicClientApplication.builder(appId)
 
 String redirectUri = "http://localhost";
 Set<String> scope = new HashSet<String>();
-scope.add("https://auth.msft.communication.azure.com/VoIP");
+scope.add("https://auth.msft.communication.azure.com/Teams.ManageCalls");
 
 InteractiveRequestParameters parameters = InteractiveRequestParameters
                     .builder(new URI(redirectUri))

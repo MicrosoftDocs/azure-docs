@@ -10,6 +10,7 @@ ms.subservice: computer-vision
 ms.topic: sample
 ms.date: 10/27/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: "seodec18, devx-track-csharp"
 ---
 

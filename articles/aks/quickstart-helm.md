@@ -4,7 +4,7 @@ description: Use Helm with AKS and Azure Container Registry to package and run a
 services: container-service
 author: zr-msft
 ms.topic: article
-ms.date: 07/15/2021
+ms.date: 12/17/2021
 ms.author: zarhoads
 ---
 
@@ -62,7 +62,7 @@ Your new AKS cluster needs access to your ACR to pull the container images and r
 
 
 ```azurecli
-az aks create -g MyResourceGroup -n MyAKS --location eastus  --attach-acr MyHelmACR --generate-ssh-keys
+az aks create --resource-group MyResourceGroup --name MyAKS --location eastus --attach-acr MyHelmACR --generate-ssh-keys
 ```
 
 ## Connect to your AKS cluster
@@ -95,9 +95,7 @@ cd azure-voting-app-redis/azure-vote/
 Using the preceding Dockerfile, run the [az acr build][az-acr-build] command to build and push an image to the registry. The `.` at the end of the command sets the location of the Dockerfile (in this case, the current directory).
 
 ```azurecli
-az acr build --image azure-vote-front:v1 \
-  --registry MyHelmACR \
-  --file Dockerfile .
+az acr build --image azure-vote-front:v1 --registry MyHelmACR --file Dockerfile .
 ```
 
 > [!NOTE]
