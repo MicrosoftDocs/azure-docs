@@ -246,7 +246,7 @@ This metric refers to the amount of time it took for PageView events to load.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role name`, `Is traffic synthetic` |
+| MilliSeconds | Average, Min, Max | `Cloud role name`, `Is traffic synthetic` |
 
 ### Page views (pageViews/count)
 
