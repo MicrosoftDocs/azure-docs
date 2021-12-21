@@ -61,4 +61,4 @@ The following are example URLs for copy log files for an import job with two dri
 ## Next steps
 
 - [Review hard drive preparation steps for an import job](storage-import-export-data-to-blobs.md#step-1-prepare-the-drives).
-- [Contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
+- [Contact Microsoft Support](storage-import-export-contact-microsoft-support.md).

@@ -23,7 +23,7 @@ ms.custom: include file
 
     A list of Import/Export jobs appears on the page.
 
-    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-drive-status/preview-jobs-list.png) ](./media/storage-import-export-view-jobs-and-drives-preview/preview-jobs-list.png)
+    [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-jobs-and-drives-previewv/preview-jobs-list.png) ](./media/storage-import-export-view-jobs-and-drives-preview/preview-jobs-list.png)
 
 4. Select a job name to view job details.
 
@@ -33,4 +33,4 @@ ms.custom: include file
 
    * Select a **Drive ID** to open a panel with full copy information, including the manifest file and hash.
 
-   [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-drive-status/preview-job-details.png) ](./media/storage-import-export-view-jobs-and-drives-preview/preview-job-details.png#lightbox)
+   [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-jobs-and-drives-preview/preview-job-details.png) ](./media/storage-import-export-view-jobs-and-drives-preview/preview-job-details.png#lightbox)
