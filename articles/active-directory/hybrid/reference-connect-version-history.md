@@ -68,12 +68,13 @@ Required permissions | For permissions required to apply an update, see [account
 ### Bug fixes
 
  - We upgraded the version of Microsoft.Data.OData from 5.8.1 to 5.8.4 to fix a vulnerability
- - Accesibility: We made the Azure AD Connect wizard resizable to account for different zoom levels and screen resolutions.
+ - Accesibility: We made the Azure AD Connect wizard resizable to account for different zoom levels and screen resolutions
  - Accesibility: Named elements to satisfy accessibility requirements
  - We fixed a bug where miisserver was crashing due to a null reference
  - We fixed a bug to ensure the desktop SSO value persists after upgrading Azure AD Connect to a newer version
  - We modified the inetorgperson sync rules to fix an issue with account/resource forests
  - We fixed radio button test to display a link more link
+ - We fixed a bug where, under certain conditions, linked mailboxes of disabled users were getting deleted
 ### Functional changes
  - Group writeback DN is now configurable with the display name of the synced group
  - We removed the hard requirement for exchange schema when enabling group writeback
