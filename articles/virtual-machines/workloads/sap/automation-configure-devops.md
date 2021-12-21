@@ -23,11 +23,11 @@ You can create Azure DevOps pipelines to perform the deployment or removal of th
 
 ## Setup the Azure DevOps project
 
-1. [Create a Project in Azure DevOps ](https://docs.microsoft.com/en-us/azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project)
+1. [Create a Project in Azure DevOps](azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project)
 
-1. Import the automation repository https://github.com/Azure/sap-automation.git into the Azure Devops repository. [Importing a repository](https://docs.microsoft.com/en-us/azure/devops/repos/git/import-git-repository?view=azure-devops)
+1. Import the automation repository https://github.com/Azure/sap-automation.git into the Azure Devops repository. [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops)
 
-1. [Create the Azure Resource Manager service connection](https://docs.microsoft.com/en-us/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use the service principal from step 5. of the prerequisites
+1. [Create the Azure Resource Manager service connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use the service principal from step 5. of the prerequisites
 
 1. Create a general variable groups "sap-deployment-general-variables" including:
    * ANSIBLE_HOST_KEY_CHECKING = false
@@ -40,13 +40,13 @@ You can create Azure DevOps pipelines to perform the deployment or removal of th
    * skipComponentGovernanceDetection = true
 
 5. Create a specific variable groups "sap-deployment-specific-variables" including:
-   * ARM_CLIENT_ID = <service principle app id>
-   * ARM_CLIENT_SECRET = <service principle password>
-   * ARM_SUBSCRIPTION_ID = <Azure subscription id>
-   * ARM_TENANT_ID = <Azure tenant id>
+   * ARM_CLIENT_ID = `<service principal app id>`
+   * ARM_CLIENT_SECRET = `<service principal password>`
+   * ARM_SUBSCRIPTION_ID = `<Azure subscription id>`
+   * ARM_TENANT_ID = `<Azure tenant id>`
    * AZURE_CONNECTION_NAME = <the connection name specified in step 3.>
-   * S-Username = <SAP Support user>
-   * S-Password = <SAP Support user password>
+   * S-Username = `<SAP Support user>`
+   * S-Password = `<SAP Support user password>`
    * Agent = WestEurope
 
 ## Create Azure DevOps Pipelines
