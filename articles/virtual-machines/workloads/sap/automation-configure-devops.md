@@ -21,11 +21,23 @@ You can use Azure DevOps as your execution environment for deployment and config
 
 You can create Azure DevOps pipelines to perform the deployment or removal of the control plane, workload zone, SAP system and perform the SAP installation.
 
+
+## Sign up for Azure DevOps
+
+To use Azure DevOps you will need an Azure DevOps account, to create an account open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either *Sign In* or create a new account.
+
 ## Setup the Azure DevOps project
 
-1. [Create a Project in Azure DevOps](azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project)
+1. Open (https:/dev.azure.com) and create a new project by clicking on the *New Project* button, for more info see [Create a Project in Azure DevOps](azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project). Enter the project details and click create.
 
-1. Import the automation repository https://github.com/Azure/sap-automation.git into the Azure Devops repository. [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops)
+:::image type="content" source="./media/automation-devops/automation-create-project.png" alt-text="Diagram showing the Create Project dialog.":::
+ 
+
+1. Navigate to the Repositories section in the left navigation and choose Import a repository.
+
+:::image type="content" source="./media/automation-devops/automation-import-repo.png" alt-text="Diagram showing the Repository dialog.":::
+
+1. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure Devops. For more info see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops) 
 
 1. [Create the Azure Resource Manager service connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use the service principal from step 5. of the prerequisites
 
@@ -104,12 +116,7 @@ Some pipelines will add files to the devops repository and require therefore pul
   
     Same process for pipeline 11-remover-arm-fallback.yaml
   
-
-# Setup Azure DevOps Agent on the deployer VM
-  
-  ...
-  
-# Run Azure DevOps Pipelines
+## Run Azure DevOps Pipelines
 
   Newly created pipelines might not be visible in the default view. Click on recent tab and go back to All tab to view the new pipelines.
   Click on the pipeline and choose "Run"
@@ -117,11 +124,11 @@ Some pipelines will add files to the devops repository and require therefore pul
   Verify the result in Azure: Are the VMs deployed and running?
   Check the configuration files in the ADO Repo
   
-# Register the Deployer as a Azure DevOps agent
+## Register the Deployer as a Azure DevOps agent
 
 You will use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. This requires that the Deployer needs to be added into an [Agent Pool](/azure/devops/pipelines/agents/pools-queues). As a one-time step, you must register the agent. Someone with permission to administer the agent queue must complete these steps.  
 
-## Prerequisites
+### Prerequisites
 
 
 1. Connect to your Azure DevOps instance Sign in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and write down the URL to the Azure DevOps project.

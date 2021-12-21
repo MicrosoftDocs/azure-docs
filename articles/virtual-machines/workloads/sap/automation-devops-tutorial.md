@@ -28,22 +28,30 @@ You will perform the following tasks during this lab:
 These steps reference and use the [default naming convention](automation-naming.md) for the automation framework. Example values are also used for naming throughout the configurations. In this tutorial the following names are used:
 - Azure DevOps project name is `SAP-Deployment` 
 - Azure DevOps repository name is `sap-automation` 
-- The deployer environment is named `MGMT`, in the region West Europe (`WEEU`) and installed in the virtual network `DEP00`, leading to a deployer configuration called `MGMT-WEEU-DEP00-INFRASTRUCTURE`
-- The SAP workload zone get the enfironment name `DEV`, is in the same region and using the virtual network `SAP01`, leading to the SAP workload zone configuration called `DEV-WEEU-SAP01-INFRASTRUCTURE`
-- The SAP Systems with SID `X00` will be installed in this SAP workload zone. This leads to the configuration name `DEV-WEEU-SAP01-X00`
+- The control plane environment is named `MGMT`, in the region West Europe (`WEEU`) and installed in the virtual network `DEP00`, leading to a deployer configuration called `MGMT-WEEU-DEP00-INFRASTRUCTURE`
+- The SAP workload zone has the environment name `DEV` and is in the same region using the virtual network `SAP01`, leading to the SAP workload zone configuration name  `DEV-WEEU-SAP01-INFRASTRUCTURE`
+- The SAP System with SID `X00` will be installed in this SAP workload zone. This leads to the configuration name `DEV-WEEU-SAP01-X00`
+
+| Artifact type | Name                            | Location        |
+| ------------- | ------------------------------- | --------------- |
+| Control Plane | MGMT-WEEU-DEP00-INFRASTRUCTURE  | westeurope      |
+| Workload Zone | DEP-WEEU-SAP01-INFRASTRUCTURE   | westeurope      |
+| SAP System    | DEP-WEEU-SAP01-X00              | westeurope      |
 
 > [!Note]
-> In this tutorial the X00 SAP system will be deployed with the following characteristics:
-> * No firewall
-> * No high avilability cluster, thus no load balancers
+> In this tutorial the X00 SAP system will be deployed with the following configuration:
+> * Standalone deployment
 > * HANA DB VM SKU: Standard_M32ts
 > * ASCS VM SKU: Standard_D4s_v3
 
 ## Prerequisites
 
-1. An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
+1. An Azure subscription. If you don't have an Azure subscription, you can [create a free account here ](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. An Azure account with privileges to create a service principal. 
-3. A [download of the SAP software](automation-software.md) in your Azure environment.
-4. An Azure DevOps account. If you don't have an Azure DevOps account, you can [create a free account here](https://azure.microsoft.com/en-us/services/devops/).
-5. A service principal with contributor rights on the subscription. Follow these instructions to [create the service principal](/azure/virtual-machines/workloads/sap/automation-deploy-control-plane?tabs=linux#prepare-the-deployment-credentials) using [Azure cloud shell](/azure/cloud-shell/overview). 
+3. SAP software, see [download of the SAP software](automation-software.md) in your Azure environment.
+4. An Azure DevOps account. If you don't have an Azure DevOps account, you can [create a free account here](https://azure.microsoft.com/services/devops/).
+5. A service principal with contributor rights on the subscription. Follow these instructions to [create the service principal](automation-deploy-control-plane.md?tabs=linux#prepare-the-deployment-credentials) using [Azure cloud shell](/azure/cloud-shell/overview). 
+
+> [!Note]
+> The free Azure account may not be sufficient to run the deployment
 
