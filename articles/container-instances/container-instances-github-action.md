@@ -40,7 +40,7 @@ This article shows two ways to set up the workflow:
 
   ![Screenshot of the Fork button (highlighted) in GitHub](../container-registry/media/container-registry-tutorial-quick-build/quick-build-01-fork.png)
 
-* Ensure Actions is enabled for your repository. Navigate to your forked repository and select **Settings** > **Actions**. In **Actions permissions**, ensure that **Enable local and third party Actions for this repository** is selected.
+* Ensure Actions is enabled for your repository. Navigate to your forked repository and select **Settings** > **Actions**. In **Actions permissions**, ensure that **Allow all actions** is selected.
 
 ## Configure GitHub workflow
 
