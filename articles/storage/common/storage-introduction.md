@@ -151,7 +151,7 @@ You can access resources in a storage account by any language that can make HTTP
 - [Azure Storage client library for .NET](/dotnet/api/overview/azure/storage)
 - [Azure Storage client library for Java/Android](/java/api/overview/azure/storage)
 - [Azure Storage client library for Node.js](/javascript/api/overview/azure/storage-overview)
-- [Azure Storage client library for Python](https://github.com/Azure/azure-storage-python)
+- [Azure Storage client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/main/sdk/storage/azure-storage-blob)
 - [Azure Storage client library for PHP](https://github.com/Azure/azure-storage-php)
 - [Azure Storage client library for Ruby](https://github.com/Azure/azure-storage-ruby)
 - [Azure Storage client library for C++](https://github.com/Azure/azure-storage-cpp)
