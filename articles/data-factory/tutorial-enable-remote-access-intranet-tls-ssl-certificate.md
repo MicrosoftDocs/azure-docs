@@ -73,9 +73,9 @@ In this tutorial, you will learn how to set up Self-hosted Integration Runtime w
 
     1. Verify the remote access settings in Self-hosted Integration Runtime Configuration Manager.
     
-        :::image type="content" source="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/verify-remote-access-settings-1.png" alt-text="Screenshot that shows verifying the remote access settings in Self-hosted Integration Runtime Configuration Manager.":::
+        :::image type="content" source="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/verify-remote-access-settings-1.png" alt-text="Screenshot that shows verifying the remote access settings in Self-hosted Integration Runtime Configuration Manager screenshot 1.":::
 
-        :::image type="content" source="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/verify-remote-access-settings-2.png" alt-text="Screenshot that shows verifying the remote access settings in Self-hosted Integration Runtime Configuration Manager.":::
+        :::image type="content" source="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/verify-remote-access-settings-2.png" alt-text="Screenshot that shows verifying the remote access settings in Self-hosted Integration Runtime Configuration Manager screenshot 2.":::
 
 5. Using self-signed certificate if you don’t have the publicly trusted certificate:
     1. Generate and export self-signed certificate (this step can be skipped if you already have the certificate):
@@ -106,7 +106,7 @@ In this tutorial, you will learn how to set up Self-hosted Integration Runtime w
     1. Verify the certificate exists in the target store:
         1. Follow this procedure [How to: View certificates with the MMC snap-in - WCF](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in#view-certificates-in-the-mmc-snap-in) to view Certificates (Local Computer) in the MMC snap-in.
         
-           :::image type="content" source="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/view-certificates-mmc-snap-in.png" alt-text="Screenshot that shows viewing certificates in MMC snap in." lightbox="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/view-certificates-in-mmc-snap-in":::
+           :::image type="content" source="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/view-certificates-mmc-snap-in.png" alt-text="Screenshot that shows viewing certificates in MMC snap in." lightbox="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/view-certificates-mmc-snap-in.png":::
 
         1. Confirm the certificate is installed in **Personal** and **Trusted Root Certification Authorities store** (If it is self-signed certificate).
 
@@ -121,4 +121,4 @@ In this tutorial, you will learn how to set up Self-hosted Integration Runtime w
         1. If no, grant the permission, **Apply** and save.
         
             :::image type="content" source="./media/tutorial-enable-remote-access-intranet-tls-ssl-certificate/ensure-read-permission-to-certificate-private-keys.png" alt-text="Screenshot that shows the Service account for Self-hosted integration runtime has read permission to the private keys of certificate.":::
-    
+
