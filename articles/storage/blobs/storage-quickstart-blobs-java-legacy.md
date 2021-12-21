@@ -8,6 +8,7 @@ ms.date: 01/19/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.devlang: java
 ---
 
 # Quickstart: Manage blobs with Java v8 SDK
