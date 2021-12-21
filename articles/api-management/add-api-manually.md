@@ -39,7 +39,7 @@ Complete the following quickstart: [Create an Azure API Management instance](get
 At this point, you have no operations in API Management that map to the operations in your back-end API. If you call an operation that is exposed through the back end but not through the API Management, you get a **404**.
 
 >[!NOTE]
-> By default, when you add an API, even if it is connected to some back-end service, APIM will not expose any operations until you allow them. To allow an operation of your back-end service, create an APIM operation that maps to the back-end operation.
+> By default, when you add an API, even if it's connected to some back-end service, APIM won't expose any operations until you allow them. To allow an operation of your back-end service, create an APIM operation that maps to the back-end operation.
 
 ## Add and test an operation
 
@@ -110,7 +110,7 @@ Test the operation in the Azure portal. You can also test it in the **Developer 
     The response that the "http://httpbin.org/headers" operation generates appears. If you want to transform your operations, see [Transform and protect your API](transform-api.md).
   
 >[!NOTE]
-> It can be important to understand how the host for the backend API you are integrating with handles trailing slashes on an operation URL. For more information, please see this [API Management FAQ](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-).
+> It can be important to understand how the host for the backend API you're integrating with handles trailing slashes on an operation URL. For more information, see this [API Management FAQ](./api-management-faq.yml#how-does-api-management-handle-trailing-slashes-when-calling-backend-services-).
 
 [!INCLUDE [api-management-navigate-to-instance.md](../../includes/api-management-append-apis.md)]
 
