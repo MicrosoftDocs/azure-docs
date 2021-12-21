@@ -566,9 +566,9 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
 1. Use one of the following options to deploy your data connector:
 
-    # <a name="deploy-arm"></a>[Deploy via ARM template](#tab/deploy-via-arm-template)
+    # [Deploy via ARM template](#tab/deploy-via-arm-template)
 
-    Use your JSON configuration file to create an Azure Resource Manager (ARM) template to use when deploying your connector.
+    <a name="deploy-arm"></a>Use your JSON configuration file to create an Azure Resource Manager (ARM) template to use when deploying your connector.
 
     The advantage of deploying via an ARM template is that several values are built-in to the template, and you don't need to define them manually in an API call.
 
