@@ -44,7 +44,7 @@ The steps in this section guide you to create a Jakarta EE runtime on AKS. After
 1. In **Basics** tab, create a new resource group called *java-liberty-project-rg*.
 1. Select *East US* as **Region**.
 1. Select the user-assigned managed identity you created above.
-1. Leave all other values at the defaults and start creating the cluster by selecting **Review + create**. 
+1. Leave all other values at the defaults and start creating the cluster by selecting **Review + create**.
 1. When the validation completes, select **Create**. This may take up to ten minutes.
 1. After the deployment is complete, select the resource group into which you deployed the resources.
    1. In the list of resources in the resource group, select the resource with **Type** of **Container registry**.
@@ -96,7 +96,7 @@ The steps in this section guide you through creating an Azure Database for Postg
                                            --start-ip-address "0.0.0.0" \
                                            --end-ip-address "0.0.0.0"
    ```
-   
+
 1. Allow your local IP address to access the Azure PostgreSQL server. This is necessary to allow the `liberty:devc` to access the database.
 
    ```bash
@@ -246,7 +246,7 @@ The steps in this section deploy and test the application.
    ```bash
    kubectl apply -f <path-to-your-repo>/javaee-app-db-using-actions/postgres/target/db-secret.yaml
    ```
-   
+
    You will see the output `secret/db-secret-postgres created`.
 
 1. Apply the deployment file
@@ -262,9 +262,9 @@ The steps in this section deploy and test the application.
    ```bash
    kubectl get pods -n $NAMESPACE --watch
    ```
-   
+
    You should see output similar to the following to indicate that all the pods are running.
-   
+
    ```bash
    NAME                                  READY   STATUS    RESTARTS   AGE
    javaee-cafe-cluster-67cdc95bc-2j2gr   1/1     Running   0          29s
