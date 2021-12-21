@@ -165,7 +165,7 @@ Provide either one query for all of the data connector's data types, or a differ
 
 ### Metadata
 
-This section provides metadata used when you're [deploying your data connector as an ARM template](#tab/arm-template).
+This section provides metadata used when you're [deploying your data connector as an ARM template](#deploy-arm).
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -369,7 +369,7 @@ For more information, see [Sample pollingConfig code](#sample-pollingconfig-code
 
 ### auth configuration
 
-The `auth` section of the `[pollingConfig](#polling-configuration)` configuration includes the following parameters, depending on the type defined in the [authType](#authtype) element:
+The `auth` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters, depending on the type defined in the [authType](#authtype) element:
 
 #### APIKey authType parameters
 
@@ -384,9 +384,9 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**QueryParameters**     |    String     | Optional. A list of query parameters, in the serialized `dictionary<string, string>` format: <br><br>{'<attr_name>': '<val>', '<attr_name>': '<val>'... }        |
+|**QueryParameters**     |    String     | Optional. A list of query parameters, in the serialized `dictionary<string, string>` format: <br><br>`{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`        |
 |**IsPostPayloadJson**     |   Boolean | Optional. Determines whether the query parameters are in JSON format.  |
-|**Headers**     |    String. | Optional. Defines the header used when calling the endpoint to get the session ID, and when calling the endpoint API.  <br><br> Define the string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }        |
+|**Headers**     |    String. | Optional. Defines the header used when calling the endpoint to get the session ID, and when calling the endpoint API.  <br><br> Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`        |
 |**SessionTimeoutInMinutes**     |   String | Optional. Defines a session timeout, in minutes.       |
 |**SessionIdName**     |    String | Optional. Defines an ID name for the session.  |
 |**SessionLoginRequestUri**     |  String | Optional. Defines a session login request URI. |
@@ -404,10 +404,10 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 |**RedirectionEndpoint** |String | Optional. <!--description--> |
 | **AccessTokenExpirationDateTimeInUtc**|String | Optional. <!--description--> |
 | **RefreshTokenExpirationDateTimeInUtc**|String | Optional. <!--description--> |
-|**TokenEndpointHeaders** | String. | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
+|**TokenEndpointHeaders** | String. | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
 |**AuthorizationEndpointHeaders** |String | Optional. <!--description--> |
-|**AuthorizationEndpointQueryParameters** | String | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
-|**TokenEndpointQueryParameters** | String. | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }  |
+|**AuthorizationEndpointQueryParameters** | String | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
+|**TokenEndpointQueryParameters** | String. | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
 |**IsTokenEndpointPostPayloadJson** | Boolean. | Optional. Determines whether query parameters are in JSON format. |
 | **IsClientSecretInHeader**| Boolean | Determines whether the **client_id** and **client_secret** values are defined in the header, as is done in the Basic authentication schema, instead of in the POST payload.|
 |**RefreshTokenLifetimeinSecAttributeName** |String. | Optional. Defines the attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds. <br><br>Define a string in the `{<attr_name>: <val>}`|
@@ -420,7 +420,7 @@ The `auth` section of the `[pollingConfig](#polling-configuration)` configuratio
 
 ### request configuration
 
-The `request` section of the [pollingConfig](#polling-configuration) configuration includes the following parameters:
+The `request` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters:
 
 <!--where do the asterisks go to?-->
 
@@ -434,19 +434,19 @@ The `request` section of the [pollingConfig](#polling-configuration) configurati
 |**queryTimeIntervalAttributeName**     | String. | Optional. Defines the name of the attribute that defines the query time interval. |
 |**queryTimeIntervalDelimiter**     |   String | Optional. Defines the query time interval delimiter. |
 |**queryWindowInMin**     |  String | Optional. Defines the available query window, in minutes. <br><br>Minimum value: `5` |
-|**queryParameters**     |  String | Optional. Defines the parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.  <br><br>Define the string in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }       |
-|**queryParametersTemplate**     | String object | Optiona. Defines the query parameters template to use when passing query parameters in advanced scenarios. <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`      |
+|**queryParameters**     |  String | Optional. Defines the parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.  <br><br>Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`       |
+|**queryParametersTemplate**     | String object | Optional. Defines the query parameters template to use when passing query parameters in advanced scenarios. <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`      |
 |**isPostPayloadJson**     | Boolean | Optional. Determines whether the POST payload is in JSON format.  |
 |**rateLimitQPS**     |   <!--type tbd-->      |    Optional.  <!--description tbd--> |
 |**timeoutInSeconds**     |  Integer | Optional. Defines the request timeout, in seconds. |
 |**retryCount**     |   Integer | Optional. Defines the number of request retries to try if needed. |
-|**headers**     |  String | Optional. Defines the request header value, in the serialized `dictionary<string, string>` format: {'<attr_name>': '<val>', '<attr_name>': '<val>'... }         |
+|**headers**     |  String | Optional. Defines the request header value, in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`         |
 |     |         |         |
 
 
 ### response configuration
 
-The `response` section of the [pollingConfig](#polling-configuration) configuration includes the following parameters:
+The `response` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -467,7 +467,7 @@ The following code shows an example of the [eventsJsonPaths](#eventsjsonpaths) v
 
 ### paging configuration
 
-The `paging` section of the [pollingConfig](#polling-configuration) configuration includes the following parameters:
+The `paging` section of the `[pollingConfig](#configure-your-connectors-polling-settings)` configuration includes the following parameters:
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -479,7 +479,7 @@ The `paging` section of the [pollingConfig](#polling-configuration) configuratio
 | **nextPageParaName**    |  String | Optional.  Determines the *next page* name in the request. |
 | **nextPageRequestHeader**    |   String | Optional. Determines the *next page* header name in the request.   |
 | **nextPageUrl**    |   String | Optional. Determines the *next page* URL, if it's different from the initial request URL. |
-| **nextPageUrlQueryParameters**    |  String | Optional.  Determines the *next page* URL's query parameters if it's different from the initial request's URL. <br><br>Define the string in the serialized `dictionary<string, object>` format: {'<attr_name>': <val>, '<attr_name>': <val>... }        |
+| **nextPageUrlQueryParameters**    |  String | Optional.  Determines the *next page* URL's query parameters if it's different from the initial request's URL. <br><br>Define the string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <val>, '<attr_name>': <val>... }`        |
 |  **offsetParaName**   |    String | Optional. Defines the name of the offset parameter. |
 |  **pageSizeParaName**   |   String | Optional. Defines the name of the page size parameter. |
 | **PageSize**    |     Integer | Defines the paging size. |
@@ -566,7 +566,7 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
 1. Use one of the following options to deploy your data connector:
 
-    # [ARM template](#tab/arm-template)
+    # <a name="deploy-arm"></a>[ARM template](#tab/arm-template)
 
     Use your JSON configuration file to create an Azure Resource Manager (ARM) template to use when deploying your connector.
 
@@ -590,7 +590,7 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
     For more information, see [Deploy a local template](/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-powershell) in the Azure Resource Manager documentation.
 
-    # [API](#tab/api)
+    # <a name="deploy-api"></a>[API](#tab/api)
 
     1. Authenticate to the Azure API. For more information, see [Getting started with REST](/rest/api/azure/).
 
@@ -602,13 +602,13 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
     When you use the Azure portal to connect, user data is sent automatically. When you connect via API, you'll need to send the relevant authentication parameters in the API call.
 
-    # [Azure portal](#tab/azure-portal)
+    # <a name="auth-portal"></a>[Azure portal](#tab/azure-portal)
 
     In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
 
     The data connector page in Microsoft Sentinel is controlled by the [InstructionStep](#instructionstep) configuration in the `connectorUiConfig` element of the [CCP JSON configuration](#define-your-connector-json-configuration) file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
 
-    # [API](#tab/api)
+    # <a name="auth-api"></a>[API](#tab/api)
 
     Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
 
@@ -621,7 +621,7 @@ After creating your [JSON configuration file](#define-your-connector-json-config
     |**OAuth2**     |   Define: <br>- `kind` as `OAuth2`<br>- `authorizationCode` as your full authorization code, in quotes <br>- `clientSecret` and `clientId` as your client secret and ID values, each in quotes      |
     |     |         |
 
-    If you're using a [template configuration file with placeholder data](#define-your-connector-json-configuration-with-placeholders), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
+    If you're using a [template configuration file with placeholder data](#create-a-connector-configuration-template-with-placeholders), send the data together with the `placeHolderValue` attributes that hold the user data. For example:
 
     ```rest
     "requestConfigUserInputValues": [
@@ -646,10 +646,10 @@ If you no longer need your connector's data, disconnect the connector to stop th
 
 Use one of the following methods:
 
-# [Azure portal](#tab/portal)
+# <a name="disconnect-portal"></a>[Azure portal](#tab/portal)
 
 In your Microsoft Sentinel data connector page, select **Disconnect**.
-# [API](#tab/api)
+# <a name="disconnect-api"></a>[API](#tab/api)
 
 Use the [DISCONNECT](#disconnect) API to send a PUT call with an empty body to the following URL:
 
@@ -694,7 +694,7 @@ Initiates the connector data pulling mechanism for the specified connector ID.
 
 Codeless data connectors pull data from publicly accessible APIs. To pull data, Microsoft Sentinel must authenticate to the data source service using an authentication method supported by both the data source's API and the CCP.
 
-Authentication data isn't included in the codeless connector's configuration, but provided when you [connect your data connector from Microsoft Sentinel](#connect-to-your-data-connector-from-microsoft-sentinel). This connection is performed using the **CONNECT** action, with connection data stored in an encrypted keystore residing in the customer region.
+Authentication data isn't included in the codeless connector's configuration, but provided when you [connect your data connector from Microsoft Sentinel](#deploy-your-connector-in-microsoft-sentinel-and-start-ingesting-data). This connection is performed using the **CONNECT** action, with connection data stored in an encrypted keystore residing in the customer region.
 
 Connect using one of the following authentication methods:
 
