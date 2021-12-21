@@ -121,8 +121,8 @@ az role assignment create \
 
 ### Create workflow file
 
-1. In the GitHub UI, select **Actions** > **New workflow**.
-1. Select **Set up a workflow yourself**.
+1. In the GitHub UI, select **Actions**.
+1. Select **set up a workflow yourself**.
 1. In **Edit new file**, paste the following YAML contents to overwrite the sample code. Accept the default filename `main.yml`, or provide a filename you choose.
 1. Select **Start commit**, optionally provide short and extended descriptions of your commit, and select **Commit new file**.
 
