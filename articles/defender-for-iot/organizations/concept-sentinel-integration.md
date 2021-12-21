@@ -21,11 +21,11 @@ SOC solutions and teams are faced with various challenges, including:
 
 **Processes** 
 
-- Siloed or inefficient communication and processes between OT and SOC organizations. 
+- Siloed or inefficient communication and processes between OT and SOC organizations.
 
 **Technology and Tools** 
 
-- Lack of visibility and insight into OT networks and correlation of events across enterprise IT/OT networks. This includes tools that enable SOC teams to evaluate and link information across all data sources in IT and OT environments.  
+- Lack of visibility and insight into OT networks and the correlation of events across enterprise IT/OT networks. This includes tools that enable SOC teams to evaluate and link information across all data sources in IT and OT environments.  
 
 - Low-level of automated security remediation for OT networks.
 
