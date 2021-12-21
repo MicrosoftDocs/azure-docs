@@ -3,12 +3,12 @@ title: Use logs to troubleshoot upload issues in Azure Data Box Disk
 titleSuffix: Azure Data Box Disk
 description: Describes how to use copy/error logs to troubleshoot issues seen when uploading data to Azure Data Box Disk.
 services: databox
-author: alkohli
+author: v-dalc
 
 ms.service: databox
 ms.subservice: disk
 ms.topic: troubleshooting
-ms.date: 12/17/2021
+ms.date: 12/21/2021
 ms.author: alkohli
 ---
 

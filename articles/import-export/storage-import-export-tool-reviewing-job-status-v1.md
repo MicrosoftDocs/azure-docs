@@ -1,7 +1,7 @@
 ---
 title: Use logs to troubleshoot imports and exports via Azure Import/Export | Microsoft Docs
 description: Learn how to review error/copy logs from imports and exports for data copy, upload issues.
-author: alkohli
+author: v-dalc
 services: storage
 ms.service: storage
 ms.topic: how-to
@@ -14,9 +14,7 @@ ms.subservice: common
 
 When the Microsoft Azure Import/Export service processes the drives for an import or export job, the service writes copy logs and verbose logs to the storage account that you used. Both logs are saved for each drive.
 
-* The copy log reports events for all failed copy operations between the disk and the Azure Storage account. The copy log ends with a summary of errors by error category.
-
-* The verbose log has a listing of all copy operations that succeeded on every blob and file.
+[!INCLUDE [storage-import-export-verbose-log-copy-log-descriptions.md](../../includes/storage-import-export-verbose-log-copy-log-descriptions.md)
 
 ## Locate the logs
 
