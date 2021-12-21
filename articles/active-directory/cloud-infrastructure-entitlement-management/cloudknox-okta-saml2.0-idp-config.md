@@ -67,10 +67,10 @@ You can review the configuration process in the [Okta configuration for CloudKno
 
     When your Customer Success Engineer receives the SAML IDP metadata, they process it and alert you when the change is live in your account. 
 
-    Then, your users will can log in through Okta.
+    Then, your users can log in through Okta.
 
-## Set up the CloudKnox image as the Okta "chiclet" icon
+## Set up the CloudKnox image as the Okta chiclet icon
 
-If your administrator wants to add the CloudKnox image to your Okta portal as a "chiclet" icon, contact your Customer Success Engineer for the image.
+If your administrator wants to add the CloudKnox image to your Okta portal as a chiclet icon, contact your Customer Success Engineer for the image.
 
 <!---Next steps--->
