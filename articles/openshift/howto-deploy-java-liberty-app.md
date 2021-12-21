@@ -48,31 +48,6 @@ Complete the following prerequisites to successfully walk through this guide.
 
 1. Verify you can sign in to the OpenShift CLI with the token for user `kubeadmin`.
 
-### Create an Azure Database for MySQL(Only if your application requires)
-
-Create an Azure Database for MySQL(Only if your application requires)
-
-1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
-    > [!NOTE]
-    >
-    > * At **Basics** step, write down ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
-
-2. Once your database is created, open **your SQL server** > **Connection security** and complete the following settings:
-   * Set **Allow access to Azure services** to **Yes**.
-   * Select **Add current client IP address**. 
-   * Set **Minimal TLS Version** to **>1.0** > Select **Save**.
-
-   ![configure mysql database connection security rule](./media/howto-deploy-java-liberty-app/configure-mysql-database-connection-security.png)
-
-3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **3306** is the port number in the example below.
-
-   ![get mysql server jdbc connection string](./media/howto-deploy-java-liberty-app/mysql-server-jdbc-connection-string.png)
-
-4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one.
-    > [!NOTE]
-    >
-    > * Write down **Database name** you created.
-
 ### Enable the built-in container registry for OpenShift
 
 The steps in this tutorial create a Docker image which must be pushed to a container registry accessible to OpenShift. The simplest option is to use the built-in registry provided by OpenShift. To enable the built-in container registry, follow the steps in [Configure built-in container registry for Azure Red Hat OpenShift 4](built-in-container-registry.md). Three items from those steps are used in this article.
@@ -127,6 +102,31 @@ After creating and connecting to the cluster, install the Open Liberty Operator.
 7. Observe the Open Liberty Operator is successfully installed and ready for use.  If you don't, diagnose and resolve the problem before continuing.
    :::image type="content" source="media/howto-deploy-java-liberty-app/open-liberty-operator-installed.png" alt-text="Installed Operators showing Open Liberty is installed.":::
 
+### Create an Azure Database for MySQL(Only if your application requires)
+
+Follow the instructions below to set up an Azure Database for MySQL for use with your app.
+
+1. Create a single database in Azure SQL Database by following the steps in: [Quickstart: Create an Azure Database for MySQL server by using the Azure portal](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal).
+    > [!NOTE]
+    >
+    > * At **Basics** step, write down ***Server name**.mysql.database.azure.com*, **Server admin login** and **Password**.
+
+2. Once your database is created, open **your SQL server** > **Connection security** and complete the following settings:
+   * Set **Allow access to Azure services** to **Yes**.
+   * Select **Add current client IP address**. 
+   * Set **Minimal TLS Version** to **>1.0** > Select **Save**.
+
+   ![configure mysql database connection security rule](./media/howto-deploy-java-liberty-app/configure-mysql-database-connection-security.png)
+
+3. Open **your SQL database** > **Connection strings** > Select **JDBC**. Write down the **Port number** following sql server address. For example, **3306** is the port number in the example below.
+
+   ![get mysql server jdbc connection string](./media/howto-deploy-java-liberty-app/mysql-server-jdbc-connection-string.png)
+
+4. If you didn't create a database in above steps, follow the steps in [Quickstart: Create an Azure Database for MySQL server by using the Azure portal#connect-to-the-server-by-using-mysqlexe](/azure/mysql/quickstart-create-mysql-server-database-using-azure-portal#connect-to-the-server-by-using-mysqlexe) to create one.
+    > [!NOTE]
+    >
+    > * Write down **Database name** you created.
+
 ## Prepare the Liberty application
 
 We'll use a Java EE 8 application as our example in this guide. Open Liberty is a [Java EE 8 full profile](https://javaee.github.io/javaee-spec/javadocs/) compatible server, so it can easily run the application.  Open Liberty is also [Jakarta EE 8 full profile compatible](https://jakarta.ee/specifications/platform/8/apidocs/).
@@ -177,6 +177,7 @@ Now that you have gathered the necessary properties, you can build the applicati
 
 ```bash
 cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+
 # The following variables will be used for deployment file generation
 export DB_SERVER_NAME=<Server name>.mysql.database.azure.com
 export DB_PORT_NUMBER=3306
@@ -184,6 +185,7 @@ export DB_NAME=<Database name>
 export DB_USER=<Server admin username>@<Database name>
 export DB_PASSWORD=<Server admin password>
 export NAMESPACE=open-liberty-demo
+
 mvn clean install
 ```
 
@@ -192,24 +194,21 @@ mvn clean install
 Use the `liberty:devc` to run and test it locally before dealing with any Azure complexity. For more information on `liberty:devc`, see the [Liberty Plugin documentation](https://github.com/OpenLiberty/ci.maven/blob/main/docs/dev.md#devc-container-mode).
 We've prepared the *Dockerfile-local* and *Dockerfile-wlp-local* for it in the sample application.
 
-1. Start your local docker environment if you haven't done so already.
-
-  ```bash
-  sudo dockerd
-  ```
+1. Start your local docker environment if you haven't done so already. The instructions for doing this vary depending on the host operating system.
 
 1. Start the application in `liberty:devc` mode
 
   ```bash
   cd <path-to-your-repo>/javaee-app-db-using-actions/mssql
+
   # If you are running with Open Liberty
-  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-local
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-local
   
   # If you are running with WebSphere Liberty
-  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -DdockerRunOpts="--net=host" -Ddockerfile=target/Dockerfile-wlp-local
+  mvn liberty:devc -Ddb.server.name=${DB_SERVER_NAME} -Ddb.port.number=${DB_PORT_NUMBER} -Ddb.name=${DB_NAME} -Ddb.user=${DB_USER} -Ddb.password=${DB_PASSWORD} -Ddockerfile=target/Dockerfile-wlp-local
   ```
 
-1. Verify the application works as expected. You should see `The defaultServer server is ready to run a smarter planet.` in the command output if successful. Go to the URL in this output and verify the application is accessible and all functions are working.
+1. Verify the application works as expected. You should see `[INFO] [AUDIT] CWWKZ0003I: The application javaee-cafe updated in 1.930 seconds.` in the command output if successful. Go to `http://localhost:9080/` in your browser and verify the application is accessible and all functions are working.
 
 1. Press `Ctrl+C` to stop `liberty:devc` mode.
 
@@ -251,10 +250,12 @@ After successfully running the app in the Liberty Docker container, you can run 
 
 ```bash
 cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql
+
 # Fetch maven artifactId as image name, maven build version as image version
 IMAGE_NAME=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.artifactId}' --non-recursive exec:exec)
 IMAGE_VERSION=$(mvn -q -Dexec.executable=echo -Dexec.args='${project.version}' --non-recursive exec:exec)
 cd <path-to-your-repo>/open-liberty-on-aro/3-integration/connect-db/mysql/target
+
 # If you are build with Open Liberty base image
 docker build -t ${IMAGE_NAME}:${IMAGE_VERSION} --pull --file=Dockerfile .
 # If you are build with WebSphere Liberty base image
@@ -314,7 +315,6 @@ Login Succeeded
 Push image to the built-in container image registry with the following command.
 
 ```bash
-
 docker push ${Container_Registry_URL}/${NAMESPACE}/${IMAGE_NAME}:${IMAGE_VERSION}
 ```
 
