@@ -15,7 +15,7 @@ ms.date: 12/17/2021
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The assert transformation enables custom rules to be set inside your mapping data flows that will determine whether data values per row and per column meet an expected set of values or uniqueness. Essentially, you will assert that the data flowing through your data flow meets a set of criteria which you will define. You can use this transformation to ensure data quality rules are met and to set custom error messages when data validation rules are not met.
+The assert transformation enables you to build custom rules inside your mapping data flows that will determine whether data values per row and per column meet an expected set of values or uniqueness. Essentially, you will assert that the data flowing through your data flow meets a set of criteria which you will define. You can use this transformation to ensure data quality rules are met and to set custom error messages when data validation rules are not met.
 
 ## Configuration
 
@@ -29,12 +29,11 @@ In the assert transformation configuration panel, you will choose the type of as
 
 1. Expect true: The result of your expression must evaluate to a boolean true result. Use this to validate domain value ranges in your data.
 2. Expect unique: Set a column or an expression as a uniqueness rule in your data. Use this to tag duplicate rows.
-3. Expect exists: This option is only available when you have selected a second incoming stream. This will look at both streams and determine if the rows exists in both streams
-based on the columns or the expressions that you have specified.
+3. Expect exists: This option is only available when you have selected a second incoming stream. Exists will look at both streams and determine if the rows exists in both streams based on the columns or the expressions that you have specified.
 
 ### Assert ID
 
-Use this property to enter a (string) name for your assertion. You will be able to use the identifier later downstream in your data flow using ```hasError()``` or to output the assertion failure code.
+Assert ID is a property where you will enter a (string) name for your assertion. You will be able to use the identifier later downstream in your data flow using ```hasError()``` or to output the assertion failure code.
 
 ### Assert description
 
@@ -42,7 +41,7 @@ Enter a string description for your assertion here. You can use expressions and 
 
 ### Filter
 
-This is an optional property where you can filter the assertion to only a subset of rows based on your expression value.
+Filter is an optional property where you can filter the assertion to only a subset of rows based on your expression value.
 
 ### Expression
 
