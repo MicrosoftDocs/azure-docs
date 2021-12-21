@@ -8,6 +8,7 @@ ms.date: 10/01/2020
 ms.service: storage
 ms.subservice: common
 ms.topic: sample
+ms.devlang: cpp
 ---
 
 # Azure Storage samples using v12 C++ client libraries

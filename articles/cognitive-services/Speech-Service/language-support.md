@@ -460,7 +460,7 @@ To learn how you can configure and adjust neural voices, such as Speaking Styles
 > The `en-US-JessaNeural` voice has changed to `en-US-AriaNeural`. If you were using "Jessa" before, convert over to "Aria".
 
 > [!TIP]
-> You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)" in your speech synthesis requests.
+> You can continue to use the full service name mapping like "Microsoft Server Speech Text to Speech Voice (en-US, AriaNeural)" in your speech synthesis requests.
 
 ### Custom neural voice
 
