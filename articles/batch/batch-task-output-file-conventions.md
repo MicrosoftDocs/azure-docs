@@ -207,7 +207,7 @@ The [PersistOutputs](https://github.com/Azure/azure-batch-samples/tree/master/CS
 
 ## Get the Batch File Conventions library for .NET
 
-The Batch File Conventions library for .NET is available on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). The library extends the [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) and [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) classes with new methods. For more informatino, see the [File Conventions library reference documentation](/dotnet/api/microsoft.azure.batch.conventions.files).
+The Batch File Conventions library for .NET is available on [NuGet](https://www.nuget.org/packages/Microsoft.Azure.Batch.Conventions.Files). The library extends the [CloudJob](/dotnet/api/microsoft.azure.batch.cloudjob) and [CloudTask](/dotnet/api/microsoft.azure.batch.cloudtask) classes with new methods. For more information, see the [File Conventions library reference documentation](/dotnet/api/microsoft.azure.batch.conventions.files).
 
 The [File Conventions library source code](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files) is available on GitHub. 
 
