@@ -53,6 +53,22 @@ Follow these steps in the Azure portal to track the order you created using the 
 
     If your order item shows up as **Confirmed** and you need to cancel it for some reason, send an email to [Operations team](mailto:email@example.com) with your request.
 
+## Move order 
+
+You may need to move an order created via Edge Hardware Center to a different subscription or resource group. To move the Edge Hardware Center resource, follow these steps:
+
+
+1. In the Azure portal, go to **All resources**. Filter by **Type == Azure Edge Hardware Center**. This should list all the orders created using the Edge Hardware Center. From the list of orders, select your order and go to the order resource.
+
+    ![Select order from list of Edge Hardware Center orders](media/azure-edge-hardware-center-manage-order/select-order-1.png)
+
+1. In the selected order resource, go to **Overview**. To invoke the resource move, in the right pane:
+
+    1. To move to a different resource group, select Resource group (Move). 
+    1. To move to a different subscription, select Subscription (Move).
+
+    ![Select move Resource group or move subscription](media/azure-edge-hardware-center-manage-order/select-order-1.png)
+
 ## Return hardware
 
 If you used the Azure Edge Hardware Center to order your hardware, follow these steps to initiate the return. The example here is for Azure Stack Edge device but a similar flow applies to returning other hardware as well.

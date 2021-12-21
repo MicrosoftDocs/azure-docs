@@ -31,7 +31,7 @@ sections:
         answer: |
           Yes. If you ordered your hardware unit through the Edge Hardware Center, you can initiate the return process from the Azure portal.  
           
-          In the Azure portal, go to your Azure Edge Hardware Center order item resource. In the **Overview**, go to the top command bar in the right pane and select **Return**. The return option is only enabled after you have received a device. 
+          In the Azure portal, go to your Azure Edge Hardware Center order item resource. In the **Overview**, go to the top command bar in the right pane and select **Return**. The return option is only enabled after you have received a device. For more information, see the steps in [Return hardware](azure-edge-hardware-center-manage-order.md#return-hardware).
           
       - question: |
           Can I order multiple units of hardware at the same time? If so, how?
