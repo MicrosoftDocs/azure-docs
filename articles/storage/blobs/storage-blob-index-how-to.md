@@ -9,6 +9,7 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: how-to
 ms.reviewer: klaasl
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
