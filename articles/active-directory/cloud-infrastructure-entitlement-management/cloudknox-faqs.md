@@ -31,7 +31,7 @@ If you have customer scenarios or ideas for other integrations, contact Steve an
 
 ## I have customers who are interested in learning more about CloudKnox. Who should I contact to find out how to help my customers learn, try, buy, and use CloudKnox? 
 
-Our sales and Global Black Belt (GBB) teams are continuing to sell CloudKnox to Microsoft customers. To begin discussion and learn how you can help connect your customers to the CloudKnox sales team, contact CloudKnox Questions.
+Our sales and Global Black Belt (GBB) teams continue selling CloudKnox to customers. To begin discussion and learn how to connect your customers to the CloudKnox sales team, contact CloudKnox Questions.
 <!---Add link to CloudKnox Questions.--->
 
 ## Where can I learn more about CloudKnox and cloud security?

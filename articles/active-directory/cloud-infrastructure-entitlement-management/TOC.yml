@@ -3,15 +3,6 @@
   #- name: Overview
     #expanded: true
     #items:
-  - name: Integration
-    expanded: true
-    items:
-    - name: Integration with other systems
-      href: cloudknox-product-integrations.md
-    - name: Integration with the CloudKnox API
-      href: cloudknox-api.md
-    - name: Integration with ServiceNow
-      href: cloudknox-servicenow.md     
   - name: Installation
     expanded: true
     items:

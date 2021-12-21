@@ -83,14 +83,14 @@ You can skip this step if permission is assigned at the organization level.
 1. Log in to the [CloudKnox admin console](https://app.cloudknox.io/data-sources/data-collectors).
 2. Select **Dashboard**.
 3. Select the ellipses (**...**) next to the GCP project currently being monitored by CloudKnox Sentry, and then select **Configure Sentry**.
-4. Copy the email and PIN from this project and add them to the Sentry VM command line interface (CLI).
+4. Copy the email and PIN from this project and add them to the Sentry VM command-line interface (CLI).
 5. Use the Secure Shell (SSH) to run the following script in the Sentry VM:
 
     `sudo /opt/cloudknox/sentrysoftwareservice/bin/runGCPConfigCLI.sh`
 
 7. From the dropdown menu, select the projects you want to add.
 
-    The added projects appear in the **Data Sources** page in the CloudKnox Admin Console. 
+    The added projects appear in the **Data Sources** page in the CloudKnox Admin Console.
 
     When you first add a new project, the status displays as **Initializing**. After project data is collected and processed, the status changes to **Online**.
 

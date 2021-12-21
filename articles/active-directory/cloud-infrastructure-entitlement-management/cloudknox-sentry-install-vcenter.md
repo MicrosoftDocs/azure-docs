@@ -39,8 +39,8 @@ The following video demonstrates the deployment and configuration process.
 
       **VM specifications for Sentry**
       - CPU = 2vCPU
-      - Memory = 8GB
-      - Disk = 12GB
+      - Memory = 8 GB
+      - Disk = 12 GB
 
       **Network configuration**
       - Inbound access 9000 or 22 for one time configuration
@@ -58,14 +58,14 @@ The following video demonstrates the deployment and configuration process.
    2. Add privileges for the Just Enough Privilege (JEP) Controller:
        - Administrative
 
-   3. Add details for your network proxy server, if you are using one.
+   3. Add details for your network proxy server, if you're using one.
    4. If you're using a static IP for VM, you must get the IP address before you install Sentry.
    5. To create the Sentry VM, select: https://download.cloudknox.io/software/vcenter/cloudknox-sentry.ova.
 
         Or, download the OVA file and install Sentry in vCenter as VM using the downloaded OVA.
 
      > [!NOTE]
-     > Make sure you deploy with Flash-based vSphere.</p>The HTML5 vSphere interface doesn't display all the fields for IP settings. You may end up with DHCP even if you set static IP. 
+     > Make sure you deploy Sentry in vCenter with Flash-based vSphere.</p>The HTML5 vSphere interface doesn't display all the fields for IP settings. You may end up with DHCP even if you set static IP.
 
    6. Start the Sentry VM.
 
@@ -82,7 +82,7 @@ The following video demonstrates the deployment and configuration process.
 
 3. Enter the email address from the CloudKnox console that generated the PIN. (See step 7 from the previous procedure.)
 4. Enter the PIN obtained in step 7 from the previous procedure.
-5. When you see the following message regarding the network proxy in use for outbound connections, enter **Y** or **N**.
+5. When you see the following message about the network proxy in use for outbound connections, enter **Y** or **N**.
 
      **Is Network Proxy in use to connect outbound(y/n)**
 
@@ -108,7 +108,7 @@ The following video demonstrates the deployment and configuration process.
 
      **Enter LDAP Group Base DN:**
 
-     After you've completed the configuration and the initial collection and processing are run, you can view data on the console.
+     You can view the data on the console after configuration is completed and the initial data collection and processing have run successfully.
 
 ## Modify the VCenter Sentry configuration
 
@@ -116,8 +116,9 @@ The following video demonstrates the deployment and configuration process.
 2. Select **Dashboard**.
 3. Select the ellipses (**...**) next to the VCenter status.
 4. To view the data currently being collected by CloudKnox Sentry, select **Configure Sentry**. 
-5. To enter the Sentry VM, enter the PIN that is generated in the Secure Shell (SSH) .
-6. Run the following script: 
+5. To enter the Sentry VM, enter the PIN generated in the Secure Shell (SSH).
+6. Run the following script:
+
    `/opt/cloudknox/sentrysoftwareservice/bin/runSentryConfigCLI.sh`
 
 <!---## Next steps--->

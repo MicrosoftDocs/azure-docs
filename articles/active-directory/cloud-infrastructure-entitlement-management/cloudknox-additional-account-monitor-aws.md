@@ -27,7 +27,7 @@ To add AWS accounts to the CloudKnox sentry:
  
 ## Create a cross-account IAM role for each AWS account
 
-1. To deploy and create a cross account IAM role on each AWS account you want to monitor, download the [Cloudformation template](https://knox-software.s3.amazonaws.com/cloud-formation/member-account.yaml).
+1. To deploy and create a cross account IAM role on each AWS account you want to monitor, download the [CloudFormation template](https://knox-software.s3.amazonaws.com/cloud-formation/member-account.yaml).
 2. Update the *EC2_ACCOUNT_ID* for the account ID where the Sentry EC2 instance is deployed.
 3. Replace *EC2_ROLE* with the IAM role that is attached to the EC2 instance.
 
@@ -36,11 +36,12 @@ To add AWS accounts to the CloudKnox sentry:
 1. Log in to the [CloudKnox admin console](https://app.cloudknox.io/data-sources/data-collectors).
 2. Select **Dashboard**.
 3. Select the ellipses (**...**) next to the AWS account currently being monitored by CloudKnox Sentry, and then select **Configure Sentry**.
-4. Make a note of the email and PIN displayed under the **Configure Sentry** information. You will need them later.
+4. Make a note of the email and PIN displayed under the **Configure Sentry** information. You'll need them later.
 
 ## Configure Sentry CLI configuration
 
 1. To configure AWS Sentry, run the following script: 
+
    `sudo /opt/cloudknox/sentrysoftwareservice/bin/runAWSConfigCLI.sh`
 2. To add other AWS accounts, select Option 1, **Add new AWS Accounts**.
 3. Enter the **Account ID** and **Role Name** for each AWS account you want to add,until all accounts are added.

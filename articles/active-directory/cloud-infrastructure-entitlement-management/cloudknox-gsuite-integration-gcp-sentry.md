@@ -1,6 +1,6 @@
 ---
-title: GSuite integration for Google Cloud Platform (GCP) Sentry configuration
-description: How to integrate GSuite for Google Cloud Platform (GCP) Sentry configuration.
+title: G Suite integration for Google Cloud Platform (GCP) Sentry configuration
+description: How to integrate G Suite for Google Cloud Platform (GCP) Sentry configuration.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,11 +12,11 @@ ms.date: 12/20/2021
 ms.author: v-ydequadros
 ---
 
-# GSuite integration for Google Cloud Platform (GCP) Sentry configuration
+# G Suite integration for Google Cloud Platform (GCP) Sentry configuration
 
-You can configure the G-Suite Domain-Wide Delegation of Authority to programmatically access a user's data without any manual authorization on the user's part.
+You can configure the G Suite Domain-Wide Delegation of Authority to programmatically access a user's data without any manual authorization on the user's part.
 
-## How to integrate G-Suite for GCP Sentry configuration
+## How to integrate G Suite for GCP Sentry configuration
 
 1. Select **IAM & Admin**, and then select **Service Accounts**.
 2. Select the service account that was created earlier: **knox-sentry-vm-service-account**.
@@ -32,11 +32,11 @@ You can configure the G-Suite Domain-Wide Delegation of Authority to programmati
 10. View the table of service accounts. A new column, **Domain-wide delegation** appears. 
 11. To display the client ID, select **View Client ID**.
 
-     Make a note of the client ID. You will need it later, when you delegate domain-wide authority to your service account.
+     Make a note of the client ID. You'll need it later, when you delegate domain-wide authority to your service account.
 
 ## How to delegate domain-wide authority to your service account
 
-1. Select the [Admin console](admin.google.com) for your G Suite domain.
+1. Select the [Admin console](https://admin.google.com/) for your G Suite domain.
 2. Select **Security**, and then, from the list of controls, select **API Controls**.
 3. Under **Domain-wide delegation**, select **Manage domain-wide delegation**.
 4. Enter the client ID for the service account or the OAuth2 client ID for the application.
@@ -52,7 +52,7 @@ You can configure the G-Suite Domain-Wide Delegation of Authority to programmati
 
 You can delegate Admin API access to a user because the service account must impersonate a user to access the Admin SDK Directory API.
 
-1. Select your G Suite domain’s [Admin console](admin.google.com).
+1. Select your G Suite domain’s [Admin console](https://admin.google.com/).
 2. Create a custom role *GSuiteUserGroupReadOnlyAccess*, and then assign the following permissions:
 
      - Admin API Privileges
@@ -66,11 +66,13 @@ You can delegate Admin API access to a user because the service account must imp
 6. Under **Roles**, select **GSuiteUserGroupReadOnlyAccess**.
 7. Select **Sentry SSH shell**, and then:
 
-     1. Run `sudo /opt/cloudknox/sentrysoftwareservice/bin/runGCPConfigCLI.sh`
+     1. Run:
+
+        `sudo /opt/cloudknox/sentrysoftwareservice/bin/runGCPConfigCLI.sh`
      2. Select option 2.
      3. Enter a user email associated with the **GSuiteUserGroupReadOnlyAccess** role you assigned in Step 6.
      4. From the service account, upload the p12 file to **/opt/cloudknox/config** as *gcp.p12*.
 
-     <!---(You downloaded this p12 file in the How to integrate G-Suite for GCP Sentry Configuration task.)--->
+     <!---(You downloaded this p12 file in the How to integrate G Suite for GCP Sentry Configuration task.)--->
 
 <!---## Next steps--->
