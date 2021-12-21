@@ -33,7 +33,7 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 Microsoft Sentinel now provides a new MITRE coverage page, which highlights the MITRE tactic coverage you currently have, and can configure, in your organization.
 
-For more information, see TBD.
+For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
 
 Reconnaissance - included in V9
 Resource Development - included in V9
