@@ -2,7 +2,7 @@
 title: 'Tutorial: ASP.NET Core with Azure SQL Database' 
 description: Learn how to get a .NET Core app working in Azure App Service, with connection to an Azure SQL Database.
 
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/06/2021
 ms.custom: "devx-track-csharp, mvc, cli-validate, seodec18, devx-track-azurecli"

@@ -154,6 +154,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--include-pattern** string   Include only files where the name matches the pattern list. For example: `*.jpg;*.pdf;exactName`
 
+**--include-regex** string Include only the relative path of the files that align with regular expressions. Separate regular expressions with ';'.
+
 **--log-level** string     Define the log verbosity for the log file, available levels: `INFO`(all requests and responses), `WARNING`(slow responses), `ERROR`(only failed requests), and `NONE`(no output logs). (default `INFO`).
 
 **--mirror-mode**          Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to `true`. Default is `false`.
