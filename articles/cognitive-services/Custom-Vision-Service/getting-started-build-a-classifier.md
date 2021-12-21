@@ -23,6 +23,8 @@ If you don't have an Azure subscription, create a [free account](https://azure.m
 ## Prerequisites
 
 - A set of images with which to train your classifier. See below for tips on choosing images.
+- A [supported web browser](overview.md#supported-browsers-for-custom-vision-website)
+
 
 ## Create Custom Vision resources
 

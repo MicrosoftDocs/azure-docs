@@ -1,7 +1,7 @@
 ---
 title: Resiliency in Azure
 description: Learn about resiliency in Azure.
-author: prsandhu
+author: awysza
 ms.service: azure
 ms.topic: conceptual
 ms.date: 10/21/2021

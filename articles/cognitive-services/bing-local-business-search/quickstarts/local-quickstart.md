@@ -10,7 +10,8 @@ ms.subservice: bing-local-business
 ms.topic: quickstart
 ms.date: 10/22/2020
 ms.author: aahi
-ms.custom: devx-track-csharp, mode-other
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Send a query to the Bing Local Business Search API in C#

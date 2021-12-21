@@ -7,7 +7,8 @@ ms.date: 12/13/2019
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom: devx-track-js, mode-other
+ms.devlang: javascript
+ms.custom: devx-track-js, mode-api
 ---
 
 # Quickstart: Azure Queue Storage client library v12 for JavaScript

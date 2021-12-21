@@ -16,6 +16,10 @@ Azure Automation stores and manages runbooks and then delivers them to one or mo
 
 After you successfully deploy a runbook worker, review [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md) to learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment.
 
+> [!NOTE]
+> A hybrid worker can co-exist with both platforms: **Agent based (V1)** and **Extension based (V2)**. If you install Extension based (V2)on a hybrid worker already running Agent based (V1), then you would see two entries of the Hybrid Runbook Worker in the group. One with Platform Extension based (V2) and the other Agent based (V1). [**Learn more**](/azure/automation/extension-based-hybrid-runbook-worker-install#install-extension-based-v2-on-existing-agent-based-v1-hybrid-worker).
+
+
 ## Prerequisites
 
 Before you start, make sure that you have the following.
@@ -247,6 +251,8 @@ Modules that are installed must be in a location referenced by the `PSModulePath
 ```powershell-interactive
 Remove-HybridRunbookWorker -Url <URL> -Key <primaryAccessKey> -MachineName <computerName>
 ```
+> [!NOTE]
+> After you disable the Private Link in your Automation account, it might take up to 60 minutes to remove the Hybrid Runbook worker.
 
 ## Remove a Hybrid Worker group
 
@@ -258,12 +264,12 @@ To remove a Hybrid Runbook Worker group, you first need to remove the Hybrid Run
 
    ![Properties page](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-group-properties.png)
 
-1. On the properties page for the selected group, select **Delete**. A message asks you to confirm this action. Select **Yes** if you're sure that you want to continue.
+1. On the properties page for the selected group, select **Delete**. A warning message appears to remove any machines that are defined as hybrid workers in the hybrid worker group. If there's already a worker added to the group, you'll first have to delete the worker from the group.
+1. Select **Yes** if you're sure that you want to continue. 
 
-   ![Confirmation message](media/automation-hybrid-runbook-worker/automation-hybrid-runbook-worker-confirm-delete.png)
+This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
 
-   This process can take several seconds to finish. You can track its progress under **Notifications** from the menu.
-
+ 
 ## Next steps
 
 * To learn how to configure your runbooks to automate processes in your on-premises datacenter or other cloud environment, see [Run runbooks on a Hybrid Runbook Worker](automation-hrw-run-runbooks.md).

@@ -51,9 +51,9 @@ You should see the text moderation results displayed as JSON data in the console
 
 ```json
 {
-  "OriginalText": "Is this a crap email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255,\n1 Microsoft Way, Redmond, WA 98052\n",
-  "NormalizedText": "Is this a crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
-  "AutoCorrectedText": "Is this a crap email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
+  "OriginalText": "Is this a <offensive word> email abcdef@abcd.com, phone: 6657789887, IP: 255.255.255.255,\n1 Microsoft Way, Redmond, WA 98052\n",
+  "NormalizedText": "Is this a <offensive word> email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
+  "AutoCorrectedText": "Is this a <offensive word> email abide@ abed. com, phone: 6657789887, IP: 255. 255. 255. 255, \n1 Microsoft Way, Redmond, WA 98052",
   "Misrepresentation": null,
   "PII": {
     "Email": [
@@ -106,7 +106,7 @@ You should see the text moderation results displayed as JSON data in the console
       "Index": 10,
       "OriginalIndex": 10,
       "ListId": 0,
-      "Term": "crap"
+      "Term": "<offensive word>"
     }
   ],
   "Status": {

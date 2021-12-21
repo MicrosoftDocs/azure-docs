@@ -29,9 +29,9 @@ By default, pgAudit log statements are emitted along with your regular log state
 
 ## Enabling pgAudit
 
-The pgAudit extension is pre-installed and enabled on most Hyperscale (Citus)
-server group nodes. If it isn't enabled on your nodes, please open a [support
-request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+The pgAudit extension is pre-installed and enabled on a limited number of
+Hyperscale (Citus) server groups at this time. It may or may not be available
+for preview yet on your server group.
 
 ## pgAudit settings
 

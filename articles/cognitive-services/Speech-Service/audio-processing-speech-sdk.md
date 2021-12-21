@@ -10,6 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/17/2021
 ms.author: hasshah
+ms.devlang: cpp, csharp, java
 ms.custom: devx-track-csharp, ignite-fall-2021
 ---
 
@@ -24,9 +25,6 @@ Key features made available via Speech SDK APIs include:
 * **Beamforming angles** - Specific beamforming angles can be provided to optimize audio input originating from a predetermined location, relative to the microphones.
 
 Processing is performed fully locally where the Speech SDK is being used. No audio data is streamed to Microsoft’s cloud services for processing by the Microsoft Audio Stack. The only exception to this is for the Conversation Transcription Service, where raw audio is sent to Microsoft’s cloud services for processing. 
-
-> [!NOTE]
-> The Speech Devices SDK is now deprecated. Archived versions of the Speech Devices SDK are available [here](speech-devices-sdk.md), with corresponding sample code available on [GitHub](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK). All users of the Speech Devices SDK are advised to migrate to using Speech SDK v1.19 or newer.
 
 ## Reference channel for echo cancellation
 

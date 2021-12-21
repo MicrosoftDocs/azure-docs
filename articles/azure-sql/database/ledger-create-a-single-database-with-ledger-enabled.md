@@ -6,7 +6,7 @@ ms.subservice: security
 ms.topic: quickstart
 author: VanMSFT
 ms.author: vanto
-ms.reviewer: vanto
+ms.reviewer: kendralittle, mathoma
 ms.date: "09/09/2021"
 ms.custom: mode-other
 ---

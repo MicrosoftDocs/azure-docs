@@ -7066,6 +7066,8 @@ Azure service: [Cognitive Services](../cognitive-services/index.yml)
 
 Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/index.yml)
 
+[!INCLUDE [ML Studio (classic) retirement](../../includes/machine-learning-studio-classic-deprecation.md)]
+
 > [!div class="mx-tableFixed"]
 > | Action | Description |
 > | --- | --- |
@@ -7093,7 +7095,7 @@ Azure service: [Machine Learning Studio (classic)](../machine-learning/classic/i
 
 ### Microsoft.MachineLearningServices
 
-Azure service: [Machine Learning Service](../machine-learning/index.yml)
+Azure service: [Machine Learning](../machine-learning/index.yml)
 
 > [!div class="mx-tableFixed"]
 > | Action | Description |

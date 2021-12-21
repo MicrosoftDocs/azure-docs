@@ -2,7 +2,7 @@
 title: Run Linux on virtual machine compute nodes
 description: Learn how to process parallel compute workloads on pools of Linux virtual machines in Azure Batch.
 ms.topic: how-to
-ms.date: 01/21/2021
+ms.date: 12/13/2021
 ms.custom: "H1Hack27Feb2017, devx-track-python, devx-track-csharp"
 ---
 # Provision Linux compute nodes in Batch pools
@@ -268,4 +268,4 @@ If you deploy applications to your Batch nodes using [application packages](batc
 ## Next steps
 
 - Explore the [Python code samples](https://github.com/Azure/azure-batch-samples/tree/master/Python/Batch) in the [azure-batch-samples GitHub repository](https://github.com/Azure/azure-batch-samples) to see how to perform common Batch operations, such as pool, job, and task creation. The [README](https://github.com/Azure/azure-batch-samples/blob/master/Python/Batch/README.md) that accompanies the Python samples has details about how to install the required packages.
-- Learn about using [low-priority VMs](batch-low-pri-vms.md) with Batch.
+- Learn about using [Azure Spot VMs](batch-spot-vms.md) with Batch.

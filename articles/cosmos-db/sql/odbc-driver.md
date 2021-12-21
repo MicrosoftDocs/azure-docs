@@ -1,12 +1,12 @@
 ---
 title: Connect to Azure Cosmos DB using BI analytics tools
 description: Learn how to use the Azure Cosmos DB ODBC driver to create tables and views so that normalized data can be viewed in BI and data analytics software.
-author: SnehaGunda
+author: markjbrown
+ms.author: mjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 10/04/2021
-ms.author: sngun
 
 ---
 
@@ -18,15 +18,17 @@ The Azure Cosmos DB ODBC driver enables you to connect to Azure Cosmos DB using 
 
 The Azure Cosmos DB ODBC driver is ODBC 3.8 compliant and supports ANSI SQL-92 syntax. The driver offers rich features to help you renormalize data in Azure Cosmos DB. Using the driver, you can represent data in Azure Cosmos DB as tables and views. The driver enables you to perform SQL operations against the tables and views including group by queries, inserts, updates, and deletes.
 
-> [!NOTE]
-> If you are using Power BI, please check our native connector [documentation](powerbi-visualize.md).
+## Important information about this ODBC connector.
 
-> [!NOTE]
-> If you are using QlikSense, please check our how-to [documentation](../visualize-qlik-sense.md).
+The current ODBC driver does not support aggregate pushdowns and has known issues with many analytics tools. We are working on building a new version and it's release is expected for the middle of 2022. Please check the alternatives below:
 
+ * Azure Synapse Link is the preferred analytics solution for Azure Cosmos DB. With Synapse Link and Synapse SQL serverless pools, you can use any BI tool to extract near real time insights from your Cosmos DB data, SQL ou MongoDB APIs. For more information, please check our [documentation](../synapse-link.md).
+ * If you are using Power BI, please check our native connector [documentation](powerbi-visualize.md).
+ * If you are using QlikSense, please check our how-to [documentation](../visualize-qlik-sense.md).
 
 > [!NOTE]
 > Connecting to Azure Cosmos DB with the ODBC driver is currently supported for Azure Cosmos DB SQL API accounts only.
+
 
 ## Why do I need to normalize my data?
 Azure Cosmos DB is a schemaless database, which enables rapid application development and the ability to iterate on data models without being confined to a strict schema. A single Azure Cosmos database can contain JSON documents of various structures. This is great for rapid application development, but when you want to analyze and create reports of your data using data analytics and BI tools, the data often needs to be flattened and adhere to a specific schema.

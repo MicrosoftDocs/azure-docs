@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.custom: synapse
 ms.topic: conceptual
-ms.date: 10/07/2021
+ms.date: 12/20/2021
 ---
 
 # Mapping data flow transformation overview
@@ -23,7 +23,7 @@ Below is a list of the transformations currently supported in mapping data flow.
 | ---- | -------- | ----------- |
 | [Aggregate](data-flow-aggregate.md) | Schema modifier | Define different types of aggregations such as SUM, MIN, MAX, and COUNT grouped by existing or computed columns. | 
 | [Alter row](data-flow-alter-row.md) | Row modifier | Set insert, delete, update, and upsert policies on rows. |
-| [Assert](data-flow-alter-row.md) | Row modifier | Set assert rules for each row. |
+| [Assert](data-flow-assert.md) | Row modifier | Set assert rules for each row. |
 | [Conditional split](data-flow-conditional-split.md) | Multiple inputs/outputs | Route rows of data to different streams based on matching conditions. |
 | [Derived column](data-flow-derived-column.md) | Schema modifier | Generate new columns or modify existing fields using the data flow expression language. | 
 | [External call](data-flow-external-call.md) | Schema modifier | Call external endpoints inline row-by-row. | 

@@ -10,6 +10,7 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 05/26/2020
 ms.author: lajanuar
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

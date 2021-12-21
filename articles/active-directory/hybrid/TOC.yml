@@ -4,6 +4,8 @@
   items:
   - name: What is hybrid identity?
     href: whatis-hybrid-identity.md
+  - name: What is inter-directory provisioning?
+    href: what-is-inter-directory-provisioning.md  
     maintainContext: true
 - name: Tutorials
   expanded: true

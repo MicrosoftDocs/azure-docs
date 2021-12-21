@@ -8,7 +8,7 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 10/07/2021
-ms.custom: mode-other
+ms.custom: mode-ui
 ---
 
 # Quickstart: Apply OCR and image analysis using the Import data wizard
