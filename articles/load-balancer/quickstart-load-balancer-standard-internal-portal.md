@@ -8,8 +8,8 @@ ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 08/09/2021
 ms.author: allensu
-ms.custom: mvc, mode-other
-# Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
+ms.custom: mvc, mode-ui
+#Customer intent: I want to create a internal load balancer so that I can load balance internal traffic to VMs.
 ---
 
 # Quickstart: Create an internal load balancer to load balance VMs using the Azure portal
@@ -167,9 +167,6 @@ During the creation of the load balancer, you'll configure:
 8. Select **Dynamic** for **Assignment**.
 
 9. Select **Zone-redundant** in **Availability zone**.
-
-    > [!NOTE]
-    > In regions with [Availability Zones](../availability-zones/az-overview.md?toc=%2fazure%2fvirtual-network%2ftoc.json#availability-zones), you have the option to select no-zone (default option), a specific zone, or zone-redundant. The choice will depend on your specific domain failure requirements. In regions without Availability Zones, this field won't appear. </br> For more information on availability zones, see [Availability zones overview](../availability-zones/az-overview.md).
 
 10. Select **Add**.
 

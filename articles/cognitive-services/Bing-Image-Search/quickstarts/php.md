@@ -11,7 +11,8 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: seodec2018, mode-other
+ms.devlang: php
+ms.custom: seodec2018, mode-api
 ---
 # Quickstart: Search for images using the Bing Image Search REST API and PHP
 

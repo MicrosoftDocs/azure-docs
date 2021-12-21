@@ -76,8 +76,7 @@ Full list of capabilities that are available in JS SDK are listed in the [Callin
 | Add or remove a new PSTN participant  | ❌ | ❌ |
 
 ## Next steps:
--	Use the QuickStart to create and manage a room. 
--	Use the JS Calling SDKs to join the rooms. 
+-	Use the [QuickStart to create, manage and join a room.](../../quickstarts/rooms/get-started-rooms.md)
 -	Review the [Network requirements for media and signaling](../voice-video-calling/network-requirements.md)
 
 

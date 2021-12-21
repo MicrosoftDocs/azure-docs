@@ -11,7 +11,8 @@ ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 03/06/2020
 ms.author: aahi
-ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-other
+ms.devlang: csharp, java, javascript, python
+ms.custom: devx-track-python, devx-track-js, devx-track-csharp, mode-api
 ---
 # Quickstart: Use the Bing Entity Search client library
 

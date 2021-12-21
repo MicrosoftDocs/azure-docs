@@ -104,6 +104,8 @@
           href: /power-bi/connect-data/service-aml-integrate?context=azure/machine-learning/context/ml-context
     - name: "Create a secure workspace"
       href: "tutorial-create-secure-workspace.md"
+    - name: "Create a secure workspace with templates"
+      href: "tutorial-create-secure-workspace-template.md"
 - name: Samples
   items:
     - name: Jupyter Notebooks
@@ -224,6 +226,8 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
+        - name: Vulnerability management
+          href: concept-vulnerability-management.md
 - name: How-to guides
   items:
     - name: Security
@@ -382,6 +386,9 @@
             - name: Label images and text
               displayName: data, dataset, labeling
               href: how-to-label-data.md
+            - name: Add users
+              displayName: data, dataset, labeling
+              href: how-to-add-users.md
             - name: Outsource labeling tasks
               href: how-to-outsource-data-labeling.md
             - name: Create datasets with labels
@@ -471,12 +478,15 @@
               - name: Track, monitor, and analyze runs
                 displayName: cancel, fail, status, child run
                 href: how-to-track-monitor-analyze-runs.md
-              - name: Track experiments with MLflow
+              - name: Track experiments with MLflow and CLI (v2)
                 displayName: log, monitor, metrics, model registry, register
-                href: how-to-use-mlflow.md
+                href: how-to-use-mlflow-cli-runs.md
               - name: Track Azure Databricks runs with MLflow
                 displayName: log, monitor, deploy, metrics, databricks
                 href: how-to-use-mlflow-azure-databricks.md
+              - name: Track experiments with MLflow 
+                displayName: log, monitor, metrics, model registry, register
+                href: how-to-use-mlflow.md  
               - name: Log & view metrics and log files
                 displayName: troubleshoot, log, files, tracing, metrics
                 href: how-to-log-view-metrics.md
@@ -813,8 +823,6 @@
       href: algorithm-module-reference/module-reference.md
     - name: Monitor data reference
       href: monitor-resource-reference.md
-    - name: Machine learning CLI (v1) pipeline YAML reference
-      href: reference-pipeline-yaml.md
     - name: Azure Policy built-ins
       displayName: samples, policies, definitions
       href: ./policy-reference.md

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: SQLSourabh
 ms.author: sourabha
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 12/16/2020
 ---
 

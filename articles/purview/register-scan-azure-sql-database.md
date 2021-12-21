@@ -30,15 +30,15 @@ This article outlines the process to register an Azure SQL data source in Azure 
 
 * An active [Purview resource](create-catalog-portal.md).
 
-* You will need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
+* You'll need to be a Data Source Administrator and Data Reader to register a source and manage it in the Purview Studio. See our [Azure Purview Permissions page](catalog-permissions.md) for details.
 
 ## Register
 
-This section will enable you to register the Azure SQL DB data source and set up an appropriate authentication mechanism to ensure successful scanning of the data source.
+This section will enable you to register the Azure SQL DB data source and set up authentication to scan.
 
 ### Steps to register
 
-It is important to register the data source in Azure Purview prior to setting up a scan for the data source.
+It's important to register the data source in Azure Purview before setting up a scan.
 
 1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
 
@@ -72,41 +72,26 @@ It is important to register the data source in Azure Purview prior to setting up
 
 ### Authentication for a scan
 
-In order to have access to scan the data source, an authentication method in the Azure SQL Database needs to be configured.
+To scan your data source, you'll need to configure an authentication method in the Azure SQL Database.
 The following options are supported:
 
-* **SQL Authentication**
+* [**SQL Authentication**](#using-sql-authentication-for-scanning)
 
-* **System-assigned managed identity** - As soon as the Azure Purview account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant, and has the same name as your Azure Purview account. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to perform the scans.
+* [**System-assigned managed identity**](#using-a-system-or-user-assigned-managed-identity-for-scanning) - As soon as the Azure Purview account is created, a system-assigned managed identity (SAMI) is created automatically in Azure AD tenant, and has the same name as your Azure Purview account. Depending on the type of resource, specific RBAC role assignments are required for the Azure Purview SAMI to be able to scan.
 
-* **User-assigned managed identity** (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. Depending on the type of resource, specific RBAC role assignments are required when using a UAMI credential to perform scans.
+* [**User-assigned managed identity**](#using-a-system-or-user-assigned-managed-identity-for-scanning) (preview) - Similar to a SAMI, a user-assigned managed identity (UAMI) is a credential resource that can be used to allow Azure Purview to authenticate against Azure Active Directory. Depending on the type of resource, specific RBAC role assignments are required when using a UAMI credential to run scans.
 
-* **Service Principal** - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
+* [**Service Principal**](#using-service-principal-for-scanning) - In this method, you can create a new or use an existing service principal in your Azure Active Directory tenant.
 
-##### Configure Azure AD authentication in the database account
-
-The service principal or managed identity must have permission to get metadata for the database, schemas, and tables. It must also be able to query the tables to sample for classification.
-
-- [Configure and manage Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
-- Create Azure AD user in Azure SQL Database with the exact Purview's managed identity or your own service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
-
-    ```sql
-    CREATE USER [Username] FROM EXTERNAL PROVIDER
-    GO
-    
-    EXEC sp_addrolemember 'db_datareader', [Username]
-    GO
-    ```
-
-    > [!Note]
-    > The `Username` is your own service principal or Purview's managed identity. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
+>[!IMPORTANT]
+> If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
 
 #### Using SQL Authentication for scanning
 
 > [!Note]
 > Only the server-level principal login (created by the provisioning process) or members of the `loginmanager` database role in the master database can create new logins. It takes about **15 minutes** after granting permission, the Purview account should have the appropriate permissions to be able to scan the resource(s).
 
-You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database if you don't have this login available. You will need **username** and **password** for the next steps.
+You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-current&preserve-view=true#examples-1) to create a login for Azure SQL Database. You'll' need **username** and **password** for the next steps.
 
 1. Navigate to your key vault in the Azure portal
 
@@ -132,12 +117,35 @@ You can follow the instructions in [CREATE LOGIN](/sql/t-sql/statements/create-l
 
 #### Using a system or user assigned managed identity for scanning
 
-It is important to give your Purview account's system managed identity or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the Azure SQL DB. You can add the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on what you want it to have scan permissions on.
+>[!IMPORTANT]
+> If you are using a [self-hosted integration runtime](manage-integration-runtimes.md) to connect to your resource, system-assigned and user-assigned managed identities will not work. You need to use SQL Authentication or Service Principal Authentication.
+
+##### Configure Azure AD authentication in the database account
+
+The managed identity needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
+
+- If you haven't already, [configure Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Create Azure AD user in Azure SQL Database with the exact Purview's managed identity by following tutorial on [create the user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+
+    ```sql
+    CREATE USER [Username] FROM EXTERNAL PROVIDER
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [Username]
+    GO
+    ```
+
+    > [!Note]
+    > The `Username` is your Purview's managed identity name. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
+
+##### Configure Portal Authentication
+
+It is important to give your Purview account's system-managed identity or [user-assigned managed identity](manage-credentials.md#create-a-user-assigned-managed-identity) the permission to scan the Azure SQL DB. You can add the SAMI or UAMI at the Subscription, Resource Group, or Resource level, depending on the breadth of the scan.
 
 > [!Note] 
 > You need to be an owner of the subscription to be able to add a managed identity on an Azure resource.
 
-1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure SQL Database) that you would like to allow the catalog to scan.
+1. From the [Azure portal](https://portal.azure.com), find either the subscription, resource group, or resource (for example, an Azure SQL Database) that the catalog should scan.
 
 1. Select **Access Control (IAM)** in the left navigation and then select **+ Add** --> **Add role assignment**
 
@@ -151,15 +159,30 @@ It is important to give your Purview account's system managed identity or [user-
 
 ##### Creating a new service principal
 
-If you need to [Create a new service principal](./create-service-principal-azure.md), it is required to register an application in your Azure AD tenant and provide access to Service Principal in your data sources. Your Azure AD Global Administrator or other roles such as Application Administrator can perform this operation.
+If you do not have a service principal, you can [follow the service principal guide to create one.](./create-service-principal-azure.md)
 
-##### Getting the Service Principal's Application ID
-
-1. Copy the **Application (client) ID** present in the **Overview** of the [_Service Principal_](./create-service-principal-azure.md) already created
-
-    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-appln-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
+> [!NOTE]
+> To create a service principal, it's required to register an application in your Azure AD tenant. If you do not have access to do this, your Azure AD Global Administrator, or other roles like Application Administrator can perform this operation.
 
 ##### Granting the Service Principal access to your Azure SQL Database
+
+The service principal needs permission to get metadata for the database, schemas, and tables. It must also be authorized to query the tables to sample for classification.
+
+- If you haven't already, [configure Azure AD authentication with Azure SQL](../azure-sql/database/authentication-aad-configure.md)
+- Create Azure AD user in Azure SQL Database with your service principal by following tutorial on [Create the service principal user in Azure SQL Database](../azure-sql/database/authentication-aad-service-principal-tutorial.md#create-the-service-principal-user-in-azure-sql-database). Assign proper permission (for example: `db_datareader`) to the identity. Example SQL syntax to create user and grant permission:
+
+    ```sql
+    CREATE USER [Username] FROM EXTERNAL PROVIDER
+    GO
+    
+    EXEC sp_addrolemember 'db_datareader', [Username]
+    GO
+    ```
+
+    > [!Note]
+    > The `Username` is your own service principal's name. You can read more about [fixed-database roles and their capabilities](/sql/relational-databases/security/authentication-access/database-level-roles#fixed-database-roles).
+
+##### Create the credential
 
 1. Navigate to your key vault in the Azure portal
 
@@ -169,17 +192,29 @@ If you need to [Create a new service principal](./create-service-principal-azure
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-secret.png" alt-text="Screenshot that shows the key vault option to generate a secret for Service Principal":::
 
-1. Enter the **Name** of your choice and **Value** as the **Client secret** from your Service Principal
+1. Give the secret a **Name** of your choice. 
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-create-secret.png" alt-text="Screenshot that shows the key vault option to enter the secret values":::
 
-1. Select **Create** to complete
+1. The secret's **Value** will be the Service Principal's **Secret Value**. If you have already created a secret for your service principal, you can find its value in **Client credentials** on your secret's overview page.
+
+    If you need to create a secret, you can follow the steps in the [service principal guide](create-service-principal-azure.md#adding-a-secret-to-the-client-credentials).
+
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-client-credentials.png" alt-text="Screenshot that shows the Client credentials for the Service Principal":::
+
+1. Select **Create** to create the secret.
+
+    :::image type="content" source="media/register-scan-azure-sql-database/select-create.png" alt-text="Screenshot that shows the Key Vault Create a secret menu, with the Create button highlighted.":::
 
 1. If your key vault is not connected to Purview yet, you will need to [create a new key vault connection](manage-credentials.md#create-azure-key-vaults-connections-in-your-azure-purview-account)
 
-1. Finally, [create a new credential](manage-credentials.md#create-a-new-credential) using the key to set up your scan
+1. Then, [create a new credential](manage-credentials.md#create-a-new-credential).
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-credentials.png" alt-text="Screenshot that shows the key vault option to add a credentials for Service Principal":::
+
+1. The **Service Principal ID** will be the **Application ID** of your service principal. The **Secret name** will be the name of the secret you created in the previous steps.
+
+    :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-appln-id.png" alt-text="Screenshot that shows the Application (client) ID for the Service Principal":::
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-sp-cred.png" alt-text="Screenshot that shows the key vault option to create a secret for Service Principal":::
 
@@ -224,7 +259,7 @@ A self-hosted integration runtime (SHIR) can be installed on a machine to connec
 
 #### If using a system or user assigned managed identity
 
-1. Provide a **Name** for the scan, select the SAMI or UAMI under **Credential**, choose the appropriate collection for the scan
+1. Provide a **Name** for the scan, select the SAMI or UAMI under **Credential**, choose the appropriate collection for the scan.
 
     :::image type="content" source="media/register-scan-azure-sql-database/register-scan-azure-sql-db-managed-id.png" alt-text="Screenshot that shows the managed identity option to run the scan":::
 

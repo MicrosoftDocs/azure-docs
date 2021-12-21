@@ -24,7 +24,7 @@ Use the QnA Maker client library for python to:
 ## Prerequisites
 
 > [!NOTE]
-> This documentation does not apply to the latest release. To learn about using the Python API with the latest release consult the [question answering Python quickstart](https://docs.microsoft.com/azure/cognitive-services/language-service/question-answering/quickstart/sdk?pivots=programming-language-python).
+> This documentation does not apply to the latest release. To learn about using the Python API with the latest release consult the [question answering Python quickstart](../../language-service/question-answering/quickstart/sdk.md?pivots=programming-language-python).
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services)
 * [Python 3.x](https://www.python.org/)
