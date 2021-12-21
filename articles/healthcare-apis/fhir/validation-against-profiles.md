@@ -41,7 +41,7 @@ The server will always return an `OperationOutcome` as the validation results.
 
 To validate an existing resource, use `$validate` in a `GET` request:
 
-`GET http://<your FHIR service base URL>/{resource}/{resource ID}/$validate'
+`GET http://<your FHIR service base URL>/{resource}/{resource ID}/$validate`
 
 For example:
 
