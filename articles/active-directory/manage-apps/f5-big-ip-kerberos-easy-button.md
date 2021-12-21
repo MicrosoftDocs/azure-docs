@@ -315,7 +315,7 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
 
 * **User Realm Source:** Required if the user domain is different to the BIG-IP’s kerberos realm. In that case, the APM session variable would contain the logged in user domain. For example,*session.saml.last.attr.name.domain*
 
-![Screenshot for SSO and HTTP headers](./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
+   ![Screenshot for SSO and HTTP headers](./media/f5-big-ip-kerberos-easy-button/sso-headers.png)
 
 * **KDC:** IP of a Domain Controller (Or FQDN if DNS is configured & efficient)
 
@@ -325,7 +325,7 @@ Enable **Kerberos** and **Show Advanced Setting** to enter the following:
 
 * **Send Authorization:** Disable for applications that prefer negotiating authentication instead of receiving the kerberos token in the first request. For example, *Tomcat.*
 
-![Screenshot for SSO method configuration](./media/f5-big-ip-kerberos-easy-button/sso-method-config.png)
+   ![Screenshot for SSO method configuration](./media/f5-big-ip-kerberos-easy-button/sso-method-config.png)
 
 
 ### Session Management
