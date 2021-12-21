@@ -144,7 +144,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Documo test user
 
-In this section, a user called Britta Simon is created in Documo. Documo supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Documo, a new one is created after authentication.
+In this section, a user called B.Simon is created in Documo. 
+
+1. Navigate to the [Users page](https://app.documo.com?redirectTo=/users) on the Documo app.
+1. Click the **New user** button.
+1. Fill out the user form with name, email, phone number, user role, and password information. Make sure the **email** field matches the email for B.Simon in **Azure AD**.
+1. Click **Create**.
 
 ## Test SSO 
 
