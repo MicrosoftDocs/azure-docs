@@ -980,11 +980,11 @@ The response to this request looks like the following example:
 You can use ODATA filters to filter the results returned by the list device templates API.
 
 > [!NOTE]
-> Currently, ODATA support is only available for `api-version=1.1-preview`
+> Currently, ODATA support is only available for `api-version=1.1-preview`.
 
 ### $top
 
-Use the **$top** filter to set the result size, the maximum returned result size is 100, the default size is 25.
+Use the **$top** filter to set the result size. The maximum returned result size is 100, and the default size is 25.
 
 Use the following request to retrieve the top 10 device templates from your application:
 
@@ -1170,7 +1170,7 @@ The response to this request looks like the following example:
 
 ### $orderby
 
-Use **$orderby** to sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order, use **desc** to sort in descending order, for example:
+Use **$orderby** to sort the results. Currently, **$orderby** only lets you sort on **displayName**. By default, **$orderby** sorts in ascending order. Use **desc** to sort in descending order, for example:
 
 ```
 $orderby=displayName
@@ -1258,9 +1258,9 @@ The response to this request looks like the following example:
 }
 ```
 
-You can also combine two or more filters
+You can also combine two or more filters.
 
-The following example shows how to retrieve top 2 device templates where the display name contains the string `thermostat`
+The following example shows how to retrieve the top 2 device templates where the display name contains the string `thermostat`.
 
 ```http
 GET https://{subdomain}.{baseDomain}/api/deviceTemplates?api-version=1.1-preview&$filter=contains(displayName, 'thermostat')&$top=2
