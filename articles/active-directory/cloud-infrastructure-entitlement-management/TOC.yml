@@ -87,9 +87,10 @@
     expanded: true
     items:
     - name: Compliance with established guidelines
-      href: cloudknox-product-compliance.md  - name: Reference
+      href: cloudknox-product-compliance.md
+  - name: Reference 
     expanded: true
-    items:
+    items: 
     - name: FAQs (Internal and existing users)
       href: cloudknox-faqs.md
     - name: Multi-cloud glossary
