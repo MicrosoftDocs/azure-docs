@@ -32,32 +32,25 @@ In the assert transformation configuration panel, you will choose the type of as
 3. Expect exists: This option is only available when you have selected a second incoming stream. This will look at both streams and determine if the rows exists in both streams
 based on the columns or the expressions that you have specified.
 
+### Assert ID
+
+Use this property to enter a (string) name for your assertion. You will be able to use the identifier later downstream in your data flow using ```hasError()``` or to output the assertion failure code.
+
+### Assert description
+
+Enter a string description for your assertion here. You can use expressions and row-context column values here as well.
+
+### Filter
+
+This is an optional property where you can filter the assertion to only a subset of rows based on your expression value.
+
 ### Expression
 
-Use the expression builder to set the source for your parsing. This can be as simple as just selecting the source column with the self-contained data that you wish to parse, or you can create complex expressions to parse.
+Enter an expression for evaluation for each of your assertions. You can have multiple assertions for each assert transformation. Each type of assertion requires an expression that ADF will need to evaluation to test if the assertion passed.
 
-#### Example expressions
+### Ignore NULLs
 
-* Source string data: ```chrome|steel|plastic```
-  * Expression: ```(desc1 as string, desc2 as string, desc3 as string)```
-
-* Source JSON data: ```{"ts":1409318650332,"userId":"309","sessionId":1879,"page":"NextSong","auth":"Logged In","method":"PUT","status":200,"level":"free","itemInSession":2,"registration":1384448}```
-  * Expression: ```(level as string, registration as long)```
-
-* Source XML data: ```<Customers><Customer>122</Customer><CompanyName>Great Lakes Food Market</CompanyName></Customers>```
-  * Expression: ```(Customers as (Customer as integer, CompanyName as string))```
-
-### Output column type
-
-Here is where you will configure the target output schema from the parsing that will be written into a single column.
-
-:::image type="content" source="media/data-flow/data-flow-parse-2.png" alt-text="Parse example":::
-
-In this example, we have defined parsing of the incoming field "jsonString" which is plain text, but formatted as a JSON structure. We're going to store the parsed results as JSON in a new column called "json" with this schema:
-
-`(trade as boolean, customers as string[])`
-
-Refer to the inspect tab and data preview to verify your output is mapped properly.
+By default, the assert transformation will include NULLs in row assertion evaluation. You can choose to ignore NULLs with this property.
 
 ## Examples
 
