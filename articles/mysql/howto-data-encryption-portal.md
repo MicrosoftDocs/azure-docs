@@ -99,7 +99,8 @@ After Azure Database for MySQL is encrypted with a customer's managed key stored
 
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot of Azure Database for MySQL, with revalidation step highlighted":::
 
-   You will have to give the key vault access to the new server.
+   You will have to give the key vault access to the new server. 
+  Reference document- https://docs.microsoft.com/en-us/azure/key-vault/general/assign-access-policy?tabs=azure-portal
 
 4. After registering the service principal, revalidate the key again, and the server resumes its normal functionality.
 
