@@ -19,7 +19,7 @@ The assert transformation enables custom rules to be set inside your mapping dat
 
 ## Configuration
 
-In the assert transformation configuration panel, you will choose the type of assert, provide a unique name for the assertion, optional decription, and define the expression and optional filter. The data preview pane will indicate which rows failed your assertions. Additionally, you can test each row tag downstream using ```isError()``` and ```hasError()``` for rows that failed assertions.
+In the assert transformation configuration panel, you will choose the type of assert, provide a unique name for the assertion, optional description, and define the expression and optional filter. The data preview pane will indicate which rows failed your assertions. Additionally, you can test each row tag downstream using ```isError()``` and ```hasError()``` for rows that failed assertions.
 
 :::image type="content" source="media/data-flow/assert-output.png" alt-text="Assert settings":::
 
@@ -28,7 +28,7 @@ In the assert transformation configuration panel, you will choose the type of as
 :::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert settings":::
 
 1. Expect true: The result of your expression must evaluate to a boolean true result. Use this to validate domain value ranges in your data.
-2. Expect unique: Set a column or an expression as a uniqenuess rule in your data. Use this to tag duplicate rows.
+2. Expect unique: Set a column or an expression as a uniqueness rule in your data. Use this to tag duplicate rows.
 3. Expect exists: This option is only available when you have selected a second incoming stream. This will look at both streams and determine if the rows exists in both streams
 based on the columns or the expressions that you have specified.
 
