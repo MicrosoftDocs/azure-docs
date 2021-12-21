@@ -12,9 +12,9 @@ ms.subservice: common
 
 # Use logs to troubleshoot imports and exports via Azure Import/Export
 
-When the Microsoft Azure Import/Export service processes the drives that are associated with an import or export job, it writes copy logs and verbose logs to the storage account that you used for the import or export.
+When the Microsoft Azure Import/Export service processes the drives for an import or export job, the service writes copy logs and verbose logs to the storage account that you used. Both logs are saved for each drive.
 
-* The copy log reports the events that occurred for all failed copy operations between the disk and the Azure Storage account during the import or export. The copy log ends with a summary of errors by error category.
+* The copy log reports events for all failed copy operations between the disk and the Azure Storage account. The copy log ends with a summary of errors by error category.
 
 * The verbose log has a listing of all copy operations that succeeded on every blob and file.
 
@@ -35,7 +35,7 @@ The logs are uploaded to a container (for blob imports and exports) or share (fo
 |copy log   |<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>&#95;CopyLog&#95;<*job-ID*>.xml |
 |verbose log|<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>&#95;VerboseLog&#95;<*job-ID*>.xml|
 
-For export jobs, a manifest file is saved to the disk. *NEEDS VERIFICATION >**If you chose to save a verbose log, the manifest is also saved in the storage account.
+For export jobs, a manifest file is saved to the disk. *NEEDS VERIFICATION:* If you chose to save a verbose log, the manifest also is saved in the storage account.
 
 Each data transfer for a disk generates a copy log. If you chose to save a verbose log when you created the order, there’s also a verbose log in the same folder.
 
@@ -45,7 +45,7 @@ During an import, the Import/Export service generates a verbose log and a copy l
 
 ### Verbose logs
 
-The verbose log is an optional file that you can enable during ordering. It's a simple listing of all files that were successfully imported from the drive, with the following information for each file. The verbose log doesn’t provide summary information.
+The verbose log is an optional file that you can enable during ordering. It's a simple listing of all files that were successfully imported from the drive. The verbose log gives the following information for each file. The verbose log doesn’t provide summary information.
 
 | Field       | Description                                  |
 |-------------|----------------------------------------------|
@@ -73,7 +73,7 @@ Each error entry contains the following information.
 
 The summary at the end of the log (look for `CopyLog Summary`) gives the following information:
 
-*	Drive log version (in this case, 2021-08-01)
+*	Drive log version (in this case, `2021-08-01`)
 *	Drive ID
 *	Data copy status
 *	Summary of validation errors by error category
@@ -85,11 +85,11 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 
 ## Review export logs
 
-During an export, the Import/Export service generates a verbose log and a copy log for each data transfer from Azure Storage to a disk. There's also a manifest file, which is saved to disk and is also saved in the storage account if you choose to save verbose logs for the Import/Export job.
+During an export, the Import/Export service generates a verbose log and a copy log for each data transfer from Azure Storage to a disk. There's also a manifest file, which is saved to the disk. If you choose to save verbose logs for the Import/Export job, the manifest also is saved to the storage account.
 
 ### Verbose log
 
-The verbose log for an export is a simple listing of all files that were successfully exported from the Azure storage account to the drive, with the following information for each file. The verbose log doesn’t provide summary information.
+The verbose log for an export is a simple listing of all files that were successfully exported from the Azure storage account to the drive. Teh verbose log gives the following information for each file. The verbose log doesn’t provide summary information.
 
 | Field       | Description                                  |
 |-------------|----------------------------------------------|
@@ -121,7 +121,7 @@ The copy log for an export reports issues such as a data transfer that fail beca
 
 #### Sample copy log: export
 
-The following is a sample copy log for an export that encountered three file system errors ( `UploadErrorWin32`) that caused the export of three files to fail. Error 267 indicates the directory name is invalid. Error 123 indicates an incorrect filename, directory name, or volume label syntax.
+The following sample is a copy log for an export that came across three file system errors ( `UploadErrorWin32`) that caused the export of three files to fail. Error 267 indicates the directory name is invalid. Error 123 indicates an incorrect filename, directory name, or volume label syntax.
 
 ```xml
 <ErroredEntity CloudFormat="BlockBlob" Path="export-ut-invaliddirblobpath/movie/sc:Aifi/block.blob">
@@ -171,10 +171,10 @@ You'll find the following errors in the copy logs for import jobs and/or export 
 | `UploadErrorDataValidationError`    |CRC computed during data ingestion doesn’t match the CRC computed during upload. |Yes |Yes |
 | `UploadErrorManagedConversionError` |The size of the blob being imported is invalid. The blob size is <*blob-size*> bytes. Supported sizes are between 20971520 Bytes and 8192 GiB. For more information, see [Summary of non-retryable upload errors](../databox/data-box-troubleshoot-data-upload.md#summary-of-non-retryable-upload-errors). |Yes |Yes |
 | `UploadErrorUnknownType`            |Unknown error. |Yes |Yes |
-| `ContainerRenamed`                  |Renamed the container because the original container name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original container has been renamed to DataBox-<*GUID*> from <*original container name*>.|No |Yes |
+| `ContainerRenamed`                  |Renamed the container because the original container name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original container has been renamed to DataBox-<*GUID*> from <*original container name*>. |No |Yes |
 | `ShareRenamed`                      |Renamed the share because the original share name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original share has been renamed to DataBox-<*GUID*> from <*original folder name*>. |No |Yes |
-| `BlobRenamed`                       |Renamed the blob because the original blob name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to BlockBlob/DataBox-<*GUID*> from <*original name*>.|No |Yes |
-| `FileRenamed`                       |Renamed the file because the original file name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*>.. |No |Yes |
+| `BlobRenamed`                       |Renamed the blob because the original blob name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original blob has been renamed to BlockBlob/DataBox-<*GUID*> from <*original name*>. |No |Yes |
+| `FileRenamed`                       |Renamed the file because the original file name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original file has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*>. |No |Yes |
 | `DiskRenamed`                       |Renamed the managed disk file because the original file name doesn't follow [Azure naming conventions for managed disks](../databox/data-box-disk-limits.md#managed-disk-naming-conventions). The original managed disk file was renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*>. |No |Yes |
 | `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. A blob name or file name that ends with a trailing backslash or forward slash can't be exported to disk. |No |Yes |
 | `ExportCloudHttp`                   |Unsupported blob type. |Yes |Yes |
