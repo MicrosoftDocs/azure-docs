@@ -9,7 +9,7 @@ ms.topic: tutorial
 author: aminsaied
 ms.author: amsaied
 ms.reviewer: sgilley
-ms.date: 08/18/2021
+ms.date: 12/21/2021
 ms.custom: devx-track-python, contperf-fy21q3, FY21Q4-aml-seo-hack, contperf-fy21q
 ---
 
@@ -146,18 +146,23 @@ After the script completes, select **Refresh** above the file folders. You'll se
 
 ## Create a Python environment
 
-Create a new Python file in the **get-started** folder called `pytorch-env.yml`:
+Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments.  It's easy to create an environment from a local Conda or pip environment.
 
-```yml
-name: pytorch-env
-channels:
-    - defaults
-    - pytorch
-dependencies:
-    - python=3.6.2
-    - pytorch
-    - torchvision
-```
+First you'll create a file with the package dependencies.  Next, you'll reference that file in your control script.
+
+1. Create a new file in the **get-started** folder called `pytorch-env.yml`:
+    
+    ```yml
+    name: pytorch-env
+    channels:
+        - defaults
+        - pytorch
+    dependencies:
+        - python=3.6.2
+        - pytorch
+        - torchvision
+    ```
+1. On the toolbar, select **Save** to save the file.  Close the tab if you wish.
 
 ## <a name="create-local"></a> Create the control script
 
@@ -202,7 +207,7 @@ if __name__ == "__main__":
       `env = ...`
    :::column-end:::
    :::column span="2":::
-      Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments.  It's easy to create an environment from a local Conda or pip environment.
+      References the dependency file you created above.
    :::column-end:::
 :::row-end:::
 :::row:::
@@ -229,22 +234,19 @@ if __name__ == "__main__":
 1. When the status of the run is **Completed**, select **Output + logs**.
 1. Select **70_driver_log.txt** to view the output of your run.
 
+> [!NOTE]
+> Your log files may be in a different place, depending on your region.  Your log file may be located at **user_logs/std_log.txt** instead.
+
 ```txt
-Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ./data/cifar-10-python.tar.gz
-...
-Files already downloaded and verified
+Downloading https://www.cs.toronto.edu/~kriz/cifar-10-python.tar.gz to ../data/cifar-10-python.tar.gz
+Extracting ../data/cifar-10-python.tar.gz to ../data
 epoch=1, batch= 2000: loss 2.19
 epoch=1, batch= 4000: loss 1.82
 epoch=1, batch= 6000: loss 1.66
-epoch=1, batch= 8000: loss 1.58
-epoch=1, batch=10000: loss 1.52
-epoch=1, batch=12000: loss 1.47
-epoch=2, batch= 2000: loss 1.39
-epoch=2, batch= 4000: loss 1.38
-epoch=2, batch= 6000: loss 1.37
-epoch=2, batch= 8000: loss 1.33
-epoch=2, batch=10000: loss 1.31
-epoch=2, batch=12000: loss 1.27
+...
+epoch=2, batch= 8000: loss 1.51
+epoch=2, batch=10000: loss 1.49
+epoch=2, batch=12000: loss 1.46
 Finished Training
 ```
 
