@@ -27,6 +27,8 @@ landingContent:
         links:
           - text: What is hybrid identity?
             url: whatis-hybrid-identity.md
+          - text: What is inter-directory provisioning?
+            url: whatis-hybrid-identity.md  
  
   # Card
   - title: Determine the best solution to manage the lifecycle of your users and groups

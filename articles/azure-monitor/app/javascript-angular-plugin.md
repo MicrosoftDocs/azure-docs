@@ -81,4 +81,4 @@ export class AppModule { }
 ## Next steps
 
 - To learn more about the JavaScript SDK, see the [Application Insights JavaScript SDK documentation](javascript.md)
-- [Angular plugin on GitHub](https://github.com/microsoft/ApplicationInsights-JS/tree/master/extensions/applicationinsights-angularplugin-js)
+- [Angular plugin on GitHub](https://github.com/microsoft/applicationinsights-angularplugin-js)
