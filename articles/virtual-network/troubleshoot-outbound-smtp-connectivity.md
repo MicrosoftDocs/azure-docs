@@ -33,6 +33,10 @@ Using these email delivery services isn't restricted in Azure, regardless of the
 
 For VMs that are deployed in Enterprise Agreement subscriptions, the outbound SMTP connections on TCP port 25 will not be blocked. However, there is no guarantee that external domains will accept the incoming emails from the VMs. If your emails are rejected or filtered by the external domains, you should contact the email service providers of the external domains to resolve the problems. These problems are not covered by Azure support.
 
+## Enterprise Dev/Test
+
+For Enterprise Dev/Test subscriptions, the 25 port is blocked by default. You need to submit a support ticket to enable the 25 port.
+
 ## Pay-as-you-go
 
 The Azure platform will block outbound SMTP connections on TCP port 25 for VMs that are deployed in Pay-as-you-go subscriptions. It is possible to have this block removed if your Azure subscription is in good standing and has a sufficient payment history. you can request to have the restriction removed by going to the **Cannot send email (SMTP-Port 25)** section of the **Diagnose and Solve** blade for an Azure Virtual Network resource in the [Azure portal](https://portal.azure.com). 
