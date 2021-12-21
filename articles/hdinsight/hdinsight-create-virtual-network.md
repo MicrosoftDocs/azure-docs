@@ -364,7 +364,7 @@ After completing these steps, you can connect to resources in the virtual networ
 
 ## Test your settings before deploying an HDInsight cluster
 
-Before deploying your cluster, you can check that your many of your network configuration settings are correct by running the [HDInsight Network Validator tool](http://aka.ms/hnv/v2) on an Azure Linux virtual machine in the same VNet and subnet as the planned cluster.
+Before deploying your cluster, you can check that your many of your network configuration settings are correct by running the [HDInsight Network Validator tool](https://aka.ms/hnv/v2) on an Azure Linux virtual machine in the same VNet and subnet as the planned cluster.
 
 ## Next steps
 
