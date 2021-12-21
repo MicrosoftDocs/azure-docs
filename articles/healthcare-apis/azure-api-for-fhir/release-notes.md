@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/14/2021
+ms.date: 12/21/2021
 ms.custom: references_regions
 ms.author: cavoeg
 ---
@@ -71,7 +71,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ### **Bug fixes**
 
-|Resolved patch bugs |Related information |
+|Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
 |Wider catch for exceptions when applying patch. |[#2192](https://github.com/microsoft/fhir-server/pull/2192)|
 |Fixes history with PATCH in STU3.| [#2177](https://github.com/microsoft/fhir-server/pull/2177)|
