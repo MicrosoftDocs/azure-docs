@@ -1,8 +1,8 @@
 ---
 title: SAP deployment automation framework DevOps hands-on lab
 description: DevOps Hands-on lab for the SAP Deployment Automation Framework on Azure
-author: kimforss
-ms.author: kimforss
+author: mimergel
+ms.author: mimergel
 ms.reviewer: kimforss
 ms.date: 12/14/2021
 ms.topic: tutorial
@@ -33,7 +33,7 @@ These steps reference and use the [default naming convention](automation-naming.
 - The SAP Systems with SID `X00` will be installed in this SAP workload zone. This leads to the configuration name `DEV-WEEU-SAP01-X00`
 
 > [!Note]
-> In this tutorial the X00 SAP system will be deployed with the folowing characteristics:
+> In this tutorial the X00 SAP system will be deployed with the following characteristics:
 > * No firewall
 > * No high avilability cluster, thus no load balancers
 > * HANA DB VM SKU: Standard_M32ts
@@ -44,6 +44,6 @@ These steps reference and use the [default naming convention](automation-naming.
 1. An Azure subscription. If you don't have an Azure subscription, you can [create a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 2. An Azure account with privileges to create a service principal. 
 3. A [download of the SAP software](automation-software.md) in your Azure environment.
-4. An Azure DevOps account. If you don't have an Azure DevOps account, you can [create a free account](https://azure.microsoft.com/en-us/services/devops/).
-5. A service principle with contributor rights on the subscription. Follow these instructions to [create the service principle](https://docs.microsoft.com/en-us/azure/virtual-machines/workloads/sap/automation-deploy-control-plane?tabs=linux#prepare-the-deployment-credentials) using [Azure cloud shell](https://docs.microsoft.com/en-us/azure/cloud-shell/overview). 
+4. An Azure DevOps account. If you don't have an Azure DevOps account, you can [create a free account here](https://azure.microsoft.com/en-us/services/devops/).
+5. A service principal with contributor rights on the subscription. Follow these instructions to [create the service principal](/azure/virtual-machines/workloads/sap/automation-deploy-control-plane?tabs=linux#prepare-the-deployment-credentials) using [Azure cloud shell](/azure/cloud-shell/overview). 
 
