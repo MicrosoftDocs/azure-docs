@@ -165,7 +165,8 @@ The following table lists the terms and descriptions shown on the Reservation tr
 | Quantity | Reservation quantity that was purchased |
 | Amount (USD) | Reservation cost |
 
-Note: The newly added Column Purchase month, will help Customer to know in which month the refunds are updated and helps to reconcile the RI refunds. 
+> [!NOTE]
+> The newly added Column Purchase month, will help Customer to know in which month the refunds are updated and helps to reconcile the RI refunds. 
 
 ## CSV report formatting issues
 
