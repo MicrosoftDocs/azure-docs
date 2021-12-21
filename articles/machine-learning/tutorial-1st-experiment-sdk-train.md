@@ -148,7 +148,7 @@ After the script completes, select **Refresh** above the file folders. You'll se
 
 Azure Machine Learning provides the concept of an [environment](/python/api/azureml-core/azureml.core.environment.environment) to represent a reproducible, versioned Python environment for running experiments.  It's easy to create an environment from a local Conda or pip environment.
 
-First you'll create a file with the package dependencies.  Next, you'll reference that file in your control script.
+First you'll create a file with the package dependencies.
 
 1. Create a new file in the **get-started** folder called `pytorch-env.yml`:
     
