@@ -216,6 +216,10 @@ To learn more about exception handling, see [Handle errors and exceptions - RunA
 
 **Q**: Do I have to back up or perform any other tasks before migrating my Scheduler jobs to Logic Apps? <br>
 **A**: As a best practice, always back up your work. Check that the logic apps you created are running as expected before deleting or disabling your Scheduler jobs.
+   
+**Q**: What will happen to my scheduled Azure Web Jobs from Azure Scheduler? <br>
+**A**: Web Jobs using this way of [Scheduling Web Jobs](https://github.com/projectkudu/kudu/wiki/WebJobs#scheduling-a-triggered-webjob) are not using the Azure Scheduler internally. “For the schedule to work it requires the website to be configured as Always On and is not an Azure Scheduler but an internal implementation of a scheduler.”
+ The only type of Web Jobs that would be affected are those that are specifically using Azure Scheduler to run the Web Job by means of the Web Jobs API. You can trigger these WebJobs from a Logic App using the HTTP Action.
 
 **Q**: Is there a tool that can help me migrate my jobs from Scheduler to Logic Apps? <br>
 **A**: Each Scheduler job is unique, so a one-size-fits-all tool doesn't exist. However, based on your needs, you can [edit this script to migrate Azure Scheduler jobs to Azure Logic Apps](https://github.com/Azure/logicapps/tree/master/scripts/scheduler-migration).
