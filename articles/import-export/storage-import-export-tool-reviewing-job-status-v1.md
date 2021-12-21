@@ -41,6 +41,8 @@ Each data transfer for a disk generates a copy log. If you chose to save a verbo
 
 ## Review import logs
 
+During an import, the Import/Export service generates a verbose log and a copy log for each disk. 
+
 ### Verbose logs
 
 The verbose log is an optional file that you can enable during ordering. It's a simple listing of all files that were successfully imported from the drive, with the following information for each file. The verbose log doesn’t provide summary information.
@@ -55,7 +57,6 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 #### Sample verbose log: import
 
 [!INCLUDE [data-box-disk-sample-verbose-log.md](../../includes/data-box-disk-sample-verbose-log.md)]
-
 
 ## Copy logs
 
@@ -82,8 +83,9 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 
 [!INCLUDE [data-box-disk-sample-copy-log.md](../../includes/data-box-disk-sample-copy-log.md)]
 
-
 ## Review export logs
+
+During an export, the Import/Export service generates a verbose log and a copy log for each data transfer from Azure Storage to a disk. There's also a manifest file, which is saved to disk and is also saved in the storage account if you choose to save verbose logs for the Import/Export job.
 
 ### Verbose log
 
