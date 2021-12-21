@@ -15,7 +15,7 @@ ms.date: 12/17/2021
 
 [!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
-The assert transformation enables you to build custom rules inside your mapping data flows for data quality and data validation. You can build rules that will determine whether values meet an expected value domain. Additionally, you can build rules that check for row uniqueness. The assert transformation will help to determine if each row in your data meets a set of criteria. You can use this transformation to ensure data quality rules are met and set custom error messages when data validation rules are not met.
+The assert transformation enables you to build custom rules inside your mapping data flows for data quality and data validation. You can build rules that will determine whether values meet an expected value domain. Additionally, you can build rules that check for row uniqueness. The assert transformation will help to determine if each row in your data meets a set of criteria. The assert transformation also allows you to set custom error messages when data validation rules are not met.
 
 ## Configuration
 
