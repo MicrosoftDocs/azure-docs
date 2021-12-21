@@ -68,7 +68,7 @@ After you create and configure your ARM template and repository, add the reposit
 
    On the **Repositories** screen, the **Public Artifact Repo** and **Public Environment Repo** are automatically present for all labs, and connect to the [DevTest Labs public GitHub repository](https://github.com/Azure/azure-devtestlab). If these repos aren't enabled for your lab, you can enable them by selecting the checkbox next to **Public Artifact Repo** or **Public Environment Repo**, and then selecting **Enable** on the top menu bar. For more information, see [Enable and configure public environments](devtest-lab-create-environment-from-arm.md#enable-and-configure-public-environments).
 
-1. To add your private ARM template repository to the lab, select **Add** in the top menu bar.
+1. To add your ARM template repository to the lab, select **Add** in the top menu bar.
 
    ![Screenshot that shows the Repositories configuration screen.](./media/devtest-lab-create-environment-from-arm/public-repo.png)
 

@@ -7,17 +7,35 @@ ms.date: 12/20/2021
 
 # ARM templates in Azure DevTest Labs
 
-Azure DevTest Labs can use Azure Resource Manager (ARM) templates to quickly and automatically create, modify, and deploy labs and lab resources. You can use ARM templates with Azure PowerShell or Azure CLI automation to create and deploy labs and VMs. You can also use ARM templates to create multi-VM IaaS and PaaS environments in DevTest Labs.
+There are several ways to use Azure Resource Manager (ARM) templates to create, modify, and deploy labs and lab resources in Azure DevTest Labs.
 
-## Work with ARM templates
+- Save an ARM template from any available base image in DevTest Labs, modify the template to meet your needs, and use it to create VMs.
+
+- Use ARM templates with Azure PowerShell or Azure CLI automation to create, deploy, and manage labs and VMs.
+
+- Use ARM environment templates to create multi-VM infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) DevTest Labs environments.
+
+- Use ARM templates for other DevTest Labs functions like adding users or?
+
+## Use ARM templates
+
+In DevTest Labs, you can use your own ARM templates, use publicly available templates as-is, or modify example or base templates and use the modified templates.
+
+### Create your own ARM templates
 
 To create ARM templates, follow the steps at [Create your first Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md). You can use the approaches or examples provided, and modify the templates for your needs. [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md) has many guidelines and suggestions for creating reliable, easy to use ARM templates. [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) provides general information about using Azure PowerShell with ARM templates to deploy resources to Azure.
+
+### Use publicly available ARM templates
 
 The public [DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) has preconfigured [ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) and [scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) that you can use as-is, or customize for your needs.
 
 You can also save any available VM base image from the Azure portal as an ARM template. You can use the template to create VMs with that image, or modify the template to meet your needs. For more information, see [View, edit, and save an ARM template for a VM](devtest-lab-use-resource-manager-template.md#view-edit-and-save-an-arm-template-for-a-vm).
 
-Store your customized and modified ARM templates under source control in a public or private Git repository. You can connect the public template repository and your private repositories to DevTest Labs so lab users can use the templates directly from the portal. For more information, see [Store ARM templates in Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories) and [Add template repositories to labs](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs).
+### Make templates available in DevTest Labs
+
+Store your authored, customized, and modified ARM templates under source control in a public or private Git repository. For more information and instructions, see [Store ARM templates in Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories).
+
+You can connect the public template repository and your private repositories to DevTest Labs so lab users can use the templates directly from the portal.  and [Add template repositories to labs](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs).
 
 Lab users can create environments by selecting an ARM environment template in the DevTest Labs portal, just as they can select and create individual [VM base images](devtest-lab-comparing-vm-base-image-types.md). For information and instructions on creating environments from ARM templates, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
 
