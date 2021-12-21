@@ -12,7 +12,7 @@ ms.custom: devx-track-js
 
 # Configure application settings for Azure Static Web Apps
 
-Application settings hold configuration settings for values that may change, such as database connection strings. Adding application settings allows you to modify the configuration input to your app, without having to change application code.
+Application settings hold configuration values that may change, such as database connection strings. Adding application settings allows you to modify the configuration input to your app, without having to change application code.
 
 Application settings:
 
@@ -62,7 +62,7 @@ The `local.settings.json` file is not tracked by the GitHub repository because s
 
 Generally, configuring your settings is done infrequently, and isn't required with every build.
 
-## <a name="configure-application-settings"></a>Configure application settings in Azure
+## <a name="configure-application-settings"></a>Configure API application settings in Azure
 
 You can configure application settings via the Azure portal or with the Azure CLI.
 
@@ -98,7 +98,7 @@ You can use the `az staticwebapp appsettings` command to update your settings in
    az staticwebapp appsettings set --name <YOUR_APP_ID> --setting-names "message=Hello world"
    ```
 
-  > [!INFORMATION]
+  > [!TIP]
   > You can add or update multiple settings by passing multiple name-value pairs to `--setting-names`.
 
 ### View application settings with the Azure CLI
@@ -121,7 +121,7 @@ Application settings can be deleted through the Azure CLI.
    az staticwebapp appsettings delete --name <YOUR_APP_ID> --setting-names "message"
    ```
 
-  > [!INFORMATION]
+  > [!TIP]
   > You can delete multiple settings by passing multiple name-value pairs to `--setting-names`.
 
 ## Next steps
