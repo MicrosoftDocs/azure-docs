@@ -44,7 +44,7 @@ Create a new Azure Maps account with the following steps:
     * Read the *License* and *Privacy Statement*, and check the checkbox to accept the terms.
     * Select the **Create** button.
 
-    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="Create Maps account in portal":::
+    :::image type="content" source="./media/quick-demo-map-app/create-account.png" alt-text="A screen shot that shows the Create Maps account pane in the Azure portal":::
 
 ## Get the primary key for your account
 
@@ -57,7 +57,7 @@ Once your Maps account is successfully created, retrieve the primary key that en
 >[!NOTE]
 > If you use the Azure subscription key instead of the Azure Maps primary key, your map won't render properly. Also, for security purposes, it is recommended that you rotate between your primary and secondary keys. To rotate keys, update your app to use the secondary key, deploy, then press the cycle/refresh button beside the primary key to generate a new primary key. The old primary key will be disabled. For more information on key rotation, see [Set up Azure Key Vault with key rotation and auditing](../key-vault/secrets/tutorial-rotation-dual.md)
 
-![Get Primary Key Azure Maps key in Azure portal](media/quick-android-map/get-key.png)
+![A screen shot showing the Azure Maps Primary key in the Azure portal](media/quick-android-map/get-key.png)
 
 ## Create a project in Android Studio
 
@@ -70,7 +70,7 @@ First, create a new project with an empty activity. Complete these steps to crea
 
 See the [Android Studio documentation](https://developer.android.com/studio/intro/) for more help with installing Android Studio and creating a new project.
 
-![Create a project in Android studio](media/quick-android-map/form-factor-android.png)
+![A Create new project screen shot in Android studio](media/quick-android-map/form-factor-android.png)
 
 ## Set up a virtual device
 
@@ -78,7 +78,7 @@ Android Studio lets you set up a virtual Android device on your computer. Doing 
 
 You can learn more about setting up an AVD in the [Android Studio documentation](https://developer.android.com/studio/run/managing-avds).
 
-![Android Emulator](media/quick-android-map/android-emulator.png)
+![A screen shot of the Android Emulator in Android Studio](media/quick-android-map/android-emulator.png)
 
 ## Install the Azure Maps Android SDK
 
@@ -337,11 +337,11 @@ The next step in building your application is to install the Azure Maps Android 
 
 5. Select the run button, as shown in the following graphic (or press `Control` + `R` on a Mac), to build your application.
 
-    ![Select Run](media/quick-android-map/run-app.png)
+    ![A screen shot showing the run button in Android Studio.](media/quick-android-map/run-app.png)
 
 Android Studio will take a few seconds to build the application. After the build is complete, you can test your application in the emulated Android device. You should see a map like this one:
 
-![Azure Maps in Android application](media/quick-android-map/quickstart-android-map.png)
+![A screen shot showing Azure Maps in an Android application](media/quick-android-map/quickstart-android-map.png)
 
 ## Clean up resources
 
