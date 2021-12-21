@@ -566,7 +566,7 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
 1. Use one of the following options to deploy your data connector:
 
-    # <a name="deploy-arm"></a>[ARM template](#tab/arm-template)
+    # <a name="deploy-arm"></a>[Deploy via ARM template](#tab/deploy-via-arm-template)
 
     Use your JSON configuration file to create an Azure Resource Manager (ARM) template to use when deploying your connector.
 
@@ -590,7 +590,7 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
     For more information, see [Deploy a local template](/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-powershell) in the Azure Resource Manager documentation.
 
-    # <a name="deploy-api"></a>[API](#tab/api)
+    # <a name="deploy-api"></a>[Deploy via API](#tab/deploy-via-api)
 
     1. Authenticate to the Azure API. For more information, see [Getting started with REST](/rest/api/azure/).
 
@@ -602,13 +602,13 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
     When you use the Azure portal to connect, user data is sent automatically. When you connect via API, you'll need to send the relevant authentication parameters in the API call.
 
-    # <a name="auth-portal"></a>[Azure portal](#tab/azure-portal)
+    # <a name="auth-portal"></a>[Connect via the Azure portal](#tab/connect-via-the-azure-portal)
 
     In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
 
     The data connector page in Microsoft Sentinel is controlled by the [InstructionStep](#instructionstep) configuration in the `connectorUiConfig` element of the [CCP JSON configuration](#define-your-connector-json-configuration) file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
 
-    # <a name="auth-api"></a>[API](#tab/api)
+    # <a name="auth-api"></a>[Connect via API](#tab/connect-via-api)
 
     Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
 
@@ -646,19 +646,13 @@ If you no longer need your connector's data, disconnect the connector to stop th
 
 Use one of the following methods:
 
-# <a name="disconnect-portal"></a>[Azure portal](#tab/portal)
+- **Azure portal**: In your Microsoft Sentinel data connector page, select **Disconnect**.
 
-In your Microsoft Sentinel data connector page, select **Disconnect**.
-# <a name="disconnect-api"></a>[API](#tab/api)
+- **API**: Use the [DISCONNECT](#disconnect) API to send a PUT call with an empty body to the following URL:
 
-Use the [DISCONNECT](#disconnect) API to send a PUT call with an empty body to the following URL:
-
-```rest
-https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
-```
-
----
-
+    ```rest
+    https://management.azure.com /subscriptions/{{SUB}}/resourceGroups/{{RG}}/providers/Microsoft.OperationalInsights/workspaces/{{WS-NAME}}/providers/Microsoft.SecurityInsights/dataConnectors/{{Connector_Id}}/disconnect?api-version=2021-03-01-preview
+    ```
 
 ## Supported REST API actions
 
