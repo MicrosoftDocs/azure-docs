@@ -4,7 +4,7 @@ description: Learn how to create a MongoDB app with Angular and Node on Azure Co
 author: johnpapa
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.author: jopapa

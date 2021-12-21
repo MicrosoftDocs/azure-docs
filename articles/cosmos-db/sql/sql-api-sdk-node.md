@@ -4,7 +4,7 @@ description: Learn all about the SQL Node.js API and SDK including release dates
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: reference
 ms.date: 12/09/2021
 ms.author: anfeldma

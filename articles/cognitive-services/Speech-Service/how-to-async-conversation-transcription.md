@@ -8,6 +8,7 @@ ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/04/2019
+ms.devlang: csharp, java
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-twenty-one
 ---

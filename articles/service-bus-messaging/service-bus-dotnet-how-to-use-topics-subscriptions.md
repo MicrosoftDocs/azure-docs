@@ -4,7 +4,8 @@ description: This tutorial shows you how to send messages to Azure Service Bus t
 ms.topic: quickstart
 ms.tgt_pltfrm: dotnet
 ms.date: 10/11/2021
-ms.custom: contperf-fy22q2, mode-other
+ms.devlang: csharp
+ms.custom: contperf-fy22q2, mode-api
 ---
 
 # Get started with Azure Service Bus topics and subscriptions (.NET)
