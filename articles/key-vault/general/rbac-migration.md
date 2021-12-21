@@ -108,7 +108,7 @@ There are many differences between Azure RBAC and vault access policy permission
 > [!NOTE]
 > When Azure RBAC permission model is enabled, all scripts which attempt to update access policies will fail. It is important to update those scripts to use Azure RBAC.
 
-## Migrations governance
+## Migration governance
 
 Using the Azure Policy service, you can govern RBAC permission model migration across your vaults. You can create a custom policy definition to audit existing key vaults and enforce all new key vaults to use the Azure RBAC permission model.
 
