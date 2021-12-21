@@ -11,7 +11,7 @@ ms.custom: template-how-to, ignite-fall-2021
 
 # Create a chaos experiment that uses a service-direct fault to fail over an Azure Cosmos DB instance
 
-You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this guide, you will cause a multi-read, single-write Azure Comos DB failover using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against data loss when a failover event occurs.
+You can use a chaos experiment to verify that your application is resilient to failures by causing those failures in a controlled environment. In this guide, you will cause a multi-read, single-write Azure Cosmos DB failover using a chaos experiment and Azure Chaos Studio. Running this experiment can help you defend against data loss when a failover event occurs.
 
 These same steps can be used to set up and run an experiment for any service-direct fault. A **service-direct** fault runs directly against an Azure resource without any need for instrumentation, unlike agent-based faults, which require installation of the chaos agent.
 
@@ -53,8 +53,8 @@ With your Azure Cosmos DB account now onboarded, you can create your experiment.
 6. Verify that your experiment looks correct, then click **Review + create**, then **Create.**
 ![Review and create experiment](images/tutorial-service-direct-add-review.png)
 
-## Give experiment permission to your Azure Cosmos DB account
-When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully.
+## Give experiment permission to your target resource
+When you create a chaos experiment, Chaos Studio creates a system-assigned managed identity that executes faults against your target resources. This identity must be given [appropriate permissions](chaos-studio-fault-providers.md) to the target resource for the experiment to run successfully. These steps can be used for any resource and target type by modifying the role assignment in step #3 to match the [appropriate role for that resource and target type](chaos-studio-fault-providers.md).
 
 1. Navigate to your Azure Cosmos DB account and click on **Access control (IAM)**.
 ![Azure Cosmos DB overview page](images/tutorial-service-direct-access-resource.png)

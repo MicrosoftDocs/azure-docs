@@ -9,6 +9,8 @@ ms.reviewer: tzgitlin
 services: synapse-analytics
 ms.service: synapse-analytics
 ms.subservice: data-explorer
+ms.devlang: csharp, golang, java, javascript, python
+ms.custom: mode-other
 ---
 
 # Configure streaming ingestion on your Azure Synapse Data Explorer pool (Preview)

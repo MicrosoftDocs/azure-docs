@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 04/16/2020
+ms.date: 11/10/2021
 ms.author: alkohli
 ---
 
@@ -75,7 +75,7 @@ You can use the following table to find the correct cord specifications for your
 |Israel|250|2.5|H05VV-F 3x1.00|SI 32|C13|2000|
 |Italy|250|10|H05VV-F 3x0.75|CEI 23-50|C13|1800|
 |Jamaica|125|10|SVE 18/3|NEMA 5-15P|C13|1830|
-|Japan|125|15|VCTF 3x2.00|JIS C 8303|C13|2300|
+|Japan|125|15|VCTF 3x2.00<br>Act on Product Safety of Electrical Appliances and Materials|JIS C 8303|C13|2300|
 |Jordan|250|5|H05Z1Z1-F 3x0.75|BS 1363|C13|1830|
 |Kazakhstan|250|10|H05Z1Z1 3x0.75|CEE 7|C13|1830|
 |Kenya|250|5|H05VV-F 3x0.75|BS1363  SS145/A|C13|1800|

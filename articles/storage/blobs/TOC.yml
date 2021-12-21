@@ -320,6 +320,8 @@ items:
         href: ../common/storage-account-get-info.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
     - name: Create and manage containers
       items:
+      - name: Manage containers using PowerShell
+        href: blob-containers-powershell.md
       - name: Create or delete a container (.NET)
         href: storage-blob-container-create.md
       - name: List containers (.NET)
@@ -656,6 +658,8 @@ items:
         href: https://github.com/microsoft/AzureStorageExplorer/releases
       - name: Troubleshoot Storage Explorer
         href: ../common/storage-explorer-troubleshooting.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json
+      - name: Connect an emulator to Storage Explorer
+        href: ../common/storage-explorer-emulators.md
       - name: Storage Explorer command line options
         href: ../common/storage-explorer-command-line-options.md
       - name: Storage Explorer direct link
@@ -748,6 +752,8 @@ items:
       href: data-lake-storage-introduction.md
   - name: Tutorials
     items:
+    - name: Use with Synapse SQL
+      href: data-lake-storage-use-sql.md
     - name: Use with Databricks and Spark
       href: data-lake-storage-use-databricks-spark.md
     - name: Use with Apache Hive and HDInsight

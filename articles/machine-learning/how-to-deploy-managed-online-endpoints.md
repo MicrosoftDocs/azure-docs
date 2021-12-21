@@ -19,7 +19,7 @@ Learn how to use an online endpoint (preview) to deploy your model, so you don't
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
 
-For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -60,9 +60,6 @@ To set your endpoint name, choose one of the following commands, depending on yo
 For Unix, run this command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
-
-> [!NOTE]
-> We have recently changed the CLI interface: earlier we had both `endpoint` and `deployment` under `az ml endpoint`, now we have separated them into `az ml online-endpoint` and `az ml online-deployment`.  This will make it easier to use endpoints in CI/CD scripts.
 
 > [!NOTE]
 > Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`. 

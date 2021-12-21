@@ -3,7 +3,7 @@ title: What's new in Azure NetApp Files | Microsoft Docs
 description: Provides a summary about the latest new features and enhancements of Azure NetApp Files.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,13 +13,37 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/14/2021
-ms.author: b-juche
+ms.date: 12/14/2021
+ms.author: anfdocs
 ---
 
 # What's new in Azure NetApp Files
 
 Azure NetApp Files is updated regularly. This article provides a summary about the latest new features and enhancements. 
+
+## December 2021
+
+* [NFS protocol version conversion](convert-nfsv3-nfsv41.md) (Preview) 
+
+    In some cases, you might need to transition from one NFS protocol version to another. For instance, when you want an existing NFS NFSv3 volume to take advantage of NFSv4.1 features, you might want to convert the protocol version from NFSv3 to NFSv4.1. Likewise, you might want to convert an existing NFSv4.1 volume to NFSv3 for performance or simplicity reasons. Azure NetApp Files now provides an option that enables you to convert an NFS volume between NFSv3 and NFSv4.1, without requiring creation of new volumes and performing data copies. The conversion operations preserve the data and update the volume export policies as part of the operation.    
+
+* [Single-file snapshot restore](snapshots-restore-file-single.md) (Preview)
+
+    Azure NetApp Files provides ways to quickly restore data from snapshots (mainly at the volume level). See [How Azure NetApp Files snapshots work](snapshots-introduction.md). Options for user file self-restore are available via client-side data copy from the `~snapshot` (Windows) or `.snapshot` (Linux) folders. These operations require data (files and directories) to traverse the network twice (upon read and write). As such, the operations are not time and resource efficient, especially with large data sets. If you do not want to restore the entire snapshot to a new volume, revert a volume, or copy large files across the network, you now have the option to use the single-file snapshot restore feature to restore individual files directly on the service from a volume snapshot without requiring data copy using an external client. This approach will drastically reduce RTO and network resource usage when restoring large files.
+
+* Features that are now generally available (GA)  
+
+    The following features are now GA. You no longer need to register the features before using them.
+
+    * [Dual-protocol (NFSv4.1 and SMB) volume](create-volumes-dual-protocol.md)
+    * [ADDS LDAP over TLS](configure-ldap-over-tls.md)
+    * [SMB3 Protocol Encryption](azure-netapp-files-create-volumes-smb.md#smb3-encryption)
+
+## November 2021
+
+* [Application volume group for SAP HANA](application-volume-group-introduction.md) (Preview)
+
+    Application volume group (AVG) for SAP HANA enables you to deploy all volumes required to install and operate an SAP HANA database according to best practices, including the use of proximity placement group (PPG) with VMs to achieve automated, low-latency deployments. Application volume group for SAP HANA has implemented many technical improvements that simplify and standardize the entire process to help you streamline volume deployments for SAP HANA. 
  
 ## October 2021
 

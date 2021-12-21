@@ -10,8 +10,8 @@ ms.devlang:
 ms.topic: how-to
 author: shohamMSFT
 ms.author: shohamd
-ms.reviewer: vanto
-ms.date: 06/23/2021
+ms.reviewer: kendralittle, vanto, mathoma
+ms.date: 12/15/2021
 ---
 # Rotate the Transparent Data Encryption (TDE) protector
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]

@@ -2,13 +2,13 @@
 title: "Quickstart: Azure Blob Storage library v12 - Xamarin"
 description: In this quickstart, you learn how to use the Azure Blob Storage client library version 12 with Xamarin to create a container and a blob in Blob (object) storage. Next, you learn how to download the blob to your mobile device, and how to list all of the blobs in a container.
 author: codemillmatt
-
 ms.author: masoucou
 ms.date: 10/09/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: devx-track-csharp
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Azure Blob Storage client library v12 with Xamarin

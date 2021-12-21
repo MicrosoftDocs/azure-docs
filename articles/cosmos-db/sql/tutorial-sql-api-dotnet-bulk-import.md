@@ -8,6 +8,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: tutorial
 ms.date: 08/26/2021
 ms.reviewer: sngun
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 # Bulk import data to Azure Cosmos DB SQL API account by using the .NET SDK

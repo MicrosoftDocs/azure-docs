@@ -172,6 +172,6 @@ Point-in-time restore to Azure Arc-enabled SQL Managed Instance has the followin
 
 [Learn more about Features and Capabilities of Azure Arc-enabled SQL Managed Instance](managed-instance-features.md)
 
-[Start by creating a Data Controller](create-data-controller.md)
+[Start by creating a Data Controller](create-data-controller-indirect-cli.md)
 
 [Already created a Data Controller? Create an Azure Arc-enabled SQL Managed Instance](create-sql-managed-instance.md)

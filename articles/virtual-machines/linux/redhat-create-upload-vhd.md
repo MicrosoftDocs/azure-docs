@@ -204,7 +204,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     ```config-grub
     GRUB_CMDLINE_LINUX="rootdelay=300 console=tty1 console=ttyS0,115200n8 earlyprintk=ttyS0,115200 earlyprintk=ttyS0 net.ifnames=0"
     GRUB_TERMINAL_OUTPUT="serial console"
-    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1
+    GRUB_SERIAL_COMMAND="serial --speed=115200 --unit=0 --word=8 --parity=no --stop=1"
     ```
    
     This will also ensure that all console messages are sent to the first serial port and enable interaction with the serial console, which can assist Azure support with debugging issues. This configuration also turns off the new RHEL 7 naming conventions for NICs.
@@ -235,7 +235,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     # subscription-manager repos --enable=rhel-7-server-extras-rpms
     ```
 
-1. Install the Azure Linux Agent, cloud-init and other necesary utilities by running the following command:
+1. Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
 
     ```console
     # sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
@@ -425,7 +425,7 @@ This section assumes that you have already obtained an ISO file from the Red Hat
     ClientAliveInterval 180
     ```
 
-1. Install the Azure Linux Agent, cloud-init and other necesary utilities by running the following command:
+1. Install the Azure Linux Agent, cloud-init and other necessary utilities by running the following command:
 
     ```console
     # sudo yum install -y WALinuxAgent cloud-init cloud-utils-growpart gdisk hyperv-daemons
@@ -1358,8 +1358,7 @@ This section shows you how to prepare a RHEL 7 distro from an ISO using a kickst
     yum install -y cloud-init cloud-utils-growpart gdisk hyperv-daemons
 
     # Configure waagent for cloud-init
-    sed -i 's/Provisioning.UseCloudInit=n/Provisioning.UseCloudInit=y/g' /etc/waagent.conf
-    sed -i 's/Provisioning.Enabled=y/Provisioning.Enabled=n/g' /etc/waagent.conf
+    sed -i 's/Provisioning.Agent=auto/Provisioning.Agent=cloud-init/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.Format=y/ResourceDisk.Format=n/g' /etc/waagent.conf
     sed -i 's/ResourceDisk.EnableSwap=y/ResourceDisk.EnableSwap=n/g' /etc/waagent.conf
 

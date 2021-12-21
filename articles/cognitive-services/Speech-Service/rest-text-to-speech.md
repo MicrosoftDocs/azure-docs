@@ -13,21 +13,21 @@ ms.author: eur
 ms.custom: references_regions
 ---
 
-# Text-to-speech REST API
+# Text-to-Speech REST API
 
 The Speech service allows you to [convert text into synthesized speech](#convert-text-to-speech) and [get a list of supported voices](#get-a-list-of-voices) for a region using a set of REST APIs. Each available endpoint is associated with a region. A subscription key for the endpoint/region you plan to use is required.
 
-The text-to-speech REST API supports neural and standard text-to-speech voices, each of which supports a specific language and dialect, identified by locale.
+The Text-to-Speech REST API supports neural Text-to-Speech voices, which support a specific language and dialect, identified by locale.
 
 * For a complete list of voices, see [language support](language-support.md#text-to-speech).
 * For information about regional availability, see [regions](regions.md#text-to-speech).
 
 > [!IMPORTANT]
-> Costs vary for standard, custom, and neural voices. For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
+> Costs vary for prebuilt neural voices (referred as *Neural* on the pricing page) and custom neural voices (referred as *Custom Neural* on the pricing page). For more information, see [Pricing](https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/).
 
 Before using this API, understand:
 
-* The text-to-speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
+* The Text-to-Speech REST API requires an Authorization header. This means that you need to complete a token exchange to access the service. For more information, see [Authentication](#authentication).
 
 > [!TIP]
 > See [this article](sovereign-clouds.md) for Azure Government and Azure China endpoints.
@@ -65,7 +65,7 @@ The `voices/list` endpoint allows you to get a full list of voices for a specifi
 | West US 2 | `https://westus2.tts.speech.microsoft.com/cognitiveservices/voices/list` |
 
 > [!TIP]
-> [Voices in preview](language-support.md#neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
+> [Voices in preview](language-support.md#prebuilt-neural-voices-in-preview) are only available in these 3 regions: East US, West Europe and Southeast Asia.
 
 ### Request headers
 
@@ -104,19 +104,17 @@ This response has been truncated to illustrate the structure of a response.
 [
 
     {
-    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)",
-    "DisplayName": "Christopher",
-    "LocalName": "Christopher",
-    "ShortName": "en-US-ChristopherNeural",
-    "Gender": "Male",
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+    "DisplayName": "Jenny",
+    "LocalName": "Jenny",
+    "ShortName": "en-US-JennyNeural",
+    "Gender": "Female",
     "Locale": "en-US",
     "StyleList": [
       "chat",
       "customerservice",
       "newscast-casual",
-      "newscast-formal",
-      "cheerful",
-      "empathetic"
+      "assistant",
     ],
     "SampleRateHertz": "24000",
     "VoiceType": "Neural",
@@ -163,7 +161,7 @@ This response has been truncated to illustrate the structure of a response.
     "Locale": "ga-IE",
     "SampleRateHertz": "24000",
     "VoiceType": "Neural",
-    "Status": "Preview"
+    "Status": "GA"
   },
 
   ...
@@ -188,24 +186,10 @@ This response has been truncated to illustrate the structure of a response.
     ],
     "SampleRateHertz": "24000",
     "VoiceType": "Neural",
-    "Status": "Preview"
-  },
-
-    ...
-
-   {
-    "Name": "Microsoft Server Speech Text to Speech Voice (ar-EG, Hoda)",
-    "DisplayName": "Hoda",
-    "LocalName": "هدى",
-    "ShortName": "ar-EG-Hoda",
-    "Gender": "Female",
-    "Locale": "ar-EG",
-    "SampleRateHertz": "16000",
-    "VoiceType": "Standard",
     "Status": "GA"
   },
 
-...
+    ...
 
 ]
 ```
@@ -223,19 +207,19 @@ The HTTP status code for each response indicates success or common errors.
 | 502 | Bad Gateway    | Network or server-side issue. May also indicate invalid headers. |
 
 
-## Convert text-to-speech
+## Convert Text-to-Speech
 
-The `v1` endpoint allows you to convert text-to-speech using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
+The `v1` endpoint allows you to convert Text-to-Speech using [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md).
 
 ### Regions and endpoints
 
-These regions are supported for text-to-speech using the REST API. Make sure that you select the endpoint that matches your subscription region.
+These regions are supported for Text-to-Speech using the REST API. Make sure that you select the endpoint that matches your subscription region.
 
-[!INCLUDE [](../../../includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
+[!INCLUDE [](includes/cognitive-services-speech-service-endpoints-text-to-speech.md)]
 
 ### Request headers
 
-This table lists required and optional headers for text-to-speech requests.
+This table lists required and optional headers for Text-to-Speech requests.
 
 | Header | Description | Required / Optional |
 |--------|-------------|---------------------|
@@ -270,10 +254,10 @@ ogg-48khz-16bit-mono-opus
 
 ### Request body
 
-The body of each `POST` request is sent as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech returned by the text-to-speech service. For a complete list of supported voices, see [language support](language-support.md#text-to-speech).
+The body of each `POST` request is sent as [Speech Synthesis Markup Language (SSML)](speech-synthesis-markup.md). SSML allows you to choose the voice and language of the synthesized speech returned by the Text-to-Speech service. For a complete list of supported voices, see [language support](language-support.md#text-to-speech).
 
 > [!NOTE]
-> If using a custom voice, the body of a request can be sent as plain text (ASCII or UTF-8).
+> If using a custom neural voice, the body of a request can be sent as plain text (ASCII or UTF-8).
 
 ### Sample request
 
@@ -313,4 +297,4 @@ If the HTTP status is `200 OK`, the body of the response contains an audio file 
 
 - [Create a free Azure account](https://azure.microsoft.com/free/cognitive-services/)
 - [Asynchronous synthesis for long-form audio](./long-audio-api.md)
-- [Get started with Custom Neural Voice](how-to-custom-voice.md)
+- [Get started with custom neural voice](how-to-custom-voice.md)
