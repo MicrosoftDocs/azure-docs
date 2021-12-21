@@ -6,7 +6,7 @@ ms.date: 12/03/2021
 ---
 # Deploy Arc for Azure VMware Solution
 
-In this article, you'll learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you'll be ready to execute operations in Azure VMware Solution vCenter from the Azure portal. Operations are related to Create, Read, Update, and Delete (CRUD) Virtual Machines (VM) in Arc enabled Azure VMware Solution private cloud. User can also enable guest management and install Azure extensions once the private cloud is Arc enabled.
+In this article, you'll learn how to deploy Arc for Azure VMware Solution. Once you've set up the components needed for this public preview, you'll be ready to execute operations in Azure VMware Solution vCenter from the Azure portal. Operations are related to Create, Read, Update, and Delete (CRUD) Virtual Machines (VM) in an Arc enabled Azure VMware Solution private cloud. User can also enable guest management and install Azure extensions once the private cloud is Arc enabled.
 
 Before you begin checking off the prerequisites below, verify the following actions have been done:
  
@@ -30,30 +30,32 @@ The following items are needed to ensure you're set up to begin the onboarding p
 >[!NOTE]
 > Only the default port of 443 is supported if you use a different port, Appliance VM creation will fail. 
 
-At this point, you should already have deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
+At this point, you should've already deployed an Azure VMware Solution private cluster. You need to have a connection from your on-prem environment or your native Azure Virtual Network to the Azure VMware Solution private cloud.
 
 For Network planning and setup, use the [Network planning checklist - Azure VMware Solution | Microsoft Docs](/azure/azure-vmware/tutorial-network-checklist)
 
-### Manual registration to Arc for Azure VMware Solution feature set
+### Registration to Arc for Azure VMware Solution feature set
 
-**Register features**
+The following **Register features** are for provider registration using Azure CLI.
 
 ```azurecli
-az feature register --name ConnectedVMwarePreview --namespace Microsoft.ConnectedVMwarevSphere 
-az feature register --name CustomLocations-ppauto --namespace Microsoft.ExtendedLocation 
-az feature register --name Extensions --namespace Microsoft.KubernetesConfiguration 
-az feature register --name Appliances-ppauto --namespace Microsoft.ResourceConnector 
-az feature register –-name AzureArcForAVS --namespace Microsoft.AVS
+az provider register --namespace Microsoft.ConnectedVMwarevSphere 
+az provider register --namespace Microsoft.ExtendedLocation 
+az provider register --namespace Microsoft.KubernetesConfiguration 
+az provider register --namespace Microsoft.ResourceConnector 
+az provider register --namespace Microsoft.AVS
 ```
 
-**Verify features are registered**
+Alternatively, users can log into their Subscription, navigate to the **Resource providers** tab, and register themselves on the resource providers mentioned above.
+
+For feature registration, users will need to log into their **Subscription**, navigate to the **Preview features** tab, and search for "Azure Arc for Azure VMware Solution". Once registered, no other permissions are required for users to access Arc.
+
+To verify registration
 
 ```azurecli
 az feature show --name ConnectedVMwarePreview --namespace Microsoft.ConnectedVMwarevSphere 
-az feature show --name CustomLocations-ppauto --namespace Microsoft.ExtendedLocation 
-az feature show --name Extensions --namespace Microsoft.KubernetesConfiguration 
-az feature show --name Appliances-ppauto --namespace Microsoft.ResourceConnector 
-az feature show –-name AzureArcForAVS --namespace Microsoft.AVS 
+az feature show --name Appliances-pp --namespace Microsoft.ResourceConnector 
+az feature show –-name AzureArcForAVS --namespace Microsoft.AVS
 ```
 
 ## How to deploy Azure Arc
