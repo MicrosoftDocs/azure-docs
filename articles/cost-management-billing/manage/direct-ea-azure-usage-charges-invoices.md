@@ -7,7 +7,7 @@ ms.date: 11/16/2021
 ms.topic: how-to
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: sapnakeshari
+ms.reviewer: RaniChegondi
 ---
 
 # View your usage summary details and download reports for direct EA enrollments
@@ -159,8 +159,14 @@ The following table lists the terms and descriptions shown on the Reservation tr
 | Purchasing account | The purchasing account under which account the reservation made |
 | Billing frequency | Billing frequency of the reservation |
 | Type | Type of the transaction. For example, Purchase or Refund. |
+| Purchase Month | Month of the Purchase |
+| MC (USD) | Indicates the Monetary Committment value |
+| Overage (USD) | Indicates the Service Overage value |
 | Quantity | Reservation quantity that was purchased |
 | Amount (USD) | Reservation cost |
+
+> [!NOTE]
+> The newly added column Purchase Month will help identify in which month the refunds are updated and helps to reconcile the RI refunds. 
 
 ## CSV report formatting issues
 
