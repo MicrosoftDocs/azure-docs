@@ -71,27 +71,18 @@ Some pipelines will add files to the devops repository and require therefore pul
   
   Delete the .gitignore file
   
-  ## Pipeline 1 for the deployment infrastructure
+  ## Control plane deployment
   
-  Create the first pipeline.
-  Go to "Pipelines" -> New pipeline
-  
-    Where is your code? -> Azure Repos Git
-    Select a repository -> `sap-automation`
-    Configure your Pipeline -> Existing Azure Pipeline YAML File 
-      -> Branch: `Main`
-      -> Path: `deploy/pipelines/01-prepare-region.yaml`
-      -> Continue
-    -> Save (Under "More actions" on the right size of the "Run" button)
-    -> Edit -> More Actions -> Triggers
-      Override the YAML continuous integration trigger from here -> Disable continuous integration
-      Tab: Variables -> `Variable groups`
-        -> Link variable group `sap-deployment-general-variables`
-        -> Link variable group `sap-deployment-specific-variables`
-      Tab: YAML -> Name -> `01-prepare-region`
-      Save & queue dropdown -> Save
-      Save build pipeline -> Save
-    
+  Create the control plane pipeline by choosing *New Pipeline* from the Pipelines section and select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File.
+
+| Setting  | Value                                     |
+| -------- | ----------------------------------------- |
+| Branch   | private-preview                           |
+| Path     | `deploy/pipelines/01-prepare-region.yaml` |
+
+Save the Pipeline, to see the Save option click the chevron next to the Run button.
+
+Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three dot menu on the right.
   ## Pipeline 2 for the sap workload zone (landscape)
   
     Same process for pipeline 02-sap-workload-zone.yaml
