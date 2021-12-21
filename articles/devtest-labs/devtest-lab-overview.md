@@ -14,7 +14,7 @@ By using DevTest Labs, you can test the latest versions of your applications by 
 - Easily integrate your deployment pipeline with DevTest Labs to create on-demand environments.
 - Scale up your load testing by creating multiple test agents and pre-prepared environments for training and demos.
 
-> [!VIDEO https://channel9.msdn.com/Blogs/Azure/What-is-Azure-DevTest-Labs/player]
+To learn more about the key concepts of DevTest Labs, see [DevTest Labs concepts](devtest-lab-concepts.md).
 
 ## Cost control and governance
 DevTest Labs makes it easier to control costs by allowing you to do the following tasks:

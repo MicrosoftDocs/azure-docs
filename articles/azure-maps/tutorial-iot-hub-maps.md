@@ -224,7 +224,7 @@ In your example scenario, you only want to receive messages when the rental car 
 
 ## Send telemetry data to IoT Hub
 
-When your Azure function is running, you can now send telemetry data to the IoT hub, which will route it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need the .NET Core SDK 2.1.0 or later on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
+When your Azure function is running, you can now send telemetry data to the IoT hub, which will route it to Event Grid. Use a C# application to simulate location data for an in-vehicle device of a rental car. To run the application, you need [.NET Core SDK 3.1](https://dotnet.microsoft.com/download/dotnet/3.1) on your development computer. Follow these steps to send simulated telemetry data to the IoT hub:
 
 1. If you haven't done so already, download the [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C# project.
 

@@ -1,13 +1,12 @@
 ---
 title: Azure Automanage for virtual machines
 description: Learn about Azure Automanage for virtual machines.
-author: deanwe
-ms.service: virtual-machines
-ms.subservice: automanage
+author: mmccrory
+ms.service: automanage
 ms.workload: infrastructure
 ms.topic: conceptual
 ms.date: 10/19/2021
-ms.author: deanwe
+ms.author: memccror
 ms.custom: references_regions
 ---
 
@@ -72,7 +71,7 @@ If you are enabling Automanage for the first time in a subscription:
 If you are enabling Automanage on a machine in a subscription that already has Automanage machines:
 * **Contributor** role on the resource group containing your machines
 
-The Automanage service will grant **Contributor** permission to this first party application (Automanage API Application Id: d828acde-4b48-47f5-a6e8-52460104a052) to perform actions on Automanaged machines.
+The Automanage service will grant **Contributor** permission to this first party application (Automanage API Application Id: d828acde-4b48-47f5-a6e8-52460104a052) to perform actions on Automanaged machines. Guest users will need to have the **directory reader role** assigned to enable Automanage.
 
 > [!NOTE]
 > If you want to use Automanage on a VM that is connected to a workspace in a different subscription, you must have the permissions described above on each subscription.

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 08/25/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Delegate a subnet to Azure NetApp Files 
 
