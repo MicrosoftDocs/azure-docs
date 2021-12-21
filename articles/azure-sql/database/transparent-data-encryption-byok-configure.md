@@ -83,7 +83,7 @@ For adding permissions to your server on a Managed HSM, add the 'Managed HSM Cry
 - Use the [Get-AzSqlServerTransparentDataEncryptionProtector](/powershell/module/az.sql/get-azsqlservertransparentdataencryptionprotector) cmdlet to confirm that the TDE protector was configured as intended.
 
 > [!NOTE]
-> **(In Preview)** For Managed HSM keys, use Az.Sql 2.11.1 version of PowerShell.
+> For Managed HSM keys, use Az.Sql 2.11.1 version of PowerShell.
 
 > [!NOTE]
 > The combined length for the key vault name and key name cannot exceed 94 characters.
