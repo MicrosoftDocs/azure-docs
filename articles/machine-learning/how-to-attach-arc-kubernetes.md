@@ -298,7 +298,7 @@ Otherwise, if a user-assigned managed identity is specified in Azure Machine Lea
 |Azure resource name  |Role to be assigned|
 |--|--|
 |Azure Service Bus|Azure Service Bus Data Owner|
-|Azure Relay|Azure Relay Owner|Azure Relay Owner|
+|Azure Relay|Azure Relay Owner|
 |Azure Arc-enable Kubernetes|Reader|
 
 The Azure Service Bus and Azure Relay resource are created under the same Resource Group as the Arc cluster.
