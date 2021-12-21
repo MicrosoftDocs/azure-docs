@@ -165,7 +165,7 @@ Provide either one query for all of the data connector's data types, or a differ
 
 ### Metadata
 
-This section provides metadata used when you're [deploying your data connector as an ARM template](#deploy-arm).
+This section provides metadata used when you're [deploying your data connector as an ARM template](#deploy-your-connector-in-microsoft-sentinel-and-start-ingesting-data).
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
@@ -568,7 +568,7 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
     # [Deploy via ARM template](#tab/deploy-via-arm-template)
 
-    <a name="deploy-arm"></a>Use your JSON configuration file to create an Azure Resource Manager (ARM) template to use when deploying your connector.
+    Use your JSON configuration file to create an Azure Resource Manager (ARM) template to use when deploying your connector.
 
     The advantage of deploying via an ARM template is that several values are built-in to the template, and you don't need to define them manually in an API call.
 
@@ -590,7 +590,7 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
     For more information, see [Deploy a local template](/azure/azure-resource-manager/templates/deployment-tutorial-local-template?tabs=azure-powershell) in the Azure Resource Manager documentation.
 
-    # <a name="deploy-api"></a>[Deploy via API](#tab/deploy-via-api)
+    # [Deploy via API](#tab/deploy-via-api)
 
     1. Authenticate to the Azure API. For more information, see [Getting started with REST](/rest/api/azure/).
 
@@ -602,13 +602,13 @@ After creating your [JSON configuration file](#define-your-connector-json-config
 
     When you use the Azure portal to connect, user data is sent automatically. When you connect via API, you'll need to send the relevant authentication parameters in the API call.
 
-    # <a name="auth-portal"></a>[Connect via the Azure portal](#tab/connect-via-the-azure-portal)
+    # [Connect via the Azure portal](#tab/connect-via-the-azure-portal)
 
     In your Microsoft Sentinel data connector page, follow the instructions you've provided to connect to your data connector.
 
     The data connector page in Microsoft Sentinel is controlled by the [InstructionStep](#instructionstep) configuration in the `connectorUiConfig` element of the [CCP JSON configuration](#define-your-connector-json-configuration) file.  If you have issues with the user interface connection, make sure that you have the correct configuration for your authentication type.
 
-    # <a name="auth-api"></a>[Connect via API](#tab/connect-via-api)
+    # [Connect via API](#tab/connect-via-api)
 
     Use the [CONNECT](#connect) endpoint to send a PUT method and pass the JSON configuration directly in the body of the message. For more information, see [auth configuration](#auth-configuration).
 
