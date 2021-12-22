@@ -31,14 +31,40 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ### View MITRE support coverage
 
-Microsoft Sentinel now provides a new MITRE coverage page, which highlights the MITRE tactic coverage you currently have, and can configure, in your organization.
+Microsoft Sentinel now provides a new **MITRE** page, which highlights the MITRE tactic and technique coverage you currently have, and can configure, for your organization.
+
+Select items from the **Active** and **Simulated** menus at the top of the page to view the detections currently active in your workspace, and the simulated detections available for you to configure.
+
+For example:
+
+:::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
+
+MITRE ATT&CK mappings are also available from the following areas in Microsoft Sentinel:
+
+- **[Hunting queries](hunting.md)**. Map your custom hunting queries to one or more MITRE ATT&CK techniques.
+- **[Bookmarks](bookmarks.md)**. Bookmarks that capture results from hunting queries that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
+- **[Analytics rules](detect-threats-built-in.md)** (New!). Map your analytics rules to one or more MITRE ATT&CK techniques, and filter by technique when looking for rules in the **Analytics** page.
+- **[Incidents](investigate-cases.md)** (New!). Incidents created from alerts that are detected by rules that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
 
 For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
 
-Reconnaissance - included in V9
-Resource Development - included in V9
-Impair Process Control - ICS tactics
-Inhibit Response Function -ICS tactics
+#### MITRE ATT&CK version upgrade
+
+We've upgraded the MITRE ATT&CK support throughout Microsoft Sentinel to use the MITRE ATT&CK framework *version 9*.
+
+This update includes support for the following new tactics:
+
+**Replacing the deprecated *PreAttack* tactic**:
+
+- [Reconnaissance](https://attack.mitre.org/versions/v9/tactics/TA0043/)
+- [Resource Development](https://attack.mitre.org/versions/v9/tactics/TA0042/)
+
+**Industrial Control System (ICS) tactics**:
+
+- [Impair Process Control](https://collaborate.mitre.org/attackics/index.php/Impair_Process_Control)
+- [Inhibit Response Function](https://collaborate.mitre.org/attackics/index.php/Inhibit_Response_Function)
+
+
 
 ## January 2022
 ## December 2021

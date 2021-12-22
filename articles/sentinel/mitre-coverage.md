@@ -13,15 +13,17 @@ ms.author: bagol
 
 Microsoft Sentinel analyzes ingested data, not only to [detect threats](detect-threats-built-in.md) help you [investigate](investigate-cases.md), but also to visualize the nature and coverage of your organization's security status.
 
-This article describes how to use the MITRE page in Microsoft Sentinel to view and enhance security coverage in your organization using the tactics and techniques from the MITRE ATT&CK® framework.
+This article describes how to use the **MITRE** page in Microsoft Sentinel to view the detections already active in your workspace, and those available for you to configure, to understand your organization's security coverage, based on the tactics and techniques from the MITRE ATT&CK® framework.
+
+:::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
 ##  View current MITRE coverage
 
-In Microsoft Sentinel, in the **General** menu on the left, select **MITRE**. By default, both currently active scheduled query and NRT rules are displayed in the coverage matrix.
+In Microsoft Sentinel, in the **General** menu on the left, select **MITRE**. By default, both currently active scheduled query and NRT rules are indicated in the coverage matrix.
 
-- Use the legend on the right to understand how many items are highlighted for a specific technique, currently strengthening your organization's security status.
+- Use the legend on the right to understand how many detections are currently active in your workspace for specific technique.
 
-- Use the search bar on the left to search for a specific technique in the matrix, using the technique name or ID. For example, you may want to understand how your organization's security status for a specific technique.
+- Use the search bar on the left to search for a specific technique in the matrix, using the technique name or ID, to view your organization's security status for the selected technique.
 
 - Select a specific technique in the matrix to view more details on the right. There, use the links to jump to any of the following locations:
 
@@ -29,29 +31,21 @@ In Microsoft Sentinel, in the **General** menu on the left, select **MITRE**. By
 
     - Select links to any of the active items to jump to the relevant area in Microsoft Sentinel.
 
-For example:
+When you have the [Microsoft Defender for IoT](data-connectors-reference.md#microsoft-defender-for-iot) data connector connected, two additional columns are displayed, for for *Inhibit Response Function* and *Impair Process Control*.
 
-:::image type="content" source="media/mitre-coverage/current-coverage.png" alt-text="Screenshot of current MITRE coverage with the Drive-by Compromise technique details displayed.":::
+## Simulate possible coverage with available detections
 
-When you have the [Microsoft Defender for IoT](data-connectors-reference.md#microsoft-defender-for-iot) data connector connected, two additional columns are displayed, for <x> and <y>.
-## View available configurations for simulated coverage
+In the MITRE coverage matrix, *simulated* coverage refers to detections that are available, but not currently configured, in your Microsoft Sentinel workspace. View your simulated coverage to understand your organization's possible security status, were you to configure all detections available to you.
 
-In the MITRE coverage matrix, *simulated* coverage refers to security coverage for your environment that's possible to configure using Microsoft Sentinel, but currently is not configured.
+Select items in the **Simulate** menu to simulate your organization's possible security status.
 
-Select items in the **Simulate** menu to highlight additional content you can configure in your Microsoft Sentinel workspace, such as analytics rules or hunting queries, to enhance your organization's security.
-
-
-- Use the legend on the right to understand how many items are available for you to configure.
+- Use the legend on the right to understand how many detections, including analytics rule templates or hunting queries, are available for you to configure.
 
 - Select a specific technique in the matrix to view more details on the right. There, use the links to jump to any of the following locations:
 
     - Select **View technique details** for more information about the selected technique in the MITRE ATT&CK framework knowledge base.
 
-    - Select links to any of the simulation items to jump to the relevant area in Microsoft Sentinel.
-
-For example:
-
-TBD
+    - Select links to any of the simulation items to jump to the relevant area in Microsoft Sentinel. For example, select **Hunting queries** to jump to the **Hunting** page. There, you'll see a filtered list of the hunting queries that are associated with the selected technique, and available for you to configure in your workspace.
 
 When you have the [Microsoft Defender for IoT](data-connectors-reference.md#microsoft-defender-for-iot) data connector connected, two additional columns are displayed, for *Inhibit Response Function* and *Impair Process Control*.
 
@@ -61,14 +55,19 @@ Having a scheduled rule with MITRE techniques applied running regularly in your 
 
 - When configuring analytics rules, select specific MITRE techniques to apply to your rule.
 
-    For example:
-
-    <!--TBD - and also add this in the other procedures-->
-
 - When searching for analytics rules, filter the rules displayed by technique to find your rules quicker.
 
-- When incidents are created for alerts that are surfaced by rules with MITRE techniques configured, the techniques are also added to the incidents. For example:
-
-    <!--TBD -- >
+- When incidents are created for alerts that are surfaced by rules with MITRE techniques configured, the techniques are also added to the incidents.
 
 For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md), [Create custom analytics rules to detect threats](detect-threats-custom.md), and [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
+
+## Next steps
+
+For more information, see:
+
+- [MITRE | ATT&CK framework](https://attack.mitre.org/)
+- [MITRE ATT&CK for Industrial Control Systems](https://collaborate.mitre.org/attackics/index.php/Main_Page)
+- [Detect threats out-of-the-box](detect-threats-built-in.md)
+- [Hunt for threats with Microsoft Sentinel](hunting.md)
+- [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md)
+- [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
