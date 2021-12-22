@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/17/2021
+ms.date: 12/22/2021
 ms.author: jeedes
 ---
 # Tutorial: Azure AD SSO integration with Settling music
@@ -85,6 +85,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 6. On the **Set up Settling music** section, copy the appropriate URL(s) as per your requirement.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
+
+	```Logout URL
+    https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
+    ```
 
 ### Create an Azure AD test user
 
