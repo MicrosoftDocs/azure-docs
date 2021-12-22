@@ -202,5 +202,5 @@ To commit the changes and complete the move of the SignalR resource, delete the 
 
 In this tutorial, you moved an Azure SignalR resource from one region to another and cleaned up the source resources.  To learn more about moving resources between regions and disaster recovery in Azure, refer to:
 
-- [Move resources to a new resource group or subscription](../../azure-resource-manager/management/move-resource-group-and-subscription.md)
-- [Move Azure VMs to another region](../../site-recovery/azure-to-azure-tutorial-migrate.md)
+- [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md)
+- [Move Azure VMs to another region](../site-recovery/azure-to-azure-tutorial-migrate.md)
