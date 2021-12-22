@@ -34,7 +34,7 @@ In order to create teams from Microsoft Sentinel:
 
 - The user creating the team must have Incident write permissions in Microsoft Sentinel. For example, the [Microsoft Sentinel Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder) role is an ideal, minimum role for this privilege.
 
-- The user creating the team must also have permissions to create teams in Microsoft teams.
+- The user creating the team must also have permissions to create teams in Microsoft Teams.
 
 - Any Microsoft Sentinel user, including users with the [Reader](../role-based-access-control/built-in-roles.md#microsoft-sentinel-reader), [Responder](../role-based-access-control/built-in-roles.md#microsoft-sentinel-responder), or [Contributor](../role-based-access-control/built-in-roles.md#microsoft-sentinel-contributor) roles, can gain access to the created team by requesting access.
 
