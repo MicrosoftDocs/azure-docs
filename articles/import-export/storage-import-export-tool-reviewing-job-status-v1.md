@@ -14,7 +14,7 @@ ms.subservice: common
 
 When the Microsoft Azure Import/Export service processes the drives for an import or export job, the service writes copy logs and verbose logs to the storage account that you used. Both logs are saved for each drive.
 
-[!INCLUDE [storage-import-export-verbose-log-copy-log-descriptions.md](../../includes/storage-import-export-verbose-log-copy-log-descriptions.md)
+[!INCLUDE [storage-import-export-verbose-log-copy-log-descriptions.md](../../includes/storage-import-export-verbose-log-copy-log-descriptions.md)]
 
 ## Locate the logs
 
