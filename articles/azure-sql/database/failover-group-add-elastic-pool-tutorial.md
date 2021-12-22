@@ -459,7 +459,7 @@ Use this script to fail back to the primary server with the [az sql failover-gro
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="58-60":::
 
-### CLI failover group management reference
+### Azure CLI failover group management reference
 
 This portion of the tutorial uses the following Azure CLI cmdlets:
 
@@ -502,14 +502,14 @@ This portion of the tutorial uses the following PowerShell cmdlet:
 
 # [Azure CLI](#tab/azure-cli)
 
-Use this script to delete the resource group with the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command.
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
 
    ```azurecli
    echo "Cleaning up resources by removing the resource group..."
    az group delete --name $resourceGroup -y
    ```
 
-## CLI resource group deletion reference
+## Azure CLI resource group deletion reference
 
 This portion of the tutorial uses the following Azure CLI cmdlets:
 

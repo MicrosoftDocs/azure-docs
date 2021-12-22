@@ -344,7 +344,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 
 # [Azure CLI](#tab/azure-cli)
 
-To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup
@@ -352,7 +352,7 @@ az group delete --name $resourceGroup
 
 # [Azure CLI (sql up)](#tab/azure-cli-sql-up)
 
-To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
+Use the following command to remove the resource group and all resources associated with it using the [az group delete](/cli/azure/vm/extension#az_vm_extension_set) command- unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup

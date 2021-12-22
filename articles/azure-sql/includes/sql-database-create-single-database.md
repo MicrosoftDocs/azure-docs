@@ -217,7 +217,7 @@ Use this script to create a database with the [az sql db create](/cli/azure/sql/
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="28-30":::
 
-### CLI command reference
+### Azure CLI command reference
 
 The preceding code uses these Azure CLI commands:
 
