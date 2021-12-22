@@ -263,7 +263,7 @@ In this part of the tutorial, you'll generate a device key from the you group ma
 
 For **both** *eastus* and *westus 2* devices:
 
-1. Generate your unique key using **openssl**. You'll use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice}`with your own unique registration ID for each device. A registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The Last character must be alphanumeric or dash (`'-'`).
+1. Generate your unique key using **openssl**. You'll use the following Bash shell script (replace `{primary-key}` with the enrollment group's **Primary Key** that you copied earlier and replace `{contoso-simdevice}`with your own unique registration ID for each device. The registration ID is a case-insensitive string (up to 128 characters long) of alphanumeric characters plus the special characters: `'-'`, `'.'`, `'_'`, `':'`. The Last character must be alphanumeric or dash (`'-'`).
 
     ```bash
     KEY={primary-key}
