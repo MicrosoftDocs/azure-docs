@@ -40,7 +40,9 @@ items:
       - name: Port a phone number into Azure
         href: quickstarts/telephony/port-phone-number.md
       - name: Add phone calling to your app
-        href: quickstarts/voice-video-calling/pstn-call.md
+        href: quickstarts/telephony/pstn-call.md
+      - name: Add emergency calling to your app
+        href: quickstarts/telephony/emergency-calling.md
   - name: SMS
     items:
       - name: Send an SMS message
@@ -140,6 +142,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Pair the Session Border Controller and configure voice routing
         href: concepts/telephony/direct-routing-provisioning.md
+      - name: Emergency calling in Azure Communication Services
+        href: concepts/telephony/emergency-calling-concept.md 
   - name: SMS
     items:
       - name: SMS SDK overview
