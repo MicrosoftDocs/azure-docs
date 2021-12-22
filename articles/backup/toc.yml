@@ -620,7 +620,7 @@
   - name: Azure CLI
     href: /cli/azure/backup
   - name: Azure Data Protection - CLI
-    href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
+    href: /cli/azure/dataprotection
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices/
   - name: Azure Data Protection - PowerShell

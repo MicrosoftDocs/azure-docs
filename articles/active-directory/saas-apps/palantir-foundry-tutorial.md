@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 11/22/2021
+ms.date: 12/20/2021
 ms.author: jeedes
 
 ---
@@ -70,7 +70,15 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
    ![Edit Basic SAML Configuration](common/edit-urls.png)
 
-1. On the **Basic SAML Configuration** section, perform the following steps:
+1. In the **Basic SAML Configuration** section, if you see **Service Provider metadata file**, follow these steps:
+    1. Select **Upload metadata file**.
+    1. Select the folder icon to select the metadata file which you have downloaded in **Configure Palantir Foundry SSO** section, and then select **Upload**.
+    1. When the metadata file is successfully uploaded, the values for **Identifier** and **Reply URL** appear automatically in the Palantir Foundry section text box.
+
+    > [!Note]
+    > If the **Identifier** and **Reply URL** values don't appear automatically, fill in the values manually according to your requirements.
+
+1. If you don't see **Service Provider metadata file** in the **Basic SAML Configuration** section, perform the following steps:
 
     1. In the **Identifier** text box, type a value using the following pattern: `urn:uuid:<SOME_UUID>`
 
@@ -115,7 +123,27 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Palantir Foundry SSO
 
-To configure single sign-on on **Palantir Foundry** side, you need to send the downloaded **Federation Metadata XML** and appropriate copied URLs from Azure portal to [Palantir Foundry support team](mailto:support@palantir.com). They set this setting to have the SAML SSO connection set properly on both sides.
+1. Log in to the Palantir Foundry as an administrator.
+
+1. In Foundry Control Panel tab, go to the **Authentication** and click **Add SAML provider**. 
+
+    ![Screenshot for Add SAML provider.](./media/palantir-foundry-tutorial/saml-provider.png)
+
+1. Give a valid SAML provider name and click **Create**.
+
+1. Click **Manage** in the **SAML** section.
+
+    ![Screenshot for SAML.](./media/palantir-foundry-tutorial/authentication.png)
+
+1. Perform the following steps in the **SAML** section:
+
+    ![Screenshot for Add SAML configuration.](./media/palantir-foundry-tutorial/configuration.png)
+
+    a. In the SAML integration metadata section, download the **SAML integration metadata XML**, and save it as file in your computer.
+
+    b. In the Identity provider metadata section, click on **Browse** to upload the **Federation Metadata XML** file which you have downloaded from the Azure portal.
+
+    c. Click **Save**.
 
 ### Create Palantir Foundry test user
 

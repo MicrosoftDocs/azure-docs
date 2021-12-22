@@ -28,7 +28,7 @@ Some of the actions you can do using the command set include:
 * Managing [routes](concepts-route-events.md)
 * Configuring [security](concepts-security.md) via Azure role-based access control (Azure RBAC)
 
-The command set is called **az dt**, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
+The command set is called **az dt**, and is part of the [Azure IoT extension for Azure CLI](https://github.com/Azure/azure-iot-cli-extension). You can view the full list of commands and their usage as part of the reference documentation for the `az iot` command set: [az dt command reference](/cli/azure/dt).
 
 ## Uses (deploy and validate)
 
@@ -64,4 +64,4 @@ az extension add --upgrade --name azure-iot
 ## Next steps
 
 Explore the CLI and its full set of commands through the reference docs:
-* [az dt command reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt command reference](/cli/azure/dt)
