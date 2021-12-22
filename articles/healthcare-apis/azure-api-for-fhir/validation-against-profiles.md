@@ -9,7 +9,7 @@ ms.date: 12/22/2021
 ms.author: ginle
 ---
 
-# Validate FHIR resources against profiles
+# Validate FHIR resources against profiles in Azure API for FHIR
 
 `$validate` is an operation in FHIR that allows you to ensure that a FHIR resource conforms to the base resource requirements or a specified profile. This is a valuable operation to ensure that the data in Azure API for FHIR  has the expected attributes and values.
 

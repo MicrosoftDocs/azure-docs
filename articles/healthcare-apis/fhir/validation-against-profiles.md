@@ -9,7 +9,7 @@ ms.date: 12/22/2021
 ms.author: cavoeg
 ---
 
-# Validate FHIR resources against profiles
+# Validate FHIR resources against profiles in Azure Healthcare APIs
 
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
