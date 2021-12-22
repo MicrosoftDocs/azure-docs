@@ -499,7 +499,7 @@ For Java applications and functions, the simplest way to work with a managed ide
     Vault vault = azure.vaults().getByResourceGroup("resourceGroup", "keyVaultName");
 
     ```
-For more information on how to use the Azure SDK for Java, please refer to this [quickstart guide](https://aka.ms/azsdk/java/mgmt).
+For more information on how to use the Azure SDK for Java, please refer to this [quickstart guide](https://aka.ms/azsdk/java/mgmt). To learn more about Azure Identiy and authentication and Managed Identity in general, please visit [this guide](https://github.com/Azure/azure-sdk-for-java/wiki/Azure-Identity-Examples#authenticating-a-user-assigned-managed-identity-with-defaultazurecredential)
 
 ## <a name="remove"></a>Remove an identity
 
