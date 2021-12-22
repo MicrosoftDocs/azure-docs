@@ -171,7 +171,7 @@ System.out.println();
 System.out.println("File contents read.");
 ```
 
-<!-- ## Concatenate files
+## Concatenate files
 
 The following snippet concatenates two files in a Data Lake Storage Gen2 account. If successful, the concatenated file replaces the two existing files.
 
@@ -179,7 +179,7 @@ The following snippet concatenates two files in a Data Lake Storage Gen2 account
 // concatenate the two files into one
 dataLakeFileClient = dataLakeDirectoryClient.createFile("/a/b/f.txt", true);
 List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
-fileList.stream().forEach(file -> {
+fileList.stream().forEach(filename -> {
     File concatenateFile = new File(filename);
     try (InputStream fileIn = new FileInputStream(concatenateFile)) {
         dataLakeFileClient.append(fileIn, 0, concatenateFile.length());
@@ -188,7 +188,7 @@ fileList.stream().forEach(file -> {
     }
 });
 System.out.println("Two files concatenated into a new file.");
-``` -->
+```
 
 ## Rename a file
 
