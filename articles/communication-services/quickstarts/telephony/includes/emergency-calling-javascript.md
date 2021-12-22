@@ -11,7 +11,7 @@ ms.author: zehangzheng
 
 - A working [Communication Services calling web app](../pstn-call.md).
 
-## Important Considerations
+## Important considerations
 -	The capability to dial 911 and receive a call-back may be a requirement for your application. Verify the E911 requirements with your legal counsel. 
 - Microsoft uses country codes according to ISO 3166-1 alpha-2 standard 
 -	If the country ISO code is not provided to the SDK, the IP address will be used to determine the country of the caller. 
@@ -23,7 +23,7 @@ ms.author: zehangzheng
 -	Calls to 911 are capped at 10 concurrent calls per Azure Resource.   
 
 
-## Setting Up
+## Setting up
 Replace the code in **index.html** with following snippet. It will add a new button for testing emergency calls.
 
 ```html
