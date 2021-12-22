@@ -15,17 +15,19 @@ ms.date: 12/10/2021
 
 # Input validation in Azure Stream Analytics queries
 
-Azure Stream Analytics (ASA) jobs process data coming from input streams. When configuring a [streaming input](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs), only the **event serialization format** has to be defined (CSV, JSON, AVRO...). With ASA, the schema of the incoming data doesn't need to be set at the input level. By schema we mean the list of fields and their data types. ASA instead supports **dynamic input schemas** natively. This means ASA expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
+Azure Stream Analytics (ASA) jobs process data coming from streams. Streams are sequences of raw data that are [serialized](https://en.wikipedia.org/wiki/Serialization) to be transmitted over the network. To consume from a stream, and extract the information contained, any system needs to know about the serialization format (CSV, JSON, AVRO...) the stream uses. That's why when configuring a [streaming input](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs) in ASA, the **event serialization format** has to be defined.
 
-<Illustration>
+Once the data is deserialized, a schema needs to be applied to give it meaning. By schema we mean the list of fields present in the stream, and their data types. With ASA, the schema of the incoming data doesn't need to be set at the input level. ASA instead supports **dynamic input schemas** natively. This means ASA expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
 
 **Dynamic schema handling** is a powerful feature, key to stream processing. Data streams often contain data from multiple sources, with multiple event types, each with a unique schema. To route, filter, and process events on such streams, ASA has to ingest them all regardless of their schema.
 
-But that freedom comes with a potential downside. If the input data is not validated in the first steps of a query, then unexpected events can flow through the main query logic and break it. This will in turn generate errors and crashes as the built-in functions used in the logic will expect certain fields and types in arguments.
+![Illustration of a pipeline with two fleet of devices sending data with conflicting schemas](media/input-validation/illustration.png)
+
+But the capabilties offered by dynamic schema handling comee with a potential downside. If the input data is not validated in the first steps of a query, then unexpected events can flow through the main query logic and break it. This will in turn generate errors and crashes as the built-in functions used in the logic will expect certain fields and types in arguments.
 
 As an example, using [ROUND](https://docs.microsoft.com/en-us/stream-analytics-query/round-azure-stream-analytics) on a `NVARCHAR(MAX)` may not end well. ASA will be able to implicitly cast it as long as the field contains a numeric value stored as a string in the input events. But when an event has that field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
 
-**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. This article describes this technic.
+**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. This article describes how to implement this technic.
 
 ## Problem statement
 
