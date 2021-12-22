@@ -24,11 +24,12 @@ Private Link allows you to connect to various PaaS services in Azure via a **pri
 
 ### Creation Process
 Private Endpoints can be created using the Azure portal, PowerShell, or the Azure CLI:
-- [The portal](../../private-link/create-private-endpoint-portal.md)
+- [Azure portal](../../private-link/create-private-endpoint-portal.md)
 - [PowerShell](../../private-link/create-private-endpoint-powershell.md)
 - [CLI](../../private-link/create-private-endpoint-cli.md)
 
 ### Approval process
+
 Once the network admin creates the Private Endpoint (PE), the SQL admin can manage the Private Endpoint Connection (PEC) to SQL Database.
 
 1. Navigate to the server resource in the Azure portal as per steps shown in the screenshot below

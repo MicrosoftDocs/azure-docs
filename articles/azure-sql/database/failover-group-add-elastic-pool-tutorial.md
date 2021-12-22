@@ -29,7 +29,6 @@ Configure a failover group for an Azure SQL Database elastic pool and test failo
 
 # [Azure portal](#tab/azure-portal)
 
-
 To complete this tutorial, make sure you have:
 
 - An Azure subscription. [Create a free account](https://azure.microsoft.com/free/) if you don't already have one.
