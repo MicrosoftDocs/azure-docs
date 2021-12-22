@@ -7,17 +7,17 @@ ms.topic: article
 
 # OT threat monitoring in enterprise SOCs
 
-## About the digital transformation in business critical industries
+## About the digital transformation in business-critical industries
 
 As the digital transformation in business-critical industries connects OT systems with IT infrastructures, the OT/IT convergence puts data, systems, and safety at risk.  
 
-This means CISOs and Security Operations Center (SOC) teams are increasingly responsible for new threats from OT network segments that they traditionally did not manage, for example from cyber-physical systems.  
+As a result, CISOs and Security Operations Center (SOC) teams are increasingly responsible for new threats from OT network segments that they traditionally did not manage, for example from cyber-physical systems.  
 
 SOC solutions and teams are faced with various challenges, including:
 
 **People**
 
-- Lack of OT expertise and knowledge within current SOC teams regarding OT alerts, and specialized industrial equipment, protocols, and behavior. This ​often translates into vague of minimized understanding of OT incidents and their business impact. 
+- Lack of OT expertise and knowledge within current SOC teams regarding OT alerts, industrial equipment, protocols, and network behavior. This often translates into vague or minimized understanding of OT incidents and their business impact.
 
 **Processes** 
 
@@ -25,17 +25,19 @@ SOC solutions and teams are faced with various challenges, including:
 
 **Technology and Tools** 
 
-- Lack of visibility and insight into OT networks and the correlation of events across enterprise IT/OT networks. This includes tools that enable SOC teams to evaluate and link information across all data sources in IT and OT environments.  
+- Lack of visibility and insight into OT networks.
 
-- Low-level of automated security remediation for OT networks.
+- Limited insight about events across enterprise IT/OT networks, including tools that don't allow SOC teams to evaluate and link information across data sources in IT/OT environments.  
 
-- Costly and time-consuming effort to integrate an OT security solutions into existing SOC solutions.  
+- Low level of automated security remediation for OT networks.
+
+- Costly and time-consuming effort needed to integrate OT security solutions into existing SOC solutions.  
 
 Without OT telemetry, context and integration with existing SOC tools and workflows, OT security and operational threats may be handled incorrectly, or even go unnoticed.  
 
 ## About Microsoft Sentinel
 
-Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM) and security orchestration automated response (SOAR)solution that lets users:
+Microsoft Sentinel is a scalable, cloud-native, security information event management (SIEM) and, security orchestration automated response (SOAR) solution that lets users:
 
 - Collect data at cloud scale across all users, devices, applications, and infrastructure, both on-premises and in multiple clouds.
 
@@ -45,15 +47,16 @@ Microsoft Sentinel is a scalable, cloud-native, security information event manag
 
 - Respond to incidents rapidly with built-in orchestration and automation of common tasks.
 
-## About the Defender for IoT and Sentinel Integration
+## About the Defender for IoT and Microsoft Sentinel Integration
 
-By bringing rich telemetry into Microsoft Sentinel from Microsoft Defender for IoT, SOC teams can bridge the gap between IT and OT security sectors. This allows SOC teams to detect and respond faster during the entire attack timeline — enhancing communication, processes and response time for both security analysts and OT personnel.  
+By bringing rich telemetry into Microsoft Sentinel from Microsoft Defender for IoT, SOC teams can bridge the gap between IT and OT security sectors. This allows SOC teams to detect and respond faster during the entire attack timeline—enhancing communication, processes, and response time for both security analysts and OT personnel.  
 
 :::image type="content" source="media/concept-sentinel-integration/chart.png" alt-text="Screenshot of a chart showing alert flow.":::
+## OT Security 
 
 **OT Security Alerts**
 
-This integration delivers out-of-the-box capabilities to SOC teams to help them efficiently and effectively view, analyze, and respond to OT security events, and the incidents they generate in a broader organizational threat context.
+The Defender for IoT and Microsoft Sentinel integration delivers out-of-the-box capabilities to SOC teams to help them efficiently and effectively view, analyze, and respond to OT security alerts, and the incidents they generate in a broader organizational threat context.
 
 Once ingested into Sentinel, security experts can work with IoT/OT-specific analytics rules, workbooks, and SOAR playbooks, as well as incident mappings to MITRE ATT&CK for ICS.
 
@@ -61,39 +64,44 @@ Once ingested into Sentinel, security experts can work with IoT/OT-specific anal
 
 MITRE ATT&CK® for ICS is a knowledge base used for describing the actions an adversary may take while operating within an ICS network. The knowledge base can be used to better characterize and describe post-compromise adversary behavior.  
 
-The Microsoft Defender for IoT integration delivers a library of mappings that link Sentinel incidents to MITRE ATT&CK for ICS tactics.
+The Microsoft Defender for IoT integration delivers a library of mappings that link Microsoft Sentinel incidents to MITRE ATT&CK for ICS tactics.
 
-:::image type="content" source="media/concept-sentinel-integration/mitreattack.png" alt-text="Screenshot of a MITRE ATT&CK in Sentinel.":::
+:::image type="content" source="media/concept-sentinel-integration/alertincident1.png" alt-text="Screenshot of a MITRE ATT&CK in Sentinel.":::
 
-## Workbooks, analytics rules and SOAR playbooks
+## Workbooks, analytics rules, and SOAR playbooks
 
 ### Workbooks
 
 To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
-The Defender for IoT workbooks provides guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also providing a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
+The Defenders for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
 
 For example:  
 
 **Alert workbooks** 
 
-Sentinel Alert Workbook shows alerts by type (policy violation, protocol violation, malware, etc.); severity; OT device type (PLC, HMI, engineering workstation); OT equipment vendor; and alerts over time.
+Microsoft Sentinel Alert Workbooks show alerts by:
+- Type (policy violation, protocol violation, malware, etc.)
+- Severity
+- OT device type (PLC, HMI, engineering workstation)
+- OT equipment vendor
+- Alerts over time
 
 :::image type="content" source="media/concept-sentinel-integration/workbookalerttype.png" alt-text="Screenshot of a workbook.":::
 
 **MITRE ATT&CK for ICS Workbook** 
 
-Sentinel MITRE ATT&CK for ICS Workbook show the result of mapping alerts to MITRE ATT&CK for ICS tactics, plus the distribution of tactics by count and time period.
+Microsoft Sentinel MITRE ATT&CK for ICS workbooks show the result of mapping alerts to MITRE ATT&CK for ICS tactics, plus the distribution of tactics by count and time period.
 
 :::image type="content" source="media/concept-sentinel-integration/mitreattack.png" alt-text="Screenshot of a MITRE ATT&CK":::
 
-The Workbooks described in the Defender for IoT anSentinel Tutorial ) are deployed to your Microsoft Sentinel workspace as part of the **IoT OT Threat Monitoring with Defender for IoT solution**.
+The Workbooks are described in the [Visualize and monitor Defender for IoT](/azure/sentinel/iot-solution?branch=pr-en-us-183434&tabs=use-out-of-the-box-analytics-rules-recommended)section of the integration tutorial. Workbooks are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
 ### Analytics rules
 
-Create Sentinel incidents for relevant alerts generated by Defender for IoT, either by using out-of-the-box analytics rules provided in the IoT OT Threat Monitoring with Defender for IoT solution, configuring analytics rules manually, or by configuring your data connector to automatically create incidents for all alerts generated by Defender for IoT.
+Create Microsoft Sentinel incidents for relevant alerts generated by Defender for IoT, either by using out-of-the-box analytics rules provided in the IoT OT Threat Monitoring with Defender for IoT solution, configuring analytics rules manually, or by configuring your data connector to automatically create incidents for all alerts generated by Defender for IoT.
 
-The Analytics rules described in the [Tutorial: Integrate Microsoft Sentinel with Microsoft Defender for IoT](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended). The rules are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
+The Analytics rules are described in the [Detect threats out-of-the-box with Defender for IoT data](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended) section of the integration tutorial. The rules are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
 ### SOAR playbooks
 
@@ -105,7 +113,7 @@ Use SOAR playbooks, for example to:
 
 - Send an email to all relevant stakeholders, including OT personnel such as the control engineer responsible for a specific production line, when suspicious activity is detected (such as reprogramming a PLC, which usually happens only rarely).
 
-The playbooks are described in the [Tutorial: Integrate Microsoft Sentinel with Microsoft Defender for IoT](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended). Playbooks are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
+The playbooks are described in the [Automate response to Defender for IoT alerts](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended) section of the integration tutorial. Playbooks are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
 ## Next steps
 
