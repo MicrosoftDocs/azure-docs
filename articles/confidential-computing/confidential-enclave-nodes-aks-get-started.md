@@ -163,7 +163,7 @@ spec:
         image: oeciteam/sgx-test:1.0
         resources:
           limits:
-            sgx.intel.com/epc: 5Mi # This limit will automatically place the job into a confidential computing node and mount the required driver volumes. Alternatively, you can target deployment to node pools with node selector.
+            sgx.intel.com/epc: 5Mi # This limit will automatically place the job into a confidential computing node and mount the required driver volumes. sgx limit setting needs "confcom" AKS Addon as referenced above. 
       restartPolicy: Never
   backoffLimit: 0
   ```
@@ -215,7 +215,7 @@ az aks delete --resource-group myResourceGroup --cluster-name myAKSCluster
 
 ## Next steps
 
-* Run Python, Node, or other applications through confidential containers by using the [confidential container samples in GitHub](https://github.com/Azure-Samples/confidential-container-samples).
+* Run Python, Node, or other applications through confidential containers using ISV/OSS SGX wrapper software. Review [confidential container samples in GitHub](https://github.com/Azure-Samples/confidential-container-samples).
 
 * Run enclave-aware applications by using the [enclave-aware Azure container samples in GitHub](https://github.com/Azure-Samples/confidential-computing/blob/main/containersamples/).
 
