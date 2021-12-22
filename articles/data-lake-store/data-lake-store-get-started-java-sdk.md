@@ -41,22 +41,22 @@ The code sample available [on GitHub](https://azure.microsoft.com/documentation/
        <dependency>
          <groupId>com.azure</groupId>
          <artifactId>azure-identity</artifactId>
-         <version>1.3.3</version>
+         <version>1.4.1</version>
        </dependency>
        <dependency>
          <groupId>com.azure</groupId>
          <artifactId>azure-storage-file-datalake</artifactId>
-         <version>12.6.0</version>
+         <version>12.7.2</version>
        </dependency>
        <dependency>
          <groupId>org.slf4j</groupId>
          <artifactId>slf4j-nop</artifactId>
-         <version>1.7.21</version>
+         <version>1.7.32</version>
        </dependency>
     </dependencies>
     ```
    
-    The first dependency is to use the Data Lake Storage Gen1 SDK (`azure-storage-file-datalake`) from the maven repository. The second dependency is to specify the logging framework (`slf4j-nop`) to use for this application. The Data Lake Storage Gen1 SDK uses [SLF4J](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like Log4j, Java logging, Logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](https://www.slf4j.org/manual.html#projectDep).
+    The second dependency is to use the Data Lake Storage Gen2 SDK (`azure-storage-file-datalake`) from the Maven repository. The third dependency is to specify the logging framework (`slf4j-nop`) to use for this application. The Data Lake Storage Gen2 SDK uses [SLF4J](https://www.slf4j.org/) logging façade, which lets you choose from a number of popular logging frameworks, like Log4j, Java logging, Logback, etc., or no logging. For this example, we disable logging, hence we use the **slf4j-nop** binding. To use other logging options in your app, see [here](https://www.slf4j.org/manual.html#projectDep).
 
 3. Add the following import statements to your application.
 
@@ -92,7 +92,7 @@ private static String endPoint = "FILL-IN-HERE";  // Data lake storage end point
 DataLakeServiceClient dataLakeServiceClient = new DataLakeServiceClientBuilder().endpoint(endPoint).credential(credential).buildClient();
 ```
 
-The code snippets in the following sections contain examples of some common filesystem operations. You can look at the full [Data Lake Storage Gen2 Java SDK AP2 docs](https://azure.github.io/azure-sdk-for-java/datalakestorage%28gen2%29.html) of the **DataLakeServiceClient** object to see other operations.
+The code snippets in the following sections contain examples of some common filesystem operations. You can look at the full [Data Lake Storage Gen2 Java SDK API docs](https://azure.github.io/azure-sdk-for-java/datalakestorage%28gen2%29.html) of the **DataLakeServiceClient** object to see other operations.
 
 ## Create a directory
 
@@ -113,14 +113,13 @@ The following snippet creates a file (c.txt) in the directory structure and writ
 ```java
 // create file and write some content
 String filename = "c.txt";
-FileOutputStream stream = new FileOutputStream(new File(filename));
-PrintWriter out = new PrintWriter(stream);
-for (int i = 1; i <= 10; i++) {
-    out.println("This is line #" + i);
-    out.format("This is the same line (%d), but using formatted output. %n", i);
+try (FileOutputStream stream = new FileOutputStream(filename);
+    PrintWriter out = new PrintWriter(stream)) {
+    for (int i = 1; i <= 10; i++) {
+        out.println("This is line #" + i);
+        out.format("This is the same line (%d), but using formatted output. %n", i);
+    }
 }
-out.close();
-stream.close();
 dataLakeFileSystemClient.createFile("a/b/" + filename, true);
 System.out.println("File created.");
 ```
@@ -131,9 +130,9 @@ You can also create a file (d.txt) using byte arrays.
 // create file using byte arrays
 DataLakeFileClient dataLakeFileClient = dataLakeFileSystemClient.createFile("a/b/d.txt", true);
 byte[] buf = getSampleContent();
-ByteArrayInputStream stream = new ByteArrayInputStream(buf);
-dataLakeFileClient.upload(stream, buf.length);
-stream.close();
+try (ByteArrayInputStream stream = new ByteArrayInputStream(buf)) {
+    dataLakeFileClient.upload(stream, buf.length);
+}
 System.out.println("File created using byte array.");
 ```
 
@@ -146,10 +145,11 @@ The following snippet appends content to an existing file.
 ```java
 // append to file
 byte[] buf = getSampleContent();
-ByteArrayInputStream stream = new ByteArrayInputStream(buf);
-DataLakeFileClient dataLakeFileClient = dataLakeDirectoryClient.getFileClient(filename);
-dataLakeFileClient.append(stream, 0, buf.length);
-System.out.println("File appended.");
+try (ByteArrayInputStream stream = new ByteArrayInputStream(buf)) {
+    DataLakeFileClient dataLakeFileClient = dataLakeDirectoryClient.getFileClient(filename);
+    dataLakeFileClient.append(stream, 0, buf.length);
+    System.out.println("File appended.");
+}
 ```
 
 The definition for `getSampleContent` function used in the preceding snippet is available as part of the sample [on GitHub](https://azure.microsoft.com/documentation/samples/data-lake-store-java-upload-download-get-started/).
@@ -160,12 +160,10 @@ The following snippet reads content from a file in a Data Lake Storage Gen1 acco
 
 ```java
 // Read File
-ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
-dataLakeFileSystemClient.getFileClient(filename).read(outputStream);
-ByteArrayInputStream in = new ByteArrayInputStream(outputStream.toByteArray());
-BufferedReader reader = new BufferedReader(new InputStreamReader(in));
-String line;
-while ( (line = reader.readLine()) != null) {
+try (InputStream dataLakeIn = dataLakeFileSystemClient.getFileClient(filename).openInputStream().getInputStream();
+    BufferedReader reader = new BufferedReader(new InputStreamReader(dataLakeIn))) {
+    String line;
+    while ( (line = reader.readLine()) != null) {
     System.out.println(line);
 }
 reader.close();
@@ -183,9 +181,9 @@ dataLakeFileClient = dataLakeDirectoryClient.createFile("/a/b/f.txt", true);
 List<String> fileList = Arrays.asList("/a/b/c.txt", "/a/b/d.txt");
 fileList.stream().forEach(file -> {
     File concatenateFile = new File(filename);
-    try {
-        dataLakeFileClient.append(new FileInputStream(concatenateFile), 0, concatenateFile.length());
-    } catch (FileNotFoundException e) {
+    try (InputStream fileIn = new FileInputStream(concatenateFile)) {
+        dataLakeFileClient.append(fileIn, 0, concatenateFile.length());
+    } catch (IOException e) {
         e.printStackTrace();
     }
 });
