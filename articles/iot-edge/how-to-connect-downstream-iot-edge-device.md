@@ -4,7 +4,7 @@ description: How to configure an IoT Edge device to connect to Azure IoT Edge ga
 author: kgremban
 
 ms.author: kgremban
-ms.date: 03/01/2021
+ms.date: 12/22/2021
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
@@ -531,6 +531,20 @@ The API proxy module was designed to be customized to handle most common gateway
     1. **Value**: `FROM /messages/* INTO $upstream`
 1. Select **Review + create** to go to the final step.
 1. Select **Create** to deploy to your device.
+
+#### Configure leaf device proxying
+
+You can enhance the connectivity between the agent, and the cloud by using leaf device proxying.
+
+To configure the enhaned integration with IoT Edge using leaf device proxying:
+
+1. Set the connecction string using the following format `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
+
+1. Enable the connection to the IoT Hub and  the edge gateway as the parent device.
+
+    :::image type="content" source="media/how-to-connect-downstream-iot-edge-device/leaf-device-proxying.png" alt-text="Screenshot of the leaf device proxying connection.":::
+
+1. Open port 8883 (MQTT) between the leaf device, and the edge device.
 
 ## Next steps
 
