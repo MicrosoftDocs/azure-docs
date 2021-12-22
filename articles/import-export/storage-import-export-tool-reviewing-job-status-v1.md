@@ -42,7 +42,7 @@ Each data transfer for a disk generates a copy log. If you chose to save a verbo
 
 ## Review import logs
 
-During an import, the Import/Export service generates a verbose log and a copy log for each disk. 
+During an import, the Import/Export service generates a verbose log and a copy log for each disk.
 
 ### Verbose logs
 
@@ -90,7 +90,7 @@ During an export, the Import/Export service generates a verbose log and a copy l
 
 ### Verbose log
 
-The verbose log for an export is a simple listing of all files that were successfully exported from the Azure storage account to the drive. Teh verbose log gives the following information for each file. The verbose log doesn’t provide summary information.
+The verbose log for an export is a simple listing of all files that were successfully exported from the Azure storage account to the drive. The verbose log gives the following information for each file. The verbose log doesn’t provide summary information.
 
 | Field       | Description                                  |
 |-------------|----------------------------------------------|
@@ -98,17 +98,17 @@ The verbose log for an export is a simple listing of all files that were success
 | Etag        | The entity tag (ETag) for the resource, which is used for concurrency checking during the data transfer. |
 | Path        | Path to the file within the storage account. |
 | Size        | File or blob size.                           |
-| crc64       | Checksum when cyclic redundancy check 64 (CRC64) was used to verify data integrity during data transfer. |
-| md5         | Checksum when Message Digest Algorithm 5 (MD5) was used to verify data integrity during data transfer. |
+| crc64       | The cyclic redundancy check 64 (CRC64) checksum that was computed while exporting data to disk. |
+
 
 #### Sample verbose log: export
 
-In the following sample verbose log, the export job successfully transferred three blobs from Azure Blob storage. *TBD: Simplify paths in these log entries!*
+In the following sample verbose log, the export job successfully transferred three blobs from Azure Blob storage.
 
 ```xml
-<File CloudFormat="BlockBlob" ETag="0x8D804D87F976907" Path="export-ut-invaliddirblobpath/movie/sc%3Aifi/block.blob" Size="4096" crc64="16033727819182370206">
-</File><File CloudFormat="BlockBlob" ETag="0x8D804D889880CC6" Path="export-ut-invaliddirblobpath/movie/sc#Aifi/block.blob" Size="4096" crc64="16033727819182370206">
-</File><File CloudFormat="BlockBlob" ETag="0x8D804D8F1BC81C0" Path="export-ut-invaliddirblobpath/@GMT-2001.03.30-14.44.00/block.blob" Size="4096" crc64="16033727819182370206">
+<File CloudFormat="BlockBlob" ETag="0x8D804D87F976907" Path="export-blobs/movie/sc%3Aifi/block.blob" Size="4096" crc64="16033727819182370206">
+</File><File CloudFormat="BlockBlob" ETag="0x8D804D889880CC6" Path="export-blobs/movie/sc#Aifi/block.blob" Size="4096" crc64="16033727819182370206">
+</File><File CloudFormat="BlockBlob" ETag="0x8D804D8F1BC81C0" Path="export-blobs/@GMT-2001.03.30-14.44.00/block.blob" Size="4096" crc64="16033727819182370206">
 </File>
 ```
 
@@ -176,7 +176,7 @@ You'll find the following errors in the copy logs for import jobs and/or export 
 | `FileRenamed`                       |Renamed the file because the original file name doesn't follow [Azure naming conventions](../databox/data-box-disk-limits.md#azure-block-blob-page-blob-and-file-naming-conventions). The original file has been renamed to AzureFile/DataBox-<*GUID*> from <*original name*>. |No |Yes |
 | `DiskRenamed`                       |Renamed the managed disk file because the original file name doesn't follow [Azure naming conventions for managed disks](../databox/data-box-disk-limits.md#managed-disk-naming-conventions). The original managed disk file was renamed to ManagedDisk/DataBox-<*GUID*> from <*original name*>. |No |Yes |
 | `FileNameTrailsWithSlash`           |Blob name or file name ends with a trailing slash. A blob name or file name that ends with a trailing backslash or forward slash can't be exported to disk. |No |Yes |
-| `ExportCloudHttp`                   |Unsupported blob type. |Yes |Yes |
+| `ExportCloudHttp`                   |Unsupported blob type. |No |Yes |
 
 
 ## Next steps
