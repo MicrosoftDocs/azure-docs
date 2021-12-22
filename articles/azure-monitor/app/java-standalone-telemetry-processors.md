@@ -587,17 +587,17 @@ To configure this option, under `exclude`, specify the `matchType` one or more `
 ```
 ### Default metrics captured by Java agent
 
-| Metric  | Metric Type | Description  | Filterable |
+| Metric name  | Metric type | Description  | Filterable |
 |---|---|---|---|
-| `Current Thread Count` | custom metrics | java.lang:type=Threading / ThreadCount. | yes |
-| `Loaded Class Count` | custom metrics | java.lang:type=ClassLoading / LoadedClassCount.| yes |
+| `Current Thread Count` | custom metrics | See [ThreadMXBean.getThreadCount()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ThreadMXBean.html#getThreadCount--). | yes |
+| `Loaded Class Count` | custom metrics | See [ClassLoadingMXBean.getLoadedClassCount()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/ClassLoadingMXBean.html#getLoadedClassCount--). | yes |
 | `GC Total Count` | custom metrics | Sum of counts across all GC MXBeans (diff since last reported). | yes |
 | `GC Total Time` | custom metrics | Sum of time across all GC MXBeans (diff since last reported).| yes |
-| `Heap Memory Used (MB)` | custom metrics | java.lang:type=Memory / HeapMemoryUsage.Used.| yes |
+| `Heap Memory Used (MB)` | custom metrics | See [MemoryMXBean.getHeapMemoryUsage().getUsed()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--). | yes |
 | `% Of Max Heap Memory Used` | custom metrics | java.lang:type=Memory / maximum amount of memory in bytes.| yes |
 | `\Processor(_Total)\% Processor Time` | default metrics | /proc/stat | no |
-| `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | java.lang:type=OperatingSystem / ProcessCpuTime (diff since last reported, normalized by time and number of CPUs) | no |
-| `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | java.lang:type=Memory / HeapMemoryUsage.Used + NonHeapMemoryUsage.Used | no |
+| `\Process(??APP_WIN32_PROC??)\% Processor Time` | default metrics | See [OperatingSystemMXBean.getProcessCpuTime()](https://docs.oracle.com/javase/8/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getProcessCpuTime--) (diff since last reported, normalized by time and number of CPUs). | no |
+| `\Process(??APP_WIN32_PROC??)\Private Bytes` | default metrics | Sum of [MemoryMXBean.getHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getHeapMemoryUsage--) and [MemoryMXBean.getNonHeapMemoryUsage()](https://docs.oracle.com/javase/8/docs/api/java/lang/management/MemoryMXBean.html#getNonHeapMemoryUsage--). | no |
 | `\Process(??APP_WIN32_PROC??)\IO Data Bytes/sec` | default metrics | /proc/<pid>/io | no |
-| `\Memory\Available Bytes` | default metrics | java.lang:type=OperatingSystem / FreePhysicalMemorySize. | no |
+| `\Memory\Available Bytes` | default metrics | See [OperatingSystemMXBean.getFreePhysicalMemorySize()](https://docs.oracle.com/javase/7/docs/jre/api/management/extension/com/sun/management/OperatingSystemMXBean.html#getFreePhysicalMemorySize()). | no |
 
