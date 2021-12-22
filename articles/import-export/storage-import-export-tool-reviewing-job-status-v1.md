@@ -68,7 +68,7 @@ Each error entry contains the following information.
 | Field        | Description                                               |
 |--------------|-----------------------------------------------------------|
 | Path         | The destination share within the container or file share. |
-| Category     | One of 15 error categories. For more information, see [Data upload errors](#data-transfer-errors). |
+| Category     | Identifies the error category. For more information, see [Data transfer errors](#data-transfer-errors). |
 | ErrorCode    | The numeric code for the error.                           |
 | ErrorMessage | Describes the error.                                      |
 
