@@ -50,7 +50,7 @@
     - name: Integrate ServiceNow
       href: tutorial-servicenow.md
     - name: Detect threats with Microsoft Sentinel
-      href: ../../sentinel/iot-solution.md
+      href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
   items:  
     - name: Key concepts

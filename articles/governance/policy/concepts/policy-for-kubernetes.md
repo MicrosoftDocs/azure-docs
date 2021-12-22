@@ -195,7 +195,7 @@ kubectl get pods -n gatekeeper-system
 
 Lastly, verify that the latest add-on is installed by running this Azure CLI command, replacing
 `<rg>` with your resource group name and `<cluster-name>` with the name of your AKS cluster:
-`az aks show --query addonProfiles.azurePolicy -g <rg> -n <cluster-name>`. The result should look
+`az aks show --query addonProfiles.azurepolicy -g <rg> -n <cluster-name>`. The result should look
 similar to the following output:
 
 ```output
