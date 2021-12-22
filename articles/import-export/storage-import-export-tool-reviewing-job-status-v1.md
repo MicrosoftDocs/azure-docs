@@ -22,7 +22,7 @@ When you use the Import/Export service to create an import or export job in Azur
 
 Use the following steps to find out the status of the data copies for an Import/Export job:
 
-[!INCLUDE [storage-import-export-view-jobs-and-drives-preview.md](../../includes/storage-import-export-view-jobs-and-drives-preview.md)]
+[!INCLUDE [storage-import-export-view-jobs-and-drives.md](../../includes/storage-import-export-view-jobs-and-drives.md)]
 
 A copy log is saved automatically. If you chose to save verbose logs when you placed your order, you'll also see the path to the verbose log.
 

@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/22/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
@@ -23,7 +23,7 @@ You can view the status of your import and export jobs in the Azure portal. The 
 
 If you created your import or export job in Azure Data Box (the Preview experience), you'll track the job's status along with your other **Data Box** resources.
 
-[!INCLUDE [storage-import-export-view-jobs-and-drives-preview.md](../../includes/storage-import-export-view-jobs-and-drives-preview.md)]
+[!INCLUDE [storage-import-export-view-jobs-and-drives.md](../../includes/storage-import-export-view-jobs-and-drives.md)]
 
 <!--1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
 
