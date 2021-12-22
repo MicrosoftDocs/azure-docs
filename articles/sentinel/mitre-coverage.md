@@ -21,6 +21,8 @@ This article describes how to use the **MITRE** page in Microsoft Sentinel to vi
 
 :::image type="content" source="media/whats-new/mitre-coverage.png" alt-text="Screenshot of the MITRE coverage page with both active and simulated indicators selected.":::
 
+Microsoft Sentinel is currently aligned to The MITRE ATT&CK framework, version 9.
+
 ##  View current MITRE coverage
 
 In Microsoft Sentinel, in the **General** menu on the left, select **MITRE**. By default, both currently active scheduled query and NRT rules are indicated in the coverage matrix.
@@ -34,11 +36,11 @@ In Microsoft Sentinel, in the **General** menu on the left, select **MITRE**. By
     - Select **View technique details** for more information about the selected technique in the MITRE ATT&CK framework knowledge base.
 
     - Select links to any of the active items to jump to the relevant area in Microsoft Sentinel.
-<!-->
+<!--
 > [!NOTE]
 > When you have the [Microsoft Defender for IoT](data-connectors-reference.md#microsoft-defender-for-iot) data connector connected, two additional columns are displayed, for for *Inhibit Response Function* and *Impair Process Control*.
 >
-<-->
+-->
 ## Simulate possible coverage with available detections
 
 In the MITRE coverage matrix, *simulated* coverage refers to detections that are available, but not currently configured, in your Microsoft Sentinel workspace. View your simulated coverage to understand your organization's possible security status, were you to configure all detections available to you.
@@ -59,21 +61,35 @@ Select items in the **Simulate** menu to simulate your organization's possible s
 
     For example, select **Hunting queries** to jump to the **Hunting** page. There, you'll see a filtered list of the hunting queries that are associated with the selected technique, and available for you to configure in your workspace.
 
-<!-->
+<!--
 > [!NOTE]
 > When you have the [Microsoft Defender for IoT](data-connectors-reference.md#microsoft-defender-for-iot) data connector connected, two additional columns are displayed, for for *Inhibit Response Function* and *Impair Process Control*.
 >
-<-->
+-->
 ## Use the MITRE ATT&CK framework in analytics rules and incidents
 
 Having a scheduled rule with MITRE techniques applied running regularly in your Microsoft Sentinel workspace enhances the security status shown for your organization in the MITRE coverage matrix.
 
-|Feature  |MITRE support  |
-|---------|---------|
-|**Analytics rules**     | - When configuring analytics rules, select specific MITRE techniques to apply to your rule.<br><br>    - When searching for analytics rules, filter the rules displayed by technique to find your rules quicker.   <br><br>For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md) and [Create custom analytics rules to detect threats](detect-threats-custom.md).   |
-|**Incidents**     |    - When incidents are created for alerts that are surfaced by rules with MITRE techniques configured, the techniques are also added to the incidents.  <br><br>For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).   |
-|**Threat hunting**     |  - When creating a new hunting query, select the specific tactics and techniques to apply to your query. <br><br>- When searching for active hunting queries, filter the queries displayed by tactics by selecting an item from the list above the grid. Select a query to see tactic and technique details on the right. <br><br>- When creating bookmarks, either use the technique mapping inherited from the hunting query, or create your own mapping. <br><br>For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md) and [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md).      |
-|     |         |
+- **Analytics rules**:
+
+    - When configuring analytics rules, select specific MITRE techniques to apply to your rule.
+    - When searching for analytics rules, filter the rules displayed by technique to find your rules quicker.
+
+    For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md) and [Create custom analytics rules to detect threats](detect-threats-custom.md).
+
+- **Incidents**:
+
+    When incidents are created for alerts that are surfaced by rules with MITRE techniques configured, the techniques are also added to the incidents.
+
+    For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).
+
+- **Threat hunting**:
+
+    - When creating a new hunting query, select the specific tactics and techniques to apply to your query.
+    - When searching for active hunting queries, filter the queries displayed by tactics by selecting an item from the list above the grid. Select a query to see tactic and technique details on the right.
+    - When creating bookmarks, either use the technique mapping inherited from the hunting query, or create your own mapping.
+
+    For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md) and [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md).
 
 
 ## Next steps
@@ -82,6 +98,3 @@ For more information, see:
 
 - [MITRE | ATT&CK framework](https://attack.mitre.org/)
 - [MITRE ATT&CK for Industrial Control Systems](https://collaborate.mitre.org/attackics/index.php/Main_Page)
-
-
-- 
