@@ -17,4 +17,4 @@ How much you can ingest and stream with a Processing Unit depends on various fac
 Please refer [Scaling with Event Hubs](../event-hubs-scalability.md) more details on Processing Units. 
 
 ### Can I migrate my Standard namespaces to Premium namespace?
-We don't currently don't support migrating from standard namespaces to premium namespace.  
+We currently don't support migrating from standard namespaces to premium namespace.  
