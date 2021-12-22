@@ -74,11 +74,11 @@
       href: cloudknox-product-audit-trail.md
     - name: Create and system and custom reports
       href: cloudknox-product-reports.md
-  - name: Reference
-    expanded: true
-    items:
-    - name: Compliance with established guidelines
-      href: cloudknox-product-compliance.md
+  #- name: Compliance
+    #expanded: true
+    #items:
+    #- name: Compliance with established guidelines
+      #href: cloudknox-product-compliance.md
   #- name: Concepts
     #expanded: true
     #items: 
