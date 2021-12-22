@@ -58,13 +58,6 @@ Required permissions | For permissions required to apply an update, see [account
 >
 > Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md).
 
-## 2.0.89.0
-
-### Release status
-12/21/2021: Released for download only, not available for auto upgrade.
-
-### Bug fixes
-- We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users were getting deleted.
 
 ## 2.0.88.0
 > [!NOTE] 

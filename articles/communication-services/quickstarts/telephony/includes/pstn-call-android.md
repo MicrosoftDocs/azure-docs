@@ -5,7 +5,7 @@ ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
 ---
-[!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
+[!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 
 ## Sample Code
 
@@ -14,10 +14,10 @@ Find the finalized code for this quickstart on [GitHub](https://github.com/Azure
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A phone number acquired in Communication Services resource. [how to get a phone number](../../../telephony/get-phone-number.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
-- Complete the quickstart for [getting started with adding calling to your application](../../getting-started-with-calling.md)
+- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
+- A phone number acquired in Communication Services resource. [how to get a phone number](../get-phone-number.md).
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
+- Complete the quickstart for [getting started with adding calling to your application](../../voice-video-calling/getting-started-with-calling.md)
 
 ### Prerequisite check
 
@@ -68,4 +68,4 @@ The app can now be launched using the "Run App" button on the toolbar (Shift+F10
 > [!WARNING]
 > Note that phone numbers should be provided in E.164 international standard format. (e.g.: +12223334444)
 
-![Screenshot showing the completed application.](../../media/android/quickstart-android-call-pstn.png)
+![Screenshot showing the completed application.](../media/pstn-call/quickstart-android-call-pstn.png)

@@ -187,7 +187,7 @@ az synapse workspace create `
   --sql-admin-login-password $sqlPassword `
   --location $regionName
 ```
-To enable a managed virtual network, include the parameter `--enable-managed-virtual-network` in the preceding script. For more options, see [workspace managed virtual network](/cli/azure/synapse/workspace?view=azure-cli-latest&preserve-view=true).
+To enable a managed virtual network, include the parameter `--enable-managed-virtual-network` in the preceding script. For more options, see [workspace managed virtual network](/cli/azure/synapse/workspace).
 
 ```azurecli
 az synapse workspace create `
@@ -465,7 +465,7 @@ az synapse role assignment create `
 
 ```
 
-To learn more about available options, see [Azure Synapse RBAC - CLI](/cli/azure/synapse/role/assignment?view=azure-cli-latest&preserve-view=true). 
+To learn more about available options, see [Azure Synapse RBAC - CLI](/cli/azure/synapse/role/assignment). 
 
 ## Step 10: Upload workspace packages
 

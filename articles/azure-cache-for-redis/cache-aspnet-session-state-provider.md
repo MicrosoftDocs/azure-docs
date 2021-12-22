@@ -5,7 +5,8 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: conceptual
-ms.custom: devx-track-dotnet
+ms.devlang: csharp
+ms.custom: devx-track-csharp
 ms.date: 05/01/2017
 ---
 # ASP.NET Session State Provider for Azure Cache for Redis
