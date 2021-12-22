@@ -179,7 +179,7 @@ You should see the device being registered and connected to IoT Hub, and then st
 
 ### Validate
 
-The flow you've set up in this article will result in the device automatically being registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_show) command to find the twin of the device in the Azure Digital Twins instance you created.
+The flow you've set up in this article will result in the device automatically being registered in Azure Digital Twins. Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az_dt_twin_show) command to find the twin of the device in the Azure Digital Twins instance you created.
 
 ```azurecli-interactive
 az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
@@ -310,7 +310,7 @@ Follow the steps below to delete the device in the Azure portal:
 
 It might take a few minutes to see the changes reflected in Azure Digital Twins.
 
-Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin?view=azure-cli-latest&preserve-view=true#az_dt_twin_show) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
+Use the following [Azure Digital Twins CLI](/cli/azure/dt/twin#az_dt_twin_show) command to verify the twin of the device in the Azure Digital Twins instance was deleted.
 
 ```azurecli-interactive
 az dt twin show --dt-name <Digital-Twins-instance-name> --twin-id "<Device-Registration-ID>"
@@ -324,7 +324,7 @@ You should see that the twin of the device cannot be found in the Azure Digital 
 
 If you no longer need the resources created in this article, follow these steps to delete them.
 
-Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group?view=azure-cli-latest&preserve-view=true#az_group_delete) command. This command removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; the event hubs namespace and both Azure Functions apps, including associated resources like storage.
+Using the Azure Cloud Shell or local Azure CLI, you can delete all Azure resources in a resource group with the [az group delete](/cli/azure/group#az_group_delete) command. This command removes the resource group; the Azure Digital Twins instance; the IoT hub and the hub device registration; the event grid topic and associated subscriptions; the event hubs namespace and both Azure Functions apps, including associated resources like storage.
 
 > [!IMPORTANT]
 > Deleting a resource group is irreversible. The resource group and all the resources contained in it are permanently deleted. Make sure that you do not accidentally delete the wrong resource group or resources. 

@@ -107,7 +107,7 @@ Disable-AzHDInsightAzureMonitor -ResourceGroupName $resourceGroup `
 
 ## Enable Azure Monitor using Azure CLI
 
-You can enable Azure Monitor logs using the Azure CLI [`az hdinsight azure-monitor enable`](/cli/azure/hdinsight/azure-monitor?view=azure-cli-latest&preserve-view=true) command.
+You can enable Azure Monitor logs using the Azure CLI [`az hdinsight azure-monitor enable`](/cli/azure/hdinsight/azure-monitor) command.
 
 ```azurecli
 # set variables

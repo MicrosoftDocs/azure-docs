@@ -228,7 +228,7 @@ This metric reflects the number of incoming server requests that were received b
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Count | Count | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| Count Per Second | Count | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ### Server response time (requests/duration)
 
@@ -236,7 +236,7 @@ This metric reflects the time it took for the servers to process incoming reques
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| MilliSeconds | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ## Usage metrics
 
@@ -246,7 +246,7 @@ This metric refers to the amount of time it took for PageView events to load.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role name`, `Is traffic synthetic` |
+| MilliSeconds | Average, Min, Max | `Cloud role name`, `Is traffic synthetic` |
 
 ### Page views (pageViews/count)
 

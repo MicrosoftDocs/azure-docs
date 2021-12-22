@@ -232,7 +232,7 @@ Use the following steps to enable analytical store on an existing container by u
 
 * [Register for approval](/cli/azure/feature/registration) by using `az feature registration create --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`. 
 * [Check the request status](/cli/azure/feature/registration) by using `az feature registration show --namespace Microsoft.DocumentDB --name AnalyticalStoreMigration`.
-* [Update Analytical ttl](/cli/azure/cosmosdb/sql/container?view=azure-cli-latest#az_cosmosdb_sql_container_update&preserve-view=true) to `-1` after the request approval.
+* [Update Analytical ttl](/cli/azure/cosmosdb/sql/container#az_cosmosdb_sql_container_update) to `-1` after the request approval.
 * Check the migration status in the Azure portal.
 
 ### PowerShell

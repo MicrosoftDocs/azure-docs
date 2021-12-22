@@ -6,6 +6,7 @@ metadata:
   ms.author: cauribeg
   ms.service: cache
   ms.topic: conceptual
+  ms.devlang: csharp
   ms.custom: devx-track-csharp
   ms.date: 08/06/2020
     
