@@ -26,7 +26,7 @@ The IoT Central REST API lets you:
 * Update a device in your application
 * Get a list of the devices in the application
 * Get a device by ID
-* Get a device credentials
+* Get a device credential
 * Delete a device in your application
 
 ### Add a device
@@ -125,7 +125,7 @@ PATCH https://{subdomain}.{baseDomain}/api/devices/{deviceId}?api-version=1.0
 >[!NOTE]
 >`{deviceTemplateId}` should be the same as the `@id` in the payload.
 
-The sample request body looks like the following example which updates a the `displayName` to the device:
+The sample request body looks like the following example which updates the `displayName` to the device:
 
 ```json
 {
@@ -250,7 +250,7 @@ Use **$filter** to create expressions that filter the list of devices. The follo
 | Comparison Operator | Symbol | Example                                 |
 | -------------------- | ------ | --------------------------------------- |
 | Equals               | eq     | id eq 'device1' and scopes eq 'redmond' |
-| Not Equals           | ne     | enabled ne true                         |
+| Not Equals           | ne     | Enabled ne true                         |
 | Less than or equals       | le     | indexof(displayName, 'device1') le -1   |
 | Less than            | lt     | indexof(displayName, 'device1') lt 0    |
 | Greater than or equals      | ge     | indexof(displayName, 'device1') ge 0    |
@@ -395,4 +395,4 @@ The response to this request looks like the following example:
 
 ## Next steps
 
-Now that you've learned how to manage device devices with the REST API, a suggested next step is to [How to control devices with rest api.](howto-control-devices-with-rest-api)
+Now that you've learned how to manage devices with the REST API, a suggested next step is to [How to control devices with rest api.](howto-control-devices-with-rest-api.md)
