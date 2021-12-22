@@ -33,7 +33,7 @@ The logs are uploaded to a container (for blob imports and exports) or share (fo
 |copy log   |<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>&#95;CopyLog&#95;<*job-ID*>.xml |
 |verbose log|<*storage-account-name*>/databoxcopylog/<*order-name*>_<*device-serial-number*>&#95;VerboseLog&#95;<*job-ID*>.xml|
 
-For export jobs, a manifest file is saved to the disk. *NEEDS VERIFICATION:* If you chose to save a verbose log, the manifest also is saved in the storage account.
+For export jobs, a manifest file also is saved to the disk.
 
 Each data transfer for a disk generates a copy log. If you chose to save a verbose log when you created the order, there’s also a verbose log in the same folder.
 
@@ -86,7 +86,7 @@ The summary at the end of the log (look for `CopyLog Summary`) gives the followi
 
 ## Review export logs
 
-During an export, the Import/Export service generates a verbose log and a copy log for each data transfer from Azure Storage to a disk. There's also a manifest file, which is saved to the disk. If you choose to save verbose logs for the Import/Export job, the manifest also is saved to the storage account.
+During an export, the Import/Export service generates a verbose log and a copy log for each data transfer from Azure Storage to a disk. There's also a manifest file, which is saved to the disk.
 
 ### Verbose log
 
