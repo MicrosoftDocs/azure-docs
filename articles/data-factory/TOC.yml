@@ -641,6 +641,8 @@ items:
     - name: Alter row
       href: data-flow-alter-row.md
       displayName: upsert
+    - name: Assert
+      href: data-flow-assert.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Derived column
