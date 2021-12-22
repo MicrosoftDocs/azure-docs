@@ -325,7 +325,8 @@ Use this script to add a database to the failover group with the  command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-cli.sh" range="44-48":::
 
-## CLI failover group creation reference
+### Azure CLI failover group creation reference
+
 
 This portion of the tutorial uses the following Azure CLI cmdlets:
 
@@ -508,7 +509,6 @@ Use this script to delete the resource group with the [az group delete](/cli/azu
    ```azurecli
    echo "Cleaning up resources by removing the resource group..."
    az group delete --name $resourceGroup -y
-"
    ```
 
 ## CLI resource group deletion reference
