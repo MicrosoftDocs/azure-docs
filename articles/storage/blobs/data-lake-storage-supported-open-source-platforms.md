@@ -12,11 +12,11 @@ ms.reviewer: stewu
 
 # Open source platforms that support Azure Data Lake Storage Gen2
 
-This article lists the open source platforms that support Data Lake Storage Gen2.  
+This article lists the open source platforms that support Data Lake Storage Gen2.
 
 ## Supported open source platforms
 
-This table lists the open source platforms that support Data Lake Storage Gen2.
+This table lists the open source platforms that support Data Lake Storage Gen2.
 
 > [!NOTE]
 > Only the versions that appear in this table are supported.

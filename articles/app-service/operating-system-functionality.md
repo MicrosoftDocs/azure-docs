@@ -12,7 +12,7 @@ ms.custom: seodec18
 This article describes the common baseline operating system functionality that is available to all Windows apps running on [Azure App Service](./overview.md). This functionality includes file, network, and registry access, and diagnostics logs and events. 
 
 > [!NOTE] 
-> [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. No access to the host operating system is allowed, you do have root access to the container. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system. 
+> [Linux apps](overview.md#app-service-on-linux) in App Service run in their own containers. You have root access to the container but no access to the host operating system is allowed. Likewise, for [apps running in Windows containers](quickstart-custom-container.md?pivots=container-windows), you have administrative access to the container but no access to the host operating system. 
 >
 
 <a id="tiers"></a>
@@ -22,7 +22,7 @@ App Service runs customer apps in a multi-tenant hosting environment. Apps deplo
 
 [!INCLUDE [app-service-dev-test-note](../../includes/app-service-dev-test-note.md)]
 
-Because App Service supports a seamless scaling experience between different tiers, the security configuration enforced for App Service apps remains the same. This ensures that apps don't suddenly behave differently, failing in unexpected ways, when App Service plan switches from one tier to another.
+Because App Service supports a seamless scaling experience between different tiers, the security configuration enforced for App Service apps remains the same. This ensures that apps don't suddenly behave differently, failing in unexpected ways, when an App Service plan switches from one tier to another.
 
 <a id="developmentframeworks"></a>
 
@@ -76,7 +76,7 @@ On the system drive, App Service reserves `%SystemDrive%\local` for app-specific
 
 Two examples of how App Service uses temporary local storage are the directory for temporary ASP.NET files and the directory for IIS compressed files. The ASP.NET compilation system uses the `%SystemDrive%\local\Temporary ASP.NET Files` directory as a temporary compilation cache location. IIS uses the `%SystemDrive%\local\IIS Temporary Compressed Files` directory to store compressed response output. Both of these types of file usage (as well as others) are remapped in App Service to per-app temporary local storage. This remapping ensures that functionality continues as expected.
 
-Each app in App Service runs as a random unique low-privileged worker process identity called the "application pool identity", described further here: [https://www.iis.net/learn/manage/configuring-security/application-pool-identities](https://www.iis.net/learn/manage/configuring-security/application-pool-identities). Application code uses this identity for basic read-only access to the operating system drive. This means application code can list common directory structures and read common files on operating system drive. Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents. 
+Each app in App Service runs as a random unique low-privileged worker process identity called the "application pool identity", described further in the IIS [Application Pool Identities](/iis/manage/configuring-security/application-pool-identities) documentation. Application code uses this identity for basic read-only access to the operating system drive. This means application code can list common directory structures and read common files on operating system drive. Although this might appear to be a somewhat broad level of access, the same directories and files are accessible when you provision a worker role in an Azure hosted service and read the drive contents. 
 
 <a name="multipleinstances"></a>
 

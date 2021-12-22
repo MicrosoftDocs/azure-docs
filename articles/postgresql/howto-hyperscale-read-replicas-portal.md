@@ -51,15 +51,8 @@ After the read replica is created, it can be viewed from the **Replication** win
 ## Delete a primary server group
 
 To delete a primary server group, you use the same steps as to delete a
-standalone Hyperscale (Citus) server group. 
-
-> [!IMPORTANT]
->
-> When you delete a primary server group, replication to all read replicas is
-> stopped. The read replicas become standalone server groups that now support
-> both reads and writes.
-
-To delete a server group from the Azure portal, follow these steps:
+standalone Hyperscale (Citus) server group. From the Azure portal, follow these
+steps:
 
 1. In the Azure portal, select your primary Azure Database for PostgreSQL
    server group.

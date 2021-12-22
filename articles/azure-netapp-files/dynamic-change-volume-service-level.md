@@ -3,7 +3,7 @@ title: Dynamically change the service level of a volume for Azure NetApp Files  
 description: Describes how to dynamically change the service level of a volume.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 05/06/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Dynamically change the service level of a volume
 
@@ -68,5 +68,5 @@ You can also use [Azure CLI commands](/cli/azure/feature) `az feature register` 
 ## Next steps  
 
 * [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
-* [Set up a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
+* [Create a capacity pool](azure-netapp-files-set-up-capacity-pool.md)
 * [Troubleshoot issues for changing the capacity pool of a volume](troubleshoot-capacity-pools.md#issues-when-changing-the-capacity-pool-of-a-volume)

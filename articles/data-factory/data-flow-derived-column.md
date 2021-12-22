@@ -8,12 +8,14 @@ ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 09/09/2021
+ms.date: 12/10/2021
 ---
 
 # Derived column transformation in mapping data flow
 
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
+
+[!INCLUDE[data-flow-preamble](includes/data-flow-preamble.md)]
 
 Use the derived column transformation to generate new columns in your data flow or to modify existing fields.
 
@@ -46,20 +48,6 @@ When working with complex columns, you can create subcolumns. To do this, click 
 For more information on handling complex types in data flow, see [JSON handling in mapping data flow](format-json.md#mapping-data-flow-properties).
 
 :::image type="content" source="media/data-flow/derive-complex-column.png" alt-text="Add complex column":::
-
-### Locals
-
-If you are sharing logic across multiple columns or want to compartmentalize your logic, you can create a local within a derived column transformation. A local is a set of logic that doesn't get propagated downstream to the following transformation. Locals can be created within the expression builder by going to **Expression elements** and selecting **Locals**. Create a new one by selecting **Create new**.
-
-:::image type="content" source="media/data-flow/create-local.png" alt-text="Create local":::
-
-Locals can reference any expression element a derived column including functions, input schema, parameters, and other locals. When referencing other locals, order does matter as the referenced local needs to be "above" the current one.
-
-:::image type="content" source="media/data-flow/create-local-2.png" alt-text="Create local 2":::
-
-To reference a local in a derived column, either click on the local from the **Expression elements** view or reference it with a colon in front of its name. For example, a local called local1 would be referenced by `:local1`. To edit a local definition, hover over it in the expression elements view and click on the pencil icon.
-
-:::image type="content" source="media/data-flow/using-locals.png" alt-text="Using locals":::
 
 ## Data flow script
 

@@ -5,6 +5,7 @@ description: Use Azure Communication Services SDKs to render the active speakers
 author: probableprime
 ms.author: rifox
 ms.service: azure-communication-services
+ms.subservice: calling
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
@@ -14,7 +15,6 @@ ms.custom: template-how-to
 
 # Get active speakers within a call
 
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 During an active call, you may want to get a list of active speakers in order to render or display them differently. Here's how.
 

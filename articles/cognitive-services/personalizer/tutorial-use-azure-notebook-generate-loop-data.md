@@ -42,7 +42,7 @@ The code for this tutorial is available in the [Personalizer Samples GitHub repo
 
 ## How the simulation works
 
-At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30%. This success is indicated by the reward sent back to Personalizer's Reward API, with a score of 1. After some Rank and Reward calls, the system improves.
+At the beginning of the running system, the suggestions from Personalizer are only successful between 20% to 30%. This success is indicated by the reward sent back to the Personalizer Reward API, with a score of 1. After some Rank and Reward calls, the system improves.
 
 After the initial requests, run an offline evaluation. This allows Personalizer to review the data and suggest a better learning policy. Apply the new learning policy and run the notebook again with 20% of the previous request count. The loop will perform better with the new learning policy.
 

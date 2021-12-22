@@ -149,12 +149,22 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
 3. Choose the **Virtual machine location** where you want to create the virtual machines. They can be the same or different from the region you selected for the host pool. Keep in mind that VM prices vary by region, and the VM locations should be near their users when possible to maximize performance. Learn more at [Data locations for Azure Virtual Desktop](data-locations.md).
    
-4. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
+4. Next, choose the availability option that best suit your needs. To learn more about which option is right for you, see [Availability options for virtual machines in Azure](../virtual-machines/availability.md) and [our FAQ](./faq.yml#which-availability-option-is-best-for-me-).
    
    > [!div class="mx-imgBorder"]
    > ![A screenshot of the availability zone drop-down menu. The "availability zone" option is highlighted.](media/availability-zone.png)
 
-5. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
+5. Next, choose the security type that you would like to use for your virtual machines. You can choose either **Standard** or **Trusted Launch virtual machines**. To learn more about Trusted Launch virtual machines, see [Trusted Launch for Azure virtual machines](../virtual-machines/trusted-launch.md).
+
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the security type drop-down menu. The "Standard" option is highlighted.](https://user-images.githubusercontent.com/62080236/146099065-bd2de963-d204-4b96-9291-264c02923377.png)
+
+   If Trusted Launch virtual machines is selected, choose which Trusted Launch security features you would like to enable. 
+
+   > [!div class="mx-imgBorder"]
+   > ![A screenshot of the Trusted Launch security features available to select from.](https://user-images.githubusercontent.com/62080236/146099320-24cbfdfe-c5ec-43c1-b6b9-ad02378c3709.png)
+
+6. Next, choose the image that needs to be used to create the virtual machine. You can choose either **Gallery** or **Storage blob**.
 
     - If you choose **Gallery**, select one of the recommended images from the drop-down menu:
 
@@ -176,20 +186,20 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
     - If you choose **Storage Blob**, you can use your own image build through Hyper-V or on an Azure VM. All you have to do is enter the location of the image in the storage blob as a URI.
    
-   The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](/azure/virtual-desktop/faq#which-availability-option-is-best-for-me).
+   The image's location is independent of the availability option, but the image’s zone resiliency determines whether that image can be used with availability zone. If you select an availability zone while creating your image, make sure you're using an image from the gallery with zone resiliency enabled. To learn more about which zone resiliency option you should use, see [the FAQ](./faq.yml#which-availability-option-is-best-for-me-).
 
-6. After that, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload. To learn more about virtual machine sizes and which size you should choose, see [Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context).
+7. After that, choose the **Virtual machine size** you want to use. You can either keep the default size as-is or select **Change size** to change the size. If you select **Change size**, in the window that appears, choose the size of the virtual machine suitable for your workload. To learn more about virtual machine sizes and which size you should choose, see [Virtual machine sizing guidelines](/windows-server/remote/remote-desktop-services/virtual-machine-recs?context=/azure/virtual-desktop/context/context).
 
-7. Under **Number of VMs**, provide the number of VMs you want to create for your host pool.
+8. Under **Number of VMs**, provide the number of VMs you want to create for your host pool.
 
     >[!NOTE]
     >The setup process can create up to 400 VMs while setting up your host pool, and each VM setup process creates four objects in your resource group. Since the creation process doesn't check your subscription quota, make sure the number of VMs you enter is within the Azure VM and API limits for your resource group and subscription. You can add more VMs after you finish creating your host pool.
 
-8. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
+9. Choose what kind of OS disks you want your VMs to use: Standard SSD, Premium SSD, or Standard HDD.
 
-9. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network you selected should be configured to use the IP of the domain controller.
+10. Under Network and security, select the **Virtual network** and **Subnet** where you want to put the virtual machines you create. Make sure the virtual network can connect to the domain controller, since you'll need to join the virtual machines inside the virtual network to the domain. The DNS servers of the virtual network you selected should be configured to use the IP of the domain controller.
 
-10. Select what kind of security group you want: **Basic**, **Advanced**, or **None**.
+11. Select what kind of security group you want: **Basic**, **Advanced**, or **None**.
 
     If you select **Basic**, you'll have to select whether you want any inbound port open. If you select **Yes**, choose from the list of standard ports to allow inbound connections to.
 
@@ -201,7 +211,7 @@ To set up your virtual machine within the Azure portal host pool setup process:
 
     If you choose **Advanced**, select an existing network security group that you've already configured.
 
-11. After that, select whether you want the virtual machines to be joined to **Active Directory** or **Azure Active Directory** (Preview).
+12. After that, select whether you want the virtual machines to be joined to **Active Directory** or **Azure Active Directory** (Preview).
 
     - For Active Directory, provide an account to join the domain and choose if you want to join a specific domain and organizational unit.
 
@@ -211,9 +221,14 @@ To set up your virtual machine within the Azure portal host pool setup process:
   
     - For Azure Active Directory, you can select **Enroll the VM with Intune** to automatically make the VM available for management after it's deployed.
 
-12. Under **Virtual Machine Administrator account**, enter the credentials for the local admin account to be added while creating the VM. You can use this account for management purposes in both AD and Azure AD-joined VMs.
+13. Under **Virtual Machine Administrator account**, enter the credentials for the local admin account to be added while creating the VM. You can use this account for management purposes in both AD and Azure AD-joined VMs.
 
-13. Select **Next: Workspace >**.
+14. Under **Post update custom configuration**, you can enter the location of an Azure Resource Manager template to perform custom configurations on your session hosts after you create them. You'll need to enter the URLs for both the Azure Resource Manager template file and the Azure Resource Manager template parameter file. 
+
+      >[!NOTE]
+      >Azure Virtual Desktop doesn't support provisioning Azure resources in the template.
+
+15. Select **Next: Workspace >**.
 
 ### [Azure CLI](#tab/azure-cli)
 

@@ -7,6 +7,7 @@ ms.service: route-server
 ms.topic: quickstart
 ms.date: 09/01/2021
 ms.author: duau
+ms.custom: mode-api
 ---
 
 # Quickstart: Create and configure Route Server using Azure CLI 
@@ -14,6 +15,9 @@ ms.author: duau
 This article helps you configure Azure Route Server to peer with a Network Virtual Appliance (NVA) in your virtual network using Azure PowerShell. Route Server will learn routes from your NVA and program them on the virtual machines in the virtual network. Azure Route Server will also advertise the virtual network routes to the NVA. For more information, see [Azure Route Server](overview.md).
 
 :::image type="content" source="media/quickstart-configure-route-server-portal/environment-diagram.png" alt-text="Diagram of Route Server deployment environment using the Azure CLI." border="false":::
+
+> [!IMPORTANT]
+> If you have an Azure Route Server created before September 1st and it doesn't have a public IP address asssociated, you'll need to recreate the Route Server so it can obtain an IP address for management purpose.
 
 ##  Prerequisites 
 
@@ -76,7 +80,7 @@ Azure Route Server requires a dedicated subnet named *RouteServerSubnet*. The su
         --name RouteServerSubnet \
         --resource-group myRouteServerRG \
         --vnet-name myVirtualNetwork \
-        --address-prefix 10.0.0.0/24)
+        --address-prefix 10.0.0.0/24
     ``` 
 
 1. Make note of the RouteServerSubnet ID. To obtain and store the resource ID of the *RouteServerSubnet* to the `subnet_id` variable, use [az network vnet subnet show](/cli/azure/network/vnet/subnet#az_network_vnet_subnet_show):

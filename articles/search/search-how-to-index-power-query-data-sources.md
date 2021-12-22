@@ -3,11 +3,13 @@ title: Index data using Power Query connectors (preview)
 titleSuffix: Azure Cognitive Search
 description: Import data from different data sources using the Power Query connectors.
 
-author: MarkHeff
-ms.author: maheff
+author: gmndrg
+ms.author: gimondra
+manager: nitinme
+
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/25/2021
+ms.date: 12/17/2021
 ms.custom: references_regions
 ---
 
@@ -64,8 +66,8 @@ After you're approved for the preview, the Azure Cognitive Search team will prov
 ### Step 3 – Select your data source
 There are a few data sources that you can pull data from using this preview. All data sources that use Power Query will include a "Powered By Power Query" on their tile. 
 Select your data source. 
- 
-![Select a data source](./media/search-power-query-connectors/power-query-import-data.png "Select a data source")
+
+:::image type="content" source="media/search-power-query-connectors/power-query-import-data.png" alt-text="Screenshot of the Select a data source page." border="true":::
 
 Once you've selected your data source, select **Next: Configure your data** to move to the next section.
 
@@ -80,8 +82,8 @@ Once you've provided your connection credentials, select **Next**.
 
 ### Step 5 – Select your data
 The import wizard will preview various tables that are available in your data source. In this step you'll check one table that contains the data you want to import into your index.
- 
-![Preview your data](./media/search-power-query-connectors/power-query-preview-data.png "Preview your data")
+
+:::image type="content" source="media/search-power-query-connectors/power-query-preview-data.png" alt-text="Screenshot of data preview." border="true":::
 
 Once you've selected your table, select **Next**.
 
@@ -90,7 +92,7 @@ Power Query connectors provide you with a rich UI experience that allows you to 
 
 It's not required that you transform your data before importing it into Azure Cognitive Search.
 
-![Transform your data](./media/search-power-query-connectors/power-query-transform-your-data.png "Transform your data") 
+:::image type="content" source="media/search-power-query-connectors/power-query-transform-your-data.png" alt-text="Screenshot of Transform your data page." border="true":::
 
 For more information about transforming data with Power Query, look at [Using Power Query in Power BI Desktop](/power-query/power-query-quickstart-using-power-bi). 
 
@@ -99,8 +101,9 @@ Once you're done transforming your data, select **Next**.
 ### Step 7 – Add Azure Blob storage
 The Power Query connector preview currently requires you to provide a blob storage account. This step only exists with the initial gated preview. This blob storage account will serve as temporary storage for data that moves from your data source to an Azure Cognitive Search index.
 
-We recommend providing a full access storage account connection string: 
-```
+We recommend providing a full access storage account connection string:
+ 
+```JSON
 { "connectionString" : "DefaultEndpointsProtocol=https;AccountName=<your storage account>;AccountKey=<your account key>;" }
 ```
 
@@ -122,7 +125,7 @@ Review the description of index attributes and language analyzers for more infor
 
 Take a moment to review your selections. Once you run the wizard, physical data structures are created and you won't be able to edit most of the properties for these fields without dropping and recreating all objects.
 
-![Create your index](./media/search-power-query-connectors/power-query-index.png "Create your index")
+:::image type="content" source="media/search-power-query-connectors/power-query-index.png" alt-text="Screenshot of Create your index page." border="true":::
 
 When complete, select **Next: Create an Indexer**.
 
@@ -133,7 +136,7 @@ The output of the Import data wizard is an indexer that crawls your data source 
 
 When creating the indexer, you can optionally choose to run the indexer on a schedule and add change detection. To add change detection, designate a 'high water mark' column.
 
-![Create your indexer](./media/search-power-query-connectors/power-query-indexer-configuration.png "Create your indexer")
+:::image type="content" source="media/search-power-query-connectors/power-query-indexer-configuration.png" alt-text="Screenshot of Create your indexer page." border="true":::
 
 Once you've finished filling out this page select **Submit**.
 

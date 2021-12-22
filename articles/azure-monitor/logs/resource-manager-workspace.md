@@ -58,34 +58,6 @@ The following sample creates a new empty Log Analytics workspace.
         },
         "location": {
           "type": "string",
-          "allowedValues": [
-          "australiacentral", 
-          "australiaeast", 
-          "australiasoutheast", 
-          "brazilsouth",
-          "canadacentral", 
-          "centralindia", 
-          "centralus", 
-          "eastasia", 
-          "eastus", 
-          "eastus2", 
-          "francecentral", 
-          "japaneast", 
-          "koreacentral", 
-          "northcentralus", 
-          "northeurope", 
-          "southafricanorth", 
-          "southcentralus", 
-          "southeastasia",
-          "switzerlandnorth",
-          "switzerlandwest",
-          "uksouth", 
-          "ukwest", 
-          "westcentralus", 
-          "westeurope", 
-          "westus", 
-          "westus2" 
-          ],
           "metadata": {
               "description": "Specifies the location for the workspace."
               }
@@ -102,8 +74,12 @@ The following sample creates a new empty Log Analytics workspace.
           "metadata": {
             "description": "true to use resource or workspace permissions. false to require workspace permissions."
           }
-      }
-
+        },
+        "heartbeatTableRetention": {
+          "type": "int",
+          "metadata": {
+            "description": "Number of days to retain data in HeartBeat table."
+          }
       },
       "resources": [
       {
@@ -117,11 +93,22 @@ The following sample creates a new empty Log Analytics workspace.
               },
               "retentionInDays": "[parameters('retentionInDays')]",
               "features": {
-                  "searchVersion": 1,
-                  "legacy": 0,
                   "enableLogAccessUsingOnlyResourcePermissions": "[parameters('resourcePermissions')]"
               }
-          }
+          },
+          "resources": [
+            {
+              "type": "Microsoft.OperationalInsights/workspaces/tables",
+              "apiVersion": "2020-08-01",
+              "name": "[concat(parameters('workspaceName'),'/','Heartbeat')]",
+              "dependsOn": [
+                "[parameters('workspaceName')]"
+              ],
+              "properties": {
+                "RetentionInDays": "[parameters('heartbeatTableRetention')]"
+              }
+            }
+          ]
       }
   ]
 }
@@ -145,6 +132,9 @@ The following sample creates a new empty Log Analytics workspace.
     },
     "resourcePermissions": {
       "value": true
+    },
+    "heartbeatTableRetention": {
+      "value": 30
     }
   }
 }

@@ -338,7 +338,7 @@ To see the sample app in action, open a web browser to the external IP address o
 ![Image of browsing to ASP.NET sample application](media/windows-container/asp-net-sample-app.png)
 
 > [!Note]
-> If you receive a connection timeout when trying to load the page then you should verify the sample app is ready with the following command [kubectl get pods --watch]. Sometimes the windows container will not be started by the time your external IP address is available.
+> If you receive a connection timeout when trying to load the page then you should verify the sample app is ready with the following command [kubectl get pods --watch]. Sometimes the Windows container will not be started by the time your external IP address is available.
 
 ## Delete cluster
 
@@ -353,7 +353,7 @@ az group delete --name myResourceGroup --yes --no-wait
 
 ## Next steps
 
-In this article, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for the cluster you just created.
+In this article, you deployed a Kubernetes cluster and deployed an ASP.NET sample application in a Windows Server container to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -389,7 +389,6 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [azure-portal]: https://portal.azure.com
 [kubernetes-deployment]: concepts-clusters-workloads.md#deployments-and-yaml-manifests
 [kubernetes-service]: concepts-network.md#services
-[kubernetes-dashboard]: kubernetes-dashboard.md
 [restricted-vm-sizes]: quotas-skus-regions.md#restricted-vm-sizes
 [use-advanced-networking]: configure-azure-cni.md
 [aks-support-policies]: support-policies.md

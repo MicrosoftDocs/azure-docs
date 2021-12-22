@@ -138,7 +138,7 @@ The following Azure Cosmos DB configuration choices cannot be modified or undone
 
     This command will output a JSON document similar to the following:
 
-    ```{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}```
+    `{  "_t": "GetRequestStatisticsResponse",  "ok": 1,  "CommandName": "find",  "RequestCharge": 10.1,  "RequestDurationInMilliSeconds": 7.2}`
 
 * You can also use [the diagnostic settings](../cosmosdb-monitor-resource-logs.md) to understand the frequency and patterns of the queries executed against Azure Cosmos DB. The results from the diagnostic logs can be sent to a storage account, an EventHub instance or [Azure Log Analytics](../../azure-monitor/logs/log-analytics-tutorial.md).  
 

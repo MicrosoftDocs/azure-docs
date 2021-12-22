@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: Azure Digital Twins APIs and SDKs
 titleSuffix: Azure Digital Twins
-description: Understand the Azure Digital Twins API and SDK options.
+description: Learn about the Azure Digital Twins API and SDK options, including information about SDK helper classes and general usage notes.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 04/30/2021
+ms.date: 10/25/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,11 +17,12 @@ ms.service: digital-twins
 
 # Azure Digital Twins APIs and SDKs
 
-Azure Digital Twins comes equipped with both **control plane APIs** and **data plane APIs** for managing your instance and its elements. 
+This article gives an overview of the Azure Digital Twins APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers (through a tool like [Postman](how-to-use-postman.md)), or through an SDK.
+
+Azure Digital Twins comes equipped with **control plane APIs**, **data plane APIs**, and **SDKs** for managing your instance and its elements. 
 * The control plane APIs are [Azure Resource Manager (ARM)](../azure-resource-manager/management/overview.md) APIs, and cover resource management operations like creating and deleting your instance. 
 * The data plane APIs are Azure Digital Twins APIs, and are used for data management operations like managing models, twins, and the graph.
-
-This article gives an overview of the APIs available, and the methods for interacting with them. You can either use the REST APIs directly with their associated Swaggers (through a tool like [Postman](how-to-use-postman.md)), or through an SDK.
+* The SDKs take advantage of the existing APIs to allow for ease of development of custom applications making use of Azure Digital Twins. The control plane SDKs are available in [.NET (C#)](/dotnet/api/overview/azure/digitaltwins/management?view=azure-dotnet&preserve-view=true) and [Java](/java/api/overview/azure/digitaltwins/resourcemanagement?view=azure-java-stable&preserve-view=true), and the data plane SDKs are available in [.NET (C#)](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true), [Java](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true), [JavaScript](/javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true), and [Python](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
 
 ## Overview: control plane APIs
 
@@ -52,25 +53,25 @@ The most current data plane API version is _**2020-10-31**_.
 
 To use the data plane APIs:
 * You can call the APIs directly, by...
-   - referencing the latest Swagger folder in the [data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This folder also includes a folder of examples that show the usage. 
-   - viewing the [API reference documentation](/rest/api/azure-digitaltwins/).
+   - Referencing the latest Swagger folder in the [data plane Swagger repo](https://github.com/Azure/azure-rest-api-specs/tree/master/specification/digitaltwins/data-plane/Microsoft.DigitalTwins). This folder also includes a folder of examples that show the usage. 
+   - Viewing the [API reference documentation](/rest/api/azure-digitaltwins/).
 * You can use the **.NET (C#) SDK**. To use the .NET SDK...
-   - you can view and add the package from NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
-   - you can view the [SDK reference documentation](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
-   - you can find the SDK source, including a folder of samples, in GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
-   - you can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
+   - You can view and add the package from NuGet: [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core). 
+   - You can view the [SDK reference documentation](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true).
+   - You can find the SDK source, including a folder of samples, in GitHub: [Azure IoT Digital Twins client library for .NET](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/digitaltwins/Azure.DigitalTwins.Core). 
+   - You can see detailed information and usage examples by continuing to the [.NET (C#) SDK (data plane)](#net-c-sdk-data-plane) section of this article.
 * You can use the **Java SDK**. To use the Java SDK...
-   - you can view and install the package from Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
-   - you can view the [SDK reference documentation](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true)
-   - you can find the SDK source in GitHub: [Azure IoT Digital Twins client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
+   - You can view and install the package from Maven: [`com.azure:azure-digitaltwins-core`](https://search.maven.org/artifact/com.azure/azure-digitaltwins-core/1.0.0/jar)
+   - You can view the [SDK reference documentation](/java/api/overview/azure/digitaltwins/client?view=azure-java-stable&preserve-view=true)
+   - You can find the SDK source in GitHub: [Azure IoT Digital Twins client library for Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 * You can use the **JavaScript SDK**. To use the JavaScript SDK...
-   - you can view and install the package from npm: [Azure Azure Digital Twins Core client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
-   - you can view the [SDK reference documentation](/javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true).
-   - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
+   - You can view and install the package from npm: [Azure Azure Digital Twins Core client library for JavaScript](https://www.npmjs.com/package/@azure/digital-twins-core).
+   - You can view the [SDK reference documentation](/javascript/api/@azure/digital-twins-core/?view=azure-node-latest&preserve-view=true).
+   - You can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for JavaScript](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/digitaltwins/digital-twins-core)
 * You can use the **Python SDK**. To use the Python SDK...
-   - you can view and install the package from PyPi: [Azure Azure Digital Twins Core client library for Python](https://pypi.org/project/azure-digitaltwins-core/).
-   - you can view the [SDK reference documentation](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
-   - you can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
+   - You can view and install the package from PyPi: [Azure Azure Digital Twins Core client library for Python](https://pypi.org/project/azure-digitaltwins-core/).
+   - You can view the [SDK reference documentation](/python/api/azure-digitaltwins-core/azure.digitaltwins.core?view=azure-python&preserve-view=true).
+   - You can find the SDK source in GitHub: [Azure Azure Digital Twins Core client library for Python](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/digitaltwins/azure-digitaltwins-core)
 
 You can also exercise date plane APIs by interacting with Azure Digital Twins through the [CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true).
 
@@ -81,7 +82,7 @@ The Azure Digital Twins .NET (C#) SDK is part of the Azure SDK for .NET. It's op
 > [!NOTE]
 > For more information on SDK design, see the general [design principles for Azure SDKs](https://azure.github.io/azure-sdk/general_introduction.html) and the specific [.NET design guidelines](https://azure.github.io/azure-sdk/dotnet_introduction.html).
 
-To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You'll also need the latest version of the **Azure.Identity** package. In Visual Studio, you can add these packages using the NuGet Package Manager (accessed through *Tools > NuGet Package Manager > Manage NuGet Packages for Solution*). You can also use the .NET command-line tool with the commands found in the NuGet package links below to add these to your project:
+To use the SDK, include the NuGet package **Azure.DigitalTwins.Core** with your project. You'll also need the latest version of the **Azure.Identity** package. In Visual Studio, you can add these packages using the NuGet Package Manager (accessed through *Tools > NuGet Package Manager > Manage NuGet Packages for Solution*). You can also use the .NET command-line tool with the commands found in the NuGet package links below to add these packages to your project:
 * [Azure.DigitalTwins.Core](https://www.nuget.org/packages/Azure.DigitalTwins.Core): The package for the [Azure Digital Twins SDK for .NET](/dotnet/api/overview/azure/digitaltwins/client?view=azure-dotnet&preserve-view=true). 
 * [Azure.Identity](https://www.nuget.org/packages/Azure.Identity): The library that provides tools to help with authentication against Azure.
 

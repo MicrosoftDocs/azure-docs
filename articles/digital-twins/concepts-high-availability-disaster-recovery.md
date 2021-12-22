@@ -2,10 +2,10 @@
 # Mandatory fields.
 title: High availability and disaster recovery
 titleSuffix: Azure Digital Twins
-description: Describes the Azure and Azure Digital Twins features that help you to build highly available Azure IoT solutions with disaster recovery capabilities.
+description: Learn about Azure high availability and disaster recovery features as they pertain to Azure Digital Twins, which will help you build highly available Azure IoT solutions with disaster recovery capabilities.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 10/14/2020
+ms.date: 12/09/2021
 ms.topic: conceptual
 ms.service: digital-twins
 
@@ -17,9 +17,9 @@ ms.service: digital-twins
 
 # Azure Digital Twins high availability and disaster recovery
 
-A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for **High Availability (HA)** and **Disaster Recovery (DR)** can help you define and achieve appropriate uptime goals for your solution.
+This article discusses the **High Availability (HA)** and **Disaster Recovery (DR)** features offered specifically by the Azure Digital Twins service. The article covers intra-region HA, cross region DR, monitoring service health, and best practices on HA/DR.
 
-This article discusses the HA and DR features offered specifically by the Azure Digital Twins service.
+A key area of consideration for resilient IoT solutions is business continuity and disaster recovery. Designing for HA and DR can help you define and achieve appropriate uptime goals for your solution.
 
 Azure Digital Twins supports these feature options:
 * *Intra-region HA* – Built-in redundancy to deliver on uptime of the service
@@ -35,12 +35,12 @@ Azure Digital Twins provides intra-region HA by implementing redundancies within
 
 There could be some rare situations when a data center experiences extended outages because of power failures or other events in the region. Such events are rare, and during such failures, the intra region HA capability described above may not help. Azure Digital Twins addresses this scenario with Microsoft-initiated failover.
 
-**Microsoft-initiated failover** is exercised in rare situations to failover all the Azure Digital Twins instances from an affected region to the corresponding [geo-paired region](../best-practices-availability-paired-regions.md). This process is a default option (with no way for users to opt out), and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve user consent before the user's instance is failed over.
+**Microsoft-initiated failover** is exercised in rare situations to failover all the Azure Digital Twins instances from an affected region to the corresponding [geo-paired region](../availability-zones/cross-region-replication-azure.md). This process is a default option (with no way for users to opt out), and requires no intervention from the user. Microsoft reserves the right to make a determination of when this option will be exercised. This mechanism doesn't involve user consent before the user's instance is failed over.
 
 >[!NOTE]
 > Some Azure services provide an additional option called **customer-initiated failover**, which enables customers to initiate a failover just for their instance, such as to run a DR drill. This mechanism is currently **not supported** by Azure Digital Twins. 
 
-If it's important for you to keep all data within certain geographical areas, check the location of the [geo-paired region](../best-practices-availability-paired-regions.md#azure-regional-pairs) for the region where you're creating your instance, to ensure that it meets your data residency requirements.
+If it's important for you to keep all data within certain geographical areas, check the location of the [geo-paired region](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies) for the region where you're creating your instance, to ensure that it meets your data residency requirements.
 
 >[!NOTE]
 > Some Azure services provide an option for users to configure a different region for failover, as a way to meet data residency requirements. This capability is currently **not supported** by Azure Digital Twins. 

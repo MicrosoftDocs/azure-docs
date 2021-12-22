@@ -4,7 +4,7 @@ titleSuffix: Azure API Management
 description: Learn how to secure access to APIs by using client certificates. You can use policy expressions to validate incoming certificates.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 06/01/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to secure APIs using client certificate authentication in API Management
@@ -45,7 +45,7 @@ For more information, see [API Management access restriction policies](api-manag
 You can also create policy expressions with the [`context` variable](api-management-policy-expressions.md#ContextVariables) to check client certificates. Examples in the following sections show expressions using the `context.Request.Certificate` property and other `context` properties.
 
 > [!IMPORTANT]
-> Starting May 2021, the `context.Request.Certificate` property only requests the certificate when the API Management instance's [`hostnameConfiguration`](/rest/api/apimanagement/2020-12-01/api-management-service/create-or-update#hostnameconfiguration) sets the `negotiateClientCertificate` property to True. By default, `negotiateClientCertificate` is set to False.
+> Starting May 2021, the `context.Request.Certificate` property only requests the certificate when the API Management instance's [`hostnameConfiguration`](/rest/api/apimanagement/current-ga/api-management-service/create-or-update#hostnameconfiguration) sets the `negotiateClientCertificate` property to True. By default, `negotiateClientCertificate` is set to False.
 
 ### Checking the issuer and subject
 

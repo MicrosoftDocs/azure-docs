@@ -11,7 +11,7 @@ ms.custom: references_regions
 
 # Availability zones in Azure Monitor
 
-[Azure availability zones](../../availability-zones/az-overview.md) protect your applications and data from datacenter failures and can provide resilience for Azure Monitor features such as Application Insights and any other feature that relies on a Log Analytics workspace.. When a workspace is linked to an availability zone, it remains active and operational even if a specific datacenter is malfunctioning or completely down, by relying on the availability of other zones in the region. You don’t need to do anything in order to switch to an alternative zone, or even be aware of the incident. 
+[Azure availability zones](../../availability-zones/az-overview.md) protect your applications and data from datacenter failures and can provide resilience for Azure Monitor features such as Application Insights and any other feature that relies on a Log Analytics workspace. When a workspace is linked to an availability zone, it remains active and operational even if a specific datacenter is malfunctioning or completely down, by relying on the availability of other zones in the region. You don’t need to do anything in order to switch to an alternative zone, or even be aware of the incident. 
 
 
 ## Regions
@@ -44,9 +44,9 @@ Transitioning to a new cluster can be a gradual process. Don't remove the previo
 Any queries against your workspace will query both clusters as required to provide you with a single, unified result set. That means that all Azure Monitor features relying on the workspace such as workbooks and dashboards will keep getting the full, unified result set based on data from both clusters.
 
 ## Billing
-There is a [cost for using a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster). It requires a daily capacity reservation of 1000 GB. This will be reduced on August 4th, 2021 to 500 GB. 
+There is a [cost for using a dedicated cluster](logs-dedicated-clusters.md#create-a-dedicated-cluster). It requires a daily capacity reservation of 500 GB. 
 
-If you already have a dedicated cluster and choose to retain it to access its data, you’ll be charged for both dedicated clusters. Starting August 4, 2021, the minimum required capacity reservation for dedicated clusters will be reduced to 500GB/Daily, so we’d recommend applying that minimum to your old cluster to reduce charges.
+If you already have a dedicated cluster and choose to retain it to access its data, you’ll be charged for both dedicated clusters. Starting August 4, 2021, the minimum required capacity reservation for dedicated clusters is reduced from 1000GB/Daily to 500GB/Daily, so we’d recommend applying that minimum to your old cluster to reduce charges.
 
 The new cluster isn’t billed during its first day to avoid double billing during configuration. Only the data ingested before the migration completes would still be billed on the date of migration. 
 

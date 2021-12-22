@@ -1,7 +1,7 @@
 ---
 title: Work with the sensor device map
 description: The Device Map provides a graphical representation of network devices detected. Use the map to analyze, and manage device information, network slices and generate reports.
-ms.date: 1/7/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
@@ -264,7 +264,7 @@ The following labels and indicators may appear on devices on the map:
 | :::image type="content" source="media/how-to-work-with-maps/amount-alerts-v2.png" alt-text="Number of alerts"::: | Number of alerts associated with the device |
 | :::image type="icon" source="media/how-to-work-with-maps/type-v2.png" border="false"::: | Device type icon, for example storage, PLC or historian. |
 | :::image type="content" source="media/how-to-work-with-maps/grouped-v2.png" alt-text="devices grouped"::: | Number of devices grouped in a subnet in an IT network. In this example 8. |
-| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="device Learning period"::: | An device that was detected after the Learning period and was not authorized as a network device. |
+| :::image type="content" source="media/how-to-work-with-maps/not-authorized-v2.png" alt-text="device Learning period"::: | A device that was detected after the Learning period and was not authorized as a network device. |
 | Solid line | Logical connection between devices |
 | :::image type="content" source="media/how-to-work-with-maps/new-v2.png" alt-text="New device"::: | New device discovered after Learning is complete. |
 
@@ -315,7 +315,7 @@ The following information can be updated manually. Information manually entered 
 | Operating System | The device OS detected by the sensor. |
 | Purdue Layer | The Purdue layer identified by the sensor for this device, including: <br /> - Automatic <br /> - Process Control <br /> - Supervisory <br /> - Enterprise |
 | Description | A free text field. <br /> Add more information about the device. |
-| Attributes | Any additional information that was discovered about the device during the learning period and does not belong to other categories, appears in the attributes section. <br /> The information is RO. |
+| Attributes | Additional information  was discovered on the device. For example, view the PLC Run and Key state, the secure status of the PLC, or information on when the state changed.  <br /> The information is read only and cannot be updated from the Attributes section. |
 | Settings | You can manually change device settings to prevent false positives: <br /> - **Authorized Device**: During the learning period, all the devices discovered in the network are identified as authorized devices. When a device is discovered after the learning period, it appears as an unauthorized device by default. You can change this definition manually. <br /> - **Known as Scanner**: Enable this option if you know that this device is known as scanner and there is no need to alert you about it. <br /> - **Programming Device**: Enable this option if you know that this device is known as a programming device and is used to make programming changes. Identifying it as a programming device will prevent alerts for programming changes originating from this asset. |
 | Custom Groups | The custom groups in the device map in which this device participates. |
 | State | The security and the authorization status of the device: <br /> - The status is `Secured` when there are no alerts <br /> - When there are alerts about the device, the number of alerts is displayed <br /> - The status `Unauthorized` is displayed for devices that were added to the network after the learning period. You can manually define the device as `Authorized Device` in the settings <br /> - In case the address of this device is defined as a dynamic address, `DHCP` is added to the status. |

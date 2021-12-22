@@ -18,8 +18,6 @@ keywords: image recognition, image identifier, image recognition app, custom vis
 
 # What is Custom Vision?
 
-[!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
-
 Azure Custom Vision is an image recognition service that lets you build, deploy, and improve your own image identifier models. An image identifier applies labels (which represent classifications or objects) to images, according to their detected visual characteristics. Unlike the [Computer Vision](../computer-vision/overview.md) service, Custom Vision allows you to specify your own labels and train custom models to detect them.
 
 This documentation contains the following types of articles:
@@ -45,6 +43,12 @@ Additionally, you can choose from several variations of the Custom Vision algori
 ## What it includes
 
 The Custom Vision Service is available as a set of native SDKs as well as through a web-based interface on the [Custom Vision website](https://customvision.ai/). You can create, test, and train a model through either interface or use both together.
+
+### Supported browsers for Custom Vision website
+
+The Custom Vision web interface can be used by the following web browsers:
+-	Microsoft Edge (latest version)
+-	Google Chrome (latest version)
 
 ![Custom Vision website in a Chrome browser window](media/browser-home.png)
 

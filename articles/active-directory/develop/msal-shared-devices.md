@@ -59,7 +59,7 @@ Supported features are:
 * **Query the state of the device** to determine if your application is on a device that's in shared device mode.
 * **Query the device state of the user** on the device to determine if anything has changed since the last time your application was used.
 
-Supporting shared device mode should be considered both a security enhancement and feature upgrade for your application, and can help increase its adoption in highly regulated environments like healthcare and finance.
+Supporting shared device mode should be considered a feature upgrade for your application, and can help increase its adoption in environments where the same device is used among multiple users.
 
 Your users depend on you to ensure their data isn't leaked to another user. Share Device Mode provides helpful signals to indicate to your application that a change you should manage has occurred. Your application is responsible for checking the state of the user on the device every time the app is used, clearing the previous user's data. This includes if it is reloaded from the background in multi-tasking. On a user change, you should ensure both the previous user's data is cleared and that any cached data being displayed in your application is removed. We recommend you always perform a thorough security review process after adding shared device mode capability to your app.
 

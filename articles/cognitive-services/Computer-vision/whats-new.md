@@ -16,6 +16,21 @@ ms.author: pafarley
 
 Learn what's new in the service. These items may be release notes, videos, blog posts, and other types of information. Bookmark this page to stay up to date with the service.
 
+## September 2021
+
+### OCR (Read) API Public Preview supports 122 languages
+Computer Vision's [OCR (Read) API](overview-ocr.md) expands [supported languages](language-support.md) to 122 with its latest preview:
+* OCR support for print text in 49 new languages including Russian, Bulgarian, and other Cyrillic and more Latin languages.
+* OCR support for handwritten text in 6 new languages that include English, Chinese Simplified, French, German, Italian, Portuguese, and Spanish.
+* Enhancements for processing digital PDFs and Machine Readable Zone (MRZ) text in identity documents.
+* General performance and AI quality improvements
+
+See the [OCR how-to guide](Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to learn how to use the new preview features.
+
+> [!div class="nextstepaction"]
+> [Get Started with the Read API](./quickstarts-sdk/client-library.md)
+
+
 ## August 2021
 
 ### Image tagging language expansion
@@ -60,7 +75,7 @@ The Computer Vision API v3.2 public preview has been updated. The preview releas
 ## February 2021
 
 ### Read API v3.2 Public Preview with OCR support for 73 languages
-Computer Vision's Read API v3.2 public preview, available as cloud service and Docker container, includes these updates:
+The Computer Vision Read API v3.2 public preview, available as cloud service and Docker container, includes these updates:
 * [OCR for 73 languages](./language-support.md#optical-character-recognition-ocr) including Simplified and Traditional Chinese, Japanese, Korean, and Latin languages.
 * Natural reading order for the text line output (Latin languages only)
 * Handwriting style classification for text lines along with a confidence score (Latin languages only).
@@ -103,7 +118,7 @@ The Computer Vision API in General Availability has been upgraded to v3.1.
 The [Spatial Analysis container](spatial-analysis-container.md) is now in preview. The Spatial Analysis feature of Computer Vision lets you analyze real-time streaming video to understand spatial relationships between people and their movement through physical environments. Spatial Analysis is a Docker container you can use on-premises. 
 
 ### Read API v3.1 Public Preview adds OCR for Japanese
-Computer Vision's Read API v3.1 public preview adds these capabilities:
+The Computer Vision Read API v3.1 public preview adds these capabilities:
 * OCR for Japanese language
 * For each text line, indicate whether the appearance is Handwriting or Print style, along with a confidence score (Latin languages only).
 * For a multi-page document extract text only for selected pages or page range.
@@ -118,7 +133,7 @@ See the [Read API how-to guide](Vision-API-How-to-Topics/call-read-api.md) to le
 ## July 2020
 
 ### Read API v3.1 Public Preview with OCR for Simplified Chinese
-Computer Vision's Read API v3.1 public preview adds support for Simplified Chinese.
+The Computer Vision Read API v3.1 public preview adds support for Simplified Chinese.
 
 * This preview version of the Read API supports English, Dutch, French, German, Italian, Portuguese, Simplified Chinese, and Spanish languages.
 

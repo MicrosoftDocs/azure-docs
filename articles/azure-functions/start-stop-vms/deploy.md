@@ -11,9 +11,6 @@ ms.topic: conceptual
 
 Perform the steps in this topic in sequence to install the Start/Stop VMs v2 (preview) feature. After completing the setup process, configure the schedules to customize it to your requirements.
 
-> [!NOTE]
-> If you run into problems during deployment, you encounter an issue when using Start/Stop VMs v2 (preview), or if you have a related question, you can submit an issue on [GitHub](https://github.com/microsoft/startstopv2-deployments/issues). Filing an Azure support incident from the [Azure support site](https://azure.microsoft.com/support/options/) is not available for this preview version. 
-
 ## Permissions considerations
 Please keep the following in mind before and during deployment:
 +   The solution allows those with appropriate role-based access control (RBAC) permissions on the Start/Stop v2 deployment to add, remove, and manage schedules for virtual machines under the scope of the Start/Stop v2. This behavior is by design. In practice, this means a user who doesn't have direct RBAC permission on a virtual machine could still create start, stop, and autostop operations on that virtual machine when they have the RBAC permission to modify the Start/Stop v2 solution managing it.
@@ -194,7 +191,7 @@ For each scenario, you can target the action against one or more subscriptions, 
 
 ## Sequenced start and stop scenario
 
-In an environment that includes two or more components on multiple Azure Resource Manager VMs in a distributed application architecture, supporting the sequence in which components are started and stopped in order is important.
+In an environment that includes two or more components on multiple Azure Resource Manager VMs in a distributed application architecture, supporting the sequence in which components are started and stopped in order is important. Make sure you have applied the **sequencestart** and **sequencestop** tags to the target VMs as described on the [Overview page](../../azure-functions/start-stop-vms/overview.md#overview) before configuring this scenario.
 
 1. From the list of Logic apps, to configure sequenced start, select **ststv2_vms_Sequenced_start**. To configure sequenced stop, select **ststv2_vms_Sequenced_stop**.
 

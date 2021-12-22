@@ -159,28 +159,6 @@ The following screenshot shows the out-of-the-box dashboard in the application t
 
 To learn more, see the [Deploy and walk through the micro-fulfillment center application template](../retail/tutorial-micro-fulfillment-center.md) tutorial.
 
-## Video analytics - object and motion detection
-
-The *IoT Central video analytics - object and motion detection* application template lets you quickly experience how to deploy, manage, and monitor a solution that uses intelligent edge cameras to detect objects and motion.
-
-The video analytics application uses a [live video analytics (LVA)](#live-video-analytics) module running in IoT Edge. The LVA module provides a platform for you to build intelligent video applications that span the edge and the cloud. You can use the platform to enhance IoT solutions, such as the video analytics application, with object and motion detection.
-
-The application template includes four application dashboards:
-
-* **Getting Started** provides links to resources to help you get started using the application template.
-
-- **Demo Dashboard** provides an illustration of the types of information you can display from your connected cameras.
-- **(Sample) Real Camera Management** uses simulated cameras to show how you can manage your cameras from the application.
-- **(Sample) Real Camera Monitor** uses simulated cameras to show how you can monitor your cameras from the application.
-
-:::image type="content" source="media/concepts-app-templates/live-video-analytics.png" alt-text="Video analytics - object and motion detection":::
-
-To learn how to deploy the solution, see the [Create a video analytics application in Azure IoT Central](../retail/tutorial-video-analytics-deploy.md) tutorial.
-
-### Live video analytics
-
-[Live video analytics](https://github.com/Azure/live-video-analytics) provides a platform for you to build intelligent video applications that span the edge and the cloud. The platform offers the capability to capture, record, analyze live video, and publish the results, which could be video or video analytics, to Azure services. The Azure services could be running in the cloud or the edge. You can use the platform to enhance IoT solutions with video analytics.
-
 ## Smart meter monitoring
 
  The smart meters not only enable automated billing, but also advanced metering use cases such as real-time readings and bi-directional communication. The smart meter app template enables utilities and partners to monitor smart meters status and data, define alarms and notifications. It provides sample commands, such as disconnect meter and update software. The meter data can be set up to egress to other business applications and to develop custom solutions. 

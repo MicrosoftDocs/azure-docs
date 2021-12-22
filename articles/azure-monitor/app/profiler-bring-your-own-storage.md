@@ -61,9 +61,9 @@ If you're also using Private Link, it's required one additional configuration to
 ### Link your Storage Account with your Application Insights resource
 To configure BYOS for code-level diagnostics (Profiler/Debugger), there are three options:
 
-* Using Azure PowerShell Cmdlets
-* Using Azure Command Line Interface (CLI)
-* Using Azure Resource Manager template
+* Using Azure PowerShell cmdlets
+* Using the Azure CLI
+* Using Azure Resource Manager templates
 
 #### Configure using Azure PowerShell Cmdlets
 

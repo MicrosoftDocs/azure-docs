@@ -1,6 +1,6 @@
 ---
 # Mandatory fields.
-title: Azure Digital Twins query language reference - JOIN clauses
+title: Azure Digital Twins query language reference - JOIN clause
 titleSuffix: Azure Digital Twins
 description: Reference documentation for the Azure Digital Twins query language JOIN clause
 author: baanders

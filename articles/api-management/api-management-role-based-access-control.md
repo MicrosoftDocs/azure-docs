@@ -3,7 +3,7 @@ title: How to use Role-Based Access Control in Azure API Management | Microsoft 
 description: Learn how to use the built-in roles and create custom roles in Azure API Management
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: erikre
 editor: ''
 
@@ -13,7 +13,7 @@ ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/18/2021
-ms.author: apimpm 
+ms.author: danlep 
 ms.custom: devx-track-azurepowershell
 
 ---

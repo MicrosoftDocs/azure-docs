@@ -5,7 +5,7 @@ ms.topic: conceptual
 ms.date: 08/30/2021
 ---
 
-# Azure Arc for servers security overview
+# Azure Arc-enabled servers security overview
 
 This article describes the security configuration and considerations you should evaluate before deploying Azure Arc-enabled servers in your enterprise.
 

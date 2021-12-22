@@ -1,18 +1,14 @@
 ---
 title: Migrate to Azure AD MFA with federations - Azure Active Directory
 description: Step-by-step guidance to move from Azure MFA Server on-premises to Azure AD MFA with federation
-
-services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: how-to
 ms.date: 06/22/2021
-
 ms.author: BaSelden
 author: BarbaraSelden
 manager: daveba
 ms.reviewer: michmcla
-
 ms.collection: M365-identity-device-management
 ---
 # Migrate to Azure AD MFA with federation
@@ -31,7 +27,7 @@ To create new conditional access policies, you'll need to assign those policies 
 
 You'll also need an Azure AD security group for iteratively migrating users to Azure AD MFA. These groups are used in your claims rules.
 
-Don’t reuse groups that are used for security. If you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
+Don't reuse groups that are used for security. If you are using a security group to secure a group of high-value apps via a Conditional Access policy, that should be the only use of that group.
 
 ## Prepare AD FS
 
@@ -62,13 +58,13 @@ Get-AdfsAdditionalAuthenticationRule
 To view existing relying party trusts, run the following command and replace RPTrustName with the name of the relying party trust claims rule: 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules 
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules 
 ```
 
 #### Access control policies
 
 > [!NOTE]
-> Access control policies can’t be configured so that a specific authentication provider is invoked based on group membership. 
+> Access control policies can't be configured so that a specific authentication provider is invoked based on group membership. 
 
  
 To transition from access control policies to additional authentication rules, run the following command for each of your Relying Party Trusts using the MFA Server authentication provider:
@@ -89,13 +85,13 @@ You'll need to have a specific group in which you place users for whom you want 
 
 To find the group SID, use the following command, with your group name
 
-`Get-ADGroup “GroupName”`
+`Get-ADGroup "GroupName"`
 
 ![Image of screen shot showing the results of the Get-ADGroup script.](./media/how-to-migrate-mfa-server-to-azure-mfa-user-authentication/find-the-sid.png)
 
 #### Setting the claims rules to call Azure MFA
 
-The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid” with the SID found by running the above cmdlet.
+The following PowerShell cmdlets invoke Azure AD MFA for users in the group when not on the corporate network. Replace "YourGroupSid" with the SID found by running the above cmdlet.
 
 Make sure you review the [How to Choose Additional Auth Providers in 2019](/windows-server/identity/ad-fs/overview/whats-new-active-directory-federation-services-windows-server). 
 
@@ -109,7 +105,7 @@ Make sure you review the [How to Choose Additional Auth Providers in 2019](/wind
 Run the following PowerShell cmdlet: 
 
 ```powershell
-(Get-AdfsRelyingPartyTrust -Name “RPTrustName”).AdditionalAuthenticationRules
+(Get-AdfsRelyingPartyTrust -Name "RPTrustName").AdditionalAuthenticationRules
 ```
 
  
@@ -123,7 +119,7 @@ Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
 Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 The following example assumes your current claim rules are configured to prompt for MFA when users connect from outside your network. This example includes the additional rules that you need to append.
@@ -134,12 +130,12 @@ Set-AdfsAdditionalAuthenticationRule -AdditionalAuthenticationRules 'c:[type ==
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
  c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 
@@ -153,12 +149,12 @@ Set-AdfsRelyingPartyTrust -TargetName AppA -AdditionalAuthenticationRules 'c:[ty
 "https://schemas.microsoft.com/ws/2008/06/identity/claims/authenticationmethod", value = 
 "https://schemas.microsoft.com/claims/multipleauthn" );
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value == 
-“YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
+"YourGroupSID"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders", 
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", 
-Value==“YourGroupSid"]) => issue(Type = 
+Value=="YourGroupSid"]) => issue(Type = 
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value = 
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 
@@ -180,7 +176,7 @@ For federated domains, MFA may be enforced by Azure AD Conditional Access or by 
 
 If the SupportsMFA flag is set to False, you're likely not using Azure MFA; you're probably using claims rules on AD FS relying parties to invoke MFA.
 
-You can check the status of your SupportsMFA flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings?view=azureadps-1.0):
+You can check the status of your SupportsMFA flag with the following [Windows PowerShell cmdlet](/powershell/module/msonline/get-msoldomainfederationsettings):
 
 ```powershell
 Get-MsolDomainFederationSettings –DomainName yourdomain.com
@@ -276,7 +272,7 @@ You'll need to interpret, clean, and format the data.
 
 Users may have already registered phone numbers in Azure AD. When you import the phone numbers using the Authentication Methods API, you must decide whether to overwrite the existing phone number or to add the imported number as an alternate phone number.
 
-The following PowerShell cmdlets takes the CSV file you supply and adds the exported phone numbers as a phone number for each UPN using the Authentication Methods API. Replace "myPhones” with the name of your CSV file.
+The following PowerShell cmdlets takes the CSV file you supply and adds the exported phone numbers as a phone number for each UPN using the Authentication Methods API. Replace "myPhones" with the name of your CSV file.
 
 ```powershell
 
@@ -325,12 +321,12 @@ For example, remove the following from the rule(s):
  
 ```console
 c:[Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid", Value ==
-“**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
+"**YourGroupSID**"] => issue(Type = "https://schemas.microsoft.com/claims/authnmethodsproviders",
 Value = "AzureMfaAuthentication");
 not exists([Type == "https://schemas.microsoft.com/ws/2008/06/identity/claims/groupsid",
 Value=="YourGroupSid"]) => issue(Type =
 "https://schemas.microsoft.com/claims/authnmethodsproviders", Value =
-"AzureMfaServerAuthentication");’
+"AzureMfaServerAuthentication");'
 ```
 
 ### Disable MFA Server as an authentication provider in AD FS

@@ -36,6 +36,7 @@ Azure Migrate: Discovery and assessment | Assess [VMware VMs](./tutorial-discove
 Azure Migrate: Server Migration | N/A | Migrate [VMware VMs](tutorial-migrate-vmware.md), [Hyper-V VMs](tutorial-migrate-hyper-v.md), and [physical servers](tutorial-migrate-physical-virtual-machines.md).
 [Carbonite](https://www.carbonite.com/data-protection-resources/resource/Datasheet/carbonite-migrate-for-microsoft-azure) | N/A | Migrate VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads.
 [Cloudamize](https://www.cloudamize.com/platform#tab-0)| Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads. | N/A
+[CloudSphere](https://go.microsoft.com/fwlink/?linkid=2157454)| Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads. | N/A
 [Corent Technology](https://go.microsoft.com/fwlink/?linkid=2084928) | Assess VMware VMs, Hyper-V VMs, physical server sand other cloud workloads. |  Migrate VMware VMs, Hyper-V VMs, physical servers, public cloud workloads.
 [Device 42](https://go.microsoft.com/fwlink/?linkid=2097158) | Assess VMware VMs, Hyper-V VMs, physical servers, and other cloud workloads.| N/A
 [DMA](/sql/dma/dma-overview) | Assess SQL Server databases. | N/A
@@ -89,7 +90,8 @@ France | France Central
 Germany | Germany West Central
 India | Central India or South India
 Japan |  Japan East or Japan West
-Korea | Korea Central or Korea South
+Jio India | Jio India West 
+Korea | Korea Central
 Norway | Norway East
 Switzerland | Switzerland North
 United Arab Emirates | UAE North

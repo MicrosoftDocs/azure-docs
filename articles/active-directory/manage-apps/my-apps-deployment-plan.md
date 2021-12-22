@@ -1,6 +1,7 @@
 ---
-title: Plan Azure Active Directory My Apps configuration
+title: Plan My Apps configuration
 description: Planning guide to effectively use My Apps in your organization.
+titleSuffix: Azure AD
 services: active-directory
 author: davidmu1
 manager: CelesteDG

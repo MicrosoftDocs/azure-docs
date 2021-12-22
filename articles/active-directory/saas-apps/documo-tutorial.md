@@ -34,7 +34,6 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * Documo supports **SP and IDP** initiated SSO.
-* Documo supports **Just In Time** user provisioning.
 
 > [!NOTE]
 > Identifier of this application is a fixed string value so only one instance can be configured in one tenant.
@@ -145,7 +144,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ### Create Documo test user
 
-In this section, a user called Britta Simon is created in Documo. Documo supports just-in-time user provisioning, which is enabled by default. There is no action item for you in this section. If a user doesn't already exist in Documo, a new one is created after authentication.
+In this section, a user called B.Simon is created in Documo. 
+
+1. Navigate to the [Users page](https://app.documo.com?redirectTo=/users) on the Documo app.
+1. Click the **New user** button.
+1. Fill out the user form with name, email, phone number, user role, and password information. Make sure the **email** field matches the email for B.Simon in **Azure AD**.
+1. Click **Create**.
 
 ## Test SSO 
 
@@ -166,4 +170,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Documo you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-any-app).
+Once you configure Documo you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-any-app).

@@ -2,12 +2,12 @@
 title: Deploy Azure API Management services to multiple Azure regions
 titleSuffix: Azure API Management
 description: Learn how to deploy an Azure API Management service instance to multiple Azure regions.
-author: mikebudzynski
+author: dlepow
 
 ms.service: api-management
 ms.topic: how-to
 ms.date: 04/13/2021
-ms.author: apimpm
+ms.author: danlep
 ---
 
 # How to deploy an Azure API Management service instance to multiple Azure regions

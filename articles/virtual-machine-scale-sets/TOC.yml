@@ -160,11 +160,37 @@
     - name: Benchmark scores
       href: ../virtual-machines/windows/compute-benchmark-scores.md
       maintainContext: true
+    - name: Capacity reservation (preview)
+      items:
+      - name: Overview
+        displayName: on-demand capacity reservation 
+        href: ../virtual-machines/capacity-reservation-overview.md
+        maintainContext: true
+      - name: Create a capacity reservation
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-create.md
+        maintainContext: true
+      - name: Overallocating capacity reservation
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-overallocate.md
+        maintainContext: true
+      - name: Modify a capacity reservation
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-modify.md
+        maintainContext: true
+      - name: Associate a virtual machine scale set
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-associate-virtual-machine-scale-set.md
+        maintainContext: true
+      - name: Remove a virtual machine scale set 
+        displayName: on-demand capacity reservation
+        href: ../virtual-machines/capacity-reservation-remove-virtual-machine-scale-set.md
+        maintainContext: true
     maintainContext: true
   - name: Endorsed Linux distros
     href: ../virtual-machines/linux/endorsed-distros.md
     maintainContext: true
-  - name: Orchestration modes (preview)
+  - name: Orchestration modes
     items:
     - name: Overview 
       href: virtual-machine-scale-sets-orchestration-modes.md
@@ -238,13 +264,13 @@
       href: virtual-machine-scale-sets-design-overview.md
     - name: Understand instance IDs
       href: virtual-machine-scale-sets-instance-ids.md
-  - name: Shared Image Galleries
+  - name: Azure Compute Gallery
     items:
     - name: Overview
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, Azure Compute Gallery
       href: ../virtual-machines/shared-image-galleries.md
     - name: Create a gallery
-      displayName: Shared Image Gallery, SIG, sig, gallery, image
+      displayName: Shared Image Gallery, SIG, sig, gallery, image, Azure Compute Gallery
       href: ../virtual-machines/create-gallery.md
     - name: Share a gallery
       href: ../virtual-machines/share-gallery.md

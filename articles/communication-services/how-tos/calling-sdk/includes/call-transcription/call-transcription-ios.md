@@ -12,10 +12,10 @@ ms.author: rifox
 > [!NOTE]
 > This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling iOS SDK
 
-Call transcription is an extended feature of the core `Call` API. You first need to obtain the transcription feature API object:
+Call transcription is an extended feature of the core `Call` object. You first need to obtain the transcription feature object:
 
 ```swift
-let callTranscriptionFeature = call.api(TranscriptionFeature.self)
+let callTranscriptionFeature = call.feature(Features.transcription)
 ```
 
 Then, to check if the call is transcribed, inspect the `isTranscriptionActive` property of `callTranscriptionFeature`. It returns `Bool`.
@@ -24,13 +24,13 @@ Then, to check if the call is transcribed, inspect the `isTranscriptionActive` p
 let isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive;
 ```
 
-You can also subscribe to transcription changes by implementing `TranscriptionFeatureDelegate` delegate on your class with the event `didChangeTranscriptionState`:
+You can also subscribe to transcription changes by implementing `TranscriptionCallFeatureDelegate` delegate on your class with the event `didChangeTranscriptionState`:
 
 ```swift
 callTranscriptionFeature.delegate = self
 
-// didChangeTranscriptionState is a member of TranscriptionFeatureDelegate
-public func transcriptionFeature(_ transcriptionFeature: TranscriptionFeature, didChangeTranscriptionState args: PropertyChangedEventArgs) {
-    let isTranscriptionActive = transcriptionFeature.isTranscriptionActive
+// didChangeTranscriptionState is a member of TranscriptionCallFeatureDelegate
+public func transcriptionCallFeature(_ transcriptionCallFeature: TranscriptionCallFeature, didChangeTranscriptionState args: PropertyChangedEventArgs) {
+    let isTranscriptionActive = callTranscriptionFeature.isTranscriptionActive
 }
 ```

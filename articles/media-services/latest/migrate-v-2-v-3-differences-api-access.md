@@ -48,4 +48,4 @@ While you are migrating, you can create a V3 account that still has access to V2
 All the .NET, CLI, and other SDKs will be targeting the latest 2020-05-01 API, so find or configure the older API versions.
 
 > [!NOTE]
-> New accounts created with the 2020-05-01 API cannot use V2 APIs.
+> New accounts created with the 2020-05-01 (or later) API cannot use V2 APIs.

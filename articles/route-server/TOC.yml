@@ -31,6 +31,8 @@
     href: expressroute-vpn-support.md
   - name: Dual-homed network
     href: about-dual-homed-network.md
+  - name: Path selection
+    href: path-selection.md
 - name: How-to guides
   items:
   - name: Troubleshoot Route Server issues

@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 08/03/2021
+ms.date: 10/01/2021
 ---
 
 # Supported database versions in Azure Database for PostgreSQL – Hyperscale (Citus)
@@ -16,6 +16,12 @@ ms.date: 08/03/2021
 The version of PostgreSQL running in a Hyperscale (Citus) server group is
 customizable during creation. Hyperscale (Citus) currently supports the
 following major versions:
+
+### PostgreSQL version 14
+
+The current minor release is 14.0. Refer to the [PostgreSQL
+documentation](https://www.postgresql.org/docs/14/release-14.html) to
+learn more about improvements and fixes in this minor release.
 
 ### PostgreSQL version 13
 
@@ -44,8 +50,8 @@ PostgreSQL - Hyperscale (Citus).
 
 Depending on which version of PostgreSQL is running in a server group,
 different [versions of Postgres extensions](concepts-hyperscale-extensions.md)
-will be installed as well.  In particular, Postgres 13 comes with Citus 10, and
-earlier Postgres versions come with Citus 9.5.
+will be installed as well. In particular, Postgres versions 12-14 come with
+Citus 10, and earlier Postgres versions come with Citus 9.5.
 
 ## Next steps
 

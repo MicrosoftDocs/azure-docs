@@ -10,6 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 

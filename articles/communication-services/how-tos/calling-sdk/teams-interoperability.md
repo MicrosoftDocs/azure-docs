@@ -5,6 +5,7 @@ description: Use Azure Communication Services SDKs to join a Teams meeting.
 author: probableprime
 ms.author: rifox
 ms.service: azure-communication-services
+ms.subservice: teams-interop
 ms.topic: how-to 
 ms.date: 08/10/2021
 ms.custom: template-how-to
@@ -13,8 +14,6 @@ ms.custom: template-how-to
 ---
 
 # Join a teams meeting
-
-[!INCLUDE [Public Preview Disclaimer](../../includes/public-preview-include-document.md)]
 
 Azure Communication Services SDKs can allow your users to join regular Microsoft Teams meetings. Here's how!
 
@@ -25,9 +24,6 @@ Azure Communication Services SDKs can allow your users to join regular Microsoft
 - A user access token to enable the calling client. For more information, see [Create and manage access tokens](../../quickstarts/access-tokens.md).
 - Optional: Complete the quickstart to [add voice calling to your application](../../quickstarts/voice-video-calling/getting-started-with-calling.md)
 
-> [!NOTE]
-> This API is provided as a preview for developers and may change based on feedback that we receive. Do not use this API in a production environment. To use this api please use 'beta' release of ACS Calling Web SDK
-
 To join a Teams meeting, use the `join` method and pass a meeting link or a meeting's coordinates.
 
 Join by using a meeting link:
@@ -37,7 +33,7 @@ const locator = { meetingLink: '<MEETING_LINK>'}
 const call = callAgent.join(locator);
 ```
 
-Join by using meeting coordinates:
+Join by using meeting coordinates (this is currently in limited preview):
 
 ```js
 const locator = {
@@ -48,6 +44,14 @@ const locator = {
 }
 const call = callAgent.join(locator);
 ```
+
+Join by using meeting id (this is currently in limited preview):
+
+```js
+const locator = { meetingId: '<MEETING_ID>'}
+const call = callAgent.join(locator);
+```
+
 ## Next steps
 - [Learn how to manage calls](./manage-calls.md)
 - [Learn how to manage video](./manage-video.md)

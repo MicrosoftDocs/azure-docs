@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: troubleshooting
 author: ramakoni1
 ms.author: ramakoni
-ms.reviewer: mathoma, vanto
+ms.reviewer: kendralittle, mathoma, vanto
 ms.date: 01/14/2020
 ---
 

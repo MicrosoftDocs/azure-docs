@@ -1,6 +1,6 @@
 ---
 title: Deploy GPU-enabled container instance 
-description: Learn how to deploy Azure container instances to run compute-intensive container apps using GPU resources.
+description: Learn how to deploy Azure container instances to run compute-intensive container applications using GPU resources.
 ms.topic: article
 ms.date: 07/22/2020
 ---
@@ -72,7 +72,7 @@ One way to add GPU resources is to deploy a container group by using a [YAML fil
  > [!NOTE]
   > The following example uses a public container image. To improve reliability, import and manage the image in a private Azure container registry, and update your YAML to use your privately managed base image. [Learn more about working with public images](../container-registry/buffer-gate-public-content.md).
 
-```YAML
+```yaml
 additional_properties: {}
 apiVersion: '2019-12-01'
 name: gpucontainergroup

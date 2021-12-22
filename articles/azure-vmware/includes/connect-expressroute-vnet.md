@@ -3,8 +3,8 @@ title: Connect ExpressRoute to the virtual network gateway
 description: Steps to connect ExpressRoute to the virtual network gateway.
 ms.topic: include
 ms.date: 12/08/2020
-author: shortpatti
-ms.author: v-patsho
+author: suzizuber
+ms.author: v-szuber
 ms.service: azure-vmware
 ---
 

@@ -9,7 +9,7 @@ ms.reviewer: sgilley
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.date: 07/22/2021
+ms.date: 12/16/2021
 #Customer intent: As a data scientist, I want to run Jupyter notebooks in my workspace in Azure Machine Learning studio.
 ---
 
@@ -69,6 +69,16 @@ You can browse and search the list of snippets by using the notebook toolbar to 
 From the snippets panel, you can also submit a request to add new snippets.
 
 :::image type="content" source="media/how-to-run-jupyter-notebooks/propose-new-snippet.png" alt-text="Snippet panel allows you to propose a new snippet":::
+
+## Share a notebook
+
+Your notebooks are stored in your workspace's storage account, and can be shared with others, depending on their [access level](how-to-assign-roles.md) to your workspace.  They can open and edit the notebook as long as they have the appropriate access. For example, a Contributor can edit the notebook, while a Reader could only view it.
+
+Other users of your workspace can find your notebook in the **Notebooks**, **User files** section of Azure ML studio. By default, your notebooks are in a folder with your username, and others can access them there.
+
+You can also copy the URL from your browser when you open a notebook, then send to others.  As long as they have appropriate access to your workspace, they can open the notebook.
+
+Since you don't share compute instances, other users who run your notebook will do so on their own compute instance.  
 
 ## Collaborate with notebook comments (preview)
 
@@ -147,6 +157,8 @@ To run a notebook or a Python script, you first connect to a running [compute in
 * If you have a stopped compute instance, select  **Start compute** to the right of the Compute dropdown. Depending on your screen size, this may be located under a **...** menu.
 
     :::image type="content" source="media/how-to-run-jupyter-notebooks/start-compute.png" alt-text="Start compute instance":::
+    
+Once you are connected to a compute instance, use the toolbar to run all cells in the notebook, or Control + Enter to run a single selected cell. 
 
 Only you can see and use the compute instances you create.  Your **User files** are stored separately from the VM and are shared among all compute instances in the workspace.
 
@@ -199,6 +211,9 @@ These actions will reset the notebook state and will reset all variables in the 
 
 Use the kernel dropdown on the right to change to any of the installed kernels.  
 
+## Manage packages
+
+Since your compute instance has multiple kernels, make sure use `%pip` or `%conda` [magic functions](https://ipython.readthedocs.io/en/stable/interactive/magics.html), which  install packages into the currently-running kernel.  Don't use `!pip` or `!conda`, which refers to all packages (including packages outside the currently-running kernel).
 
 ### Status indicators
 
@@ -308,7 +323,7 @@ Using the following keystroke shortcuts, you can more easily navigate and run co
 
 ## Troubleshooting
 
-* If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Ensure your network allows websocket connections to *.instances.azureml.net and *.instances.azureml.ms. 
+* If you can't connect to a notebook, ensure that web socket communication is **not** disabled. For compute instance Jupyter functionality to work, web socket communication must be enabled. Ensure your [network allows websocket connections](how-to-access-azureml-behind-firewall.md?tabs=ipaddress#microsoft-hosts) to *.instances.azureml.net and *.instances.azureml.ms. 
 
 * When a compute instance is deployed in a workspace with a private endpoint, it can be only be [accessed from within virtual network](./how-to-secure-training-vnet.md). If you are using custom DNS or hosts file, add an entry for < instance-name >.< region >.instances.azureml.ms with the private IP address of your workspace private endpoint. For more information see the [custom DNS](./how-to-custom-dns.md?tabs=azure-cli) article.
 

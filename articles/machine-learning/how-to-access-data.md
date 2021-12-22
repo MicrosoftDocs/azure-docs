@@ -4,12 +4,12 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use datastores to securely connect to Azure storage services during training with Azure Machine Learning
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mldata
 ms.topic: how-to
 ms.author: yogipandey
 author: ynpandey
 ms.reviewer: nibaccam
-ms.date: 07/06/2021
+ms.date: 10/21/2021
 ms.custom: contperf-fy21q1, devx-track-python, data4ml
 
 
@@ -27,7 +27,7 @@ To understand where datastores fit in Azure Machine Learning's overall data acce
 For a low code experience, see how to use the [Azure Machine Learning studio to create and register datastores](how-to-connect-data-ui.md#create-datastores).
 
 >[!TIP]
-> This article assumes you want to connect to your storage service with credential-based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](how-to-assign-roles.md#default-roles) <br><br>If this is a concern, learn how to [Connect to storage services with identity based access](how-to-identity-based-data-access.md). <br><br>This capability is an [experimental](/python/api/overview/azure/ml/#stable-vs-experimental) preview feature, and may change at any time. 
+> This article assumes you want to connect to your storage service with credential-based authentication credentials, like a service principal or a shared access signature (SAS) token. Keep in mind, if credentials are registered with datastores, all users with workspace *Reader* role are able to retrieve these credentials. [Learn more about workspace *Reader* role.](how-to-assign-roles.md#default-roles) <br><br>If this is a concern, learn how to [Connect to storage services with identity based access](how-to-identity-based-data-access.md).
 
 ## Prerequisites
 
@@ -90,7 +90,7 @@ We recommend creating a datastore for an [Azure Blob container](../storage/blobs
 To ensure you securely connect to your Azure storage service, Azure Machine Learning  requires that you have permission to access the corresponding data storage container. This access depends on the authentication credentials used to register the datastore. 
 
 > [!NOTE]
-> This guidance also applies to [datastores created with identity-based data access (preview)](how-to-identity-based-data-access.md). 
+> This guidance also applies to [datastores created with identity-based data access](how-to-identity-based-data-access.md). 
 
 ### Virtual network 
 

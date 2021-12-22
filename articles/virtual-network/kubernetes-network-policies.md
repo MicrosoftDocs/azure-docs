@@ -131,7 +131,8 @@ The first step is to enable Azure Monitor for containers for your Kubernetes clu
 
 After editing the ConfigMap, save it locally and apply the ConfigMap to your cluster as follows.
 
-```kubectl apply -f container-azm-ms-agentconfig.yaml```
+`kubectl apply -f container-azm-ms-agentconfig.yaml`
+
 Below is a snippet from the [Azure monitor for containers ConfigMap](https://aka.ms/container-azm-ms-agentconfig), which shows the NPM integration enabled with advanced metrics collection.
 ```
 integrations: |-
@@ -264,4 +265,3 @@ Following are some sample dashboard for NPM metrics in Container Insights (CI) a
 - Learn about [Azure Kubernetes Service](../aks/intro-kubernetes.md).
 -  Learn about [container networking](container-networking-overview.md).
 - [Deploy the plug-in](deploy-container-networking.md) for Kubernetes clusters or Docker containers.
-

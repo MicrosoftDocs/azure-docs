@@ -5,7 +5,7 @@ author: yjin81
 ms.author: yajin1
 ms.service: azure-web-pubsub
 ms.topic: overview 
-ms.date: 04/26/2021
+ms.date: 11/08/2021
 ---
 
 # Quickstart: Connect to the Azure Web PubSub instance from the browser

@@ -353,7 +353,7 @@ A user-assigned identity is a resource ID of the form
 
 You can enable one or more user-assigned identities.
 
-```YAML
+```yaml
 identity:
   type: UserAssigned
   userAssignedIdentities:
@@ -362,7 +362,7 @@ identity:
 
 ### System-assigned identity
 
-```YAML
+```yaml
 identity:
   type: SystemAssigned
 ```
@@ -371,7 +371,7 @@ identity:
 
 On a container group, you can enable both a system-assigned identity and one or more user-assigned identities.
 
-```YAML
+```yml
 identity:
   type: SystemAssigned, UserAssigned
   userAssignedIdentities:

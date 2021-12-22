@@ -1,5 +1,6 @@
 ---
-title:  Unexpected error when performing consent to an application | Microsoft Docs
+title:  Unexpected error when performing consent to an application
+titleSuffix: Azure AD
 description: Discusses errors that can occur during the process of consenting to an application and what you can do about them
 services: active-directory
 author: davidmu1
@@ -84,7 +85,7 @@ These errors all occur when the application a user is trying to consent to is re
 
 Both of these messages will be displayed when Microsoft has determined that the consent request may be risky. Among a number of other factors, this may occur if a [verified publisher](../develop/publisher-verification-overview.md) has not been added to the app registration. The first error code and message will be shown to end-users when the [Admin consent workflow](configure-admin-consent-workflow.md) is disabled. The second code and message will be shown to end-users when the admin consent workflow is enabled and to admins.
 
-End-users will not be able to grant consent to apps that have been detected as risky. Admins are able to, but should evaluate the app very carefuly and proceed with caution. If the app seems suspicious upon further review, it can be reported to Microsoft from the consent screen.
+End-users will not be able to grant consent to apps that have been detected as risky. Admins are able to, but should evaluate the app very carefully and proceed with caution. If the app seems suspicious upon further review, it can be reported to Microsoft from the consent screen.
 
 ## Next steps
 

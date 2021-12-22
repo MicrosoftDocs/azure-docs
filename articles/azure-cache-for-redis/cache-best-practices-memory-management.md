@@ -37,3 +37,10 @@ Configure your [maxmemory-reserved setting](cache-configure.md#maxmemory-policy-
 * The `maxfragmentationmemory-reserved` setting configures the amount of memory, in MB per instance in a cluster, that is reserved to accommodate for memory fragmentation. When you set this value, the Redis server experience is more consistent when the cache is full or close to full and the fragmentation ratio is high. When memory is reserved for such operations, it's unavailable for storage of cached data.
 
 * One thing to consider when choosing a new memory reservation value (`maxmemory-reserved` or `maxfragmentationmemory-reserved`) is how this change might affect a cache that is already running with large amounts of data in it. For instance, if you have a 53-GB cache with 49 GB of data and then change the reservation value to 8 GB, the max available memory for the system will drop to 45 GB. If either your current `used_memory` or your `used_memory_rss` values are higher than the new limit of 45 GB, then the system must evict data until both `used_memory` and `used_memory_rss` are below 45 GB. Eviction can increase server load and memory fragmentation. For more information on cache metrics such as `used_memory` and `used_memory_rss`, see [Available metrics and reporting intervals](cache-how-to-monitor.md#available-metrics-and-reporting-intervals).
+
+## Next steps
+
+* [Best practices for development](cache-best-practices-development.md)
+* [Azure Cache for Redis development FAQs](cache-development-faq.yml)
+* [maxmemory-reserved setting](cache-configure.md#maxmemory-policy-and-maxmemory-reserved)
+* [Best practices for scaling](cache-best-practices-scale.md)

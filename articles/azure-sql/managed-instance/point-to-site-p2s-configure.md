@@ -5,7 +5,7 @@ description: Connect to Azure SQL Managed Instance using SQL Server Management S
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: 
+ms.custom: mode-other
 ms.devlang: 
 ms.topic: quickstart
 author: srdan-bozovic-msft

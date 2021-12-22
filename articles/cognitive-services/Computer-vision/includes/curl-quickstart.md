@@ -28,10 +28,10 @@ Use the Optical character recognition REST API to read printed and handwritten t
 * [cURL](https://curl.haxx.se/) installed
 
 
+## Extract printed and handwritten text
 
-## Read printed and handwritten text
+The OCR service can extract visible text in an image or document and convert it to a character stream. For more information on text extraction, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 
-The OCR service can read visible text in an image and convert it to a character stream. For more information on text recognition, see the [Optical character recognition (OCR) overview](../overview-ocr.md).
 
 ### Call the Read API
 
@@ -51,6 +51,9 @@ curl -v -X POST "https://westcentralus.api.cognitive.microsoft.com/vision/v3.2/r
 ```
 
 The response will include an `Operation-Location` header, whose value is a unique URL. You use this URL to query the results of the Read operation. The URL expires in 48 hours.
+
+### How to use preview features
+For the preview languages and features, see [How to specify the model version](../Vision-API-How-to-Topics/call-read-api.md#determine-how-to-process-the-data-optional) to use the latest preview. The preview model includes any enhancements to the currently GA languages and features.
 
 ### Get Read results
 

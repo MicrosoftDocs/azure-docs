@@ -2,7 +2,7 @@
 title: Deploy resources to resource groups
 description: Describes how to deploy resources in an Azure Resource Manager template. It shows how to target more than one resource group.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 10/01/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -59,7 +59,7 @@ New-AzResourceGroupDeployment `
   -Name demoRGDeployment `
   -ResourceGroupName ExampleGroup `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/quickstarts/microsoft.storage/storage-account-create/azuredeploy.json `
-  -storageAccountType Standard_GRS `
+  -storageAccountType Standard_GRS
 ```
 
 ---
@@ -313,4 +313,4 @@ From a resource group deployment, you can switch to the level of a subscription 
 
 ## Next steps
 
-* For an example of deploying workspace settings for Azure Security Center, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
+* For an example of deploying workspace settings for Microsoft Defender for Cloud, see [deployASCwithWorkspaceSettings.json](https://github.com/krnese/AzureDeploy/blob/master/ARM/deployments/deployASCwithWorkspaceSettings.json).
