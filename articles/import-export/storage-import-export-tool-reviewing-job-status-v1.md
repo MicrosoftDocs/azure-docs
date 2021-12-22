@@ -5,7 +5,7 @@ author: v-dalc
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/21/2021
+ms.date: 12/22/2021
 ms.author: alkohli
 ms.subservice: common
 ---
@@ -18,7 +18,7 @@ When the Microsoft Azure Import/Export service processes the drives for an impor
 
 ## Locate the logs
 
-When you use the Import/Export service to create an import or export job in Azure Data Box (Preview), you'll view the Import/Export job along with your other **Data Box** resources.
+When you use the Import/Export service to create an import or export job in Azure Data Box, you'll view the Import/Export job along with your other **Data Box** resources.
 
 Use the following steps to find out the status of the data copies for an Import/Export job:
 
