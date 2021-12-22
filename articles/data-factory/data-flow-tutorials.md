@@ -105,6 +105,8 @@ As updates are constantly made to the product, some features have added or diffe
 
 [External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
 
+[Assert transformation](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-assert)
+
 ## Source and sink
 
 [Reading and writing JSONs](https://www.youtube.com/watch?v=yY5aB7Kdhjg)
