@@ -63,7 +63,6 @@ The following table includes links to Azure CLI script examples for Azure SQL Ma
 
 |Area|Description|
 |---|---|
-| **Create SQL Managed Instance**||
 | [Create SQL Managed Instance](../managed-instance/scripts/create-configure-managed-instance-cli.md)| Creates a SQL Managed Instance. |
 | **Configure Transparent Data Encryption (TDE)**||
 | [Configure Transparent Data Encryption (TDE)](../managed-instance/scripts/transparent-data-encryption-byok-sql-managed-instance-cli.md)| Configures Transparent Data Encryption (TDE) in SQL Managed Instance by using Azure Key Vault with various key scenarios. |
