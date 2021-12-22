@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 12/13/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Solution architectures using Azure NetApp Files
 This article provides references to best practices that can help you understand the solution architectures for using Azure NetApp Files.  

@@ -7,7 +7,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: how-to
-ms.date: 10/8/2019
+ms.date: 12/17/2021
 ---
 
 # Troubleshoot connection issues to Azure Database for PostgreSQL - Hyperscale (Citus)
@@ -83,7 +83,8 @@ most common causes are firewall misconfiguration or user error.
    create a firewall rule for an appropriately limited IP address or address
    range.
 2. On all firewalls between the client and the internet, make sure that port
-   5432 is open for outbound connections.
+   5432 is open for outbound connections (and 6432 if using [connection
+   pooling](concepts-hyperscale-connection-pool.md)).
 3. Verify your connection string and other connection settings.
 4. Check the service health in the dashboard.
 

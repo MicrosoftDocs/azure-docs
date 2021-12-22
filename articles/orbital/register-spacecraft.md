@@ -64,8 +64,9 @@ Sign in to the [Azure portal](https://portal.azure.com).
 2. Provide the following information:
 
    - Spacecraft name
-   - Contact info: name and email*
-   - Azure Subscription ID*
+   - Region where spacecraft resource was created
+   - Company name and email
+   - Azure Subscription ID
 
 3. Submit the form
 4. Await a 'Spacecraft resource authorized' email from Azure Orbital

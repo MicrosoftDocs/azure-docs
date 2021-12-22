@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Manage backup policies for Azure NetApp Files 
 

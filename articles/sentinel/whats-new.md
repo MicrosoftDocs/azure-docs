@@ -29,13 +29,22 @@ If you're looking for items older than six months, you'll find them in the [Arch
 
 ## December 2021
 
-- [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace)
+- [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
+- [Ingest GitHub logs into your Microsoft Sentinel workspace](#ingest-github-logs-into-your-microsoft-sentinel-workspace-public-preview)
+- [Apache Log4j Vulnerability Detection solution](#apache-log4j-vulnerability-detection-solution-public-preview)
 
-### Ingest GitHub logs into your Microsoft Sentinel workspace
+### IoT OT Threat Monitoring with Defender for IoT solution (Public preview)
+
+The new **IoT OT Threat Monitoring with Defender for IoT** solution available in the [Microsoft Sentinel content hub](sentinel-solutions-catalog.md#microsoft) provides further support for the Microsoft Sentinel integration with Microsoft Defender for IoT, bridging gaps between IT and OT  security challenges, and empowering SOC teams with enhanced abilities to efficiently and effectively detect and respond to OT threats.
+
+For more information, see [Tutorial: Integrate Microsoft Sentinel and Microsoft Defender for IoT](iot-solution.md).
+
+
+### Ingest GitHub logs into your Microsoft Sentinel workspace (Public preview)
 
 Use the new [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution and [data connector](data-connectors-reference.md#github-preview) to ingest your GitHub logs into your Microsoft Sentinel workspace.
 
-The **Continuous Threat Monitoring for GitHub** solution includes a data connector, relevant analytics rules, and a workbook that you can use to visualize your log data. 
+The **Continuous Threat Monitoring for GitHub** solution includes a data connector, relevant analytics rules, and a workbook that you can use to visualize your log data.
 
 For example, view the number of users that were added or removed from GitHub repositories, how many repositories were created, forked, or cloned, in the selected time frame.
 
@@ -45,6 +54,13 @@ For example, view the number of users that were added or removed from GitHub rep
 
 For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md) and [instructions](data-connectors-reference.md#github-preview) for installing the GitHub data connector.
 
+### Apache Log4j Vulnerability Detection solution (Public preview)
+
+Remote code execution vulnerabilities related to Apache Log4j were disclosed on 9 Dec 2021. The vulnerability allows for unauthenticated remote code execution, and it is triggered when a specially crafted string, provided by the attacker through a variety of different input vectors, is parsed and processed by the Log4j 2 vulnerable component. 
+
+The [Apache Log4J Vulnerability Detection](sentinel-solutions-catalog.md#domain-solutions) solution was added to the Microsoft Sentinel content hub to help customers monitor, detect, and investigate signals related to the exploitation of this vulnerability, using Microsoft Sentinel.
+
+For more information, see the [Microsoft Security Response Center blog](https://msrc-blog.microsoft.com/2021/12/11/microsofts-response-to-cve-2021-44228-apache-log4j2/) and [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions](sentinel-solutions-deploy.md).
 
 ## November 2021
 
@@ -513,68 +529,6 @@ See the [complete list of supported geos](quickstart-onboard.md#geographical-ava
 The Azure Defender connector now supports bi-directional syncing of alerts' status between Defender and Azure Sentinel. When you close a Sentinel incident containing a Defender alert, the alert will automatically be closed in the Defender portal as well.
 
 See this [complete description of the updated Azure Defender connector](connect-defender-for-cloud.md).
-
-## June 2021
-
-- [Upgrades for normalization and the Azure Sentinel Information Model](#upgrades-for-normalization-and-the-azure-sentinel-information-model)
-- [Updated service-to-service connectors](#updated-service-to-service-connectors)
-- [Export and import analytics rules (Public preview)](#export-and-import-analytics-rules-public-preview)
-- [Alert enrichment: alert details (Public preview)](#alert-enrichment-alert-details-public-preview)
-- [More help for playbooks!](#more-help-for-playbooks)
-- [New documentation reorganization](#new-documentation-reorganization)
-
-### Upgrades for normalization and the Azure Sentinel Information Model
-
-The Azure Sentinel Information Model enables you to use and create source-agnostic content, simplifying your analysis of the data in your Azure Sentinel workspace.
-
-In this month's update, we've enhanced our normalization documentation, providing new levels of detail and full DNS, process event, and authentication normalization schemas.
-
-For more information, see:
-
-- [Normalization and the Azure Sentinel Information Model (ASIM)](normalization.md) (updated)
-- [Azure Sentinel Authentication normalization schema reference (Public preview)](authentication-normalization-schema.md) (new!)
-- [Azure Sentinel data normalization schema reference](./network-normalization-schema.md)
-- [Azure Sentinel DNS normalization schema reference (Public preview)](dns-normalization-schema.md) (new!)
-- [Azure Sentinel Process Event normalization schema reference (Public preview)](process-events-normalization-schema.md) (new!)
-- [Azure Sentinel Registry Event normalization schema reference (Public preview)](registry-event-normalization-schema.md) (new!)
-
-
-### Updated service-to-service connectors
-
-Two of our most-used connectors have been the beneficiaries of major upgrades.
-
-- The [Windows security events connector (Public preview)](connect-windows-security-events.md) is now based on the new Azure Monitor Agent (AMA), allowing you far more flexibility in choosing which data to ingest, and giving you maximum visibility at minimum cost.
-
-- The [Azure activity logs connector](./data-connectors-reference.md#azure-activity) is now based on the diagnostics settings pipeline, giving you more complete data, greatly reduced ingestion lag, and better performance and reliability.
-
-The upgrades are not automatic. Users of these connectors are encouraged to enable the new versions.
-
-### Export and import analytics rules (Public preview)
-
-You can now export your analytics rules to JSON-format Azure Resource Manager (ARM) template files, and import rules from these files, as part of managing and controlling your Azure Sentinel deployments as code. Any type of [analytics rule](detect-threats-built-in.md) - not just **Scheduled** - can be exported to an ARM template. The template file includes all the rule's information, from its query to its assigned MITRE ATT&CK tactics.
-
-For more information, see [Export and import analytics rules to and from ARM templates](import-export-analytics-rules.md).
-
-### Alert enrichment: alert details (Public preview)
-
-In addition to enriching your alert content with entity mapping and custom details, you can now custom-tailor the way alerts - and by extension, incidents - are presented and displayed, based on their particular content. Like the other alert enrichment features, this is configurable in the [analytics rule wizard](detect-threats-custom.md).
-
-For more information, see [Customize alert details in Azure Sentinel](customize-alert-details.md).
-
-
-### More help for playbooks!
-
-Two new documents can help you get started or get more comfortable with creating and working with playbooks.
-- [Authenticate playbooks to Azure Sentinel](authenticate-playbooks-to-sentinel.md) helps you understand the different authentication methods by which Logic Apps-based playbooks can connect to and access information in Azure Sentinel, and when it's appropriate to use each one.
-- [Use triggers and actions in playbooks](playbook-triggers-actions.md) explains the difference between the **incident trigger** and the **alert trigger** and which to use when, and shows you some of the different actions you can take in playbooks in response to incidents, including how to access the information in [custom details](playbook-triggers-actions.md#work-with-custom-details).
-
-Playbook documentation also explicitly addresses the multi-tenant MSSP scenario.
-
-### New documentation reorganization
-
-This month we've reorganized our [Azure Sentinel documentation](index.yml), restructuring into intuitive categories that follow common customer journeys. Use the filtered docs search and updated landing page to navigate through Azure Sentinel docs.
-
-:::image type="content" source="media/whats-new/new-docs.png" alt-text="New Azure Sentinel documentation reorganization." lightbox="media/whats-new/new-docs.png":::
 
 
 ## Next steps

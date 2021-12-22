@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Create and manage Active Directory connections for Azure NetApp Files
 
