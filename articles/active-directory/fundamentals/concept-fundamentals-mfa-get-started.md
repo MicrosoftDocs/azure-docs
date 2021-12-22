@@ -8,8 +8,8 @@ ms.subservice: authentication
 ms.topic: conceptual
 ms.date: 03/18/2020
 
-ms.author: karenhoran
-author: karenhoran
+ms.author: ajburnle
+author: ajbunrnle
 manager: karenhoran
 ms.reviewer: michmcla
 
