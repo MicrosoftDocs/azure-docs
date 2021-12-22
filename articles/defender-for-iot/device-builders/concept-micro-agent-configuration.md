@@ -1,7 +1,7 @@
 ---
 title: Micro agent configurations (Preview)
 description: The collector sends all current data immediately after any configuration change is made. The changes are then applied.
-ms.date: 12/21/2021
+ms.date: 12/22/2021
 ms.topic: conceptual
 ---
 
@@ -40,7 +40,7 @@ These configurations include system information, and baseline collectors.
 
 | Setting Name | Setting option | Description | Default setting |
 |--|--|--|--|
-| Devices | A list of the network devices separated by a comma. For example, “eth0,eth1” | The list of network devices (interfaces) that the agent will use to monitor the traffic. If a network device is not listed, the Network Raw events will not be recorded for the missing device.| “eth0” |
+| Devices | A list of the network devices separated by a comma. For example, "eth0,eth1" | The list of network devices (interfaces) that the agent will use to monitor the traffic. If a network device is not listed, the Network Raw events will not be recorded for the missing device.| "eth0" |
 
 ## General configuration
 

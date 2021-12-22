@@ -4,7 +4,7 @@ description: In this tutorial, you will learn how to configure a micro agent twi
 author: ElazarK
 ms.author: v-ekrieg
 ms.topic: tutorial
-ms.date: 12/21/2021
+ms.date: 12/22/2021
 ms.custom: template-tutorial
 ---
 
@@ -19,7 +19,7 @@ In this tutorial, you learn how to:
 
 ## Prerequisites
 
-- an Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
+- An Azure account. If you do not already have an Azure account, you can [create your Azure free account today](https://azure.microsoft.com/free/).
 
 - A Defender for IoT subscription.
 
@@ -43,7 +43,7 @@ To view and update the micro agent twin configuration:
 
 1. Under the Device management section, select **Devices**.
 
-    :::image type="content" source="media/tutorial-micro-agent-configuration/devices.png" alt-text="Creenshot of the Device management section of the IoT hub.":::
+    :::image type="content" source="media/tutorial-micro-agent-configuration/devices.png" alt-text="Screenshot of the device management section of the IoT hub.":::
 
 1. Select your device from the list.
 
@@ -55,15 +55,15 @@ To view and update the micro agent twin configuration:
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/module-identity-twin.png" alt-text="Screenshot of the Module Identity Details screen.":::
 
-1. Change the value of any field by adding the field to the `“desired”` section with the new value.
+1. Change the value of any field by adding the field to the `"desired"` section with the new value.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/desired.png" alt-text="Screenshot of the sample output of the module identity twin.":::
 
-    The agent successfully set the new configuration if the value of `“latest_state”`, under the `“reported”` section will show `“success”`.
+    The agent successfully set the new configuration if the value of `"latest_state"`, under the `"reported"` section will show `"success"`.
 
     :::image type="content" source="media/tutorial-micro-agent-configuration/reported-success.png" alt-text="Screenshot of a successful configuration change.":::
 
-    If the agent fails to set the new configuration, the value of `“latest_state”`, under the `“reported”` section will show `”failed”`. If this occurs, the `“latest_invalid_fields”` will contain a list of the fields that are invalid.
+    If the agent fails to set the new configuration, the value of `"latest_state"`, under the `"reported"` section will show `"failed"`. If this occurs, the `"latest_invalid_fields"` will contain a list of the fields that are invalid.
 
 ## Clean up resources
 
