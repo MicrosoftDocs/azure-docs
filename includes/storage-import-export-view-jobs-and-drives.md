@@ -21,7 +21,7 @@ ms.custom: include file
 
     ![Screenshot showing how to filter Data Box resources in the Azure portal to show Import/Export jobs. The Search box is highlighted.](./media/storage-import-export-view-jobs-and-drives/filter-to-import-export-jobs.png)
 
-    A list of Import/Export jobs appears on the page.
+    A list of Import/Export jobs appears on the page. 
 
     [ ![Screenshot of Data Box resources in the Azure portal filtered to Import Export jobs. The job name, transfer type, status, and model are highlighted.](./media/storage-import-export-view-jobs-and-drives/jobs-list.png) ](./media/storage-import-export-view-jobs-and-drives/jobs-list.png)
 
