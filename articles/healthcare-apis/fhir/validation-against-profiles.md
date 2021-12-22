@@ -5,7 +5,7 @@ author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/20/2021
+ms.date: 12/22/2021
 ms.author: cavoeg
 ---
 
@@ -47,7 +47,7 @@ For example:
 
 `GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate`
 
-In the example above, you would be validating the existing Patient resource `a6e11662-def8-4dde-9ebc-4429e68d130e` against the base Patient resource. If it's' valid, you'll get an `OperationOutcome` such as the following:
+In the example above, you would be validating the existing Patient resource `a6e11662-def8-4dde-9ebc-4429e68d130e` against the base Patient resource. If it's valid, you'll get an `OperationOutcome` such as the following code example:
 
 ```json
 {
@@ -61,7 +61,7 @@ In the example above, you would be validating the existing Patient resource `a6e
     ]
 }
 ```
-If the resource isn't valid, you'll get an error code and an error message with details on why the resource is invalid. An example `OperationOutcome` returned with error messages could look like the following:
+If the resource isn't valid, you'll get an error code and an error message with details on why the resource is invalid. An example `OperationOutcome` gets returned with error messages and could look like the following code example:
 
 ```json
 {
@@ -103,7 +103,7 @@ If the resource isn't valid, you'll get an error code and an error message with 
 }
 ```
 
-In this example above, the resource didn't conform to the provided Patient profile which required a patient identifier value and gender.
+In the previous example, the resource didn't conform to the provided Patient profile, which required a patient identifier value and gender.
 
 If you'd like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example for the HL7 base profile for `heartrate`:
 
@@ -140,7 +140,7 @@ You can choose when you'd like to validate your resource, such as on resource `C
 
 ## Next steps
 
-In this article, you have learned how to validate resources against profiles using `$validate`. To learn about the FHIR service's other supported features, see
+In this article, you've learned how to validate resources against profiles using `$validate`. To learn about the other FHIR service supported features, see
 
 >[!div class="nextstepaction"]
->[FHIR supported features](fhir-features-supported.md)
+>[Supported FHIR features](fhir-features-supported.md)

@@ -1,6 +1,6 @@
----
-title: Store profiles in the FHIR service in Azure Healthcare APIs
-description: This article describes how to store profiles in the FHIR service
+--
+title: Store profiles in Azure API for FHIR
+description: This article describes how to store profiles in Azure API for FHIR.
 author: ginalee-dotcom
 ms.service: healthcare-apis
 ms.subservice: fhir
@@ -9,15 +9,12 @@ ms.date: 12/22/2021
 ms.author: cavoeg
 ---
 
-# Store profiles in the FHIR service
-
-> [!IMPORTANT]
-> Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+# Store profiles in Azure API for FHIR
 
 HL7 FHIR defines a standard and interoperable way to store and exchange healthcare data. Even within the base FHIR specification, it can be helpful to define other rules or extensions based on the context that FHIR is being used. For such context-specific uses of FHIR, **FHIR profiles** are used for the extra layer of specifications.
 [FHIR profile](https://www.hl7.org/fhir/profiling.html) allows you to narrow down and customize resource definitions using constraints and extensions.
 
-The FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
+Azure API for FHIR allows validating resources against profiles to see if the resources conform to the profiles. This article guides you through the basics of FHIR profiles and how to store them. For more information about FHIR profiles outside of this article, visit [HL7.org](https://www.hl7.org/fhir/profiling.html).
 
 ## FHIR profile: the basics
 
@@ -69,10 +66,10 @@ Argonaut |<http://www.fhir.org/guides/argonaut/pd/>
 
 ### Storing profiles
 
-To store profiles to the FHIR server, you can `POST` the `StructureDefinition` with the profile content in the body of the request.
+To store profiles in Azure API for FHIR, you can `POST` the `StructureDefinition` with the profile content in the body of the request.
 
 
-`POST http://<your FHIR service base URL>/StructureDefinition`
+`POST http://<your Azure API for FHIR base URL>/StructureDefinition`
 
 ```
 { 
@@ -119,7 +116,7 @@ For more examples of storing profiles, see the sample REST file that has details
 
 ### Viewing profiles
 
-You can access your existing custom profiles using a `GET` request, ``GET http://<your FHIR service base URL>/StructureDefinition?url={canonicalUrl}``, where `{canonicalUrl}` is the canonical URL of your profile.
+You can access your existing custom profiles using a `GET` request, ``GET http://<your Azure API for FHIR base URL>/StructureDefinition?url={canonicalUrl}``, where `{canonicalUrl}` is the canonical URL of your profile.
 
 For example, if you want to view US Core Goal resource profile:
 
@@ -154,10 +151,10 @@ This will return the `StructureDefinition` resource for US Core Goal profile, th
 }
 ```
 > [!NOTE]
-> You'll only see the profiles that you've loaded into the FHIR service.
+> You'll only see the profiles that you've loaded into Azure API for FHIR.
 
 
-The FHIR service does not return `StructureDefinition` instances for the base profiles, but they can be found easily on the HL7 website, such as:
+Azure API for FHIR does not return `StructureDefinition` instances for the base profiles, but they can be found in the HL7 website, such as:
 
 - `http://hl7.org/fhir/Observation.profile.json.html`
 - `http://hl7.org/fhir/Patient.profile.json.html`
@@ -165,7 +162,7 @@ The FHIR service does not return `StructureDefinition` instances for the base pr
 
 ### Profiles in the capability statement
 
-The `Capability Statement` lists all possible behaviors of your FHIR service. The FHIR service updates the capability statement with information on the uploaded and stored profiles in the forms of:
+The `Capability Statement` lists all possible behaviors of Azure API for FHIR. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
 
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`
@@ -188,9 +185,9 @@ For example, if you `POST` a US Core Patient profile, which starts like this:
 
 And send a `GET` request for your `metadata`:
 
-`GET http://<your FHIR service base URL>/metadata`
+`GET http://<your Azure API for FHIR base URL>/metadata`
 
-You'll be returned with a `CapabilityStatement` that includes the following information on the US Core Patient profile you uploaded to your FHIR server:
+You'll be returned with a `CapabilityStatement` that includes the following information on the US Core Patient profile you uploaded to Azure API for FHIR:
 
 ```json
 ...
