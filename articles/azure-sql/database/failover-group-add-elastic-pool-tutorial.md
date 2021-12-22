@@ -510,7 +510,6 @@ Use this script to delete the resource group with the [az group delete](/cli/azu
    ```azurecli
    echo "Cleaning up resources by removing the resource group..."
    az group delete --name $resourceGroup -y
-"
    ```
 
 ## CLI resource group deletion reference
