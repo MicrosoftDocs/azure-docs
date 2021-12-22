@@ -20,7 +20,7 @@ This article summarizes supported components and settings for disaster recovery 
 **Scenario** | **Details**
 --- | ---
 Disaster recovery of VMware VMs | Replication of on-premises VMware VMs to Azure. You can deploy this scenario in the Azure portal or by using [PowerShell](vmware-azure-disaster-recovery-powershell.md).
-Disaster recovery of physical servers | Replication of on-premises Windows/Linux physical servers to Azure. You can deploy this scenario in the Azure portal. (not supported for Preview architecture)
+Disaster recovery of physical servers | Replication of on-premises Windows/Linux physical servers to Azure. You can deploy this scenario in the Azure portal. <br></br>(Not supported for Preview architecture)
 
 ## On-premises virtualization servers
 
