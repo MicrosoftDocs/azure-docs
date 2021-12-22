@@ -20,6 +20,9 @@ This article provides the steps for deploying self-hosted gateway component of A
 
 ## Prerequisites
 
+- Create a Kubernetes cluster, or have access to an existing one.
+   > [!TIP]
+   > [Single-node clusters](https://kubernetes.io/docs/setup/#learning-environment) work well for development and evaluation purposes. Use [Kubernetes Certified](https://kubernetes.io/partners/#conformance) multi-node clusters on-premises or in the cloud for production workloads.
 * [Create an Azure API Management instance](get-started-create-service-instance.md)
 * [Provision a gateway resource in your API Management instance](api-management-howto-provision-self-hosted-gateway.md).
 * [Install Helm v3][helm-install].
