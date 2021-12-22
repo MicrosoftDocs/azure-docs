@@ -84,8 +84,10 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 6. On the **Set up Settling music** section, copy the appropriate URL(s) as per your requirement.
 
-	![Copy configuration URLs](common/copy-configuration-urls.png)
+	![Copy configuration URLs](./media/settlingmusic-tutorial/copy-configuration-urls.png)
 
+	> [!NOTE]
+	> Please use the below URL for the Logout URL.
 	```Logout URL
     https://login.microsoftonline.com/common/wsfederation?wa=wsignout1.0
     ```
@@ -138,7 +140,7 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 	b. In the **Login URL of the ID provider** textbox, paste the value of **Login URL** which you have copied from Azure portal.
 
-	c. In the **ID provider logout URL** textbox, paste the value of **Logout URL** which you have copied from Azure portal.
+	c. In the **ID provider logout URL** textbox, paste the value of **Logout URL** which is explained in [Configure Azure AD SSO](#configure-azure-ad-sso) section.
 
 	d. Click **Choose File** to upload the **Certificate (Base64)** which you have downloaded form Azure portal.
 
