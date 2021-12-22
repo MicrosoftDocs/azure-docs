@@ -5,15 +5,15 @@ ms.topic: include
 ms.date: 03/10/2021
 ms.author: nikuklic
 ---
-[!INCLUDE [Emergency Calling Notice](../../../../includes/emergency-calling-notice-include.md)]
+[!INCLUDE [Emergency Calling Notice](../../../includes/emergency-calling-notice-include.md)]
 
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F). 
-- A deployed Communication Services resource. [Create a Communication Services resource](../../../create-communication-resource.md).
-- A phone number acquired in Communication Services resource. [how to get a phone number](../../../telephony/get-phone-number.md).
-- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../../access-tokens.md)
-- Complete the quickstart for [getting started with adding calling to your application](../../getting-started-with-calling.md)
+- A deployed Communication Services resource. [Create a Communication Services resource](../../create-communication-resource.md).
+- A phone number acquired in Communication Services resource. [how to get a phone number](../get-phone-number.md).
+- A `User Access Token` to enable the call client. For more information on [how to get a `User Access Token`](../../access-tokens.md)
+- Complete the quickstart for [getting started with adding calling to your application](../../voice-video-calling/getting-started-with-calling.md)
 
 ### Prerequisite check
 
@@ -53,7 +53,7 @@ func startCall() {
 
 You can build and run your app on iOS simulator by selecting **Product** > **Run** or by using the (&#8984;-R) keyboard shortcut.
 
-![Final look and feel of the quick start app](../../media/ios/quick-start-make-call.png)
+![Final look and feel of the quick start app](../media/pstn-call/quick-start-make-call.png)
 
 You can make an call to phone by providing a phone number in the added text field and clicking the **Start Call** button.
 > [!WARNING]
