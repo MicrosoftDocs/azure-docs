@@ -42,9 +42,9 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 > [!TIP]
 > Use [az sql db op list](/cli/azure/sql/db/op?#az_sql_db_op_list) to get a list of operations performed on the database, and use [az sql db op cancel](/cli/azure/sql/db/op#az_sql_db_op_cancel) to cancel an update operation on the database.
 
-### Clean up deployment
+### Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it.
+Use the following command to remove the resource group and all resources associated with it - unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup

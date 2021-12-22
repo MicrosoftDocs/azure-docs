@@ -8,7 +8,7 @@ ms.author: mathoma
 ms.reviewer: vanto
 ---
 
-In this step, you create a [logical SQL server](../database/logical-servers.md) and a [single database](../database/single-database-overview.md) that uses AdventureWorksLT sample data. You can create the server and database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
+In this step, you create a [logical SQL server](../database/logical-servers.md) and a [single database](../database/single-database-overview.md) that uses AdventureWorksLT sample data. You can create the database by using Azure portal menus and screens, or by using an Azure CLI or PowerShell script in the Azure Cloud Shell.
 
 All the methods include setting up a server-level firewall rule to allow the public IP address of the computer you're using to access the server. For more information about creating server-level firewall rules, see [Create a server-level firewall](../database/firewall-create-server-level-portal-quickstart.md). You can also set database-level firewall rules. See [Create a database-level firewall rule](/sql/relational-databases/system-stored-procedures/sp-set-database-firewall-rule-azure-sql-database).
 
@@ -165,7 +165,7 @@ You can create an Azure resource group, server, and single database using the Az
 
 The following Azure CLI code blocks create a resource group, server, single database, and server-level IP firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
-## Launch Azure Cloud Shell
+### Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
@@ -173,7 +173,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 The first time you use Cloud Shell in the portal, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar.  Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-## Sign in to Azure
+### Sign in to Azure
 
 Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription, replacing `<Subscription ID>` with your Azure Subscription ID.
 
@@ -185,7 +185,7 @@ az account set -s $subscription # ...or use 'az login'
 
 For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
-## Set parameter values to create resources
+### Set parameter values to create resources
 
 Set the parameter values for use in creating the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
 
@@ -193,31 +193,31 @@ Change the location as appropriate for your environment. Replace `0.0.0.0` with 
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-18":::
 
-## Create a resource group
+### Create a resource group
 
 Use this script to create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="19-21":::
 
-## Create a server
+### Create a server
 
 Use this script to create a server with the [az sql server create](/cli/azure/sql/server) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="22-24":::
 
-## Configure a server-based firewall rule
+### Configure a server-based firewall rule
 
 Use this script to create a firewall rule with the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="25-27":::
 
-## Create a single database using Azure CLI
+### Create a single database using Azure CLI
 
 Use this script to create a database with the [az sql db create](/cli/azure/sql/db) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="28-30":::
 
-## CLI command reference
+### CLI command reference
 
 The preceding code uses these Azure CLI commands:
 

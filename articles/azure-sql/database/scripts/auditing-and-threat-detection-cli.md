@@ -36,9 +36,9 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.sh" range="4-37":::
 
-### Clean up deployment
+### Clean up resources
 
-Use the following command to remove the resource group and all resources associated with it.
+Use the following command to remove the resource group and all resources associated with it - unless you have additional needs for these resources. Some of these resources may take a while to create, as well as to delete.
 
 ```azurecli
 az group delete --name $resourceGroup

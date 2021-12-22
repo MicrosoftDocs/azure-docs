@@ -78,7 +78,7 @@ To create a single database in the Azure portal, this quickstart starts at the A
 
 You can create an Azure resource group, server, and single database using the Azure command-line interface (Azure CLI). If you don't want to use the Azure Cloud Shell, [install Azure CLI](/cli/azure/install-azure-cli) on your computer.
 
-## Launch Azure Cloud Shell
+### Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
@@ -86,7 +86,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 The first time you use Cloud Shell in the portal, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar.  Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-## Sign in to Azure
+### Sign in to Azure
 
 Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription, replacing `<Subscription ID>` with your Azure Subscription ID.
 
@@ -98,7 +98,7 @@ az account set -s $subscription # ...or use 'az login'
 
 For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
-## Set parameter values
+### Set parameter values
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
 
@@ -106,25 +106,25 @@ Change the location as appropriate for your environment. Replace `0.0.0.0` with 
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-18":::
 
-## Create a resource group
+### Create a resource group
 
 Create a resource group with the [az group create](/cli/azure/group) command. An Azure resource group is a logical container into which Azure resources are deployed and managed. The following example creates a resource group named *myResourceGroup* in the *eastus* location:
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="19-21":::
 
-## Create a server
+### Create a server
 
 Create a server with the [az sql server create](/cli/azure/sql/server) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="22-24":::
 
-## Configure a server-based firewall rule
+### Configure a server-based firewall rule
 
 Create a firewall rule with the [az sql server firewall-rule create](/cli/azure/sql/server/firewall-rule) command.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="25-27":::
 
-## Create a single database using Azure CLI
+### Create a single database
 
 Create a database with the [az sql db create](/cli/azure/sql/db) command in the [serverless compute tier](serverless-tier-overview.md).
 
@@ -146,7 +146,7 @@ You can create an Azure resource group, server, and single database using the Az
 
 The following Azure CLI code blocks create a resource group, server, single database, and server-level IP firewall rule for access to the server. Make sure to record the generated resource group and server names, so you can manage these resources later.
 
-## Launch Azure Cloud Shell
+### Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
@@ -154,7 +154,7 @@ To open the Cloud Shell, just select **Try it** from the upper right corner of a
 
 The first time you use Cloud Shell in the portal, select **Bash** in the **Welcome** dialog. Subsequent sessions will use Azure CLI in a Bash environment, or you can select **Bash** from the Cloud Shell control bar.  Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-## Sign in to Azure
+### Sign in to Azure
 
 Cloud Shell is automatically authenticated under the initial account signed-in with. Sign in to Azure using the appropriate subscription. In the code, replace  `<Subscription ID>` with your Azure Subscription ID.
 
@@ -166,7 +166,7 @@ az account set -s $subscription # ...or use 'az login'
 
 For more information, see [set active subscription](/cli/azure/account#az_account_set) or [log in interactively](/cli/azure/reference-index#az_login)
 
-## Set parameter values
+### Set parameter values
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
 
@@ -177,7 +177,7 @@ Change the location as appropriate for your environment. Replace `0.0.0.0` with 
 > [!NOTE]
 > [az sql up](/cli/azure/sql#az_sql_up) is currently in preview and does not currently support the serverless compute tier. Also, the use of non-alphabetic and non-numeric characters in the database name are not currently supported.
 
-## Create a database and resources
+### Create a database and resources
 
 The [az sql up](/cli/azure/sql#az_sql_up) command simplifies the database creation process. With it, you can create a database and all of its associated resources with a single command. This includes the resource group, server name, server location, database name, and login information. The database is created with a default pricing tier of General Purpose, Provisioned, Gen5, 2 vCores.
 
@@ -219,13 +219,13 @@ This command creates and configures a [logical server](logical-servers.md) for A
 
 You can create a resource group, server, and single database using Windows PowerShell.
 
-## Launch Azure Cloud Shell
+### Launch Azure Cloud Shell
 
 The Azure Cloud Shell is a free interactive shell that you can use to run the steps in this article. It has common Azure tools preinstalled and configured to use with your account.
 
 To open the Cloud Shell, just select **Try it** from the upper right corner of a code block. You can also launch Cloud Shell in a separate browser tab by going to [https://shell.azure.com](https://shell.azure.com). Select **Copy** to copy the blocks of code, paste it into the Cloud Shell, and press **Enter** to run it.
 
-## Set parameter values
+### Set parameter values
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the Get-Random cmdlet is used to create the server name. Replace the 0.0.0.0 values in the ip address range to match your specific environment.
 
@@ -247,7 +247,7 @@ The following values are used in subsequent commands to create the database and 
    Write-host "Server name is" $serverName
 ```
 
-## Create resource group
+### Create resource group
 
 Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup). A resource group is a logical container into which Azure resources are deployed and managed.
 
@@ -257,7 +257,7 @@ Create an Azure resource group with [New-AzResourceGroup](/powershell/module/az.
    $resourceGroup
 ```
 
-## Create a server
+### Create a server
 
 Create a server with the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlserver) cmdlet.
 
@@ -271,7 +271,7 @@ Create a server with the [New-AzSqlServer](/powershell/module/az.sql/new-azsqlse
    $server
 ```
 
-## Create a firewall rule
+### Create a firewall rule
 
 Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell/module/az.sql/new-azsqlserverfirewallrule) cmdlet.
 
@@ -283,7 +283,7 @@ Create a server firewall rule with the [New-AzSqlServerFirewallRule](/powershell
    $serverFirewallRule
 ```
 
-## Create a single database with PowerShell
+### Create a single database with PowerShell
 
 Create a single database with the [New-AzSqlDatabase](/powershell/module/az.sql/new-azsqldatabase) cmdlet.
 
@@ -334,7 +334,7 @@ Keep the resource group, server, and single database to go on to the next steps,
 
 When you're finished using these resources, you can delete the resource group you created, which will also delete the server and single database within it.
 
-### [Portal](#tab/azure-portal)
+# [Portal](#tab/azure-portal)
 
 To delete **myResourceGroup** and all its resources using the Azure portal:
 
@@ -342,7 +342,7 @@ To delete **myResourceGroup** and all its resources using the Azure portal:
 1. On the resource group page, select **Delete resource group**.
 1. Under **Type the resource group name**, enter *myResourceGroup*, and then select **Delete**.
 
-### [Azure CLI](#tab/azure-cli)
+# [Azure CLI](#tab/azure-cli)
 
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 
@@ -350,7 +350,7 @@ To delete the resource group and all its resources, run the following Azure CLI 
 az group delete --name $resourceGroup
 ```
 
-### [Azure CLI (sql up)](#tab/azure-cli-sql-up)
+# [Azure CLI (sql up)](#tab/azure-cli-sql-up)
 
 To delete the resource group and all its resources, run the following Azure CLI command, using the name of your resource group:
 
@@ -358,7 +358,7 @@ To delete the resource group and all its resources, run the following Azure CLI 
 az group delete --name $resourceGroup
 ```
 
-### [PowerShell](#tab/azure-powershell)
+# [PowerShell](#tab/azure-powershell)
 
 To delete the resource group and all its resources, run the following PowerShell cmdlet, using the name of your resource group:
 

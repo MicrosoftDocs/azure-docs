@@ -274,7 +274,7 @@ else {
 }
 ```
 
-## Clean up deployment
+## Clean up resources
 
 After you run the sample script, you can run the following command to remove the resource group and all resources associated with it.
 

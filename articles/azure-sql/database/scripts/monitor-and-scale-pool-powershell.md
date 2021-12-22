@@ -27,7 +27,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/monitor-and-scale-pool/monitor-and-scale-pool.ps1?highlight=17-18 "Monitor and scale an elastic pool in SQL Database")]
 
-## Clean up deployment
+## Clean up resources
 
 Use the following command to remove  the resource group and all resources associated with it.
 

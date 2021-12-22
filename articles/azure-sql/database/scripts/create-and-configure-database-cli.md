@@ -39,7 +39,7 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-33":::
 
-### Clean up deployment
+### Clean up resources
 
 Use the following command to remove  the resource group and all resources associated with it.
 

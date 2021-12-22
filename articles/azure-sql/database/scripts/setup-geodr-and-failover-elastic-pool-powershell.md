@@ -27,7 +27,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-elastic-pool.ps1?highlight=17-20 "Set up active geo-replication for elastic pool")]
 
-## Clean up deployment
+## Clean up resources
 
 Use the following command to remove  the resource group and all resources associated with it.
 

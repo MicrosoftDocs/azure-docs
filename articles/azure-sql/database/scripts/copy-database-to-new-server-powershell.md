@@ -27,7 +27,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/copy-database-to-new-server/copy-database-to-new-server.ps1?highlight=20-23 "Copy database to new server")]
 
-## Clean up deployment
+## Clean up resources
 
 Use the following command to remove  the resource group and all resources associated with it.
 
