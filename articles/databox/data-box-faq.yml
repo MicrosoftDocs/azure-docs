@@ -48,17 +48,17 @@ sections:
 
           Data Box supports data ingestion or egress only within the same country/region as the destination and won't cross any international borders. The only exception is for orders in the European Union (EU), where Data Boxes can ship to and from any EU country/region.
 
-          For example, in the import scenario for Data Box, if you had the source data in Canada that you wanted to move to an Azure West US storage account, then you could achieve it in the following way:
+          For example, working with an import in Data Box, if you wanted to move source data in Canada to an Azure West US storage account, you could do that in the following way:
 
-          1. Order Data Box in Canada by choosing a storage account in Canada. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
+          1. Order Data Box in Canada by choosing a storage account in Canada. The device is shipped from an Azure datacenter in Canada to the shipping address, also in Canada, that you provided when you created the order.
 
-          2. Once the on-premises data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
+          2. Once the on-premises data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data on the Data Box then gets uploaded to the destination storage account in the Canada Azure region that you chose.
 
           3. You can then use a tool like AzCopy to copy the data from the storage account in Canada to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
 
           ### Does Data Box store any customer data outside of the service region?
 
-          No. Data Box does not store any customer data outside of the service region. The customer has full ownership of their data and can save the data to a specified location based on the storage account they select during the order creation.
+          No. Data Box does not store any customer data outside of the service region. The customer has full ownership of their data. They can save the data to a specified location based on the storage account they select during the order creation.
 
           In addition to the customer data, there is Data Box data that includes security artifacts related to the device, monitoring logs for the device and the service, and service-related metadata. In all regions (except Brazil South and Southeast Asia), Data Box data is stored and replicated in the paired region via a Geo-redundant Storage account to protect against data loss.
 
@@ -128,11 +128,11 @@ sections:
         answer: |
           No. Data Box does not store any customer data outside of the service region. The customer has full ownership of their data and can save the data to a specified location based on the storage account they select during the order creation.  
           
-          In addition to the customer data, there is Data Box data that includes security artifacts related to the device, monitoring logs for the device and the service, and service-related metadata. In all regions (except Brazil South and Southeast Asia), Data Box data is stored and replicated in the paired region via a Geo-redundant Storage account to protect against data loss.  
+          In addition to the customer data, there is Data Box data that includes security artifacts that are related to the device, monitoring logs for the device and the service, and service-related metadata. In all regions except Brazil South and Southeast Asia, Data Box data is stored and replicated in the paired region via a Geo-redundant Storage account to protect against data loss.  
           
           Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, Data Box data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box data is stored in Singapore and for Brazil South, the data is stored in Brazil. 
           
-          If there is a service outage in Brazil South and Southeast Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created and the customers are responsible for the to and fro shipment of the Data Box device.
+          If there is a service outage in Brazil South and Southeast Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created. The customers are responsible for the to and fro shipment of the Data Box device.
           
       - question: |
           How can I recover my data if an entire region fails?
@@ -310,7 +310,7 @@ sections:
 
           If the carriers in your region support E-link, Microsoft displays a shipping label on the E-ink display. E-link is supported in the United States and EU regions. 
           
-          For other locations, go to **Overview > Download shipping label**. Download and print the label, and insert the label in the clear plastic tag on the device where is is clearly visible. 
+          For other locations, go to **Overview > Download shipping label**. Download and print the label, and insert the label in the clear plastic tag on the device where it's clearly visible. 
           
           Then drop off the device at your shipping carrier location.
 
@@ -403,7 +403,7 @@ sections:
 
           ### Can I pick up my Data Box order myself? Can I return the Data Box via a carrier that I choose?
 
-          Yes. Microsoft also offers self-managed shipping. When placing the Data Box order, you can choose self-managed shipping option. For more information, see [Self managed shipping for Data Box](data-box-portal-customer-managed-shipping.md).
+          Yes. Microsoft also offers self-managed shipping. When placing the Data Box order, you can choose self-managed shipping option. For more information, see [Use self-managed shipping for Data Box](data-box-portal-customer-managed-shipping.md).
 
           ### I ordered a Data Box in US East, but I received a device that was shipped from a location in US West. Where should I return the device to?
 
