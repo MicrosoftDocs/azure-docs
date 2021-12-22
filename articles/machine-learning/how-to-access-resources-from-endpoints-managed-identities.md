@@ -1,27 +1,27 @@
 ---
 title: Access Azure resources from managed endpoint
 titleSuffix: Azure Machine Learning
-description: Securely access Azure resources for your machine learning model deployment from a managed online endpoint with a system-assigned or user-assigned managed identity.
+description: Securely access Azure resources for your machine learning model deployment from an online endpoint with a system-assigned or user-assigned managed identity.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 10/21/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ms.custom: devplatv2
 
-# Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with a managed online endpoint and managed identity. 
+# Customer intent: As a data scientist, I want to securely access Azure resources for my machine learning model deployment with an online endpoint and managed identity. 
 ---
 
-# Access Azure resources from a managed online endpoint (preview) with a managed identity 
+# Access Azure resources from an online endpoint (preview) with a managed identity 
 
-Learn how to access Azure resources from your scoring script with a managed online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
+Learn how to access Azure resources from your scoring script with an online endpoint and either a system-assigned managed identity or a user-assigned managed identity. 
 
 Managed endpoints (preview) allow Azure Machine Learning to manage the burden of provisioning your compute resource and deploying your machine learning model. Typically your model needs to access Azure resources such as the Azure Container Registry or your blob storage for inferencing; with a managed identity you can access these resources without needing to manage credentials in your code. [Learn more about managed identities](../active-directory/managed-identities-azure-resources/overview.md).
 
-This guide assumes you don't have a managed identity, a storage account or a managed online endpoint. If you already have these components, skip to the [give access permission to the managed identity](#give-access-permission-to-the-managed-identity) section. 
+This guide assumes you don't have a managed identity, a storage account or an online endpoint. If you already have these components, skip to the [give access permission to the managed identity](#give-access-permission-to-the-managed-identity) section. 
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -135,7 +135,7 @@ To access Azure resources, create a system-assigned or user-assigned managed ide
 
 # [System-assigned managed identity](#tab/system-identity)
 
-When you [create an online endpoint](#create-a-managed-online-endpoint), a system-assigned managed identity is automatically generated for you, so no need to create a separate one. 
+When you [create an online endpoint](#create-an-online-endpoint), a system-assigned managed identity is automatically generated for you, so no need to create a separate one. 
 
 # [User-assigned managed identity](#tab/user-identity)
 
@@ -184,9 +184,9 @@ Then, upload file in container.
 
 ---
 
-## Create a managed online endpoint
+## Create an online endpoint
 
-The following code creates a managed online endpoint without specifying a deployment. 
+The following code creates an online endpoint without specifying a deployment. 
 
 # [System-assigned managed identity](#tab/system-identity)
 When you create a managed endpoint, a system-assigned managed identity is created for the endpoint by default.
@@ -200,7 +200,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-sai.sh" id="check_endpoint_Status" :::
 
-If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
 
 # [User-assigned managed identity](#tab/user-identity)
 
@@ -210,7 +210,7 @@ Check the status of the endpoint with the following.
 
 ::: code language="azurecli" source="~/azureml-examples-main/cli/deploy-managed-online-endpoint-access-resource-uai.sh" id="check_endpoint_Status" :::
 
-If you encounter any issues, see [Troubleshooting managed online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
+If you encounter any issues, see [Troubleshooting online endpoints deployment and scoring (preview)](how-to-troubleshoot-managed-online-endpoints.md).
 
 ---
 
@@ -271,7 +271,7 @@ Refer to the following script to understand how to use your identity token to ac
 
 ## Create a deployment with your configuration
 
-Create a deployment that's associated with the managed endpoint. [Learn more about deploying to managed online endpoints](how-to-deploy-managed-online-endpoints.md).
+Create a deployment that's associated with the managed endpoint. [Learn more about deploying to online endpoints](how-to-deploy-managed-online-endpoints.md).
 
 >[!WARNING]
 > This deployment can take approximately 8-14 minutes depending on whether the underlying environment/image is being built for the first time. Subsequent deployments using the same environment will go quicker.
@@ -360,7 +360,7 @@ If you don't plan to continue using the deployed endpoint and storage, delete th
 
 ## Next steps
 
-* [Deploy and score a machine learning model by using a managed online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
+* [Deploy and score a machine learning model by using a online endpoint (preview)](how-to-deploy-managed-online-endpoints.md).
 * For more on deployment, see [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md).
 * For more information on using the CLI, see [Use the CLI extension for Azure Machine Learning](reference-azure-machine-learning-cli.md).
 * To see which compute resources you can use, see [Managed online endpoints SKU list (preview)](reference-managed-online-endpoints-vm-sku-list.md).
