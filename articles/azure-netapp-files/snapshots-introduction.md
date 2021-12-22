@@ -32,19 +32,19 @@ The following diagrams illustrate the concepts:
 
 1. Files consist of metadata and data blocks written to a volume. In this illustration, there are three files, each consisting of three blocks: file 1, file 2, and file 3.
 
-   ![A diagram of three files against four grey verticals bars, labeled time, volume, files, block.](../media/azure-netapp-files/single-file-snapshot-restore-one.png)
+   [![A diagram of three files against four grey verticals bars, labeled time, volume, files, block.](../media/azure-netapp-files/single-file-snapshot-restore-one.png)](../media/azure-netapp-files/single-file-snapshot-restore-one.png#lightbox)
 
 2. A snapshot `Snapshot1` is taken, which copies the metadata and only the pointers to the blocks that represent the files:
 
-   ![A diagram of three files against four grey verticals bars, labeled time, volume, files, block. A fifth grey bar depicts the snapshots as a write-destination.](../media/azure-netapp-files/single-file-snapshot-restore-two.png)
+   [![A diagram of three files against four grey verticals bars, labeled time, volume, files, block. A fifth grey bar depicts the snapshots as a write-destination.](../media/azure-netapp-files/single-file-snapshot-restore-two.png)](../media/azure-netapp-files/single-file-snapshot-restore-two.png#lightbox)
 
 3. Files on the volume continue to change, and new files are added. Modified data blocks are written as new data blocks on the volume. The blocks that were previously captured in `Snapshot1` remain unchanged: 
 
-   ![Diagram depicting changes to directories that will be staged for snapshot copies.](../media/azure-netapp-files/single-file-snapshot-restore-three.png)
+   [![Diagram depicting changes to directories that will be staged for snapshot copies.](../media/azure-netapp-files/single-file-snapshot-restore-three.png)](../media/azure-netapp-files/single-file-snapshot-restore-three.png#lightbox)
 
 4. A new snapshot `Snapshot2` is taken to capture the changes and additions:
 
-   ![Diagram showing a second set of snapshots being copied to capture new changes in the original file set.](../media/azure-netapp-files/single-file-snapshot-restore-four.png)
+   [ ![Diagram showing a second set of snapshots being copied to capture new changes in the original file set.](../media/azure-netapp-files/single-file-snapshot-restore-four.png) ](../media/azure-netapp-files/single-file-snapshot-restore-four.png#lightbox)
 
 When a snapshot is taken, the pointers to the data blocks are copied, and modifications are written to new data locations. The snapshot pointers continue to point to the original data blocks that the file occupied when the snapshot was taken, giving you a live and a historical view of the data. If you were to create a new snapshot, the current pointers (i.e. the ones created after the most recent additions and modifications) are copied to a new snapshot `Snapshot2`. This creates access to three generations of data (the live data, `Snapshot2`, and `Snapshot1`, in order of age) without taking up the volume space that three full copies would require.
 
@@ -54,7 +54,7 @@ Meanwhile, the data blocks that are pointed to from snapshots remain stable and 
 
  The following diagram shows a volume’s snapshots and used space over time: 
 
-![Diagram that shows a volume’s snapshots and used space over time](../media/azure-netapp-files/snapshots-used-space-over-time.png)
+[ ![Diagram that shows a volume’s snapshots and used space over time](../media/azure-netapp-files/snapshots-used-space-over-time.png)](../media/azure-netapp-files/snapshots-used-space-over-time.png#lightbox)
 
 Because a volume snapshot records only the block changes since the latest snapshot, it provides the following key benefits:
 
@@ -95,7 +95,7 @@ Azure NetApp Files supports [cross-region replication](cross-region-replication-
 
 The following diagram shows snapshot traffic in cross-region replication scenarios: 
 
-![Diagram that shows snapshot traffic in cross-region replication scenarios](../media/azure-netapp-files/snapshot-traffic-cross-region-replication.png)
+[ ![Diagram that shows snapshot traffic in cross-region replication scenarios](../media/azure-netapp-files/snapshot-traffic-cross-region-replication.png)](../media/azure-netapp-files/snapshot-traffic-cross-region-replication.png#lightbox)
 
 ## How snapshots can be vaulted for long-term retention and cost savings
 
@@ -107,7 +107,7 @@ To enable snapshot vaulting on your Azure NetApp Files volume, [configure a back
 
 The following diagram shows how snapshot data is transferred from the Azure NetApp Files volume to Azure NetApp Files backup storage, hosted on Azure storage.
 
-![Diagram that shows snapshot data transferred from the Azure NetApp Files volume to Azure NetApp Files backup storage](../media/azure-netapp-files/snapshot-data-transfer-backup-storage.png)
+[ ![Diagram that shows snapshot data transferred from the Azure NetApp Files volume to Azure NetApp Files backup storage](../media/azure-netapp-files/snapshot-data-transfer-backup-storage.png) ](../media/azure-netapp-files/snapshot-data-transfer-backup-storage.png#lightbox)
 
 The Azure NetApp Files backup functionality is designed to keep a longer history of backups as indicated in this simplified example. Notice how the backup repository on the right contains more and older snapshots than the protected volume and snapshots on the left. 
 
@@ -123,13 +123,14 @@ You can restore Azure NetApp Files snapshots to separate, independent volumes (c
 
 The following diagram shows a new volume created by restoring (cloning) a snapshot:   
 
-![Diagram that shows a new volume created by restoring a snapshot](../media/azure-netapp-files/snapshot-restore-clone-new-volume.png)
+[![Diagram that shows a new volume created by restoring a snapshot](../media/azure-netapp-files/snapshot-restore-clone-new-volume.png)
+](../media/azure-netapp-files/snapshot-restore-clone-new-volume.png#lightbox)
 
 The same operation can be performed on replicated snapshots to a disaster-recovery (DR) volume. Any snapshot can be restored to a new volume, even when cross-region replication remains active or in progress. This capability enables non-disruptive creation of test and development environments in a DR region, putting the data to use, whereas the replicated volumes would otherwise be used only for DR purposes. This use case enables test and development to be isolated from production, eliminating potential impact on production environments. 
 
 The following diagram shows volume restoration (cloning) by using DR target volume snapshot while cross-region replication is taking place:  
 
-![Diagram that shows volume restoration using DR target volume snapshot](../media/azure-netapp-files/snapshot-restore-clone-target-volume.png)
+[![Diagram that shows volume restoration using DR target volume snapshot](../media/azure-netapp-files/snapshot-restore-clone-target-volume.png)](../media/azure-netapp-files/snapshot-restore-clone-target-volume.png#lightbox)
 
 See [Restore a snapshot to a new volume](snapshots-restore-new-volume.md) about volume restore operations.
 
@@ -141,7 +142,9 @@ Reverting a volume snapshot is near-instantaneous and takes only a few seconds t
 
 The following diagram shows a volume reverting to an earlier snapshot:  
 
-![Diagram that shows a volume reverting to an earlier snapshot](../media/azure-netapp-files/snapshot-volume-revert.png)
+[![Diagram that shows a volume reverting to an earlier snapshot](../media/azure-netapp-files/snapshot-volume-revert.png)
+](../media/azure-netapp-files/snapshot-volume-revert.png#lightbox)
+
 
 > [!IMPORTANT]
 > Active filesystem data that was written and snapshots that were taken after the selected snapshot will be lost. The snapshot revert operation will replace all data in the targeted volume with the data in the selected snapshot. You should pay attention to the snapshot contents and creation date when you select a snapshot. You cannot undo the snapshot revert operation. 
@@ -154,7 +157,7 @@ If the [Snapshot Path visibility](snapshots-edit-hide-path.md) is not set to `hi
 
 The following diagram shows file or directory access to a snapshot using a client: 
 
-![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)
+[![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)](../media/azure-netapp-files/snapshot-file-directory-access.png#)
 
 In the diagram, Snapshot 1 consumes only the delta blocks between the active volume and the moment of snapshot creation. But when you access the snapshot via the volume snapshot path, the data will *appear* as if it’s the full volume capacity at the time of the snapshot creation. By accessing the snapshot folders, you can restore data by copying files and directories out of a snapshot of choice.
 
@@ -162,7 +165,7 @@ Similarly, snapshots in target cross-region replication volumes can be accessed 
 
 The following diagram shows snapshot access in cross-region replication scenarios: 
 
-![Diagram that shows snapshot access in cross-region replication](../media/azure-netapp-files/snapshot-access-cross-region-replication.png)
+[![Diagram that shows snapshot access in cross-region replication](../media/azure-netapp-files/snapshot-access-cross-region-replication.png)](../media/azure-netapp-files/snapshot-access-cross-region-replication.png#lightbox)
 
 See [Restore a file from a snapshot using a client](snapshots-restore-file-client.md) about restoring individual files or directories from snapshots.
 
@@ -176,7 +179,7 @@ The following diagram describes how single-file snapshot restore works:
 
 When a single file is restored in-place (`file2`) or to a new file in the volume (`file2’`), only the *pointers* to existing blocks previously captured in a snapshot are reverted. This operation eliminates the copying of any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
 
-   ![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)
+   [![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)](../media/azure-netapp-files/single-file-snapshot-restore-five.png#lightbox)
 
 ### Restoring volume backups from vaulted snapshots
 
@@ -184,7 +187,7 @@ You can [search for backups](backup-search.md) at the volume level or the NetApp
 
 The following diagram illustrates the operation of restoring a selected vaulted snapshot to a new volume:  
 
-![Diagram that shows restoring a selected vaulted snapshot to a new volume](../media/azure-netapp-files/snapshot-restore-vaulted-new-volume.png)
+[![Diagram that shows restoring a selected vaulted snapshot to a new volume](../media/azure-netapp-files/snapshot-restore-vaulted-new-volume.png)](../media/azure-netapp-files/snapshot-restore-vaulted-new-volume.png#lightbox)
 
 ### Restoring individual files or directories from vaulted snapshots  
 
@@ -207,7 +210,7 @@ When a snapshot is deleted, all pointers from that snapshot to existing data blo
 
 The following diagram shows the effect on storage consumption of Snapshot 3 deletion from a volume:  
 
-![Diagram that shows storage consumption effect of snapshot deletion](../media/azure-netapp-files/snapshot-delete-storage-consumption.png)
+[![Diagram that shows storage consumption effect of snapshot deletion](../media/azure-netapp-files/snapshot-delete-storage-consumption.png)](../media/azure-netapp-files/snapshot-delete-storage-consumption.png#lightbox)
 
 Be sure to [monitor volume and snapshot consumption](azure-netapp-files-metrics.md#volumes) and understand how the application, active volume, and snapshot consumption interact. 
 
