@@ -42,7 +42,7 @@ We currently support Amazon Web Services (AWS), Google Cloud Platform (GCP), Mic
 
 ## Does CloudKnox have Jenkins or Bitbucket integration?  
 
-CloudKnox does not currently support Jenkins or Bitbucket integration.
+CloudKnox does not support Jenkins or Bitbucket integration.
 
 ## What is the CloudKnox pricing model?
 
