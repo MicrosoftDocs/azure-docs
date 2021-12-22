@@ -130,15 +130,15 @@ Both Microsoft Account and Azure Active Directory lets you sign in from multiple
 3. Click **Edit**.
 4. Add a `loginParameters` array with a `domain_hint` item.
 
-```json
-"identityProviders": {
-    "azureActiveDirectory": {
-        "login": {
-            "loginParameters": ["domain_hint=<domain-name>"],
+    ```json
+    "identityProviders": {
+        "azureActiveDirectory": {
+            "login": {
+                "loginParameters": ["domain_hint=<domain-name>"],
+            }
         }
     }
-}
-```
+    ```
 
 5. Click **Put**.
 
