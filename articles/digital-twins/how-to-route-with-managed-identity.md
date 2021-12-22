@@ -159,7 +159,7 @@ az dt create --dt-name <instance-name> --resource-group <resource-group> --assig
 
 For more examples of role assignments with this command, see the [az dt create reference documentation](/cli/azure/dt#az_dt_create).
 
-You can also use the [az role assignment](/cli/azure/role/assignment?view=azure-cli-latest&preserve-view=true) command group to create and manage roles. This command can be used to support other scenarios where you don't want to group role assignment with the create command.
+You can also use the [az role assignment](/cli/azure/role/assignment) command group to create and manage roles. This command can be used to support other scenarios where you don't want to group role assignment with the create command.
 
 ---
 
@@ -190,7 +190,7 @@ Finish setting up your endpoint and select **Save**.
 
 # [CLI](#tab/cli)
 
-Creating the endpoint with the CLI is done by adding a `--auth-type` parameter to the `az dt endpoint create` command that's used to create the endpoint. (For more information about this command, see its [reference documentation](/cli/azure/dt/endpoint/create?view=azure-cli-latest&preserve-view=true) or the [general instructions for setting up an Azure Digital Twins endpoint](how-to-manage-routes.md#create-the-endpoint)).
+Creating the endpoint with the CLI is done by adding a `--auth-type` parameter to the `az dt endpoint create` command that's used to create the endpoint. (For more information about this command, see its [reference documentation](/cli/azure/dt/endpoint/create) or the [general instructions for setting up an Azure Digital Twins endpoint](how-to-manage-routes.md#create-the-endpoint)).
 
 To create an endpoint that uses identity-based authentication, specify the `IdentityBased` authentication type with the  `--auth-type` parameter. The example below illustrates this functionality for an Event Hubs endpoint.
 

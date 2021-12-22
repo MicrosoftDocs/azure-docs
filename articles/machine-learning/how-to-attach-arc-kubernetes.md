@@ -104,7 +104,7 @@ Azure Arc-enabled Kubernetes has a cluster extension functionality that enables 
 > [!TIP]
 > Train only clusters also support batch inferencing as part of Azure Machine Learning Pipelines.
 
-Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension?view=azure-cli-latest&preserve-view=true) command to deploy the Azure Machine Learning extension to your Azure Arc-enabled Kubernetes cluster.
+Use the `k8s-extension` Azure CLI extension [`create`](/cli/azure/k8s-extension) command to deploy the Azure Machine Learning extension to your Azure Arc-enabled Kubernetes cluster.
 
 > [!IMPORTANT]
 > Set the `--cluster-type` parameter to `managedClusters` to deploy the Azure Machine Learning extension to AKS clusters.
@@ -381,7 +381,7 @@ Use the `identity_type` parameter to enable `SystemAssigned` or `UserAssigned` m
 
 You can attach an AKS or Azure Arc enabled Kubernetes cluster using the Azure Machine Learning 2.0 CLI (preview).
 
-Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute?view=azure-cli-latest&preserve-view=true) command and set the `--type` argument to `kubernetes` to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
+Use the Azure Machine Learning CLI [`attach`](/cli/azure/ml/compute) command and set the `--type` argument to `kubernetes` to attach your Kubernetes cluster using the Azure Machine Learning 2.0 CLI.
 
 > [!NOTE]
 > Compute attach support for AKS or Azure Arc enabled Kubernetes clusters requires a version of the Azure CLI `ml` extension >= 2.0.1a4. For more information, see [Install and set up the CLI (v2)](how-to-configure-cli.md).
