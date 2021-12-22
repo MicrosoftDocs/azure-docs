@@ -64,7 +64,7 @@ Required permissions | For permissions required to apply an update, see [account
 12/21/2021: Released for download only, not available for auto upgrade.
 
 ### Bug fixes
-- We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users were getting deleted.
+- We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users or shared mailboxes which are linked to disabled users were getting deleted.
 
 ## 2.0.88.0
 > [!NOTE] 
