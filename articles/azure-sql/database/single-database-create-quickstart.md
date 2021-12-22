@@ -102,7 +102,7 @@ For more information, see [set active subscription](/cli/azure/account#az_accoun
 
 The following values are used in subsequent commands to create the database and required resources. Server names need to be globally unique across all of Azure so the $RANDOM function is used to create the server name.
 
-Change the location as appropriate for your environment. Replace `0.0.0.0` with the in the ip address range to match your specific environment. Use the public IP address of the computer you're using to restrict access to the server to only your IP address.
+Change the location as appropriate for your environment. Replace `0.0.0.0` with the IP address range to match your specific environment. Use the public IP address of the computer you're using to restrict access to the server to only your IP address.
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/create-and-configure-database/create-and-configure-database.sh" range="4-18":::
 
