@@ -20,7 +20,7 @@ Concepts:
 
 The 'ADUCoreInterface' interface is used to send update actions and metadata to devices and receive update status from devices. The 'ADU Core' interface is split into two Object properties.
 
-The expected component name in your model is **"azureDeviceUpdateAgent"** when implementing this interface. [Learn more about Azure IoT Plug and Play Components](../iot-develop/concepts-modeling-guide.md).
+The expected component name in your model is **"deviceUpdate"** when implementing this interface. [Learn more about Azure IoT Plug and Play Components](../iot-develop/concepts-modeling-guide.md)
 
 ### Agent Metadata
 

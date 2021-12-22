@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 09/30/2020
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Oracle database performance on Azure NetApp Files single volumes
 

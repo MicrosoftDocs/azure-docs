@@ -137,7 +137,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 1. Create a resource group with [az group create](/cli/azure/group#az_group_create).
 1. Create a VM with [az vm create](/cli/azure/vm#az_vm_create&preserve-view=true) using a supported distribution in a supported region.
-1. Install the Azure AD login VM extension with [az vm extension set](/cli/azure/vm/extension?view=azure-cli-latest#az_vm_extension_set&preserve-view=true).
+1. Install the Azure AD login VM extension with [az vm extension set](/cli/azure/vm/extension#az_vm_extension_set).
 
 The following example deploys a VM named *myVM*, using *Ubuntu 18.04 LTS*, into a resource group named *AzureADLinuxVM*, in the *southcentralus* region. It then installs the *Azure AD login VM extension* to enable Azure AD login for Linux VM. VM extensions are small applications that provide post-deployment configuration and automation tasks on Azure virtual machines.
 
