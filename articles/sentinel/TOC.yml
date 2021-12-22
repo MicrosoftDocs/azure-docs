@@ -11,6 +11,7 @@
   items:
   - name: Onboard to Microsoft Sentinel
     href: quickstart-onboard.md
+  - name: Understand MITRE ATT&CK coverage
 - name: Tutorials
   items:
   - name: Investigate with UEBA
