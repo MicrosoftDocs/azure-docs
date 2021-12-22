@@ -50,9 +50,7 @@ For more information, see [Understand security coverage by the MITRE ATT&CK® fr
 
 #### MITRE ATT&CK version upgrade
 
-We've upgraded the MITRE ATT&CK support throughout Microsoft Sentinel to use the MITRE ATT&CK framework *version 9*.
-
-This update includes support for the following new tactics:
+We've upgraded the MITRE ATT&CK support throughout Microsoft Sentinel to use the MITRE ATT&CK framework *version 9*. This update includes support for the following new tactics:
 
 **Replacing the deprecated *PreAttack* tactic**:
 
