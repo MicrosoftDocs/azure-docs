@@ -67,7 +67,7 @@ As you can see, the response includes the **X-AspNet-Version** and **X-Powered-B
 
 1. Position the cursor inside the **&lt;outbound&gt;** element, and then select **Show snippets** at the top-right corner of the screen.
 
-   :::image type="content" source="media/transform-api/show-snippets.png" alt-text="Select show snippets":::
+   :::image type="content" source="media/transform-api/show-snippets.png" alt-text="Show snippets":::
 
 1. In the right window, under **Transformation policies**, select **Set HTTP header** twice (to insert two policy snippets).
 
