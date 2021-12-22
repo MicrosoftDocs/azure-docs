@@ -135,7 +135,7 @@ To access Azure resources, create a system-assigned or user-assigned managed ide
 
 # [System-assigned managed identity](#tab/system-identity)
 
-When you [create an online endpoint](#create-a-managed-online-endpoint), a system-assigned managed identity is automatically generated for you, so no need to create a separate one. 
+When you [create an online endpoint](#create-an-online-endpoint), a system-assigned managed identity is automatically generated for you, so no need to create a separate one. 
 
 # [User-assigned managed identity](#tab/user-identity)
 
