@@ -138,6 +138,7 @@ To export a template by using PowerShell:
           "webPubSub_myWebPubSub_name": {
           "defaultValue": "<target-webpubsub-name>",
             "type": "String"
+          }
         }
       }
     ```

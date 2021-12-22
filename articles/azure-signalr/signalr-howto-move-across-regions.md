@@ -138,6 +138,7 @@ To export a template by using PowerShell:
           "SignalR_mySignalR_name": {
           "defaultValue": "<target-signalr-name>",
             "type": "String"
+          }
         }
       }
     ```
