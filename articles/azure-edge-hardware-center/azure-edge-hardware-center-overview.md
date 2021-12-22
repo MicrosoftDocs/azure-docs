@@ -7,8 +7,9 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 12/20/2021
+ms.date: 12/22/2021
 ms.author: alkohli
+ms.custom: references_regions
 # Customer intent: As an IT admin, I need to understand how I can discover and order all first party Azure hardware and manage and track those orders.
 ---
 
@@ -55,7 +56,7 @@ For more information, see [Create an Azure Stack Edge resource after you place t
 
 ### Track orders
 
-<!--The Edge Hardware Center RP also integrates with the third-party shipment APIs for the providers such as UPS, DHL, and TMC.--> You can track the status of your order by going to the order item resource within Edge Hardware Center. For more information, see [Track the Edge Hardware Center order](azure-edge-hardware-center-manage-order.md#track-order). 
+You can track the status of your order by going to the order item resource within Edge Hardware Center. For more information, see [Track the Edge Hardware Center order](azure-edge-hardware-center-manage-order.md#track-order). 
 
 You can also enable alerts to receive email notifications if the order status changes. The email notifications are enabled when the order is placed.
 
@@ -77,7 +78,7 @@ The Azure Billing service is integrated with the Edge Hardware Center ordering R
 
 You will be billed against the resource from where you have placed the order. If you place the order through the Edge Hardware Center, your bill is reflected against the resource created in the process. For each order item resource that you create, you are billed for the respective hardware unit.
 
-For specific information on pricing for the orders you created, go to the pricing page for the corresponding product. For Azure Stack Edge, see [Azure Stack Edge Pricing](https://azure.microsoft.com/pricing/details/.
+For specific information on pricing for the orders you created, go to the pricing page for the corresponding product. For Azure Stack Edge, see [Azure Stack Edge Pricing](https://azure.microsoft.com/pricing/details/).
 
 
 ## Next steps

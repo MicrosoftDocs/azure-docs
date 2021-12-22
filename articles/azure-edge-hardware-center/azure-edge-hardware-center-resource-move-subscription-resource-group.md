@@ -45,30 +45,30 @@ Before you begin:
     - To move to another subscription, select the option available for **Resource group (Move)**.
     - To move to another resource group within the same subscription, select the option available for **Subscription ID (Move)**. <!--is activated against a device and storage accounts are created. It is however not required to activate the device and you can move an unregistered resource as well.-->
 
-    ![Overview pane for the resource that will move](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-1.png) 
+    ![Screenshot showing Overview pane for the resource that will move.](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-1.png) 
 
 1. On the **Source + target** tab, specify the destination Resource group in the same subscription. The source resource group is automatically set. If you are moving to a new subscription, also specify the subscription. Select **Next**. 
 
-    ![Select Move option to move to a different resource group](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-2.png) 
+    ![Screenshot showing how to select Move option to move to a different resource group.](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-2.png) 
 
 1. On the **Resources to move** tab, Edge Hardware Center service will determine if the resource move is allowed. As the validation begins, the validation status is shown as **Pending validation**. Wait for the validation to complete. 
 
-    ![Validation pending to move the resource group in the same subscription](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-3.png) 
+    ![Validation pending to move the resource group in the same subscription.](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-3.png) 
 
     After the validation is complete and if the service determines that the resource move is allowed, validation status updates to **Succeeded**.
 
-    ![Validation succeeded to move the resource group in the same subscription](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-4.png) 
+    ![Screenshot showing validation succeeded to move the resource group in the same subscription.](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-4.png) 
 
     Select **Next**.
 
 1. On the **Review** tab, verify the **Selection summary** and select the checkbox to acknowledge that tools and scripts will need to be updated when moving to another resource group. To start moving the resources, select **Move**.
 
-    ![Acknowledge the impact of moving to another resource group in the same subscription on Review tab](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-5.png) 
+    ![Screenshot showing how to acknowledge the impact of moving to another resource group in the same subscription on Review tab.](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-5.png) 
 
 
 1. Check the notification in the Azure portal to verify that the resource move has completed. 
 
-    ![Notification indicating that the resource was successfully moved to a specified resource group ](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-7.png) 
+    ![Screenshot showing the notification indicating that the resource was successfully moved to a specified resource group. ](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-7.png) 
 
 
 ## Verify migration
@@ -77,13 +77,13 @@ Follow these steps to verify that the resource was successfully moved to the spe
 
 - If you moved across subscriptions, go to the target subscription to see the moved resource. Go to **All resources** and filter against the target subscription to which you moved your resource. 
 
-    ![Filter the list of all resources against the target subscription for the move ](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-8.png) 
+    ![Screenshot showing how to filter the list of all resources against the target subscription for the move. ](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-8.png) 
 
     <!--The shares, storage accounts associated with the resource should also be present with the moved resource.-->
     
 - If you moved to another resource group in the same subscription, go to the target resource group to see the moved resource. Go to **All resources** and filter against the target resource group to which you moved your resource. 
 
-    ![Filter the list of all resources against the target resource group for the move ](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-8.png) 
+    ![Screenshot showing how to filter the list of all subscription against the target subscription for the move. ](media/azure-edge-hardware-center-move-subscription-resource-group/move-resource-group-8.png) 
 
     <!--The shares, storage accounts associated with the resource should also be present with the moved resource.-->
 

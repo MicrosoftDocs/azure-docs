@@ -35,11 +35,11 @@ Do the following steps to create a support request:
     7. Based on the problem type you selected, choose a corresponding **Problem subtype**.
     8. Select **Next**.
 
-    ![Problem description tab](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-1.png)
+    ![Screenshot showing the Problem description tab.](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-1.png)
 
 1. On the **Recommended solution** tab, check if the fix for the issue that you are observing is documented. If the error you are facing is not documented, select **Next**.
 
-    ![Recommended solution tab](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-2.png)
+    ![Screenshot showing the Recommended solution tab.](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-2.png)
 
 1. On the **Additional details** tab, take the following steps:
 
@@ -49,7 +49,7 @@ Do the following steps to create a support request:
     1. In the **File upload**, select the folder icon to browse any other files you want to upload.
     1. Under **Advanced diagnostic information**, check **Allow collection of advanced diagnostic information**.
 
-        ![Additional details tab 1](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-3.png)
+        ![Screenshot showing the Additional details tab 1.](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-3.png)
 
     1. Under **Support method**, based on your subscription, a **Support plan** is automatically populated.
     1. From the dropdown list, select the **Severity**.
@@ -59,11 +59,11 @@ Do the following steps to create a support request:
     1. Under **Contact info**, provide your name, email, phone, optional contact, country/region. Microsoft Support uses this information to reach out to you for further information, diagnosis, and resolution. 
     1. Select **Next**.
 
-        ![Additional details tab 2](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-4.png)
+        ![Screenshot showing the Additional details tab 2.](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-4.png)
 
 4. On the **Review + Create** tab, review the information related to Support ticket. Select **Create**. 
 
-    ![Review + create tab](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-5.png)
+    ![Screenshot showing the Review + create tab.](./media/azure-edge-hardware-center-contact-microsoft-support/log-support-request-5.png)
 
     After you create the Support ticket, a Support personnel will contact you as soon as possible to proceed with your request.
 
@@ -75,7 +75,7 @@ After creating a support ticket, you can manage the lifecycle of the ticket from
 
 1. To get to the help and support page, navigate to **Help + support**.
 
-    ![Manage support requests](./media/azure-edge-hardware-center-contact-microsoft-support/manage-support-request-1.png)
+    ![Screenshot showing how to manage support requests.](./media/azure-edge-hardware-center-contact-microsoft-support/manage-support-request-1.png)
 
 2. A tabular listing of **Recent support requests** is displayed in **Help + support**.
 

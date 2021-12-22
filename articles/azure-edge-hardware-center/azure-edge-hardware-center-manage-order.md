@@ -28,15 +28,15 @@ Follow these steps in the Azure portal to track the order you created using the 
 
 1. In the Azure portal, go to **All resources**. Filter by **Type == Azure Edge Hardware Center**. This should list all the orders created using the Edge Hardware Center. From the list of orders, select your order and go to the order resource.
 
-    ![Select order from list of Edge Hardware Center orders](media/azure-edge-hardware-center-manage-order/select-order-1.png)
+    ![Screenshot showing how to select order from list of Edge Hardware Center orders.](media/azure-edge-hardware-center-manage-order/select-order-1.png)
 
 2. In the selected order resource, go to **Overview**. In the right pane, you can view the status of the order. For example, here the order was delivered to the customer.
 
-    ![View order status for the created Edge Hardware Center order](media/azure-edge-hardware-center-manage-order/track-order-status-1.png)
+    ![Screenshot showing how to view order status for the created Edge Hardware Center order.](media/azure-edge-hardware-center-manage-order/track-order-status-1.png)
 
     You can see the tracking information for your order after the hardware is shipped. 
 
-    ![View tracking number after the hardware is shipped](media/azure-edge-hardware-center-manage-order/track-order-status-2.png)
+    ![Screenshot showing how to view tracking number after the hardware is shipped.](media/azure-edge-hardware-center-manage-order/track-order-status-2.png)
 
 ## Cancel order
 
@@ -46,11 +46,11 @@ Follow these steps in the Azure portal to track the order you created using the 
  
 2. In the selected order resource, go to **Overview**. In the right pane, from the top command bar, select Cancel. You can only cancel an order after the order is created and before the order is confirmed. For example, here the **Cancel** is enabled when the order status is **Placed**.
 
-    ![Cancel an order from list of Edge Hardware Center orders](media/azure-edge-hardware-center-manage-order/cancel-order-2.png)
+    ![Screenshot showing how to cancel an order from list of Edge Hardware Center orders.](media/azure-edge-hardware-center-manage-order/cancel-order-2.png)
 
 3. You see a notification that the order is being canceled. Once the order is canceled, the order status updates to **Canceled**.
 
-    ![Order in Canceled state](media/azure-edge-hardware-center-manage-order/cancel-order-3.png)
+    ![Screenshot showing the order in Canceled state.](media/azure-edge-hardware-center-manage-order/cancel-order-3.png)
 
     If your order item shows up as **Confirmed** and you need to cancel it for some reason, send an email to [Operations team](mailto:email@example.com) with your request.
 
