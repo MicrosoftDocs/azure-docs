@@ -53,7 +53,7 @@ The verbose log is an optional file that you can enable during ordering. It's a 
 | CloudFormat | BlockBlob, PageBlob, or AzureFile.           |
 | Path        | Path to the file within the storage account. |
 | Size        | File or blob size.                           |
-| crc64       | The cyclic redundancy check 64 (CRC64) checksum that was used to verify data integrity during data transfer. |
+| crc64       | Cyclic redundancy check 64 (CRC64) of the data that was uploaded. |
 
 #### Sample verbose log: import
 
@@ -98,7 +98,7 @@ The verbose log for an export is a simple listing of all files that were success
 | Etag        | The entity tag (ETag) for the resource, which is used for concurrency checking during the data transfer. |
 | Path        | Path to the file within the storage account. |
 | Size        | File or blob size.                           |
-| crc64       | The cyclic redundancy check 64 (CRC64) checksum that was computed while exporting data to disk. |
+| crc64       | Cyclic redundancy check 64 (CRC64) of the data that was updated. |
 
 
 #### Sample verbose log: export
