@@ -110,7 +110,7 @@ We recommend the following two steps to resolve this issue:
 
     :::image type="content" source="media/java-ipa/troubleshooting/certificate-icon-capture.png" alt-text="Screenshot of the Certificate option in site information." lightbox="media/java-ipa/troubleshooting/certificate-icon-capture.png":::
 
-3.  Later, you have to click on the "Certificate Path" -> Select the Leaf Certificate -> Click on 'View Certificate'. This will pop up a new certificate menu and you can download the certificate, from the new menu.
+3.  Later, you have to click on the "Certificate Path" -> Select the root Certificate -> Click on 'View Certificate'. This will pop up a new certificate menu and you can download the certificate, from the new menu.
 
     :::image type="content" source="media/java-ipa/troubleshooting/root-certificate.png" alt-text="Screenshot of how to select the root certificate." lightbox="media/java-ipa/troubleshooting/root-certificate.png":::
 
