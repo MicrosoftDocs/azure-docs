@@ -118,9 +118,14 @@ items:
       href: search-samples.md
   - name: Operations
     expanded: false
-    items:  
-    - name: Profile validation
-      href: validation-against-profiles.md
+    items:
+    - name: $validate
+      expanded: false
+      items:  
+      - name: Use $validate
+        href: validation-against-profiles.md
+      - name: Store profiles
+        href: store-profiles-in-fhir.md
     - name: Export data
       expanded: false
       items:

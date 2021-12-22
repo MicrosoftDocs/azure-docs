@@ -71,11 +71,14 @@ items:
       href: search-samples.md
   - name: Operations
     expanded: true
-    items:  
-    - name: Validate FHIR resources against profiles
-      href: validation-against-profiles.md
-    - name: Store profiles in the FHIR service
-      href: store-profiles-in-fhir.md
+    items:
+    - name: $validate
+      expanded: false
+      items:
+      - name: Store profiles
+        href: store-profiles-in-fhir.md
+      - name: Use $validate
+        href: validation-against-profiles.md
     - name: Patient-everything in FHIR
       href: patient-everything.md
     - name: $member-match operation

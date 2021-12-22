@@ -27,7 +27,7 @@ Below are some examples of how profiles can modify the base resource:
 - Define required extensions for the resource. 
  
 
-A `StructureDefinition` is identified by its canonical URL. `http://hl7.org/fhir/StructureDefinition/{profile}` is the name of the profile. 
+A `StructureDefinition` is identified by its canonical URL: `http://hl7.org/fhir/StructureDefinition/{profile}` is the name of the profile. 
 
 For example:
 
@@ -35,7 +35,7 @@ For example:
 - `http://hl7.org/fhir/StructureDefinition/bmi` is another base profile that defines how to represent Body Mass Index (BMI) observations.
 - `http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance` is a US Core profile that sets minimum expectations for `AllergyIntolerance` resource associated with a patient, and it identifies mandatory fields such as extensions and value sets.
 
-When a resource conforms to a profile, the profile is specified inside the field `profile` element of the resource.
+When a resource conforms to a profile, the profile is specified inside the `profile` element of the resource.
 
 ```json
 {
@@ -162,7 +162,7 @@ Azure API for FHIR does not return `StructureDefinition` instances for the base 
 
 ### Profiles in the capability statement
 
-The `Capability Statement` lists all possible behaviors of Azure API for FHIR. Azure API for FHIR updates the capability statement with information on the uploaded and stored profiles in the forms of:
+The `Capability Statement` lists all possible behaviors of Azure API for FHIR. Azure API for FHIR updates the capability statement with details of the stored profiles in the forms of:
 
 - `CapabilityStatement.rest.resource.profile`
 - `CapabilityStatement.rest.resource.supportedProfile`

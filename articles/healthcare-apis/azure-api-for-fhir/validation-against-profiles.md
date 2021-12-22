@@ -1,19 +1,19 @@
 ---
 title: Validate FHIR resources against profiles in Azure API for FHIR
 description: This article describes how to validate FHIR resources against profiles in Azure API for FHIR.
-author: ginalee-dotcom
+author: cavoeg
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
 ms.date: 12/22/2021
-ms.author: ginle
+ms.author: cavoeg
 ---
 
 # Validate FHIR resources against profiles in Azure API for FHIR
 
 `$validate` is an operation in FHIR that allows you to ensure that a FHIR resource conforms to the base resource requirements or a specified profile. This is a valuable operation to ensure that the data in Azure API for FHIR  has the expected attributes and values.
 
-In the [Store profiles in Azure API for FHIR](store-profiles-in-fhir.md) article, you were walked through the basics of FHIR profiles and storing them. Azure API for FHIR allows validating resources against profiles to see if the resources conform to the profiles. This article will guide you through how to use `$validate` for validating resources against profiles. For more information about FHIR profiles outside of this article, visit 
+In the [store profiles in Azure API for FHIR](store-profiles-in-fhir.md) article, you walked through the basics of FHIR profiles and storing them. This article will guide you through how to use `$validate` for validating resources against profiles. For more information about FHIR profiles outside of this article, visit 
 [HL7.org](https://www.hl7.org/fhir/profiling.html).
 
 
@@ -45,7 +45,7 @@ For example:
 
 `GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/a6e11662-def8-4dde-9ebc-4429e68d130e/$validate`
 
-In the previous example, you'd be validating the existing Patient resource `a6e11662-def8-4dde-9ebc-4429e68d130e` against the base Patient resource. If it's valid, you'll get an `OperationOutcome` such as the following code example:
+In this example, you're validating the existing Patient resource `a6e11662-def8-4dde-9ebc-4429e68d130e` against the base Patient resource. If it's valid, you'll get an `OperationOutcome` such as the following code example:
 
 ```json
 {
@@ -101,7 +101,7 @@ If the resource isn't valid, you'll get an error code and an error message with 
 }
 ```
 
-In the previous example, the resource didn't conform to the provided Patient profile, which required a patient identifier value and gender.
+In the this example, the resource didn't conform to the provided Patient profile, which required a patient identifier value and gender.
 
 If you'd like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example for the HL7 base profile for `heartrate`:
 
@@ -138,7 +138,7 @@ You can choose when you'd like to validate your resource, such as on resource `C
 
 ## Next steps
 
-In this article, you've learned how to validate resources against profiles using `$validate`. To learn about the other Azure API for FHIR supported features, see
+In this article, you learned how to validate resources against profiles using `$validate`. To learn about the other Azure API for FHIR supported features, see
 
 >[!div class="nextstepaction"]
 >[Azure API for FHIR supported features](fhir-features-supported.md)
