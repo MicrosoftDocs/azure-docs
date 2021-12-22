@@ -6,7 +6,7 @@ summary: Use Azure Edge Hardware Center service to order from a variety of Azure
 metadata:
   title: Azure Edge Hardware Center documentation  # Required; page title displayed in search results. Include the brand. < 60 chars.
   description: Azure Edge Hardware Center Documentation. # Required; article description that is displayed in search results. < 160 chars.
-  services: databox
+  services: Azure Edge Hardware Center
   ms.service: databox #Required; service per approved list. service slug assigned to your service by ACOM.
   ms.subservice: edge
   ms.topic: landing-page # Required
