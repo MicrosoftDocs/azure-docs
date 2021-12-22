@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/11/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Configure ADDS LDAP with extended groups for NFS volume access
 

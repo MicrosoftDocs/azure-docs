@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: how-to
-ms.date: 07/20/2021
+ms.date: 12/21/2021
 ms.author: kenwith
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
@@ -111,7 +111,8 @@ To apply a transformation to a user attribute:
 
 1. In **Manage claim**, select *Transformation* as the claim source to open the **Manage transformation** page.
 2. Select the function from the transformation dropdown. Depending on the function selected, you will have to provide parameters and a constant value to evaluate in the transformation. Refer to the table below for more information about the available functions.
-3. To apply multiple transformation, click on **Add transformation**.You can apply a maximum of two transformation to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
+3. (preview ) `Treat source as multivalued` is a checkbox indicating if the transform should be applied to all values or just the first. By default, transformations will only be applied to the first element in a multi value claim, by checking this box it ensures it is applied to all. This checkbox will only be enabled for multi valued attributes, for example `user.proxyaddresses`.
+4. To apply multiple transformation, click on **Add transformation**. You can apply a maximum of two transformation to a claim. For example, you could first extract the email prefix of the `user.mail`. Then, make the string upper case.
 
    ![Multiple claims transformation](./media/active-directory-saml-claims-customization/sso-saml-multiple-claims-transformation.png)
 

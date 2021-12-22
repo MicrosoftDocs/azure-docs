@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: reference
 ms.date: 01/12/2021
+ms.devlang: csharp, javascript
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 

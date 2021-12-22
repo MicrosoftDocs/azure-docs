@@ -25,7 +25,7 @@ The pod created by the `run` command provides the following binaries:
 
 In addition, `command invoke` runs the commands from your cluster so any commands run in this manner are subject to networking and other restrictions you have configured on your cluster.
 
-## Use `invoke commnad` to run a single command
+## Use `command invoke` to run a single command
 
 Use `az aks command invoke --command` to run a command on your cluster. For example:
 

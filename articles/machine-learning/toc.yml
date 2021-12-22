@@ -226,6 +226,8 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
+        - name: Vulnerability management
+          href: concept-vulnerability-management.md
 - name: How-to guides
   items:
     - name: Security

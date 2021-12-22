@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/14/2021
+ms.date: 12/21/2021
 ms.author: cavoeg
 ---
 
@@ -109,7 +109,7 @@ Azure Healthcare APIs is a set of managed API services based on open standards a
 
 #### **Bug fixes**
 
-|Resolved patch bugs | Related information |
+|Bug fixes | Related information |
 | :------------------- | --------------------------------: |
 
 | Wider catch for exceptions during applying patch | [#2192](https://github.com/microsoft/fhir-server/pull/2192)|
