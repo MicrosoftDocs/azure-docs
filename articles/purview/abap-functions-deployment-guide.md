@@ -1,27 +1,17 @@
 ---
-title: Metadata extraction ABAP function module in SAP R3 - Azure Purview
+title: SAP ABAP function module deployment guide - Azure Purview
 description: This article outlines the steps to deploy ABAP function module in SAP Server
 author: linda33wj
 ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: conceptual
-ms.date: 11/07/2021
+ms.date: 12/20/2021
 ---
 
-# Deploy the metadata extraction ABAP function module for the SAP R3 family of bridges
+# SAP ABAP function module deployment guide
 
-This article outlines the steps to deploy the ABAP function module in SAP Server.
-
-## Overview
-
-The SAP Business Suite 4 HANA (S/4HANA), ECC, and R/3 ERP bridge can be used to extract metadata from the SAP Server. This is achieved by placing ABAP function module on the SAP server. This function module is remotely accessible by the bridge to query and download (as a text file) the metadata containing within the SAP server.
-
-When executed, the bridge then either:
-
-1. Imports metadata from an existing file already downloaded locally from a previous bridge execution.
-
-2. Invokes the ABAP module API, wait for the download, and then import metadata from that file.
+When you scan [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md) sources in Azure Purview, you need to create the dependent ABAP function module in your SAP server. Purview invokes this function module to extract the metadata from your SAP system during scan.
 
 This document details the steps required to deploy this module.
 
@@ -30,7 +20,7 @@ This document details the steps required to deploy this module.
 
 ## Prerequisites
 
-Download the ABAP function module source code from Purview Studio. When you register a source then new a scan for [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md), you can find a download link on top as follows. 
+Download the SAP ABAP function module source code from Purview Studio. After you register a source for [SAP ECC](register-scan-sapecc-source.md) or [SAP S/4HANA](register-scan-saps4hana-source.md), you can find a download link on top as follows. 
 
 :::image type="content" source="media/abap-functions-deployment-guide/download-abap-code.png" alt-text="Download ABAP function module source code from Purview Studio" border="true":::
 

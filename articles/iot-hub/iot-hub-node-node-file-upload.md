@@ -6,7 +6,7 @@ author: wesmc7777
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
-ms.devlang: nodejs
+ms.devlang: javascript
 ms.topic: conceptual
 ms.date: 07/27/2021
 ms.custom: mqtt, devx-track-js

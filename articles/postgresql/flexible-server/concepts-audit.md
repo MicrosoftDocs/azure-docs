@@ -65,6 +65,10 @@ Using the [Azure portal](https://portal.azure.com):
    5. Click **Save** button to save changes
 
 
+
+> [!NOTE]
+>If you set the log_statement parameter to DLL or ALL, and run a `CREATE ROLE/USER ... WITH PASSWORD ... ; `  or  `ALTER ROLE/USER ... WITH PASSWORD ... ;`, command, then PostgreSQL creates an entry in the PostgreSQL logs, where password is logged in clear text,  which may cause a potential security risk.  This is expected behavior as per PostgreSQL engine design. You can, however, use PGAudit extension and set  `pgaudit.log='DDL' ` parameter in server parameters page, which doesn't record any 'CREATE/ALTER ROLE' statement in Postgres Log, unlike Postgres `pgaudit.log='DDL'` setting.  If you do need to log these statements you can add `pgaudit.log ='ROLE'` in addition, which, while logging 'CREATE/ALTER ROLE' will redact the password from logs. 
+
 The [pgAudit documentation](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) provides the definition of each parameter. Test the parameters first and confirm that you are getting the expected behavior.
 
 > [!NOTE]
@@ -94,6 +98,8 @@ AzureDiagnostics
 | where TimeGenerated > ago(1d) 
 | where Message contains "AUDIT:"
 ```
+
+
 
 ## Next steps
 - [Learn about logging in Azure Database for PostgreSQL - Flexible server](concepts-logging.md)

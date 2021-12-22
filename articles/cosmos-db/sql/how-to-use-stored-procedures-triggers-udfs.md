@@ -7,6 +7,7 @@ ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 11/03/2021
 ms.author: tisande
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-python, devx-track-js, devx-track-csharp
 ---
 

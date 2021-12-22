@@ -116,7 +116,7 @@ Setting up a SAML federation trust between BIG-IP APM and Azure AD is one of the
       >[!NOTE]
       >In this configuration, the SAML flow would operate in IdP-initiated mode, where Azure AD issues users a SAML assertion before they're redirected to the BIG-IP service endpoint for the application. The BIG-IP APM supports both IdP-initiated and service provider-initiated modes.
 
-   c. For the `Logout URI`, enter the BIG-IP APM single logout (SLO) endpoint, prepended by the host header of the service that's being published. Providing an SLO URI ensures that users' BIG-IP APM session is also terminated after they're signed out of Azure AD. An example URI might be *https://myvacation.contoso.com/saml/sp/profile/redirect/slr*.
+   c. For the `Logout URI`, enter the BIG-IP APM single logout (SLO) endpoint, prepended by the host header of the service that's being published. Providing an SLO URI ensures that users' BIG-IP APM session is also terminated after they're signed out of Azure AD. An example URI might be `https://myvacation.contoso.com/saml/sp/profile/redirect/slr`.
 
      ![Screenshot showing a basic SAML configuration.](./media/f5-big-ip-forms-advanced/basic-saml-configuration.png)
 

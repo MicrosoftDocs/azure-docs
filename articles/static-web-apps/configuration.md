@@ -446,7 +446,7 @@ Based on the above configuration, review the following scenarios.
 
 The following restrictions exist for the _staticwebapp.config.json_ file.
 
-- Max file size is 100 KB
+- Max file size is 20 KB
 - Max of 50 distinct roles
 
 See the [Quotas article](quotas.md) for general restrictions and limitations.

@@ -13,6 +13,13 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (December 2021)
+- Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
+    - Support for two new target assessment regions: Central US and Canada East
+    - Support for Reserved Instances in assessment properties for more accurate cost estimates
+    - New readiness condition to highlight Operating Systems deprecated by VMware
+    - Support for storage utilization parameter in storage sizing logic (only for discovery via a .csv file) 
+
 ## Update (October 2021)
 - Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#supported-geographies-public-cloud)
 

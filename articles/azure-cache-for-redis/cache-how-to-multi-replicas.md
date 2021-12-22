@@ -42,6 +42,8 @@ To create a cache, follow these steps:
 
     :::image type="content" source="media/cache-how-to-multi-replicas/create-multi-replicas.png" alt-text="Replica count.":::
 
+1. Configure your settings for clustering or relational database persistence.  
+
     > [!NOTE]
     > Currently, you can't use Append-only File (AOF) persistence or geo-replication with multiple replicas (more than one replica).
     >

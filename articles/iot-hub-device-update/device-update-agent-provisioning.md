@@ -14,9 +14,9 @@ The Device Update Module agent can run alongside other system processes and [IoT
 
 ## Changes to Device Update agent at Public Preview Refresh
 
-We have added many new capabilities to the Device Update agent in the latest Public Preview Refresh agent (version 0.8.0). See [list of new capabilities](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/whats-new.md) for details.
+We have added many new capabilities to the Device Update agent in the latest Public Preview Refresh agent (version 0.8.0). 
 
-If you are using the Device Update agent versions 0.6.0 or 0.7.0 please upgrade to the latest agent version 0.8.0. See [Public Preview Refresh agent for changes and how to upgrade](https://github.com/Azure/iot-hub-device-update/blob/main/docs/agent-reference/upgrade-guide.md)
+If you are using the Device Update agent versions 0.6.0 or 0.7.0 please upgrade to the latest agent version 0.8.0. 
 
 You can check installed version of the Device Update agent and the Delivery Optimization agent in the Device Properties section of your [IoT device twin](../iot-hub/iot-hub-devguide-device-twins.md). [Learn more about device properties under ADU Core Interface](device-update-plug-and-play.md#device-properties).
 

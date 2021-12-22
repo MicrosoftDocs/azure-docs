@@ -87,7 +87,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
     on:
         push:
-            branches: [ master ]
+            branches: [ main ]
     ```
 
 1. Rename your workflow `Blob storage website CI` and add the checkout and login actions. These actions will checkout your site code and authenticate with Azure using the `AZURE_CREDENTIALS` GitHub secret you created earlier.
@@ -97,7 +97,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
     on:
         push:
-            branches: [ master ]
+            branches: [ main ]
 
     jobs:
       build:
@@ -131,7 +131,7 @@ In the example above, replace the placeholders with your subscription ID and res
 
     on:
         push:
-            branches: [ master ]
+            branches: [ main ]
 
     jobs:
       build:

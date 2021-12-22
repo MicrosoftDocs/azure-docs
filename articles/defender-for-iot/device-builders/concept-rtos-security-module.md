@@ -29,7 +29,8 @@ The module offers the following features:
 
 The Defender-IoT-micro-agent for Azure RTOS is initialized by the Azure IoT middleware platform and uses IoT Hub clients to send security telemetry to the Hub.
 
-:::image type="content" source="media/architecture/security-module-state-diagram.png" alt-text="Azure IoT Defender-IoT-micro-agent state diagram and information flow":::
+:::image type="content" source="media/concept-rtos-security-module/security-module-state-diagram.png" alt-text="Micro agent state diagram and information flow":::
+
 
 The Defender-IoT-micro-agent for Azure RTOS monitors the following device activity and information using three collectors:
 - Device network activity **TCP**, **UDP**, and **ICM**
