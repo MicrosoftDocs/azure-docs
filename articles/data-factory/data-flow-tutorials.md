@@ -105,7 +105,7 @@ As updates are constantly made to the product, some features have added or diffe
 
 [External Call transformation](https://www.youtube.com/watch?v=dIMfbwX8r0A)
 
-[Assert transformation](https://docs.microsoft.com/en-us/azure/data-factory/data-flow-assert)
+[Assert transformation](https://www.youtube.com/watch?v=8K7flL7JWMo)
 
 ## Source and sink
 
