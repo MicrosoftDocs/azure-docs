@@ -9,7 +9,7 @@ ms.author: zehangzheng
 
 ## Prerequisites
 
-- A working [Communication Services calling Android app](./pstn-call-android.md).
+- A working [Communication Services calling Android app](../pstn-call.md).
 
 ## Important Considerations
 - The capability to dial 911 and receive a call-back may be a requirement for your application. Verify the E911 requirements with your legal counsel. 

@@ -58,7 +58,7 @@ Emergency dialing is automatically enabled for all users of the Azure Communicat
 
 1. When testing your application dial 933 instead of 911. 933 number is enabled for testing purposes; the recorded message will confirm the phone number the emergency call originates from. You should hear a temporary number assigned by Microsoft and is not the `alternateCallerId` provided by the application
 
-1. Ensure your application supports [receiving an incoming call](../../how-tos/calling-sdk/includes/manage-calls/manage-calls-web.md) so call-backs from the PSAP are appropriately routed to the originator of the 911 call. To test inbound calling is working correctly, place inbound VoIP calls to the user of the Calling SDK
+1. Ensure your application supports [receiving an incoming call](../../how-tos/calling-sdk/manage-calls.md#receive-an-incoming-call) so call-backs from the PSAP are appropriately routed to the originator of the 911 call. To test inbound calling is working correctly, place inbound VoIP calls to the user of the Calling SDK
 
 The Emergency service is temporarily free to use for ACS customers within reasonable use, however, billing for the service will be enabled in 2022. Calls to 911 are capped at 10 concurrent calls per Azure resource.
 

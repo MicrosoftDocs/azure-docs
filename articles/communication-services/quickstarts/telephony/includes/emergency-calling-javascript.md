@@ -9,7 +9,7 @@ ms.author: zehangzheng
 
 ## Prerequisites
 
-- A working [Communication Services calling web app](https://docs.microsoft.com/azure/communication-services/quickstarts/voice-video-calling/pstn-call?pivots=platform-web).
+- A working [Communication Services calling web app](../pstn-call.md).
 
 ## Important Considerations
 -	The capability to dial 911 and receive a call-back may be a requirement for your application. Verify the E911 requirements with your legal counsel. 
