@@ -114,12 +114,6 @@ We recommend the following two steps to resolve this issue:
 
     :::image type="content" source="media/java-ipa/troubleshooting/root-certificate.png" alt-text="Screenshot of how to select the root certificate." lightbox="media/java-ipa/troubleshooting/root-certificate.png":::
 
-    There are some instances where you want to download the intermediate or the leaf certificate that are owned by Microsoft for stringent security reasons, in this case our recommendation is to download the certificates as shown below:
-
-    :::image type="content" source="media/java-ipa/troubleshooting/leaf-certificate.png" alt-text="Screenshot of how to select the leaf certificate." lightbox="media/java-ipa/troubleshooting/leaf-certificate.png":::
-     
-    :::image type="content" source="media/java-ipa/troubleshooting/intermediate-certificate.png" alt-text="Screenshot of how to select the intermediate certificate." lightbox="media/java-ipa/troubleshooting/intermediate-certificate.png":::
-
 4.	Go to the **Details** tab and select **Copy to file**.
 5.	Select the **Next** button, select **Base-64 encoded X.509 (.CER)** format, and then select **Next** again.
 
