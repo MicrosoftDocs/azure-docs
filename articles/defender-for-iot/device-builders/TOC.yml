@@ -38,6 +38,10 @@
     - name: Create an azureiotsecurity module twin
       displayName: module twin, security module
       href: quickstart-create-security-twin.md
+- name: Tutorials
+  items:
+  - name: Configure a micro agent twin
+    href: tutorial-configure-micro-agent-twin.md
 - name: Concepts
   items:
   - name: Agent portfolio overview and OS support (Preview)                     
