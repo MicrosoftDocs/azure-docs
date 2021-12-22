@@ -52,6 +52,9 @@ Microsoft Sentinel is a scalable, cloud-native, security information event manag
 By bringing rich telemetry into Microsoft Sentinel from Microsoft Defender for IoT, SOC teams can bridge the gap between IT and OT security sectors. This allows SOC teams to detect and respond faster during the entire attack timeline—enhancing communication, processes, and response time for both security analysts and OT personnel.  
 
 :::image type="content" source="media/concept-sentinel-integration/chart.png" alt-text="Screenshot of a chart showing alert flow.":::
+
+To set up the integration, see [Integrate Microsoft Defender for IoT and Microsoft Sentinel](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended).
+
 ## OT Security 
 
 **OT Security Alerts**
@@ -70,11 +73,13 @@ The Microsoft Defender for IoT integration delivers a library of mappings that l
 
 ## Workbooks, analytics rules, and SOAR playbooks
 
+This section describes how Microsoft Sentinel workbooks, analytics rules, and SOAR playbooks help you monitor and respond to OT threats.
+
 ### Workbooks
 
 To visualize and monitor your Defender for IoT data, use the workbooks deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
-The Defenders for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
+The Defender for IoT workbooks provide guided investigations for OT entities based on open incidents, alert notifications, and activities for OT assets. They also provide a hunting experience across the MITRE ATT&CK® framework for ICS, and are designed to enable analysts, security engineers, and MSSPs to gain situational awareness of OT security posture.
 
 For example:  
 
@@ -83,7 +88,7 @@ For example:
 Microsoft Sentinel Alert Workbooks show alerts by:
 - Type (policy violation, protocol violation, malware, etc.)
 - Severity
-- OT device type (PLC, HMI, engineering workstation)
+- OT device type (PLC, HMI, engineering workstation, etc.)
 - OT equipment vendor
 - Alerts over time
 
@@ -95,7 +100,7 @@ Microsoft Sentinel MITRE ATT&CK for ICS workbooks show the result of mapping ale
 
 :::image type="content" source="media/concept-sentinel-integration/mitreattack.png" alt-text="Screenshot of a MITRE ATT&CK":::
 
-The Workbooks are described in the [Visualize and monitor Defender for IoT](/azure/sentinel/iot-solution?branch=pr-en-us-183434&tabs=use-out-of-the-box-analytics-rules-recommended)section of the integration tutorial. Workbooks are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
+The Workbooks are described in the [Visualize and monitor Defender for IoT](/azure/sentinel/iot-solution?branch=pr-en-us-183434&tabs=use-out-of-the-box-analytics-rules-recommended) section of the integration tutorial. Workbooks are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
 ### Analytics rules
 
@@ -105,13 +110,13 @@ The Analytics rules are described in the [Detect threats out-of-the-box with Def
 
 ### SOAR playbooks
 
-Playbooks are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response; it can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
+Playbooks are collections of automated remediation actions that can be run from Microsoft Sentinel as a routine. A playbook can help automate and orchestrate your threat response. It can be run manually or set to run automatically in response to specific alerts or incidents, when triggered by an analytics rule or an automation rule, respectively.
 
 Use SOAR playbooks, for example to:  
 
 - Open an asset ticket in ServiceNow when a new asset is detected, such as a new engineering workstation. This can either be an unauthorized device that can be used by adversaries to reprogram PLCs.
 
-- Send an email to all relevant stakeholders, including OT personnel such as the control engineer responsible for a specific production line, when suspicious activity is detected (such as reprogramming a PLC, which usually happens only rarely).
+- Send an email to all relevant stakeholders, including OT personnel such as the control engineer responsible for a specific production line, when suspicious activity is detected (such as reprogramming a PLC, which usually happens rarely).
 
 The playbooks are described in the [Automate response to Defender for IoT alerts](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended) section of the integration tutorial. Playbooks are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
