@@ -101,11 +101,11 @@ If the resource isn't valid, you'll get an error code and an error message with 
 }
 ```
 
-In the this example, the resource didn't conform to the provided Patient profile, which required a patient identifier value and gender.
+In this example, the resource didn't conform to the provided Patient profile, which required a patient identifier value and gender.
 
 If you'd like to specify a profile as a parameter, you can specify the canonical URL for the profile to validate against, such as the following example for the HL7 base profile for `heartrate`:
 
-`GET https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Observation/12345678/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate`
+`GET https://myAzureAPIforFHIR.azurehealthcareapis.com/Observation/12345678/$validate?profile=http://hl7.org/fhir/StructureDefinition/heartrate`
 
 ## Validating a new resource
 
@@ -115,7 +115,7 @@ If you'd like to validate a new resource that you're uploading to Azure API for 
 
 For example:
 
-`POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/$validate`
+`POST https://myAzureAPIforFHIR.azurehealthcareapis.com/Patient/$validate`
 
 This request will create the new resource you are specifying in the request payload and validate the uploaded resource. Then, it will return an `OperationOutcome` as a result of the validation on the new resource.
 

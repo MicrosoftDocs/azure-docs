@@ -27,7 +27,7 @@ Below are some examples of how profiles can modify the base resource:
 - Define required extensions for the resource. 
  
 
-A `StructureDefinition` is identified by its canonical URL: `http://hl7.org/fhir/StructureDefinition/{profile}` is the name of the profile. 
+A `StructureDefinition` is identified by its canonical URL: `http://hl7.org/fhir/StructureDefinition/{profile}`
 
 For example:
 
@@ -82,7 +82,7 @@ To store profiles in Azure API for FHIR, you can `POST` the `StructureDefinition
 For example, if you'd like to store the `us-core-allergyintolerance` profile, you'd do the following:
 
 ```rest
-POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
+POST https://myAzureAPIforFHIR.azurehealthcareapis.com/StructureDefinition?url=http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance
 ```
 
 ```json
@@ -112,7 +112,7 @@ POST https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/StructureDefi
   ],
     "description" : "Defines constraints and extensions on the AllergyIntolerance resource for the minimal set of data to query and retrieve allergy information.",
 ```
-For more examples of storing profiles, see the sample REST file that has details on the US Core profiles at [USCore.http](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http). 
+For more examples, see the [US Core sample REST file](https://github.com/microsoft/fhir-server/blob/main/docs/rest/PayerDataExchange/USCore.http) on the open-source site that walks through storing US Core profiles. 
 
 ### Viewing profiles
 

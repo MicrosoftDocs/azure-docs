@@ -28,7 +28,7 @@ Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Ser
 
 ### **Bug fixes**
 
-|Resolved patch bugs |Related information |
+|Bug fixes |Related information |
 | :----------------------------------- | ---------------: |
 |Resolved 500 error when the date was passed with a time zone. |This fixes a 500 error when a date with a time zone was passed into a datetime field [#2270](https://github.com/microsoft/fhir-server/pull/2270). |
 |Resolved issue where posting a bundle with incorrect Media Type returned a 500 error. |Previously when posting a search with a key that contains certain characters, a 500 error was returned. This fixes this issue [#2264](https://github.com/microsoft/fhir-server/pull/2264), and it addresses [#2148](https://github.com/microsoft/fhir-server/issues/2148). |

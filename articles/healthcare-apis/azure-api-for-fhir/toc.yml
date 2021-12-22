@@ -122,10 +122,10 @@ items:
     - name: $validate
       expanded: false
       items:  
-      - name: Use $validate
-        href: validation-against-profiles.md
       - name: Store profiles
         href: store-profiles-in-fhir.md
+      - name: Use $validate
+        href: validation-against-profiles.md
     - name: Export data
       expanded: false
       items:
