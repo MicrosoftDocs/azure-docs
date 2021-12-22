@@ -310,7 +310,7 @@ Skip this step and go to the next step if you want to use the Microsoft managed 
 
 ## Step 6: Verify data upload to Azure
 
-Track the job to completion. Once the job is complete, verify that your data has uploaded to Azure. Delete the on-premises data only after you have verified that the upload was successful. For more information, see [Review Import/Export copy logs](storage-import-export-tool-reviewing-job-status-v1.md).
+[!INCLUDE [storage-import-export-verify-data-copy](../../includes/storage-import-export-verify-data-copy.md)]
 
 > [!NOTE]
 > If any path and file name exceeds 256 characters, and long paths aren't enabled on the client, the data upload will fail. To avoid this kind of failure, [enable long paths on your Windows client](/windows/win32/fileio/maximum-file-path-limitation?tabs=cmd#enable-long-paths-in-windows-10-version-1607-and-later).
