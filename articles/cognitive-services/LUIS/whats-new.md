@@ -13,6 +13,9 @@ Learn what's new in the service. These items include release notes, videos, blog
 
 ## Release notes
 
+### December 2021
+* [Updated text recognizer](https://github.com/microsoft/Recognizers-Text/releases/tag/dotnet-v1.8.1) to 1.8.1
+   
 ### November 2021
 * [Azure Role-based access control (RBAC) article](role-based-access-control.md)
 
