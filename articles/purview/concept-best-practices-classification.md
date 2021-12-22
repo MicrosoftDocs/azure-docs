@@ -174,7 +174,7 @@ With Azure Purview, you can delete custom classification rules. You also have op
            
 :::image type="content" source="./media/concept-best-practices/classification-delete-classification-rule-19.png" alt-text="Screenshot showing how to delete a classification rule." lightbox="./media/concept-best-practices/classification-delete-classification-rule-19.png":::
 
-You can also classifications in bulk through Purview Studio. For more information, see [Bulk edit assets to annotate classifications and glossary terms and to modify contacts](how-to-bulk-edit-assets.md).
+You can also edit classifications in bulk through Purview Studio. For more information, see [Bulk edit assets to annotate classifications and glossary terms and to modify contacts](how-to-bulk-edit-assets.md).
 
 ## Classification considerations
 
