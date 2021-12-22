@@ -6,6 +6,7 @@ ms.service: signalr
 ms.topic: tutorial
 ms.date: 09/09/2020
 ms.author: jixin
+ms.devlang: csharp
 ---
 
 # Tutorial: Build a Blazor Server chat app
