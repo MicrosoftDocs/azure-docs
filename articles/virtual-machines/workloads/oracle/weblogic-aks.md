@@ -43,7 +43,7 @@ The guidance supports two ways of deploying WLS domains to AKS. Domains can be d
 
 _These solutions are all Bring-Your-Own-License_. They assume you've already got the appropriate licenses with Oracle and are properly licensed to run offers in Azure.
 
-_If you're interested in working closely on your migration scenarios with the engineering team developing these solutions, fill out [this short survey](https://aka.ms/wls-on-azure-survey) and include your contact information_. Program managers, architects, and engineers will reach back out to you shortly and start close collaboration. The opportunity to collaborate on a migration scenario is free while the solutions are under active initial development.
+_If you're interested in working closely on your migration scenarios with the engineering team developing these solutions, fill out [this short survey](https://aka.ms/wls-on-azure-survey) and include your contact information_. Program managers, architects, and engineers will reach back out to you shortly and start close collaboration.
 
 ## Deployment architectures
 
