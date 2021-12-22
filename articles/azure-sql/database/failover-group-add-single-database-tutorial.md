@@ -193,7 +193,7 @@ Use this script to create a failover group with the [az sql failover-group creat
 
 :::code language="azurecli" source="~/azure_cli_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-cli.sh" range="30-32":::
 
-## CLI failover group creation reference
+### Azure CLI failover group creation reference
 
 This portion of the tutorial uses the following Azure CLI cmdlets:
 
