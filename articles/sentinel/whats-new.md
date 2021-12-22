@@ -43,8 +43,8 @@ MITRE ATT&CK mappings are also available from the following areas in Microsoft S
 
 - **[Hunting queries](hunting.md)**. Map your custom hunting queries to one or more MITRE ATT&CK techniques.
 - **[Bookmarks](bookmarks.md)**. Bookmarks that capture results from hunting queries that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
-- **[Analytics rules](detect-threats-built-in.md)** (New!). Map your analytics rules to one or more MITRE ATT&CK techniques, and filter by technique when looking for rules in the **Analytics** page.
-- **[Incidents](investigate-cases.md)** (New!). Incidents created from alerts that are detected by rules that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
+- **[Analytics rules](detect-threats-built-in.md)**. Map your analytics rules to one or more MITRE ATT&CK techniques, and filter by technique when looking for rules in the **Analytics** page.
+- **[Incidents](investigate-cases.md)**. Incidents created from alerts that are detected by rules that are mapped to MITRE ATT&CK techniques automatically inherit the query's MITRE ATT&CK technique and entity mappings.
 
 For more information, see [Understand security coverage by the MITRE ATT&CK® framework](mitre-coverage.md).
 
