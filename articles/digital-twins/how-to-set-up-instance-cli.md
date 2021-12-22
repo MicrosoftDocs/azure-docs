@@ -40,7 +40,7 @@ In this section, you'll **create a new instance of Azure Digital Twins** using t
 * A name for your instance. If your subscription has another Azure Digital Twins instance in the region that's
   already using the specified name, you'll be asked to pick a different name.
 
-Use these values in the following [az dt command](/cli/azure/dt?view=azure-cli-latest&preserve-view=true) to create the instance:
+Use these values in the following [az dt command](/cli/azure/dt) to create the instance:
 
 ```azurecli-interactive
 az dt create --dt-name <name-for-your-Azure-Digital-Twins-instance> --resource-group <your-resource-group> --location <region>
@@ -99,7 +99,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt reference](/cli/azure/dt)
 * [Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

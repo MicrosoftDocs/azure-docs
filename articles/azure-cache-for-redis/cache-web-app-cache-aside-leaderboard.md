@@ -5,6 +5,7 @@ author: curib
 ms.author: cauribeg
 ms.service: cache
 ms.topic: tutorial
+ms.devlang: csharp
 ms.custom: "devx-track-csharp, mvc"
 ms.date: 03/30/2018
 
