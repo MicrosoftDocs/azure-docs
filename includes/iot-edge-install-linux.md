@@ -15,31 +15,24 @@ You need to complete two steps on your device before it's ready to install the I
 
 ### Access the Microsoft installation packages
 
-1. Install the repository configuration that matches your device's operating system.
+1. Download the repository configuration package that matches your device's operating system.
 
    * **Ubuntu Server 18.04**:
 
       ```bash
-      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/prod.list > ./microsoft-prod.list
+      curl https://packages.microsoft.com/config/ubuntu/18.04/multiarch/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
       ```
 
    * **Raspberry Pi OS Stretch**:
 
       ```bash
-      curl https://packages.microsoft.com/config/debian/stretch/multiarch/prod.list > ./microsoft-prod.list
+      curl https://packages.microsoft.com/config/debian/stretch/multiarch/packages-microsoft-prod.deb > ./packages-microsoft-prod.deb
       ```
 
-1. Copy the generated list to the sources.list.d directory.
+1. Install the configuration package to add Microsoft's package repository and GPG public key.
 
    ```bash
-   sudo cp ./microsoft-prod.list /etc/apt/sources.list.d/
-   ```
-
-1. Install the Microsoft GPG public key.
-
-   ```bash
-   curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
-   sudo cp ./microsoft.gpg /etc/apt/trusted.gpg.d/
+   sudo apt install ./packages-microsoft-prod.deb
    ```
 
 > [!NOTE]

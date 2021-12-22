@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: GithubMirek
 ms.author: MirekS
-ms.reviewer: vanto
+ms.reviewer: kendralittle, vanto, mathoma
 ms.date: 04/23/2020
 ---
 # Connect to Azure SQL Database with Azure AD Multi-Factor Authentication

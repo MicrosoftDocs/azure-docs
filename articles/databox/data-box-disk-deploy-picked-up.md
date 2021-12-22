@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 10/26/2021
+ms.date: 11/15/2021
 ms.author: alkohli
 ms.localizationpriority: high
 
@@ -138,7 +138,7 @@ If needed, you can contact Quantium Solution Support (Japanese language) at the 
 2. To request pickup, email SingPost Customer Service by using the following template with the tracking number (the tracking number can be found on the return label provided in the delivered package).
 
     ```
-    To: kadcustcare@singpost.com
+    To: g-corpsgcs@singpost.com
     Subject: Microsoft Azure Pickup - XZ00001234567
     Body:
      a.    Requestor name
@@ -229,9 +229,11 @@ Take the following steps if returning the device in South Africa.
 
 5. If you come across any issues, email [Priority.Support@dhl.com](mailto:Priority.Support@dhl.com) with details of the issue(s), and put the waybill number in the Subject: line. You can also call +27(0)119213902.
 
+---
+
 ### Self-managed shipping
 
-If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions.
+If you are using Data Box Disk in US Government, Japan, Singapore, Korea, United Kingdom, West Europe, Australia, South Africa, India, or Brazil, and have selected the self-managed shipping option during order creation, follow these instructions. For detailed steps, see [Use self-managed shipping](data-box-disk-portal-customer-managed-shipping.md).
 
 1. Go to the **Overview** blade for your order in the Azure portal. Go through the instructions displayed when you select **Schedule pickup**. You should see an Authorization code that is used at the time of dropping off the order.
 

@@ -28,7 +28,7 @@ Follow the steps in this article to integrate Azure Active Directory (Azure AD) 
 
 Use the integration of Azure AD activity logs in Azure Monitor logs to perform tasks like:
 
- * Compare your Azure AD sign-in logs against security logs published by Azure Security Center.
+ * Compare your Azure AD sign-in logs against security logs published by Microsoft Defender for Cloud.
   
  * Troubleshoot performance bottlenecks on your application’s sign-in page by correlating application performance data from Azure Application Insights.
 

@@ -35,7 +35,7 @@ This will bring up the **Azure Digital Twins URL modal**, where you can enter th
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png" alt-text="Screenshot of Azure Digital Twins Explorer. The Azure Digital Twins URL modal displays an editable box containing https:// and a host name." lightbox="media/how-to-use-azure-digital-twins-explorer/instance-url-2.png":::
 
 >[!NOTE]
->At this time, the ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the correct instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment).
+>At this time, the ability to switch contexts within the app is **not** available for personal Microsoft Accounts (MSA). MSA users will need to access the explorer from the chosen instance in the Azure portal, or may connect to a certain instance through a [direct link to the environment](#link-to-your-environment).
 
 
 ## Query your digital twin graph
@@ -86,6 +86,7 @@ The **Twin Graph** panel allows you to explore the twins and relationships in yo
 You can use this panel to [view your twins and relationships](#view-twins-and-relationships).
 
 The Twin Graph panel also provides several abilities to customize your graph viewing experience:
+* [Change twin display property](#change-twin-display-property)
 * [Edit twin graph layout](#edit-twin-graph-layout)
 * [Control twin graph expansion](#control-twin-graph-expansion)
 * [Show and hide twin graph elements](#show-and-hide-twin-graph-elements)
@@ -149,6 +150,16 @@ You can also quickly view the code of all relationships that involve a certain t
 To do this, right-click a twin in the graph, and choose **Get relationships**. This brings up a **Relationship Information** modal displaying the [JSON representation](concepts-twins-graph.md#relationship-json-format) of all incoming and outgoing relationships.
 
 :::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-get-relationships.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The center of the screen displays a Relationship Information modal showing Incoming and Outgoing relationships." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-panel-get-relationships.png":::
+
+### Change twin display property
+
+You can configure which property you'd like to display to identify twins in your twin graph. The default is the `$dtId` value, but you can choose from any properties that exist in your model set (even ones that aren't present on every twin). 
+
+To change the display property, use the **Select Twin Display Name Property** dropdown menu. The dropdown menu is ordered by the number of models that contain the property. 
+
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/twin-graph-display-name-property.png" alt-text="Screenshot of Azure Digital Twins Explorer Twin Graph panel. The Select Twin Display Name Property button is highlighted, showing a menu that lists different properties of the twins in the graph." lightbox="media/how-to-use-azure-digital-twins-explorer/twin-graph-display-name-property.png":::
+
+If you choose a property that isn't present on every twin, any twins in the graph that do not have that property will display with an asterisk (*) followed by their `$dtId` value.
 
 ### Edit twin graph layout
 
@@ -307,9 +318,9 @@ You can also view a model's full definition by selecting it in the **Model Graph
 
 You can rearrange the models into different configurations by clicking and dragging them around the Model Graph screen.
 
-You can also apply one of several layout algorithms to the model graph from the options in the **Run Layout** menu. 
+You can also apply one of several layout algorithms to the model graph from the options in the **Choose Layout** menu. 
 
-:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The Run Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
+:::image type="content" source="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png" alt-text="Screenshot of Azure Digital Twins Explorer Model Graph panel. The Choose Layout button is highlighted, showing a menu with the layout options Cola, Dagre, fCoSE, Klay, and d3Force." lightbox="media/how-to-use-azure-digital-twins-explorer/model-graph-panel-layout.png":::
 
 ### Filter and highlight model graph elements
 
@@ -557,7 +568,7 @@ You can use the **Keyboard Shortcuts** icon in the top-right toolbar to view a l
 
 There are several advanced features that can be accessed under the Settings cog in the top-right toolbar:
 * **Eager Loading**: When a query returns twins that have relationships to other twins that **are not** included in the query results, this feature will load the "missing" twins before rendering the graph.
-* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh.
+* **Caching**: When this feature is enabled, Azure Digital Twins Explorer will keep a local cache of relationships and models in memory to improve query performance. These caches are cleared on any write operations on the relevant elements, as well as on browser refresh. This feature is off by default.
 * **Console**: This feature enables display of a console window, capable of using simple shell functions for working with the graph.
 * **Output**: This feature enables display of an output window, which shows a diagnostic trace of operations.
 * **High Contrast**: This feature changes the colors of the Azure Digital Twins Explorer so they appear with greater contrast.

@@ -4,7 +4,7 @@ description: Understand the steps to create and run a Chaos Studio experiment in
 services: chaos-studio
 author: prashabora
 ms.topic: article
-ms.date: 10/21/2021
+ms.date: 11/10/2021
 ms.author: prashabora
 ms.service: chaos-studio
 ms.custom: ignite-fall-2021
@@ -13,8 +13,18 @@ ms.custom: ignite-fall-2021
 Get started with Chaos Studio by using VM shutdown service-direct experiment to make your service more resilient to that failure in real-world. 
 
 ## Prerequisites
-- Open the [Azure portal](https://portal.azure.com).
-- A virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
+- An Azure subscription. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
+- A Linux virtual machine. If you do not have a virtual machine, you can [follow these steps to create one](../virtual-machines/linux/quick-create-portal.md).
+
+## Register the Chaos Studio resource provider
+If this is your first time using Chaos Studio, you must first register the Chaos Studio resource provider before onboarding resources and creating an experiment. This must be done for each subscription where you will be using Chaos Studio.
+
+1. Open the [Azure portal](https://portal.azure.com).
+2. Search for **Subscriptions** and open the subscription management page.
+3. Click on the subscription where you will be using Chaos Studio.
+4. In the left-hand navigation, click on **Resource providers**.
+5. In the list of resource providers that appears, search for **Microsoft.Chaos**.
+6. Click on the Microsoft.Chaos provider, and click the **Register** button.
 
 ## Enable Chaos Studio on the Virtual Machine you created
 1. Open the [Azure portal](https://portal.azure.com).
@@ -115,4 +125,4 @@ Get started with Chaos Studio by using VM shutdown service-direct experiment to 
 
 ## Next steps
 Now that you have run a VM shutdown service-direct experiment, you are ready to:
-- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based.md)
+- [Create an experiment that uses agent-based faults](chaos-studio-tutorial-agent-based-portal.md)

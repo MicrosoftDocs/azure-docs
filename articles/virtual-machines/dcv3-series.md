@@ -14,8 +14,8 @@ ms.custom: ignite-fall-2021
 
 **Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
-> [!NOTE] 
-> DCsv3 and DCdsv3 are in public preview as of November 1st, 2021
+> [!IMPORTANT] 
+> DCsv3 and DCdsv3 are in public preview as of November 1st, 2021.
 
 The DCsv3 and DCdsv3-series virtual machines help protect the confidentiality and integrity of your code and data whilst it’s processed in the public cloud. By leveraging Intel® Software Guard Extensions and Intel® Total Memory Encryption - Multi Key, customers can ensure their data is always encrypted and protected in use. 
 
@@ -37,7 +37,7 @@ Base All-Core Frequency: 2.8 GHz<br>
 [Total Memory Encryption - Multi Key](https://itpeernetwork.intel.com/memory-encryption/): Enabled<br>
 [Premium Storage](premium-storage-performance.md): Supported<br>
 [Ultra-Disk Storage](disks-enable-ultra-ssd.md): Supported<br>
-[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported (CLI provisioning or ARM template only)<br>
+[Accelerated Networking](../virtual-network/create-vm-accelerated-networking-cli.md): Supported<br>
 [Azure Kubernetes Service](../aks/intro-kubernetes.md): Supported (CLI provisioning only initially)<br>
 [Live Migration](maintenance-and-updates.md): Not Supported<br>
 [Memory Preserving Updates](maintenance-and-updates.md): Not Supported<br>

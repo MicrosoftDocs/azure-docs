@@ -13,7 +13,7 @@ When creating an Azure Video Analyzer for Media (formerly Video Indexer) account
 
 * You can create a Video Analyzer for Media **classic** account through our [API](https://aka.ms/avam-dev-portal).
 
-* You can create an Video Analyzer for Media **ARM-based** account through one of the following:
+* You can create a Video Analyzer for Media **ARM-based** account through one of the following:
 
   1.  [Video Analyzer for Media portal](https://aka.ms/vi-portal-link)
 

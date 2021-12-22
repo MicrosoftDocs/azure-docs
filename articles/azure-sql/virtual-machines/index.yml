@@ -98,7 +98,7 @@ landingContent:
       - linkListType: tutorial
         links:
           - text: Availability group (manually)
-            url: windows/availability-group-manually-configure-prerequisites-tutorial.md 
+            url: windows/availability-group-manually-configure-prerequisites-tutorial-multi-subnet.md 
           - text: Stonith availability group (RHEL)
             url: linux/rhel-high-availability-stonith-tutorial.md
           - text: Availability group listener (RHEL)

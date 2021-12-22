@@ -10,7 +10,7 @@ ms.subservice: verifiable-credentials
 ms.date: 04/01/2021
 ms.author: barclayn
 
-#Customer intent: As an administrator I am looking for information to help me disable 
+#Customer intent: As an administrator, I am looking for information to help me disable 
 ---
 
 # Opt out of the verifiable credentials (preview)

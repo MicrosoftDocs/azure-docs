@@ -51,7 +51,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
 1. **Import libraries:** Import the following libraries to use PREDICT in spark session.
 
-   ```PYSPARK
+   ```python
       #Import libraries
       from pyspark.sql.functions import col, pandas_udf,udf,lit
       from azureml.core import Workspace
@@ -65,7 +65,7 @@ Make sure all prerequisites are in place before following these steps for using 
    > [!NOTE]
    > Before running this script, update it with the URI for ADLS Gen2 data file along with model output return data type and ADLS/AML URI for the model file.
 
-   ```PYSPARK
+   ```python
       #Set input data path
       DATA_FILE = "abfss://<filesystemname>@<account name>.dfs.core.windows.net/<file path>"
    
@@ -90,7 +90,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
    - **Through service principal:** You can use service principal client ID and secret directly to authenticate to AML workspace. Service principal must have "Contributor" access to the AML workspace.
 
-      ```PYSPARK
+      ```python
          #AML workspace authentication using service principal
          AZURE_TENANT_ID = "<tenant_id>"
          AZURE_CLIENT_ID = "<client_id>"
@@ -116,7 +116,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
    - **Through linked service:** You can use linked service to authenticate to AML workspace. Linked service can use "service principal" or Synapse workspace's "Managed Service Identity (MSI)" for authentication. "Service principal" or "Managed Service Identity (MSI)" must have "Contributor" access to the AML workspace.
 
-      ```PYSPARK
+      ```python
          #AML workspace authentication using linked service
          from notebookutils.mssparkutils import azureML
          ws = azureML.getWorkspace("<linked_service_name>") #   "<linked_service_name>" is the linked service name, not AML workspace name. Also, linked   service supports MSI and service principal both
@@ -124,7 +124,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
 4. **Enable PREDICT in spark session:** Set the spark configuration `spark.synapse.ml.predict.enabled` to `true` to enable the library.
 
-   ```PYSPARK
+   ```python
       #Enable SynapseML predict
       spark.conf.set("spark.synapse.ml.predict.enabled","true")
    ```
@@ -134,7 +134,7 @@ Make sure all prerequisites are in place before following these steps for using 
    > [!NOTE]
    > Update model alias and model uri in this script before running it.
 
-   ```PYSPARK
+   ```python
       #Bind model within Spark session
        model = pcontext.bind_model(
         return_types=RETURN_TYPES, 
@@ -150,7 +150,7 @@ Make sure all prerequisites are in place before following these steps for using 
    > [!NOTE]
    > Update view name in this script before running it.
 
-   ```PYSPARK
+   ```python
       #Read data from ADLS
       df = spark.read \
        .format("csv") \
@@ -165,7 +165,7 @@ Make sure all prerequisites are in place before following these steps for using 
    > [!NOTE]
    > Update the model alias name, view name, and comma separated model input column name in this script before running it. Comma separated model input columns are the same as those used while training the model.
 
-   ```PYSPARK
+   ```python
       #Call PREDICT using Spark SQL API
    
       predictions = spark.sql(
@@ -177,7 +177,7 @@ Make sure all prerequisites are in place before following these steps for using 
                  ).show()
    ```
 
-   ```PYSPARK
+   ```python
       #Call PREDICT using user defined function (UDF)
    
       df = df[<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
@@ -185,7 +185,7 @@ Make sure all prerequisites are in place before following these steps for using 
       df.withColumn("PREDICT",model.udf(lit("<random_alias_name>"),*df.columns)).show()
    ```
 
-   ```PYSPARK
+   ```python
       #Call PREDICT using Transformer API
       
       columns = [<comma_separated_model_input_column_name>] # for ex. df["empid","empname"]
@@ -199,7 +199,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
 1. Import libraries and read the training dataset from ADLS.
 
-   ```PYSPARK
+   ```python
       # Import libraries and read training dataset from ADLS
       
       import fsspec
@@ -217,7 +217,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
 1. Train model and generate mlflow artifacts.
 
-   ```PYSPARK
+   ```python
       # Train model and generate mlflow artifacts
    
       import os
@@ -309,7 +309,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
 1. Store model MLFLOW artifacts in ADLS or register in AML.
 
-   ```PYSPARK
+   ```python
       # Store model MLFLOW artifacts in ADLS
       
       STORAGE_PATH = 'abfs[s]://<container>/<path-to-store-folder>'
@@ -328,7 +328,7 @@ Make sure all prerequisites are in place before following these steps for using 
           recursive=True, overwrite=True)
    ```
 
-   ```PYSPARK
+   ```python
       # Register model MLFLOW artifacts in AML
       
       from azureml.core import Workspace, Model
@@ -364,7 +364,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
 1. Set required parameters using variables.
 
-   ```PYSPARK
+   ```python
       # If using ADLS uploaded model
    
       import pandas as pd
@@ -379,7 +379,7 @@ Make sure all prerequisites are in place before following these steps for using 
       RUNTIME = "mlflow"
    ```
 
-   ```PYSPARK
+   ```python
       # If using AML registered model
    
       from pyspark.sql.functions import col, pandas_udf,udf,lit
@@ -396,13 +396,13 @@ Make sure all prerequisites are in place before following these steps for using 
 
 1. Enable SynapseML PREDICT functionality in spark session.
 
-   ```PYSPARK
+   ```python
       spark.conf.set("spark.synapse.ml.predict.enabled","true")
    ```
 
 1. Bind model in spark session.
 
-   ```PYSPARK
+   ```python
       # If using ADLS uploaded model
    
       model = pcontext.bind_model(
@@ -413,7 +413,7 @@ Make sure all prerequisites are in place before following these steps for using 
        ).register()
    ```
 
-   ```PYSPARK
+   ```python
       # If using AML registered model
    
       model = pcontext.bind_model(
@@ -427,7 +427,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
 1. Load test data from ADLS.
 
-   ```PYSPARK
+   ```python
       # Load data from ADLS
    
       df = spark.read \
@@ -442,7 +442,7 @@ Make sure all prerequisites are in place before following these steps for using 
 
 1. Call PREDICT to generate the score.
 
-   ```PYSPARK
+   ```python
       # Call PREDICT
       
       predictions = spark.sql(

@@ -7,8 +7,8 @@ ms.service: synapse-analytics
 ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 07/09/2021
-author: mabasile-MSFT
-ms.author: mabasile
+author: periclesrocha
+ms.author: procha
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
 ---
@@ -39,10 +39,9 @@ To create your data warehouse solution, you can choose from different kinds of i
 | ![Tableau](./media/business-intelligence/tableau_sparkle_logo.png) |**Tableau**<br>Tableau's self-service analytics help anyone see and understand their data, across many kinds of data from flat files to databases. Tableau has a native, optimized connector to Synapse SQL pool that supports both live data and in-memory analytics. |[Product page](https://www.tableau.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/tableau.tableau-server)<br>|
 | ![Targit](./media/business-intelligence/targit_logo.png) |**Targit (Decision Suite)**<br>Targit Decision Suite provides a BI platform that delivers real-time dashboards, self-service analytics, user-friendly reporting, stunning mobile capabilities, and simple data-discovery technology. Everything in a single, cohesive solution. Targit gives companies the courage to act. |[Product page](https://www.targit.com/targit-decision-suite/analytics)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/targit.targit-decision-suite)<br> |
 | ![ThoughtSpot](./media/business-intelligence/thoughtspot-logo.png) |**ThoughtSpot**<br>Use search to get granular insights from billions of rows, or let AI uncover insights from questions you might not have thought about. ThoughtSpot helps businesspeople find insights hidden in their company data in seconds. Use search to analyze your data and get automated insights when you need them.|[Product page](https://www.thoughtspot.com)<br>|
-| ![Yellowfin](./media/business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin is a top rated Cloud BI vendor for _ad hoc_ Reporting and Dashboards by BARC; The BI Survey. Connect to a  a dedicated SQL pool in Azure Synapse Analytics, then create and share beautiful reports and dashboards with award winning collaborative BI and location intelligence features. |[Product page](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfin.yellowfin-for-azure-byol) |
+| ![Yellowfin](./media/business-intelligence/yellowfin_logo.png) |**Yellowfin**<br>Yellowfin is a top rated Cloud BI vendor for _ad hoc_ Reporting and Dashboards by BARC; The BI Survey. Connect to a  a dedicated SQL pool in Azure Synapse Analytics, then create and share beautiful reports and dashboards with award winning collaborative BI and location intelligence features. |[Product page](https://www.yellowfinbi.com/)<br> [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/apps/yellowfininternationalptyltd1616363974066.yellowfin-for-azure-byol-v2) |
 
 ## Next Steps
 To learn more about some of our other partners, see [Data Integration partners](data-integration.md), [Data Management partners](data-management.md), and [Machine Learning and AI partners](machine-learning-ai.md).
 
 See how to [discover partner solutions through Synapse Studio](browse-partners.md).
- 

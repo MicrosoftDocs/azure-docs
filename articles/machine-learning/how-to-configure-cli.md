@@ -4,7 +4,7 @@ titleSuffix: Azure Machine Learning
 description: Learn how to install and set up the Azure CLI extension for Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: mlops
+ms.subservice: core
 ms.topic: how-to
 
 author: lostmygithubaccount
@@ -29,35 +29,35 @@ The `ml` extension (preview) to the [Azure CLI](/cli/azure/) is the enhanced int
 
 The new Machine Learning extension **requires Azure CLI version `>=2.15.0`**. Ensure this requirement is met:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_version":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_version":::
 
 If it isn't, [upgrade your Azure CLI](/cli/azure/update-azure-cli).
 
 Check the Azure CLI extensions you've installed:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_extension_list":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_list":::
 
 Ensure no conflicting extension using the `ml` namespace is installed, including the `azure-cli-ml` extension:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_extension_remove":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_remove":::
 
 Now, install the `ml` extension:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_ml_install":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_ml_install":::
 
 Run the help command to verify your installation and see available subcommands:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_ml_verify":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_verify":::
 
 You can upgrade the extension to the latest version:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_ml_update":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_ml_update":::
 
 ### Installation on Linux
 
 If you're using Linux, the fastest way to install the necessary CLI version and the Machine Learning extension is:
 
-:::code language="bash" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_extension_install_linux":::
+:::code language="bash" source="~/azureml-examples-main/cli/misc.sh" id="az_extension_install_linux":::
 
 For more, see [Install the Azure CLI for Linux](/cli/azure/install-azure-cli-linux).
 
@@ -65,37 +65,37 @@ For more, see [Install the Azure CLI for Linux](/cli/azure/install-azure-cli-lin
 
 Login:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_login":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_login":::
 
 If you have access to multiple Azure subscriptions, you can set your active subscription:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="az_account_set":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="az_account_set":::
 
 Optionally, setup common variables in your shell for usage in subsequent commands:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="set_variables":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="set_variables":::
 
 > [!WARNING]
 > This uses Bash syntax for setting variables -- adjust as needed for your shell. You can also replace the values in commands below inline rather than using variables.
 
 If it doesn't already exist, you can create the Azure resource group:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="az_group_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_group_create":::
 
 And create a machine learning workspace:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
+:::code language="azurecli" source="~/azureml-examples-main/setup-repo/azure-github.sh" id="az_ml_workspace_create":::
 
 Machine learning subcommands require the `--workspace/-w` and `--resource-group/-g` parameters. To avoid typing these repeatedly, configure defaults:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/setup.sh" id="az_configure_defaults":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/setup.sh" id="az_configure_defaults":::
 
 > [!TIP]
 > Most code examples assume you have set a default workspace and resource group. You can override these on the command line.
 
 You can show your current defaults using `--list-defaults/-l`:
 
-:::code language="azurecli" source="~/azureml-examples-cli-preview/cli/misc.sh" id="list_defaults":::
+:::code language="azurecli" source="~/azureml-examples-main/cli/misc.sh" id="list_defaults":::
 
 > [!TIP]
 > Combining with `--output/-o` allows for more readable output formats.

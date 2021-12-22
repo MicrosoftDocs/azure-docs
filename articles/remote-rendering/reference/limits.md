@@ -42,7 +42,7 @@ For detailed information on this limitation, see the [server size](../reference/
 
 ## Platform limitations
 
-**Windows 10 desktop**
+**Windows 10/11 desktop**
 
 * Win32/x64 is the only supported Win32 platform. Win32/x86 is not supported.
 

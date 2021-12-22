@@ -37,18 +37,18 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 
 ## Set Cross Region Restore
 
-The restore option Cross Region Restore (CRR) allows you to restore data in a secondary, Azure paired region. You can use it to conduct drills when there is an audit or compliance requirement (or) restore the data if there's a disaster in the primary region.
+The restore option Cross Region Restore (CRR) allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use it to conduct drills when there is an audit or compliance requirement (or) restore the data if there's a disaster in the primary region.
 
 Before you begin:
 - CRR is supported:
-     - Only for Vault with [GRS replication type](#set-storage-redundancy).
+     - Only for Recovery Services Vault with [GRS replication type](#set-storage-redundancy).
      - Azure VMs (you can restore the VM or its disk) that are ARM based Azure VMs and encrypted Azure VMs. Classic VMs won’t be supported.  
      - SQL/SAP HANA databases hosted on Azure VMs (you can restore databases or their files)
      - Review the [support matrix](backup-support-matrix.md#cross-region-restore) for a list of supported managed types and regions
-     - Using CRR will incur additional charges , [learn more](https://azure.microsoft.com/pricing/details/backup/)
-     - After opting-in, it might **take up to 48 hours for the backup items to be available in secondary regions**.
-     - CRR currently can't be reverted back to GRS or LRS once the protection is initiated for the first time.
-     - Currently, secondary region RPO is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) replication is 15 minutes.
+- Using CRR will incur additional charges , [learn more](https://azure.microsoft.com/pricing/details/backup/)
+- After opting-in, it might **take up to 48 hours for the backup items to be available in secondary regions**.
+- CRR currently can't be reverted back to GRS or LRS once the protection is initiated for the first time.
+- Currently, secondary region RPO is up to 12 hours from the primary region, even though [read-access geo-redundant storage (RA-GRS)](../storage/common/storage-redundancy.md#redundancy-in-a-secondary-region) replication is 15 minutes.
 
 ### Configure Cross Region Restore
 
@@ -87,7 +87,7 @@ To configure your vault to encrypt with customer-managed keys, these steps must 
 
 1. Assign the encryption key to the Recovery Services vault
 
-Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configuring-a-vault-to-encrypt-using-customer-managed-keys).
+Instructions for each of these steps can be found [in this article](encryption-at-rest-with-cmk.md#configure-a-vault-to-encrypt-using-customer-managed-keys).
 
 ## Modifying default settings
 

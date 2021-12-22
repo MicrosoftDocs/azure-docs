@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: AlainDormehlMSFT
 ms.author: aldorme
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 06/12/2020
 ---
 

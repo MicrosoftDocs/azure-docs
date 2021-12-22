@@ -123,6 +123,9 @@ New-AzResource -ApiVersion "${apiVersion}" -ResourceId "${integrationRuntimeReso
 
 ```
 
+> [!Note]
+> For **groupId** of other data sources, you can get them from [private link resource](../private-link/private-endpoint-overview.md#private-link-resource).
+
 ## Limitations and known issues
 
 ### Supported data sources

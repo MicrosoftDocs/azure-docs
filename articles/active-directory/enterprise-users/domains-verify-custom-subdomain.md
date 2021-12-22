@@ -108,4 +108,4 @@ POST https://graph.windows.net/{tenant_id}/domains/child.mydomain.com/promote?ap
 
 - [Add custom domain names](../fundamentals/add-custom-domain.md?context=azure%2factive-directory%2fusers-groups-roles%2fcontext%2fugr-context)
 - [Manage domain names](domains-manage.md)
-- [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete?view=graph-rest-beta&preserve-view=true)
+- [ForceDelete a custom domain name with Microsoft Graph API](/graph/api/domain-forcedelete)

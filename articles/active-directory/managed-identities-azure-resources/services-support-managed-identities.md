@@ -8,9 +8,9 @@ ms.date: 10/26/2021
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: msi
-manager: daveba
+manager: karenh444
 ms.collection: M365-identity-device-management
-ms.custom: references_regions
+ROBOTS: NOINDEX
 ---
 
 # Services that support managed identities for Azure resources

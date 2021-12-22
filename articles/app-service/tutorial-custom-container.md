@@ -223,12 +223,12 @@ Completing this tutorial incurs a small charge in your Azure account for the con
 
 ## Set up your initial environment
 
+This tutorial requires version 2.0.80 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
 - Have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-- Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
 [!INCLUDE [azure-cli-prepare-your-environment-no-header.md](../../includes/azure-cli-prepare-your-environment-no-header.md)]
-- This tutorial requires version 2.0.80 or later of the Azure CLI. If using Azure Cloud Shell, the latest version is already installed.
+  - Install [Docker](https://docs.docker.com/get-started/#setup), which you use to build Docker images. Installing Docker may require a computer restart.
 
-After installing Docker or running Azure Cloud Shell, open a terminal window and verify that docker is installed:
+After installing Docker, open a terminal window and verify that docker is installed:
 
 ```bash
 docker --version
@@ -571,10 +571,10 @@ In this section, you make a change to the web app code, rebuild the image, and t
     docker build --tag appsvc-tutorial-custom-image .
     ```
 
-1. Update the version number in the image's tag to v1.0.1:
+1. Update the image's tag to latest:
 
     ```bash
-    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
+    docker tag appsvc-tutorial-custom-image <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```
 
     Replace `<registry-name>` with the name of your registry.
@@ -582,7 +582,7 @@ In this section, you make a change to the web app code, rebuild the image, and t
 1. Push the image to the registry:
 
     ```bash
-    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:v1.0.1
+    docker push <registry-name>.azurecr.io/appsvc-tutorial-custom-image:latest
     ```
 
 1. Once the image push is complete, the webhook notifies App Service about the push, and App Service tries to pull in the updated image. Wait a few minutes, and then verify that the update has been deployed by browsing to `https://<app-name>.azurewebsites.net`.

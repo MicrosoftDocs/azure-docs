@@ -48,8 +48,8 @@ The following prerequisites are required:
 From within a PowerShell session, use the following to disable PTA:
 
 1. PS C:\Program Files\Microsoft Azure AD Connect Authentication Agent> `Import-Module .\Modules\PassthroughAuthPSModule`
-2. `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth` or `Get-PassthroughAuthenticationEnablementStatus -Feature PassthroughAuth -EnvironmentName <identifier>`
-3. `Disable-PassthroughAuthentication  -Feature PassthroughAuth` or `Disable-PassthroughAuthentication -Feature PassthroughAuth -EnvironmentName <identifier>`
+2. `Get-PassthroughAuthenticationEnablementStatus`
+3. `Disable-PassthroughAuthentication`
 
 ## If you don't have access to an agent
 

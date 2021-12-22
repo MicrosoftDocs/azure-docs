@@ -53,36 +53,36 @@ In the Azure monitor metrics page, Claudia can see the consumption of the Data M
 
 ## Data map billing
 
-Customers are billed for one capacity unit (25 ops/sec and 2 GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The Data Map operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 2 GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, a support ticket needs to be created.
+Customers are billed for one capacity unit (25 ops/sec and 10 GB) and extra billing is based on the consumption of each extra capacity unit rolled up to the hour. The Data Map operations scale in the increments of 25 operations/sec and metadata storage scales in the increments of 10 GB size. Purview Data Map can automatically scale up and down within the elasticity window ([check current limits](how-to-manage-quotas.md)). However, to get the next level of elasticity window, a support ticket needs to be created.
 
 Data Map capacity units come with a cap on operations throughput and storage. If storage exceeds the current capacity unit, customers are charged for the next capacity unit even if the operations throughput isn't used. The below table shows the Data Map capacity unit ranges. Contact support if the Data Map capacity unit goes beyond 100 capacity unit.
 
 |Data Map Capacity Unit  |Operations/Sec throughput   |Storage capacity in GB|
 |----------|-----------|------------|
-|1    |25      |2     |
-|2    |50      |4     |
-|3    |75      |6     |
-|4    |100     |8     |
-|5    |125     |10    |
-|6    |150     |12   |
-|7    |175      |14     |
-|8    |200     |16    |
-|9    |225      |18    |
-|10    |250     |20    |
+|1    |25      |10     |
+|2    |50      |20     |
+|3    |75      |30     |
+|4    |100     |40     |
+|5    |125     |50    |
+|6    |150     |60   |
+|7    |175      |70     |
+|8    |200     |80    |
+|9    |225      |90    |
+|10    |250     |100    |
 |..   |..      |..     |
-|100    |2500     |200   |
+|100    |2500     |1000   |
 
 ### Billing examples
 
 - Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 1 GB. Customers are billed for one capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 3 GB. Customers are billed for two capacity unit.
+- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 25 GB. Customers are billed for two capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 1 GB. Customers are billed for two capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 2 GB. Customers are billed for two capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 5 GB. Customers are billed for three capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 35 GB. Customers are billed for three capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 5 GB. Customers are billed for 10 capacity unit
+- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 15 GB. Customers are billed for 10 capacity unit
 
 ### Detailed billing example
 
@@ -90,9 +90,9 @@ The Data Map billing example below shows a Data Map with growing metadata storag
 
 :::image type="content" source="./media/concept-elastic-data-map/operations-and-metadata.png" alt-text="Chart depicting number of operations and growth of metadata over time.":::
 
-Each Data Map capacity unit supports 25 operations/second and 2 GB of metadata storage. The Data Map is billed on an hourly basis. You are billed for the maximum Data Map capacity unit needed within the hour. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. The metadata storage is what determines how many capacity units you need within the hour.
+Each Data Map capacity unit supports 25 operations/second and 10 GB of metadata storage. The Data Map is billed on an hourly basis. You are billed for the maximum Data Map capacity unit needed within the hour. At times, you may need more operations/second within the hour, and this will increase the number of capacity units needed within that hour. At other times, your operations/second usage may be low, but you may still need a large volume of metadata storage. The metadata storage is what determines how many capacity units you need within the hour.
 
-The table below shows the maximum number of operations/second and metadata storage used per hour for this billing example: 
+The table below shows the maximum number of operations/second and metadata storage used per hour for this billing example:
 
 :::image type="content" source="./media/concept-elastic-data-map/billing-table.png" alt-text="Table depicting max number of operations and growth of metadata over time.":::
 
@@ -112,6 +112,38 @@ Select **Service and subscription limits (quota)** and complete the on screen in
 :::image type="content" source="./media/concept-elastic-data-map/increase-limit.png" alt-text="Screen showing the support case creation, with limit increase options selected.":::
 
 In the description, provide as much relevant information as you can about your environment and the additional capacity you would like to request.
+
+## Monitoring the elastic data map
+
+The metrics _data map capacity units_ and the _data map storage size_ can be monitored in order to understand the data estate size and the billing.
+
+1. Go to the [Azure portal](https://portal.azure.com), and navigate to the **Purview accounts** page and select your _Purview account_
+
+2. Click on **Overview** and scroll down to observe the **Monitoring** section for _Data Map Capacity Units_ and _Data Map Storage Size_ metrics over different time periods
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-metrics.png" alt-text="Screenshot of the menu showing the elastic data map metrics overview page.":::
+
+3. For additional settings, navigate to the **Monitoring --> Metrics** to observe the **Data Map Capacity Units** and **Data Map Storage Size**.
+
+    :::image type="content" source="./media/concept-elastic-data-map/elastic-data-map-metrics.png" alt-text="Screenshot of the menu showing the metrics.":::
+
+4. Click on the **Data Map Capacity Units** to view the data map capacity unit usage over the last 24 hours. Observe that hovering the mouse over the line graph will indicate the data map capacity units consumed at that particular time on the particular day.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-default.png" alt-text="Screenshot of the menu showing the data map capacity units consumed over 24 hours.":::
+
+5. Click on the **Local Time: Last 24 hours (Automatic - 1 hour)** at the top right of the screen to modify time range displayed for the graph.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-custom.png" alt-text="Screenshot of the menu showing the data map capacity units consumed over a custom time range.":::
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-time-range.png" alt-text="Screenshot of the menu showing the data map capacity units consumed over a three day time range.":::
+
+6. Customize the graph type by clicking on the option as indicated below.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-capacity-graph-type.png" alt-text="Screenshot of the menu showing the options to modify the graph type.":::
+
+7. Click on the **New chart** to add the graph for the Data Map Storage Size chart.
+
+    :::image type="content" source="./media/concept-elastic-data-map/data-map-storage-size.png" alt-text="Screenshot of the menu showing the data map storage size used.":::
 
 ## Summary
 

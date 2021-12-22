@@ -72,5 +72,5 @@ To delegate the creation, update and deletion of [app consent policies](../manag
 
 ## Next steps
 
-- [Create custom roles using the Azure portal, Azure AD PowerShell, and Graph API](custom-create.md)
+- [Create custom roles using the Azure portal, Azure AD PowerShell, and Microsoft Graph API](custom-create.md)
 - [View the assignments for a custom role](../roles/view-assignments.md)
