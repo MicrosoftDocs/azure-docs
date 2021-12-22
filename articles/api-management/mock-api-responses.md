@@ -14,9 +14,9 @@ ms.author: danlep
 
 Backend APIs are imported into an API Management (APIM) API or created and managed manually. The steps in this tutorial, show you how to:
 
-+ Use API Management to create an HTTP API
++ Use API Management to create a blank HTTP API
 + Manage an HTTP API manually
-+ Set a policy on an API
++ Set a policy on an API so it returns a mocked response
 
 This method lets developers continue with the implementation and testing of the API Management instance even if the backend isn't available to send real responses.
 
