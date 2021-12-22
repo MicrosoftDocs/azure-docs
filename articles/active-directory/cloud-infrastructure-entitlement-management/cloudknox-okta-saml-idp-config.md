@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 12/22/2021
 ms.author: v-ydequadros
 ---
 
@@ -18,7 +18,7 @@ You can federate authentication into the CloudKnox portal by using a Security As
 
 ## Okta configuration video for CloudKnox Application
 
-You can review the configuration process in the [Okta configuration for CloudKnox Application](https://www.loom.com/share/ab5c80bed6404b30893d8f9af848213e) video. This video doesn't contain a group attribute.
+You can view the configuration process in the [Okta configuration for CloudKnox Application](https://www.loom.com/share/ab5c80bed6404b30893d8f9af848213e) video. This video doesn't contain a group attribute.
 
 ## Configure Okta as the SAML 2.0 identity provider
 
