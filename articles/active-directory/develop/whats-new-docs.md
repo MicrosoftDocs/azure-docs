@@ -6,7 +6,7 @@ services: active-directory
 author: mmacy
 manager: CelesteDG
 
-ms.date: 11/01/2021
+ms.date: 12/06/2021
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: reference
@@ -18,6 +18,20 @@ ms.custom: has-adal-ref
 # Microsoft identity platform docs: What's new
 
 Welcome to what's new in the Microsoft identity platform documentation. This article lists new docs that have been added and those that have had significant updates in the last three months.
+
+## November 2021
+
+### Updated articles
+
+- [How to migrate a Node.js app from ADAL to MSAL](msal-node-migration.md)
+- [Migrate confidential client applications from ADAL.NET to MSAL.NET](msal-net-migration-confidential-client.md)
+- [Microsoft identity platform access tokens](access-tokens.md)
+- [Microsoft identity web authentication library](microsoft-identity-web.md)
+- [Protected web API: App registration](scenario-protected-web-api-app-registration.md)
+- [Providing your own HttpClient and proxy using MSAL.NET](msal-net-provide-httpclient.md)
+- [Single sign-on with MSAL.js](msal-js-sso.md)
+- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
+- [What's new for authentication?](reference-breaking-changes.md)
 
 ## October 2021
 
@@ -59,19 +73,3 @@ Welcome to what's new in the Microsoft identity platform documentation. This art
 - [Shared device mode for Android devices](msal-android-shared-devices.md)
 - [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)
 - [Validation differences by supported account types (signInAudience)](supported-accounts-validation.md)
-
-## August 2021
-
-### New articles
-
-- [Authorization basics](authorization-basics.md)
-- [Create a self-signed public certificate to authenticate your application](howto-create-self-signed-certificate.md)
-
-### Updated articles
-
-- [Get a complete list of apps using ADAL in your tenant](howto-get-list-of-all-active-directory-auth-library-apps.md)
-- [Microsoft Enterprise SSO plug-in for Apple devices (preview)](apple-sso-plugin.md)
-- [Microsoft identity platform code samples](sample-v2-code.md)
-- [Migrate applications to the Microsoft Authentication Library (MSAL)](msal-migration.md)
-- [Redirect URI (reply URL) restrictions and limitations](reply-url.md)
-- [Token cache serialization in MSAL.NET](msal-net-token-cache-serialization.md)

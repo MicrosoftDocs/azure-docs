@@ -8,8 +8,8 @@ ms.service: bastion
 ms.topic: quickstart
 ms.date: 10/12/2021
 ms.author: cherylmc
-# Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
 ms.custom: ignite-fall-2021, mode-other
+#Customer intent: As someone with a networking background, I want to connect to a virtual machine securely via RDP/SSH using a private IP address through my browser.
 ---
 
 # Quickstart: Configure Azure Bastion from VM settings

@@ -239,7 +239,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-In a synchonous function, you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
+In a synchronous function, you can choose to define output binding data using the `context.done` method instead of the `context.binding` object (see below).
 
 ### context.bindingData property
 
@@ -546,7 +546,7 @@ There are two ways to install packages on your Function App:
 2. Deploy your code, and ensure that the `node_modules` folder is included in the deployment. 
 
 
-### <a name="using-kudu">Using Kudu (Windows only)
+### <a name="using-kudu"></a>Using Kudu (Windows only)
 1. Go to `https://<function_app_name>.scm.azurewebsites.net`.
 
 2. Click **Debug Console** > **CMD**.

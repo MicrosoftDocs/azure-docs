@@ -97,9 +97,10 @@ This region doesn't affect how the traffic will be routed. If a home region goes
 * Central US
 * North Europe
 * East Asia
+* US Gov Virginia
 
 > [!NOTE]
-> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the 7 regions above.
+> You can only deploy your cross-region load balancer or Public IP in Global tier in one of the regions above.
 
 A **participating region** is where the Global public IP of the load balancer is being advertised.
 
@@ -125,6 +126,11 @@ Cross-region load balancer routes the traffic to the appropriate regional load b
 * Australia Southeast 
 * Australia East 
 * Central India 
+* US DoD Central
+* US DoD East
+* US Gov Arizona
+* US Gov Texas
+* US Gov Virginia
 
 ## Limitations
 

@@ -714,6 +714,8 @@
         href: howto-hyperscale-scale-grow.md
       - name: Rebalance shards
         href: howto-hyperscale-scale-rebalance.md
+      - name: Change compute quotas
+        href: howto-hyperscale-compute-quota.md
     - name: Data access and security
       items:
       - name: Public access

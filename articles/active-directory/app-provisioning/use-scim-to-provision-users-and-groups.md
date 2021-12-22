@@ -269,7 +269,7 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 
 ### User Operations
 
-* Users can be queried by `userName` or `email[type eq "work"]` attributes.  
+* Users can be queried by `userName` or `emails[type eq "work"]` attributes.  
 
 #### Create User
 

@@ -106,8 +106,6 @@ SFTP support is available in the following regions:
 
 - North Central US
 - East US 2
-- East US 2 EUAP (need to join EUAP program - contact CSA or CSAM)
-- Central US EUAP (need to join EUAP program - contact CSA or CSAM)
 - Canada East
 - Canada Central
 - North Europe

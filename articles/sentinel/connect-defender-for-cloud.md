@@ -1,5 +1,5 @@
 ---
-title: Connect security alerts to Microsoft Sentinel
+title: Connect Microsoft Defender for Cloud alerts to Microsoft Sentinel
 description: Learn how to connect security alerts from Microsoft Defender for Cloud and stream them into Microsoft Sentinel.
 author: yelevin
 ms.topic: how-to
@@ -8,17 +8,21 @@ ms.author: yelevin
 ms.custom: ignite-fall-2021
 ---
 
-# Connect security alerts from Microsoft Defender for Cloud
+# Connect Microsoft Defender for Cloud alerts to Microsoft Sentinel
 
 [!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
 ## Background
 
-[Microsoft Defender for Cloud](../security-center/azure-defender.md), the integrated cloud workload protection platform (CWPP) of [Defender for Cloud](../security-center/security-center-introduction.md), is a security management tool that allows you to detect and quickly respond to threats across hybrid cloud workloads.
+> [!NOTE]
+> - Microsoft Defender for Cloud was formerly known as Azure Security Center.
+> - Defender for Cloud's enhanced security features were formerly known collectively as Azure Defender.
 
-This connector allows you to stream security alerts from Defender for Cloud into Microsoft Sentinel, so you can view, analyze, and respond to security alerts, and the incidents they generate, in a broader organizational threat context.
+[Microsoft Defender for Cloud](../defender-for-cloud/index.yml)'s integrated cloud workload protections allow you to detect and quickly respond to threats across hybrid and multi-cloud workloads.
 
-As Defender for Cloud itself is enabled per subscription, the Defender for Cloud connector is also enabled or disabled separately for each subscription.
+This connector allows you to stream [security alerts from Defender for Cloud](../defender-for-cloud/alerts-reference.md) into Microsoft Sentinel, so you can view, analyze, and respond to Defender alerts, and the incidents they generate, in a broader organizational threat context.
+
+As [Microsoft Defender for Cloud's enhanced security features](../defender-for-cloud/enhanced-security-features-overview.md) are enabled per subscription, this data connector is also enabled or disabled separately for each subscription.
 
 [!INCLUDE [reference-to-feature-availability](includes/reference-to-feature-availability.md)]
 

@@ -29,12 +29,14 @@ In this quickstart, you:
 
 Before you can export data from your IoT Central application, you need an Azure Data Explorer cluster and database. In this quickstart, you use the bash environment in the [Azure Cloud Shell](https://shell.azure.com) to create and configure them.
 
-Run the following script in the Azure Cloud Shell. Replace the `clustername` value with a unique name for your cluster before you run the script:
+Run the following script in the Azure Cloud Shell. Replace the `clustername` value with a unique name for your cluster before you run the script. The cluster name can contain only lowercase letters and numbers:
 
 > [!IMPORTANT]
 > The script takes at least 10 minutes to run.
 
 ```azurecli
+# The cluster name can contain only lowercase letters and numbers.
+# It must contain from 4 to 22 characters.
 clustername="<A unique name for your cluster>"
 databasename="phonedata"
 location="eastus"
@@ -61,12 +63,12 @@ az kusto database create --cluster-name $clustername \
     --resource-group $resourcegroup
 
 # Create a service principal to use when authenticating from IoT Central
-SP_JSON=$(az ad sp create-for-rbac --skip-assignment --name spforiotcentral)
+SP_JSON=$(az ad sp create-for-rbac --skip-assignment --name $clustername)
 
 az kusto database-principal-assignment create --cluster-name $clustername \
                                               --database-name $databasename \
                                               --principal-id $(jq -r .appId <<< $SP_JSON) \
-                                              --principal-assignment-name spforiotcentral \
+                                              --principal-assignment-name $clustername \
                                               --resource-group $resourcegroup \
                                               --principal-type App \
                                               --role Admin

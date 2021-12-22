@@ -1070,3 +1070,6 @@
   - name: Service Connector
     tocHref: /azure/service-connector/
     topicHref: /azure/service-connector/
+  - name: Azure Orbital
+    tocHref: /azure/orbital/
+    topicHref: /azure/orbital/

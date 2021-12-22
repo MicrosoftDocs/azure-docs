@@ -9,8 +9,8 @@ ms.topic: quickstart
 ms.date: 11/04/2020
 ms.author: alkohli
 ms.localizationpriority: high
-# Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
-ms.custom: mode-other
+ms.custom: mode-ui
+#Customer intent: As an IT admin, I need to quickly deploy Data Box Disk so as to import data into Azure.
 ---
 
 ::: zone target="docs"

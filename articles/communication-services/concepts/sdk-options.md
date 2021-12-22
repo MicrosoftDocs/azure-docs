@@ -137,7 +137,7 @@ For more information, see the following SDK overviews:
 
 - [Calling SDK Overview](../concepts/voice-video-calling/calling-sdk-features.md)
 - [Chat SDK Overview](../concepts/chat/sdk-features.md)
-- [SMS SDK Overview](../concepts/telephony-sms/sdk-features.md)
+- [SMS SDK Overview](../concepts/sms/sdk-features.md)
 
 To get started with Azure Communication Services:
 

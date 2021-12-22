@@ -3,7 +3,7 @@ title: Add volumes for an SAP HANA system as a DR system using Azure NetApp File
 description: Describes using an application volume group to add volumes for an SAP HANA system as a disaster recovery (DR) system.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/19/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
 

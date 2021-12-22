@@ -9,7 +9,7 @@ ms.topic: tutorial
 ms.custom: mvc, devx-track-js
 ms.date: 12/15/2020
 
-#Customer intent: "As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs."
+#Customer intent: As an IT admin/developer I want to run JavaScript user-defined functions within Stream Analytics jobs.
 ---
 
 # JavaScript user-defined functions in Azure Stream Analytics

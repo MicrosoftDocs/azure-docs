@@ -9,6 +9,8 @@ ms.author: danlep
 
   * The IP address must be in the same region and subscription as the API Management instance and the virtual network.
 
+  * When creating a public IP resource, ensure you assign a "DNS Name Label" to it. The label you choose to use does not matter but a label is required if this resource will be assigned to an API Management Service.
+
   * The value of the IP address is assigned as the virtual public IPv4 address of the API Management instance in that region. 
 
   * When changing from an external to internal virtual network (or vice versa), changing subnets in the network, or updating availability zones for the API Management instance, you must configure a different public IP address.

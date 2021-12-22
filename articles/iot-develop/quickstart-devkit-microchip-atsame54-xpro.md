@@ -14,8 +14,8 @@ zone_pivot_groups: iot-develop-toolset
 #  prompt: Choose a build environment
 #  - id: iot-toolset-mplab
 #    title: MPLAB
-#Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ms.custom: mode-other
+#Customer intent: As a device builder, I want to see a working IoT device sample connecting to IoT Hub and sending properties and telemetry, and responding to commands. As a solution builder, I want to use a tool to view the properties, commands, and telemetry an IoT Plug and Play device reports to the IoT hub it connects to.
 ---
 
 # Quickstart: Connect a Microchip ATSAME54-XPro Evaluation kit to IoT Central

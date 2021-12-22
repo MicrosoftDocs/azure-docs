@@ -22,6 +22,9 @@ IoT devices send data in various formats. To use the device data with your IoT C
 
 This article shows you how to transform device data outside of IoT Central either at ingress or egress.
 
+> [!NOTE]
+> IoT Central can also transform data internally, to learn more see [Map telemetry on ingress to IoT Central](howto-map-data.md) and [Transform data inside your IoT Central application for export](howto-transform-data-internally.md).
+
 The following diagram shows three routes for data that include transformations:
 
 :::image type="content" source="media/howto-transform-data/transform-data.png" alt-text="Summary of data transformation routes both ingress and egress" border="false":::

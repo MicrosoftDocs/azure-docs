@@ -97,7 +97,7 @@ You can deploy Azure Nvidia VM extensions in the Azure portal.
 
     :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension.png" alt-text="Screenshot that shows selecting NVIDIA G P U driver.":::
 
-6. Select **Review + create**, and then wait a few minutes for the driver to be deployed.
+6. Select **Review + create** and then click **Create**, wait a few minutes for the driver to be deployed.
 
     :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension.png" alt-text="Screenshot that shows selecting the review and create button.":::
   

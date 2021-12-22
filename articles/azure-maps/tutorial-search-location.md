@@ -7,7 +7,6 @@ ms.date: 10/28/2021
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
 ms.custom: mvc, devx-track-js
 ---
 

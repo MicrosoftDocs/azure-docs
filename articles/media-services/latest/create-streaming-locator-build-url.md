@@ -8,6 +8,7 @@ manager: femila
 editor: ''
 ms.service: media-services
 ms.workload: 
+ms.devlang: java,csharp
 ms.topic: how-to
 ms.date: 08/31/2020
 ms.author: inhenkel

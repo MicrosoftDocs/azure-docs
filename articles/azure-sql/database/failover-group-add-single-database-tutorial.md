@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: tutorial
 author: emlisa
 ms.author: emlisa
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 06/19/2019
 ---
 # Tutorial: Add an Azure SQL Database to an autofailover group

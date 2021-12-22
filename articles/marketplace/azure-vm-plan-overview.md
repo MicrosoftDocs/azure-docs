@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: iqshahmicrosoft
 ms.author: iqshah
-ms.date: 11/19/2021
+ms.date: 12/07/2021
 ---
 
 # Create plans for a virtual machine offer
 
-On the **Plan overview** page (select from the left-nav menu in Partner Center) you can provide a variety of plan options within the same offer. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or VM images.
+On the **Plan overview** page (select from the left-nav menu in Partner Center) you can provide a variety of plan options within the same offer. An offer requires at least one plan (formerly called a SKU), which can vary by monetization audience, Azure region, features, or virtual machine (VM) images.
 
 You can create up to 100 plans for each offer and up to 45 of these plans can be private. Learn more about private plans in [Private offers in the Microsoft commercial marketplace](private-offers.md).
 
@@ -25,8 +25,8 @@ After you create your plans, select the **Plan overview** tab to display:
 
 The actions available on this pane vary depending on the current status of your plan.
 
-- If the plan status is a draft, select **Delete draft**.
-- If the plan status is published live, select **Deprecate plan** or **Sync private audience**.
+- If the plan status is a draft, you can **Delete draft**.
+- If the plan status is published live, you can either **Deprecate plan** or **Sync private audience**.
 
 ## Create a new plan
 
@@ -138,7 +138,7 @@ You can design each plan to be visible to everyone or only to a preselected audi
 
 **Private**: Make your plan visible only to a preselected audience. After it's published as a private plan, you can update the audience or change it to public. After you make a plan public, it must remain public. It can't be changed back to a private plan.
 
-Assign the audience that will have access to this private plan using *Azure tenant IDs*, *subscription IDs*, or both. Optionally, include a **Description** of each Azure tenant ID or subscription ID that you assign. Add up to 10 subscription IDs and tenant IDs manually or import a CSV spreadsheet if more than 10 IDs are required.
+Assign the audience that will have access to this private plan using *Azure tenant IDs*, *subscription IDs*, or both. Optionally, include a **Description** of each Azure tenant ID or subscription ID that you assign. Add up to 10 subscription IDs and tenant IDs manually or import a CSV spreadsheet if more than 10 IDs are required. For a published offer, select **Sync private audience** for the changes to the private audience to take effect automatically without needing to republish the offer.
 
 > [!NOTE]
 > A private or restricted audience is different from the preview audience that you defined on the **Preview** pane. A preview audience can access your offer *before* it's published live to Azure Marketplace. Although the private audience choice applies only to a specific plan, the preview audience can view all private and public plans for validation purposes.
@@ -253,6 +253,13 @@ Regardless of which operating system you use, add only the minimum number of dat
 Select **Save draft**, then select **← Plan overview** at the top left to see the plan you just created.
 
 Once your VM image has published, you can delete the image from your Azure storage.
+
+## Reorder plans (optional)
+
+For VM offers with more than one plan, you can change the order that your plans are shown to customers. The first plan listed will become the default plan that customers will see.
+
+1. On the **Plan overview** page, select the **Edit display rank** button.
+1. In the menu that appears, use the hamburger icon to drag your plans to the desired order.
 
 ## Next steps
 

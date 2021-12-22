@@ -62,9 +62,6 @@ For Unix, run this command:
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
 
 > [!NOTE]
-> We have recently changed the CLI interface: earlier we had both `endpoint` and `deployment` under `az ml endpoint`, now we have separated them into `az ml online-endpoint` and `az ml online-deployment`.  This will make it easier to use endpoints in CI/CD scripts.
-
-> [!NOTE]
 > Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`. 
 
 ## Review the endpoint and deployment configurations

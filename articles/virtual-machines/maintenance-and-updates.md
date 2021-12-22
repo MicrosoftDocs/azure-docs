@@ -1,12 +1,10 @@
 ---
 title: Maintenance and updates 
 description: Overview of maintenance and updates for virtual machines running in Azure.
-author: shants123
 ms.service: virtual-machines
 ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 10/06/2021
-ms.author: shants
 #pmcontact:shants
 ---
 # Maintenance for virtual machines in Azure
@@ -30,9 +28,9 @@ Within a VM, you can get notifications about upcoming maintenance by [using Sche
 
 Most platform updates don't affect customer VMs. When a no-impact update isn't possible, Azure chooses the update mechanism that's least impactful to customer VMs. 
 
-Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certain cases, Azure uses memory-preserving maintenance mechanisms. These mechanisms pause the VM for typically 30 seconds and preserve the memory in RAM. The VM is then resumed, and its clock is automatically synchronized. 
+Most nonzero-impact maintenance pauses the VM for less than 10 seconds. In certain cases, Azure uses memory-preserving maintenance mechanisms. These mechanisms pause the VM for typically up to 30 seconds and preserve the memory in RAM. The VM is then resumed, and its clock is automatically synchronized. 
 
-Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
+Memory-preserving maintenance works for more than 90 percent of Azure VMs. It doesn't work for G, L, M, N, and H series. Azure increasingly uses live-migration technologies and improves memory-preserving maintenance mechanisms to reduce the pause durations.  
 
 These maintenance operations that don't require a reboot are applied one fault domain at a time. They stop if they receive any warning health signals from platform monitoring tools. 
 
@@ -79,7 +77,7 @@ If you decide to wait until the scheduled maintenance phase, there are a few thi
 
 #### Paired regions
 
-Each Azure region is paired with another region within the same geographical vicinity. Together, they make a region pair. During the scheduled maintenance phase, Azure updates only the VMs in a single region of a region pair. For example, while updating the VM in North Central US, Azure doesn't update any VM in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](../best-practices-availability-paired-regions.md).
+Each Azure region is paired with another region within the same geographical vicinity. Together, they make a region pair. During the scheduled maintenance phase, Azure updates only the VMs in a single region of a region pair. For example, while updating the VM in North Central US, Azure doesn't update any VM in South Central US at the same time. However, other regions such as North Europe can be under maintenance at the same time as East US. Understanding how region pairs work can help you better distribute your VMs across regions. For more information, see [Azure region pairs](../availability-zones/cross-region-replication-azure.md).
 
 #### Availability zones
 

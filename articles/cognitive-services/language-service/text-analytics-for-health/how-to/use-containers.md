@@ -70,6 +70,8 @@ There are multiple ways you can install and run the Text Analytics for health co
 - Use an Azure VM with Docker to run the container. Refer to [Docker on Azure](../../../../docker/index.yml).
 - Use the following PowerShell and Azure CLI scripts to automate resource deployment and container configuration.
 
+When you use the Text Analytics for health container, the data contained in your API requests and responses is not visible to Microsoft, and is not used for training the model applied to your data. 
+
 ### Run the container locally
 
 To run the container in your own environment after downloading the container image, execute the following `docker run` command. Replace the placeholders below with your own values:

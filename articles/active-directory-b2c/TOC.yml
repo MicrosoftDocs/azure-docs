@@ -33,6 +33,16 @@
     href: tenant-management.md
   - name: 5 - Clean up and delete tenant
     href: tutorial-delete-tenant.md
+  - name: App integration
+    items: 
+    - name: Web app
+      items: 
+      - name: Sign in and sign out user Nodejs tutorial
+        href: tutorial-authenticate-nodejs-web-app-msal.md
+      - name: Acquire access token Nodejs tutorial
+        href: tutorial-acquire-access-token.md
+      - name: Call a protected API Nodejs tutorial
+        href: tutorial-call-api-with-access-token.md
 - name: Samples
   items:
   - name: Integrate Azure AD B2C with your applications
@@ -256,12 +266,18 @@
       href: identity-provider-linkedin.md
     - name: Microsoft Account
       href: identity-provider-microsoft-account.md
+    - name: PingOne (PingIdentity)
+      href: identity-provider-ping-one.md
+      displayName: Ping identity
     - name: QQ
       href: identity-provider-qq.md
     - name: Salesforce
       href: identity-provider-salesforce.md
     - name: Salesforce (SAML)
       href: identity-provider-salesforce-saml.md
+    - name: SwissID
+      href:  identity-provider-swissid.md
+      displayName: Swiss ID      
     - name: Twitter
       href: identity-provider-twitter.md
     - name: WeChat
@@ -305,10 +321,13 @@
       items:
       - name: Multi-factor authentication
         href: multi-factor-authentication.md
+        displayName: TOTP, time-based-one-time password, time-based one-time password, authenticator app, Microsoft authenticator app, mfa, 2fa
       - name: Partner integration
         items:
         - name: BlokSec
           href: partner-bloksec.md
+        - name: Haventec
+          href: partner-haventec.md
         - name: HYPR
           href: partner-hypr.md
         - name: IDEMIA
@@ -531,6 +550,8 @@
         items:
         - name: Verification
           href: display-control-verification.md
+        - name: Time-based one-time password (TOTP)
+          href: display-control-time-based-one-time-password.md
     - name: ClaimsProviders
       href: claimsproviders.md
       items:
