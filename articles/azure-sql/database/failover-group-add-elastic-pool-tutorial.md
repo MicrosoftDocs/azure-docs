@@ -289,7 +289,8 @@ This portion of the tutorial uses the following PowerShell cmdlets:
 
 # [Azure CLI](#tab/azure-cli)
 
-In this step, you create your secondary server, failover group, elastic pool, and add database to failover group using the Azure CLI.
+In this step, you create your secondary server, failover group, elastic pool, and add a database to failover group using the Azure CLI.
+
 
 ## Set additional parameter values to create failover group
 
