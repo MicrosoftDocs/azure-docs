@@ -128,5 +128,5 @@ We recommend the following two steps to resolve this issue:
 
 ## Understanding UnknownHostException
 
-If you see this exception after upgrading to Java agent version greater than 3.2.0, upgrading your network to resolve the new endpoint shown in the exception might resolve the exception. The reason for the difference between Application Insights versions is that versions greater than 3.2.0 points to the new ingestion endpoint `v2.1/track` compared to the older `v2/track`, and the new ingestion endpoint will automatically redirect you to the ingestion endpoint(new endpoint shown in exception) nearest to the storage for your Application Insights resource.
+If you see this exception after upgrading to Java agent version greater than 3.2.0, upgrading your network to resolve the new endpoint shown in the exception might resolve the exception. The reason for the difference between Application Insights versions is that versions greater than 3.2.0 point to the new ingestion endpoint `v2.1/track` compared to the older `v2/track`. The new ingestion endpoint automatically redirects you to the ingestion endpoint (new endpoint shown in exception) nearest to the storage for your Application Insights resource.
 
