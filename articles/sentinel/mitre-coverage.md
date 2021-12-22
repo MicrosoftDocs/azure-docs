@@ -68,17 +68,12 @@ Select items in the **Simulate** menu to simulate your organization's possible s
 
 Having a scheduled rule with MITRE techniques applied running regularly in your Microsoft Sentinel workspace enhances the security status shown for your organization in the MITRE coverage matrix.
 
-**When configuring analytics rules**, select specific MITRE techniques to apply to your rule.
-
-**When searching for analytics rules**, filter the rules displayed by technique to find your rules quicker.
-
-**When incidents are created for alerts** that are surfaced by rules with MITRE techniques configured, the techniques are also added to the incidents.
-
-**When creating a new hunting query**, select the specific tactics and techniques to apply to your query.
-
-**When searching for active hunting queries**, filter the queries displayed by tactics by selecting an item from the list above the grid. Select a query to see tactic and technique details on the right.
-
-**When creating bookmarks**, either use the technique mapping inherited from the hunting query, or create your own mapping.
+|Feature  |MITRE support  |
+|---------|---------|
+|**Analytics rules**     | - When configuring analytics rules, select specific MITRE techniques to apply to your rule.<br><br>    - When searching for analytics rules, filter the rules displayed by technique to find your rules quicker.   <br><br>For more information, see [Detect threats out-of-the-box](detect-threats-built-in.md) and [Create custom analytics rules to detect threats](detect-threats-custom.md).   |
+|**Incidents**     |    - When incidents are created for alerts that are surfaced by rules with MITRE techniques configured, the techniques are also added to the incidents.  <br><br>For more information, see [Investigate incidents with Microsoft Sentinel](investigate-cases.md).   |
+|**Threat hunting**     |  - When creating a new hunting query, select the specific tactics and techniques to apply to your query. <br><br>- When searching for active hunting queries, filter the queries displayed by tactics by selecting an item from the list above the grid. Select a query to see tactic and technique details on the right. <br><br>- When creating bookmarks, either use the technique mapping inherited from the hunting query, or create your own mapping. <br><br>For more information, see [Hunt for threats with Microsoft Sentinel](hunting.md) and [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md).      |
+|     |         |
 
 
 ## Next steps
@@ -87,8 +82,6 @@ For more information, see:
 
 - [MITRE | ATT&CK framework](https://attack.mitre.org/)
 - [MITRE ATT&CK for Industrial Control Systems](https://collaborate.mitre.org/attackics/index.php/Main_Page)
-- [Detect threats out-of-the-box](detect-threats-built-in.md)
-- [Create custom analytics rules to detect threats](detect-threats-custom.md)
-- [Hunt for threats with Microsoft Sentinel](hunting.md)
-- [Keep track of data during hunting with Microsoft Sentinel](bookmarks.md)
-- [Investigate incidents with Microsoft Sentinel](investigate-cases.md)
+
+
+- 
