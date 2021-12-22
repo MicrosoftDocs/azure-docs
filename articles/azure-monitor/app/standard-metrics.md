@@ -213,22 +213,22 @@ This metric refers to duration of dependency calls.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Time | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Successful call`, `Target of a dependency call` |
+| Milliseconds | Average, Min, Max | `Cloud role instance`, `Cloud role name`, `Dependency performance`, `Dependency type`, `Is traffic synthetic`, `Result code`, `Successful call`, `Target of a dependency call` |
 
 
-### Server request rate (requests/count)
+### Server request rate (requests/rate)
 
 This metric reflects the number of incoming server requests that were received by your web application.
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Count | Average | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| Count Per Second | Average | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ### Server requests (requests/count)
 
 |Unit of measure|Supported aggregations|Supported dimensions|
 |---|---|---|
-| Count Per Second | Count | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
+| Count | Count | `Cloud role instance`, `Cloud role name`, `Is traffic synthetic`, `Result performance` `Result code`, `Successful request` |
 
 ### Server response time (requests/duration)
 
