@@ -173,6 +173,8 @@
           href: core/howto-manage-data-export-with-rest-api.md
         - name: Manage device templates
           href: core/howto-manage-device-templates-with-rest-api.md
+        - name: Manage devices
+          href: core/howto-manage-devices-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
         - name: Manage jobs
