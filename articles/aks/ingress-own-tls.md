@@ -144,9 +144,7 @@ kubectl create secret tls aks-ingress-tls \
 
 ## Run demo applications
 
-An ingress controller and a Secret with your certificate have been configured. Now let's run two demo applications in your AKS cluster.
-
-To see the ingress controller in action, run two demo applications in your AKS cluster. In this example, you use `kubectl apply` to deploy two instances of a simple *Hello world* application.
+An ingress controller and a Secret with your certificate have been configured. To see the ingress controller in action, run two demo applications in your AKS cluster. In this example, you use `kubectl apply` to deploy two instances of a simple *Hello world* application.
 
 Create a *aks-helloworld.yaml* file and copy in the following example YAML:
 
