@@ -279,6 +279,36 @@ sections:
           Sample NSG configuration for private IP only access:
           ![Application Gateway V2 NSG Configuration for private IP access only](./media/application-gateway-faq/appgw-privip-nsg.png)
           
+      - question: How can I stop and start Azure Application Gateway?
+        answer: |
+          You can use Azure PowerShell or Azure CLI to stop and start Azure Application Gateway.  When you stop and start Azure Application Gateway, [billing](https://azure.microsoft.com/en-gb/pricing/details/application-gateway/) stops and starts accordingly.
+                             
+          ```azurepowershell
+          # Stop an existing Azure Application Gateway instance
+          
+          $appGateway = Get-AzApplicationGateway -Name $appGatewayName -ResourceGroupName $resourceGroupName
+          Stop-AzApplicationGateway -ApplicationGateway $appGateway       
+          ```
+          
+          ```azurepowershell
+          # Start an existing Azure Application Gateway instance
+          
+          $appGateway = Get-AzApplicationGateway -Name $appGatewayName -ResourceGroupName $resourceGroupName
+          Start-AzApplicationGateway -ApplicationGateway $appGateway           
+          ```
+          
+          ```azurecli-interactive
+          # Stop an existing Azure Application Gateway instance
+          
+          az network application-gateway stop -g MyResourceGroup -n MyAppGateway
+          ```
+          ```azurecli-interactive
+          # Start an existing Azure Application Gateway instance
+          
+          az network application-gateway start -g MyResourceGroup -n MyAppGateway
+          ```
+          
+  
   - name: Configuration - TLS
     questions:
       - question: What certificates does Application Gateway support?
