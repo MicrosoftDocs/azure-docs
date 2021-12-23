@@ -288,7 +288,7 @@ For each point we can list the expectations:
 - `Round` requires an argument of type bigint or float, or a null value
 - Instead of relying on the implicit casting of ASA, we should do it ourselves and handle conflicts in query
 
-We could adapt the main logic to deal with exception, and often it's the way to go. But in this case we believe our main logic to be perfect, and want to validate the incoming data instead.
+One way to go is to adapt the main logic to deal with these exceptions. But in this case, we believe our main logic to be perfect. So let's validate the incoming data instead.
 
 10. So first, let's use [WITH](/stream-analytics-query/with-azure-stream-analytics) to add an input validation layer as the first step of the query. We'll use [TRY_CAST](/stream-analytics-query/try-cast-azure-stream-analytics) to convert fields to their expected type, and set them to `NULL` if the conversion fails:
 
@@ -329,7 +329,7 @@ Already we can see two of our errors being addressed (not a number and not an ar
 
 We now have to decide how to address the records with missing or invalid values. After some discussion, we decide to reject records with an empty/invalid `readingArray` or a missing `readingStr`.
 
-1.  So we add two steps that will triage records between the validation one and the main logic:
+11. So we add two steps that will triage records between the validation one and the main logic:
 
 ```SQL
 WITH readingsValidated AS (
@@ -380,7 +380,7 @@ Now we get two outputs. **Debug1** has the records that will be sent to the main
 |2|2021-12-10T10:01:00|NULL|2.378|["C"]|2|2021-12-10T10:01:00.0000000Z|**NULL**|2.378|["C"]|
 |4|2021-12-10T10:02:10|A Forth String|1.2126|{}|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
 
-1.  The final step is to add our main logic back. We'll also add the output that gathers rejects. Here it's best to use an output adapter that doesn't enforce strong typing, like a storage account.
+12. The final step is to add our main logic back. We'll also add the output that gathers rejects. Here it's best to use an output adapter that doesn't enforce strong typing, like a storage account.
 
 The full query can be found in the last section.
 
