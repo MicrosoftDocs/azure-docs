@@ -81,7 +81,7 @@ For Azure VM Linux backups, Azure Backup supports the list of Linux [distributio
 - Azure Backup doesn't support Core OS Linux.
 - Azure Backup doesn't support 32-bit operating systems.
 - Other bring-your-own Linux distributions might work as long as the [Azure VM agent for Linux](../virtual-machines/extensions/agent-linux.md) is available on the VM, and as long as Python is supported.
-- Azure Backup doesn't support a proxy-configured Linux VM if it doesn't have Python version 2.7 installed.
+- Azure Backup doesn't support a proxy-configured Linux VM if it doesn't have Python version 2.7 or higher installed.
 - Azure Backup doesn't support backing up NFS files that are mounted from storage, or from any other NFS server, to Linux or Windows machines. It only backs up disks that are locally attached to the VM.
 
 ## Support matrix for managed pre-post scripts for Linux databases
