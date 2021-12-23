@@ -8,7 +8,7 @@ ms.service: data-factory
 ms.subservice: data-movement
 ms.topic: conceptual
 ms.custom: synapse
-ms.date: 12/13/2021
+ms.date: 12/22/2021
 ---
 
 # Copy and transform data in Azure Data Lake Storage Gen2 using Azure Data Factory or Azure Synapse Analytics
@@ -80,7 +80,7 @@ The Azure Data Lake Storage Gen2 connector supports the following authentication
 - [Service principal authentication](#service-principal-authentication)
 - [System-assigned managed identity authentication](#managed-identity)
 - [User-assigned managed identity authentication](#user-assigned-managed-identity-authentication)
-- 
+
 >[!NOTE]
 >- If want to use the public Azure integration runtime to connect to the Data Lake Storage Gen2 by leveraging the **Allow trusted Microsoft services to access this storage account** option enabled on Azure Storage firewall, you must use [managed identity authentication](#managed-identity).
 >- When you use PolyBase or COPY statement to load data into Azure Synapse Analytics, if your source or staging Data Lake Storage Gen2 is configured with an Azure Virtual Network endpoint, you must use managed identity authentication as required by Azure Synapse. See the [managed identity authentication](#managed-identity) section with more configuration prerequisites.
@@ -281,7 +281,7 @@ These properties are supported for the linked service:
             "credential": {
                 "referenceName": "credential1",
                 "type": "CredentialReference"
-                },
+                }
             },
         "connectVia": {
             "referenceName": "<name of Integration Runtime>",
