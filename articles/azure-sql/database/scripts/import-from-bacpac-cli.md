@@ -1,6 +1,6 @@
 ---
-title: "Azure CLI: Import BACPAC file to database in Azure SQL Database" 
-description: Azure CLI example script to import a BACPAC file into a database in Azure SQL Database 
+title: "Azure CLI example: Import BACPAC file to database in Azure SQL Database" 
+description: Use this Azure CLI example script to import a BACPAC file into a database in Azure SQL Database 
 services: sql-database
 ms.service: sql-database
 ms.subservice: backup-restore
@@ -17,7 +17,7 @@ ms.date: 12/07/2021
 
 This Azure CLI script example imports a database from a *.bacpac* file into a database in SQL Database.  
 
-If you choose to install and use the CLI locally, this article requires that you are running the Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install the Azure CLI](/cli/azure/install-azure-cli).
+If you choose to install and use Azure CLI locally, this article requires that you are running Azure CLI version 2.0 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli).
 
 > [!IMPORTANT]
 > When running Bash on Windows, run this script from within a Docker container.
@@ -26,7 +26,7 @@ If you choose to install and use the CLI locally, this article requires that you
 
 ### Sign in to Azure
 
-Cloud Shell is automatically authenticated under the initial account signed-in with. Use the following script to sign in using a different subscription. Sign in to Azure using the appropriate subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
+For this script, use Azure CLI locally as it takes too long to run in Cloud Shell. Use the following script to sign in using a specific subscription. [!INCLUDE [quickstarts-free-trial-note](../../../../includes/quickstarts-free-trial-note.md)]
 
 ```azurecli-interactive
 subscription="<subscriptionId>" # add subscription here
@@ -59,6 +59,6 @@ This script uses the following commands. Each command in the table links to comm
 
 ## Next steps
 
-For more information on the Azure CLI, see [Azure CLI documentation](/cli/azure).
+For more information on Azure CLI, see [Azure CLI documentation](/cli/azure).
 
 Additional SQL Database CLI script samples can be found in the [Azure SQL Database documentation](../az-cli-script-samples-content-guide.md).
