@@ -10,6 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
+ms.devlang: python
 ms.custom: seodec2018, devx-track-python, mode-api
 ---
 

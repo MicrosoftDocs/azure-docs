@@ -99,7 +99,7 @@ Alice is a doctor meeting with her patient, Bob. Alice will be joining the visit
 
 **Cost calculations**
 
-- 1 Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged aat regular rate of meettings) = $0.004
+- 1 Participant (Bob) connected to Teams lobby x 1 minute x $0.004 per participant per minute (lobby charged at regular rate of meetings) = $0.004
 - 1 participant (Bob) x 29 minutes x $0.004 per participant per minute = $0.116 [both video and audio are charged at the same rate]
 - 1 participant (Alice) x 30 minutes x $0.000 per participant per minute = $0.0*.
 - 1 participant (Bob) x 3 chat messages x $0.0008 = $0.0024.

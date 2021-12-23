@@ -621,8 +621,6 @@ groups:
   pivots:
   - id: programming-language-csharp
     title: C#
-  - id: programming-language-go
-    title: Go
   - id: programming-language-javascript
     title: JavaScript
   - id: programming-language-python
@@ -1539,11 +1537,11 @@ groups:
   - id: container-apps-bicep
     title: Bicep
 # Owner: cshoe
-- id: container-apps-container-types
-  title: Container source
-  prompt: Select the source of your container
+- id: container-apps-registry-types
+  title: Registry types
+  prompt: Select the type of container registry
   pivots:
-  - id: container-apps-example
-    title: Example container
-  - id: container-apps-byo
-    title: Bring your own container
+  - id: container-apps-private-registry
+    title: Private container registry
+  - id: container-apps-public-registry
+    title: Public container registry

@@ -2394,6 +2394,16 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/aks/kubernetes-dashboard.md",
+      "redirect_url": "/azure/aks/kubernetes-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/aks/egress.md",
+      "redirect_url": "/azure/aks/load-balancer-standard",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/analysis-services/analysis-services-create-model-portal.md",
       "redirect_url": "/azure/analysis-services/analysis-services-overview",
       "redirect_document_id": false
@@ -5911,6 +5921,11 @@
     {
       "source_path_from_root": "/articles/azure-app-configuration/quickstart-azure-function-csharp.md",
       "redirect_url": "/azure/azure-app-configuration/quickstart-azure-functions-csharp",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/azure-arc/data/retrieve-the-username-password-for-data-controller.md",
+      "redirect_url": "/azure/azure-arc/data/update-service-principal-credentials",
       "redirect_document_id": false
     },
     {
@@ -24685,7 +24700,7 @@
     },
     {
       "source_path_from_root": "/articles/sentinel/connect-dns.md",
-      "redirect_url": "/azure/sentinel/data-connectors-reference#domain-name-server",
+      "redirect_url": "/azure/sentinel/data-connectors-reference#windows-dns-server-preview",
       "redirect_document_id": false
     },
     {
@@ -44493,6 +44508,11 @@
       "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
       "redirect_document_id": false
     },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+        "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+        "redirect_document_id": false
+      },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
       "redirect_url": "/azure/communication-services/concepts/sms/concepts",
@@ -45136,6 +45156,16 @@
     {
       "source_path_from_root": "/articles/chaos-studio/chaos-studio-tutorial-aks.md",
       "redirect_url": "/azure/chaos-studio/chaos-studio-tutorial-aks-portal",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/active-directory/develop/secure-line-of-business-apps.md",
+      "redirect_url": "/azure/active-directory/develop/zero-trust-for-developers",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/networking/azure-orbital-overview.md",
+      "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
     }
   ]

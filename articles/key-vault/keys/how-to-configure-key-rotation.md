@@ -169,7 +169,7 @@ Key rotation policy can also be configured using ARM templates.
     "resources": [
         {
             "type": "Microsoft.KeyVault/vaults/keys",
-            "apiVersion": "2020-04-01-preview",
+            "apiVersion": "2021-06-01-preview",
             "name": "[concat(parameters('vaultName'), '/', parameters('keyName'))]",
             "location": "[resourceGroup().location]",
             "properties": {
@@ -188,7 +188,7 @@ Key rotation policy can also be configured using ARM templates.
                         },
                         {
                             "trigger": {
-                                "timeBeforeExpiry": "[parameters('notifyTime')]",
+                                "timeBeforeExpiry": "[parameters('notifyTime')]"
                             },
                             "action": {
                                 "type": "Notify"

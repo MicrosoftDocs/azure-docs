@@ -5,7 +5,7 @@ author: abhirockzz
 ms.author: abhishgu
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: go
+ms.devlang: golang
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.custom: mode-api

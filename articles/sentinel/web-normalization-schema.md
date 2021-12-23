@@ -81,7 +81,7 @@ The following filtering parameters are available:
 |----------|-----------|-------------|
 | **starttime** | datetime | Filter only Web sessions that **started** at or after this time. |
 | **endtime** | datetime | Filter only Web sessions that **started** running at or before this time. |
-| **srcipaddr_has_any_ipv4_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. |
+| **srcipaddr_has_any_prefix** | dynamic | Filter only Web sessions for which the [source IP address field](network-normalization-schema.md#srcipaddr) prefix is in one of the listed values. Note that the list of values can include IP addresses as well as IP address prefixes. Prefixes should end with a `.`, for example: `10.0.`. |
 | **url_has_any** | dynamic | Filter only Web sessions for which the [URL field](#url) has any of the values listed. If specified, and the session is not a web session, no result will be returned.|  
 | **httpuseragent_has_any** | dynamic | Filter only web sessions for which the [user agent field](#httpuseragent) has any of the values listed. If specified, and the session is not a web session, no result will be returned. | 
 | **ventresultdetails_in** | dynamic | Filter only web sessions for which the HTTP status code, stored in the [EventResultDetails](#eventresultdetails) field, is any of the values listed. | 

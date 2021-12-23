@@ -4,7 +4,7 @@ description: Learn how to configure separation of duties enforcement for request
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity

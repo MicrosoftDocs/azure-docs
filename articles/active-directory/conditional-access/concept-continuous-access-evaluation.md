@@ -145,6 +145,15 @@ Customers who have configured CAE settings under Security before have to migrate
 1.	You'll then see the option to **Migrate** your policy. This action is the only one that you’ll have access to at this point.
 1. Browse to **Conditional Access** and you will find a new policy named **CA policy created from CAE settings** with your settings configured. Administrators can choose to customize this policy or create their own to replace it.
 
+The following table describes the migration experience of each customer group based on previously configured CAE settings. 
+
+| Existing CAE Setting | Is Migration Needed | Auto Enabled for CAE | Expected Migration Experience |
+| --- | --- | --- | --- |
+| New tenants that didn't configure anything in the old experience. | No | Yes | Old CAE setting will be hidden given these customers likely didn't see the experience before general availability. |
+| Tenants that explicitly enabled for all users with the old experience. | No | Yes | Old CAE setting will be greyed out. Since these customers explicitly enabled this setting for all users, they don't need to migrate. |
+| Tenants that explicitly enabled some users in their tenants with the old experience.| Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new conditional access policy wizard, which includes **All users**, while excluding users and groups copied from CAE. It also sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
+| Tenants that explicitly disabled the preview. | Yes | No | Old CAE settings will be greyed out. Clicking **Migrate** launches the new conditional access policy wizard, which includes **All users**, and sets the new **Customize continuous access evaluation** Session control to **Disabled**. |
+
 More information about continuous access evaluation as a session control can be found in the section, [Customize continuous access evaluation](concept-conditional-access-session.md#customize-continuous-access-evaluation).
 
 ### Strict enforcement 
