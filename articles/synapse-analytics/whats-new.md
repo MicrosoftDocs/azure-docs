@@ -7,7 +7,7 @@ ms.author: rymajidi
 ms.service: synapse-analytics
 ms.subservice: overview
 ms.topic: conceptual
-ms.date: 12/17/2021
+ms.date: 12/23/2021
 ---
 
 # What's new in Azure Synapse Analytics?
@@ -20,16 +20,16 @@ The following updates are new to Azure Synapse Analytics this month.
 
 ### Apache Spark for Synapse
 
-* Additional notebook export formats: HTML, Python, and LaTeX [blog]() [article]()
-* 3 new chart types in notebook view: box plot, histogram, and pivot table [blog]() [article]()
-* Reconnect to lost notebook session [blog]() [article]()
+* Additional notebook export formats: HTML, Python, and LaTeX [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF3) 
+* Three new chart types in notebook view: box plot, histogram, and pivot table [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF4)
+* Reconnect to lost notebook session [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF5)
 
 ### Integrate
 
-* Map data tool (Public Preview) [blog]() [article](../database-designer/overview-map-data.md)
-* Mapping Data Flows quick re-use [blog]() [article]()
-* External Call transformation [blog]() [article]()
-* Flowlets (Public Preview) [blog]() [article]()
+* Map data tool (Public Preview), a no-code guided ETL experience [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF7) [article](/database-designer/overview-map-data.md)
+* Quick reuse of spark cluster [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF7) [article](../data-factory/concepts-integration-runtime-performance.md#time-to-live)
+* External Call transformation [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF9) [article](../data-factory/data-flow-external-call.md)
+* Flowlets (Public Preview) [blog](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/azure-synapse-analytics-december-2021-update/ba-p/3042904#REF10) [article](../data-factory/concepts-data-flow-flowlet.md)
 
 ## Next steps
 
