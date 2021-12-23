@@ -23,9 +23,7 @@ Once the data is deserialized, a schema needs to be applied to give it meaning. 
 
 ![Illustration of a pipeline with two fleet of devices sending data with conflicting schemas](media/input-validation/illustration.png)
 
-But the capabilities offered by dynamic schema handling come with a potential downside. If the input data isn't validated in the first steps of a query, then unexpected events can flow through the main query logic and break it. These malformed events will in turn generate errors and crashes as the built-in functions used in the logic will expect certain fields and types in arguments.
-
-As an example, using [ROUND](/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)` may not end well (like the `readings.v` values above). ASA can implicitly cast it as long as the field contains a numeric value stored as a string in the input events (`"27.8"`). But when an event has that field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
+But the capabilities offered by dynamic schema handling come with a potential downside. Unexpected events can flow through the main query logic and break it. As an example, we can use [ROUND](/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)`. ASA will implicitly cast it to float to match the signature of `ROUND`. And we always expect this field to contain numeric values, like `readings.v` in the illustration above.  But when we do receive an event with the field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
 
 **Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure the schema we submit to the core business logic matches its expectations. It also adds a second stage, in which records are triaged. In this stage, we can reject invalid records into a secondary output. This article illustrates how to implement this technic.
 
@@ -36,7 +34,7 @@ As an example, using [ROUND](/stream-analytics-query/round-azure-stream-analytic
 
 We'll be building a new ASA job that will ingest data from a single event hub. As is most often the case, we aren't responsible for the data producers. Here the producers are IoT devices sold by multiple hardware vendors.
 
-After a series of meetings between all stakeholders, both a serialization format (JSON) and a schema were defined. All the devices will push such messages to a common event hub, input of the ASA job.
+After a series of meetings with all stakeholders, we agree on a serialization format (JSON) and a schema contract. All the devices will push such messages to a common event hub, input of the ASA job.
 
 The schema contract is defined as follows:
 
@@ -53,7 +51,7 @@ Which in turns gives us the following sample message (JSON serialization):
 ```JSON
 {
     "deviceId" : 1,
-    "readingTimestamp" : "2021-12-10 10:00:00",
+    "readingTimestamp" : "2021-12-10T10:00:00",
     "readingStr" : "A String",
     "readingNum" : 1.7,
     "readingArray" : ["A","B"]
@@ -62,7 +60,7 @@ Which in turns gives us the following sample message (JSON serialization):
 
 We can already see a discrepancy between the schema contract and its implementation. In the JSON format, there's no data type for datetime. It will be transmitted as a string (see `readingTimestamp` above). ASA can easily address the issue, but it shows the need to validate and explicitly cast types. All the more for data serialized in CSV, since all values are then transmitted as string.
 
-There is another discrepancy. ASA uses its own type system that doesn't match the incoming one. If ASA has [built-in types](/stream-analytics-query/data-types-azure-stream-analytics) for integer (bigint), datetime, string (nvarchar(max)) and arrays, it only supports numeric via float. This is not an issue for the large majority of use cases. But in certain edge cases, it could cause slight drifts in precision. In this case, we would convert the numeric value as string in addition to float. Then downstream, we would use a system that supports fixed decimal to detect and correct potential drifts.
+There's another discrepancy. ASA uses its own type system that doesn't match the incoming one. If ASA has [built-in types](/stream-analytics-query/data-types-azure-stream-analytics) for integer (bigint), datetime, string (nvarchar(max)) and arrays, it only supports numeric via float. This mismatch isn't an issue for most applications. But in certain edge cases, it could cause slight drifts in precision. In this case, we would convert the numeric value as string in a new field. Then downstream, we would use a system that supports fixed decimal to detect and correct potential drifts.
 
 For processing, we'll need to:
 
@@ -109,28 +107,28 @@ Let's start with the most basic implementation, with no input validation.
 [
     {
         "deviceId" : 1,
-        "readingTimestamp" : "2021-12-10 10:00:00",
+        "readingTimestamp" : "2021-12-10T10:00:00",
         "readingStr" : "A String",
         "readingNum" : 1.7145,
         "readingArray" : ["A","B"]
     },
     {
         "deviceId" : 2,
-        "readingTimestamp" : "2021-12-10 10:01:00",
+        "readingTimestamp" : "2021-12-10T10:01:00",
         "readingStr" : "Another String",
         "readingNum" : 2.378,
         "readingArray" : ["C"]
     },
     {
         "deviceId" : 3,
-        "readingTimestamp" : "2021-12-10 10:01:20",
+        "readingTimestamp" : "2021-12-10T10:01:20",
         "readingStr" : "A Third String",
         "readingNum" : -4.85436,
         "readingArray" : ["D","E","F"]
     },
     {
         "deviceId" : 4,
-        "readingTimestamp" : "2021-12-10 10:02:10",
+        "readingTimestamp" : "2021-12-10T10:02:10",
         "readingStr" : "A Forth String",
         "readingNum" : 1.2126,
         "readingArray" : ["G","G"]
@@ -185,7 +183,7 @@ GROUP BY
 
 Let's quickly go through the query we submitted:
 
-- We use the UDF to filter readings where `readingStr` has fewer than 2 characters. We should have used [LEN](/stream-analytics-query/len-azure-stream-analytics) here. We're using a UDF for demonstration purpose only
+- We use the UDF to filter readings where `readingStr` has fewer than two characters. We should have used [LEN](/stream-analytics-query/len-azure-stream-analytics) here. We're using a UDF for demonstration purpose only
 - To count the number of records in each array, we first need to unpack them. We'll use [CROSS APPLY](/stream-analytics-query/apply-azure-stream-analytics) and [GetArrayElements()](/stream-analytics-query/getarrayelements-azure-stream-analytics) (more [samples here](/azure/stream-analytics/stream-analytics-parsing-json))
   - Doing so, we surface two data sets in the query: the original input and the array values. To make sure we don't mix up fields, we define alias (`AS r`) and use them everywhere
 - Then to actually `COUNT` the array values, we need to aggregate with [GROUP BY](/stream-analytics-query/group-by-azure-stream-analytics)
@@ -197,10 +195,10 @@ Let's quickly go through the query we submitted:
 
 |deviceId|readingTimestamp|readingStr|readingNum|arrayCount|
 |-|-|-|-|-|
-|1|2021-12-10 10:00:00|A String|1.71|2|
-|2|2021-12-10 10:01:00|Another String|2.38|1|
-|3|2021-12-10 10:01:20|A Third String|-4.85|3|
-|1|2021-12-10 10:02:10|A Forth String|1.21|2|
+|1|2021-12-10T10:00:00|A String|1.71|2|
+|2|2021-12-10T10:01:00|Another String|2.38|1|
+|3|2021-12-10T10:01:20|A Third String|-4.85|3|
+|1|2021-12-10T10:02:10|A Forth String|1.21|2|
 
 ## Real life dataset
 
@@ -212,27 +210,27 @@ Now our query is working, let's test it against more data.
 [
     {
         "deviceId" : 1,
-        "readingTimestamp" : "2021-12-10 10:00:00",
+        "readingTimestamp" : "2021-12-10T10:00:00",
         "readingStr" : "A String",
         "readingNum" : 1.7145,
         "readingArray" : ["A","B"]
     },
     {
         "deviceId" : 2,
-        "readingTimestamp" : "2021-12-10 10:01:00",
+        "readingTimestamp" : "2021-12-10T10:01:00",
         "readingNum" : 2.378,
         "readingArray" : ["C"]
     },
     {
         "deviceId" : 3,
-        "readingTimestamp" : "2021-12-10 10:01:20",
+        "readingTimestamp" : "2021-12-10T10:01:20",
         "readingStr" : "A Third String",
         "readingNum" : "NaN",
         "readingArray" : ["D","E","F"]
     },
     {
         "deviceId" : 4,
-        "readingTimestamp" : "2021-12-10 10:02:10",
+        "readingTimestamp" : "2021-12-10T10:02:10",
         "readingStr" : "A Forth String",
         "readingNum" : 1.2126,
         "readingArray" : {}
@@ -272,11 +270,11 @@ TRY_CAST function can be used to handle values with unexpected type.
 [Error] 12/22/2021 9:50:41 PM :    at Microsoft.EventProcessing.SteamR.Sql.Runtime.Cast.ToArray(CompilerPosition pos, Object value, Boolean isUserCast)
 ```
 
-Each time records were allowed to flow from the input to the core query logic without being validated. Let's now extend our query to validate the input.
+Each time records were allowed to flow from the input to the main query logic without being validated. Let's now extend our query to validate the input.
 
 ## Implementing input query validation
 
-9. The first of input validation is to define the schema expectations of the core business logic. Looking back at original requirement, our core logic is to:
+9. The first of input validation is to define the schema expectations of the core business logic. Looking back at original requirement, our main logic is to:
 
 > - Pass readingStr to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) to measure its length
 > - Count the number of records in the array
@@ -290,7 +288,7 @@ For each point we can list the expectations:
 - `Round` requires an argument of type bigint or float, or a null value
 - Instead of relying on the implicit casting of ASA, we should do it ourselves and handle conflicts in query
 
-We could adapt the core logic to deal with exception, and often it's the way to go. But in this case we believe our core logic to be perfect, and want to validate the incoming data instead.
+We could adapt the main logic to deal with exception, and often it's the way to go. But in this case we believe our main logic to be perfect, and want to validate the incoming data instead.
 
 10. So first, let's use [WITH](/stream-analytics-query/with-azure-stream-analytics) to add an input validation layer as the first step of the query. We'll use [TRY_CAST](/stream-analytics-query/try-cast-azure-stream-analytics) to convert fields to their expected type, and set them to `NULL` if the conversion fails:
 
@@ -322,16 +320,16 @@ With the last input file we used (the one with errors), this query will return t
 
 |in_deviceId|in_readingTimestamp|in_readingStr|in_readingNum|in_readingArray|deviceId|readingTimestamp|readingStr|readingNum|readingArray|
 |-|-|-|-|-|-|-|-|-|-|
-|1|2021-12-10 10:00:00|A String|1.7145|["A","B"]|1|2021-12-10T10:00:00.0000000Z|A String|1.7145|["A","B"]|
-|2|2021-12-10 10:01:00|NULL|2.378|["C"]|2|2021-12-10T10:01:00.0000000Z|NULL|2.378|["C"]|
-|3|2021-12-10 10:01:20|A Third String|**NaN**|["D","E","F"]|3|2021-12-10T10:01:20.0000000Z|A Third String|**NULL**|["D","E","F"]|
-|4|2021-12-10 10:02:10|A Forth String|1.2126|**{}**|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
+|1|2021-12-10T10:00:00|A String|1.7145|["A","B"]|1|2021-12-10T10:00:00.0000000Z|A String|1.7145|["A","B"]|
+|2|2021-12-10T10:01:00|NULL|2.378|["C"]|2|2021-12-10T10:01:00.0000000Z|NULL|2.378|["C"]|
+|3|2021-12-10T10:01:20|A Third String|**NaN**|["D","E","F"]|3|2021-12-10T10:01:20.0000000Z|A Third String|**NULL**|["D","E","F"]|
+|4|2021-12-10T10:02:10|A Forth String|1.2126|**{}**|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
 
-Already we can see two of our errors being addressed (not a number and not an array). We are also now confident that these records will be inserted properly in the destination SQL table.
+Already we can see two of our errors being addressed (not a number and not an array). We're also now confident that these records will be inserted properly in the destination SQL table.
 
 We now have to decide how to address the records with missing or invalid values. After some discussion, we decide to reject records with an empty/invalid `readingArray` or a missing `readingStr`.
 
-1.  So we add two steps that will triage records between the validation one and the core logic:
+1.  So we add two steps that will triage records between the validation one and the main logic:
 
 ```SQL
 WITH readingsValidated AS (
@@ -368,7 +366,7 @@ SELECT * INTO Debug2 FROM readingsToBeRejected
 
 It's good practice to write a single `WHERE` clause for both outputs, and use `NOT ()...)` in the second one. That way no records can be excluded from both outputs.
 
-Now we get two outputs. **Debug1** has the records that will be sent to the core logic:
+Now we get two outputs. **Debug1** has the records that will be sent to the main logic:
 
 |deviceId|readingTimestamp|readingStr|readingNum|readingArray|
 |-|-|-|-|-|
@@ -379,10 +377,10 @@ Now we get two outputs. **Debug1** has the records that will be sent to the core
 
 |in_deviceId|in_readingTimestamp|in_readingStr|in_readingNum|in_readingArray|deviceId|readingTimestamp|readingStr|readingNum|readingArray|
 |-|-|-|-|-|-|-|-|-|-|
-|2|2021-12-10 10:01:00|NULL|2.378|["C"]|2|2021-12-10T10:01:00.0000000Z|**NULL**|2.378|["C"]|
-|4|2021-12-10 10:02:10|A Forth String|1.2126|{}|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
+|2|2021-12-10T10:01:00|NULL|2.378|["C"]|2|2021-12-10T10:01:00.0000000Z|**NULL**|2.378|["C"]|
+|4|2021-12-10T10:02:10|A Forth String|1.2126|{}|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
 
-1.  The final step is to add our core logic back. We'll also add the output that gathers rejects. Here it's best to use an output adapter that doesn't enforce strong typing, like a storage account.
+1.  The final step is to add our main logic back. We'll also add the output that gathers rejects. Here it's best to use an output adapter that doesn't enforce strong typing, like a storage account.
 
 The full query can be found in the last section.
 
