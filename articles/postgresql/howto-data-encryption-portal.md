@@ -85,6 +85,8 @@ After Azure Database for PostgreSQL Single server is encrypted with a customer's
    :::image type="content" source="media/concepts-data-access-and-security-data-encryption/show-revalidate-data-encryption.png" alt-text="Screenshot of Azure Database for PostgreSQL, with revalidation step highlighted":::
 
    You will have to give the key vault access to the new server.
+   Please follow the document how to Enable Azure RBAC permissions on Key Vault
+   https://docs.microsoft.com/en-us/azure/key-vault/general/rbac-guide?tabs=azure-cli#enable-azure-rbac-permissions-on-key-vault
 
 4. After registering the service principal, revalidate the key again, and the server resumes its normal functionality.
 
