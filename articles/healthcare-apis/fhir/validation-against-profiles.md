@@ -23,8 +23,8 @@ In the [store profiles in the FHIR service](store-profiles-in-fhir.md) article, 
 
 FHIR resources can express their conformance to specific profiles. This allows the FHIR service to **validate** given resources against profiles. Validating a resource against a profile means checking if the resource conforms to the profile, including the specifications listed in `Resource.meta.profile` or in an Implementation Guide. There are two ways for you to validate your resource:
 
-1. You can use `$validate` operation against a resource that is already in the FHIR service. 
-1. You can include `$validate` when you create or update a resource. 
+- You can use `$validate` operation against a resource that is already in the FHIR service. 
+- You can include `$validate` when you create or update a resource. 
 
 In both cases, you can decide by way of your FHIR service configuration what to do when the resource doesn't conform to your desired profile.
 

@@ -21,8 +21,8 @@ In the [store profiles in Azure API for FHIR](store-profiles-in-fhir.md) article
 
 FHIR resources can express their conformance to specific profiles. This allows Azure API for FHIR to **validate** given resources against profiles. Validating a resource against a profile means checking if the resource conforms to the profile, including the specifications listed in `Resource.meta.profile` or in an Implementation Guide. There are two ways for you to validate your resource:
 
-1. You can use `$validate` operation against a resource that is already in Azure API for FHIR. 
-1. You can include `$validate` when you create or update a resource. 
+- You can use `$validate` operation against a resource that is already in Azure API for FHIR. 
+- You can include `$validate` when you create or update a resource. 
 
 In both cases, you can decide what to do if the Azure API for FHIR configuration resource doesn't conform to your desired profile.
 
