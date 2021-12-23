@@ -82,7 +82,7 @@ Data Map capacity units come with a cap on operations throughput and storage. If
 
 - Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 25 GB. Customers are billed for three capacity units.
 
-- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 15 GB. Customers are billed for 10 capacity units.
+- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 15 GB. Customers are billed for ten capacity units.
 
 ### Detailed billing example
 
