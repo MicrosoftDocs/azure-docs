@@ -28,7 +28,7 @@ For an introduction to more API Management features, see the API Management tuto
 ## Prerequisites
 
 - Understand [Azure API Management terminology](api-management-terminology.md)
-- Ensure you have installed [Visual Studio Code](https://code.visualstudio.com/) and the latest [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
+- Ensure you've installed [Visual Studio Code](https://code.visualstudio.com/) and the latest [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
 - [Create an API Management instance](vscode-create-service-instance.md)
 
 ## Import an API
@@ -57,7 +57,7 @@ To edit the OpenAPI format, right-click the API name in the Explorer pane and se
 
 ## Apply policies to the API
 
-API Management provides [policies](api-management-policies.md) you can configure for your APIs. Policies are a collection of statements. These statements are executed sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to an API or API operation.
+API Management provides [policies](api-management-policies.md) that you can configure for your APIs. Policies are a collection of statements. These statements are executed sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to an API or API operation.
 
 This section shows how to apply some common outbound policies to your API. After applying policies, it transforms the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
 
@@ -87,7 +87,7 @@ This section shows how to apply some common outbound policies to your API. After
 
 ### Get the subscription key
 
-You need subscription key for your API Management instance to test imported API and the policies that are applied.
+You need a subscription key for your API Management instance to test the imported API and the policies that are applied.
 
 1. In the Explorer pane, right-click the name of your API Management instance.
 1. Select **Copy Subscription Key**.
@@ -117,7 +117,7 @@ Notice the following details in the response:
 
 For detailed tracing information to help you debug the API operation, select the link that appears next to **Ocp-APIM-Trace-Location**.
 
-The JSON file at that location contains Inbound, Backend, and Outbound trace information. The trace information helps you to determine where any problems occur after the request is made.
+The JSON file at that location contains Inbound, Backend, and Outbound trace information. The trace information helps you to determine where problems occur after the request is made.
 
 > [!TIP]
 > When you test API operations, the API Management Extension allows optional [policy debugging](api-management-debug-policies.md) (available in the Developer service tier).
@@ -140,4 +140,4 @@ This tutorial introduced several features of the API Management Extension for Vi
 > * Apply API Management policies
 > * Test the API
 
-The API Management Extension provides extra features to work with your APIs. For example, [debug polices](api-management-debug-policies.md) (available in the Developer service tier), or create and manage [named values](api-management-howto-properties.md).
+The API Management Extension provides more features to work with your APIs. For example, [debug polices](api-management-debug-policies.md) (available in the Developer service tier), or create and manage [named values](api-management-howto-properties.md).
