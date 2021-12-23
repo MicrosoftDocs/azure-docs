@@ -98,7 +98,7 @@ These steps describe how the appliance connects to VMware vCenter Server:
 
 ## Can the Azure Migrate appliance connect to multiple vCenter Servers?
 
-No. There's a one-to-one mapping between an [Azure Migrate appliance](migrate-appliance.md) and vCenter Server. To discover servers on multiple vCenter Server instances, you must deploy multiple appliances.
+Yes. If the version of appliance configuration manager is  6.1.265.1 or above, you can connect to up to 10 vCenter Servers and perform discovery, assessment, and migration of servers running across multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware#start-continuous-discovery)
 
 ## Can a project have multiple appliances?
 
