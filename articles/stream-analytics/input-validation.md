@@ -15,29 +15,29 @@ ms.date: 12/10/2021
 
 # Input validation in Azure Stream Analytics queries
 
-Azure Stream Analytics (ASA) jobs process data coming from streams. Streams are sequences of raw data that are [serialized](https://en.wikipedia.org/wiki/Serialization) to be transmitted over the network. To consume from a stream, and extract the information contained, any system needs to know about the serialization format (CSV, JSON, AVRO...) the stream uses. That's why when configuring a [streaming input](/azure/stream-analytics/stream-analytics-define-inputs) in ASA, the **event serialization format** has to be defined.
+Azure Stream Analytics (ASA) jobs process data coming from streams. Streams are sequences of raw data that are transmitted [serialized](https://en.wikipedia.org/wiki/Serialization) (CSV, JSON, AVRO...). To read from a stream, an application will need to know the specific serialization format used. In ASA, the **event serialization format** has to be defined when configuring a [streaming input](/azure/stream-analytics/stream-analytics-define-inputs).
 
-Once the data is deserialized, a schema needs to be applied to give it meaning. By schema we mean the list of fields in the stream, and their respective data types. With ASA, the schema of the incoming data doesn't need to be set at the input level. ASA instead supports **dynamic input schemas** natively. This means ASA expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
+Once the data is deserialized, a schema needs to be applied to give it meaning. By schema we mean the list of fields in the stream, and their respective data types. With ASA, the schema of the incoming data doesn't need to be set at the input level. ASA instead supports **dynamic input schemas** natively. It expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
 
-**Dynamic schema handling** is a powerful feature, key to stream processing. Data streams often contain data from multiple sources, with multiple event types, each with a unique schema. To route, filter, and process events on such streams, ASA has to ingest them all regardless of their schema.
+**Dynamic schema handling** is a powerful feature, key to stream processing. Data streams often contain data from multiple sources, with multiple event types, each with a unique schema. To route, filter, and process events on such streams, ASA has to ingest them all whatever their schema.
 
 ![Illustration of a pipeline with two fleet of devices sending data with conflicting schemas](media/input-validation/illustration.png)
 
-But the capabilties offered by dynamic schema handling come with a potential downside. If the input data is not validated in the first steps of a query, then unexpected events can flow through the main query logic and break it. This will in turn generate errors and crashes as the built-in functions used in the logic will expect certain fields and types in arguments.
+But the capabilities offered by dynamic schema handling come with a potential downside. If the input data isn't validated in the first steps of a query, then unexpected events can flow through the main query logic and break it. These malformed events will in turn generate errors and crashes as the built-in functions used in the logic will expect certain fields and types in arguments.
 
-As an example, using [ROUND](/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)` may not end well (like the `readings.v` values above). ASA will be able to implicitly cast it as long as the field contains a numeric value stored as a string in the input events (`"27.8"`). But when an event has that field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
+As an example, using [ROUND](/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)` may not end well (like the `readings.v` values above). ASA can implicitly cast it as long as the field contains a numeric value stored as a string in the input events (`"27.8"`). But when an event has that field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
 
-**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. Optionally it adds a second stage where records are triaged between those allowed to flow downstream, and those to be rejected in a secondary output. This article illustrates how to implement this technic.
+**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure the schema we submit to the core business logic matches its expectations. It also adds a second stage, in which records are triaged. In this stage, we can reject invalid records into a secondary output. This article illustrates how to implement this technic.
 
-To see an example of a query implementing input validation, see the last section.
+To see an example of a query set up with input validation, see the last section.
 
 ## Problem statement
 
-We will be building a new ASA job that will ingest data from a single event hub. As is most often the case, we are not responsible for the data producers. Here the producers are IoT devices procured from multiple hardware vendors.
+We'll be building a new ASA job that will ingest data from a single event hub. As is most often the case, we aren't responsible for the data producers. Here the producers are IoT devices sold by multiple hardware vendors.
 
 After a series of meetings between all stakeholders, both a serialization format (JSON) and a schema were defined. All the devices will push such messages to a common event hub, input of the ASA job.
 
-The schema contract is defined as follow:
+The schema contract is defined as follows:
 
 |Field name|Field type|Field description|
 |-|-|-|
@@ -59,16 +59,16 @@ Which in turns gives us the following sample message (JSON serialization):
 }
 ```
 
-We can already see a discrepancy between the schema contract and its implementation. In JSON there is no data type for datetime. It will be transmitted as a string (see `readingTimestamp` above). ASA will be able to easily address the issue, but it shows the need to validate and explicitly cast types. All the more if we were using CSV as serialization format, since all values are then transmitted as string.
+We can already see a discrepancy between the schema contract and its implementation. In the JSON format, there's no data type for datetime. It will be transmitted as a string (see `readingTimestamp` above). ASA can easily address the issue, but it shows the need to validate and explicitly cast types. All the more for data serialized in CSV, since all values are then transmitted as string.
 
-Another discrepancy exists between the incoming field types and the type system used by ASA. If ASA has [built-in types](/stream-analytics-query/data-types-azure-stream-analytics) for integer (bigint), datetime, string (NVARCHAR(MAX)) and arrays, it only supports numeric via float. In certain edge cases it could cause slight drifts in precision if the input numeric was a fixed decimal and not an approximate number. If that was the case, we would also convert the numeric value to string for post processing in a system that supports fixed decimal and could detect and correct potential drifts.
+There is another discrepancy. ASA uses its own type system that doesn't match the incoming one. If ASA has [built-in types](/stream-analytics-query/data-types-azure-stream-analytics) for integer (bigint), datetime, string (nvarchar(max)) and arrays, it only supports numeric via float. This is not an issue for the large majority of use cases. But in certain edge cases, it could cause slight drifts in precision. In this case, we would convert the numeric value as string in addition to float. Then downstream, we would use a system that supports fixed decimal to detect and correct potential drifts.
 
-In terms of processing, we will need to:
+For processing, we'll need to:
 
-- call a [Javascript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) on one of the field
-- count the number of records in the array
-- filter out records where readingStr has less than 2 characters
-- insert the data into a SQL table with the following schema:
+- Pass readingStr to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) to measure its length
+- Count the number of records in the array
+- Round readingNum to the second decimal place
+- Insert the data into a SQL table with the following schema:
 
 ```SQL
 CREATE TABLE [dbo].[readings](
@@ -92,17 +92,17 @@ It's a good practice to map what happens to each field as it goes through the jo
 
 ## Prerequisites
 
-We will develop the query in **Visual Studio Code** using the **ASA Tools** extension. The first steps of this [tutorial](/azure/stream-analytics/quick-create-visual-studio-code) will guide you through installing the required components.
+We'll develop the query in **Visual Studio Code** using the **ASA Tools** extension. The first steps of this [tutorial](/azure/stream-analytics/quick-create-visual-studio-code) will guide you through installing the required components.
 
-In VS Code, we will use [local runs](/azure/stream-analytics/visual-studio-code-local-run-all) with local input/output to not incur any cost, and speed up the debugging loop.
+In VS Code, we'll use [local runs](/azure/stream-analytics/visual-studio-code-local-run-all) with local input/output to not incur any cost, and speed up the debugging loop.
 
 ## First implementation
 
 Let's start with the most basic implementation, with no input validation.
 
-1. In VS Code we will create a new ASA project
+1. In VS Code, we'll [create a new ASA project](/azure/stream-analytics/quick-create-visual-studio-code#create-a-stream-analytics-project)
 
-2. In the `input` folder, we will create a new JSON file called `data_readings.json` and add the following records to it:
+2. In the `input` folder, we'll create a new JSON file called `data_readings.json` and add the following records to it:
 
 ```JSON
 [
@@ -137,7 +137,7 @@ Let's start with the most basic implementation, with no input validation.
 ]
 ```
 
-3. Then we will [define a local input](/azure/stream-analytics/visual-studio-code-local-run#define-a-local-input), called `readings`, referencing the JSON file we created above.
+3. Then we'll [define a local input](/azure/stream-analytics/visual-studio-code-local-run#define-a-local-input), called `readings`, referencing the JSON file we created above.
 
 Once configured it should look like this:
 
@@ -153,16 +153,16 @@ Once configured it should look like this:
 
 With **preview data**, we can observe that our records are loaded properly.
 
-4. We will create a new **Javascript UDF** called `udfLen` by right-clicking on the `Functions` folder and selecting `ASA: Add Function`. The code we will use is:
+4. We'll create a new **JavaScript UDF** called `udfLen` by right-clicking on the `Functions` folder and selecting `ASA: Add Function`. The code we'll use is:
 
-```Javascript
+```JavaScript
 // Sample UDF that returns the length of a string for demonstration only: LEN will return the same thing in ASAQL
 function main(arg1) {
     return arg1.length;
 }
 ```
 
-5. In local runs, we only need to define outputs when there are more than one. Here we have only one, we can go straight to writing our query. In the `.asaql` file, we can replace the existing query by:
+5. In local runs, we don't need to define outputs. We don't even need to use `INTO` unless there are more than one output. So we can go straight to writing our query. In the `.asaql` file, we can replace the existing query by:
 
 ```SQL
 SELECT
@@ -184,15 +184,15 @@ GROUP BY
 
 Let's quickly go through the query we submitted:
 
-- We use the UDF to filter readings where `readingStr` has less than 2 characters. We should have used [LEN](/stream-analytics-query/len-azure-stream-analytics) for that, this is for demonstration purpose only
-- To count the number of records in each array, we first need to unpack them. This is done via [CROSS APPLY](/stream-analytics-query/apply-azure-stream-analytics) and [GetArrayElements()](/stream-analytics-query/getarrayelements-azure-stream-analytics) (more [samples here](/azure/stream-analytics/stream-analytics-parsing-json))
+- We use the UDF to filter readings where `readingStr` has fewer than 2 characters. We should have used [LEN](/stream-analytics-query/len-azure-stream-analytics) here. We're using a UDF for demonstration purpose only
+- To count the number of records in each array, we first need to unpack them. We'll use [CROSS APPLY](/stream-analytics-query/apply-azure-stream-analytics) and [GetArrayElements()](/stream-analytics-query/getarrayelements-azure-stream-analytics) (more [samples here](/azure/stream-analytics/stream-analytics-parsing-json))
   - Doing so, we surface two data sets in the query: the original input and the array values. To make sure we don't mix up fields, we define alias (`AS r`) and use them everywhere
 - Then to actually `COUNT` the array values, we need to aggregate with [GROUP BY](/stream-analytics-query/group-by-azure-stream-analytics)
-  - For that we have to define a [time window](/azure/stream-analytics/stream-analytics-window-functions). Here since we don't need one for our logic, the [snapshot window](/stream-analytics-query/snapshot-window-azure-stream-analytics) is the right choice
-  - We also have to `GROUP BY` all the fields, and project them all in the `SELECT`. This is a good practice, as `SELECT *` will let errors flow through from the input to the output
-- If we define a time window, we may want to define a timestamp with [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics). Here it's not necessary for our logic to work. But it's important to note that for local runs, if no timestamp is provided then the entire set is assigned a single timestamp (when the run was started).
+  - For that we must define a [time window](/azure/stream-analytics/stream-analytics-window-functions). Here since we don't need one for our logic, the [snapshot window](/stream-analytics-query/snapshot-window-azure-stream-analytics) is the right choice
+  - We also have to `GROUP BY` all the fields, and project them all in the `SELECT`. Explicitly projecting fields is a good practice, as `SELECT *` will let errors flow through from the input to the output
+- If we define a time window, we may want to define a timestamp with [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics). Here it's not necessary for our logic to work. For local runs, without `TIMESTAMP BY` all records are loaded on a single timestamp, the run start time.
 
-6. We can [start a run](/azure/stream-analytics/visual-studio-code-local-run#run-queries-locally) and observe the data being processed:
+1. We can [start a run](/azure/stream-analytics/visual-studio-code-local-run#run-queries-locally) and observe the data being processed:
 
 |deviceId|readingTimestamp|readingStr|readingNum|arrayCount|
 |-|-|-|-|-|
@@ -203,9 +203,9 @@ Let's quickly go through the query we submitted:
 
 ## Real life dataset
 
-Now we have our query working, and we can test it against additional sample data that the devices have generated.
+Now our query is working, let's test it against more data.
 
-7. Let's replace the content of `data_readings.json` by the following:
+7. Let's replace the content of `data_readings.json` by the following records:
 
 ```JSON
 [
@@ -246,7 +246,7 @@ Here we can see the following issues:
 - Device #3 sent `NaN` as a number
 - Device #4 sent an empty record instead of an array
 
-8. Running the job now should not end well. We will get one of the following error messages:
+8. Running the job now shouldn't end well. We'll get one of the following error messages:
 
 Device 2 will give us:
 
@@ -277,10 +277,10 @@ Each time records were allowed to flow from the input to the core query logic wi
 
 9. The first of input validation is to define the schema expectations of the core business logic. Looking back at original requirement, our core logic is to:
 
-> - call a [Javascript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) on one of the field
-> - count the number of records in the array
-> - filter out records where readingStr has less than 2 characters
-> - insert the data into a SQL table with the following schema:
+> - Pass readingStr to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) to measure its length
+> - Count the number of records in the array
+> - Round readingNum to the second decimal place
+> - Insert the data into a SQL table
 
 For each point we can list the expectations:
 
@@ -289,9 +289,9 @@ For each point we can list the expectations:
 - `Round` requires an argument of type bigint or float, or a null value
 - Instead of relying on the implicit casting of ASA, we should do it ourselves and handle conflicts in query
 
-We could adapt the core logic to deal with exception, quite often it's the way to go. But in this case we believe our core logic to be perfect, and want to validate the incoming data instead.
+We could adapt the core logic to deal with exception, and often it's the way to go. But in this case we believe our core logic to be perfect, and want to validate the incoming data instead.
 
-10. So first, let's use [WITH](/stream-analytics-query/with-azure-stream-analytics) to add an input validation layer as the first step of the query:
+10. So first, let's use [WITH](/stream-analytics-query/with-azure-stream-analytics) to add an input validation layer as the first step of the query. We'll use [TRY_CAST](/stream-analytics-query/try-cast-azure-stream-analytics) to convert fields to their expected type, and set them to `NULL` if the conversion fails:
 
 ```SQL
 WITH readingsValidated AS (
@@ -317,7 +317,7 @@ WITH readingsValidated AS (
 SELECT * FROM readingsValidated
 ```
 
-With the last input file we used (the one with errors), this query will return the following:
+With the last input file we used (the one with errors), this query will return the following set:
 
 |in_deviceId|in_readingTimestamp|in_readingStr|in_readingNum|in_readingArray|deviceId|readingTimestamp|readingStr|readingNum|readingArray|
 |-|-|-|-|-|-|-|-|-|-|
@@ -326,11 +326,11 @@ With the last input file we used (the one with errors), this query will return t
 |3|2021-12-10 10:01:20|A Third String|**NaN**|["D","E","F"]|3|2021-12-10T10:01:20.0000000Z|A Third String|**NULL**|["D","E","F"]|
 |4|2021-12-10 10:02:10|A Forth String|1.2126|**{}**|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
 
-Already we can see that this will solve 2 of our error messages (not a number and not an array). It also makes sure that these records will be inserted properly in the final SQL table.
+Already we can see two of our errors being addressed (not a number and not an array). We are also now confident that these records will be inserted properly in the destination SQL table.
 
 We now have to decide how to address the records with missing or invalid values. After some discussion, we decide to reject records with an empty/invalid `readingArray` or a missing `readingStr`.
 
-11. So we add two steps that will triage records between the validation one and the core logic:
+1.  So we add two steps that will triage records between the validation one and the core logic:
 
 ```SQL
 WITH readingsValidated AS (
@@ -367,7 +367,7 @@ SELECT * INTO Debug2 FROM readingsToBeRejected
 
 It's good practice to write a single `WHERE` clause for both outputs, and use `NOT ()...)` in the second one. That way no records can be excluded from both outputs.
 
-Now we get two outputs. **Debug1** has the records that will processed by the core logic:
+Now we get two outputs. **Debug1** has the records that will be sent to the core logic:
 
 |deviceId|readingTimestamp|readingStr|readingNum|readingArray|
 |-|-|-|-|-|
@@ -381,9 +381,9 @@ Now we get two outputs. **Debug1** has the records that will processed by the co
 |2|2021-12-10 10:01:00|NULL|2.378|["C"]|2|2021-12-10T10:01:00.0000000Z|**NULL**|2.378|["C"]|
 |4|2021-12-10 10:02:10|A Forth String|1.2126|{}|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
 
-12. The final step is to add our core logic back, and create another output (preferably one that doesn't enforce strong typing, like blob/adls) to gather rejects:
+1.  The final step is to add our core logic back. We'll also add the output that gathers rejects. Here it's best to use an output adapter that doesn't enforce strong typing, like a storage account.
 
-The full query is just below.
+The full query can be found in the last section.
 
 ```SQL
 WITH
@@ -412,7 +412,6 @@ SELECT
 	*
 INTO BlobOutput
 FROM readingsToBeRejected
-
 ```
 
 Which will give us the following set for **SQLOutput**, with no possible error:
