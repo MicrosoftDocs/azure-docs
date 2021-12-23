@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart - Create a private endpoint by using an ARM template'
-description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private endpoint.
+title: 'Quickstart - Create a Private Endpoint by using an ARM template'
+description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Private Endpoint.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -10,9 +10,9 @@ ms.date: 05/26/2020
 ms.author: allensu
 ---
 
-# Quickstart: Create a private endpoint by using an ARM template
+# Quickstart: Create a Private Endpoint by using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private endpoint.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Private Endpoint.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,7 +28,7 @@ You need an Azure account with an active subscription. [Create an account for fr
 
 ## Review the template
 
-This template creates a private endpoint for an instance of Azure SQL Database.
+This template creates a Private Endpoint for an instance of Azure SQL Database.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/private-endpoint-sql/).
 
@@ -38,20 +38,20 @@ Multiple Azure resources are defined in the template:
 
 - [**Microsoft.Sql/servers**](/azure/templates/microsoft.sql/servers): The instance of SQL Database with the sample database.
 - [**Microsoft.Sql/servers/databases**](/azure/templates/microsoft.sql/servers/databases): The sample database.
-- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): The virtual network where the private endpoint is deployed.
-- [**Microsoft.Network/privateEndpoints**](/azure/templates/microsoft.network/privateendpoints): The private endpoint to access the instance of SQL Database.
-- [**Microsoft.Network/privateDnsZones**](/azure/templates/microsoft.network/privatednszones): The zone used to resolve the private endpoint IP address.
+- [**Microsoft.Network/virtualNetworks**](/azure/templates/microsoft.network/virtualnetworks): The virtual network where the Private Endpoint is deployed.
+- [**Microsoft.Network/privateEndpoints**](/azure/templates/microsoft.network/privateendpoints): The Private Endpoint to access the instance of SQL Database.
+- [**Microsoft.Network/privateDnsZones**](/azure/templates/microsoft.network/privatednszones): The zone used to resolve the Private Endpoint IP address.
 - [**Microsoft.Network/privateDnsZones/virtualNetworkLinks**](/azure/templates/microsoft.network/privatednszones/virtualnetworklinks)
-- [**Microsoft.Network/privateEndpoints/privateDnsZoneGroups**](/azure/templates/microsoft.network/privateendpoints/privateDnsZoneGroups): The zone group used to associate the private endpoint with a private DNS zone.
+- [**Microsoft.Network/privateEndpoints/privateDnsZoneGroups**](/azure/templates/microsoft.network/privateendpoints/privateDnsZoneGroups): The zone group used to associate the Private Endpoint with a private DNS zone.
 - [**Microsoft.Network/publicIpAddresses**](/azure/templates/microsoft.network/publicIpAddresses): The public IP address used to access the virtual machine.
 - [**Microsoft.Network/networkInterfaces**](/azure/templates/microsoft.network/networkinterfaces): The network interface for the virtual machine.
-- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): The virtual machine used to test the private connection with private endpoint to the instance of SQL Database.
+- [**Microsoft.Compute/virtualMachines**](/azure/templates/microsoft.compute/virtualmachines): The virtual machine used to test the private connection with Private Endpoint to the instance of SQL Database.
 
 ## Deploy the template
 
 Here's how to deploy the ARM template to Azure:
 
-1. To sign in to Azure and open the template, select **Deploy to Azure**. The template creates the private endpoint, the instance of SQL Database, the network infrastructure, and a virtual machine to validate.
+1. To sign in to Azure and open the template, select **Deploy to Azure**. The template creates the Private Endpoint, the instance of SQL Database, the network infrastructure, and a virtual machine to validate.
 
    [![Deploy to Azure](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.sql%2Fprivate-endpoint-sql%2Fazuredeploy.json)
 
@@ -92,7 +92,7 @@ Connect to the VM _myVm{uniqueid}_ from the internet as follows:
 
 ### Access the SQL Database server privately from the VM
 
-Here's how to connect to the SQL Database server from the VM by using the private endpoint.
+Here's how to connect to the SQL Database server from the VM by using the Private Endpoint.
 
 1.  In the Remote Desktop of _myVM{uniqueid}_, open PowerShell.
 2.  Enter the following: nslookup sqlserver{uniqueid}.database.windows.net. 
@@ -122,7 +122,7 @@ Here's how to connect to the SQL Database server from the VM by using the privat
 
 ## Clean up resources
 
-When you no longer need the resources that you created with the private endpoint, delete the resource group. This removes the private endpoint and all the related resources.
+When you no longer need the resources that you created with the Private Endpoint, delete the resource group. This removes the Private Endpoint and all the related resources.
 
 To delete the resource group, call the `Remove-AzResourceGroup` cmdlet:
 
@@ -132,6 +132,6 @@ Remove-AzResourceGroup -Name <your resource group name>
 
 ## Next steps
 
-For more information on the services that support a private endpoint, see:
+For more information on the services that support a Private Endpoint, see:
 > [!div class="nextstepaction"]
 > [Private Link availability](private-link-overview.md#availability)
