@@ -1,6 +1,6 @@
 ---
-title: KQL in Azure Sentinel
-description: This article describes how KQL integrates with Azure Sentinel
+title: Kusto Query Language (KQL) in Azure Sentinel
+description: This article describes how Kusto Query Language (KQL) is used in Azure Sentinel, and provides some basic familiarity with the language.
 author: yelevin
 ms.author: yelevin
 ms.service: azure-sentinel
@@ -8,22 +8,46 @@ ms.topic: conceptual
 ms.date: 10/19/2021
 ---
 
-# KQL in Microsoft Sentinel
+# Kusto Query Language (KQL) in Microsoft Sentinel
 
-Read this article to learn how to use Kusto Query Language (KQL) in Microsoft Sentinel.
+Read this article to learn some basic uses for Kusto Query Language (KQL) in Microsoft Sentinel.
 
-Microsoft Sentinel data is stored in Azure Monitor [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces. Log Analytics is build on top of [Azure Data Explorer](/data-explorer/), and uses the same [KQL language](/data-explorer/kusto/query/) (with specific Azure Monitor features) to retrieve, visualize, and analyze, and parse data. In Microsoft Sentinel, you use KQL when you visualize and analyze data, build rules and workbooks, and hunt for threats.
+## Background - Why KQL?
+
+Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces to store all of its data. This data includes both:
+- the data ingested from external sources and 
+- data created by Sentinel itself, resulting from the analyses Sentinel creates and performs. 
+
+[Kusto Query Language](/data-explorer/kusto/query/) (KQL) was developed as part of the [Azure Data Explorer](/data-explorer/) service, and it’s therefore optimized for searching through big-data stores in a cloud environment. Inspired by famed undersea explorer Jacques Cousteau (and pronounced accordingly "koo-STOH"), it’s designed to help you dive deep into your oceans of data and explore their hidden treasures. 
+
+KQL is also used in Azure Monitor (and therefore in Microsoft Sentinel), using specific additional Azure Monitor features, to retrieve, visualize, analyze, and parse data in Log Analytics data stores. In Microsoft Sentinel, you use Kusto Query Language whenever you’re visualizing and analyzing data and hunting for threats, whether in existing rules and workbooks, or to build your own.
+
+Because Kusto Query Language is a part of nearly everything you do in Microsoft Sentinel, a clear understanding of how KQL works will help you get that much more out of your SIEM.
 
 ## KQL queries
 
-KQL queries are plain text and read-only. They don't modify data or metadata. Queries operate on data that's gathered into [databases](/data-explorer/kusto/query/schema-entities/databases), [tables](/data-explorer/kusto/query/schema-entities/tables), and [columns](/data-explorer/kusto/query/schema-entities/columns), similar to SQL. You start KQL queries with a data source (table) and then perform actions on those tables with operators and functions. You tie tables and operators together with a [pipe (|) delimiter](/data-explorer/kusto/query/queries).
+A KQL query is a read-only request to process data and return results – it doesn’t write any data. Queries operate on data that's organized into a hierarchy of [databases](/data-explorer/kusto/query/schema-entities/databases), [tables](/data-explorer/kusto/query/schema-entities/tables), and [columns](/data-explorer/kusto/query/schema-entities/columns), similar to SQL.
 
+KQL requests are stated in plain language and use a data-flow model designed to make the syntax easy to read, write, and automate.
+
+KQL queries are made up of *statements* separated by semicolons. There are many kinds of statements, but only two widely used types that we’ll discuss here:
+
+- ***let* statements** allow you to create and define variables and constants outside the body of the query, for easier readability and versatility. Optional. [Learn more](/azure/data-explorer/kusto/query/letstatement)
+
+- **tabular expression statements** are what we typically mean when we talk about queries – these are the actual body of the query. Required. [Learn more](/azure/data-explorer/kusto/query/tabularexpressionstatements)
+
+You start KQL queries (actually, tabular expression statements) with a data source (a table or an expression representing a virtual table, possibly defined by a function or a *let* statement). You then perform a sequence of actions on those tables using operators to transform the data. Each of these actions passes the resulting data to the next action, and this passing is symbolized in the query by a pipe (|) delimiter.
 
 ## KQL demo environment
 
-You can practice KQL statements in a [Log Analytics demo environment](https://aka.ms/lademo) in the Azure portal. The practice environment has no charges. You just need an account to sign into Azure.
+You can practice KQL statements in a [Log Analytics demo environment](https://aka.ms/lademo) in the Azure portal. There is no charge to use this practice environment, but you do need an Azure account to access it.
 
-The demo environment has a number of tables with columns (shown on the left). You type one or more queries into the query window, and run them.
+Explore the demo environment. Like Log Analytics in your production environment, it can be used in a number of ways:
+
+- **Choose a table on which to build a query.** From the default **Tables** tab (shown in the red rectangle at the upper left), select a table from the list of tables grouped by topics (shown at the lower left). Expand the topics to see the individual tables, and you can further expand each table to see all its fields (columns). Double-clicking on a table or a field name will place it at the point of the cursor in the query window. Type the rest of your query following the table name, as directed below.
+
+- **Find an existing query to study or modify.** Select the **Queries** tab (shown in the red rectangle at the upper left) to see a list of queries available out-of-the-box. By default they are grouped by category, and expanding the Security category will show you the security-related queries already available. You can also group them by solution, and you can then expand *Microsoft Sentinel* to see the relevant queries. Double-clicking a query will place the whole query in the query window at the point of the cursor.
+
 
 :::image type="content" source="./media/kql-overview/demo-environment.png" alt-text="Shows the Log Analytics demo environment.":::
 
