@@ -20,7 +20,7 @@ All Azure Purview accounts have a Data Map that can elastically grow starting at
 
 ## Data map capacity unit
 
-Elastic Data Map comes with operation throughput and storage components that are represented as Capacity Unit (CU). All Azure Purview accounts, by default, come with one capacity unit and elastically grow based on usage. Each Data Map capacity unit includes a throughput of 25 operations/sec and 2 GB of metadata storage limit.  
+Elastic Data Map comes with operation throughput and storage components that are represented as Capacity Unit (CU). All Azure Purview accounts, by default, come with one capacity unit and elastically grow based on usage. Each Data Map capacity unit includes a throughput of 25 operations/sec and 10 GB of metadata storage limit.  
 
 ### Operations
 
@@ -76,13 +76,13 @@ Data Map capacity units come with a cap on operations throughput and storage. If
 
 - Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 1 GB. Customers are billed for one capacity unit.
 
-- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 25 GB. Customers are billed for two capacity unit.
+- Purview Data Map’s operation throughput for the given hour is less than or equal to 25 Ops/Sec and storage size is 15 GB. Customers are billed for two capacity units.
 
-- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 2 GB. Customers are billed for two capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 15 GB. Customers are billed for two capacity units.
 
-- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 35 GB. Customers are billed for three capacity unit.
+- Purview Data Map’s operation throughput for the given hour is 50 Ops/Sec and storage size is 25 GB. Customers are billed for three capacity units.
 
-- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 15 GB. Customers are billed for 10 capacity unit
+- Purview Data Map’s operation throughput for the given hour is 250 Ops/Sec and storage size is 15 GB. Customers are billed for 10 capacity units.
 
 ### Detailed billing example
 
@@ -96,7 +96,7 @@ The table below shows the maximum number of operations/second and metadata stora
 
 :::image type="content" source="./media/concept-elastic-data-map/billing-table.png" alt-text="Table depicting max number of operations and growth of metadata over time.":::
 
-Based on the Data Map operations/second and metadata storage consumption in this period, this Data Map would be billed for 20 capacity-unit hours over this six-hour period (1 + 3 + 4 + 3 + 6 + 3):
+Based on the Data Map operations/second and metadata storage consumption in this period, this Data Map would be billed for 22 capacity-unit hours over this six-hour period (1 + 3 + 4 + 5 + 6 + 3):
 
 :::image type="content" source="./media/concept-elastic-data-map/billing-capacity-hours.png" alt-text="Table depicting number of CU hours over time.":::
 
