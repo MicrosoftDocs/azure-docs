@@ -15,7 +15,7 @@ ms.date: 12/10/2021
 
 # Input validation in Azure Stream Analytics queries
 
-Azure Stream Analytics (ASA) jobs process data coming from streams. Streams are sequences of raw data that are [serialized](https://en.wikipedia.org/wiki/Serialization) to be transmitted over the network. To consume from a stream, and extract the information contained, any system needs to know about the serialization format (CSV, JSON, AVRO...) the stream uses. That's why when configuring a [streaming input](https://docs.microsoft.com/en-us/azure/stream-analytics/stream-analytics-define-inputs) in ASA, the **event serialization format** has to be defined.
+Azure Stream Analytics (ASA) jobs process data coming from streams. Streams are sequences of raw data that are [serialized](https://en.wikipedia.org/wiki/Serialization) to be transmitted over the network. To consume from a stream, and extract the information contained, any system needs to know about the serialization format (CSV, JSON, AVRO...) the stream uses. That's why when configuring a [streaming input](/azure/stream-analytics/stream-analytics-define-inputs) in ASA, the **event serialization format** has to be defined.
 
 Once the data is deserialized, a schema needs to be applied to give it meaning. By schema we mean the list of fields in the stream, and their respective data types. With ASA, the schema of the incoming data doesn't need to be set at the input level. ASA instead supports **dynamic input schemas** natively. This means ASA expects **the list of fields (columns), and their types, to change between events (rows)**. ASA will also infer data types when none is provided explicitly, and try to implicitly cast types when needed.
 
@@ -25,15 +25,15 @@ Once the data is deserialized, a schema needs to be applied to give it meaning. 
 
 But the capabilties offered by dynamic schema handling come with a potential downside. If the input data is not validated in the first steps of a query, then unexpected events can flow through the main query logic and break it. This will in turn generate errors and crashes as the built-in functions used in the logic will expect certain fields and types in arguments.
 
-As an example, using [ROUND](https://docs.microsoft.com/en-us/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)` may not end well (like the `readings.v` values above). ASA will be able to implicitly cast it as long as the field contains a numeric value stored as a string in the input events (`"27.8"`). But when an event has that field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
+As an example, using [ROUND](/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)` may not end well (like the `readings.v` values above). ASA will be able to implicitly cast it as long as the field contains a numeric value stored as a string in the input events (`"27.8"`). But when an event has that field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
 
-**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. This article describes how to implement this technic.
+**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. This article illustrates how to implement this technic.
 
 ## Problem statement
 
-We will be building a new ASA job that will ingest data from a single event hub. As is most often the case, we are not responsible for the data producers. Here producers are IoT devices sourced from multiple hardware vendors.
+We will be building a new ASA job that will ingest data from a single event hub. As is most often the case, we are not responsible for the data producers. Here the producers are IoT devices procured from multiple hardware vendors.
 
-After a series of meetings, we were able to define a serialization format (JSON) and a schema for the events to be pushed from the devices to the event hub.
+After a series of meetings between all stakeholders, both a serialization format (JSON) and a schema were defined. All the devices will push such messages to a common event hub, input of the ASA job.
 
 The schema contract is defined as follow:
 
@@ -45,7 +45,7 @@ The schema contract is defined as follow:
 |`readingNum`|Numeric||
 |`readingArray`|Array of String||
 
-Which in turns gives us the following sample message:
+Which in turns gives us the following sample message (JSON serialization):
 
 ```JSON
 {
@@ -57,37 +57,42 @@ Which in turns gives us the following sample message:
 }
 ```
 
-We can already realize a discrepancy between the schema contract and its implementation. In JSON there is no data type for datetime. It will be transmitted as a string (see `readingTimestamp` above). ASA will be able to easily address the issue, but it shows the need to validate and explicitly cast types. All the more when using CSV as serialization format, since all values are then transmitted as string.
+We can already see a discrepancy between the schema contract and its implementation. In JSON there is no data type for datetime. It will be transmitted as a string (see `readingTimestamp` above). ASA will be able to easily address the issue, but it shows the need to validate and explicitly cast types. All the more if we were using CSV as serialization format, since all values are then transmitted as string.
 
-Another discrepancy exists between the incoming field types and the type system used by ASA. If ASA has [built-in types](/stream-analytics-query/data-types-azure-stream-analytics) for integer (big int), datetime, string (NVARCHAR(MAX)) and arrays, it only supports numeric via float. In certain edge cases it could cause slight drifts in precision if the input numeric was a fixed decimal and not an approximate number. If that was the case, we would also convert the numeric value to string for post processing in a system that supports fixed decimal and could detect and correct potential drifts.
+Another discrepancy exists between the incoming field types and the type system used by ASA. If ASA has [built-in types](/stream-analytics-query/data-types-azure-stream-analytics) for integer (bigint), datetime, string (NVARCHAR(MAX)) and arrays, it only supports numeric via float. In certain edge cases it could cause slight drifts in precision if the input numeric was a fixed decimal and not an approximate number. If that was the case, we would also convert the numeric value to string for post processing in a system that supports fixed decimal and could detect and correct potential drifts.
 
-This data will need to be inserted in a SQL table with the following schema:
+In terms of processing, we will need to:
+
+- call a [Javascript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) on one of the field
+- count the number of records in the array
+- filter out records where readingStr has less than 2 characters
+- insert the data into a SQL table with the following schema:
 
 ```SQL
 CREATE TABLE [dbo].[readings](
 	[Device_Id] int NULL,
 	[Reading_Timestamp] datetime2(7) NULL,
 	[Reading_String] nvarchar(200) NULL,
-	[Reading_Num] decimal(18,10) NULL,
+	[Reading_Num] decimal(18,2) NULL,
 	[Array_Count] int NULL
 ) ON [PRIMARY]
 ```
 
-We will only count the values held in `readingArray` and insert this count in `Array_Count`.
-
 It's a good practice to map what happens to each field as it goes through the job:
 
-|Field|Input|Inherited type|Output requirement|Comment|
+|Field|Input (JSON)|Inherited type (ASA)|Output (Azure SQL)|Comment|
 |-|-|-|-|-|
-|deviceId|JSON number|bigint|integer||
-|readingTimestamp|JSON string|nvarchar(MAX)|datetime2||
-|readingStr|JSON string|nvarchar(MAX)|nvarchar(200)||
-|readingNum|JSON number|float|decimal(18,10)||
-|readingArray|JSON array(string)|array of nvarchar(MAX)|integer|to be counted|
+|deviceId|number|bigint|integer||
+|readingTimestamp|string|nvarchar(MAX)|datetime2||
+|readingStr|string|nvarchar(MAX)|nvarchar(200)|used by the UDF|
+|readingNum|number|float|decimal(18,2)|to be rounded|
+|readingArray|array(string)|array of nvarchar(MAX)|integer|to be counted|
 
 ## Prerequisites
 
-We will develop the query in **Visual Studio Code** using the **ASA Tools** extension. The first steps of this [tutorial](https://docs.microsoft.com/en-us/azure/stream-analytics/quick-create-visual-studio-code) will guide you through installing the required components.
+We will develop the query in **Visual Studio Code** using the **ASA Tools** extension. The first steps of this [tutorial](/azure/stream-analytics/quick-create-visual-studio-code) will guide you through installing the required components.
+
+In VS Code, we will use [local runs](/azure/stream-analytics/visual-studio-code-local-run-all) with local input/output to not incur any cost, and speed up the debugging loop.
 
 ## First implementation
 
@@ -95,7 +100,7 @@ Let's start with the most basic implementation, with no input validation.
 
 1. In VS Code we will create a new ASA project
 
-2. We will add a new JSON file in the input folder containing the following records:
+2. In the `input` folder, we will create a new JSON file called `data_readings.json` and add the following records to it:
 
 ```JSON
 [
@@ -103,34 +108,168 @@ Let's start with the most basic implementation, with no input validation.
         "deviceId" : 1,
         "readingTimestamp" : "2021-12-10 10:00:00",
         "readingStr" : "A String",
-        "readingNum" : 1.7,
+        "readingNum" : 1.7145,
         "readingArray" : ["A","B"]
     },
     {
         "deviceId" : 2,
         "readingTimestamp" : "2021-12-10 10:01:00",
         "readingStr" : "Another String",
-        "readingNum" : 2.3,
+        "readingNum" : 2.378,
         "readingArray" : ["C"]
     },
     {
         "deviceId" : 3,
         "readingTimestamp" : "2021-12-10 10:01:20",
         "readingStr" : "A Third String",
-        "readingNum" : -4.8,
+        "readingNum" : -4.85436,
         "readingArray" : ["D","E","F"]
     },
     {
-        "deviceId" : 1,
+        "deviceId" : 4,
         "readingTimestamp" : "2021-12-10 10:02:10",
         "readingStr" : "A Forth String",
-        "readingNum" : 1.2,
+        "readingNum" : 1.2126,
         "readingArray" : ["G","G"]
     }
 ]
 ```
 
-3. Then we will [define a local input](azure/stream-analytics/visual-studio-code-local-run#define-a-local-input) referencing the JSON file we created above
+3. Then we will [define a local input](/azure/stream-analytics/visual-studio-code-local-run#define-a-local-input), called `readings`, referencing the JSON file we created above.
+
+Once configured it should look like this:
+
+```JSON
+{
+    "InputAlias": "readings",
+    "Type": "Data Stream",
+    "Format": "Json",
+    "FilePath": "data_readings.json",
+    "ScriptType": "InputMock"
+}
+```
+
+With **preview data**, we can observe that our records are loaded properly.
+
+4. We will create a new **Javascript UDF** called `udfLen` by right-clicking on the `Functions` folder and selecting `ASA: Add Function`. The code we will use is:
+
+```Javascript
+// Sample UDF that returns the length of a string for demonstration only: LEN will return the same thing in ASAQL
+function main(arg1) {
+    return arg1.length;
+}
+```
+
+5. In local runs, we only need to define outputs when there are more than one. Here we have only one, we can go straight to writing our query. In the `.asaql` file, we can replace the existing query by:
+
+```SQL
+SELECT
+	r.deviceId,
+	r.readingTimestamp,
+	SUBSTRING(r.readingStr,1,200) AS readingStr,
+	ROUND(r.readingNum,2) AS readingNum,
+	COUNT(a.ArrayValue) AS arrayCount
+FROM readings AS r TIMESTAMP BY r.readingTimestamp
+CROSS APPLY GetArrayElements(r.readingArray) AS a
+WHERE UDF.udfLen(r.readingStr) >= 2
+GROUP BY
+	System.Timestamp(), --snapshot window
+	r.deviceId,
+	r.readingTimestamp,
+	r.readingStr,
+	r.readingNum
+```
+
+Let's quickly go through the query we submitted:
+
+- We use the UDF to filter readings where `readingStr` has less than 2 characters. We should have used [LEN](/stream-analytics-query/len-azure-stream-analytics) for that, this is for demonstration purpose only
+- To count the number of records in each array, we first need to unpack them. This is done via [CROSS APPLY](/stream-analytics-query/apply-azure-stream-analytics) and [GetArrayElements()](/stream-analytics-query/getarrayelements-azure-stream-analytics) (more [samples here](/azure/stream-analytics/stream-analytics-parsing-json))
+  - Doing so, we surface two data sets in the query: the original input and the array values. To make sure we don't mix up fields, we define alias (`AS r`) and use them everywhere
+- Then to actually `COUNT` the array values, we need to aggregate with [GROUP BY](/stream-analytics-query/group-by-azure-stream-analytics)
+  - For that we have to define a [time window](/azure/stream-analytics/stream-analytics-window-functions). Here since we don't need one for our logic, the [snapshot window](/stream-analytics-query/snapshot-window-azure-stream-analytics) is the right choice
+  - We also have to `GROUP BY` all the fields, and project them all in the `SELECT`. This is a good practice, as `SELECT *` will let errors flow through from the input to the output
+- If we define a time window, we may want to define a timestamp with [TIMESTAMP BY](/stream-analytics-query/timestamp-by-azure-stream-analytics). Here it's not necessary for our logic to work. But it's important to note that for local runs, if no timestamp is provided then the entire set is assigned a single timestamp (when the run was started).
+
+6. We can [start a run](/azure/stream-analytics/visual-studio-code-local-run#run-queries-locally) and observe the data being processed:
+
+|deviceId|readingTimestamp|readingStr|readingNum|arrayCount|
+|-|-|-|-|-|
+|1|2021-12-10 10:00:00|A String|1.71|2|
+|2|2021-12-10 10:01:00|Another String|2.38|1|
+|3|2021-12-10 10:01:20|A Third String|-4.85|3|
+|1|2021-12-10 10:02:10|A Forth String|1.21|2|
+
+## Real life dataset
+
+Now we have our query working, and we can test it against additional sample data that the devices have generated.
+
+7. Let's replace the content of `data_readings.json` by the following:
+
+```JSON
+[
+    {
+        "deviceId" : 1,
+        "readingTimestamp" : "2021-12-10 10:00:00",
+        "readingStr" : "A String",
+        "readingNum" : 1.7145,
+        "readingArray" : ["A","B"]
+    },
+    {
+        "deviceId" : 2,
+        "readingTimestamp" : "2021-12-10 10:01:00",
+        "readingNum" : 2.378,
+        "readingArray" : ["C"]
+    },
+    {
+        "deviceId" : 3,
+        "readingTimestamp" : "2021-12-10 10:01:20",
+        "readingStr" : "A Third String",
+        "readingNum" : "NaN",
+        "readingArray" : ["D","E","F"]
+    },
+    {
+        "deviceId" : 4,
+        "readingTimestamp" : "2021-12-10 10:02:10",
+        "readingStr" : "A Forth String",
+        "readingNum" : 1.2126,
+        "readingArray" : {}
+    }
+]
+```
+
+Here we can see the following issues:
+
+- Device #1 did everything right
+- Device #2 forgot to include a `readingStr`
+- Device #3 sent `NaN` as a number
+- Device #4 sent an empty record instead of an array
+
+8. Running the job now should not end well. We will get one of the following error messages:
+
+Device 2 will give us:
+
+```LOG
+[Error] 12/22/2021 10:05:59 PM : **System Exception** Function 'udflen' resulted in an error: 'TypeError: Unable to get property 'length' of undefined or null reference' Stack: TypeError: Unable to get property 'length' of undefined or null reference
+at main (Unknown script code:3:5)
+[Error] 12/22/2021 10:05:59 PM :    at Microsoft.EventProcessing.HostedRuntimes.JavaScript.JavaScriptHostedFunctionsRuntime.
+```
+
+Device 3 will give us:
+
+```LOG
+[Error] 12/22/2021 9:52:32 PM : **System Exception** The 1st argument of function round has invalid type 'nvarchar(max)'. Only 'bigint', 'decimal', 'float' is allowed.
+[Error] 12/22/2021 9:52:32 PM :    at Microsoft.EventProcessing.SteamR.Sql.Runtime.Arithmetics.Round(CompilerPosition pos, Object value, Object length)
+```
+
+Device 4 will give us:
+
+```LOG
+[Error] 12/22/2021 9:50:41 PM : **System Exception** Cannot cast value of type 'record' to type 'array' in expression 'r . readingArray'. At line '9' and column '30'.
+TRY_CAST function can be used to handle values with unexpected type.
+[Error] 12/22/2021 9:50:41 PM :    at Microsoft.EventProcessing.SteamR.Sql.Runtime.Cast.ToArray(CompilerPosition pos, Object value, Boolean isUserCast)
+```
+
+Each time records were allowed to flow from the input to the core query logic without being validated. Let's now extend our query to validate the input.
 
 ## Input query validation
 
