@@ -1,3 +1,4 @@
+items:
 - name: Azure Form Recognizer Documentation
   href: index.yml
 - name: Overview
@@ -105,6 +106,8 @@
       href: /ai-builder/flow-invoice-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json
     - name: Receipt processing workflow
       href: /ai-builder/flow-receipt-processing?toc=/azure/applied-ai-services/form-recognizer/toc.json&bc=/azure/applied-ai-services/form-recognizer/breadcrumb/toc.json 
+  - name: Use Azure Form Recognizer with Azure Logic Apps
+    href: logic-apps-tutorial.md
   - name: Use Azure Form Recognizer with Cognitive Search
     href: ../../search/cognitive-search-custom-skill-form.md
   - name: Use Azure Form Recognizer with Azure Functions

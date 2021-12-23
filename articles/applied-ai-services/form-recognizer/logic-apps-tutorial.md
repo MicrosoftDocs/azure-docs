@@ -13,32 +13,28 @@ recommendations: false
 #Customer intent: As a form-processing software developer, I want to learn how to use the Form Recognizer service with Logic Apps.
 ---
 
-# Form Recognizer with Logic Apps Tutorial
+# Tutorial: Form Recognizer with Logic Apps
 
-## Introduction to Logic Apps
+In this tutorial, you'll learn to make an Azure Logic Apps connector flow that detects when an invoice is added to a OneDrive folder, processes the invoice, and sends information contained in the invoice to a pre-specified email.
 
-Azure logic apps are a tool that can be used to automate workflows without writing a single line of code. Azure logic apps are easily integrated with Microsoft applications along with third-party applications. The following are the benefits of the Azure Logic Apps system:
+Azure Logic Apps is a cloud-based platform that can be used to automate workflows without writing a single line of code. Logic Apps enable you to easily integrate Microsoft and third-party applications with your apps, data, services, and systems. Here are a few examples of what you can do with the Logic Apps platform:
 
-* The ability to create business process and workflows visually.
-* The ability to integrate workflows with SaaS and enterprise applications.
-* The ability to automate Enterprise Application Integration (EAI), business-to-business(B2B), and Electronic Data Interchange (EDI) business processes.
+* Create business processes and workflows visually.
+* Integrate workflows with software as a service (SaaS) and enterprise applications.
+* Automate enterprise application integration (EAI), business-to-business(B2B), and electronic data interchange (EDI) tasks.
 
-*See* [Logic Apps](https://docs.microsoft.com/azure/logic-apps/) for more info.
+For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-overview).
 
-## Tutorial
+## Prerequisites
 
-In this tutorial, you'll learn to make a Logic app connector flow that detects when an invoice is added to a OneDrive folder, processes the invoice, and sends information contained in the invoice to a pre-specified email.
-
-### Prerequisites
-
-To complete this quick start, you're going to need:
+To complete this tutorial, you'll need the following:
 
 * An Azure subscription - Create one for free here: [Create an Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
 * A OneDrive account - Create one for free here: [Create a One drive account](https://onedrive.live.com/signup)
 * An Outlook online email account - Create one for free here: [Create an outlook online email account](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca)
 * A sample invoice to test your Azure logic app - Download a sample [here]( https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
 
-### Setting up One-Drive
+## Setting up One-Drive
 
 Before we jump into creating the Logic app, we to have to set up a OneDrive folder.
 
