@@ -27,7 +27,9 @@ But the capabilties offered by dynamic schema handling come with a potential dow
 
 As an example, using [ROUND](/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)` may not end well (like the `readings.v` values above). ASA will be able to implicitly cast it as long as the field contains a numeric value stored as a string in the input events (`"27.8"`). But when an event has that field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
 
-**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. This article illustrates how to implement this technic.
+**Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure that the schema we submit to the core business logic matches its expectations. Optionally it adds a second stage where records are triaged between those allowed to flow downstream, and those to be rejected in a secondary output. This article illustrates how to implement this technic.
+
+To see an example of a query implementing input validation, see the last section.
 
 ## Problem statement
 
@@ -257,7 +259,7 @@ at main (Unknown script code:3:5)
 Device 3 will give us:
 
 ```LOG
-[Error] 12/22/2021 9:52:32 PM : **System Exception** The 1st argument of function round has invalid type 'nvarchar(max)'. Only 'bigint', 'decimal', 'float' is allowed.
+[Error] 12/22/2021 9:52:32 PM : **System Exception** The 1st argument of function round has invalid type 'nvarchar(max)'. Only 'bigint', 'float' is allowed.
 [Error] 12/22/2021 9:52:32 PM :    at Microsoft.EventProcessing.SteamR.Sql.Runtime.Arithmetics.Round(CompilerPosition pos, Object value, Object length)
 ```
 
@@ -271,16 +273,238 @@ TRY_CAST function can be used to handle values with unexpected type.
 
 Each time records were allowed to flow from the input to the core query logic without being validated. Let's now extend our query to validate the input.
 
-## Input query validation
+## Implementing input query validation
 
-Define the expectations
-Add the preliminary steps
-Check
+9. The first of input validation is to define the schema expectations of the core business logic. Looking back at original requirement, our core logic is to:
 
-## Testing input validation with unit-testing
+> - call a [Javascript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) on one of the field
+> - count the number of records in the array
+> - filter out records where readingStr has less than 2 characters
+> - insert the data into a SQL table with the following schema:
 
-Add test cases for malformed events that could break the query but we haven't seen yet
-Prep the data and write the config files
-Test the query
+For each point we can list the expectations:
+
+- The UDF requires an argument of type string (nvarchar(max) here) that can't be null
+- `GetArrayElements()` requires an argument of type array, or a null value
+- `Round` requires an argument of type bigint or float, or a null value
+- Instead of relying on the implicit casting of ASA, we should do it ourselves and handle conflicts in query
+
+We could adapt the core logic to deal with exception, quite often it's the way to go. But in this case we believe our core logic to be perfect, and want to validate the incoming data instead.
+
+10. So first, let's use [WITH](/stream-analytics-query/with-azure-stream-analytics) to add an input validation layer as the first step of the query:
+
+```SQL
+WITH readingsValidated AS (
+	SELECT
+		-- Rename incoming fields, used for audit and debugging
+		deviceId AS in_deviceId,
+		readingTimestamp AS in_readingTimestamp,
+		readingStr AS in_readingStr,
+		readingNum AS in_readingNum,
+		readingArray AS in_readingArray,
+
+		-- Try casting fields in their expected type
+		TRY_CAST(deviceId AS bigint) as deviceId,
+		TRY_CAST(readingTimestamp AS datetime) as readingTimestamp,
+		TRY_CAST(readingStr AS nvarchar(max)) as readingStr,
+		TRY_CAST(readingNum AS float) as readingNum,
+		TRY_CAST(readingArray AS array) as readingArray
+
+	FROM readings TIMESTAMP BY readingTimestamp
+)
+
+-- For debugging only
+SELECT * FROM readingsValidated
+```
+
+With the last input file we used (the one with errors), this query will return the following:
+
+|in_deviceId|in_readingTimestamp|in_readingStr|in_readingNum|in_readingArray|deviceId|readingTimestamp|readingStr|readingNum|readingArray|
+|-|-|-|-|-|-|-|-|-|-|
+|1|2021-12-10 10:00:00|A String|1.7145|["A","B"]|1|2021-12-10T10:00:00.0000000Z|A String|1.7145|["A","B"]|
+|2|2021-12-10 10:01:00|NULL|2.378|["C"]|2|2021-12-10T10:01:00.0000000Z|NULL|2.378|["C"]|
+|3|2021-12-10 10:01:20|A Third String|**NaN**|["D","E","F"]|3|2021-12-10T10:01:20.0000000Z|A Third String|**NULL**|["D","E","F"]|
+|4|2021-12-10 10:02:10|A Forth String|1.2126|**{}**|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
+
+Already we can see that this will solve 2 of our error messages (not a number and not an array). It also makes sure that these records will be inserted properly in the final SQL table.
+
+We now have to decide how to address the records with missing or invalid values. After some discussion, we decide to reject records with an empty/invalid `readingArray` or a missing `readingStr`.
+
+11. So we add two steps that will triage records between the validation one and the core logic:
+
+```SQL
+WITH readingsValidated AS (
+    ...
+),
+
+readingsToBeProcessed AS (
+	SELECT
+		deviceId,
+		readingTimestamp,
+		readingStr,
+		readingNum,
+		readingArray
+	FROM readingsValidated
+	WHERE
+		readingStr IS NOT NULL
+	AND readingArray IS NOT NULL
+),
+
+readingsToBeRejected AS (
+	SELECT
+		*
+	FROM readingsValidated
+	WHERE NOT (
+		readingStr IS NOT NULL
+	AND readingArray IS NOT NULL
+	)
+)
+
+-- For debugging only
+SELECT * INTO Debug1 FROM readingsToBeProcessed
+SELECT * INTO Debug2 FROM readingsToBeRejected
+```
+
+It's good practice to write a single `WHERE` clause for both outputs, and use `NOT ()...)` in the second one. That way no records can be excluded from both outputs.
+
+Now we get two outputs. **Debug1** has the records that will processed by the core logic:
+
+|deviceId|readingTimestamp|readingStr|readingNum|readingArray|
+|-|-|-|-|-|
+|1|2021-12-10T10:00:00.0000000Z|A String|1.7145|["A","B"]|
+|3|2021-12-10T10:01:20.0000000Z|A Third String|NULL|["D","E","F"]|
+
+**Debug2** has the records that will be rejected:
+
+|in_deviceId|in_readingTimestamp|in_readingStr|in_readingNum|in_readingArray|deviceId|readingTimestamp|readingStr|readingNum|readingArray|
+|-|-|-|-|-|-|-|-|-|-|
+|2|2021-12-10 10:01:00|NULL|2.378|["C"]|2|2021-12-10T10:01:00.0000000Z|**NULL**|2.378|["C"]|
+|4|2021-12-10 10:02:10|A Forth String|1.2126|{}|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
+
+12. The final step is to add our core logic back, and create another output (preferably one that doesn't enforce strong typing, like blob/adls) to gather rejects:
+
+The full query is just below.
+
+```SQL
+WITH
+readingsValidated AS (...),
+readingsToBeProcessed AS (...),
+readingsToBeRejected AS (...)
+
+SELECT
+	r.deviceId,
+	r.readingTimestamp,
+	SUBSTRING(r.readingStr,1,200) AS readingStr,
+	ROUND(r.readingNum,2) AS readingNum,
+	COUNT(a.ArrayValue) AS arrayCount
+INTO SQLOutput
+FROM readingsToBeProcessed AS r
+CROSS APPLY GetArrayElements(r.readingArray) AS a
+WHERE UDF.udfLen(r.readingStr) >= 2
+GROUP BY
+	System.Timestamp(), --snapshot window
+	r.deviceId,
+	r.readingTimestamp,
+	r.readingStr,
+	r.readingNum
+
+SELECT
+	*
+INTO BlobOutput
+FROM readingsToBeRejected
+
+```
+
+Which will give us the following set for **SQLOutput**, with no possible error:
+
+|deviceId|readingTimestamp|readingStr|readingNum|**readingArray**|
+|-|-|-|-|-|
+|1|2021-12-10T10:00:00.0000000Z|A String|1.7145|**2**|
+|3|2021-12-10T10:01:20.0000000Z|A Third String|NULL|**3**|
+
+The other two records are sent to a BlobOutput for human review and post processing. Our query is now safe.
+
+## Example of query with input validation
+
+```SQL
+WITH readingsValidated AS (
+	SELECT
+		-- Rename incoming fields, used for audit and debugging
+		deviceId AS in_deviceId,
+		readingTimestamp AS in_readingTimestamp,
+		readingStr AS in_readingStr,
+		readingNum AS in_readingNum,
+		readingArray AS in_readingArray,
+
+		-- Try casting fields in their expected type
+		TRY_CAST(deviceId AS bigint) as deviceId,
+		TRY_CAST(readingTimestamp AS datetime) as readingTimestamp,
+		TRY_CAST(readingStr AS nvarchar(max)) as readingStr,
+		TRY_CAST(readingNum AS float) as readingNum,
+		TRY_CAST(readingArray AS array) as readingArray
+
+	FROM readings TIMESTAMP BY readingTimestamp
+),
+
+readingsToBeProcessed AS (
+	SELECT
+		deviceId,
+		readingTimestamp,
+		readingStr,
+		readingNum,
+		readingArray
+	FROM readingsValidated
+	WHERE
+		readingStr IS NOT NULL
+	AND readingArray IS NOT NULL
+),
+
+readingsToBeRejected AS (
+	SELECT
+		*
+	FROM readingsValidated
+	WHERE -- Same clauses as readingsToBeProcessed, opposed with NOT
+    NOT (
+		readingStr IS NOT NULL
+	AND readingArray IS NOT NULL
+	)
+)
+
+-- Core business logic
+SELECT
+	r.deviceId,
+	r.readingTimestamp,
+	SUBSTRING(r.readingStr,1,200) AS readingStr,
+	ROUND(r.readingNum,2) AS readingNum,
+	COUNT(a.ArrayValue) AS arrayCount
+INTO SQLOutput
+FROM readingsToBeProcessed AS r
+CROSS APPLY GetArrayElements(r.readingArray) AS a
+WHERE UDF.udfLen(r.readingStr) >= 2
+GROUP BY
+	System.Timestamp(), --snapshot window
+	r.deviceId,
+	r.readingTimestamp,
+	r.readingStr,
+	r.readingNum
+
+-- Rejected output. For human review, correction, and manual re-insertion downstream
+SELECT
+	*
+INTO BlobOutput -- to a storage adapter that doesn't require strong typing, here blob/adls
+FROM readingsToBeRejected
+```
+
+## Get support
+
+For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next Steps
+
+To go further, [unit-testing](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#automated-test) should be implemented thanks to the [asa-streamanalytics-cicd](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and submitted to the query to ensure its resilience.
+
+* [Set up CI/CD pipelines and unit testing by using the npm package](./cicd-overview.md)
+* [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md)
+* [Test Stream Analytics queries locally with sample data using Visual Studio Code](visual-studio-code-local-run.md)
+* [Test Stream Analytics queries locally against live stream input by using Visual Studio Code](visual-studio-code-local-run-live-input.md)
+* [Explore Azure Stream Analytics jobs with Visual Studio Code (preview)](visual-studio-code-explore-jobs.md)
