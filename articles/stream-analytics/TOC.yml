@@ -148,6 +148,8 @@
     href: stream-analytics-compatibility-level.md
   - name: Common query patterns
     href: stream-analytics-stream-analytics-query-patterns.md
+  - name: Input validation
+    href: input-validation.md
   - name: Parse JSON and AVRO data
     href: stream-analytics-parsing-json.md
   - name: Time handling considerations
