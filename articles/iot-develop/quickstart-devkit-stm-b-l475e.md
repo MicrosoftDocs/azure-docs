@@ -107,7 +107,7 @@ To connect the STM DevKit to Azure, you'll modify a configuration file for Wi-Fi
 
     *getting-started\STMicroelectronics\B-L475E-IOT01A\tools\rebuild.bat*
 
-2. After the build completes, confirm that the binary file was created in the following path::
+2. After the build completes, confirm that the binary file was created in the following path:
 
     *getting-started\STMicroelectronics\B-L475E-IOT01A\build\app\stm32l475_azure_iot.bin*
 
