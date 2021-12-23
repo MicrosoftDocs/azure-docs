@@ -29,7 +29,8 @@ As an example, using [ROUND](/stream-analytics-query/round-azure-stream-analytic
 
 **Input query validation** is the technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure the schema we submit to the core business logic matches its expectations. It also adds a second stage, in which records are triaged. In this stage, we can reject invalid records into a secondary output. This article illustrates how to implement this technic.
 
-To see an example of a query set up with input validation, see the last section.
+> [!NOTE]
+> To see an example of a query set up with input validation, see the section: **Example of query with input validation**
 
 ## Problem statement
 
