@@ -4,7 +4,7 @@ description: Learn how to create a new container of resources and access package
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: 
+manager: karenhoran
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
