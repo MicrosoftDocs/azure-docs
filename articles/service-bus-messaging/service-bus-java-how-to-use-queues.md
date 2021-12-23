@@ -3,7 +3,7 @@ title: Get started with Azure Service Bus queues (Java)
 description: This tutorial shows you how to send messages to and receive messages from Azure Service Bus queues using the Java programming language.
 ms.date: 02/13/2021
 ms.topic: quickstart
-ms.devlang: Java
+ms.devlang: java
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 

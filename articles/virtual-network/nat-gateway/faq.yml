@@ -74,7 +74,8 @@ sections:
         answer: |
           Yes. For more information about Virtual Network NAT integration with Azure Firewall, see [Scale SNAT ports with Azure NAT Gateway](https://docs.microsoft.com/azure/firewall/integrate-with-nat-gateway).
           
-additionalContent: | 
+additionalContent: |
+
   ## Next steps
-  If your question is not listed above, please send feedback about this page with your question. This will create a GitHub issue for the product team to ensure all of our valued customer questions are answered.
+     If your question is not listed above, please send feedback about this page with your question. This will create a GitHub issue for the product team to ensure all of our valued customer questions are answered.
  

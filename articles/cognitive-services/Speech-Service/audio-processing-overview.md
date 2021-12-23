@@ -10,7 +10,7 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 09/17/2021
 ms.author: hasshah
-ms.custom: devx-track-csharp, ignite-fall-2021
+ms.custom: ignite-fall-2021
 ---
 
 # Audio processing

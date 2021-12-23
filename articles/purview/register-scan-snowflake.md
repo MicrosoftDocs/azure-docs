@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/19/2021
+ms.date: 12/15/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -42,7 +42,75 @@ When scanning Snowflake, Purview supports:
 
 * Ensure Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the self-hosted integration runtime machine. If you don't have this update installed, [you can download it here](https://www.microsoft.com/download/details.aspx?id=30679).
 
-* The Snowflake user must have read access to system tables in order to access advanced metadata.
+### Required permissions for scan
+
+Azure Purview supports basic authentication (username and password) for scanning Snowflake. The default role of the given user will be used to perform the scan. The Snowflake user must have usage rights on a warehouse and the database(s) to be scanned, and read access to system tables in order to access advanced metadata.
+
+Here is a sample walkthrough to create a user specifically for Purview scan and set up the permissions. If you choose to use an existing user, make sure it has adequate rights to the warehouse and database objects.
+
+1. Set up a `purview_reader` role. You will need _ACCOUNTADMIN_ rights to do this.
+
+   ```sql
+   USE ROLE ACCOUNTADMIN;
+   
+   --create role to allow read only access - this will later be assigned to the Purview user
+   CREATE OR REPLACE ROLE purview_reader;
+   
+   --make sysadmin the parent role
+   GRANT ROLE purview_reader TO ROLE sysadmin;
+   ```
+
+2. Create a warehouse for Purview to use and grant rights.
+
+   ```sql
+   --create warehouse - account admin required
+   CREATE OR REPLACE WAREHOUSE purview_wh WITH 
+       WAREHOUSE_SIZE = 'XSMALL' 
+       WAREHOUSE_TYPE = 'STANDARD' 
+       AUTO_SUSPEND = 300 
+       AUTO_RESUME = TRUE 
+       MIN_CLUSTER_COUNT = 1 
+       MAX_CLUSTER_COUNT = 2 
+       SCALING_POLICY = 'STANDARD';
+   
+   --grant rights to the warehouse
+   GRANT USAGE ON WAREHOUSE purview_wh TO ROLE purview_reader;
+   ```
+
+3. Create a user `purview` for Purview scan.
+
+   ```sql
+   CREATE OR REPLACE USER purview 
+       PASSWORD = '<password>'; 
+   
+   --note the default role will be used during scan
+   ALTER USER purview SET DEFAULT_ROLE = purview_reader;
+       
+   --add user to purview_reader role
+   GRANT ROLE purview_reader TO USER purview;
+   ```
+
+4. Grant reader rights to the database objects.
+
+    ```sql
+    GRANT USAGE ON DATABASE <your_database_name> TO purview_reader;
+
+    --grant reader access to all the database structures that purview can currently scan
+    GRANT USAGE ON ALL SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON ALL FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON ALL PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON ALL TABLES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON ALL VIEWS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE, READ on ALL STAGES IN DATABASE <your_database_name> TO role purview_reader;
+
+    --grant reader access to any future objects that could be created
+    GRANT USAGE ON FUTURE SCHEMAS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON FUTURE FUNCTIONS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE ON FUTURE PROCEDURES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON FUTURE TABLES IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT SELECT ON FUTURE VIEWS IN DATABASE <your_database_name> TO role purview_reader;
+    GRANT USAGE, READ ON FUTURE STAGES IN DATABASE <your_database_name> TO role purview_reader;
+    ```
 
 ## Register
 
@@ -61,7 +129,7 @@ On the **Register sources (Snowflake)** screen, do the following:
 
 1. Enter a **Name** that the data source will be listed within the Catalog.
 
-1. Enter the **server** URL used to connect to the Snowflake account, for example, `xy12345.east-us-2.azure.snowflakecomputing.com`.
+1. Enter the **server** URL used to connect to the Snowflake account in the form of `<account_identifier>.snowflakecomputing.com`, for example, `xy12345.east-us-2.azure.snowflakecomputing.com`. Learn more about Snowflake [account identifier](https://docs.snowflake.com/en/user-guide/admin-account-identifier.html#).
 
 1. Select a collection or create a new one (Optional)
 
@@ -101,9 +169,9 @@ To create and run a new scan, do the following:
         * Provide the user name used to connect to Snowflake in the User name input field.
         * Store the user password used to connect to Snowflake in the secret key.
 
-    1. **Warehouse**: Specify the name of the warehouse instance to use.
+    1. **Warehouse**: Specify the name of the warehouse instance used to empower scan in capital case. The default role assigned to the user specified in the credential must have USAGE rights on this warehouse.
 
-    1. **Database**: Specify the name of the database instance to import.
+    1. **Database**: Specify the name of the database instance to import in capital case. The default role assigned to the user specified in the credential must have adequate rights on the database objects.
 
     1. **Schema**: List subset of schemas to import expressed as a semicolon separated list. For example, `schema1; schema2`. All user schemas are imported if that list is empty. All system schemas and objects are ignored by default.
         
@@ -129,6 +197,17 @@ To create and run a new scan, do the following:
 1. Review your scan and select **Save and Run**.
 
 [!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
+
+## Troubleshooting tips
+
+- Check your account identifer in the source registration step. Do not include `https://` part at the front.
+- Make sure the warehouse name and database name are in capital case on the scan setup page.
+- Check your key vault. Make sure there are no typos in the password.
+- Check the credential you set up in Purview. The user you specify must have a default role with the necessary access rights to both the warehouse and the database you are trying to scan. See [Required permissions for scan](#required-permissions-for-scan). USE `DESCRIBE USER;` to verify the default role of the user you've specified for Purview.
+- Use Query History in Snowflake to see if any activity is coming across. 
+  - If there's a problem with the account identifer or password, you won't see any activity.
+  - If there's a problem with the default role, you should at least see a `USE WAREHOUSE . . .` statement.
+  - You can use the [QUERY_HISTORY_BY_USER table function](https://docs.snowflake.com/en/sql-reference/functions/query_history.html) to identify what role is being used by the connection. Setting up a dedicated Purview user will make troubleshooting easier.
 
 ## Next steps
 

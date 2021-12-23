@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 06/15/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Storage service add-ons for Azure NetApp Files
 
