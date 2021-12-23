@@ -32,7 +32,7 @@ The following diagrams illustrate the concepts:
 
 1. Files consist of metadata and data blocks written to a volume. In this illustration, there are three files, each consisting of three blocks: file 1, file 2, and file 3.
 
-   [![Volume contains three files, file1, file2 and file3, each consisting of three data blocks..](../media/azure-netapp-files/single-file-snapshot-restore-one.png)](../media/azure-netapp-files/single-file-snapshot-restore-one.png#lightbox)
+   [![Volume contains three files, file1, file2 and file3, each consisting of three data blocks.](../media/azure-netapp-files/single-file-snapshot-restore-one.png)](../media/azure-netapp-files/single-file-snapshot-restore-one.png#lightbox)
 
 2. A snapshot `Snapshot1` is taken, which copies the metadata and only the pointers to the blocks that represent the files:
 
@@ -157,7 +157,7 @@ If the [Snapshot Path visibility](snapshots-edit-hide-path.md) is not set to `hi
 
 The following diagram shows file or directory access to a snapshot using a client: 
 
-[![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)](../media/azure-netapp-files/snapshot-file-directory-access.png#)
+[![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)](../media/azure-netapp-files/snapshot-file-directory-access.png#lightbox)
 
 In the diagram, Snapshot 1 consumes only the delta blocks between the active volume and the moment of snapshot creation. But when you access the snapshot via the volume snapshot path, the data will *appear* as if it’s the full volume capacity at the time of the snapshot creation. By accessing the snapshot folders, you can restore data by copying files and directories out of a snapshot of choice.
 
