@@ -536,7 +536,7 @@ The API proxy module was designed to be customized to handle most common gateway
 
 You can enhance the connectivity between the agent, and the cloud by using leaf device proxying.
 
-To configure the enhaned integration with IoT Edge using leaf device proxying:
+To configure the enhanced integration with IoT Edge using leaf device proxying:
 
 1. Set the connecction string using the following format `HostName=nested11.azure-devices.net;DeviceId=leaf1;ModuleId=module1;SharedAccessKey=xxx;GatewayHostName=10.16.7.4`.
 
