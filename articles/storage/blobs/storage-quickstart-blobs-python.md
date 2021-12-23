@@ -7,7 +7,8 @@ ms.date: 01/28/2021
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: blobs
-ms.custom: devx-track-python, mode-other
+ms.devlang: python
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Manage blobs with Python v12 SDK

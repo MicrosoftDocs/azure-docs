@@ -90,7 +90,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 5. Under the **Admin Credentials** section, click on **Authorize**. You'll be redirected to Workplace by Facebook's authorization page. Input your Workplace by Facebook username and click on the **Continue** button. Click **Test Connection** to ensure Azure AD can connect to Workplace by Facebook. If the connection fails, ensure your Workplace by Facebook account has Admin permissions and try again.
 
- 	![Screenshot shows Admin Credentials dialog box with an Authorize option.](./media/workplace-by-facebook-provisioning-tutorial/provisioning.png)
+ 	![Screenshot shows Admin Credentials dialog box with an Authorize option.](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
 
  	![authorize](./media/workplace-by-facebook-provisioning-tutorial/workplace-login.png)
 
@@ -166,8 +166,8 @@ Once you've configured provisioning, use the following resources to monitor your
 To avoid the errors and successfully provision the failed users to Workplace from Facebook, modify the attribute mapping to the Workplace from Facebook email attribute to Coalesce([mail],[userPrincipalName]) or unassign the user from Workplace from Facebook, or provision an email address for the user.  
 *  There is an option in Workplace, which allows the existence of [users without email addresses.](https://www.workplace.com/resources/tech/account-management/email-less#enable) If this setting is toggled on the Workplace side, provisioning on the Azure side must be restarted in order for users without emails to successfully be created in Workplace.  
 
-## Update existing Workplace by Facebook application to use the Workplace by Facebook SCIM 2.0 endpoint
-Prior to December 2021, all Workplace by Facebook applications created were configured to utilize the Workplace by Facebook SCIM 1.0 endpoint. Starting December 2021, all newly created Workplace by Facebook applications are configured to utilize the Workplace by Facebook SCIM 2.0 endpoint. Completing the steps below will update applications configured to use the SCIM 1.0 endpoint to the use the SCIM 2.0 endpoint. These steps will remove any customizations previously made to the Workplace by Facebook application, including:
+## Update a Workplace by Facebook application to use the Workplace by Facebook SCIM 2.0 endpoint
+In December 2021, Facebook released a SCIM 2.0 connector. Completing the steps below will update applications configured to use the SCIM 1.0 endpoint to the use the SCIM 2.0 endpoint. These steps will remove any customizations previously made to the Workplace by Facebook application, including:
 * Authentication details
 * Scoping filters
 * Custom attribute mappings

@@ -7,7 +7,6 @@ ms.date: 10/15/2021
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
-manager: eriklind
 ms.custom: mode-other
 ---
 

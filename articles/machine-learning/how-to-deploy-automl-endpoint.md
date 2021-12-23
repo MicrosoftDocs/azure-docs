@@ -1,5 +1,5 @@
 ---
-title: Deploy an AutoML model with a managed online endpoint (preview)
+title: Deploy an AutoML model with an online endpoint (preview)
 titleSuffix: Azure Machine Learning
 description: Learn to deploy your AutoML model as a web service that's automatically managed by Azure.
 services: machine-learning
@@ -8,7 +8,7 @@ ms.subservice: core
 ms.author: ssambare
 ms.reviewer: laobri
 author: shivanissambare
-ms.date: 10/21/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2
 ---
@@ -19,7 +19,7 @@ In this article, you'll learn how to deploy an AutoML-trained machine learning m
 
 In this article you'll know how to deploy AutoML trained machine learning model to online endpoints using: 
 
-- Azure Machine Learning Studio
+- Azure Machine Learning studio
 - Azure Machine Learning CLI 2.0
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
@@ -32,7 +32,7 @@ An AutoML-trained machine learning model. For more, see [Tutorial: Train a class
 
 Deploying an AutoML-trained model from the Automated ML page is a no-code experience. That is, you don't need to prepare a scoring script and environment, both are auto generated. 
 
-1. Go to the Automated ML page in studio
+1. Go to the Automated ML page in the studio
 1. Select your experiment and run
 1. Choose the Models tab
 1. Select the model you want to deploy 
@@ -70,7 +70,7 @@ You'll receive a zip file containing:
 * A Python scoring file named `scoring_file_<VERSION>.py`
 * The model itself, in a Python `.pkl` file named `model.pkl`
 
-To deploy using these files, you can use either studio or the Azure command line interface.
+To deploy using these files, you can use either the studio or the Azure CLI.
 
 # [Studio](#tab/Studio)
 
@@ -115,7 +115,7 @@ Create a directory called `src/` and place the scoring file you downloaded into 
 
 ## Create the endpoint and deployment yaml file
 
-To create a managed online endpoint from the command line, you'll need to create an *endpoint.yml* and a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples) shows the _endpoints/online/managed/sample/_, which captures all the required inputs:
+To create an online endpoint from the command line, you'll need to create an *endpoint.yml* and a *deployment.yml* file. The following code, taken from the [Azure Machine Learning Examples repo](https://github.com/Azure/azureml-examples) shows the _endpoints/online/managed/sample/_, which captures all the required inputs:
 
 __automl_endpoint.yml__
 
@@ -156,5 +156,5 @@ After you create a deployment, you can score it as described in [Invoke the endp
 
 ## Next steps
 
-- [Troubleshooting managed online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
+- [Troubleshooting online endpoints deployment](how-to-troubleshoot-managed-online-endpoints.md)
 - [Safe rollout for online endpoints](how-to-safely-rollout-managed-endpoints.md)

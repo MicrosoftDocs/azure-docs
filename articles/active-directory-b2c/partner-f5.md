@@ -1,5 +1,5 @@
 ---
-title: Tutorial to configure Azure Active Directory B2C with F5 BIG-IP  
+title: Tutorial to extend Azure Active Directory B2C with F5 BIG-IP  
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with F5 BIG-IP for secure hybrid access 
 author: gargi-sinha
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.date: 10/15/2021
 ---
 
-# Tutorial: Extend Azure Active Directory B2C to protect on-premises applications using F5 BIG-IP
+# Tutorial: Extend Azure Active Directory B2C using F5 BIG-IP
 
 In this sample tutorial, learn how to integrate Azure Active Directory (Azure AD) B2C with [F5 BIG-IP Access Policy Manager (APM)](https://www.f5.com/services/resources/white-papers/easily-configure-secure-access-to-all-your-applications-via-azure-active-directory). This tutorial demonstrates how legacy applications can be securely exposed to the internet through BIG-IP security combined with Azure AD B2C pre-authentication, Conditional Access (CA), and Single sign-on (SSO).
 
@@ -44,14 +44,11 @@ To get started, you'll need:
 - [SSL certificate](../active-directory/manage-apps/f5-bigip-deployment-guide.md#ssl-profile) for publishing services over HTTPS or use default while testing.
 
 ## Scenario description
+**The following scenario is header-based but you can also use these methods to achieve Kerberos SSO.**
 
-For this scenario, we have an internal application whose access relies on receiving HTTP authorization headers from a legacy broker system, enabling sales agents to be directed to their respective areas of content.
+For this scenario, we have an internal application whose access relies on receiving HTTP authorization headers from a legacy broker system, enabling sales agents to be directed to their respective areas of content. The service needs expanding to a broader consumer base, so the application either needs upgrading to offer a choice of consumer authentication options or replacing altogether with more suitable solution.
 
-The service needs expanding to a broader consumer base, so the application either needs upgrading to offer a choice of consumer authentication options or replacing altogether with more suitable solution.
-
-In an ideal world, the application would be upgraded to support being directly managed and governed through a modern control plane. But as it lacks any form of modern interop, it would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime.
-
-Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet our application is connected to will be used to gate access with Azure AD B2C for its extensive choice of sign-in and sign-up capabilities.
+In an ideal world, the application would be upgraded to support being directly managed and governed through a modern control plane. But as it lacks any form of modern interop, it would take considerable effort and time to modernize, introducing inevitable costs and risks of potential downtime. Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet our application is connected to will be used to gate access with Azure AD B2C for its extensive choice of sign-in and sign-up capabilities.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD B2C pre-authentication and header-based SSO, significantly improving the overall security posture of the application, allowing the business to continue growing at pace, without interruption.
 

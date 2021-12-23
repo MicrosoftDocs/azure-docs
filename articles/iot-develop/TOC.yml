@@ -15,7 +15,7 @@
         href: quickstart-send-telemetry-central.md
       - name: Send telemetry to IoT Hub
         href: quickstart-send-telemetry-iot-hub.md
-    - name: Embedded device development
+    - name: Azure RTOS - Embedded device development
       items:
       - name: MXCHIP AZ3166
         href: quickstart-devkit-mxchip-az3166.md
@@ -33,6 +33,10 @@
         href: quickstart-devkit-renesas-rx65n-cloud-kit.md
       - name: STMicroelectronics L4S5I-IOT01A
         href: quickstart-devkit-stm-b-l4s5i.md
+    - name: Azure FreeRTOS - Embedded device development
+      items:
+      - name: ESPRESSIF ESP32
+        href: quickstart-devkit-espressif-esp32.md
 - name: Tutorials
   items:
     - name: Build a device solution with IoT Hub

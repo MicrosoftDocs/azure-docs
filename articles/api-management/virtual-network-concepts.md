@@ -24,7 +24,7 @@ For detailed deployment steps and network configuration, see:
 
 ## Access options
 
-By default, an API Management instance must be accessible from the internet. Using a virtual network, you can configure the developer portal, API gateway, and other API Management endpoints to be accessible either from the internet (external mode) or only within the VNET (internal mode). 
+When created, an API Management instance must be accessible from the internet. Using a virtual network, you can configure the developer portal, API gateway, and other API Management endpoints to be accessible either from the internet (external mode) or only within the VNET (internal mode). 
 
 * **External** - The API Management endpoints are accessible from the public internet via an external load balancer. The gateway can access resources within the VNET.
 
@@ -94,7 +94,7 @@ For more information, see:
 * [Create an Azure private DNS zone](../dns/private-dns-getstarted-portal.md)
 
 > [!IMPORTANT]
-> If you plan to use a custom DNS solution for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/2020-12-01/api-management-service/apply-network-configuration-updates).
+> If you plan to use a custom DNS solution for the VNET, set it up **before** deploying an API Management service into it. Otherwise, you'll need to update the API Management service each time you change the DNS server(s) by running the [Apply Network Configuration Operation](/rest/api/apimanagement/current-ga/api-management-service/apply-network-configuration-updates).
 
 ## Limitations
 

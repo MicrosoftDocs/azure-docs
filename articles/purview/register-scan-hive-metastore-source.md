@@ -35,7 +35,7 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 * You need Data Source Administrator or Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
 
-* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md).
 
 * Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is running.
 

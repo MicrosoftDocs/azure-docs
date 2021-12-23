@@ -25,7 +25,7 @@ ms.author: damendo
 
 Network Watcher provides many capabilities as it relates to understanding your network resources in Azure. One of these capabilities is resource troubleshooting. Resource troubleshooting can be called through the portal, PowerShell, CLI, or REST API. When called, Network Watcher inspects the health of a Virtual Network Gateway or a Connection and returns its findings.
 
-To perform the steps in this article, you need to [install the Azure command-line interface for Mac, Linux, and Windows (CLI)](/cli/azure/install-azure-cli).
+To perform the steps in this article, you need to [install the Azure CLI](/cli/azure/install-azure-cli) for Windows, Linux, or macOS.
 
 ## Before you begin
 

@@ -19,7 +19,7 @@ A conceptual overview of this feature is available in [Cluster connect - Azure A
 
 ## Prerequisites   
 
-- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0
+- [Install or upgrade Azure CLI](/cli/azure/install-azure-cli) to version >= 2.16.0 and <= 2.29.0
 
 - Install the `connectedk8s` Azure CLI extension of version >= 1.2.0:
 

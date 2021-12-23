@@ -163,7 +163,9 @@ New-SAPSystem -Parameterfile DEV-WEEU-SAP01-X01.tfvars
 
 ---
 
+### Output files
 
+The deployment will create a Ansible hosts file (`SID_hosts.yaml`) and an Ansible parameter file (`sap-parameters.yaml`) that are required input for thee Ansible playbooks.
 ## Next steps
 
 > [!div class="nextstepaction"]

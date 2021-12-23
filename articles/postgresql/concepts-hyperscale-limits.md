@@ -6,7 +6,7 @@ ms.author: jonels
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 10/15/2021
+ms.date: 12/10/2021
 ---
 
 # Azure Database for PostgreSQL – Hyperscale (Citus) limits and limitations
@@ -84,6 +84,17 @@ Up to 2 TiB of storage is supported on coordinator and worker nodes. See the
 available storage options and IOPS calculation
 [above](concepts-hyperscale-configuration-options.md#compute-and-storage) for
 node and cluster sizes.
+
+## Compute
+
+### Subscription vCore limits
+
+Azure enforces a vCore quota per subscription per region. There are two
+independently adjustable quotas: vCores for coordinator nodes, and vCores for
+worker nodes. The default quota should be more than enough to experiment with
+Hyperscale (Citus). If you do need more vCores for a region in your
+subscription, see how to [adjust compute
+quotas](howto-hyperscale-compute-quota.md).
 
 ## PostgreSQL
 

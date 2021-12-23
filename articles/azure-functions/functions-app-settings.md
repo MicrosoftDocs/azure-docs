@@ -145,6 +145,18 @@ Path to the compiler used for TypeScript. Allows you to override the default if 
 |---|------------|
 |AzureWebJobs_TypeScriptPath|`%HOME%\typescript`|
 
+## DOCKER_SHM_SIZE
+
+Sets the shared memory size (in bytes) when the Python worker is using shared memory. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
+
+|Key|Sample value|
+|---|------------|
+|DOCKER_SHM_SIZE|`268435456`|
+
+The value above sets a shared memory size of ~256 MB. 
+
+Requires that [FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED](#functions_worker_shared_memory_data_transfer_enabled) be set to `1`.
+
 ## FUNCTION\_APP\_EDIT\_MODE
 
 Dictates whether editing in the Azure portal is enabled. Valid values are "readwrite" and "readonly".
@@ -200,6 +212,16 @@ Valid values:
 | `node` | [JavaScript](functions-reference-node.md)<br/>[TypeScript](functions-reference-node.md#typescript) |
 | `powershell` | [PowerShell](functions-reference-powershell.md) |
 | `python` | [Python](functions-reference-python.md) |
+
+## FUNCTIONS\_WORKER\_SHARED\_MEMORY\_DATA\_TRANSFER\_ENABLED
+
+This setting enables the Python worker to use shared memory to improve throughput. Enable shared memory when your Python function app is hitting memory bottlenecks. 
+
+|Key|Sample value|
+|---|------------|
+|FUNCTIONS_WORKER_SHARED_MEMORY_DATA_TRANSFER_ENABLED|`1`|
+
+With this setting enabled, you can use the [DOCKER_SHM_SIZE](#docker_shm_size) setting to set the shared memory size. To learn more, see [Shared memory](functions-reference-python.md#shared-memory).
 
 ## MDMaxBackgroundUpgradePeriod
 

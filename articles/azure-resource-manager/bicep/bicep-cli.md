@@ -2,7 +2,7 @@
 title: Bicep CLI commands and overview
 description: Describes the commands that you can use in the Bicep CLI. These commands include building Azure Resource Manager templates from Bicep.
 ms.topic: conceptual
-ms.date: 11/19/2021
+ms.date: 12/08/2021
 ---
 # Bicep CLI commands
 
@@ -123,13 +123,13 @@ To use the publish command, you must have Bicep CLI version **0.4.1008 or later*
 To publish a module to a registry, use:
 
 ```azurecli
-az bicep publish <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag>
+az bicep publish --file <bicep-file> --target br:<registry-name>.azurecr.io/<module-path>:<tag>
 ```
 
 For example:
 
 ```azurecli
-az bicep publish storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
+az bicep publish --file storage.bicep --target br:exampleregistry.azurecr.io/bicep/modules/storage:v1
 ```
 
 The `publish` command doesn't recognize aliases that you've defined in a [bicepconfig.json](bicep-config-modules.md) file. Provide the full module path.

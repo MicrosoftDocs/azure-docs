@@ -15,7 +15,7 @@ Defender for Cloud uses the Log Analytics agent to collect and store data. See [
 > [!TIP]
 > A dedicated area of the Defender for Cloud pages in the Azure portal provides a collated, ever-growing set of self-help materials for solving common challenges with Defender for Cloud.
 >
-> When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems*- is good place to look for solutions:
+> When you're facing an issue, or are seeking advice from our support team, **Diagnose and solve problems** is good place to look for solutions:
 >
 > :::image type="content" source="media/release-notes/solve-problems.png" alt-text="Defender for Cloud's 'Diagnose and solve problems' page":::
 

@@ -19,7 +19,7 @@ Azure Load Balancer supports the following distribution modes for routing connec
 | Overview | Traffic from the same client IP routed to any healthy instance in the backend pool | Traffic from the same client IP is routed to the same backend instance | Traffic from the same client IP and protocol is routed to the same backend instance |
 | Tuples | 5 tuple | 2 tuple | 3 tuple |
 | Azure portal configuration | Session persistence: **None** | Session persistence: **Client IP** | Session persistence: **Client IP and protocol** |
-| [REST API](https://docs.microsoft.com/rest/api/load-balancer/load-balancers/create-or-update#loaddistribution) |  ```"loadDistribution":"Default"```| ```"loadDistribution":SourceIP```	| ```"loadDistribution":SourceIPProtocol```	|
+| [REST API](/rest/api/load-balancer/load-balancers/create-or-update#loaddistribution) |  ```"loadDistribution":"Default"```| ```"loadDistribution":SourceIP```    | ```"loadDistribution":SourceIPProtocol```    |
 
 ## Hash based
 

@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 10/01/2021
 ---
 

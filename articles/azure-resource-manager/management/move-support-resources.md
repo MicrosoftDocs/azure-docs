@@ -848,7 +848,7 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | flexibleServers | No | No | No |
+> | flexibleServers | Yes | Yes | No |
 > | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../mysql/howto-move-regions-portal.md).
 
 ## Microsoft.DBforPostgreSQL
@@ -856,11 +856,10 @@ Jump to a resource provider namespace:
 > [!div class="mx-tableFixed"]
 > | Resource type | Resource group | Subscription | Region move |
 > | ------------- | ----------- | ---------- | ----------- |
-> | flexibleServers | No | No | No |
+> | flexibleServers | Yes | Yes | No |
 > | servergroups | No | No | No |
 > | servers | Yes | Yes | You can use a cross-region read replica to move an existing server. [Learn more](../../postgresql/howto-move-regions-portal.md).
 > | serversv2 | Yes | Yes | No |
-> | singleservers | Yes | Yes | No |
 
 ## Microsoft.DeploymentManager
 

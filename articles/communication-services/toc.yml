@@ -17,6 +17,8 @@ items:
     items:
       - name: Create and manage access tokens
         href: quickstarts/access-tokens.md
+      - name: Manage access tokens for Teams users
+        href: quickstarts/manage-teams-identity.md
       - name: Authenticate with Azure AD
         href: quickstarts/identity/service-principal.md
       - name: Authenticate with Azure AD (Azure CLI)
@@ -29,6 +31,8 @@ items:
         href: quickstarts/chat/get-started.md
       - name: Join your chat app to a Teams meeting
         href: quickstarts/chat/meeting-interop.md
+      - name: Using Chat SDK with React Native
+        href: quickstarts/chat/react-native.md
   - name: Telephony
     items:
       - name: Get and manage phone numbers
@@ -36,7 +40,9 @@ items:
       - name: Port a phone number into Azure
         href: quickstarts/telephony/port-phone-number.md
       - name: Add phone calling to your app
-        href: quickstarts/voice-video-calling/pstn-call.md
+        href: quickstarts/telephony/pstn-call.md
+      - name: Add emergency calling to your app
+        href: quickstarts/telephony/emergency-calling.md
   - name: SMS
     items:
       - name: Send an SMS message
@@ -53,6 +59,8 @@ items:
       href: quickstarts/voice-video-calling/getting-started-with-calling.md
     - name: Add video calling to your client app
       href: quickstarts/voice-video-calling/get-started-with-video-calling.md
+    - name: Add Teams video calling to your client app
+      href: quickstarts/voice-video-calling/get-started-with-voice-video-calling-custom-teams-client.md
     - name: Join your calling client app to a Teams meeting
       href: quickstarts/voice-video-calling/get-started-teams-interop.md
     - name: Use the call automation APIs
@@ -63,12 +71,8 @@ items:
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: UI Library
     items:
-    - name: Get started with Composites
-      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
-    - name: Get started with Stateful Client
-      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
-    - name: Get started with UI Components
-      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
+    - name: Get started with UI Library
+      href: quickstarts/ui-library/get-started-composites.md
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
@@ -138,6 +142,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Pair the Session Border Controller and configure voice routing
         href: concepts/telephony/direct-routing-provisioning.md
+      - name: Emergency calling in Azure Communication Services
+        href: concepts/telephony/emergency-calling-concept.md 
   - name: SMS
     items:
       - name: SMS SDK overview
@@ -166,6 +172,8 @@ items:
     items:
       - name: Calling SDK overview
         href: concepts/voice-video-calling/calling-sdk-features.md
+      - name: Teams identity overview
+        href: concepts/interop/teams-user-calling.md
       - name: Voice and video terminology
         href: concepts/voice-video-calling/about-call-types.md
       - name: Call automation
@@ -222,6 +230,8 @@ items:
         href: how-tos/calling-sdk/manage-calls.md
       - name: Manage video
         href: how-tos/calling-sdk/manage-video.md
+      - name: Manage Teams calling
+        href: how-tos/cte-calling-sdk/manage-calls.md
       - name: Record calls
         href: how-tos/calling-sdk/record-calls.md
       - name: Enable push notifications
@@ -304,6 +314,15 @@ items:
       href: https://azure.github.io/azure-sdk-for-java/communication.html#azure-communication-common
     - name: Common (Python)
       href: https://azure.github.io/azure-sdk-for-python/communication.html#azure-communication-common
+  - name: UI Library
+    items:
+    - name: UI Library (JavaScript)
+      href: https://docs.microsoft.com/javascript/api/@azure/communication-react/?view=azure-node-latest
+    - name: UI Library (iOS)
+      href: https://github.com/Azure/communication-ui-library-ios/blob/main/docs/api/CallComposite/Reference.md
+    - name: UI Library (Android)
+      href: https://github.com/Azure/communication-ui-library-android/blob/main/docs/api/CallComposite/Reference.md
+   
 - name: Resources
   items:
   - name: Release notes
