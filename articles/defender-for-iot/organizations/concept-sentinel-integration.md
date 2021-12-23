@@ -7,6 +7,8 @@ ms.topic: article
 
 # OT threat monitoring in enterprise SOCs
 
+This section describes how integration with Microsoft Sentinel can help SOC teams bridge the gap between IT and OT security sectors.
+
 ## About the digital transformation in business-critical industries
 
 As the digital transformation in business-critical industries connects OT systems with IT infrastructures, the OT/IT convergence puts data, systems, and safety at risk.  
@@ -51,7 +53,7 @@ Microsoft Sentinel is a scalable, cloud-native, security information event manag
 
 By bringing rich telemetry into Microsoft Sentinel from Microsoft Defender for IoT, SOC teams can bridge the gap between IT and OT security sectors. This allows SOC teams to detect and respond faster during the entire attack timeline—enhancing communication, processes, and response time for both security analysts and OT personnel.  
 
-:::image type="content" source="media/concept-sentinel-integration/chart.png" alt-text="Screenshot of a chart showing alert flow.":::
+:::image type="content" source="media/concept-sentinel-integration/chart-small.png" alt-text="Screenshot of a chart showing alert flow." lightbox="media/concept-sentinel-integration/chart.png":::
 
 To set up the integration, see [Integrate Microsoft Defender for IoT and Microsoft Sentinel](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended).
 
