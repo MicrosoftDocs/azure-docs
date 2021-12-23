@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/02/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Azure virtual machine SKUs best practices for Azure NetApp Files
 

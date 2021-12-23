@@ -100,16 +100,15 @@ Here are the responsibilities of each part of the proxy update flow:
     To get the matching components, the child update calls a `SelectComponents` API provided by the component enumerator. If there are no matching components, the child update is skipped.
   - Collect all update results from parent and child updates, and report those results to Azure IoT Hub.
 - **Child steps handler**
-  - Iterate through a list of component instances that are compatible with the child update content. For more information, see [Steps handler](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers/steps_handler).
+  - Iterate through a list of component instances that are compatible with the child update content. 
 
-
-In production, device builders can use [existing handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or implement a custom handler that invokes any installer needed for an over-the-air update. For more information, see [Implement a custom update content handler](https://github.com/Azure/iot-hub-device-update/tree/main/docs/agent-reference/how-to-implement-custom-update-handler.md).
+In production, device builders can use [existing handlers](https://github.com/Azure/iot-hub-device-update/tree/main/src/content_handlers) or implement a custom handler that invokes any installer needed for an over-the-air update.
 
 ## Implement a component enumerator for the Device Update Agent (C language)
 
 ### Requirements
 
-Implement all APIs declared in [component_enumerator_extension.hpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/inc/aduc/component_enumerator_extension.hpp):
+Implement all APIs declared in component_enumerator_extension.hpp:
 
 | Function | Arguments | Returns |
 |---|---|---|
@@ -466,10 +465,4 @@ For example, for *hostfw*, the value of the property `properties.version` will b
 
 ## Next steps
 
-This example is written in C++. You can choose to use C if you prefer. To explore example source codes, see:
-
-- [CMakeLists.txt](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/CMakeLists.txt)
-- [contoso-component-enumerator.cpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/contoso-component-enumerator/contoso-component-enumerator.cpp)
-- [inc/aduc/component_enumerator_extension.hpp](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/inc/aduc/component_enumerator_extension.hpp)
-
-For various sample updates for components connected to the Contoso Virtual Vacuum device, see [Proxy update demo](https://github.com/Azure/iot-hub-device-update/tree/main/src/extensions/component-enumerators/examples/contoso-component-enumerator/demo/README.md).
+This example is written in C++. You can choose to use C if you prefer.

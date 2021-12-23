@@ -4,7 +4,7 @@ description: Learn all about the SQL .NET Core API and SDK including release dat
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: reference
 ms.date: 11/11/2021
 ms.author: anfeldma

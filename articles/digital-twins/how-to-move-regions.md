@@ -43,7 +43,7 @@ Here are some questions to consider:
     - Azure IoT Hub Device Provisioning Service
 * What other **personal or company apps** do I have that connect to my instance?
 
-You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), [Azure Digital Twins CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), or the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
+You can gather this information by using the [Azure portal](https://portal.azure.com), [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md), [Azure Digital Twins CLI commands](/cli/azure/dt), or the [Azure Digital Twins Explorer](concepts-azure-digital-twins-explorer.md).
 
 ## Prepare by downloading graph elements
 
@@ -133,7 +133,7 @@ After you finish this step, your new instance in the target region should be a c
 To verify that your new instance was set up correctly, use the following tools:
 
 * [Azure portal](https://portal.azure.com). The portal is good for verifying that your new instance exists and is in the correct target region. It's also good for verifying endpoints and routes and connections to other Azure services.
-* [Azure Digital Twins CLI commands](/cli/azure/dt?view=azure-cli-latest&preserve-view=true). These commands are good for verifying that your new instance exists and is in the correct target region. They also can be used to verify instance data.
+* [Azure Digital Twins CLI commands](/cli/azure/dt). These commands are good for verifying that your new instance exists and is in the correct target region. They also can be used to verify instance data.
 * [Azure Digital Twins Explorer](/samples/azure-samples/digital-twins-explorer/digital-twins-explorer/). Azure Digital Twins Explorer is good for verifying instance data like models, twins, and graphs.
 * [Azure Digital Twins APIs and SDKs](concepts-apis-sdks.md). These resources are good for verifying instance data like models, twins, and graphs. They're also good for verifying endpoints and routes.
 
@@ -143,7 +143,7 @@ You can also try running any custom apps or end-to-end flows that you had runnin
 
 Now that your new instance is set up in the target region with a copy of the original instance's data and connections, you can delete the original instance.
 
-You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt?view=azure-cli-latest&preserve-view=true), or the [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
+You can use the [Azure portal](https://portal.azure.com), the [Azure CLI](/cli/azure/dt), or the [control plane APIs](concepts-apis-sdks.md#overview-control-plane-apis).
 
 To delete the instance by using the Azure portal, [open the portal](https://portal.azure.com) in a browser window and go to your original Azure Digital Twins instance by searching for the name in the portal search bar.
 

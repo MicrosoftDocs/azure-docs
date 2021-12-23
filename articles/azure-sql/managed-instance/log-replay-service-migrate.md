@@ -9,7 +9,7 @@ ms.topic: how-to
 author: danimir
 ms.author: danil
 ms.reviewer: mathoma
-ms.date: 12/17/2021
+ms.date: 12/20/2021
 ---
 
 # Migrate databases from SQL Server to SQL Managed Instance by using Log Replay Service (Preview)
@@ -201,15 +201,15 @@ Below is an example of folder structure inside Azure Blob Storage container requ
 ```URI
 -- Place all backup files for database 1 in a separate "database1" folder in a flat-file structure.
 -- Do not use nested folders inside database1 folder.
-https://<mystorageaccountname>.blob.core.windows.net/<containername>/database1/<all-database1-backup-files>
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/<database1>/<all-database1-backup-files>
 
 -- Place all backup files for database 2 in a separate "database2" folder in a flat-file structure.
 -- Do not use nested folders inside database2 folder.
-https://<mystorageaccountname>.blob.core.windows.net/<containername>/database2/<all-database2-backup-files>
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/<database2>/<all-database2-backup-files>
 
 -- Place all backup files for database 3 in a separate "database3" folder in a flat-file structure. 
 -- Do not use nested folders inside database3 folder.
-https://<mystorageaccountname>.blob.core.windows.net/<containername>/database3/<all-database3-backup-files>
+https://<mystorageaccountname>.blob.core.windows.net/<containername>/<database3>/<all-database3-backup-files>
 ```
 
 ### Generate a Blob Storage SAS authentication token for LRS

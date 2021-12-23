@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 12/03/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Display health status of replication relationship 
 
