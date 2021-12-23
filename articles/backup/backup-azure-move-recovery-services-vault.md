@@ -111,7 +111,7 @@ To understand the detailed steps to achieve this, refer to the sections below.
 
 >[!Note]
 >- Azure Backup currently doesn’t support the movement of backup data from one Recovery Services vault to another. To protect your resource in the new region, the resource needs to be registered and backed up to a new/existing vault in the new region. When moving your resources from one region to another, backup data in your existing Recovery Services vaults in the older region can be retained/deleted based on your requirement. If you choose to retain data in the old vaults, you will incur backup charges accordingly.
->- After resource move, to ensure continued security for backup-up resources in a vault that was configured with Multi-User Authorization (MUA), the destination vault should be configured with MUA using a Resource Guard in the destination region. This is because the Resource Guard and the vault must be located in the same region; therefore, the Resource Guard for the source vault can't be used to enable MUA on the destination vault.
+>- After resource move, to ensure continued security for backed-up resources in a vault that was configured with Multi-User Authorization (MUA), the destination vault should be configured with MUA using a Resource Guard in the destination region. This is because the Resource Guard and the vault must be located in the same region; therefore, the Resource Guard for the source vault can't be used to enable MUA on the destination vault.
 
 ### Back up Azure Virtual Machine after moving across regions
 
