@@ -10,8 +10,9 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 12/07/2021
+ms.date: 12/23/2021
 ---
+
 # Use CLI to configure active geo-replication for a single database in Azure SQL Database
 
 This Azure CLI script example configures active geo-replication for a single database and fails it over to a secondary replica of the database.

@@ -10,8 +10,9 @@ ms.topic: sample
 author: rothja
 ms.author: jroth
 ms.reviewer: mathoma
-ms.date: 12/07/2021
+ms.date: 12/23/2021
 ---
+
 # Use CLI to configure a failover group for a group of databases in Azure SQL Database
 
 This Azure CLI script example configures a failover group for a group of databases in Azure SQL Database and fails it over to a secondary Azure SQL Database.

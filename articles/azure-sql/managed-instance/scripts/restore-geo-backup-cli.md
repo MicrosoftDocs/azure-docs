@@ -10,8 +10,9 @@ ms.topic: sample
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 12/07/2021
+ms.date: 12/23/2021
 ---
+
 # Use CLI to restore a Managed Instance database to another geo-region
 
 This Azure CLI script example restores an Azure SQL Managed Instance database from a remote geo-region (geo-restore) to a point in time.  

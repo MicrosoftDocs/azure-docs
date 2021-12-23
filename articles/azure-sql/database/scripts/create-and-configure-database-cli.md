@@ -10,7 +10,7 @@ ms.topic: sample
 author: WilliamDAssafMSFT 
 ms.author: wiassaf
 ms.reviewer: kendralittle, mathoma
-ms.date: 12/06/2021
+ms.date: 12/23/2021
 ---
 
 # Use Azure CLI to create a single database and configure a firewall rule

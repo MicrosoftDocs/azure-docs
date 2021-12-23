@@ -10,9 +10,9 @@ ms.topic: sample
 author: SQLSourabh
 ms.author: sourabha
 ms.reviewer: mathoma
-ms.date: 12/07/2021
-
+ms.date: 12/23/2021
 ---
+
 # Use CLI to import a BACPAC file into a database in SQL Database
 
 This Azure CLI script example imports a database from a *.bacpac* file into a database in SQL Database.  

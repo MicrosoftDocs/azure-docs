@@ -10,8 +10,9 @@ ms.topic: sample
 author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
-ms.date: 12/06/2021
+ms.date: 12/23/2021
 ---
+
 # Use CLI to configure SQL Database auditing and Advanced Threat Protection
 
 This Azure CLI script example configures SQL Database auditing and Advanced Threat Protection.
