@@ -110,21 +110,20 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
 
     You will create the following directory structure:
 
-    :::image type="content" source="../media/quickstarts/java-directories.png" alt-text="Screenshot: Java directory structure":::
+    :::image type="content" source="../media/quickstarts/java-directories-2.png" alt-text="Screenshot: Java directory structure":::
 
 1. Navigate to the `java` directory and create a file called *FormRecognizer.java*.
 
     > [!TIP]
-        >
-        > * You can create a new file using Powershell.
-        > * Open a Powershell window in your project directory by holding down the Shift key and right-clicking the folder.
-        > * Type the following command **New-Item FormRecognizer.java**.
+    >
+    > * You can create a new file using Powershell.
+    > * Open a Powershell window in your project directory by holding down the Shift key and right-clicking the folder.
+    > * Type the following command **New-Item FormRecognizer.java**.
 
-1. Open the `FormRecognizer.java` file in your preferred editor or IDE and add the following package declaration and  `import` statements:
+1. Open the `FormRecognizer.java` file in your preferred editor or IDE and add the following   `import` statements:
 
   ```java
     import com.azure.ai.formrecognizer.*;
-
     import com.azure.ai.formrecognizer.models.AnalyzeResult;
     import com.azure.ai.formrecognizer.models.DocumentLine;
     import com.azure.ai.formrecognizer.models.AnalyzedDocument;
@@ -137,6 +136,16 @@ This quickstart uses the Gradle dependency manager. You can find the client libr
     import java.util.List;
     import java.util.Arrays;
   ```
+
+#### Create the **FormRecognizer** class:
+
+Next, you'll need to create a public class for your project:
+
+```java
+public class FormRecognizer {
+    // All project code goes here...
+}
+```
 
 > [!TIP]
 > If you would like to try more than one code sample:
@@ -172,22 +181,12 @@ Extract text, tables, structure, key-value pairs, and named entities from docume
 > * We've added the file URI value to the `documentUrl` variable in the main method.
 > * For simplicity, all the entity fields that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [General document](../concept-general-document.md#named-entity-recognition-ner-categories) concept page.
 
-#### Create the **FormRecognizer** class:
-
-First, you'll need to create a public class for your project:
-
-```java
-public class FormRecognizer {
-    // All project code goes here...
-}
-```
-
-Add the following code to the FormRecognizer class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:
+Add the following code to the `FormRecognizer` class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:
 
 ```java
 
-    static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-    static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
+    private static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
+    private static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
 
     public static void main(String[] args) {
 
@@ -271,44 +270,45 @@ Extract text, selection marks, text styles, table structures, and bounding regio
 
 #### Update the **FormRecognizer** class:
 
-Replace the existing FormRecognizer class with the following code (be certain to update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal):
+Add the following code to the `FormRecognizer` class. Make sure you update the key and endpoint variables with values from your Form Recognizer instance in the Azure portal:
 
 ```java
-public class FormRecognizer {
+public static void main(String[] args) {
 
-    static final String key = "PASTE_YOUR_FORM_RECOGNIZER_SUBSCRIPTION_KEY_HERE";
-    static final String endpoint = "PASTE_YOUR_FORM_RECOGNIZER_ENDPOINT_HERE";
-
-    public static void main(String[] args) {
-
-        DocumentAnalysisClient documentAnalysisClient = new DocumentAnalysisClientBuilder()
-            .credential(new AzureKeyCredential("{key}"))
-            .endpoint("{endpoint}")
+        DocumentAnalysisClient client = new DocumentAnalysisClientBuilder()
+            .credential(new AzureKeyCredential(key))
+            .endpoint(endpoint)
             .buildClient();
 
-        String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf"
+        String documentUrl = "https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-layout.pdf";
         String modelId = "prebuilt-layout";
 
         SyncPoller < DocumentOperationResult, AnalyzeResult > analyzeLayoutResultPoller =
-            documentAnalysisClient.beginAnalyzeDocument(modelId, documentUrl);
+            client.beginAnalyzeDocumentFromUrl(modelId, documentUrl);
 
         AnalyzeResult analyzeLayoutResult = analyzeLayoutResultPoller.getFinalResult();
 
-        // pages
-        analyzeLayoutResult.getPages().forEach(documentPage - > {
-            System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
-                documentPage.getWidth(),
-                documentPage.getHeight(),
-                documentPage.getUnit());
+            // pages
+            analyzeLayoutResult.getPages().forEach(documentPage -> {
+                System.out.printf("Page has width: %.2f and height: %.2f, measured with unit: %s%n",
+                    documentPage.getWidth(),
+                    documentPage.getHeight(),
+                    documentPage.getUnit());
 
             // lines
-            documentPage.getLines().forEach(documentLine - >
+            documentPage.getLines().forEach(documentLine ->
                 System.out.printf("Line %s is within a bounding box %s.%n",
                     documentLine.getContent(),
                     documentLine.getBoundingBox().toString()));
 
+            // words
+            documentPage.getWords().forEach(documentWord ->
+                System.out.printf("Word '%s' has a confidence score of %.2f.%n",
+                    documentWord.getContent(),
+                    documentWord.getConfidence()));
+
             // selection marks
-            documentPage.getSelectionMarks().forEach(documentSelectionMark - >
+            documentPage.getSelectionMarks().forEach(documentSelectionMark ->
                 System.out.printf("Selection mark is %s and is within a bounding box %s with confidence %.2f.%n",
                     documentSelectionMark.getState().toString(),
                     documentSelectionMark.getBoundingBox().toString(),
@@ -321,7 +321,7 @@ public class FormRecognizer {
             DocumentTable documentTable = tables.get(i);
             System.out.printf("Table %d has %d rows and %d columns.%n", i, documentTable.getRowCount(),
                 documentTable.getColumnCount());
-            documentTable.getCells().forEach(documentTableCell - > {
+            documentTable.getCells().forEach(documentTableCell -> {
                 System.out.printf("Cell '%s', has row index %d and column index %d.%n", documentTableCell.getContent(),
                     documentTableCell.getRowIndex(), documentTableCell.getColumnIndex());
             });
@@ -343,11 +343,11 @@ You are not limited to invoices—there are several prebuilt models to choose fr
 * [**prebuilt-idDocument**](../concept-id-document.md): extracts text and key information from driver licenses and international passports.
 * [**prebuilt-businessCard**](../concept-business-card.md): extracts text and key information from business cards.
 
-#### Try the prebuilt invoice sample
+#### Try the prebuilt invoice model
 
 > [!div class="checklist"]
 >
-> * You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
+> * We wll analyze an invoice using the prebuilt-invoice model. You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/sample-invoice.pdf) for this quickstart.
 > * We've added the file URL value to the `invoiceUrl` variable at the top of the file.
 > * To analyze a given file at a URI, you'll use the `beginAnalyzeDocuments` method and pass `PrebuiltModels.Invoice` as the model Id. The returned value is a `result` object containing data about the submitted document.
 > * For simplicity, all the key-value pairs that the service returns are not shown here. To see the list of all supported fields and corresponding types, see our [Invoice](../concept-invoice.md#field-extraction) concept page.
