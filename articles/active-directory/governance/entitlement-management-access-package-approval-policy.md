@@ -116,6 +116,21 @@ If you selected a multi-stage approval, you'll need to add an approver for each 
 
 1. Set the Require approver justification toggle to **Yes** or **No**.
 
+    You also have the option to add an additional stage for a three-stage approval process. For example, you might want an employee’s manager to be the first stage approver for an access package. But, one of the resources in the access package contains confidential information. In this case, you could designate the resource owner as a second approver and a security reviewer as the third approver (Preview). 
+
+1. Add the **Third Approver (Preview)**: 
+    
+    If the users are in your directory, add a specific user as the third approver by clicking **Add approvers** under Choose specific approvers.
+
+    If the users aren't in your directory, select **Internal sponsor** or **External sponsor** as the third approver. After selecting the approver, add the fallback approvers.
+
+    > [!NOTE]
+    > <ul>Like the second stage, if the users are in your directory and Manager as approver is selected in either the first or second stage of approval, you will only see an option to select specific approvers for the third stage of approval.</ul><ul>If you want to designate the manager as a third/final-stage approver, you can adjust your selections in the previous approval stages to ensure that Manager as approver isn’t selected. Then, you should see Manager as approver as an option in the dropdown.</ul><ul>If the users aren’t in your directory and you have not selected Internal sponsor or External sponsor as approvers in previous stages, you will see them as options for Third Approver. Otherwise, you will only be able to select Choose specific approvers.</ul>
+
+1. Specify the number of days the third approver (Preview) has to approve the request in the box under **Decision must be made in how many days?**.
+
+1. Set the Require approver justification toggle to **Yes** or **No**.
+
 ### Alternate approvers
 
 You can specify alternate approvers, similar to specifying the primary approvers who can approve requests on each stage. Having alternate approvers will help ensure that the requests are approved or denied before they expire (timeout). You can list alternate approvers alongside the primary approver on each stage.
