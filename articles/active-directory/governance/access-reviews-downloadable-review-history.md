@@ -4,7 +4,7 @@ description: Using Azure Active Directory access reviews, you can download a rev
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
