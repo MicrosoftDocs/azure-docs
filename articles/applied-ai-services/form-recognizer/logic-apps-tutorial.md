@@ -7,7 +7,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: forms-recognizer
 ms.topic: tutorial
-ms.date: 12/17/2021
+ms.date: 12/23/2021
 ms.author: bemabonsu
 recommendations: false
 #Customer intent: As a form-processing software developer, I want to learn how to use the Form Recognizer service with Logic Apps.
