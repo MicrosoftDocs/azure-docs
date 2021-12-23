@@ -1,6 +1,6 @@
 ---
-title: 'Quickstart: Create a private link service in Azure Private Link'
-description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
+title: 'Quickstart: Create a Private Link service in Azure Private Link'
+description: In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Private Link service.
 services: private-link
 author: asudbring
 ms.service: private-link
@@ -10,9 +10,9 @@ ms.date: 05/29/2020
 ms.author: allensu
 ---
 
-# Quickstart: Create a private link service by using an ARM template
+# Quickstart: Create a Private Link service by using an ARM template
 
-In this quickstart, you use an Azure Resource Manager template (ARM template) to create a private link service.
+In this quickstart, you use an Azure Resource Manager template (ARM template) to create a Private Link service.
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
@@ -28,7 +28,7 @@ You need an Azure account with an active subscription. [Create an account for fr
 
 ## Review the template
 
-This template creates a private link service.
+This template creates a Private Link service.
 
 The template used in this quickstart is from [Azure Quickstart Templates](https://azure.microsoft.com/resources/templates/privatelink-service/).
 
