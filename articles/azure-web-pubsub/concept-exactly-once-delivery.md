@@ -64,11 +64,11 @@ Publisher should set `ackId` to the message to get acknowledged from the service
 
 - Service response ack with `success=false` because of transient internal error. In such case, client should resend message with the same message-id.
 
-![Message Failure](./media/concept-exactly once-delivery/message-failed.png)
+![Message Failure](./media/concept-exactly-once-delivery/message-failed.png)
 
 - Service's response may be dropped because of WebSockets connection dropped. Client should wait for ack with timeout, and resend message with the same message-id after timeout. If the message has actually processed by the service, it will response ack with duplicated to achieve publisher side exactly once.
 
-![Message duplicated](./media/concept-exactly once-delivery/message-duplicated.png)
+![Message duplicated](./media/concept-exactly-once-delivery/message-duplicated.png)
 
 ### Subscriber
 
