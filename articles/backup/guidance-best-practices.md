@@ -76,7 +76,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 - **Malicious delete protection**: Protect against any accidental and malicious attempts for deleting your backups via soft delete of backups. The deleted backup data is stored for 14 days free of charge and allows it to be recovered from this state.
 
-- **Secure encrypted backups**: Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform like Azure RBAC and Encryption.
+- **Secure encrypted backups**: Azure Backup ensures your backup data is stored in a secure manner, leveraging built-in security capabilities of the Azure platform, such as Azure role-based access control (Azure RBAC) and Encryption.
 
 - **Backup data lifecycle management**: Azure Backup automatically cleans up older backup data to comply with the retention policies. You can also tier your data from operational storage to vault storage.
 
@@ -84,7 +84,7 @@ Azure Backup enables data protection for various workloads (on-premises and clou
 
 ### Management plane
 
-* **Access control**: Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an Azure RBAC boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
+* **Access control**: Vaults (Recovery Services and Backup vaults) provide the management capabilities and are accessible via the Azure portal, Backup Center, Vault dashboards, SDK, CLI, and even REST APIs. It's also an Azure role-based access control (Azure RBAC) boundary, providing you the option to restrict access to backups only to authorized Backup Admins.
 
 * **Policy management**: Azure Backup Policies within each vault define when the backups should be triggered and the duration they need to be retained. You can also manage these policies and apply them across multiple items.
 
@@ -116,7 +116,7 @@ To use a single vault or multiple vaults to organize and manage your backup, see
 
 - You can manage them with:
 
-  - Backup center allows you to have a single pane of glass to manage all tasks related to Backup. [Learn more here]().
+  - Backup center allows you to have a single pane to manage all Backup tasks. [Learn more here]().
   - If you need consistent policy across vaults, then you can use Azure Policy to propagate backup policy across multiple vaults. You can write a custom [Azure Policy definition](../governance/policy/concepts/definition-structure.md) that uses the [‘deployifnotexists’](../governance/policy/concepts/effects.md#deployifnotexists) effect to propagate a backup policy across multiple vaults. You can also [assign](../governance/policy/assign-policy-portal.md) this Azure Policy definition to a particular scope (subscription or RG), so that it deploys a 'backup policy' resource to all Recovery Services vaults in the scope of the Azure Policy assignment. The settings of the backup policy (such as backup frequency, retention, and so on) should be specified by the user as parameters in the Azure Policy assignment.
 
 * As your organizational footprint grows, you might want to move workloads across subscriptions for the following reasons: align by backup policy, consolidate vaults, trade-off on lower redundancy to save on cost (move from GRS to LRS).  Azure Backup supports moving a Recovery Services vault across Azure subscriptions, or to another resource group within the same subscription. [Learn more here](backup-azure-move-recovery-services-vault.md).
@@ -193,7 +193,7 @@ While scheduling your backup policy, consider the following points:
 
 To help you protect your backup data and meet the security needs of your business, Azure Backup provides confidentiality, integrity, and availability assurances against deliberate attacks and abuse of your valuable data and systems. Consider the following security guidelines for your Azure Backup solution:
 
-### Authentication and authorization using Azure Role-Based Access Control (Azure RBAC)
+### Authentication and authorization using Azure role-based access control (Azure RBAC)
 
 - Azure role-based access control (Azure RBAC) enables fine-grained access management, segregation of  duties within your team and granting only the amount of access to users necessary to perform their jobs. [Learn more here](backup-rbac-rs-vault.md).
 
@@ -201,11 +201,11 @@ To help you protect your backup data and meet the security needs of your busines
 
 - You can also segregate the duties by providing minimum required access to perform a particular task. For example, a person responsible for monitoring the workloads shouldn't have access to modify the backup policy or delete the backup items. Azure Backup provides three built-in roles to control backup management operations: Backup contributors, operators, and readers. Learn more here. For information about the minimum Azure role required for each backup operation for Azure VMs, SQL/SAP HANA databases, and Azure File Share, see [this guide](/azure/backup/backup-rbac-rs-vault).
 
-- [Azure Role-Based Access Control (Azure RBAC)](/azure/role-based-access-control/overview) also provides the flexibility to build [Custom Roles](/azure/role-based-access-control/custom-roles) based on your individual requirements. If you’re unsure about the types of roles recommended for specific operation, you can utilize the built-in roles provided by Azure RBAC and get started. 
+- [Azure role-based access control (Azure RBAC)](/azure/role-based-access-control/overview) also provides the flexibility to build [Custom Roles](/azure/role-based-access-control/custom-roles) based on your individual requirements. If you’re unsure about the types of roles recommended for specific operation, you can utilize the built-in roles provided by Azure role-based access control (Azure RBAC) and get started. 
 
-  The following diagram explains about how different Azure Built-in Roles work:
+  The following diagram explains about how different Azure built-in roles work:
 
-  :::image type="content" source="./media/guidance-best-practices/different-azure-built-in-roles-actions.png" alt-text="Diagram explains about how different Azure Built-in Roles work.":::
+  :::image type="content" source="./media/guidance-best-practices/different-azure-built-in-roles-actions.png" alt-text="Diagram explains about how different Azure built-in roles work.":::
 
   - In the above diagram, _User2_ and _User3_ are Backup Readers. Therefore, they have the permission to only monitor the backups and view the backup services.
 
@@ -244,7 +244,7 @@ Azure Backup provides you with the [Multi-User Authorization (MUA)](/azure/backu
 
 ### Ransomware Protection
 
-- Direct access to Azure Backup data to encrypt by malicious actor is ruled out, as all operations on backup data can only be performed through Recovery-Services vault or Backup Vault, which can be secured by Azure RBAC and MUA.
+- Direct access to Azure Backup data to encrypt by malicious actor is ruled out, as all operations on backup data can only be performed through Recovery-Services vault or Backup Vault, which can be secured by Azure role-based access control (Azure RBAC) and MUA.
 
 - By enabling soft-delete on backup data (which is enabled by default) will hold deleted data for 14 days (at free of cost). Disabling soft-delete can be protected using MUA. 
 
@@ -368,7 +368,7 @@ You can configure such critical alerts and route them to any preferred notificat
 
 #### Automatic Retry of Failed Backup Jobs
 
-Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure RBAC permissions3 or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need tp invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
+Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure role-based access control (Azure RBAC) permissions3 or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need tp invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
 You can achieve this by retrieving relevant backup data via Azure Resource Graph (ARG) and combine it with corrective PowerShell/CLI procedure. 
 
 Watch the following video to learn how to re-trigger backup for all failed jobs (across vaults, subscriptions, tenants) using ARG and PowerShell. <br><br>
