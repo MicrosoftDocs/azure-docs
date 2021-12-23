@@ -4,7 +4,7 @@ description: Learn how to use the My Access portal to approve or deny requests t
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity

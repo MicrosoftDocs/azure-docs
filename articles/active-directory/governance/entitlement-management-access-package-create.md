@@ -4,7 +4,7 @@ description: Learn how to create a new access package of resources you want to s
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
