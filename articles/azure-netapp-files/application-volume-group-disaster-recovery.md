@@ -13,7 +13,7 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 11/19/2021
+ms.date: 12/22/2021
 ms.author: anfdocs
 ---
 # Add volumes for an SAP HANA system as a DR system using cross-region replication
@@ -29,6 +29,9 @@ Instead of using HANA System Replication (HSR), you can use cross-region replica
 The following diagram illustrates cross-region replication between the source and destination HANA servers. Cross-region replication is asynchronous. As such, not all volumes need to be replicated.  
 
  ![Diagram that shows cross-region replication between the source and destination HANA servers.](../media/azure-netapp-files/application-cross-region-replication.png) 
+
+> [!NOTE]  
+> When you use an HA deployment with HSR at the primary side, you can choose to replicate not only the primary HANA system as described in this section, but also the HANA secondary system using cross-region replication. To automatically adapt the naming convention, you select both the **HSR secondary** and **Disaster recovery destination** options in the Create a Volume Group screen. The prefix will then be changed to `DR2-`. 
 
 > [!IMPORTANT]
 > * Recovering the HANA database at the destination region requires that you use application-consistent storage snapshots for your HANA backup. You can create such snapshots by using data-protection solutions such as the [Azure Application Consistent Snapshot tool](azacsnap-introduction.md) (AzAcSnap).

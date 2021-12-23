@@ -4,7 +4,7 @@ description: Learn how to share link to request an access package in Azure Activ
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
