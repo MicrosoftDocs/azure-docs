@@ -4,7 +4,7 @@ description: Learn how to allow people outside your organization to request acce
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
