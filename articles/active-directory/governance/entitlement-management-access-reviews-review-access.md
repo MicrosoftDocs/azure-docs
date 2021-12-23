@@ -4,7 +4,7 @@ description: Learn how to complete an access review of entitlement management ac
 services: active-directory
 documentationCenter: ''
 author: amsliu
-manager: KarenH444
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
