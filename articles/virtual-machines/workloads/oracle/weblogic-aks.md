@@ -47,7 +47,7 @@ _If you're interested in working closely on your migration scenarios with the en
 
 The solutions for running Oracle WebLogic Server on the Azure Kubernetes Service will enable a wide range of production-ready deployment architectures with relative ease.
 
-:::image type="content" source="media/oracle-weblogic/weblogic-architecture-aks.png" alt-text="Complex WebLogic Server deployments are enabled on AKS":::
+:::image type="content" source="media/oracle-weblogic/wls-aks-architecture.jpg" alt-text="Complex WebLogic Server deployments are enabled on AKS":::
 
 Beyond what the solutions provide customers have complete flexibility to customize their deployments further. It's likely on top of deploying applications customers will integrate further Azure resources with their deployments or tune the deployments to their specific applications. Customers are encouraged to provide feedback in the [survey](https://aka.ms/wls-on-azure-survey) on further improving the solutions.
 
