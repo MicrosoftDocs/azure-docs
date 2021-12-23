@@ -439,8 +439,6 @@
     href: analytics.md
   - name: Summary dashboard
     href: summary-dashboard.md
-  - name: Revenue dashboard
-    href: revenue-dashboard.md  
   - name: Orders dashboard
     href: orders-dashboard.md
   - name: Usage dashboard
@@ -457,6 +455,10 @@
     href: downloads-dashboard.md
   - name: Ratings and reviews dashboard
     href: ratings-reviews.md
+  - name: Revenue dashboard
+    href: revenue-dashboard.md  
+  - name: Revenue dashboard FAQ
+    href: revenue-dashboard-faq.yml  
   - name: Programmatic access to analytics
     items:
     - name: Get started
@@ -597,8 +599,6 @@
     href: marketplace-faq-publisher-guide.yml
   - name: Cloud Partner Portal migration FAQ
     href: cloud-partner-portal-migration-faq.yml
-  - name: Revenue dashboard FAQ
-    href: revenue-dashboard-faq.yml  
   - name: Business opportunity office hours
     href: https://aka.ms/marketplaceofficehours
   - name: Technical and publishing office hours
