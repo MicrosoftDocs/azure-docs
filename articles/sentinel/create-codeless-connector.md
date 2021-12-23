@@ -397,24 +397,24 @@ The `auth` section of the `[pollingConfig](#configure-your-connectors-polling-se
 
 |Name  |Type  |Description  |
 |---------|---------|---------|
-|**AccessToken** |String | Optional. <!--description--> |
-|**RefreshToken** |String | Optional. <!--description--> |
-|**TokenEndpoint** |String | Optional. <!--description--> |
-|**AuthorizationEndpoint** |String | Optional. <!--description--> |
-|**RedirectionEndpoint** |String | Optional. <!--description--> |
-| **AccessTokenExpirationDateTimeInUtc**|String | Optional. <!--description--> |
-| **RefreshTokenExpirationDateTimeInUtc**|String | Optional. <!--description--> |
-|**TokenEndpointHeaders** | String. | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
-|**AuthorizationEndpointHeaders** |String | Optional. <!--description--> |
-|**AuthorizationEndpointQueryParameters** | String | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
-|**TokenEndpointQueryParameters** | String. | Optional. <!--description--> <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
-|**IsTokenEndpointPostPayloadJson** | Boolean. | Optional. Determines whether query parameters are in JSON format. |
-| **IsClientSecretInHeader**| Boolean | Determines whether the **client_id** and **client_secret** values are defined in the header, as is done in the Basic authentication schema, instead of in the POST payload.|
-|**RefreshTokenLifetimeinSecAttributeName** |String. | Optional. Defines the attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds. <br><br>Define a string in the `{<attr_name>: <val>}`|
-|**IsJwtBearFlow** | Boolean | Optional. Determines whether you are using JWT. |
-|**JwtHeaderInJson** |String | Optional. <!--description--> <br><br>Define a string in the following syntax: `{<attr_name>: <val>}`|
-|**JwtClaimsInJson** |String | Optional. <!--description--> <br><br>Define a string in the following syntax: `{<attr_name>: <val>}`|
-|**JwtPem** |String | Optional. Defines a secret key, in PEM Pkcs8 format.|
+|**AccessToken** |String | Optional. OAuth2 access token in case access token doesn't expire. |
+|**RefreshToken** |String | Mandatory for OAuth2 auth type. OAuth2 refresh token. |
+|**TokenEndpoint** |String | Mandatory for OAuth2 auth type. OAuth2 token service endpoint. |
+|**AuthorizationEndpoint** |String | Optional. OAuth2 authorization service endpoint. Used only during onboarding or renew refresh token. |
+|**RedirectionEndpoint** |String | Optional. Redirection endpoint during onboarding. <b>Need to be provided by Sentinel RP team.</b> |
+| **AccessTokenExpirationDateTimeInUtc**|String | Optional. Access token expiration datetime in UTC in case access token doesn't expire (giving it a very large datetime in UTC in that case) or has a very large expiration datetime. |
+| **RefreshTokenExpirationDateTimeInUtc**|String | Mandatory for OAuth2 auth type. Refresh token expiration datetime in UTC |
+|**TokenEndpointHeaders** | String. | Optional. Define headers when calling OAuth2 token service endpoint. <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
+|**AuthorizationEndpointHeaders** |String | Optional. Define headers when calling OAuth2 authorization service endpoint. Used only during onboarding or renew refresh token. |
+|**AuthorizationEndpointQueryParameters** | String | Optional. Define query parameters when calling OAuth2 authorization service endpoint. Used only during onboarding or renew refresh token. <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
+|**TokenEndpointQueryParameters** | String. | Optional. Define query parameters when calling OAuth2 token service endpoint. <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
+|**IsTokenEndpointPostPayloadJson** | Boolean. | Optional, default is false. Determines whether query parameters are in JSON format and set in request POST payload. |
+| **IsClientSecretInHeader**| Boolean | Optional, default is false. Determines whether the **client_id** and **client_secret** values are defined in the header, as is done in the Basic authentication schema, instead of in the POST payload. |
+|**RefreshTokenLifetimeinSecAttributeName** |String. | Optional. Defines the attribute name from the token endpoint response, specifying the lifetime of the refresh token, in seconds. |
+|**IsJwtBearFlow** | Boolean | Optional, default is false. Determines whether you are using JWT. |
+|**JwtHeaderInJson** |String | Optional. Define JWT headers in JSON format. <br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <val>, '<attr_name>': <val>...}` |
+|**JwtClaimsInJson** |String | Optional. Define JWT claims in JSON format. <br><br>Define a string in the serialized `dictionary<string, object>` format: `{'<attr_name>': <val>, '<attr_name>': <val>}...}` |
+|**JwtPem** |String | Optional. Defines a secret key, in PEM Pkcs8 format: '-----BEGIN RSA PRIVATE KEY-----\r\n{privatekey}\r\n-----END RSA PRIVATE KEY-----\r\n'. <br><br>Note: need to keep these '\r\n's |
 | | | |
 
 
@@ -437,7 +437,7 @@ The `request` section of the `[pollingConfig](#configure-your-connectors-polling
 |**queryParameters**     |  String | Optional. Defines the parameters passed in the query in the [`eventsJsonPaths`](#eventsjsonpaths) path.  <br><br>Define the string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`       |
 |**queryParametersTemplate**     | String object | Optional. Defines the query parameters template to use when passing query parameters in advanced scenarios. <br><br>For example: `"queryParametersTemplate": "{'cid': 1234567, 'cmd': 'reporting', 'format': 'siem', 'data': { 'from': '{_QueryWindowStartTime}', 'to': '{_QueryWindowEndTime}'}, '{_APIKeyName}': '{_APIKey}'}"`      |
 |**isPostPayloadJson**     | Boolean | Optional. Determines whether the POST payload is in JSON format.  |
-|**rateLimitQPS**     |   <!--type tbd-->      |    Optional.  <!--description tbd--> |
+|**rateLimitQPS**     |   Double      | Optional. Defines number of calls/queries allowed in a second. |
 |**timeoutInSeconds**     |  Integer | Optional. Defines the request timeout, in seconds. |
 |**retryCount**     |   Integer | Optional. Defines the number of request retries to try if needed. |
 |**headers**     |  String | Optional. Defines the request header value, in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`         |
