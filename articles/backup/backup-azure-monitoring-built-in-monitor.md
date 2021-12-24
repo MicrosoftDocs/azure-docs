@@ -202,11 +202,11 @@ To configure notifications for Azure Monitor alerts, create an [alert processing
 
    :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png" alt-text="Screenshot for creating a new action rule.":::
 
-3. Select the scope for which the alert processing rule should be applied.
+1. Select the scope for which the alert processing rule should be applied.
 
    You can apply the rule for all resources within a subscription. Optionally, you can also apply filters on the alerts; for example, to only generate notifications for alerts of a certain severity.
 
-   :::image type="content" source="media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope.png" alt-text="Screenshot for setting the action rule scope.":::
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-inline.png" alt-text="Screenshot for setting the action rule scope." lightbox="./media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope-expanded.png":::
 
 1. Under **Rule Settings**, create an action group (or use an existing one).
 
