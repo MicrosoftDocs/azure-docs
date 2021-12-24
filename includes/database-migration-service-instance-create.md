@@ -34,7 +34,7 @@ ms.author: pehewitt
 
 4. On the **Create Migration Service** networking screen:
 
-    - Select an existing virtual network or create a new one. The virtual network provides Azure Database Migration Service with access to the source server and the target instance. For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](../virtual-network/quick-create-portal.md).
+    - Select an existing virtual network or create a new one. The virtual network provides Azure Database Migration Service with access to the source server and the target instance. For more information about how to create a virtual network in the Azure portal, see the article [Create a virtual network using the Azure portal](../articles/virtual-network/quick-create-portal.md).
 
     ![Configure Azure Database Migration Service instance networking settings](./media/database-migration-service-instance-create/dms-settings-2.png)
 
