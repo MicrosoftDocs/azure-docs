@@ -65,7 +65,6 @@ items:
     - name: Container image tags
       href: containers/form-recognizer-container-image-tags.md
     - name: Use container instances
-      maintainContext: true
       href: ../../cognitive-services/containers/azure-container-instance-recipe.md
   - name: Back up and recover models
     href: disaster-recovery.md

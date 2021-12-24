@@ -65,4 +65,4 @@ That's it! You're now ready to start automating data extraction using Form Recog
 
 * Try the [Form Recognizer Studio](concept-form-recognizer-studio.md), an online tool for visually exploring, understanding, and integrating features from the Form Recognizer service into your applications.
 
-* Complete a Form Recognizer [C#](try-v3-csharp-sdk.md),[Python](try-v3-python-sdk.md), [Java](try-v3-java-sdk.md), or [JavaScript](try-v3-javascript-sdk.md) quickstart and get started creating a form processing app in the development language of your choice.
+* Complete a Form Recognizer [C#](quickstarts/try-v3-csharp-sdk.md),[Python](quickstarts/try-v3-python-sdk.md), [Java](quickstarts/try-v3-java-sdk.md), or [JavaScript](quickstarts/try-v3-javascript-sdk.md) quickstart and get started creating a form processing app in the development language of your choice.
