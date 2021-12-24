@@ -190,37 +190,43 @@ For more information about Azure Monitor alerts, see [Overview of alerts in Azur
 
 ### Configuring notifications for alerts
 
-To configure notifications for Azure Monitor alerts, you must create an action rule. The following steps demonstrate how to create an action rule to send email notifications to a given email address. Similar instructions will apply for routing these alerts to other notification channels, such as ITSM, webhook, logic app and so on.
+To configure notifications for Azure Monitor alerts, create an [alert processing rule](../azure-monitor/alerts/alerts-action-rules.md). To create an alert processing rule (earlier called _action rule_) to send email notifications to a given email address, follow these steps. Also, follow these steps to routing these alerts to other notification channels, such as ITSM, webhook, logic app, and so on.
 
-1. Navigate to **Backup center** in the Azure portal. Click the **Alerts** menu item and select **Manage actions**.
+1. Go to **Backup center** in the Azure portal.
 
-    ![Screenshot for Manage Actions in Backup center](media/backup-azure-monitoring-laworkspace/backup-center-manage-actions.png) 
+1. Click **Alerts (Preview)** from the menu and select **Alert processing rules (preview)**.
 
-2. Navigate to the **Action rules (preview)** tab and click **New action rule**.
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-inline.png" alt-text="Screenshot for Manage Actions in Backup center." lightbox="./media/backup-azure-monitoring-laworkspace/backup-center-manage-alert-processing-rules-expanded.png":::
 
-    ![Screenshot for creating a new action rule](media/backup-azure-monitoring-laworkspace/azure-monitor-create-action-rule.png) 
+1. Click **Create**.
 
-3. Select the scope for which the action rule should be applied. You can apply the action rule for all resources within a subscription. Optionally, you can also apply filters on the alerts, for example, to only generate notifications for alerts of a certain severity.
+   :::image type="content" source="./media/backup-azure-monitoring-laworkspace/backup-center-create-alert-processing-rule.png" alt-text="Screenshot for creating a new action rule.":::
 
-    ![Screenshot for setting the action rule scope](media/backup-azure-monitoring-laworkspace/azure-monitor-action-rule-scope.png) 
+3. Select the scope for which the alert processing rule should be applied.
 
-4. Create an action group. An action group is the destination to which the notification for an alert should be sent, for example, an email address.
+   You can apply the rule for all resources within a subscription. Optionally, you can also apply filters on the alerts; for example, to only generate notifications for alerts of a certain severity.
+
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/alert-processing-rule-scope.png" alt-text="Screenshot for setting the action rule scope.":::
+
+1. Under **Rule Settings**, create an action group (or use an existing one).
+
+   An action group is the destination to which the notification for an alert should be sent. For example, an email address.
  
-    ![Screenshot for creating a new action group](media/backup-azure-monitoring-laworkspace/azure-monitor-create-action-group.png) 
+   :::image type="content" source="media/backup-azure-monitoring-laworkspace/create-action-group.png" alt-text="Screenshot for creating a new action group.":::
 
-5. On the **Basics** tab, select the name of the action group and the subscription and resource group under which it should be created.
+1. On the **Basics** tab, select the name of the action group, the subscription, and resource group under which it should be created.
 
     ![Screenshot for basic properties of action group](media/backup-azure-monitoring-laworkspace/azure-monitor-action-groups-basic.png) 
 
-6. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email ID.
+1. On the **Notifications** tab, select **Email/SMS message/Push/Voice** and enter the recipient email ID.
 
     ![Screenshot for setting notification properties](media/backup-azure-monitoring-laworkspace/azure-monitor-email.png) 
 
-7. Click **Review+Create** and then **Create** to deploy the action group.
+1. Click **Review+Create** and then **Create** to deploy the action group.
 
-8. Finally, save the action rule.
+8. Save the action rule.
 
-[Learn more about Action Rules in Azure Monitor](../azure-monitor/alerts/alerts-action-rules.md)
+[Learn more](../azure-monitor/alerts/alerts-action-rules.md) about Action Rules in Azure Monitor.
 
 
 ## Next steps
