@@ -192,7 +192,7 @@ Currently, secondary region [RPO](azure-backup-glossary.md#rpo-recovery-point-ob
 >- The Cross Region Restore feature restores CMK (customer-managed keys) enabled Azure VMs, which aren't backed-up in a CMK enabled Recovery Services vault, as non-CMK enabled VMs in the secondary region.
 >- The Azure roles needed to restore in the secondary region are the same as those in the primary region.
 >- While restoring an Azure VM, Azure Backup configures the virtual network settings in the secondary region automatically. If you are [restoring disks](#restore-disks) while deploying the template, ensure to provide the virtual network settings, corresponding to the secondary region.
->- If VNet/Subnet is not available in the primary region or is not configured in the secondary region, Azure portal doesn't auto-populate any default values at the time of restore operation.
+>- If VNet/Subnet is not available in the primary region or is not configured in the secondary region, Azure portal doesn't auto-populate any default values during restore operation.
 
 [Azure zone pinned VMs](../virtual-machines/windows/create-portal-availability-zone.md) can be restored in any [availability zones](../availability-zones/az-overview.md) of the same region.
 
