@@ -10,7 +10,7 @@ ms.author: v-amallick
 
 # Support matrix for automation in Azure Backup
 
-You can automate most backup related tasks using programmatic methods in Azure Backup. This article summarizes the supported automation methods by operation types.
+You  can automate most backup related tasks using programmatic methods in Azure Backup. This article provides information about various scenarios that automation clients support and the corresponding document references.
 
 ## Supported automation methods by operation types
 
@@ -136,4 +136,4 @@ You can automate most backup related tasks using programmatic methods in Azure B
 
 ## Next steps
 
-[Automation in Azure Backup](backup/automation-backup.md)
+[Automation in Azure Backup](automation-backup.md)
