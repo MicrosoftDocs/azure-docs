@@ -5,16 +5,15 @@ description: In this quickstart, your register a web API with the Microsoft iden
 services: active-directory
 author: mmacy
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/03/2020
 ms.author: marsma
-ms.custom: aaddev, contperf-fy21q1
+ms.custom: aaddev, contperf-fy21q1, mode-api
 ms.reviewer: aragra, lenalepa, sureshja
-# Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
+#Customer intent: As an application developer, I need learn to how to register my web API with the Microsoft identity platform and expose permissions (scopes) to make the API's resources available to users of my client application.
 ---
 
 # Quickstart: Configure an application to expose a web API
@@ -52,6 +51,8 @@ First, follow these steps to create an example scope named `Employees.Read.All`:
 1. You're prompted to set an **Application ID URI** if you haven't yet configured one.
 
    The App ID URI acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form `api://<application-client-id>`, or specify a more readable URI like `https://contoso.com/api`.
+   
+   More information on valid app ID URI patterns is available in the [Azure AD app manifest reference](reference-app-manifest.md).
 
 1. Next, specify the scope's attributes in the **Add a scope** pane. For this walk-through, you can use the example values or specify your own.
 

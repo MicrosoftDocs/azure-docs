@@ -2,7 +2,7 @@
 title: Create a dashboard in the Azure portal
 description: This article describes how to create and customize a dashboard in the Azure portal.
 ms.topic: how-to
-ms.date: 08/19/2021
+ms.date: 10/19/2021
 ---
 
 # Create a dashboard in the Azure portal
@@ -26,7 +26,7 @@ This example shows how to create a new private dashboard with an assigned name. 
 
     :::image type="content" source="media/azure-portal-dashboards/portal-menu-dashboard.png" alt-text="Screenshot of the Azure portal with Dashboard selected.":::
 
-1. Select **New dashboard** then **Blank dashboard**.
+1. Select **New dashboard**, then select **Blank dashboard**.
 
     :::image type="content" source="media/azure-portal-dashboards/create-new-dashboard.png" alt-text="Screenshot of the New dashboard options.":::
 

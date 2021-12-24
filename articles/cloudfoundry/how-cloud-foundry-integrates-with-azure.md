@@ -62,7 +62,7 @@ By default, a local system database (MySQL) can be used. For HA and to scale, le
 Here is the instruction of [enabling Azure MySQL/PostgreSQL for CCDB, UAADB and other system databases with Open Source Cloud Foundry](https://github.com/cloudfoundry-incubator/bosh-azure-cpi-release/tree/master/docs/advanced/configure-cf-external-databases-using-azure-mysql-postgres-service).
 
 ## 5. Open Service Broker
-Azure service broker offers consistent interface to manage application’s access to Azure services. The new [Open Service Broker for Azure project](https://github.com/Azure/open-service-broker-azure) provides a single and simple way to deliver services to applications across Cloud Foundry, OpenShift, and Kubernetes. See the [Azure Open Service Broker for PCF tile](https://pivotal.io/platform/services-marketplace/data-management/microsoft-azure) for deployment instructions on PCF.
+Azure service broker offers consistent interface to manage application’s access to Azure services. The new [Open Service Broker for Azure project](https://github.com/Azure/open-service-broker-azure) provides a single and simple way to deliver services to applications across Cloud Foundry, OpenShift, and Kubernetes. See the [Azure Open Service Broker for PCF tile](https://docs.pivotal.io/tiledev/2-2/service-brokers.html) for deployment instructions on PCF.
 
 ## 6. Metrics and Logging
 The Azure Log Analytics Nozzle is a Cloud Foundry component, that forwards metrics from the [Cloud Foundry loggregator firehose](https://docs.cloudfoundry.org/loggregator/architecture.html) to [Azure Monitor logs](https://azure.microsoft.com/services/log-analytics/). With the Nozzle, you can collect, view, and analyze your CF system health and performance metrics across multiple deployments.

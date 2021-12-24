@@ -148,7 +148,7 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 ![PRT issuance during first sign in detailed flow](./media/concept-primary-refresh-token/prt-initial-sign-in.png)
 
 > [!NOTE]
-> In Azure AD joined devices, this exchange happens synchronously to issue a PRT before the user can logon to Windows. In hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. So, the user is only waiting until they can acquire a TGT to login, while the PRT issuance happens asynchronously. This scenario does not apply to Azure AD registered devices as logon does not use Azure AD credentials.
+> In Azure AD joined devices, Azure AD PRT issuance (steps A-F) happens synchronously before the user can logon to Windows. In hybrid Azure AD joined devices, on-premises Active Directory is the primary authority. So, the user is able to login hybrid Azure AD joined Windows after they can acquire a TGT to login, while the PRT issuance happens asynchronously. This scenario does not apply to Azure AD registered devices as logon does not use Azure AD credentials.
 
 | Step | Description |
 | :---: | --- |
@@ -206,4 +206,4 @@ The following diagrams illustrate the underlying details in issuing, renewing, a
 
 ## Next steps
 
-For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md).
+For more information on troubleshooting PRT-related issues, see the article [Troubleshooting hybrid Azure Active Directory joined Windows 10 and Windows Server 2016 devices](troubleshoot-hybrid-join-windows-current.md#troubleshoot-post-join-authentication-issues).

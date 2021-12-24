@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: How to troubleshoot when you get errors running a machine learning pipeline. Common pitfalls and tips to help debug your scripts before and during remote execution.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 author: lobrien
 ms.author: laobri
-ms.date: 10/22/2020
+ms.date: 10/21/2021
 ms.topic: troubleshooting
 ms.custom: troubleshooting, devx-track-python, contperf-fy21q2
 #Customer intent: As a data scientist, I want to figure out why my pipeline doesn't run so that I can fix it.
@@ -235,10 +235,10 @@ In order to troubleshoot and debug real-time endpoints in the designer, you must
 
 ### Get logs from the authoring page
 
-When you submit a pipeline run and stay in the authoring page, you can find the log files generated for each module as each module finishes running.
+When you submit a pipeline run and stay in the authoring page, you can find the log files generated for each component as each component finishes running.
 
-1. Select a module that has finished running in the authoring canvas.
-1. In the right pane of the module, go to the  **Outputs + logs** tab.
+1. Select a component that has finished running in the authoring canvas.
+1. In the right pane of the component, go to the  **Outputs + logs** tab.
 1. Expand the right pane, and select the **70_driver_log.txt** to view the file in browser. You can also download logs locally.
 
     ![Expanded output pane in the designer](./media/how-to-debug-pipelines/designer-logs.png)
@@ -251,8 +251,8 @@ You can also find the log files for specific runs in the pipeline run detail pag
 
     ![Pipeline run page](./media/how-to-debug-pipelines/designer-pipelines.png)
 
-1. Select a module in the preview pane.
-1. In the right pane of the module, go to the  **Outputs + logs** tab.
+1. Select a component in the preview pane.
+1. In the right pane of the component, go to the  **Outputs + logs** tab.
 1. Expand the right pane to view the **70_driver_log.txt** file in browser, or select the file to download the logs locally.
 
 > [!IMPORTANT]

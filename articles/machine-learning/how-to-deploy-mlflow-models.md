@@ -8,7 +8,7 @@ ms.author: cgronlun
 ms.service: machine-learning
 ms.subservice: core
 ms.reviewer: nibaccam
-ms.date: 05/25/2021
+ms.date: 10/25/2021
 ms.topic: how-to
 ms.custom: devx-track-python
 ---

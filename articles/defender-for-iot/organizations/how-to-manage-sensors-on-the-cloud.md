@@ -1,23 +1,23 @@
 ---
-title: Manage sensors in the Defender for IoT portal
-description: Learn how to onboard, view, and manage sensors in the Defender for IoT portal.
-ms.date: 06/03/2021
+title: Manage sensors with Defender for IoT in the Azure portal
+description: Learn how to onboard, view, and manage sensors with Defender for IoT in the Azure portal.
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 
-# Manage sensors in the Defender for IoT portal
+# Manage sensors with Defender for IoT in the Azure portal
 
-This article describes how to onboard, view, and manage sensors in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+This article describes how to onboard, view, and manage sensors with [Defender for IoT in the Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 ## Onboard sensors
 
-You onboard a sensor by registering it with Azure Defender for IoT and downloading a sensor activation file.
+You onboard a sensor by registering it with Microsoft Defender for IoT and downloading a sensor activation file.
 
 ### Register the sensor
 
 **To register:**
 
-1. Go to the **Welcome** page in the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+1. Go to the [Defender for IoT: Getting started page](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) in the Azure portal.
 
 1. Select **Onboard sensor**.
 
@@ -25,7 +25,7 @@ You onboard a sensor by registering it with Azure Defender for IoT and downloadi
 
 1. Create a sensor name. 
 
-    We recommend that you include the IP address of the sensor you installed as part of the name, or use an easily identifiable name. This will ensure easier tracking and consistent naming between the registration name in the Azure [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) and the IP of the deployed sensor displayed in the sensor console.
+    We recommend that you include the IP address of the sensor you installed as part of the name, or use an easily identifiable name. This ensures easier tracking and consistent naming between the registration name in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) and the IP of the deployed sensor displayed in the sensor console.
 
 1. Associate the sensor with an Azure subscription.
 
@@ -33,13 +33,13 @@ You onboard a sensor by registering it with Azure Defender for IoT and downloadi
 
 1. Choose a sensor connection mode by using the **Cloud connected** toggle. If the toggle is on, the sensor is cloud connected. If the toggle is off, the sensor is locally managed.
 
-   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Azure Sentinel. In addition, threat intelligence packages can be pushed from the Azure Defender for IoT portal to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
+   - **Cloud-connected sensors**: Information that the sensor detects is displayed in the sensor console. Alert information is delivered through an IoT hub and can be shared with other Azure services, such as Microsoft Sentinel. In addition, threat intelligence packages can be pushed from Defender for IoT to sensors. Conversely when, the sensor is not cloud connected, you must download  threat intelligence packages and then upload them to your enterprise sensors. To allow Defender for IoT to push packages to sensors, enable the **Automatic Threat Intelligence Updates** toggle. For more information, see [Threat intelligence research and packages](how-to-work-with-threat-intelligence-packages.md).
    
    For cloud connected sensors, the name defined during onboarding is the name that appears in the sensor console. You can't change this name from the console directly. For locally managed sensors, the name applied during onboarding will be stored in Azure but can be updated in the sensor console.
 
    - **Locally managed sensors**: Information that sensors detect is displayed in the sensor console. If you're working in an air-gapped network and want a unified view of all information detected by multiple locally managed sensors, work with the on-premises management console.
 
-1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Azure Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
+1. Select a site to associate your sensor to within an IoT Hub. The IoT Hub will serve as a gateway between this sensor and Microsoft Defender for IoT. Define the display name, and zone. You can also add descriptive tags. The display name, zone, and tags are descriptive entries on the [Sites and Sensors page](#view-onboarded-sensors).
 
 1. Select **Register**. 
 
@@ -57,7 +57,9 @@ After registering a sensor you will be able to download an activation file. The 
 
 ## View onboarded sensors
 
-On the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), you can view important operational information about onboarded sensors.
+To view important operational information about onboarded sensors:
+
+1. Go to [Defender for IoT: Getting started](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started), in the Azure portal.
 
 1. Select **Sites and Sensors**. The page shows how many sensors were onboarded, the number of sensors that are cloud connected and locally managed, as well as:
 
@@ -72,7 +74,7 @@ On the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure
 
 ## Manage onboarded sensors
 
-Use the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) for management tasks related to sensors.
+Use the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started) for management tasks related to sensors.
 
 Onboarded sensors can be viewed on the **Sites and Sensors** page. You can also edit sensor information from this page.
 
@@ -108,7 +110,7 @@ If you delete a cloud-connected sensor, information won't be sent to the IoT hub
 
 You may need to reactivate your sensor because you want to:
 
-- **Work in cloud-connected mode instead of locally managed mode**: After reactivation, sensor detections are displayed in the sensor and newly detected alert information is delivered through the IoT hub. This information can be shared with other Azure services, such as Azure Sentinel.
+- **Work in cloud-connected mode instead of locally managed mode**: After reactivation, sensor detections are displayed in the sensor and newly detected alert information is delivered through the IoT hub. This information can be shared with other Azure services, such as Microsoft Sentinel.
 
 - **Work in locally managed mode instead of cloud-connected mode**: After reactivation, sensor detection information is displayed only in the sensor.
 
@@ -116,7 +118,7 @@ You may need to reactivate your sensor because you want to:
 
 **To reactivate a sensor:**
 
-1. Go to **Sites and Sensors** page on the [Defender for IoT portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
+1. Go to **Sites and Sensors** page in the [Azure portal](https://portal.azure.com/#blade/Microsoft_Azure_IoT_Defender/IoTDefenderDashboard/Getting_Started).
 
 1. Select the sensor for which you want to upload a new activation file.
 

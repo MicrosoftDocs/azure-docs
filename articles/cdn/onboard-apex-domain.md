@@ -2,20 +2,20 @@
 title: Onboard a root or apex domain to an existing Azure CDN endpoint - Azure portal
 description: Learn how to onboard a root or apex domain to an existing Azure CDN endpoint using the Azure portal.
 services: cdn
-author: asudbring
+author: duongau
 ms.service: azure-cdn
 ms.topic: how-to
 ms.date: 11/07/2020
-ms.author: allensu
+ms.author: duau
 
 ---
 # Onboard a root or apex domain to an existing Azure CDN endpoint
 
 Azure CDN uses CNAME records to validate domain ownership for onboarding of custom domains. CDN doesn't expose the frontend IP address associated with your CDN profile. You can't map your apex domain to an IP address if your intent is to onboard it to Azure CDN.
 
-The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`; you can create CNAME records for `somelabel.contoso.com`; but you can't create CNAME for `contoso.com` itself. This restriction presents a problem for application owners who have load-balanced applications behind Azure CDN. Since using a CDN profile requires creation of a CNAME record, it isn't possible to point at the CDN profile from the zone apex.
+The DNS protocol prevents the assignment of CNAME records at the zone apex. For example, if your domain is `contoso.com`; you can create CNAME records for `somelabel.contoso.com`; but you can't create a CNAME for `contoso.com` itself. This restriction presents a problem for application owners who have load-balanced applications behind Azure CDN. Since using a CDN profile requires creation of a CNAME record, it isn't possible to point at the CDN profile from the zone apex.
 
-This problem can be resolve by using alias records in Azure DNS. Unlike CNAME records, alias records are created at the zone apex. Application owners can use it to point their zone apex record to a CDN profile that has public endpoints. Application owners point to the same CDN profile that's used for any other domain within their DNS zone. For example, `contoso.com` and `www.contoso.com` can point to the same CDN profile. 
+This problem can be resolved by using alias records in Azure DNS. Unlike CNAME records, alias records are created at the zone apex. Application owners can use it to point their zone apex record to a CDN profile that has public endpoints. Application owners point to the same CDN profile that's used for any other domain within their DNS zone. For example, `contoso.com` and `www.contoso.com` can point to the same CDN profile. 
 
 Mapping your apex or root domain to your CDN profile requires CNAME flattening or DNS chasing. A mechanism where the DNS provider recursively resolves the CNAME entry until it hits an IP address. This functionality is supported by Azure DNS for CDN endpoints. 
 

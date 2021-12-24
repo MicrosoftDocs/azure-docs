@@ -4,7 +4,7 @@ description: Learn how to configure logging and connection policy used by Azure 
 author: ealsur
 ms.service: cosmos-db
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 10/04/2021
 ms.author: maquaran
 ---
 
@@ -63,7 +63,7 @@ There are two key configuration settings available to configure the client conne
 }
 ```
 
-Where `connectionMode` must have the desired connection mode (Direct or Gateway) and `protocol` the desired connection protocol (Tcp or Https). 
+Where `connectionMode` must have the desired connection mode (Direct or Gateway) and `protocol` the desired connection protocol (Tcp for Direct mode or Https for Gateway mode).
 
 If your Azure Functions project is working with Azure Functions V1 runtime, the configuration has a slight name difference, you should use `documentDB` instead of `cosmosDB`:
 

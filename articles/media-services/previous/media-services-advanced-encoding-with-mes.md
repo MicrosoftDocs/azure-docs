@@ -949,7 +949,7 @@ See the [Crop videos with Media Encoder Standard](media-services-crop-video.md) 
 
 ## <a id="no_video"></a>Insert a video track when input has no video
 
-By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/forums/169396-azure-media-services/suggestions/8082468-audio-only-scenarios)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario.
+By default, if you send an input to the encoder that contains only audio, and no video, then the output asset contains files that contain only audio data. Some players, including Azure Media Player (see [this](https://feedback.azure.com/d365community/idea/aaacdea0-0d25-ec11-b6e6-000d3a4f09d0)) may not be able to handle such streams. You can use this setting to force the encoder to add a monochrome video track to the output in that scenario.
 
 > [!NOTE]
 > Forcing the encoder to insert an output video track increases the size of the output Asset, and thereby the cost incurred for the encoding Task. You should run tests to verify that this resultant increase has only a modest impact on your monthly charges.

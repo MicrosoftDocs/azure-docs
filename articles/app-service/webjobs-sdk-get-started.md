@@ -2,7 +2,7 @@
 title: Tutorial for event-driven background processing with the WebJobs SDK
 description: Learn how to enable your web apps to run background tasks. Use this tutorial to get started with the WebJobs SDK.
 author: ggailey777
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ms.date: 06/25/2021
 ms.author: glenga
@@ -196,10 +196,6 @@ Starting with version 3 of the WebJobs SDK, to connect to Azure Storage services
     {
         var builder = new HostBuilder();
         builder.UseEnvironment(EnvironmentName.Development);
-        builder.ConfigureWebJobs(b =>
-        {
-            b.AddAzureStorageCoreServices();
-        });
         builder.ConfigureLogging((context, b) =>
         {
             b.AddConsole();

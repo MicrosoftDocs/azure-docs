@@ -53,6 +53,7 @@ In an IoT Central application you can manage the following security aspects of y
 
 - [Device connectivity](concepts-get-connected.md): Create, revoke, and update the security keys that your devices use to establish a connection to your application.
 - [App integrations](howto-authorize-rest-api.md#get-an-api-token): Create, revoke, and update the security keys that other applications use to establish secure connections with your application.
+- [Data export](howto-export-data.md#connection-options): Use managed identities to secure the connection to your data export destinations.
 - [User management](howto-manage-users-roles.md): Manage the users that can sign in to the application and the roles that determine what permissions those users have.
 - [Organizations](howto-create-organizations.md): Define a hierarchy to manage which users can see which devices in your IoT Central application.
 
@@ -102,4 +103,4 @@ You may need to [transform or do computations](howto-transform-data.md) on your 
 
 ## Next steps
 
-Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [device connectivity](concepts-get-connected.md) in Azure IoT Central.
+Now that you've learned about the architecture of Azure IoT Central, the suggested next step is to learn about [scalability and high availability](concepts-scalability-availability.md) in Azure IoT Central.

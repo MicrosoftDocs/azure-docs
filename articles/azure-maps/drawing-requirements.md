@@ -1,8 +1,8 @@
 ---
 title: Drawing package requirements in Microsoft Azure Maps Creator 
 description: Learn about the Drawing package requirements to convert your facility design files to map data
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 07/02/2021
 ms.topic: conceptual
 ms.service: azure-maps

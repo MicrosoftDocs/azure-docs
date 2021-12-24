@@ -5,12 +5,13 @@ services: automation
 ms.date: 09/07/2021
 ms.topic: quickstart
 ms.subservice: process-automation
-# Customer intent: As an administrator, I want to enable managed identities for my Automation account so that I can securely access other Azure resources.
+ms.custom: mode-ui
+#Customer intent: As an administrator, I want to enable managed identities for my Automation account so that I can securely access other Azure resources.
 ---
 
 # Quickstart: Enable managed identities for your Automation account using the Azure portal
 
-This Quickstart shows you how to enable managed identities for an Azure Automation account. For more information on how managed identities work with Azure Automation, see [Managed identities](../automation-security-overview.md#managed-identities-preview).
+This Quickstart shows you how to enable managed identities for an Azure Automation account. For more information on how managed identities work with Azure Automation, see [Managed identities](../automation-security-overview.md#managed-identities).
 
 ## Prerequisites
 
@@ -49,7 +50,6 @@ This section continues from where the last section ended.
 1. Under **User assigned managed identities**, select your existing user-assigned managed identity and then select **Add**. You'll then be returned to the **User assigned** tab.
 
    :::image type="content" source="media/enable-managed-identity/added-user-identity-portal.png" alt-text="Added user-assigned in portal.":::
-
 
 ## Clean up resources
 

@@ -114,6 +114,8 @@ items:
     items:
     - name: Transform data with mapping data flows
       items:
+      - name: Adventure Works retail example for Synapse pipelines
+        href: tutorial-data-flow-adventure-works-retail-template.md
       - name: Best practices for landing data in the lake with ADLS Gen2
         href: tutorial-data-flow-write-to-lake.md
       - name: Dynamically set column names
@@ -222,10 +224,15 @@ items:
             href: concepts-data-flow-performance-transformations.md
           - name: Using data flows in pipelines
             href: concepts-data-flow-performance-pipelines.md
+          - name: Memory optimized compute
+            href: memory-optimized-compute.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
+      - name: Flowlets
+        href: concepts-data-flow-flowlet.md
+        displayName: flowlet
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
@@ -274,6 +281,8 @@ items:
         href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
       href: continuous-integration-delivery-improvements.md
+    - name: Deploy linked ARM templates with VSTS
+      href: deploy-linked-arm-templates-with-vsts.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -580,6 +589,8 @@ items:
       href: transform-data-using-machine-learning.md
     - name: Machine Learning Studio (classic) Update Resource activity
       href: update-machine-learning-models.md
+    - name: Mapping data flows
+      href: tutorial-data-flow.md      
     - name: Stored Procedure activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services
@@ -630,6 +641,8 @@ items:
     - name: Alter row
       href: data-flow-alter-row.md
       displayName: upsert
+    - name: Assert
+      href: data-flow-assert.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Derived column
@@ -637,10 +650,15 @@ items:
     - name: Exists
       href: data-flow-exists.md
       displayName: timeout
+    - name: External call
+      href: data-flow-external-call.md
     - name: Filter
       href: data-flow-filter.md
     - name: Flatten
       href: data-flow-flatten.md
+    - name: Flowlet
+      href: data-flow-flowlet.md
+      displayName: flowlet
     - name: Join
       href: data-flow-join.md
       displayName: merge, timeout
@@ -664,6 +682,8 @@ items:
       href: data-flow-sort.md
     - name: Source
       href: data-flow-source.md
+    - name: Stringify
+      href: data-flow-stringify.md
     - name: Surrogate key
       href: data-flow-surrogate-key.md
     - name: Union
@@ -703,6 +723,8 @@ items:
     - name: Encrypt credentials for self-hosted integration runtime
       href: encrypt-credentials-self-hosted-integration-runtime.md
       displayName: self hosted
+    - name: Credentials in Data Factory
+      href: credentials.md
     - name: Managed identity for Data Factory
       href: data-factory-service-identity.md
     - name: Encrypt data factory with customer managed key
@@ -735,6 +757,10 @@ items:
         href: monitor-install-analytics.md
     - name: Monitor with SDKs
       href: monitor-programmatically.md
+    - name: Pipeline failure and error handling
+      href: tutorial-pipeline-failure-error-handling.md
+    - name: Monitor pipelines with email notifications
+      href: how-to-send-email.md
     - name: Monitor pipelines with Microsoft Teams notifications
       href: how-to-send-notifications-to-teams.md
     - name: Monitor integration runtime
@@ -810,7 +836,19 @@ items:
     - name: Schedule Azure-SSIS integration runtime
       href: how-to-schedule-azure-ssis-integration-runtime.md
     - name: Join Azure-SSIS IR to a virtual network
-      href: join-azure-ssis-integration-runtime-virtual-network.md
+      items:
+        - name: Overview      
+          href: join-azure-ssis-integration-runtime-virtual-network.md
+        - name: Virtual network configuration
+          href: azure-ssis-integration-runtime-virtual-network-configuration.md
+        - name: Express virtual network injection
+          href: azure-ssis-integration-runtime-express-virtual-network-injection.md
+        - name: Standard virtual network injection
+          href: azure-ssis-integration-runtime-standard-virtual-network-injection.md
+        - name: Using Azure Data Factory UI
+          href: join-azure-ssis-integration-runtime-virtual-network-ui.md
+        - name: Using Azure PowerShell
+          href: join-azure-ssis-integration-runtime-virtual-network-powershell.md
     - name: Configure Self-Hosted IR as a proxy for Azure-SSIS IR
       href: self-hosted-integration-runtime-proxy-ssis.md
       displayName: self hosted
@@ -865,8 +903,10 @@ items:
     - name: Discover and explore data in ADF using Purview
       href: how-to-discover-explore-purview-data.md
   - name: Scenarios
-    items:    
-    - name: Monitor pipelines with Microsoft Teams notifications
+    items: 
+    - name: Send email from a pipeline
+      href: how-to-send-email.md
+    - name: Send Microsoft Teams notifications from a pipeline
       href: how-to-send-notifications-to-teams.md
     - name: Data migration for data lake & EDW
       items:
@@ -921,6 +961,8 @@ items:
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+    - name: Call Synapse pipeline with a notebook activity
+      href: solution-template-synapse-notebook.md
   - name: Understanding pricing
     items:
     - name: Data flow reserved capacity overview
@@ -941,15 +983,55 @@ items:
       href: data-factory-troubleshoot-guide.md
       displayName: timeout
     - name: Connectors
-      href: connector-troubleshoot-guide.md
-      displayName: polybase, timeout
+      items:
+      - name: Overview and general copy activity errors
+        href: connector-troubleshoot-guide.md
+        displayName: polybase, timeout
+      - name: Azure Blob Storage
+        href: connector-troubleshoot-azure-blob-storage.md
+      - name: Azure Cosmos DB (including SQL API)
+        href: connector-troubleshoot-azure-cosmos-db.md
+      - name: Azure Data Lake (Gen1 and Gen2)
+        href: connector-troubleshoot-azure-data-lake.md
+      - name: Azure database for PostgreSQL
+        href: connector-troubleshoot-postgresql.md
+      - name: Azure files
+        href: connector-troubleshoot-azure-files.md
+      - name: Azure Synapse Analytics, Azure SQL Database, and SQL Server
+        href: connector-troubleshoot-synapse-sql.md
+      - name: Azure Table Storage
+        href: connector-troubleshoot-azure-table-storage.md
+      - name: DB2
+        href: connector-troubleshoot-db2.md
+      - name: Delimited text format
+        href: connector-troubleshoot-delimited-text.md
+      - name: Dynamics 365, Dataverse (Common Data Service), and Dynamics CRM
+        href: connector-troubleshoot-dynamics-dataverse.md
+      - name: FTP, SFTP, and HTTP
+        href: connector-troubleshoot-ftp-sftp-http.md
+      - name: Hive
+        href: connector-troubleshoot-hive.md  
+      - name: Oracle
+        href: connector-troubleshoot-oracle.md
+      - name: ORC format
+        href: connector-troubleshoot-orc.md
+      - name: Parquet format
+        href: connector-troubleshoot-parquet.md
+      - name: REST
+        href: connector-troubleshoot-rest.md
+      - name: SharePoint Online list
+        href: connector-troubleshoot-sharepoint-online-list.md
+      - name: XML format
+        href: connector-troubleshoot-xml.md
     - name: Pipeline Triggers 
       href: pipeline-trigger-troubleshoot-guide.md 
     - name: Data Flows
       items:
-      - name: Data flows overview
+      - name: Data flow troubleshooting overview
         href: data-flow-troubleshoot-guide.md
         displayName: timeout
+      - name: Data flow errors and messages
+        href: data-flow-troubleshoot-errors.md
       - name: Connector and format
         href: data-flow-troubleshoot-connector-format.md
     - name: Continuous Integration and Deployment 
@@ -1011,5 +1093,7 @@ items:
     href: https://azure.microsoft.com/global-infrastructure/services/
   - name: Support options
     href: https://azure.microsoft.com/support/options/
+  - name: Request quota increases from support
+    href: quota-increase.md
   - name: Limits
     href: ../azure-resource-manager/management/azure-subscription-service-limits.md#data-factory-limits

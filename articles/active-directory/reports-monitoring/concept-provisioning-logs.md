@@ -4,7 +4,7 @@ description: Overview of the provisioning logs in Azure Active Directory.
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: mtillman
+manager: karenhoran
 editor: ''
 
 ms.assetid: 4b18127b-d1d0-4bdc-8f9c-6a4c991c5f75
@@ -14,7 +14,7 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 4/25/2021
+ms.date: 12/20/2021
 ms.author: markvi
 ms.reviewer: arvinh
 
@@ -269,8 +269,6 @@ Here are some tips and considerations for provisioning reports:
 
 - You might see skipped events for users who are not in scope. This is expected, especially when the sync scope is set to all users and groups. The service will evaluate all the objects in the tenant, even the ones that are out of scope. 
 
-- The provisioning logs are currently unavailable in the government cloud. If you can't access the provisioning logs, use the audit logs as a temporary workaround. 
-
 - The provisioning logs don't show role imports (applies to AWS, Salesforce, and Zendesk). You can find the logs for role imports in the audit logs. 
 
 ## Error codes
@@ -298,6 +296,8 @@ Use the following table to better understand how to resolve errors that you find
 |ImportSkipped | When each user is evaluated, the system tries to import the user from the source system. This error commonly occurs when the user who's being imported is missing the matching property defined in your attribute mappings. Without a value present on the user object for the matching attribute, the system can't evaluate scoping, matching, or export changes. Note that the presence of this error does not indicate that the user is in scope, because you haven't yet evaluated scoping for the user.|
 |EntrySynchronizationSkipped | The provisioning service has successfully queried the source system and identified the user. No further action was taken on the user and they were skipped. The user might have been out of scope, or the user might have already existed in the target system with no further changes required.|
 |SystemForCrossDomainIdentityManagementMultipleEntriesInResponse| A GET request to retrieve a user or group received multiple users or groups in the response. The system expects to receive only one user or group in the response. [For example](../app-provisioning/use-scim-to-provision-users-and-groups.md#get-group), if you do a GET request to retrieve a group and provide a filter to exclude members, and your System for Cross-Domain Identity Management (SCIM) endpoint returns the members, you'll get this error.|
+|SystemForCrossDomainIdentityManagementServiceIncompatible|The Azure AD provisioning service is unable to parse the response from the third party application. Please work with the application developer to ensure that the SCIM server is compatible with the [Azure AD SCIM client](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#understand-the-aad-scim-implementation).|
+|SchemaPropertyCanOnlyAcceptValue|The property in the target system can only accept one value, but the property in the source system has multiple. Please ensure that you map a single valued attribute to the propoerty that is throwing an error, update the value in the source to be single valued, or remove the attribute from the mappings.|
 
 ## Next steps
 

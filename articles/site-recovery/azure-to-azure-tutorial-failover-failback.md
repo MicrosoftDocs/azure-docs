@@ -83,9 +83,6 @@ Before you start this tutorial, you should have:
     ![Commit progress notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-start.png)
     ![Commit success notification](./media/azure-to-azure-tutorial-failover-failback/notification-commit-finish.png)    
 
-9. Site Recovery doesn't clean up the source VM after failover. You need to do that manually.
-
-
 ## Reprotect the VM
 
 After failover, you reprotect the VM in the secondary region, so that it replicates back to the primary region. 

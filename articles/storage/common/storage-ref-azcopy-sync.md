@@ -20,15 +20,17 @@ The last modified times are used for comparison. The file is skipped if the last
 
 The supported pairs are:
 
-- local <-> Azure Blob (either SAS or OAuth authentication can be used)
+- Local <-> Azure Blob (either SAS or OAuth authentication can be used)
 - Azure Blob <-> Azure Blob (Source must include a SAS or is publicly accessible; either SAS or OAuth authentication can be used for destination)
 - Azure File <-> Azure File (Source must include a SAS or is publicly accessible; SAS authentication should be used for destination)
+- Local <-> Azure File 
+- Azure Blob <-> Azure File
 
 The sync command differs from the copy command in several ways:
 
 1. By default, the recursive flag is true and sync copies all subdirectories. Sync only copies the top-level files inside a directory if the recursive flag is false.
 2. When syncing between virtual directories, add a trailing slash to the path (refer to examples) if there's a blob with the same name as one of the virtual directories.
-3. If the `deleteDestination` flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
+3. If the `--delete-destination` flag is set to true or prompt, then sync will delete files and blobs at the destination that are not present at the source.
 
 ## Related conceptual articles
 
@@ -152,6 +154,8 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--include-pattern** string   Include only files where the name matches the pattern list. For example: `*.jpg;*.pdf;exactName`
 
+**--include-regex** string Include only the relative path of the files that align with regular expressions. Separate regular expressions with ';'.
+
 **--log-level** string     Define the log verbosity for the log file, available levels: `INFO`(all requests and responses), `WARNING`(slow responses), `ERROR`(only failed requests), and `NONE`(no output logs). (default `INFO`).
 
 **--mirror-mode**          Disable last-modified-time based comparison and overwrites the conflicting files and blobs at the destination if this flag is set to `true`. Default is `false`.
@@ -164,7 +168,7 @@ azcopy sync "https://[account].file.core.windows.net/[share]/[path/to/dir]?[SAS]
 
 **--recursive**    `True` by default, look into subdirectories recursively when syncing between directories. (default `True`).
 
-**--s2s-preserve-access-tier**  Preserve access tier during service to service copy. Refer to [Hot, cool, and archive access tiers for blob data](../blobs/access-tiers-overview.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use s2sPreserveAccessTier=false to bypass copying access tier. (default `true`).
+**--s2s-preserve-access-tier**  Preserve access tier during service to service copy. Refer to [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md) to ensure destination storage account supports setting access tier. In the cases that setting access tier is not supported, please use `--s2s-preserve-access-tier=false` to bypass copying access tier. (default `true`).
 
 **--s2s-preserve-blob-tags**      Preserve index tags during service to service sync from one blob storage to another.
 

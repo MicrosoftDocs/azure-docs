@@ -22,9 +22,7 @@ ms.custom: contperf-fy21q2, subject-rbac-steps
 
 This article covers the steps to **set up a new Azure Digital Twins instance**, including creating the instance and setting up authentication. After completing this article, you'll have an Azure Digital Twins instance ready to start programming against.
 
-This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools. Setup can also be completed by using the following alternate instructions:
-* [Set up an instance and authentication (CLI)](how-to-set-up-instance-cli.md)
-* [Set up an instance and authentication (PowerShell)](how-to-set-up-instance-powershell.md)
+This version of this article goes through these steps manually, one by one, using the Azure portal. The Azure portal is a web-based, unified console that provides an alternative to command-line tools.
 
 [!INCLUDE [digital-twins-setup-steps.md](../../includes/digital-twins-setup-steps.md)]
 
@@ -128,7 +126,7 @@ You now have an Azure Digital Twins instance ready to go, and have assigned perm
 ## Next steps
 
 Test out individual REST API calls on your instance using the Azure Digital Twins CLI commands: 
-* [az dt reference](/cli/azure/dt?view=azure-cli-latest&preserve-view=true)
+* [az dt reference](/cli/azure/dt)
 * [Azure Digital Twins CLI command set](concepts-cli.md)
 
 Or, see how to connect a client application to your instance with authentication code:

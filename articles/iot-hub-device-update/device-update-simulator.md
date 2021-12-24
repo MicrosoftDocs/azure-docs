@@ -29,78 +29,52 @@ In this tutorial you will learn how to:
 ## Prerequisites
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
-### Download and install
+## Install Device Update Agent to test it as a simulator
 
-* Az (Azure CLI) cmdlets for PowerShell:
-  * Open PowerShell > Install Azure CLI ("Y" for prompts to install from "untrusted" source)
+1. Follow the instructions to [Install the Azure IoT Edge runtime](../iot-edge/how-to-provision-single-device-linux-symmetric.md?view=iotedge-2020-11&preserve-view=true).
+   > [!NOTE]
+   > The Device Update agent doesn't depend on IoT Edge. But, it does rely on the IoT Identity Service daemon that is installed with IoT Edge (1.2.0 and higher) to obtain an identity and connect to IoT Hub.
+   >
+   > Although not covered in this tutorial, the [IoT Identity Service daemon can be installed standalone on Linux-based IoT devices](https://azure.github.io/iot-identity-service/installation.html). The sequence of installation matters. The Device Update package agent must be installed _after_ the IoT Identity Service. Otherwise, the package agent will not be registered as an authorized component to establish a connection to IoT Hub.
 
-```powershell
-PS> Install-Module Az -Scope CurrentUser
-```
+1. Then, install the Device Update agent .deb packages.
 
-### Enable WSL on your Windows device (Windows Subsystem for Linux)
+   ```bash
+   sudo apt-get install deviceupdate-agent deliveryoptimization-plugin-apt 
+   ```
+   
+1. Enter your IoT device's module (or device, depending on how you [provisioned the device with Device Update](device-update-agent-provisioning.md)) primary connection string in the configuration file by running the command below.
 
-1. Open PowerShell as Administrator on your machine and run the following command (you might be asked to restart after each step; restart when asked):
+   ```markdown
+   /etc/adu/du-config.json
+   ```
+   
+1. Set up the agent to run as a simulator. Run following command on the IoT device so that the Device Update agent will invoke the simulator handler to process an package update with APT ('microsoft/apt:1')
 
-```powershell
-PS> Enable-WindowsOptionalFeature -Online -FeatureName VirtualMachinePlatform
-PS> Enable-WindowsOptionalFeature -Online -FeatureName Microsoft-Windows-Subsystem-Linux
-```
+   ```sh
+   sudo /usr/bin/AducIotAgent --register--content-handler <full path to the handler file> --update-type <update type name>
 
-(*You may be prompted to restart after this step*)
+   # For example sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_simulator_1.so --update-type 'microsoft/apt:1'
+   ```
 
-2. Go to the Microsoft Store on the web and install [Ubuntu 18.04 LTS](https://www.microsoft.com/p/ubuntu-1804-lts/9n9tngvndl3q?activetab=pivot:overviewtab`).
+1. Restart the Device Update agent by running the command below.
 
-3. Start "Ubuntu 18.04 LTS" and install.
-
-4. When installed, you'll be asked to set root name (username) and password. Be sure to use a memorable root name password.
-
-5. In PowerShell, run the following command to set Ubuntu to be the default Linux distribution:
-
-```powershell
-PS> wsl --setdefault Ubuntu-18.04
-```
-
-6. List all Linux distributions, make sure that Ubuntu is the default one.
-
-```powershell
-PS> wsl --list
-```
-
-7. You should see: **Ubuntu-18.04 (Default)**
-
-## Download Device Update Ubuntu (18.04 x64) Simulator Reference Agent
-
-The Ubuntu reference agent can be downloaded from the *Assets* section from release notes [here](https://github.com/Azure/iot-hub-device-update/releases).
-
-There are two versions of the agent. For this tutorial, since you're exercising the image-based scenario, use AducIotAgentSim-microsoft-swupdate. If you were going to exercise the package-based scenario instead, you would use AducIotAgentSim-microsoft-apt.
-
-## Install Device Update Agent simulator
-
-1. Start Ubuntu WSL and enter the following command (note that extra space and dot at the end).
-
-  ```shell
-  explorer.exe .
-  ```
-
-2. Copy AducIotAgentSim-microsoft-swupdate (or AducIotAgentSim-microsoft-apt) from your local folder where it was downloaded under /mnt to your home folder in WSL.
-
-3. Run the following command to make the binaries executable.
-
-  ```shell
-  sudo chmod u+x AducIotAgentSim-microsoft-swupdate
-  ```
-
-  or
-
-  ```shell
-  sudo chmod u+x AducIotAgentSim-microsoft-apt
-  ```
+   ```markdown
+    sudo systemctl restart adu-agent
+   ```
+   
 Device Update for Azure IoT Hub software is subject to the following license terms:
    * [Device update for IoT Hub license](https://github.com/Azure/iot-hub-device-update/blob/main/LICENSE.md)
    * [Delivery optimization client license](https://github.com/microsoft/do-client/blob/main/LICENSE)
    
 Read the license terms prior to using the agent. Your installation and use constitutes your acceptance of these terms. If you do not agree with the license terms, do not use the Device update for IoT Hub agent.
+
+> [!NOTE] 
+> After your testing with the simulator run the below command to invoke the APT handler and [deploy over-the-air Package Updates](device-update-ubuntu-agent.md)
+
+```sh
+# sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
+```
 
 ## Add device to Azure IoT Hub
 
@@ -122,22 +96,22 @@ Start Device Update Agent on your new Software Devices.
 1. Start Ubuntu.
 2. Run the Device Update Agent and specify the device connection string from the previous section wrapped with apostrophes:
 
-Replace `<device connection string>` with your connection string
-```shell
-sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
-```
+   Replace `<device connection string>` with your connection string
+   ```shell
+   sudo ./AducIotAgentSim-microsoft-swupdate "<device connection string>"
+   ```
 
-or
+   or
 
-```shell
-./AducIotAgentSim-microsoft-apt -c '<device connection string>'
-```
+   ```shell
+   ./AducIotAgentSim-microsoft-apt -c '<device connection string>'
+   ```
 
 3. Scroll up and look for the string indicating that the device is in "Idle" state. An "Idle" state signifies that the device is ready for service commands:
 
-```markdown
-Agent running. [main]
-```
+   ```markdown
+   Agent running. [main]
+   ```
 
 ## Add a tag to your device
 
@@ -149,11 +123,11 @@ Agent running. [main]
 
 4. Add a new Device Update tag value as shown below.
 
-```JSON
-    "tags": {
-            "ADUGroup": "<CustomTagValue>"
-            }
-```
+   ```JSON
+       "tags": {
+               "ADUGroup": "<CustomTagValue>"
+               }
+   ```
 
 ## Import update
 
@@ -172,7 +146,7 @@ Agent running. [main]
 
 7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
   
-  :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
+   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 
 8. Select "Submit" to start the import process.
 
@@ -237,8 +211,26 @@ You have now completed a successful end-to-end image update using Device Update 
 
 When no longer needed, clean up your device update account, instance, IoT Hub and IoT device. 
 
+> [!NOTE] 
+> After your testing with the simulator run the below command to invoke the APT handler and [deploy over-the-air Package Updates](device-update-ubuntu-agent.md)
+
+```sh
+# sudo /usr/bin/AducIotAgent --register-content-handler /var/lib/adu/extensions/sources/libmicrosoft_apt_1.so --update-type 'microsoft/a pt:1'
+```
+
 ## Next steps
 
-> [!div class="nextstepaction"]
-> [Troubleshooting](troubleshoot-device-update.md)
+You can use the following tutorials for a simple demonstration of Device Update for IoT Hub:
+
+- [Image Update: Getting Started with Raspberry Pi 3 B+ Reference Yocto Image](device-update-raspberry-pi.md) extensible via open source to build you own images for other architecture as needed.
+	
+- [Package Update: Getting Started using Ubuntu Server 18.04 x64 Package agent](device-update-ubuntu-agent.md)
+	
+- [Proxy Update: Getting Started using Device Update binary agent for downstream devices](device-update-howto-proxy-updates.md)
+	
+- [Getting Started Using Ubuntu (18.04 x64) Simulator Reference Agent](device-update-simulator.md)
+
+- [Device Update for Azure IoT Hub tutorial for Azure-Real-Time-Operating-System](device-update-azure-real-time-operating-system.md)
+
+[Troubleshooting](troubleshoot-device-update.md)
 

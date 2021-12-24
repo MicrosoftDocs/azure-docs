@@ -48,7 +48,7 @@ To create an IoT hub and a resource group:
 In the rest of this quickstart, you'll use IoT Explorer to register a device to your IoT hub and to view the device telemetry. In this section, you configure IoT Explorer to connect to the IoT hub you just created and to read plug and play models from the public model repository. 
 
 > [!NOTE]
-> You can also use the Azure CLI to register a device. Use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* command to get the primary connection string for the device. Once you note down the device connection string, you can skip ahead to [Run a simulated device](#run-a-simulated-device).
+> You can also use the Azure CLI to register a device. Use the *[az iot hub device-identity create](/cli/azure/iot/hub/device-identity#az_iot_hub_device_identity_create) --device-id mydevice --hub-name {YourIoTHubName}* command to register a new device and the *[az iot hub device-identity connection-string show](/cli/azure/iot/hub/device-identity/connection-string#az_iot_hub_device_identity_connection_string_show) --device-id mydevice --hub-name {YourIoTHubName}* command to get the primary connection string for the device. Once you note down the device connection string, you can skip ahead to [Run the device sample](#run-the-device-sample).
 
 To add a connection to your IoT hub:
 
@@ -79,7 +79,7 @@ To add the public model repository:
 
 ### Register a device
 
-In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your simulated device in a later section.
+In this section, you create a new device instance and register it with the IoT hub you created. You'll use the connection information for the newly registered device to securely connect your device in a later section.
 
 To register a device:
 

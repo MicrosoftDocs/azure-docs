@@ -1,64 +1,58 @@
 ---
-title: Use Azure Functions to connect Azure Sentinel to your data source | Microsoft Docs
-description: Learn how to configure data connectors that use Azure Functions to get data from data sources into Azure Sentinel.
-services: sentinel
-documentationcenter: na
+title: Use Azure Functions to connect Microsoft Sentinel to your data source | Microsoft Docs
+description: Learn how to configure data connectors that use Azure Functions to get data from data sources into Microsoft Sentinel.
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 07/07/2021
+ms.date: 11/09/2021
 ms.author: yelevin
+ms.custom: ignite-fall-2021
 ---
-# Use Azure Functions to connect Azure Sentinel to your data source
 
-You can use [Azure Functions](../azure-functions/functions-overview.md), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function Apps then allow you to connect Azure Sentinel to your data source's REST API to pull in logs.
+# Use Azure Functions to connect Microsoft Sentinel to your data source
 
-This article describes how to configure Azure Sentinel for using Azure Function Apps. You may also need to configure your source system, and you can find vendor- and product-specific information links in each data connector's page in the portal, or the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
+
+You can use [Azure Functions](../azure-functions/functions-overview.md), in conjunction with various coding languages such as [PowerShell](../azure-functions/functions-reference-powershell.md) or Python, to create a serverless connector to the REST API endpoints of your compatible data sources. Azure Function Apps then allow you to connect Microsoft Sentinel to your data source's REST API to pull in logs.
+
+This article describes how to configure Microsoft Sentinel for using Azure Function Apps. You may also need to configure your source system, and you can find vendor- and product-specific information links in each data connector's page in the portal, or the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
 
 
 
 > [!NOTE]
-> - Once ingested in to Azure Sentinel, data is stored in the geographic location of the workspace in which you're running Azure Sentinel.
+> - Once ingested in to Microsoft Sentinel, data is stored in the geographic location of the workspace in which you're running Microsoft Sentinel.
 >
 >     For long term retention, you may also want to store data in Azure Data Explorer. For more information, see [Integrate Azure Data Explorer](store-logs-in-azure-data-explorer.md).
 >
-> - Using Azure Functions to ingest data into Azure Sentinel may result in additional data ingestion costs. For more information, see the [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/) page.
+> - Using Azure Functions to ingest data into Microsoft Sentinel may result in additional data ingestion costs. For more information, see the [Azure Functions pricing](https://azure.microsoft.com/pricing/details/functions/) page.
 
 ## Prerequisites
 
-Make sure that you have the following permissions and credentials before using Azure Functions to connect Azure Sentinel to your data source and pull its logs into Azure Sentinel:
+Make sure that you have the following permissions and credentials before using Azure Functions to connect Microsoft Sentinel to your data source and pull its logs into Microsoft Sentinel:
 
-- You must have read and write permissions on the Azure Sentinel workspace.
+- You must have read and write permissions on the Microsoft Sentinel workspace.
 
-- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/log-analytics-agent.md#workspace-id-and-key).
+- You must have read permissions to shared keys for the workspace. [Learn more about workspace keys](../azure-monitor/agents/agent-windows.md#workspace-id-and-key).
 
 - You must have read and write permissions on Azure Functions to create a Function App. [Learn more about Azure Functions](../azure-functions/index.yml).
 
 - You will also need credentials for accessing the product's API - either a username and password, a token, a key, or some other combination. You may also need other API information such as an endpoint URI.
 
-    For more information, see the documentation for the service you're connecting to and the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
+    For more information, see the documentation for the service you're connecting to and the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
 ## Configure and connect your data source
 
 > [!NOTE]
 > - You can securely store workspace and API authorization keys or tokens in Azure Key Vault. Azure Key Vault provides a secure mechanism to store and retrieve key values. [Follow these instructions](../app-service/app-service-key-vault-references.md) to use Azure Key Vault with an Azure Function App.
 >
-> - Some data connectors depend on a parser based on a [Kusto Function](/azure/data-explorer/kusto/query/functions/user-defined-functions) to work as expected. Seethe section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
+> - Some data connectors depend on a parser based on a [Kusto Function](/azure/data-explorer/kusto/query/functions/user-defined-functions) to work as expected. Seethe section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page for links to instructions to create the Kusto function and alias.
 
 
 ### STEP 1 - Get your source system's API credentials
 
 Follow your source system's instructions to get its **API credentials / authorization keys / tokens**. Copy and paste them into a text file for later.
 
-You can find details on the exact credentials you'll need, and links to your product's instructions for finding or creating them, on the data connector page in the portal and in the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
+You can find details on the exact credentials you'll need, and links to your product's instructions for finding or creating them, on the data connector page in the portal and in the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
 You may also need to configure logging or other settings on your source system. You'll find the relevant instructions together with those in the preceding paragraph.
 ### STEP 2 - Deploy the connector and the associated Azure Function App
@@ -69,9 +63,9 @@ You may also need to configure logging or other settings on your source system. 
 
 This method provides an automated deployment of your Azure Function-based connector using an ARM template.
 
-1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
+1. In the Microsoft Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
 
-1. Under **Configuration**, copy the Azure Sentinel **workspace ID** and **primary key** and paste them aside.
+1. Under **Configuration**, copy the Microsoft Sentinel **workspace ID** and **primary key** and paste them aside.
 
 1. Select **Deploy to Azure**. (You may have to scroll down to find the button.)
 
@@ -80,12 +74,12 @@ This method provides an automated deployment of your Azure Function-based connec
 
     - Enter your API credentials / authorization keys / tokens that you saved in [Step 1](#step-1---get-your-source-systems-api-credentials) above.
 
-    - Enter your Azure Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
+    - Enter your Microsoft Sentinel **Workspace ID** and **Workspace Key** (primary key) that you copied and put aside.
 
         > [!NOTE]
         > If using Azure Key Vault secrets for any of the values above, use the `@Microsoft.KeyVault(SecretUri={Security Identifier})` schema in place of the string values. Refer to Key Vault references documentation for further details.
 
-    - Complete any other fields in the form on the **Custom deployment** screen. See your data connector page in the portal or the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
+    - Complete any other fields in the form on the **Custom deployment** screen. See your data connector page in the portal or the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
     - Select **Review + create**. When the validation completes, select **Create**.
 
@@ -93,9 +87,9 @@ This method provides an automated deployment of your Azure Function-based connec
 
 Use the following step-by-step instructions to manually deploy Azure Functions-based connectors that use PowerShell functions.
 
-1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
+1. In the Microsoft Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
 
-1. Under **Configuration**, copy the Azure Sentinel **workspace ID** and **primary key** and paste them aside.
+1. Under **Configuration**, copy the Microsoft Sentinel **workspace ID** and **primary key** and paste them aside.
 
 1. **Create a Function App**
     1. From the Azure portal, search for and select **Function App**.
@@ -130,7 +124,7 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
 
     1. When the function has been created, select **Code + Test** on the left pane.
 
-    1. Download the Function App Code supplied by your source system's vendor and copy and paste it into the **Function App** *run.ps1* editor, replacing what's there by default. You can find the download link on the connector page or in the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
+    1. Download the Function App Code supplied by your source system's vendor and copy and paste it into the **Function App** *run.ps1* editor, replacing what's there by default. You can find the download link on the connector page or in the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
     1. Select **Save**.
 
@@ -139,7 +133,7 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
 
     1. In the **Application settings** tab, select **+ New application setting**.
 
-    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See the data connector page or your product's section of the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
+    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See the data connector page or your product's section of the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
         > [!TIP]
         > If applicable, use the *logAnalyticsUri* application setting to override the log analytics API endpoint if you're using a dedicated cloud. So, for example, if you're using the public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
@@ -149,16 +143,16 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
 
 Use the following step-by-step instructions to manually deploy Azure Functions-based connectors that use Python functions. This kind of deployment requires Visual Studio Code.
 
-1. In the Azure Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
+1. In the Microsoft Sentinel portal, select **Data connectors**. Select your Azure Functions-based connector from the list, and then **Open connector page**.
 
-1. Under **Configuration**, copy the Azure Sentinel **workspace ID** and **primary key** and paste them aside.
+1. Under **Configuration**, copy the Microsoft Sentinel **workspace ID** and **primary key** and paste them aside.
 
 1. **Deploy a Function App**
 
     > [!NOTE]
     > You will need to [prepare Visual Studio Code](../azure-functions/create-first-function-vs-code-python.md) (VS Code) for Azure Function development.
 
-    1. Download the Azure Function App file using the link supplied on the data connector page and in the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page. Extract the archive to your local development computer.
+    1. Download the Azure Function App file using the link supplied on the data connector page and in the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page. Extract the archive to your local development computer.
 
     1. Start VS Code. From the menu bar, select **File > Open Folder...**.
 
@@ -186,7 +180,7 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
 
     1. In the **Application settings** tab, select **+ New application setting**.
 
-    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See the data connector page or the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page for the application settings to add.
+    1. Add the prescribed application settings for your product individually, with their respective case-sensitive string values. See the data connector page or the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page for the application settings to add.
 
         - If applicable, use the *logAnalyticsUri* application setting to override the log analytics API endpoint if you're using a dedicated cloud. So, for example, if you're using the public cloud, leave the value empty; for Azure GovUS cloud environment, specify the value in the following format: `https://<CustomerId>.ods.opinsights.azure.us`.
 
@@ -194,7 +188,7 @@ Use the following step-by-step instructions to manually deploy Azure Functions-b
 
 ## Find your data
 
-After a successful connection is established, the data appears in **Logs** under *CustomLogs*, in the tables listed in the section for your service in the [Azure Sentinel data connectors reference](data-connectors-reference.md) page.
+After a successful connection is established, the data appears in **Logs** under *CustomLogs*, in the tables listed in the section for your service in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.
 
 To query data, enter one of those table names - or the relevant Kusto function alias - in the query window.
 
@@ -206,8 +200,8 @@ It may take up to 20 minutes until your logs start to appear in Log Analytics.
 
 ## Next steps
 
-In this document, you learned how to connect Azure Sentinel to your data source using Azure Functions-based connectors. To learn more about Azure Sentinel, see the following articles:
+In this document, you learned how to connect Microsoft Sentinel to your data source using Azure Functions-based connectors. To learn more about Microsoft Sentinel, see the following articles:
 
 - Learn how to [get visibility into your data and potential threats](./get-visibility.md).
-- Get started [detecting threats with Azure Sentinel](./detect-threats-built-in.md).
+- Get started [detecting threats with Microsoft Sentinel](./detect-threats-built-in.md).
 - [Use workbooks](./monitor-your-data.md) to monitor your data.

@@ -6,14 +6,14 @@ ms.service: virtual-machines
 ms.subservice: maintenance
 ms.workload: infrastructure
 ms.topic: how-to
-ms.date: 07/29/2021
+ms.date: 10/20/2021
 ms.author: manayar
 ms.custom: devx-track-azurepowershell
 
 ---
-# Preview: Automatic VM guest patching for Azure VMs
+# Automatic VM guest patching for Azure VMs
 
-**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets
 
 Enabling automatic VM guest patching for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
 
@@ -23,11 +23,6 @@ Automatic VM guest patching has the following characteristics:
 - Patch orchestration is managed by Azure and patches are applied following [availability-first principles](#availability-first-updates).
 - Virtual machine health, as determined through platform health signals, is monitored to detect patching failures.
 - Works for all VM sizes.
-
-> [!IMPORTANT]
-> Automatic VM guest patching is currently in Public Preview.
-> This preview version is provided without a service level agreement, and is not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
-> For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## How does automatic VM guest patching work?
 
@@ -73,7 +68,7 @@ For OS types that release patches on a fixed cadence, VMs configured to the publ
 As a new rollout is triggered every month, a VM will receive at least one patch rollout every month if the VM is powered on during off-peak hours. This process ensures that the VM is patched with the latest available security and critical patches on a monthly basis. To ensure consistency in the set of patches installed, you can configure your VMs to assess and download patches from your own private repositories.
 
 ## Supported OS images
-Only VMs created from certain OS platform images are currently supported in the preview. Custom images are currently not supported in the preview.
+Only VMs created from certain OS platform images are currently supported. Custom images are currently not supported.
 
 The following platform SKUs are currently supported (and more are added periodically):
 
@@ -86,8 +81,8 @@ The following platform SKUs are currently supported (and more are added periodic
 | Redhat  | RHEL | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7.8, 7_9, 7-RAW, 7-LVM |
 | Redhat  | RHEL | 8, 8.1, 8.2, 8_3, 8_4, 8-LVM |
 | Redhat  | RHEL-RAW | 8-raw |
-| OpenLogic  | Centos | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
-| OpenLogic  | Centos | 8.0, 8_1, 8_2, 8_3, 8-lvm |
+| OpenLogic  | CentOS | 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 7_8, 7_9, 7-LVM |
+| OpenLogic  | CentOS | 8.0, 8_1, 8_2, 8_3, 8-lvm |
 | SUSE  | sles-12-sp5 | gen1, gen2 |
 | SUSE  | sles-15-sp2 | gen1, gen2 |
 | MicrosoftWindowsServer  | WindowsServer | 2008-R2-SP1 |
@@ -227,7 +222,7 @@ It can take more than three hours to enable automatic VM guest updates on a VM, 
 Automatic updates are disabled in most scenarios, and patch installation is done through the extension going forward. The following conditions apply.
 - If a Windows VM previously had Automatic Windows Update turned on through the AutomaticByOS patch mode, then Automatic Windows Update is turned off for the VM when the extension is installed.
 - For Ubuntu VMs, the default automatic updates are disabled automatically when Automatic VM Guest Patching completes enablement.
-- For RHEL, automatic updates need to be manually disabled in the preview. Execute:
+- For RHEL, automatic updates need to be manually disabled. Execute:
 
 ```
 systemctl stop packagekit
