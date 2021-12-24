@@ -1,41 +1,34 @@
 ---
-title: Remove Azure Sentinel | Microsoft Docs
-description:  How to delete your Azure Sentinel instance.
-services: sentinel
-documentationcenter: na
+title: Remove Microsoft Sentinel | Microsoft Docs
+description: How to delete your Microsoft Sentinel instance.
 author: yelevin
-manager: rkarlin
-editor: ''
-
-ms.service: azure-sentinel
-ms.subservice: azure-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/16/2020
+ms.date: 11/09/2021
 ms.author: yelevin
-
+ms.custom: ignite-fall-2021
 ---
-# Remove Azure Sentinel from your workspace
 
-If you no longer want to use Azure Sentinel, this article explains how to remove it from your workspace.
+# Remove Microsoft Sentinel from your workspace
 
-## How to remove Azure Sentinel
+[!INCLUDE [Banner for top of topics](./includes/banner.md)]
 
-Follow this process to remove Azure Sentinel from your workspace:
+If you no longer want to use Microsoft Sentinel, this article explains how to remove it from your workspace.
 
-1. Go to **Azure Sentinel**, followed by **Settings**, and select the tab **Remove Azure Sentinel**.
+## How to remove Microsoft Sentinel
 
-1. Before you remove Azure Sentinel, please use the checkboxes to let us know why you're removing it.
+Follow this process to remove Microsoft Sentinel from your workspace:
 
-1. Select **Remove Azure Sentinel from your workspace**.
+1. Go to **Microsoft Sentinel**, followed by **Settings**, and select the tab **Remove Microsoft Sentinel**.
+
+1. Before you remove Microsoft Sentinel, please use the checkboxes to let us know why you're removing it.
+
+1. Select **Remove Microsoft Sentinel from your workspace**.
     
     ![Delete the SecurityInsights solution](media/offboard/delete-solution.png)
 
 ## What happens behind the scenes?
 
-When you remove the solution, Azure Sentinel takes up to 48 hours to complete the first phase of the deletion process.
+When you remove the solution, Microsoft Sentinel takes up to 48 hours to complete the first phase of the deletion process.
 
 After the disconnection is identified, the offboarding process begins.
 
@@ -44,15 +37,15 @@ After the disconnection is identified, the offboarding process begins.
 
 -   AWS
 
--   Microsoft services security alerts: Microsoft Defender for Identity (*formerly Azure ATP*), Microsoft Cloud App Security including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint (*formerly Microsoft Defender ATP*), Azure Defender alerts from Azure Security Center
+-   Microsoft services security alerts: Microsoft Defender for Identity (*formerly Azure ATP*), Microsoft Defender for Cloud Apps including Cloud Discovery Shadow IT reporting, Azure AD Identity Protection, Microsoft Defender for Endpoint (*formerly Microsoft Defender ATP*), security alerts from Microsoft Defender for Cloud
 
 -   Threat Intelligence
 
--   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you get Azure Defender alerts from Azure Security Center, these logs will continue to be collected.)
+-   Common security logs (including CEF-based logs, Barracuda, and Syslog) (If you get security alerts from Microsoft Defender for Cloud, these logs will continue to be collected.)
 
--   Windows Security Events (If you get Azure Defender alerts from Azure Security Center, these logs will continue to be collected.)
+-   Windows Security Events (If you get security alerts from Microsoft Defender for Cloud, these logs will continue to be collected.)
 
-Within the first 48 hours, the data and analytic rules (including real-time automation configuration) will no longer be accessible or queryable in Azure Sentinel.
+Within the first 48 hours, the data and analytic rules (including real-time automation configuration) will no longer be accessible or queryable in Microsoft Sentinel.
 
 **After 30 days these resources are removed:**
 
@@ -67,11 +60,11 @@ Your playbooks, saved workbooks, saved hunting queries, and notebooks are not re
 After you remove the service, there is a grace period of 30 days during which you can re-enable the solution and your data and analytic rules will be restored but the configured connectors that were disconnected must be reconnected.
 
 > [!NOTE]
-> If you remove the solution, your subscription will continue to be registered with the Azure Sentinel resource provider. **You can remove it manually.**
+> If you remove the solution, your subscription will continue to be registered with the Microsoft Sentinel resource provider. **You can remove it manually.**
 
 
 
 
 ## Next steps
-In this document, you learned how to remove the Azure Sentinel service. If you change your mind and want to install it again:
-- Get started [on-boarding Azure Sentinel](quickstart-onboard.md).
+In this document, you learned how to remove the Microsoft Sentinel service. If you change your mind and want to install it again:
+- Get started [on-boarding Microsoft Sentinel](quickstart-onboard.md).

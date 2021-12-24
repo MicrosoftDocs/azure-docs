@@ -2,7 +2,7 @@
 title: Deploy resources to tenant
 description: Describes how to deploy resources at the tenant scope in an Azure Resource Manager template.
 ms.topic: conceptual
-ms.date: 09/14/2021
+ms.date: 11/22/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
@@ -33,8 +33,10 @@ For creating subscriptions, use:
 For managing costs, use:
 
 * [billingProfiles](/azure/templates/microsoft.billing/billingaccounts/billingprofiles)
+* [billingRoleAssignments](/azure/templates/microsoft.billing/billingaccounts/billingroleassignments)
 * [instructions](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/instructions)
 * [invoiceSections](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/invoicesections)
+* [policies](/azure/templates/microsoft.billing/billingaccounts/billingprofiles/policies)
 
 For configuring the portal, use:
 

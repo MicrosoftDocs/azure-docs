@@ -214,7 +214,7 @@ To troubleshoot this issue:
 
 For more information, see the following articles:
 
-* [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+* [Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md)
 * [About Point-to-Site VPN routing](../vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
 
 ## Troubleshoot a virtual network peering configuration error message 

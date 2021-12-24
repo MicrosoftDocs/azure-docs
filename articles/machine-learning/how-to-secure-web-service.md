@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to enable HTTPS with TLS version 1.2 to secure a web service that's deployed through Azure Machine Learning.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: jhirono
 author: jhirono
-ms.date: 07/07/2021
+ms.date: 10/21/2021
 ms.topic: how-to
 
 ---
@@ -108,9 +108,6 @@ You can enable TLS either with Microsoft certificate or a custom certificate pur
     ```
     > [!IMPORTANT]
     > When you use a certificate from Microsoft, you don't need to purchase your own certificate or domain name.
-
-    > [!WARNING]
-    > If your AKS cluster is configured with an internal load balancer, using a Microsoft provided certificate is __not supported__ and you must use custom certificate to enable TLS.
 
 * **When you use a custom certificate that you purchased**, you use the *ssl_cert_pem_file*, *ssl_key_pem_file*, and *ssl_cname* parameters. The following example demonstrates how to use .pem files to create a configuration that uses a TLS/SSL certificate that you purchased:
  

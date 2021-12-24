@@ -4,8 +4,8 @@ titleSuffix: Azure Machine Learning
 description: Monitor managed online endpoints and create alerts with Application Insights.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.date: 05/03/2021
+ms.subservice: mlops
+ms.date: 10/21/2021
 ms.topic: conceptual
 ms.custom: how-to, devplatv2
 ---
@@ -14,7 +14,7 @@ ms.custom: how-to, devplatv2
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
-In this article, you learn how to monitor[ Azure Machine Learning managed online endpoints (preview)](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
+In this article, you learn how to monitor [Azure Machine Learning managed online endpoints (preview)](concept-endpoints.md). Use Application Insights to view metrics and create alerts to stay up to date with your managed online endpoints.
 
 In this article you learn how to:
 
@@ -49,6 +49,14 @@ Depending on the resource that you select, the metrics that you see will be diff
 - Request Latency P90 (Request latency at the 90th percentile)
 - Request Latency P95 (Request latency at the 95th percentile)
 - Requests per minute
+- New connections per second
+- Active connection count
+- Network bytes
+
+> [!NOTE]
+> Bandwidth will be throttled if the limits are exceeded (see managed online endpoints section in [Manage and increase quotas for resources with Azure Machine Learning](how-to-manage-quotas.md#azure-machine-learning-managed-online-endpoints-preview)). To determine if requests are throttled:
+> - Monitor the "Network bytes" metric
+> - The response headers will have the fields: `ms-azureml-bandwidth-request-delay-ms` and `ms-azureml-bandwidth-response-delay-ms`. The values of the fields are the delays, in milliseconds, of the bandwidth throttling.
 
 Split on the following dimensions:
 
@@ -58,14 +66,14 @@ Split on the following dimensions:
 
 ### Metrics at deployment scope
 
-- CPU Utilization
+- CPU Utilization Percentage
 - Deployment Capacity (the number of instances of the requested instance type)
 - Disk Utilization
 - GPU Memory Utilization (only applicable to GPU instances)
 - GPU Utilization (only applicable to GPU instances)
-- Memory Utilization
+- Memory Utilization Percentage
 
-Slit on the following dimension:
+Split on the following dimension:
 
 - InstanceId
 

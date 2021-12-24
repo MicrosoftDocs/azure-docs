@@ -3,7 +3,7 @@ title: Author graphical runbooks in Azure Automation
 description: This article tells how to author a graphical runbook without working with code.
 services: automation
 ms.subservice: process-automation
-ms.date: 03/16/2018
+ms.date: 10/21/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
@@ -13,6 +13,10 @@ ms.custom: devx-track-azurepowershell
 All runbooks in Azure Automation are Windows PowerShell workflows. Graphical runbooks and graphical PowerShell Workflow runbooks generate PowerShell code that the Automation workers run but that you cannot view or modify. You can convert a graphical runbook to a graphical PowerShell Workflow runbook, and vice versa. However, you can't convert these runbooks to a textual runbook. Additionally, the Automation graphical editor can't import a textual runbook.
 
 Graphical authoring allows you to create runbooks for Azure Automation without the complexities of the underlying Windows PowerShell or PowerShell Workflow code. You can add activities to the canvas from a library of cmdlets and runbooks, link them together, and configure them to form a workflow. If you have ever worked with System Center Orchestrator or Service Management Automation (SMA), graphical authoring should look familiar. This article provides an introduction to the concepts you need to get started creating a graphical runbook.
+
+> [!NOTE]
+> You can't add a digital signature to a Graphical runbook. This feature is not supported in Azure Automation.
+>
 
 ## Overview of graphical editor
 

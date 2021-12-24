@@ -91,7 +91,7 @@ As a general rule, if you're using multiple Azure services, choose a region that
 
   :::image type="content" source="media/search-create-service-portal/region-availability.png" alt-text="Regional availability" border="true":::
 
-+ Business continuity and disaster recovery (BCDR) requirements should be met by creating multiple search services in [regional pairs](../best-practices-availability-paired-regions.md#azure-regional-pairs). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
++ Business continuity and disaster recovery (BCDR) requirements should be met by creating multiple search services in [regional pairs](../availability-zones/cross-region-replication-azure.md#azure-cross-region-replication-pairings-for-all-geographies). For example, if you are operating in North America, you might choose East US and West US, or North Central US and South Centra US, for each search service.
 
 Features that have limited availability based on regions are listed below. Supported regions are listed in the feature article: 
 
@@ -102,6 +102,8 @@ Features that have limited availability based on regions are listed below. Suppo
 Azure Cognitive Search is currently offered in [multiple pricing tiers](https://azure.microsoft.com/pricing/details/search/): Free, Basic, Standard, or Storage Optimized. Each tier has its own [capacity and limits](search-limits-quotas-capacity.md). Also the tier you select may impact the availability of certain features. See [Feature availability by tier](search-sku-tier.md#feature-availability-by-tier) for guidance.
 
 Basic and Standard are the most common choices for production workloads, but initially many customers start with the Free service for evaluation purposes. Among the billable tiers, key differences are partition size and speed, and limits on the number of objects you can create.
+
+:::image type="content" source="media/search-create-service-portal/select-pricing-tier.png" alt-text="Screenshot of Select a pricing tier page" border="true":::
 
 Remember, a pricing tier cannot be changed once the service is created. If you need a higher or lower tier, you will have to re-create the service.
 
@@ -155,7 +157,7 @@ Most customers use just one service provisioned at a tier providing the [right b
 
 Although most customers use just one service, service redundancy might be necessary if operational requirements include the following:
 
-+ [Business continuity and disaster recovery (BCDR)](../best-practices-availability-paired-regions.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
++ [Business continuity and disaster recovery (BCDR)](../availability-zones/cross-region-replication-azure.md). Azure Cognitive Search does not provide instant failover in the event of an outage.
 
 + [Multi-tenant architectures](search-modeling-multitenant-saas-applications.md) sometimes call for two or more services.
 

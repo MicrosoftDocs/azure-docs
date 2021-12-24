@@ -19,6 +19,10 @@ ms.author: mbaldwin
 
 Here's what's new with Azure Key Vault. New features and improvements are also announced on the [Azure updates Key Vault channel](https://azure.microsoft.com/updates/?category=security&query=Key%20vault).
 
+## November 2021
+
+- Automated key rotation in Key Vault is in preview. For more information, see [Configure key auto-rotation in Key Vault](../keys/how-to-configure-key-rotation.md)
+
 ## October 2020
 
 > [!WARNING]

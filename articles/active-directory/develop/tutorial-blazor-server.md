@@ -41,7 +41,7 @@ Under **Manage**, select **Authentication** > **Implicit grant and hybrid flows*
 
 Finally, because the app calls a protected API (in this case Microsoft Graph), it needs a client secret in order to verify its identity when it requests an access token to call that API.
 
-1. Within the same app registration, under **Manage**, select **Certificates & secrets**.
+1. Within the same app registration, under **Manage**, select **Certificates & secrets** and then **Client secrets**.
 2. Create a **New client secret** that never expires.
 3. Make note of the secret's **Value** as you will use it in the next step. You can’t access it again once you navigate away from this pane. However, you can recreate it as needed.
 

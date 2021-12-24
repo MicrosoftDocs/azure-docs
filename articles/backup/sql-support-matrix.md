@@ -2,7 +2,7 @@
 title: Azure Backup support matrix for SQL Server Backup in Azure VMs 
 description: Provides a summary of support settings and limitations when backing up SQL Server in Azure VMs with the Azure Backup service.
 ms.topic: conceptual
-ms.date: 08/20/2021
+ms.date: 10/22/2021
 ms.custom: references_regions 
 ---
 
@@ -19,7 +19,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 **Supported operating systems** | Windows Server 2019, Windows Server 2016, Windows Server 2012, Windows Server 2008 R2 SP1 <br/><br/> Linux isn't currently supported.
 **Supported SQL Server versions** | SQL Server 2019, SQL Server 2017 as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202017), SQL Server 2016 and SPs as detailed on the [Search product lifecycle page](https://support.microsoft.com/lifecycle/search?alpha=SQL%20server%202016%20service%20pack), SQL Server 2014, SQL Server 2012, SQL Server 2008 R2, SQL Server 2008 <br/><br/> Enterprise, Standard, Web, Developer, Express.<br><br>Express Local DB versions aren't supported.
 **Supported .NET versions** | .NET Framework 4.5.2 or later installed on the VM
-**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances are always on [availability groups](backup-sql-server-on-availability-groups.md).
+**Supported deployments** | SQL Marketplace Azure VMs and non-Marketplace (SQL Server that is manually installed) VMs are supported. Support for standalone instances is always on [availability groups](backup-sql-server-on-availability-groups.md).
 
 ## Feature considerations and limitations
 
@@ -28,6 +28,7 @@ You can use Azure Backup to back up SQL Server databases in Azure VMs hosted on 
 |Number of databases that can be protected in a server (and in a vault)    |   2000      |
 |Database size supported (beyond this, performance issues may come up)   |   6 TB*      |
 |Number of files supported in a database    |   1000      |
+|Number of full backups supported per day    |    One scheduled backup. <br><br> Three on-demand backups. <br><br> We recommend not to trigger more than three backups per day. However, to allow user retries in case of failed attempts, hard limit for on-demand backups is set to nine attempts. |
 
 _*The database size limit depends on the data transfer rate that we support and the backup time limit configuration. It’s not the hard limit. [Learn more](#backup-throughput-performance) on backup throughput performance._
 
@@ -36,8 +37,8 @@ _*The database size limit depends on the data transfer rate that we support and 
 * All backup types (full/differential/log) and recovery models (simple/full/bulk logged) are supported.
 * For **read-only** databases: full and copy-only full backups are the only supported backup types.
 * SQL native compression is supported if explicitly enabled by the user in the backup policy. Azure Backup overrides instance-level defaults with the COMPRESSION / NO_COMPRESSION clause, depending on the value of this control as set by the user.
-* TDE - enabled database backup is supported. To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). Backup compression for TDE-enabled databases for SQL Server 2016 and newer versions is available, but at lower transfer size as explained [here](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
-* Backup and restore operations for mirror databases and database snapshots aren't supported.
+* TDE - enabled database backup is supported. To restore a TDE-encrypted database to another SQL Server, you need to first [restore the certificate to the destination server](/sql/relational-databases/security/encryption/move-a-tde-protected-database-to-another-sql-server). The backup compression for TDE-enabled databases for SQL Server 2016 and newer versions is available, but at lower transfer size as explained [here](https://techcommunity.microsoft.com/t5/sql-server/backup-compression-for-tde-enabled-databases-important-fixes-in/ba-p/385593).
+* The backup and restore operations for mirror databases and database snapshots aren't supported.
 * SQL Server **Failover Cluster Instance (FCI)** isn't supported.
 
 ## Backup throughput performance

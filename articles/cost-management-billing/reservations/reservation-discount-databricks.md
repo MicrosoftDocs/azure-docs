@@ -1,8 +1,8 @@
 ---
 title: How an Azure Databricks pre-purchase discount is applied
 description: Learn how an Azure Databricks pre-purchase discount applies to your usage. You can use these Databricks at any time during the purchase term.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
@@ -24,11 +24,14 @@ Databricks pre-purchase applies to all Databricks workloads and tiers. You can t
 
 | **Workload** | **DBU application ratio — Standard tier** | **DBU application ratio — Premium tier** |
 | --- | --- | --- |
-| Data Analytics | 0.4 | 0.55 |
-| Data Engineering | 0.15 | 0.30 |
-| Data Engineering Light | 0.07 | 0.22 |
+| All Purpose Compute | 0.4 | 0.55 |
+| Jobs Compute | 0.15 | 0.30 |
+| Jobs Light Compute | 0.07 | 0.22 |
+| SQL Compute | NA | 0.22 |
 
-For example, when a quantity of Data Analytics – Standard tier is consumed, the pre-purchased Databricks commit units is deducted by 0.4 units. When a quantity of Data Engineering Light – Standard tier is used, the pre-purchased Databricks commit unit is deducted by 0.07 units
+For example, when a quantity of Data Analytics – Standard tier is consumed, the pre-purchased Databricks commit units is deducted by 0.4 units. When a quantity of Data Engineering Light – Standard tier is used, the pre-purchased Databricks commit unit is deducted by 0.07 units.
+
+Note: enabling Photon will increase the DBU count. 
 
 ## Determine plan use
 

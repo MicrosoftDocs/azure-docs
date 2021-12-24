@@ -1,8 +1,8 @@
 ---
 title: Create a scan rule set
 description: Create a scan rule set in Azure Purview to quickly scan data sources in your organization.
-author: chandrakavya
-ms.author: kchandra
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
@@ -55,7 +55,7 @@ To create a scan rule set:
 
 1. Select **Create** to finish creating the scan rule set.
 
-### Create a custom file type
+## Create a custom file type
 
 Azure Purview supports adding a custom extension and defining a custom column delimiter in a scan rule set.
 
@@ -86,6 +86,26 @@ To create a custom file type:
 1. Select **Edit** in the new file type tile if you want to change or delete it.
 
 1. Select **Continue** to finish configuring the scan rule set.
+
+## Ignore patterns
+
+Azure Purview supports defining regular expressions (regex) to exclude assets during scanning. During scanning, Azure Purview will compare the asset's URL against these regular expressions. All assets matching any of the regexes mentioned will be ignored while scanning.
+
+The **Ignore patterns** blade pre-populates one regex for spark transaction files. You can remove the pre-existing pattern if it is not required. You can define up to 10 ignore patterns.
+
+:::image type="content" source="./media/create-a-scan-rule-set/ignore-patterns-blade.png" alt-text="Screenshot showing the ignore patterns blade with four defined regular expressions. The first is the pre-populated spark transaction regex, the second is \\.txt$, the third is \\.csv$, and finally .folderB/.*.":::
+
+In the above example:
+
+- Regexes 2 and 3 ignore all files ending with .txt and .csv during scanning.
+- Regex 4 ignores /folderB/ and all its contents during scanning.
+
+Here are some more tips you can use to ignore patterns:
+
+- While processing the regex, Azure Purview will add $ to the regex by default.
+- A good way to understand what url the scanning agent will compare with your regular expression is to browse through the Purview data catalog, find the asset you want to ignore in the future, and see its fully qualified name (FQN) in the **Overview** tab.
+
+   :::image type="content" source="./media/create-a-scan-rule-set/fully-qualified-name.png" alt-text="Screenshot showing the fully qualified name on an asset's overview tab.":::
 
 ## System scan rule sets
 

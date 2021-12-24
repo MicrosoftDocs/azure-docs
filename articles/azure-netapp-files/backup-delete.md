@@ -3,7 +3,7 @@ title: Delete backups of an Azure NetApp Files volume  | Microsoft Docs
 description: Describes how to delete individual backups that you no longer need to keep for a volume.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 09/27/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Delete backups of a volume 
 
@@ -42,4 +42,4 @@ You cannot delete the latest backup.
 * [Restore a backup to a new volume](backup-restore-new-volume.md)
 * [Disable backup functionality for a volume](backup-disable.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files backup FAQs](faq-backup.md)

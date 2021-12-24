@@ -7,6 +7,7 @@ ms.date: 05/27/2021
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
+ms.custom: mode-other
 ---
 
 # Quickstart - Create an Azure IoT Central application and use your smartphone to send telemetry

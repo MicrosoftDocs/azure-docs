@@ -52,7 +52,7 @@ The following command creates a Windows Server virtual machine. When prompted, p
 
 In this section, you'll change the private IP address from **dynamic** to **static** for the virtual machine you created previously. 
 
-Use [az network nic ip-config update](/cli/azure/network/nic/ipconfig#az_network_nic_ip_config_update) to update the network interface configuration.
+Use [az network nic ip-config update](/cli/azure/network/nic/ip-config#az_network_nic_ip_config_update) to update the network interface configuration.
 
 The following command changes the private IP address of the virtual machine to static:
 

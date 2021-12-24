@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory integration with Keeper Password Manager | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Keeper Password Manager'
 description: Learn how to configure single sign-on between Azure Active Directory and Keeper Password Manager.
 services: active-directory
 author: jeevansd
@@ -9,10 +9,10 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 09/03/2021
+ms.date: 09/24/2021
 ms.author: jeedes
 ---
-# Tutorial: Azure Active Directory integration with Keeper Password Manager
+# Tutorial: Azure AD SSO integration with Keeper Password Manager
 
 In this tutorial, you'll learn how to integrate Keeper Password Manager with Azure Active Directory (Azure AD). When you integrate Keeper Password Manager with Azure AD, you can:
 
@@ -26,6 +26,9 @@ To get started, you need the following items:
 
 * An Azure AD subscription. If you don't have a subscription, you can get a [free account](https://azure.microsoft.com/free/).
 * Keeper Password Manager single sign-on (SSO) enabled subscription.
+
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
 
 ## Scenario description
 
@@ -61,7 +64,7 @@ To configure and test Azure AD SSO with Keeper Password Manager:
     1. [Create a Keeper Password Manager test user](#create-a-keeper-password-manager-test-user) to have a counterpart of Britta Simon in Keeper Password Manager linked to the Azure AD representation of the user.
 1. [Test SSO](#test-sso) to verify whether the configuration works.
 
-### Configure Azure AD SSO
+## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
@@ -140,6 +143,9 @@ To configure SSO for the app, see the guidelines in the [Keeper support guide](h
 
 To enable Azure AD users to sign in to Keeper Password Manager, you must provision them. The application supports just-in-time user provisioning, and after authentication users are created in the application automatically. If you want to set up users manually, contact [Keeper support](https://keepersecurity.com/contact.html).
 
+> [!NOTE]
+> Keeper Password Manager also supports automatic user provisioning, you can find more details [here](./keeper-password-manager-digitalvault-provisioning-tutorial.md) on how to configure automatic user provisioning.
+
 ## Test SSO
 
 In this section, you test your Azure AD single sign-on configuration with following options. 
@@ -152,4 +158,4 @@ In this section, you test your Azure AD single sign-on configuration with follow
 
 ## Next steps
 
-After you configure Keeper Password Manager, you can enforce session control. This protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+After you configure Keeper Password Manager, you can enforce session control. This protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. For more information, see [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

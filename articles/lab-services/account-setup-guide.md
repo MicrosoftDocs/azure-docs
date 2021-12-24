@@ -1,7 +1,7 @@
 ---
 title: Accelerated lab account setup guide for Azure Lab Services
 description: This guide helps administrators quickly set up a lab account for use within their school.
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

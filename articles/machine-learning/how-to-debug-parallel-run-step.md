@@ -4,13 +4,13 @@ titleSuffix: Azure Machine Learning
 description: Tips for how to troubleshoot when you get errors using the ParallelRunStep in machine learning pipelines.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: mlops
 ms.topic: troubleshooting
 ms.custom: troubleshooting
 ms.reviewer: larryfr, vaidyas, laobri, tracych
 ms.author: pansav
 author: psavdekar
-ms.date: 09/23/2020
+ms.date: 10/21/2021
 #Customer intent: As a data scientist, I want to figure out why my ParallelRunStep doesn't run so that I can fix it.
 
 ---

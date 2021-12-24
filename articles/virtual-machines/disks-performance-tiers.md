@@ -80,20 +80,7 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 
 # [Azure CLI](#tab/azure-cli)
 
-1. You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. The following steps will enable the feature on your subscription:
-
-    1.	Execute the following command to register the feature for your subscription
-
-        ```azurecli
-        az feature register --namespace Microsoft.Compute --name LiveTierChange
-        ```
-
-    1.	Confirm that the registration state is **Registered** (may take a few minutes) using the following command before trying out the feature.
-
-        ```azurecli
-        az feature show --namespace Microsoft.Compute --name LiveTierChange
-        ```
-2. Update the tier of a disk even when it is attached to a running VM
+1. Update the tier of a disk even when it is attached to a running VM
 
     ```azurecli
     resourceGroupName=<yourResourceGroupNameHere>
@@ -105,20 +92,7 @@ New-AzDisk -DiskName $diskName -Disk $diskConfig -ResourceGroupName $resourceGro
 
 # [PowerShell](#tab/azure-powershell)
 
-1. You must enable the feature for your subscription before you can change the performance tier of a disk without downtime. The following steps will enable the feature on your subscription:
-
-    1.	Execute the following command to register the feature for your subscription
-
-        ```azurepowershell
-         Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
-        ```
-
-    1.	Confirm that the registration state is **Registered** (may take a few minutes) using the following command before trying out the feature.
-
-        ```azurepowershell
-        Register-AzProviderFeature -FeatureName "LiveTierChange" -ProviderNamespace "Microsoft.Compute" 
-        ```
-2. Update the tier of a disk even when it is attached to a running VM
+1. Update the tier of a disk even when it is attached to a running VM
 
     ```azurepowershell
     $resourceGroupName='yourResourceGroupName'

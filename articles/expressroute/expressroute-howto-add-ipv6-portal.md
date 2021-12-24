@@ -9,7 +9,7 @@ ms.date: 03/09/2021
 ms.author: duau
 ---
 
-# Add IPv6 support for private peering using the Azure portal (Preview)
+# Add IPv6 support for private peering using the Azure portal
 
 This article describes how to add IPv6 support to connect via ExpressRoute to your resources in Azure using the Azure portal.
 
@@ -71,7 +71,7 @@ Follow the steps below if you plan to connect to a new set of Azure resources us
 
 1. [Create the dual-stack gateway subnet](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-gateway-subnet).
 
-1. [Create the virtual network gateway](expressroute-howto-add-gateway-portal-resource-manager.md#create-the-virtual-network-gateway) using any SKU and a Standard, Static public IP address. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this option is only available for circuits using ExpressRoute Direct).
+1. [Create the virtual network gateway](expressroute-howto-add-gateway-resource-manager.md) using any SKU and a Standard, Static public IP address. If you plan to use FastPath, use UltraPerformance or ErGw3AZ (note that this option is only available for circuits using ExpressRoute Direct). **NOTE:** Please use the PowerShell instructions for this step as the Azure portal experience is still under development.
 
 1. [Link your virtual network to your ExpressRoute circuit](expressroute-howto-linkvnet-portal-resource-manager.md).
 

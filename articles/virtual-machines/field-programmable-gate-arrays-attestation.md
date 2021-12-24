@@ -28,9 +28,9 @@ You will need to have your tenant and subscription ID authorized to submit to th
 
 ## Building your design for attestation  
 
-The preferred Xilinx toolset for building designs is Vitis 2020.2. Netlist files that were created with an earlier version of the toolset and are still compatible with 2020.2 can be used. Make sure you have loaded the correct shell to build against. The currently supported version is xilinx_u250_gen3x16_xdma_2_1_202010_1. The support files can be downloaded from the Xilinx Alveo lounge. 
+The preferred Xilinx toolset for building designs is Vitis 2020.2. Netlist files that were created with an earlier version of the toolset and are still compatible with 2020.2 can be used. Make sure you have loaded the correct shell to build against. The currently supported version is `xilinx_u250_gen3x16_xdma_2_1_202010_1`. The support files can be downloaded from the Xilinx Alveo lounge.
 
-You must include the following argument to Vitis (v++ cmd line) to build an xclbin file that contains a netlist instead of a bitstream.   
+You must include the following argument to Vitis (v++ cmd line) to build an `xclbin` file that contains a netlist instead of a bitstream.
 
 `--advanced.param compiler.acceleratorBinaryContent=dcp`
 

@@ -4,14 +4,13 @@ description: Quickstart showing how to set and retrieve a secret from Azure Key 
 services: key-vault
 author: msmbaldwin
 tags: azure-resource-manager
-
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
-ms.custom: mvc
+ms.custom: mvc, mode-ui
 ms.date: 09/03/2019
 ms.author: mbaldwin
-#Customer intent:As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
+#Customer intent: As a security admin who is new to Azure, I want to use Key Vault to securely store keys and passwords in Azure
 ---
 # Quickstart: Set and retrieve a secret from Azure Key Vault using the Azure portal
 
@@ -52,11 +51,11 @@ For more information on secrets attributes, see [About Azure Key Vault secrets](
 
 If you click on the current version, you can see the value you specified in the previous step.
 
-![Secret properties](../media/quick-create-portal/current-version-hidden.png)
+:::image type="content" source="../media/quick-create-portal/current-version-hidden.png" alt-text="Secret properties":::
 
 By clicking "Show Secret Value" button in the right pane, you can see the hidden value. 
 
-![Secret value appeared](../media/quick-create-portal/current-version-shown.png)
+:::image type="content" source="../media/quick-create-portal/current-version-shown.png" alt-text="Secret value appeared":::
 
 You can also use [Azure CLI](), or [Azure PowerShell]() to retrieve previously created secret.
 

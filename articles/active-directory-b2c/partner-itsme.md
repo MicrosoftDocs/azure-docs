@@ -3,14 +3,14 @@ title: itsme OpenID Connect with Azure Active Directory B2C
 titleSuffix: Azure AD B2C
 description: Learn how to integrate Azure AD B2C authentication with itsme OIDC using client_secret user flow policy. itsme is a digital ID app. It allows you to log in securely without card-readers, passwords, two-factor authentication, and multiple PIN codes.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 09/20/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -48,7 +48,7 @@ Please clarify step 1 in the description below - we don't have steps in this tut
 |8     |  The itsme environment returns the OAuth authorize code to Azure AD B2C. |
 |9     |  Using the authorize code, the Azure AD B2C does a token request. |
 | 10 | The itsme environment checks the token request, and if still valid, returns the OAuth access token and the ID token containing the requested user information. |
-| 11 | Finally, the user is redirected to the redirect url as an authenticated user.  |
+| 11 | Finally, the user is redirected to the redirect URL as an authenticated user.  |
 |   |   |
 
 ## Onboard with itsme

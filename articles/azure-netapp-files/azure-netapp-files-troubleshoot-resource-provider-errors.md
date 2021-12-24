@@ -3,7 +3,7 @@ title: Troubleshoot Azure NetApp Files Resource Provider errors | Microsoft Docs
 description: Describes causes, solutions, and workarounds for common Azure NetApp Files Resource Provider errors.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 tags:
@@ -14,8 +14,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 02/10/2021
-ms.author: b-juche
+ms.date: 10/04/2021
+ms.author: anfdocs
 ---
 # Troubleshoot Azure NetApp Files Resource Provider errors 
 
@@ -25,13 +25,13 @@ This article describes common Azure NetApp Files Resource Provider errors, their
 
 ***Creation of `netAppAccounts` has been restricted in this region.***
 
-This situation occurs when the subscription is waitlisted for Azure NetApp Files and the user attempts to create a NetApp account.
+This situation occurs when the user attempts to create a NetApp account.
 
 * Cause:   
 Azure Resource Provider for Azure NetApp Files is not registered successfully. 
  
 * Solution:   
-Complete all the steps described in [Azure NetApp resource provider registration](azure-netapp-files-register.md#resource-provider) after your subscription is waitlisted.
+Complete all the steps described in [Register the NetApp Resource Provider](azure-netapp-files-register.md).
 
 ***BareMetalTenantId cannot be changed.***  
 
@@ -312,7 +312,7 @@ Make sure that the operation is entered correctly and that it is available for t
 
 ***OwnerId cannot be changed***
 
-This error occurs when you try to change the OwnerId property of the volume. Changing the OwnerId is not a supported operation. 
+This error occurs when you try to change the `OwnerId` property of the volume. Changing the `OwnerId` is not a supported operation. 
 
 * Cause:   
 The `OwnerId` property is set when the volume is created. The property cannot be changed subsequently.

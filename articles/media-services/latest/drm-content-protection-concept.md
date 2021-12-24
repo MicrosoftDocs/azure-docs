@@ -10,7 +10,7 @@ editor: ''
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 05/25/2021
 ms.author: inhenkel
@@ -251,6 +251,9 @@ For REST examples that use custom license/key acquisition URLs, see [Streaming P
 
 > [!NOTE]
 > Widevine is a service provided by Google Inc. and subject to the terms of service and Privacy Policy of Google, Inc.
+
+
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
 
 ## Troubleshoot
 

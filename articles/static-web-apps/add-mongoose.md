@@ -39,19 +39,17 @@ Begin by creating a [Cosmos DB serverless](../cosmos-db/serverless.md) account. 
 3. Enter **Azure Cosmos DB** in the search box
 4. Click **Azure Cosmos DB**
 5. Click **Create**
-6. Configure your Azure Cosmos DB Account with the following information
+6. If prompted, under **Azure Cosmos DB API for MongoDB** select **Create**
+7. Configure your Azure Cosmos DB Account with the following information
     - Subscription: Choose the subscription you wish to use
     - Resource: Click **Create new**, and set the name to **aswa-mongoose**
     - Account name: A unique value is required
-    - API: **Azure Cosmos DB for MongoDB API**
-    - Notebooks (Preview): **Off**
     - Location: **West US 2**
     - Capacity mode: **Serverless (preview)**
-    - Version: **3.6**
-    - Availability Zones: **Disable**
+    - Version: **4.0**
 :::image type="content" source="media/add-mongoose/cosmos-db.png" alt-text="Create new Cosmos DB instance":::
-7. Click **Review + create**
-8. Click **Create**
+8. Click **Review + create**
+9. Click **Create**
 
 The creation process will take a few minutes. Later steps will return to the database to gather the connection string.
 
@@ -65,7 +63,7 @@ This tutorial uses a GitHub template repository to help you create your applicat
 4. Click **Create repository from template**
 5. Return to the [Azure portal](https://portal.azure.com)
 6. Click **Create a resource**
-7. Type **static web apps** in the search box
+7. Type **static web app** in the search box
 8. Select **Static Web App**
 9. Click **Create**
 10. Configure your Azure Static Web App with the following information
@@ -75,27 +73,26 @@ This tutorial uses a GitHub template repository to help you create your applicat
     - Region: **West US 2**
     - Click **Sign in with GitHub**
     - Click **Authorize** if prompted to allow Azure Static Web Apps to create the GitHub Action to enable deployment
-    - Organization: Your account name
+    - Organization: Your GitHub account name
     - Repository: **aswa-mongoose-tutorial**
     - Branch: **main**
     - Build presets: Choose **Custom**
     - App location: **/public**
     - Api location: **api**
-    - App artifact location: *leave blank*
+    - Output location: *leave blank*
     :::image type="content" source="media/add-mongoose/azure-static-web-apps.png" alt-text="Completed Azure Static Web Apps form":::
 11. Click **Review and create**
 12. Click **Create**
-
-The creation process takes a few minutes, but you can click on **Go to resource** once the app is provisioned.
+13. The creation process takes a few moments; click on **Go to resource** once the static web app is provisioned
 
 ## Configure database connection string
 
-In order to allow the web app to communicate with the database, the database connection string is stored as an Application Setting. Setting values are accessible in Node.js using the `process.env` object.
+In order to allow the web app to communicate with the database, the database connection string is stored as an [Application Setting](application-settings.md). Setting values are accessible in Node.js using the `process.env` object.
 
 1. Click **Home** in the upper left corner of the Azure portal (or navigate back to [https://portal.azure.com](https://portal.azure.com))
 2. Click **Resource groups**
 3. Click **aswa-mongoose**
-4. Click the name of your database account - it will have a type of **Azure Cosmos DB Account**
+4. Click the name of your database account - it will have a type of **Azure Cosmos DB API for Mongo DB**
 5. Under **Settings** click **Connection String**
 6. Copy the connection string listed under **PRIMARY CONNECTION STRING**
 7. In the breadcrumbs, click **aswa-mongoose**
@@ -114,6 +111,8 @@ You can now explore the static web app.
 1. Click **Overview**
 1. Click the URL displayed in the upper right
     1. It will look similar to `https://calm-pond-05fcdb.azurestaticapps.net`
+1. Click **Please login to see your list of tasks**
+1. Click **Grant consent** to access the application
 1. Create a new task by typing in a title and clicking **Add task**
 1. Confirm the task is displayed (it may take a moment)
 1. Mark the task as complete by **clicking the checkbox**

@@ -7,7 +7,7 @@ ms.subservice: azure-arc-data
 author: dnethi
 ms.author: dinethi
 ms.reviewer: mikeray
-ms.date: 09/1/2021
+ms.date: 11/03/2021
 ms.topic: how-to
 ---
 
@@ -27,7 +27,7 @@ You can edit the configuration of Azure Arc-enabled SQL Managed Instances with t
 az sql mi-arc edit --help
 ```
 
-You can update the available memory and cores for an Azure Arc enabled SQL managed instance using the following command:
+You can update the available memory and cores for an Azure Arc-enabled SQL managed instance using the following command:
 
 ```azurecli
 az sql mi-arc edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s
@@ -39,7 +39,7 @@ The following example sets the cpu core and memory requests and limits.
 az sql mi-arc edit --cores-limit 4 --cores-request 2 --memory-limit 4Gi --memory-request 2Gi -n sqlinstance1 --k8s-namespace arc --use-k8s
 ```
 
-To view the changes made to the Azure Arc enabled SQL managed instance, you can use the following commands to view the configuration yaml file:
+To view the changes made to the Azure Arc-enabled SQL managed instance, you can use the following commands to view the configuration yaml file:
 
 ```azurecli
 az sql mi-arc show -n <NAME_OF_SQL_MI> --k8s-namespace <namespace> --use-k8s

@@ -1,18 +1,18 @@
 ### YamlMime:Landing
 
 title: Azure Healthcare APIs (preview) documentation
-summary: Documentation for all of Azure Healthcare APIs (preview) services, including FHIR, DICOM, and Data Transformation.
+summary: Documentation for all of Azure Healthcare APIs (preview) capabilities, including features from FHIR, DICOM, and IoT connector.
 
 metadata:
   title: Azure Healthcare APIs documentation
-  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and Data Transformation
+  description: documentation for all of Azure Healthcare APIs products and services, including FHIR, DICOM, and IoT connector
   services: healthcare-apis
   ms.service: healthcare-apis
   ms.topic: landing-page 
   ms.collection: collection
-  author: ginalee-dotcom
-  ms.author: ginle
-  ms.date: 06/01/2021
+  author: msjasteppe
+  ms.author: jasteppe
+  ms.date: 12/01/2021
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
 
@@ -43,20 +43,6 @@ landingContent:
         links:
           - text: Healthcare APIs FAQs
             url: healthcare-apis-faqs.md
-
-  
-  - title: Transfer and Transform Data
-    linkLists:
-      - linkListType: how-to-guide
-        links:
-          - text: Export data
-            url: ./data-transformation/export-data.md
-          - text: Export data to Synapse
-            url: ./data-transformation/move-to-synapse.md
-      - linkListType: concept
-        links:
-          - text: Convert data
-            url: ./data-transformation/convert-data.md
   
   - title: FHIR service
     linkLists:
@@ -100,13 +86,9 @@ landingContent:
             url: ./iot/iot-connector-overview.md
       - linkListType: deploy
         links:
-          - text: Deploy IoT connector Using Portal
+          - text: Deploy IoT connector using portal
             url: ./iot/deploy-iot-connector-in-azure.md
       - linkListType: tutorial
         links:
-          - text: Receive device data through IoT Hub
+          - text: Receive device data through Azure IoT Hub
             url: ./iot/device-data-through-iot-hub.md
-
-
- 
-            

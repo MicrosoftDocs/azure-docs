@@ -8,9 +8,8 @@ ms.subservice: connect
 ms.topic: quickstart
 ms.author: jukullam
 ms.date: 05/05/2021
-ms.custom: github-actions-azure
-ms.reviewer: mathoma
-
+ms.custom: github-actions-azure, mode-other
+ms.reviewer: kendralittle, mathoma
 ---
 
 # Use GitHub Actions to connect to Azure SQL Database
@@ -147,7 +146,7 @@ You'll use the connection string as a GitHub secret.
 1. Complete your workflow by adding an action to logout of Azure. Here is the completed workflow. The file will appear in the `.github/workflows` folder of your repository.
 
     ```yaml
-   name: SQL for GitHub Actions
+    name: SQL for GitHub Actions
 
     on:
     push:

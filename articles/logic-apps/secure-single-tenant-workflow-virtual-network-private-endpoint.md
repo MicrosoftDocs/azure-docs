@@ -122,7 +122,7 @@ For more information, review [Create single-tenant logic app workflows in Azure 
 
 To secure outbound traffic from your logic app, you can integrate your logic app with a virtual network. By default, outbound traffic from your logic app is only affected by network security groups (NSGs) and user-defined routes (UDRs) when going to a private address, such as `10.0.0.0/8`, `172.16.0.0/12`, and `192.168.0.0/16`.
 
-If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS. Also, update your DNS records to point your private endpoints at your internal IP address. Private endpoints work by sending the DNS lookup to the private address, not the public address for the specific resource. For more information, review [Private endpoints - Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS. Also, update your DNS records to point your private endpoints at your internal IP address. Private endpoints work by sending the DNS lookup to the private address, not the public address for the specific resource. For more information, review [Private endpoints - Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md#private-endpoints).
 
 > [!IMPORTANT]
 > For the Azure Logic Apps runtime to work, you need to have an uninterrupted connection to the backend storage. 
@@ -134,7 +134,7 @@ Setting up virtual network integration affects only outbound traffic. To secure 
 
 For more information, review the following documentation:
 
-- [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+- [Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md)
 
 - [Network security groups](../virtual-network/network-security-groups-overview.md)
 
@@ -172,7 +172,7 @@ You can restrict storage account access so that only resources inside a virtual 
 
    1. To access your logic app workflow data over the virtual network, in your logic app resource settings, set the `WEBSITE_CONTENTOVERVNET` setting to `1`.
 
-   If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS. Also, update your DNS records to point your private endpoints at your internal IP address. Private endpoints work by sending the DNS lookup to the private address, not the public address for the specific resource. For more information, review [Private endpoints - Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md#private-endpoints).
+   If you use your own domain name server (DNS) with your virtual network, set your logic app resource's `WEBSITE_DNS_SERVER` app setting to the IP address for your DNS. If you have a secondary DNS, add another app setting named `WEBSITE_DNS_ALT_SERVER`, and set the value also to the IP for your DNS. Also, update your DNS records to point your private endpoints at your internal IP address. Private endpoints work by sending the DNS lookup to the private address, not the public address for the specific resource. For more information, review [Private endpoints - Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md#private-endpoints).
 
 1. After you apply these app settings, you can remove public access from your storage account.
 
