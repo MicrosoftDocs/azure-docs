@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/07/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Requirements and considerations for Azure NetApp Files backup 
 

@@ -22,6 +22,8 @@ landingContent:
         links:
           - text: What is application provisioning?
             url: user-provisioning.md
+          - text: What is HR-driven provisioning?
+            url: what-is-hr-driven-provisioning.md  
           - text: How provisioning works
             url: how-provisioning-works.md
       - linkListType: tutorial

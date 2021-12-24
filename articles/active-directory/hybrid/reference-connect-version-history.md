@@ -58,6 +58,14 @@ Required permissions | For permissions required to apply an update, see [account
 >
 > Please follow this link to read more about [auto upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.0.89.0
+
+### Release status
+12/22/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+- We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users and mailboxes of certain resource objects, were getting deleted.
+
 ## 2.0.88.0
 > [!NOTE] 
 > This release requires Windows Server 2016 or newer. It fixes a vulnerability that is present in version 2.0 of Azure AD Connect, as well as some other bug fixes and minor feature updates.
@@ -68,7 +76,7 @@ Required permissions | For permissions required to apply an update, see [account
 ### Bug fixes
 
  - We upgraded the version of Microsoft.Data.OData from 5.8.1 to 5.8.4 to fix a vulnerability
- - Accesibility: We made the Azure AD Connect wizard resizable to account for different zoom levels and screen resolutions.
+ - Accesibility: We made the Azure AD Connect wizard resizable to account for different zoom levels and screen resolutions
  - Accesibility: Named elements to satisfy accessibility requirements
  - We fixed a bug where miisserver was crashing due to a null reference
  - We fixed a bug to ensure the desktop SSO value persists after upgrading Azure AD Connect to a newer version

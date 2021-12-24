@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 04/06/2020
+ms.devlang: csharp, javascript
 ms.custom: devx-track-js, devx-track-csharp, ignite-fall-2021
 ---
 
