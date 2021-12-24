@@ -29,10 +29,18 @@ For more information, *see* [Logic Apps Overview](/azure/logic-apps/logic-apps-o
 
 To complete this tutorial, you'll need the following:
 
-* An Azure subscription - Create one for free here: [Create an Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
-* A OneDrive account - Create one for free here: [Create a One drive account](https://onedrive.live.com/signup)
-* An Outlook online email account - Create one for free here: [Create an outlook online email account](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca)
-* A sample invoice to test your Azure logic app - Download a sample [here]( https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf)
+* **An Azure subscription**: [create a free Azure subscription](https://azure.microsoft.com/free/cognitive-services/)
+
+* **A Form Recognizer resource**: * Once you have your Azure subscription, [create a Form Recognizer resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer) in the Azure portal to get your key and endpoint. If you have an existing Document Translation resource, navigate directly to your resource page.
+  * You can use the free pricing tier (F0) to try the service, and upgrade later to a paid tier for production.
+  * After the resource deploys, select **Go to resource**.
+  * Copy the key and endpoint values from the resource you created and paste them in a convenient location, such as *Microsoft Notepad*. You'll need the key and endpoint values to connect your application to the Form Recognizer API.
+  * If you need further guidance creating a Form Recognizer resource, see our [**create a form recognizer resource**](create-a-form-recognizer-resource.md) page.
+
+
+* **A OneDrive personal cloud storage account**: [create a free OneDrive account](https://onedrive.live.com/signup)
+* **An Outlook online email account**: [create a free Outlook online email account](https://signup.live.com/signup.aspx?lic=1&mkt=en-ca)
+* **A sample invoice to test your logic app** - You can use our [sample invoice document](https://raw.githubusercontent.com/Azure-Samples/cognitive-services-REST-api-samples/master/curl/form-recognizer/invoice-logic-apps-tutorial.pdf) for this tutorial.
 
 ## Setting up One-Drive
 
@@ -50,39 +58,7 @@ Before we jump into creating the Logic app, we to have to set up a OneDrive fold
 
 ### Create a Form Recognizer resource
 
-Now we're going to create a Form recognizer resource in the Azure portal. If you already have a Form recognizer resource, you can skip this section.
 
-1. Navigate to the Azure portal home page - [Azure home page](https://ms.portal.azure.com/#home)
-
-1. First, select create a resource from the Azure home page.
-
-1. Search "Form Recognizer" in the search bar and select the Form Recognizer Tile
-
-1. Select the Create button.
-
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-one.gif" alt-text="Gif showing how to create a Form Recognizer resource.":::
-
-1. Now you're going to fill out the "Create Form Recognizer" fields with the following values:
-
-* For the "Subscription" box, select your current subscription.
-* For the "Resource group", select the resource group that you created earlier from the drop-down.
-* For "Region", select your local region.
-* For "Name", you can enter any name that is descriptive such as "FR-Resource".
-* For "Pricing tier", you can select the free tier for this tutorial.
-
-1. Once you're done you should see something similar to the screenshot below(your Subscription, resource group, region, and name may be different). Select "Review + Create".
-
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-two.gif" alt-text="Still image showing the correct values for creating Form Recognizer resource.":::
-
-1. Azure will run a quick validation check, after a few seconds you should see a green banner that says "Validation Passed". After you see this banner, select "Create" in the bottom left.
-
-1. After you select create, you should be redirected to a new page that says "Deployment in progress". After a few seconds, you should see a message that says "Your deployment is complete". Once you receive this message, select the "Go to resource" button.
-
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-three.gif" alt-text="Gif showing the validation process of creating Form Recognizer resource.":::
-
-1. You should see a screen like the one below. Open your favorite notes app and Copy "KEY 1" and the "Endpoint" URL into the notes app. You will need this information later. If your overview page does not have the keys and endpoint visible, you can select the keys and endpoint button on the left navigation bar and get them from there. Now you have a Form Recognizer resource we will make a logic app resource
-
-    :::image border="true" type="content" source="media/logic-apps-tutorial/logic-app-connector-demo-four.gif" alt-text="Still photo showing how to access resource key and endpoint URL":::
 
 ### Creating a Logic App resource
 

@@ -17,9 +17,6 @@ Go to the Azure portal and <a href="https://ms.portal.azure.com/#create/Microsof
 | **Name** | A descriptive name for your resource. We recommend using a descriptive name, for example *MyNameFormRecognizer*. |
 | **Pricing tier** | The cost of your resource depends on the pricing tier you choose and your usage. For more information, see the API [pricing details](https://azure.microsoft.com/pricing/details/cognitive-services/).
 
-> [!NOTE]
-> When you create a Cognitive Service resource in the Azure portal, you have the option to create a multi-service subscription key (used across multiple Cognitive Services) or a single-service subscription key (used only with a specific Cognitive Service). Currently, Form Recognizer is not included in the multi-service subscription.
-
 ## Retrieve the key and endpoint
 
 When your Form Recognizer resource finishes deploying, find and select it from the **All resources** list in the portal. Your key and endpoint will be located on the resource's **Key and Endpoint** page, under **Resource Management**. Save both of these to a temporary location before going forward.
