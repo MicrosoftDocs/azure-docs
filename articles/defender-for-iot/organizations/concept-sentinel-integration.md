@@ -121,7 +121,9 @@ Use SOAR playbooks, for example to:
 
 - Send an email to relevant stakeholders when suspicious activity is detected, for example unplanned PLC reprogramming. The mail may be sent to OT personnel, such as a control engineer responsible on the related production line.
 
-The playbooks are described in the [Automate response to Defender for IoT alerts](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended) section of the integration tutorial. Playbooks are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
+The playbooks are described in the [Automate response to Defender for IoT alerts](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended) section of the integration tutorial. 
+
+Playbooks are deployed to your Microsoft Sentinel workspace as part of the IoT OT Threat Monitoring with Defender for IoT solution.
 
 ## Next steps
 
