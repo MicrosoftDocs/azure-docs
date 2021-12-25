@@ -53,7 +53,7 @@ Microsoft Sentinel is a scalable, cloud-native, security information event manag
 
 By bringing rich telemetry into Microsoft Sentinel from Microsoft Defender for IoT, SOC teams can bridge the gap between IT and OT security sectors. This allows SOC teams to detect and respond faster during the entire attack timeline—enhancing communication, processes, and response time for both security analysts and OT personnel. 
 
-:::image type="content" source="media/concept-sentinel-integration/chart.png" alt-text="Screenshot of a chart showing alert flow." lightbox="media/concept-sentinel-integration/chart-large.png"::: 
+:::image type="content" source="media/concept-sentinel-integration/chart-small.png" alt-text="Screenshot of a chart showing alert flow." lightbox="media/concept-sentinel-integration/chart-large.png":::
 
 To set up the integration, see [Integrate Microsoft Defender for IoT and Microsoft Sentinel](/azure/sentinel/iot-solution?tabs=use-out-of-the-box-analytics-rules-recommended).
 
