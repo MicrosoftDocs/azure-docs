@@ -47,6 +47,21 @@ As part of the Azure ecosystem, Azure Spring Cloud allows easy binding to other 
 * Full integration to Azure's ecosystems and services.
 
 * Azure Spring Cloud is enterprise ready with fully managed infrastructure, built-in lifecycle management, and ease of monitoring.
+## Enterprise Tier Overview
+Azure Spring Cloud Enterprise Tier (preview) is optimized for the needs of enterprise Spring developers through advanced configurability, flexibility, portability, and enterprise-ready VMware Spring Runtime 24x7 support. Developers also benefit from proprietary Tanzu components such as Tanzu Build Service and Spring Cloud Gateway, and access to Spring experts. Via this new Tier offering, you can secure below benefits:
+* All features available in Azure Spring Cloud standard tier are also offered in enterprise tier with same enterprise grade quality and we will promisingly keep this **feature parity with standard tie**r as a product principle in future.
+* 24x7 **VMware Spring Runtime support**, access to Spring experts and ability to open support tickets while utilizing Spring libraries with extended commercial support period.
+* **Commercial Tanzu product**s as managed services:
+   * **Build Service**: helps you develop and automate containerized software workflows securely and at scale on top of commercial Tanzu buildpacks.
+   * **Service Registry**: a highly available service registry for your services to dynamically discover and call other services.
+   * **Application Configuration Service**: provides centralized configuration with Git integration.
+   * **Spring Cloud Gateway**: based on the open source Spring Cloud Gateway project, it handles cross-cutting concerns on behalf of API development teams, such as: Single Sign-On (SSO), access control, rate limiting, resiliency, security, and more. It offers plenty of commercial-only features on top of those open source underpinnings including Simple Single Sign-On (SSO) configuration combined with commercial API route filters to enable authentication and access control, Dynamic API route configuration, etc. 
+   * **API Portal**: enable developers to conveniently browse internal and external APIs through a simple interface.
+* **Portability and flexibility** in workload management:
+   * Tanzu product on demand: you decide which Tanzu products to use for your enterprise tier instance based on your actual need. 
+   * Build service can be customized in ways of creating / configuring builders with Tanzu exclusively provided APM integrations (Dynatrace, New Relic, AppDynamics, etc.) and configuring how much dedicated resources will be allocated to run build tasks. 
+   * Zero code change to land your workloads into Azure Spring Cloud enterprise tier.
+To get a detailed comparison of each tier about both pricing and features, please take a look at [Azure Spring Cloud pricing](https://azure.microsoft.com/en-us/pricing/details/spring-cloud/).
 
 ## Documentation overview
 
