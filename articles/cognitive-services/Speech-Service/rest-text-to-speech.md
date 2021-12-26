@@ -104,19 +104,17 @@ This response has been truncated to illustrate the structure of a response.
 [
 
     {
-    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, ChristopherNeural)",
-    "DisplayName": "Christopher",
-    "LocalName": "Christopher",
-    "ShortName": "en-US-ChristopherNeural",
-    "Gender": "Male",
+    "Name": "Microsoft Server Speech Text to Speech Voice (en-US, JennyNeural)",
+    "DisplayName": "Jenny",
+    "LocalName": "Jenny",
+    "ShortName": "en-US-JennyNeural",
+    "Gender": "Female",
     "Locale": "en-US",
     "StyleList": [
       "chat",
       "customerservice",
       "newscast-casual",
-      "newscast-formal",
-      "cheerful",
-      "empathetic"
+      "assistant",
     ],
     "SampleRateHertz": "24000",
     "VoiceType": "Neural",

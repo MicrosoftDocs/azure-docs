@@ -4,7 +4,7 @@ description: Learn how to use Azure Active Directory (Azure AD) access reviews t
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

@@ -226,6 +226,8 @@
           href: ./security-controls-policy.md
         - name: Data encryption
           href: concept-data-encryption.md
+        - name: Vulnerability management
+          href: concept-vulnerability-management.md
 - name: How-to guides
   items:
     - name: Security
@@ -563,25 +565,23 @@
             items:
             - name: Deploy an ML model with an online endpoint
               href: how-to-deploy-managed-online-endpoints.md
-            - name: Deploy a MLflow model with a managed online endpoint
+            - name: Deploy a MLflow model with an online endpoint
               href: how-to-deploy-mlflow-models-online-endpoints.md
-            - name: Deploy a custom container with a managed online endpoint
+            - name: Deploy a custom container with an online endpoint
               href: how-to-deploy-custom-container.md
             - name: Safe rollout for online endpoints
               href: how-to-safely-rollout-managed-endpoints.md
-            - name: Use managed online endpoints in studio
+            - name: Use online endpoints in studio
               href: how-to-use-managed-online-endpoint-studio.md
             - name: High-performance serving with Triton
               href: how-to-deploy-with-triton.md
-            - name: Access Azure resources from managed online endpoint
+            - name: Access Azure resources from online endpoints
               href: how-to-access-resources-from-endpoints-managed-identities.md
-            - name: Viewing managed online endpoint costs
-              href: how-to-view-online-endpoints-costs.md
-            - name: Use REST to deploy a model as a managed online endpoint
+            - name: Use REST to deploy a model as an online endpoint
               href: how-to-deploy-with-rest.md
-            - name: Deploy an AutoML model with a managed online endpoint
+            - name: Deploy an AutoML model with an online endpoint
               href: how-to-deploy-automl-endpoint.md
-            - name: Autoscale managed endpoints
+            - name: Autoscale managed online endpoints
               href: how-to-autoscale-endpoints.md
             - name: Viewing managed online endpoint costs
               href: how-to-view-online-endpoints-costs.md
@@ -589,9 +589,9 @@
               href: reference-managed-online-endpoints-vm-sku-list.md
             - name: Monitoring managed online endpoints
               href: how-to-monitor-online-endpoints.md
-            - name: Debug managed online endpoints locally VS Code
+            - name: Debug online endpoints locally VS Code
               href: how-to-debug-managed-online-endpoints-visual-studio-code.md
-            - name: Troubleshoot managed online endpoints
+            - name: Troubleshoot online endpoints
               href: how-to-troubleshoot-online-endpoints.md
           - name: Batch
             items:
