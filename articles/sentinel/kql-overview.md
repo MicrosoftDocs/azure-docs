@@ -57,7 +57,70 @@ In this article all the examples are run in the demo environment, so you can try
 
 Before you start trying out KQL queries for Microsoft Sentinel, review some [query best practices](/data-explorer/kusto/query/best-practices).
 
-## Using KQL in Sentinel
+## Data flow in Kusto queries
+
+When you want to glean usable information from large amounts of data in Microsoft Sentinel, you follow a query process that starts with a set of data. Each step in the process takes the data fed into it, transforms that data, and passes it to the next step in the process using the pipe delimiter. These are the essential steps in a simple query process:
+
+```kusto
+Get data | Filter | Summarize | Sort | Select
+```
+
+Here’s an example that illustrates this process:
+
+```kusto
+SigninLogs
+| where RiskLevelDuringSignIn != 'none'
+   and TimeGenerated >= ago(7d)
+| summarize Count = count() by UserDisplayName
+| order by Count desc
+| take 5
+```
+
+1. **Get data:** You start by selecting a data set. This can be a single table in Log Analytics, a group of tables, or a virtual table defined by a function or a let statement. In the example above, we chose the `SigninLogs` table, which is ingested into Microsoft Sentinel through the Azure Active Directory data connector.
+
+1. **Filter:** You use the `where` operator (for example) to narrow down the data you want, by criteria appropriate to the data. We’ve chosen two filters here. One, by checking the text value of a particular column, `RiskLevelDuringSignIn`, and eliminating any records where the value is “none”. The other, by checking the date/time value in the `TimeGenerated` column and including only those records where that value is greater than or equal to (that is, more recent than or just as recent as) seven days ago. This combination of filters will give us a resulting data set of all the sign-ins during the past week where the user had some risk attached.
+
+1. **Summarize:** Since a plain list of all the sign-ins fitting those criteria may well still leave us with a long list that we’d still have to sift through to find usable, actionable information, we need to further massage this data. By summarizing it, we can leave ourselves with a quickly readable and understandable result. In this example, we’re using a count-type summarization by the `UserDisplayName` column, meaning that for each user that had sign-ins matching the filter criteria, the results will show how many sign-ins that user had.
+
+1. **Sort:** To further simplify and clarify the results, we will use the `order by` operator to list these users in descending order of the number of sign-ins they had. The users that had the most, which may mean they are of the greatest concern to us, will be at the top.
+
+1. **Select:** Finally, we can choose to display only a subset of all the records that answered all the criteria, and we can also choose to display only the most relevant columns from the original table. In this example, we only want the top five users by number of risky sign-ins. The `take` operator takes care of that.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 When you search for data in Microsoft Sentinel, you typically move through a query process as follows.
 
