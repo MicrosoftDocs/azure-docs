@@ -2,7 +2,7 @@
 title: Reference table for all Microsoft Defender for Cloud recommendations for AWS resources
 description: This article lists Microsoft Defender for Cloud's security recommendations that help you harden and protect your AWS resources.
 ms.topic: reference
-ms.date: 12/19/2021
+ms.date: 12/26/2021
 ms.custom: generated
 ---
 # Security recommendations for AWS resources - a reference guide
@@ -18,9 +18,17 @@ Your secure score is based on the number of security recommendations you've comp
 decide which recommendations to resolve first, look at the severity of each one and its potential
 impact on your secure score.
 
+## <a name='recs-aws-appservices'></a> AWS AppServices recommendations
+
+[!INCLUDE [asc-recs-aws-appservices](../../includes/mdfc/mdfc-recs-aws-appservices.md)]
+
 ## <a name='recs-aws-compute'></a> AWS Compute recommendations
 
 [!INCLUDE [asc-recs-aws-compute](../../includes/mdfc/mdfc-recs-aws-compute.md)]
+
+## <a name='recs-aws-container'></a> AWS Container recommendations
+
+[!INCLUDE [asc-recs-aws-container](../../includes/mdfc/mdfc-recs-aws-container.md)]
 
 ## <a name='recs-aws-data'></a> AWS Data recommendations
 
@@ -29,6 +37,10 @@ impact on your secure score.
 ## <a name='recs-aws-identityandaccess'></a> AWS IdentityAndAccess recommendations
 
 [!INCLUDE [asc-recs-aws-identityandaccess](../../includes/mdfc/mdfc-recs-aws-identityandaccess.md)]
+
+## <a name='recs-aws-iot'></a> AWS IoT recommendations
+
+[!INCLUDE [asc-recs-aws-iot](../../includes/mdfc/mdfc-recs-aws-iot.md)]
 
 ## <a name='recs-aws-networking'></a> AWS Networking recommendations
 
