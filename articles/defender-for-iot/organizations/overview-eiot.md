@@ -13,7 +13,7 @@ The enterprise IoT network protection extends the agentless capabilities to go b
 
 The expansion into the enterprise network, creates a unique opportunity to apply Microsoft 365 Defender’s asset discovery capabilities.
 
-    :::image type="content" source="media/overview-eiot/mde-architecture.png" alt-text="Screenshot that shows the Microsoft Defender for Endpoint integration architecture with Microsoft Defender for IoT.":::
+:::image type="content" source="media/overview-eiot/mde-architecture.png" alt-text="Screenshot that shows the Microsoft Defender for Endpoint integration architecture with Microsoft Defender for IoT.":::
 
 ## Microsoft Defender for Endpoint integration
 
