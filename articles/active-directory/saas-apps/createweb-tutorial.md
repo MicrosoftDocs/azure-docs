@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Create!Webフロー | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Create!Webフロー '
 description: Learn how to configure single sign-on between Azure Active Directory and Create!Webフロー.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/31/2021
+ms.date: 09/27/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Create!Webフロー
+# Tutorial: Azure AD SSO integration with Create!Webフロー
 
 In this tutorial, you'll learn how to integrate Create!Webフロー with Azure Active Directory (Azure AD). When you integrate Create!Webフロー with Azure AD, you can:
 
@@ -91,7 +91,7 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
     `https://<user-hostname>:8443/XFV20`
 
 	> [!NOTE]
-	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Create!Webフロー Client support team](mailto:solution-cwf@iftc.co.jp) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
+	> These values are not real. Update these values with the actual Identifier, Reply URL and Sign-on URL. Contact [Create!Webフロー Client support team](https://support.createwebflow.jp/contact/) to get these values. You can also refer to the patterns shown in the **Basic SAML Configuration** section in the Azure portal.
 
 1. On the **Set up single sign-on with SAML** page, in the **SAML Signing Certificate** section,  find **Certificate (Base64)** and select **Download** to download the certificate and save it on your computer.
 
@@ -127,11 +127,11 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
 ## Configure Create!Webフロー SSO
 
-To configure single sign-on on **Create!Webフロー** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Create!Webフロー support team](mailto:solution-cwf@iftc.co.jp). They set this setting to have the SAML SSO connection set properly on both sides.
+To configure single sign-on on **Create!Webフロー** side, you need to send the downloaded **Certificate (Base64)** and appropriate copied URLs from Azure portal to [Create!Webフロー support team](https://support.createwebflow.jp/contact/). They set this setting to have the SAML SSO connection set properly on both sides.
 
 ### Create Create!Webフロー test user
 
-In this section, you create a user called Britta Simon in Create!Webフロー. Work with [Create!Webフロー support team](mailto:solution-cwf@iftc.co.jp) to add the users in the Create!Webフロー platform. Users must be created and activated before you use single sign-on.
+In this section, you create a user called Britta Simon in Create!Webフロー. Work with [Create!Webフロー support team](https://support.createwebflow.jp/contact/) to add the users in the Create!Webフロー platform. Users must be created and activated before you use single sign-on.
 
 ## Test SSO 
 
@@ -151,4 +151,4 @@ You can also use Microsoft My Apps to test the application in any mode. When you
 
 ## Next steps
 
-Once you configure Create!Webフロー you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).
+Once you configure Create!Webフロー you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).

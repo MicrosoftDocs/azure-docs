@@ -7,7 +7,7 @@ ms.reviewer: dannyevers
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 11/02/2021
 ---
 
 # Configure a managed application plan
@@ -150,6 +150,8 @@ To learn more about deployment modes, see [Azure Resource Manager deployment mod
 ### Provide a notification endpoint URL
 
 In the **Notification Endpoint URL** box, provide an HTTPS Webhook endpoint to receive notifications about all CRUD operations on managed application instances of this plan version.
+
+Azure appends `/resource` to the end of your webhook URI before calling it. So, your webhook URL must end in `/resource`, but don't include `/resource` in the URL you enter into the **Notification Endpoint URL** box. For more information about the webhook URL, see [Plan a managed application](plan-azure-app-managed-app.md#notification-endpoint-url).
 
 ### Customize allowed customer actions (optional)
 

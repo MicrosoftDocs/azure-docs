@@ -188,6 +188,29 @@ for (word, count) in sortedCollection:
 >
 >    ![auto settings](./media/vscode-tool-synapse/auto-settings.png)
 
+## Spark session config
+
+You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
+
+```python
+%%configure -f
+{
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
+    "driverMemory":"2g",
+    "driverCores":3,
+    "executorMemory":"2g",
+    "executorCores":2,
+    "jars":[],
+    "conf":{
+        "spark.driver.maxResultSize":"10g"
+    }
+}
+```
+
+> [!NOTE]
+>
+> Display function and Spark SQL may not be rendered properly in the output cell. 
+
 ## Submit PySpark batch job to Spark pool
 
 1. Reopen the **Synaseexample** folder that you discussed [earlier](#open-a-work-folder), if closed.  

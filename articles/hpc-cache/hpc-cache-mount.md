@@ -1,11 +1,11 @@
 ---
 title: Mount an Azure HPC Cache
 description: How to connect clients to an Azure HPC Cache service
-author: ekpgh
+author: femila
 ms.service: hpc-cache
 ms.topic: how-to
-ms.date: 09/20/2021
-ms.author: v-erkel
+ms.date: 09/27/2021
+ms.author: femila
 ---
 
 # Mount the Azure HPC Cache
@@ -80,7 +80,7 @@ Follow this procedure to create the mount command.
 
    To learn more about Azure HPC Cache's aggregated namespace feature, read [Plan the aggregated namespace](hpc-cache-namespace.md).
 
-1. The **Mount command** field in step three automatically populates with a customized mount command that uses the mount address, virtual namespace path, and client path that you set in the previous fields.
+1. The **Mount command** field automatically populates with a customized mount command that uses the mount address, virtual namespace path, and client path that you set in the previous fields.
 
    Click the copy symbol to the right side of the field to automatically copy it to your clipboard.
 

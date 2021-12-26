@@ -7,7 +7,7 @@ ms.date: 09/27/2021
 ---
 # Azure Backup architecture for SAP HANA backup
 
-[Azure Backup service](/azure/backup/backup-overview) allows you to back up data from SAP HANA databases in an application in consistent manner. This article describes the Azure Backup architecture components and processes.
+[Azure Backup service](./backup-overview.md) allows you to back up data from SAP HANA databases in an application in consistent manner. This article describes the Azure Backup architecture components and processes.
 
 ## How does Azure Backup work with SAP HANA databases?
 
@@ -15,13 +15,13 @@ Azure Backup provides a streaming backup solution to back up SAP HANA databases 
 
 Azure Backup is [Backint certified](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) by SAP, provides native backup support by using SAP HANA’s native APIs. With this solution, you can seamlessly back up and restore SAP HANA databases running on Azure VMs and use the enterprise management capabilities that Azure Backup provides.
 
-[Learn more](/azure/backup/sap-hana-db-about#added-value) about  the added values that Azure Backup provides for SAP HANA.
+[Learn more](./sap-hana-db-about.md#added-value) about  the added values that Azure Backup provides for SAP HANA.
 
 ## Where is the data backed up?
 
 Azure Backup stores the backed-up data in Recovery Services vaults. A vault is an online-storage entity in Azure that's used to store data, such as backup copies, recovery points, and backup policies.
 
-[Learn more](/azure/backup/backup-azure-backup-faq#recovery-services-vault) about Recovery Services vault.
+[Learn more](./backup-azure-backup-faq.yml) about Recovery Services vault.
 
 ## Backup agents
 
@@ -29,30 +29,30 @@ To back up SAP HANA databases running on Azure VM, you need to allow the install
 
 ## Backup types
 
-[Learn](/azure/backup/backup-architecture#sap-hana-backup-types) about SAP HANA backup types.
+[Learn](./backup-architecture.md#sap-hana-backup-types) about SAP HANA backup types.
 
 ## About architecture
 
-See the [high-level architecture of Azure Backup for SAP HANA databases](/azure/backup/sap-hana-db-about#backup-architecture). For a detailed understanding of the backup process, see the following process:
+See the [high-level architecture of Azure Backup for SAP HANA databases](./sap-hana-db-about.md#backup-architecture). For a detailed understanding of the backup process, see the following process:
 
 :::image type="content" source="./media/sap-hana-db-about/backup-architecture.png" alt-text="Diagram showing the backup process of SAP HANA database.":::
 
-1. To begin the backup process,  [create a Recovery Services vault](/azure/backup/tutorial-backup-sap-hana-db#create-a-recovery-services-vault) in Azure. This vault will be used to store the backups and recovery points created over time.
+1. To begin the backup process,  [create a Recovery Services vault](./tutorial-backup-sap-hana-db.md#create-a-recovery-services-vault) in Azure. This vault will be used to store the backups and recovery points created over time.
 
-1. The Azure VM running an SAP HANA server is registered with the vault, and the databases to be backed up are [discovered](/azure/backup/tutorial-backup-sap-hana-db#discover-the-databases). To enable the Azure Backup service to discover databases, you must run this [preregistration script](https://go.microsoft.com/fwlink/?linkid=2173610) on the HANA server as a root user. 
+1. The Azure VM running an SAP HANA server is registered with the vault, and the databases to be backed up are [discovered](./tutorial-backup-sap-hana-db.md#discover-the-databases). To enable the Azure Backup service to discover databases, you must run this [preregistration script](https://go.microsoft.com/fwlink/?linkid=2173610) on the HANA server as a root user. 
    >[!Note]
    >Ensure that the HANA instance is up and running during the discover of the databases in this instance.
 
-1. Also, ensure that the [other pre-requisites](/azure/backup/tutorial-backup-sap-hana-db#prerequisites) are fulfilled.
+1. Also, ensure that the [other pre-requisites](./tutorial-backup-sap-hana-db.md#prerequisites) are fulfilled.
 
    >[!Important]
-   >Ensure that the prerequisite to set up the right network connectivity is met. See the recommendation on [how to set up Azure VMs running in SAP HANA with additional network components to use the backup offering](/azure/backup/tutorial-backup-sap-hana-db#set-up-network-connectivity).
+   >Ensure that the prerequisite to set up the right network connectivity is met. See the recommendation on [how to set up Azure VMs running in SAP HANA with additional network components to use the backup offering](./backup-azure-sap-hana-database.md#establish-network-connectivity).
 
-1. See the details about [what the pre-registration script does](/azure/backup/tutorial-backup-sap-hana-db#what-the-pre-registration-script-does). If you attempt to configure backup for SAP HANA databases without running this script, you might receive the error _UserErrorHanaScriptNotRun_.
+1. See the details about [what the pre-registration script does](./tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does). If you attempt to configure backup for SAP HANA databases without running this script, you might receive the error _UserErrorHanaScriptNotRun_.
 
 1. The Azure Backup service now installs the Azure Backup Plugin for HANA on the registered SAP HANA server. This plugin uses the Backup user created by the pre-registration script to perform all backup and restore operations.
 
-1. To [configure backup](/azure/backup/tutorial-backup-sap-hana-db#configure-backup) on the discovered databases, choose the required backup policy and enable backups.
+1. To [configure backup](./tutorial-backup-sap-hana-db.md#configure-backup) on the discovered databases, choose the required backup policy and enable backups.
 
 1. Azure Backup for SAP HANA (a Backint certified solution) doesn't depend on the underlying disk or VM types. The backup is performed by streams generated by SAP HANA.
 
@@ -66,9 +66,9 @@ See the [high-level architecture of Azure Backup for SAP HANA databases](/azure/
 
 1. To stream the backup data, Backint creates up to three pipes, which directly write to Azure Backup’s Recovery Services vault.
 
-   If you aren’t using firewall/NVA  in your setup, then the backup stream is transferred over the Azure network to the Recovery Services vault. Also, you can set up [Virtual Network Service Endpoint](/azure/virtual-network/virtual-network-service-endpoints-overview) or [Private Endpoint](/azure/private-link/private-endpoint-overview) to allow SAP HANA to send backup traffic directly to Azure Storage, skipping NVA/Azure Firewall. Additionally, when you use firewall/NVA, the traffic to Azure Active Directory and Recovery Services vault will pass through the firewall/NVA and it doesn’t affect the overall backup performance. 
+   If you aren’t using firewall/NVA  in your setup, then the backup stream is transferred over the Azure network to the Recovery Services vault. Also, you can set up [Virtual Network Service Endpoint](../virtual-network/virtual-network-service-endpoints-overview.md) or [Private Endpoint](../private-link/private-endpoint-overview.md) to allow SAP HANA to send backup traffic directly to Azure Storage, skipping NVA/Azure Firewall. Additionally, when you use firewall/NVA, the traffic to Azure Active Directory and Recovery Services vault will pass through the firewall/NVA and it doesn’t affect the overall backup performance. 
 
-1. Azure Backup attempts to achieve speeds up to 420 MB/sec for non-log backups and up to 100 MB/sec for log backups. [Learn more](/azure/backup/tutorial-backup-sap-hana-db#understanding-backup-and-restore-throughput-performance) about backup and restore throughput performance.
+1. Azure Backup attempts to achieve speeds up to 420 MB/sec for non-log backups and up to 100 MB/sec for log backups. [Learn more](./tutorial-backup-sap-hana-db.md#understanding-backup-and-restore-throughput-performance) about backup and restore throughput performance.
 
 1. Detailed logs are written to the _backup.log_ and _backint.log_ files on the SAP HANA instance.
 
@@ -93,5 +93,4 @@ Refer to the following SAP HANA setups and see the execution of backup operation
 
 ## Next steps
 
-[Back up SAP HANA databases in Azure VMs](/azure/backup/backup-azure-sap-hana-database).
-
+[Back up SAP HANA databases in Azure VMs](./backup-azure-sap-hana-database.md).

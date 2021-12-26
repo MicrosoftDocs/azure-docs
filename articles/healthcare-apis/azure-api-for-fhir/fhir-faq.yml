@@ -104,7 +104,7 @@ sections:
       - question: |
           How can I get all resources for a single patient in the Azure API for FHIR?
         answer: |
-          You can use the [patient-$everything operation](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/patient-everything) or can use a [compartment search](https://www.hl7.org/fhir/compartmentdefinition.html) in the Azure API for FHIR. This allows you to get all the resources related to a specific patient. Note that right now compartment includes all the resources related to the patient but not the patient itself so you will need to also search to get the patient if you need the patient resource in your results.
+          You can use the [patient-$everything operation](patient-everything.md) or can use a [compartment search](https://www.hl7.org/fhir/compartmentdefinition.html) in the Azure API for FHIR. This allows you to get all the resources related to a specific patient. Note that right now compartment includes all the resources related to the patient but not the patient itself so you will need to also search to get the patient if you need the patient resource in your results.
           
           Some examples of using the compartment search are below:
           
@@ -120,7 +120,7 @@ sections:
       - question: |
           Does the Azure API for FHIR support $everything? 
         answer: |
-          Yes, we do have support for patient-$everything. You can read more details on the [Patient-$Everything how-to guide](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/patient-everything).
+          Yes, we do have support for patient-$everything. You can read more details on the [Patient-$Everything how-to guide](patient-everything.md).
           
       - question: |
           How does $export work?

@@ -18,7 +18,7 @@ For detailed definitions of analytics terminology, see [Commercial marketplace a
 
 ## Marketplace Insights dashboard
 
-The [Marketplace Insights dashboard](https://go.microsoft.com/fwlink/?linkid=2165936) presents an overview of the Azure Marketplace and AppSource offers’ business performance. This dashboard provides a broad overview of the following:
+The [Marketplace Insights dashboard](https://go.microsoft.com/fwlink/?linkid=2165936) presents an overview of Azure Marketplace and AppSource offers’ business performance. This dashboard provides a broad overview of the following:
 
 - Page visits trend
 - Call to actions trend

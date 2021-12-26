@@ -39,13 +39,15 @@ Use API Management in internal mode to:
 Some prerequisites differ depending on the version (`stv2` or `stv1`) of the [compute platform](compute-infrastructure.md) for your API Management instance. 
 
 > [!TIP]
-> When you use the portal to create or update the network configuration of your API Management instance, the instance is hosted on then `stv2` compute platform.
+> When you use the portal to create or update the network connection of an existing API Management instance, the instance is hosted on the `stv2` compute platform.
 
 ### [stv2](#tab/stv2)
 
 + **An API Management instance.** For more information, see [Create an Azure API Management instance](get-started-create-service-instance.md).
 
 * **A virtual network and subnet** in the same region and subscription as your API Management instance. The subnet may contain other Azure resources.
+
+* **A network security group** attached to the subnet above. A network security group (NSG) is required to explicitly allow inbound connectivity, because the load balancer used internally by API Management is secure by default and rejects all inbound traffic. 
 
 [!INCLUDE [api-management-public-ip-for-vnet](../../includes/api-management-public-ip-for-vnet.md)]
 
@@ -111,11 +113,15 @@ After successful deployment, you should see your API Management service's **priv
 
 ## DNS configuration
 
-In external VNET mode, Azure manages the DNS. For internal VNET mode, you have to manage your own DNS. We recommend:
+In external VNET mode, Azure manages the DNS. For internal VNET mode, you have to manage your own DNS to enable inbound access to your API Management service endpoints. 
+
+We recommend:
+
 1. Configure an Azure [DNS private zone](../dns/private-dns-overview.md).
 1. Link the Azure DNS private zone to the VNET into which you've deployed your API Management service. 
 
 Learn how to [set up a private zone in Azure DNS](../dns/private-dns-getstarted-portal.md).
+
 
 > [!NOTE]
 > The API Management service does not listen to requests on its IP addresses. It only responds to requests to the host name configured on its service endpoints. These endpoints include:
@@ -136,7 +142,7 @@ When you create an API Management service (`contosointernalvnet`, for example), 
 | Direct management endpoint | `contosointernalvnet.management.azure-api.net` |
 | Git | `contosointernalvnet.scm.azure-api.net` |
 
-To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the VNET in which API Management is deployed. Assuming the internal virtual IP address for your service is 10.1.0.5, you can map the hosts file as follows. On Windows, this file is at `%SystemDrive%\drivers\etc\hosts`. 
+To access these API Management service endpoints, you can create a virtual machine in a subnet connected to the VNET in which API Management is deployed. Assuming the [private virtual IP address](#routing) for your service is 10.1.0.5, you can map the hosts file as follows. On Windows, this file is at `%SystemDrive%\drivers\etc\hosts`. 
 
 | Internal virtual IP address | Endpoint configuration |
 | ----- | ----- |
@@ -148,8 +154,6 @@ To access these API Management service endpoints, you can create a virtual machi
 
 You can then access all the service endpoints from the virtual machine you created.
 
-If you use a custom DNS server in a VNET, you can also create DNS A-records and access these endpoints from anywhere in your VNET.
-
 ### Access on custom domain names
 
 If you don't want to access the API Management service with the default host names: 
@@ -158,7 +162,7 @@ If you don't want to access the API Management service with the default host nam
 
     :::image type="content" source="media/api-management-using-with-internal-vnet/api-management-custom-domain-name.png" alt-text="Set up custom domain name":::
 
-2. Create records in your DNS server to access the endpoints accessible from within your VNET.
+2. Create records in your DNS server to access the endpoints accessible from within your VNET. Map the endpoint records to the [private virtual IP address](#routing) for your service.
 
 ## Routing
 
@@ -181,7 +185,7 @@ The load-balanced public and private IP addresses can be found on the **Overview
 
 ### VIP and DIP addresses
 
-DIP addresses will be assigned to each underlying virtual machine in the service and used to access resources *within* the VNET. A VIP address will be used to access resources *outside* the VNET. If IP restriction lists secure resources within the VNET, you must specify the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
+Dynamic IP (DIP) addresses will be assigned to each underlying virtual machine in the service and used to access resources *within* the VNET. The API Management service's public virtual IP (VIP) address will be used to access resources *outside* the VNET. If IP restriction lists secure resources within the VNET, you must specify the entire subnet range where the API Management service is deployed to grant or restrict access from the service.
 
 Learn more about the [recommended subnet size](virtual-network-concepts.md#subnet-size).
 

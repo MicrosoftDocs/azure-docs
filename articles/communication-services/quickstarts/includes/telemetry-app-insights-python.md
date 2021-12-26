@@ -66,7 +66,7 @@ Add this code inside the `try` block:
 
 ```python
 connection_string = os.environ["COMMUNICATION_SERVICES_CONNECTION_STRING"]
-client = CommunicationIdentityClient.from_connection_string(connection_string)
+identity_client = CommunicationIdentityClient.from_connection_string(connection_string)
 ```
 
 First, in order to create the span that will allow you to trace the requests in the Azure Monitor, you will have to create an instance of an `AzureMonitorTraceExporter` object. You will need to provide the connection string from your Application Insights Resource.

@@ -5,6 +5,7 @@ ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: how-to
 ms.date: 11/09/2020
+ms.custom: ignite-fall-2021
 ---
 # Migrate a knowledge base using export-import
 
@@ -17,19 +18,9 @@ You may want to create a copy of your knowledge base for several reasons:
 
 ## Prerequisites
 
-# [QnA Maker GA (stable release)](#tab/v1)
-
 > * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
 > * A [QnA Maker resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker) created in the Azure portal. Remember your Azure Active Directory ID, Subscription, QnA resource name you selected when you created the resource.
 > * Set up a new [QnA Maker service](../How-To/set-up-qnamaker-service-azure.md)
-
-# [Custom question answering (preview release)](#tab/v2)
-
-> * If you don't have an Azure subscription, [create a free account](https://azure.microsoft.com/free/cognitive-services/) before you begin.
-> * A [Text Analytics resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesTextAnalytics) with the custom question answering feature enabled in the Azure portal. Remember your Azure Active Directory ID, Subscription, and Text Analytics resource name you selected when you created the resource.
-> * Set up [Custom question answering](../How-To/set-up-qnamaker-service-azure.md)
-
----
 
 ## Export a knowledge base
 1. Sign in to [QnA Maker portal](https://qnamaker.ai).

@@ -41,7 +41,7 @@ For more information, see [Overview of Azure Cloud Shell](../../cloud-shell/over
  
 ```azurecli
 az login
-az ad sp create-for-rbac --name <appName> 
+az ad sp create-for-rbac --name <appName> --role Contributor
 az role assignment create --assignee < user/app id> --role Contributor --scope <subscription/subscription id>
 ```
 

@@ -5,7 +5,7 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 05/17/2021
+ ms.date: 09/29/2021
  ms.author: duau
  ms.custom: include file
 ---
@@ -65,6 +65,7 @@
 | LIS | Lisbon, Portugal | North Europe |
 | LON | London, United Kingdom | UK South, Europe |
 | LOS | Lagos, Nigeria | Africa |
+| LTS | London, United Kingdom | UK South, Europe |
 | MAA | Chennai, India | Central India |
 | MAD | Madrid, Spain | Spain Central, Europe |
 | MAN | Manchester, United Kingdom | UK West, Europe |

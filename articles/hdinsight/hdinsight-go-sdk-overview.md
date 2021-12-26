@@ -4,6 +4,7 @@ description: Reference material for using Azure HDInsight SDK for Go and Apache 
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18, devx-track-azurecli
+ms.devlang: golang
 ms.date: 01/03/2020
 ---
 
@@ -73,7 +74,7 @@ az account set -s <name or ID of subscription>
 Next, choose a name for your service principal and create it with the following command:
 
 ```azurecli-interactive
-az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth
+az ad sp create-for-rbac --name <Service Principal Name> --sdk-auth --role Contributor
 ```
 
 The service principal information is displayed as JSON.

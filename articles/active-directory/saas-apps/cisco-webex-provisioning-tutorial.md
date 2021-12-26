@@ -30,6 +30,9 @@ The scenario outlined in this tutorial assumes that you already have the followi
 * [A Cisco Webex tenant](https://www.webex.com/pricing/index.html).
 * A user account in Cisco Webex  with Admin permissions.
 
+> [!NOTE]
+> This integration is also available to use from Azure AD US Government Cloud environment. You can find this application in the Azure AD US Government Cloud Application Gallery and configure it in the same way as you do from public cloud.
+
 ## Adding Cisco Webex from the gallery
 
 Before configuring Cisco Webex for automatic user provisioning with Azure AD, you need to add Cisco Webex from the Azure AD application gallery to your list of managed SaaS applications.
@@ -50,7 +53,7 @@ Before configuring Cisco Webex for automatic user provisioning with Azure AD, yo
 
 4. In the search box, type **Cisco Webex**, select **Cisco Webex** from result panel then click **Add** button to add the application.
 
-    ![Cisco Webex in the results list](common/search-new-app.png)
+    ![Cisco Webex in the results list](media/cisco-webex-provisioning-tutorial/search-cisco-app.png)
 
 ## Assigning users to Cisco Webex
 

@@ -18,7 +18,7 @@ ms.date: 08/03/2021
 > or might have constrained capabilities.
 >
 > You can see a complete list of other new features in [preview features for
-> Hyperscale (Citus)](hyperscale-preview-features.md).
+> Hyperscale (Citus)](./hyperscale-product-updates.md).
 
 Audit logging of database activities in Azure Database for PostgreSQL - Hyperscale (Citus) is available through the PostgreSQL Audit extension: [pgAudit](https://www.pgaudit.org/). pgAudit provides detailed session or object audit logging.
 
@@ -29,9 +29,9 @@ By default, pgAudit log statements are emitted along with your regular log state
 
 ## Enabling pgAudit
 
-The pgAudit extension is pre-installed and enabled on most Hyperscale (Citus)
-server group nodes. If it isn't enabled on your nodes, please open a [support
-request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
+The pgAudit extension is pre-installed and enabled on a limited number of
+Hyperscale (Citus) server groups at this time. It may or may not be available
+for preview yet on your server group.
 
 ## pgAudit settings
 

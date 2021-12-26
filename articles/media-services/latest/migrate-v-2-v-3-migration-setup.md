@@ -35,7 +35,7 @@ Previously, developers would work with an Azure service principal client ID and 
 The V3 API is Azure Resource Management (ARM) based. It uses Azure Active Directory (Azure AD) service principal IDs and keys to connect to the API. Developers will need to create service principals or managed identities to connect to the API. In the V3 API, the API uses standard ARM endpoints, uses a similar and consistent model to all other Azure
 services.
 
-Customers previously using the 2015-10-01 version of the ARM management API to manage their V2 accounts should use the 2020-05-01 version of the ARM management API supported for V3 API access.
+Customers previously using the 2015-10-01 version of the ARM management API to manage their V2 accounts should use the 2020-05-01 (or later) version of the ARM management API supported for V3 API access.
 
 ## Create a new media services account for testing
 
@@ -65,7 +65,7 @@ Follow the quickstart steps for [setting up your environment](setup-azure-subscr
 Use [Postman](./setup-postman-rest-how-to.md) for Media Services v3 REST API calls.
 Read the [REST API reference pages](/rest/api/media/).
 
-You should use the 2020-05-01 version string in the Postman collection.
+You should use the 2020-05-01 (or later) version string in the Postman collection.
 
 ## [.NET](#tab/net)
 

@@ -11,10 +11,7 @@ ms.date: 04/19/2021
 # Azure Large Instances high availability for SAP on RHEL
 
 > [!NOTE]
-> This article contains references to the term *blacklist*, a term that Microsoft no longer uses. When this term is removed from the software, we’ll remove it from this article.
-
-> [!NOTE]
-> This article contains references to the term *slave*, a term that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
+> This article contains references to the terms *blacklist* and  *slave*, terms that Microsoft no longer uses. When the term is removed from the software, we’ll remove it from this article.
 
 In this article, you learn how to configure the Pacemaker cluster in RHEL 7 to automate an SAP HANA database failover. You need to have a good understanding of Linux, SAP HANA, and Pacemaker to complete the steps in this guide.
 
@@ -135,7 +132,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 6. Update the System
     1. First, install the latest updates on the system before you start to install the SBD device.
 	1. Customers must make sure that they have at least version 4.1.1-12.el7_6.26 of the resource-agents-sap-hana package installed, as documented in [Support Policies for RHEL High Availability Clusters - Management of SAP HANA in a Cluster](https://access.redhat.com/articles/3397471)
-    1. If you don’t want a complete update of the system, even if is recommended, update the following packages at a minimum.
+    1. If you don’t want a complete update of the system, even if it is recommended, update the following packages at a minimum.
         1. `resource-agents-sap-hana`
         1. `selinux-policy`
         1. `iscsi-initiator-utils`
@@ -157,7 +154,7 @@ Before you can begin configuring the cluster, set up SSH key exchange to establi
 	```
 	  
 
-8. Install the Pacemaker, SBD, OpenIPMI, ipmitool and fencing_sbd tools on all nodes.
+8. Install the Pacemaker, SBD, OpenIPMI, ipmitool, and fencing_sbd tools on all nodes.
 
 	```	
 	yum install pcs sbd fence-agent-sbd.x86_64 OpenIPMI
@@ -187,7 +184,7 @@ In this section, you learn how to configure Watchdog. This section uses the same
 
 	```
 
-2. The default Linux watchdog, which will be installed during the installation, is the iTCO watchdog which is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
+2. The default Linux watchdog, that will be installed during the installation, is the iTCO watchdog which is not supported by UCS and HPE SDFlex systems. Therefore, this watchdog must be disabled.
     1. The wrong watchdog is installed and loaded on the system:
 	   ```
 	   sollabdsm35:~ # lsmod |grep iTCO
@@ -324,7 +321,7 @@ In this section, you learn how to configure SBD. This section uses the same two 
 	`- 10:0:3:2 sdl 8:176 active ready running
 	```
 
-4.  Creating the SBD discs and set up the cluster primitive fencing. This step must be executed on first node.
+4.  Creating the SBD discs and setup the cluster primitive fencing. This step must be executed on first node.
 	```
 	sbd -d /dev/mapper/3600a098038304179392b4d6c6e2f4b62 -4 20 -1 10 create 
 
@@ -651,8 +648,8 @@ The default and supported way is to create a performance optimized scenario wher
 
  | **Log Replication Mode**            | **Description**                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        |
 | ----------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Synchronous in-memory (default)** | Synchronous in memory (mode=syncmem) means the log write is considered as successful, when the log entry has been written to the log volume of the primary and sending the log has been acknowledged by the secondary instance after copying to memory. When the connection to the secondary system is lost, the primary system continues transaction processing and writes the changes only to the local disk.Data loss can occur when primary and secondary fail at the same time as long as the secondary system is connected or when a takeover is executed, while the secondary system is disconnected. This option provides better performance because it is not necessary to wait for disk I/O on the secondary instance, but is more vulnerable to data loss.                                                                                                                                                                                                                                                                                                                     |
-| **Synchronous**                     | Synchronous (mode=sync) means the log write is considered as successful when the log entry has been written to the log volume of the primary and the secondary instance. When the connection to the secondary system is lost, the primary system continues transaction processing and writes the changes only to the local disk. No data loss occurs in this scenario as long as the secondary system is connected. Data loss can occur, when a takeover is executed while the secondary system is disconnected.Additionally, this replication mode can run with a full sync option. This means that log write is successful when the log buffer has been written to the log file of the primary and the secondary instance. In addition, when the secondary system is disconnected (for example, because of network failure) the primary systems suspends transaction processing until the connection to the secondary system is reestablished.No data loss occurs in this scenario. You can set the full sync option for system replication only with the parameter \[system\_replication\]/enable\_full\_sync). For more information on how to enable the full sync option, see Enable Full Sync Option for System Replication.                                                                                                                                                                                                                                                                                                              |
+| **Synchronous in-memory (default)** | Synchronous in memory (mode=syncmem) means the log write is considered as successful, when the log entry has been written to the log volume of the primary and sending the log has been acknowledged by the secondary instance after copying to memory. When the connection to the secondary system is lost, the primary system continues transaction processing and writes the changes only to the local disk. Data loss can occur when primary and secondary fail at the same time as long as the secondary system is connected or when a takeover is executed, while the secondary system is disconnected. This option provides better performance because it is not necessary to wait for disk I/O on the secondary instance, but is more vulnerable to data loss.                                                                                                                                                                                                                                                                                                                     |
+| **Synchronous**                     | Synchronous (mode=sync) means the log write is considered as successful when the log entry has been written to the log volume of the primary and the secondary instance. When the connection to the secondary system is lost, the primary system continues transaction processing and writes the changes only to the local disk. No data loss occurs in this scenario as long as the secondary system is connected. Data loss can occur, when a takeover is executed while the secondary system is disconnected. Additionally, this replication mode can run with a full sync option. This means that log write is successful when the log buffer has been written to the log file of the primary and the secondary instance. In addition, when the secondary system is disconnected (for example, because of network failure) the primary systems suspends transaction processing until the connection to the secondary system is reestablished. No data loss occurs in this scenario. You can set the full sync option for system replication only with the parameter \[system\_replication\]/enable\_full\_sync). For more information on how to enable the full sync option, see Enable Full Sync Option for System Replication.                                                                                                                                                                                                                                                                                                              |
 | **Asynchronous**                    | Asynchronous (mode=async) means the primary system sends redo log buffers to the secondary system asynchronously. The primary system commits a transaction when it has been written to the log file of the primary system and sent to the secondary system through the network. It does not wait for confirmation from the secondary system. This option provides better performance because it is not necessary to wait for log I/O on the secondary system. Database consistency across all services on the secondary system is guaranteed. However, it is more vulnerable to data loss. Data changes may be lost on takeover.                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                      |
 
 1.  These are the actions to execute on node1 (primary).
@@ -1069,7 +1066,7 @@ Ensure you have met the following prerequisites:
 	| Attribute Name | Description  |
 	|---|---|
     | SID | SAP System Identifier (SID) of SAP HANA installation. Must be the same for all nodes. |
-	| InstanceNumber | 2-digit SAP Instance Idntifier.|
+	| InstanceNumber | 2-digit SAP Instance Identifier.|
 
 	* Resource status
 	   ```

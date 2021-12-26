@@ -1,9 +1,9 @@
 ---
 title: Understand Azure NetApp Files backup | Microsoft Docs
-description: Describes what Azure NetApp Files backup does and the cost model.  
+description: Describes what Azure NetApp Files backup does, supported regions, and the cost model.  
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,8 +13,9 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/27/2021
-ms.author: b-juche
+ms.date: 10/13/2021
+ms.author: anfdocs
+ms.custom: references_regions
 ---
 # Understand Azure NetApp Files backup
 
@@ -22,6 +23,20 @@ Azure NetApp Files backup expands the data protection capabilities of Azure NetA
 
 > [!IMPORTANT]
 > The Azure NetApp Files backup feature is currently in preview. You need to submit a waitlist request for accessing the feature through the **[Azure NetApp Files Backup Public Preview](https://aka.ms/anfbackuppreviewsignup)** page. Wait for an official confirmation email from the Azure NetApp Files team before using the Azure NetApp Files backup feature.
+
+## Supported regions 
+
+Azure NetApp Files backup is supported for the following regions:   
+
+* East US
+* East US 2
+* West US 
+* South Central
+* West US 2
+* North Europe 
+* West Europe
+* Australia East
+* Japan East
 
 ## Cost model for Azure NetApp Files backup
 
@@ -31,7 +46,7 @@ Backup restore is priced based on the total amount of backup capacity restored d
 As a pricing example, assume the following situations:
 
 * Your source volume is from the Azure NetApp Files Premium service level. It has a volume quota size of 1000 GiB and a volume consumed size of 500 GiB at the beginning of the first day of a month. The volume is in the US South Central region.
-* You’ve configured an hourly snapshot policy with 5 local snapshots to keep, and daily backup policy to keep 30 backup copies.
+* You’ve configured a daily *snapshot* policy with 5 local snapshots to keep, and a daily *backup* policy to keep 30 backup copies.
 * For simplicity, assume your source volume has a constant 1% data change every day, but the total volume consumed size does not grow (remains at 500 GiB).
 
 When the backup policy is assigned to the volume, the baseline backup to service-managed Azure storage is initiated. When the backup is complete, the baseline backup of 500 GiB will be added to the backup list of the volume. After the baseline transfer, daily backups only back up changed blocks. Assume 5-GiB daily incremental backups added, the total backup storage consumed would be `500GiB + 30*5GiB = 650GiB`.
@@ -52,5 +67,5 @@ If you choose to restore a backup of, for example, 600 GiB to a new volume, you 
 * [Disable backup functionality for a volume](backup-disable.md)
 * [Delete backups of a volume](backup-delete.md)
 * [Volume backup metrics](azure-netapp-files-metrics.md#volume-backup-metrics)
-* [Azure NetApp Files backup FAQs](azure-netapp-files-faqs.md#azure-netapp-files-backup-faqs)
+* [Azure NetApp Files backup FAQs](faq-backup.md)
 * [How Azure NetApp Files snapshots work](snapshots-introduction.md)

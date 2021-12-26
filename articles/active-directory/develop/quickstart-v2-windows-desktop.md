@@ -4,14 +4,13 @@ description: In this quickstart, learn how a Windows desktop .NET (XAML) applica
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
-ms.custom: aaddev, identityplatformtop40
+ms.custom: aaddev, identityplatformtop40, mode-api
 #Customer intent: As an application developer, I want to learn how my Windows desktop .NET application can get an access token and call an API that's protected by the Microsoft identity platform.
 ---
 
@@ -145,7 +144,7 @@ MSAL has two methods for acquiring tokens: `AcquireTokenInteractive` and `Acquir
 
 #### Get a user token interactively
 
-Some situations require forcing users interact with the Microsoft identity platform through a popup window to either validate their credentials or to give consent. Some examples include:
+Some situations require forcing users interact with the Microsoft identity platform through a pop-up window to either validate their credentials or to give consent. Some examples include:
 
 - The first time users sign in to the application
 - When users may need to reenter their credentials because the password has expired

@@ -82,4 +82,4 @@ The following example shows how to create a container in a new storage account f
 ## Next steps
 
 - [Assign an Azure role for access to blob data](assign-azure-role-data-access.md)
-- [Authorize access to blob and queue data with managed identities for Azure resources](../common/storage-auth-aad-msi.md)
+- [Authorize access to blob data with managed identities for Azure resources](authorize-managed-identity.md)

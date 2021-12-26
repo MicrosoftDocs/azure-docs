@@ -60,7 +60,7 @@ event.
 >| Description|The incoming encoder ingested streams with frame rates exceeded the maximum allowed 30 fps for encoding live events/channels. |
 >| Suggested solution|Check encoder preset to lower frame rate to under 36 fps. |
 >|**MPE_INGEST_VIDEO_RESOLUTION_NOT_SUPPORTED** ||
->| Description|The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for pass-through live events/channels. |
+>| Description|The incoming encoder ingested streams exceeded the following allowed resolutions: 1920x1088 for encoding live events/channels and 4096 x 2160 for basic and standard pass-through live events/channels. |
 >| Suggested solution|Check encoder preset to lower video resolution so it doesn't exceed the limit. |
 >|**MPE_INGEST_RTMP_TOO_LARGE_UNPROCESSED_FLV** |
 >| Description|The live event has received a large amount of audio data at once, or a large amount of video data without any key frames. We have disconnected the encoder to give it a chance to retry with correct data. |

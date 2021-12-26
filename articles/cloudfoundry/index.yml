@@ -30,7 +30,7 @@ landingContent:
       - linkListType: quickstart
         links:
           - text: Deploy Cloud Foundry on Azure
-            url: /azure/cloudfoundry/cloudfoundry-deploy-your-first-app
+            url: ./cloudfoundry-deploy-your-first-app.md
       - linkListType: how-to-guide
         links:
           - text: Deploy your first app

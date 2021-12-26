@@ -149,7 +149,7 @@ Recommended steps for creating a new delegation endpoint to implement on your si
 
 These code samples show how to:
 
-* Take the *delegation validation key*, which is set in the **Delegation** screen of the publisher portal.
+* Take the *delegation validation key*, which is set in the **Delegation** screen of the Azure portal.
 * Create an HMAC, which validates the signature, proving the validity of the passed returnUrl.
 
 With slight modification, you can use the same code for the **productId** and **userId**.
@@ -198,9 +198,9 @@ var signature = digest.toString('base64');
 
 [Delegating developer sign-in and sign-up]: #delegate-signin-up
 [Delegating product subscription]: #delegate-product-subscription
-[Request a shared access token]: /rest/api/apimanagement/2020-12-01/user/get-shared-access-token
-[create a user]: /rest/api/apimanagement/2020-12-01/user/create-or-update
-[calling the REST API for subscriptions]: /rest/api/apimanagement/2020-12-01/subscription/create-or-update
+[Request a shared access token]: /rest/api/apimanagement/current-ga/user/get-shared-access-token
+[create a user]: /rest/api/apimanagement/current-ga/user/create-or-update
+[calling the REST API for subscriptions]: /rest/api/apimanagement/current-ga/subscription/create-or-update
 [Next steps]: #next-steps
 [example code]: #delegate-example-code
 

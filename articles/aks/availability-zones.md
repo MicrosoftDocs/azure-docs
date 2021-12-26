@@ -4,7 +4,7 @@ description: Learn how to create a cluster that distributes nodes across availab
 services: container-service
 ms.custom: fasttrack-edit, references_regions, devx-track-azurecli
 ms.topic: article
-ms.date: 03/16/2021
+ms.date: 12/10/2021
 
 ---
 
@@ -27,15 +27,20 @@ AKS clusters can currently be created using availability zones in the following 
 * Australia East
 * Brazil South
 * Canada Central
+* Central India
 * Central US
+* East Asia
 * East US 
 * East US 2
 * France Central
 * Germany West Central
 * Japan East
+* Korea Central
 * North Europe
+* Norway East
 * Southeast Asia
 * South Central US
+* Sweden Central
 * UK South
 * US Gov Virginia
 * West Europe
@@ -49,9 +54,10 @@ The following limitations apply when you create an AKS cluster using availabilit
 * The chosen node size (VM SKU) selected must be available across all availability zones selected.
 * Clusters with availability zones enabled require use of Azure Standard Load Balancers for distribution across zones. This load balancer type can only be defined at cluster create time. For more information and the limitations of the standard load balancer, see [Azure load balancer standard SKU limitations][standard-lb-limitations].
 
-### Azure disks limitations
+### Azure disk availability zone support
 
-Volumes that use Azure managed disks are currently not zone-redundant resources. Volumes cannot be attached across zones and must be co-located in the same zone as a given node hosting the target pod.
+ - Volumes that use Azure managed LRS disks are not zone-redundant resources, those volumes cannot be attached across zones and must be co-located in the same zone as a given node hosting the target pod.
+ - Volumes that use Azure managed ZRS disks(supported by Azure Disk CSI driver v1.5.0+) are zone-redundant resources, those volumes can be scheduled on all zone and non-zone agent nodes.
 
 Kubernetes is aware of Azure availability zones since version 1.12. You can deploy a PersistentVolumeClaim object referencing an Azure Managed Disk in a multi-zone AKS cluster and [Kubernetes will take care of scheduling](https://kubernetes.io/docs/setup/best-practices/multiple-zones/#storage-access-for-zones) any pod that claims this PVC in the correct availability zone.
 

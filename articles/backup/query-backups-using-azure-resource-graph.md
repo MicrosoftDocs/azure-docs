@@ -106,6 +106,17 @@ RecoveryServicesResources
 | where datasourceType == 'AzureIaasVM'
 ```
 
+### List all VMs associated with a given backup policy
+
+```kusto
+RecoveryServicesResources
+| where type == "microsoft.recoveryservices/vaults/backupfabrics/protectioncontainers/protecteditems"
+| project propertiesJSON = parse_json(properties)
+| where propertiesJSON.backupManagementType == "AzureIaasVM"
+| project VMID=propertiesJSON.sourceResourceId, PolicyID=propertiesJSON.policyId
+| where PolicyID == "<ARM ID of the given policy>"
+```
+
 ### List all Backup policies used for Azure Databases for PostgreSQL Servers
 
 ```kusto

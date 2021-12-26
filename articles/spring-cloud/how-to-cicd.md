@@ -224,4 +224,4 @@ To deploy directly to Azure without a separate build step, use the following pip
 
 ## Next steps
 
-* [Quickstart: Deploy your first Azure Spring Cloud application](./quickstart.md)
+* [Quickstart: Deploy your first Spring Boot app in Azure Spring Cloud](./quickstart.md)

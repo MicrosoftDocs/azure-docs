@@ -272,14 +272,15 @@ When a timer trigger function is invoked, a timer object is passed into the func
 
 ```json
 {
-    "schedule":{
+    "Schedule":{
+        "AdjustForDST": true
     },
-    "scheduleStatus": {
-        "last":"2016-10-04T10:15:00+00:00",
-        "lastUpdated":"2016-10-04T10:16:00+00:00",
-        "next":"2016-10-04T10:20:00+00:00"
+    "ScheduleStatus": {
+        "Last":"2016-10-04T10:15:00+00:00",
+        "LastUpdated":"2016-10-04T10:16:00+00:00",
+        "Next":"2016-10-04T10:20:00+00:00"
     },
-    "isPastDue":false
+    "IsPastDue":false
 }
 ```
 

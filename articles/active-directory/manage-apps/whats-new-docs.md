@@ -1,7 +1,7 @@
 ---
 title: "What's new in Azure Active Directory application management"
 description: "New and updated documentation for the Azure Active Directory application management."
-ms.date: 09/08/2021
+ms.date: 12/02/2021
 ms.service: active-directory
 ms.subservice: app-mgmt
 ms.topic: reference
@@ -15,6 +15,81 @@ reviewer: napuri
 # Azure Active Directory application management: What's new
 
 Welcome to what's new in Azure Active Directory application management documentation. This article lists new docs that have been added and those that have had significant updates in the last three months. To learn what's new with the application management service, see [What's new in Azure Active Directory](../fundamentals/whats-new.md).
+
+## November 2021
+
+### New articles
+
+- [Consent and permissions overview](consent-and-permissions-overview.md)
+
+### Updated articles
+
+- [What is single sign-on in Azure Active Directory?](what-is-single-sign-on.md)
+- [Unexpected error when performing consent to an application](application-sign-in-unexpected-user-consent-error.md)
+- [Tutorial: Integrate Azure Active Directory with F5 BIG-IP for forms-based authentication Single sign-on](f5-big-ip-forms-advanced.md)
+- [Enable self-service application assignment in Azure Active Directory](manage-self-service-access.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Grant tenant-wide admin consent to an application in Azure Active Directory](grant-admin-consent.md)
+- [Assign users and groups to an application in Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Configure permission classifications in Azure Active Directory](configure-permission-classifications.md)
+- [Review permissions granted to applications in Azure Active Directory](manage-application-permissions.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta sign-on policies to Azure Active Directory Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+
+## October 2021
+
+### Updated articles
+
+- [Manage consent to applications and evaluate consent requests in Azure Active Directory](manage-consent-requests.md)
+- [What is application management in Azure Active Directory?](what-is-application-management.md)
+- [Configure how end-users consent to applications using Azure Active Directory](configure-user-consent.md)
+- [What is single sign-on in Azure Active Directory?](what-is-single-sign-on.md)
+- [Assign enterprise application owners](assign-app-owners.md)
+- [Configure the admin consent workflow](configure-admin-consent-workflow.md)
+- [Secure hybrid access: Secure legacy apps with Azure Active Directory](secure-hybrid-access.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Tutorial: Migrate Okta sign on policies to Azure Active Directory Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Manage certificates for federated single sign-on in Azure Active Directory](manage-certificates-for-federated-single-sign-on.md)
+
+
+## September 2021
+
+### New articles
+
+- [Home Realm Discovery for an application in Azure Active Directory](home-realm-discovery-policy.md)
+
+### Updated articles
+
+- [Assign users and groups to an application in Azure Active Directory](assign-user-or-group-access-portal.md)
+- [Configure sign in behavior for an application by using a Home Realm Discovery policy](configure-authentication-for-federated-users-portal.md)
+- [Disable how a user signs in for an application in Azure Active Directory](disable-user-sign-in-portal.md)
+- [Hide an Enterprise application in Azure Active Directory](hide-application-from-user-portal.md)
+- [Enable self-service application assignment in Azure Active Directory](manage-self-service-access.md)
+- [Disable auto-acceleration to a federated IDP during user sign-in with Home Realm Discovery policy](prevent-domain-hints-with-home-realm-discovery.md)
+- [Manage access to apps in Azure Active Directory](what-is-access-management.md)
+- [Tutorial: Migrate your applications from Okta to Azure Active Directory](migrate-applications-from-okta-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta federation to Azure Active Directory-managed authentication](migrate-okta-federation-to-azure-active-directory.md)
+- [Tutorial: Migrate Okta sign-on policies to Azure AD Conditional Access](migrate-okta-sign-on-policies-to-azure-active-directory-conditional-access.md)
+- [Tutorial: Migrate Okta sync provisioning to Azure AD Connect-based synchronization](migrate-okta-sync-provisioning-to-azure-active-directory.md)
+- [Secure hybrid access with Azure Active Directory partner integrations](secure-hybrid-access-integrations.md)
+- [Azure Active Directory application management: What's new](whats-new-docs.md)
+- [Quickstart: Create and assign a user account in Azure Active Directory](add-application-portal-assign-users.md)
+- [Quickstart: Configure enterprise application properties in Azure Active Directory](add-application-portal-configure.md)
+- [Add an OpenID Connect-based single sign-on application in Azure Active Directory](add-application-portal-setup-oidc-sso.md)
+- [Quickstart: Enable single sign-on for an enterprise application in Azure Active Directory](add-application-portal-setup-sso.md)
+- [Quickstart: Add an enterprise application in Azure Active Directory](add-application-portal.md)
+- [Quickstart: Delete an enterprise application in Azure Active Directory](delete-application-portal.md)
+- [Quickstart: View enterprise applications in Azure Active Directory](view-applications-portal.md)
+- [Create collections on the My Apps portal](access-panel-collections.md)
+- [Manage app consent policies](manage-app-consent-policies.md)
+- [Add linked single sign-on to an application in Azure Active Directory](configure-linked-sign-on.md)
+- [Add password-based single sign-on to an application in Azure Active Directory](configure-password-single-sign-on-non-gallery-applications.md)
+- [Plan a single sign-on deployment in Azure Active Directory](plan-sso-deployment.md)
+- [What is single sign-on in Azure Active Directory?](what-is-single-sign-on.md)
+
 
 ## August 2021
 

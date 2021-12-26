@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: conceptual
 author: scoriani 
 ms.author: scoriani
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 09/25/2018
 ---
 # Building scalable cloud databases

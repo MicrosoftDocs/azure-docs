@@ -6,7 +6,7 @@ author: dlepow
 
 ms.service: container-registry
 ms.topic: include
-ms.date: 08/12/2021
+ms.date: 10/22/2021
 ms.author: danlep
 ms.custom: include file
 ---
@@ -26,7 +26,7 @@ ms.custom: include file
 | Availability zones | N/A | N/A | [Preview][zones] |
 | Content trust | N/A | N/A | [Supported][content-trust] |
 | Private link with private endpoints | N/A | N/A | [Supported][plink] |
-| &bull; Private endpoints | N/A | N/A | 10 |
+| &bull; Private endpoints | N/A | N/A | 200 |
 | Public IP network rules | N/A | N/A | 100 |
 | Service endpoint VNet access | N/A | N/A | [Preview][vnet] |
 | &bull; Virtual network rules | N/A | N/A | 100 |
