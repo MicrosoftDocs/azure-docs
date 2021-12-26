@@ -33,13 +33,13 @@ Microsoft offers authentication methods that enable you to meet required NIST au
 | FIDO2 security key<br>or<br> Smart card (Active Directory Federation Services [AD FS])<br>or<br>Windows Hello for Business with hardware TPM| Multifactor cryptographic hardware |
 | **Additional methods**|   |
 | Password<br> and<br>(Hybrid Azure AD joined with hardware TPM <br>or <br> Azure AD joined with hardware TPM)| Memorized secret<br>and<br> Single-factor cryptographic hardware |
-| Password <br>and<br>(Single-factor one-time password hardware (from an OTP manufacturer) <br>or<br>Hybrid Azure AD joined with software TPM <br>or <br> Azure AD joined with software TPM <br>or<br> Compliant managed device)| Memorized secret <br>and<br>Single-factor one-time password hardware<br> and<br>Single-factor cryptographic software |
+| Password <br>and<br>Single-factor one-time password hardware (from an OTP manufacturer) <br>and<br>(Hybrid Azure AD joined with software TPM <br>or <br> Azure AD joined with software TPM <br>or<br> Compliant managed device)| Memorized secret <br>and<br>Single-factor one-time password hardware<br> and<br>Single-factor cryptographic software |
 
 ### Our recommendations 
 
 We recommend using a multifactor cryptographic hardware authenticator to achieve AAL3. Passwordless authentication eliminates the greatest attack surface, the password, and offers users a streamlined authentication method. If your organization is completely cloud based, we recommend that you use FIDO2 security keys.
 
-Note that FIDO2 keys and Windows Hello for Business haven't been validated at the required FIPS 140 Security Level. So federal customers need to conduct risk assessment and evaluation before accepting these authenticators as AAL3.
+Note that Windows Hello for Business has not been validated at the required FIPS 140 Security Level and as such federal customers would need to conduct risk assessment and evaluation before accepting it as AAL3. .
 
 For detailed guidance, see [Plan a passwordless authentication deployment in Azure Active Directory](../authentication/howto-authentication-passwordless-deployment.md).
 

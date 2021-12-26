@@ -30,10 +30,14 @@ To send data from Application Insights to certain regions, you'll need to overri
       <QuickPulseServiceEndpoint>Custom_QuickPulse_Endpoint_Address</QuickPulseServiceEndpoint>
     </Add>
   </TelemetryModules>
-    ...
-  <TelemetryChannel>
-     <EndpointAddress>TelemetryChannel_Endpoint_Address</EndpointAddress>
-  </TelemetryChannel>
+   ...
+  <TelemetrySinks>
+    <Add Name = "default">
+      <TelemetryChannel>
+         <EndpointAddress>TelemetryChannel_Endpoint_Address</EndpointAddress>
+      </TelemetryChannel>
+    </Add>
+  </TelemetrySinks>
   ...
   <ApplicationIdProvider Type="Microsoft.ApplicationInsights.Extensibility.Implementation.ApplicationId.ApplicationInsightsApplicationIdProvider, Microsoft.ApplicationInsights">
     <ProfileQueryEndpoint>Profile_Query_Endpoint_address</ProfileQueryEndpoint>

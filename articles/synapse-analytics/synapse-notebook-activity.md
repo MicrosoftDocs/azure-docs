@@ -29,6 +29,10 @@ Drag and drop **Synapse notebook** under **Activities** onto the Synapse pipelin
 
 ![screenshot-showing-create-notebook-activity](./media/synapse-notebook-activity/create-synapse-notebook-activity.png)
 
+> [!NOTE]
+> The execution of parallel Spark Notebooks in Azure Synapse pipelines be queued and executed in a FIFO manner, jobs order in the queue is according to the time sequence, the expire time of a job in the queue is 3 days, please notice that queue for notebook only work in synapse pipeline.
+
+
 ### Add a notebook to Synapse pipeline
 
 Select the **Add to pipeline** button on the upper right corner to add a notebook to an existing pipeline or create a new pipeline.
@@ -53,7 +57,7 @@ To parameterize your notebook, select the ellipses (...) to access the **more co
 
 ---
 
-Azure Data Factory looks for the parameters cell and uses the values as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. When a parameters cell isn't designated, the injected cell will be inserted at the top of the notebook.
+Azure Data Factory looks for the parameters cell and uses the values as defaults for the parameters passed in at execution time. The execution engine will add a new cell beneath the parameters cell with input parameters to overwrite the default values. 
 
 
 ### Assign parameters values from a pipeline

@@ -12,6 +12,9 @@ ms.author: srijangupta
 
 ---
 # cloud-init support for virtual machines in Azure
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 This article explains the support that exists for [cloud-init](https://cloudinit.readthedocs.io) to configure a virtual machine (VM) or virtual machine scale sets at provisioning time in Azure. These cloud-init configurations are run on first boot once the resources have been provisioned by Azure.  
 
 VM Provisioning is the process where the Azure will pass down your VM Create parameter values, such as hostname, username, password etc., and make them available to the VM as it boots up. A 'provisioning agent' will consume those values, configure the VM, and report back when completed. 
@@ -133,14 +136,13 @@ packages:
   - httpd
 ```
 > [!NOTE]
-> cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates a the content should be processed as a cloud-init config.
+> cloud-init has multiple [input types](https://cloudinit.readthedocs.io/en/latest/topics/format.html), cloud-init will use first line of the customData/userData to indicate how it should process the input, for example `#cloud-config` indicates that the content should be processed as a cloud-init config.
 
-
-Press `ctrl-X` to exit the file, type `y` to save the file and press `enter` to confirm the file name on exit.
+Press <kbd>Ctrl + X</kbd> to exit the file, type <kbd>y</kbd> to save the file, and press <kbd>Enter</kbd> to confirm the file name on exit.
 
 The final step is to create a VM with the [az vm create](/cli/azure/vm) command. 
 
-The following example creates a VM named *centos74* and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
+The following example creates a VM named `centos74` and creates SSH keys if they do not already exist in a default key location. To use a specific set of keys, use the `--ssh-key-value` option.  Use the `--custom-data` parameter to pass in your cloud-init config file. Provide the full path to the *cloud-init.txt* config if you saved the file outside of your present working directory. 
 
 ```azurecli-interactive 
 az vm create \

@@ -4,7 +4,7 @@ description: Learn about flexible billing models for SaaS offers using the comme
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 05/08/2020
+ms.date: 10/15/2021
 author: mingshen-ms
 ms.author: mingshen
 ---
@@ -18,7 +18,7 @@ With the commercial marketplace metering service, you can create software as a s
 For a SaaS offer to use metered billing, it must first:
 
 - Meet all of the offer requirements for a [sell through Microsoft offer](../plan-saas-offer.md#listing-options) as outlined in [Create a SaaS offer in the commercial marketplace](../create-new-saas-offer.md).
-- Integrate with the [SaaS Fulfillment APIs](./pc-saas-fulfillment-api-v2.md) for customers to provision and connect to your offer.  
+- Integrate with the [SaaS Fulfillment APIs](./pc-saas-fulfillment-apis.md) for customers to provision and connect to your offer.  
 - Be configured for the **flat rate** pricing model when charging customers for your service.  Dimensions are an optional extension to the flat rate pricing model. 
 
 Then the SaaS offer can integrate with the [commercial marketplace metering service APIs](../marketplace-metering-service-apis.md) to inform Microsoft of billable events.
@@ -38,9 +38,12 @@ Understanding the offer hierarchy is important, when it comes to defining the of
     - Recurring **annual** fee: flat annual fee that is pre-paid on an annual recurrence when the user purchases the plan.
 - In addition to the recurring fees, a flat rate plan can also include optional custom dimensions used to charge customers for the overage usage not included in the flat rate.  Each dimension represents a billable unit that your service will communicate to Microsoft using the [commercial marketplace metering service API](../marketplace-metering-service-apis.md).
 
+> [!IMPORTANT]
+> You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
+
 ## Sample offer
 
-As an example, Contoso is a publisher with a SaaS service called Contoso Notification Services (CNS). CNS lets its customers send notifications either via email or text. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish SaaS offers to Azure customers.  There are two plans associated with CNS, outlined below:
+As an example, Contoso is a publisher with a SaaS service called Contoso Notification Services (CNS). CNS lets its customers send notifications either via email or text. Contoso is registered as a publisher in Partner Center for the commercial marketplace program to publish SaaS offers to Azure customers.  There are three plans associated with CNS, outlined below:
 
 - Basic plan
     - Send 10000 emails and 1000 texts for $0/month (flat monthly fee)
@@ -66,14 +69,17 @@ Based on the plan selected, an Azure customer purchasing subscription to CNS Saa
 
 ## Billing dimensions
 
-Each billing dimension defines a custom unit by which the ISV can emit usage events.  Billing dimensions are also used to communicate to the customer on how they will be billed for using the software.  They are defined as follows:
+Each billing dimension defines a custom unit by which the ISV can emit usage events.  Billing dimensions are also used to communicate to the customer about how they will be billed for using the software. They are defined as follows:
 
 - **ID**: the immutable dimension identifier referenced while emitting usage events.
 - **Display Name**: the display name associated with the dimension, for example "text messages sent".
 - **Unit of Measure**: the description of the billing unit, for example "per text message" or "per 100 emails".
-- **Price per unit in USD**: the price for one unit of the dimension.  It can be 0. 
+- **Price per unit in USD**: the price for one unit of the dimension.  It can be 0.
 - **Monthly quantity included in base**: quantity of dimension included per month for customers paying the recurring monthly fee, must be an integer. It can be 0 or unlimited.
 - **Annual quantity included in base**: quantity of dimension included per each year for customers paying the recurring annual fee, must be an integer. Can be 0 or unlimited.
+
+> [!IMPORTANT]
+> You must keep track of the usage in your code and only send usage events to Microsoft for the usage that is above the base fee.
 
 Billing dimensions are shared across all plans for an offer.  Some attributes apply to the dimension across all plans, and other attributes are plan-specific.
 
@@ -87,14 +93,14 @@ The other attributes of a dimension are specific to each plan and can have diffe
 
 - Price per unit in USD
 - Monthly quantity included in base  
-- Annual quantity included in baseIncluded  
+- Annual quantity included in base
 
 Dimensions also have two special concepts, "enabled" and "infinite":
 
 - **Enabled** indicates that this plan participates in this dimension.  If you are creating a new plan that does not send usage events based on this dimension, you might want to leave this option unchecked.  Also, any new dimensions added after a plan was first published will show up as "not enabled" on the already published plan.  A disabled dimension will not show up in any lists of dimensions for a plan seen by customers.
 - **Infinite** represented by the infinity symbol "∞", indicates that this plan participates in this dimension, but does not emit usage against this dimension.  If you want to indicate to your customers that the functionality represented by this dimension is included in the plan, but with no limit on usage.  A dimension with infinite usage will show up in lists of dimensions for a plan seen by customers, with an indication that it will never incur a charge for this plan.
 
->[!Note] 
+>[!Note]
 >The following scenarios are explicitly supported: <br> - You can add a new dimension to a new plan.  The new dimension will not be enabled for any already published plans. <br> - You can publish a **flat-rate** plan without any dimensions, then add a new plan and configure a new dimension for that plan. The new dimension will not be enabled for already published plans.
 
 ### Setting dimension price per unit per supported market
@@ -105,7 +111,7 @@ Like flat rate pricing, billing dimension prices can be set per supported countr
 1. Export this data into a file.
 1. Add the correct prices per country/region and import the file in Partner Center.
 
-The UI of the meter will change to reflect that the prices of the dimension can only be seen in the file.
+The user interface of the meter will change to reflect that the prices of the dimension can only be seen in the file.
 
 [![commercial marketplace metering service dimensions](media/metering-service-dimensions.png "Click for enlarged view")](media/metering-service-dimensions.png)
 
@@ -121,7 +127,7 @@ Metered billing using the commercial marketplace metering service is not compati
 
 ### Locking behavior
 
-Because a dimension used with the commercial marketplace metering service represents an understanding of how a customer will be paying for the service, all of the details for a dimension are no longer editable after you publish it.  It's important that you have your dimensions fully defined for a plan before you publish.
+Because a dimension used with the commercial marketplace metering service represents an understanding of how a customer will be paying for the service, all the details for a dimension are no longer editable after you publish it.  It's important that you have your dimensions fully defined for a plan before you publish.
 
 Once an offer is published with a dimension, the offer-level details for that dimension can no longer be changed:
 
@@ -152,4 +158,4 @@ To understand publisher support options and open a support ticket with Microsoft
 
 ## Next steps
 
-- [Marketplace metering service APIs](../marketplace-metering-service-apis.md)
+- [Marketplace metered billing APIs](../marketplace-metering-service-apis.md)

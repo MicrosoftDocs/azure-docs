@@ -5,6 +5,7 @@ metadata:
   author: ssabat
   ms.author: susabat
   ms.service: data-factory
+  ms.subservice: 
   ms.topic: conceptual
   ms.date: 07/23/2021
     
@@ -268,7 +269,7 @@ sections:
           
           ### The data flow advisory about TTL and costs
           
-          This troubleshoot document may help to resolve your issues: [Mapping data flows performance and tuning guide-Time to live](../data-factory/concepts-data-flow-performance.md#time-to-live).
+          This troubleshoot document may help to resolve your issues: [Mapping data flows performance and tuning guide-Time to live](../data-factory/concepts-integration-runtime-performance.md#time-to-live).
           
           
       - question: |

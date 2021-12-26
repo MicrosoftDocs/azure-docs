@@ -3,7 +3,7 @@ title: Azure Monitor workbooks for reports | Microsoft Docs
 description: Learn how to use Azure Monitor workbooks for Azure Active Directory reports.
 services: active-directory
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 
 ms.assetid: 4066725c-c430-42b8-a75b-fe2360699b82
 ms.service: active-directory
@@ -12,7 +12,7 @@ ms.topic: how-to
 ms.tgt_pltfrm:
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 5/19/2021
+ms.date: 12/21/2021
 ms.author: markvi
 ms.reviewer: dhanyahk
 ---
@@ -26,6 +26,8 @@ Do you want to:
 - Understand the effect of your [Conditional Access policies](../conditional-access/overview.md) on your users' sign-in experience?
 
 - Troubleshoot sign-in failures to get a better view of your organization's sign-in health and to resolve issues quickly?
+
+- Understand risky users and risk detections trends in your tenant?
 
 - Know who's using legacy authentications to sign in to your environment? (By [blocking legacy authentication](../conditional-access/block-legacy-authentication.md), you can improve your tenant's protection.)
 
@@ -69,12 +71,27 @@ To use Monitor workbooks, you need:
     - Global administrator
 
 ## Roles
-You must be in one of the following roles as well as have [access to underlying Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) workspace to manage the workbooks:
-- 	Global administrator
-- 	Security administrator
-- 	Security reader
-- 	Report reader
-- 	Application administrator
+
+To access workbooks in Azure Active Directory, you must have access to the underlying [Log Analytics](../../azure-monitor/logs/manage-access.md#manage-access-using-azure-permissions) workspace and be assigned to one of the following roles:
+
+
+- Global Reader
+
+- Reports Reader
+
+- Security Reader
+
+- Application Administrator 
+
+- Cloud Application Administrator
+
+- Company Administrator
+
+- Security Administrator
+
+
+
+
 
 ## Workbook access 
 
@@ -292,9 +309,25 @@ To help you troubleshoot sign-ins, Azure Monitor gives you a breakdown by the fo
     ![Summary of sign-ins waiting on user action](./media/howto-use-azure-monitor-workbooks/54.png)
 
 
+## Identity Protection Risk Analysis
 
+Use the **Identity Protection Risk Analysis** workbook in the **Usage** section to understand:
 
+- Distribution in risky users and risk detections by levels and types
+- Opportunities to better remediate risk
+- Where in the world risk is being detected
 
+You can filter the Risky Detections trends by:
+- Detection timing type
+- Risk level
+
+Real-time risk detections are those that can be detected at the point of authentication. These detections can be challenged by risky sign-in policies using Conditional Access to require multi-factor authentication. 
+
+You can filter the Risky Users trends by:
+- Risk detail
+- Risk level
+
+If you have a high number of risky users where "no action" has been taken, consider enabling a Conditional Access policy to require secure password change when a user is high risk.
 
 ## Next steps
 

@@ -28,7 +28,7 @@ Consider the following examples:
 
 ## Normalizers
 
-An *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching. Normalizers are similar to analyzers except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are:
+A *normalizer* is a component of the search engine responsible for pre-processing text for keyword matching. Normalizers are similar to analyzers except they do not tokenize the query. Some of the transformations that can be achieved using normalizers are:
 
 + Convert to lowercase or upper-case.
 + Normalize accents and diacritics like ö or ê to ASCII equivalent characters "o" and "e".

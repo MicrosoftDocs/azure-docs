@@ -27,9 +27,11 @@ You can navigate to everything you need to manage your function app from the ove
 
 ## <a name="settings"></a>Work with application settings
 
-Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
+You can create any number of application settings required by your function code. There are also predefined application settings used by Functions. To learn more, see the [App settings reference for Azure Functions](functions-app-settings.md).
 
 These settings are stored encrypted. To learn more, see [Application settings security](security-concepts.md#application-settings).
+
+Application settings can be managed from the [Azure portal](functions-how-to-use-azure-function-app-settings.md?tabs=portal#settings) and by using the [Azure CLI](functions-how-to-use-azure-function-app-settings.md?tabs=azurecli#settings) and [Azure PowerShell](functions-how-to-use-azure-function-app-settings.md?tabs=powershell#settings). You can also manage application settings from [Visual Studio Code](functions-develop-vs-code.md#application-settings-in-azure) and from [Visual Studio](functions-develop-vs.md#function-app-settings). 
 
 # [Portal](#tab/portal)
 
@@ -40,7 +42,7 @@ To add a setting in the portal, select **New application setting** and add the n
 
 ![Function app settings in the Azure portal.](./media/functions-how-to-use-azure-function-app-settings/azure-function-app-settings-tab.png)
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 The [`az functionapp config appsettings list`](/cli/azure/functionapp/config/appsettings#az_functionapp_config_appsettings_list) command returns the existing application settings, as in the following example:
 
@@ -58,7 +60,7 @@ az functionapp config appsettings set --name <FUNCTION_APP_NAME> \
 --settings CUSTOM_FUNCTION_APP_SETTING=12345
 ```
 
-# [Azure PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 The [`Get-AzFunctionAppSetting`](/powershell/module/az.functions/get-azfunctionappsetting) cmdlet returns the existing application settings, as in the following example: 
 
@@ -100,7 +102,7 @@ To determine the type of plan used by your function app, see **App Service plan*
 
 ![View scaling plan in the portal](./media/functions-scale/function-app-overview-portal.png)
 
-# [Azure CLI](#tab/azurecli)
+# [Azure CLI](#tab/azure-cli)
 
 Run the following Azure CLI command to get your hosting plan type:
 
@@ -114,7 +116,7 @@ az appservice plan list --query "[?id=='$appServicePlanId'].sku.tier" --output t
 
 In the previous example replace `<RESOURCE_GROUP>` and `<FUNCTION_APP_NAME>` with the resource group and function app names, respective. 
 
-# [Azure PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/azure-powershell)
 
 Run the following Azure PowerShell command to get your hosting plan type:
 
@@ -198,6 +200,52 @@ Use the following procedure to migrate from a Premium plan to a Consumption plan
     ```azurecli-interactive
     az functionapp plan delete --name <PREMIUM_PLAN> --resource-group <MY_RESOURCE_GROUP>
     ```
+
+## Get your function access keys
+
+HTTP triggered functions can generally be called by using a URL in the format: `https://<APP_NAME>.azurewebsites.net/api/<FUNCTION_NAME>`. When the authorization to your function is set a value other than `anonymous`, you must also provide an access key in your request. The access key can either be provided in the URL using the `?code=` query string or in the request header. To learn more, see [Function access keys](functions-bindings-http-webhook-trigger.md#authorization-keys). There are several ways to get your  access keys. 
+
+# [Portal](#tab/portal)
+
+1. Sign in to the Azure portal, then search for and select **Function App**.
+
+1. Select the function you want to verify.
+
+1. In the left navigation under **Functions**, select **App keys**.
+
+    This returns the host keys, which can be used to access any function in the app. It also returns the system key, which gives anyone administrator-level access to the all function app APIs.   
+
+You can also practice least privilege by using the key just for the specific function key by selecting **Function keys** under **Developer** in your HTTP triggered function. 
+
+# [Azure CLI](#tab/azure-cli)
+
+Run the following script in Azure Cloud Shell, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app.
+
+```azurecli-interactive
+subName='<SUBSCRIPTION_ID>'
+resGroup=AzureFunctionsContainers-rg
+appName=glengagtestdocker
+path=/subscriptions/$subName/resourceGroups/$resGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01
+az rest --method POST --uri $path --query functionKeys.default --output tsv
+```
+
+In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. This script runs on Bash in Cloud Shell. It must be modified to run in a Windows command prompt.  
+
+# [Azure PowerShell](#tab/azure-powershell)
+
+Run the following script, the output of which is the [default (host) key](functions-bindings-http-webhook-trigger.md#authorization-scopes-function-level) that can be used to access any HTTP triggered function in the function app. 
+
+```powershell-interactive
+$subName = '<SUBSCRIPTION_ID>'
+$rGroup = 'AzureFunctionsContainers-rg'
+$appName = '<APP_NAME>'
+$path = "/subscriptions/$subName/resourceGroups/$rGroup/providers/Microsoft.Web/sites/$appName/host/default/listKeys?api-version=2018-11-01"
+((Invoke-AzRestMethod -Path $path -Method POST).Content | ConvertFrom-JSON).functionKeys.default
+```
+
+In this script, replace `<SUBSCRIPTION_ID>` and `<APP_NAME>` with the ID of your subscription and your function app name, respective. 
+
+---
 
 ## Platform features
 

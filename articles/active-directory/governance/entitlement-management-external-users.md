@@ -4,7 +4,7 @@ description: Learn about the settings you can specify to govern access for exter
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

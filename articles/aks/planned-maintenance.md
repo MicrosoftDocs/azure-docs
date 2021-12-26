@@ -56,7 +56,7 @@ az aks maintenanceconfiguration add -g MyResourceGroup --cluster-name myAKSClust
 The following example output shows the maintenance window from 1:00am to 2:00am every Monday.
 
 ```json
-{- Finished ..
+{
   "id": "/subscriptions/<subscriptionID>/resourcegroups/MyResourceGroup/providers/Microsoft.ContainerService/managedClusters/myAKSCluster/maintenanceConfigurations/default",
   "name": "default",
   "notAllowedTime": null,
@@ -127,7 +127,7 @@ az aks maintenanceconfiguration update -g MyResourceGroup --cluster-name myAKSCl
 
 ## List all maintenance windows in an existing cluster
 
-To see all current maintenance configuration windows in your AKS Cluster, use the `az aks maintenanceconfiguration list` command.
+To see all current maintenance configuration windows in your AKS cluster, use the `az aks maintenanceconfiguration list` command.
 
 ```azurecli-interactive
 az aks maintenanceconfiguration list -g MyResourceGroup --cluster-name myAKSCluster

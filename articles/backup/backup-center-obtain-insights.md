@@ -2,7 +2,7 @@
 title: Obtain insights using Backup center
 description: Learn how to analyze historical trends and gain deeper insights on your backups with Backup center. 
 ms.topic: conceptual
-ms.date: 09/01/2020
+ms.date: 10/19/2021
 ---
 
 # Obtain Insights using Backup center
@@ -19,7 +19,7 @@ For analyzing historical trends and gaining deeper insights on your backups, Bac
 
 ## Supported scenarios
 
-- Backup Reports is currently not available for Azure Database for PostgreSQL server backup.
+- Backup Reports is currently not supported for workloads that are backed up using Backup vaults.
 
 - Refer to the [support matrix](backup-center-support-matrix.md) for a detailed list of supported and unsupported scenarios.
 
@@ -51,7 +51,7 @@ Following are the views available:
 
 7. **Policy adherence** - Use this tab to gain visibility into whether every backup instance has had at least one successful backup per day. [Learn more](./configure-reports.md#policy-adherence)
 
-You can also configure emails for any these reports using the [Email Report](backup-reports-email.md) feature.
+You can also configure emails for these reports using the [Email Report](backup-reports-email.md) feature.
 
 ## Next steps
 

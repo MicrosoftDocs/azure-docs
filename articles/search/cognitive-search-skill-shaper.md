@@ -6,7 +6,7 @@ description: Extract metadata and structured information from unstructured data 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 08/12/2021
 ---
 
@@ -31,7 +31,6 @@ Consider a scenario where you want to create a structure called *analyzedText* t
 However, another approach for creating complex types is through the **Shaper** skill. By including this skill in a skillset, the in-memory operations during skillset processing can output data shapes with nested structures, which can then be mapped to a complex type in your index. 
 
 The following example skill definition provides the member names as the input. 
-
 
 ```json
 {
@@ -61,26 +60,26 @@ The following example skill definition provides the member names as the input.
 A skillset is invoked by an indexer, and an indexer requires an index. A complex field representation in your index might look like the following example. 
 
 ```json
-
-	"name": "my-index",
-	"fields": [
-		{	"name": "myId", "type": "Edm.String", "key": true, "filterable": true 	},
-		{	"name": "analyzedText", "type": "Edm.ComplexType",
-			"fields": [{
-					"name": "text",
-					"type": "Edm.String",
-					"filterable": false,
-					"sortable": false,
-					"facetable": false,
-					"searchable": true 	},
-          {
-					"name": "sentiment",
-					"type": "Edm.Double",
-					"searchable": true,
-					"filterable": true,
-					"sortable": true,
-					"facetable": true
-				},
+"name":"my-index",
+"fields":[
+   { "name":"myId", "type":"Edm.String", "key":true, "filterable":true  },
+   { "name":"analyzedText", "type":"Edm.ComplexType",
+      "fields":[
+         {
+            "name":"text",
+            "type":"Edm.String",
+            "facetable":false,
+            "filterable":false,
+            "searchable":true,
+            "sortable":false  },
+         {
+            "name":"sentiment",
+            "type":"Edm.Double",
+            "facetable":true,
+            "filterable":true,
+            "searchable":true,
+            "sortable":true }
+      }
 ```
 
 ###	Skill input

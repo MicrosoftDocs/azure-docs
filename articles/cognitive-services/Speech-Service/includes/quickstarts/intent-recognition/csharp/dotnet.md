@@ -1,10 +1,10 @@
 ---
-author: laujan
+author: eric-urban
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.date: 04/04/2020
 ms.topic: include
-ms.author: lajanuar
+ms.author: eur
 ms.custom: devx-track-csharp
 zone_pivot_groups: programming-languages-set-two
 ---

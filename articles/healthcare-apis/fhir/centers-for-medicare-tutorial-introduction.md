@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.reviewer: matjazl
 ms.author: cavoeg
 author: caitlinv39
-ms.date: 08/05/2021
+ms.date: 12/16/2021
 ---
 
 # Introduction: Centers for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule
@@ -16,7 +16,7 @@ ms.date: 08/05/2021
 > [!IMPORTANT]
 > Azure Healthcare APIs is currently in PREVIEW. The [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the FHIR service in the Azure Healthcare APIs (hear by called the FHIR service) to support these implementation guides.
+In this series of tutorials, we'll cover a high-level summary of the Center for Medicare and Medicaid Services (CMS) Interoperability and Patient Access rule, and the technical requirements outlined in this rule. We'll walk through the various implementation guides referenced for this rule. We'll also provide details on how to configure the FHIR service in the Azure Healthcare APIs (hereby called the FHIR service) to support these implementation guides.
 
 
 ## Rule overview
@@ -31,7 +31,7 @@ There are three main pieces to the Interoperability and Patient Access ruling:
 
 * **Provider Directory API (Required July 1, 2021)** – CMS-regulated payers are required by this portion of the rule to make provider directory information publicly available via a standards-based API. Through making this information available, third-party application developers will be able to create services that help patients find providers for specific care needs and clinicians find other providers for care coordination.  
 
-* **Payer-to-Payer Data Exchange (Required January 1, 2022)** – CMS-regulated payers are required to exchange certain patient clinical data at the patient’s request with other payers. While there's no requirement to follow any kind of standard, applying FHIR to exchange this data is encouraged. 
+* **Payer-to-Payer Data Exchange (Originally required Jan 1, 2022 - [Currently Delayed](https://www.cms.gov/Regulations-and-Guidance/Guidance/Interoperability/index))** – CMS-regulated payers are required to exchange certain patient clinical data at the patient’s request with other payers. While there's no requirement to follow any kind of standard, applying FHIR to exchange this data is encouraged. 
 
 ## Key FHIR concepts
 

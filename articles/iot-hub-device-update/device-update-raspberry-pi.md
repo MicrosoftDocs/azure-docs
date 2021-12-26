@@ -26,6 +26,8 @@ In this tutorial you will learn how to:
 > * Deploy an image update
 > * Monitor the update deployment
 
+Note: Image updates in this tutorial have been validated on the Raspberry Pi B3 board.
+
 ## Prerequisites
 * If you haven't already done so, create a [Device Update account and instance](create-device-update-account.md), including configuring an IoT Hub.
 
@@ -106,14 +108,11 @@ IoT Hub, a connection string will be generated for the device.
    ssh raspberrypi3 -l root
       ```
 4. Enter login as 'root', and password should be left as empty.
-5. After you successfully ssh into the device, run the below commands
- 
-Replace `<device connection string>` with your connection string
+5. After you successfully ssh into the device, run 
  ```markdown
-	echo "connection_string=<device connection string>" > /adu/adu-conf.txt  
-	echo "aduc_manufacturer=ADUTeam" >> /adu/adu-conf.txt
-	echo "aduc_model=RefDevice" >> /adu/adu-conf.txt
+	/etc/adu/du-config.json
    ```
+   and add your connection string within the double quotes.
 
 ## Connect the device in Device Update IoT Hub
 
@@ -152,27 +151,27 @@ Use that version number in the Import Update step below.
 
 ## Import update
 
-1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/TutorialImportManifest.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
+1. Download the [sample import manifest](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0/TutorialImportManifest_Pi.json) and [sample image update](https://github.com/Azure/iot-hub-device-update/releases/download/0.7.0-rc1/adu-update-image-raspberrypi3-0.6.5073.1.swu).
 2. Log in to the [Azure portal](https://portal.azure.com/) and navigate to your IoT Hub with Device Update. Then, select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
 3. Select the Updates tab.
 4. Select "+ Import New Update".
 5. Select the folder icon or text box under "Select an Import Manifest File". You will see a file picker dialog. Select the _sample import manifest_ you downloaded in step 1 above.  Next, select the folder icon or text box under "Select one or more update files". You will see a file picker dialog. Select the _sample update file_ that you downloaded in step 1 above.
-   
+
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
-5. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
 
-6. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
   
-  :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
+   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 
-7. Select "Submit" to start the import process.
+8. Select "Submit" to start the import process.
 
-8. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
    
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-9. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
 [Learn more](import-update.md) about importing updates.
 
@@ -180,13 +179,13 @@ Use that version number in the Import Update step below.
 
 1. Go to the IoT Hub you previously connected to your Device Update instance.
 
-2. Select the Device Updates option under Automatic Device Management from the left-hand navigation bar.
+2. Select the Updates option under Device Management from the left-hand navigation bar.
 
 3. Select the Groups tab at the top of the page. 
 
 4. Select the Add button to create a new group.
 
-5. Select the IoT Hub tag you created in the previous step from the list. Select Create update group.
+5. Select the IoT Hub tag you created in the previous step from the list. Select Create group.
 
    :::image type="content" source="media/create-update-group/select-tag.PNG" alt-text="Screenshot showing tag selection." lightbox="media/create-update-group/select-tag.PNG":::
 

@@ -1,9 +1,8 @@
 ---
 title: Create a dashboard in the Azure portal
 description: This article describes how to create and customize a dashboard in the Azure portal.
-ms.assetid: ff422f36-47d2-409b-8a19-02e24b03ffe7
 ms.topic: how-to
-ms.date: 05/12/2021
+ms.date: 10/19/2021
 ---
 
 # Create a dashboard in the Azure portal
@@ -13,7 +12,7 @@ Dashboards are a focused and organized view of your cloud resources in the Azure
 The Azure portal provides a default dashboard as a starting point. You can edit the default dashboard and create and customize additional dashboards.
 
 > [!NOTE]
-> Each user can create up to 100 private dashboards. If you [publish and share the dashboard](azure-portal-dashboard-share-access.md), it will be implemented as an Azure resource in your subscription and won’t count towards this limit.
+> Each user can create up to 100 private dashboards. If you [publish and share the dashboard](azure-portal-dashboard-share-access.md), it will be implemented as an Azure resource in your subscription and won't count towards this limit.
 
 This article describes how to create a new dashboard and customize it. For information on sharing dashboards, see [Share Azure dashboards by using Azure role-based access control](azure-portal-dashboard-share-access.md).
 
@@ -25,11 +24,11 @@ This example shows how to create a new private dashboard with an assigned name. 
 
 1. From the Azure portal menu, select **Dashboard**. Your default view might already be set to dashboard.
 
-    ![Screenshot of the Azure portal with Dashboard selected.](./media/azure-portal-dashboards/portal-menu-dashboard.png)
+    :::image type="content" source="media/azure-portal-dashboards/portal-menu-dashboard.png" alt-text="Screenshot of the Azure portal with Dashboard selected.":::
 
-1. Select **New dashboard** then **Blank dashboard**.
+1. Select **New dashboard**, then select **Blank dashboard**.
 
-    ![Screenshot of the New dashboard options.](./media/azure-portal-dashboards/create-new-dashboard.png)
+    :::image type="content" source="media/azure-portal-dashboards/create-new-dashboard.png" alt-text="Screenshot of the New dashboard options.":::
 
     This action opens the **Tile Gallery**, from which you can select tiles, and an empty grid where you'll arrange the tiles.
 
@@ -51,7 +50,7 @@ To add tiles to a dashboard, follow these steps:
 
 1. Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** from the dashboard's page header.
 
-    ![Screenshot of dashboard highlighting the Edit option.](./media/azure-portal-dashboards/dashboard-edit.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-edit.png" alt-text="Screenshot of dashboard highlighting the Edit option.":::
 
 1. Browse the **Tile Gallery** or use the search field to find a certain tile. Select the tile you want to add to your dashboard.
 
@@ -126,7 +125,7 @@ If you set filters for a particular tile, the left corner of that tile displays 
 
 Some tiles might require more configuration to show the information you want. For example, the **Metrics chart** tile has to be set up to display a metric from Azure Monitor. You can also customize tile data to override the dashboard's default time settings and filters.
 
-## Complete tile configuration
+### Complete tile configuration
 
 Any tile that needs to be set up displays a banner until you customize the tile. For example, in the **Metrics chart**, the banner reads **Edit in Metrics**. Other banners may use different text, such as **Configure tile**.
 
@@ -136,7 +135,7 @@ To customize the tile:
 
 1. Select the banner, then do the required setup.
 
-    ![Screenshot of tile that requires configuration.](./media/azure-portal-dashboards/dashboard-configure-tile.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-configure-tile.png" alt-text="Screenshot of tile that requires configuration.":::
 
 ### Customize time span for a tile
 
@@ -144,11 +143,11 @@ Data on the dashboard shows activity and refreshes based on the global filters. 
 
 1. Select **Customize tile data** from the context menu or from the ![filter icon](./media/azure-portal-dashboards/dashboard-filter.png) in the upper left corner of the tile.
 
-    ![Screenshot of tile context menu.](./media/azure-portal-dashboards/dashboard-customize-tile-data.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-customize-tile-data.png" alt-text="Screenshot of tile context menu.":::
 
 1. Select the checkbox to **Override the dashboard time settings at the tile level**.
 
-    ![Screenshot of dialog to configure tile time settings.](./media/azure-portal-dashboards/dashboard-override-time-settings.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-override-time-settings.png" alt-text="Screenshot of dialog to configure tile time settings.":::
 
 1. Choose the time span to show for this tile. You can choose from the past 30 minutes to the past 30 days or define a custom range.
 
@@ -156,6 +155,16 @@ Data on the dashboard shows activity and refreshes based on the global filters. 
 
 1. Select **Apply**.
 
+### Change the title and subtitle of a tile
+
+Some tiles allow you to edit their title and subtitle. To do so, select **Configure tile settings** from the context menu.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-tile-rename.png" alt-text="Screenshot showing the Configure tile settings option.":::
+
+Make any changes to the tile's title and/or subtitle, then select **Apply**.
+
+:::image type="content" source="media/azure-portal-dashboards/dashboard-title-subtitle.png" alt-text="Screenshot showing how to change the title and subtitle for a tile.":::
+ 
 ## Delete a tile
 
 To remove a tile from a dashboard, do one of the following:
@@ -164,7 +173,7 @@ To remove a tile from a dashboard, do one of the following:
 
 - Select ![edit icon](./media/azure-portal-dashboards/dashboard-edit-icon.png) **Edit** to enter customization mode. Hover in the upper right corner of the tile, then select the ![delete icon](./media/azure-portal-dashboards/dashboard-delete-icon.png) delete icon to remove the tile from the dashboard.
 
-   ![Screenshot showing how to remove tile from dashboard.](./media/azure-portal-dashboards/dashboard-delete-tile.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-delete-tile.png" alt-text="Screenshot showing how to remove tile from dashboard.":::
 
 ## Clone a dashboard
 
@@ -190,11 +199,11 @@ To find and open a shared dashboard, follow these steps:
 
     1. select **Browse all dashboards**.
 
-        ![Screenshot of dashboard selection menu](./media/azure-portal-dashboards/dashboard-browse.png)
+        :::image type="content" source="media/azure-portal-dashboards/dashboard-browse.png" alt-text="Screenshot of dashboard selection menu.":::
 
     1. In the **Type** field, select **Shared dashboards**.
 
-        ![Screenshot of all dashboards selection menu](./media/azure-portal-dashboards/dashboard-browse-all.png)
+        :::image type="content" source="media/azure-portal-dashboards/dashboard-browse-all.png" alt-text="Screenshot of all dashboards selection menu.":::
 
     1. Select one or more subscriptions. You can also enter text to filter dashboards by name.
 
@@ -210,7 +219,7 @@ To permanently delete a private or shared dashboard, follow these steps:
 
 1. For a private dashboard, select **OK** on the confirmation dialog to remove the dashboard. For a shared dashboard, on the confirmation dialog, select the checkbox to confirm that the published dashboard will no longer be viewable by others. Then, select **OK**.
 
-    ![Screenshot of delete confirmation.](./media/azure-portal-dashboards/dashboard-delete-dash.png)
+    :::image type="content" source="media/azure-portal-dashboards/dashboard-delete-dash.png" alt-text="Screenshot of delete confirmation.":::
 
 ## Recover a deleted dashboard
 

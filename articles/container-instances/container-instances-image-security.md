@@ -8,7 +8,7 @@ ms.custom:
 
 # Security considerations for Azure Container Instances
 
-This article introduces security considerations for using Azure Container Instances to run container apps. Topics include:
+This article introduces security considerations for using Azure Container Instances to run container applications. Topics include:
 
 > [!div class="checklist"]
 > * **Security recommendations** for managing images and secrets for Azure Container Instances
@@ -29,7 +29,7 @@ A publicly available container image does not guarantee security. Container imag
 
 Take advantage of solutions to scan container images in a private registry and identify potential vulnerabilities. It’s important to understand the depth of threat detection that the different solutions provide.
 
-For example, Azure Container Registry optionally [integrates with Azure Security Center](../security-center/defender-for-container-registries-introduction.md) to automatically scan all Linux images pushed to a registry. Azure Security Center's integrated Qualys scanner detects image vulnerabilities, classifies them, and provides remediation guidance.
+For example, Azure Container Registry optionally [integrates with Microsoft Defender for Cloud](../security-center/defender-for-container-registries-introduction.md) to automatically scan all Linux images pushed to a registry. Microsoft Defender for Cloud's integrated Qualys scanner detects image vulnerabilities, classifies them, and provides remediation guidance.
 
 Security monitoring and image scanning solutions such as [Twistlock](https://azuremarketplace.microsoft.com/marketplace/apps/twistlock.twistlock?tab=Overview) and [Aqua Security](https://azuremarketplace.microsoft.com/marketplace/apps/aqua-security.aqua-security?tab=Overview) are also available through the Azure Marketplace.  
 
@@ -133,7 +133,7 @@ Monitor your resource activity, like files, network, and other resources that yo
 
 Maintain an accurate audit trail of administrative access to your container ecosystem, including your Kubernetes cluster, container registry, and container images. These logs might be necessary for auditing purposes and will be useful as forensic evidence after any security incident. Azure solutions include:
 
-* [Integration of Azure Kubernetes Service with Azure Security Center](../security-center/defender-for-kubernetes-introduction.md) to monitor the security configuration of the cluster environment and generate security recommendations
+* [Integration of Azure Kubernetes Service with Microsoft Defender for Cloud](../security-center/defender-for-kubernetes-introduction.md) to monitor the security configuration of the cluster environment and generate security recommendations
 * [Azure Container Monitoring solution](../azure-monitor/containers/containers.md)
 * Resource logs for [Azure Container Instances](container-instances-log-analytics.md) and [Azure Container Registry](../container-registry/monitor-service.md)
 
@@ -141,6 +141,6 @@ Maintain an accurate audit trail of administrative access to your container ecos
 
 * See the [Azure security baseline for Container Instances](security-baseline.md) for comprehensive recommendations that will help you improve the security posture of your deployment.
 
-* Learn more about using [Azure Security Center](../security-center/container-security.md) for real-time threat detection in your containerized environments.
+* Learn more about using [Microsoft Defender for Cloud](../security-center/container-security.md) for real-time threat detection in your containerized environments.
 
 * Learn more about managing container vulnerabilities with solutions from [Twistlock](https://www.twistlock.com/solutions/microsoft-azure-container-security/) and [Aqua Security](https://www.aquasec.com/solutions/azure-container-security/).

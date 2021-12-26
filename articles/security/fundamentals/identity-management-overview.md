@@ -15,7 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/05/2021
 ms.author: terrylan
-# Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
+# Customer intent: As an IT Pro or decision maker, I am trying to learn about identity management capabilities in Azure
 ---
 # Azure identity management security overview
 

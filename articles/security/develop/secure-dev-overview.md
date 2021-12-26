@@ -102,7 +102,7 @@ documentation, tools, and technologies in the field of web application
 security.
 
 [Pushing Left, Like a
-Boss](https://code.likeagirl.io/pushing-left-like-a-boss-part-1-80f1f007da95?WT.mc_id=docs-blog-tajanca)
+Boss](https://wehackpurple.com/pushing-left-like-a-boss-part-1/)
 – A series of online articles that outlines
 different types of application security activities that developers should complete to create more secure code.
 

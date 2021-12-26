@@ -78,6 +78,10 @@ Supported distributions and versions:
 
 ### Python requirement
 
+>[!NOTE]
+>We are currently planning to converge all versions of the Linux Diagnostic Extensions (LAD) with the new Azure Monitoring Agent - which already supports Python 3. We expect to ship this early to mid 2022; after which the LAD will be scheduled for deprecation pending announcement and approval.
+>
+
 The Linux diagnostic extension requires Python 2. If your virtual machine uses a distribution that doesn't include Python 2 by default, install it.
 
 The following sample commands install Python 2 on various distributions:
@@ -867,7 +871,7 @@ Data sent to `JsonBlob` sinks is stored in blobs in the storage account named in
 You also can use these UI tools to access the data in Azure Storage:
 
 * Visual Studio Server Explorer
-* [Azure Storage Explorer](https://azurestorageexplorer.codeplex.com/)
+* [Azure Storage Explorer](https://azure.microsoft.com/features/storage-explorer/)
 
 The following screenshot of an Azure Storage Explorer session shows the generated Azure Storage tables and containers from a correctly configured LAD 4.0 extension on a test VM. The image doesn't exactly match the [sample LAD 4.0 configuration](#example-lad-40-configuration).
 

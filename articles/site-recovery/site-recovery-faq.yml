@@ -2,7 +2,8 @@
 metadata:
   title: General questions about the Azure Site Recovery service
   description: This article discusses popular general questions about Azure Site Recovery.
-  ms.topic: conceptual
+  ms.topic: article
+  ms.service: azure
   ms.date: 05/27/2021
 
 
@@ -252,12 +253,12 @@ sections:
       - question: |
          Can I extend replication from existing recovery site to another tertiary site?
         answer: |
-              Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6097959).
+              Extended or chained replication isn't supported. Request this feature in [feedback forum](https://feedback.azure.com/d365community/forum/3ccca344-2d25-ec11-b6e6-000d3a4f0f84).
 
       - question: |
          Can I do an offline replication the first time I replicate to Azure?
         answer: |
-              This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/forums/256299-site-recovery/suggestions/6227386-support-for-offline-replication-data-transfer-from).
+              This isn't supported. Request this feature in the [feedback forum](https://feedback.azure.com/d365community/idea/7c09c396-2e25-ec11-b6e6-000d3a4f0f84).
 
       - question: |
          Can I exclude specific disks from replication?

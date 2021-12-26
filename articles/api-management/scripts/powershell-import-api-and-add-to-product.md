@@ -3,7 +3,7 @@ title: Azure PowerShell Script Sample - Import an API | Microsoft Docs
 description: Learn how to import an API and add it to an API Management product. See a sample script and view additional available resources.
 services: api-management
 documentationcenter: ''
-author: vladvino
+author: dlepow
 manager: cfowler
 editor: ''
 
@@ -11,7 +11,7 @@ ms.service: api-management
 ms.workload: mobile
 ms.topic: sample
 ms.date: 11/16/2017
-ms.author: apimpm
+ms.author: danlep
 ms.custom: mvc, devx-track-azurepowershell
 ---
 

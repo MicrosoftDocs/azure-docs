@@ -1,11 +1,11 @@
 ---
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 08/18/2020
-ms.author: aahi
+ms.author: eur
 ms.custom: devx-track-csharp
 ---
 
@@ -44,7 +44,7 @@ To using this call with the container [endpoint](/python/api/azure-cognitiveserv
 
 ```python
 speech_config = speechsdk.SpeechConfig(
-    endpoint="ws://localhost:5000/speech/recognition/conversation/cognitiveservices/v1"
+    host="ws://localhost:5000")
 ```
 
 ---

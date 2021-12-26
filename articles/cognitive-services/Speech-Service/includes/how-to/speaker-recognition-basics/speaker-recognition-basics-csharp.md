@@ -4,7 +4,7 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 09/28/2020
 ms.author: v-jawe
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 In this quickstart, you learn basic design patterns for Speaker Recognition using the Speech SDK, including:
@@ -13,14 +13,14 @@ In this quickstart, you learn basic design patterns for Speaker Recognition usin
 * Speaker identification to identify a voice sample among a group of voices
 * Deleting voice profiles
 
-For a high-level look at Speech Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article.
+For a high-level look at Speaker Recognition concepts, see the [overview](../../../speaker-recognition-overview.md) article. See the Reference node on left nav for a list of the supported platforms.
 
 ## Prerequisites
 
 This article assumes that you have an Azure account and Speech service subscription. If you don't have an account and subscription, [try the Speech service for free](../../../overview.md#try-the-speech-service-for-free).
 
 > [!IMPORTANT]
-> Speaker Recognition is currently *only* supported in Azure Speech resources created in the `westus` region.
+> Microsoft limits access to Speaker Recognition. Apply to use it through the [Azure Cognitive Services Speaker Recognition Limited Access Review](https://aka.ms/azure-speaker-recognition). After approval, you can access the Speaker Recognition APIs. 
 
 ## Install the Speech SDK
 
@@ -48,8 +48,6 @@ using Microsoft.CognitiveServices.Speech.Audio;
 
 To call the Speech service using the Speech SDK, you need to create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig). In this example, you create a [`SpeechConfig`](/dotnet/api/microsoft.cognitiveservices.speech.speechconfig) using a subscription key and region. You also create some basic boilerplate code to use for the rest of this article, which you modify for different customizations.
 
-Note that the region is set to `westus`, as it is the only supported region for the service.
-
 ```csharp
 public class Program 
 {
@@ -57,7 +55,8 @@ public class Program
     {
         // replace with your own subscription key 
         string subscriptionKey = "YourSubscriptionKey";
-        string region = "westus";
+        // replace with your own subscription region 
+        string region = "YourSubscriptionRegion";
         var config = SpeechConfig.FromSubscription(subscriptionKey, region);
     }
 }
@@ -74,6 +73,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 {
     using (var client = new VoiceProfileClient(config))
     using (var profile = await client.CreateProfileAsync(VoiceProfileType.TextDependentVerification, "en-us"))
+    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextDependentVerification, "en-us"))
     {
         using (var audioInput = AudioConfig.FromDefaultMicrophoneInput())
         {
@@ -84,7 +84,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
             VoiceProfileEnrollmentResult result = null;
             while (result is null || result.RemainingEnrollmentsCount > 0)
             {
-                Console.WriteLine("Speak the passphrase, \"My voice is my passport, verify me.\"");
+                Console.WriteLine($"Speak the passphrase, \"${phraseResult.Phrases[0]}\"");
                 result = await client.EnrollProfileAsync(profile, audioInput);
                 Console.WriteLine($"Remaining enrollments needed: {result.RemainingEnrollmentsCount}");
                 Console.WriteLine("");
@@ -160,7 +160,6 @@ Verified voice profile for speaker Your Name, score is 0.915581
 
 In contrast to **text-dependent** verification, **text-independent** verification:
 
-* Does not require a certain pass-phrase to be spoken, anything can be spoken
 * Does not require three audio samples, but *does* require 20-seconds of total audio
 
 Make a couple simple changes to your `VerificationEnroll` function to switch to **text-independent** verification. First, you change the verification type to `VoiceProfileType.TextIndependentVerification`. Next, change the `while` loop to track `result.RemainingEnrollmentsSpeechLength`, which will continue to prompt you to speak until 20 seconds of audio have been captured.
@@ -170,6 +169,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 {
     using (var client = new VoiceProfileClient(config))
     using (var profile = await client.CreateProfileAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
+    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
     {
         using (var audioInput = AudioConfig.FromDefaultMicrophoneInput())
         {
@@ -180,7 +180,7 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
             VoiceProfileEnrollmentResult result = null;
             while (result is null || result.RemainingEnrollmentsSpeechLength > TimeSpan.Zero)
             {
-                Console.WriteLine("Continue speaking to add to the profile enrollment sample.");
+                Console.WriteLine($"Speak the activation phrase, \"${phraseResult.Phrases[0]}\"");
                 result = await client.EnrollProfileAsync(profile, audioInput);
                 Console.WriteLine($"Remaining enrollment audio time needed: {result.RemainingEnrollmentsSpeechLength}");
                 Console.WriteLine("");
@@ -200,23 +200,23 @@ public static async Task VerificationEnroll(SpeechConfig config, Dictionary<stri
 }
 ```
 
-Run the program again, and speak anything during the verification phase since a pass-phrase is not required. Again, the similarity score is returned.
+Run the program again. Again, the similarity score is returned.
 
 ```shell
 Enrolling profile id 4tt87d4-f2d3-44ae-b5b4-f1a8d4036ee9.
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:15.3200000
 
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:09.8100008
 
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:05.1900000
 
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:00.8700000
 
-Continue speaking to add to the profile enrollment sample.
+Speak the activation phrase, "<FIRST ACTIVATION PHRASE>"
 Remaining enrollment audio time needed: 00:00:00
 
 Speak the passphrase to verify: "My voice is my passport, please verify me."
@@ -234,6 +234,7 @@ public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig c
 {
     List<VoiceProfile> voiceProfiles = new List<VoiceProfile>();
     using (var client = new VoiceProfileClient(config))
+    using (var phraseResult = await client.GetActivationPhrasesAsync(VoiceProfileType.TextIndependentVerification, "en-us"))
     {
         foreach (string name in profileNames)
         {
@@ -246,7 +247,7 @@ public static async Task<List<VoiceProfile>> IdentificationEnroll(SpeechConfig c
                 VoiceProfileEnrollmentResult result = null;
                 while (result is null || result.RemainingEnrollmentsSpeechLength > TimeSpan.Zero)
                 {
-                    Console.WriteLine($"Continue speaking to add to the profile enrollment sample for {name}.");
+                    Console.WriteLine($"Speak the activation phrase, \"${phraseResult.Phrases[0]}\" to add to the profile enrollment sample for {name}.");
                     result = await client.EnrollProfileAsync(profile, audioInput);
                     Console.WriteLine($"Remaining enrollment audio time needed: {result.RemainingEnrollmentsSpeechLength}");
                     Console.WriteLine("");
@@ -280,7 +281,8 @@ static async Task Main(string[] args)
 {
     // replace with your own subscription key 
     string subscriptionKey = "YourSubscriptionKey";
-    string region = "westus";
+    // replace with your own subscription region 
+    string region = "YourSubscriptionRegion";
     var config = SpeechConfig.FromSubscription(subscriptionKey, region);
 
     // persist profileMapping if you want to store a record of who the profile is

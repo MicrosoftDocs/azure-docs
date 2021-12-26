@@ -5,8 +5,8 @@ author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 04/23/2021
-ms.custom: devx-track-java
+ms.date: 10/12/2021
+ms.custom: devx-track-java, mode-other
 zone_pivot_groups: programming-languages-spring-cloud
 ---
 
@@ -24,6 +24,7 @@ The following procedures explain how to use Log Streaming, Log Analytics, Metric
   * [Provision Azure Spring Cloud service](./quickstart-provision-service-instance.md).
   * [Set up Azure Spring Cloud configuration server](./quickstart-setup-config-server.md).
   * [Build and deploy apps](./quickstart-deploy-apps.md).
+  * [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
@@ -113,6 +114,7 @@ Complete previous steps:
 * [Provision an instance of Azure Spring Cloud](./quickstart-provision-service-instance.md)
 * [Set up the config server](./quickstart-setup-config-server.md)
 * [Build and deploy apps](./quickstart-deploy-apps.md).
+* [Set up Log Analytics workspace](./quickstart-setup-log-analytics.md).
 
 ## Logs
 
@@ -173,8 +175,9 @@ To get the logs using Azure Toolkit for IntelliJ:
 
 ## Metrics
 
-Navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps,
-Spring Cloud modules, and dependencies.
+Navigate to the `Application insights` blade. Then, navigate to the `Metrics` blade - you can see metrics contributed by Spring Boot apps, 
+Spring Cloud modules, and dependencies. 
+
 The chart below shows `gateway-requests` (Spring Cloud Gateway), `hikaricp_connections`
  (JDBC Connections) and `http_client_requests`.
 
@@ -218,7 +221,7 @@ Select a SQL call to see the end-to-end transaction in context:
 [ ![SQL end-to-end transaction](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-end-to-end-transaction-details.jpg#lightbox)
 
 Navigate to the `Failures/Exceptions` blade - you can see a collection of exceptions:
-[ ![Failures/Exceptions](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.jpg#lightbox)
+[ ![Failures/Exceptions](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/petclinic-microservices-failures-exceptions.png#lightbox)
 
 Select an exception to see the end-to-end transaction and stacktrace in context:
 [ ![Stacktrace end-to-end](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg) ](media/spring-cloud-quickstart-logs-metrics-tracing/update-logs-metrics-tracing/end-to-end-transaction-details.jpg#lightbox)

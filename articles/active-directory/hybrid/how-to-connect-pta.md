@@ -74,4 +74,4 @@ You can combine Pass-through Authentication with the [Seamless Single Sign-On](h
 - [Troubleshoot](tshoot-connect-pass-through-authentication.md) - Learn how to resolve common issues with the feature.
 - [Security Deep Dive](how-to-connect-pta-security-deep-dive.md) - Additional deep technical information on the feature.
 - [Azure AD Seamless SSO](how-to-connect-sso.md) - Learn more about this complementary feature.
-- [UserVoice](https://feedback.azure.com/forums/169401-azure-active-directory/category/160611-directory-synchronization-aad-connect) - For filing new feature requests.
+- [UserVoice](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789) - For filing new feature requests.
