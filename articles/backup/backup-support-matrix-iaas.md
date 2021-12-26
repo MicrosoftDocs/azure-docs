@@ -172,7 +172,7 @@ Restore with Managed identities | Yes, supported for managed Azure VMs, and not 
 --- | ---
 Azure VM data disks | Support for backup of Azure VMs with up to 32 disks.<br><br> Support for backup of Azure VMs with unmanaged disks or classic VMs is up to 16 disks only.
 Data disk size | Individual disk size can be up to 32 TB and a maximum of 256 TB combined for all disks in a VM.
-Storage type | Standard HDD, Standard SSD, Premium SSD.
+Storage type | Standard HDD, Standard SSD, Premium SSD. <br><br>  Backup and restore of [ZRS disks](/azure/virtual-machines/disks-redundancy#zone-redundant-storage-for-managed-disks) is supported.
 Managed disks | Supported.
 Encrypted disks | Supported.<br/><br/> Azure VMs enabled with Azure Disk Encryption can be backed up (with or without the Azure AD app).<br/><br/> Encrypted VMs can't be recovered at the file/folder level. You must recover the entire VM.<br/><br/> You can enable encryption on VMs that are already protected by Azure Backup.
 Disks with Write Accelerator enabled | Currently, Azure VM with WA disk backup is previewed in all Azure public regions. <br><br> To enroll your subscription for WA Disk, write to us at [askazurebackupteam@microsoft.com](mailto:askazurebackupteam@microsoft.com). <br><br> Snapshots don’t include WA disk snapshots for unsupported subscriptions as WA disk will be excluded. <br><br>**Important** <br> Virtual machines with WA disks need internet connectivity for a successful backup (even though those disks are excluded from the backup).
