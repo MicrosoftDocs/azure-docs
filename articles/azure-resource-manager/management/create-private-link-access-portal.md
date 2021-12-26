@@ -33,7 +33,7 @@ When you create a resource management private link, the private link association
 
 Now, create a private endpoint that references the resource management private link.
 
-1. Navigate to the **Private Link Center**. Select **Create private link**.
+1. Navigate to the **Private Link Center**. Select **Create private endpoint**.
 
    :::image type="content" source="./media/create-private-link-access-portal/private-link-center.png" alt-text="Select private link center":::
 

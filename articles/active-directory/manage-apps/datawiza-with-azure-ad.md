@@ -1,5 +1,6 @@
 ---
-title: Secure hybrid access with Azure AD and Datawiza
+title: Secure hybrid access with Datawiza
+titleSuffix: Azure AD
 description: In this tutorial, learn how to integrate Datawiza with Azure AD for secure hybrid access 
 services: active-directory
 author: gargi-sinha
@@ -28,7 +29,7 @@ To get started, you'll need:
 
 - An Azure subscription. If you don\'t have a subscription, you can get a [trial account](https://azure.microsoft.com/free/).
 
-- An [Azure AD tenant](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-access-create-new-tenant)
+- An [Azure AD tenant](../fundamentals/active-directory-access-create-new-tenant.md)
 that's linked to your Azure subscription.
 
 - [Docker](https://docs.docker.com/get-docker/) and
@@ -41,11 +42,11 @@ are required to run DAB. Your applications can run on any platform, such as the 
 
 Datawiza integration includes the following components:
 
-- [Azure AD](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
+- [Azure AD](../fundamentals/active-directory-whatis.md) - Microsoft's cloud-based identity and access management service, which helps users sign in and access external and internal resources.
 
 - Datawiza Access Broker (DAB) - The service user sign on and transparently passes identity to applications through HTTP headers.
 
-- Datawiza Cloud Management Console (DCMC) - A centralized management console that manages DAB. DCMC provides UI and Restful APIs for administrators to manage the configurations of DAB and its access control policies.
+- Datawiza Cloud Management Console (DCMC) - A centralized management console that manages DAB. DCMC provides UI and RESTful APIs for administrators to manage the configurations of DAB and its access control policies.
 
 The following architecture diagram shows the implementation.
 
@@ -81,7 +82,7 @@ Instead, if you want to use an existing web application in your Azure AD tenant,
 1. You can use either Docker or Kubernetes to run DAB. The docker image is needed for users to create a sample header-based application. [Configure DAB and SSO
 integration](https://docs.datawiza.com/step-by-step/step3.html). [Deploy DAB with Kubernetes](https://docs.datawiza.com/tutorial/web-app-AKS.html). A sample docker image `docker-compose.yml` file is provided for you to download and use. [Log in to the container registry](https://docs.datawiza.com/step-by-step/step3.html#important-step) to download the images of DAB and the header-based application.
 
-    ```YML
+    ```yaml
     services:
       datawiza-access-broker:
       image: registry.gitlab.com/datawiza/access-broker
@@ -127,6 +128,6 @@ header-based application should have SSO enabled with Azure AD. Open a browser a
 
 ## Next steps
 
-- [Configure Datawiza with Azure AD B2C](https://docs.microsoft.com/azure/active-directory-b2c/partner-datawiza)
+- [Configure Datawiza with Azure AD B2C](../../active-directory-b2c/partner-datawiza.md)
 
 - [Datawiza documentation](https://docs.datawiza.com)

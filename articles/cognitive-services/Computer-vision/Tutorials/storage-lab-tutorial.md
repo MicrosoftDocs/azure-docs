@@ -11,6 +11,7 @@ ms.subservice: computer-vision
 ms.topic: tutorial 
 ms.date: 07/06/2021
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 #Customer intent: As a developer of an image-intensive web app, I want to be able to automatically generate captions and search keywords for each of my images.
 ---
@@ -53,7 +54,7 @@ In this section, you'll use the [Azure portal](https://portal.azure.com?WT.mc_id
     > [!NOTE]
     > Storage account names can be 3 to 24 characters in length and can only contain numbers and lowercase letters. In addition, the name you enter must be unique within Azure. If someone else has chosen the same name, you'll be notified that the name isn't available with a red exclamation mark in the **Name** field.
    
-	![Specifying parameters for a new storage account](Images/create-storage-account.png)
+    ![Specifying parameters for a new storage account](Images/create-storage-account.png)
 1. Click **Resource groups** in the ribbon on the left. Then click the "IntellipixResources" resource group.
 
     ![Opening the resource group](Images/open-resource-group.png)
@@ -66,7 +67,7 @@ In this section, you'll use the [Azure portal](https://portal.azure.com?WT.mc_id
 
 1. The storage account currently has no containers. Before you can create a blob, you must create a container to store it in. Click **+ Container** to create a new container. Type `photos` into the **Name** field and select **Blob** as the **Public access level**. Then click **OK** to create a container named "photos."
 
-	> By default, containers and their contents are private. Selecting **Blob** as the access level makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want because the images stored in the "photos" container will be linked to from a Web app. 
+    > By default, containers and their contents are private. Selecting **Blob** as the access level makes the blobs in the "photos" container publicly accessible, but doesn't make the container itself public. This is what you want because the images stored in the "photos" container will be linked to from a Web app. 
 
     ![Creating a "photos" container](Images/create-photos-container.png)
 
@@ -112,7 +113,7 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 
 1. Take a moment to review the project structure in Solution Explorer. Among other things, there's a folder named **Controllers** that holds the project's MVC controllers, and a folder named **Views** that holds the project's views. You'll be working with assets in these folders and others as you implement the application.
 
-	![The project shown in Solution Explorer](Images/project-structure.png)
+    ![The project shown in Solution Explorer](Images/project-structure.png)
 
 1. Use Visual Studio's **Debug -> Start Without Debugging** command (or press **Ctrl+F5**) to launch the application in your browser. Here's how the application looks in its present state:
 
@@ -128,170 +129,170 @@ In this section, you'll create a new Web app in Visual Studio and add code to im
 
 1. Open _Web.config_ and add the following statement to the ```<appSettings>``` section, replacing ACCOUNT_NAME with the name of the storage account you created in the first section, and ACCOUNT_KEY with the access key you saved.
 
-	```xml
-	<add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY" />
-	```
+    ```xml
+    <add key="StorageConnectionString" value="DefaultEndpointsProtocol=https;AccountName=ACCOUNT_NAME;AccountKey=ACCOUNT_KEY" />
+    ```
 
 1. Open the file named *_Layout.cshtml* in the project's **Views/Shared** folder. On line 19, change "Application name" to "Intellipix." The line should look like this:
 
-	```C#
-	@Html.ActionLink("Intellipix", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
-	```
+    ```C#
+    @Html.ActionLink("Intellipix", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+    ```
 
-	> [!NOTE]
+    > [!NOTE]
     > In an ASP.NET MVC project, *_Layout.cshtml* is a special view that serves as a template for other views. You typically define header and footer content that is common to all views in this file.
 
 1. Right-click the project's **Models** folder and use the **Add -> Class...** command to add a class file named *BlobInfo.cs* to the folder. Then replace the empty **BlobInfo** class with the following class definition:
 
-	```C#
-	public class BlobInfo
-	{
-	    public string ImageUri { get; set; }
-	    public string ThumbnailUri { get; set; }
-	    public string Caption { get; set; }
-	}
-	```
+    ```C#
+    public class BlobInfo
+    {
+        public string ImageUri { get; set; }
+        public string ThumbnailUri { get; set; }
+        public string Caption { get; set; }
+    }
+    ```
 
 1. Open *HomeController.cs* from the project's **Controllers** folder and add the following `using` statements to the top of the file:
 
-	```C#
-	using ImageResizer;
-	using Intellipix.Models;
-	using Microsoft.WindowsAzure.Storage;
-	using Microsoft.WindowsAzure.Storage.Blob;
-	using System.Configuration;
-	using System.Threading.Tasks;
-	using System.IO;
-	```
+    ```C#
+    using ImageResizer;
+    using Intellipix.Models;
+    using Microsoft.WindowsAzure.Storage;
+    using Microsoft.WindowsAzure.Storage.Blob;
+    using System.Configuration;
+    using System.Threading.Tasks;
+    using System.IO;
+    ```
 
 1. Replace the **Index** method in *HomeController.cs* with the following implementation:
 
-	```C#
-	public ActionResult Index()
-	{
-	    // Pass a list of blob URIs in ViewBag
-	    CloudStorageAccount account = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
-	    CloudBlobClient client = account.CreateCloudBlobClient();
-	    CloudBlobContainer container = client.GetContainerReference("photos");
-	    List<BlobInfo> blobs = new List<BlobInfo>();
-	
-	    foreach (IListBlobItem item in container.ListBlobs())
-	    {
-	        var blob = item as CloudBlockBlob;
-	
-	        if (blob != null)
-	        {
-	            blobs.Add(new BlobInfo()
-	            {
-	                ImageUri = blob.Uri.ToString(),
-	                ThumbnailUri = blob.Uri.ToString().Replace("/photos/", "/thumbnails/")
-	            });
-	        }
-	    }
-	
-	    ViewBag.Blobs = blobs.ToArray();
-	    return View();
-	}
-	```
+    ```C#
+    public ActionResult Index()
+    {
+        // Pass a list of blob URIs in ViewBag
+        CloudStorageAccount account = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+        CloudBlobClient client = account.CreateCloudBlobClient();
+        CloudBlobContainer container = client.GetContainerReference("photos");
+        List<BlobInfo> blobs = new List<BlobInfo>();
+    
+        foreach (IListBlobItem item in container.ListBlobs())
+        {
+            var blob = item as CloudBlockBlob;
+    
+            if (blob != null)
+            {
+                blobs.Add(new BlobInfo()
+                {
+                    ImageUri = blob.Uri.ToString(),
+                    ThumbnailUri = blob.Uri.ToString().Replace("/photos/", "/thumbnails/")
+                });
+            }
+        }
+    
+        ViewBag.Blobs = blobs.ToArray();
+        return View();
+    }
+    ```
 
-	The new **Index** method enumerates the blobs in the `"photos"` container and passes an array of **BlobInfo** objects representing those blobs to the view through ASP.NET MVC's **ViewBag** property. Later, you'll modify the view to enumerate these objects and display a collection of photo thumbnails. The classes you'll use to access your storage account and enumerate the blobs&mdash;**[CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet)**, **[CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet-legacy)**, and **[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer?view=azure-dotnet-legacy)**&mdash;come from the **WindowsAzure.Storage** package you installed through NuGet.
+    The new **Index** method enumerates the blobs in the `"photos"` container and passes an array of **BlobInfo** objects representing those blobs to the view through ASP.NET MVC's **ViewBag** property. Later, you'll modify the view to enumerate these objects and display a collection of photo thumbnails. The classes you'll use to access your storage account and enumerate the blobs&mdash;**[CloudStorageAccount](/dotnet/api/microsoft.azure.storage.cloudstorageaccount?view=azure-dotnet&preserve-view=true)**, **[CloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.cloudblobclient?view=azure-dotnet-legacy&preserve-view=true)**, and **[CloudBlobContainer](/dotnet/api/microsoft.azure.storage.blob.cloudblobcontainer?view=azure-dotnet-legacy&preserve-view=true)**&mdash;come from the **WindowsAzure.Storage** package you installed through NuGet.
 
 1. Add the following method to the **HomeController** class in *HomeController.cs*:
 
-	```C#
-	[HttpPost]
-	public async Task<ActionResult> Upload(HttpPostedFileBase file)
-	{
-	    if (file != null && file.ContentLength > 0)
-	    {
-	        // Make sure the user selected an image file
-	        if (!file.ContentType.StartsWith("image"))
-	        {
-	            TempData["Message"] = "Only image files may be uploaded";
-	        }
-	        else
-	        {
-	            try
-	            {
-	                // Save the original image in the "photos" container
-	                CloudStorageAccount account = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
-	                CloudBlobClient client = account.CreateCloudBlobClient();
-	                CloudBlobContainer container = client.GetContainerReference("photos");
-	                CloudBlockBlob photo = container.GetBlockBlobReference(Path.GetFileName(file.FileName));
-	                await photo.UploadFromStreamAsync(file.InputStream);
-	
-	                // Generate a thumbnail and save it in the "thumbnails" container
-	                using (var outputStream = new MemoryStream())
-	                {
-	                    file.InputStream.Seek(0L, SeekOrigin.Begin);
-	                    var settings = new ResizeSettings { MaxWidth = 192 };
-	                    ImageBuilder.Current.Build(file.InputStream, outputStream, settings);
-	                    outputStream.Seek(0L, SeekOrigin.Begin);
-	                    container = client.GetContainerReference("thumbnails");
-	                    CloudBlockBlob thumbnail = container.GetBlockBlobReference(Path.GetFileName(file.FileName));
-	                    await thumbnail.UploadFromStreamAsync(outputStream);
-	                }
-	            }
-	            catch (Exception ex)
-	            {
-	                // In case something goes wrong
-	                TempData["Message"] = ex.Message;
-	            }
-	        }
-	    }
-	
-	    return RedirectToAction("Index");
-	}
-	```
+    ```C#
+    [HttpPost]
+    public async Task<ActionResult> Upload(HttpPostedFileBase file)
+    {
+        if (file != null && file.ContentLength > 0)
+        {
+            // Make sure the user selected an image file
+            if (!file.ContentType.StartsWith("image"))
+            {
+                TempData["Message"] = "Only image files may be uploaded";
+            }
+            else
+            {
+                try
+                {
+                    // Save the original image in the "photos" container
+                    CloudStorageAccount account = CloudStorageAccount.Parse(ConfigurationManager.AppSettings["StorageConnectionString"]);
+                    CloudBlobClient client = account.CreateCloudBlobClient();
+                    CloudBlobContainer container = client.GetContainerReference("photos");
+                    CloudBlockBlob photo = container.GetBlockBlobReference(Path.GetFileName(file.FileName));
+                    await photo.UploadFromStreamAsync(file.InputStream);
+    
+                    // Generate a thumbnail and save it in the "thumbnails" container
+                    using (var outputStream = new MemoryStream())
+                    {
+                        file.InputStream.Seek(0L, SeekOrigin.Begin);
+                        var settings = new ResizeSettings { MaxWidth = 192 };
+                        ImageBuilder.Current.Build(file.InputStream, outputStream, settings);
+                        outputStream.Seek(0L, SeekOrigin.Begin);
+                        container = client.GetContainerReference("thumbnails");
+                        CloudBlockBlob thumbnail = container.GetBlockBlobReference(Path.GetFileName(file.FileName));
+                        await thumbnail.UploadFromStreamAsync(outputStream);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    // In case something goes wrong
+                    TempData["Message"] = ex.Message;
+                }
+            }
+        }
+    
+        return RedirectToAction("Index");
+    }
+    ```
 
-	This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the `"photos"` container, creates a thumbnail image from the original image using the `ImageResizer` package, and stores the thumbnail image as a blob in the `"thumbnails"` container.
+    This is the method that's called when you upload a photo. It stores each uploaded image as a blob in the `"photos"` container, creates a thumbnail image from the original image using the `ImageResizer` package, and stores the thumbnail image as a blob in the `"thumbnails"` container.
 
 1. Open *Index.cshmtl* in the project's **Views/Home** folder and replace its contents with the following code and markup:
 
-	```HTML
-	@{
-	    ViewBag.Title = "Intellipix Home Page";
-	}
-	
-	@using Intellipix.Models
-	
-	<div class="container" style="padding-top: 24px">
-	    <div class="row">
-	        <div class="col-sm-8">
-	            @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
-	            {
-	                <input type="file" name="file" id="upload" style="display: none" onchange="$('#submit').click();" />
-	                <input type="button" value="Upload a Photo" class="btn btn-primary btn-lg" onclick="$('#upload').click();" />
-	                <input type="submit" id="submit" style="display: none" />
-	            }
-	        </div>
-	        <div class="col-sm-4 pull-right">
-	        </div>
-	    </div>
-	
-	    <hr />
-	
-	    <div class="row">
-	        <div class="col-sm-12">
-	            @foreach (BlobInfo blob in ViewBag.Blobs)
-	            {
-	                <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
-	            }
-	        </div>
-	    </div>
-	</div>
-	
-	@section scripts
-	{
-	    <script type="text/javascript" language="javascript">
-	        if ("@TempData["Message"]" !== "") {
-	            alert("@TempData["Message"]");
-	        }
-	    </script>
-	}
-	```
+    ```HTML
+    @{
+        ViewBag.Title = "Intellipix Home Page";
+    }
+    
+    @using Intellipix.Models
+    
+    <div class="container" style="padding-top: 24px">
+        <div class="row">
+            <div class="col-sm-8">
+                @using (Html.BeginForm("Upload", "Home", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                {
+                    <input type="file" name="file" id="upload" style="display: none" onchange="$('#submit').click();" />
+                    <input type="button" value="Upload a Photo" class="btn btn-primary btn-lg" onclick="$('#upload').click();" />
+                    <input type="submit" id="submit" style="display: none" />
+                }
+            </div>
+            <div class="col-sm-4 pull-right">
+            </div>
+        </div>
+    
+        <hr />
+    
+        <div class="row">
+            <div class="col-sm-12">
+                @foreach (BlobInfo blob in ViewBag.Blobs)
+                {
+                    <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
+                }
+            </div>
+        </div>
+    </div>
+    
+    @section scripts
+    {
+        <script type="text/javascript" language="javascript">
+            if ("@TempData["Message"]" !== "") {
+                alert("@TempData["Message"]");
+            }
+        </script>
+    }
+    ```
 
-	The language used here is [Razor](http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c), which lets you embed executable code in HTML markup. The ```@foreach``` statement in the middle of the file enumerates the **BlobInfo** objects passed from the controller in **ViewBag** and creates HTML ```<img>``` elements from them. The ```src``` property of each element is initialized with the URI of the blob containing the image thumbnail.
+    The language used here is [Razor](http://www.asp.net/web-pages/overview/getting-started/introducing-razor-syntax-c), which lets you embed executable code in HTML markup. The ```@foreach``` statement in the middle of the file enumerates the **BlobInfo** objects passed from the controller in **ViewBag** and creates HTML ```<img>``` elements from them. The ```src``` property of each element is initialized with the URI of the blob containing the image thumbnail.
 
 1. Download and unzip the _photos.zip_ file from the [GitHub sample data repository](https://github.com/Azure-Samples/cognitive-services-sample-data-files/tree/master/ComputerVision/storage-lab-tutorial). This is an assortment of different photos you can use to test the app.
 
@@ -330,36 +331,36 @@ In this section, you'll use a free, open-source JavaScript library to add a ligh
 
 1. Open *BundleConfig.cs* in the project's "App_Start" folder. Add the following statement to the ```RegisterBundles``` method in **BundleConfig.cs**:
 
-	```C#
-	bundles.Add(new ScriptBundle("~/bundles/lightbox").Include(
+    ```C#
+    bundles.Add(new ScriptBundle("~/bundles/lightbox").Include(
               "~/Scripts/lightbox.js"));
-	```
+    ```
 
 1. In the same method, find the statement that creates a ```StyleBundle``` from "~/Content/css" and add *lightbox.css* to the list of style sheets in the bundle. Here is the modified statement:
 
-	```C#
-	bundles.Add(new StyleBundle("~/Content/css").Include(
+    ```C#
+    bundles.Add(new StyleBundle("~/Content/css").Include(
               "~/Content/bootstrap.css",
               "~/Content/site.css",
               "~/Content/lightbox.css"));
-	```
+    ```
 
 1. Open *_Layout.cshtml* in the project's **Views/Shared** folder and add the following statement just before the ```@RenderSection``` statement near the bottom:
 
-	```C#
-	@Scripts.Render("~/bundles/lightbox")
-	```
+    ```C#
+    @Scripts.Render("~/bundles/lightbox")
+    ```
 
 1. The final task is to incorporate the lightbox viewer into the home page. To do that, open *Index.cshtml* (it's in the project's **Views/Home** folder) and replace the ```@foreach``` loop with this one:
 
-	```HTML
-	@foreach (BlobInfo blob in ViewBag.Blobs)
-	{
-	    <a href="@blob.ImageUri" rel="lightbox" title="@blob.Caption">
-	        <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
-	    </a>
-	}
-	```
+    ```HTML
+    @foreach (BlobInfo blob in ViewBag.Blobs)
+    {
+        <a href="@blob.ImageUri" rel="lightbox" title="@blob.Caption">
+            <img src="@blob.ThumbnailUri" width="192" title="@blob.Caption" style="padding-right: 16px; padding-bottom: 16px" />
+        </a>
+    }
+    ```
 
 1. Save your changes and press **Ctrl+F5** to launch the application in your browser. Then click one of the images you uploaded earlier. Confirm that a lightbox appears and shows an enlarged view of the image.
 
@@ -416,7 +417,7 @@ Next, you'll add the code that actually uses the Computer Vision service to crea
 1. Then, go to the **Upload** method; this method converts and uploads images to blob storage. Add the following code immediately after the block that begins with `// Generate a thumbnail` (or at the end of your image-blob-creation process). This code takes the blob containing the image (`photo`), and uses Computer Vision to generate a description for that image. The Computer Vision API also generates a list of keywords that apply to the image. The generated description and keywords are stored in the blob's metadata so that they can be retrieved later on.
 
     ```csharp
-    // Submit the image to Azure's Computer Vision API
+    // Submit the image to the Azure Computer Vision API
     ComputerVisionClient vision = new ComputerVisionClient(
         new ApiKeyServiceClientCredentials(ConfigurationManager.AppSettings["SubscriptionKey"]),
         new System.Net.Http.DelegatingHandler[] { });
@@ -476,37 +477,37 @@ In this section, you will add a search box to the home page, enabling users to d
 
 1. Open *Index.cshtml* in the project's **Views/Home** folder and add the following statements to the empty ```<div>``` element with the ```class="col-sm-4 pull-right"``` attribute:
 
-	```HTML
+    ```HTML
     @using (Html.BeginForm("Search", "Home", FormMethod.Post, new { enctype = "multipart/form-data", @class = "navbar-form" }))
     {
-	    <div class="input-group">
-	        <input type="text" class="form-control" placeholder="Search photos" name="term" value="@ViewBag.Search" style="max-width: 800px">
-	        <span class="input-group-btn">
-	            <button class="btn btn-primary" type="submit">
-	                <i class="glyphicon glyphicon-search"></i>
-	            </button>
-	        </span>
-	    </div>
-	}
-	```
+        <div class="input-group">
+            <input type="text" class="form-control" placeholder="Search photos" name="term" value="@ViewBag.Search" style="max-width: 800px">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="submit">
+                    <i class="glyphicon glyphicon-search"></i>
+                </button>
+            </span>
+        </div>
+    }
+    ```
 
-	This code and markup adds a search box and a **Search** button to the home page.
+    This code and markup adds a search box and a **Search** button to the home page.
 
 1. Open *HomeController.cs* in the project's **Controllers** folder and add the following method to the **HomeController** class:
 
-	```C#
+    ```C#
     [HttpPost]
     public ActionResult Search(string term)
     {
         return RedirectToAction("Index", new { id = term });
     }
-	```
+    ```
 
-	This is the method that's called when the user clicks the **Search** button added in the previous step. It refreshes the page and includes a search parameter in the URL.
+    This is the method that's called when the user clicks the **Search** button added in the previous step. It refreshes the page and includes a search parameter in the URL.
 
 1. Replace the **Index** method with the following implementation:
 
-	```C#
+    ```C#
     public ActionResult Index(string id)
     {
         // Pass a list of blob URIs and captions in ViewBag
@@ -541,13 +542,13 @@ In this section, you will add a search box to the home page, enabling users to d
         ViewBag.Search = id; // Prevent search box from losing its content
         return View();
     }
-	```
+    ```
 
-	Observe that the **Index** method now accepts a parameter _id_ that contains the value the user typed into the search box. An empty or missing _id_ parameter indicates that all the photos should be displayed.
+    Observe that the **Index** method now accepts a parameter _id_ that contains the value the user typed into the search box. An empty or missing _id_ parameter indicates that all the photos should be displayed.
 
 1. Add the following helper method to the **HomeController** class:
 
-	```C#
+    ```C#
     private bool HasMatchingMetadata(CloudBlockBlob blob, string term)
     {
         foreach (var item in blob.Metadata)
@@ -558,9 +559,9 @@ In this section, you will add a search box to the home page, enabling users to d
 
         return false;
     }
-	```
+    ```
 
-	This method is called by the **Index** method to determine whether the metadata keywords attached to a given image blob contain the search term that the user entered.
+    This method is called by the **Index** method to determine whether the metadata keywords attached to a given image blob contain the search term that the user entered.
 
 1. Launch the application again and upload several photos. Feel free to use your own photos, not just the ones provided with the tutorial.
 

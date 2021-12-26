@@ -5,7 +5,7 @@
  author: duongau
  ms.service: frontdoor
  ms.topic: include
- ms.date: 08/24/2021
+ ms.date: 09/09/2021
  ms.author: duau
  ms.custom: include file
 ---
@@ -84,3 +84,5 @@
 * Maximum rules engine action header value character: 640 characters.
 * Maximum rules engine condition header value character: 256 characters.
 * Maximum ETag header size: 128 bytes
+
+For more information about limits that apply to Rules Engine configurations, see [Rules Engine terminology](../articles/frontdoor/front-door-rules-engine.md#terminology)

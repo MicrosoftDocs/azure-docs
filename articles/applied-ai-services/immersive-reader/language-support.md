@@ -8,7 +8,7 @@ manager: nitinme
 ms.service: applied-ai-services
 ms.subservice: immersive-reader
 ms.topic: overview
-ms.date: 04/13/2020
+ms.date: 11/15/2021
 ms.author: metang
 ---
 

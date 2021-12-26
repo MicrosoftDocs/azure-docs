@@ -64,7 +64,7 @@ This approach also protects your API key from exposure to the public, since only
 
 ## Next steps
 
-Is your question about a missing feature or functionality? Consider requesting or voting for it using the [feedback tool](https://feedback.azure.com/forums/932041-azure-cognitive-services?category_id=395749).
+Is your question about a missing feature or functionality? Consider requesting or voting for it using the [feedback tool](https://feedback.azure.com/d365community/forum/09041fae-0b25-ec11-b6e6-000d3a4f0858).
 
 ## See also
 

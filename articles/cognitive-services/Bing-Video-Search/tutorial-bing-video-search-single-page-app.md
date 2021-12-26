@@ -11,6 +11,7 @@ ms.subservice: bing-video-search
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.author: aahi
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 # Tutorial: Single-page Video Search app

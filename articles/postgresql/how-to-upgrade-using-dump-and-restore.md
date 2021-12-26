@@ -5,13 +5,13 @@ author: sr-msft
 ms.author: srranga
 ms.service: postgresql
 ms.topic: how-to
-ms.date: 08/26/2021
+ms.date: 11/30/2021
 ---
 
 # Upgrade your PostgreSQL database using dump and restore
 
 >[!NOTE]
-> The concepts explained in this documentation is applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server (Preview). 
+> The concepts explained in this documentation is applicable to both Azure Database for PostgreSQL - Single Server and Azure Database for PostgreSQL - Flexible Server. 
 
 You can upgrade your PostgreSQL server deployed in Azure Database for PostgreSQL by migrating your databases to a higher major version server using following methods.
 * **Offline** method using PostgreSQL [pg_dump](https://www.postgresql.org/docs/current/static/app-pgdump.html) and [pg_restore](https://www.postgresql.org/docs/current/static/app-pgrestore.html) which incurs downtime for migrating the data. This document addresses this method of upgrade/migration.
@@ -91,13 +91,13 @@ Roles (Users) are global objects and needed to be migrated separately to the new
 To dump all the roles from the source server:
 
 ```azurecli-interactive
-pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser -- dbname=mySourceDB > roles.sql
+pg_dumpall -r --host=mySourceServer --port=5432 --username=myUser --database=mySourceDB > roles.sql
 ```
 
-and restore it using psql to the target server:
+Edit the `roles.sql` and remove references of `NOSUPERUSER` and `NOBYPASSRLS` before restoring the content using psql in the target server:
 
 ```azurecli-interactive
-psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser
+psql -f roles.sql --host=myTargetServer --port=5432 --username=myUser --dbname=postgres
 ```
 
 The dump script should not be expected to run completely without errors. In particular, because the script will issue CREATE ROLE for every role existing in the source cluster, it is certain to get a “role already exists” error for the bootstrap superuser like azure_pg_admin or azure_superuser. This error is harmless and can be ignored. Use of the `--clean` option is likely to produce additional harmless error messages about non-existent objects, although you can minimize those by adding `--if-exists`.
@@ -193,6 +193,14 @@ You can consider this method if you have few larger tables in your database and 
 
 > [!TIP]
 > The process mentioned in this document can also be used to upgrade your Azure Database for PostgreSQL - Flexible server, which is in Preview. The main difference is the connection string for the flexible server target is without the `@dbName`.  For example, if the user name is `pg`, the single server’s username in the connect string will be `pg@pg-95`, while with flexible server, you can simply use `pg`.
+
+## Post upgrade/migrate
+After the major version upgrade is complete, we recommend to run the `ANALYZE` command  in each database to refresh the `pg_statistic` table. Otherwise, you may run into performance issues.
+
+```SQL
+postgres=> analyze;
+ANALYZE
+```
 
 ## Next steps
 

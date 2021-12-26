@@ -12,7 +12,7 @@ ms.date: 09/08/2021
 ---
 # Add language analyzers to string fields in an Azure Cognitive Search index
 
-A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable field has an **analyzer** property. If your content consists of translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.
+A *language analyzer* is a specific type of [text analyzer](search-analyzers.md) that performs lexical analysis using the linguistic rules of the target language. Every searchable string field has an **analyzer** property. If your content consists of translated strings, such as separate fields for English and Chinese text, you could specify language analyzers on each field to access the rich linguistic capabilities of those analyzers.
 
 ## When to use a language analyzer
 
@@ -49,13 +49,17 @@ The default analyzer is Standard Lucene, which works well for English, but perha
 
 ## How to specify a language analyzer
 
-A language analyzer is specified on field definitions in the index schema *when the field is created* and before it's loaded with data.
+Set the analyzer during index creation, before it's loaded with data.
 
-Set a language analyzer on "searchable" fields of type Edm.String during field definition, using the "analyzer" property only. Although field definitions have several analyzer-related properties, only the "analyzer" property can be used for language analyzers. The value of "analyzer" must be one of the language analyzers from the [supported analyzers list](#language-analyzer-list).
+1. In the field definition, make sure the field is attributed as "searchable" and is of type Edm.String.
 
-Language analyzers are used as-is and cannot be customized. If you can't find an analyzer that meets your requirements, you can create a [custom analyzer](cognitive-search-working-with-skillsets.md) with the microsoft_language_tokenizer or microsoft_language_stemming_tokenizer, and add filters for pre- and post-tokenization processing.
+1. Set the "analyzer" property to one of the language analyzers from the [supported analyzers list](#language-analyzer-list).
 
-The following example illustrates a language analyzer specification:
+   The "analyzer" property is the only property that will accept a language analyzer, and it's used for both indexing and queries. Other analyzer-related properties ("searchAnalyzer" and "indexAnalyzer") will not accept a language analyzer.
+
+Language analyzers cannot be customized. If an analyzer isn't meeting your requirements, you can try creating a [custom analyzer](cognitive-search-working-with-skillsets.md) with the microsoft_language_tokenizer or microsoft_language_stemming_tokenizer, and add filters for pre- and post-tokenization processing.
+
+The following example illustrates a language analyzer specification in an index:
 
 ```json
 {

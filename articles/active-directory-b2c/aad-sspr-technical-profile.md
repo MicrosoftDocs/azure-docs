@@ -3,14 +3,14 @@ title: Azure AD SSPR technical profiles in custom policies
 titleSuffix: Azure AD B2C
 description: Custom policy reference for Azure AD SSPR technical profiles in Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 06/23/2020
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -23,7 +23,7 @@ Azure Active Directory B2C (Azure AD B2C) provides support for verifying an emai
 This technical profile:
 
 - Doesn't provide an interface to interact with the user. Instead, the user interface is called from a [self-asserted](self-asserted-technical-profile.md) technical profile, or a [display control](display-controls.md) as a [validation technical profile](validation-technical-profile.md).
-- Uses the Azure AD SSPR service to generate and send a code to an email address, and then verifies the code.  
+- Uses the Azure AD SSPR service to generate and send a code to an email address, and then verifies the code.
 - Validates an email address via a verification code.
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
@@ -38,7 +38,7 @@ Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, C
 
 The following example shows an Azure AD SSPR technical profile:
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-SendCode">
   <DisplayName>Send Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -56,7 +56,6 @@ The **InputClaims** element contains a list of claims to send to Azure AD SSPR. 
 | ClaimReferenceId | Required | Description |
 | --------- | -------- | ----------- |
 | emailAddress | Yes | The identifier for the user who owns the email address. The `PartnerClaimType` property of the input claim must be set to `emailAddress`. |
-
 
 The **InputClaimsTransformations** element may contain a collection of **InputClaimsTransformation** elements that are used to modify the input claims or generate new ones before sending to the Azure AD SSPR service.
 
@@ -81,12 +80,11 @@ The following metadata can be used to configure the error messages displayed upo
 | UserMessageIfInternalError | No | User error message if the server has encountered an internal error. |
 | UserMessageIfThrottled| No | User error message if a request has been throttled.|
 
-
 ### Example: send an email
 
 The following example shows an Azure AD SSPR technical profile that is used to send a code via email.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-SendCode">
   <DisplayName>Send Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
@@ -142,7 +140,7 @@ The following metadata can be used to configure the error messages displayed upo
 
 The following example shows an Azure AD SSPR technical profile used to verify the code.
 
-```XML
+```xml
 <TechnicalProfile Id="AadSspr-VerifyCode">
   <DisplayName>Verify Code</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.Providers.AadSsprProtocolProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />

@@ -1,12 +1,7 @@
 ---
 title: Embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps
-titleSuffix: Azure Video Analyzer for Media
 description: Learn how to embed Azure Video Analyzer for Media (formerly Video Indexer) widgets in your apps.
-services: azure-video-analyzer
-author: Juliako
-manager: femila
-ms.topic: article
-ms.subservice: azure-video-analyzer-media
+ms.topic: how-to
 ms.date: 01/25/2021
 ms.author: juliako
 ms.custom: devx-track-js

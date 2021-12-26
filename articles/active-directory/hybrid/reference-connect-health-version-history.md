@@ -27,7 +27,14 @@ The Azure Active Directory team regularly updates Azure AD Connect Health with n
 >
 
 Azure AD Connect Health for Sync is integrated with Azure AD Connect installation. Read more about [Azure AD Connect release history](./reference-connect-version-history.md)
-For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/forums/169401-azure-active-directory/filters/new?category_id=165591)
+For feature feedback, vote at [Connect Health User Voice channel](https://feedback.azure.com/d365community/forum/22920db1-ad25-ec11-b6e6-000d3a4f0789)
+
+## September 2021
+**Agent Update**
+- Azure AD Connect Health agent for AD FS (version 3.1.113.0)
+  - Fix to extract device information such as device compliance and managed status, device OS, and device OS version from AD FS audits in certain device based authentication scenarios.
+  - Fix to populate OAuth Application info in failure cases and categorizing OAuth failures with more specific error codes
+  - Fix for alerts on broken WMI calls on the customer machine. Now such calls the result/status would be set to "notRun".
 
 ## May 2021
 **Agent Update**

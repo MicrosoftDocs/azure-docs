@@ -3,15 +3,15 @@ title: Developer notes for user flows and custom policies
 titleSuffix: Azure AD B2C
 description: Notes for developers on configuring and maintaining Azure AD B2C with user flows and custom policies.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 06/21/2021
+ms.date: 12/09/2021
 ms.custom: project-no-code
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -51,7 +51,9 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 [On-behalf-of](../active-directory/develop/v2-oauth2-on-behalf-of-flow.md)| NA | NA | An application invokes a service or web API, which in turn needs to call another service or web API. <br />  <br /> For the middle-tier service to make authenticated requests to the downstream service, pass a *client credential* token in the authorization header. Optionally, you can include a custom header with the Azure AD B2C user's token.  |
 [OpenId Connect](openid-connect.md) | GA | GA | OpenID Connect introduces the concept of an ID token, which is a security token that allows the client to verify the identity of the user. |
 [OpenId Connect hybrid flow](openid-connect.md) | GA | GA | Allows a web application retrieve the ID token on the authorize request along with an authorization code.  |
-[Resource owner password credentials (ROPC)](add-ropc-policy.md) | Preview | Preview | Allows a mobile application to sign in the user by directly handling their password. |
+[Resource owner password credentials (ROPC)](add-ropc-policy.md) | GA | GA | Allows a mobile application to sign in the user by directly handling their password. |
+| [Sign-out](session-behavior.md#sign-out)| GA | GA | |
+| [Single sign-out](session-behavior.md#sign-out)  | NA | Preview | |
 
 ### OAuth 2.0 options
 
@@ -62,6 +64,7 @@ The following table summarizes the OAuth 2.0 and OpenId Connect application auth
 | Insert JSON into user journey via `client_assertion`| NA| Deprecated |  |
 | Insert JSON into user journey as [id_token_hint](id-token-hint.md) | NA | GA | |
 | [Pass identity provider token to the application](idp-pass-through-user-flow.md)| Preview| Preview| For example, from Facebook to app. |
+| [Keep me signed in (KMSI)](session-behavior.md#enable-keep-me-signed-in-kmsi)| GA| GA| |
 
 ## SAML2 application authentication flows
 
@@ -77,6 +80,7 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 | [Multi-language support](localization.md)| GA | GA | |
+| [Custom domains](custom-domain.md)| GA | GA | |
 | [Custom email verification](custom-email-mailjet.md) | NA | GA| |
 | [Customize the user interface with built-in templates](customize-ui.md) | GA| GA| |
 | [Customize the user interface with custom templates](customize-ui-with-html.md) | GA| GA| By using HTML templates. |
@@ -88,19 +92,20 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 
 
 
+
 ## Identity providers
 
 |Feature  |User flow  |Custom policy  |Notes  |
 |---------|:---------:|:---------:|---------|
 |[AD FS](identity-provider-adfs.md) | NA | GA | |
 |[Amazon](identity-provider-amazon.md) | GA | GA | |
-|[Apple](identity-provider-apple-id.md) | Preview | Preview | |
+|[Apple](identity-provider-apple-id.md) | GA | GA | |
 |[Azure AD (Single-tenant)](identity-provider-azure-ad-single-tenant.md) | GA | GA | |
 |[Azure AD (Multi-tenant)](identity-provider-azure-ad-multi-tenant.md) | NA  | GA | |
 |[Azure AD B2C](identity-provider-azure-ad-b2c.md) | GA | GA | |
 |[eBay](identity-provider-ebay.md) | NA | Preview | |
 |[Facebook](identity-provider-facebook.md) | GA | GA | |
-|[GitHub](identity-provider-github.md) | GA | GA | |
+|[GitHub](identity-provider-github.md) | Preview | GA | |
 |[Google](identity-provider-google.md) | GA | GA | |
 |[ID.me](identity-provider-id-me.md) | GA | GA | |
 |[LinkedIn](identity-provider-linkedin.md) | GA | GA | |
@@ -143,18 +148,20 @@ The following table summarizes the Security Assertion Markup Language (SAML) app
 | [External login session provider](custom-policy-reference-sso.md#externalloginssosessionprovider) | GA |  |
 | [SAML SSO session provider](custom-policy-reference-sso.md#samlssosessionprovider) | GA |  |
 | [OAuth SSO Session Provider](custom-policy-reference-sso.md#oauthssosessionprovider)  | GA|  |
-| [Single sign-out](session-behavior.md#sign-out)  |  Preview |  |
+
 
 ### Components
 
 | Feature | Custom policy | Notes |
 | ------- | :--: | ----- |
+| [MFA using time-based one-time password (TOTP) with authenticator apps](multi-factor-authentication.md#verification-methods) | Preview |  Users can use any authenticator app that supports TOTP verification, such as the [Microsoft Authenticator app](https://www.microsoft.com/security/mobile-authenticator-app).|
 | [Phone factor authentication](phone-factor-technical-profile.md) | GA |  |
 | [Azure AD MFA authentication](multi-factor-auth-technical-profile.md) | Preview |  |
 | [One-time password](one-time-password-technical-profile.md) | GA |  |
 | [Azure Active Directory](active-directory-technical-profile.md) as local directory | GA |  |
 | [Predicate validations](predicates.md) | GA | For example, password complexity. |
 | [Display controls](display-controls.md) | GA |  |
+| [Sub journeys](subjourneys.md) | GA | |
 
 ### Developer interface
 

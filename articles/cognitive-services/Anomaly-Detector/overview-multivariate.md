@@ -29,13 +29,13 @@ If your goal is to detect system level anomalies from a group of time series dat
 
 ## Notebook
 
-To learn how to call the Anomaly Detector API (multivariate), try this [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/Multivariate%20API%20Demo%20Notebook.ipynb). This Jupyter Notebook shows you how to send an API request and visualize the result.
+To learn how to call the Anomaly Detector API (multivariate), try this [Notebook](https://github.com/Azure-Samples/AnomalyDetector/blob/master/ipython-notebook/API%20Sample/Multivariate%20API%20Demo%20Notebook.ipynb). This Jupyter Notebook shows you how to send an API request and visualize the result.
 
 To run the Notebook, you should get a valid Anomaly Detector API **subscription key** and an **API endpoint**. In the notebook, add your valid Anomaly Detector API subscription key to the `subscription_key` variable, and change the `endpoint` variable to your endpoint.
 
 ## Region support
 
-The preview of Anomaly Detector multivariate is currently available in 10 Azure regions: Southeast Asia, Australia East, Canada Central, North Europe, West Europe, East US, East US 2, South Central US, West US 2, and UK South.
+The preview of Multivariate Anomaly Detector is currently available in 26 Azure regions: Southeast Asia, Australia East, Canada Central, North Europe, West Europe, East US, East US 2, South Central US, West US, West US 2, West US 3, UK South, Japan East, Brazil South, Central US, Norway East, Korea Central, East Asia, Germany West Central, Central India, UAE North, France Central, North Central US, Switzerland North, South Africa North, Jio India West.
 
 ## Algorithms
 

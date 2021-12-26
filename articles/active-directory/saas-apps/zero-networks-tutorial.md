@@ -1,5 +1,5 @@
 ---
-title: 'Tutorial: Azure Active Directory single sign-on (SSO) integration with Zero Networks | Microsoft Docs'
+title: 'Tutorial: Azure AD SSO integration with Zero Networks'
 description: Learn how to configure single sign-on between Azure Active Directory and Zero Networks.
 services: active-directory
 author: jeevansd
@@ -9,12 +9,12 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
-ms.date: 08/26/2021
+ms.date: 09/20/2021
 ms.author: jeedes
 
 ---
 
-# Tutorial: Azure Active Directory single sign-on (SSO) integration with Zero Networks
+# Tutorial: Azure AD SSO integration with Zero Networks
 
 In this tutorial, you'll learn how to integrate Zero Networks with Azure Active Directory (Azure AD). When you integrate Zero Networks with Azure AD, you can:
 
@@ -31,7 +31,7 @@ To get started, you need the following items:
 
 ## Scenario description
 
-In this tutorial, you configure and test Azure AD SSO in a test environment.
+In this tutorial, you configure Azure AD SSO for the Zero Networks Admin Portal and Access Portal.
 
 * Zero Networks supports **SP** initiated SSO.
 
@@ -42,31 +42,18 @@ In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 To configure the integration of Zero Networks into Azure AD, you need to add Zero Networks from the gallery to your list of managed SaaS apps.
 
-1. Sign in to the Azure portal using either a work or school account, or a personal Microsoft account.
+1. Sign in to the Azure portal using a work Microsoft account.
 1. On the left navigation pane, select the **Azure Active Directory** service.
 1. Navigate to **Enterprise Applications** and then select **All Applications**.
 1. To add new application, select **New application**.
 1. In the **Add from the gallery** section, type **Zero Networks** in the search box.
 1. Select **Zero Networks** from results panel and then add the app. Wait a few seconds while the app is added to your tenant.
 
-## Configure and test Azure AD SSO for Zero Networks
-
-Configure and test Azure AD SSO with Zero Networks using a test user called **B.Simon**. For SSO to work, you need to establish a link relationship between an Azure AD user and the related user in Zero Networks.
-
-To configure and test Azure AD SSO with Zero Networks, perform the following steps:
-
-1. **[Configure Azure AD SSO](#configure-azure-ad-sso)** - to enable your users to use this feature.
-    1. **[Create an Azure AD test user](#create-an-azure-ad-test-user)** - to test Azure AD single sign-on with B.Simon.
-    1. **[Assign the Azure AD test user](#assign-the-azure-ad-test-user)** - to enable B.Simon to use Azure AD single sign-on.
-1. **[Configure Zero Networks SSO](#configure-zero-networks-sso)** - to configure the single sign-on settings on application side.
-    1. **[Create Zero Networks test user](#create-zero-networks-test-user)** - to have a counterpart of B.Simon in Zero Networks that is linked to the Azure AD representation of user.
-1. **[Test SSO](#test-sso)** - to verify whether the configuration works.
-
 ## Configure Azure AD SSO
 
 Follow these steps to enable Azure AD SSO in the Azure portal.
 
-1. In the Azure portal, on the **Zero Networks** application integration page, find the **Manage** section and select **single sign-on**.
+1. In the Azure portal, on the **Zero Networks** application integration page, find the **Manage** section and select **Single sign-on**.
 1. On the **Select a single sign-on method** page, select **SAML**.
 1. On the **Set up single sign-on with SAML** page, click the pencil icon for **Basic SAML Configuration** to edit the settings.
 
@@ -85,33 +72,9 @@ Follow these steps to enable Azure AD SSO in the Azure portal.
 
 	![Copy configuration URLs](common/copy-configuration-urls.png)
 
-### Create an Azure AD test user
-
-In this section, you'll create a test user in the Azure portal called B.Simon.
-
-1. From the left pane in the Azure portal, select **Azure Active Directory**, select **Users**, and then select **All users**.
-1. Select **New user** at the top of the screen.
-1. In the **User** properties, follow these steps:
-   1. In the **Name** field, enter `B.Simon`.  
-   1. In the **User name** field, enter the username@companydomain.extension. For example, `B.Simon@contoso.com`.
-   1. Select the **Show password** check box, and then write down the value that's displayed in the **Password** box.
-   1. Click **Create**.
-
-### Assign the Azure AD test user
-
-In this section, you'll enable B.Simon to use Azure single sign-on by granting access to Zero Networks.
-
-1. In the Azure portal, select **Enterprise Applications**, and then select **All applications**.
-1. In the applications list, select **Zero Networks**.
-1. In the app's overview page, find the **Manage** section and select **Users and groups**.
-1. Select **Add user**, then select **Users and groups** in the **Add Assignment** dialog.
-1. In the **Users and groups** dialog, select **B.Simon** from the Users list, then click the **Select** button at the bottom of the screen.
-1. If you are expecting a role to be assigned to the users, you can select it from the **Select a role** dropdown. If no role has been set up for this app, you see "Default Access" role selected.
-1. In the **Add Assignment** dialog, click the **Assign** button.
-
 ## Configure Zero Networks SSO
 
-1. Log in to your Zero Networks company site as an administrator.
+1. Log in to the Zero Networks Admin Portal as an administrator.
 
 1. Navigate to **Settings** > **Identity Providers**.
 
@@ -131,9 +94,12 @@ In this section, you'll enable B.Simon to use Azure single sign-on by granting a
 
     1. Click **Save**.
 
-### Create Zero Networks test user
+## Configure user assignment requirement
 
-In this section, you create a user called Britta Simon in Zero Networks. Work with [Zero Networks support team](mailto:support@zeronetworks.com) to add the users in the Zero Networks platform. Users must be created and activated before you use single sign-on.
+1. In the Azure portal, on the **Zero Networks** application integration page, find the **Manage** section and select **Properties**.
+1. Change **User assignment required?** to **No**.
+
+![Screenshot for User assignment required.](./media/zero-networks-tutorial/user-assignment.png)
 
 ## Test SSO 
 
@@ -144,7 +110,3 @@ In this section, you test your Azure AD single sign-on configuration with follow
 * Go to Zero Networks Sign-on URL directly and initiate the login flow from there.
 
 * You can use Microsoft My Apps. When you click the Zero Networks tile in the My Apps, this will redirect to Zero Networks Sign-on URL. For more information about the My Apps, see [Introduction to the My Apps](../user-help/my-apps-portal-end-user-access.md).
-
-## Next steps
-
-Once you configure Zero Networks you can enforce session control, which protects exfiltration and infiltration of your organization’s sensitive data in real time. Session control extends from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad).

@@ -234,7 +234,9 @@ import android.content.Context;
 import com.azure.android.communication.calling.CallState;
 import com.azure.android.communication.calling.CallingCommunicationException;
 import com.azure.android.communication.calling.CameraFacing;
+import com.azure.android.communication.calling.ParticipantsUpdatedListener;
 import com.azure.android.communication.calling.PropertyChangedEvent;
+import com.azure.android.communication.calling.PropertyChangedListener;
 import com.azure.android.communication.calling.VideoDeviceInfo;
 import com.azure.android.communication.common.CommunicationUserIdentifier;
 import com.azure.android.communication.common.CommunicationIdentifier;
@@ -258,6 +260,7 @@ import com.azure.android.communication.calling.RemoteVideoStream;
 import com.azure.android.communication.calling.RemoteVideoStreamsEvent;
 import com.azure.android.communication.calling.RendererListener;
 
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -276,6 +279,8 @@ public class MainActivity extends AppCompatActivity {
     VideoStreamRendererView preview;
     final Map<Integer, StreamData> streamData = new HashMap<>();
     private boolean renderRemoteVideo = true;
+    private ParticipantsUpdatedListener remoteParticipantUpdatedListener;
+    private PropertyChangedListener onStateChangedListener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -436,8 +441,10 @@ private void startCall() {
             options);
     
     //Subcribe to events on updates of call state and remote participants
-    call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
-    call.addOnStateChangedListener(this::handleCallOnStateChanged);
+    remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+    onStateChangedListener = this::handleCallOnStateChanged;
+    call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
+    call.addOnStateChangedListener(onStateChangedListener);
 }
 ```
 
@@ -507,8 +514,10 @@ private void answerIncomingCall() {
     }
 
     //Subcribe to events on updates of call state and remote participants
-    call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
-    call.addOnStateChangedListener(this::handleCallOnStateChanged);
+    remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+    onStateChangedListener = this::handleCallOnStateChanged;
+    call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
+    call.addOnStateChangedListener(onStateChangedListener);
 }
 ```
 
@@ -517,8 +526,12 @@ private void answerIncomingCall() {
 When we start a call or answer an incoming call we need to subscribe to `addOnRemoteParticipantsUpdatedListener` event to handle remote participants. 
 
 ```java
-call.addOnRemoteParticipantsUpdatedListener(this::handleRemoteParticipantsUpdate);
+remoteParticipantUpdatedListener = this::handleRemoteParticipantsUpdate;
+call.addOnRemoteParticipantsUpdatedListener(remoteParticipantUpdatedListener);
 ```
+When you use event listeners that are defined within the same class, bind the listener to a variable. Pass the variable in as an argument to add and remove listener methods.
+
+If you try to pass the listener in directly as an argument, you'll lose the reference to that listener. Java is creating new instances of these listeners and not referencing previously created ones. They'll still fire off properly but can’t be removed because you won’t have a reference to them anymore.
 
 ### Remote participant and remote video stream update
 

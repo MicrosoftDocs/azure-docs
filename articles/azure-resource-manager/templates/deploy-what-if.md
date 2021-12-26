@@ -13,6 +13,10 @@ Before deploying an Azure Resource Manager template (ARM template), you can prev
 
 You can use the what-if operation with Azure PowerShell, Azure CLI, or REST API operations. What-if is supported for resource group, subscription, management group, and tenant level deployments.
 
+### Microsoft Learn
+
+To learn more about what-if, and for hands-on guidance, see [Preview Azure deployment changes by using what-if](/learn/modules/arm-template-whatif) on **Microsoft Learn**.
+
 ## Install Azure PowerShell module
 
 To use what-if in PowerShell, you must have version **4.2 or later of the Az module**.
@@ -379,8 +383,7 @@ You see the expected changes and can confirm that you want the deployment to run
 You can use the what-if operation through the Azure SDKs.
 
 * For Python, use [what-if](/python/api/azure-mgmt-resource/azure.mgmt.resource.resources.v2019_10_01.operations.deploymentsoperations#what-if-resource-group-name--deployment-name--properties--location-none--custom-headers-none--raw-false--polling-true----operation-config-).
-
-* For Java, use [DeploymentWhatIf Class](/java/api/com.microsoft.azure.management.resources.deploymentwhatif).
+* For Java, use [DeploymentWhatIf Class](/java/api/com.azure.resourcemanager.resources.models.deploymentwhatif).
 
 * For .NET, use [DeploymentWhatIf Class](/dotnet/api/microsoft.azure.management.resourcemanager.models.deploymentwhatif).
 

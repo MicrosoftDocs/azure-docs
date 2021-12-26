@@ -62,22 +62,30 @@ Note that the `capacity` property is set to 5 now in this example.
 1. On the *Manage Reservations* page, enter the new quantity to be reserved in the **Instances** field 
 1. Select **Save** 
 
+### [CLI](#tab/cli1)
+In order to update the quantity reserved, use `az capacity reservation update` with the updated `capacity ` property.
+
+ ```azurecli-interactive
+ az capacity reservation update 
+ -c myCapacityReservationGroup 
+ -n myCapacityReservation 
+ -g myResourceGroup2 
+ --capacity 5
+ ```
+
 ### [PowerShell](#tab/powershell1)
 
 In order to update the quantity reserved, use `New-AzCapacityReservation` with the updated `capacityToReserve` property.
 
 ```powershell-interactive
-New-AzCapacityReservation
+Update-AzCapacityReservation
 -ResourceGroupName "myResourceGroup"
--Location "eastus"
--Zone "1"
 -ReservationGroupName "myCapacityReservationGroup"
 -Name "myCapacityReservation"
--Sku "Standard_D2s_v3"
 -CapacityToReserve 5
 ```
 
-To learn more, go to Azure PowerShell command [New-AzCapacityReservation](/powershell/module/az.compute/new-azcapacityreservation).
+To learn more, go to Azure PowerShell command [Update-AzCapacityReservation](/powershell/module/az.compute/update-azcapacityreservation).
 
 --- 
 <!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
@@ -148,7 +156,7 @@ Check if the target size is part of the reservation group:
 
 1. Consider the following: 
     1. If the target VM size isn't part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
-    1. If the target VM size already exists in the group, [resize the virtual machine](.\windows\resize-vm.md) 
+    1. If the target VM size already exists in the group, [resize the virtual machine](resize-vm.md) 
 
 ### [Portal](#tab/portal2)
 
@@ -158,7 +166,33 @@ Check if the target size is part of the reservation group:
 1. Select **Reservations** 
 1. Look at the *VM size* reserved for each reservation 
     1. If the target VM size isn't part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
-    1. If the target VM size already exists in the group, [resize the virtual machine](.\windows\resize-vm.md) 
+    1. If the target VM size already exists in the group, [resize the virtual machine](resize-vm.md) 
+
+### [CLI](#tab/cli2)
+
+1. Get the names of all Capacity Reservations within the capacity reservation group with `az capacity reservation group show`
+
+    ```azurecli-interactive
+    az capacity reservation group show 
+    -g myResourceGroup
+    -n myCapacityReservationGroup 
+    ```
+
+1. From the response, find the names of all the capacity reservations
+
+1. Run the following commands to find out the VM size(s) reserved for each reservation
+
+    ```azurecli-interactive
+    az capacity reservation show
+    -g myResourceGroup
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    ```
+
+1. Consider the following: 
+    1. If the target VM size isn't part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
+    1. If the target VM size already exists in the group, [resize the virtual machine](resize-vm.md) 
+
 
 ### [PowerShell](#tab/powershell2)
 
@@ -186,7 +220,7 @@ Check if the target size is part of the reservation group:
 
 1. Consider the following: 
     1. If the target VM size isn't part of the group, [create a new capacity reservation](capacity-reservation-create.md) for the target VM 
-    1. If the target VM size already exists in the group, [resize the virtual machine](.\windows\resize-vm.md) 
+    1. If the target VM size already exists in the group, [resize the virtual machine](resize-vm.md) 
 
 
 To learn more, go to Azure PowerShell commands [Get-AzCapacityReservationGroup](/powershell/module/az.compute/get-azcapacityreservationgroup) and [Get-AzCapacityReservation](/powershell/module/az.compute/get-azcapacityreservation).
@@ -284,6 +318,38 @@ DELETE https://management.azure.com/subscriptions/{subscriptionId}/resourceGroup
     1. Go to the Capacity Reservation Group
     1. Select **Delete** at the top of the page
 
+### [CLI](#tab/cli3)
+
+Find out all the virtual machines associated with Capacity Reservation Group and dissociate them.
+
+1. Run the following: 
+    
+    ```azurecli-interactive
+    az capacity reservation group show
+    -g myResourceGroup
+    -n myCapacityReservationGroup
+    ```
+
+1. From the above response, find out the names of all the virtual machines under the `VirtualMachinesAssociated` property and remove them from the Capacity Reservation Group using the steps detailed in [Remove a virtual machine association from a Capacity Reservation group](capacity-reservation-remove-vm.md).
+
+1. Once all the virtual machines are removed from the group, proceed to the next steps. 
+
+1. Delete the Capacity Reservation:
+
+    ```azurecli-interactive
+    az capacity reservation delete 
+    -g myResourceGroup 
+    -c myCapacityReservationGroup 
+    -n myCapacityReservation 
+    ```
+
+1. Delete the Capacity Reservation Group:
+
+    ```azurecli-interactive
+    az capacity reservation group delete 
+    -g myResourceGroup 
+    -n myCapacityReservationGroup
+    ```
 
 ### [PowerShell](#tab/powershell3)
 

@@ -3,11 +3,11 @@ title: Quickstart for adding feature flags to Spring Boot with Azure App Configu
 description: Add feature flags to Spring Boot apps and manage them using Azure App Configuration
 author: mrm9084
 ms.service: azure-app-configuration
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 06/25/2021
 ms.author: mametcal
-ms.custom: devx-track-java
-
+ms.custom: devx-track-java, mode-other
 #Customer intent: As an Spring Boot developer, I want to use feature flags to control feature availability quickly and confidently.
 ---
 
@@ -82,6 +82,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
     ```properties
     spring.cloud.azure.appconfiguration.stores[0].connection-string= ${APP_CONFIGURATION_CONNECTION_STRING}
+    spring.cloud.azure.appconfiguration.stores[0].feature-flags.enabled=true
     ```
 
 1. In the App Configuration portal for your config store, select `Access keys` from the sidebar. Select the Read-only keys tab. Copy the value of the primary connection string.
@@ -156,7 +157,7 @@ Use the [Spring Initializr](https://start.spring.io/) to create a new Spring Boo
 
         @GetMapping("/welcome")
         public String mainWithParam(Model model) {
-            model.addAttribute("Beta", featureManager.isEnabledAsync("featureManagement.Beta").block());
+            model.addAttribute("Beta", featureManager.isEnabledAsync("Beta").block());
             return "welcome";
         }
     }

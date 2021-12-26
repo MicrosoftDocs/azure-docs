@@ -1,4 +1,4 @@
-﻿- name: Azure Certified Device documentation
+- name: Azure Certified Device documentation
   href: index.yml
 
 - name: Overview
@@ -34,7 +34,7 @@
 - name: Concepts
   items:
     - name: Legacy devices
-      href: concepts-legacy.md  
+      href: concepts-legacy.md
     - name: Marketing concepts
       href: concepts-marketing.md
     - name: Software levels
@@ -55,4 +55,4 @@
     - name: Certification Glossary
       href: resources-glossary.md
     - name: MPN/Microsoft Partner Network Support
-      href: /partner-center
+      href: /partner-center/

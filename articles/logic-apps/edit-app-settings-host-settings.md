@@ -6,6 +6,7 @@ ms.suite: integration
 ms.reviewer: estfan, azla
 ms.topic: how-to
 ms.date: 08/18/2021
+ms.custom: fasttrack-edit
 ---
 
 # Edit host and app settings for logic apps in single-tenant Azure Logic Apps
@@ -147,6 +148,7 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | `Jobs.BackgroundJobs.NumWorkersPerProcessorCount` | `192` dispatcher worker instances | Sets the number of *dispatcher worker instances* or *job dispatchers* to have per processor core. This value affects the number of workflow runs per core. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobTriggersQueue` | `1` job queue | Sets the number of job queues monitored by job dispatchers for jobs to process. This value also affects the number of storage partitions where job queues exist. |
 | `Jobs.BackgroundJobs.NumPartitionsInJobDefinitionsTable` | `4` job partitions | Sets the number of job partitions in the job definition table. This value controls how much execution throughput is affected by partition storage limits. |
+| `Jobs.StuckJobThreshold` | `00:60:00` <br>(60 minutes) | Sets the time duration before a job is declared as stuck. If you have an action that requires more than 60 minutes to run, you might need to increase this setting's default value and also the [`functionTimeout` property](../azure-functions/functions-scale.md#timeout) value in the same **host.json** file to the same value. |
 ||||
 
 <a name="run-duration-history"></a>
@@ -157,6 +159,15 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 |---------|---------------|-------------|
 | `Runtime.FlowRetentionThreshold` | `90.00:00:00` <br>(90 days) | Sets the amount of time to keep workflow run history after a run starts. |
 | `Runtime.Backend.FlowRunTimeout` | `90.00:00:00` <br>(90 days) | Sets the amount of time a workflow can continue running before forcing a timeout. <p><p>**Important**: Make sure this value is less than or equal to the `Runtime.FlowRetentionThreshold` value. Otherwise, run histories can get deleted before the associated jobs are complete. |
+||||
+   
+<a name="run-actions"></a>
+
+### Run actions
+
+| Setting | Default value | Description |
+|---------|---------------|-------------|
+| `Runtime.FlowRunRetryableActionJobCallback.ActionJobExecutionTimeout` | `00:10:00` <br>(10 minutes) | Sets the amount of time for a workflow action job to run before timing out and retrying. |
 ||||
 
 <a name="inputs-outputs"></a>
@@ -229,7 +240,8 @@ These settings affect the throughput and capacity for single-tenant Azure Logic 
 | Setting | Default value | Description |
 |---------|---------------|-------------|
 | `Runtime.Backend.DefaultAppendArrayItemsLimit` | `100000` <br>(100K array items) | Sets the maximum number of items in a variable with the Array type. |
-| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters <p><p>Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store. |
+| `Runtime.Backend.VariableOperation.MaximumVariableSize` | Stateful workflow: `104857600` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateful workflow. |
+| `Runtime.Backend.VariableOperation.MaximumStatelessVariableSize` | Stateless workflow: `1024` characters | Sets the maximum size in characters for the content that a variable can store when used in a stateless workflow. |
 ||||
 
 <a name="http-webhook"></a>

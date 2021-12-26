@@ -5,7 +5,7 @@ titleSuffix: Azure Digital Twins
 description: See how to create an Azure AD app registration, as an authentication option for client apps, using the CLI.
 author: baanders
 ms.author: baanders # Microsoft employees only
-ms.date: 8/27/2021
+ms.date: 9/8/2021
 ms.topic: how-to
 ms.service: digital-twins
 
@@ -126,7 +126,7 @@ To create a **client secret** for your app registration, you'll need your app re
 az ad app credential reset --id <client-ID> --append
 ```
 
-You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential?view=azure-cli-latest&preserve-view=true#az_ad_app_credential_reset).
+You can also add optional parameters to this command to specify a credential description, end date, and other details. For more information about the command and its parameters, see [az ad app credential reset documentation](/cli/azure/ad/app/credential#az_ad_app_credential_reset).
 
 The output of this command is information about the client secret that you've created. Copy the value for `password` to use when you need the client secret for authentication.
 
@@ -142,8 +142,8 @@ It's possible that your organization requires more actions from subscription Own
 Here are some common potential activities that an Owner or administrator on the subscription may need to do.
 * Grant admin consent for the app registration. Your organization may have **Admin Consent Required** globally turned on in Azure AD for all app registrations within your subscription. If so, the Owner/administrator may need to grant additional delegated or application permissions.
 * Activate public client access by appending `--set publicClient=true` to a create or update command for the registration.
-* Set specific reply URLs for web and desktop access using the `--reply-urls` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
-* Allow for implicit OAuth2 authentication flows using the `--oauth2-allow-implicit-flow` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app?view=azure-cli-latest&preserve-view=true).
+* Set specific reply URLs for web and desktop access using the `--reply-urls` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app).
+* Allow for implicit OAuth2 authentication flows using the `--oauth2-allow-implicit-flow` parameter. For more information on using this parameter with `az ad` commands, see the [az ad app documentation](/cli/azure/ad/app).
 
 For more information about app registration and its different setup options, see [Register an application with the Microsoft identity platform](/graph/auth-register-app-v2).
 

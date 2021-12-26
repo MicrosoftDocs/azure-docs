@@ -26,9 +26,9 @@ Connecting an Azure Kubernetes Service (AKS) cluster to Azure Arc is only requir
 
 If you don't want to use custom locations and just want to use management features like Azure Monitor and Azure Policy (Gatekeeper), they are available natively on AKS and connection to Azure Arc is not required in such cases.
     
-## Should I connect my AKS-HCI cluster and Kubernetes clusters on Azure Stack Hub and Azure Stack Edge to Azure Arc?
+## Should I connect my AKS-HCI cluster and Kubernetes clusters on Azure Stack Edge to Azure Arc?
 
-Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge or Azure Stack Hub to Azure Arc provides clusters with resource representation in Azure Resource Manager. This resource representation extends capabilities like Cluster Configuration, Azure Monitor, and Azure Policy (Gatekeeper) to connected Kubernetes clusters.
+Yes, connecting your AKS-HCI cluster or Kubernetes clusters on Azure Stack Edge to Azure Arc provides clusters with resource representation in Azure Resource Manager. This resource representation extends capabilities like Cluster Configuration, Azure Monitor, and Azure Policy (Gatekeeper) to connected Kubernetes clusters.
 
 If the Azure Arc-enabled Kubernetes cluster is on Azure Stack Edge, AKS on Azure Stack HCI (>= April 2021 update), or AKS on Windows Server 2019 Datacenter (>= April 2021 update), then the Kubernetes configuration is included at no charge.
 
@@ -76,6 +76,10 @@ CI/CD pipelines are useful for event-driven deployments to your Kubernetes clust
 For Azure Arc-enabled Kubernetes, since Azure Resource Manager manages your configurations, you can automate creating the same configuration across all Azure Arc-enabled Kubernetes resources using Azure Policy, within scope of a subscription or a resource group. This capability is even applicable to Azure Arc-enabled Kubernetes resources created after the policy assignment.
 
 This feature applies baseline configurations (like network policies, role bindings, and pod security policies) across the entire Kubernetes cluster inventory to meet compliance and governance requirements.
+
+## Does Azure Arc-enabled Kubernetes store any customer data outside of the cluster's region?
+
+The feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 ## Next steps
 

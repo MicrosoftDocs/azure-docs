@@ -5,7 +5,7 @@ services: media-services
 author: xpouyat
 ms.service: media-services
 ms.workload: media
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: article
 ms.date: 06/09/2021
 ms.author: xpouyat
@@ -81,7 +81,7 @@ Run the dotnet add package command in the Terminal window to install the extensi
 ```bash
 dotnet add package Azure.Storage.Blobs
 dotnet add package Microsoft.Azure.Management.Media
-dotnet add package Microsoft.Identity.Client
+dotnet add package Azure.Identity
 ```
 
 ## Generated project files

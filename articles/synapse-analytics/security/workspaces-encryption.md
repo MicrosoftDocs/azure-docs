@@ -29,9 +29,8 @@ The first layer of encryption for Azure services is enabled with platform-manage
 This section will help you better understand how customer-managed key encryption is enabled and enforced in Synapse workspaces. This encryption uses existing keys or new keys generated in Azure Key Vault. A single key is used to encrypt all the data in a workspace. Synapse workspaces support RSA 2048 and 3072 byte-sized keys, as well as RSA-HSM keys.
 
 > [!NOTE]
-> Synapse workspaces do not support the use of EC, EC-HSM, RSA-HSM, and oct-HSM keys for encryption. 
-> When creating a new key in the Azure Key Vault via ARM Template, 'keyOps' under properties for Microsoft.KeyVault/vaults/keys resource needs to have "unwrapKey" and 
-> "wrapKey" specified.
+> Synapse workspaces do not support the use of EC, EC-HSM, and oct-HSM keys for encryption. 
+> When creating a new key in the Azure Key Vault via an ARM template, 'keyOps' under properties for Microsoft.KeyVault/vaults/keys resource needs to have "unwrapKey" and "wrapKey" specified.
 
 The data in the following Synapse components is encrypted with the customer-managed key configured at the workspace level:
 * SQL pools
@@ -99,3 +98,4 @@ SQL Transparent Data Encryption (TDE) is available for dedicated SQL Pools in wo
 
 [Use built-in Azure Policies to implement encryption protection for Synapse workspaces](../policy-reference.md)
 
+[Create an Azure key vault and a key by using ARM template](../../key-vault/keys/quick-create-template.md)

@@ -22,22 +22,6 @@ For conceptual information on ZRS, see [Zone-redundant storage for managed disks
 
 # [Azure portal](#tab/portal)
 
-### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-
 ### Create a VM with a ZRS OS disk
 
 1. Sign in to the Azure portal.
@@ -73,22 +57,6 @@ You've now deployed a VM with a ZRS OS disk.
 You have now created a managed disk that uses ZRS.
 
 # [Azure CLI](#tab/azure-cli)
-
-#### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```azurecli
-    az feature register --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
- 
-2.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```azurecli
-    az feature show --namespace Microsoft.Compute --name SsdZrsManagedDisks
-    ```
 
 #### Create a VM with ZRS disks
 
@@ -180,23 +148,6 @@ az vmss create -g $rgName \
 ```
 # [Azure PowerShell](#tab/azure-powershell)
 
-
-#### Prerequisites
-
-You must enable the feature for your subscription. Use the following steps to enable the feature for your subscription:
-
-1.	Execute the following command to register the feature for your subscription
-
-    ```powershell
-     Register-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute" 
-    ```
-
-1.	Confirm that the registration state is **Registered** (it may take a few minutes) using the following command before trying out the feature.
-
-    ```powershell
-     Get-AzProviderFeature -FeatureName "SsdZrsManagedDisks" -ProviderNamespace "Microsoft.Compute"  
-    ```
-    
 #### Create a VM with ZRS disks
 
 ```powershell

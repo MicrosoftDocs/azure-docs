@@ -583,20 +583,27 @@ To check in the Control Panel:
 If you are running an older version for any of the services, you must uninstall the service, and manually update to the latest version.
 
 1. To check for the latest appliance service versions, [download](https://aka.ms/latestapplianceservices) the LatestComponents.json file.
+
 2. After downloading, open the LatestComponents.json file in Notepad.
+
 3. Find the latest service version in the file, and the download link for it. For example:
 
-    "Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"
+   `"Name": "ASRMigrationWebApp", "DownloadLink": "https://download.microsoft.com/download/f/3/4/f34b2eb9-cc8d-4978-9ffb-17321ad9b7ed/MicrosoftAzureApplianceConfigurationManager.msi", "Version": "6.0.211.2", "Md5Hash": "e00a742acc35e78a64a6a81e75469b84"`
 
 4. Download the latest version of an outdated service, using the download link in the file.
+
 5. After downloading, run the following command in an administrator command window, to verify the integrity of the downloaded MSI.
 
-    ``` C:\>Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm] ```
+   `C:\> Get-FileHash -Path <file_location> -Algorithm [Hashing Algorithm]`
+
     For example:
-    C:\>CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5
+
+    `C:\> CertUtil -HashFile C:\Users\public\downloads\MicrosoftAzureApplianceConfigurationManager.MSI MD5`
 
 5. Check that the command output matches the hash value entry for the service in the file (for example, the MD5 hash value above).
+
 6. Now, run the MSI to install the service. It's a silent install, and the installation window closes after it's done.
+
 7. After installation is complete, check the version of the service in **Control panel** > **Programs and Features**. The service version should now be upgraded to the latest shown in the json file.
 
 ## Next steps

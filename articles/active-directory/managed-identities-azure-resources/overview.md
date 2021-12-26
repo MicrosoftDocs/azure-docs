@@ -72,7 +72,7 @@ Resources that support system assigned managed identities allow you to:
 
 - Enable or disable managed identities at the resource level.
 - Use RBAC roles to [grant permissions](howto-assign-access-portal.md).
-- View create, read, update, delete (CRUD) operations in [Azure Activity logs](../../azure-resource-manager/management/view-activity-logs.md).
+- View create, read, update, delete (CRUD) operations in [Azure Activity logs](../../azure-monitor/essentials/activity-log.md).
 - View sign-in activity in Azure AD [sign-in logs](../reports-monitoring/concept-sign-ins.md).
 
 If you choose a user assigned managed identity instead:
@@ -80,7 +80,7 @@ If you choose a user assigned managed identity instead:
 - You can [create, read, update, delete](how-to-manage-ua-identity-portal.md) the identities.
 - You can use RBAC role assignments to [grant permissions](howto-assign-access-portal.md).
 - User assigned managed identities can be used on more than one resource.
-- CRUD operations are available for review in [Azure Activity logs](../../azure-resource-manager/management/view-activity-logs.md).
+- CRUD operations are available for review in [Azure Activity logs](../../azure-monitor/essentials/activity-log.md).
 - View sign-in activity in Azure AD [sign-in logs](../reports-monitoring/concept-sign-ins.md).
 
 Operations on managed identities may be performed by using an Azure Resource Manager (ARM) template, the Azure portal, the Azure CLI, PowerShell, and REST APIs.

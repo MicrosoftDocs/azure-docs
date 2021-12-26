@@ -1,7 +1,7 @@
 ---
-title: Automate adding a lab user in Azure DevTest Labs | Microsoft Docs
+title: Automate adding a lab user
 description: This article shows you how to automate adding a user to a lab in Azure DevTest Labs using Azure Resource Manager templates, PowerShell, and CLI. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020 
 ms.custom: devx-track-azurepowershell
 ---
@@ -155,7 +155,8 @@ Then, use the [New-AzureRmResourceGroupDeployment](/powershell/module/azurerm.re
 New-AzureRmResourceGroupDeployment -Name "MyLabResourceGroup-$(New-Guid)" -ResourceGroupName 'MyLabResourceGroup' -TemplateParameterFile .\azuredeploy.parameters.json -TemplateFile .\azuredeploy.json
 ```
 
-It's important to note that the group deployment name and role assignment GUID need to be unique. If you try to deploy a resource assignment with a non-unique GUID, then you'll get a `RoleAssignmentUpdateNotPermitted` error.
+> [!NOTE] 
+> The group deployment name and role assignment GUID must be unique. If you try to deploy a resource assignment by using a non-unique GUID, you'll see a `RoleAssignmentUpdateNotPermitted` error.
 
 If you plan to use the template several times to add several Active Directory objects to the DevTest Labs User role for your lab, consider using dynamic objects in your PowerShell command. The following example uses the [New-Guid](/powershell/module/Microsoft.PowerShell.Utility/New-Guid) cmdlet to specify the resource group deployment name and role assignment GUID dynamically.
 
@@ -174,8 +175,8 @@ New-AzureRmRoleAssignment -UserPrincipalName <email@company.com> -RoleDefinition
 
 To specify the resource to which permissions are being granted can be specified by a combination of `ResourceName`, `ResourceType`, `ResourceGroup` or by the `scope` parameter. Whatever combination of parameters is used, provide enough information to the cmdlet to uniquely identify the Active Directory object (user, group, or service principal), scope (resource group or resource), and role definition.
 
-## Use Azure Command Line Interface (CLI)
-In Azure CLI, adding a labs user to a lab is done by using the `az role assignment create` command. For more information on Azure CLI cmdlets, see [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md).
+## Use Azure CLI
+In the Azure CLI, adding a lab user to a lab is done by using the `az role assignment create` command. For more information on Azure CLI cmdlets, see [Add or remove Azure role assignments using Azure CLI](../role-based-access-control/role-assignments-cli.md).
 
 The object that is being granted access can be specified by the `objectId`, `signInName`, `spn` parameters. The lab to which the object is being granted access can be identified by the `scope` url or a combination of the `resource-name`, `resource-type`, and `resource-group` parameters.
 

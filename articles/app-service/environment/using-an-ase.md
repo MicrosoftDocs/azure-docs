@@ -1,12 +1,11 @@
 ---
 title: Use and manage an App Service Environment
 description: Learn how to create, publish, and scale apps in an App Service Environment. Find all the common tasks in this article.
-author: ccompy
-
+author: madsd
 ms.assetid: a22450c4-9b8b-41d4-9568-c4646f4cf66b
 ms.topic: article
 ms.date: 8/5/2021
-ms.author: ccompy
+ms.author: madsd
 ms.custom: seodec18
 ---
 # Use an App Service Environment
@@ -169,10 +168,10 @@ You can integrate your ASE with Azure Monitor to send logs about the ASE to Azur
 
 | Situation | Message |
 |---------|----------|
-| ASE is unhealthy | The specified ASE is unhealthy due to an invalid virtual network configuration. The ASE will be suspended if the unhealthy state continues. Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info. |
+| ASE is unhealthy | The specified ASE is unhealthy due to an invalid virtual network configuration. The ASE will be suspended if the unhealthy state continues. Ensure the guidelines defined here are followed: [Networking considerations for an App Service Environment](network-info.md). |
 | ASE subnet is almost out of space | The specified ASE is in a subnet that is almost out of space. There are {0} remaining addresses. Once these addresses are exhausted, the ASE will not be able to scale.  |
 | ASE is approaching total instance limit | The specified ASE is approaching the total instance limit of the ASE. It currently contains {0} App Service Plan instances of a maximum 201 instances. |
-| ASE is unable to reach a dependency | The specified ASE is not able to reach {0}.  Ensure the guidelines defined here are followed: https://docs.microsoft.com/azure/app-service/environment/network-info. |
+| ASE is unable to reach a dependency | The specified ASE is not able to reach {0}.  Ensure the guidelines defined here are followed: [Networking considerations for an App Service Environment](network-info.md). |
 | ASE is suspended | The specified ASE is suspended. The ASE suspension may be due to an account shortfall or an invalid virtual network configuration. Resolve the root cause and resume the ASE to continue serving traffic. |
 | ASE upgrade has started | A platform upgrade to the specified ASE has begun. Expect delays in scaling operations. |
 | ASE upgrade has completed | A platform upgrade to the specified ASE has finished. |
@@ -292,6 +291,6 @@ For more specific examples, use: az find "az appservice ase"
 [ConfigureSSL]: ../configure-ssl-certificate.md
 [Kudu]: https://azure.microsoft.com/resources/videos/super-secret-kudu-debug-console-for-azure-web-sites/
 [AppDeploy]: ../deploy-local-git.md
-[ASEWAF]: app-service-app-service-environment-web-application-firewall.md
+[ASEWAF]: ./integrate-with-application-gateway.md
 [AppGW]: ../../web-application-firewall/ag/ag-overview.md
 [logalerts]: ../../azure-monitor/alerts/alerts-log.md

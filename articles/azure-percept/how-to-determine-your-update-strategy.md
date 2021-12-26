@@ -1,8 +1,8 @@
 ---
 title: Determine your update strategy for Azure Percept DK
 description: Pros and cons of Azure Percept DK OTA or USB cable updates. Recommendation for choosing the best update approach for different users. 
-author: EthanChangAED
-ms.author: amiyouss
+author: nkhuyent
+ms.author: hschang
 ms.service: azure-percept
 ms.topic: conceptual
 ms.date: 08/23/2021
@@ -15,7 +15,7 @@ To keep your Azure Percept DK software update-to-date, Microsoft offers two upda
 
 Update over USB cable does a clean install to the dev kit. Existing configurations and all the user data in each partition will be wiped out after the new image is deployed. To do that, connect the dev kit to a host system with a type-c USB cable. The host system can be a Windows/Linux machine.  You can also use this update method as the factory reset. To do that, redeployed the exact same version to the dev kit. Refer to [Update the Azure Percept DK over a USB-C cable connection](./how-to-update-via-usb.md) for detail about the USB cable update.
 
-The OTA update is built on top of the [Device Update for IoT Hub](https://docs.microsoft.com/azure/iot-hub-device-update/device-update-resources) Azure service. Connect the dev kit to Azure IoT Hub to do this type of update. Configurations and user data will be preserved after the OTA update. Refer to [Update your Azure Percept DK over-the-air (OTA)](./how-to-update-over-the-air.md) for detail about doing the OTA update.
+The OTA update is built on top of the [Device Update for IoT Hub](../iot-hub-device-update/device-update-resources.md) Azure service. Connect the dev kit to Azure IoT Hub to do this type of update. Configurations and user data will be preserved after the OTA update. Refer to [Update your Azure Percept DK over-the-air (OTA)](./how-to-update-over-the-air.md) for detail about doing the OTA update.
 
 Check the pros and cons for both USB cable update and OTA update, then follow the Microsoft recommendations for different scenarios.
 

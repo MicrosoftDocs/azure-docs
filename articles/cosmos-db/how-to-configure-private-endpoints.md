@@ -133,7 +133,7 @@ $virtualNetwork = Get-AzVirtualNetwork -ResourceGroupName  $ResourceGroupName -N
  
 $subnet = $virtualNetwork | Select -ExpandProperty subnets | Where-Object  {$_.Name -eq $SubnetName}  
  
-$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location "westcentralus" -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
+$privateEndpoint = New-AzPrivateEndpoint -ResourceGroupName $ResourceGroupName -Name $PrivateEndpointName -Location $Location -Subnet  $subnet -PrivateLinkServiceConnection $privateEndpointConnection
 ```
 
 ### Integrate the private endpoint with a private DNS zone
@@ -163,13 +163,13 @@ $networkInterface = Get-AzResource -ResourceId $pe.NetworkInterfaces[0].Id `
 
 $PrivateDnsZoneId = $zone.ResourceId
 
-$config = New-AzPrivateDnsZoneConfig -Name $zoneName`
+$config = New-AzPrivateDnsZoneConfig -Name $zoneName `
  -PrivateDnsZoneId $PrivateDnsZoneId
 
 ## Create a DNS zone group
-New-AzPrivateDnsZoneGroup -ResourceGroupName $ResourceGroupName`
- -PrivateEndpointName $PrivateEndpointName`
- -Name "MyPrivateZoneGroup"`
+New-AzPrivateDnsZoneGroup -ResourceGroupName $ResourceGroupName `
+ -PrivateEndpointName $PrivateEndpointName `
+ -Name "MyPrivateZoneGroup" `
  -PrivateDnsZoneConfig $config
 ```
 

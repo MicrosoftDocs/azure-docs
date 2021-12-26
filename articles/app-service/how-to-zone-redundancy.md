@@ -3,15 +3,15 @@ title: Availability Zone support for public multi-tenant App Service
 description: Learn how to deploy your App Service so that your apps are zone redundant.
 author: seligj95
 ms.topic: article
-ms.date: 09/01/2021
+ms.date: 11/16/2021
 ms.author: jordanselig
 ms.custom: references_regions
 ---
 # Availability Zone support for public multi-tenant App Service
 
-Microsoft Azure App Service can be deployed into [Availability Zones (AZ)](../availability-zones/az-overview.md) which enables [high availability](https://en.wikipedia.org/wiki/High_availability) for your apps. This architecture is also known as zone redundancy.
+Microsoft Azure App Service can be deployed into [Availability Zones (AZ)](../availability-zones/az-overview.md) to help you achieve resiliency and reliability for your business-critical workloads. This architecture is also known as zone redundancy.
 
-An app lives in an App Service plan (ASP), and the App Service plan exists in a single scale unit. When an App Service is configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones.
+An app lives in an App Service plan (ASP), and the App Service plan exists in a single scale unit. When an App Service is configured to be zone redundant, the platform automatically spreads the VM instances in the App Service plan across all three zones in the selected region. If a capacity larger than three is specified and the number of instances is divisible by three, the instances will be spread evenly. Otherwise, instance counts beyond 3*N will get spread across the remaining one or two zones. For App Services that aren't configured to be zone redundant, the VM instances are placed in a single zone in the selected region.
 
 ## Requirements
 
@@ -58,7 +58,7 @@ When the App Service platform allocates instances to a zone redundant App Servic
 
 Currently, you need to use an ARM template to create a zone redundant App Service. Once created via an ARM template, the App Service plan can be viewed and interacted with via the Azure portal and CLI tooling. An ARM template is only needed for the initial creation of the App Service plan.
 
-The only changes needed in an ARM template to specify a zone redundant App Service are the new ***zoneRedundant*** property (required) and optionally the App Service plan instance count (***capacity***) on the [Microsoft.Web/serverfarms](https://docs.microsoft.com/azure/templates/microsoft.web/serverfarms?tabs=json) resource. If you don't specify a capacity, the platform defaults to three. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
+The only changes needed in an ARM template to specify a zone redundant App Service are the new ***zoneRedundant*** property (required) and optionally the App Service plan instance count (***capacity***) on the [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms?tabs=json) resource. If you don't specify a capacity, the platform defaults to three. The ***zoneRedundant*** property should be set to ***true*** and ***capacity*** should be set based on the workload requirement, but no less than three. A good rule of thumb to choose capacity is to ensure sufficient instances for the application such that losing one zone of instances leaves sufficient capacity to handle expected load.
 
 > [!TIP]
 > To decide instance capacity, you can use the following calculation:

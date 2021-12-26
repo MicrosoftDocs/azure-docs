@@ -4,7 +4,7 @@ description: Learn how to create a new container of resources and access package
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: 
+manager: karenhoran
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
@@ -244,7 +244,7 @@ To delete a catalog:
 
 ### Delete a catalog programmatically
 
-You can also delete a catalog by using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete?view=graph-rest-beta&preserve-view=true).
+You can also delete a catalog by using Microsoft Graph. A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission can call the API to [delete an accessPackageCatalog](/graph/api/accesspackagecatalog-delete).
 
 ## Next steps
 

@@ -2,7 +2,7 @@
 title: Set up a lab with R and RStudio on Linux using Azure Lab Services
 description: Learn how to set up labs to teach R using RStudio on Linux
 author: emaher
-ms.topic: article
+ms.topic: how-to
 ms.date: 08/25/2021
 ms.author: enewman
 ---
@@ -12,7 +12,7 @@ ms.author: enewman
 [R](https://www.r-project.org/about.html) is an open-source language used for statistical computing and graphics.  It's used in the statistical analysis of genetics to natural language processing to analyzing financial data.  R provides an [interactive command line](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R-from-the-command-line) experience.  [RStudio](https://www.rstudio.com/products/rstudio/) is an interactive development environment (IDE) available for the R language.  The free version provides code editing tools, an integrated debugging experience, and package development tools.
 
 This article will focus on solely RStudio and R as a building block for a class that requires the use of statistical computing.  The [deep learning](class-type-deep-learning-natural-language-processing.md) and [Python and Jupyter Notebooks](class-type-jupyter-notebook.md)
-class types setup RStudio differently.  Each article describes how to use the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804) marketplace image, which has many [data science related tools](/azure/machine-learning/data-science-virtual-machine/tools-included), including RStudio, pre-installed.  
+class types setup RStudio differently.  Each article describes how to use the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804) marketplace image, which has many [data science related tools](../machine-learning/data-science-virtual-machine/tools-included.md), including RStudio, pre-installed.  
 
 ## Lab Account configuration
 
@@ -59,7 +59,7 @@ sudo apt upgrade
 
 ### Install X2Go Server
 
-If you choose to use X2Go, [install the server](https://github.com/Azure/azure-devtestlab/tree/master/samples/ClassroomLabs/Scripts/X2GoRemoteDesktop#install-x2go-server).  You'll first need to [connect using ssh](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to install the server component.  Once that is completed, the rest of the setup can be completed after [connecting using the X2Go client](how-to-use-remote-desktop-linux-student.md).
+If you choose to use X2Go, install the server.  You'll first need to [connect using ssh](how-to-use-remote-desktop-linux-student.md#connect-to-the-student-vm-using-ssh) to install the server component.  Once that is completed, the rest of the setup can be completed after [connecting using the X2Go client](how-to-use-remote-desktop-linux-student.md).
 
 The default installation of X2Go isn't compatible with RStudio.  To work around this issue, update the x2goagent options file.
 
