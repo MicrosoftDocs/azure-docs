@@ -3,6 +3,7 @@ title: .NET Programming guide - Azure Event Hubs (legacy) | Microsoft Docs
 description: This article provides information on how to Write code for Azure Event Hubs using the Azure .NET SDK.
 ms.topic: article
 ms.date: 09/20/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -91,9 +92,6 @@ To use the [EventProcessorHost][] class, you can implement [IEventProcessor](/do
 * [ProcessErrorAsync](/dotnet/api/microsoft.azure.eventhubs.processor.ieventprocessor.processerrorasync)
 
 To start event processing, instantiate [EventProcessorHost][], providing the appropriate parameters for your event hub. For example:
-
-> [!NOTE]
-> EventProcessorHost and its related classes are provided in the **Microsoft.Azure.EventHubs.Processor** package. Add the package to your Visual Studio project by following instructions in [this article](event-hubs-dotnet-framework-getstarted-send.md#add-the-event-hubs-nuget-package) or by issuing the following command in the [Package Manager Console](https://docs.nuget.org/docs/start-here/using-the-package-manager-console) window:`Install-Package Microsoft.Azure.EventHubs.Processor`.
 
 ```csharp
 var eventProcessorHost = new EventProcessorHost(

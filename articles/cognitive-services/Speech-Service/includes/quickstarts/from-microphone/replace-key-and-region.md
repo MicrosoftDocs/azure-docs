@@ -1,9 +1,9 @@
 ---
-author: PatrickFarley
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/02/2020
-ms.author: pafarley
+ms.author: eur
 ---
 
 Replace the `YourSubscriptionKey` and `YourServiceRegion` values with actual values from the Speech resource.

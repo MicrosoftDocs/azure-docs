@@ -23,14 +23,15 @@ The new _enhanced_ pre-post script framework has the following key benefits:
 - The robust framework is efficient to handle scenarios, such as pre-script execution failure or crashes. In any event, the post-script automatically runs to roll back all changes done in the pre-script.
 - The framework also provides a _messaging_ channel for external tools to fetch updates and prepare their own action plan on any message/event.
 
-## Solution flow (Preview)
+## Solution flow
 
 :::image type="content" source="./media/backup-azure-linux-database-consistent-enhanced-pre-post/solution-flow.png" alt-text="Diagram showing the solution flow.":::
+
 ## Support matrix
 
 The following the list of databases are covered under the enhanced framework:
 
-- [Oracle (Generally Available)](../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md)
+- [Oracle (Generally Available)](../virtual-machines/workloads/oracle/oracle-database-backup-azure-backup.md) - [Link to support matrix](backup-support-matrix-iaas.md#support-matrix-for-managed-pre-post-scripts-for-linux-databases)
 - MySQL (Preview)
 
 ## Prerequisites

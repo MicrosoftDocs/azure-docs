@@ -4,7 +4,7 @@ description: Learn how to troubleshoot SQL insights in Azure Monitor.
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/04/2021
+ms.date: 11/03/2021
 ---
 
 # Troubleshoot SQL insights (preview)
@@ -35,7 +35,7 @@ InsightsMetrics
 
 Check if any logs from Telegraf help identify the root cause the problem. If there are log entries, you can select **Not collecting** and check the logs and troubleshooting info for common problems. 
 
-If there are no log entries, you must check the logs on the monitoring virtual machine for the following services installed by two virtual machine extensions:
+If there are no log entries, check the logs on the monitoring virtual machine for the following services installed by two virtual machine extensions:
 
 - Microsoft.Azure.Monitor.AzureMonitorLinuxAgent 
   - Service: mdsd 
@@ -97,7 +97,7 @@ If you need to contact support, collect the following information:
 
 ### Invalid monitoring virtual machine configuration
 
-One cause of the **Not collecting** status is an invalid configuration for the monitoring virtual machine. Here's the default configuration:
+One cause of the **Not collecting** status is an invalid configuration for the monitoring virtual machine. Here's the simplest form of configuration:
 
 ```json
 {
@@ -122,10 +122,12 @@ One cause of the **Not collecting** status is an invalid configuration for the m
 
 This configuration specifies the replacement tokens to be used in the profile configuration on your monitoring virtual machine. It also allows you to reference secrets from Azure Key Vault, so you don't have to keep secret values in any configuration (which we strongly recommend).
 
-#### Secrets
-Secrets are tokens whose values are retrieved at runtime from an Azure key vault. A secret is defined by a pair of a key vault reference and a secret name. This definition allows Azure Monitor to get the dynamic value of the secret and use it in downstream configuration references.
+In this configuration, the database connection string includes a `$telegrafPassword` replacement token. SQL Insights replaces this token by the SQL authentication password retrieved from Key Vault. The Key Vault URI is specified in the `telegrafPassword` configuration section under `secrets`.
 
-You can define as many secrets as needed in the configuration, including secrets stored in separate key vaults.
+#### Secrets
+Secrets are tokens whose values are retrieved at runtime from an Azure key vault. A secret is defined by a value pair that includes key vault URI and a secret name. This definition allows SQL Insights to get the value of the secret at runtime and use it in downstream configuration.
+
+You can define as many secrets as needed, including secrets stored in multiple key vaults.
 
 ```json
    "secrets": {
@@ -140,23 +142,22 @@ You can define as many secrets as needed in the configuration, including secrets
     }
 ```
 
-The permission to access the key vault is provided to a managed identity on the monitoring virtual machine. Azure Monitor expects the key vault to provide at least secrets to get permission to the virtual machine. You can enable it from the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template.
+The permission to access the key vault is provided to a managed identity on the monitoring virtual machine. This managed identity must be granted the Get permission on all Key Vault secrets referenced in the monitoring profile configuration. This can be done from the Azure portal, PowerShell, the Azure CLI, or an Azure Resource Manager template.
 
 #### Parameters
-Parameters are tokens that can be referenced in the profile configuration via JSON templates. Parameters have a name and a value. Values can be any JSON type, including objects and arrays. A parameter is referenced in the profile configuration through its name in this convention: `.Parameters.<name>`.
+Parameters are tokens that can be referenced in the profile configuration via JSON templates. Parameters have a name and a value. Values can be any JSON type, including objects and arrays. A parameter is referenced in the profile configuration by its name, using this convention: `.Parameters.<name>`.
 
 Parameters can reference secrets in Key Vault by using the same convention. For example, `sqlAzureConnections` references the secret `telegrafPassword` by using the convention `$telegrafPassword`.
 
 At runtime, all parameters and secrets will be resolved and merged with the profile configuration to construct the actual configuration to be used on the machine.
 
 > [!NOTE]
-> The parameter names of `sqlAzureConnections`, `sqlVmConnections`, and `sqlManagedInstanceConnections` are all required in the configuration, even if you don't provide connection strings for some of them.
-
+> The parameter names of `sqlAzureConnections`, `sqlVmConnections`, and `sqlManagedInstanceConnections` are all required in configuration, even if you don't provide connection strings for some of them.
 
 ## Status: Collecting with errors
-The monitoring machine will have the status **Collecting with errors** if there's at least one *InsightsMetrics* log but there are also errors in the *Operation* table.
+The monitoring machine will have the status **Collecting with errors** if there's at least one recent *InsightsMetrics* log but there are also errors in the *Operation* table.
 
-SQL insights uses the following queries to retrieve this information:
+SQL Insights uses the following queries to retrieve this information:
 
 ```kusto
 InsightsMetrics 
@@ -171,11 +172,33 @@ WorkloadDiagnosticLogs
 ```
 
 > [!NOTE]
-> If you don't see any data in the `WorkloadDiagnosticLogs` data type,  you might need to update your monitoring profile to store this data.  From within the SQL insights UX, select **Manage profile** > **Edit profile** > **Update monitoring profile**.
+> If you don't see any data in `WorkloadDiagnosticLogs`,  you might need to update your monitoring profile. From within SQL Insights in Azure portal, select **Manage profile** > **Edit profile** > **Update monitoring profile**.
 
-For common cases, we provide troubleshooting knowledge in our logs view: 
+For common cases, we provide troubleshooting tips in our logs view: 
 
 :::image type="content" source="media/sql-insights-enable/troubleshooting-logs-view.png" alt-text="Troubleshooting logs view.":::
+
+## Known issues
+
+During preview of SQL Insights, you may encounter the following known issues.
+
+* **'Login failed' error connecting to server or database**. Using certain special characters in SQL authentication passwords saved in the monitoring VM configuration or in Key Vault may prevent the monitoring VM from connecting to a SQL server or database. This set of characters includes parentheses, square and curly brackets, the dollar sign, forward and back slashes, and dot (`[ { ( ) } ] $ \ / .`).
+
+## Best practices
+
+* **Ensure access to Key Vault from the monitoring VM**. If you use Key Vault to store SQL authentication passwords (strongly recommended), you need to ensure that network and security configuration allows the monitoring VM to access Key Vault. For more information, see [Access Azure Key Vault behind a firewall](/azure/key-vault/general/access-behind-firewall) and [Configure Azure Key Vault networking settings](/azure/key-vault/general/how-to-azure-key-vault-network-security). To verify that the monitoring VM can access Key Vault, you can execute the following commands from an SSH session connected to the VM. You should be able to successfully retrieve the access token and the secret. Replace `[YOUR-KEY-VAULT-URL]`, `[YOUR-KEY-VAULT-SECRET]`, and `[YOUR-KEY-VAULT-ACCESS-TOKEN]` with actual values.
+
+  ```bash
+  # Get an access token for accessing Key Vault secrets
+  curl 'http://[YOUR-KEY-VAULT-URL]/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https%3A%2F%2Fvault.azure.net' -H Metadata:true
+  
+  # Get Key Vault secret
+  curl 'https://[YOUR-KEY-VAULT-URL]/secrets/[YOUR-KEY-VAULT-SECRET]?api-version=2016-10-01' -H "Authorization: Bearer [YOUR-KEY-VAULT-ACCESS-TOKEN]"
+  ```
+
+* **Update software on the monitoring VM**. We strongly recommend periodically updating the operating system and extensions on the monitoring VM. If an extension supports automatic upgrade, enable that option.
+
+* **Save previous configurations**. If you want to make changes to either monitoring profile or monitoring VM configuration, we recommend saving a working copy of your configuration data first. From the SQL Insights page in Azure portal, select **Manage profile** > **Edit profile**, and copy the text from **Current Monitoring Profile Config** to a file. Similarly, select **Manage profile** > **Configure** for the monitoring VM, and copy the text from **Current monitoring configuration** to a file. If data collection errors occur after configuration changes, you can compare the new configuration to the known working configuration using a text diff tool to help you find any changes that might have impacted collection.
 
 ## Next steps
 

@@ -1,15 +1,15 @@
 ---
-title: Manage user access in Azure Active Directory B2C | Microsoft Docs
+title: Manage user access in Azure Active Directory B2C  
 description: Learn how to identify minors, collect date of birth and country/region data, and get acceptance of terms of use in your application by using Azure AD B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
 ms.date: 03/09/2021
-ms.author: mimart
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -137,7 +137,7 @@ The following steps describe how you can manage terms of use:
 
 1. Record the acceptance of the terms of use and the date of acceptance by using the Graph API and extended attributes. You can do so by using both built-in and custom user flows. We recommend that you create and use the **extension_termsOfUseConsentDateTime** and **extension_termsOfUseConsentVersion** attributes.
 
-2. Create a required check box labeled "Accept Terms of Use," and record the result during signup. You can do so by using both built-in and custom user flows.
+2. Create a required check box labeled "Accept Terms of Use," and record the result during sign-up. You can do so by using both built-in and custom user flows.
 
 3. Azure AD B2C stores the terms of use agreement and the user's acceptance. You can use the Graph API to query for the status of any user by reading the extension attribute that's used to record the response (for example, read **termsOfUseTestUpdateDateTime**). You can do so by using both built-in and custom user flows.
 

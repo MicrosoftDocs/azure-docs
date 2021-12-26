@@ -5,7 +5,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 06/01/2021
+ms.date: 10/01/2021
 ms.author: alkohli
 ---
 
@@ -123,7 +123,7 @@ The certificate files that you get from your certificate authority (CA) must be 
 
 - To import the certificates, follow the steps in [Import certificates on the clients accessing your Azure Stack Edge Pro device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
 
-- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-gpu-manage-certificates.md#import-certificates-on-the-client-accessing-the-device).
+- To export the certificates, follow the steps in [Export certificates from the client accessing the Azure Stack Edge Pro device](azure-stack-edge-gpu-prepare-certificates-device-upload.md#export-certificates-as-pfx-format-with-private-key).
 
 
 ## Validate certificates

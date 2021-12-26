@@ -1,6 +1,6 @@
 ---
 title: Get started with Document Translation
-description: How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms
+description: "How to create a Document Translation service using C#, Go, Java, Node.js, or Python programming languages and platforms"
 services: cognitive-services
 author: laujan
 manager: nitinme
@@ -10,6 +10,8 @@ ms.topic: quickstart
 ms.date: 09/16/2021
 ms.author: lajanuar
 recommendations: false
+ms.devlang: csharp, golang, java, javascript, python
+ms.custom: mode-other
 ---
 
 # Get started with Document Translation
@@ -112,7 +114,7 @@ The following headers are included with each Document Translator API request:
 * The `targetUrl` for each target language must be unique.
 
 >[!NOTE]
-> If a file with the same name already exists in the destination, it will be overwritten.
+> If a file with the same name already exists in the destination, the job will fail.
 
 <!-- markdownlint-disable MD024 -->
 ### Translate all documents in a container

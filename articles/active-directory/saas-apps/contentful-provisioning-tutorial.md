@@ -58,7 +58,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 5. Select **Generate personal access token**.
 
-    ![url](media/contentful-provisioning-tutorial/generate.png)
+    ![Screenshot showing the SCIM URL to generate a personal access token.](media/contentful-provisioning-tutorial/generate.png)
 
 6. In the modal window, enter a name for your personal access token, and then select **Generate**.
 

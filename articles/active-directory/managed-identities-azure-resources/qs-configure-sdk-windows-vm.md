@@ -6,7 +6,6 @@ documentationcenter: ''
 author: barclayn
 manager: daveba
 editor: ''
-
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
@@ -16,6 +15,7 @@ ms.workload: identity
 ms.date: 11/03/2020
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ms.custom: mode-api
 ---
 
 # Configure a VM with managed identities for Azure resources using an Azure SDK
@@ -40,7 +40,7 @@ Azure supports multiple programming platforms through a series of [Azure SDKs](h
 | Java   | [Manage storage from a VM enabled with managed identities for Azure resources](https://github.com/Azure-Samples/compute-java-manage-resources-from-vm-with-msi-in-aad-group)|
 | Node.js| [Create a VM with system-assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-node-msi-vm/) |
 | Python | [Create a VM with system-assigned managed identity enabled](https://azure.microsoft.com/resources/samples/compute-python-msi-vm/) |
-| Ruby   | [Create Azure VM with an system-assigned identity enabled](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |
+| Ruby   | [Create Azure VM with a system-assigned identity enabled](https://github.com/Azure-Samples/compute-ruby-msi-vm/) |
 
 ## Next steps
 

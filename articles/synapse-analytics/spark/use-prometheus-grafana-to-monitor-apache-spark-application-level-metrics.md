@@ -49,7 +49,7 @@ Note: This step can be skipped if you already have an AKS cluster.
 ## Create a service principal and grant permission to Synapse workspace
 
 ```bash
-az ad sp create-for-rbac --name <service_principal_name>
+az ad sp create-for-rbac --name <service_principal_name> --role Contributor
 ```
 
 The result should look like:
@@ -81,6 +81,9 @@ Note down the appId, password, and tenantID.
 6. For Select user, input your **<service_principal_name>** and click your service principal
 
 7. Click **Apply** (Wait 3 minutes for permission to take effect.)
+
+> [!NOTE]
+> Please make sure your service principal is at least "Reader" role in your Synapse workspace. Go to Access Control (IAM) tab of the Azure portal and check the permission settings.
 
 ## Install connector, Prometheus server, Grafana dashboard
 

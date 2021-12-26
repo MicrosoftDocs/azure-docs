@@ -24,4 +24,4 @@ ms.topic: include
 
 1. The RDP connection to this virtual machine via Bastion will open directly in the Azure portal (over HTML5) using port 443 and the Bastion service. 
 
-   Using keyboard shortcut keys while connected to a VM may not result in the same behavior as shortcut keys on a local computer. For example, from a Windows client computer connected to a Windows VM, "CTRL+ALT+END" is the keyboard shortcut for "CTRL+ALT+Delete". From a Mac client computer connected to a Windows VM, the keyboard shortcut is "Fn+CTRL+ALT+Backspace".
+   Note that using keyboard shortcut keys while connected to a VM may not result in the same behavior as shortcut keys on a local computer. For example, from a Windows client computer connected to a Windows VM, "CTRL+ALT+END" is the keyboard shortcut for "CTRL+ALT+Delete". From a Mac client computer connected to a Windows VM, the keyboard shortcut is "Fn+CTRL+ALT+Backspace".

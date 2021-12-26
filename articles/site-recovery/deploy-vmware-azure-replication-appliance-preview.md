@@ -45,7 +45,7 @@ FIPS (Federal Information Processing Standards) | Do not enable FIPS mode|
 
 |**Component** | **Requirement**|
 |--- | ---|
-|IP address type | Static|
+|Fully qualified domain name (FQDN) | Static|
 |Ports | 443 (Control channel orchestration)<br>9443 (Data transport)|
 |NIC type | VMXNET3 (if the appliance is a VMware VM)|
 

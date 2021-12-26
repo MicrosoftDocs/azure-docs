@@ -7,9 +7,8 @@ ms.date: 12/01/2020
 ms.topic: quickstart
 ms.service: storage
 ms.subservice: queues
-ms.custom:
-  - devx-track-java
-  - mode-api
+ms.devlang: java
+ms.custom: devx-track-java, mode-api
 ---
 
 # Quickstart: Azure Queue Storage client library v12 for Java

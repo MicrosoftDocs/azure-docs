@@ -3,7 +3,7 @@ title: Plan the Azure VMware Solution deployment
 description: Learn how to plan your Azure VMware Solution deployment.  
 ms.topic: tutorial
 ms.custom: contperf-fy21q4
-ms.date: 07/07/2021
+ms.date: 09/27/2021
 ---
 
 # Plan the Azure VMware Solution deployment
@@ -29,7 +29,7 @@ After you're finished, follow the recommended next steps at the end to continue 
 Identify the subscription you plan to use to deploy Azure VMware Solution.  You can create a new subscription or use an existing one.
 
 >[!NOTE]
->The subscription must be associated with a Microsoft Enterprise Agreement (EA) or a Cloud Solution Provider (CSP) Azure plan. For more information, see [Eligibility criteria](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
+>The subscription must be associated with a Microsoft Enterprise Agreement (EA), a Cloud Solution Provider (CSP) Azure plan or an Microsoft Customer Agreement (MCA). For more information, see [Eligibility criteria](request-host-quota-azure-vmware-solution.md#eligibility-criteria).
 
 ## Identify the resource group
 

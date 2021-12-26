@@ -3,14 +3,14 @@ title: Set up a sign-up and sign-in flow
 titleSuffix: Azure AD B2C
 description: Learn how to set up a sign-up and sign-in flow in Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
-ms.date: 08/24/2021
-ms.author: mimart
+ms.date: 10/21/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ms.custom: "b2c-support"
 zone_pivot_groups: b2c-policy-type
@@ -66,7 +66,7 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
    * Under **Local accounts**, select one of the following: **Email signup**, **User ID signup**, **Phone signup**, **Phone/Email signup**, or **None**. [Learn more](sign-in-options.md).
    * Under **Social identity providers**, select any of the external social or enterprise identity providers you've set up. [Learn more](add-identity-provider.md).
-1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multi-factor authentication (MFA). [Learn more](multi-factor-authentication.md).
+1. Under **Multifactor authentication**, if you want to require users to verify their identity with a second authentication method, choose the method type and when  to enforce multifactor authentication (MFA). [Learn more](multi-factor-authentication.md).
 1. Under **Conditional access**, if you've configured Conditional Access policies for your Azure AD B2C tenant and you want to enable them for this user flow, select the **Enforce conditional access policies** check box. You don't need to specify a policy name. [Learn more](conditional-access-user-flow.md?pivots=b2c-user-flow).
 1. Under **User attributes and token claims**, choose the attributes you want to collect from the user during sign-up and the claims you want returned in the token. For the full list of values, select **Show more**, choose the values, and then select **OK**.
 
@@ -77,6 +77,10 @@ The sign-up and sign-in user flow handles both sign-up and sign-in experiences w
 
 1. Select **Create** to add the user flow. A prefix of *B2C_1* is automatically prepended to the name.
 1. Follow the steps to [handle the flow for "Forgot your password?"](add-password-reset-policy.md?pivots=b2c-user-flow.md#self-service-password-reset-recommended) within the sign-up or sign-in policy.
+
+
+### Re-order the sign up form
+Learn [how to re-order user flow input fields for local accounts](customize-ui.md#re-order-input-fields-in-the-sign-up-form)
 
 ### Test the user flow
 

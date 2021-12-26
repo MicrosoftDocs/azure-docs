@@ -3,7 +3,7 @@ title: Context switching in Azure Automation
 description: This article explains context switching and how to avoid runbook issues.
 services: automation
 ms.subservice: process-automation
-ms.date: 09/24/2021
+ms.date: 09/27/2021
 ms.topic: conceptual 
 #Customer intent: As a developer, I want to understand Azure context so that I can avoid error when running multiple runbooks.
 ---
@@ -31,7 +31,7 @@ To avoid your runbooks from running against resources in the wrong subscription,
 1. The Azure PowerShell cmdlets support the `-DefaultProfile` parameter. This parameter was added to all Az and Azure Resource Manager (AzureRM) cmdlets to support running multiple scripts in the same process, allowing you to specify for each cmdlet which context to use. Save your context object in your runbook when it's created and every time it's changed. Then reference it in every call made with the Az or AzureRM cmdlet. For example, `$AzureContext = Set-AzContext -SubscriptionId $subID`.
 1. Pass the context object to the PowerShell cmdlet, for example, `Get-AzVM -ResourceGroupName "myGroup" -DefaultProfile $AzureContext`.
 
-Here's a PowerShell runbook code snippet demonstrating context switching using a system-assigned managed identity.
+Here's a PowerShell runbook code snippet using a system-assigned managed identity following the recommendations to avoid context switching.
 
 ```powershell
 # Ensures you do not inherit an AzContext in your runbook

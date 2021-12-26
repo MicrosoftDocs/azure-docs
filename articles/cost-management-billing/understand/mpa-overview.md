@@ -6,7 +6,7 @@ ms.reviewer: amberb
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
@@ -79,4 +79,4 @@ See the following articles to learn about your billing account:
 
 - [Create an additional Azure subscription for Microsoft Partner Agreement](../manage/create-subscription.md)
 - Integrate billing data with your own reporting system using the [Azure Billing APIs](/rest/api/billing/)
-- [Azure Cost Management quickstart guide for partners](../costs/get-started-partners.md)
+- [Cost Management quickstart guide for partners](../costs/get-started-partners.md)

@@ -1,7 +1,7 @@
 ---
 title: Filter and manage alerts from the Alerts page 
 description: View alerts according to various categories, and uses search features to help you find alerts of interest.
-ms.date: 05/31/2021
+ms.date: 11/09/2021
 ms.topic: how-to
 ---
 

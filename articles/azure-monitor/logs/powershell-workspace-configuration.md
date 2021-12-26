@@ -4,7 +4,7 @@ description: Log Analytics workspaces in Azure Monitor store data from servers i
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 05/26/2020 
+ms.date: 10/20/2021
 ms.custom: devx-track-azurepowershell
 ---
 

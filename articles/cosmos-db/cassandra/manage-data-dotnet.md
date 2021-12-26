@@ -1,15 +1,14 @@
 ---
 title: 'Quickstart: Cassandra API with .NET - Azure Cosmos DB'
 description: This quickstart shows how to use the Azure Cosmos DB Cassandra API to create a profile application with the Azure portal and .NET
-
 ms.service: cosmos-db
 ms.subservice: cosmosdb-cassandra
 author: TheovanKraay
 ms.author: thvankra
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 10/01/2020
-ms.custom: devx-track-csharp
+ms.custom: devx-track-csharp, mode-api
 ---
 
 # Quickstart: Build a Cassandra app with .NET SDK and Azure Cosmos DB
@@ -88,30 +87,30 @@ This step is optional. If you're interested to learn how the code creates the da
 
 * Create a new table.
 
-   ```csharp
+  ```csharp
   session.Execute("CREATE TABLE IF NOT EXISTS uprofile.user (user_id int PRIMARY KEY, user_name text, user_bcity text)");
-   ```
+  ```
 
 * Insert user entities by using the IMapper object with a new session that connects to the uprofile keyspace.
 
-    ```csharp
-    mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
-    ```
+  ```csharp
+  mapper.Insert<User>(new User(1, "LyubovK", "Dubai"));
+  ```
     
 * Query to get all user's information.
 
-    ```csharp
-   foreach (User user in mapper.Fetch<User>("Select * from user"))
-   {
-      Console.WriteLine(user);
-   }
-    ```
-    
+  ```csharp
+  foreach (User user in mapper.Fetch<User>("Select * from user"))
+  {
+     Console.WriteLine(user);
+  }
+  ```
+
 * Query to get a single user's information.
 
-    ```csharp
-    mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
-    ```
+  ```csharp
+  mapper.FirstOrDefault<User>("Select * from user where user_id = ?", 3);
+  ```
 
 ## Update your connection string
 

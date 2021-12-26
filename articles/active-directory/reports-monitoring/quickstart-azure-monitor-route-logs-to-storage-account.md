@@ -4,7 +4,7 @@ description: Learn how to set up Azure Diagnostics to push Azure Active Director
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: 045f94b3-6f12-407a-8e9c-ed13ae7b43a3

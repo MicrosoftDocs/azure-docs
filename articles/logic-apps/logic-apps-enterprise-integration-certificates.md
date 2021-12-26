@@ -1,6 +1,6 @@
 ---
 title: Add certificates to secure B2B messages in workflows
-description: Add certificates to secure B2B messages for workflows in Azure Logic Apps using the Enterprise Integration Pack.
+description: Add certificates to your integration account for securing B2B messages in workflows with Azure Logic Apps and the Enterprise Integration Pack.
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
@@ -10,7 +10,7 @@ ms.topic: how-to
 ms.date: 09/23/2021
 ---
 
-# Secure messages using certificates for workflows in Azure Logic Apps
+# Add certificates to integration accounts for securing messages in workflows with Azure Logic Apps
 
 When you need to exchange confidential messages in a logic app business-to-business (B2B) workflow, you can increase the security around this communication by using certificates. A certificate is a digital document that helps secure communication in the following ways:
 

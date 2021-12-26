@@ -18,7 +18,7 @@ ms.custom: devx-track-azurepowershell
 When you create a scale set, you specify an image to be used when the VM instances are deployed. To reduce the number of tasks after VM instances are deployed, you can use a custom VM image. This custom VM image includes any required application installs or configurations. Any VM instances created in the scale set use the custom VM image and are ready to serve your application traffic. In this tutorial you learn how to:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create an image definition
 > * Create an image version
 > * Create a scale-set from an image 
@@ -71,7 +71,7 @@ $gallery = New-AzGallery `
    -GalleryName 'myGallery' `
    -ResourceGroupName $resourceGroup.ResourceGroupName `
    -Location $resourceGroup.Location `
-   -Description 'Shared Image Gallery for my organization'	
+   -Description 'Azure Compute Gallery for my organization'	
 ```
 
 
@@ -259,7 +259,7 @@ Azure also offers a service, built on Packer, [Azure VM Image Builder](../virtua
 In this tutorial, you learned how to create and use a custom VM image for your scale sets with Azure PowerShell:
 
 > [!div class="checklist"]
-> * Create a Shared Image Gallery
+> * Create an Azure Compute Gallery
 > * Create an image definition
 > * Create an image version
 > * Create a scale-set from an image 

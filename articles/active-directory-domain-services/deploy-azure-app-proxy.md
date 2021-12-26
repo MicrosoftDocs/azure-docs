@@ -82,7 +82,7 @@ With a VM ready to be used as the Azure AD Application Proxy connector, now copy
 
 ## Enable resource-based Kerberos constrained delegation
 
-If you want to use single sign-on to your applications using Integrated Windows Authentication (IWA), grant the Azure AD Application Proxy connectors permission to impersonate users and send and receive tokens on their behalf. To grant these permissions, you configure Kerberos constrained delegation (KCD) for the connector to access resources on the managed domain. As you don't have domain administrator privileges in a managed domain, traditional account-level KCD cannot be configured on a managed domain. Instead, use resource-based KCD.
+If you want to use single sign-on to your applications using integrated Windows authentication (IWA), grant the Azure AD Application Proxy connectors permission to impersonate users and send and receive tokens on their behalf. To grant these permissions, you configure Kerberos constrained delegation (KCD) for the connector to access resources on the managed domain. As you don't have domain administrator privileges in a managed domain, traditional account-level KCD cannot be configured on a managed domain. Instead, use resource-based KCD.
 
 For more information, see [Configure Kerberos constrained delegation (KCD) in Azure Active Directory Domain Services](deploy-kcd.md).
 

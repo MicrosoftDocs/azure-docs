@@ -46,13 +46,13 @@ The log files you use for investigation and monitoring are:
 
 From the Azure portal you can view the Azure AD Audit logs and download as comma separated value (CSV) or JavaScript Object Notation (JSON) files. The Azure portal has several ways to integrate Azure AD logs with other tools that allow for greater automation of monitoring and alerting:
 
-* [Azure Sentinel](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
+* [Microsoft Sentinel](../../sentinel/overview.md) – enables intelligent security analytics at the enterprise level by providing security information and event management (SIEM) capabilities. 
 
 * [Azure Monitor](../../azure-monitor/overview.md) – enables automated monitoring and alerting of various conditions. Can create or use workbooks to combine data from different sources.
 
 * [Azure Event Hubs](../../event-hubs/event-hubs-about.md) integrated with a SIEM- [Azure AD logs can be integrated to other SIEMs](../reports-monitoring/tutorial-azure-monitor-stream-logs-to-event-hub.md) such as Splunk, ArcSight, QRadar and Sumo Logic via the Azure Event Hub integration.
 
-* [Microsoft Cloud App Security](/cloud-app-security/what-is-cloud-app-security) (MCAS) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
+* [Microsoft Defender for Cloud Apps](/cloud-app-security/what-is-cloud-app-security) – enables you to discover and manage apps, govern across apps and resources, and check your cloud apps’ compliance. 
 
 The remainder of this article describes what you should monitor and alert on and is organized by the type of threat. Where there are specific pre-built solutions, you will find links to them following the table. Otherwise, you can build alerts using the preceding tools.
 
@@ -132,7 +132,7 @@ To configuring monitoring for Application Proxy, see [Troubleshoot Application P
 
 For multifactor authentication (MFA) to be effective, you also need to block legacy authentication. You then need to monitor your environment and alert on any use of legacy authentication. This is because legacy authentication protocols like POP, SMTP, IMAP, and MAPI can’t enforce MFA. This makes these protocols preferred entry points for attackers of your organization. For more information on tools that you can use to block legacy authentication, see [New tools to block legacy authentication in your organization](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/new-tools-to-block-legacy-authentication-in-your-organization/ba-p/1225302). 
 
-Legacy authentication is captured in the Azure AD Sign-ins log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Azure Sentinel. For more information, see [Azure Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
+Legacy authentication is captured in the Azure AD Sign-ins log as part of the detail of the event. You can use the Azure Monitor workbook to help with identifying legacy authentication usage. For more information, see [Sign-ins using legacy authentication](../reports-monitoring/howto-use-azure-monitor-workbooks.md), which is part of [How to use Azure Monitor Workbooks for Azure Active Directory reports](../reports-monitoring/howto-use-azure-monitor-workbooks.md). You can also use the Insecure protocols workbook for Microsoft Sentinel. For more information, see [Microsoft Sentinel Insecure Protocols Workbook Implementation Guide](https://techcommunity.microsoft.com/t5/azure-sentinel/azure-sentinel-insecure-protocols-workbook-implementation-guide/ba-p/1197564). Specific activities to monitor include:
 
 | What to monitor| Risk level| Where| Filter/sub-filter| Notes |
 | - | - | - | - | - |
@@ -180,7 +180,7 @@ For information on what and how to monitor configuration information refer to:
 
 * For SQL server, see [SQL Server Audit Records](/sql/relational-databases/security/auditing/sql-server-audit-records).
 
-* For Azure Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records). 
+* For Microsoft Sentinel, see [Connect to Windows servers to collect security events](/sql/relational-databases/security/auditing/sql-server-audit-records). 
 
 * For information on configuring and using Azure AD Connect, see [What is Azure AD Connect?](../hybrid/whatis-azure-ad-connect.md)
 

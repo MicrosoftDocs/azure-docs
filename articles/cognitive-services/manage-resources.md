@@ -61,7 +61,7 @@ In the request body, use the following JSON format:
 Use the following command to restore the resource: 
 
 ```powershell
-New-AzResource -Location {location}-Properties @{restore=$true} -ResourceId /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{resourceName}   -ApiVersion 2021-04-30 
+New-AzResource -Location {location} -Properties @{restore=$true} -ResourceId /subscriptions/{subscriptionID}/resourceGroups/{resourceGroup}/providers/Microsoft.CognitiveServices/accounts/{resourceName}   -ApiVersion 2021-04-30 
 ```
 
 If you need to find the name of your deleted resources, you can get a list of deleted resource names with the following command: 

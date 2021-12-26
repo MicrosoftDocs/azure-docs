@@ -67,6 +67,8 @@ In this step, you will install the Azure AD PowerShell module. This module is re
    ```powershell
    Install-Module AzureAD
    Import-Module AzureAD 
+   # On PowerShell 7.x, use the -UseWindowsPowerShell parameter
+   # Import-Module AzureAD -UseWindowsPowerShell
    ```
 
 ## Sign into your Azure AD

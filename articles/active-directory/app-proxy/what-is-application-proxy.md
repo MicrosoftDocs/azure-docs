@@ -3,14 +3,14 @@ title: Publish on-premises apps with Azure Active Directory Application Proxy
 description: Understand why to use Application Proxy to publish on-premises web applications externally to remote users. Learn about Application Proxy architecture, connectors, authentication methods, and security benefits.
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-proxy
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/27/2021
 ms.author: kenwith
-ms.reviewer: japere
+ms.reviewer: ashishj
 ms.custom: has-adal-ref
 ---
 
@@ -87,7 +87,7 @@ There are several ways to configure an application for single sign-on and the me
 
 App Proxy works with apps that use the following native authentication protocol:
 
-* **[Integrated Windows Authentication (IWA)](./application-proxy-configure-single-sign-on-with-kcd.md).** For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the Kerberos application.
+* [**Integrated Windows authentication (IWA)**](./application-proxy-configure-single-sign-on-with-kcd.md). For IWA, the Application Proxy connectors use Kerberos Constrained Delegation (KCD) to authenticate users to the Kerberos application.
 
 App Proxy also supports the following authentication protocols with third-party integration or in specific configuration scenarios:
 
@@ -102,7 +102,7 @@ For more information on supported methods, see [Choosing a single sign-on method
 The remote access solution offered by Application Proxy and Azure AD support several security benefits customers may take advantage of, including:
 
 * **Authenticated access**. Application Proxy is best suited to publish applications with [pre-authentication](./application-proxy-security.md#authenticated-access) to ensure that only authenticated connections hit your network. For applications published with pre-authentication, no traffic is allowed to pass through the App Proxy service to your on-premises environment, without a valid token. Pre-authentication, by its very nature, blocks a significant number of targeted attacks, as only authenticated identities can access the backend application.
-* **Conditional Access**. Richer policy controls can be applied before connections to your network are established. With Conditional Access, you can define restrictions on the traffic that you allow to hit your backend application. You create policies that restrict sign-ins based on location, strength of authentication, and user risk profile. As Conditional Access evolves, more controls are being added to provide additional security such as integration with Microsoft Cloud App Security (MCAS). MCAS integration enables you to configure an on-premises application for [real-time monitoring](./application-proxy-integrate-with-microsoft-cloud-application-security.md) by leveraging Conditional Access to monitor and control sessions in real-time based on Conditional Access policies.
+* **Conditional Access**. Richer policy controls can be applied before connections to your network are established. With Conditional Access, you can define restrictions on the traffic that you allow to hit your backend application. You create policies that restrict sign-ins based on location, strength of authentication, and user risk profile. As Conditional Access evolves, more controls are being added to provide additional security such as integration with Microsoft Defender for Cloud Apps. Defender for Cloud Apps integration enables you to configure an on-premises application for [real-time monitoring](./application-proxy-integrate-with-microsoft-cloud-application-security.md) by leveraging Conditional Access to monitor and control sessions in real-time based on Conditional Access policies.
 * **Traffic termination**. All traffic to the backend application is terminated at the Application Proxy service in the cloud while the session is re-established with the backend server. This connection strategy means that your backend servers are not exposed to direct HTTP traffic. They are better protected against targeted DoS (denial-of-service) attacks because your firewall isn't under attack.
 * **All access is outbound**. The Application Proxy connectors only use outbound connections to the Application Proxy service in the cloud over ports 80 and 443. With no inbound connections, there's no need to open firewall ports for incoming connections or components in the DMZ. All connections are outbound and over a secure channel.
 * **Security Analytics and Machine Learning (ML) based intelligence**. Because it's part of Azure Active Directory, Application Proxy can leverage [Azure AD Identity Protection](../identity-protection/overview-identity-protection.md) (requires [Premium P2 licensing](https://www.microsoft.com/security/business/identity-access-management/azure-ad-pricing)). Azure AD Identity Protection combines machine-learning security intelligence with data feeds from Microsoft's [Digital Crimes Unit](https://news.microsoft.com/stories/cybercrime/index.html) and [Microsoft Security Response Center](https://www.microsoft.com/msrc) to proactively identify compromised accounts. Identity Protection offers real-time protection from high-risk sign-ins. It takes into consideration factors like accesses from infected devices, through anonymizing networks, or from atypical and unlikely locations to increase the risk profile of a session. This risk profile is used for real-time protection. Many of these reports and events are already available through an API for integration with your SIEM systems.
@@ -181,7 +181,7 @@ Up to this point, we've focused on using Application Proxy to publish on-premise
 * **Securely publish REST APIs**. When you have business logic or APIs running on-premises or hosted on virtual machines in the cloud, Application Proxy provides a public endpoint for API access. API endpoint access lets you control authentication and authorization without requiring incoming ports. It provides additional security through Azure AD Premium features such as multi-factor authentication and device-based Conditional Access for desktops, iOS, MAC, and Android devices using Intune. To learn more, see [How to enable native client applications to interact with proxy applications](./application-proxy-configure-native-client-application.md) and [Protect an API by using OAuth 2.0 with Azure Active Directory and API Management](../../api-management/api-management-howto-protect-backend-with-aad.md).
 * **Remote Desktop Services** **(RDS)**. Standard RDS deployments require open inbound connections. However, the [RDS deployment with Application Proxy](./application-proxy-integrate-with-remote-desktop-services.md) has a permanent outbound connection from the server running the connector service. This way, you can offer more applications to end users by publishing on-premises applications through Remote Desktop Services. You can also reduce the attack surface of the deployment with a limited set of two-step verification and Conditional Access controls to RDS.
 * **Publish applications that connect using WebSockets**. Support with [Qlik Sense](./application-proxy-qlik.md) is in Public Preview and will be expanded to other apps in the future.
-* **Enable native client applications to interact with proxy applications**. You can use Azure AD Application Proxy to publish web apps, but it also can be used to publish [native client applications](./application-proxy-configure-native-client-application.md) that are configured with the Azure AD Authentication Library (ADAL). Native client applications differ from web apps because they're installed on a device, while web apps are accessed through a browser.
+* **Enable native client applications to interact with proxy applications**. You can use Azure AD Application Proxy to publish web apps, but it also can be used to publish [native client applications](./application-proxy-configure-native-client-application.md) that are configured with Microsoft Authentication Library (MSAL). Native client applications differ from web apps because they're installed on a device, while web apps are accessed through a browser.
 
 ## Conclusion
 

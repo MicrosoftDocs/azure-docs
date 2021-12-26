@@ -1,13 +1,10 @@
 ---
-title: SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure | Microsoft Docs
+title: SAP ASCS/SCS instance multi-SID high availability with Windows Server Failover Clustering and file share on Azure 
 description:  Multi-SID high availability for SAP ASCS/SCS instances with Windows Server Failover Clustering and file share on Azure
-services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
 author: rdeltcheva
 manager: juergent
-editor: ''
 tags: azure-resource-manager
-keywords: ''
 ms.assetid: cbf18abe-41cb-44f7-bdec-966f32c89325
 ms.service: virtual-machines-sap
 ms.topic: article
@@ -16,7 +13,6 @@ ms.workload: infrastructure-services
 ms.date: 03/15/2021
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-
 ---
 
 
@@ -227,9 +223,9 @@ To create a SAPMNT file share on Volume2 with the *\<SAPGlobalHost2>* host name 
 
 Right-click the **saoglobal2** SOFS cluster group, and then select **Add File Share**.
 
-![Figure 6: Start the “Add File Share” wizard][sap-ha-guide-figure-8017]
+![Figure 6: Start the "Add File Share" wizard][sap-ha-guide-figure-8017]
 
-_**Figure 6:** Start “Add File Share” wizard_
+_**Figure 6:** Start "Add File Share" wizard_
 
 <br>
 
@@ -309,9 +305,9 @@ Install DBMS and SAP application Servers as described earlier.
 [2492395]:https://launchpad.support.sap.com/#/notes/2492395
 
 [sap-official-ha-file-share-document]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html
-[s2d-in-win-2016]:https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview
+[s2d-in-win-2016]:/windows-server/storage/storage-spaces/storage-spaces-direct-overview
 [sofs-overview]:https://technet.microsoft.com/library/hh831349(v=ws.11).aspx
-[new-in-win-2016-storage]:https://docs.microsoft.com/windows-server/storage/whats-new-in-storage
+[new-in-win-2016-storage]:/windows-server/storage/whats-new-in-storage
 
 [sap-installation-guides]:http://service.sap.com/instguides
 [sap-installation-guides-file-share]:https://www.sap.com/documents/2017/07/f453332f-c97c-0010-82c7-eda71af511fa.html

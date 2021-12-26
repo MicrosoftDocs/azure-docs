@@ -5,7 +5,7 @@ author: vikram1988
 ms.author: vibansa
 ms.manager: abhemraj
 ms.topic: how-to
-ms.date: 07/27/2021
+ms.date: 11/12/2021
 ---
 
 # Set up an appliance for servers in a VMware environment
@@ -59,11 +59,7 @@ Before you deploy the OVA file, verify that the file is secure:
    
     Example: `C:\>CertUtil -HashFile C:\Users\Administrator\Desktop\MicrosoftAzureMigration.ova SHA256`
 
-1. Verify the latest appliance versions and hash values for the Azure public cloud:
-    
-    **Algorithm** | **Download** | **SHA256**
-    --- | --- | ---
-    VMware (11.9 GB) | [Latest version](https://go.microsoft.com/fwlink/?linkid=2140333) | e9c9a1fe4f3ebae81008328e8f3a7933d78ff835ecd871d1b17f367621ce3c74
+1. Verify the latest hash value by comparing the outcome of above command to the value documented [here](./tutorial-discover-vmware.md#verify-security).
 
 #### Create the appliance server
 
