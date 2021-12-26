@@ -17,6 +17,8 @@ ms.custom: mvc, devx-track-azurepowershell
 
 # Tutorial: Create and manage Azure virtual networks for Windows virtual machines with Azure PowerShell
 
+**Applies to:** :heavy_check_mark: Windows VMs
+
 Azure virtual machines use Azure networking for internal and external network communication. This tutorial walks through deploying two virtual machines and configuring Azure networking for these VMs. The examples in this tutorial assume that the VMs are hosting a web application with a database back-end, however an application isn't deployed in the tutorial. In this tutorial, you learn how to:
 
 > [!div class="checklist"]

@@ -8,7 +8,7 @@ ms.topic: tutorial
 ms.custom: [iot-storeAnalytics-checkout, iot-p0-scenario]
 ms.author: timlt
 author: timlt
-ms.date: 11/12/2019
+ms.date: 08/24/2021
 ---
 
 # Tutorial: Customize the dashboard and manage devices in Azure IoT Central
@@ -18,7 +18,6 @@ In this tutorial, you learn how to customize the dashboard in your Azure IoT Cen
 In this tutorial, you learn how to:
 > [!div class="checklist"]
 
-> * Change the dashboard name
 > * Customize image tiles on the dashboard
 > * Arrange tiles to modify the layout
 > * Add telemetry tiles to display conditions
@@ -39,17 +38,12 @@ To customize the dashboard, you have to edit the default dashboard in your appli
 
 1. Open the condition monitoring application that you created in the [Create an in-store analytics application in Azure IoT Central](./tutorial-in-store-analytics-create-app.md) tutorial.
 
-1. Select **Edit** on the dashboard toolbar. In edit mode, you can customize the appearance, layout, and content of the dashboard.
+1. Select **Dashboard settings**  and enter **Name** for your dashboard and select **Save**. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-edit.png" alt-text="Azure IoT Central edit dashboard.":::
 
-1. Optionally, hide the left pane. Hiding the left pane gives you a larger working area for editing the dashboard.
+    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/new-dashboard.png" alt-text="Azure IoT Central new dashboard.":::
 
-1. Enter a friendly name for your dashboard in **Dashboard name.** This tutorial uses a fictional company named Contoso, and the example dashboard name is *Contoso dashboard*. 
-
-1. Select **Save**. Your changes are saved to the dashboard and edit mode is disabled.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/dashboard-change-name.png" alt-text="Azure IoT Central change dashboard name.":::
 
 ## Customize image tiles on the dashboard
 
@@ -71,7 +65,7 @@ To customize the image tile that displays a brand image on the dashboard:
 
 1. Optionally, specify a URL for the image.
 
-1. Select **Update configuration**. The **Update configuration** button saves changes to the dashboard and leaves edit mode enabled.
+1. Select **Update**
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/brand-image-save.png" alt-text="Azure IoT Central save brand image.":::
 
@@ -83,15 +77,11 @@ To customize the image tile that displays a map of the sensor zones in the store
 
 1. Select **Image**, and use the dialog to upload a custom image of a store zone map. 
 
-1. Select **Update configuration**.
+1. Select **Update**.
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/store-map-save.png" alt-text="Azure IoT Central save store map.":::
 
     The example Contoso store map shows four zones: two checkout zones, a zone for apparel and personal care, and a zone for groceries and deli. In this tutorial, you'll associate sensors with these zones to provide telemetry.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/store-zones.png" alt-text="Azure IoT Central store zones.":::
-
-1. Select **Save**.
 
 ## Arrange tiles to modify the layout
 
@@ -103,21 +93,12 @@ To remove tiles that you don't plan to use in your application:
 
 1. Select **Edit** on the dashboard toolbar. 
 
-1. Select **X Delete** to remove the following tiles: **Back to all zones**, **Visit store dashboard**, **Wait time**, and all three tiles associated with **Checkout 3**. The Contoso store dashboard doesn't use these tiles. 
+1. Select **ellipsis** and **Delete** to remove the following tiles: **Back to all zones**, **Visit store dashboard**, **Occupancy**, **Warm-up checkout zone**, **Cool-down checkout zone**, **Occupancy sensor settings**, **Thermostat sensor settings**, and **Environment conditions** and all three tiles associated with **Checkout 3**. The Contoso store dashboard doesn't use these tiles. 
 
     :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/delete-tiles.png" alt-text="Azure IoT Central delete tiles.":::
 
-1. Scroll to bring the remaining dashboard tiles into view.
-
-1. Select **X Delete** to remove the following tiles: **Warm-up checkout zone**, **Cool-down checkout zone**, **Occupancy sensor settings**, **Thermostat sensor settings**, and **Environment conditions**. 
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/delete-tiles-2.png" alt-text="Azure IoT Central delete remaining tiles.":::
 
 1. Select **Save**. Removing unused tiles frees up space in the edit page, and simplifies the dashboard view for operators.
-
-1. View your changes to the dashboard.
-
-    :::image type="content" source="media/tutorial-in-store-analytics-customize-dashboard/after-delete-tiles.png" alt-text="Azure IoT Central after deleting tiles.":::
 
 After you remove unused tiles, rearrange the remaining tiles to create an organized layout. The new layout includes space for tiles you add in a later step.
 

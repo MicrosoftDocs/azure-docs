@@ -1,13 +1,13 @@
 ---
 title: Tutorial - Use OpenSSL to create X.509 test certificates for Azure IoT Hub| Microsoft Docs
 description: Tutorial - Use OpenSSL to create CA and device certificates for Azure IoT hub
-author: v-gpettibone
+author: eross-msft
 
 ms.service: iot-hub
 services: iot-hub
 ms.topic: tutorial
 ms.date: 02/26/2021
-ms.author: robinsh
+ms.author: lizross
 ms.custom: [mvc, 'Role: Cloud Development', 'Role: Data Analytics']
 #Customer intent: As a developer, I want to be able to use X.509 certificates to authenticate devices to an IoT hub. This step of the tutorial needs to introduce me to OpenSSL that I can use to generate test certificates. 
 ---
@@ -232,20 +232,27 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
 
 1. In the Azure portal, navigate to your IoTHub and select **Settings > Certificates**.
 
-1. Select **Add** to add your new subordinate CA certificate.
+2. Select **Add** to add your new subordinate CA certificate.
 
-1. Enter a display name in the **Certificate Name** field, and select the PEM  certificate file you created previously.
+3. Enter a display name in the **Certificate Name** field, and select the PEM  certificate file you created previously.
 
-1. Select **Save**. Your certificate is shown in the certificate list with a status of **Unverified**. The verification process will prove that you own the certificate.
+> [!NOTE]
+> The .crt certificates created above are the same as .pem certificates. You can simply change the extension when uploading a certificate to prove possession, or you can use the following OpenSSL command:
+
+```bash
+openssl x509 -in mycert.crt -out mycert.pem -outform PEM
+```
+
+4. Select **Save**. Your certificate is shown in the certificate list with a status of **Unverified**. The verification process will prove that you own the certificate.
 
    
-1. Select the certificate to view the **Certificate Details** dialog.
+5. Select the certificate to view the **Certificate Details** dialog.
 
-1. Select **Generate Verification Code**. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
+6. Select **Generate Verification Code**. For more information, see [Prove Possession of a CA certificate](tutorial-x509-prove-possession.md).
 
-1. Copy the verification code to the clipboard. You must set the verification code as the certificate subject. For example, if the verification code is BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, add that as the subject of your certificate as shown in step 9.
+7. Copy the verification code to the clipboard. You must set the verification code as the certificate subject. For example, if the verification code is BB0C656E69AF75E3FB3C8D922C1760C58C1DA5B05AAA9D0A, add that as the subject of your certificate as shown in step 9.
 
-1. Generate a private key.
+8. Generate a private key.
 
   ```bash
     $ openssl genpkey -out pop.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
@@ -272,10 +279,10 @@ You now have both a root CA certificate and a subordinate CA certificate. You ca
  
   ```
 
-10. Create a certificate using the root CA configuration file and the CSR for the proof of possession certificate.
+10. Create a certificate using the subordinate CA configuration file and the CSR for the proof of possession certificate.
 
   ```bash
-    openssl ca -config rootca.conf -in pop.csr -out pop.crt -extensions client_ext
+    openssl ca -config subca.conf -in pop.csr -out pop.crt -extensions client_ext
 
   ```
 
@@ -301,7 +308,7 @@ To generate a client certificate, you must first generate a private key. The fol
 openssl genpkey -out device.key -algorithm RSA -pkeyopt rsa_keygen_bits:2048
 ```
 
-Create a certificate signing request (CSR) for the key. You do not need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field.
+Create a certificate signing request (CSR) for the key. You do not need to enter a challenge password or an optional company name. You must, however, enter the device ID in the common name field. You can also enter your own values for the other parameters such as **Country**, **Organization Name**, and so on.
 
 ```bash
 openssl req -new -key device.key -out device.csr
@@ -336,4 +343,8 @@ openssl ca -config subca.conf -in device.csr -out device.crt -extensions client_
 
 ## Next Steps
 
-Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub.
+Go to [Testing Certificate Authentication](tutorial-x509-test-certificate.md) to determine if your certificate can authenticate your device to your IoT Hub. The code on that page requires that you use a PFX certificate. Use the following OpenSSL command to convert your device .crt certificate to .pfx format.
+
+```bash
+openssl pkcs12 -export -in device.crt -inkey device.key -out device.pfx
+```

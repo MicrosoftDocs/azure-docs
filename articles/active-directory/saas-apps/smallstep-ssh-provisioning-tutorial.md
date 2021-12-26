@@ -13,7 +13,7 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 06/21/2021
 ms.author: thwimmer
 ---
@@ -50,7 +50,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 2. Navigate to the **Users** tab and select **Azure AD** as your Identity Provider.
 
-3. On the next page, provide your **Azure AD tenant ID** and **domain whitelist** to configure OIDC.
+3. On the next page, provide your **Azure AD tenant ID** and allow list to configure OIDC.
 
 4. Under SCIM Details, copy and save your SCIM **Tenant URL** and **Secret Token**. These values will be entered in the **Tenant URL** and **Secret Token** field in the Provisioning tab of your Smallstep SSH application in the Azure portal.
 

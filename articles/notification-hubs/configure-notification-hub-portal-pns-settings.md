@@ -4,15 +4,14 @@ description: Learn how to set up Azure Notification Hubs in the Azure portal by 
 services: notification-hubs
 author: sethmanheim
 manager: femila
-
 ms.service: notification-hubs
 ms.workload: mobile
 ms.topic: quickstart
-ms.date: 06/22/2020
+ms.date: 08/23/2021
 ms.author: sethm
 ms.reviewer: thsomasu
-ms.lastreviewed: 02/14/2019 
-ms.custom: devx-track-azurecli
+ms.lastreviewed: 02/14/2019
+ms.custom: devx-track-azurecli, mode-ui
 ---
 
 # Quickstart: Set up push notifications in a notification hub
@@ -119,6 +118,9 @@ To set up Windows Push Notification Service (WNS):
 For information, see [Send notifications to UWP apps by using Azure Notification Hubs](notification-hubs-windows-store-dotnet-get-started-wns-push-notification.md).
 
 ## Microsoft Push Notification Service for Windows Phone
+
+> [!NOTE]
+> Microsoft Push Notification Service (MPNS) has been deprecated and is no longer supported.
 
 To set up Microsoft Push Notification Service (MPNS) for Windows Phone:
 

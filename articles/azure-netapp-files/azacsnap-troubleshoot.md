@@ -58,6 +58,66 @@ When validating communication with Azure NetApp Files, communication might fail 
 - (https://)management.azure.com:443
 - (https://)login.microsoftonline.com:443 
 
+### Testing communication using Cloud Shell
+
+You can test the Service Principal is configured correctly by using Cloud Shell through your Azure Portal. This will test that the configuration is correct bypassing network controls within a VNet or virtual machine. 
+
+**Solution:**
+
+1. Open a [Cloud Shell](../cloud-shell/overview.md) session in your Azure Portal. 
+1. Make a test directory (e.g. `mkdir azacsnap`)
+1. cd to the azacsnap directory and download the latest version of azacsnap tool.
+    
+    ```bash
+    wget https://aka.ms/azacsnapinstaller
+    ```
+   
+    ```output
+    ----<snip>----
+    HTTP request sent, awaiting response... 200 OK
+    Length: 24402411 (23M) [application/octet-stream]
+    Saving to: ‘azacsnapinstaller’
+
+    azacsnapinstaller 100%[=================================================================================>] 23.27M 5.94MB/s in 5.3s
+
+    2021-09-02 23:46:18 (4.40 MB/s) - ‘azacsnapinstaller’ saved [24402411/24402411]
+    ```
+    
+1. Make the installer executable. (e.g. `chmod +x azacsnapinstaller`)
+1. Extract the binary for testing.
+
+    ```bash
+    ./azacsnapinstaller -X -d .
+    ```
+    
+    ```output
+    +-----------------------------------------------------------+
+    | Azure Application Consistent Snapshot Tool Installer |
+    +-----------------------------------------------------------+
+    |-> Installer version '5.0.2_Build_20210827.19086'
+    |-> Extracting commands into ..
+    |-> Cleaning up .NET extract dir
+    ```
+
+1. Using the Cloud Shell Upload/Download icon, upload the Service Principal file (e.g. `azureauth.json`) and the AzAcSnap configuration file for testing (e.g. `azacsnap.json`)
+1. Run the Storage test from the Azure Cloud Shell console. 
+
+    > [!NOTE]
+    > The test command can take about 90 seconds to complete.
+
+    ```bash
+    ./azacsnap -c test --test storage
+    ```
+
+    ```output
+    BEGIN : Test process started for 'storage'
+    BEGIN : Storage test snapshots on 'data' volumes
+    BEGIN : 1 task(s) to Test Snapshots for Storage Volume Type 'data'
+    PASSED: Task#1/1 Storage test successful for Volume
+    END : Storage tests complete
+    END : Test process complete for 'storage'
+    ```
+
 ## Problems with SAP HANA
 
 ### Running the test command fails
@@ -124,7 +184,7 @@ Cannot get SAP HANA version, exiting with error: 127
 
 ### Insufficient privilege
 
-If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check to ensure the appropriate privilege has been asssigned to the "AZACSNAP" database user (assuming this is the user created per the [installation guide](azacsnap-installation.md#enable-communication-with-sap-hana)).  Verify the user's current privilege with the following command:
+If running `azacsnap` presents an error such as `* 258: insufficient privilege`, check to ensure the appropriate privilege has been asssigned to the "AZACSNAP" database user (assuming this is the user created per the [installation guide](azacsnap-installation.md#enable-communication-with-database)).  Verify the user's current privilege with the following command:
 
 ```bash
 hdbsql -U AZACSNAP "select GRANTEE,GRANTEE_TYPE,PRIVILEGE,IS_VALID,IS_GRANTABLE from sys.granted_privileges "' | grep -i -e GRANTEE -e azacsnap

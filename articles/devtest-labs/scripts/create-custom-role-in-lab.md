@@ -1,5 +1,5 @@
 ---
-title: PowerShell - Create a custom role in a lab in Azure DevTest Labs
+title: PowerShell - Create a custom role in a lab
 description: This article provides an Azure PowerShell script that creats a custom role in a lab in Azure DevTest Labs.  
 ms.devlang: azurecli
 ms.topic: sample

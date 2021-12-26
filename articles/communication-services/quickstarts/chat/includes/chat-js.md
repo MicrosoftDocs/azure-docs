@@ -2,14 +2,14 @@
 title: include file
 description: include file
 services: azure-communication-services
-author: mikben
+author: probableprime
 manager: mikben
 ms.service: azure-communication-services
 ms.subservice: azure-communication-services
 ms.date: 06/30/2021
 ms.topic: include
 ms.custom: include file
-ms.author: mikben
+ms.author: rifox
 ---
 
 ## Sample Code
@@ -140,6 +140,7 @@ In the developer tools console within your browser you should see following:
 ```console
 Azure Communication Chat client created!
 ```
+
 
 ## Object model
 The following classes and interfaces handle some of the major features of the Azure Communication Services Chat SDK for JavaScript.

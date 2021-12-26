@@ -3,7 +3,7 @@ title: LDAP authentication with Azure Active Directory
 description: Architectural guidance on achieving LDAP authentication with Azure Active Directory.
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 
 ms.service: active-directory
 ms.workload: identity

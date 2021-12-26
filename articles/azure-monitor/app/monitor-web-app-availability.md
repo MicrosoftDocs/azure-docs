@@ -9,7 +9,7 @@ ms.reviewer: sdash
 
 # Monitor availability with URL ping tests
 
-The name *URL ping test* is a bit of a misnomer. These tests don't use Internet Control Message Protocol (IMCP) to check your site's availability. Instead, they use more advanced HTTP request functionality to validate whether an endpoint is responding. They measure the performance associated with that response. They also add the ability to set custom success criteria, coupled with more advanced features like parsing dependent requests and allowing for retries.
+The name *URL ping test* is a bit of a misnomer. These tests don't use Internet Control Message Protocol (ICMP) to check your site's availability. Instead, they use more advanced HTTP request functionality to validate whether an endpoint is responding. They measure the performance associated with that response. They also add the ability to set custom success criteria, coupled with more advanced features like parsing dependent requests and allowing for retries.
 
 To create an availability test, you need use an existing Application Insights resource or [create an Application Insights resource](create-new-resource.md).
 

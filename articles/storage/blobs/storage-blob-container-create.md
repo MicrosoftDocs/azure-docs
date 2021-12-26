@@ -9,6 +9,7 @@ ms.topic: how-to
 ms.date: 02/04/2020
 ms.author: tamram
 ms.subservice: blobs
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -92,6 +93,7 @@ private static async Task<CloudBlobContainer> CreateSampleContainerAsync(CloudBl
     return container;
 }
 ```
+
 ---
 
 ## Create the root container
@@ -135,6 +137,7 @@ private static void CreateRootContainer(CloudBlobClient blobClient)
     }
 }
 ```
+
 ---
 
 ## Delete a container
@@ -190,6 +193,7 @@ private static async Task DeleteSampleContainerAsync(CloudBlobClient blobClient,
     }
 }
 ```
+
 ---
 
 The following example shows how to delete all of the containers that start with a specified prefix.
@@ -222,6 +226,7 @@ private static async Task DeleteContainersWithPrefixAsync(CloudBlobClient blobCl
     }
 }
 ```
+
 ---
 
 [!INCLUDE [storage-blob-dotnet-resources-include](../../../includes/storage-blob-dotnet-resources-include.md)]

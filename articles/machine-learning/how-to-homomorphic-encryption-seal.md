@@ -4,10 +4,10 @@ titleSuffix: Azure Machine Learning
 description: Learn how to use Microsoft SEAL to deploy an encrypted prediction service for image classification
 author: luisquintanilla
 ms.author: luquinta 
-ms.date: 07/09/2020
+ms.date: 10/21/2021
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.topic: how-to
 ms.custom: devx-track-python, deploy, responsible-ml
 #Customer intent: As a data scientist, I want to deploy a service that uses homomorphic encryption to make predictions on encrypted data.

@@ -61,14 +61,15 @@ For example, you may want to add situation-specific information on your consent 
 > [!div class="mx-imgBorder"]
 > ![app consent page](./media/enrollment-app/1-consent-1.jpg)
 
-The service provides image quality checks to help you make the choice of whether the image is of sufficient quality to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, select the highest-quality frames, and add the detected face into the Face API service. 
-
 Many face recognition issues are caused by low-quality reference images. Some factors that can degrade model performance are:
 * Face size (faces that are distant from the camera)
 * Face orientation (faces turned or tilted away from camera)
 * Poor lighting conditions (either low light or backlighting) where the image may be poorly exposed or have too much noise
 * Occlusion (partially hidden or obstructed faces) including accessories like hats or thick-rimmed glasses)
 * Blur (such as by rapid face movement when the photograph was taken). 
+
+The service provides image quality checks to help you make the choice of whether the image is of sufficient quality based on the above factors to add the customer or attempt face recognition. This app demonstrates how to access frames from the device's camera, detect quality and show user interface messages to the user to help them capture a higher quality image, select the highest-quality frames, and add the detected face into the Face API service. 
+
 
 > [!div class="mx-imgBorder"]
 > ![app image capture instruction page](./media/enrollment-app/4-instruction.jpg)

@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: msjogarrig
 ms.author: jogarrig
-ms.date: 09/04/2020
+ms.date: 11/11/2021
 ---
 
 # Publishing guide for Azure managed applications

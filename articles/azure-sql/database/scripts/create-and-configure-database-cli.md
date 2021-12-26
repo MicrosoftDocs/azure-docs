@@ -7,9 +7,9 @@ ms.subservice: deployment-configuration
 ms.custom: sqldbrb=1, devx-track-azurecli
 ms.devlang: azurecli
 ms.topic: sample
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer:
+author: WilliamDAssafMSFT 
+ms.author: wiassaf
+ms.reviewer: kendralittle, mathoma
 ms.date: 06/25/2019
 ---
 

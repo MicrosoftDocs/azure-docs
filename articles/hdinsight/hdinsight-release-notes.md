@@ -4,7 +4,7 @@ description: Latest release notes for Azure HDInsight. Get development tips and 
 ms.custom: references_regions
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 07/27/2021
+ms.date: 10/15/2021
 ---
 # Azure HDInsight release notes
 
@@ -25,6 +25,24 @@ The OS versions for this release are:
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
 
 ## New features
+### Azure HDInsight support for Restricted Public Connectivity is generally available on Oct 15 2021
+Azure HDInsight now supports restricted public connectivity in all regions. Below are some of the key highlights of this capability: 
+
+- Ability to reverse resource provider to cluster communication such that it's outbound from the cluster to the resource provider 
+- Support for bringing your own Private Link enabled resources (e.g. storage, SQL, key vault) for HDinsight cluster to access the resources over private network only 
+- No public IP addresses are resource provisioned 
+
+By using this new capability, you can also skip the inbound network security group (NSG) service tag rules for HDInsight management IPs. Learn more about [restricting public connectivity](./hdinsight-restrict-public-connectivity.md)
+
+### Azure HDInsight support for Azure Private Link is generally available on Oct 15 2021
+You can now use private endpoints to connect to your HDInsight clusters over private link. Private link can be leveraged in cross VNET scenarios where VNET peering is not available or enabled. 
+
+Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. 
+
+Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. 
+
+Let more at [enable private link](./hdinsight-private-link.md).  
+
 ### New Azure Monitor integration experience (Preview)
 The new Azure monitor integration experience will be Preview in East US and West Europe with this release. Learn more details about the new Azure monitor experience [here](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration).
 

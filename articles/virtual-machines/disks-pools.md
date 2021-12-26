@@ -4,10 +4,10 @@ description: Learn about Azure disk pools (preview).
 author: roygara
 ms.service: storage
 ms.topic: conceptual
-ms.date: 07/23/2021
+ms.date: 11/02/2021
 ms.author: rogarana
 ms.subservice: disks
-ms.custom: references_regions
+ms.custom: references_regions, ignite-fall-2021
 ---
 
 # Azure disk pools (preview)
@@ -26,8 +26,9 @@ When you add a managed disk to the disk pool, the disk is attached to managed iS
 
 In preview, disk pools have the following restrictions:
 
-- Only premium SSDs or ultra disks can be added to a disk pool.
-- Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks-preview) aren't currently supported. 
+- Only premium SSDs and standard SSDs, or ultra disks can be added to a disk pool.
+    - A disk pool can't be configured to contain both ultra disks and premium/standard SSDs. If a disk pool is configured to use ultra disks, it can only contain ultra disks. Likewise, a disk pool configured to use premium and standard SSDs can only contain premium and standard SSDs.
+- Disks using [zone-redundant storage (ZRS)](disks-redundancy.md#zone-redundant-storage-for-managed-disks) aren't currently supported. 
 
 ### Regional availability
 
