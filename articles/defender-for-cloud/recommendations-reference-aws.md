@@ -18,10 +18,6 @@ Your secure score is based on the number of security recommendations you've comp
 decide which recommendations to resolve first, look at the severity of each one and its potential
 impact on your secure score.
 
-## <a name='recs-aws-appservices'></a> AWS AppServices recommendations
-
-[!INCLUDE [asc-recs-aws-appservices](../../includes/mdfc/mdfc-recs-aws-appservices.md)]
-
 ## <a name='recs-aws-compute'></a> AWS Compute recommendations
 
 [!INCLUDE [asc-recs-aws-compute](../../includes/mdfc/mdfc-recs-aws-compute.md)]
@@ -37,10 +33,6 @@ impact on your secure score.
 ## <a name='recs-aws-identityandaccess'></a> AWS IdentityAndAccess recommendations
 
 [!INCLUDE [asc-recs-aws-identityandaccess](../../includes/mdfc/mdfc-recs-aws-identityandaccess.md)]
-
-## <a name='recs-aws-iot'></a> AWS IoT recommendations
-
-[!INCLUDE [asc-recs-aws-iot](../../includes/mdfc/mdfc-recs-aws-iot.md)]
 
 ## <a name='recs-aws-networking'></a> AWS Networking recommendations
 
