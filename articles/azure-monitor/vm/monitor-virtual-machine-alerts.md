@@ -14,7 +14,7 @@ ms.date: 06/21/2021
 This article is part of the scenario [Monitor virtual machines and their workloads in Azure Monitor](monitor-virtual-machine.md). It provides guidance on creating alert rules for your virtual machines and their guest operating systems. [Alerts in Azure Monitor](../alerts/alerts-overview.md) proactively notify you of interesting data and patterns in your monitoring data. There are no preconfigured alert rules for virtual machines, but you can create your own based on data collected by VM insights. 
 
 > [!NOTE]
-> The alerts described in this article don't include alerts created by [Azure Monitor for VM guest health](vminsights-health-overview.md), which is a feature currently in public preview. As this feature nears general availability, guidance for alerting will be consolidated.
+> This scenario describes how to implement complete monitoring of your Azure and hybrid virtual machine environment. To get started monitoring your first Azure virtual machine, see [Monitor Azure virtual machines](../../virtual-machines/monitor-vm.md), [Tutorial: Create a metric alert for an Azure resource](../alerts/tutorial-metric-alert.md), or [Tutorial: Create alert when Azure virtual machine is unavailable](tutorial-monitor-vm-alert.md). 
 
 > [!IMPORTANT]
 > Most alert rules have a cost that's dependent on the type of rule, how many dimensions it includes, and how frequently it's run. Before you create any alert rules, refer to **Alert rules** in [Azure Monitor pricing](https://azure.microsoft.com/pricing/details/monitor/).
@@ -45,7 +45,7 @@ Metric rules for virtual machines can use the following data:
 ### Target resource and impacted resource
 
 > [!NOTE]
-> Resource-centric log alert rules, currently in public preview, simplify log query alerts for virtual machines and replace the functionality currently provided by metric measurement queries. You can use the machine as a target for the rule, which better identifies it as the affected resource. You can also apply a single alert rule to all machines in a particular resource group or description. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
+> Resource-centric log alert rules, currently in public preview, simplify log query alerts for virtual machines and replace the functionality currently provided by metric measurement queries. You can use the machine as a target for the rule, which better identifies it as the affected resource. You can also apply a single alert rule to all machines in a particular resource group or subscription. When resource-center log query alerts become generally available, the guidance in this scenario will be updated.
 > 
 Each alert in Azure Monitor has an **Affected resource** property, which is defined by the target of the rule. For metric alert rules, the affected resource is the computer, which allows you to easily identify it in the standard alert view. Log query alerts are associated with the workspace resource instead of the machine, even when you use a metric measurement alert that creates an alert for each computer. You need to view the details of the alert to view the computer that was affected.
 
@@ -130,7 +130,7 @@ InsightsMetrics
  InsightsMetrics
  | where Origin == "vm.azm.ms"
  | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" and (_ResourceId contains "/providers/Microsoft.Compute/virtualMachines/" or _ResourceId contains "/providers/Microsoft.Compute/virtualMachineScaleSets/") 
- | where Namespace == "Processor" and Name == "UtilizationPercentage"<br>\| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
+ | where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId
 ```
 
 **CPU utilization for all compute resources in a resource group** 
@@ -139,7 +139,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachines/" or _ResourceId startswith "/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourceGroups/my-resource-group/providers/Microsoft.Compute/virtualMachineScaleSets/"
-| where Namespace == "Processor" and Name == "UtilizationPercentage"<br>\| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId 
+| where Namespace == "Processor" and Name == "UtilizationPercentage" | summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), _ResourceId 
 ```
 
 ### Memory alerts
@@ -168,7 +168,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Memory" and Name == "AvailableMB"
-| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"])<br>\| extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0
+| extend TotalMemory = toreal(todynamic(Tags)["vm.azm.ms/memorySizeMB"]) | extend AvailableMemoryPercentage = (toreal(Val) / TotalMemory) * 100.0
 | summarize AggregatedValue = avg(AvailableMemoryPercentage) by bin(TimeGenerated, 15m), Computer  
 ``` 
 
@@ -209,12 +209,16 @@ InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "TransfersPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk |
-| Logical disk data rate | InsightsMetrics
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) ), Computer, _ResourceId, Disk 
+```
+**Logical disk data rate**
+
+```kusto
+InsightsMetrics
 | where Origin == "vm.azm.ms" 
 | where Namespace == "LogicalDisk" and Name == "BytesPerSecond"
 | extend Disk=tostring(todynamic(Tags)["vm.azm.ms/mountId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m) , Computer, _ResourceId, Disk 
 ```
 
 ## Network alerts
@@ -234,7 +238,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "ReadBytesPerSecond"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId  |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId  
 ```
 
 **Network interfaces bytes received - individual interfaces**
@@ -244,7 +248,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "ReadBytesPerSecond"
 | extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
 **Network interfaces bytes sent - all interfaces**
@@ -253,7 +257,7 @@ InsightsMetrics
 InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "WriteBytesPerSecond"
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId 
 ```
 
 **Network interfaces bytes sent - individual interfaces**
@@ -263,7 +267,7 @@ InsightsMetrics
 | where Origin == "vm.azm.ms"
 | where Namespace == "Network" and Name == "WriteBytesPerSecond"
 | extend NetworkInterface=tostring(todynamic(Tags)["vm.azm.ms/networkDeviceId"])
-| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface |
+| summarize AggregatedValue = avg(Val) by bin(TimeGenerated, 15m), Computer, _ResourceId, NetworkInterface 
 ```
 
 ## Comparison of log query alert measures

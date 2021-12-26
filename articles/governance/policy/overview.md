@@ -118,7 +118,7 @@ role includes most Azure Policy operations. **Owner** has full rights. Both **Co
 **Reader** have access to all _read_ Azure Policy operations. **Contributor** may trigger resource
 remediation, but can't _create_ definitions or assignments. **User Access Administrator** is
 necessary to grant the managed identity on **deployIfNotExists** or **modify** assignments necessary
-permissions.
+permissions. All policy objects will be readable to all roles over the scope.
 
 If none of the Built-in roles have the permissions required, create a
 [custom role](../../role-based-access-control/custom-roles.md).
@@ -132,7 +132,7 @@ If none of the Built-in roles have the permissions required, create a
 
 Azure Policy evaluates all Azure resources at or below subscription-level, including Arc enabled
 resources. For certain resource providers such as
-[Guest Configuration](./concepts/guest-configuration.md),
+[guest configuration](./concepts/guest-configuration.md),
 [Azure Kubernetes Service](../../aks/intro-kubernetes.md), and
 [Azure Key Vault](../../key-vault/general/overview.md), there's a deeper integration for managing
 settings and objects. To find out more, see

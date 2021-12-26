@@ -4,7 +4,7 @@ description: This quickstart provides a Ruby code sample you can use to connect 
 author: mksuni
 ms.author: sumuth
 ms.service: postgresql
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.devlang: ruby
 ms.topic: quickstart
 ms.date: 5/6/2019
@@ -97,7 +97,7 @@ begin
 	password = String('<server_admin_password>')
 
 	# Initialize connection object.
-    connection = PG::Connection.new(:host => host, :user => user, :database => dbname, :port => '5432', :password => password)
+    connection = PG::Connection.new(:host => host, :user => user, :dbname => database, :port => '5432', :password => password)
     puts 'Successfully created connection to database.'
 
     resultSet = connection.exec('SELECT * from inventory;')

@@ -596,7 +596,7 @@ After deployment, you can see two load balancers in the resource group. If you b
 
 ## Notes for production workloads
 
-The above GitHub templates are designed to work with the default SKU for Azure Standard Load Balancer (SLB), the Basic SKU. This SLB has no SLA, so for production workloads the Standard SKU should be used. For more on this, see the [Azure Standard Load Balancer overview](../load-balancer/load-balancer-overview.md). Any Service Fabric cluster using the Standard SKU for SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup, and any deployment without such a rule will fail. In the above example of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443.
+The above GitHub templates are designed to work with the default SKU for Azure Standard Load Balancer (SLB), the Basic SKU. The Basic SKU LB has no SLA, so for production workloads the Standard SKU should be used. For more on this, see the [Azure Standard Load Balancer overview](../load-balancer/load-balancer-overview.md). Any Service Fabric cluster using the Standard SKU for SLB needs to ensure that each node type has a rule allowing outbound traffic on port 443. This is necessary to complete cluster setup, and any deployment without such a rule will fail. In the above example of an "internal only" load balancer, an additional external load balancer must be added to the template with a rule allowing outbound traffic for port 443.
 
 ## Next steps
 [Create a cluster](service-fabric-cluster-creation-via-arm.md)

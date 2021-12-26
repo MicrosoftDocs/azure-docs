@@ -8,12 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.topic: overview
 ms.subservice: translator-text
-ms.date: 08/10/2021
+ms.date: 11/16/2021
 ms.author: lajanuar
 ms.custom: cog-serv-seo-aug-2020
 keywords: translator, text translation, machine translation, translation service, custom translator
 ---
 # What is Translator?
+
+:::image type="content" source="media/translator-icon.png" alt-text="Translator icon from the Azure portal.":::
 
  Translator is a cloud-based neural machine translation service that is part of the [Azure Cognitive Services](../what-are-cognitive-services.md) family of REST APIs.  Translator can be used with any operating system and powers many Microsoft products and services used by thousands of businesses worldwide to perform language translation and other language-related operations. In this overview, you'll learn how Translator can enable you to build intelligent, multi-language solutions for your applications across all [supported languages](./language-support.md).
 
@@ -29,7 +31,7 @@ The following features are supported by the Translator service. Use the links in
 
 | Feature | Description | Development options |
 |----------|-------------|--------------------------|
-| [**Text Translation**](text-translation-overview.md) | Execute text translation between supported source and target languages in real time. | <ul><li>[**REST API**](reference/rest-api-guide.md) </li><li>[Text translation Docker container](/containers/translator-how-to-install-container)—currently in gated preview.</li></ul> |
+| [**Text Translation**](text-translation-overview.md) | Execute text translation between supported source and target languages in real time. | <ul><li>[**REST API**](reference/rest-api-guide.md) </li><li>[Text translation Docker container](containers/translator-how-to-install-container.md)—currently in gated preview.</li></ul> |
 | [**Document Translation**](document-translation/overview.md) | Translate batch and complex files while preserving the structure and format of the original documents. | <ul><li>[**REST API**](document-translation/reference/rest-api-guide.md)</li><li>[**Client-library SDK**](document-translation/client-sdks.md)</li></ul> |
 | [**Custom Translator**](custom-translator/overview.md) | Build customized models to translate domain- and industry-specific language, terminology, and style. | <ul><li>[**Custom Translator portal**](https://portal.customtranslator.azure.ai/)</li></ul> |
 

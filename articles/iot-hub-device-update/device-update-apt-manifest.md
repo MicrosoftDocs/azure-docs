@@ -17,7 +17,7 @@ The APT Manifest is a JSON file that describes an update details required by APT
 
 ## Overview
 
-When an APT manifest is delivered to an Device Update Agent as an update, the agent will process the manifest and carry out the necessary operations. These operations include downloading and installing the packages specified in the APT Manifest file and their dependencies.
+When an APT manifest is delivered to an Device Update Agent as an update, the agent will process the manifest and carry out the necessary operations. These operations include downloading and installing the packages specified in the APT Manifest file and their dependencies from a designated repository.
 
 Device Update supports APT UpdateType and APT Update Handler. This support allows the Device Update Agent to evaluate the installed Debian packages and update the necessary packages. 
 

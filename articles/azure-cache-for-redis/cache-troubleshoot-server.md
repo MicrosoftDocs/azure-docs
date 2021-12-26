@@ -1,8 +1,8 @@
 ---
 title: Troubleshoot Azure Cache for Redis server-side issues
 description: Learn how to resolve common server-side issues with Azure Cache for Redis, such as memory pressure, high CPU, long running commands, or bandwidth limitations.
-author: yegu-ms
-ms.author: yegu
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.date: 10/18/2019
@@ -55,7 +55,8 @@ There are several changes you can make to mitigate high server load:
 
 Some Redis commands are more expensive to execute than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. Because Redis command processing is single-threaded, a command that takes time to run blocks all others that come after it. Review the commands that you're issuing to your Redis server to understand their performance impacts. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
 
-Using the [SLOWLOG](https://redis.io/commands/slowlog) command, you can measure expensive commands being executed against the server.
+Using the [SLOWLOG GET](https://redis.io/commands/slowlog-get) command, you can measure expensive commands being executed against the server.
+ 
 
 ## Server-side bandwidth limitation
 

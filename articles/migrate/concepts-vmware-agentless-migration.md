@@ -55,7 +55,7 @@ A cycle is said to be complete once the disks are consolidated.
 | Service Bus | Target region | Azure Migrate project's subscription | Used for communication between cloud service and Azure Migrate appliance |
 | Log storage account | Target region | Azure Migrate project's subscription | Used to store replication data, which is read by the service and applied on customer's managed disk |
 | Gateway storage account | Target region | Azure Migrate project's subscription | Used to store machine states during replication |
-| Key vault | Target region | Azure Migrate project's subscription | Manages the log storage account keys, stores the service bus connection strings |
+| Key vault | Target region | Azure Migrate project's subscription | Manages connection strings for service bus and access keys for the log storage account |
 | Azure Virtual Machine | Target region | Target subscription | VM created in Azure when you migrate |
 | Azure Managed Disks | Target region | Target subscription | Managed disks attached to Azure VMs |
 | Network interface cards | Target region | Target subscription | The NICs attached to the VMs created in Azure |
@@ -117,13 +117,12 @@ That is, next delta replication will be scheduled no sooner than one hour. For e
 > [!Note]
 > The scheduling logic is different after the initial replication completes. The first delta cycle is scheduled immediately after the initial replication completes and subsequent cycles follow the scheduling logic described above.
 
-
 - When you trigger migration, an on-demand delta replication cycle (pre-failover delta replication cycle) is performed for the VM prior to migration.
 
 **Prioritization of VMs for various stages of replication**
 
 - Ongoing VM replications are prioritized over scheduled replications (new replications)
-- Pre-migrate (on-demand delta replication) cycle has the highest priority followed by initial replication cycle. Delta replication cycle has the least priority.
+- Pre-failover (on-demand delta replication) cycle has the highest priority followed by initial replication cycle. Delta replication cycle has the least priority.
 
 That is, whenever a migrate operation is triggered, the on-demand replication cycle for the VM is scheduled and other ongoing replications take back seat if they are competing for resources.
 
@@ -132,7 +131,7 @@ That is, whenever a migrate operation is triggered, the on-demand replication cy
 We use the following constraints to ensure that we don't exceed the IOPS limits on the SANs.
 
 - Each Azure Migrate appliance supports replication of 52 disks in parallel
-- Each ESXi host supports eight disks. Every ESXi host has a 32-MB NFC buffer. So, we can schedule eight disks on the host (Each disk takes up 4 MB of buffer for IR, DR).
+- Each ESXi host supports 8 disks. Every ESXi host has a 32-MB NFC buffer. So, we can schedule 8 disks on the host (Each disk takes up 4 MB of buffer for IR, DR).
 - Each datastore can have a maximum of 15 disk snapshots. The only exception is when a VM has more than 15 disks attached to it.
 
 ## Scale-out replication
@@ -142,7 +141,7 @@ Azure Migrate supports concurrent replication of 500 virtual machines. When you 
 ![Scale-out configuration.](./media/concepts-vmware-agentless-migration/scale-out-configuration.png)
 
 
-You can deploy the scale-out appliance anytime after configuring the primary appliance until there are 300 VMs replicating concurrently. When there are 300 VMs replicating concurrently, you must deploy the scale-out appliance to proceed.
+You can deploy the scale-out appliance anytime after configuring the primary appliance, but isn't required until there are 300 VMs replicating concurrently. When there are 300 VMs replicating concurrently, you must deploy the scale-out appliance to proceed.
 
 ## Stop replication
 
@@ -169,7 +168,7 @@ You can increase or decrease the replication bandwidth using the _NetQosPolicy._
 
 You could create a policy on the Azure Migrate appliance to throttle replication traffic from the appliance by creating a policy such as this one:
 
-```New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB```
+`New-NetQosPolicy -Name "ThrottleReplication" -AppPathNameMatchCondition "GatewayWindowsService.exe" -ThrottleRateActionBitsPerSecond 1MB`
 
 > [!NOTE]
 > This is applicable to all the replicating VMs from the Azure Migrate appliance simultaneously.
@@ -178,7 +177,7 @@ You can also increase and decrease replication bandwidth based on a schedule usi
 
 ### Blackout window
 
-Azure Migrate provides a configuration-based mechanism through which customers can specify the time interval during which they don't want any replications to proceed. This time interval is called the blackout window. The need for a blackout window can arise in multiple scenarios such as when the source environment is resource constrained, when customers want replication to go through only non-business hours, etc.
+Azure Migrate provides a configuration-based mechanism through which customers can specify the time interval during which they don't want any replications to proceed. This time interval is called the blackout window. The need for a blackout window can arise in multiple scenarios such as when the source environment is resource constrained or when customers want replication to go through only during non-business hours, etc.
 
 > [!NOTE]
 > The existing replication cycles at the start of the blackout window will complete before the replication pauses.

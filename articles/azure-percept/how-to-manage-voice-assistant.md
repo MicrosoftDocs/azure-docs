@@ -1,15 +1,15 @@
 ---
-title: Configure a voice assistant application within Azure Percept Studio
+title: Manage your Azure Percept voice assistant application
 description: Configure a voice assistant application within Azure Percept Studio
-author: mimcco
-ms.author: mimcco
+author: nkhuyent
+ms.author: nbabar
 ms.service: azure-percept
 ms.topic: how-to
 ms.date: 02/15/2021
-ms.custom: template-how-to #Required; leave this attribute/value as-is.
+ms.custom: template-how-to, ignite-fall-2021
 ---
 
-# Managing your voice assistant
+# Manage your Azure Percept voice assistant application
 
 This article describes how to configure the keyword and commands of your voice assistant application within [Azure Percept Studio](https://go.microsoft.com/fwlink/?linkid=2135819). For guidance on configuring your keyword within IoT Hub instead of the portal, see this [how-to article](./how-to-configure-voice-assistant.md).
 

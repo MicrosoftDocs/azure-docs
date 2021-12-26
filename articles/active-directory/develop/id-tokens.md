@@ -1,7 +1,7 @@
 ---
 title: Microsoft identity platform ID tokens | Azure
 titleSuffix: Microsoft identity platform
-description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints. 
+description: Learn how to use id_tokens emitted by the Azure AD v1.0 and Microsoft identity platform (v2.0) endpoints.
 services: active-directory
 author: hpsin
 manager: CelesteDG
@@ -12,10 +12,7 @@ ms.topic: conceptual
 ms.date: 06/25/2021
 ms.author: hirsin
 ms.reviewer: hirsin
-ms.custom:
-  - aaddev
-  - identityplatformtop40
-  - fasttrack-edit
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit
 ---
 
 # Microsoft identity platform ID tokens
@@ -73,10 +70,10 @@ The table below shows the claims that are in most ID tokens by default (except w
 |-----|--------|-------------|
 |`aud` |  String, an App ID GUID | Identifies the intended recipient of the token. In `id_tokens`, the audience is your app's Application ID, assigned to your app in the Azure portal. This value should be validated. The token should be rejected if it fails to match your app's Application ID. |
 |`iss` |  String, an issuer URI | Identifies the issuer, or "authorization server" that constructs and returns the token. It also identifies the Azure AD tenant for which the user was authenticated. If the token was issued by the v2.0 endpoint, the URI will end in `/v2.0`.  The GUID that indicates that the user is a consumer user from a Microsoft account is `9188040d-6c67-4c5b-b112-36a304b66dad`. Your app should use the GUID portion of the claim to restrict the set of tenants that can sign in to the app, if applicable. |
-|`iat` |  int, a UNIX timestamp | "Issued At" indicates when the authentication for this token occurred.  |
+|`iat` |  int, a Unix timestamp | "Issued At" indicates when the authentication for this token occurred.  |
 |`idp`|String, usually an STS URI | Records the identity provider that authenticated the subject of the token. This value is identical to the value of the Issuer claim unless the user account not in the same tenant as the issuer - guests, for instance. If the claim isn't present, it means that the value of `iss` can be used instead.  For personal accounts being used in an organizational context (for instance, a personal account invited to an Azure AD tenant), the `idp` claim may be 'live.com' or an STS URI containing the Microsoft account tenant `9188040d-6c67-4c5b-b112-36a304b66dad`. |
-|`nbf` |  int, a UNIX timestamp | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
-|`exp` |  int, a UNIX timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT MUST NOT be accepted for processing.  It's important to note that in certain circumstances, a resource may reject the token before this time. Fo example, if a change in authentication is required or a token revocation has been detected. |
+|`nbf` |  int, a Unix timestamp | The "nbf" (not before) claim identifies the time before which the JWT MUST NOT be accepted for processing.|
+|`exp` |  int, a Unix timestamp | The "exp" (expiration time) claim identifies the expiration time on or after which the JWT **must not** be accepted for processing.  It's important to note that in certain circumstances, a resource may reject the token before this time. For example, if a change in authentication is required or a token revocation has been detected. |
 | `c_hash`| String |The code hash is included in ID tokens only when the ID token is issued with an OAuth 2.0 authorization code. It can be used to validate the authenticity of an authorization code. To understand how to do this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). |
 |`at_hash`| String |The access token hash is included in ID tokens only when the ID token is issued from the `/authorize` endpoint with an OAuth 2.0 access token. It can be used to validate the authenticity of an access token. To understand how to do this validation, see the [OpenID Connect specification](https://openid.net/specs/openid-connect-core-1_0.html#HybridIDToken). This is not returned on ID tokens from the `/token` endpoint. |
 |`aio` | Opaque String | An internal claim used by Azure AD to record data for token reuse. Should be ignored.|

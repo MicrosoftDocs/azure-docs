@@ -1,12 +1,12 @@
 ---
-title:  "Quickstart - Integrate with Azure Database for MySQL"
+title: "Quickstart - Integrate with Azure Database for MySQL"
 description: Explains how to provision and prepare an Azure Database for MySQL instance, and then configure Pet Clinic on Azure Spring Cloud to use it as a persistent database with only one command.
 author: karlerickson
 ms.author: karler
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 05/13/2021
-ms.custom: devx-track-java, devx-track-azurecli
+ms.date: 10/15/2021
+ms.custom: devx-track-java, devx-track-azurecli, mode-other
 ---
 
 # Quickstart: Integrate Azure Spring Cloud with Azure Database for MySQL
@@ -15,7 +15,8 @@ Pet Clinic, as deployed in the default configuration [Quickstart: Build and depl
 
 ## Variables preparation
 
-We will use the following values. Save them in a text file or environment variables to avoid errors.
+We will use the following values. Save them in a text file or environment variables to avoid errors. 
+The password should be at least 8 characters long and contain at least one English uppercase letter, one English lowercase letter, one number, and one non-alphanumeric character (!, $, #, %, and so on.).
 
 ```bash
 export RESOURCE_GROUP=<resource-group-name> # customize this
@@ -29,7 +30,11 @@ export MYSQL_DATABASE_NAME=petclinic
 
 ## Prepare an Azure Database for MySQL instance
 
-1. Create an Azure Database for MySQL server.
+1. If you didn't run the following commands in the previous quickstarts, set the CLI defaults.
+    ```azcli
+    az configure --defaults group=<resource group name> spring-cloud=<service name>
+    ```
+1. Create an Azure Database for MySQL server. 
 
     ```azcli
     az mysql server create --resource-group ${RESOURCE_GROUP} \
@@ -157,5 +162,5 @@ az spring-cloud app update --name visits-service \
 
 ## Next steps
 
-* [Bind an Azure Database for MySQL instance to your Azure Spring Cloud application](how-to-bind-mysql.md)
-* [Use a managed identity to connect Azure SQL Database to an Azure Spring Cloud app](./connect-managed-identity-to-azure-sql.md)
+* [Bind an Azure Database for MySQL instance to your application in Azure Spring Cloud](how-to-bind-mysql.md)
+* [Use a managed identity to connect Azure SQL Database to an app in Azure Spring Cloud](./connect-managed-identity-to-azure-sql.md)

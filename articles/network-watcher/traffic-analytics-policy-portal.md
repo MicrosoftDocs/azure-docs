@@ -4,13 +4,9 @@ title: Deploy and manage Traffic Analytics using Azure Policy
 titleSuffix: Azure Network Watcher
 description: This article explains how to use the built-in policies to manage the deployment of Traffic Analytics 
 services: network-watcher
-documentationcenter: na
 author: moagra
-
 ms.service: network-watcher
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
 ms.workload:  infrastructure-services
 ms.date: 07/11/2021
 ms.author: moagra
@@ -21,9 +17,9 @@ ms.author: moagra
 
 Azure Policy helps to enforce organizational standards and to assess compliance at-scale. Common use cases for Azure Policy include implementing governance for resource consistency, regulatory compliance, security, cost, and management. In this article, we will cover three built-in policies available for [Traffic Analytics](./traffic-analytics.md) to manage your setup.
 
-If you are creating an Azure policy for the first time, you can read through: 
+If you are creating an Azure Policy definition for the first time, you can read through: 
 - [Azure Policy overview](../governance/policy/overview.md) 
-- [Tutorial for creating policy](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
+- [Tutorial for creating an Azure Policy assignment](../governance/policy/assign-policy-portal.md#create-a-policy-assignment).
 
 
 ## Locate the policies
@@ -112,7 +108,7 @@ It is same as the above policy except that during remediation, it does not overw
 - Storage ID: Full resource ID of the storage account. This storage account should be in the same region as the NSG.
 - Network Watchers RG: Name of the resource group containing your Network Watcher resource. If you have not renamed it, you can enter 'NetworkWatcherRG' which is the default.
 - Network Watcher name: Name of the regional network watcher service. Format: NetworkWatcher_RegionName. Example: NetworkWatcher_centralus.
-- Workspace resource ID: Resource ID of the workspace where Traffic Analytics has to be enabled. Format is "/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>"
+- Workspace resource ID: Resource ID of the workspace where Traffic Analytics has to be enabled. Format is `/subscriptions/<SubscriptionID>/resourceGroups/<ResouceGroupName>/providers/Microsoft.Storage/storageAccounts/<StorageAccountName>`
 - WorkspaceID: Workspace guid
 - WorkspaceRegion: Region of the workspace (note that it need not be same as the region of NSG)
 - TimeInterval: Frequency at which processed logs will be pushed into workspace. Currently allowed values are 60 mins and 10 mins. Default value is 60 mins.

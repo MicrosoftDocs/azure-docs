@@ -74,6 +74,8 @@ To prevent downtime, you should first register your existing session hosts to th
 
 ## Next steps
 
+If you'd like to learn how to migrate your deployment automatically instead, go to [Migrate automatically from Azure Virtual Desktop (classic)](automatic-migration.md).
+
 Once you've migrated, get to know how Azure Virtual Desktop works by checking out [our tutorials](create-host-pools-azure-marketplace.md). Learn about advanced management capabilities at [Expand an existing host pool](expand-existing-host-pool.md) and [Customize RDP properties](customize-rdp-properties.md).
 
 To learn more about service objects, check out [Azure Virtual Desktop environment](environment-setup.md).

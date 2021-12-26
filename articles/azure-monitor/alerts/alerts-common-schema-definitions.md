@@ -308,7 +308,7 @@ Any alert instance describes the resource that was affected and the cause of the
     "LinkToFilteredSearchResultsAPI": "https://api.applicationinsights.io/v1/apps/0MyAppId0/metrics/requests/count",
     "SearchIntervalDurationMin": "15",
     "SearchIntervalInMinutes": "15",
-    "Threshold": 10000,
+    "Threshold": 10000.0,
     "Operator": "Less Than",
     "ApplicationId": "8e20151d-75b2-4d66-b965-153fb69d65a6",
     "Dimensions": [

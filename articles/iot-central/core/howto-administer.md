@@ -1,13 +1,12 @@
 ---
 title: Change Azure IoT Central application settings | Microsoft Docs
 description: Learn how to manage your Azure IoT Central application by changing application name, URL, upload image, and delete an application
-author: viv-liu
-ms.author: viviali
-ms.date: 12/19/2020
+author: dominicbetts
+ms.author: dobett
+ms.date: 08/25/2021
 ms.topic: how-to
 ms.service: iot-central
 services: iot-central
-manager: peterpr
 
 # Administrator
 ---

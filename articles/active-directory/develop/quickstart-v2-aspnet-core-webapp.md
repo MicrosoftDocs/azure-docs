@@ -5,14 +5,13 @@ description: In this quickstart, you learn how an app implements Microsoft sign-
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/11/2020
 ms.author: jmprieur
-ms.custom: "devx-track-csharp, aaddev, identityplatformtop40, scenarios:getting-started, languages:aspnet-core"
+ms.custom: devx-track-csharp, aaddev, identityplatformtop40, "scenarios:getting-started", "languages:aspnet-core", mode-other
 #Customer intent: As an application developer, I want to know how to write an ASP.NET Core web app that can sign in personal accounts, as well as work and school accounts, from any Azure Active Directory instance.
 ---
 
@@ -44,7 +43,7 @@ In this quickstart, you download and run a code sample that demonstrates how an 
 > If you want to manually configure your application and code sample, use the following procedures.
 > #### Step 1: Register your application
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: on the top menu to select the tenant in which you want to register the application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for your application. For example, enter **AspNetCore-Quickstart**. Users of your app will see this name, and you can change it later.

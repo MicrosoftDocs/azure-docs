@@ -149,6 +149,7 @@ The following table shows current supported Java versions for each major version
 
 | Functions version | Java versions (Windows) | Java versions (Linux) |
 | ----- | ----- | --- |
+| 4.x | 11 <br/>8 | 11 <br/>8 |
 | 3.x | 11 <br/>8 | 11 <br/>8 |
 | 2.x | 8 | n/a |
 
@@ -182,7 +183,7 @@ Maven also lets you specify the operating system on which your function app runs
 
 | Element |  Windows | Linux | Docker |
 | ---- | ---- | ---- | --- |
-| **`os`** | windows | linux | docker |
+| **`os`** | `windows` | `linux` | `docker` |
 
 The following example shows the operating system setting in the `runtime` section of the pom.xml file:
 

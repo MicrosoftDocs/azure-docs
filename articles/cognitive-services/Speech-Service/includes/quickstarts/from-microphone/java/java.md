@@ -3,14 +3,14 @@ title: "Quickstart: Recognize speech from a microphone, Java - Speech service"
 titleSuffix: Azure Cognitive Services
 description: TBD
 services: cognitive-services
-author: laujan
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/07/2019
 ms.custom: devx-track-java
-ms.author: lajanuar
+ms.author: eur
 ---
 
 **Choose your target environment**

@@ -4,7 +4,7 @@ description: Step-by-step tutorial for how to create your first access package u
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity
@@ -39,6 +39,8 @@ In this tutorial, you learn how to:
 For a step-by-step demonstration of the process of deploying Azure Active Directory entitlement management, including creating your first access package, view the following video:
 
 >[!VIDEO https://www.youtube.com/embed/zaaKvaaYwI4]
+
+This rest of this article uses the Azure portal to configure and demonstrate Azure AD entitlement management.  You can also follow a tutorial to [manage access to resources via Microsoft Graph](/graph/tutorial-access-package-api?toc=/azure/active-directory/governance/toc.json&bc=/azure/active-directory/governance/breadcrumb/toc.json) or [via PowerShell](/powershell/microsoftgraph/tutorial-entitlement-management?view=graph-powershell-beta).
 
 ## Prerequisites
 

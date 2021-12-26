@@ -10,6 +10,9 @@ ms.reviewer: cynthn
 ---
 
 # Updates and maintenance overview
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
+
 This article provides an overview of the various update and maintenance options for Azure virtual machines (VMs).
 
 ## Automatic OS image upgrade
@@ -28,7 +31,7 @@ Enabling [automatic OS image upgrades](../virtual-machine-scale-sets/virtual-mac
 - Automatic OS image upgrade can be enabled on a scale set of any size.
 
 
-## Automatic VM guest patching (Preview)
+## Automatic VM guest patching 
 
 Enabling [automatic VM guest patching](automatic-vm-guest-patching.md) for your Azure VMs helps ease update management by safely and automatically patching virtual machines to maintain security compliance.
 

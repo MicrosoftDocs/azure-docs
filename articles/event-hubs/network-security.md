@@ -68,7 +68,7 @@ For more information, see [How to configure virtual network service endpoints fo
 A private endpoint is a network interface that connects you privately and securely to a service powered by Azure Private Link. The private endpoint uses a private IP address from your VNet, effectively bringing the service into your VNet. All traffic to the service can be routed through the private endpoint, so no gateways, NAT devices, ExpressRoute or VPN connections, or public IP addresses are needed. Traffic between your virtual network and the service traverses over the Microsoft backbone network, eliminating exposure from the public Internet. You can connect to an instance of an Azure resource, giving you the highest level of granularity in access control.
 
 > [!IMPORTANT]
-> This feature isn't supported in the **basic** and **premium** tiers. 
+> This feature isn't supported in the **basic** tier. 
 
 
 For more information, see [How to configure private endpoints for an event hub](private-link-service.md)

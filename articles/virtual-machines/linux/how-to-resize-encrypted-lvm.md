@@ -11,6 +11,8 @@ ms.date: 09/21/2020
 
 # How to resize logical volume management devices that use Azure Disk Encryption
 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Flexible scale sets 
+
 In this article, you'll learn how to resize data disks that use Azure Disk Encryption. To resize the disks, you'll use logical volume management (LVM) on Linux. The steps apply to multiple scenarios.
 
 You can use this resizing process in the following environments:

@@ -3,13 +3,13 @@ title: Batch processing kit for Speech containers
 titleSuffix: Azure Cognitive Services
 description: Use the Batch processing kit to scale Speech container requests. 
 services: cognitive-services
-author: aahill
+author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 10/22/2020
-ms.author: aahi
+ms.author: eur
 ---
 
 # Batch processing kit for Speech containers

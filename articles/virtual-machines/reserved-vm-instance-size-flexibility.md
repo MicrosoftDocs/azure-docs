@@ -1,16 +1,16 @@
 ---
 title: Virtual machine size flexibility -Azure Reserved VM Instances 
 description: Learn what size series a reservation discount applies to when you by a reserved VM instance.
-author: yashesvi
 ms.service: virtual-machines
-ms.subservice: reserved-instances
+ms.subservice: billing
 ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 04/06/2021
-ms.author: yashar
 ---
 
 # Virtual machine size flexibility with Reserved VM Instances
+
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets :heavy_check_mark: Uniform scale sets
 
 When you buy a Reserved VM Instance, you can choose to optimize for instance size flexibility or capacity priority. For more information about setting or changing the optimize setting for reserved VM instances, see [Change the optimize setting for reserved VM instances](../cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances).
 

@@ -13,6 +13,7 @@ ms.workload: identity
 ms.date: 10/21/2020
 ms.author: ryanwi
 ms.reviewer: zachowd, lenalepa, jesakowi
+ms.custom: has-adal-ref
 ---
 
 # Azure Active Directory consent framework
@@ -55,7 +56,7 @@ The following steps show you how the consent experience works for both the appli
       ![Grant permissions for explicit admin consent](./media/consent-framework/grant-consent.png)
 
    > [!IMPORTANT]
-   > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use ADAL.js. Otherwise, the application fails when the access token is requested.
+   > Granting explicit consent using the **Grant permissions** button is currently required for single-page applications (SPA) that use MSAL.js. Otherwise, the application fails when the access token is requested.
 
 ## Next steps
 

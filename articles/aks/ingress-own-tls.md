@@ -37,19 +37,17 @@ This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-c
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
-CONTROLLER_REGISTRY=k8s.gcr.io
+SOURCE_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v0.48.1
-PATCH_REGISTRY=docker.io
-PATCH_IMAGE=jettech/kube-webhook-certgen
-PATCH_TAG=v1.5.1
-DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+CONTROLLER_TAG=v1.0.4
+PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
+PATCH_TAG=v1.1.1
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
 
-az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
-az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
-az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
 ```
 
 > [!NOTE]
@@ -68,9 +66,6 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
 
 ```console
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
-
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
@@ -79,7 +74,7 @@ ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
+    --namespace ingress-basic --create-namespace \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.image.registry=$ACR_URL \
@@ -90,10 +85,12 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set controller.admissionWebhooks.patch.image.digest="" \
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
-    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
+    --set defaultBackend.image.digest=""
 ```
 
 During the installation, an Azure public IP address is created for the ingress controller. This public IP address is static for the life-span of the ingress controller. If you delete the ingress controller, the public IP address assignment is lost. If you then create an additional ingress controller, a new public IP address is assigned. If you wish to retain the use of the public IP address, you can instead [create an ingress controller with a static public IP address][aks-ingress-static-tls].
@@ -147,9 +144,7 @@ kubectl create secret tls aks-ingress-tls \
 
 ## Run demo applications
 
-An ingress controller and a Secret with your certificate have been configured. Now let's run two demo applications in your AKS cluster. In this example, Helm is used to deploy two instances of a simple 'Hello world' application.
-
-To see the ingress controller in action, run two demo applications in your AKS cluster. In this example, you use `kubectl apply` to deploy two instances of a simple *Hello world* application.
+An ingress controller and a Secret with your certificate have been configured. To see the ingress controller in action, run two demo applications in your AKS cluster. In this example, you use `kubectl apply` to deploy two instances of a simple *Hello world* application.
 
 Create a *aks-helloworld.yaml* file and copy in the following example YAML:
 
@@ -241,7 +236,7 @@ Both applications are now running on your Kubernetes cluster, however they're co
 In the following example, traffic to the address `https://demo.azure.com/` is routed to the service named `aks-helloworld`. Traffic to the address `https://demo.azure.com/hello-world-two` is routed to the `ingress-demo` service. For this article, you don't need to change those demo host names. For production use, provide the names specified as part of the certificate request and generation process.
 
 > [!TIP]
-> If the host name specified during the certificate request process, the CN name, doesn't match the host defined in your ingress route, you ingress controller displays a *Kubernetes Ingress Controller Fake Certificate* warning. Make sure your certificate and ingress route host names match.
+> If the host name specified during the certificate request process, the CN name, doesn't match the host defined in your ingress route, your ingress controller displays a *Kubernetes Ingress Controller Fake Certificate* warning. Make sure your certificate and ingress route host names match.
 
 The *tls* section tells the ingress route to use the Secret named *aks-ingress-tls* for the host *demo.azure.com*. Again, for production use, specify your own host address.
 
@@ -451,6 +446,7 @@ You can also:
 [aks-ingress-basic]: ingress-basic.md
 [aks-http-app-routing]: http-application-routing.md
 [aks-ingress-tls]: ingress-tls.md
+[aks-supported versions]: supported-kubernetes-versions.md
 [client-source-ip]: concepts-network.md#ingress-controllers
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
