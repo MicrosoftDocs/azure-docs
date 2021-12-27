@@ -476,15 +476,14 @@ Refer to the following list to configure access to Azure Resource Manager:
 | Azure Germany |  `https://servicebus.azure.net`  | ![Available][check] |
 | Azure China 21Vianet | `https://servicebus.azure.net`  | ![Available][check] |
 
-
-### Azure Storage blobs and queues
+### Azure Storage blobs, queues, and tables
 
 | Cloud | Resource ID | Status |
 |--------|------------|:-:|
-| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` | ![Available][check] |
-| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` | ![Available][check] |
-| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` | ![Available][check] |
-| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` | ![Available][check] |
+| Azure Global | `https://storage.azure.com/` <br /><br />`https://<account>.blob.core.windows.net` <br /><br />`https://<account>.queue.core.windows.net` <br /><br />`https://<account>.table.core.windows.net`| ![Available][check] |
+| Azure Government | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.usgovcloudapi.net` <br /><br />`https://<account>.queue.core.usgovcloudapi.net` <br /><br />`https://<account>.table.core.usgovcloudapi.net`| ![Available][check] |
+| Azure Germany | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.cloudapi.de` <br /><br />`https://<account>.queue.core.cloudapi.de` <br /><br />`https://<account>.table.core.cloudapi.de`| ![Available][check] |
+| Azure China 21Vianet | `https://storage.azure.com/`<br /><br />`https://<account>.blob.core.chinacloudapi.cn` <br /><br />`https://<account>.queue.core.chinacloudapi.cn` <br /><br />`https://<account>.table.core.chinacloudapi.cn`| ![Available][check] |
 
 ### Azure Analysis Services
 
