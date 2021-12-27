@@ -19,7 +19,7 @@ This article provides information for teaching staff on how to access, manage, a
 
 Schedules are the time slots that an educator can create for the class so the student VMs are available for class time.  Schedules can be one-time or recurring.  Quota hours aren't used when a schedule is running.
 
-Scheduled time is commonly used when all the students have their own VMs and are following the professor's directions at a set time during the day (like class hours). The downside is that all the student VMs are started and are accruing costs, even if a student doesn't log in to a VM.
+Scheduled time is commonly used when all the students have their own VMs and are following the professor's directions at a set time during the day (like class hours). See [Create and manage schedules for labs in Azure Lab Services](how-to-create-schedules.md) for instructions to add scheduled time to a lab. The downside is that all the student VMs are started and are accruing costs, even if a student doesn't log in to a VM. See [Configure automatic shutdown of VMs for a lab](how-to-enable-shutdown-disconnect.md) to help reduce likelihood of accruing costs when a VM isn't being used.
 
 A lab can use either quota time or scheduled time, or a combination of both. If a class doesn't need scheduled time, then use only quota time for the most effective use of the VMs.
 
@@ -125,7 +125,7 @@ After you have invited users or shared the link, you can monitor which users hav
 
 ## Clean up resources
 
-If you're not going to continue to use resources that you created in this quickstart, delete the resources.
+If you're not going to continue to use resources that you created in this article, delete the resources.
 
 ## Next steps
 

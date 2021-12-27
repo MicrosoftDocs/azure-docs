@@ -76,6 +76,9 @@ Follow instructions from the previous section that displays lab plans in a list.
 
     :::image type="content" source="./media/how-to-manage-lab-plans/delete-lab-plan-confirmation.png" alt-text="Delete lab plan - confirmation":::
 
+> [!NOTE]
+> Deleting a lab plan will not delete any labs created from that lab plan.
+
 ## Next steps
 
 See other articles in the **How-to guides** -> **Create and configure lab plans** section of the table-of-content (TOC).
