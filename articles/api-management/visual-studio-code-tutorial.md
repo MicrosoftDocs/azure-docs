@@ -5,7 +5,7 @@ ms.service: api-management
 author: dlepow
 ms.author: danlep
 ms.topic: tutorial
-ms.date: 12/21/2021
+ms.date: 12/27/2021
 ms.custom: devdivchpfy22
 ---
 
@@ -27,9 +27,9 @@ For an introduction to more API Management features, see the API Management tuto
 
 ## Prerequisites
 
-- Understand [Azure API Management terminology](api-management-terminology.md)
-- Ensure you've installed [Visual Studio Code](https://code.visualstudio.com/) and the latest [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview)
-- [Create an API Management instance](vscode-create-service-instance.md)
+* Understand [Azure API Management terminology](api-management-terminology.md).
+* Ensure you've installed [Visual Studio Code](https://code.visualstudio.com/) and the latest [Azure API Management Extension for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.vscode-apimanagement&ssr=false#overview).
+* [Create an API Management instance](vscode-create-service-instance.md).
 
 ## Import an API
 
@@ -49,7 +49,7 @@ After the API is imported successfully, it appears in the Explorer pane, and ava
 
 ## Edit the API
 
-You can edit the API in Visual Studio Code. For example, edit the Resource Manager JSON description of the API in the editor window to remove the **http** protocol used to access the API. Then select **File** > **Save**.
+You can edit the API in Visual Studio Code. For example, edit the Resource Manager JSON description of the API in the editor window to remove the **http** protocol used to access the API.
 
 :::image type="content" source="media/visual-studio-code-tutorial/import-demo-api.png" alt-text="Edit JSON description":::
 
@@ -57,7 +57,7 @@ To edit the OpenAPI format, right-click the API name in the Explorer pane and se
 
 ## Apply policies to the API
 
-API Management provides [policies](api-management-policies.md) that you can configure for your APIs. Policies are a collection of statements. These statements are executed sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to an API or API operation.
+API Management provides [policies](api-management-policies.md) that you can configure for your APIs. Policies are a collection of statements. These statements are run sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to an API or API operation.
 
 This section shows how to apply some common outbound policies to your API. After applying policies, it transforms the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
 
