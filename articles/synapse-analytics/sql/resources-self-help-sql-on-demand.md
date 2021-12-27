@@ -25,7 +25,7 @@ If Synapse Studio can't establish connection to serverless SQL pool, you'll noti
 1) Your network prevents communication to Azure Synapse backend. Most frequent case is that port 1443 is blocked. To get the serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool to work as well, [visit full troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md).
 2) You don't have permissions to log into serverless SQL pool. To gain access, one of the Azure Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [Visit full guide on access control for more information](../security/synapse-workspace-access-control-overview.md).
 
-### Query fails with error: Websocket connection was closed unexpectedly.
+### Websocket connection was closed unexpectedly
 
 If your query fails with the error message: 'Websocket connection was closed unexpectedly', it means that your browser connection to Synapse Studio was interrupted, for example because of a network issue. 
 
@@ -35,13 +35,13 @@ If the issue still continues, create a [support ticket](../../azure-portal/suppo
 
 ## Query execution
 
-### Query fails because file cannot be opened
+### File cannot be opened
 
 If your query fails with the error 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file or because a firewall is blocking access to the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
-#### Alternative to Storage Blob Data Contributor role
+**Alternative to Storage Blob Data Contributor role**
 
 Instead of granting Storage Blob Data Contributor, you can also grant more granular permissions on a subset of files. 
 
@@ -74,7 +74,7 @@ If you would like to query data2.csv in this example, the following permissions 
 > [!NOTE]
 > For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Azure Synapse. 
 
-### Query fails because it cannot be executed due to current resource constraints 
+### Query cannot be executed due to current resource constraints 
 
 If your query fails with the error message 'This query can't be executed due to current resource constraints', it means that serverless SQL pool isn't able to execute it at this moment due to resource constraints: 
 
@@ -98,7 +98,7 @@ The easiest way is to resolve this issue is grant yourself `Storage Blob DataCon
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md).
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
  
-#### Content of DataVerse table cannot be listed
+#### DataVerse table is not accessible - content of diectory cannot be listed
 
 If you are using the Synapse link for DataVerse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool.
 If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
@@ -504,7 +504,9 @@ spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 
 ## Configuration
 
-### Query fails with: Please create a master key in the database or open the master key in the session before performing this operation.
+You might get an error while you try to create objects or configure security rules. Some of the most common errors re listed in this section.
+
+### Please create a master key in the database or open the master key in the session before performing this operation.
 
 If your query fails with the error message 'Please create a master key in the database or open the master key in the session before performing this operation.', it means that your user database has no access to a master key in the moment. 
 
@@ -557,7 +559,11 @@ Create a separate database and reference the synchronized [tables](../metadata/t
 
 ## Cosmos DB
 
-Possible errors and troubleshooting actions are listed in the following table.
+The items in the Cosmos DB transactional store are eventually moved to the analytical schema where they are accessible for querying using the serverless SQL pools. The most common errors are listed in this section.
+
+### Cannot execute the OPENROWSET function on Cosmos DB container
+
+There are multiple issues that might cause this isseue.
 
 | Error | Root cause |
 | --- | --- |
@@ -565,10 +571,12 @@ Possible errors and troubleshooting actions are listed in the following table.
 | There was an error in the CosmosDB connection string. | - The account, database, or key isn't specified. <br/> - There's some option in a connection string that isn't recognized.<br/> - A semicolon (`;`) is placed at the end of a connection string. |
 | Resolving CosmosDB path has failed with the error "Incorrect account name" or "Incorrect database name." | The specified account name, database name, or container can't be found, or analytical storage hasn't been enabled to the specified collection.|
 | Resolving CosmosDB path has failed with the error "Incorrect secret value" or "Secret is null or empty." | The account key isn't valid or is missing. |
-| Column `column name` of the type `type name` isn't compatible with the external data type `type name`. | The specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type. |
-| Column contains `NULL` values in all cells. | Possibly a wrong column name or path expression in the `WITH` clause. The column name (or path expression after the column type) in the `WITH` clause must match some property name in the Azure Cosmos DB collection. Comparison is *case-sensitive*. For example, `productCode` and `ProductCode` are different properties. |
 
-You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
+### Column isn't compatible with the external data type
+
+The specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type.
+
+Try to generate the `WITH` clause using a [sample document](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html).
 
 ### UTF-8 collation warning is returned while reading CosmosDB string types
 
@@ -585,7 +593,9 @@ A serverless SQL pool will return a compile-time warning if the `OPENROWSET` col
 
 Azure Synapse SQL will return `NULL` instead of the values that you see in the transaction store in the following cases:
 - There is a synchronization delay between transactional and analytical store. The value that you entered in Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
-- Possibly wrong column name or path expression in the `WITH` clause. Column name (or path expression after the column type) in the `WITH` clause must match the property names in Cosmos DB collection. Comparison is case-sensitive (for example, `productCode` and `ProductCode` are different properties). Make sure that your column names exactly match the Cosmos DB property names.
+- Possibly wrong column name or path expression in the `WITH` clause. The column name (or path expression after the column type) in the `WITH` clause must match the property names in Cosmos DB collection. The comparison is case-sensitive (for example, `productCode` and `ProductCode` are different properties). Make sure that your column names exactly match the Cosmos DB property names.
+  - If you are querying **complex documents** with the nested objects and sub-arrays, maybe your query incorrectly references these objects. 
+Try to generate the `WITH` clause using a [sample document](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html).
 - The property might not be moved to the analytical storage because it violates some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints), such as more than 1000  properties or more than 127 nesting levels.
 - If you are using well-defined [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) the value in transactional store might have a wrong type. Well-defined schema locks the types for each property by sampling the documents. Any value added in the transactional store that doesn't match the type is treated as a wrong value and not migrated to the analytical store. 
 - If you are using full-fidelity [schema representation](../../cosmos-db/analytical-store-introduction.md#schema-representation) make sure that you are adding type suffix after property name like `$.price.int64`. If you don't see a value for the referenced path, maybe it is stored under different type path, for example `$.price.float64`. See [how to query Cosmos Db collections in the full-fidelity schema](query-cosmos-db-analytical-store.md#query-items-with-full-fidelity-schema).
@@ -605,6 +615,8 @@ If you are experiencing some unexpected performance issues, make sure that you a
 - Make sure that you are using the `WITH` clause with [optimal data types](best-practices-serverless-sql-pool.md#use-appropriate-data-types).
 - Make sure that you are using [Latin1_General_100_BIN2_UTF8 collation](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) when you filter your data using string predicates.
 - If you have repeating queries that might be cached, try to use [CETAS to store query results in Azure Data Lake Storage](best-practices-serverless-sql-pool.md#use-cetas-to-enhance-query-performance-and-joins).
+
+See the [best practices for serverless sql pools](best-practices-serverless-sql-pool.md) for more details.
 
 ## Delta Lake
 
@@ -717,10 +729,10 @@ Login error: Login failed for user '<token-identified principal>'.
 ```
 For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application ID from Microsoft Graph when creating role assignment for another SPI/app.  
 
-#### Solution #1
+**Solution #1**
 Navigate to Azure portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
 
-#### Solution #2
+**Solution #2**
 You need to manually create a proper login through SQL code:
 ```sql
 use master
@@ -731,7 +743,7 @@ ALTER SERVER ROLE sysadmin ADD MEMBER [<service_principal_name>];
 go
 ```
 
-#### Solution #3
+**Solution #3**
 You can also setup service principal Synapse Admin using PowerShell. You need to have [Az.Synapse module](/powershell/module/az.synapse) installed.
 The solution is to use cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"` - and in that parameter field to provide Application ID (instead of Object ID) using workspace admin Azure service principal credentials. PowerShell script:
 ```azurepowershell
@@ -746,7 +758,7 @@ Connect-AzAccount -ServicePrincipal -Credential $cred -Tenant $tenantId
 New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName "Synapse Administrator" -ObjectId "<app_id_to_add_as_admin>" [-Debug]
 ```
 
-#### Validation
+**Validation**
 Connect to serverless SQL endpoint and verify that the external login with SID `app_id_to_add_as_admin` is created:
 ```sql
 select name, convert(uniqueidentifier, sid) as sid, create_date
