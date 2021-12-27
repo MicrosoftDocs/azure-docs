@@ -8,7 +8,7 @@ editor: ''
 tags: ''
 keywords: azure media services, migration, stream, broadcast, live, SDK
 ms.service: media-services
-ms.devlang: multiple
+ms.devlang: csharp
 ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: media
