@@ -29,7 +29,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/failover-groups/add-single-db-to-failover-group-az-ps.ps1 "Add a database to a failover group")]
 
-## Clean up resources
+## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 

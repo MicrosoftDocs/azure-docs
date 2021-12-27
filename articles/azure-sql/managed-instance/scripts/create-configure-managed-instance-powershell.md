@@ -30,7 +30,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Azur
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/managed-instance/create-and-configure-managed-instance.ps1 "Create managed instance")]
 
-## Clean up resources
+## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 

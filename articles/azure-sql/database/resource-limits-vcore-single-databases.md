@@ -32,7 +32,7 @@ You can set the service tier, compute size (service objective), and storage amou
 * [Transact-SQL](single-database-manage.md#transact-sql-t-sql) via [ALTER DATABASE](/sql/t-sql/statements/alter-database-transact-sql#overview-sql-database)
 * [Azure portal](single-database-manage.md#the-azure-portal)
 * [PowerShell](single-database-manage.md#powershell)
-* [Azure CLI](single-database-manage.md#azure-cli)
+* [Azure CLI](single-database-manage.md#the-azure-cli)
 * [REST API](single-database-manage.md#rest-api)
 
 > [!IMPORTANT]

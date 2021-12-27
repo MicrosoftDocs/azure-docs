@@ -29,7 +29,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/restore-database/restore-database.ps1?highlight=17-18 "Create SQL Database")]
 
-## Clean up resources
+## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 

@@ -29,7 +29,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/setup-geodr-and-failover/setup-geodr-and-failover-single-database.ps1?highlight=18-21 "Set up active geo-replication for single database")]
 
-## Clean up resources
+## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 

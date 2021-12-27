@@ -27,7 +27,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/database-auditing-and-threat-detection/database-auditing-and-threat-detection.ps1?highlight=15-16 "Configure auditing and threat detection")]
 
-## Clean up resources
+## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 

@@ -14,7 +14,6 @@ ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # What is a logical SQL server in Azure SQL Database and Azure Synapse?
-
 [!INCLUDE[appliesto-sqldb-asa](../includes/appliesto-sqldb-asa.md)]
 
 In Azure SQL Database and Azure Synapse Analytics, a server is a logical construct that acts as a central administrative point for a collection of databases. At the server level, you can administer [logins](logins-create-manage.md), [firewall rules](firewall-configure.md), [auditing rules](../../azure-sql/database/auditing-overview.md), [threat detection policies](threat-detection-configure.md), and [auto-failover groups](auto-failover-group-overview.md). A server can be in a different region than its resource group. The server must exist before you can create a database in Azure SQL Database or a data warehouse database in Azure Synapse Analytics. All databases managed by a single server are created within the same region as the server.
@@ -105,7 +104,7 @@ To create and manage servers, databases, and firewalls with Azure PowerShell, us
 
 ## Manage servers, databases, and firewalls using the Azure CLI
 
-To create and manage servers, databases, and firewalls with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](../../cloud-shell/overview.md) to run Azure CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](elastic-pool-overview.md).
+To create and manage servers, databases, and firewalls with the [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](../../cloud-shell/overview.md) to run the CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows. For creating and managing elastic pools, see [Elastic pools](elastic-pool-overview.md).
 
 | Cmdlet | Description |
 | --- | --- |
@@ -130,7 +129,7 @@ To create and manage servers, databases, and firewalls with [Azure CLI](/cli/azu
 |[az sql server firewall-rule delete](/cli/azure/sql/server/firewall-rule#az_sql_server_firewall_rule_delete)|Deletes a firewall rule|
 
 > [!TIP]
-> For an Azure CLI quickstart, see [Create a database in Azure SQL Database using Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use Azure CLIto create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use Azure CLI to monitor and scale a database in Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
+> For an Azure CLI quickstart, see [Create a database in Azure SQL Database using the Azure CLI](az-cli-script-samples-content-guide.md). For Azure CLI example scripts, see [Use the CLI to create a database in Azure SQL Database and configure a firewall rule](scripts/create-and-configure-database-cli.md) and [Use Azure CLI to monitor and scale a database in Azure SQL Database](scripts/monitor-and-scale-database-cli.md).
 >
 
 ## Manage servers, databases, and firewalls using Transact-SQL
@@ -188,4 +187,4 @@ To create and manage servers, databases, and firewalls, use these REST API reque
 ## Next steps
 
 - To learn about migrating a SQL Server database to Azure SQL Database, see [Migrate to Azure SQL Database](migrate-to-database-from-sql-server.md).
-- For information about supported features, see [Features](features-comparison.md).
+- - For information about supported features, see [Features](features-comparison.md).

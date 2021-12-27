@@ -1,6 +1,6 @@
 ---
 title: Manage elastic pools
-description: Create and manage Azure SQL Database elastic pools using the Azure portal, PowerShell, Azure CLI, Transact-SQL (T-SQL), and Rest API. 
+description: Create and manage Azure SQL Database elastic pools using the Azure portal, PowerShell, the Azure CLI, Transact-SQL (T-SQL), and Rest API. 
 services: sql-database
 ms.service: sql-database
 ms.subservice: elastic-pools
@@ -13,7 +13,6 @@ ms.custom: seoapril2019 sqldbrb=1, devx-track-azurecli
 ---
 
 # Manage elastic pools in Azure SQL Database
-
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
 With an elastic pool, you determine the amount of resources that the elastic pool requires to handle the workload of its databases, and the amount of resources for each pooled database.
@@ -61,7 +60,7 @@ To create and manage SQL Database elastic pools and pooled databases with Azure 
 
 ## Azure CLI
 
-To create and manage SQL Database elastic pools with the [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](../../cloud-shell/overview.md) to run Azure CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows.
+To create and manage SQL Database elastic pools with [Azure CLI](/cli/azure), use the following [Azure CLI SQL Database](/cli/azure/sql/db) commands. Use the [Cloud Shell](../../cloud-shell/overview.md) to run Azure CLI in your browser, or [install](/cli/azure/install-azure-cli) it on macOS, Linux, or Windows.
 
 > [!TIP]
 > For Azure CLI example scripts, see [Use CLI to move a database in SQL Database in a SQL elastic pool](scripts/move-database-between-elastic-pools-cli.md) and [Use Azure CLI to scale a SQL elastic pool in Azure SQL Database](scripts/scale-pool-cli.md).

@@ -13,7 +13,6 @@ ms.reviewer: kendralittle, mathoma
 ms.date: 07/16/2019
 ---
 # Use PowerShell to add an elastic pool to a failover group
-
 [!INCLUDE[appliesto-sqldb](../../includes/appliesto-sqldb.md)]
 
 This Azure PowerShell script example creates a database in Azure SQL Database, adds it to an elastic pool, creates a failover group, and tests failover.
@@ -28,7 +27,7 @@ If you choose to install and use PowerShell locally, this tutorial requires Az P
 
 [!code-powershell-interactive[main](../../../../powershell_scripts/sql-database/failover-groups/add-elastic-pool-to-failover-group-az-ps.ps1 "Add elastic pool to a failover group")]
 
-## Clean up resources
+## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 

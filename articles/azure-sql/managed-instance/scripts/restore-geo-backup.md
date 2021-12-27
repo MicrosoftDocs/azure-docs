@@ -55,7 +55,7 @@ $backup | Restore-AzSqlInstanceDatabase -FromGeoBackup `
 
 ```
 
-## Clean up resources
+## Clean up deployment
 
 Use the following command to remove  the resource group and all resources associated with it.
 
