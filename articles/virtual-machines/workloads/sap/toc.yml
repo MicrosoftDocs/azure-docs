@@ -381,8 +381,6 @@
       href: automation-run-ansible.md
     - name: Deployment hands-on lab
       href: automation-tutorial.md
-    - name: Deployment hands-on lab using DevOps pipelines
-      href: automation-devops-tutorial.md
     - name: Manual infrastructure deployment
       href: automation-manual-deployment.md
     - name: Sample deployment configurations

@@ -151,12 +151,12 @@ Save the Pipeline, to see the Save option click the chevron next to the Run butt
 
 ## Register the Deployer as an self-hosted agent for Azure DevOps
 
-You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. This requires that the Deployer needs to be added into an [Agent Pool](/azure/devops/pipelines/agents/pools-queues). As a one-time step, you must register the agent. Someone with permission to administer the agent queue must complete these steps.  
+You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. As a one-time step, you must register the Deployer as an agent. 
 
 ### Prerequisites
 
 
-1. Connect to your Azure DevOps instance Sign-in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and write down the URL to the Azure DevOps project.
+1. Connect to your Azure DevOps instance Sign-in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and note the URL to the Azure DevOps project.
 
 1. Create an Agent Pool by navigating to the Organizational Settings and selecting *Agent Pools* from the Pipelines section. Click the *Add Pool* button and choose Self-hosted as the pool type. Name the pool to align with the control plane, for example `MGMT-WEEU-POOL`. Ensure *Grant access permission to all pipelines* is selected and create the pool using the *Create* button.
 
