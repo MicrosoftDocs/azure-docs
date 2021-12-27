@@ -11,7 +11,7 @@ ms.service: virtual-machines-sap
 
 # Using SAP Deployment Automation Framework from Azure DevOps Services
 
-You can use Azure DevOps Services (Azure Repos and Azure Pipelines) as your configuration repository as well as the execution environment for deployment and configuration activities for the SAP Deployment Automation Framework.
+You can use Azure DevOps Services (Azure Repos and Azure Pipelines) as your configuration repository and as the environment for deployment and configuration activities using the SAP Deployment Automation Framework.
 
 ## Sign up for Azure DevOps Services
 
@@ -21,12 +21,16 @@ To use Azure DevOps Services you will need an Azure DevOps organization. An orga
 
 Open (https://dev.azure.com) and create a new project by clicking on the *New Project* button, for more info see [Create a Project in Azure DevOps](azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project). Enter the project details and click create. 
 
-You can use Azure Repos to store both the configuration files and the Terraform templates and the Ansible playbooks. Start by importing the GitHub repository into Azure Repos.
+You can use Azure Repos to store both system and environment configuration files (*.tfvars), Terraform templates and Ansible playbooks. 
 
-Navigate to the Repositories section in the left navigation and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops) 
+Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos. Navigate to the Repositories section and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops) 
+
+## Set up the Azure Pipelines
+
+To deploy the Azure resources, you need an Azure Resource Manager service connection. To create the connection go to Project settings and navigate to the Service connections setting in the Pipelines section, click *Create service connection*
+Configure the service connection to use Azure Resource Manager and a manually specified service principal. Specify the target subscription (typically the control plane subscription), the service principal details (verify that they are valid using the *Verify* button), provide a Service connection name and ensure that the *Grant access permission to all pipelines* checkbox is checked. Click *Verify and save* to save the service connection
 
 
-1. [Create the Azure Resource Manager service connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use a service principal. 
 
 1. Create a new Variable group "sap-deployment-general-variables" in the Library Section and name it "sap-deployment-specific-variables". Add the following variables
 
@@ -101,16 +105,8 @@ Navigate to the Pipelines section and select the pipeline. Rename the pipeline t
   ## Pipeline 11 for removing deployments via Azure resource manager
   
     Same process for pipeline 11-remover-arm-fallback.yaml
-  
-## Run Azure Pipelines
 
-  Newly created pipelines might not be visible in the default view. Click on recent tab and go back to All tab to view the new pipelines.
-  Click on the pipeline and choose "Run"
-
-  Verify the result in Azure: Are the VMs deployed and running?
-  Check the configuration files in the ADO Repo
-  
-## Register the Deployer as an Azure DevOps agent
+## Register the Deployer as an self-hosted agent for Azure DevOps
 
 You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. This requires that the Deployer needs to be added into an [Agent Pool](/azure/devops/pipelines/agents/pools-queues). As a one-time step, you must register the agent. Someone with permission to administer the agent queue must complete these steps.  
 
@@ -148,6 +144,16 @@ Accept the license. When prompted for server URL, enter the URL you captured in 
 Enter the application pool name you created in the previous step when prompted. Accept the default agent name. Accept the default work folder name.
 
 The agent will now be configured and stated,
+
+  
+## Run Azure Pipelines
+
+  Newly created pipelines might not be visible in the default view. Click on recent tab and go back to All tab to view the new pipelines.
+  Click on the pipeline and choose "Run"
+
+  Verify the result in Azure: Are the VMs deployed and running?
+  Check the configuration files in the ADO Repo
+  
 
 # Next steps
 
