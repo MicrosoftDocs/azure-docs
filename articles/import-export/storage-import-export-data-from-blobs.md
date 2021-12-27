@@ -449,7 +449,7 @@ You can use the copy logs from the job to verify that all data transferred succe
 
 To find the log locations, open the job in the [Azure portal/](https://portal.azure.com/). The **Data copy details** show the **Copy log path** and **Verbose log path** for each drive that was included in the order.
 
-[ ![Screenshot showing a completed export job in Azure Import Export. In Data Copy Details, the Copy Log Path and Verbose Log Path are highlighted.](./media/storage-import-export-data-from-blobs/completed-export-order.png) ](./media/storage-import-export-data-from-blobs/completed-export-order.png#lightbox)
+[ ![Screenshot showing a completed export job in Azure Import Export. In Data Copy Details, the Copy Log Path and Verbose Log Path are highlighted.](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png) ](./media/storage-import-export-data-from-blobs/import-export-status-export-order-completed.png#lightbox)
 
 At this time, you can delete the job or leave it. Jobs automatically get deleted after 90 days.
 
