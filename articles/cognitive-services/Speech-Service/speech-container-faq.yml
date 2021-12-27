@@ -9,12 +9,12 @@ metadata:
   ms.service: cognitive-services
   ms.subservice: speech-service
   ms.topic: conceptual
-  ms.date: 03/11/2021
+  ms.date: 12/27/2021
   ms.author: eur
   ms.custom: devx-track-csharp
     
 title: Speech service containers frequently asked questions (FAQ)
-summary: When using the Speech service with containers, rely on this collection of frequently asked questions before escalating to support. This article captures questions varying degree, from general to technical. To expand an answer, click on the question.
+summary: When using the Speech service with containers, you can refer to these frequently asked questions before escalating to support. This article captures questions of varying degree, from general to technical. 
 
 
 sections:
@@ -76,36 +76,7 @@ sections:
           > $1 * 1000 * 365 = $365K
           
           Maintenance cost paid to Microsoft depends on the service level and content of the service. It various from $29.99/month for basic level to hundreds of thousands if onsite service involved. A rough number is $300/hour for service/maintain. People cost is not included. Other infrastructure costs (such as storage, networks, and load balancers) are not included.
-          
-      - question: |
-          Why is punctuation missing from the transcription?
-        answer: |
-          The `speech_recognition_language=<YOUR_LANGUAGE>` should be explicitly configured in the request if they are using Carbon client.
-          
-          For example:
-          
-          ```python
-          if not recognize_once(
-              speechsdk.SpeechRecognizer(
-                  speech_config=speechsdk.SpeechConfig(
-                      endpoint=template.format("interactive"),
-                      speech_recognition_language="ja-JP"),
-                      audio_config=audio_config)):
-          
-              print("Failed interactive endpoint")
-              exit(1)
-          ```
-          Here is the output:
-          
-          ```cmd
-          RECOGNIZED: SpeechRecognitionResult(
-              result_id=2111117c8700404a84f521b7b805c4e7, 
-              text="まだ早いまだ早いは猫である名前はまだないどこで生まれたかとんと見当を検討をなつかぬ。
-              何でも薄暗いじめじめした所でながら泣いていた事だけは記憶している。
-              まだは今ここで初めて人間と言うものを見た。
-              しかも後で聞くと、それは書生という人間中で一番同額同額。",
-              reason=ResultReason.RecognizedSpeech)
-          ```
+
           
       - question: |
           Can I use a custom acoustic model and language model with Speech container?
@@ -193,46 +164,11 @@ sections:
           
           ```cmd
           The request path /luis//predict" does not match a supported file type.
-          ```
+          ```        
           
-          What does this mean? What am I missing? I was following the example for the Speech SDK, from [here](https://github.com/Azure-Samples/cognitive-services-speech-sdk). The scenario is that we are detecting the audio directly from the PC microphone and trying to determine the intent, based on the LUIS app we trained. The example I linked to does exactly that. And it works well with the LUIS cloud-based service. Using the Speech SDK seemed to save us from having to make a separate explicit call to the speech-to-text API and then a second call to LUIS.
+          The Speech SDK should not be used for a LUIS container. For using the LUIS container, the LUIS SDK or LUIS REST API should be used. Speech SDK should be used for a speech container.
           
-          So, all I am attempting to do is switch from the scenario of using LUIS in the cloud to using the LUIS container. I can't imagine if the Speech SDK works for one, it won't work for the other.
-          
-          
-          The Speech SDK should not be used against a LUIS container. For using the LUIS container, the LUIS SDK or LUIS REST API should be used. Speech SDK should be used against a speech container.
-          
-          A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container - Two separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio - LUIS is a text-based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers' premises, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.
-          
-      - question: |
-          Why are we getting errors with macOS, Speech container and the Python SDK?
-        answer: |
-          When we send a *.wav* file to be transcribed, the result comes back with:
-          
-          ```cmd
-          recognition is running....
-          Speech Recognition canceled: CancellationReason.Error
-          Error details: Timeout: no recognition result received.
-          When creating a websocket connection from the browser a test, we get:
-          wb = new WebSocket("ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1")
-          WebSocket
-          {
-              url: "ws://localhost:5000/speech/recognition/dictation/cognitiveservices/v1",
-              readyState: 0,
-              bufferedAmount: 0,
-              onopen: null,
-              onerror: null,
-              ...
-          }
-          ```
-          
-          We know the websocket is set up correctly.
-          
-          
-          If that is the case, then see [this GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310). We have a work-around, [proposed here](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues/310#issuecomment-527542722).
-          
-          Carbon fixed this at version 1.8.
-          
+          A cloud is different than a container. A cloud can be composed of multiple aggregated containers (sometimes called micro services). So there is a LUIS container and then there is a Speech container - Two separate containers. The Speech container only does speech. The LUIS container only does LUIS. In the cloud, because both containers are known to be deployed, and it is bad performance for a remote client to go to the cloud, do speech, come back, then go to the cloud again and do LUIS, we provide a feature that allows the client to go to Speech, stay in the cloud, go to LUIS then come back to the client. Thus even in this scenario the Speech SDK goes to Speech cloud container with audio, and then Speech cloud container talks to LUIS cloud container with text. The LUIS container has no concept of accepting audio (it would not make sense for LUIS container to accept streaming audio - LUIS is a text-based service). With on-prem, we have no certainty our customer has deployed both containers, we don't presume to orchestrate between containers in our customers' premises, and if both containers are deployed on-prem, given they are more local to the client, it is not a burden to go the SR first, back to client, and have the customer then take that text and go to LUIS.         
           
       - question: |
           What are the differences in the Speech container endpoints?
@@ -245,28 +181,10 @@ sections:
           | `/speech/recognition/dictation/cognitiveservices/v1`    | Cognitive Services on-prem dictation v1 websocket endpoint        | Yes | No       |
           | `/speech/recognition/interactive/cognitiveservices/v1`  | The Cognitive Services on-prem interactive v1 websocket endpoint  |     |          |
           | `/speech/recognition/conversation/cognitiveservices/v1` | The cognitive services on-prem conversation v1 websocket endpoint |     |          |
-          
-          
-          This is a fusion of:
-          - People trying the dictation endpoint for containers, (I'm not sure how they got that URL)
-          - The 1<sup>st</sup> party endpoint being the one in a container.
-          - The 1<sup>st</sup> party endpoint returning speech.fragment messages instead of the `speech.hypothesis` messages the 3<sup>rd</sup> part endpoints return for the dictation endpoint.
-          - The Carbon quickstarts all use `RecognizeOnce` (interactive mode)
-          - Carbon having an assert that for `speech.fragment` messages requiring they aren't returned in interactive mode.
-          - Carbon having the asserts fire in release builds (killing the process).
-          
-          The workaround is either switch to using continuous recognition in your code, or (quicker) connect to either the interactive or continuous endpoints in the container.
-          For your code, set the endpoint to `host:port`/speech/recognition/interactive/cognitiveservices/v1
-          
+
           For the various modes, see Speech modes - see below:
-          
-          ### Speech modes - Interactive, conversation, dictation
 
           [!INCLUDE [speech-modes](includes/speech-modes.md)]
-
-          The proper fix is coming with SDK 1.8, which has on-prem support (will pick the right endpoint, so we will be no worse than online service). In the meantime, there is a sample for continuous recognition, why don't we point to it?
-
-          https://github.com/Azure-Samples/cognitive-services-speech-sdk/blob/6805d96bf69d9e95c9137fe129bc5d81e35f6309/samples/python/console/speech_sample.py#L196
 
 
       - question: |
@@ -298,7 +216,7 @@ sections:
       - question: |
           How can I get non-batch APIs to handle audio <15 seconds long?
         answer: |
-          `RecognizeOnce()` in interactive mode only processes up to 15 seconds of audio, as the mode is intended for Speech Commanding where utterances are expected to be short. If you use `StartContinuousRecognition()` for dictation or conversation, there is no 15 second limit.
+          The `RecognizeOnce()` SDK operation in interactive mode processes up to 15 seconds of audio where utterances are expected to be short. You use `StartContinuousRecognition()` for dictation or conversation longer than 15 seconds.
           
           
       - question: |
@@ -306,8 +224,7 @@ sections:
         answer: |
           How many concurrent requests will a 4 core, 4 GB RAM handle? If we have to serve for example, 50 concurrent requests, how many Core and RAM is recommended?
           
-          
-          At real time, 8 with our latest `en-US`, so we recommend using more docker containers beyond 6 concurrent requests. It gets crazier beyond 16 cores, and it becomes non-uniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
+          At real time, 8 with our latest `en-US`, so we recommend using more docker containers beyond 6 concurrent requests. Beyond 16 cores it becomes non-uniform memory access (NUMA) node sensitive. The following table describes the minimum and recommended allocation of resources for each Speech container.
 
           # [Speech-to-text](#tab/stt)
          
@@ -361,28 +278,8 @@ sections:
           
       - question: |
           Why am I getting 404 errors when attempting to POST data to speech-to-text container?
-        answer: |
-          Here is an example HTTP POST:
-          
-          ```http
-          POST /speech/recognition/conversation/cognitiveservices/v1?language=en-US&format=detailed HTTP/1.1
-          Accept: application/json;text/xml
-          Content-Type: audio/wav; codecs=audio/pcm; samplerate=16000
-          Transfer-Encoding: chunked
-          User-Agent: PostmanRuntime/7.18.0
-          Cache-Control: no-cache
-          Postman-Token: xxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
-          Host: 10.0.75.2:5000
-          Accept-Encoding: gzip, deflate
-          Content-Length: 360044
-          Connection: keep-alive
-          HTTP/1.1 404 Not Found
-          Date: Tue, 22 Oct 2019 15:42:56 GMT
-          Server: Kestrel
-          Content-Length: 0
-          ```
-          
-          We do not support REST API in either speech-to-text container, we only support WebSockets through the Speech SDK. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
+        answer: |        
+          Speech-to-text containers do not support REST API. The Speech SDK uses WebSockets. Always refer to the official documentation, see [query prediction endpoints](speech-container-howto.md#query-the-containers-prediction-endpoint).
           
           
       - question:  Why is the container running as a non-root user? What issues might occur because of this?
@@ -400,43 +297,7 @@ sections:
           ```
           
           This typically happens when you feed the audio faster than the Speech recognition container can take it. Client buffers fill up, and the cancellation is triggered. You need to control the concurrency and the RTF at which you send the audio.
-          
-      - question: |
-          Could you explain these text-to-speech container errors from the C++ examples?
-        answer: |
-          If the container version is older than 1.3, then this code should be used:
-          
-          ```cpp
-          const auto endpoint = "http://localhost:5000/speech/synthesize/cognitiveservices/v1";
-          auto config = SpeechConfig::FromEndpoint(endpoint);
-          auto synthesizer = SpeechSynthesizer::FromConfig(config);
-          auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
-          ```
-          
-          Older containers don't have the required endpoint for Carbon to work with the `FromHost` API. If the containers used for version 1.3, then this code should be used:
-          
-          ```cpp
-          const auto host = "http://localhost:5000";
-          auto config = SpeechConfig::FromHost(host);
-          config->SetSpeechSynthesisVoiceName(
-              "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)");
-          auto synthesizer = SpeechSynthesizer::FromConfig(config);
-          auto result = synthesizer->SpeakTextAsync("{{{text1}}}").get();
-          ```
-          
-          Below is an example of using the `FromEndpoint` API:
-          
-          ```cpp
-          const auto endpoint = "http://localhost:5000/cognitiveservices/v1";
-          auto config = SpeechConfig::FromEndpoint(endpoint);
-          config->SetSpeechSynthesisVoiceName(
-              "Microsoft Server Speech Text to Speech Voice (en-US, AriaRUS)");
-          auto synthesizer = SpeechSynthesizer::FromConfig(config);
-          auto result = synthesizer->SpeakTextAsync("{{{text2}}}").get();
-          ```
-          
-           The `SetSpeechSynthesisVoiceName` function is called because the containers with an updated text-to-speech engine require the voice name.
-          
+
           
 additionalContent: |
 
