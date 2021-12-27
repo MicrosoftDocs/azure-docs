@@ -39,6 +39,9 @@ The following table describes the types of storage accounts recommended by Micro
 
 Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 
++ #Note: Performance of a storage account cannot be changed once created. The only way is to recreate the storage account and copy the data across
++ 
+
 ## Storage account endpoints
 
 A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
