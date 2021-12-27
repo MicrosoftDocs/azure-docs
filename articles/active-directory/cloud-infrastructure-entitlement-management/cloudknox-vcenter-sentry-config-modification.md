@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/22/2021
+ms.date: 12/27/2021
 ms.author: v-ydequadros
 ---
 
@@ -59,7 +59,7 @@ This topic describes the process of configuring and reconfiguring Sentry for VCe
 2. Select **Dashboard**.
 3. Select the ellipses (**...**) next to the VCenter status.
 4. To view the data currently being collected by CloudKnox Sentry, select **Configure Sentry**. 
-5. To enter the Sentry VM, enter the PIN that is generated in the Secure Shell (SSH) .
+5. To enter the Sentry VM, enter the PIN that was generated in the Secure Shell (SSH).
 6. Run the following script: 
 
    `/opt/cloudknox/sentrysoftwareservice/bin/runSentryConfigCLI.sh`

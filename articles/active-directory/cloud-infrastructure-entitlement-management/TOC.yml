@@ -3,6 +3,19 @@
   #- name: Overview
     #expanded: true
     #items:
+  - name: Installation
+    expanded: true
+    items:
+    - name: Install CloudKnox Sentry
+      href: cloudknox-welcome.md
+    - name: Install CloudKnox on GCP
+      href: cloudknox-sentry-install-gcp.md
+    - name: Install CloudKnox with an AWS role
+      href: cloudknox-install-aws-agentless-deployment.md
+    - name: Install CloudKnox Sentry on AWS
+      href: cloudknox-sentry-install-aws.md
+    - name: Install CloudKnox Sentry on Azure
+      href: cloudknox-sentry-install-azure.md
   - name: Integration
     expanded: true
     items:
@@ -10,11 +23,6 @@
       href: cloudknox-product-integrations.md
     - name: Integration with the CloudKnox API
       href: cloudknox-api.md
-    - name: Integration with ServiceNow
-      href: cloudknox-servicenow.md     
-  - name: Installation
-    expanded: true
-    items:
     - name: Integration with HashiCorp Terraform
       href: cloudknox-hashicorp-terraform.md
     - name: Integration with Saviynt
@@ -27,16 +35,9 @@
       href: cloudknox-product-dashboard.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
-    - name: Install CloudKnox Sentry
-      href: cloudknox-welcome.md
-    - name: Install CloudKnox on GCP
-      href: cloudknox-sentry-install-gcp.md
-    - name: Install CloudKnox with an AWS role
-      href: cloudknox-install-aws-agentless-deployment.md
-    - name: Install CloudKnox Sentry on AWS
-      href: cloudknox-sentry-install-aws.md
-    - name: Install CloudKnox Sentry on Azure
-      href: cloudknox-sentry-install-azure.md
+  - name: How to
+    expanded: true
+    items:
     - name: Configure an IDP to enable the SAML log in process
       href: cloudknox-idp-for-saml-login.md
     - name: Configure and reconfigure Sentry for VCenter
@@ -47,6 +48,15 @@
       href: cloudknox-product-account-explorer.md
     - name: CloudKnox product account settings
       href: cloudknox-product-account-settings.md
+    - name: Create and save product alerts
+      href: cloudknox-product-alerts.md
+    - name: Filter and query user activity
+      href: cloudknox-product-audit-trail.md
+  - name: Training material
+    expanded: true
+    items:
+    - name: Training videos
+      href: cloudknox-training-videos.md
   - name: Data management
     expanded: true
     items:
@@ -65,14 +75,10 @@
     items: 
     - name: Overview of reports 
       href: cloudknox-all-reports.md
-
+    - name: Create and system and custom reports
+      href: cloudknox-product-reports.md
     - name: The Permissions Analytics report
       href: cloudknox-product-permissions-analytics-reports.md
-  - name: Training material
-    expanded: true
-    items:
-    - name: Training videos
-      href: cloudknox-training-videos.md
   - name: Reference
     expanded: true
     items:
@@ -80,12 +86,6 @@
       href: cloudknox-faqs.md
     - name: Multi-cloud glossary
       href: cloudknox-multi-cloud-glossary.md
-    - name: Create and save product alerts
-      href: cloudknox-product-alerts.md
-    - name: Filter and query user activity
-      href: cloudknox-product-audit-trail.md
-    - name: Create and system and custom reports
-      href: cloudknox-product-reports.md
   #- name: Compliance
     #expanded: true
     #items:
