@@ -26,25 +26,25 @@ For steps about using volume snapshots, see [Manage snapshots by using Azure Net
 
 An Azure NetApp Files snapshot is a point-in-time file system (volume) image. It is ideal to serve as an online backup. You can use a snapshot to [create a new volume](snapshots-restore-new-volume.md) (clone), [restore a file](snapshots-restore-file-client.md), or [revert a volume](snapshots-revert-volume.md). In specific application data stored on Azure NetApp Files volumes, extra steps might be required to ensure application consistency. 
 
-Low-overhead snapshots are made possible by the unique features of the underlaying volume virtualization technology that is part of Azure NetApp Files. Like a database, this layer uses pointers to the actual data blocks on disk. But, unlike a database, it doesn't rewrite existing blocks; it writes updated data to new blocks and changes the pointers, thus maintaining the new and the old data. An Azure NetApp Files snapshot simply manipulates block pointers, creating a “frozen”, read-only view of a volume that lets applications access older versions of files and directory hierarchies without special programming. Actual data blocks aren’t copied. As such, snapshots are efficient in the time needed to create them; they are near-instantaneous, regardless of volume size. Snapshots are also efficient in storage space; only delta blocks between snapshots and the active volume are kept.
+Low-overhead snapshots are made possible by the unique features of the underlying volume virtualization technology that is part of Azure NetApp Files. Like a database, this layer uses pointers to the actual data blocks on disk. But, unlike a database, it doesn't rewrite existing blocks; it writes updated data to new blocks and changes the pointers, thus maintaining the new and the old data. An Azure NetApp Files snapshot simply manipulates block pointers, creating a “frozen”, read-only view of a volume that lets applications access older versions of files and directory hierarchies without special programming. Actual data blocks aren’t copied. As such, snapshots are efficient in the time needed to create them; they are near-instantaneous, regardless of volume size. Snapshots are also efficient in storage space; only delta blocks between snapshots and the active volume are kept.
 
 The following diagrams illustrate the concepts:  
 
 1. Files consist of metadata and data blocks written to a volume. In this illustration, there are three files, each consisting of three blocks: file 1, file 2, and file 3.
 
-   [![A diagram of three files against four grey verticals bars, labeled time, volume, files, block.](../media/azure-netapp-files/single-file-snapshot-restore-one.png)](../media/azure-netapp-files/single-file-snapshot-restore-one.png#lightbox)
+   [![Volume contains three files, file1, file2 and file3, each consisting of three data blocks.](../media/azure-netapp-files/single-file-snapshot-restore-one.png)](../media/azure-netapp-files/single-file-snapshot-restore-one.png#lightbox)
 
 2. A snapshot `Snapshot1` is taken, which copies the metadata and only the pointers to the blocks that represent the files:
 
-   [![A diagram of three files against four grey verticals bars, labeled time, volume, files, block. A fifth grey bar depicts the snapshots as a write-destination.](../media/azure-netapp-files/single-file-snapshot-restore-two.png)](../media/azure-netapp-files/single-file-snapshot-restore-two.png#lightbox)
+   [![Snapshot1 is created, which is a copy of the volume metadata and only the pointers to the data blocks (in file1, file2 and file3).](../media/azure-netapp-files/single-file-snapshot-restore-two.png)](../media/azure-netapp-files/single-file-snapshot-restore-two.png#lightbox)
 
 3. Files on the volume continue to change, and new files are added. Modified data blocks are written as new data blocks on the volume. The blocks that were previously captured in `Snapshot1` remain unchanged: 
 
-   [![Diagram depicting changes to directories that will be staged for snapshot copies.](../media/azure-netapp-files/single-file-snapshot-restore-three.png)](../media/azure-netapp-files/single-file-snapshot-restore-three.png#lightbox)
+   [![Changes to file2 and file3 are written to new data blocks, and a new file file4 is created. Blocks that were previously captured in Snapshot1 remain unchanged.](../media/azure-netapp-files/single-file-snapshot-restore-three.png)](../media/azure-netapp-files/single-file-snapshot-restore-three.png#lightbox)
 
 4. A new snapshot `Snapshot2` is taken to capture the changes and additions:
 
-   [ ![Diagram showing a second set of snapshots being copied to capture new changes in the original file set.](../media/azure-netapp-files/single-file-snapshot-restore-four.png) ](../media/azure-netapp-files/single-file-snapshot-restore-four.png#lightbox)
+   [ ![The latest changes are captured in Snapshot2 for a second point in time view of the volume (and the files within).](../media/azure-netapp-files/single-file-snapshot-restore-four.png) ](../media/azure-netapp-files/single-file-snapshot-restore-four.png#lightbox)
 
 When a snapshot is taken, the pointers to the data blocks are copied, and modifications are written to new data locations. The snapshot pointers continue to point to the original data blocks that the file occupied when the snapshot was taken, giving you a live and a historical view of the data. If you were to create a new snapshot, the current pointers (i.e. the ones created after the most recent additions and modifications) are copied to a new snapshot `Snapshot2`. This creates access to three generations of data (the live data, `Snapshot2`, and `Snapshot1`, in order of age) without taking up the volume space that three full copies would require.
 
@@ -157,7 +157,7 @@ If the [Snapshot Path visibility](snapshots-edit-hide-path.md) is not set to `hi
 
 The following diagram shows file or directory access to a snapshot using a client: 
 
-[![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)](../media/azure-netapp-files/snapshot-file-directory-access.png#)
+[![Diagram that shows file or directory access to a snapshot](../media/azure-netapp-files/snapshot-file-directory-access.png)](../media/azure-netapp-files/snapshot-file-directory-access.png#lightbox)
 
 In the diagram, Snapshot 1 consumes only the delta blocks between the active volume and the moment of snapshot creation. But when you access the snapshot via the volume snapshot path, the data will *appear* as if it’s the full volume capacity at the time of the snapshot creation. By accessing the snapshot folders, you can restore data by copying files and directories out of a snapshot of choice.
 
@@ -179,7 +179,7 @@ The following diagram describes how single-file snapshot restore works:
 
 When a single file is restored in-place (`file2`) or to a new file in the volume (`file2’`), only the *pointers* to existing blocks previously captured in a snapshot are reverted. This operation eliminates the copying of any data blocks and is near-instantaneous, irrespective of the size of the file (the number of blocks in the file).
 
-   [![Diagram depicting snapshot copy over a week-plus period showing how only the pointers to existing blocks previously captured in a snapshot are reverted.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)](../media/azure-netapp-files/single-file-snapshot-restore-five.png#lightbox)
+   [![Individual files can be restored from any snapshot by reverting block pointers to an existing file (file2) or to a new file (file2’) by creating new file metadata and pointers to blocks in the snapshot.](../media/azure-netapp-files/single-file-snapshot-restore-five.png)](../media/azure-netapp-files/single-file-snapshot-restore-five.png#lightbox)
 
 ### Restoring volume backups from vaulted snapshots
 
