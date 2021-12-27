@@ -28,7 +28,7 @@ Here are the couple of scenarios supported by this feature:
 
 ## Configure at the time of lab account creation
 
-When you are creating a lab account, you can attach a shared image gallery to the lab account. You can select an existing shared image gallery from the drop-down list or create a new one. To create and attach a shared image gallery to the lab account, select **Create new**, enter a name for the gallery, and enter **OK**. \
+When you are creating a lab account, you can attach a shared image gallery to the lab account. You can select an existing shared image gallery from the drop-down list or create a new one. To create and attach a shared image gallery to the lab account, select **Create new**, enter a name for the gallery, and enter **OK**.
 
 ![Configure shared image gallery at the time of lab account creation](./media/how-to-use-shared-image-gallery/new-lab-account.png)
 
