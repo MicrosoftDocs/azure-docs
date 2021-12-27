@@ -493,13 +493,17 @@ INTO BlobOutput -- to a storage adapter that doesn't require strong typing, here
 FROM readingsToBeRejected
 ```
 
+## Going further
+
+[Unit-testing](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#automated-test) is a good practice to ensure our query is resilient. We can build a series of tests, both with input and expected output datasets, that our query must match to pass. In ASA, unit-testing is done via the [asa-streamanalytics-cicd](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and tested against in the deployment pipeline.
+
+Finally, a first pass of integration testing can be done via the [live input / live output](/azure/stream-analytics/visual-studio-code-local-run-all) mode in VS Code. This can't be automated yet, but it can still be used to test the mapping of our output schema to the target database table.
+
 ## Get support
 
 For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
 ## Next Steps
-
-To go further, [unit-testing](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#automated-test) should be implemented thanks to the [asa-streamanalytics-cicd](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and submitted to the query to ensure its resilience.
 
 * [Set up CI/CD pipelines and unit testing by using the npm package](./cicd-overview.md)
 * [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md)
