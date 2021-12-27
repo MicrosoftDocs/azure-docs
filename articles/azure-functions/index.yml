@@ -18,27 +18,27 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: Azure Functions Overview
+          - text: Introduction to Azure Functions
             url: functions-overview.md
       - linkListType: concept
         links:
-          - text: Azure Functions scale and hosting
+          - text: Azure Functions hosting options
             url: functions-scale.md
-          - text: Integration and automation platform options in Azure
+          - text: Choose the right integration and automation services in Azure
             url: functions-compare-logic-apps-ms-flow-webjobs.md 
-          - text: Durable Functions
+          - text: What are Durable Functions?
             url: durable/durable-functions-overview.md
   - title: Create your first function
     linkLists:
       - linkListType: get-started
         links:
-          - text: Getting started
+          - text: Getting started with Azure Functions
             url: functions-get-started.md
       - linkListType: quickstart
         links:
-          - text: C#
+          - text: Create a C# function in Azure using Visual Studio Code
             url: create-first-function-vs-code-csharp.md
-          - text: Java (Maven)
+          - text: Create a Java function in Azure from the command line
             url: create-first-function-cli-java.md
           - text: JavaScript
             url: create-first-function-vs-code-node.md
