@@ -19,17 +19,16 @@ To use Azure DevOps Services you will need an Azure DevOps organization. An orga
 
 ## Set up the Azure DevOps project
 
-Open (https://dev.azure.com) and create a new project by clicking on the *New Project* button, for more info see [Create a Project in Azure DevOps](azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project). Enter the project details and click create. 
+Open (https://dev.azure.com) and create a new project by clicking on the *New Project* button and enter the project details. The project will contain both the Azure Repos source control repository and Azure Pipelines for performing deployment activities
 
 You can use Azure Repos to store both system and environment configuration files (*.tfvars), Terraform templates and Ansible playbooks. 
 
-Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos. Navigate to the Repositories section and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops) 
+Start by importing the SAP Deployment Automation Framework GitHub repository into Azure Repos. Navigate to the Repositories section and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops&preserve-view=true) 
 
 ## Set up the Azure Pipelines
 
 To deploy the Azure resources, you need an Azure Resource Manager service connection. To create the connection go to Project settings and navigate to the Service connections setting in the Pipelines section, click *Create service connection*
 Configure the service connection to use Azure Resource Manager and a manually specified service principal. Specify the target subscription (typically the control plane subscription), the service principal details (verify that they are valid using the *Verify* button), provide a Service connection name and ensure that the *Grant access permission to all pipelines* checkbox is checked. Click *Verify and save* to save the service connection
-
 
 
 1. Create a new Variable group "sap-deployment-general-variables" in the Library Section and name it "sap-deployment-specific-variables". Add the following variables
@@ -126,19 +125,18 @@ You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops
 
 1. Create a personal access token. Ensure that *Read & manage* is selected for *Agent Pools* and *Read & write* is selected for *Code*. Write down the created token value.
 
-:::image type="content" source="./media/automation-deployment-framework/automation-new-pat.png" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
+:::image type="content" source="./media/automation-deployment-framework/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 ## Configuring the Agent
 
 1. Connect to the Deployer using the steps described here [Using Visual Studio Code](automation-tools-configuration.md#configuring-visual-studio-code) 
 
 1. Open a Terminal window and run
 
-    ```bash
-    cd ~/Azure_SAP_Automated_Deployment/
+```bash
+cd ~/Azure_SAP_Automated_Deployment/
 
-    sudo $DEPLOYMENT_REPO_PATH/deploy/scripts/setup_ado.sh
-
-    ```
+sudo $DEPLOYMENT_REPO_PATH/deploy/scripts/setup_ado.sh
+```
 
 Accept the license. When prompted for server URL, enter the URL you captured in the previous step. For authentication, choose PAT and enter the token value from the previous step. 
 Enter the application pool name you created in the previous step when prompted. Accept the default agent name. Accept the default work folder name.
