@@ -7,7 +7,7 @@ ms.date: 10/26/2021
 
 # Create and manage lab plans
 
-In Azure Lab Services, a lab plan is a container for managed lab types such as labs. An administrator sets up a lab plan with Azure Lab Services and provides access to lab owners who can create labs in the plan. This article describes how to create a lab plan, view all lab plans, or delete a lab plan.
+In Azure Lab Services, a lab plan contains settings used when creating new labs. An administrator sets up a lab plan with Azure Lab Services and provides access to lab owners who can create labs in the plan. This article describes how to create a lab plan, view all lab plans, or delete a lab plan.
 
 > [!NOTE]
 > In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
@@ -34,10 +34,10 @@ The following steps illustrate how to use the Azure portal to create a lab plan 
 6. To host on a virtual network, select **Enable advanced networking**.
 
     1. For **Virtual network**, select an existing virtual network for the lab network. For a virtual network to appear in this list, it must be in the same region as the lab plan. For more information, see [Connect to your virtual network](how-to-connect-vnet-injection.md).
-    2. Specify an existing **subnet** for VMs in the lab. For a subnet to appear in this list, it must be delegated for use with lab plans when you configure the subnet for the virtual network. For more information, see [Add a virtual network subnet](/azure/virtual-network/virtual-network-manage-subnet).  
+    2. Specify an existing **subnet** for VMs in the lab. For a subnet to appear in this list, it must be delegated for use with `Microsoft.LabServices/labplans` when you configure the subnet for the virtual network. For more information, see [Add a virtual network subnet](/azure/virtual-network/virtual-network-manage-subnet).  
 
         :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-advanced-networking.png" alt-text="Create lab plan -> Networking":::
-7. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab plan. Tags are name/value pairs that enable you to categorize resources and view consolidated billing by applying the same tag to multiple resources and resource groups. For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
+7. Select **Next: Tags** at the bottom of the page to switch to the **Tags** tab. Add any tags you want to associate with the lab plan.  For more information, see [Use tags to organize your Azure resources](../azure-resource-manager/management/tag-resources.md).
 
     :::image type="content" source="./media/how-to-manage-lab-plans/create-lab-plan-tags.png" alt-text="Screenshot that shows the Create lab plan page with the Tags tab highlighted.":::
 8. Select **Review + create** at the bottom of this page to switch to the **Review + create** tab.
@@ -75,6 +75,9 @@ Follow instructions from the previous section that displays lab plans in a list.
 1. Select **Delete**.
 
     :::image type="content" source="./media/how-to-manage-lab-plans/delete-lab-plan-confirmation.png" alt-text="Delete lab plan - confirmation":::
+
+> [!NOTE]
+> Deleting a lab plan will not delete any labs created from that lab plan.
 
 ## Next steps
 

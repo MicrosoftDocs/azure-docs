@@ -9,21 +9,24 @@ ms.date: 11/11/2021
 
 This article provides information about connecting a lab plan to your virtual network.
 
-Some organizations have advanced network requirements and configurations, such as network traffic control, ports management, access to resources in an internal network, etc., that they want to apply to labs. Until now, we offered limited control over the network of the labs, and you could only peer to custom virtual networks (VNet). The peering experience was limited in what admins could control through the peered network.
+Some organizations have advanced network requirements and configurations, such as network traffic control, ports management, access to resources in an internal network, etc., that they want to apply to labs.
 
-In the Azure Lab Services January 2022 Update, customers have the option to take full control of the network for the labs. Instead of peering to your VNet, you can now tell us which VNet to use, and we’ll inject the lab resources into your network.
+In the Azure Lab Services [January 2022 Update (preview)](lab-services-whats-new.md), customers have the option to take full control of the network for the labs using virtual network (VNet) injection. Instead of peering to your virtual network, as was done in previous versions, you can now tell us which virtual network to use, and we’ll inject the necessary resources into your network.
 
-With VNet injection. you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).
+With VNet injection, you can connect to on premise resources such as licensing servers and use user defined routes (UDRs).
 
 ## Overview
 
 You can bring your own virtual network to your lab plan when you create the lab plan.
 
-Before you configure a virtual network for your lab plan:
+> [!IMPORTANT]
+> VNet injection must be configured when creating a lab plan.  It can't be added later.
+
+Before you configure VNet injection for your lab plan:
 
 - You must create a virtual network. See [Create a virtual network](/azure/virtual-network/quick-create-portal).
 - The virtual network must be in the same region as the lab plan.
-- Create a subnet for the virtual network. See [Add a subnet](/azure/virtual-network/virtual-network-manage-subnet#add-a-subnet).
+- Create a subnet for the virtual network and delegate it to **Microsoft.LabServices/labplans**. See [Add or remove a subnet delegation](/azure/virtual-network/manage-subnet-delegation).
 
 Certain on-premises networks are connected to Azure Virtual Network either through [ExpressRoute](../expressroute/expressroute-introduction.md) or [Virtual Network Gateway](../vpn-gateway/vpn-gateway-about-vpngateways.md). These services must be set up outside of Azure Lab Services. To learn more about connecting an on-premises network to Azure using ExpressRoute, see [ExpressRoute overview](../expressroute/expressroute-introduction.md). For on-premises connectivity using a Virtual Network Gateway, the gateway, specified virtual network, and the lab plan must all be in the same region.
 
@@ -40,7 +43,7 @@ Only one lab plan at a time can be delegated for use with one subnet.
 
 2. Open an existing subnet. Or, create a new subnet first. Then, open the existing subnet.
 
-3. In **Delegate subnet to a service**, type **lab**, and then select **Microsoft.LabServices/labplans**.
+3. In **Delegate subnet to a service** and then select **Microsoft.LabServices/labplans**.
 
    :::image type="content" source="./media/how-to-connect-vnet-injection/delegate-subnet-for-azure-lab-services.png" alt-text="Delegate a subnet":::
 
@@ -69,8 +72,8 @@ So, if you need to make changes to the subnet, first delete the lab, then delete
 ## Known issues
 
 - Deleting your virtual network or subnet will cause the lab to stop working
-- Changing the DNS label on the public IP will cause the **Connect** button for VMs to stop working
-- Azure Firewall isn’t currently supported
+- Changing the DNS label on the public IP will cause the **Connect** button for lab VMs to stop working.
+- Azure Firewall isn’t currently supported.
 
 ## Next steps
 
