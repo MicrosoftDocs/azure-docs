@@ -2,7 +2,7 @@
 title: Resource naming restrictions
 description: Shows the rules and restrictions for naming Azure resources.
 ms.topic: conceptual
-ms.date: 12/20/2021
+ms.date: 12/27/2021
 ---
 
 # Naming rules and restrictions for Azure resources
@@ -689,6 +689,7 @@ In the following tables, the term alphanumeric refers to:
 > | servers / elasticPools | server | 1-128 | Can't use:<br>`<>*%&:\/?` or control characters<br><br>Can't end with period or space. |
 > | servers / failoverGroups | global | 1-63 | Lowercase letters, numbers, and hyphens.<br><br>Can't start or end with hyphen. |
 > | servers / firewallRules | server | 1-128 | Can't use:<br>`<>*%&:;\/?` or control characters<br><br>Can't end with period. |
+> | servers / keys | server |  | Must be in format: `VaultName_KeyName_KeyVersion`. |
 
 ## Microsoft.Storage
 
