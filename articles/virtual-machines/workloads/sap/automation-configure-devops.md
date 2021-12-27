@@ -48,15 +48,18 @@ To use Azure DevOps you will need an Azure DevOps account, to create an account 
 | advice.detachedHead              | false                                   |
 | skipComponentGovernanceDetection | true                                    |
 
-5. Create a specific variable groups "sap-deployment-specific-variables" including:
-   * ARM_CLIENT_ID = `<service principal app id>`
-   * ARM_CLIENT_SECRET = `<service principal password>`
-   * ARM_SUBSCRIPTION_ID = `<Azure subscription id>`
-   * ARM_TENANT_ID = `<Azure tenant id>`
-   * AZURE_CONNECTION_NAME = <the connection name specified in step 3.>
-   * S-Username = `<SAP Support user>`
-   * S-Password = `<SAP Support user password>`
-   * Agent = WestEurope
+1. Create a new Variable group "sap-deployment-general-variables" in the Library Section and name it "sap-deployment-specific-variables". Add the following variables
+
+| Variable                         | Value                                           |
+| -------------------------------- | ----------------------------------------------- |
+| ARM_CLIENT_ID                    | `<service principal app id>`                    |
+| ARM_CLIENT_SECRET                | `<service principal password>`                  |
+| ARM_TENANT_ID                    | Tenant ID for service principal                 |
+| ARM_SUBSCRIPTION_ID              | target subscription ID                          |
+| AZURE_CONNECTION_NAME            | Previously created connection ID                |
+| S-Username                       | `<SAP Support user accountname>`                |
+| S-Password                       | `<SAP Support user password>`                   |
+| Agent                            | Name of the agent pool containing the deployer  |
 
 ## Create Azure DevOps Pipelines
   
