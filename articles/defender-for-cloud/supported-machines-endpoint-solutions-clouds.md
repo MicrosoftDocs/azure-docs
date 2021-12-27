@@ -63,7 +63,7 @@ The two **tabs** below show the features of Microsoft Defender for Cloud that ar
 |                                                                                                                                   |                                                                                                                 |                                      |                                |                                         |
 
 
-### [**Multi-cloud msvhinrd**](#tab/features-multi-cloud)
+### [**Multi-cloud machines**](#tab/features-multi-cloud)
 
 | **Feature**                                                                                                                       | **Availability in AWS**                                                                                         |
 |-----------------------------------------------------------------------------------------------------------------------------------|:---------------------------------------------------------------------------------------------------------------:|
