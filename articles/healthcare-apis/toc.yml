@@ -51,7 +51,8 @@ items:
       href: using-curl.md
     - name: Access using REST Client
       href: using-rest-client.md
-    - name: Logging
+    - name: Diagnostic logging
+    - name: Enable diagnostic logging in Healthcare APIs
       href: logging.md
 - name: Concepts
   expanded: true
