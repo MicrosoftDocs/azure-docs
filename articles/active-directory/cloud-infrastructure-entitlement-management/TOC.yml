@@ -10,26 +10,12 @@
       href: cloudknox-welcome.md
     - name: Install CloudKnox on GCP
       href: cloudknox-sentry-install-gcp.md
-<<<<<<< HEAD
     - name: Install CloudKnox with an AWS role
       href: cloudknox-install-aws-agentless-deployment.md
-=======
->>>>>>> ce76213afad69dd79f285adb59a2e7046b666fb8
     - name: Install CloudKnox Sentry on AWS
       href: cloudknox-sentry-install-aws.md
     - name: Install CloudKnox Sentry on Azure
       href: cloudknox-sentry-install-azure.md
-<<<<<<< HEAD
-=======
-    - name: Install Sentry on the vCenter server
-      href: cloudknox-sentry-install-vcenter.md
-    - name: CloudKnox FortSentry registration
-      href: cloudknox-fortsentry-registration.md
-    - name: Install CloudKnox with an AWS role
-      href: cloudknox-install-aws-agentless-deployment.md
-    - name: Use Okta as a SAML 2.0 IDP for configuration
-      href: cloudknox-okta-saml-idp-config.md
->>>>>>> ce76213afad69dd79f285adb59a2e7046b666fb8
   - name: Integration
     expanded: true
     items:
@@ -37,11 +23,6 @@
       href: cloudknox-product-integrations.md
     - name: Integration with the CloudKnox API
       href: cloudknox-api.md
-<<<<<<< HEAD
-=======
-    - name: Integration with ServiceNow
-      href: cloudknox-servicenow.md     
->>>>>>> ce76213afad69dd79f285adb59a2e7046b666fb8
     - name: Integration with HashiCorp Terraform
       href: cloudknox-hashicorp-terraform.md
     - name: Integration with Saviynt
@@ -111,29 +92,10 @@
     items: 
     - name: Overview of reports 
       href: cloudknox-all-reports.md
-<<<<<<< HEAD
     - name: Create and system and custom reports
       href: cloudknox-product-reports.md
     - name: The Permissions Analytics report
       href: cloudknox-product-permissions-analytics-reports.md
-=======
-    - name: The Permissions Analytics report
-      href: cloudknox-product-permissions-analytics-reports.md
-  - name: Training material
-    expanded: true
-    items:
-    - name: Training videos
-      href: cloudknox-training-videos.md
-    - name: Create and system and custom reports
-      href: cloudknox-product-reports.md
-    - name: The Permissions Analytics report
-      href: cloudknox-product-permissions-analytics-reports.md
-  #- name: Compliance
-    #expanded: true
-    #items:
-    #- name: Compliance with established guidelines
-      #href: cloudknox-product-compliance.md
->>>>>>> ce76213afad69dd79f285adb59a2e7046b666fb8
   - name: Reference
     expanded: true
     items:
@@ -141,20 +103,11 @@
       href: cloudknox-faqs.md
     - name: Multi-cloud glossary
       href: cloudknox-multi-cloud-glossary.md
-<<<<<<< HEAD
   #- name: Compliance
     #expanded: true
     #items:
     #- name: Compliance with established guidelines
       #href: cloudknox-product-compliance.md
-=======
-    - name: Create and save product alerts
-      href: cloudknox-product-alerts.md
-    - name: Filter and query user activity
-      href: cloudknox-product-audit-trail.md
-    - name: Create and system and custom reports
-      href: cloudknox-product-reports.md
->>>>>>> ce76213afad69dd79f285adb59a2e7046b666fb8
   #- name: Concepts
     #expanded: true
     #items: 
