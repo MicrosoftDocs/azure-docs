@@ -94,6 +94,7 @@ In the [Redirect URI: MSAL.js 2.0 with auth code flow](scenario-spa-app-registra
       auth: {
         clientId: "Enter_the_Application_Id_Here",
         authority: "Enter_the_Cloud_Instance_Id_Here/Enter_the_Tenant_Info_Here", // This is a URL (e.g. https://login.microsoftonline.com/{your tenant ID})
+        knownAuthorities: [yourtenant.b2clogin.com], // Provide your tenant domain name there in format: tenantname.b2clogin.com
         redirectUri: "Enter_the_Redirect_Uri_Here",
       },
       cache: {
