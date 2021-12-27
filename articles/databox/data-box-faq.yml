@@ -13,10 +13,11 @@ metadata:
   ms.custom: references_regions
 
 title: "Azure Data Box: Frequently Asked Questions"
-summary: |
+summary:
   The Azure Data Box and Azure Data Box Heavy hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal.
 
   Sections with tabs have some questions that apply to **Data Box only** or **Data Box Heavy only**.
+
 
 sections:
   - name: Ignored
@@ -56,7 +57,7 @@ sections:
 
           3. You can then use a tool like AzCopy to copy the data from the storage account in Canada to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
 
-          ### Does Data Box store any customer data outside of the service region?
+          ### Does Data Box store any customer data outside the service region?
 
           No. Data Box does not store any customer data outside of the service region. The customer has full ownership of their data. They can save the data to a specified location based on the storage account they select during the order creation.
 
@@ -84,16 +85,18 @@ sections:
           
           Data Box has a raw capacity of 100 TB and usable capacity of 80 TB. You can transfer up to 80 TB of data with Data Box. To transfer more data, you need to order more devices.
 
-      - question: |
-          How can I check if Data Box is available in my region? 
-        answer: |
+          ### How can I check if Data Box is available in my region? 
+        
           For information on which countries/regions the Data Box is available, go to [region availability](data-box-overview.md#region-availability).  
           
-      - question: |
-          Which regions can I store data in with Data Box?
-        answer: |
+          ### Which regions can I store data in with Data Box?
+        
           Data Box is supported for all regions within the US, Canada, the EU, the UK, Switzerland, Australia, Singapore, Hong Kong, Japan, Korea, India, Brazil, South Africa, and the UAE. For more information, go to [Region availability](data-box-overview.md#region-availability).
           
+          ## [Data Box Heavy only](#tab/data-box-heavy)
+          
+          ### What is the maximum amount of data I can transfer with one Data Box Heavy device?
+
           Data Box Heavy has a raw capacity of about 1 PB (70 disks of 14 TB each) and usable capacity of 770 TB. To transfer more data, you need to order more devices.
 
           ### How can I check if Data Box Heavy is available in my region?
@@ -108,64 +111,15 @@ sections:
           Order device 
         answer: |
           ## [Data Box & Data Box Heavy](#tab/data-box-and-data-box-heavy)
-
+          
           ### I couldn't create a Data Box/Data Box Heavy order in the Azure portal. Why?
 
           If you can't create a Data Box or Data Box Heavy order, there's a problem with either your subscription type or access.
 
-          Data Box supports data ingestion or egress only within the same country/region as the destination and won't cross any international borders. The only exception is for orders in the European Union (EU), where Data Boxes can ship to and from any EU country/region.
-          
-          For example, in the import scenario, if you had the source data in Canada that you wanted to move to an Azure West US storage account, then you could achieve it in the following way:
-          
-          1. Order Data Box in Canada by choosing a storage account in Canada. The device is shipped from an Azure datacenter in Canada to the shipping address (in Canada) provided during order creation.
-          
-          2. Once the on-prem data copy to the Data Box is done, return the device to the Azure datacenter in Canada. The data present on the Data Box then gets uploaded to the destination storage account in the Canada Azure region chosen during order creation.
-          
-          3. You can then use a tool like AzCopy to copy the data to a storage account in West US. This step incurs [standard storage](https://azure.microsoft.com/pricing/details/storage/) and [bandwidth charges](https://azure.microsoft.com/pricing/details/bandwidth/) that aren't included in the Data Box billing.
-          
-      - question: |
-          Does Data Box store any customer data outside of the service region?
-        answer: |
-          No. Data Box does not store any customer data outside of the service region. The customer has full ownership of their data and can save the data to a specified location based on the storage account they select during the order creation.  
-          
-          In addition to the customer data, there is Data Box data that includes security artifacts that are related to the device, monitoring logs for the device and the service, and service-related metadata. In all regions except Brazil South and Southeast Asia, Data Box data is stored and replicated in the paired region via a Geo-redundant Storage account to protect against data loss.  
-          
-          Due to [data residency requirements](https://azure.microsoft.com/global-infrastructure/data-residency/#more-information) in Brazil South and Southeast Asia, Data Box data is stored in a Zone-redundant Storage (ZRS) account so that it is contained in a single region. For Southeast Asia, all the Data Box data is stored in Singapore and for Brazil South, the data is stored in Brazil. 
-          
-          If there is a service outage in Brazil South and Southeast Asia, the customers can create new orders from another region. The new orders will be served from the region in which they are created. The customers are responsible for the to and fro shipment of the Data Box device.
-          
-      - question: |
-          How can I recover my data if an entire region fails?
-        answer: |
-          In extreme circumstances where a region is lost because of a significant disaster, Microsoft may initiate a regional failover. No action on your part is required in this case. Your order will be fulfilled through the failover region if it is within the same country or commerce boundary. However, some Azure regions don't have a paired region in the same geographic or commerce boundary. If there is a disaster in any of those regions, you will need to create the Data Box order again from a different region that is available, and copy the data to Azure in the new region. For more information, see [Cross-region replication in Azure: Business continuity and disaster recovery](../availability-zones/cross-region-replication-azure.md).
-          
-      - question: |
-          Who should I contact if I come across any issues with Data Box?
-        answer: |
-          If you come across any issues with Data Box, [contact Microsoft Support](data-box-disk-contact-microsoft-support.md).
-          
-      - question: |
-          I lost my Data Box. Is there a lost device charge?
-        answer: |
-          Yes. There is a charge for a lost or damaged device. This charge is covered on the [Pricing page](https://azure.microsoft.com/pricing/details/storage/databox/) and in the [Product Terms of Service](https://www.microsoft.com/licensing/product-licensing/products).
-          
-          
-  - name: Order device
-    questions:
-      - question: |
-          How do I get Data Box? 
-        answer: |
-          To get Azure Data Box, sign into the Azure portal and create a Data Box order. Provide your contact information and notification details. Once you place an order, based on the availability, Data Box is shipped to you within 10 days. For more information, go to [Order a Data Box](data-box-deploy-ordered.md).
-          
-      - question: |
-          I couldn't create a Data Box order in the Azure portal. Why?
-        answer: |
-          If you can't create a Data Box order, there's a problem with either your subscription type or access.
-          
           Check your subscription. Data Box is only available for Enterprise Agreement (EA) and Cloud solution provider (CSP) subscription offers. If you don't have either of these subscription types, contact Microsoft Support to upgrade your subscription.
 
           If you have a supported offer type for the subscription, check your subscription access level. You need to be a contributor or owner in your subscription to create an order.
-          
+
           ### I ordered a couple of Data Box devices. I can't create any additional orders. Why?
 
           We allow a maximum of five active orders per subscription per commerce boundary (combination of country and region selected) for any Data Box product. You can have five active Data Box orders and five active Data Box Heavy orders. If you need to order an additional device, contact Microsoft Support to increase the limit for your subscription. 
@@ -185,10 +139,6 @@ sections:
           ## [Data Box only](#tab/data-box)
 
           ### How do I get Data Box?
-
-          To get Azure Data Box, sign into the Azure portal and create a Data Box order. Provide your contact information and notification details. Once you place an order, based on the availability, Data Box is shipped to you within 10 days. For more information, go to [Order a Data Box](data-box-deploy-ordered.md).
-
-          ### How long will my order take from order creation to data uploaded to Azure?
 
           The following estimated lead times for each phase of order processing will give you a good idea of what to expect. 
 
@@ -216,7 +166,7 @@ sections:
 
           ## [Data Box Heavy only](#tab/data-box-heavy)
 
-          ### How do I get Data Box Heavy?
+          ### How do I get a Data Box Heavy device?
 
           Data Box Heavy requires a sign-up when ordering a device. Use the **Request Heavy** button on the initial order screen, and send your migration details. We will be in touch with you within 1-2 business days. Once you enable Data Box Heavy for your subscription, a **Select** button replaces **Request Heavy**, and you can continue with your order. 
 
@@ -224,7 +174,7 @@ sections:
 
           Because of their size and weight, Data Box Heavy devices require special handling. For this reason, we recommend that you use the white glove delivery service, which is used commonly by most Data Box Heavy customers. The white glove service delivers the crate to your premises, unpacks the device, and then keeps the crate for return of the device, which is arranged through Operations.
 
-          If you want to do your own shipping through a different carrier, contact Operations to get detailed shipping requirements. After you uncrate the device, you must save the crate and use it for the return shipment.
+          If you want to do your own shipping through a different carrier, contact Operations to get detailed shipping requirements. After you uncrate the device, you must save the crate and use it for the return shipment.          
           
       - question: |
           Connect and copy
@@ -352,16 +302,12 @@ sections:
           To speed up the copy process:
           
           - Use multiple streams of data copy. For instance, with `Robocopy`, use the multithreaded option. For more information on the exact command used, go to [Tutorial: Copy data to Azure Data Box and verify](data-box-deploy-copy-data.md).
+          
           - Use multiple sessions.
+          
           - Instead of copying over a network share (where network speeds can limit copy speed), store the data locally on the computer to which the Data Box is connected.
+          
           - Benchmark the performance of the computer used to copy the data. Download and use the [`Bluestop` `FIO` tool](https://ci.appveyor.com/project/axboe/fio) to benchmark the performance of the server hardware. Select the latest x86 or x64 build, select the **Artifacts** tab, and download the MSI.
-          
-          <!--### How to speed up the data copy if the source data has small files (KBs or few MBs)?
-          To speed up the copy process:
-          
-          - Create a local VHDx on fast storage or create an empty VHD on the HDD/SSD (slower).
-          - Mount it to a VM.
-          - Copy files to the VM's disk.-->
 
           ### Can I use Data Box to import data to a storage account with private endpoints configured?
 
