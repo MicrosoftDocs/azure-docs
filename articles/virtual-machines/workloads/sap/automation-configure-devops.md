@@ -1,6 +1,6 @@
 ---
-title: Configure Azure DevOps for SAP Deployment Automation Framework
-description: Configure your Azure DevOps for the SAP Deployment Automation Framework on Azure
+title: Configure Azure DevOps Services for SAP Deployment Automation Framework
+description: Configure your Azure DevOps Services for the SAP Deployment Automation Framework on Azure
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -58,52 +58,96 @@ Configure the service connection to use Azure Resource Manager and a manually sp
 
 ## Create Azure Pipelines
   
-Some pipelines will add files to the Azure Repos and require pull permissions. 
+Some of the pipelines will add files to the Azure Repos and require pull permissions. Assign the permissions by navigating to the Security tab of the source code repository in the Repositories section in Project settings. Assign "Contribute" permissions to the Build Service.
   
-  Go to Repositories -> Manage repositories -> All Repositories -> Tab: Security 
-  Under Users mark "SAP-Deployment Build Service (organization)" 
-  Allow "Contribute" permissions
   
-  Delete the .gitignore file
+## Control plane deployment pipeline
   
-  ## Control plane deployment
-  
-  Create the control plane pipeline by choosing *New Pipeline* from the Pipelines section and select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File.
+Create the control plane pipeline by choosing *New Pipeline* from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
 
 | Setting  | Value                                     |
 | -------- | ----------------------------------------- |
 | Branch   | private-preview                           |
 | Path     | `deploy/pipelines/01-prepare-region.yaml` |
-| Name     | Control Plane Deployment                  |
+| Name     | Control plane deployment                  |
 
 
-Save the Pipeline, to see the Save option click the chevron next to the Run button.
+Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
 
-Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
+## SAP workload zone pipeline
+  
+Create the SAP workload zone pipeline by choosing *New Pipeline* from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
 
-  ## Pipeline 2 for the sap workload zone (landscape)
+| Setting  | Value                                        |
+| -------- | -------------------------------------------- |
+| Branch   | private-preview                              |
+| Path     | `deploy/pipelines/02-sap-workload-zone.yaml` |
+| Name     | SAP workload zone deployment                 |
+
+Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP workload zone deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
   
-    Same process for pipeline 02-sap-workload-zone.yaml
+## SAP system deployment pipeline 
   
-  ## Pipeline 3 for the sap systems
+Create the SAP system deployment pipeline by choosing *New Pipeline* from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting  | Value                                            |
+| -------- | ------------------------------------------------ |
+| Branch   | private-preview                                  |
+| Path     | `deploy/pipelines/03-sap-system-deployment.yaml` |
+| Name     | SAP system deployment (infrastructure)           |
+
+Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP system deployment (infrastructure)' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+## SAP software acquisition pipeline
   
-    Same process for pipeline 03-sap-system-deployment.yaml
+Create the SAP software acquisition pipeline by choosing *New Pipeline* from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting  | Value                                            |
+| -------- | ------------------------------------------------ |
+| Branch   | private-preview                                  |
+| Path     | `deploy/pipelines/04-sap-software-download.yaml` |
+| Name     | SAP software acquisition                         |
+
+Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP software acquisition' by choosing 'Rename/Move' from the three-dot menu on the right.
   
-  ## Pipeline 4 for downloading the sap binaries
+## SAP configuration and software installation pipeline
   
-    Same process for pipeline 04-sap-binary-download.yaml
+Create the SAP configuration and software installation pipeline by choosing *New Pipeline* from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting  | Value                                             |
+| -------- | ------------------------------------------------- |
+| Branch   | private-preview                                   |
+| Path     | `deploy/pipelines/05-DB-and-SAP-installation.yaml`|
+| Name     | configuration and software installation           |
+
+Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'SAP configuration and software installation' by choosing 'Rename/Move' from the three-dot menu on the right.
   
-  ## Pipeline 5 for installing the database and SAP applications
+## Deployment removal pipeline
   
-    Same process for pipeline 05-db-and-sap-installation.yaml
+Create the deployment removal pipeline by choosing *New Pipeline* from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting  | Value                                             |
+| -------- | ------------------------------------------------- |
+| Branch   | private-preview                                   |
+| Path     | `deploy/pipelines/10-remover-terraform.yaml`      |
+| Name     | Deployment removal                                |
+
+Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+## Deployment removal pipeline using Azure Resource Manager
   
-  ## Pipeline 10 for destroying deployments via terraform
-  
-    Same process for pipeline 10-remover-terraform.yaml
-  
-  ## Pipeline 11 for removing deployments via Azure resource manager
-  
-    Same process for pipeline 11-remover-arm-fallback.yaml
+Create the deployment removal ARM pipeline by choosing *New Pipeline* from the Pipelines section, select 'Azure Repos Git' as the source for your code. Configure your Pipeline to use an existing Azure Pipeline YAML File. Specify the pipeline with the following settings:
+
+| Setting  | Value                                             |
+| -------- | ------------------------------------------------- |
+| Branch   | private-preview                                   |
+| Path     | `deploy/pipelines/11-remover-arm-fallback.yaml`   |
+| Name     | Deployment removal using ARM                      |
+
+Save the Pipeline, to see the Save option click the chevron next to the Run button. Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Deployment removal using ARM' by choosing 'Rename/Move' from the three-dot menu on the right.
+
+> [!NOTE] 
+>Only use this pipeline as last resort, removing just the resource groups will leave remnants that may complicate re-deployments.
 
 ## Register the Deployer as an self-hosted agent for Azure DevOps
 
