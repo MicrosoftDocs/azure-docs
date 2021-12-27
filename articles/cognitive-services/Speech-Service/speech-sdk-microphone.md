@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/16/2019
+ms.date: 12/27/2021
 ms.author: eur
 ms.custom: ignite-fall-2021
 ---
 
 # Microphone array recommendations
 
-In this article, you learn how to design a microphone array for the Speech SDK.
+In this article, you learn how to design a microphone array customized for use with the Speech SDK.
 
 The Speech SDK works best with a microphone array that has been designed according to the following guidelines, including the microphone geometry and component selection. Guidance is also given on integration and electrical considerations.
 
@@ -99,7 +99,7 @@ The following guidelines for architecture are necessary when integrating microph
 
 ## Electrical architecture considerations
 
-Where applicable, arrays may be connected to a USB host (such as a SoC that runs the Microsoft Audio Stack) and interfaces to Speech services or other applications.
+Where applicable, arrays may be connected to a USB host (such as a SoC that runs the [Microsoft Audio Stack (MAS)](audio-processing-overview.md)) and interfaces to Speech services or other applications.
 
 Hardware components such as PDM-to-TDM conversion should ensure that the dynamic range and SNR of the microphones is preserved within re-samplers.
 
