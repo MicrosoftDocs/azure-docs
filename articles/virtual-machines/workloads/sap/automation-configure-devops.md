@@ -1,6 +1,6 @@
 ---
-title: Configure Azure Devops for SAP Deployment Automation Framework
-description: Configure your Azure Devops for the SAP Deployment Automation Framework on Azure
+title: Configure Azure DevOps for SAP Deployment Automation Framework
+description: Configure your Azure DevOps for the SAP Deployment Automation Framework on Azure
 author: kimforss
 ms.author: kimforss
 ms.reviewer: kimforss
@@ -9,44 +9,36 @@ ms.topic: conceptual
 ms.service: virtual-machines-sap
 ---
 
-# Using SAP Deployment Automation Framework from Azure DevOps
+# Using SAP Deployment Automation Framework from Azure DevOps Services
 
-This document describes how to configure Azure DevOps to the SAP Deployment Automation Framework.
+You can use Azure DevOps Services (Azure Repos and Azure Pipelines) as your configuration repository as well as the execution environment for deployment and configuration activities for the SAP Deployment Automation Framework.
 
-## Setup of Azure DevOps instance
+## Sign up for Azure DevOps Services
 
-You can use Azure DevOps as your execution environment for deployment and configuration activities.
+To use Azure DevOps Services you will need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD).To create an account open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either *Sign In* or create a new account.
 
-## Pipeline creation
+## Set up the Azure DevOps project
 
-You can create Azure DevOps pipelines to perform the deployment or removal of the control plane, workload zone, SAP system and perform the SAP installation.
+Open (https://dev.azure.com) and create a new project by clicking on the *New Project* button, for more info see [Create a Project in Azure DevOps](azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project). Enter the project details and click create. 
 
+You can use Azure Repos to store both the configuration files and the Terraform templates and the Ansible playbooks. Start by importing the GitHub repository into Azure Repos.
 
-## Sign up for Azure DevOps
+Navigate to the Repositories section in the left navigation and choose Import a repository. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure DevOps. For more info, see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops) 
 
-To use Azure DevOps you will need an Azure DevOps account, to create an account open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either *Sign In* or create a new account.
-
-## Setup the Azure DevOps project
-
-1. Open (https:/dev.azure.com) and create a new project by clicking on the *New Project* button, for more info see [Create a Project in Azure DevOps](azure/devops/organizations/projects/create-project?view=azure-devops&tabs=preview-page#create-a-project). Enter the project details and click create.
-
-1. Navigate to the Repositories section in the left navigation and choose Import a repository.
-
-1. Import the 'https://github.com/Azure/sap-automation.git' repository into Azure Devops. For more info see [Importing a repository](/azure/devops/repos/git/import-git-repository?view=azure-devops) 
 
 1. [Create the Azure Resource Manager service connection](/azure/devops/pipelines/library/service-endpoints?view=azure-devops&tabs=yaml#azure-resource-manager-service-connection). Configure the manual connection type and use a service principal. 
 
 1. Create a new Variable group "sap-deployment-general-variables" in the Library Section and name it "sap-deployment-specific-variables". Add the following variables
 
-| Variable                         | Value                                   |
-| -------------------------------- | --------------------------------------- |
-| ANSIBLE_HOST_KEY_CHECKING        | false                                   |
-| ANSIBLE_CALLBACK_WHITELIST       | profile_tasks                           |
-| Deployment_Configuration_Path    | samples/WORKSPACES                      |
-| Repository                       | https://github.com/Azure/sap-automation |
-| Branch                           | private-preview                         |
-| advice.detachedHead              | false                                   |
-| skipComponentGovernanceDetection | true                                    |
+| Variable                           | Value                                   |
+| ---------------------------------- | --------------------------------------- |
+| `ANSIBLE_HOST_KEY_CHECKING`        | false                                   |
+| `ANSIBLE_CALLBACK_WHITELIST`       | profile_tasks                           |
+| Deployment_Configuration_Path      | samples/WORKSPACES                      |
+| Repository                         | https://github.com/Azure/sap-automation |
+| Branch                             | private-preview                         |
+| `advice.detachedHead`              | false                                   |
+| `skipComponentGovernanceDetection` | true                                    |
 
 1. Create a new Variable group "sap-deployment-general-variables" in the Library Section and name it "sap-deployment-specific-variables". Add the following variables
 
@@ -57,13 +49,13 @@ To use Azure DevOps you will need an Azure DevOps account, to create an account 
 | ARM_TENANT_ID                    | Tenant ID for service principal                 |
 | ARM_SUBSCRIPTION_ID              | target subscription ID                          |
 | AZURE_CONNECTION_NAME            | Previously created connection ID                |
-| S-Username                       | `<SAP Support user accountname>`                |
+| S-Username                       | `<SAP Support user account name>`                |
 | S-Password                       | `<SAP Support user password>`                   |
 | Agent                            | Name of the agent pool containing the deployer  |
 
-## Create Azure DevOps Pipelines
+## Create Azure Pipelines
   
-Some pipelines will add files to the devops repository and require pull permissions. 
+Some pipelines will add files to the Azure Repos and require pull permissions. 
   
   Go to Repositories -> Manage repositories -> All Repositories -> Tab: Security 
   Under Users mark "SAP-Deployment Build Service (organization)" 
@@ -84,7 +76,7 @@ Some pipelines will add files to the devops repository and require pull permissi
 
 Save the Pipeline, to see the Save option click the chevron next to the Run button.
 
-Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three dot menu on the right.
+Navigate to the Pipelines section and select the pipeline. Rename the pipeline to 'Control plane deployment' by choosing 'Rename/Move' from the three-dot menu on the right.
 
   ## Pipeline 2 for the sap workload zone (landscape)
   
@@ -106,11 +98,11 @@ Navigate to the Pipelines section and select the pipeline. Rename the pipeline t
   
     Same process for pipeline 10-remover-terraform.yaml
   
-  ## Pipeline 11 for removing deployments via Azure ressource manager
+  ## Pipeline 11 for removing deployments via Azure resource manager
   
     Same process for pipeline 11-remover-arm-fallback.yaml
   
-## Run Azure DevOps Pipelines
+## Run Azure Pipelines
 
   Newly created pipelines might not be visible in the default view. Click on recent tab and go back to All tab to view the new pipelines.
   Click on the pipeline and choose "Run"
@@ -118,14 +110,14 @@ Navigate to the Pipelines section and select the pipeline. Rename the pipeline t
   Verify the result in Azure: Are the VMs deployed and running?
   Check the configuration files in the ADO Repo
   
-## Register the Deployer as a Azure DevOps agent
+## Register the Deployer as an Azure DevOps agent
 
-You will use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. This requires that the Deployer needs to be added into an [Agent Pool](/azure/devops/pipelines/agents/pools-queues). As a one-time step, you must register the agent. Someone with permission to administer the agent queue must complete these steps.  
+You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops/pipelines/agents/v2-linux) to perform the Ansible configuration activities. This requires that the Deployer needs to be added into an [Agent Pool](/azure/devops/pipelines/agents/pools-queues). As a one-time step, you must register the agent. Someone with permission to administer the agent queue must complete these steps.  
 
 ### Prerequisites
 
 
-1. Connect to your Azure DevOps instance Sign in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and write down the URL to the Azure DevOps project.
+1. Connect to your Azure DevOps instance Sign-in to [Azure DevOps](https://dev.azure.com). Navigate to the Project you want to connect to and write down the URL to the Azure DevOps project.
 
 1. Create an Agent Pool by navigating to the Organizational Settings and selecting *Agent Pools* from the Pipelines section. Click the *Add Pool* button and choose Self-hosted as the pool type. Name the pool to align with the control plane, for example `MGMT-WEEU-POOL`. Ensure *Grant access permission to all pipelines* is selected and create the pool using the *Create* button.
 
@@ -152,7 +144,7 @@ You will use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devop
 
     ```
 
-Accept the license. When prompted for server URL, enter the URL you captured in the previous step. For authentication choose PAT and enter the token value from the previous step. 
+Accept the license. When prompted for server URL, enter the URL you captured in the previous step. For authentication, choose PAT and enter the token value from the previous step. 
 Enter the application pool name you created in the previous step when prompted. Accept the default agent name. Accept the default work folder name.
 
 The agent will now be configured and stated,
@@ -166,4 +158,4 @@ The agent will now be configured and stated,
 > [Configure control plane](automation-configure-control-plane.md)
 
 
-test
+Test
