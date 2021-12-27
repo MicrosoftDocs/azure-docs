@@ -13,7 +13,7 @@ ms.subservice: partner
 # Deploy hybrid data infrastructure with Tiger Bridge and Azure Blob Storage
 
 This article describes how to set up Tiger Bridge data management system with Azure Blob Storage. Tiger Bridge is fully integrated with NTFS, or ReFS file systems on windows platform. It can also manage volumes via SMB/NFS.
-Tiger Bridge is a connector that creates a single name-space between different sources, and Azure Blob Storage. It allows replication, tiering, and collaboration of unstructured data with file-locking capabilities between different file systems. Data is stored in Azure Blob Storage in native format, which makes it open to Azure, and third party services (like AI/ML). 
+Tiger Bridge is a connector that creates a single name-space between different sources, and Azure Blob Storage. It allows replication, tiering, and collaboration of unstructured data with file-locking capabilities between different file systems. Data is stored in Azure Blob Storage in native format, which makes it open to Azure, and third-party services (like AI/ML). 
 Tiger Bridge can be deployed on physical or virtual infrastructure, and can easily be integrated within existing environment. Main features of the solution are:
 
 - Data replication
@@ -100,19 +100,19 @@ Before you can install Tiger Bridge, you need to have a Windows file server inst
 #### Deploy standalone hybrid configuration
 
 1. Install Tiger Bridge on your windows server. Installation is done by running the Tiger Bridge installation file, and following the wizard. During installation, you can select two components:
-    1. Tiger Bridge installs the product, GUI, and command line interface.
+    1. Tiger Bridge installs the product, GUI, and command-line interface.
     1. Shell Extension provides integration with Windows Explorer. Allows manual management of the data through the Windows Explorer context menu.
 1. In Tiger Bridge Configuration, add a local volume source:
     1. Select **Tiger Bridge** in the left pane 
     1. Select **Add Source**
     1. Select root of a drive, or browse to a folder you want to use for storing data. Select a folder and press **OK**. In this example, we will use C:\AzureSource.
-        :::image type="content" source="./media/tigerbridge-deployment-guide/tigerbridge-add-source.png" alt-text="Screenshots that shows how to pair Tiger Bridge local source with Azure storage account.":::
+        :::image type="content" source="./media/tigerbridge-deployment-guide/tigerbridge-add-source.png" alt-text="Screenshot that shows how to pair Tiger Bridge local source with Azure storage account.":::
 1. Pair the local source with Microsoft Azure target:
-    1. In the **Tiger Bridge target** dialog, select **Azure**, and click **OK**.
+    1. In the **Tiger Bridge target** dialog, select **Azure**, and press **OK**.
         :::image type="content" source="./media/tigerbridge-deployment-guide/tigerbridge-pair-account.png" alt-text="Screenshot that shows how to pair Tiger Bridge local source with Azure storage account.":::
         C:\AzureSource in the screenshot is a folder selected in the previous step.
     1. Enter a name for the target.
-    1. Enter the account name and key and the Blob endpoint in the respective fields. This is the account created in [prepare Azure Blob storage step](#prepare-azure-blob-storage).
+    1. Enter the account name and key and the Blob endpoint in the respective fields. Use the storage account name created in [prepare Azure Blob storage step](#prepare-azure-blob-storage).
     1. Choose whether to access the target using the secure transfer (SSL/TLS) by selecting, or clearing the check box. Secure transfer is recommended for production workloads. If disabled, make sure that you disabled **Secure transfer required** option in the storage account **Configuration** option.
       :::image type="content" source="./media/tigerbridge-deployment-guide/azure-secure-transfer.png" alt-text="Screenshot that shows how to set up a protection for a storage account.":::
     1. In the **Default access tier**, select whether to use the Hot, Cool, or Archive tier of Azure Storage. This tier will be used for any data that doesn't have a tier set. Learn more on [Hot, Cool, and Archive access tiers for blob data](/azure/storage/blobs/access-tiers-overview)
