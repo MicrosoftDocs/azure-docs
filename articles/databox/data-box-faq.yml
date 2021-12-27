@@ -8,12 +8,12 @@ metadata:
   ms.service: databox
   ms.subservice: pod
   ms.topic: article
-  ms.date: 12/22/2021
+  ms.date: 12/27/2021
   ms.author: alkohli
   ms.custom: references_regions
 
 title: "Azure Data Box: Frequently Asked Questions"
-summary: 
+summary: |
   The Azure Data Box and Azure Data Box Heavy hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal.
 
   Sections with tabs have some questions that apply to **Data Box only** or **Data Box Heavy only**.
