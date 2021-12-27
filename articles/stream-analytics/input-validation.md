@@ -31,7 +31,7 @@ Once the data is deserialized, **a schema needs to be applied to give it meaning
 
 But the capabilities offered by dynamic schema handling come with a potential downside. Unexpected events can flow through the main query logic and break it. As an example, we can use [ROUND](/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)`. ASA will implicitly cast it to float to match the signature of `ROUND`. Here we expect, or hope, this field will always contain numeric values. But when we do receive an event with the field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
 
-With input validation, we add preliminary steps to our query to handle such malformed events. We will primarily use [WITH](/stream-analytics-query/with-azure-stream-analytics) and [TRY_CAST](/stream-analytics-query/try-cast-azure-stream-analytics) to implement it.
+With input validation, we add preliminary steps to our query to handle such malformed events. We'll primarily use [WITH](/stream-analytics-query/with-azure-stream-analytics) and [TRY_CAST](/stream-analytics-query/try-cast-azure-stream-analytics) to implement it.
 
 ## Problem statement
 
@@ -495,11 +495,11 @@ FROM readingsToBeRejected
 
 ## Going further
 
-[GetType](/stream-analytics-query/gettype-azure-stream-analytics) can be used to explicitly check for a type. It works well with [CASE](/stream-analytics-query/case-azure-stream-analytics) in the projection, or [WHERE](/stream-analytics-query/where-azure-stream-analytics) at the set level. It can also be used to dynamically check the incoming schema against a metadata repository. The repository can be loaded via a reference data set.
+[GetType](/stream-analytics-query/gettype-azure-stream-analytics) can be used to explicitly check for a type. It works well with [CASE](/stream-analytics-query/case-azure-stream-analytics) in the projection, or [WHERE](/stream-analytics-query/where-azure-stream-analytics) at the set level. `GetType` can also be used to dynamically check the incoming schema against a metadata repository. The repository can be loaded via a reference data set.
 
-[Unit-testing](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#automated-test) is a good practice to ensure our query is resilient. We can build a series of tests, both with input and expected output datasets, that our query must match to pass. In ASA, unit-testing is done via the [asa-streamanalytics-cicd](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and tested against in the deployment pipeline.
+[Unit-testing](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#automated-test) is a good practice to ensure our query is resilient. We'll build a series of tests that consist of input files and their expected output. Our query will have to match the output it generates to pass. In ASA, unit-testing is done via the [asa-streamanalytics-cicd](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and tested in the deployment pipeline.
 
-Finally, a first pass of integration testing can be done via the [live input / live output](/azure/stream-analytics/visual-studio-code-local-run-all) mode in VS Code. This can't be automated yet, but it can still be used to test the mapping of our output schema to the target database table.
+Finally, a first pass of integration testing can be done via the [live input / live output](/azure/stream-analytics/visual-studio-code-local-run-all) mode in VS Code. This mode is not yet available for automation, but it can still be used manually to test the mapping of our output schema to the target database table.
 
 ## Get support
 
