@@ -59,11 +59,9 @@ Before you start trying out KQL queries for Microsoft Sentinel, review some [que
 
 ## Data flow in Kusto queries
 
-When you want to glean usable information from large amounts of data in Microsoft Sentinel, you follow a query process that starts with a set of data. Each step in the process takes the data fed into it, transforms that data, and passes it to the next step in the process using the pipe delimiter. These are the essential steps in a simple query process:
+When you want to glean usable information from large amounts of data in Microsoft Sentinel, you follow a query process that starts with a set of data. Each step in the process takes the data fed into it, transforms that data, and passes it to the next step in the process using the ` ! ` (pipe) delimiter. These are the essential steps in a simple query process:
 
-```kusto
-Get data | Filter | Summarize | Sort | Select
-```
+`Get data | Filter | Summarize | Sort | Select`
 
 Here’s an example that illustrates this process:
 
@@ -84,11 +82,22 @@ SigninLogs
 
 1. **Sort:** To further simplify and clarify the results, we will use the `order by` operator to list these users in descending order of the number of sign-ins they had. The users that had the most, which may mean they are of the greatest concern to us, will be at the top.
 
-1. **Select:** Finally, we can choose to display only a subset of all the records that answered all the criteria, and we can also choose to display only the most relevant columns from the original table. In this example, we only want the top five users by number of risky sign-ins. The `take` operator takes care of that.
+1. **Select:** Finally, we can choose to display only a subset of all the records that answered all the criteria, and we can also choose to display only the most relevant columns from the original table. In this example, we only want the top five users by number of risky sign-ins. The `take` operator is one way to choose a subset of rows. The `project` operator is one way to choose a subset of columns. We'll discuss these more below.
 
+More complex queries can contain additional analysis operations, and also feature multiple layers of filtering, analysis, and summarization.
 
+> [!NOTE]
+> Where you place your operators in the pipeline affects the data you will receive in the results. 
+> - If, for example, you placed the `take 5` line before the summarization and sorting operators, the query would select five random records from the filtered data.
+> - If you placed the `take 5` line before the filter operators, the query would select five random records from unfiltered data, and then filter and summarize only those records - in other words, the query would be of no use to you at all.
+>
+> The location of operations in the pipeline can also affect performance. That's why it's a good idea to put your filtering operations as close as possible to the beginning of your query statement, so that only the relevant data gets passed to the next operations in the pipeline.
 
+Now, let's go through some examples of various queries, starting with the simplest and increasing in complexity.
 
+## Count rows
+
+The SecurityAlerts table 
 
 
 
