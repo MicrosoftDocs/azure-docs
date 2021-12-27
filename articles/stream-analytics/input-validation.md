@@ -499,7 +499,7 @@ FROM readingsToBeRejected
 
 [Unit-testing](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#automated-test) is a good practice to ensure our query is resilient. We'll build a series of tests that consist of input files and their expected output. Our query will have to match the output it generates to pass. In ASA, unit-testing is done via the [asa-streamanalytics-cicd](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and tested in the deployment pipeline.
 
-Finally, a first pass of integration testing can be done via the [live input / live output](/azure/stream-analytics/visual-studio-code-local-run-all) mode in VS Code. This mode can be used to check the mapping of the output schema to the target database table.
+Finally, we can do a first pass of integration testing via the [live input / live output](/azure/stream-analytics/visual-studio-code-local-run-all) mode in VS Code. We can check the mapping of the output schema to the target database table via a live run to live output.
 
 ## Get support
 
