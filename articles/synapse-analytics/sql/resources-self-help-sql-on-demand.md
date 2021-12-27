@@ -98,7 +98,7 @@ The easiest way is to resolve this issue is grant yourself `Storage Blob DataCon
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md).
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
  
-#### DataVerse table is not accessible - content of diectory cannot be listed
+#### DataVerse table is not accessible - content of directory cannot be listed
 
 If you are using the Synapse link for DataVerse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool.
 If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
@@ -563,7 +563,7 @@ The items in the Cosmos DB transactional store are eventually moved to the analy
 
 ### Cannot execute the OPENROWSET function on Cosmos DB container
 
-There are multiple issues that might cause this isseue.
+There are multiple issues that might cause this error.
 
 | Error | Root cause |
 | --- | --- |
