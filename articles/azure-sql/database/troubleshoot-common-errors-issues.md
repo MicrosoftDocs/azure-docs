@@ -9,7 +9,7 @@ ms.custom: seo-lt-2019, OKR 11/2019, sqldbrb=1
 author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: kendralittle, mathoma, vanto
-ms.date: 11/04/2021
+ms.date: 01/15/2022
 ---
 
 # Troubleshooting connectivity issues and other errors with Azure SQL Database and Azure SQL Managed Instance
@@ -19,7 +19,7 @@ You receive error messages when the connection to Azure SQL Database or Azure SQ
 
 ## Transient fault error messages (40197, 40613 and others)
 
-The Azure infrastructure has the ability to dynamically reconfigure servers when heavy workloads arise in the SQL Database service.  This dynamic behavior might cause your client program to lose its connection to the database or instance. This kind of error condition is called a *transient fault*. Database reconfiguration events occur because of a planned event (for example, a software upgrade) or an unplanned event (for example, a process crash, or load balancing). Most reconfiguration events are generally short-lived and should be completed in less than 60 seconds at most. However, these events can occasionally take longer to finish, such as when a large transaction causes a long-running recovery. The following table lists various transient errors that applications can receive when connecting to SQL Database
+The Azure infrastructure has the ability to dynamically reconfigure servers when heavy workloads arise in the SQL Database service.  This dynamic behavior might cause your client program to lose its connection to the database or instance. This kind of error condition is called a *transient fault*. Database reconfiguration events occur because of a planned event (for example, a software upgrade) or an unplanned event (for example, a process crash, or load balancing). Most reconfiguration events are generally short-lived and should be completed in less than 60 seconds at most. However, these events can occasionally take longer to finish, such as when a large transaction causes a long-running recovery. The following table lists various transient errors that applications can receive when connecting to Azure SQL Database.
 
 ### List of transient fault error codes
 
@@ -167,34 +167,92 @@ Connection timeouts occur because the application can't connect to the server. T
 
 ## Resource governance errors
 
-### Error 10928: Resource ID: %d
+Azure SQL Database uses a resource governance implementation based on SQL Server Resource Governor, modified and extended to run in the cloud, to enforce resource limits. Learn more about [resource management in Azure SQL Database](resource-limits-logical-server.md).
 
-`10928: Resource ID: %d. The %s limit for the database is %d and has been reached. See http://go.microsoft.com/fwlink/?LinkId=267637 for assistance. The Resource ID value in error message indicates the resource for which limit has been reached. For sessions, Resource ID = 2.`
+The most common resource governance errors are listed first with details, followed by a table of resource governance error messages.
 
-To work around this issue, try one of the following methods:
+### Error 10928: Resource ID : 1. The request limit for the database is *%d* and has been reached.
 
-- Verify whether there are long-running queries.
+The detailed error message in this case reads: `Resource ID : 1. The request limit for the database is %d and has been reached. See 'http://go.microsoft.com/fwlink/?LinkId=267637' for assistance.`
 
-  > [!NOTE]
-  > This is a minimalist approach that might not resolve the issue. For more thorough information on troubleshooting long running or blocking queries, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
+This error message indicates that the worker limit for Azure SQL Database has been reached. A value will be present instead of the placeholder *%d*. This value indicates the worker limit for your database at the time the limit was reached.
 
-1. Run the following SQL query to check the [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) view to see any blocking requests:
+> [!NOTE]
+> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes. The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is greater than one, the number of workers may be much higher than the number of requests.
+> 
+> Learn more about [Sessions, workers, and requests](resource-limits-logical-server.md#sessions-workers-and-requests).
 
-   ```sql
-   SELECT * FROM sys.dm_exec_requests;
-   ```
+#### Connect with the Dedicated Admin Connection (DAC) if needed
 
-1. Determine the **input buffer** for the head blocker using the [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dynamic management function, and the session_id of the offending query, for example:
+If a live incident is ongoing where the worker limit has been reached, you may receive Error 10928 when you connect using [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) (SSMS) or [Azure Data Studio](/sql/azure-data-studio/what-is). One session can connect using the [Diagnostic Connection for Database Administrators (DAC)](/sql/database-engine/configure-windows/diagnostic-connection-for-database-administrators#connecting-with-dac) even when the maximum worker threshold has been reached.
 
-   ```sql 
-   SELECT * FROM sys.dm_exec_input_buffer (100,0);
-   ```
+To establish a connection with the DAC from SSMS:
 
-1. Tune the head blocker query.
+- Disconnect all connections to the database, including the Object Explorer and all open query windows.
+- From the menu, select **File > New > Database Engine Query**
+- From the connection dialog box in the Server Name field, enter `admin:<fully_qualified_server_name>` (this will be something like `admin:servername.database.windows.net`).
+- Select **Connect**.
 
-If the database consistently reaches its limit despite addressing blocking and long-running queries, consider upgrading to an edition with more resources [Editions](https://azure.microsoft.com/pricing/details/sql-database/).
+If you receive Error 40613, `Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not currently available. Please retry the connection later. If the problem persists, contact customer support, and provide them the session tracing ID of '%.&#x2a;ls'`, this may indicate that another session is already connected to the DAC. Only one session may connect to the DAC for a [logical server in Azure SQL Database](logical-servers.md) at a time.
 
-For more information about database limits, see  [SQL Database resource limits for servers](./resource-limits-logical-server.md).
+#### Review your max_worker_percent usage
+
+To find resource consumption statistics for your database including `max_worker_percent` for up to the past 14 days, query the [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalog view. Connect to the master database on your [logical server](logical-servers.md) to query `sys.resource_stats`.
+
+```sql
+SELECT start_time, end_time, database_name, sku, max_worker_percent, max_session_percent 
+FROM sys.resource_stats;
+```
+
+You can also query resource consumption statistics from the last hour from the
+[sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamic management view. Connect directly to your database to query `sys.dm_db_resource_stats`.
+
+```sql
+SELECT end_time, max_worker_percent, max_session_percent
+FROM sys.dm_db_resource_stats;
+```
+#### Lower worker usage when possible
+
+Blocking chains can cause of a sudden surge in the number of workers in a database. A large volume of concurrent parallel queries may cause a high number of workers. Increasing your [max degree of parallelism (MAXDOP](configure-max-degree-of-parallelism.md)) or setting MAXDOP to zero can increase the number of active workers.
+
+Triage an incident with insufficient workers with the following steps:
+
+1. Investigate if blocking is occurring. The following quick procedure can be used to check for blocking when your database is returning Error 10928. You'll likely need to [connect with the Dedicated Admin Connection (DAC)](#connect-with-the-dedicated-admin-connection-dac-if-needed) to execute these steps:
+
+    - Run the following Transact-SQL query to check [sys.dm_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-requests-transact-sql) to see any blocking requests. Look for rows with a `blocking_session_id` to identify blocked sessions. Find each `blocking_session_id` in the list to determine if that session is also blocked. This will eventually lead you to the head blocker.
+    
+       ```sql
+       SELECT * 
+       FROM sys.dm_exec_requests;
+       ```
+    
+    - Determine the **input buffer** for the head blocker using the [sys.dm_exec_input_buffer](/sql/relational-databases/system-dynamic-management-views/sys-dm-exec-input-buffer-transact-sql) dynamic management function, and the session_id of the offending query, for example:
+    
+       ```sql 
+       SELECT * 
+       FROM sys.dm_exec_input_buffer (100,0);
+       ```
+    
+    - Tune the head blocker query.
+    
+
+    > [!NOTE]
+    > This is a minimalist approach that might not resolve the issue. For more thorough information on troubleshooting long running or blocking queries, see [Understand and resolve Azure SQL Database blocking problems](understand-resolve-blocking.md).
+1. Optimize queries to reduce resource utilization if the cause of increased workers is contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
+1. Evaluate the [maximum degree of parallelism (MAXDOP)](configure-max-degree-of-parallelism.md) setting for the database.
+
+#### Increase worker limits
+
+If the database consistently reaches its limit despite addressing blocking, optimizing queries, and validating your MAXDOP setting, consider adding more resources to the database to increase the worker limit.
+
+Find resource limits for Azure SQL Database by service tier and compute size:
+
+- [Resource limits for single databases using the vCore purchasing model](resource-limits-vcore-single-databases.md)
+- [Resource limits for elastic pools using the vCore purchasing model](resource-limits-vcore-elastic-pools.md)
+- [Resource limits for single databases using the DTU purchasing model](resource-limits-dtu-single-databases.md)
+- [Resources limits for elastic pools using the DTU purchasing model](resource-limits-dtu-elastic-pools.md)
+
+Learn more about [Azure SQL Database resource governance of workers](./resource-limits-logical-server.md#sessions-workers-and-requests).
 
 ### Error 10929: Resource ID: 1
 
@@ -300,11 +358,11 @@ For an in-depth troubleshooting procedure, see [Is my query running fine in the 
 
 For more information on other out of memory errors and sample queries, see [Troubleshoot out of memory errors with Azure SQL Database](troubleshoot-memory-errors-issues.md).
 
-### Table of additional resource governance error messages
+### Table of resource governance error messages
 
 | Error code | Severity | Description |
 | ---:| ---:|:--- |
-| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. For more information, see [SQL Database resource limits for single and pooled databases](resource-limits-logical-server.md).<br/><br/>The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2.<br/><br/>For more information about this error and how to resolve it, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). |
+| 10928 |20 |Resource ID: %d. The %s limit for the database is %d and has been reached. See 'http://go.microsoft.com/fwlink/?LinkId=267637' for assistance..<br/><br/>The Resource ID indicates the resource that has reached the limit. When Resource ID = 1, this indicates a worker limit has been reached. Learn more in [Error 10928: Resource ID : 1. The request limit for the database is *%d* and has been reached.](#error-10928-resource-id--1-the-request-limit-for-the-database-is-d-and-has-been-reached) When Resource ID = 2, this indicates the session limit has been reached.<br/><br/>Learn more about resource limits: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). |
 | 10929 |20 |Resource ID: %d. The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. The Resource ID indicates the resource that has reached the limit. For worker threads, the Resource ID = 1. For sessions, the Resource ID = 2. For more information, see: <br/>&bull; &nbsp;[Logical SQL server resource limits](resource-limits-logical-server.md)<br/>&bull; &nbsp;[DTU-based limits for single databases](service-tiers-dtu.md)<br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for single databases](resource-limits-vcore-single-databases.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md)<br/>&bull; &nbsp;[Azure SQL Managed Instance resource limits](../managed-instance/resource-limits.md). <br/>Otherwise, try again later. |
 | 40544 |20 |The database has reached its size quota. Partition or delete data, drop indexes, or consult the documentation for possible resolutions. For database scaling, see [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).|
 | 40549 |16 |Session is terminated because you have a long-running transaction. Try shortening your transaction. For information on batching, see [How to use batching to improve SQL Database application performance](../performance-improve-use-batching.md).|
@@ -320,7 +378,7 @@ The following errors are related to creating and using elastic pools:
 | Error code | Severity | Description | Corrective action |
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |The elastic pool has reached its storage limit. The storage usage for the elastic pool cannot exceed (%d) MBs. Attempting to write data to a database when the storage limit of the elastic pool has been reached. For information on resource limits, see: <br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md). <br/> |Consider increasing the DTUs of and/or adding storage to the elastic pool if possible in order to increase its storage limit, reduce the storage used by individual databases within the elastic pool, or remove databases from the elastic pool. For elastic pool scaling, see [Scale elastic pool resources](elastic-pool-scale.md). For more information on removing unused space from databases, see [Manage file space for databases in Azure SQL Database](file-space-manage.md).|
-| 10929 | 16 |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For information on resource limits, see: <br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md). <br/> Otherwise, try again later. DTU / vCore min per database; DTU / vCore max per database. The total number of concurrent workers (requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs or vCores of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
+| 10929 | 16 |The %s minimum guarantee is %d, maximum limit is %d, and the current usage for the database is %d. However, the server is currently too busy to support requests greater than %d for this database. For information on resource limits, see: <br/>&bull; &nbsp;[DTU-based limits for elastic pools](resource-limits-dtu-elastic-pools.md)<br/>&bull; &nbsp;[vCore-based limits for elastic pools](resource-limits-vcore-elastic-pools.md). <br/> Otherwise, try again later. DTU / vCore min per database; DTU / vCore max per database. The total number of concurrent [workers (requests)](resource-limits-logical-server.md#sessions-workers-and-requests) across all databases in the elastic pool attempted to exceed the pool limit. |Consider increasing the DTUs or vCores of the elastic pool if possible in order to increase its worker limit, or remove databases from the elastic pool. |
 | 40844 | 16 |Database '%ls' on Server '%ls' is a '%ls' edition database in an elastic pool and cannot have a continuous copy relationship.  |N/A |
 | 40857 | 16 |Elastic pool not found for server: '%ls', elastic pool name: '%ls'. Specified elastic pool does not exist in the specified server. | Provide a valid elastic pool name. |
 | 40858 | 16 |Elastic pool '%ls' already exists in server: '%ls'. Specified elastic pool already exists in the specified server. | Provide new elastic pool name. |

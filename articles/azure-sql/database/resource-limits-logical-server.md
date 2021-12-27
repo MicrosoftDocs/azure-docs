@@ -10,7 +10,7 @@ ms.topic: reference
 author: dimitri-furman
 ms.author: dfurman
 ms.reviewer: kendralittle, mathoma
-ms.date: 10/01/2021
+ms.date: 01/15/2022
 ---
 
 # Resource management in Azure SQL Database
@@ -69,17 +69,35 @@ When encountering high space utilization, mitigation options include:
 - Shrink a database to reclaim unused space. In elastic pools, shrinking a database provides more storage for other databases in the pool. For more information, see [Manage file space in Azure SQL Database](file-space-manage.md).
 - Check if high space utilization is due to a spike in the size of Persistent Version Store (PVS). PVS is a part of each database, and is used to implement  [Accelerated Database Recovery](../accelerated-database-recovery.md). To determine current PVS size, see [PVS troubleshooting](/sql/relational-databases/accelerated-database-recovery-management#troubleshooting). A common reason for large PVS size is a transaction that is open for a long time (hours), preventing cleanup of older versions in PVS.
 - For large databases in Premium and Business Critical service tiers, you may receive an out-of-space error even though used space in the database is below its maximum data size limit. This may happen if tempdb or transaction log consume a large amount of storage toward the maximum local storage limit. [Fail over](high-availability-sla.md#testing-application-fault-resiliency) the database or elastic pool to reset tempdb to its initial smaller size, or [shrink](file-space-manage.md#shrinking-transaction-log-file) transaction log to reduce local storage consumption.
+### Sessions, workers, and requests
 
-### Sessions and workers (requests)
+Sessions, workers, and requests are defined as follows:
+
+- A session represents a process connected to the database engine.
+- A request is the logical representation of a query or batch. A request is issued by a session.
+- A worker thread, also known as a worker or thread, is a logical representation of an operating system thread. A request may have many workers when executed with a parallel query execution plan, or a single worker when executed with a serial (single threaded) execution plan.
 
 The maximum numbers of sessions and workers are determined by the service tier and compute size. New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries, large blocking chains, or excessive query parallelism.
 
-When encountering high session or worker utilization, mitigation options include:
+> [!NOTE]
+> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes.  The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is greater than one, the number of workers may be much higher than the number of requests. Learn more about error 10928 in [Resource governance errors](troubleshoot-common-errors-issues.md#resource-governance-errors). 
+
+You can mitigate high session or worker utilization by:
 
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
-- Optimizing queries to reduce resource utilization of each query if the cause of increased worker utilization is due to contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
-- Reducing the [MAXDOP](configure-max-degree-of-parallelism.md) (maximum degree of parallelism) setting.
-- Optimizing query workload to reduce the number of occurrences and duration of query blocking. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
+- Optimizing queries to reduce resource utilization if the cause of increased workers is contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
+- Optimizing the query workload to reduce the number of occurrences and duration of query blocking. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
+- Reducing the [MAXDOP](configure-max-degree-of-parallelism.md) setting when appropriate.
+ 
+Find worker limits for Azure SQL Database by service tier and compute size:
+
+- [Resource limits for single databases using the vCore purchasing model](resource-limits-vcore-single-databases.md)
+- [Resource limits for elastic pools using the vCore purchasing model](resource-limits-vcore-elastic-pools.md)
+- [Resource limits for single databases using the DTU purchasing model](resource-limits-dtu-single-databases.md)
+- [Resources limits for elastic pools using the DTU purchasing model](resource-limits-dtu-elastic-pools.md)
+
+
+Learn more about troubleshooting specific errors for session or worker limits in [Resource governance errors](troubleshoot-common-errors-issues.md#resource-governance-errors).
 
 ### Memory
 
