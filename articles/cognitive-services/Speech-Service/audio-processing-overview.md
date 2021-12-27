@@ -13,7 +13,7 @@ ms.author: hasshah
 ms.custom: ignite-fall-2021
 ---
 
-## Audio processing
+# Audio processing
 
 The Microsoft Audio Stack is a set of enhancements optimized for speech processing scenarios. This includes examples like keyword recognition and speech recognition. It consists of various enhancements/components that operate on the input audio signal:
 
@@ -52,5 +52,4 @@ Microsoft Audio Stack can be used by any product or application that can meet th
 The minimum requirements from the [Microsoft Audio Stack documentation](audio-processing-overview.md#minimum-requirements-to-use-microsoft-audio-stack) also apply.
 
 ## Next steps
-
-* [Learn more about the Speech SDK integration of Microsoft Audio Stack.](audio-processing-speech-sdk.md)
+[Use the Speech SDK for audio processing](audio-processing-speech-sdk.md)

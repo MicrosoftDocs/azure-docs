@@ -1,5 +1,5 @@
 ---
-title: Audio processing with Speech SDK - Speech service
+title: Using the Microsoft Audio Stack (MAS) - Speech service
 titleSuffix: Azure Cognitive Services
 description: An overview of the features, capabilities, and restrictions for audio processing using the Speech Software Development Kit (SDK).
 services: cognitive-services
@@ -280,5 +280,4 @@ Microsoft Audio Stack requires the reference channel (also known as loopback cha
 * **Linux** - ALSA (Advanced Linux Sound Architecture) will need to be configured to provide the reference audio stream as the last channel for the audio input device that will be used. This is in addition to providing the `SpeakerReferenceChannel::LastChannel` option when creating `AudioProcessingOptions`.
 
 ## Next steps
-
-* [Setup development environment](quickstarts/setup-platform.md)
+[Setup development environment](quickstarts/setup-platform.md)
