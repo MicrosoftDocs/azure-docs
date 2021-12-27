@@ -50,11 +50,14 @@
     - name: Integrate ServiceNow
       href: tutorial-servicenow.md
     - name: Detect threats with Microsoft Sentinel
-      href: ../../sentinel/iot-solution.md
+      href: ../../sentinel/iot-solution.md?toc=/azure/defender-for-iot/organizations/toc.json&bc=/azure/defender-for-iot/breadcrumb/toc.json
 - name: Concepts
   items:  
     - name: Key concepts
       href: concept-key-concepts.md
+    - name: OT threat monitoring in enterprise SOCs
+      displayName: SOC, SCADA, OT, Microsoft Sentinel
+      href: concept-sentinel-integration.md 
     - name: Supported protocols
       displayName: protocol, Horizon, horizon, SCADA, OT, Industrial IoT, proprietary
       href: concept-supported-protocols.md    

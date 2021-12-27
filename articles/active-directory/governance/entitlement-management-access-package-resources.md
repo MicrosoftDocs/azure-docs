@@ -4,7 +4,7 @@ description: Learn how to change the resource roles for an existing access packa
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
