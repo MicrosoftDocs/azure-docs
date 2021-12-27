@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 12/17/2021
+ms.date: 12/22/2021
 ---
 
 # Assert transformation in mapping data flow
@@ -17,6 +17,10 @@ ms.date: 12/17/2021
 
 The assert transformation enables you to build custom rules inside your mapping data flows for data quality and data validation. You can build rules that will determine whether values meet an expected value domain. Additionally, you can build rules that check for row uniqueness. The assert transformation will help to determine if each row in your data meets a set of criteria. The assert transformation also allows you to set custom error messages when data validation rules are not met.
 
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWRdIu]
+
+:::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert type":::
+
 ## Configuration
 
 In the assert transformation configuration panel, you will choose the type of assert, provide a unique name for the assertion, optional description, and define the expression and optional filter. The data preview pane will indicate which rows failed your assertions. Additionally, you can test each row tag downstream using ```isError()``` and ```hasError()``` for rows that failed assertions.
@@ -25,11 +29,15 @@ In the assert transformation configuration panel, you will choose the type of as
 
 ### Assert type
 
-:::image type="content" source="media/data-flow/data-flow-assert-001.png" alt-text="Assert type":::
-
 1. Expect true: The result of your expression must evaluate to a boolean true result. Use this to validate domain value ranges in your data.
 2. Expect unique: Set a column or an expression as a uniqueness rule in your data. Use this to tag duplicate rows.
-3. Expect exists: This option is only available when you have selected a second incoming stream. Exists will look at both streams and determine if the rows exists in both streams based on the columns or the expressions that you have specified.
+3. Expect exists: This option is only available when you have selected a second incoming stream. Exists will look at both streams and determine if the rows exists in both streams based on the columns or the expressions that you have specified. To add the second stream for exists, select ```Additional streams```.
+
+:::image type="content" source="media/data-flow/assert-configuration.png" alt-text="Assert configuration":::
+
+### Fail data flow
+
+Select ```fail data flow``` if you wish to have your data flow activity fail immediately as soon as the assertion rule fails.
 
 ### Assert ID
 

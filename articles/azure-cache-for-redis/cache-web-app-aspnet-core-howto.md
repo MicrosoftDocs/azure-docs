@@ -4,7 +4,7 @@ description: In this quickstart, you learn how to create an ASP.NET Core web app
 author: brendanzagaeski
 ms.author: brzaga
 ms.service: cache
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.custom: devx-track-csharp, mvc, mode-other
 ms.topic: quickstart
 ms.date: 03/31/2021

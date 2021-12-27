@@ -52,7 +52,7 @@ Then, refresh the project dependencies to get the binaries downloaded.
         <artifactId>applicationinsights-web-auto</artifactId>
         <!-- or applicationinsights-web for manual web filter registration -->
         <!-- or applicationinsights-core for bare API -->
-        <version>2.6.2</version>
+        <version>2.6.4</version>
       </dependency>
     </dependencies>
 ```
@@ -65,7 +65,7 @@ Then refresh the project dependencies to get the binaries downloaded.
 
 ```gradle
     dependencies {
-      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.6.2'
+      compile group: 'com.microsoft.azure', name: 'applicationinsights-web-auto', version: '2.6.4'
       // or applicationinsights-web for manual web filter registration
       // or applicationinsights-core for bare API
     }
