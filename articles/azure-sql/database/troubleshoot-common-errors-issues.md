@@ -167,7 +167,7 @@ Connection timeouts occur because the application can't connect to the server. T
 
 ## Resource governance errors
 
-Azure SQL Database uses a resource governance implementation based on SQL Server Resource Governor, modified and extended to run in the cloud, to enforce resource limits. Learn more about [resource management in Azure SQL Database](resource-limits-logical-server.md).
+Azure SQL Database uses a resource governance implementation based on [Resource Governor](/sql/relational-databases/resource-governor/resource-governor) to enforce resource limits. Learn more about [resource management in Azure SQL Database](resource-limits-logical-server.md).
 
 The most common resource governance errors are listed first with details, followed by a table of resource governance error messages.
 
@@ -178,7 +178,7 @@ The detailed error message in this case reads: `Resource ID : 1. The request lim
 This error message indicates that the worker limit for Azure SQL Database has been reached. A value will be present instead of the placeholder *%d*. This value indicates the worker limit for your database at the time the limit was reached.
 
 > [!NOTE]
-> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes. The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is greater than one, the number of workers may be much higher than the number of requests.
+> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes. The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is equal to zero or is greater than one, the number of workers may be much higher than the number of requests.
 > 
 > Learn more about [Sessions, workers, and requests](resource-limits-logical-server.md#sessions-workers-and-requests).
 
@@ -197,10 +197,10 @@ If you receive Error 40613, `Database '%.&#x2a;ls' on server '%.&#x2a;ls' is not
 
 #### Review your max_worker_percent usage
 
-To find resource consumption statistics for your database including `max_worker_percent` for up to the past 14 days, query the [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalog view. Connect to the master database on your [logical server](logical-servers.md) to query `sys.resource_stats`.
+To find resource consumption statistics for your database for 14 days, query the [sys.resource_stats](/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) system catalog view. The `max_worker_percent` column shows the percentage of workers used relative to the worker limit for your database. Connect to the master database on your [logical server](logical-servers.md) to query `sys.resource_stats`.
 
 ```sql
-SELECT start_time, end_time, database_name, sku, max_worker_percent, max_session_percent 
+SELECT start_time, end_time, database_name, sku, avg_cpu_percent, max_worker_percent, max_session_percent 
 FROM sys.resource_stats;
 ```
 
@@ -208,7 +208,7 @@ You can also query resource consumption statistics from the last hour from the
 [sys.dm_db_resource_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) dynamic management view. Connect directly to your database to query `sys.dm_db_resource_stats`.
 
 ```sql
-SELECT end_time, max_worker_percent, max_session_percent
+SELECT end_time, avg_cpu_percent, max_worker_percent, max_session_percent
 FROM sys.dm_db_resource_stats;
 ```
 #### Lower worker usage when possible

@@ -1,6 +1,6 @@
 ---
 title: Resource management in Azure SQL Database
-description: This article provides an overview of the resource management in Azure SQL Database. It also provides information regarding what happens when those resource limits are reached.
+description: This article provides an overview of resource management in Azure SQL Database with information about what happens when resource limits are reached.
 services: sql-database
 ms.service: sql-database
 ms.subservice: service-overview
@@ -16,7 +16,7 @@ ms.date: 01/15/2022
 # Resource management in Azure SQL Database
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
 
-This article provides an overview of resource management in Azure SQL Database. It provides information on what happens when resource limits are reached, and describes  resource governance mechanisms that are used to enforce these limits.
+This article provides an overview of resource management in Azure SQL Database. It provides information on what happens when resource limits are reached, and describes resource governance mechanisms that are used to enforce these limits.
 
 For specific resource limits per pricing tier (also known as service objective) for single databases, refer to either [DTU-based single database resource limits](resource-limits-dtu-single-databases.md) or [vCore-based single database resource limits](resource-limits-vcore-single-databases.md). For elastic pool resource limits, refer to either [DTU-based elastic pool resource limits](resource-limits-dtu-elastic-pools.md) or [vCore-based elastic pool resource limits](resource-limits-vcore-elastic-pools.md).
 
@@ -80,16 +80,16 @@ Sessions, workers, and requests are defined as follows:
 The maximum numbers of sessions and workers are determined by the service tier and compute size. New requests are rejected when session or worker limits are reached, and clients receive an error message. While the number of connections available can be controlled by the application, the number of concurrent workers is often harder to estimate and control. This is especially true during peak load periods when database resource limits are reached and workers pile up due to longer running queries, large blocking chains, or excessive query parallelism.
 
 > [!NOTE]
-> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes.  The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is greater than one, the number of workers may be much higher than the number of requests. Learn more about error 10928 in [Resource governance errors](troubleshoot-common-errors-issues.md#resource-governance-errors). 
+> The initial offering of Azure SQL Database supported only single threaded queries. At that time, the number of requests was always equivalent to the number of workers. Error message 10928 in Azure SQL Database contains the wording "The request limit for the database is *N* and has been reached" for backwards compatibility purposes.  The limit reached is actually the number of workers. If your max degree of parallelism (MAXDOP) setting is equal to zero or is greater than one, the number of workers may be much higher than the number of requests. Learn more about error 10928 in [Resource governance errors](troubleshoot-common-errors-issues.md#resource-governance-errors).
 
-You can mitigate high session or worker utilization by:
+You can mitigate approaching or hitting worker or session limits by:
 
 - Increasing the service tier or compute size of the database or elastic pool. See [Scale single database resources](single-database-scale.md) and [Scale elastic pool resources](elastic-pool-scale.md).
 - Optimizing queries to reduce resource utilization if the cause of increased workers is contention for compute resources. For more information, see [Query Tuning/Hinting](performance-guidance.md#query-tuning-and-hinting).
 - Optimizing the query workload to reduce the number of occurrences and duration of query blocking. For more information, see [Understand and resolve Azure SQL blocking problems](understand-resolve-blocking.md).
 - Reducing the [MAXDOP](configure-max-degree-of-parallelism.md) setting when appropriate.
  
-Find worker limits for Azure SQL Database by service tier and compute size:
+Find worker and session limits for Azure SQL Database by service tier and compute size:
 
 - [Resource limits for single databases using the vCore purchasing model](resource-limits-vcore-single-databases.md)
 - [Resource limits for elastic pools using the vCore purchasing model](resource-limits-vcore-elastic-pools.md)
