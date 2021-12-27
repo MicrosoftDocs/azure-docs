@@ -39,6 +39,8 @@ The following table describes the types of storage accounts recommended by Micro
 
 Legacy storage accounts are also supported. For more information, see [Legacy storage account types](#legacy-storage-account-types).
 
+You cannot change a storage account to a different type after it is created. To move your data to a storage account of a different type, you must create a new account and copy the data to the new account.
+
 ## Storage account endpoints
 
 A storage account provides a unique namespace in Azure for your data. Every object that you store in Azure Storage has an address that includes your unique account name. The combination of the account name and the Azure Storage service endpoint forms the endpoints for your storage account.
