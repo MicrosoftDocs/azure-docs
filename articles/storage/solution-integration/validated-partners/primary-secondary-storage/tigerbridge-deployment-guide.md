@@ -149,7 +149,7 @@ Tiger Technology provides 365x24x7 support for Tiger Bridge. To contact support,
 
 ## Next steps
 - [Tiger Bridge website](https://www.tiger-technology.com/software/tiger-bridge/)
-- [Tiger Bridge Guides](https://www.tiger-technology.com/software/tiger-bridge/docs/)
+- [Tiger Bridge guides](https://www.tiger-technology.com/software/tiger-bridge/docs/)
 - [Azure Storage partners for primary and secondary storage](./partner-overview)
 - [Tiger Bridge Marketplace offering](https://azuremarketplace.microsoft.com/marketplace/apps/tiger-technology.tigerbridge_vm)
 - [Running ISV file services in Azure](./isv-file-services)
