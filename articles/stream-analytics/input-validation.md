@@ -364,7 +364,7 @@ SELECT * INTO Debug1 FROM readingsToBeProcessed
 SELECT * INTO Debug2 FROM readingsToBeRejected
 ```
 
-It's good practice to write a single `WHERE` clause for both outputs, and use `NOT ()...)` in the second one. That way no records can be excluded from both outputs.
+It's good practice to write a single `WHERE` clause for both outputs, and use `NOT (...)` in the second one. That way no records can be excluded from both outputs.
 
 Now we get two outputs. **Debug1** has the records that will be sent to the main logic:
 
