@@ -20,6 +20,7 @@ At this time, ASE migrations to v3 are supported for both [Internal Load Balance
 
 - Central US EUAP
 - East US 2 EUAP
+- West Central US
 - Canada Central
 - Canada East
 - UK South
