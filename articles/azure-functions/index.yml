@@ -10,7 +10,7 @@ metadata:
   ms.topic: landing-page # Required
   author: ggailey777 
   ms.author: azfundocs 
-  ms.date: 05/18/2021 
+  ms.date: 12/27/2021 
   ms.custom: contperf-fy21q4
 
 landingContent:
@@ -18,20 +18,16 @@ landingContent:
     linkLists:
       - linkListType: overview
         links:
-          - text: What is Azure Functions?
+          - text: Azure Functions Overview
             url: functions-overview.md
       - linkListType: concept
         links:
-          - text: Hosting options
+          - text: Azure Functions scale and hosting
             url: functions-scale.md
-          - text: Compare serverless options
+          - text: Integration and automation platform options in Azure
             url: functions-compare-logic-apps-ms-flow-webjobs.md 
           - text: Durable Functions
             url: durable/durable-functions-overview.md
-      - linkListType: video
-        links:
-          - text: Where should I host my code?
-            url: https://azure.microsoft.com/resources/videos/build-2019-where-should-i-host-my-code-choosing-between-kubernetes-containers-and-serverless/
   - title: Create your first function
     linkLists:
       - linkListType: get-started
@@ -54,10 +50,6 @@ landingContent:
             url: create-first-function-vs-code-other.md
           - text: TypeScript
             url: create-first-function-vs-code-typescript.md
-      - linkListType: video
-        links:
-          - text: Watch how to get started
-            url: https://azure.microsoft.com/resources/videos/get-started-with-azure-functions/
   - title: Develop functions
     linkLists:
       - linkListType: concept
@@ -78,7 +70,3 @@ landingContent:
             url: https://www.serverlesslibrary.net/
           - text: Azure Resource Manager templates
             url: https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Web&term=functions
-      - linkListType: video
-        links:
-          - text: Develop with Visual Studio Code
-            url: https://azure.microsoft.com/resources/videos/build-nodejs-apis-using-serverless/
