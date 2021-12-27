@@ -15,9 +15,9 @@ ms.custom: ignite-fall-2021
 
 # Microphone array recommendations
 
-In this article, you learn how to design a microphone array customized for use with the Speech SDK.
+In this article, you learn how to design a microphone array customized for use with the Speech SDK. This is most pertinent if you are selecting, specifying, or building hardware for speech solutions. 
 
-The Speech SDK works best with a microphone array that has been designed according to the following guidelines, including the microphone geometry and component selection. Guidance is also given on integration and electrical considerations.
+The Speech SDK works best with a microphone array that has been designed according to these guidelines, including the microphone geometry, component selection, and architecture. 
 
 ## Microphone geometry
 
