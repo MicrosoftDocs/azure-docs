@@ -16,7 +16,7 @@ title: "Azure Data Box: Frequently Asked Questions"
 summary:
   The Azure Data Box and Azure Data Box Heavy hybrid solution enables you to send terabytes of data to Azure in a quick, inexpensive, and reliable way using a transfer device. This FAQ contains questions and answers that you may have when you use Data Box in the Azure portal.
 
-  Sections with tabs have some questions that apply to **Data Box only** or **Data Box Heavy only**.
+  Sections with tabs have some questions that apply to **Data Box only** and **Data Box Heavy only**.
 
 
 sections:
@@ -418,7 +418,7 @@ sections:
           
           For error information and steps to proceed with your order, see [Review copy errors in uploads from Azure Data Box and Azure Data Box Heavy devices](data-box-troubleshoot-data-upload.md).
 
-          ### How do I verify the data I copied onto Data Box?
+          ### How do I verify the data I copied onto my Data Box?
 
           After the data copy is complete, when you run **Prepare to ship**, your data is validated. Data Box generates a list of files and checksums for the data during the validation process. You can download the list of files and verify the list against the files in the source data. For more information, go to [Prepare to ship](data-box-deploy-picked-up.md#prepare-to-ship).
 
