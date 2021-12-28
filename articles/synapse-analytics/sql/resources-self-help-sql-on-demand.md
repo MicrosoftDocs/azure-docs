@@ -90,6 +90,10 @@ If your query fails with the error message 'This query can't be executed due to 
 
 - Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
 
+### Query timeout expired
+
+The **Query timeout expired** error is returned if the query executed more than 30 minutes on serverless SQL pool. This is a limit of serverless SQL pool that cannot be changed. Try to optimize your query by applying [best practices](best-practices-serverless-sql-pool.md#prepare-files-for-querying), or try to materialize parts of your queries using [CETAS](create-external-table-as-select.md). Check is there a concurrent workload running on the serverless pool because the other queries might take the resources. In that case you might split the workload on multiple workspaces.
+
 ### Content of directory on the path cannot be listed
 
 This error indicates that the user who is querying Azure Data Lake cannot list the files on a storage. There are several scenarios where this error might happen:
@@ -146,7 +150,7 @@ This error is special case of the generic [query fails because it cannot be exec
 
 Apply the same mitigation and the best practices before you file a support ticket.
 
-### Query fails with error while handling an external file. 
+### Query fails with error while handling an external file
 
 If your query fails with the error message 'error handling external file: Max errors count reached', it means that there is a mismatch of a specified column type and the data that needs to be loaded. 
 To get more information about the error and which rows and columns to look at, change the parser version from ‘2.0’ to ‘1.0’. 
@@ -573,6 +577,10 @@ If you are getting an error while trying to create new Azure AD login or user in
 
 ## Cosmos DB
 
+Serverless SQL pools enable you to query Cosmos DB analytical storage using the `OPENROWSET` function.
+
+### Cannot query CosmosDB using the OPENROWSET function
+
 If you cannot connect to your Cosmos Db account, take a look at [prerequisites](query-cosmos-db-analytical-store.md#prerequisites). Possible errors and troubleshooting actions are listed in the following table.
 
 | Error | Root cause |
@@ -581,10 +589,6 @@ If you cannot connect to your Cosmos Db account, take a look at [prerequisites](
 | There was an error in the CosmosDB connection string. | - The account, database, or key isn't specified. <br/> - There's some option in a connection string that isn't recognized.<br/> - A semicolon (`;`) is placed at the end of a connection string. |
 | Resolving CosmosDB path has failed with the error "Incorrect account name" or "Incorrect database name." | The specified account name, database name, or container can't be found, or analytical storage hasn't been enabled to the specified collection.|
 | Resolving CosmosDB path has failed with the error "Incorrect secret value" or "Secret is null or empty." | The account key isn't valid or is missing. |
-| Column `column name` of the type `type name` isn't compatible with the external data type `type name`. | The specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type. |
-| Column contains `NULL` values in all cells. | Possibly a wrong column name or path expression in the `WITH` clause. The column name (or path expression after the column type) in the `WITH` clause must match some property name in the Azure Cosmos DB collection. Comparison is *case-sensitive*. For example, `productCode` and `ProductCode` are different properties. |
-
-You can report suggestions and issues on the [Azure Synapse Analytics feedback page](https://feedback.azure.com/d365community/forum/9b9ba8e4-0825-ec11-b6e6-000d3a4f07b8).
 
 ### UTF-8 collation warning is returned while reading CosmosDB string types
 
@@ -592,8 +596,9 @@ A serverless SQL pool will return a compile-time warning if the `OPENROWSET` col
 
 [Latin1_General_100_BIN2_UTF8 collation](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) provides the best performance when you filter your data using string predicates.
 
-### Some items from Cosmos DB are not returned
+### Missing rows in Cosmos DB analytical store
 
+Some items from Cosmos DB might not be returned by the `OPENROWSET` function.
 - There is a synchronization delay between transactional and analytical store. The document that you entered in the Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
 - The document might violate some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints). 
 
@@ -608,7 +613,7 @@ Azure Synapse SQL will return `NULL` instead of the values that you see in the t
 
 ### Column is not compatible with external data type
 
-The value specified in the `WITH` clause doesn't match the underlying Cosmos DB types in analytical storage and cannot be implicitly converted. Use `VARCHAR` type in the schema.
+The error *Column `column name` of the type `type name` isn't compatible with the external data type `type name`* is returned is the specified column type in the `WITH` clause doesn't match the type in the Azure Cosmos DB container. Try to change the column type as it's described in the section [Azure Cosmos DB to SQL type mappings](query-cosmos-db-analytical-store.md#azure-cosmos-db-to-sql-type-mappings), or use the `VARCHAR` type.
 
 ### Resolving CosmosDB path has failed
 
@@ -733,7 +738,7 @@ If the error message persists, file a support ticket through the Azure portal.
 
 See the [Synapse Studio section](#synapse-studio).
 
-### Cannot connect from a tool
+### Cannot connect to Synapse pool from a tool
 
 Some tools might not have an explicit option that enables you to connect to the Synapse serverless SQL pool. 
 Use an option that you would use to connect to SQL Server or Azure SQL database. The connection dialog do not need to be branded as "Synapse" because the serverless SQL pool use the same protocol as SQL Server or Azure SQL database. 
