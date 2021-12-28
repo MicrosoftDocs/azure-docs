@@ -236,6 +236,20 @@ For playbooks that are triggered by incident creation and receive incidents as t
 
 See the [complete instructions for creating automation rules](tutorial-respond-threats-playbook.md#respond-to-incidents).
 
+### Run a playbook manually on an incident
+
+- In **Incidents** view, choose a specific incident.
+- Right click on the incident, then Run playbook (Preview). Alternatively, at the bottom of the incident pane that appears on the right, select Actions > Run playbook (Preview).
+
+The playbooks pane opens on the right. on Playbooks tab, you will get a list of all playbooks that start with an **Microsoft Sentinel Incident** Logic Apps trigger and that you have access to.
+
+1. Click on **Run** on the line of a specific playbook to trigger it.
+
+1. Select the **Runs** tab to view a list of all the times any playbook has been run on this incident. It might take a few seconds for any just-completed run to appear in this list.
+
+1. Clicking on a specific run will open the full run log in Logic Apps.
+
+
 ### Run a playbook manually on an alert
 
 Manual triggering is available from the Microsoft Sentinel portal in the following blades:
@@ -252,9 +266,6 @@ Manual triggering is available from the Microsoft Sentinel portal in the followi
 
 1. Clicking on a specific run will open the full run log in Logic Apps.
 
-### Run a playbook manually on an incident
-
-Not supported yet.
 
 ## Manage your playbooks
 
