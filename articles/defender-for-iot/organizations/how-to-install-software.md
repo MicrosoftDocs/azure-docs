@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
-ms.date: 11/09/2021
+ms.date: 12/28/2021
 ms.topic: how-to
 ---
 
@@ -70,11 +70,19 @@ The following virtual appliances are available:
 
 The installation image is accessible from Defender for IoT in the Azure portal.
 
-To access the file:
+**To access the file**:
 
-1. Sign in to your Defender for IoT account.
+1. Navigate to the Azure portal.
 
-1. Go to the **Network sensor** or **On-premises management console** page and select a version to download.
+1. Search for, and select **Microsoft Defender for IoT**.
+
+1. Select the **Sensor**, or **On-premises management console** tab.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-tab.png" alt-text="Screeshot of the sensor tab under Defender for IoT.":::
+
+1. Select a version from the drop down menu.
+
+1. Select the **Download** button.
 
 ### Install from DVD
 
@@ -84,11 +92,15 @@ Before the installation, ensure you have:
 
 - An ISO installer image.
 
-To install:
+**To Burn the image to a DVD**:
 
-1. Burn the image to a DVD or prepare a disk on a key. Connect a portable DVD drive to your computer, right-click the ISO image, and select **Burn to disk**.
+1. Connect a portable DVD drive to your computer.
 
-1. Connect the DVD or disk on a key and configure the appliance to boot from DVD or disk on a key.
+1. Insert a blank DVD into the portable DVD drive.
+
+1. Right-click the ISO image, and select **Burn to disk**.
+
+1. Connect the DVD drive to the device, and configure the appliance to boot from DVD.
 
 ### Install from disk on a key
 
@@ -102,9 +114,9 @@ Before the installation, ensure you have:
 
 The disk on a key will be erased in this process.
 
-To prepare a disk on a key:
+**To prepare a disk on a key**:
 
-1. Run Rufus and select **SENSOR ISO**.
+1. Run Rufus, and select **SENSOR ISO**.
 
 1. Connect the disk on a key to the front panel.
 
