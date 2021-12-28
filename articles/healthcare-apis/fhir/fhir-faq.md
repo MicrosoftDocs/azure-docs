@@ -132,3 +132,9 @@ No, Azure API for FHIR doesn't support terminology operations today.
 
 We have a collection of reference architectures available on the [Health Architecture GitHub page](https://github.com/microsoft/health-architectures).
 
+## Next steps
+
+In this article, you've learned the answers to frequently asked questions about the FHIR service. To see the frequently asked questions about the FHIR service in Azure API for FHIR, see
+ 
+>[!div class="nextstepaction"]
+>[FAQs about Azure API for FHIR](../azure-api-for-fhir/fhir-faq.yml)
