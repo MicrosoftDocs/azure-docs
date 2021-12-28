@@ -1,6 +1,6 @@
 ---
-title: Configure an identity provider (IDP) to enable the Security Assertions Markup Language (SAML) login process
-description: How to configure the identity provider (IDP) to enable the Security Assertions Markup Language (SAML) login process.
+title: Microsoft CloudKnox Permissions Management - Configure an identity provider (IDP) to enable the Security Assertions Markup Language (SAML) login process
+description: How to configure the identity provider (IDP) to enable the Security Assertions Markup Language (SAML) login process in Microsoft CloudKnox Permissions Management.
 services: active-directory
 author: Yvonne-deQ
 manager: karenh444
@@ -12,14 +12,14 @@ ms.date: 12/27/2021
 ms.author: v-ydequadros
 ---
 
-# Configure an identity provider (IDP) to enable the Security Assertions Markup Language (SAML) login process
+# Microsoft CloudKnox Permissions Management - Configure an identity provider (IDP) to enable the Security Assertions Markup Language (SAML) login process
 
 This topic describes how you can configure an identity provider (IDP) to enable the Security Assertions Markup Language (SAML) login process using single sign-on (SSO) integration.
 
 > [!NOTE]
 > Contact your system administrator if you receive a message that says you don’t have enough permissions for the task.
 
-## Enable the SAML login process
+**To enable the SAML login process:** 
 
 1. Enter the following information:
 

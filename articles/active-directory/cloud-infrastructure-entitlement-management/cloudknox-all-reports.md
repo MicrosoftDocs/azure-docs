@@ -1,5 +1,5 @@
 ---
-title: Microsoft CloudKnox Permissions Management reports - overview
+title: Microsoft CloudKnox Permissions Management reports - Overview
 description: An overview of Microsoft CloudKnox Permissions Management reports.
 services: active-directory
 author: Yvonne-deQ
@@ -20,7 +20,6 @@ Microsoft CloudKnox Permissions Management has various types of reports availabl
 - Analyze trends and system/user performance.
 - Identify trends in data and high risk areas so that management can address issues more quickly and improve their efficiency.
 
-## CloudKnox reports
 
 
 | Report name                | Type of the report                | File format              | Description               | Availability                | Collated report?                 |
@@ -39,3 +38,7 @@ Microsoft CloudKnox Permissions Management has various types of reports availabl
 | User Entitlements and Usage     | Detailed <p>Summary                 | CSV                 | This report provides a summary and details of **User entitlements and usage**. </p>**Data displayed on Usage Analytics** screen is downloaded as part of the **Summary** report. </p>**Detailed permissions usage per User** is listed in the Detailed report.                 | AWS </p>Azure </p>GCP                | Yes      |
 | Well-Architected Framework                 | Detailed </p>Summary </p>Dashboard                 | CSV </p>PDF                 | **Dashboard**: This report tracks the overall progress of the AWS- Well-Architected Framework. It lists the percentage passing, overall pass or fail of test control and the breakup of L1/L2 per Auth system. </p>**Summary**: For each authorized system, this report lists the test control pass or fail per authorized system. The number of resources evaluated for each test control. </p>**Detailed**: This report helps auditors and administrators track the resource level pass or fail per test control.                | AWS only                | Yes      |
 
+
+
+
+<!---## Next steps--->

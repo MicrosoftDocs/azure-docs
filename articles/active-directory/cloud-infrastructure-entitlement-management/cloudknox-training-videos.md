@@ -43,3 +43,6 @@ To view step-by-step training videos on how to use CloudKnox features, select a 
 ## Group permissions
 
 - View a step-by-step video on [how to create group-based permissions](https://vimeo.com/462797947/d041de9157).
+
+
+<!---## Next steps--->
