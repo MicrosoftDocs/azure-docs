@@ -9,7 +9,7 @@ ms.author: vlvinogr
 
 1. In the Azure portal, search for and select **API Management services**.
 
-    :::image type="content" source="media/api-management-navigate-to-instance/view-apim-1.png" alt-text="Select API Management services":::
+    :::image type="content" source="media/api-management-navigate-to-instance/view-apim-1-new.png" alt-text="Select API Management services":::
 
 1. On the **API Management services** page, select your API Management instance.
 

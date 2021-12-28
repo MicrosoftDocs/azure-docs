@@ -12,9 +12,9 @@ ms.author: danlep
 
 # Tutorial: Transform and protect your API
 
-In this tutorial, you'll learn how to transform your API so it doesn't reveal private backend info. Transforming an API might help you to hide the technology stack info that is running in the backend. You can also hide the original URLs that appear in the body of the API's HTTP response. And then, you could redirect them to an API Management gateway.
+In this tutorial, you'll learn how to transform your API so it doesn't reveal private backend info. Transforming an API might help you hide the technology stack info that's running in the backend. It also helps you hide the original URLs that appear in the body of the API's HTTP response. And then, redirect the URLs to an API Management gateway.
 
-The tutorial also explains how to add protection to your backend API by configuring a rate limit with Azure API Management. You may want to limit the rate of API calls so the API isn't overused by developers. For more information, see [API Management policies](api-management-policies.md).
+The tutorial also explains how to add protection to your backend API by configuring a rate limit with Azure API Management. You might want to limit the rate of API calls so the API isn't overused by developers. For more information, see [API Management policies](api-management-policies.md).
 
 In this tutorial, you learn how to:
 
@@ -38,7 +38,7 @@ In this tutorial, you learn how to:
 
 ## Transform an API to strip response headers
 
-This section shows how to hide the HTTP headers that you don't want to show to your users. The section also explains how to delete the following headers in the HTTP response:
+This section shows how to hide the HTTP headers that you don't want to show to your users. And this section explains how to delete the following headers in the HTTP response:
 
 * **X-Powered-By**
 * **X-AspNet-Version**
@@ -118,7 +118,7 @@ To see the original response:
 
 ## Protect an API by adding rate limit policy (throttling)
 
-This section shows how to add protection to your backend API by configuring rate limits. You may also want to limit the rate of API calls so that the API isn't overused by developers. In this example, the limit is set to three calls per 15 seconds for each subscription ID. After 15 seconds, a developer can retry calling an API.
+This section shows how to add protection to your backend API by configuring rate limits. You might also want to limit the rate of API calls so that the API isn't overused by developers. In this example, the limit is set to three calls per 15 seconds for each subscription ID. After 15 seconds, a developer can retry calling an API.
 
 1. Select **Demo Conference API** > **Design** > **All operations**.
 1. In the **Inbound processing** section, select the code editor (**</>**) icon.
@@ -169,7 +169,7 @@ The rest of this section tests policy transformations that you set in this artic
 ### Test the stripped response headers
 
 1. Select **Demo Conference API** > **Test**.
-1. Select the **GetSpeakers** operation, and then select **Send**.
+1. Select the **GetSpeakers** operation and select **Send**.
 
     As you can see, the headers have been stripped:
 
@@ -178,9 +178,9 @@ The rest of this section tests policy transformations that you set in this artic
 ### Test the replaced URL
 
 1. Select **Demo Conference API** > **Test**.
-1. Select the **GetSpeakers** operation, and then select **Send**.
+1. Select the **GetSpeakers** operation and select **Send**.
 
-    As you can see, the URLs have been replaced.
+    As you can see, the URLs are replaced.
 
     :::image type="content" source="media/transform-api/test-replaced-url.png" alt-text="Replaced URLs":::
 
@@ -193,7 +193,7 @@ The rest of this section tests policy transformations that you set in this artic
 
     :::image type="content" source="media/transform-api/test-throttling-new.png" alt-text="Too many requests":::
 
-1. Wait for 15 seconds or more, and then select **Send** again. This time you should get a **200 OK** response.
+1. Wait for 15 seconds or more and then select **Send** again. This time you should get a **200 OK** response.
 
 ## Next steps
 
