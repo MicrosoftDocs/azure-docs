@@ -27,7 +27,7 @@ Once the data is deserialized, **a schema needs to be applied to give it meaning
 
 **Dynamic schema handling** is a powerful feature, key to stream processing. Data streams often contain data from multiple sources, with multiple event types, each with a unique schema. To route, filter, and process events on such streams, ASA has to ingest them all whatever their schema.
 
-![Illustration of a pipeline with two fleet of devices sending data with conflicting schemas](media/input-validation/illustration.png)
+![Illustration of a pipeline with two fleet of devices sending data with conflicting schemas](media/input-validation/context-illustration.png)
 
 But the capabilities offered by dynamic schema handling come with a potential downside. Unexpected events can flow through the main query logic and break it. As an example, we can use [ROUND](/stream-analytics-query/round-azure-stream-analytics) on a field of type `NVARCHAR(MAX)`. ASA will implicitly cast it to float to match the signature of `ROUND`. Here we expect, or hope, this field will always contain numeric values. But when we do receive an event with the field set to `"NaN"`, or if the field is entirely missing, then the job may fail.
 
