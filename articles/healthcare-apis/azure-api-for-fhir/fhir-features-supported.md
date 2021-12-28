@@ -12,7 +12,7 @@ ms.author: cavoeg
 
 # Features
 
-Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The FHIR Server is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR Server.
+Azure API for FHIR provides a fully managed deployment of the Microsoft FHIR Server for Azure. The FHIR Sgit erver is an implementation of the [FHIR](https://hl7.org/fhir) standard. This document lists the main features of the FHIR Server.
 
 ## FHIR version
 
