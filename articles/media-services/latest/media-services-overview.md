@@ -11,7 +11,6 @@ tags: ''
 keywords: azure media services, stream, broadcast, live, offline
 
 ms.service: media-services
-ms.devlang: multiple
 ms.topic: overview
 ms.tgt_pltfrm: multiple
 ms.workload: media
