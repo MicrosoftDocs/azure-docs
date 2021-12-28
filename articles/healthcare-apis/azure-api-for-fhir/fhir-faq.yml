@@ -163,7 +163,7 @@ sections:
       - question: |
           How does $export work?
         answer: |
-          $export is part of the FHIR specification: https://hl7.org/fhir/uv/bulkdata/export/index.html. If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account, you can call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, see the article [$export](../data-transformation/export-data.md).
+          $export is part of the [FHIR specification](https://hl7.org/fhir/uv/bulkdata/export/index.html). If the FHIR service is configured with a managed identity and a storage account, and if the managed identity has access to that storage account, you can call $export on the FHIR API and all the FHIR resources will be exported to the storage account. For more information, see the article [$export](../data-transformation/export-data.md).
           
       - question: |
           Is there an out of the box solution for de-identifying EHR data?
@@ -185,7 +185,7 @@ sections:
       - question: |
           I'm getting 429s when loading and updating data. How can I resolve this?
         answer: |
-         To resolve this you can increase your [throughput](https://docs.microsoft.com/azure/healthcare-apis/azure-api-for-fhir/configure-database.md#update-throughput) or switch over to [autoscaling](autoscale-azure-api-fhir.md) to ensure that you have enough compute to process the requests. If you're still having issues, please open a support ticket.
+         To resolve this you can increase your [throughput](../../healthcare-apis/azure-api-for-fhir/configure-database.md#update-throughput) or switch over to [autoscaling](autoscale-azure-api-fhir.md) to ensure that you have enough compute to process the requests. If you're still having issues, please open a support ticket.
 
       - question: |
           How do I lower my RUs, and I'm unable to and the RUs are higher than I set them?
