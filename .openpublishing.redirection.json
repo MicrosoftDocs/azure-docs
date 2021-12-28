@@ -44969,6 +44969,26 @@
       "redirect_document_id": false
     },
     {
+      "source_path_from_root": "/articles/iot-hub-device-update/components-enumerator.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub-device-update/device-update-multi-step-updates.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
+      "redirect_document_id": false
+    },
+    {
+      "source_path_from_root": "/articles/iot-hub-device-update/device-update-howto-proxy-updates.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
+      "redirect_document_id": false
+    },
+   {
+      "source_path_from_root": "/articles/iot-hub-device-update/device-update-proxy-updates.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
+      "redirect_document_id": false
+    },
+    {
       "source_path_from_root": "/articles/iot-dps/quick-create-device-symmetric-key-csharp.md",
       "redirect_url": "/azure/iot-dps/quick-create-simulated-device-symm-key",
       "redirect_document_id": false
@@ -45168,26 +45188,7 @@
       "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
     }
-    {
-      "source_path_from_root": "/articles/iot-hub-device-update/components-enumerator.md",
-      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
-      "redirect_document_id": false
-    }
-    {
-      "source_path_from_root": "/articles/iot-hub-device-update/device-update-multi-step-updates.md",
-      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
-      "redirect_document_id": false
-    }
-    {
-      "source_path_from_root": "/articles/iot-hub-device-update/device-update-howto-proxy-updates.md",
-      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
-      "redirect_document_id": false
-    }
-   {
-      "source_path_from_root": "/articles/iot-hub-device-update/device-update-proxy-updates.md",
-      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
-      "redirect_document_id": false
-    }
+
 
   ]
 }
