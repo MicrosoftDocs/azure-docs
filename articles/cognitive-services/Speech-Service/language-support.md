@@ -139,51 +139,6 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 | Turkish (Turkey)                  | `tr-TR`         | Plain Text                                                            |
 | Vietnamese (Vietnam)              | `vi-VN`         | Plain Text                                                            |
 
-## Pronunciation assessment
-
-The [Pronunciation assessment](how-to-pronunciation-assessment.md) feature currently supports the `en-US` locale, which is available with all speech-to-text regions. Support for `en-GB` and `zh-CN` languages is in preview.
-
-## Language identification
-
-With language identification, you set and get one of the supported locales below. But we only compare at the language level such as English and German. If you include multiple locales of the same language (for example, `en-IN` and `en-US`), we'll only compare English (`en`) with the other candidate languages.
-
-|Language|Locale (BCP-47)|
-|-----|-----|
-Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
-|Bulgarian|`bg-BG`|
-|Catalan|`ca-ES`|
-|Chinese, Mandarin|`zh-CN`<br/>`zh-TW`|
-|Chinese, Traditional|`zh-HK`|
-|Croatian|`hr-HR`|
-|Czech|`cs-CZ`|
-|Danish|`da-DK`|
-|Dutch|`nl-NL`|
-|English|`en-AU`<br/>`en-CA`<br/>`en-GH`<br/>`en-HK`<br/>`en-IN`<br/>`en-IE`<br/>`en-KE`<br/>`en-NZ`<br/>`en-NG`<br/>`en-PH`<br/>`en-SG`<br/>`en-ZA`<br/>`en-TZ`<br/>`en-GB`<br/>`en-US`|
-|Finnish|`fi-FI`|
-|French|`fr-CA`<br/>`fr-FR`|
-|German|`de-DE`|
-|Greek|`el-GR`|
-|Hindi|`hi-IN`|
-|Hungarian|`hu-HU`|
-|Indonesian|`id-ID`|
-|Italian|`it-IT`|
-|Japanese|`ja-JP`|
-|Korean|`ko-KR`|
-|Latvian|`lv-LV`|
-|Lithuanian|`lt-LT`|
-|Norwegian|`nb-NO`|
-|Polish|`pl-PL`|
-|Portuguese|`pt-BR`<br/>`pt-PT`|
-|Romanian|`ro-RO`|
-|Russian|`ru-RU`|
-|Slovak|`sk-SK`|
-|Slovenian|`sl-SI`|
-|Spanish|`es-AR`<br/>`es-BO`<br/>`es-CL`<br/>`es-CO`<br/>`es-CR`<br/>`es-CU`<br/>`es-DO`<br/>`es-EC`<br/>`es-SV`<br/>`es-GQ`<br/>`es-GT`<br/>`es-HN`<br/>`es-MX`<br/>`es-NI`<br/>`es-PA`<br/>`es-PY`<br/>`es-PE`<br/>`es-PR`<br/>`es-ES`<br/>`es-UY`<br/>`es-US`<br/>`es-VE`|
-|Swedish|`sv-SE`|
-|Tamil|`ta-IN`|
-|Thai|`th-TH`|
-|Turkish|`tr-TR`|
-
 ## Text-to-Speech
 
 Both the Microsoft Speech SDK and REST APIs support these neural voices, each of which supports a specific language and dialect, identified by locale. You can also get a full list of languages and voices supported for each specific region/endpoint through the [voices list API](rest-text-to-speech.md#get-a-list-of-voices). 
@@ -547,6 +502,54 @@ With the cross-lingual feature (preview), you can transfer you custom neural voi
 | Spanish (Spain) | `es-ES` | Yes |
 | Turkish (Turkey) | `tr-TR` | No |
 | Vietnamese (Vietnam) | `vi-VN` | No |
+
+
+
+## Language identification
+
+With language identification, you set and get one of the supported locales below. But we only compare at the language level such as English and German. If you include multiple locales of the same language (for example, `en-IN` and `en-US`), we'll only compare English (`en`) with the other candidate languages.
+
+|Language|Locale (BCP-47)|
+|-----|-----|
+Arabic|`ar-DZ`<br/>`ar-BH`<br/>`ar-EG`<br/>`ar-IQ`<br/>`ar-OM`<br/>`ar-SY`|
+|Bulgarian|`bg-BG`|
+|Catalan|`ca-ES`|
+|Chinese, Mandarin|`zh-CN`<br/>`zh-TW`|
+|Chinese, Traditional|`zh-HK`|
+|Croatian|`hr-HR`|
+|Czech|`cs-CZ`|
+|Danish|`da-DK`|
+|Dutch|`nl-NL`|
+|English|`en-AU`<br/>`en-CA`<br/>`en-GH`<br/>`en-HK`<br/>`en-IN`<br/>`en-IE`<br/>`en-KE`<br/>`en-NZ`<br/>`en-NG`<br/>`en-PH`<br/>`en-SG`<br/>`en-ZA`<br/>`en-TZ`<br/>`en-GB`<br/>`en-US`|
+|Finnish|`fi-FI`|
+|French|`fr-CA`<br/>`fr-FR`|
+|German|`de-DE`|
+|Greek|`el-GR`|
+|Hindi|`hi-IN`|
+|Hungarian|`hu-HU`|
+|Indonesian|`id-ID`|
+|Italian|`it-IT`|
+|Japanese|`ja-JP`|
+|Korean|`ko-KR`|
+|Latvian|`lv-LV`|
+|Lithuanian|`lt-LT`|
+|Norwegian|`nb-NO`|
+|Polish|`pl-PL`|
+|Portuguese|`pt-BR`<br/>`pt-PT`|
+|Romanian|`ro-RO`|
+|Russian|`ru-RU`|
+|Slovak|`sk-SK`|
+|Slovenian|`sl-SI`|
+|Spanish|`es-AR`<br/>`es-BO`<br/>`es-CL`<br/>`es-CO`<br/>`es-CR`<br/>`es-CU`<br/>`es-DO`<br/>`es-EC`<br/>`es-SV`<br/>`es-GQ`<br/>`es-GT`<br/>`es-HN`<br/>`es-MX`<br/>`es-NI`<br/>`es-PA`<br/>`es-PY`<br/>`es-PE`<br/>`es-PR`<br/>`es-ES`<br/>`es-UY`<br/>`es-US`<br/>`es-VE`|
+|Swedish|`sv-SE`|
+|Tamil|`ta-IN`|
+|Thai|`th-TH`|
+|Turkish|`tr-TR`|
+
+
+## Pronunciation assessment
+
+The [Pronunciation assessment](how-to-pronunciation-assessment.md) feature currently supports the `en-US` locale, which is available with all speech-to-text regions. Support for `en-GB` and `zh-CN` languages is in preview.
 
 ## Speech translation
 
