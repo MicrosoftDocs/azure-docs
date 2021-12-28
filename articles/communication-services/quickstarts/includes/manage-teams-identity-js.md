@@ -88,10 +88,14 @@ const provider = new msal.CryptoProvider();
 
 const app = express();
 
+let pkceVerifier = "";
+
 app.get('/', async (req, res) => {
     const {verifier, challenge} = await provider.generatePkceCodes();
+    pkceVerifier = verifier;
+    
     const authCodeUrlParameters = {
-        scopes: ["https://auth.msft.communication.azure.com/VoIP"],
+        scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
         redirectUri: REDIRECT_URI,
         codeChallenge: challenge, 
         codeChallengeMethod: "S256"
@@ -105,8 +109,9 @@ app.get('/', async (req, res) => {
 app.get('/redirect', async (req, res) => {
     const tokenRequest = {
         code: req.query.code,
-        scopes: ["https://auth.msft.communication.azure.com/VoIP"],
+        scopes: ["https://auth.msft.communication.azure.com/Teams.ManageCalls"],
         redirectUri: REDIRECT_URI,
+        codeVerifier: pkceVerifier,
     };
 
     pca.acquireTokenByCode(tokenRequest).then((response) => {

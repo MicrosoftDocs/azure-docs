@@ -4,7 +4,7 @@ description: Using Azure Active Directory access reviews, you can control group 
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

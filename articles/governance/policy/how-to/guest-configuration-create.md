@@ -10,7 +10,7 @@ Before you begin, it's a good idea to read the overview page for
 [guest configuration](../concepts/guest-configuration.md).
 
 When auditing / configuring both Windows and Linux, guest configuration uses a
-[Desired State Configuration](/powershell/dsc/overview/overview)
+[Desired State Configuration](/powershell/dsc/overview)
 (DSC). The DSC configuration defines the condition that the machine should
 be in.
 

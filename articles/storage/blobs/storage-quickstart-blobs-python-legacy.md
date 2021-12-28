@@ -7,6 +7,7 @@ ms.date: 07/24/2020
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
+ms.devlang: python
 ms.custom: seo-python-october2019, devx-track-python, mode-api
 ---
 

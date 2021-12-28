@@ -1,6 +1,6 @@
 ---
 title: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
-description: Learn how to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+description: Learn how to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP advanced configuration.
 services: active-directory
 author: NishthaBabith-V
 manager: martinco
@@ -15,7 +15,7 @@ ms.collection: M365-identity-device-management
 
 # Tutorial: Configure F5 BIG-IP Access Policy Manager for Kerberos authentication
 
-In this tutorial, you’ll learn to configure F5’s BIG-IP Access Policy Manager (APM) with Azure Active Directory (Azure AD) for Secure hybrid Access (SHA) to Kerberos applications.
+In this tutorial, you’ll learn how to implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to Kerberos applications using F5’s BIG-IP advanced configuration. 
 
 Integrating a BIG-IP with Azure AD provides many benefits, including:
 
@@ -243,7 +243,7 @@ These settings define the SAML SP properties that the APM will use for overlayin
 
     ![Create a new SAML SP service](./media/f5-big-ip-kerberos-advanced/create-new-saml-sp-service.png)
 
-4. You need not specify  **SP Name Settings** if the SAML entity ID is an exact match with the URL for the published application. For example, if the entity ID were urn:myexpenses:contosoonline then you would need to provide the **Scheme** and **Host** as https myexpenses.contoso.com. Whereas if the entity ID was [https://myexpenses.contoso.com](https://myexpenses.contoso.com/) then not.
+4. You need not specify  **SP Name Settings** if the SAML entity ID is an exact match with the URL for the published application. For example, if the entity ID were urn:myexpenses:contosoonline then you would need to provide the **Scheme** and **Host** as https myexpenses.contoso.com. Whereas if the entity ID was `https://myexpenses.contoso.com` then not.
 
 ### Configure external IdP connector 
 
@@ -482,7 +482,7 @@ F5 provides a great BIG-IP specific paper to help diagnose KCD related issues, s
 
 ## Additional resources
 
-* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
+* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 * [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 

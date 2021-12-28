@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/18/2020
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Delete volume replications or volumes
 

@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/14/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 
 # Azure NetApp Files for Azure Government 
