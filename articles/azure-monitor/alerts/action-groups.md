@@ -153,10 +153,7 @@ While setting up *Email ARM Role* you need to make sure below 3 conditions are m
 > [!NOTE]
 > It can take upto **24 hours** for customer to start receiving notifications after they add new ARM Role to their subscription.
 
-### Event Hub (Preview)
-> [!NOTE]
-> The Event Hub action type is currently in *Preview*. During the preview there may be bugs and disruptions in availability of the functionality.
-
+### Event Hub
 An Event Hub action publishes notifications to an [Azure Event Hub](~/articles/event-hubs/event-hubs-about.md). You may then subscribe to the alert notification stream from your event receiver.
 
 ### Function
