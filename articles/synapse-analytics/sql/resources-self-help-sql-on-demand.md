@@ -824,7 +824,7 @@ Learn here how to [query JSON files](query-json-files.md). You can [query partit
 ### Create views, tables and other database objects
 
 Learn here how to create and use [views](create-use-views.md), [external tables](create-use-external-tables.md), or setup [row-level security](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759).
-If you have [partitioned files](query-specific-files.md), make sure that you ar eusing [paritioned views](create-use-views.md#partitioned-views).
+If you have [partitioned files](query-specific-files.md), make sure that you are using [partitioned views](create-use-views.md#partitioned-views).
 
 ### Copy and transform data (CETAS)
 
