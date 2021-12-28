@@ -23,7 +23,7 @@ The Speech SDK works best with a microphone array that has been designed accordi
 
 The following array geometries are recommended for use with the Microsoft Audio Stack. Location of sound sources and rejection of ambient noise is improved with greater number of microphones with dependencies on specific applications, user scenarios, and the device form factor.
 
-| Array || Geometry | 
+| Array |Microphones| Geometry | 
 | ----- | ----- | ----- |
 |Circular - 7 Microphones|<img src="media/speech-devices-sdk/7-mic-c.png" alt="7 mic circular array" width="150"/>|6 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced|
 |Circular - 4 Microphones|<img src="media/speech-devices-sdk/4-mic-c.png" alt="4 mic circular array" width="150"/>|3 Outer, 1 Center, Radius = 42.5 mm, Evenly Spaced|
