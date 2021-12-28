@@ -3,9 +3,9 @@
 - name: Overview
   expanded: true
   items:
-    - name: What is Anomaly Detector (univariate)? 
+    - name: What is Univariate Anomaly Detector? 
       href: overview.md
-    - name: What is Anomaly Detector (multivariate)?
+    - name: What is Multivariate Anomaly Detector?
       href: overview-multivariate.md
     - name: Pricing
       href: https://aka.ms/adpricing
@@ -98,10 +98,8 @@
   items:
     - name: Enterprise readiness
       items:
-        - name: Region support (univariate)
+        - name: Region support
           href: https://aka.ms/adregion
-        - name: Region support (multivariate)
-          href: overview-multivariate.md#region-support
         - name: Compliance and certification
           href: https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/
     - name: Support and help options

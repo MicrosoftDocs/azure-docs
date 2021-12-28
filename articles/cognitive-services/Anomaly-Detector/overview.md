@@ -1,5 +1,5 @@
 ---
-title: What is the Anomaly Detector API?
+title: What is the Univariate Anomaly Detector?
 titleSuffix: Azure Cognitive Services
 description: Use the Anomaly Detector API's algorithms to apply anomaly detection on your time series data.
 services: cognitive-services
@@ -14,7 +14,7 @@ keywords: anomaly detection, machine learning, algorithms
 ms.custom: cog-serv-seo-aug-2020
 ---
 
-# What is the Anomaly Detector univariate API?
+# What is Univariate Anomaly Detector?
 
 [!INCLUDE [TLS 1.2 enforcement](../../../includes/cognitive-services-tls-announcement.md)]
 
