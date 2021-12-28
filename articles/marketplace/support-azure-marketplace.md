@@ -15,7 +15,7 @@ Do you have questions about getting started as a Microsoft commercial marketplac
 
 ## Onboarding
 
-Open a ticket with Microsoft [marketplace publisher support](hhttps://go.microsoft.com/fwlink/?linkid=2165533) for issues with onboarding and getting started.
+Open a ticket with Microsoft [marketplace publisher support](https://go.microsoft.com/fwlink/?linkid=2165533) for issues with onboarding and getting started.
 
 ## Partner Center
 
