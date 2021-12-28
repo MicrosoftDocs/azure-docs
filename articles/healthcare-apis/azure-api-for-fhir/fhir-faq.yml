@@ -54,7 +54,7 @@ sections:
           
           Azure IoT Connector for FHIR (preview) currently supports only FHIR version R4 and is visible on R4 instances of Azure API for FHIR.
 
-        - question: |
+      - question: |
           What's the difference between the Azure Healthcare APIs and the Azure API for FHIR?
         answer: |
           The Azure API for FHIR is a generally available managed FHIR service. The Azure Healthcare APIs is in public preview and allows you to deploy a FHIR service and a DICOM service in the same workspace. The Azure Healthcare APIs overview gives more details.         
