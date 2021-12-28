@@ -253,27 +253,23 @@ SecurityEvent
 | take 10
 ```
 
-##### Results
+### Results
 
-:::image type="content" source="/media/kql-overview/table-where-multiple-events.png" alt-text="Get 10 occurrences in descending order for EventID 4624, 4634.":::
+:::image type="content" source="./media/kql-overview/table-where-multiple-events.png" alt-text="Screenshot of results of request to get 10 occurrences in descending order for Event I D 4624, 4634.":::
 
-#### Example 3
-
-```kusto
-//Combine where statements using the and operator.
-SecurityEvent
-| where EventID == 4624
-  and TimeGenerated <= ago(1d)
-| take 10
-```
-
-##### Results
-
-:::image type="content" source="./media/kql-overview/table-where-and.png" alt-text="Get 10 occurrences of EventID 4624 using the where with and operator.":::
+> [!TIP]
+> Just so you know, you can - and should, when possible ***(???)*** - combine multiple `where` operations into a single one using the `and` operator. ***(YL: IS THIS MORE PERFORMANT? ONE BOOLEAN OPERATION ON EVERY ROW INSTEAD OF MULTIPLES?)***
+>
+> ```kusto
+> //Combine where statements using the and operator.
+> SecurityEvent
+> | where EventID == 4624
+> >   and TimeGenerated <= ago(1d)
+> | take 10
+> ```
 
 
-
-#### Example 4
+### Example 3
 
 ```kusto
 //This example turns the EventID value into a string to filter on all EventIDs that start with "47"
