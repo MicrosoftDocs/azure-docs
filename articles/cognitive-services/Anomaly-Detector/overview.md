@@ -65,6 +65,7 @@ After signing up:
 1. Send a request to the Anomaly Detector API with your data.
 1. Process the API response by parsing the returned JSON message.
 
+
 ## Algorithms
 
 * See the following technical blogs for information about the algorithms used:
