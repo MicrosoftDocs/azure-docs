@@ -720,6 +720,29 @@ See the [Synapse Studio section](#synapse-studio).
 
 ## Security
 
+Make sure that you 
+
+### Cannot read, list or access files on data lake storage
+
+If you are using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
+
+If you are accessing storage using [crednetials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ALC permissions. If you have used [SAS token](develop-storage-files-storage-access-contro.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it didn't expired. 
+If you are using SQL login and the `OPENROWSET` function [without data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
+
+### Cannot access Cosmos DB account
+
+Make sure that your Cosmos DB container has analytical storage. Make sure that you correctly specified account, database, and container name. You must use read-only cosmos DB credential to access your analytical storage, so make sure that it did not expire.
+
+If you are getting the [Resolving Cosmos DB path has failed](#resolving-cosmosdb-path-has-failed) error, make sure that you configured firewall.
+
+### Cannot access Lakehouse/Spark database
+
+If a user cannot access a lake house or Spark database, it might not have permissions to access and read the database. A user with `CONTROL SERVER` permission should have full access to all databases. As a restricted permission, you might try to use [CONNECT ANY DATABASE and SELECT ALL USER SECURABLES](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/synapse-serverless-shared-database-and-tables-access-for-non/ba-p/2645947).
+
+### SQL user cannot access Dataverse tables
+
+Dataverse tables are accessing storage using the callers Azure AD identity. SQL user with high permissions might try to select data from a table, but the table would not be able to access Dataverse data. This scenario is not supported.
+
 ### Azure AD service principal login failures when SPI is creating a role assignment
 If you want to create role assignment for Service Principal Identifier/Azure AD app using another SPI, or have already created one and it fails to login, you're probably receiving following error:
 ```
