@@ -4,7 +4,7 @@ description: Learn how to create an access review policy for entitlement managem
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity

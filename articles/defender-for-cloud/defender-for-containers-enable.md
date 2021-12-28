@@ -110,6 +110,7 @@ Request Body:
  
 ```rest
 {
+  "location": "{{Location}}",
   "properties": {
     "securityProfile": {
             "azureDefender": {
@@ -125,6 +126,7 @@ Request body parameters:
 
 | Name                                                                     | Description                                                                              | Mandatory |
 |--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
+| location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
 | properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
 |                                                                          |                                                                                          |           |
@@ -605,11 +607,11 @@ Request body:
  
 ```rest
 {
+  "location": "{{Location}}",
   "properties": {
     "securityProfile": {
             "azureDefender": {
-                "enabled": false,
-                "logAnalyticsWorkspaceResourceId": "" // leave empty
+                "enabled": false
             }
         }
     }
@@ -620,8 +622,8 @@ Request body parameters:
 
 | Name                                                                     | Description                                                                              | Mandatory |
 |--------------------------------------------------------------------------|------------------------------------------------------------------------------------------|-----------|
+| location                                                                 | Cluster's location                                                                       | Yes       |
 | properties.securityProfile.azureDefender.enabled                         | Determines whether to enable or disable Microsoft Defender for Containers on the cluster | Yes       |
-| properties.securityProfile.azureDefender.logAnalyticsWorkspaceResourceId | Log Analytics workspace Azure resource ID                                                | Yes       |
 |                                                                          |                                                                                          |           |
 
 
@@ -646,8 +648,7 @@ The relevant template and parameters to remove the Defender profile from AKS are
         …
         "securityProfile": { 
             "azureDefender": { 
-                "enabled": false, 
-                "logAnalyticsWorkspaceResourceId": "" // leave empty
+                "enabled": false
             }
         },
     }

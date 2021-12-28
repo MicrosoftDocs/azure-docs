@@ -76,6 +76,8 @@
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
+    - name: Automation in Azure Backup
+      href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
