@@ -44508,6 +44508,11 @@
       "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
       "redirect_document_id": false
     },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+        "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+        "redirect_document_id": false
+      },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
       "redirect_url": "/azure/communication-services/concepts/sms/concepts",
@@ -45163,5 +45168,26 @@
       "redirect_url": "/azure/orbital/overview",
       "redirect_document_id": false
     }
+    {
+      "source_path_from_root": "/articles/iot-hub-device-update/components-enumerator.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
+      "redirect_document_id": false
+    }
+    {
+      "source_path_from_root": "/articles/iot-hub-device-update/device-update-multi-step-updates.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
+      "redirect_document_id": false
+    }
+    {
+      "source_path_from_root": "/articles/iot-hub-device-update/device-update-howto-proxy-updates.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
+      "redirect_document_id": false
+    }
+   {
+      "source_path_from_root": "/articles/iot-hub-device-update/device-update-proxy-updates.md",
+      "redirect_url": "/azure/iot-hub-device-update/device-update-agent-overview",
+      "redirect_document_id": false
+    }
+
   ]
 }
