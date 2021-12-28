@@ -827,7 +827,8 @@ You don't need to use separate databases to isolate data for different tenants. 
 
 ## Querying Azure data
 
-Review the following articles to learn more about how to use serverless SQL pool to query data.
+Serverless SQL pools enable you to query data in Azure storage or Azure Cosmos DB using [external tables and the OPENROWSET function](develop-storage-files-overview.md).  
+Make sure that you have proper [permission setup](develop-storage-files-overview.md#permissions) on your storage.
 
 ### Querying CSV data
 
@@ -835,11 +836,16 @@ Learn here how to [query single CSV file](query-single-csv-file.md) or [folders 
 
 ### Querying Parquet data 
 
-Learn here how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md). You can also [query partitioned files](query-specific-files.md)
+Learn here how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md). You can also [query partitioned files](query-specific-files.md).
+
+### Querying Delta Lake 
+
+Learn here how to [query Delta Lake files](query-delta-lake-format.md) with [nested types](query-parquet-nested-types.md). 
 
 ### Querying Cosmos DB data 
 
 Learn here how to [query Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the `WITH` clause based on a sample Cosmos Db document.
+You can [create views](create-use-views.md#cosmosdb-view) on top of Cosmos DB containers.
 
 ### Querying JSON data 
 
@@ -848,6 +854,7 @@ Learn here how to [query JSON files](query-json-files.md). You can also [query p
 ### Create views, tables and other database objects
 
 Learn here how to create and use [views](create-use-views.md), [external tables](create-use-external-tables.md), or setup [row-level security](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759).
+If you have [partitioned files](query-specific-files.md), make sure that you are using [partitioned views](create-use-views.md#partitioned-views).
 
 ### Copy and transform data (CETAS)
 
