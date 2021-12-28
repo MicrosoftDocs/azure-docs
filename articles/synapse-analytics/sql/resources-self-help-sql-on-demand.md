@@ -222,7 +222,7 @@ This error is returned if a file is modified during the query execution. Usually
 The serverless sql pools cannot read the files that are modified while the query is running. The query cannot take a lock on the files. 
 If you know that the modification operation is **append**, you can try to set the following option `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`. See how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
 
-### Query fails with conversion error
+### Query fails with data conversion error
 If your query fails with the error message 
 'bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]', it means that your data types did not match the actual data for row number n and column m. 
 
@@ -399,7 +399,7 @@ returns
 | 5         | Eva | 
 
 
-### Query fails with error: Column [column-name] of type [type-name] is  not compatible with external data type [external-data-type-name] 
+### Column [column-name] of type [type-name] is  not compatible with external data type [external-data-type-name] 
 
 If your query fails with the error message 'Column [column-name] of type [type-name] is not compatible with external data type […]', it is likely that tried to map a PARQUET data type to the wrong SQL data type. 
 For instance, if your parquet file has a column price with float numbers (like 12.89) and you tried to map it to INT, this is the error message you will get. 
@@ -588,12 +588,12 @@ A serverless SQL pool will return a compile-time warning if the `OPENROWSET` col
 
 [Latin1_General_100_BIN2_UTF8 collation](best-practices-serverless-sql-pool.md#use-proper-collation-to-utilize-predicate-pushdown-for-character-columns) provides the best performance when you filter your data using string predicates.
 
-### Some rows are not returned
+### Some items from Cosmos DB are not returned
 
 - There is a synchronization delay between transactional and analytical store. The document that you entered in the Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
 - The document might violate some [schema constraints](../../cosmos-db/analytical-store-introduction.md#schema-constraints). 
 
-### Query returns `NULL` values
+### Query returns `NULL` values in some Cosmos DB items
 
 Azure Synapse SQL will return `NULL` instead of the values that you see in the transaction store in the following cases:
 - There is a synchronization delay between transactional and analytical store. The value that you entered in Cosmos DB transactional store might appear in analytical store after 2-3 minutes.
@@ -734,9 +734,11 @@ Login error: Login failed for user '<token-identified principal>'.
 For service principals login should be created with Application ID as SID (not with Object ID). There is a known limitation for service principals which is preventing the Azure Synapse service from fetching Application ID from Microsoft Graph when creating role assignment for another SPI/app.  
 
 **Solution #1**
+
 Navigate to Azure portal > Synapse Studio > Manage > Access control and manually add Synapse Administrator or Synapse SQL Administrator for desired Service Principal.
 
 **Solution #2**
+
 You need to manually create a proper login through SQL code:
 ```sql
 use master
@@ -748,6 +750,7 @@ go
 ```
 
 **Solution #3**
+
 You can also setup service principal Synapse Admin using PowerShell. You need to have [Az.Synapse module](/powershell/module/az.synapse) installed.
 The solution is to use cmdlet New-AzSynapseRoleAssignment with `-ObjectId "parameter"` - and in that parameter field to provide Application ID (instead of Object ID) using workspace admin Azure service principal credentials. PowerShell script:
 ```azurepowershell
@@ -763,6 +766,7 @@ New-AzSynapseRoleAssignment -WorkspaceName "<workspaceName>" -RoleDefinitionName
 ```
 
 **Validation**
+
 Connect to serverless SQL endpoint and verify that the external login with SID `app_id_to_add_as_admin` is created:
 ```sql
 select name, convert(uniqueidentifier, sid) as sid, create_date
@@ -784,6 +788,12 @@ There are some general system constraints that may affect your workload:
 | Max query duration | 30 min |
 | Max size of the result set | up to 200 GB (shared between concurrent queries) |
 | Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
+
+### Cannot creata a database in serverless SQL pool
+
+The serverless SQL pools have limitations and you cannot create more than 20 databases per workspace. If you need to separate objects and isolate them, use schemas.
+
+You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Cosmos DB. The metadata (table, views, function definitions) can be successfully isolated using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
 ## Next steps
 
