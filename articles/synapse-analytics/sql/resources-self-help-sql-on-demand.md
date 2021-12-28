@@ -27,7 +27,7 @@ If Synapse Studio can't establish connection to serverless SQL pool, you'll noti
 1) Your network prevents communication to Azure Synapse backend. Most frequent case is that port 1443 is blocked. To get the serverless SQL pool to work, unblock this port. Other problems could prevent serverless SQL pool to work as well, [visit full troubleshooting guide for more information](../troubleshoot/troubleshoot-synapse-studio.md).
 2) You don't have permissions to log into serverless SQL pool. To gain access, one of the Azure Synapse workspace administrators should add you to workspace administrator or SQL administrator role. [Visit full guide on access control for more information](../security/synapse-workspace-access-control-overview.md).
 
-### Query fails with error: Websocket connection was closed unexpectedly.
+### Websocket connection was closed unexpectedly.
 
 If your query fails with the error message: 'Websocket connection was closed unexpectedly', it means that your browser connection to Synapse Studio was interrupted, for example because of a network issue. 
 
@@ -720,16 +720,25 @@ If you are executing the same query and observing variations in the query durati
 
 ## Connections
 
+Serverless SQL pool enables you to connect using TDS protocol and use T-SQL language to query data. Most of the tools that can connect to SQL server or Azure SQL database, can also connect to serverless SQL pool.
+
 ### SQL pool is warming up
 
 Following a longer period of inactivity Serverless SQL pool will be deactivated. The activation will happen automatically on the first next activity, such as the first connection attempt. Activation process may take a bit longer than a single connection attempt interval, thus the error message is displayed. Re-trying the connection attempt should be enough.  
-As a best practice, for the clients which support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behaviour. 
+As a best practice, for the clients which support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behavior. 
 
 If the error message persists, file a support ticket through the Azure portal.
 
 ### Cannot connect from Synapse Studio
 
 See the [Synapse Studio section](#synapse-studio).
+
+### Cannot connect from a tool
+
+Some tools might not have an explicit option that enables you to connect to the Synapse serverless SQL pool. 
+Use an option that you would use to connect to SQL Server or Azure SQL database. The connection dialog do not need to be branded as "Synapse" because the serverless SQL pool use the same protocol as SQL Server or Azure SQL database. 
+
+Even if a tool enables you to enter only a logical server name and predefines `database.windows.net` domain, put the Synapse workspace name followed by `-ondemand` suffix and `database.windows.net` domain.
 
 ## Security
 
