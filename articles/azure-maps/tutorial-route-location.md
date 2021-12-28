@@ -150,11 +150,11 @@ In this tutorial, we'll render the route using a line layer. The start and end p
 
    * This code implements the Map control's `ready` event handler. The rest of the code in this tutorial will be placed inside the `ready` event handler.
    * In the map control's `ready` event handler, a data source is created to store the route from start to end point.
-   * To define how the route line will be rendered, a line layer is created and attached to the data source.  To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
+   * To define how the route line will be rendered, a line layer is created and attached to the data source. To ensure that the route line doesn't cover up the road labels, we've passed a second parameter with the value of `'labels'`.
 
     Next, a symbol layer is created and attached to the data source. This layer specifies how the start and end points are rendered.Expressions have been added to retrieve the icon image and text label information from properties on each point object. To learn more about expressions, see [Data-driven style expressions](data-driven-style-expressions-web-sdk.md).
 
-2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle.  Do this by append the following code in the Map control's `ready` event handler:
+2. Next, set the start point at Microsoft, and the end point at a gas station in Seattle. Do this by appending the following code in the Map control's `ready` event handler:
 
     ```JavaScript
     //Create the GeoJSON objects which represent the start and end points of the route.
@@ -234,11 +234,9 @@ This section shows you how to use the Azure Maps Route Directions API to get rou
    * The `routeURL` requests the Azure Maps Route service API to calculate route directions.
    * A GeoJSON feature collection from the response is then extracted using the `geojson.getFeatures()` method and added to the data source.
 
-3. Save the **MapRoute.html** file and refresh your web browser. The map should now display the route from start to end point.
+3. Save the **MapRoute.html** file and refresh your web browser. The map should now display the route from the start to end points.
 
      :::image type="content" source="./media/tutorial-route-location/map-route.png" alt-text="[A screen shot showing a map that demonstrates the Azure Map control and Route service.":::
-
-You can obtain the full source code for the sample [here](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html). A live sample can be found [here](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination).
 
 * For the completed code used in this tutorial, see [route.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/route.html) on GitHub.
 * To view this sample live, see [Route to a destination](https://azuremapscodesamples.azurewebsites.net/?sample=Route%20to%20a%20destination) on the **Azure Maps Code Samples** site.
