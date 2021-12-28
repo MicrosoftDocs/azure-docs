@@ -1,6 +1,6 @@
 ---
 title: Tutorial - Import and manage APIs - Azure API Management and Visual Studio Code | Microsoft Docs
-description: Learn how to use the Azure API Management Extension for Visual Studio Code. This tutorial shows how to import, test, and manage APIs.
+description: Learn how to use the Azure API Management Extension for Visual Studio Code to import, test, and manage APIs.
 ms.service: api-management
 author: dlepow
 ms.author: danlep
@@ -11,7 +11,7 @@ ms.custom: devdivchpfy22
 
 # Tutorial: Use the API Management Extension for Visual Studio Code to import and manage APIs
 
-In this tutorial, you learn how to use the API Management Extension for Visual Studio Code. The simple steps are given for common operations in API Management. Use the familiar Visual Studio Code environment to import, update, test, and manage APIs.
+In this tutorial, you learn how to use the API Management Extension for Visual Studio Code for common operations in API Management. Use the familiar Visual Studio Code environment to import, update, test, and manage APIs.
 
 You learn how to:
 
@@ -39,7 +39,7 @@ The following example imports an OpenAPI Specification in JSON format into API M
 1. In the Explorer pane, expand the API Management instance you created.
 1. Right-click **APIs**, and select **Import from OpenAPI Link**.
 1. When prompted, enter the following values:
-    1. An **OpenAPI link** for content in JSON format. For this example: *https://conferenceapi.azurewebsites.net?format=json*.
+    1. An **OpenAPI link** for content in JSON format. For this example: *<https://conferenceapi.azurewebsites.net?format=json>*.
     This URL is the service that implements the example API. API Management forwards requests to this address.
     1. An **API name**, such as *demo-conference-api*, that is unique in the API Management instance. This name can contain only letters, number, and hyphens. The first and last characters must be alphanumeric. This name is used in the path to call the API.
 
@@ -59,7 +59,7 @@ To edit the OpenAPI format, right-click the API name in the Explorer pane and se
 
 API Management provides [policies](api-management-policies.md) that you can configure for your APIs. Policies are a collection of statements. These statements are run sequentially on the request or response of an API. Policies can be global, which apply to all APIs in your API Management instance, or specific to an API or API operation.
 
-This section shows how to apply some common outbound policies to your API. After applying policies, it transforms the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
+This section shows how to apply common outbound policies to your API that transform the API response. The policies in this example change response headers and hide original backend URLs that appear in the response body.
 
 1. In the Explorer pane, select **Policy** under the *demo-conference-api* that you imported. The policy file opens in the editor window. This file configures policies for all operations in the API.
 
@@ -117,7 +117,7 @@ Notice the following details in the response:
 
 For detailed tracing information to help you debug the API operation, select the link that appears next to **Ocp-APIM-Trace-Location**.
 
-The JSON file at that location contains Inbound, Backend, and Outbound trace information. The trace information helps you to determine where problems occur after the request is made.
+The JSON file at that location contains Inbound, Backend, and Outbound trace information. The trace information helps you determine where problems occur after the request is made.
 
 > [!TIP]
 > When you test API operations, the API Management Extension allows optional [policy debugging](api-management-debug-policies.md) (available in the Developer service tier).
