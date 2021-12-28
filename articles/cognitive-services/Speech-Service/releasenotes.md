@@ -27,6 +27,6 @@ ms.custom: ignite-fall-2021
 
 # [CLI](#tab/speech-cli)
 
-[!INCLUDE [speech-cli](./includes/release-notes/release-notes-cli.md]
+[!INCLUDE [speech-cli](./includes/release-notes/release-notes-cli.md)]
 
 ***
