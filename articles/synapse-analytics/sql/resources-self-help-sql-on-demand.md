@@ -508,7 +508,7 @@ spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 
 ## Configuration
 
-### Query fails with: Please create a master key in the database or open the master key in the session before performing this operation.
+### Please create a master key in the database or open the master key in the session before performing this operation.
 
 If your query fails with the error message 'Please create a master key in the database or open the master key in the session before performing this operation.', it means that your user database has no access to a master key in the moment. 
 
@@ -558,6 +558,12 @@ WITH ( FORMAT_TYPE = PARQUET)
 If you are trying to create some SQL objects, users, or change permissions in a database, you might get the errors like 'Operation CREATE USER is not allowed for a replicated database'. This error is returned when you try to create some objects in a database that is [shared with Spark pool](../metadata/database.md). The databases that are replicated from Apache Spark pools are read-only. You cannot create new objects into replicated database using T-SQL.
 
 Create a separate database and reference the synchronized [tables](../metadata/table.md) using 3-part names and cross-database queries.
+
+### Cannot create Azure AD login or user
+
+If you are getting an error while trying to create new Azure AD login or user in database, check what login you used to connect to your database. The login that is trying to create a new Azure AD user must have permission to access Azure AD domain and check does the user exist.
+- SQL logins do not have this permission, so you will always get this error if you use SQL authentication.
+- If you are using Azure AD login to create new logins, check do you have permission to access Azure AD domain.
 
 ## Cosmos DB
 
