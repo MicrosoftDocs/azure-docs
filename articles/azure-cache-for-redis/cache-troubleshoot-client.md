@@ -1,6 +1,6 @@
 ---
 title: Troubleshoot Azure Cache for Redis client-side issues
-description: Learn how to resolve common client-side issues with Azure Cache for Redis such as Redis client memory pressure, traffic burst, high CPU, limited bandwidth, large requests or large response size.
+description: Learn how to resolve common client issues, such as client memory pressure, traffic burst, high CPU, limited bandwidth, large requests, or large response size, when using Azure Cache for Redis.
 author: flang-msft
 ms.author: franlanglois
 ms.service: cache
@@ -18,7 +18,7 @@ This section discusses troubleshooting issues that occur because of a condition 
 
 ## Memory pressure on Redis client
 
-Memory pressure on the client machine leads to all kinds of performance problems that can delay processing of responses from the cache. When memory pressure hits, the system may page data to disk. This _page faulting_ causes the system to slow down significantly.
+Memory pressure on the client can lead to performance problems that can delay processing of responses from the cache. When memory pressure hits, the system might page data to disk. This _page faulting_ causes the system to slow down significantly.
 
 To detect memory pressure on the client:
 
@@ -32,26 +32,23 @@ High memory pressure on the client can be mitigated several ways:
 
 ## Traffic burst
 
-Moved.
-<!-- Moved Traffic burst section to cache-troubleshoot-timeouts.md -->
+This section was moved. For more information, see [Traffic burst and thread pool configuration](cache-troubleshoot-timeouts.md#traffic-burst-and-thread-pool-configuration).
 
 ## High client CPU usage
 
-Moved.
-<!-- Moved to high CPU on clients section in cache-troubleshoot-timeouts.md -->
+This section was moved. For more information, see [High CPU on client hosts](cache-troubleshoot-timeouts.md#high-cpu-on-client-hosts).
 
 ## Client-side bandwidth limitation
 
-Moved.
-<!-- Moved to  Network bandwidth limitation in client hosts section of  cache-troubleshoot-timeouts.md -->
+This section was moved. For more information, see [Network bandwidth limitation on client hosts](cache-troubleshoot-timeouts.md#network-bandwidth-limitation-on-client-hosts).
 
 ## High client connections
 
-Client connections reaching the maximum for the cache can cause failures in client requests for connections beyond the maximum, and can also cause high server CPU usage on the cache due to processing repeated reconnection attempts.
+When client connections reach the maximum for the cache, you can have failures in client requests for connections beyond the maximum. High client connections can also cause high server load when processing repeated reconnection attempts.
 
-High client connections may indicate a connection leak in client code.  Connections may not be getting re-used or closed properly.  Review client code for connection use.
+High client connections might indicate a connection leak in client code. Connections might not be getting reused or closed properly. Review client code for connection use.
 
-If the high connections are all legitimate and required client connections, upgrading your cache to a size with a higher connection limit may be required.
+If the high connections are all legitimate and required client connections, upgrading your cache to a size with a higher connection limit might be required.
 
 ## Additional information
 
