@@ -138,7 +138,7 @@ This error indicates that you are using an object (table or view) that doesn't e
 
 ### Could not allocate tempdb space while transferring data from one distribution to another
 
-This error is special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-fails-because-it-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query. 
+This error is special case of the generic [query fails because it cannot be executed due to current resource constraints](#query-cannot-be-executed-due-to-current-resource-constraints) error. This error is returned when the resources allocated to the `tempdb` database are insufficient to run the query. 
 
 Apply the same mitigation and the best practices before you file a support ticket.
 
