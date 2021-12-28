@@ -2,7 +2,7 @@
 title: What's new in Microsoft Defender for IoT for device builders
 description: Learn about the latest updates for Defender for IoT device builders.
 ms.topic: conceptual
-ms.date: 11/09/2021
+ms.date: 12/28/2021
 ---
 
 # What's new  
@@ -13,7 +13,9 @@ This article lists new features and feature enhancements in Microsoft Defender f
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-## Versioning and support 
+If you would like to be added to the Microsoft Defender for IoT device builders email distribution list, to get updates on new features, and release notes, send an email to: defender_micro_agent@microsoft.com.
+
+## Versioning and support
 
 Listed below are the support, breaking change policies for Defender for IoT, and the versions of Defender for IoT that are currently available.
 
