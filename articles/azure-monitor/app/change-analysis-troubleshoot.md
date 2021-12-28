@@ -13,12 +13,12 @@ ms.custom: devx-track-azurepowershell
 
 ## Trouble registering Microsoft.ChangeAnalysis resource provider from Change history tab.
 
-If you are viewing Change history after its first integration with Application Change Analysis, you will see it automatically registering the **Microsoft.ChangeAnalysis** resource provider. The resource may fail and incur the following error messages: 
+If you're viewing Change history after its first integration with Application Change Analysis, you will see it automatically registering the **Microsoft.ChangeAnalysis** resource provider. The resource may fail and incur the following error messages: 
 
 ### You don't have enough permissions to register Microsoft.ChangeAnalysis resource provider.  
 You're receiving this error message because your role in the current subscription is not associated with the **Microsoft.Support/register/action** scope. For example, you are not the owner of your subscription and instead received shared access permissions through a coworker (like view access to a resource group). 
 
-To fix this, contact the owner of your subscription to register the **Microsoft.ChangeAnalysis** resource provider. 
+To resolve the issue, contact the owner of your subscription to register the **Microsoft.ChangeAnalysis** resource provider. 
 1. In the Azure portal, search for **Subscriptions**.
 1. Select your subscription.
 1. Navigate to **Resource providers** under **Settings** in the side menu.
@@ -31,7 +31,9 @@ To fix this, contact the owner of your subscription to register the **Microsoft.
     ```
 
 ### Failed to register Microsoft.ChangeAnalysis resource provider.
-Since the UI sent the resource provider registration request, and you've resolved your [permissions issue](#you-don't-have-enough-permissions-to-register-Microsoft.ChangeAnalysis-resource-provider), this error message is likely a temporary internet connectivity issue. 
+This error message is likely a temporary internet connectivity issue, since:
+* The UI sent the resource provider registration request.
+* You've resolved your [permissions issue](#you-dont-have-enough-permissions-to-register-microsoftchangeanalysis-resource-provider).
 
 Try refreshing the page and checking your internet connection. If the error persists, contact the [Change Analysis help team](mailto:changeanalysishelp@microsoft.com).
 
@@ -49,7 +51,7 @@ You'll receive this error message when the registration takes longer than 2 minu
 ## Azure Lighthouse subscription is not supported.
 
 ### Failed to query Microsoft.ChangeAnalysis resource provider.
-Often, this message includes: *Azure lighthouse subscription is not supported, the changes are only available in the subscription's home tenant*. 
+Often, this message includes: `Azure Lighthouse subscription is not supported, the changes are only available in the subscription's home tenant`. 
 
 Currently, the Change Analysis resource provider is limited to registration through Azure Lighthouse subscription for users outside of home tenant. We are working on addressing this limitation. 
 
@@ -70,7 +72,7 @@ This general unauthorized error message occurs when the current user does not ha
 * To view infrastructure changes returned by Azure Resource Graph and Azure Resource Manager, reader access is required. 
 * For web app in-guest file changes and configuration changes, contributor role is required. 
 
-You may not immediately see web app in-guest file changes and configuration changes due to async coordination. This is a limitation. While we work on providing the option to restart the app in the Azure portal, the current procedure is:
+You may not immediately see web app in-guest file changes and configuration changes. While we work on providing the option to restart the app in the Azure portal, the current procedure is:
 
 1. User adds the hidden tracking tag, notifying the scheduled worker.
 2. Scheduled worker scans the web app within a few hours.
