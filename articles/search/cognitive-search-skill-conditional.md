@@ -6,8 +6,8 @@ description: The conditional skill in Azure Cognitive Search enables filtering, 
 author: LiamCavanagh
 ms.author: liamca
 ms.service: cognitive-search
-ms.topic: conceptual
-ms.date: 11/04/2019
+ms.topic: reference
+ms.date: 08/12/2021
 ---
 
 # Conditional cognitive skill
@@ -24,7 +24,7 @@ else
 ```
 
 > [!NOTE]
-> This skill isn't bound to an Azure Cognitive Services API, and you aren't charged for using it. However, you should still [attach a Cognitive Services resource](cognitive-search-attach-cognitive-services.md) to override the "Free" resource option that limits you to a small number of enrichments per day.
+> This skill isn't bound to Cognitive Services. It is non-billable and has no Cognitive Services key requirement.
 
 ## @odata.type  
 Microsoft.Skills.Util.ConditionalSkill

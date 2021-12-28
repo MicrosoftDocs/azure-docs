@@ -13,12 +13,35 @@ ms.custom: mvc
 
 [Azure Migrate](migrate-services-overview.md) helps you to discover, assess, and migrate on-premises servers, apps, and data to the Microsoft Azure cloud. This article summarizes new releases and features in Azure Migrate.
 
+## Update (December 2021)
+- Support to discover, assess, and migrate VMs from multiple vCenter Servers using a single Azure Migrate appliance. [Learn more](tutorial-discover-vmware.md#start-continuous-discovery).
+- Simplified [Azure VMware Solution assessment](./concepts-azure-vmware-solution-assessment-calculation.md) experience to understand sizing assumptions, resource utilization and limiting factor for migrating on-premises VMware VMs to Azure VMware Solution. Other enhancements added:
+    - Support for two new target assessment regions: Central US and Canada East
+    - Support for Reserved Instances in assessment properties for more accurate cost estimates
+    - New readiness condition to highlight Operating Systems deprecated by VMware
+    - Support for storage utilization parameter in storage sizing logic (only for discovery via a .csv file) 
+
+## Update (October 2021)
+- Azure Migrate now supports new public cloud geographies and regions. [Learn more](migrate-support-matrix.md#supported-geographies-public-cloud)
+
+## Update (September 2021)
+- Discover, assess, and migrate servers over a private network using [Azure Private Link.](../private-link/private-endpoint-overview.md)  is now in preview in supported [government cloud geographies.](migrate-support-matrix.md#supported-geographies-azure-government) [Learn more](how-to-use-azure-migrate-with-private-endpoints.md)
+- Support to tag and add custom names to resources for agentless VMware VM migrations using PowerShell.
+- Azure Migrate appliance: Option to remove servers from the physical servers discovery list.
+
 ## Update (August 2021)
 
-- At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, is now in preview. [Learn More](concepts-azure-sql-assessment-calculation.md) Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-sql.md) tutorials to get started.
-- Support for Azure [ultra disks](https://docs.microsoft.com/azure/virtual-machines/disks-types#ultra-disk) in Azure VM assessment recommendation.
+- At-scale discovery and assessment of ASP.NET web apps running on IIS servers in your VMware environment, is now in preview. [Learn More](concepts-azure-webapps-assessment-calculation.md). Refer to the [Discovery](tutorial-discover-vmware.md) and [assessment](tutorial-assess-webapps.md) tutorials to get started.
+- Support for Azure [ultra disks](../virtual-machines/disks-types.md#ultra-disks) in Azure VM assessment recommendation.
+- General Availability of at-scale, software inventory and agentless dependency analysis for VMware virtual machines.
+- Azure Migrate appliance updates:
+    - ‘Diagnose and solve’ on appliance to help users identify and self-assess any issues with the appliance.
+    - Unified installer script- common script where users need to select from the scenario, cloud, and connectivity options to deploy an appliance with the desired configuration.
+    - Support to add a user account with ‘sudo’ access on appliance configuration manager to perform discovery of Linux servers (as an alternative to providing root account or enabling setcap permissions).
+    - Support to edit the SQL Server connection properties on the appliance configuration manager.
 
 ## Update (July 2021)
+
 - Azure Migrate: App Containerization tool now lets you package applications running on servers into a container image and deploy the containerized application to Azure App Service containers, in addition to Azure Kubernetes Service. You can also automatically integrate application monitoring for Java apps with Azure Application Insights and use Azure Key Vault to manage application secrets such as certificates and parameterized configurations. For more information, see [ASP.NET app containerization and migration to Azure App Service](tutorial-app-containerization-aspnet-app-service.md) and [Java web app containerization and migration to Azure App Service](tutorial-app-containerization-java-app-service.md) tutorials to get started.
 
 ## Update (June 2021)

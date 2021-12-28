@@ -9,7 +9,6 @@ ms.topic: how-to
 ms.date: 05/11/2021
 # Customer intent: As an Azure Purview admin, I want to set up private endpoints for my Azure Purview account for secure access.
 ---
-
 # FAQ about Azure Purview private endpoints
 
 This article answers common questions that customers and field teams often ask about Azure Purview network configurations by using [Azure Private Link](../private-link/private-link-overview.md). It's intended to clarify questions about Azure Purview firewall settings, private endpoints, DNS configuration, and related configurations.
@@ -70,11 +69,11 @@ Azure Key Vault or Service Principal.
 
 ### What private DNS zones are required for Azure Purview for a private endpoint?
 
-For an Azure Purview resource:
+For Azure Purview _account_ and _portal_ private endpoints:
 
 - `privatelink.purview.azure.com`
 
-For Azure Purview managed resources:
+For Azure Purview _ingestion_ private endpoints:
 
 - `privatelink.blob.core.windows.net`
 - `privatelink.queue.core.windows.net`

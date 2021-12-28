@@ -1,9 +1,9 @@
 ---
 title: Access built-in metrics - Azure IoT Edge
 description: Remote access to built-in metrics from the IoT Edge runtime components
-author: v-tcassi
-manager: philmea
-ms.author: v-tcassi
+author: kgremban
+
+ms.author: kgremban
 ms.date: 06/25/2021
 ms.topic: conceptual
 ms.reviewer: veyalla

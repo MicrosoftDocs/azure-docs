@@ -3,7 +3,7 @@ title: Tutorial - Deploy Custom Vision classifier to a device using Azure IoT Ed
 description: In this tutorial, learn how to make a computer vision model run as a container using Custom Vision and IoT Edge.
 services: iot-edge
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 07/30/2020
 ms.topic: tutorial

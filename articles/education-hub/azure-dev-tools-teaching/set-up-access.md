@@ -1,13 +1,14 @@
----	
-title: Set up access for Azure Dev Tools for Teaching	
-description: How to deploy software to students and labs.	
-author: rymend	
-ms.author: rymend	
-ms.topic: quickstart	
+---
+title: Set up access for Azure Dev Tools for Teaching
+description: How to deploy software to students and labs.
+author: rymend
+ms.author: rymend
+ms.topic: quickstart
 ms.service: azure-education
 ms.subservice: education-hub
-ms.date: 06/30/2020	
----	
+ms.date: 06/30/2020
+ms.custom: mode-other
+---
 
 # Setting up access for Azure Dev tools
 
@@ -17,7 +18,7 @@ There are two ways to access your subscription so that you can deploy software t
 
 For more information, visit the [Azure for Education website](https://azureforeducation.microsoft.com).
 
-## For Administrators only	
+## For Administrators only
 Administrators access Azure dev tools through the [Visual Studio Subscription Portal](https://my.visualstudio.com/).
 
 To request access to your Visual Studio Subscription, you can do so through the [Management

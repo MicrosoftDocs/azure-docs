@@ -6,7 +6,7 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 08/10/2021
+ms.date: 09/27/2021
 ---
 # View, edit and delete assets in Purview catalog
 
@@ -65,7 +65,7 @@ Asset glossary terms are a managed vocabulary for business terms that can be use
 
 ## Editing assets
 
-You can edit an asset by clicking on the edit icon on the top-left corner of the asset.
+You can edit an asset by selecting the edit icon on the top-left corner of the asset.
 
 :::image type="content" source="media/catalog-asset-details/asset-edit-delete.png" alt-text="Asset edit and delete buttons":::
 
@@ -75,23 +75,29 @@ You can navigate to the schema tab on the edit screen to update column name, dat
 
 You can navigate to the contact tab of the edit screen to update owners and experts on the asset. You can search by full name, email or alias of the person within your Azure active directory.
 
-### Edit behavior explained
+### Scans on edited assets
 
-If you make an asset level update like adding a description, asset level classification, glossary term, or a contact to an asset, then subsequent scans will update the asset schema (new columns and classifications detected by the scanner in subsequent scan runs).
+If you edit an asset by adding a description, asset level classification, glossary term, or a contact, later scans will still update the asset schema (new columns and classifications detected by the scanner in subsequent scan runs).
 
-If you make a column level update, like adding a description, column level classification, glossary term, or updating the data type or column name, then subsequent scans will **not** update the asset schema (new columns and classifications **will not be detected** by the scanner in subsequent scan runs).
+If you make some column level updates, like adding a description, column level classification, or glossary term, then subsequent scans will also update the asset schema (new columns and classifications will be detected by the scanner in subsequent scan runs). 
+
+Even on edited assets, after a scan Azure Purview will reflect the truth of the source system. For example: if you edit a column and it's deleted from the source, it will be deleted from your asset in Purview. 
+
+>[!NOTE]
+> If you update the **name or data type of a column** in an Azure Purview asset, later scans **will not** update the asset schema. New columns and classifications **will not** be detected.
 
 ## Deleting assets
 
-You can delete an asset by clicking on the delete icon under the name of the asset.
+You can delete an asset by selecting the delete icon under the name of the asset.
 
 ### Delete behavior explained
 
-Any asset you delete using the delete button is permanently deleted. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Purview catalog.
+Any asset you delete using the delete button is permanently deleted in Azure Purview. However, if you run a **full scan** on the source from which the asset was ingested into the catalog, then the asset is reingested and you can discover it using the Purview catalog.
 
 If you have a scheduled scan (weekly or monthly) on the source, the **deleted asset will not get re-ingested** into the catalog unless the asset is modified by an end user since the previous run of the scan.   For example, if a SQL table was deleted from Purview, but after the table was deleted a user added a new column to the table in SQL, at the next scan the asset will be rescanned and ingested into the catalog.
 
 If you delete an asset, only that asset is deleted. Purview does not currently support cascaded deletes. For example, if you delete a storage account asset in your catalog - the containers, folders and files within them are not deleted. 
+
 
 ## Next steps
 

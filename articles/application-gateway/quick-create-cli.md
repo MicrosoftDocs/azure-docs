@@ -8,7 +8,7 @@ ms.service: application-gateway
 ms.topic: quickstart
 ms.date: 06/14/2021
 ms.author: victorh
-ms.custom: mvc, devx-track-js, devx-track-azurecli
+ms.custom: mvc, devx-track-js, devx-track-azurecli, mode-api
 ---
 
 # Quickstart: Direct web traffic with Azure Application Gateway - Azure CLI
@@ -150,7 +150,6 @@ az network application-gateway create \
   --resource-group myResourceGroupAG \
   --capacity 2 \
   --sku Standard_v2 \
-  --http-settings-cookie-based-affinity Enabled \
   --public-ip-address myAGPublicIPAddress \
   --vnet-name myVNet \
   --subnet myAGSubnet \
@@ -195,4 +194,3 @@ az group delete --name myResourceGroupAG
 
 > [!div class="nextstepaction"]
 > [Manage web traffic with an application gateway using the Azure CLI](./tutorial-manage-web-traffic-cli.md)
-

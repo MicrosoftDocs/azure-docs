@@ -2,12 +2,12 @@
 title: Control access to IoT Hub using SAS tokens | Microsoft Docs
 description: How to control access to IoT Hub for device apps and back-end apps using shared access signature tokens.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 04/21/2021
+ms.date: 08/24/2021
 ms.custom: [amqp, mqtt, 'Role: Cloud Development', 'Role: IoT Device', 'Role: Operations', devx-track-js, devx-track-csharp]
 ---
 
@@ -272,6 +272,14 @@ The result, which would grant access to read all device identities, would be:
 ### Supported X.509 certificates
 
 You can use any X.509 certificate to authenticate a device with IoT Hub by uploading either a certificate thumbprint or a certificate authority (CA) to Azure IoT Hub. To learn more, see [Device Authentication using X.509 CA Certificates](iot-hub-x509ca-overview.md). For information about how to upload and verify a certificate authority with your IoT hub, see [Set up X.509 security in your Azure IoT hub](./tutorial-x509-scripts.md).
+
+### Enforcing X.509 authentication
+
+For additional security, an IoT hub can be configured to not allow SAS authentication for devices and modules, leaving X.509 as the only accepted authentication option. Currently, this feature isn't available in Azure portal. To configure, set `disableDeviceSAS` and `disableModuleSAS` to `true` on the IoT Hub resource properties:
+
+```azurecli-interactive
+az resource update -n <iothubName> -g <resourceGroupName> --resource-type Microsoft.Devices/IotHubs --set properties.disableDeviceSAS=true properties.disableModuleSAS=true
+```
 
 ### Use SAS tokens as a device
 

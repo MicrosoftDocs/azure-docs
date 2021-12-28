@@ -9,8 +9,8 @@ ms.devlang:
 ms.topic: conceptual
 author: dimitri-furman
 ms.author: dfurman
-ms.reviewer: mathoma
-ms.date: 5/4/2021
+ms.reviewer: kendralittle, mathoma
+ms.date: 8/12/2021
 ---
 # Service tiers in the DTU-based purchase model
 [!INCLUDE[appliesto-sqldb](../includes/appliesto-sqldb.md)]
@@ -172,6 +172,9 @@ The key metrics in the benchmark are throughput and response time.
 | Premium |Transactions per second |95th percentile at 0.5 seconds |
 | Standard |Transactions per minute |90th percentile at 1.0 seconds |
 | Basic |Transactions per hour |80th percentile at 2.0 seconds |
+
+> [!NOTE]
+> Response time metrics are specific to the [DTU Benchmark](#dtu-benchmark). Response times for other workloads are workload-dependent and will differ.
 
 ## Next steps
 

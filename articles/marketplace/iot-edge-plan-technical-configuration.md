@@ -27,7 +27,7 @@ Provide the [**Azure resource group name**](../azure-resource-manager/management
 
 Provide the [**Azure container registry name**](../container-registry/container-registry-intro.md) that has your container image. The container registry must be present in the Azure resource group you provided earlier. Provide only the registry name, not the full login server name. Omit **azurecr.io** from the name. You can find the registry name on the [Container Registries page](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.ContainerRegistry%2Fregistries) in the Azure portal.
 
-Provide the [**Admin username for the Azure Container Registry**](../container-registry/container-registry-authentication.md#admin-account) associated with the Azure Container Registry that has your container image. The username and password (next step) are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure Command-Line Interface (CLI). You can optionally set **Admin user** to **Enable** in the Azure portal.
+Provide the [**Admin username for the Azure Container Registry**](../container-registry/container-registry-authentication.md#admin-account) associated with the Azure Container Registry that has your container image. The username and password (next step) are required to ensure your company has access to the registry. To get the admin username and password, set the **admin-enabled** property to **True** using the Azure CLI. You can optionally set **Admin user** to **Enable** in the Azure portal.
 
 :::image type="content" source="media/iot-edge/example-iot-update-container-registry.png" alt-text="Illustrates the Update container registry dialog box.":::
 
@@ -52,7 +52,7 @@ Provide the **Repository name within the Azure Container Registry** that has you
 
 ## Image versions
 
-Customers must be able to automatically get updates from the Azure Marketplace when you publish an update. If they don't want to update, they must be able to stay on a specific version of your image. You can do this by adding new image tags each time you make an update to the image.
+Customers must be able to automatically get updates from Azure Marketplace when you publish an update. If they don't want to update, they must be able to stay on a specific version of your image. You can do this by adding new image tags each time you make an update to the image.
 
 Select **Add Image version** to include an **Image tag** that points to the latest version of your image on all supported platforms. It must also include a version tag (for example, starting with xx.xx.xx, where xx is a number). Customers should use [manifest tags](https://github.com/estesp/manifest-tool) to target multiple platforms. All tags referenced by a manifest tag must also be added so we can upload them. All manifest tags (except the latest tag) must start with either X.Y- or X.Y.Z- where X, Y, and Z are integers. For example, if a latest tag points to `1.0.1-linux-x64`, `1.0.1-linux-arm32`, and `1.0.1-windows-arm32`, these six tags need to be added to this field. For details about tags and versioning, see [Prepare IoT Edge module technical assets](iot-edge-technical-asset.md).
 

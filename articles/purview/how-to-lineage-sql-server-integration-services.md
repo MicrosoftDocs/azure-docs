@@ -29,7 +29,7 @@ On premises SSIS lineage extraction is not supported yet.
 | Azure Blob Storage | Yes |
 | Azure Data Lake Storage Gen1 | Yes |
 | Azure Data Lake Storage Gen2 | Yes |
-| Azure File Storage | Yes |
+| Azure Files | Yes |
 | Azure SQL Database \* | Yes |
 | Azure SQL Managed Instance \*| Yes |
 | Azure Synapse Analytics \* | Yes |

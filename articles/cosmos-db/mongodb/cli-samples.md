@@ -5,7 +5,7 @@ author: markjbrown
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: sample
-ms.date: 10/13/2020
+ms.date: 11/15/2021
 ms.author: mjbrown 
 ms.custom: devx-track-azurecli
 ---
@@ -15,7 +15,7 @@ ms.custom: devx-track-azurecli
 
 The following table includes links to sample Azure CLI scripts for Azure Cosmos DB. Use the links on the right to navigate to API specific samples. Common samples are the same across all APIs. Reference pages for all Azure Cosmos DB CLI commands are available in the [Azure CLI Reference](/cli/azure/cosmosdb). Azure Cosmos DB CLI script samples can also be found in the [Azure Cosmos DB CLI GitHub Repository](https://github.com/Azure-Samples/azure-cli-samples/tree/master/cosmosdb).
 
-These samples require Azure CLI version 2.12.1 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli)
+These samples require Azure CLI version 2.30 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI](/cli/azure/install-azure-cli)
 
 ## Common Samples
 
@@ -35,7 +35,14 @@ These samples apply to all Azure Cosmos DB APIs
 |Task | Description |
 |---|---|
 | [Create an Azure Cosmos account, database and collection](../scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database, and collection for MongoDB API. |
+| [Create a serverless Azure Cosmos account, database and collection](../scripts/cli/mongodb/create.md?toc=%2fcli%2fazure%2ftoc.json)| Creates a serverless Azure Cosmos DB account, database, and collection for MongoDB API. |
 | [Create an Azure Cosmos account, database with autoscale and two collections with shared throughput](../scripts/cli/mongodb/autoscale.md?toc=%2fcli%2fazure%2ftoc.json)| Creates an Azure Cosmos DB account, database with autoscale and two collections with shared throughput for MongoDB API. |
 | [Throughput operations](../scripts/cli/mongodb/throughput.md?toc=%2fcli%2fazure%2ftoc.json) | Read, update and migrate between autoscale and standard throughput on a database and collection.|
 | [Lock resources from deletion](../scripts/cli/mongodb/lock.md?toc=%2fcli%2fazure%2ftoc.json)| Prevent resources from being deleted with  resource locks.|
 |||
+
+## Next steps
+
+Trying to do capacity planning for a migration to Azure Cosmos DB? You can use information about your existing database cluster for capacity planning.
+* If all you know is the number of vcores and servers in your existing database cluster, read about [estimating request units using vCores or vCPUs](../convert-vcore-to-request-unit.md) 
+* If you know typical request rates for your current database workload, read about [estimating request units using Azure Cosmos DB capacity planner](estimate-ru-capacity-planner.md)

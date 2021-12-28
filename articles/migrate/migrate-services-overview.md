@@ -13,7 +13,7 @@ ms.custom: mvc
 
 This article provides a quick overview of the Azure Migrate service.
 
-Azure Migrate provides a centralized hub to assess and migrate to Azure on-premises servers, infrastructure, applications, and data. It provides the following:
+Azure Migrate provides a centralized hub to assess and migrate on-premises servers, infrastructure, applications, and data to Azure. It provides the following:
 
 - **Unified migration platform**: A single portal to start, run, and track your migration to Azure.
 - **Range of tools**: A range of tools for assessment and migration. Azure Migrate tools include Azure Migrate: Discovery and assessment and Azure Migrate: Server Migration. Azure Migrate also integrates with other Azure services and tools, and with independent software vendor (ISV) offerings.
@@ -32,7 +32,7 @@ The Azure Migrate hub includes these tools:
 --- | --- | ---
 **Azure Migrate: Discovery and assessment** | Discover and assess servers including SQL and web apps | Discover and assess on-premises servers running on VMware, Hyper-V, and physical servers in preparation for migration to Azure.
 **Azure Migrate: Server Migration** | Migrate servers | Migrate VMware VMs, Hyper-V VMs, physical servers, other virtualized servers, and public cloud VMs to Azure.
-**Data Migration Assistant** | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant is a stand-alone tool to assess SQL Severs. It helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](/sql/dma/dma-overview).
+**Data Migration Assistant** | Assess SQL Server databases for migration to Azure SQL Database, Azure SQL Managed Instance, or Azure VMs running SQL Server. | Data Migration Assistant is a stand-alone tool to assess SQL Servers. It helps pinpoint potential problems blocking migration. It identifies unsupported features, new features that can benefit you after migration, and the right path for database migration. [Learn more](/sql/dma/dma-overview).
 **Azure Database Migration Service** | Migrate on-premises databases to Azure VMs running SQL Server, Azure SQL Database, or SQL Managed Instances | [Learn more](../dms/dms-overview.md) about Database Migration Service.
 **Movere** | Assess servers | [Learn more](#movere) about Movere.
 **Web app migration assistant** | Assess on-premises web apps and migrate them to Azure. |  Azure App Service Migration Assistant is a standalone tool to assess on-premises websites for migration to Azure App Service.<br/><br/> Use Migration Assistant to migrate .NET and PHP web apps to Azure. [Learn more](https://appmigration.microsoft.com/) about Azure App Service Migration Assistant.
@@ -49,6 +49,7 @@ Azure Migrate integrates with several ISV offerings.
 --- | ---
 [Carbonite](https://www.carbonite.com/globalassets/files/datasheets/carb-migrate4azure-microsoft-ds.pdf) | Migrate servers.
 [Cloudamize](https://www.cloudamize.com/platform) | Assess servers.
+[CloudSphere](https://go.microsoft.com/fwlink/?linkid=2157454) | Assess servers.
 [Corent Technology](https://www.corenttech.com/AzureMigrate/) | Assess and migrate servers.
 [Device42](https://docs.device42.com/) | Assess servers.
 [Lakeside](https://go.microsoft.com/fwlink/?linkid=2104908) | Assess VDI.

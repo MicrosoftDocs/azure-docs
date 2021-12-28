@@ -7,6 +7,7 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: how-to
 ms.date: 07/30/2021
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 
@@ -216,7 +217,7 @@ The following table describes the parameters within the command:
 | `offerThroughput` | `int` | Optional | Provisioned throughput to set on the database. If this parameter is not provided, it will default to the minimum, 400 RU/s. * To specify throughput beyond 10,000 RU/s, the `shardKey` parameter is required.|
 | `shardKey` | `string` | Required for collections with large throughput | The path to the Shard Key for the sharded collection. This parameter is required if you set more than 10,000 RU/s in `offerThroughput`.  If it is specified, all documents inserted will require this key and value. |
 | `autoScaleSettings` | `Object` | Required for [Autoscale mode](../provision-throughput-autoscale.md) | This object contains the settings associated with the Autoscale capacity mode. You can set up the `maxThroughput` value, which describes the highest amount of Request Units that the collection will be increased to dynamically. |
-| `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. | When present, an index on _id is required. Each entry in the array must include a key of one or more fields, a name, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, name:"a_1_b_1", unique: true}`.
+| `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. | When present, an index on _id is required. Each entry in the array must include a key of one or more fields, a name, and may contain index options. For example, to create a compound unique index on the fields `a` and `b` use this entry: `{key: {a: 1, b: 1}, name:"a_1_b_1", unique: true}`.
 
 ### Output
 
@@ -311,7 +312,7 @@ The following table describes the parameters within the command:
 | `autoScaleSettings` | `Object` | Required for [Autoscale mode](../provision-throughput-autoscale.md). This object contains the settings associated with the Autoscale capacity mode. The `maxThroughput` value describes the highest amount of Request Units that the collection will be increased to dynamically. |
 | `indexes` | `Array` | Optionally configure indexes. This parameter is supported for 3.6+ accounts only. When present, the existing indexes of the collection are replaced by the set of indexes specified (including dropping indexes). An index on _id is required. Each entry in the array must include a key of one or more fields, a name, and may contain index options. For example, to create a compound unique index on the fields a and b use this entry: `{key: {a: 1, b: 1}, name: "a_1_b_1", unique: true}`.
 
-## Output
+### Output
 
 Returns a default custom command response. See the [default output](#default-output) of custom command for the parameters in the output.
 

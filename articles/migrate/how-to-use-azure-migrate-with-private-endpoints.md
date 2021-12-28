@@ -22,7 +22,7 @@ Review the following required permissions and the supported scenarios and tools.
 
 ### Supported geographies
 
-The functionality is now in preview in all [public cloud regions.](/azure/migrate/migrate-support-matrix#supported-geographies-public-cloud)
+The functionality is now in preview in supported [public cloud](./migrate-support-matrix.md#supported-geographies-public-cloud) and [government cloud geographies.](./migrate-support-matrix.md#supported-geographies-azure-government)
 
 ### Required permissions
 
@@ -38,7 +38,8 @@ You must have Contributor + User Access Administrator or Owner permissions on th
 **Migration** | Perform [agentless Hyper-V migrations](./tutorial-migrate-hyper-v.md) or use the agent-based approach to migrate your [VMware VMs](./tutorial-migrate-vmware-agent.md), [Hyper-V VMs](./tutorial-migrate-physical-virtual-machines.md), [physical servers](./tutorial-migrate-physical-virtual-machines.md), [VMs running on AWS](./tutorial-migrate-aws-virtual-machines.md), [VMs running on GCP](./tutorial-migrate-gcp-virtual-machines.md), or VMs running on a different virtualization provider. | Azure Migrate: Server Migration
 
 >[!Note]
-> [Agentless VMware migrations](./tutorial-migrate-vmware.md) require internet access or connectivity via ExpressRoute Microsoft peering. Learn how to use [private endpoints to perform replications over ExpressRoute private peering or a S2S VPN connection](./replicate-using-expressroute.md).
+> [Agentless migration of VMware VMs](./tutorial-migrate-vmware.md) currently supports replication data transfer over a private network. Other traffic (orchestration, non-voluminous traffic) will require internet access or connectivity via ExpressRoute Microsoft peering. [Learn more.](./replicate-using-expressroute.md)
+
 
 #### Other integrated tools
 
@@ -96,7 +97,7 @@ This section describes how to set up the Azure Migrate appliance. Then you'll us
 Azure Migrate: Discovery and assessment use a lightweight Azure Migrate appliance. The appliance performs server discovery and sends server configuration and performance metadata to Azure Migrate.
 
 > [!Note]
-> The option to deploy an appliance by using a template (OVA for servers on a VMware environment and VHD Hyper-V environment) isn't supported for Azure Migrate projects with private endpoint connectivity.
+> If you have deployed an appliance using a template (OVA for servers on a VMware environment and VHD for a Hyper-V environment), you can use the same appliance and register it with an Azure Migrate project with private endpoint connectivity.
 
 To set up the appliance:
   1. Download the zipped file that contains the installer script from the portal.
@@ -116,7 +117,7 @@ Check that the zipped file is secure, before you deploy it.
 
     **Download** | **Hash value**
     --- | ---
-    [Latest version](https://go.microsoft.com/fwlink/?linkid=2160648) | b4668be44c05836bf0f2ac1c8b1f48b7a9538afcf416c5212c7190629e3683b2
+    [Latest version](https://go.microsoft.com/fwlink/?linkid=2160648) | 30d4f4e06813ceb83602a220fc5fe2278fa6aafcbaa36a40a37f3133f882ee8c
 
 > [!NOTE]
 > The same script can be used to set up an appliance with private endpoint connectivity for any of the chosen scenarios, such as VMware, Hyper-V, physical or other to deploy an appliance with the desired configuration.
@@ -126,16 +127,18 @@ Make sure the server meets the [hardware requirements](./migrate-appliance.md) f
 #### Run the Azure Migrate installer script
 
 1. Extract the zipped file to a folder on the server that will host the appliance.  Make sure you don't run the script on a server with an existing Azure Migrate appliance.
-2. Launch PowerShell on the above server with administrative (elevated) privilege.
-3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
-4. Run the script named **AzureMigrateInstaller.ps1** by running the following command:
 
-    
-    ``` PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1 ```
+2. Launch PowerShell on the above server with administrative (elevated) privilege.
+
+3. Change the PowerShell directory to the folder where the contents have been extracted from the downloaded zipped file.
+
+4. Run the script named `AzureMigrateInstaller.ps1` by running the following command:
+
+   `PS C:\Users\administrator\Desktop\AzureMigrateInstaller> .\AzureMigrateInstaller.ps1`
 
 5. Select from the scenario, cloud and connectivity options to deploy an appliance with the desired configuration. For instance, the selection shown below sets up an appliance to discover and assess **servers running in your VMware environment** to an Azure Migrate project with **private endpoint connectivity** on **Azure public cloud**.
 
-    :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for private endpoint." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-expanded.png":::
+   :::image type="content" source="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-inline.png" alt-text="Screenshot that shows how to set up appliance with desired configuration for private endpoint." lightbox="./media/how-to-use-azure-migrate-with-private-endpoints/script-vmware-private-expanded.png":::
 
 After the script has executed successfully, the appliance configuration manager will be launched automatically.
 
@@ -297,7 +300,7 @@ Ensure that the on-premises replication appliance has network connectivity to th
 
 Next, follow the instructions to [review and start replication](./tutorial-migrate-physical-virtual-machines.md#replicate-machines) and [perform migrations](./tutorial-migrate-physical-virtual-machines.md#run-a-test-migration).
 
-
 ## Next steps
+
 - Complete the [migration process](./tutorial-migrate-physical-virtual-machines.md#complete-the-migration).
 - Review the [post-migration best practices](./tutorial-migrate-physical-virtual-machines.md#post-migration-best-practices).

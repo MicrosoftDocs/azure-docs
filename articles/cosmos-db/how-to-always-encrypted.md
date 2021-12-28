@@ -330,4 +330,4 @@ database. rewrapClientEncryptionKey(
 ## Next steps
 
 - Get an overview of [secure access to data in Cosmos DB](secure-access-to-data.md).
-- Learn more about [customer-managed keys](how-to-setup-cmk.md).
+- Learn more about [customer-managed keys](how-to-setup-cmk.md)

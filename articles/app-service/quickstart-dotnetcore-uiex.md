@@ -4,7 +4,8 @@ description: Learn how to run web apps in Azure App Service by deploying your fi
 ms.assetid: b1e6bd58-48d1-4007-9d6c-53fd6db061e3
 ms.topic: quickstart
 ms.date: 11/23/2020
-ms.custom: "devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1"
+ms.devlang: csharp
+ms.custom: devx-track-csharp, mvc, devcenter, vs-azure, seodec18, contperf-fy21q1, mode-other
 zone_pivot_groups: app-service-platform-windows-linux
 ROBOTS: NOINDEX,NOFOLLOW
 ---
@@ -239,7 +240,7 @@ az login
 
 ## 5. Deploy the app
 
-1. **Run** `az webapp up` in your local folder. **Replace** <app-name> with a globally unique name.
+1. **Run** `az webapp up` in your local folder. **Replace** \<app-name\> with a globally unique name.
 
     ```azurecli
     az webapp up --sku F1 --name <app-name> --os-type linux

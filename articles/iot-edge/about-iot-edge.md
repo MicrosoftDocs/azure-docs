@@ -2,7 +2,7 @@
 title: What is Azure IoT Edge | Microsoft Docs
 description: Overview of the Azure IoT Edge service
 author: kgremban
-manager: philmea
+
 # this is the PM responsible
 ms.reviewer: chipalost
 ms.service: iot-edge
@@ -62,7 +62,7 @@ The Azure IoT Edge runtime runs on a large set of IoT devices that enables using
 
 It's difficult to manage the software life cycle for millions of IoT devices that are often different makes and models or geographically scattered. Workloads are created and configured for a particular type of device, deployed to all of your devices, and monitored to catch any misbehaving devices. These activities can’t be done on a per device basis and must be done at scale.
 
-Azure IoT Edge integrates seamlessly with Azure IoT solution accelerators to provide one control plane for your solution’s needs. Cloud services allow you to:
+Azure IoT Edge integrates seamlessly with Azure IoT Central to provide one control plane for your solution’s needs. Cloud services allow you to:
 
 * Create and configure a workload to be run on a specific type of device.
 * Send a workload to a set of devices.

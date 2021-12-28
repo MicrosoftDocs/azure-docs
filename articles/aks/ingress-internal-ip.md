@@ -27,27 +27,27 @@ This article uses [Helm 3][helm] to install the NGINX ingress controller on a [s
 
 This article also requires that you are running the Azure CLI version 2.0.64 or later. Run `az --version` to find the version. If you need to install or upgrade, see [Install Azure CLI][azure-cli-install].
 
-In addition, this article assumes you have an existing AKS cluster with an integrated ACR. For more details on creating an AKS cluster with an integrated ACR, see [Authenticate with Azure Container Registry from Azure Kubernetes Service][aks-integrated-acr].
+In addition, this article assumes you have an existing AKS cluster with an [integrated ACR][aks-integrated-acr].
 
 ## Import the images used by the Helm chart into your ACR
 
-This article uses the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart], which relies on three container images. Use `az acr import` to import those images into your ACR.
+Often when using an AKS cluster with a private network, it is a requirement to manage the provenance of the container images used within the cluster. See [Best practices for container image management and security in Azure Kubernetes Service (AKS)][aks-container-best-practices] for more information.  To support this requirement, and for completeness, the examples in this article rely on importing the three container images used by the [NGINX ingress controller Helm chart][ingress-nginx-helm-chart] into your ACR.
+
+Use `az acr import` to import these images into your ACR.
 
 ```azurecli
 REGISTRY_NAME=<REGISTRY_NAME>
-CONTROLLER_REGISTRY=k8s.gcr.io
+SOURCE_REGISTRY=k8s.gcr.io
 CONTROLLER_IMAGE=ingress-nginx/controller
-CONTROLLER_TAG=v0.48.1
-PATCH_REGISTRY=docker.io
-PATCH_IMAGE=jettech/kube-webhook-certgen
-PATCH_TAG=v1.5.1
-DEFAULTBACKEND_REGISTRY=k8s.gcr.io
+CONTROLLER_TAG=v1.0.4
+PATCH_IMAGE=ingress-nginx/kube-webhook-certgen
+PATCH_TAG=v1.1.1
 DEFAULTBACKEND_IMAGE=defaultbackend-amd64
 DEFAULTBACKEND_TAG=1.5
 
-az acr import --name $REGISTRY_NAME --source $CONTROLLER_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
-az acr import --name $REGISTRY_NAME --source $PATCH_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
-az acr import --name $REGISTRY_NAME --source $DEFAULTBACKEND_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$CONTROLLER_IMAGE:$CONTROLLER_TAG --image $CONTROLLER_IMAGE:$CONTROLLER_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$PATCH_IMAGE:$PATCH_TAG --image $PATCH_IMAGE:$PATCH_TAG
+az acr import --name $REGISTRY_NAME --source $SOURCE_REGISTRY/$DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG --image $DEFAULTBACKEND_IMAGE:$DEFAULTBACKEND_TAG
 ```
 
 > [!NOTE]
@@ -78,9 +78,6 @@ The ingress controller also needs to be scheduled on a Linux node. Windows Serve
 > If you would like to enable [client source IP preservation][client-source-ip] for requests to containers in your cluster, add `--set controller.service.externalTrafficPolicy=Local` to the Helm install command. The client source IP is stored in the request header under *X-Forwarded-For*. When using an ingress controller with client source IP preservation enabled, TLS pass-through will not work.
 
 ```console
-# Create a namespace for your ingress resources
-kubectl create namespace ingress-basic
-
 # Add the ingress-nginx repository
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 
@@ -89,7 +86,7 @@ ACR_URL=<REGISTRY_URL>
 
 # Use Helm to deploy an NGINX ingress controller
 helm install nginx-ingress ingress-nginx/ingress-nginx \
-    --namespace ingress-basic \
+    --namespace ingress-basic --create-namespace \
     --set controller.replicaCount=2 \
     --set controller.nodeSelector."kubernetes\.io/os"=linux \
     --set controller.image.registry=$ACR_URL \
@@ -100,10 +97,12 @@ helm install nginx-ingress ingress-nginx/ingress-nginx \
     --set controller.admissionWebhooks.patch.image.registry=$ACR_URL \
     --set controller.admissionWebhooks.patch.image.image=$PATCH_IMAGE \
     --set controller.admissionWebhooks.patch.image.tag=$PATCH_TAG \
+    --set controller.admissionWebhooks.patch.image.digest="" \
     --set defaultBackend.nodeSelector."kubernetes\.io/os"=linux \
     --set defaultBackend.image.registry=$ACR_URL \
     --set defaultBackend.image.image=$DEFAULTBACKEND_IMAGE \
-    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG
+    --set defaultBackend.image.tag=$DEFAULTBACKEND_TAG \
+    --set defaultBackend.image.digest=""
 ```
 
 When the Kubernetes load balancer service is created for the NGINX ingress controller, your internal IP address is assigned. To get the public IP address, use the `kubectl get service` command.
@@ -412,3 +411,4 @@ You can also:
 [ingress-nginx-helm-chart]: https://github.com/kubernetes/ingress-nginx/tree/main/charts/ingress-nginx
 [aks-integrated-acr]: cluster-container-registry-integration.md?tabs=azure-cli#create-a-new-aks-cluster-with-acr-integration
 [acr-helm]: ../container-registry/container-registry-helm-repos.md
+[aks-container-best-practices]: operator-best-practices-container-image-management.md

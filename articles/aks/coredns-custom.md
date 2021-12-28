@@ -43,16 +43,15 @@ metadata:
   namespace: kube-system
 data:
   test.server: | # you may select any name here, but it must end with the .server file extension
-    <domain to be rewritten>.com:53 {
-        errors
-        cache 30
-        rewrite name substring <domain to be rewritten>.com default.svc.cluster.local
-        kubernetes cluster.local in-addr.arpa ip6.arpa {
-          pods insecure
-          fallthrough in-addr.arpa ip6.arpa
-        }
-        forward .  /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
-    }
+  <domain to be rewritten>.com:53 {
+  log
+  errors
+  rewrite stop {
+    name regex (.*)\.<domain to be rewritten>.com {1}.default.svc.cluster.local
+    answer name (.*)\.default\.svc\.cluster\.local {1}.<domain to be rewritten>.com
+  }
+  forward . /etc/resolv.conf # you can redirect this to a specific DNS server such as 10.0.0.10, but that server must be able to resolve the rewritten domain name
+}
 ```
 
 > [!IMPORTANT]
@@ -77,7 +76,7 @@ kubectl delete pod --namespace kube-system -l k8s-app=kube-dns
 ```
 
 > [!Note]
-> The command above is correct. While we're changing `coredns`, the deployment is under the **kube-dns** name.
+> The command above is correct. While we're changing `coredns`, the deployment is under the **kube-dns** label.
 
 ## Custom forward server
 

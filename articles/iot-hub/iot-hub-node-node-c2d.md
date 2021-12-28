@@ -2,7 +2,7 @@
 title: Cloud-to-device messages with Azure IoT Hub (Node) | Microsoft Docs
 description: How to send cloud-to-device messages to a device from an Azure IoT hub using the Azure IoT SDKs for Node.js. You modify a simulated device app to receive cloud-to-device messages and modify a back-end app to send the cloud-to-device messages.
 author: wesmc7777
-manager: philmea
+
 ms.author: wesmc
 ms.service: iot-hub
 services: iot-hub
@@ -40,7 +40,7 @@ At the end of this tutorial, you run two Node.js console apps:
 
 ## Prerequisites
 
-* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/master/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
+* Node.js version 10.0.x or later. [Prepare your development environment](https://github.com/Azure/azure-iot-sdk-node/tree/main/doc/node-devbox-setup.md) describes how to install Node.js for this tutorial on either Windows or Linux.
 
 * An active Azure account. (If you don't have an account, you can create a [free account](https://azure.microsoft.com/pricing/free-trial) in just a couple of minutes.)
 
@@ -195,7 +195,5 @@ You are now ready to run the applications.
 ## Next steps
 
 In this tutorial, you learned how to send and receive cloud-to-device messages.
-
-To see examples of complete end-to-end solutions that use IoT Hub, see [Azure IoT Remote Monitoring solution accelerator](https://azure.microsoft.com/documentation/suites/iot-suite/).
 
 To learn more about developing solutions with IoT Hub, see the [IoT Hub developer guide](iot-hub-devguide.md).

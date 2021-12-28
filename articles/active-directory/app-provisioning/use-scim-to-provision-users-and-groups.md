@@ -3,7 +3,7 @@ title: Tutorial - Develop a SCIM endpoint for user provisioning to apps from Azu
 description: System for Cross-domain Identity Management (SCIM) standardizes automatic user provisioning. In this tutorial, you learn to develop a SCIM endpoint, integrate your SCIM API with Azure Active Directory, and start automating provisioning users and groups into your cloud applications. 
 services: active-directory
 author: kenwith
-manager: mtillman
+manager: karenh444
 ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
@@ -144,11 +144,8 @@ It helps to categorize between `/User` and `/Group` to map any default user attr
 | Azure Active Directory group | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| mail |emails[type eq "work"].value |
-| mailNickname |displayName |
 | members |members |
 | objectId |externalId |
-| proxyAddresses |emails[type eq "other"].Value |
 
 **Example list of group attributes**
 
@@ -209,7 +206,7 @@ Use the general guidelines when implementing a SCIM endpoint to ensure compatibi
 
 ##### /Users:
 * The entitlements attribute is not supported.
-* Any attributes that are considered for user uniqueness must be usable as part of a filtered query. (e.g. if user uniqueness is evaluated for both userName and emails[type eq "work"], a GET to /Users with a filter must allow for both _userName eq "user@contoso.com"_ and _emails[type eq "work"] eq "user@contoso.com"_ queries.
+* Any attributes that are considered for user uniqueness must be usable as part of a filtered query. (e.g. if user uniqueness is evaluated for both userName and emails[type eq "work"], a GET to /Users with a filter must allow for both _userName eq "user@contoso.com"_ and _emails[type eq "work"].value eq "user@contoso.com"_ queries.
 
 ##### /Groups:
 * Groups are optional, but only supported if the SCIM implementation supports **PATCH** requests.
@@ -272,7 +269,7 @@ This section provides example SCIM requests emitted by the AAD SCIM client and e
 
 ### User Operations
 
-* Users can be queried by `userName` or `email[type eq "work"]` attributes.  
+* Users can be queried by `userName` or `emails[type eq "work"]` attributes.  
 
 #### Create User
 
@@ -895,7 +892,7 @@ TLS 1.2 Cipher Suites minimum bar:
 ### IP Ranges
 The Azure AD provisioning service currently operates under the IP Ranges for AzureActiveDirectory as listed [here](https://www.microsoft.com/download/details.aspx?id=56519&WT.mc_id=rss_alldownloads_all). You can add the IP ranges listed under the AzureActiveDirectory tag to allow traffic from the Azure AD provisioning service into your application. Note that you will need to review the IP range list carefully for computed addresses. An address such as '40.126.25.32' could be represented in the IP range list as  '40.126.0.0/18'. You can also programmatically retrieve the IP range list using the following [API](/rest/api/virtualnetwork/servicetags/list).
 
-Azure AD also supports an agent based solution to provide connectivity to applications in private networks (on-premises, hosted in Azure, hosted in AWS, etc.). Customers can deploy a lightweight agent, which provides connectivity to Azure AD without opening an inbound ports, on a server in their private network. Learn more [here](/azure/active-directory/app-provisioning/on-premises-scim-provisioning).
+Azure AD also supports an agent based solution to provide connectivity to applications in private networks (on-premises, hosted in Azure, hosted in AWS, etc.). Customers can deploy a lightweight agent, which provides connectivity to Azure AD without opening an inbound ports, on a server in their private network. Learn more [here](./on-premises-scim-provisioning.md).
 
 ## Build a SCIM endpoint
 
@@ -977,7 +974,6 @@ In the sample code, requests are authenticated using the Microsoft.AspNetCore.Au
                 services.AddAuthentication(options =>
                 {
                     options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-                    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
                     options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
                 })
                     .AddJwtBearer(options =>
@@ -1012,7 +1008,6 @@ public void ConfigureServices(IServiceCollection services)
     {
         services.AddAuthentication(options =>
         {
-            options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
             options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
         })

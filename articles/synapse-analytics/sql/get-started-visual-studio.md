@@ -33,7 +33,7 @@ To use this tutorial, you need to have the following components:
 
 - An existing Synapse workspace, If you need to create one see [Creating a Synapse workspace](../get-started-create-workspace.md)
 - A dedicated SQL pool. If you do not have one, see [Create a dedicated SQL pool](../get-started-analyze-sql-pool.md#create-a-dedicated-sql-pool).
-- SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?toc=/azure/synapse-analytics/toc.json&bc=/azure/synapse-analytics/breadcrumb/toc.json).
+- SSDT for Visual Studio. If you have Visual Studio, you probably already have this component. For installation instructions and options, see [Installing Visual Studio and SSDT](../sql-data-warehouse/sql-data-warehouse-install-visual-studio.md?context=/azure/synapse-analytics/context/context).
 - The fully qualified SQL server name. To find this server name, see [Connect to a dedicated SQL pool](connect-overview.md).
 
 ## 1. Connect to a dedicated SQL pool

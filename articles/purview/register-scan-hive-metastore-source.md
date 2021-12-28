@@ -1,207 +1,178 @@
 ---
-title: Register Hive Metastore database and setup scans in Azure Purview
-description: This article outlines how to register Hive Metastore database in Azure Purview and set up a scan.
-author: chandrakavya
-ms.author: kchandra
+title: Connect to and manage Hive Metastore databases
+description: This guide describes how to connect to Hive Metastore databases in Azure Purview, and how to use Azure Purview to scan and manage your Hive Metastore database source.
+author: linda33wj
+ms.author: jingwang
 ms.service: purview
-ms.subservice: purview-data-catalog
-ms.topic: overview
-ms.date: 5/17/2021
+ms.subservice: purview-data-map
+ms.topic: how-to
+ms.date: 11/02/2021
+ms.custom: template-how-to, ignite-fall-2021
 ---
-# Register and Scan Hive Metastore Database
 
-This article outlines how to register a Hive Metastore database in
-Purview and set up a scan.
+# Connect to and manage Hive Metastore databases in Azure Purview
 
-## Supported Capabilities
+This article outlines how to register Hive Metastore databases, and how to authenticate and interact with Hive Metastore databases in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
-The Hive Metastore source supports Full scan to extract metadata from a **Hive Metastore database** and fetches Lineage between data assets. The supported platforms are Apache Hadoop, Cloudera, Hortonworks and Databricks.
+## Supported capabilities
+
+|**Metadata extraction**|  **Full scan**  |**Incremental scan**|**Scoped scan**|**Classification**|**Access policy**|**Lineage**|
+|---|---|---|---|---|---|---|
+| [Yes](#register)| [Yes](#scan)| No | No | No | No| Yes** |
+
+\** Lineage is supported if the dataset is used as a source or sink in the [Azure Data Factory Copy activity](how-to-link-azure-data-factory.md).
+
+> [!Important]
+> The supported platforms are Apache Hadoop, Cloudera, Hortonworks, and Azure Databricks.
+> 
+> Supported Hive versions are 2.x to 3.x. Supported Azure Databricks versions are 8.0 and later.
 
 ## Prerequisites
 
-1.  Set up the latest [self-hosted integration
-    runtime](https://www.microsoft.com/download/details.aspx?id=39717).
-    For more information, see [Create and configure a self-hosted integration runtime](../data-factory/create-self-hosted-integration-runtime.md).
+* You must have an Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-2.  Make sure [JDK
-    11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html)
-    is installed on your virtual machine where self-hosted integration
-    runtime is installed.
+* You must have an active [Azure Purview resource](create-catalog-portal.md).
 
-3.  Make sure \"Visual C++ Redistributable 2012 Update 4\" is installed
-    on the self-hosted integration runtime machine. If you don\'t yet
-    have it installed, download it from
-    [here](https://www.microsoft.com/download/details.aspx?id=30679).
+* You need Data Source Administrator or Data Reader permissions to register a source and manage it in Azure Purview Studio. For more information about permissions, see [Access control in Azure Purview](catalog-permissions.md).
 
-4.  You will have to manually download the Hive Metastore database's
-    JDBC driver on your virtual machine where self-hosted integration
-    runtime is running. For example, if the database used is mssql, make
-    sure to download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
+* Set up the latest [self-hosted integration runtime](https://www.microsoft.com/download/details.aspx?id=39717). For more information, see [Create and configure a self-hosted integration runtime](manage-integration-runtimes.md).
 
-    > [!Note]
-    > The driver should be accessible to all accounts in the VM. Do not install it in a user account.
+* Ensure that [JDK 11](https://www.oracle.com/java/technologies/javase-jdk11-downloads.html) is installed on the machine where the self-hosted integration runtime is running.
 
-5.  Supported Hive versions are 2.x to 3.x. Supported Databricks versions are 8.0 and above. 
+* Ensure that Visual C++ Redistributable for Visual Studio 2012 Update 4 is installed on the machine where the self-hosted integration runtime is running. If you don't have this update installed, [download it now](https://www.microsoft.com/download/details.aspx?id=30679).
 
-## Setting up authentication for a scan
+* Download and install the Hive Metastore database's JDBC driver on the machine where your self-hosted integration runtime is running. For example, if the database is *mssql*, download [Microsoft's JDBC driver for SQL Server](/sql/connect/jdbc/download-microsoft-jdbc-driver-for-sql-server).
 
-The only supported authentication for a Hive Metastore database is **Basic authentication.**
+  > [!Note]
+  > The driver should be accessible to all accounts in the machine. Don't install it in a user account.
 
-## Register a Hive Metastore database
+## Register
 
-To register a new Hive Metastore database in your data catalog, do the
-following:
+This section describes how to register a Hive Metastore database in Azure Purview by using [Azure Purview Studio](https://web.purview.azure.com/).
 
-1.  Navigate to your Purview account.
+The only supported authentication for a Hive Metastore database is Basic Authentication.
 
-2.  Select **Data Map** on the left navigation.
+1. Go to your Azure Purview account.
 
-3.  Select **Register**
+1. Select **Data Map** on the left pane.
 
-4.  On Register sources, select Hive **Metastore**. Select **Continue.**
+1. Select **Register**.
 
-    :::image type="content" source="media/register-scan-hive-metastore-source/register-sources.png" alt-text="register hive source" border="true":::
+1. In **Register sources**, select **Hive Metastore** > **Continue**.    
 
-On the Register sources (Hive Metastore) screen, do the following:
+1. On the **Register sources (Hive Metastore)** screen, do the following:
 
-1.  Enter a **Name** that the data source will be listed within the
-    Catalog.
+   1. For **Name**, enter a name that Azure Purview will list as the data source.
 
-2.  Enter the **Hive Cluster URL.** The Cluster URL can be either
-    obtained from the Ambari URL or from Databricks workspace URL. For
-    example, hive.azurehdinsight.net or adb-19255636414785.5.azuredatabricks.net
+   1. For **Hive Cluster URL**, enter a value that you get from the Ambari URL or the Azure Databricks workspace URL. For example, enter **hive.azurehdinsight.net** or **adb-19255636414785.5.azuredatabricks.net**.
 
-3.  Enter the **Hive Metastore Server URL.** For example,
-    sqlserver://hive.database.windows.net or jdbc:spark://adb-19255636414785.5.azuredatabricks.net:443
+   1. For **Hive Metastore Server URL**, enter a URL for the server. For example, enter **sqlserver://hive.database.windows.net** or **jdbc:spark://adb-19255636414785.5.azuredatabricks.net:443**.
 
-4.  Select a collection or create a new one (Optional)
+   1. For **Select a collection**, choose a collection from the list or create a new one. This step is optional.
 
-5.  Finish to register the data source.
+   :::image type="content" source="media/register-scan-hive-metastore-source/configure-sources.png" alt-text="Screenshot that shows boxes for registering Hive sources." border="true":::
 
-       :::image type="content" source="media/register-scan-hive-metastore-source/configure-sources.png" alt-text="configure hive source" border="true":::
+1. Select **Finish**.   
 
+## Scan
 
-## Creating and running a scan
+Use the following steps to scan Hive Metastore databases to automatically identify assets and classify your data. For more information about scanning in general, see [Scans and ingestion in Azure Purview](concept-scans-and-ingestion.md).
 
-To create and run a new scan, do the following:
+1. In the Management Center, select integration runtimes. Make sure that a self-hosted integration runtime is set up. If it isn't set up, use the steps in [Create and manage a self-hosted integration runtime](./manage-integration-runtimes.md).
 
-1.  In the Management Center, click on Integration runtimes. Make sure a
-    self-hosted integration runtime is set up. If it is not set up, use
-    the steps mentioned [here](./manage-integration-runtimes.md)
-    to setup a self-hosted integration runtime
+1. Go to **Sources**.
 
-2.  Navigate to **Sources**.
+1. Select the registered Hive Metastore database.
 
-3.  Select the registered **Hive Metastore** database.
+1. Select **+ New scan**.
 
-4.  Select **+ New scan**.
+1. Provide the following details:
 
-5.  Provide the below details:
-
-    1. **Name**: The name of the scan
+    1. **Name**: Enter a name for the scan.
 
     1. **Connect via integration runtime**: Select the configured self-hosted integration runtime.
 
     1. **Credential**: Select the credential to connect to your data source. Make sure to:
 
-       - Select Basic Authentication while creating a credential.
-       - Provide the Metastore username in the User name input field
-       - Store the Metastore password in the secret key.
+       * Select Basic Authentication while creating a credential.
+       * Provide the Metastore username in the appropriate box.
+       * Store the Metastore password in the secret key.
 
-       To understand more on credentials, refer to the link [here](manage-credentials.md). 
+       For more information, see [Credentials for source authentication in Azure Purview](manage-credentials.md).
 
-       **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
 
-       The username and password can be accessed from the two properties as shown below
+       You can also access the username and password from the following two properties:
 
-       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="databricks-username-password-details" border="true":::
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-credentials.png" alt-text="Screenshot that shows Azure Databricks username and password examples as property values." border="true":::
 
-    1. **Metastore JDBC Driver Location**: Specify the path to the JDBC driver location on your VM where self-host integration runtime is running. This should be the path to valid JARs folder location.
+    1. **Metastore JDBC Driver Location**: Specify the path to the JDBC driver location on your machine where the self-hosted integration runtime is running. This should be a valid path to the folder for JAR files.
 
-       If you are scanning Databricks, refer to the section on Databricks below.
+       If you're scanning Azure Databricks, refer to the information on Azure Databricks in the next step.
 
        > [!Note]
-       > The driver should be accessible to all accounts in the VM. Please do not install in a user account.
+       > The driver should be accessible to all accounts in the machine. Don't install it in a user account.
 
-    1. **Metastore JDBC Driver Class**: Provide the connection driver class name. For example,\com.microsoft.sqlserver.jdbc.SQLServerDriver.
-    
-       **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
-    
-       The driver class can be accessed from the property as shown below.
-    :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="databricks-driver-class-details" border="true":::
+    1. **Metastore JDBC Driver Class**: Provide the class name for the connection driver. For example, enter **\com.microsoft.sqlserver.jdbc.SQLServerDriver**.
 
-    1. **Metastore JDBC URL**: Provide the Connection URL value and define connection to Metastore DB server URL. For example,     `jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300`.
+       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
 
-       **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
-    
-       The JDBC URL can be accessed from the Connection URL property as shown below.
-       
-       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="databricks-jdbc-url-details" border="true":::
-    
+       You can access the driver class from the following property:
+
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-driver-class-name.png" alt-text="Screenshot that shows a driver class as a property value." border="true":::
+
+    1. **Metastore JDBC URL**: Provide the connection URL value and define the connection to the URL of the Metastore database server. For example: `jdbc:sqlserver://hive.database.windows.net;database=hive;encrypt=true;trustServerCertificate=true;create=false;loginTimeout=300`.
+
+       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
+
+       You can access the JDBC URL from the connection URL property, as shown in the following screenshot:
+
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-jdbc-connection.png" alt-text="Screenshot that shows an example connection U R L property." border="true":::
+
        > [!NOTE]
-       > When you copy the URL from *hive-site.xml*, be sure you remove `amp;` from the string or the scan will fail.
+       > When you copy the URL from *hive-site.xml*, remove `amp;` from the string or the scan will fail. Then append the path to your SSL certificate to the URL. This will be the path to the SSL certificate's location on your machine. [Download the SSL certificate](https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem).
+       >
+       > When you enter local file system paths in the Purview Studio scan configuration, remember to change the Windows path separator character from a backslash (`\`) to a forward slash (`/`). For example, if your MariaDB JAR file is *C:\mariadb-jdbc.jar*, change it to *C:/mariadb-jdbc.jar*. Make the same change to the Metastore JDBC URL `sslCA` parameter. For example, if it's placed at local file system path *D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem*, change it to *D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem*.
 
-       To this URL, append the path to the location where SSL certificate is placed on your VM. The SSL certificate can be downloaded from [here](../mysql/howto-configure-ssl.md).
+       The **Metastore JDBC URL** value will look like this example:
 
-       The metastore JDBC URL will be:
-    
-       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&amp;useSSL=true&sslCA=D:\Drivers\SSLCert\BaltimoreCyberTrustRoot.crt.pem`
+       `jdbc:mariadb://consolidated-westus2-prod-metastore-addl-1.mysql.database.azure.com:3306/organization1829255636414785?trustServerCertificate=true&useSSL=true&sslCA=D:/Drivers/SSLCert/BaltimoreCyberTrustRoot.crt.pem`
 
-    1. **Metastore database name**: Provide the Hive Metastore Database name.
-    
-       If you are scanning Databricks, refer to the section on Databricks below.
+    1. **Metastore database name**: Provide the name of the Hive Metastore database.
 
-       **Databricks usage**: Navigate to your Databricks cluster -> Apps -> Launch Web Terminal. Run the cmdlet **cat /databricks/hive/conf/hive-site.xml**
+       **Azure Databricks usage**: Go to your Azure Databricks cluster, select **Apps**, and then select **Launch Web Terminal**. Run the cmdlet `cat /databricks/hive/conf/hive-site.xml`.
 
-       The database name can be accessed from the JDBC URL property as shown below. For Example: organization1829255636414785
-       
-       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="databricks-database-name-details" border="true":::
+       You can access the database name from the JDBC URL property, as shown in the following screenshot.
 
-    1. **Schema**: Specify a list of Hive schemas to import. For example, schema1; schema2. 
-    
-        All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default. 
+       :::image type="content" source="media/register-scan-hive-metastore-source/databricks-data-base-name.png" alt-text="Screenshot that shows an example database name as a J D B C property." border="true":::
 
-        When the list is empty, all available schemas are imported. Acceptable schema name patterns using SQL LIKE expressions syntax include using %, e.g. A%; %B; %C%; D
+    1. **Schema**: Specify a list of Hive schemas to import. For example: **schema1; schema2**.
 
-        - start with A or    
-        - end with B or    
-        - contain C or    
-        - equal D
+        All user schemas are imported if that list is empty. All system schemas (for example, SysAdmin) and objects are ignored by default.
 
-        Usage of NOT and special characters are not acceptable.
+        When the list is empty, all available schemas are imported. Acceptable schema name patterns that use SQL `LIKE` expression syntax include the percent sign (%). For example, `A%; %B; %C%; D` means:
 
-     1. **Maximum memory available**: Maximum memory (in GB) available on customer's VM to be used by scanning processes. This is dependent on the size of Hive Metastore database to be scanned.
+        * Start with A or
+        * End with B or
+        * Contain C or
+        * Equal D
 
-        :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="scan hive source" border="true":::
+        Usage of `NOT` and special characters is not acceptable.
 
-6.  Click on **Continue**.
+    1. **Maximum memory available**: Maximum memory (in gigabytes) available on the customer's machine for the scanning processes to use. This value is dependent on the size of Hive Metastore database to be scanned.
 
-7.  Choose your **scan trigger**. You can set up a schedule or ran the
-    scan once.
+    :::image type="content" source="media/register-scan-hive-metastore-source/scan.png" alt-text="Screenshot that shows boxes for scan details." border="true":::
 
-8.  Review your scan and click on **Save and Run**.
+1. Select **Continue**.
 
-## Viewing your scans and scan runs
+1. For **Scan trigger**, choose whether to set up a schedule or run the scan once.
 
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section.
-
-2. Select the desired data source. You will see a list of existing scans on that data source.
-
-3. Select the scan whose results you are interested to view.
-
-4. This page will show you all of the previous scan runs along with metrics and status for each scan run. It will also display whether your scan was scheduled or manual, how many assets had classifications applied, how many total assets were discovered, the start and end time of the scan, and the total scan duration.
-
-## Manage your scans
-
-To manage or delete a scan, do the following:
-
-1. Navigate to the management center. Select **Data sources** under the **Sources and scanning** section then select on the desired data source.
-
-2. Select the scan you would like to manage. You can edit the scan by selecting **Edit**.
-
-3. You can delete your scan by selecting **Delete**.
+1. Review your scan and select **Save and Run**.
 
 ## Next steps
 
-- [Browse the Azure Purview Data catalog](how-to-browse-catalog.md)
-- [Search the Azure Purview Data Catalog](how-to-search-catalog.md)
+Now that you've registered your source, use the following guides to learn more about Azure Purview and your data:
+
+- [Data insights in Azure Purview](concept-insights.md)
+- [Lineage in Azure Purview](catalog-lineage-user-guide.md)
+- [Search the data catalog](how-to-search-catalog.md)

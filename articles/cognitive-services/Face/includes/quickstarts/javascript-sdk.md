@@ -27,6 +27,7 @@ Use the Face client library for JavaScript to:
 
 * Azure subscription - [Create one for free](https://azure.microsoft.com/free/cognitive-services/)
 * The latest version of [Node.js](https://nodejs.org/en/)
+* [!INCLUDE [contributor-requirement](../../../includes/quickstarts/contributor-requirement.md)]
 * Once you have your Azure subscription, [Create a Face resource](https://portal.azure.com/#create/Microsoft.CognitiveServicesFace) in the Azure portal to get your key and endpoint. After it deploys, click **Go to resource**.
     * You will need the key and endpoint from the resource you create to connect your application to the Face API. You'll paste your key and endpoint into the code below later in the quickstart.
     * You can use the free pricing tier (`F0`) to try the service, and upgrade later to a paid tier for production.

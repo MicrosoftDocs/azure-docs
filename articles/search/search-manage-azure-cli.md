@@ -3,7 +3,6 @@ title: Azure CLI scripts using the az search module
 titleSuffix: Azure Cognitive Search
 description: Create and configure an Azure Cognitive Search service with the Azure CLI. You can scale a service up or down, manage admin and query api-keys, and query for system information.
 
-manager: luisca
 author: DerekLegenzoff
 ms.author: delegenz
 ms.service: cognitive-search
@@ -107,7 +106,7 @@ az search service show --name <service-name> --resource-group <search-service-re
 
 ## Create or delete a service
 
-To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_show) command.
+To [create a new search service](search-create-service-portal.md), use the [**az search service create**](/cli/azure/search/service#az_search_service_create) command.
 
 ```azurecli-interactive
 az search service create \
@@ -178,7 +177,7 @@ az search service create \
 
 ## Create a service with a private endpoint
 
-[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, please refer to the documentation on 
+[Private Endpoints](../private-link/private-endpoint-overview.md) for Azure Cognitive Search allow a client on a virtual network to securely access data in a search index over a [Private Link](../private-link/private-link-overview.md). The private endpoint uses an IP address from the [virtual network address space](../virtual-network/ip-services/private-ip-addresses.md) for your search service. Network traffic between the client and the search service traverses over the virtual network and a private link on the Microsoft backbone network, eliminating exposure from the public internet. For more details, please refer to the documentation on 
 [creating a private endpoint for Azure Cognitive Search](service-create-private-endpoint.md)
 
 The following example shows how to create a search service with a private endpoint.

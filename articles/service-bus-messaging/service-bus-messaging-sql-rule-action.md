@@ -2,7 +2,7 @@
 title: Azure Service Bus Subscription Rule SQL Action syntax  | Microsoft Docs
 description: This article provides a reference for SQL rule action syntax. The actions are written in SQL-language-based syntax that is performed against a message.
 ms.topic: article
-ms.date: 11/24/2020
+ms.date: 09/28/2021
 ---
 
 # Subscription Rule SQL Action Syntax

@@ -1,13 +1,13 @@
 ---
 title: Use Azure Maps Drawing Error Visualizer
 description: In this article, you'll learn about how to visualize warnings and errors returned by the Creator Conversion API.
-author: anastasia-ms
-ms.author: v-stharr
+author: stevemunk
+ms.author: v-munksteve
 ms.date: 05/26/2021
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
-manager: philmea
+
 ---
 
 # Using the Azure Maps Drawing Error Visualizer with Creator

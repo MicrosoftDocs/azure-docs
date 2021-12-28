@@ -2,13 +2,13 @@
 title: "Quickstart: Create a public load balancer - Azure portal"
 titleSuffix: Azure Load Balancer
 description: This quickstart shows how to create a load balancer by using the Azure portal.
-author: asudbring 
+author: asudbring
 ms.service: load-balancer
 ms.topic: quickstart
 ms.date: 08/09/2021
 ms.author: allensu
-ms.custom: mvc
-# Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
+ms.custom: mvc, mode-ui
+#Customer intent: I want to create a load balancer so that I can load balance internet traffic to VMs.
 ---
 
 # Quickstart: Create a public load balancer to load balance VMs using the Azure portal
@@ -165,7 +165,7 @@ During the creation of the load balancer, you'll configure:
 8. Select **IP address** for the **IP type**.
 
     > [!NOTE]
-    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/public-ip-address-prefix.md).
+    > For more information on IP prefixes, see [Azure Public IP address prefix](../virtual-network/ip-services/public-ip-address-prefix.md).
 
 9. Select **Create new** in **Public IP address**.
 

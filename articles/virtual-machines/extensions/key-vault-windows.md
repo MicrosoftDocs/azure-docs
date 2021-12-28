@@ -102,6 +102,8 @@ The following JSON shows the schema for the Key Vault VM extension. The extensio
 > The 'authenticationSettings' property is **required** only for VMs with **user assigned identities**.
 > It specifies identity to use for authentication to Key Vault.
 
+> [!IMPORTANT]
+> If you specify the 'msiClientId', then the 'msiEndpoint' property is **required**. Usually the value should be set to `http://169.254.169.254/metadata/identity/oauth2/token`.
 
 ### Property values
 
@@ -289,9 +291,9 @@ The Key Vault VM extension logs only exist locally on the VM and are most inform
 |Location|Description|
 |--|--|
 | C:\WindowsAzure\Logs\WaAppAgent.log | Shows when an update to the extension occurred. |
-| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\ | Shows the status of certificate download. The download location will always be the Windows computer's MY store (certlm.msc). |
-| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\RuntimeSettings\ |	The Key Vault VM Extension service logs show the status of the akvvm_service service. |
-| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows<most recent version>\Status\	| The configuration and binaries for Key Vault VM Extension service. |
+| C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\ | Shows the status of certificate download. The download location will always be the Windows computer's MY store (certlm.msc). |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\RuntimeSettings\ |	The Key Vault VM Extension service logs show the status of the akvvm_service service. |
+| C:\Packages\Plugins\Microsoft.Azure.KeyVault.KeyVaultForWindows\<most recent version\>\Status\	| The configuration and binaries for Key Vault VM Extension service. |
 |||  
 
 

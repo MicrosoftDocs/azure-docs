@@ -5,11 +5,11 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: sql-data-sync
 ms.custom: sqldbrb=1
-ms.devlang: REST API
+ms.devlang: rest-api
 ms.topic: sample
 author: MaraSteiu 
 ms.author: masteiu
-ms.reviewer: mathoma
+ms.reviewer: kendralittle, mathoma
 ms.date: 03/12/2019
 ---
 

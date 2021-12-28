@@ -4,11 +4,11 @@ titleSuffix: Azure Machine Learning
 description: Learn how to assess and mitigate the fairness of your machine learning models using Fairlearn and the Azure Machine Learning Python SDK.
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: enterprise-readiness
 ms.author: mesameki
 author: mesameki
 ms.reviewer: luquinta
-ms.date: 11/16/2020
+ms.date: 10/21/2021
 ms.topic: how-to
 ms.custom: devx-track-python, responsible-ml
 ---
@@ -124,8 +124,7 @@ The following example shows how to use the fairness package. We will upload mode
 
     # (Optional) View this model in the fairness dashboard, and see the disparities which appear:
     from raiwidgets import FairnessDashboard
-    FairnessDashboard(sensitive_features=A_test, 
-                      sensitive_feature_names=['Race', 'Sex'],
+    FairnessDashboard(sensitive_features=A_test,
                       y_true=y_test,
                       y_pred={"lr_model": lr_predictor.predict(X_test)})
     ```
@@ -279,8 +278,7 @@ To compare multiple models and see how their fairness assessments differ, you ca
 
     from raiwidgets import FairnessDashboard
 
-    FairnessDashboard(sensitive_features=A_test, 
-                      sensitive_feature_names=['Race', 'Sex'],
+    FairnessDashboard(sensitive_features=A_test,
                       y_true=y_test.tolist(),
                       y_pred=ys_pred)
     ```
@@ -336,7 +334,7 @@ To compare multiple models and see how their fairness assessments differ, you ca
 
 You can use Fairlearn's [mitigation algorithms](https://fairlearn.org/main/user_guide/mitigation.html), compare their generated mitigated model(s) to the original unmitigated model, and navigate the performance/fairness trade-offs among compared models.
 
-To see an example that demonstrates the use of the [Grid Search](https://fairlearn.org/v0.6.0/user_guide/mitigation.html#grid-search) mitigation algorithm (which creates a collection of mitigated models with different fairness and performance trade offs) check out this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
+To see an example that demonstrates the use of the [Grid Search](https://fairlearn.org/main/user_guide/mitigation.html#grid-search) mitigation algorithm (which creates a collection of mitigated models with different fairness and performance trade offs) check out this [sample notebook](https://github.com/Azure/MachineLearningNotebooks/blob/master/contrib/fairness/fairlearn-azureml-mitigation.ipynb). 
 
 Uploading multiple models' fairness insights in a single Run allows for comparison of models with respect to fairness and performance. You can click on any of the models displayed in the model comparison chart to see the detailed fairness insights of the particular model.
 

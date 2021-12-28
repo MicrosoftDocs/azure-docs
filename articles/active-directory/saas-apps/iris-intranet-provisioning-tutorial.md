@@ -2,18 +2,14 @@
 title: 'Tutorial: Configure Iris Intranet for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to automatically provision and de-provision user accounts from Azure AD to Iris Intranet.
 services: active-directory
-documentationcenter: ''
 author: twimmers
 writer: twimmers
 manager: beatrizd
-
 ms.assetid: 38db8479-6d33-43de-9f71-1f1bd184fe69
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
-ms.tgt_pltfrm: na
-ms.devlang: na
-ms.topic: article
+ms.topic: tutorial
 ms.date: 01/15/2021
 ms.author: thwimmer
 ---
@@ -36,7 +32,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md) 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-* A Iris Intranet tenant.
+* An Iris Intranet tenant.
 * A user account in Iris Intranet with Admin permissions.
 
 ## Step 1. Plan your provisioning deployment

@@ -9,13 +9,13 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: how-to
 ms.workload: identity
-ms.date: 05/22/2019
+ms.date: 09/27/2021
 ms.author: ryanwi
-ms.reviewer: lenalepa, sureshja
+ms.reviewer: sureshja
 ms.custom: aaddev
 ---
 
-# How to: Configure terms of service and privacy statement for an app
+# Configure terms of service and privacy statement for an app
 
 Developers who build and manage multi-tenant apps that integrate with Azure Active Directory (Azure AD) and Microsoft accounts should include links to the app's terms of service and privacy statement. The terms of service and privacy statement are surfaced to users through the user consent experience. They help your users know that they can trust your app. The terms of service and privacy statement are especially critical for user-facing multi-tenant apps--apps that are used by multiple directories or are available to any Microsoft account.
 
@@ -57,7 +57,7 @@ Follow these steps in the Azure portal.
 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a> and select the correct Azure AD tenant(not B2C).
 2. Navigate to the **App registrations** section and select your app.
 3. Under **Manage**, select **Branding**.
-4. Fill out the **Terms of Service URL** and **Privacy Statement URL** fields.
+4. Fill out the **Terms of service URL** and **Privacy statement URL** fields.
 5. Select **Save**.
 
     ![App properties contains terms of service and privacy statement URLs](./media/howto-add-terms-of-service-privacy-statement/azure-portal-terms-service-privacy-statement-urls.png)

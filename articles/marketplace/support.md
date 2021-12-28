@@ -6,7 +6,7 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: navits09
 ms.author: navits
-ms.date: 01/19/2020
+ms.date: 09/27/2021
 ---
 
 # Support for the commercial marketplace program in Partner Center
@@ -18,6 +18,42 @@ Microsoft provides support for a wide variety of products and services. Finding 
 - If you're a publisher and have a question relating to your app or service, review the following support options.
 
 ## Get help or open a support ticket
+
+#### [Workspaces view](#tab/workspaces-view)
+
+1. Sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
+
+1. On the Home page, select the **Help + support** tile.
+
+     [ ![Illustrates the Partner Center Home page with the Help + support tile highlighted.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+1. Under **My support requests**, select **+ New request**.
+
+1. In the **Problem summary** box, enter a brief description of the issue.
+
+1. In the **Problem type** box, do one of the following:
+
+    - **Option 1**: Enter keywords such as: Marketplace, Azure app, SaaS offer, account management, lead management, deployment issue, payout, or co-sell offer migration. Then select a problem type from the recommended list that appears.
+
+    - **Option 2**: Select **Browse topics** from the **Category** list and then select **Commercial Marketplace**. Then select the appropriate **Topic** and **Subtopic**.
+
+1. After you have found the topic of your choice, select **Review Solutions**.
+
+    ![Next step](./media/support/next-step.png)
+
+The following options are shown:
+
+- To select a different topic, click **Select a different issue**.
+- To help solve the issue, review the recommended steps and documents, if available.
+
+    [ ![Illustrates the Recommended solutions page.](./media/support/recommended-solutions.png) ](./media/support/recommended-solutions.png#lightbox)
+
+If you cannot find your answer in the self help, select **Provide issue details**. Complete all required fields to speed up the resolution process, then select **Submit**.
+
+>[!Note]
+>If you have not signed in to Partner Center, you may be required to sign in before you can create a ticket.
+
+#### [Current view](#tab/current-view)
 
 1. Sign in with your work account. If you have not yet done so, you will need to [create a Partner Center account](create-account.md).
 
@@ -51,9 +87,23 @@ If you cannot find your answer in the self help, select **Provide issue details*
 >[!Note]
 >If you have not signed in to Partner Center, you may be required to sign in before you can create a ticket.
 
+---
+
 ## Track your existing support requests
 
+#### [Workspaces view](#tab/workspaces-view)
+
+1. To review your open and closed tickets, sign in to [Partner Center](https://partner.microsoft.com/dashboard/home) with your work account.
+
+1. On the Home page, select the **Help + support** tile.
+
+    [ ![Illustrates the Partner Center Home page with the Help + support tile highlighted.](./media/workspaces/partner-center-help-support-tile.png) ](./media/workspaces/partner-center-help-support-tile.png#lightbox)
+
+#### [Current view](#tab/current-view)
+
 To review your open and closed tickets, in the left-navigation menu, select **Commercial Marketplace** > **Support**.
+
+---
 
 ## Record issue details with a HAR file
 
@@ -67,19 +117,19 @@ To help support agents troubleshoot your issue, consider attaching an HTTP Archi
 To generate a HAR file using **Microsoft Edge** or **Google Chrome**:
 
 1. Go to the web page where you’re experiencing the issue.
-2. In the top right corner of the window, select the ellipsis icon, then **More tools** > **Developer tools**. You can press F12 as a shortcut.
-3. In the Developer tools pane, select the **Network** tab.
-4. Select **Stop recording network log** and **Clear** to remove existing logs. The record icon will turn grey.
+1. In the top right corner of the window, select the ellipsis icon, then **More tools** > **Developer tools**. You can press F12 as a shortcut.
+1. In the Developer tools pane, select the **Network** tab.
+1. Select **Stop recording network log** and **Clear** to remove existing logs. The record icon will turn grey.
 
     ![How to remove existing logs in Microsoft Edge or Google Chrome](media/support/chromium-stop-clear-session.png)
 
-5. Select **Record network log** to start recording. When you start recording, the record icon will turn red.
+1. Select **Record network log** to start recording. When you start recording, the record icon will turn red.
 
     ![How to start recording in Microsoft Edge or Google Chrome](media/support/chromium-start-session.png)
 
-6. Reproduce the issue you want to troubleshoot.
-7. After you’ve reproduced the issue, select **Stop recording network log**.
-8. Select **Export HAR**, marked with a downward-arrow icon, and save the file.
+1. Reproduce the issue you want to troubleshoot.
+1. After you’ve reproduced the issue, select **Stop recording network log**.
+1. Select **Export HAR**, marked with a downward-arrow icon, and save the file.
 
     ![How to export a HAR file in Microsoft Edge or Google Chrome](media/support/chromium-network-export-har.png)
 
