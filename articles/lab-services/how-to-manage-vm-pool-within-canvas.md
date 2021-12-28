@@ -15,7 +15,7 @@ Azure Lab Services periodically syncs the users from the Canvas course.  After t
 
 ## Access VMs
 
-Educators can access student VMs directly from the [VM Pool](how-to-manage-classroom-labs-2.md#view-the-student-vm-pool) tab.
+Educators can access student VMs directly from the [VM Pool](how-to-manage-labs.md#view-the-student-vm-pool) tab.
 
 As part of the publish process, Canvas educators are assigned their own lab VMs. The VM can be accessed by clicking on the **My Virtual Machines** button (top/right corner of the screen).
 

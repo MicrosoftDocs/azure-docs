@@ -61,6 +61,7 @@ Follow these steps to create a VM connected to an Azure file share.
 If you use the default instructions to mount an Azure Files share, the file share will seem to disappear on student VMs after the template is published. The following modified script addresses this issue.  
 
 For file share with a public endpoint:
+
 ```bash
 #!/bin/bash
 
@@ -88,6 +89,7 @@ sudo mount -t cifs //$storage_account_name.file.core.windows.net/$fileshare_name
 ```
 
 For file share with a private endpoint:
+
 ```bash
 #!/bin/bash
 
@@ -159,7 +161,7 @@ To create an Azure Files share that's enabled for Active Directory authenticatio
     - **Storage File Data SMB Share Reader** role should be assigned to students who only need to read the files from the file share.
 6. Set up directory-level and/or file-level permissions for the file share. You must set up permissions from a domain-joined machine that has network access to the file share. To modify directory-level and/or file-level permissions, mount the file share by using the storage key, not your Azure AD credentials. To assign permissions, use the [Set-Acl](/powershell/module/microsoft.powershell.security/set-acl) PowerShell command, or [icacls](/windows-server/administration/windows-commands/icacls) in Windows.
 7. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the storage account to the lab account.
-8. [Create the classroom lab](how-to-manage-classroom-labs-2.md).
+8. [Create the lab](how-to-manage-labs.md).
 9. Save a script on the template VM that students can run to connect to the network drive. To get example script:
     1. Open the storage account in the Azure portal.
     1. Under **File Service**, select **File Shares**.
@@ -185,7 +187,7 @@ To use an Azure NetApp Files share in Azure Lab Services:
 
 1. To create an Azure NetApp Files capacity pool and one or more NFS volumes, see [set up Azure NetApp Files and NFS volume](../azure-netapp-files/azure-netapp-files-quickstart-set-up-account-create-volumes.md). For information about service levels, see [Service levels for Azure NetApp Files](../azure-netapp-files/azure-netapp-files-service-levels.md).
 2. [Peer the virtual network](how-to-connect-peer-virtual-network.md) for the Azure NetApp Files capacity pool to the lab account.
-3. [Create the classroom lab](how-to-manage-classroom-labs.md).
+3. [Create the lab](how-to-manage-labs.md).
 4. On the template VM, install the components necessary to use NFS file shares.
     - Ubuntu:
 

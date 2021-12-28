@@ -22,14 +22,14 @@ The following sections outline what you need to do before you can set up a lab a
 
 
 ### Access your Azure subscription
-To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab accounts.  Azure subscriptions are usually managed by your IT department.  For more information, see the "Subscription" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#subscription).
+To create a lab account, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab accounts.  Azure subscriptions are usually managed by your IT department.  For more information, see the "Subscription" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#subscription).
 
 ### Estimate how many VMs and VM sizes you need
-It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide.md#vm-sizing) your school lab requires. 
+It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide-1.md#vm-sizing) your school lab requires. 
 
 For guidance on structuring your labs and images, see the blog post [Moving from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
-For additional guidance on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab).
+For additional guidance on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#lab).
 
 ### Understand subscription VM limits and regional VM capacity
 After you've estimated the number of VMs and the VM sizes for your labs, you need to:
@@ -41,11 +41,12 @@ For more information, see [VM subscription limits and regional capacity](https:/
 
 ### Decide how many lab accounts to create
 
-To get started quickly, create a single lab account within its own resource group.  Later, you can create additional lab accounts and resource groups, as needed. For example, you might eventually have one lab account and resource group per department as a way to clearly separate costs. 
+To get started quickly, create a single lab account within its own resource group.  Later, you can create additional lab accounts and resource groups, as needed. For example, you might eventually have one lab account and resource group per department as a way to clearly separate costs.
 
 For more information about lab accounts, resource groups, and separating costs, see:
-- The "Resource group" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#resource-group)
-- The "Lab account" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab-account) 
+
+- The "Resource group" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#resource-group)
+- The "Lab account" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#lab-account)
 - [Cost management for Azure Lab Services](./cost-management-guide.md)
 
 ## Plan your lab account settings
@@ -54,9 +55,9 @@ To plan your lab account settings, consider the following questions.
 
 ### Who should be the Owners and Contributors of the lab account?
 
-Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab account. These roles are responsible for managing the policies that apply to all the labs in the lab account. The person who creates the lab account is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription. 
+Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab account. These roles are responsible for managing the policies that apply to all the labs in the lab account. The person who creates the lab account is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription.
 
-For more information about the lab account Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+For more information about the lab account Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#manage-identity).
 
 [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 
@@ -66,13 +67,13 @@ Lab users see only a single list of the VMs that they have access to across Azur
 
 You may choose to have your IT team or faculty members create labs. To create labs, you then assign these people to the Lab Creator role within the lab account. You ordinarily assign this role from the Azure AD tenant that's associated with your school subscription. Whoever creates a lab is automatically assigned as the Owner of the lab.  
 
-For more information about the Lab Creator role, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+For more information about the Lab Creator role, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#manage-identity).
 
 ### Who will be allowed to own and manage labs?
 
 You can also choose to have IT and faculty members own\manage labs *without* giving them the ability to create labs.  In this case, users from your subscription's Azure AD tenant are assigned either the Owner or Contributor for existing labs.  
 
-For more information about the lab Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
+For more information about the lab Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#manage-identity).
 
 ### Do you want to save images and share them across labs?
 
@@ -83,8 +84,8 @@ You might want to create your images in your physical environment and then impor
 If you decide to use the Shared Image Gallery service, you'll need to create or attach a shared image gallery to your lab account. You can postpone this decision for now, because a shared image gallery can be attached to a lab account at any time.  
 
 For more information, see:
-- The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#shared-image-gallery)
-- The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#pricing)
+- The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#shared-image-gallery)
+- The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#pricing)
 
 ### Which images in Azure Marketplace will your labs use?
 
@@ -123,7 +124,7 @@ After you've finished planning, you're ready to set up your lab account. You can
 
 1. **Create your lab account**. For instructions, see [Create a lab account](./tutorial-setup-lab-account.md#create-a-lab-account).
    
-    For information about naming conventions, see the "Naming" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#naming).
+    For information about naming conventions, see the "Naming" section of [Azure Lab Services - Administrator guide](./administrator-guide-1.md#naming).
 
 1. **Add users to the Lab Creator role**. For instructions, see [Add users to the Lab Creator role](./tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role).
 

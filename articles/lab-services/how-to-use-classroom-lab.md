@@ -74,12 +74,11 @@ After you register to the labs, you can view all the labs by taking the followin
 
     ![View all labs](./media/how-to-manage-classroom-labs-2/all-labs.png)
 
-
 ## Next steps
+
 See the following articles:
 
 - [As an admin, create and manage lab plans](how-to-manage-lab-plans.md)
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs-2.md)
+- [As a lab owner, create and manage labs](how-to-manage-labs.md)
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
- 

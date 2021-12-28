@@ -78,13 +78,13 @@ This section outlines common error messages that you may see, along with the ste
 
 - Student sees warning that the lab isn’t available yet.
 
-  In Canvas, you will see the following message if the instructor hasn't published the lab yet.  Instructors must [publish the lab](how-to-manage-classroom-labs-2.md#publish-the-lab)  and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
+  In Canvas, you will see the following message if the instructor hasn't published the lab yet.  Instructors must [publish the lab](how-to-manage-labs.md#publish-the-lab)  and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) for students to have access to a lab.
 
   :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
 
 - Insufficient permissions to create lab.
 
-  In Canvas, an instructor will see a message indicating that they don’t have sufficient permission. Instructors should contact your Azure admin so they may assigned the appropriate [Lab Services built-in role](administrator-guide-2.md#manage-identity).
+  In Canvas, an instructor will see a message indicating that they don’t have sufficient permission. Instructors should contact your Azure admin so they may assigned the appropriate [Lab Services built-in role](administrator-guide.md#manage-identity).
 
 - Message that there is not enough capacity to create lab VMs.
 

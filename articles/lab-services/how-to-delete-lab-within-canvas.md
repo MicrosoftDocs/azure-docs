@@ -16,10 +16,10 @@ This article shows how to delete a lab from the **Azure Lab Services** app.
 
 ## Delete labs
 
-A lab created within Canvas can be deleted in the [Lab Services website](https://labs.azure.com) by deleting the lab directly, as described in [Manage labs in Azure Lab Services](how-to-manage-classroom-labs-2.md). 
+A lab created within Canvas can be deleted in the [Lab Services website](https://labs.azure.com) by deleting the lab directly, as described in [Manage labs in Azure Lab Services](how-to-manage-labs.md).
 
 > [!IMPORTANT]
-> Deletion of the tab or uninstalling the app will not result in deletion of the lab. 
+> Deletion of the tab or uninstalling the app will not result in deletion of the lab.
 
 ## Next steps
 

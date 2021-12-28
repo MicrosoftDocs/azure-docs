@@ -13,7 +13,7 @@ Students must access their VMs through Canvas.  Their Canvas credentials will be
 
 ## Lab unavailable
 
-If the lab hasn't been published or a synced in a while, students may see a message indicating the lab isn't available yet. Educators should [publish](how-to-manage-classroom-labs-2.md#publish-the-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) to solve the problem.
+If the lab hasn't been published or a synced in a while, students may see a message indicating the lab isn't available yet. Educators should [publish](how-to-manage-labs.md#publish-the-lab) and [sync users](how-to-manage-user-lists-within-canvas.md#sync-users) to solve the problem.
 
 :::image type="content" source="./media/how-to-get-started-create-labs-within-canvas/troubleshooting-lab-isnt-available-yet.png" alt-text="Troubleshooting -> This lab is not available yet":::
 

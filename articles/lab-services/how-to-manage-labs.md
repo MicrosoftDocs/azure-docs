@@ -11,7 +11,7 @@ This article describes how to create and delete a classroom lab. It also shows y
 
 ## Prerequisites
 
-To set up a classroom lab in a lab plan, you must have `Microsoft.LabServices/labPlans/CreateLab/action` permission.  Often instructors are given the **Lab Creator** role in the lab plan.  A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services RBAC roles](administrator-guide-2.md#manage-identity).
+To set up a classroom lab in a lab plan, you must have `Microsoft.LabServices/labPlans/CreateLab/action` permission.  Often instructors are given the **Lab Creator** role in the lab plan.  A lab owner can add other users to the Lab Creator role by using steps in the following article: [Add a user to the Lab Creator role](tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role). For more role options, see [Lab Services RBAC roles](administrator-guide.md#manage-identity).
 
 ## Create a lab
 
@@ -22,7 +22,7 @@ To set up a classroom lab in a lab plan, you must have `Microsoft.LabServices/la
     :::image type="content" source="./media/tutorial-setup-classroom-lab/new-lab-button.png" alt-text="Create a classroom lab":::
 1. In the **New Lab** window, do the following actions:
     1. Specify a **name** for your lab.
-    1. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](administrator-guide-2.md#vm-sizing).
+    1. Select the **size of the virtual machines** you need for the class. For the list of sizes available, see the [VM Sizes](administrator-guide.md#vm-sizing).
     1. Select the **virtual machine image** that you want to use for the classroom lab. If you select a Linux image, you see an option to **enable remote desktop connection**. For details, see [Enable remote desktop connection for Linux](how-to-enable-remote-desktop-linux.md).
     1. Select the **location** (region) for the lab.
         If your lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.
