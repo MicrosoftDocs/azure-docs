@@ -20,7 +20,7 @@ ms.author: eur
 - SPX help improvements. Please give us feedback about how this works for you by opening a [GitHub issue](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).
 - We've decreased the size of the SPX .NET tool install.
 
-**COVID-19 abridged testing**:
+### COVID-19 abridged testing
 
 As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
@@ -35,18 +35,18 @@ Stay healthy!
 - Sensitive key info now obscured in debug/verbose output.
 - Added URL checking and error message for content field in batch transcription create.
 
-**COVID-19 abridged testing**:
+### COVID-19 abridged testing
 
 As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
 
 ## Speech CLI: 2021-January release
 
-**New features**
+### New features
 - Speech CLI is now available as a [NuGet package](https://www.nuget.org/packages/Microsoft.CognitiveServices.Speech.CLI/) and can be installed via .NET CLI as a .NET global tool you can call from the shell/command line.
 - The [Custom Speech DevOps Template repo](https://github.com/Azure-Samples/Speech-Service-DevOps-Template) has been updated to use Speech CLI for its Custom Speech workflows.
 
-**COVID-19 abridged testing**:
+### COVID-19 abridged testing
 As the ongoing pandemic continues to require our engineers to work from home, pre-pandemic manual verification scripts have been significantly reduced. We test on fewer devices with fewer configurations, and the likelihood of environment-specific bugs slipping through may be increased. We still rigorously validate with a large set of automation. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
 
@@ -54,7 +54,7 @@ Stay healthy!
 SPX is the command line interface to use the Azure Speech service without writing code.
 Download the latest version [here](../../spx-basics.md). <br>
 
-**New features**
+### New features
 - `spx csr dataset upload --kind audio|language|acoustic` – create datasets from local data, not just from URLs.
 - `spx csr evaluation create|status|list|update|delete` – compare new models against baseline truth/other models.
 - `spx * list` – supports non-paged experience (doesn't require --top X --skip X).
@@ -70,7 +70,7 @@ Download the latest version [here](../../spx-basics.md). <br>
     -   `spx help batch examples`
     -   `spx help csr examples`
 
-**COVID-19 abridged testing:**
+### COVID-19 abridged testing
 Due to working remotely over the last few weeks, we couldn't do as much manual verification testing as we normally do. We haven't made any changes we think could have broken anything, and our automated tests all passed. In the unlikely event that we missed something, please let us know on [GitHub](https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues?q=is%3Aissue+is%3Aopen).<br>
 Stay healthy!
 

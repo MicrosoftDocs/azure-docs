@@ -116,7 +116,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 **Neural TTS Container GA**
 - With Neural TTS Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](../../speech-container-howto.md).
 
-**New features**
+### New features
 - **Custom Voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
 - [SSML silence tag](../../speech-synthesis-markup.md#add-silence) support.
 - General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
@@ -125,7 +125,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 
 ## Text-to-Speech 2020-October release
 
-**New features**
+### New features
 - Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md#adjust-speaking-styles).
 - **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
 - **[Custom Voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.
