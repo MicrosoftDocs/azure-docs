@@ -7,7 +7,7 @@ services: storage
 
 ms.author: tamram
 ms.reviewer: ozguns
-ms.date: 06/08/2021
+ms.date: 12/13/2021
 ms.topic: how-to
 ms.service: storage
 ms.subservice: queues
@@ -86,6 +86,27 @@ If you are authenticating using your Azure AD account, you'll see **Azure AD Use
 To switch to using the account access key, click the link highlighted in the image. If you have access to the account key, then you'll be able to proceed. However, if you lack access to the account key, the Azure portal displays an error message.
 
 Queues are not listed in the portal if you do not have access to the account keys. Click on the **Switch to Azure AD User Account** link to use your Azure AD account for authentication again.
+
+## Default to Azure AD authorization in the Azure portal
+
+When you create a new storage account, you can specify that the Azure portal will default to authorization with Azure AD when a user navigates to queue data. You can also configure this setting for an existing storage account. This setting specifies the default authorization method only, so keep in mind that a user can override this setting and choose to authorize data access with the account key.
+
+To specify that the portal will use Azure AD authorization by default for data access when you create a storage account, follow these steps:
+
+1. Create a new storage account, following the instructions in [Create a storage account](../common/storage-account-create.md).
+1. On the **Advanced** tab, in the **Security** section, check the box next to **Default to Azure Active Directory authorization in the Azure portal**.
+
+    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-create-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for new account.":::
+
+1. Select the **Review + create** button to run validation and create the account.
+
+To update this setting for an existing storage account, follow these steps:
+
+1. Navigate to the account overview in the Azure portal.
+1. Under **Settings**, select **Configuration**.
+1. Set **Default to Azure Active Directory authorization in the Azure portal** to **Enabled**.
+
+    :::image type="content" source="media/authorize-data-operations-portal/default-auth-account-update-portal.png" alt-text="Screenshot showing how to configure default Azure AD authorization in Azure portal for existing account.":::
 
 ## Next steps
 

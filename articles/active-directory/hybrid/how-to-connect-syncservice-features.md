@@ -12,7 +12,7 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 05/18/2020
+ms.date: 9/14/2021
 ms.subservice: hybrid
 ms.author: billmath
 

@@ -3,9 +3,9 @@ title: Monitor Java web app performance on Linux - Azure | Microsoft Docs
 description: Extended application performance monitoring of your Java website with the CollectD plug-in for Application Insights.
 ms.topic: conceptual
 ms.date: 03/14/2019
-author: MS-jgol
 ms.custom: devx-track-java
-ms.author: jgol
+author: mattmccleary
+ms.author: mmcc
 
 ---
 
@@ -39,7 +39,7 @@ On your Linux server machines:
    * `/usr/share/collectd/java/applicationinsights-collectd-1.0.5.jar`
    * Add this snippet, using the Instrumentation Key from your resource:
 
-```XML
+```xml
 
      LoadPlugin "com.microsoft.applicationinsights.collectd.ApplicationInsightsWriter"
      <Plugin ApplicationInsightsWriter>
@@ -49,7 +49,7 @@ On your Linux server machines:
 
 Here's part of a sample configuration file:
 
-```XML
+```xml
 
     ...
     # collectd plugins

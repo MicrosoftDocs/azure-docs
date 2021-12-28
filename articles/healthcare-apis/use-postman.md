@@ -53,7 +53,7 @@ To access the FHIR service, we'll need to create or update the following variabl
 * **bearerToken** – The variable to store the Azure Active Directory (Azure AD) access token in the script. Leave it blank.
 
 > [!NOTE]
-> Ensure that you've configured the redirect URL, [https://www.getpostman.com/oauth2/callback](https://www.getpostman.com/oauth2/callback), in the client application registration.
+> Ensure that you've configured the redirect URL, `https://www.getpostman.com/oauth2/callback`, in the client application registration.
 
 [ ![Screenshot of environments variable.](media/postman/postman-environments-variable.png) ](media/postman/postman-environments-variable.png#lightbox)
 
@@ -88,7 +88,7 @@ Create a new `POST` request:
     
 3. Select the **Test** tab and enter in the text section: `pm.environment.set("bearerToken", pm.response.json().access_token);`
 4. Select **Save** to save the settings.
-5. Hit **Send**. You should see a response with the Azure AD access token, which is saved to the variable `accessToken` automatically. You can then use it in all FHIR service API requests.
+5. Hit **Send**. You should see a response with the Azure AD access token, which is saved to the variable `bearerToken` automatically. You can then use it in all FHIR service API requests.
 
   [ ![Screenshot of send button.](media/postman/postman-send-button.png) ](media/postman/postman-send-button.png#lightbox)
 

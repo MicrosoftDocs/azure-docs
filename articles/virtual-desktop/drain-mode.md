@@ -1,6 +1,6 @@
 ---
-title: Set Azure Virtual Desktop drain mode - Azure
-description: How to configure and use drain mode in Azure Virtual Desktop.
+title: How to use drain mode to isolate session hosts - Azure Virtual Desktop
+description: How to use drain mode to isolate session hosts to perform maintenance in Azure Virtual Desktop.
 services: virtual-desktop
 author: Heidilohr
 
@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 manager: femila
 ---
 
-# Set drain mode
+# Use drain mode to isolate session hosts and apply patches
 
 Drain mode isolates a session host when you want to apply patches and do maintenance without disrupting user sessions. When isolated, the session host won't accept new user sessions. Any new connections will be redirected to the next available session host. Existing connections in the session host will keep working until the user signs out or the administrator ends the session. When the session host is in drain mode, admins can also remotely connect to the server without going through the Azure Virtual Desktop service. You can apply this setting to both pooled and personal desktops.
 

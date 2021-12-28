@@ -3,8 +3,9 @@ title: Add fault tolerance in Azure Data Factory Copy Activity by skipping incom
 description: Learn how to add fault tolerance in Azure Data Factory Copy Activity by skipping incompatible rows during copy
 author: linda33wj
 ms.service: data-factory
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 03/27/2018
+ms.date: 10/22/2021
 ms.author: jingwang
 robots: noindex
 ---

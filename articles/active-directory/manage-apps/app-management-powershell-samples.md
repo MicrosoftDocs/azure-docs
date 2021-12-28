@@ -1,5 +1,6 @@
 ---
-title: PowerShell samples for Azure Active Directory Application Management
+title: PowerShell samples in Application Management
+titleSuffix: Azure AD
 description: These PowerShell samples are used for apps you manage in your Azure Active Directory tenant. You can use these sample scripts to find expiration information about secrets and certificates.
 services: active-directory
 author: davidmu1

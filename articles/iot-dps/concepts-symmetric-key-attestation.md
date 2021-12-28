@@ -54,7 +54,7 @@ When a device is attesting with an individual enrollment, the device uses the sy
 
 For code examples that create a SAS token, see [Security Tokens](../iot-hub/iot-hub-dev-guide-sas.md#security-token-structure).
 
-Creating security tokens for symmetric key attestation is supported by the Azure IoT C SDK. For an example using the Azure IoT C SDK to attest with an individual enrollment, see [Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md).
+Creating security tokens for symmetric key attestation is supported by the Azure IoT C SDK. For an example using the Azure IoT C SDK to attest with an individual enrollment, see [Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md).
 
 
 ## Group Enrollments
@@ -74,7 +74,7 @@ Once a registration ID has been defined for the device, the symmetric key for th
 
 # [Azure CLI](#tab/azure-cli)
 
-The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps?view=azure-cli-latest&preserve-view=true#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used from Windows-based or Linux systems, in PowerShell or a Bash shell.
+The IoT extension for the Azure CLI provides the [`compute-device-key`](/cli/azure/iot/dps#az_iot_dps_compute_device_key) command for generating derived device keys. This command can be used from Windows-based or Linux systems, in PowerShell or a Bash shell.
 
 Replace the value of `--key` argument with the **Primary Key** from your enrollment group.
 
@@ -179,6 +179,6 @@ If the device keys are not installed in the factory, a [hardware security module
 
 Now that you have an understanding of Symmetric Key attestation, check out the following articles to learn more:
 
-* [Quickstart: Provision a simulated device with symmetric keys](quick-create-simulated-device-symm-key.md)
+* [Quickstart: Provision a simulated symmetric key device](quick-create-simulated-device-symm-key.md)
 * [Learn about the concepts of provisioning](about-iot-dps.md#provisioning-process)
 * [Get started using auto-provisioning](./quick-setup-auto-provision.md) 

@@ -35,54 +35,6 @@ Once Azure accepts a reservation request, it's available to be consumed by VMs o
 > [!NOTE]
 > Capacity Reservation also comes with Azure availability SLA for use with virtual machines. The SLA won't be enforced during public preview and will be defined when Capacity Reservation is generally available.
 
-
-## Register for Capacity Reservation 
-
-Before you can use the Capacity Reservation feature, you must register your subscription for the preview. The registration may take several minutes to complete. You can use either Azure CLI or PowerShell to complete the feature registration.
-
-### [CLI](#tab/cli1)
-
-1. Use [az feature register](/cli/azure/feature#az_feature_register) to enable the preview for your subscription:
-
-    ```azurecli-interactive
-    az feature register --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. Feature registration can take up to 15 minutes. Check the registration status:
-
-    ```azurecli-interactive
-    az feature show --namespace Microsoft.Compute --name CapacityReservationPreview
-    ```
-
-1. Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider:
-
-    ```azurecli-interactive
-    az provider register --namespace Microsoft.Compute
-    ``` 
-
-### [PowerShell](#tab/powershell1)
-
-1. Use the [Register-AzProviderFeature cmdlet](/powershell/module/az.resources/register-azproviderfeature) to enable the preview for your subscription:
-
-    ```powershell-interactive
-    Register-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. Feature registration can take up to 15 minutes. Check the registration status:
-
-    ```powershell-interactive
-    Get-AzProviderFeature -FeatureName CapacityReservationPreview -ProviderNamespace Microsoft.Compute
-    ``` 
-
-1. Once the feature has been registered for your subscription, complete the opt-in process by propagating the change into the Compute resource provider:
-
-    ```powershell-interactive
-    Register-AzResourceProvider -ProviderNamespace Microsoft.Compute
-    ``` 
-
---- 
-<!-- The three dashes above show that your section of tabbed content is complete. Don't remove them :) -->
-
 ## Benefits of Capacity Reservation 
 
 - Once deployed, capacity is reserved for your use and always available within the scope of applicable SLAs  
@@ -116,6 +68,18 @@ Capacity Reservations are priced at the same rate as the underlying VM size. For
 If you then deploy a D2s_v3 VM and specify reservation as its property, the capacity reservation gets used. Once in use, you'll only pay for the VM and nothing extra for the capacity reservation. Let’s say you deploy 5 D2s_v3 VMs against the previously mentioned capacity reservation. You will see a bill for 5 D2s_v3 VMs and 5 unused capacity reservation, both charged at the same rate as a D2s_v3 VM.    
 
 Both used and unused capacity reservation are eligible for Reserved Instances term commitment discounts. In the above example, if you have Reserved Instances for 2 D2s_v3 VM in the same Azure region, the billing for 2 resources (either VM or unused capacity reservation) will be zeroed out and you'll only pay for the rest of the 8 resources (that is, 5 unused capacity reservations and 3 D2s_v3 VMs). In this case, the term commitment discounts could be applied on either the VM or the unused Capacity Reservation, both of which are charged at the same PAYG rate. 
+
+## Difference between On-demand Capacity Reservation and Reserved Instances 
+
+
+| Differences | On-demand Capacity Reservation | Reserved Instances|
+|---|---|---|
+| Term | No term commitment required. Can be created and deleted as per the customer requirement | Fixed term commitment of either one-year or three-years|
+| Billing discount | Charged at pay-as-you-go rates for the underlying VM size* | Significant cost savings over pay-as-you-go rates |
+| Capacity SLA | Provides capacity guarantee in the specified location (region or availability zone) | Does not provide a capacity guarantee. Customers can choose “capacity priority” to gain better access, but that option does not carry an SLA |
+| Region vs Availability Zones | Can be deployed per region or per availability zone | Only available at regional level |
+
+*Eligible for Reserved Instances discount if purchased separately
 
 
 ## Work with Capacity Reservation 

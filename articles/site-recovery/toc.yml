@@ -112,6 +112,8 @@
       href: azure-to-azure-support-matrix.md
     - name: Using Site Recovery with Azure Backup
       href: site-recovery-backup-interoperability.md
+    - name: Configure Failover for Multiple IP addresses
+      href: concepts-multiple-ip-address-failover.md
     - name: Accelerated networking for Azure VM disaster recovery
       href: azure-vm-disaster-recovery-with-accelerated-networking.md
     - name: ExpressRoute with Azure VM disaster recovery
@@ -200,6 +202,8 @@
     items:
     - name: Security baseline
       href: /security/benchmark/azure/baselines/site-recovery-security-baseline?toc=/azure/site-recovery/toc.json
+    - name: Transport Layer Security
+      href: transport-layer-security.md
 - name: How-to Guides
   items:
   - name: Azure to Azure disaster recovery

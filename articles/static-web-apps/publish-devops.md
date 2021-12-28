@@ -30,9 +30,6 @@ In this tutorial, you learn to:
 
   > [!NOTE]
   > If you have an existing app in your repository, you may skip to the next section.
-  
-  > [!NOTE]
-  > The application must target .NET Core 3.1 for the pipeline to succeed.
 
 1. Navigate to your repository in Azure Repos.
 

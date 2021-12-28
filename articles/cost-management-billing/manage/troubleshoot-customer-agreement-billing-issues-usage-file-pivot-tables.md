@@ -7,7 +7,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: troubleshooting
-ms.date: 09/15/2021
+ms.date: 10/07/2021
 ms.author: banders
 ---
 
@@ -16,7 +16,7 @@ ms.author: banders
 This article helps you troubleshoot Microsoft Customer Agreement (MCA) billing issues using pivot tables in your usage files. Azure usage files contain all your Azure usage and consumption information. The information in the file can help you understand:
 
 - Understand how Azure reservations are getting used and applied
-- Reconcile information in Azure Cost Management with your billed invoice
+- Reconcile information in Cost Management with your billed invoice
 - Troubleshoot a cost spike
 - Calculate a refund amount for a service level agreement
 

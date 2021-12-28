@@ -10,11 +10,11 @@ ms.date: 06/22/2020
 
 ms.author: joflore
 author: MicrosoftGuyJFlo
-manager: daveba
+manager: karenhoran
 ms.reviewer: nigu
+ms.collection: M365-identity-device-management
 
 #Customer intent: As an IT admin, I want to know how to use the What If tool for my existing Conditional Access policies, so that I can understand the impact they have on my environment. 
-ms.collection: M365-identity-device-management
 ---
 # Troubleshoot using the What If tool in Conditional Access
 

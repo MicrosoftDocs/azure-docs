@@ -2,8 +2,11 @@
 title: Create and use private endpoints for Azure Backup
 description: Understand the process to creating private endpoints for Azure Backup where using private endpoints helps maintain the security of your resources. 
 ms.topic: conceptual
-ms.date: 08/19/2021 
+ms.date: 11/09/2021
 ms.custom: devx-track-azurepowershell
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Create and use private endpoints for Azure Backup
@@ -121,6 +124,8 @@ If you choose to integrate your private endpoint with private DNS zones, Backup 
 
 ![DNS configuration in Azure private DNS zone](./media/private-endpoints/dns-configuration.png)
 
+>[!Note]
+>If you're using proxy servers, you can choose to bypass the proxy server or perform your backups through the proxy server. To bypass a proxy server, continue to the following sections. To use the proxy server for performing your backups, see [proxy server setup details for Recovery Services vault](#set-up-proxy-server-for-recovery-services-vault-with-private-endpoint).
 #### Validate virtual network links in private DNS zones
 
 For **each private DNS** zone listed above (for Backup, Blobs and Queues), do the following:
@@ -153,6 +158,7 @@ If you're using your custom DNS servers, you'll need to create the required DNS 
     > - [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
     > - [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
     > - [US Gov](../azure-government/documentation-government-developer-guide.md)
+    > - [Geo-code list - sample XML](scripts/geo-code-list.md)
 
 1. Next, we need to add the required DNS records. To view the records that need to be added to the Backup DNS zone, navigate to the private endpoint you created above, and go to the **DNS configuration** option under the left navigation bar.
 
@@ -521,7 +527,7 @@ $privateEndpoint = New-AzPrivateEndpoint `
 
 To configure a proxy server for Azure VM or on-premises machine, follow these steps:
 
-1. Add the following domains in the exception and bypass the proxy server.
+1. Add the following domains that need to be accessed from the proxy server.
    
    | Service | Domain names | Port |
    | ------- | ------ | ---- |
@@ -531,7 +537,16 @@ To configure a proxy server for Azure VM or on-premises machine, follow these st
 
 1. Allow access to these domains in the proxy server and link private DNS zone ( `*.privatelink.<geo>.backup.windowsazure.com`, `*.privatelink.blob.core.windows.net`, `*.privatelink.queue.core.windows.net`) with the VNET where proxy server is created or uses a custom DNS server with the respective DNS entries. <br><br> The VNET where proxy server is running and the VNET where private endpoint NIC is created should be peered, which would allow the proxy server to redirect the requests to private IP. 
 
-The following diagram shows a setup with a proxy server whose VNet is linked to a private DNS zone with required DNS entries. Proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 169.63.129.16.
+   >[!NOTE]
+   >In the above text, `<geo>` refers to the region code (for example *eus* and *ne* for East US and North Europe respectively). Refer to the following lists for regions codes:
+   >
+   >- [All public clouds](https://download.microsoft.com/download/1/2/6/126a410b-0e06-45ed-b2df-84f353034fa1/AzureRegionCodesList.docx)
+   >- [China](/azure/china/resources-developer-guide#check-endpoints-in-azure)
+   >- [Germany](../germany/germany-developer-guide.md#endpoint-mapping)
+   >- [US Gov](../azure-government/documentation-government-developer-guide.md)
+   >- [Geo-code list - sample XML](scripts/geo-code-list.md)
+
+The following diagram shows a setup (while using the Azure Private DNS zones) with a proxy server, whose VNet is linked to a private DNS zone with required DNS entries. The proxy server can also have its own custom DNS server, and the above domains can be conditionally forwarded to 168.63.129.16. If you're using a custom DNS server/host file for DNS resolution, see the sections on [managing DNS entries](#manage-dns-records) and [configuring protection](#configure-backup).
 
 :::image type="content" source="./media/private-endpoints/setup-with-proxy-server-inline.png" alt-text="Diagram showing a setup with a proxy server." lightbox="./media/private-endpoints/setup-with-proxy-server-expanded.png":::
 

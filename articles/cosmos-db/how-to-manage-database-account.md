@@ -25,7 +25,7 @@ This article describes how to manage various tasks on an Azure Cosmos account us
 ## Add/remove regions from your database account
 
 > [!TIP]
-> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account.
+> When a new region is added, all data must be fully replicated and committed into the new region before the region is marked as available. The amount of time this operation takes will depend upon how much data is stored within the account. If an [asynchronous throughput scaling operation](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused and will resume automatically when the add/remove region operation is complete. 
 
 1. Sign in to [Azure portal](https://portal.azure.com).
 
@@ -90,6 +90,9 @@ After a Cosmos account is configured for automatic failover, the failover priori
 
 > [!IMPORTANT]
 > The Azure Cosmos account must be configured for manual failover for this operation to succeed.
+
+> [!NOTE]
+> If you perform a manual failover operation while an [asynchronous throughput scaling operation](scaling-provisioned-throughput-best-practices.md#background-on-scaling-rus) is in progress, the throughput scale-up operation will be paused. It will resume automatically when the failover operation is complete.
 
 1. Go to your Azure Cosmos account, and open the **Replicate data globally** menu.
 

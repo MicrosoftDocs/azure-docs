@@ -83,7 +83,7 @@ additionalContent:
         - title: Get coding with quickstarts
           links:
           - text: Azure Form Recognizer
-            url: ./form-recognizer/quickstarts/get-started-with-form-recognizer.md
+            url: ./form-recognizer/quickstarts/try-sample-label-tool.md
           - text: Azure Metrics Advisor
             url: ./metrics-advisor/quickstarts/web-portal.md
           - text: Azure Immersive Reader
@@ -91,7 +91,7 @@ additionalContent:
           - text: Azure Cognitive Search
             url: ../search/search-get-started-portal.md
           - text: Azure Video Analyzer
-            url: ../azure-video-analyzer/video-analyzer-docs/detect-motion-emit-events-quickstart.md
+            url: ../azure-video-analyzer/video-analyzer-docs/edge/detect-motion-emit-events-quickstart.md
           - text: Azure Bot Service
             url: /composer/quickstart-create-bot
             

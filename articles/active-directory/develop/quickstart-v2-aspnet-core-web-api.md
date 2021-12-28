@@ -5,15 +5,14 @@ description: In this quickstart, you download and modify a code sample that demo
 services: active-directory
 author: jmprieur
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: quickstart
 ms.workload: identity
 ms.date: 09/22/2020
 ms.author: jmprieur
-ms.custom: "devx-track-csharp, scenarios:getting-started, languages:aspnet-core"
-# Customer intent: As an application developer, I want to know how to write an ASP.NET Core web API that uses the Microsoft identity platform to authorize API requests from clients.
+ms.custom: devx-track-csharp, "scenarios:getting-started", "languages:aspnet-core", mode-api
+#Customer intent: As an application developer, I want to know how to write an ASP.NET Core web API that uses the Microsoft identity platform to authorize API requests from clients.
 ---
 
 # Quickstart: Protect an ASP.NET Core web API with the Microsoft identity platform
@@ -33,7 +32,7 @@ In this quickstart, you download an ASP.NET Core web API code sample and review 
 > First, register the web API in your Azure AD tenant and add a scope by following these steps:
 >
 > 1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>.
-> 1. If you have access to multiple tenants, use the **Directory + subscription** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: on the top menu to select the tenant in which you want to register an application.
+> 1. If you have access to multiple tenants, use the **Directories + subscriptions** filter :::image type="icon" source="./media/common/portal-directory-subscription-filter.png" border="false"::: in the top menu to switch to the tenant in which you want to register the application.
 > 1. Search for and select **Azure Active Directory**.
 > 1. Under **Manage**, select **App registrations** > **New registration**.
 > 1. For **Name**, enter a name for your application. For example, enter **AspNetCoreWebApi-Quickstart**. Users of your app will see this name, and you can change it later.

@@ -17,7 +17,7 @@ The following different concepts apply to configuring a static web app.
 
 - [Build configuration](./build-configuration.md): Define settings that control the build process.
 
-- [Application settings](./application-settings.md): Set application-level settings and environment variables.
+- [Application settings](./application-settings.md): Set application-level settings and environment variables that can be used by backend APIs.
 
 ## Example scenarios
 
@@ -29,7 +29,8 @@ The following different concepts apply to configuring a static web app.
 | Set which HTML file is served if a route doesn't match an actual file | [Define fallback route in the staticwebapps.config.json file](./configuration.md#fallback-routes) |
 | Set global headers for HTTP requests | [Define global headers in the staticwebapps.config.json file](./configuration.md#global-headers)|
 | Define a custom build command | [Set a custom build command value in the application configuration file](./build-configuration.md) |
-| Set an environment variable | Set an [application setting in the portal](./application-settings.md), or define a variable in the [build configuration file](./build-configuration.md#environment-variables). |
+| Set an environment variable for a frontend build | [Define an environment variable in the build configuration file](./build-configuration.md#environment-variables) |
+| Set an environment variable for an API | [Set an application setting in the portal](./application-settings.md) |
 
 ## Next steps
 

@@ -92,11 +92,33 @@ You can point your cluster to a previously created Azure SQL Database at any tim
 
 * In HDInsight 4.0 if you would like to Share the metastore between Hive and Spark, you can do so by changing the property metastore.catalog.default to hive in your Spark cluster. You can find this property in Ambari Advanced spark2-hive-site-override. It’s important to understand that sharing of metastore only works for external hive tables, this will not work if you have internal/managed hive tables or ACID tables.  
 
+### Updating the custom Hive metastore password
+When using a custom Hive metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Hive services will not work until you update the password in the HDInsight cluster. 
+
+To update the Hive metastore password:
+1. Open the Ambari UI.
+2. Click **Services --> Hive --> Configs --> Database**.
+3. Update the **Database Password** fields to the new SQL server database password.
+4. Click the **Test Connection** button to make sure the new password works.
+5. Click the **Save** button.
+6. Follow the Ambari prompts to save the config and Restart the required services.
+
 ## Apache Oozie metastore
 
 Apache Oozie is a workflow coordination system that manages Hadoop jobs. Oozie supports Hadoop jobs for Apache MapReduce, Pig, Hive, and others.  Oozie uses a metastore to store details about workflows. To increase performance when using Oozie, you can use Azure SQL Database as a custom metastore. The metastore provides access to Oozie job data after you delete your cluster.
 
 For instructions on creating an Oozie metastore with Azure SQL Database, see [Use Apache Oozie for workflows](hdinsight-use-oozie-linux-mac.md).
+
+### Updating the custom Oozie metastore password
+When using a custom Oozie metastore database, you have the ability to change the SQL DB password. If you change the password for the custom metastore, the Oozie services will not work until you update the password in the HDInsight cluster. 
+
+To update the Oozie metastore password:
+1. Open the Ambari UI.
+2. Click **Services --> Oozie --> Configs --> Database**.
+3. Update the **Database Password** fields to the new SQL server database password.
+4. Click the **Test Connection** button to make sure the new password works.
+5. Click the **Save** button.
+6. Follow the Ambari prompts to save the config and Restart the required services.
 
 ## Custom Ambari DB
 

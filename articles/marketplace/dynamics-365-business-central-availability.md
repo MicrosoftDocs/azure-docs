@@ -1,15 +1,15 @@
 ---
-title: Configure Dynamics 365 for Business Central offer availability on Microsoft AppSource (Azure Marketplace)
-description: Configure Dynamics 365 for Business Central offer availability on Microsoft AppSource (Azure Marketplace).
+title: Configure Dynamics 365 Business Central offer availability on Microsoft AppSource (Azure Marketplace)
+description: Configure Dynamics 365 Business Central offer availability on Microsoft AppSource (Azure Marketplace).
 ms.service: marketplace 
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: how-to
 author: vamahtan
 ms.author: vamahtan
-ms.date: 05/19/2021
+ms.date: 11/24/2021
 ---
 
-# Configure Dynamics 365 for Business Central offer availability
+# Configure Dynamics 365 Business Central offer availability
 
 This page lets you define where and how to make your offer available, including markets and preview audience.
 
