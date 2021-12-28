@@ -13,7 +13,7 @@ This article lists new features and feature enhancements in Microsoft Defender f
 
 Noted features are in PREVIEW. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include other legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
 
-If you would like to be added to the Microsoft Defender for IoT device builders email distribution list, to get updates on new features, and release notes, send an email to: defender_micro_agent@microsoft.com.
+If you would like to be added to the Microsoft Defender for IoT device builders email distribution list, to get updates on new features, and release notes, send an email to: [defender_micro_agent@microsoft.com](defender_micro_agent@microsoft.com).
 
 ## Versioning and support
 
