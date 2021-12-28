@@ -1,11 +1,11 @@
 ---
-title: Durable Functions publishing to Azure Event Grid (preview)
+title: Durable Functions publishing to Azure Event Grid
 description: Learn how to configure automatic Azure Event Grid publishing for Durable Functions.
 ms.topic: conceptual
-ms.date: 04/25/2020
+ms.date: 05/11/2020
 ---
 
-# Durable Functions publishing to Azure Event Grid (preview)
+# Durable Functions publishing to Azure Event Grid
 
 This article shows how to set up Durable Functions to publish orchestration lifecycle events (such as created, completed, and failed) to a custom [Azure Event Grid Topic](../../event-grid/overview.md).
 
@@ -20,8 +20,8 @@ Following are some scenarios where this feature is useful:
 ## Prerequisites
 
 * Install [Microsoft.Azure.WebJobs.Extensions.DurableTask](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions.DurableTask) in your Durable Functions project.
-* Install [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only) or use an existing Azure Storage account.
-* Install [Azure CLI](/cli/azure/?view=azure-cli-latest) or use [Azure Cloud Shell](../../cloud-shell/overview.md)
+* Install an [Azure Storage Emulator](../../storage/common/storage-use-emulator.md) or use an existing Azure Storage account.
+* Install [Azure CLI](/cli/azure/) or use [Azure Cloud Shell](../../cloud-shell/overview.md)
 
 ## Create a custom Event Grid topic
 
@@ -98,22 +98,21 @@ Add a `notifications` section to the `durableTask` property of the file, replaci
 
 The possible Azure Event Grid configuration properties can be found in the [host.json documentation](../functions-host-json.md#durabletask). After you configure the `host.json` file, your function app sends lifecycle events to the Event Grid topic. This action starts when you run your function app both locally and in Azure.
 
-Set the app setting for the topic key in the Function App and `local.settings.json`. The following JSON is a sample of the `local.settings.json` for local debugging. Replace `<topic_key>` with the topic key.  
+Set the app setting for the topic key in the Function App and `local.settings.json`. The following JSON is a sample of the `local.settings.json` for local debugging using an Azure Storage emulator. Replace `<topic_key>` with the topic key.  
 
 ```json
 {
     "IsEncrypted": false,
     "Values": {
         "AzureWebJobsStorage": "UseDevelopmentStorage=true",
-        "AzureWebJobsDashboard": "UseDevelopmentStorage=true",
         "EventGridKey": "<topic_key>"
     }
 }
 ```
 
-If you're using the [Storage Emulator](../../storage/common/storage-use-emulator.md) (Windows only), make sure it's working. It's a good idea to run the `AzureStorageEmulator.exe clear all` command before executing.
+If you're using the [Storage Emulator](../../storage/common/storage-use-emulator.md) instead of a real Azure Storage account, make sure it's running. It's a good idea to clear any existing storage data before executing.
 
-If you're using an existing Azure Storage account, replace `UseDevelopmentStorage=true` in `local.settings.json` with its connection string.
+If you're using a real Azure Storage account, replace `UseDevelopmentStorage=true` in `local.settings.json` with its connection string.
 
 ## Create functions that listen for events
 

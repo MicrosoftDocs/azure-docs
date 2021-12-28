@@ -1,5 +1,5 @@
 ---
-title: PowerShell - Add a marketplace image to a lab in Azure DevTest Labs
+title: PowerShell - Add a marketplace image to a lab
 description: This PowerShell script adds a marketplace image to a lab in Azure DevTest Labs.
 ms.devlang: azurecli
 ms.topic: sample

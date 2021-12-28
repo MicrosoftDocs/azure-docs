@@ -7,7 +7,7 @@ manager: femila
 ms.service: media-services
 ms.topic: conceptual
 ms.workload: media
-ms.date: 1/14/2020
+ms.date: 03/25/2021
 ms.author: inhenkel
 ---
 
@@ -16,6 +16,8 @@ ms.author: inhenkel
 ![migration guide logo](./media/migration-guide/azure-media-services-logo-migration-guide.svg)
 
 The Media Services migration guide helps you migrate from Media Services V2 APIs to V3 APIs based on a migration that takes advantage of the new features and functions that are now available. You should use your best judgment and determine what best fits your scenario.
+
+[!INCLUDE [v2 deprecation notice](./includes/v2-deprecation-notice.md)]
 
 ## How to use this guide
 
@@ -74,7 +76,3 @@ Your application of Media Services V2 may be unique. Therefore, we have provided
 - [Packaging and delivery](migrate-v-2-v-3-migration-scenario-based-publishing.md)
 - [Content protection](migrate-v-2-v-3-migration-scenario-based-content-protection.md)
 - [Media Reserved Units (MRU)](migrate-v-2-v-3-migration-scenario-based-media-reserved-units.md)
-
-## Next steps
-
-[!INCLUDE [migration guide next steps](./includes/migration-guide-next-steps.md)]

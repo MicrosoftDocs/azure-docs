@@ -40,7 +40,7 @@ The type of returned value is set to `object`, which means it returns a JSON obj
 
 It uses the [reference](template-functions-resource.md#reference) function to get the runtime state of the storage account. To get the runtime state of a resource, you pass in the name or ID of a resource. In this case, you use the same variable you used to create the name of the storage account.
 
-Finally, it returns the `primaryEndpoints` property from the storage account
+Finally, it returns the `primaryEndpoints` property from the storage account.
 
 ## Deploy template
 

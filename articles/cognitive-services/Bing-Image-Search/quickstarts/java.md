@@ -11,7 +11,8 @@ ms.subservice: bing-image-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java
+ms.devlang: java
+ms.custom: seodec2018, seo-java-july2019, seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 # Quickstart: Search for images with the Bing Image Search API and Java 
 
@@ -26,7 +27,7 @@ The source code for this sample is available [on GitHub](https://github.com/Azur
 
 ## Prerequisites
 
-* The [Java Development Kit(JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support)
+* The [Java Development Kit(JDK)](/azure/developer/java/fundamentals/java-support-on-azure)
 
 * The [Gson library](https://github.com/google/gson)
 

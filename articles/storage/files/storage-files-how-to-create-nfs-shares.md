@@ -1,108 +1,130 @@
 ---
-title: Create an NFS share - Azure Files (preview)
+title: Create an NFS share - Azure Files
 description: Learn how to create an Azure file share that can be mounted using the Network File System protocol.
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2020
+ms.date: 11/16/2021
 ms.author: rogarana
 ms.subservice: files
-ms.custom: references_regions, devx-track-azurecli
+ms.custom: references_regions, devx-track-azurecli, devx-track-azurepowershell
 ---
 
 # How to create an NFS share
+Azure file shares are fully managed file shares that live in the cloud. This article covers creating a file share that uses the NFS protocol.
 
-Azure file shares are fully managed file shares that live in the cloud. They can be accessed using either the Server Message Block protocol or the Network File System (NFS) protocol. This article covers creating a file share that uses the NFS protocol. For more information on both protocols, see [Azure file share protocols](storage-files-compare-protocols.md).
+## Applies to
+| File share type | SMB | NFS |
+|-|:-:|:-:|
+| Standard file shares (GPv2), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Standard file shares (GPv2), GRS/GZRS | ![No](../media/icons/no-icon.png) | ![No](../media/icons/no-icon.png) |
+| Premium file shares (FileStorage), LRS/ZRS | ![No](../media/icons/no-icon.png) | ![Yes](../media/icons/yes-icon.png) |
 
 ## Limitations
-
 [!INCLUDE [files-nfs-limitations](../../../includes/files-nfs-limitations.md)]
 
-### Regional availability
 
+### Regional availability
 [!INCLUDE [files-nfs-regional-availability](../../../includes/files-nfs-regional-availability.md)]
 
 ## Prerequisites
-
-- Create a [FileStorage account](storage-how-to-create-premium-fileshare.md).
-
-    > [!IMPORTANT]
-    > NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
-
+- NFS shares only accept numeric UID/GID. To avoid your clients sending alphanumeric UID/GID, disable ID mapping.
+- NFS shares can only be accessed from trusted networks. Connections to your NFS share must originate from one of the following sources:
     - Either [create a private endpoint](storage-files-networking-endpoints.md#create-a-private-endpoint) (recommended) or [restrict access to your public endpoint](storage-files-networking-endpoints.md#restrict-public-endpoint-access).
     - [Configure a Point-to-Site (P2S) VPN on Linux for use with Azure Files](storage-files-configure-p2s-vpn-linux.md).
     - [Configure a Site-to-Site VPN for use with Azure Files](storage-files-configure-s2s-vpn.md).
     - Configure [ExpressRoute](../../expressroute/expressroute-introduction.md).
-- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli?view=azure-cli-latest).
 
-## Register the NFS 4.1 protocol
+- If you intend to use the Azure CLI, [install the latest version](/cli/azure/install-azure-cli).
 
-If you're using the Azure PowerShell module or the Azure CLI, register your feature using the following commands:
+## Create a FileStorage storage account
+Currently, NFS 4.1 shares are only available as premium file shares. To deploy a premium file share with NFS 4.1 protocol support, you must first create a FileStorage storage account. A storage account is a top-level object in Azure that represents a shared pool of storage which can be used to deploy multiple Azure file shares.
 
-### PowerShell
+# [Portal](#tab/azure-portal)
+To create a FileStorage storage account, navigate to the Azure portal.
 
-```azurepowershell
-Connect-AzAccount
-$context = Get-AzSubscription -SubscriptionId <yourSubscriptionIDHere>
-Set-AzContext $context
-Register-AzProviderFeature -FeatureName AllowNfsFileShares -ProviderNamespace Microsoft.Storage
-Register-AzResourceProvider -ProviderNamespace Microsoft.Storage
+1. In the [Azure portal](https://portal.azure.com/), select **Storage Accounts** on the left menu.
+
+    ![Azure portal main page select storage account.](media/storage-how-to-create-premium-fileshare/azure-portal-storage-accounts.png)
+
+1. On the **Storage Accounts** window that appears, choose **Add**.
+1. Select the subscription in which to create the storage account.
+1. Select the resource group in which to create the storage account
+1. Next, enter a name for your storage account. The name you choose must be unique across Azure. The name also must be between 3 and 24 characters in length, and can include numbers and lowercase letters only.
+1. Select a location for your storage account, or use the default location.
+1. For **Performance** select **Premium**.
+
+    You must select **Premium** for **Fileshares** to be an available option in the **Account kind** dropdown.
+
+1. For **Premium account type** choose **Fileshares**.
+
+    :::image type="content" source="media/storage-how-to-create-file-share/files-create-smb-share-performance-premium.png" alt-text="Screenshot of premium performance selected.":::
+
+1. Leave **Replication** set to its default value of **Locally-redundant storage (LRS)**.
+1. Select **Review + Create** to review your storage account settings and create the account.
+1. Select **Create**.
+
+Once your storage account resource has been created, navigate to it.
+
+# [PowerShell](#tab/azure-powershell)
+To create a FileStorage storage account, open up a PowerShell prompt and execute the following commands, remembering to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
+
+```powershell
+$resourceGroupName = "<resource-group>"
+$storageAccountName = "<storage-account>"
+$location = "westus2"
+
+$storageAccount = New-AzStorageAccount `
+    -ResourceGroupName $resourceGroupName `
+    -Name $storageAccountName `
+    -SkuName Premium_LRS `
+    -Location $location `
+    -Kind FileStorage
 ```
 
-### Azure CLI
+# [Azure CLI](#tab/azure-cli)
+To create a FileStorage storage account, open up your terminal and execute the following commands, remembering to replace `<resource-group>` and `<storage-account>` with the appropriate values for your environment.
 
-```azurecli
-az login
-az feature register --name AllowNfsFileShares \
-                    --namespace Microsoft.Storage \
-                    --subscription <yourSubscriptionIDHere>
-az provider register --namespace Microsoft.Storage
+```azurecli-interactive
+resourceGroup="<resource-group>"
+storageAccount="<storage-account>"
+location="westus2"
+
+az storage account create \
+    --resource-group $resourceGroup \
+    --name $storageAccount \
+    --location $location \
+    --sku Premium_LRS \
+    --kind FileStorage
 ```
+---
 
-## Verify feature registration
+## Disable secure transfer
 
-Registration approval can take up to an hour. To verify that the registration is complete, use the following commands:
-
-### PowerShell
-
-```azurepowershell
-Get-AzProviderFeature -ProviderNamespace Microsoft.Storage -FeatureName AllowNfsFileShares
-```
-
-### Azure CLI
-
-```azurecli
-az feature show --name AllowNfsFileShares --namespace Microsoft.Storage --subscription <yourSubscriptionIDHere>
-```
-
-## Verify storage account kind
-
-Currently, only FileStorage accounts can create NFS shares. 
+You can't mount an NFS file share unless you disable secure transfer.
 
 # [Portal](#tab/azure-portal)
 
-To verify what kind of storage account you have, navigate to it in the Azure portal. Then, from your storage account, select **Properties**. From the properties blade, examine the value under **Account kind**, the value should be **FileStorage**.
+1. Navigate to the storage account you created.
+1. Select **Configuration**.
+1. Select **Disabled** for **Secure transfer required**.
+1. Select **Save**.
+
+    :::image type="content" source="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png" alt-text="Screenshot of storage account configuration screen with secure transfer disabled." lightbox="media/storage-files-how-to-mount-nfs-shares/disable-secure-transfer.png":::
 
 # [PowerShell](#tab/azure-powershell)
-To verify you have a FileStorage account, you can use the following command:
 
 ```azurepowershell
-$accountKind=Get-AzStorageAccount -ResourceGroupName "yourResourceGroup" -Name "yourStorageAccountName"
-$accountKind.Kind
+Set-AzStorageAccount -Name "{StorageAccountName}" -ResourceGroupName "{ResourceGroupName}" -EnableHttpsTrafficOnly $False
 ```
-
-The output should be **FileStorage**, if it is not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
 
 # [Azure CLI](#tab/azure-cli)
-To verify you have a FileStorage account, you can use the following command:
 
 ```azurecli
-az storage account show -g yourResourceGroup -n yourStorageAccountName
+az storage account update -g {ResourceGroupName} -n {StorageAccountName} --https-only false
 ```
-
-The output should contain **"kind": "FileStorage"**, if does not, then your storage account is the incorrect type. To create a **FileStorage** account, see [How to create an Azure premium file share](storage-how-to-create-premium-fileshare.md).
-
 ---
+
 ## Create an NFS share
 
 # [Portal](#tab/azure-portal)
@@ -112,7 +134,7 @@ Now that you have created a FileStorage account and configured the networking, y
 1. Navigate to your storage account and select **File shares**.
 1. Select **+ File share** to create a new file share.
 1. Name your file share, select a provisioned capacity.
-1. For **Protocol** select **NFS (preview)**.
+1. For **Protocol** select **NFS**.
 1. For **Root Squash** make a selection.
 
     - Root squash (default) - Access for the remote superuser (root) is mapped to UID (65534) and GID (65534).
@@ -121,69 +143,42 @@ Now that you have created a FileStorage account and configured the networking, y
     
 1. Select **Create**.
 
-    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/create-nfs-file-share.png" alt-text="Screenshot of file share creation blade":::
+    :::image type="content" source="media/storage-files-how-to-create-mount-nfs-shares/files-nfs-create-share.png" alt-text="Screenshot of file share creation blade.":::
 
 # [PowerShell](#tab/azure-powershell)
 
-1. Ensure that the .NET framework is installed. See [Download .NET Framework](https://dotnet.microsoft.com/download/dotnet-framework).
- 
-1. Verify that the version of PowerShell that have installed is `5.1` or higher by using the following command.    
-
-   ```powershell
-   echo $PSVersionTable.PSVersion.ToString() 
-   ```
-    
-   To upgrade your version of PowerShell, see [Upgrading existing Windows PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-6#upgrading-existing-windows-powershell)
-    
-1. Install the latest version of the PowershellGet module.
-
-   ```powershell
-   install-Module PowerShellGet –Repository PSGallery –Force  
-   ```
-
-1. Close, and then reopen the PowerShell console.
-
-1. Install the **Az.Storage** preview module version **2.5.2-preview**.
-
-   ```powershell
-   Install-Module Az.Storage -Repository PsGallery -RequiredVersion 2.5.2-preview -AllowClobber -AllowPrerelease -Force  
-   ```
-
-   For more information about how to install PowerShell modules, see [Install the Azure PowerShell module](/powershell/azure/install-az-ps?view=azps-3.0.0)
-   
 1. To create a premium file share with the Azure PowerShell module, use the [New-AzRmStorageShare](/powershell/module/az.storage/new-azrmstorageshare) cmdlet.
 
-> [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+    > [!NOTE]
+    > Premium file shares are billed using a provisioned model. The provisioned size of the share is specified by `QuotaGiB` below. For more information, see [Understanding the provisioned model](understanding-billing.md#provisioned-model) and the [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
-  ```powershell
-  New-AzRmStorageShare `
-   -ResourceGroupName $resourceGroupName `
-   -StorageAccountName $storageAccountName `
-   -Name myshare `
-   -EnabledProtocol NFS `
-   -RootSquash RootSquash `
-   -Context $storageAcct.Context
-  ```
+    ```powershell
+    New-AzRmStorageShare `
+        -StorageAccount $storageAccount `
+        -Name myshare `
+        -EnabledProtocol NFS `
+        -RootSquash RootSquash `
+        -QuotaGiB 1024
+    ```
 
 # [Azure CLI](#tab/azure-cli)
-
 To create a premium file share with the Azure CLI, use the [az storage share create](/cli/azure/storage/share-rm) command.
 
 > [!NOTE]
-> Provisioned share sizes is specified by the share quota, file shares are billed on the provisioned size. For more information, see the [pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
+> Premium file shares are billed using a provisioned model. The provisioned size of the share is specified by `quota` below. For more information, see [Understanding the provisioned model](understanding-billing.md#provisioned-model) and the [Azure Files pricing page](https://azure.microsoft.com/pricing/details/storage/files/).
 
 ```azurecli-interactive
 az storage share-rm create \
-    --storage-account $STORAGEACCT \
+    --resource-group $resourceGroup \
+    --storage-account $storageAccount \
+    --name "myshare" \
     --enabled-protocol NFS \
     --root-squash RootSquash \
-    --name "myshare" 
+    --quota 1024
 ```
 ---
 
 ## Next steps
-
 Now that you've created an NFS share, to use it you have to mount it on your Linux client. For details, see [How to mount an NFS share](storage-files-how-to-mount-nfs-shares.md).
 
 If you experience any issues, see [Troubleshoot Azure NFS file shares](storage-troubleshooting-files-nfs.md).

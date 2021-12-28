@@ -2,47 +2,43 @@
 title: Troubleshooting in Azure Communication Services
 description: Learn how to gather the information you need to troubleshoot your Communication Services solution.
 author: manoskow
-manager: jken
+manager: chpalm
 services: azure-communication-services
 
-ms.author: manoskow
-ms.date: 10/23/2020
-ms.topic: overview
+ms.author: prakulka
+ms.date: 11/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
-
 ---
 
 # Troubleshooting in Azure Communication Services
 
-This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/telephony-sms/handle-sms-events.md) to capture SMS delivery details.
+This document will help you troubleshoot issues that you may experience within your Communication Services solution. If you're troubleshooting SMS, you can [enable delivery reporting with Event Grid](../quickstarts/sms/handle-sms-events.md) to capture SMS delivery details.
 
 ## Getting help
 
-We encourage developers to submit questions, suggest features, and report problems as issues in the Communication Services [GitHub repository](https://github.com/Azure/communication). Other forums include:
-
-* [Microsoft Q&A](/answers/questions/topics/single/101418.html)
-* [StackOverflow](https://stackoverflow.com/questions/tagged/azure+communication)
-
-Depending on your Azure subscription [support plan](https://azure.microsoft.com/support/plans/) you may submit a support ticket directly through the [Azure portal](https://azure.microsoft.com/support/create-ticket/).
+We encourage developers to submit questions, suggest features, and report problems as issues. To aid in doing this we have a [dedicated support and help options page](../support.md) which lists your options for support. 
 
 To help you troubleshoot certain types of issues, you may be asked for any of the following pieces of information:
 
-* **MS-CV ID**: This ID is used to troubleshoot calls and messages. 
+* **MS-CV ID**: This ID is used to troubleshoot calls and messages.
 * **Call ID**: This ID is used to identify Communication Services calls.
 * **SMS message ID**: This ID is used to identify SMS messages.
+* **Short Code Program Brief ID**: This ID is used to identify a short code program brief application.
 * **Call logs**: These logs contain detailed information that can be used to troubleshoot calling and network issues.
 
+Also take a look at our [service limits](service-limits.md) documentation for more information on throttling and limitations.
 
 ## Access your MS-CV ID
 
-The MS-CV ID can be accessed by configuring diagnostics in the `clientOptions` object instance when initializing your client libraries. Diagnostics can be configured for any of the Azure client libraries including Chat, Administration, and VoIP calling.
+The MS-CV ID can be accessed by configuring diagnostics in the `clientOptions` object instance when initializing your SDKs. Diagnostics can be configured for any of the Azure SDKs including Chat, Identity, and VoIP calling.
 
 ### Client options example
 
-The following code snippets demonstrate diagnostics configuration. When the client libraries are used with diagnostics enabled, diagnostics details will be emitted to the configured event listener:
+The following code snippets demonstrate diagnostics configuration. When the SDKs are used with diagnostics enabled, diagnostics details will be emitted to the configured event listener:
 
 # [C#](#tab/csharp)
-``` 
+```
 // 1. Import Azure.Core.Diagnostics
 using Azure.Core.Diagnostics;
 
@@ -63,13 +59,13 @@ var clientOptions = new ChatClientOptions()
     }
 };
 
-// 4. Initialize the ChatClient instance with the clientOptions 
+// 4. Initialize the ChatClient instance with the clientOptions
 ChatClient chatClient = new ChatClient(endpoint, communicationUserCredential, clientOptions);
 ChatThreadClient chatThreadClient = await chatClient.CreateChatThreadAsync("Thread Topic", new[] { new ChatThreadMember(communicationUser) });
 ```
 
 # [Python](#tab/python)
-``` 
+```
 from azure.communication.chat import ChatClient, CommunicationUserCredential
 endpoint = "https://communication-services-sdk-live-tests-for-python.communication.azure.com"
 chat_client = ChatClient(
@@ -79,31 +75,51 @@ chat_client = ChatClient(
 ```
 ---
 
-## Access your call ID
+## Access your server call ID
+When troubleshooting issues with the Call Automation SDK, like call recording and call management problems, you will need to collect the Server Call ID. This ID can be collected using the ```getServerCallId``` method.
 
-When filing a support request through the Azure portal related to calling issues, you may be asked to provide ID of the call you're referring to. This can be accessed through the calling client library:
+#### JavaScript
+```
+callAgent.on('callsUpdated', (e: { added: Call[]; removed: Call[] }): void => {
+    e.added.forEach((addedCall) => {
+        addedCall.on('stateChanged', (): void => {
+            if (addedCall.state === 'Connected') {
+                addedCall.info.getServerCallId().then(result => {
+                    dispatch(setServerCallId(result));
+                }).catch(err => {
+                    console.log(err);
+                });
+            }
+        });
+    });
+});
+```
+
+
+## Access your client call ID
+
+When troubleshooting voice or video calls, you may be asked to provide a `call ID`. This can be accessed via the `id` property of the `call` object:
 
 # [JavaScript](#tab/javascript)
 ```javascript
-// `call` is an instance of a call created by `callAgent.call` or `callAgent.join` methods 
+// `call` is an instance of a call created by `callAgent.startCall` or `callAgent.join` methods
 console.log(call.id)
 ```
 
 # [iOS](#tab/ios)
 ```objc
-// The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends 
+// The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
 // todo: the code snippet suggests it's a property while the comment suggests it's a method call
-print(call.callId) 
+print(call.callId)
 ```
 
 # [Android](#tab/android)
 ```java
 // The `call id` property can be retrieved by calling the `call.getCallId()` method on a call object after a call ends
-// `call` is an instance of a call created by `callAgent.call(…)` or `callAgent.join(…)` methods 
-Log.d(call.getCallId()) 
+// `call` is an instance of a call created by `callAgent.startCall(…)` or `callAgent.join(…)` methods
+Log.d(call.getCallId())
 ```
 ---
-
 
 ## Access your SMS message ID
 
@@ -125,32 +141,41 @@ console.log(result); // your message ID will be in the result
 }
 ```
 ---
+## Access your short code program brief ID
+The program brief ID can be found on the [Azure portal](https://portal.azure.com) in the Short Codes blade. 
+
+:::image type="content" source="./media/short-code-trouble-shooting.png" alt-text="Screenshot showing a short code program brief ID.":::
+---
 
 ## Enable and access call logs
 
-
-
-
 # [JavaScript](#tab/javascript)
 
-The following code can be used to configure `AzureLogger` to output logs to the console using the JavaScript client library:
+The Azure Communication Services Calling SDK relies internally on [@azure/logger](https://www.npmjs.com/package/@azure/logger) library to control logging.
+Use the `setLogLevel` method from the `@azure/logger` package to configure the log output:
 
 ```javascript
-import { AzureLogger } from '@azure/logger'; 
+import { setLogLevel } from '@azure/logger';
+setLogLevel('verbose');
+const callClient = new CallClient();
+```
 
-AzureLogger.verbose = (...args) => { console.info(...args); } 
-AzureLogger.info = (...args) => { console.info(...args); } 
-AzureLogger.warning = (...args) => { console.info(...args); } 
-AzureLogger.error = (...args) => { console.info(...args); } 
+You can use AzureLogger to redirect the logging output from Azure SDKs by overriding the `AzureLogger.log` method:
+This may be useful if you want to redirect logs to a location other than console.
 
-callClient = new CallClient({logger: AzureLogger}); 
+```javascript
+import { AzureLogger } from '@azure/logger';
+// redirect log output
+AzureLogger.log = (...args) => {
+  console.log(...args); // to console, file, buffer, REST API..
+};
 ```
 
 # [iOS](#tab/ios)
 
 When developing for iOS, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
-These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container". 
+These can be accessed by opening Xcode. Go to Windows > Devices and Simulators > Devices. Select your device. Under Installed Apps, select your application and click on "Download container".
 
 This will give you a `xcappdata` file. Right-click on this file and select “Show package contents”. You'll then see the `.blog` files that you can then attach to your Azure support request.
 
@@ -158,22 +183,69 @@ This will give you a `xcappdata` file. Right-click on this file and select “Sh
 
 When developing for Android, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
-On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request. 
-   
+On Android Studio, navigate to the Device File Explorer by selecting View > Tool Windows > Device File Explorer from both the simulator and the device. The `.blog` file will be located within your application's directory, which should look something like `/data/data/[app_name_space:com.contoso.com.acsquickstartapp]/files/acs_sdk.blog`. You can attach this file to your support request.
 
 ---
 
+## Enable and access call logs (Windows)
 
-## Calling client library error codes
+When developing for Windows, your logs are stored in `.blog` files. Note that you can't view the logs directly because they're encrypted.
 
-The Azure Communication Services calling client library uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
+These can be accessed by looking at where your app is keeping its local data. There are many ways to figure out where a UWP app keeps its local data, the following steps are just one of these ways:
+1. Open a Windows Command Prompt (Windows Key + R)
+2. Type `cmd.exe`
+3. Type `where /r %USERPROFILE%\AppData acs*.blog`
+4. Please check if the app ID of your application matches with the one returned by the previous command.
+5. Open the folder with the logs by typing `start ` followed by the path returned by the step 3. For example: `start C:\Users\myuser\AppData\Local\Packages\e84000dd-df04-4bbc-bf22-64b8351a9cd9_k2q8b5fxpmbf6`
+6. Please attach all the `*.blog` and `*.etl` files to your Azure support request.
+
+## Finding Azure Active Directory information
+
+* **Getting Directory ID**
+* **Getting Application ID**
+* **Getting User ID**
+
+## Getting Directory ID 
+To find your Directory (tenant) ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **Overview** page in Azure AD, copy the Directory (tenant) ID and store it in your application code.
+
+    ![Screenshot of how to copy Azure Active Directory tenant ID and store it.](./media/troubleshooting/copy-aad-directory-id.png)
+
+## Getting Application ID 
+To find your Application ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **App registrations** in Azure AD, select your application.
+1. Copy the **Application ID** and store it in your application code.
+
+   ![Screenshot of how to copy Azure Active Directory application ID and store it.](./media/troubleshooting/copy-aad-application-id.png)
+
+   The directory (tenant) ID can also be found in the application overview page.
+
+## Getting User ID
+To find your User ID, follow the steps listed below:
+
+1. Navigate to [Azure portal](https://portal.azure.com) and sign in to the Azure portal using the credentials.
+1. From the left-pane, select Azure Active Directory.
+1. From **Users** in Azure AD, select your user.
+1. From **Profile** page in Azure AD Users, copy the **Object ID** and store it in your application code.
+
+   ![Screenshot of how to copy Azure Active Directory user ID and store it.](./media/troubleshooting/copy-aad-user-id.png)
+
+## Calling SDK error codes
+
+The Azure Communication Services Calling SDK uses the following error codes to help you troubleshoot calling issues. These error codes are exposed through the `call.callEndReason` property after a call ends.
 
 | Error code | Description | Action to take |
 | -------- | ---------------| ---------------|
 | 403 | Forbidden / Authentication failure. | Ensure that your Communication Services token is valid and not expired. |
 | 404 | Call not found. | Ensure that the number you're calling (or call you're joining) exists. |
 | 408 | Call controller timed out. | Call Controller timed out waiting for protocol messages from user endpoints. Ensure clients are connected and available. |
-| 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest client library in a supported environment. |
+| 410 | Local media stack or media infrastructure error. | Ensure that you're using the latest SDK in a supported environment. |
 | 430 | Unable to deliver message to client application. | Ensure that the client application is running and available. |
 | 480 | Remote client endpoint not registered. | Ensure that the remote endpoint is available. |
 | 481 | Failed to handle incoming call. | File a support request through the Azure portal. |
@@ -182,7 +254,40 @@ The Azure Communication Services calling client library uses the following error
 | 500, 503, 504 | Communication Services infrastructure error. | File a support request through the Azure portal. |
 | 603 | Call globally declined by remote Communication Services participant | Expected behavior. |
 
+## Chat SDK error codes
+
+The Azure Communication Services Chat SDK uses the following error codes to help you troubleshoot chat issues. The error codes are exposed through the `error.code` property in the error response.
+
+| Error code | Description | Action to take |
+| -------- | ---------------| ---------------|
+| 401 | Unauthorized | Ensure that your Communication Services token is valid and not expired. |
+| 403 | Forbidden | Ensure that the initiator of the request has access to the resource. |
+| 429 | Too many requests | Ensure that your client-side application handles this scenario in a user-friendly manner. If the error persists please file a support request. |
+| 503 | Service Unavailable | File a support request through the Azure portal. |
+
+## SMS error codes
+
+The Azure Communication Services SMS SDK uses the following error codes to help you troubleshoot SMS issues. The error codes are exposed through the "DeliveryStatusDetails" field in the SMS delivery report. 
+
+| Error code | Description | Action to take |
+| -------- | ---------------| ---------------|
+| 2000 | Message Delivered Successfully |  |
+| 4000 | Message is rejected due to fraud detection | Ensure you are not exceeding the maximum number of messages allowed for your number|
+| 4001 | Message is rejected due to invalid Source/From number format| Ensure the To number is in E.164 format and From number format is in E.164 or Short code format |
+| 4002 | Message is rejected due to invalid Destination/To number format| Ensure the To number is in E.164 format |
+| 4003 | Message failed to deliver due to unsupported destination| Check if the destination you are trying to send to is supported |
+| 4004 | Message failed to deliver since Destination/To number does not exist| Ensure the To number you are sending to is valid |
+| 4005 | Message is blocked by Destination carrier|  |
+| 4006 | The Destination/To number is not reachable| Try re-sending the message at a later time |
+| 4007 | The Destination/To number has opted out of receiving messages from you| Mark the Destination/To number as opted out so that no further message attempts are made to the number|
+| 4008 | You have exceeded the maximum number of messages allowed for your profile| Ensure you are not exceeding the maximum number of messages allowed for your number or use queues to batch the messages |
+| 5000 | Message failed to deliver, Please reach out Microsoft support team for more details| File a support request through the Azure portal |
+| 5001 | Message failed to deliver due to temporary unavailability of application/system|  |
+| 5002 | Message Delivery Timeout|  Try re-sending the message |
+| 9999 | Message failed to deliver due to unknown error/failure|  Try re-sending the message |
+
 
 ## Related information
 - [Logs and diagnostics](logging-and-diagnostics.md)
 - [Metrics](metrics.md)
+- [Service limits](service-limits.md)

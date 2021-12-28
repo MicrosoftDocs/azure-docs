@@ -44,7 +44,7 @@ Learn more:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
 * [Microsoft Antimalware for Azure Cloud Services and Virtual Machines](antimalware.md)
-* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](../../virtual-machines/extensions/trend.md)
+* [How to install and configure Trend Micro Deep Security as a Service on a Windows VM](/previous-versions/azure/virtual-machines/extensions/trend)
 * [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [New Antimalware Options for Protecting Azure Virtual Machines](https://azure.microsoft.com/blog/new-antimalware-options-for-protecting-azure-virtual-machines/)
 
@@ -111,13 +111,13 @@ Learn more:
 * [Azure Active Directory Identity Protection](../../active-directory/identity-protection/overview-identity-protection.md)
 * [Channel 9: Azure AD and Identity Show: Identity Protection Preview](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
-## Security Center
+## Defender for Cloud
 
-Azure Security Center helps you prevent, detect, and respond to threats. Security Center gives you increased visibility into, and control over, the security of your Azure resources as well as those in your hybrid cloud environment. 
+Microsoft Defender for Cloud helps you prevent, detect, and respond to threats. Defender for Cloud gives you increased visibility into, and control over, the security of your Azure resources as well as those in your hybrid cloud environment. 
 
-Security Center performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Azure Security Benchmark](../benchmarks/introduction.md) to provide detailed security recommendations tailored for your environment.
+Defender for Cloud performs continuous security assessments of your connected resources and compares their configuration and deployment against the [Azure Security Benchmark](../benchmarks/introduction.md) to provide detailed security recommendations tailored for your environment.
 
-Security Center helps you optimize and monitor the security of your Azure resources by:
+Defender for Cloud helps you optimize and monitor the security of your Azure resources by:
 
 - Enabling you to define policies for your Azure subscription resources according to:
     - Your organization’s security needs.
@@ -128,8 +128,8 @@ Security Center helps you optimize and monitor the security of your Azure resour
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
-* [Improve your secure score in Azure Security Center](../../security-center/secure-score-security-controls.md)
+* [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
+* [Improve your secure score in Microsoft Defender for Cloud](../../security-center/secure-score-security-controls.md)
 
 ## Intelligent Security Graph
 

@@ -7,7 +7,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 10/22/2019
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -69,6 +70,16 @@ To start the configuration, sign in to your Azure account and select the subscri
     $MACsecCAKSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CAK_name" -SecretValue $CAK
     $MACsecCKNSecret = Set-AzKeyVaultSecret -VaultName "your_key_vault_name" -Name "CKN_name" -SecretValue $CKN
     ```
+   > [!NOTE]
+   > CKN must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
+   >
+   > CAK length depends on cipher suite specified:
+   >
+   > * For GcmAes128, the CAK must be an even-length string up to 32 hexadecimal digits (0-9, A-F).
+   >
+   > * For GcmAes256, the CAK must be an even-length string up to 64 hexadecimal digits (0-9, A-F).
+   >
+
 4. Assign the GET permission to the user identity.
 
     ```azurepowershell-interactive
@@ -112,6 +123,17 @@ Each ExpressRoute Direct instance has two physical ports. You can choose to enab
 
     At this point, MACsec is enabled on the ExpressRoute Direct ports on Microsoft side. If you haven't configured it on your edge devices, you can proceed to configure them with the same MACsec secrets and cipher.
 
+3. (Optional) You can enable Secure Channel Identifier (SCI) on the ports.
+
+    ```azurepowershell-interactive
+    $erDirect = Get-AzExpressRoutePort -ResourceGroupName "your_resource_group" -Name "your_direct_port_name"
+    $erDirect.Links[0].MacSecConfig.SciState = "Enabled"
+    $erDirect.Links[1].MacSecConfig.SciState = "Enabled"
+    Set-AzExpressRoutePort -ExpressRoutePort $erDirect
+    ```
+    
+    At this point, SCI is enabled on the ExpressRoute Direct ports.
+    
 ### To disable MACsec
 
 If MACsec is no longer desired on your ExpressRoute Direct instance, you can run the following commands to disable it.

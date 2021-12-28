@@ -3,17 +3,16 @@ title: Create Advanced Encoding Workflows with Workflow Designer | Microsoft Doc
 description: Learn about how to create advanced encoding workflows with Workflow Designer.
 services: media-services
 documentationcenter: ''
-author: anilmur
+author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: 004815f2-0761-4706-87a1-675ba36e0322
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/20/2019
+ms.date: 3/10/2021
 ms.author: anilmur
 ms.reviewer: juliako;johndeu
 ---
@@ -41,7 +40,7 @@ This tool can also be used to modify any of our [published workflows](media-serv
 Once a workflow file is created, it can be uploaded as an Asset, and then be used for encoding media files. For information on how to encode with **Media Encoder Premium Workflow** using **.NET**, see [Advanced encoding with Media Encoder Premium Workflow](media-services-encode-with-premium-workflow.md).
 
 ## <a id="existing_workflows"></a>Modify existing workflows
-The default [published workflows](media-services-workflow-designer.md#existing_workflows) can be modified using the designer tool. You can get the default workflow files [here](https://github.com/Azure/azure-media-services-samples/tree/master/Encoding%20Presets/VoD/MediaEncoderPremiumWorkfows). The folder also contains the description of these files.
+The default [published workflows](media-services-workflow-designer.md#existing_workflows) can be modified using the designer tool. You can get the default workflow files [here](https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/media-services/previous/media-services-encode-with-premium-workflow.md). The folder also contains the description of these files.
 
 The following videos demonstrate how to use the designer.
 

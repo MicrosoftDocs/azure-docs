@@ -2,13 +2,21 @@
 title: Reduce service costs using Azure Advisor
 description: Use Azure Advisor to optimize the cost of your Azure deployments.
 ms.topic: article
-ms.date: 09/27/2020
+ms.date: 10/29/2021
 
 ---
 
 # Reduce service costs by using Azure Advisor
 
 Azure Advisor helps you optimize and reduce your overall Azure spend by identifying idle and underutilized resources. You can get cost recommendations from the **Cost** tab on the Advisor dashboard.
+
+## How to access cost recommendations in Azure Advisor
+
+1. Sign in to the [Azure portal](https://portal.azure.com).
+
+1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
+
+1. On the **Advisor** dashboard, select the **Cost** tab.
 
 ## Optimize virtual machine spend by resizing or shutting down underutilized instances 
 
@@ -17,7 +25,7 @@ Although certain application scenarios can result in low utilization by design, 
 The recommended actions are shut down or resize, specific to the resource being evaluated.
 
 The advanced evaluation model in Advisor considers shutting down virtual machines when all of these statements are true: 
-- P95th of the maximum of maximum value of CPU utilization is less than 3%. 
+- P95th of the maximum value of CPU utilization is less than 3%. 
 - Network utilization is less than 2% over a seven-day period.
 - Memory pressure is lower than the threshold values
 
@@ -95,13 +103,11 @@ It's preferable to use Ephemeral OS Disk for short-lived IaaS VMs or VMs with st
 ## Reduce Azure Data Explorer table cache-period (policy) for cluster cost optimization (Preview)
 Advisor identifies resources where reducing the table cache policy will free up Azure Data Explorer cluster nodes having low CPU utilization, memory, and a high cache size configuration.
 
-## How to access cost recommendations in Azure Advisor
+## Configure manual throughput instead of autoscale on your Azure Cosmos DB database or container
+Based on your usage in the past 7 days, you can save by using manual throughput instead of autoscale. Manual throughput is more cost-effective when average utilization of your max throughput (RU/s) is greater than 66% or less than or equal to 10%. Cost savings amount represents potential savings from using the recommended manual throughput, based on usage in the past 7 days. Your actual savings may vary depending on the manual throughput you set and whether your average utilization of throughput continues to be similar to the time period analyzed. The estimated savings does not account for any discount that may apply to your account.
 
-1. Sign in to the [Azure portal](https://portal.azure.com).
-
-1. Search for and select [**Advisor**](https://aka.ms/azureadvisordashboard) from any page.
-
-1. On the **Advisor** dashboard, select the **Cost** tab.
+## Enable autoscale on your Azure Cosmos DB database or container
+Based on your usage in the past 7 days, you can save by enabling autoscale. For each hour, we compared the RU/s provisioned to the actual utilization of the RU/s (what autoscale would have scaled to) and calculated the cost savings across the time period. Autoscale helps optimize your cost by scaling down RU/s when not in use.
 
 ## Next steps
 

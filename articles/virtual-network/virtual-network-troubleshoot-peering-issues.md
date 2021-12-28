@@ -40,11 +40,11 @@ To configure virtual network peering for the virtual networks that are in the sa
 >
 > * Virtual machines (VMs) behind Basic internal load balancer (ILB) SKU
 > * Redis cache (uses Basic ILB SKU)
-> * Application gateway (uses Basic ILB SKU)
+> * Application gateway v1 (uses Basic ILB SKU)
 > * Virtual machine scale sets (uses Basic ILB SKU)
 > * Azure Service Fabric clusters (uses Basic ILB SKU)
 > * SQL Server Always On (uses Basic ILB SKU)
-> * Azure App Service Environment for PowerApps (uses Basic ILB SKU)
+> * Azure App Service Environment for Power Apps (uses Basic ILB SKU)
 > * Azure API Management (uses Basic ILB SKU)
 > * Azure Active Directory Domain Services (Azure AD DS) (uses Basic ILB SKU)
 
@@ -214,7 +214,7 @@ To troubleshoot this issue:
 
 For more information, see the following articles:
 
-* [Integrate your app with an Azure virtual network](../app-service/web-sites-integrate-with-vnet.md)
+* [Integrate your app with an Azure virtual network](../app-service/overview-vnet-integration.md)
 * [About Point-to-Site VPN routing](../vpn-gateway/vpn-gateway-about-point-to-site-routing.md)
 
 ## Troubleshoot a virtual network peering configuration error message 
@@ -229,7 +229,7 @@ To resolve this issue, delete the peering from both virtual networks, and then r
 
 ### Failed to peer a Databricks virtual network
 
-To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](https://docs.azuredatabricks.net/administration-guide/cloud-configurations/azure/vnet-peering.html#id2).
+To resolve this issue, configure the virtual network peering under **Azure Databricks**, and then specify the target virtual network by using **Resource ID**. For more information, see [Peer a Databricks virtual network to a remote virtual network](/azure/databricks/administration-guide/cloud-configurations/azure/vnet-peering#id2).
 
 ### The remote virtual network lacks a gateway
 

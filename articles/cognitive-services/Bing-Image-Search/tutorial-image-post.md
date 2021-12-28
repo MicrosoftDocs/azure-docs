@@ -10,6 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 12/06/2019
 ms.author: aahi
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 
@@ -115,4 +116,4 @@ If there are identifiable people or places in the image, this request will retur
 
 ## See also
 
-* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API reference](/rest/api/cognitiveservices/bing-images-api-v7-reference)

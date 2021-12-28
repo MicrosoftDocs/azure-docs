@@ -42,7 +42,7 @@ Azure AD DS includes the following two workbook templates:
 * Security overview report
 * Account activity report
 
-For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/platform/workbooks-overview.md).
+For more information about how to edit and manage workbooks, see [Azure Monitor Workbooks overview](../azure-monitor/visualize/workbooks-overview.md).
 
 ## Use the security overview report workbook
 
@@ -50,7 +50,7 @@ To help you better understand usage and identify potential security threats, the
 
 To access the workbook template for the security overview report, complete the following steps:
 
-1. Search for and select **Azure Active Directory Domain Services** in the Azure portal.
+1. Search for and select **Azure AD Domain Services** in the Azure portal.
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 
@@ -79,7 +79,7 @@ To help you troubleshoot issues for a specific user account, the account activit
 
 To access the workbook template for the account activity report, complete the following steps:
 
-1. Search for and select **Azure Active Directory Domain Services** in the Azure portal.
+1. Search for and select **Azure AD Domain Services** in the Azure portal.
 1. Select your managed domain, such as *aaddscontoso.com*
 1. From the menu on the left-hand side, choose **Monitoring > Workbooks**
 1. Choose the **Account Activity Report**.

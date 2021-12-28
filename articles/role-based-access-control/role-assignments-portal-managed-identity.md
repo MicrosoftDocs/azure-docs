@@ -1,22 +1,22 @@
 ---
-title: Add a role assignment for a managed identity (Preview) - Azure RBAC
-description: Learn how to add a role assignment by starting with the managed identity and then select the scope and role using the Azure portal and Azure role-based access control (Azure RBAC).
+title: Assign Azure roles to a managed identity (Preview) - Azure RBAC
+description: Learn how to assign Azure roles by starting with the managed identity and then select the scope and role using the Azure portal and Azure role-based access control (Azure RBAC).
 services: active-directory
 author: rolyon
 manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 01/11/2021
+ms.date: 02/15/2021
 ms.author: rolyon
 ---
 
-# Add a role assignment for a managed identity (Preview)
+# Assign Azure roles to a managed identity (Preview)
 
-You can add role assignments for a managed identity by using the **Access control (IAM)** page as described in [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md). When you use the Access control (IAM) page, you start with the scope and then select the managed identity and role. This article describes an alternate way to add role assignments for a managed identity. Using these steps, you start with the managed identity and then select the scope and role.
+You can assign a role to a managed identity by using the **Access control (IAM)** page as described in [Assign Azure roles using the Azure portal](role-assignments-portal.md). When you use the Access control (IAM) page, you start with the scope and then select the managed identity and role. This article describes an alternate way to assign roles for a managed identity. Using these steps, you start with the managed identity and then select the scope and role.
 
 > [!IMPORTANT]
-> Adding a role assignment for a managed identity using these alternate steps is currently in preview.
+> Assign a role to a managed identity using these alternate steps is currently in preview.
 > This preview version is provided without a service level agreement, and it's not recommended for production workloads. Certain features might not be supported or might have constrained capabilities.
 > For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
@@ -87,5 +87,5 @@ Follow these steps to assign a role to a user-assigned managed identity by start
 ## Next steps
 
 - [What are managed identities for Azure resources?](../active-directory/managed-identities-azure-resources/overview.md)
-- [Add or remove Azure role assignments using the Azure portal](role-assignments-portal.md)
+- [Assign Azure roles using the Azure portal](role-assignments-portal.md)
 - [List Azure role assignments using the Azure portal](role-assignments-list-portal.md)

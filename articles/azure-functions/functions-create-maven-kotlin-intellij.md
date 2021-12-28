@@ -1,11 +1,12 @@
 ---
-title: Create a Kotlin function in Azure Functions using IntelliJ 
+title: Create a Kotlin function in Azure Functions using IntelliJ
 description: Learn how to use IntelliJ to create a simple HTTP-triggered Kotlin function, which you then publish to run in a serverless environment in Azure.
 author: dglover
 ms.service: azure-functions
 ms.topic: quickstart
 ms.date: 03/25/2020
 ms.author: dglover
+ms.custom: mode-other
 ---
 
 # Create your first Kotlin function in Azure using IntelliJ
@@ -18,7 +19,7 @@ This article shows you how to create an HTTP-triggered Java function in an Intel
 
 To create and publish Kotlin functions to Azure using IntelliJ, install the following software:
 
-- [Java Developer Kit](/azure/developer/java/fundamentals/java-jdk-long-term-support) (JDK), version 8
+- [Java Developer Kit](/azure/developer/java/fundamentals/java-support-on-azure) (JDK), version 8
 - [Apache Maven](https://maven.apache.org), version 3.0 or higher
 - [IntelliJ IDEA](https://www.jetbrains.com/idea/download), Community or Ultimate versions with Maven
 - [Azure CLI](/cli/azure)
@@ -76,7 +77,7 @@ Maven creates the project files in a new folder with the same name as the _Artif
 
 ## Deploy the project to Azure
 
-1. Before you can deploy your project to a function app in Azure, you must [log in by using the Azure CLI](/cli/azure/authenticate-azure-cli?view=azure-cli-latest).
+1. Before you can deploy your project to a function app in Azure, you must [log in by using the Azure CLI](/cli/azure/authenticate-azure-cli).
 
    ``` azurecli
    az login

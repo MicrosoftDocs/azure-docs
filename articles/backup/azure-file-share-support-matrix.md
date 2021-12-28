@@ -10,6 +10,9 @@ ms.custom: references_regions
 
 You can use the [Azure Backup service](./backup-overview.md) to back up Azure file shares. This article summarizes support settings when you back up Azure file shares with Azure Backup.
 
+> [!NOTE]
+> Azure Backup currently doesn't support NFS shares.
+
 ## Supported regions
 
 ### GA regions for Azure file shares backup
@@ -32,7 +35,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 | Standard                                           | Supported |
 | Large                                              | Supported |
 | Premium                                            | Supported |
-| File shares connected with Azure File sync service | Supported |
+| File shares connected with Azure File Sync service | Supported |
 
 ## Protection limits
 
@@ -48,7 +51,7 @@ Azure file shares backup is available in all regions **except** for: Germany Cen
 | Setting                                      | Limit |
 | -------------------------------------------- | ----- |
 | Maximum  number of on-demand backups per day | 10   |
-| Maximum  number of scheduled backups per day | 1     |
+| Maximum  number of scheduled backups per day | 6    |
 
 ## Restore limits
 

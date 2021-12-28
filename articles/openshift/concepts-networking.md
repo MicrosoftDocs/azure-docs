@@ -4,7 +4,7 @@ description: Networking diagram and overview for Azure Red Hat OpenShift network
 author: sakthi-vetrivel
 ms.author: suvetriv
 ms.topic: tutorial
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.date: 11/23/2020
 #Customer intent: As a cluster administrator, I want to understand networking in a Azure Red Hat OpenShift cluster.
 # Diagram here: https://microsofteur-my.sharepoint.com/:p:/g/personal/asabbour_microsoft_com/Ee8GdDIG9f5Er43CXb3irEkBU0ZeSNLNymx38dhB46FfTg?e=rfmUdA
@@ -57,7 +57,7 @@ The following list covers important networking components in an Azure Red Hat Op
 
 * **Ingress**: The ingress networking policy is supported as a part of [OpenShift SDN](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/about-openshift-sdn.html). This network policy is enabled by default, and the enforcement is carried out by users. While the ingress network policy is V1 NetworkPolicy compliant, the Egress and IPBlock Types are not supported.
 
-* **Egress**: The egress network policies are supported by using the [egress firewall](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) feature in OpenShift. There is only one egress policy per namespace/project. Egress policies are not supported on the"default" namespace and are evaluated in order (first to last).
+* **Egress**: The egress network policies are supported by using the [egress firewall](https://docs.openshift.com/container-platform/4.5/networking/openshift_sdn/configuring-egress-firewall.html) feature in OpenShift. There is only one egress policy per namespace/project. Egress policies are not supported on the "default" namespace and are evaluated in order (first to last).
 
 ## Networking basics in OpenShift
 
@@ -105,7 +105,7 @@ With the support of OpenShift 4.5, Azure Red Hat OpenShift introduced a few sign
 
 As included in the diagram above, you'll notice a few changes:
 * Previously, ARO used two public LoadBalancers: one for the API server, and one for the worker node pool. With this architecture update, this has been consolidated under a single LoadBalancer. 
-* To reduce complexity, the dedicated outboard IP address resources have been removed.
+* To reduce complexity, the dedicated outbound IP address resources have been removed.
 * The ARO control plane now shares the same network security group as the ARO worker nodes.
 
 For more information on OpenShift 4.5, check out the [OpenShift 4.5 release notes](https://docs.openshift.com/container-platform/4.5/release_notes/ocp-4-5-release-notes.html).

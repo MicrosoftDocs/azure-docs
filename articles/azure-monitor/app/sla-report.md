@@ -2,7 +2,7 @@
 title: Downtime, SLA, and outage workbook - Application Insights
 description: Calculate and report SLA for Web Test through a single pane of glass across your Application Insights resources and Azure subscriptions.
 ms.topic: conceptual
-ms.date: 02/8/2021
+ms.date: 05/4/2021
 
 ---
 
@@ -19,15 +19,15 @@ The SLA workbook template is accessible through the workbook gallery in your App
 
 The parameters set in the workbook influence the rest of your report.
 
-:::image type="content" source="./media/sla-report/outages.png" alt-text=" Screenshot of outage/maintenance parameters tab in the downtime and outages workbook." lightbox ="./media/sla-report/outages.png":::
+:::image type="content" source="./media/sla-report/parameters.png" alt-text=" Screenshot of parameters." lightbox= "./media/sla-report/parameters.png":::
 
-`Subscriptions`, `App Insights Resources`, and `Web Test` parameters determine your high-level resource options. These parameters are based on log analytics queries and used in every report query.
+`Subscriptions`, `App Insights Resources`, and `Web Test` parameters determine your high-level resource options. These parameters are based on Log Analytics queries and used in every report query.
 
-`Failure Threshold` and `Outage Window` allow you to determine your own criteria for a service outage, for example, the criteria for App Insights Availability alert based upon failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
+`Failure Threshold` and `Outage Window` allow you to determine your own criteria for a service outage, for example, the criteria for App Insights Availability alert based upon failed location counter over a chosen period. The typical threshold is three locations over a five-minute window.
 
-`Maintenance Period` enables you to select your typical maintenance frequency and `Maintenance Window` is a datetime selector for an example maintenance period. All data that occurs during the identified period will be ignored in your results.
+`Maintenance Period` enables you to select your typical maintenance frequency and `Maintenance Window` is a datetime selector for an example maintenance period. All data that occurs during the identified period will be ignored in your results.
 
-`Availability Target 9s` specifies your Target 9s objective from two 9s to five 9s.
+`Availability Target %` specifies your target objective & takes custom values.
 
 ## Overview page
 
@@ -47,13 +47,13 @@ The **Outages and Downtime** tab has information on total outage instances and t
 
 ## Edit the report
 
-You can edit the report like any other [Azure Monitor Workbook](../platform/workbooks-overview.md). You can customize the queries or visualizations based on your team's needs.
+You can edit the report like any other [Azure Monitor Workbook](../visualize/workbooks-overview.md). You can customize the queries or visualizations based on your team's needs.
 
 :::image type="content" source="./media/sla-report/edit.gif" alt-text=" GIF of selecting the edit button to change the visualization to a pie chart." lightbox="./media/sla-report/edit.gif":::
 
 ### Log Analytics
 
-The queries can all be run in [Log Analytics](../log-query/log-analytics-overview.md) and used in other reports or dashboards. Remove the parameter restriction and reuse the core query.
+The queries can all be run in [Log Analytics](../logs/log-analytics-overview.md) and used in other reports or dashboards. Remove the parameter restriction and reuse the core query.
 
 :::image type="content" source="./media/sla-report/logs.gif" alt-text=" GIF of log query." lightbox="./media/sla-report/logs.gif":::
 
@@ -65,6 +65,6 @@ The report can be shared with your teams, leadership, or pinned to a dashboard f
 
 ## Next steps
 
-- [Log Analytics query optimization tips](../log-query/query-optimization.md).
-- Learn how to [create a chart in workbooks](../platform/workbooks-chart-visualizations.md).
+- [Log Analytics query optimization tips](../logs/query-optimization.md).
+- Learn how to [create a chart in workbooks](../visualize/workbooks-chart-visualizations.md).
 - Learn how to monitor your website with [availability tests](monitor-web-app-availability.md).

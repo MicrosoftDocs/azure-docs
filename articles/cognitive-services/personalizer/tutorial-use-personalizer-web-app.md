@@ -1,10 +1,14 @@
 ---
 title: Use web app - Personalizer
 description: Customize a C# .NET web app with a Personalizer loop to provide the correct content to a user based on actions (with features) and context features.
+author: jeffmend
+ms.author: jeffme
+ms.manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: tutorial
 ms.date: 06/10/2020
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 # Tutorial: Add Personalizer to a .NET web app

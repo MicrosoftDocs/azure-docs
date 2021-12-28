@@ -2,12 +2,15 @@
 title: Continuous export of telemetry from Application Insights | Microsoft Docs
 description: Export diagnostic and usage data to storage in Microsoft Azure, and download it from there.
 ms.topic: conceptual
-ms.date: 05/26/2020
-
+ms.date: 02/19/2021
+ms.custom: references_regions
 ---
 
 # Export telemetry from Application Insights
 Want to keep your telemetry for longer than the standard retention period? Or process it in some specialized way? Continuous Export is ideal for this. The events you see in the Application Insights portal can be exported to storage in Microsoft Azure in JSON format. From there, you can download your data and write whatever code you need to process it.  
+
+> [!IMPORTANT]
+> Continuous export has been deprecated. [Migrate to a workspace-based Application Insights resource](convert-classic-resource.md) to use [diagnostic settings](#diagnostic-settings-based-export) for exporting telemetry.
 
 > [!NOTE]
 > Continuous export is only supported for classic Application Insights resources. [Workspace-based Application Insights resources](./create-workspace-resource.md) must use [diagnostic settings](./create-workspace-resource.md#export-telemetry).
@@ -17,12 +20,50 @@ Before you set up continuous export, there are some alternatives you might want 
 
 * The Export button at the top of a metrics or search tab lets you transfer tables and charts to an Excel spreadsheet.
 
-* [Analytics](../log-query/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
+* [Analytics](../logs/log-query-overview.md) provides a powerful query language for telemetry. It can also export results.
 * If you're looking to [explore your data in Power BI](./export-power-bi.md), you can do that without using Continuous Export.
 * The [Data access REST API](https://dev.applicationinsights.io/) lets you access your telemetry programmatically.
 * You can also access setup [continuous export via PowerShell](/powershell/module/az.applicationinsights/new-azapplicationinsightscontinuousexport).
 
 After Continuous Export copies your data to storage (where it can stay for as long as you like), it's still available in Application Insights for the usual [retention period](./data-retention-privacy.md).
+
+## Supported Regions
+
+Continuous Export is supported in the following regions:
+
+* Southeast Asia
+* Canada Central
+* Central India
+* North Europe
+* UK South
+* Australia East
+* Japan East
+* Korea Central
+* France Central
+* East Asia
+* West US
+* Central US
+* East US 2
+* South Central US
+* West US 2
+* South Africa North
+* North Central US
+* Brazil South
+* Switzerland North
+* Australia Southeast
+* UK West
+* Germany West Central
+* Switzerland West
+* Australia Central 2
+* UAE Central
+* Brazil Southeast
+* Australia Central
+* UAE North
+* Norway East
+* Japan West
+
+> [!NOTE]
+> Continuous Export will continue to work for Applications in **East US** and **West Europe** if the export was configured before February 23, 2021. New Continuous Export rules cannot be configured on any application in **East US** or **West Europe**, regardless of when the application was created.
 
 ## Continuous Export advanced storage configuration
 
@@ -170,7 +211,7 @@ The continuous export will restart.
 ## Export samples
 
 * [Export to SQL using Stream Analytics][exportasa]
-* [Stream Analytics sample 2](export-stream-analytics.md)
+* [Stream Analytics sample 2](../../stream-analytics/app-insights-export-stream-analytics.md)
 
 On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdinsight/) - Hadoop clusters in the cloud. HDInsight provides a variety of technologies for managing and analyzing big data, and you could use it to process data that has been exported from Application Insights.
 
@@ -203,7 +244,7 @@ On larger scales, consider [HDInsight](https://azure.microsoft.com/services/hdin
 
 ## Code samples
 
-* [Stream Analytics sample](export-stream-analytics.md)
+* [Stream Analytics sample](../../stream-analytics/app-insights-export-stream-analytics.md)
 * [Export to SQL using Stream Analytics][exportasa]
 * [Detailed data model reference for the property types and values.](export-data-model.md)
 
@@ -222,6 +263,5 @@ To migrate to diagnostic settings based export:
 
 <!--Link references-->
 
-[exportasa]: ./code-sample-export-sql-stream-analytics.md
+[exportasa]: ../../stream-analytics/app-insights-export-sql-stream-analytics.md
 [roles]: ./resources-roles-access-control.md
-

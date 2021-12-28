@@ -6,16 +6,14 @@ documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
-ms.devlang: na
+ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/17/2020
-ms.custom: devx-track-java
+ms.custom: devx-track-java, mode-api
 ms.author: inhenkel
-
 ---
 # Connect to Media Services v3 API - Java
 
@@ -33,7 +31,7 @@ In this article, the Visual Studio Code is used to develop the sample app.
    - Apache Maven
    - Java Extension Pack
 - Make sure to set `JAVA_HOME` and `PATH` environment variables.
-- [Create a Media Services account](./create-account-howto.md). Be sure to remember the resource group name and the Media Services account name.
+- [Create a Media Services account](./account-create-how-to.md). Be sure to remember the resource group name and the Media Services account name.
 - Follow the steps in the [Access APIs](./access-api-howto.md) topic. Record the subscription ID, application ID (client ID), the authentication key (secret), and the tenant ID that you need in a later step.
 
 Also review:

@@ -11,7 +11,7 @@ ms.author: tamram
 ms.subservice: blobs
 ---
 
-# What is Azure Blob storage? 
+# What is Azure Blob storage?
 
 [!INCLUDE [storage-blob-concepts-include](../../../includes/storage-blob-concepts-include.md)]
 

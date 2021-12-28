@@ -32,9 +32,9 @@ Each command in the table links to command specific documentation. This script u
 
 | Command | Notes |
 |---|---|
-| [az group create](/cli/azure/group#az-group-create) | Creates a resource group in which all resources are stored. |
-| [az storage account create](/cli/azure/storage/account#az-storage-account-create) | Creates an Azure Storage account. |
-| [az functionapp create](/cli/azure/functionapp#az-functionapp-create) | Creates a function app. |
+| [az group create](/cli/azure/group#az_group_create) | Creates a resource group in which all resources are stored. |
+| [az storage account create](/cli/azure/storage/account#az_storage_account_create) | Creates an Azure Storage account. |
+| [az functionapp create](/cli/azure/functionapp#az_functionapp_create) | Creates a function app. |
 
 ## Next steps
 

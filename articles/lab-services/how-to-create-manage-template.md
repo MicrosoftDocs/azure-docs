@@ -1,7 +1,7 @@
 ---
 title: Manage a template of a classroom lab in Azure Lab Services | Microsoft Docs
 description: Learn how to create and manage a classroom lab template in Azure Lab Services. 
-ms.topic: article
+ms.topic: how-to
 ms.date: 06/26/2020
 ---
 

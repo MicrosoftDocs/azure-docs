@@ -10,6 +10,7 @@ ms.subservice: bing-image-search
 ms.topic: tutorial
 ms.date: 03/05/2020
 ms.author: aahi
+ms.devlang: javascript
 ms.custom: devx-track-js
 ---
 
@@ -413,4 +414,4 @@ Leave the command window open while you use the tutorial app; closing the window
 
 ## See also
 
-* [Bing Image Search API reference](//docs.microsoft.com/rest/api/cognitiveservices/bing-images-api-v7-reference)
+* [Bing Image Search API reference](/rest/api/cognitiveservices/bing-images-api-v7-reference)

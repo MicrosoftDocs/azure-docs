@@ -7,9 +7,9 @@ ms.subservice: scenario
 ms.custom: seo-lt-2019, sqldbrb=1
 ms.devlang:
 ms.topic: tutorial
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 09/24/2018
 ---
 # Learn how to provision new tenants and register them in the catalog

@@ -63,4 +63,4 @@ The MARS agent supports the following restore scenarios:
 
 [MARS agent support matrix](./backup-support-matrix-mars-agent.md)
 
-[MARS agent FAQ](./backup-azure-file-folder-backup-faq.md)
+[MARS agent FAQ](./backup-azure-file-folder-backup-faq.yml)

@@ -9,8 +9,9 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: conceptual
-ms.date: 09/06/2019
+ms.date: 02/22/2021
 ms.author: nitinme
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -172,7 +173,7 @@ await DisplayPersonGroup(FaceClientEastAsia, personGroupId);
 await IdentifyInPersonGroup(FaceClientEastAsia, personGroupId);
 
 await DisplayPersonGroup(FaceClientWestUS, newPersonGroupId);
-// No need to retrain the person group before identification,
+// No need to retrain the PersonGroup before identification,
 // training results are copied by snapshot as well.
 await IdentifyInPersonGroup(FaceClientWestUS, newPersonGroupId);
 ```
@@ -183,7 +184,7 @@ Use the following helper methods:
 private static async Task DisplayPersonGroup(IFaceClient client, string personGroupId)
 {
     var personGroup = await client.PersonGroup.GetAsync(personGroupId);
-    Console.WriteLine("Person Group:");
+    Console.WriteLine("PersonGroup:");
     Console.WriteLine(JsonConvert.SerializeObject(personGroup));
 
     // List persons.
@@ -232,4 +233,4 @@ Next, see the relevant API reference documentation, explore a sample app that us
 - [Snapshot reference documentation (.NET SDK)](/dotnet/api/microsoft.azure.cognitiveservices.vision.face.snapshotoperations)
 - [Face snapshot sample](https://github.com/Azure-Samples/cognitive-services-dotnet-sdk-samples/tree/master/app-samples/FaceApiSnapshotSample/FaceApiSnapshotSample)
 - [Add faces](how-to-add-faces.md)
-- [Detect faces in an image](HowtoDetectFacesinImage.md)
+- [Call the detect API](HowtoDetectFacesinImage.md)

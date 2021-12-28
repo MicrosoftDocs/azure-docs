@@ -7,7 +7,7 @@ manager: mtillman
 ms.service: role-based-access-control
 ms.topic: how-to
 ms.workload: identity
-ms.date: 10/08/2020
+ms.date: 08/09/2021
 ms.author: rolyon
 ---
 
@@ -27,7 +27,7 @@ Management groups are a level of scope above subscriptions, but management group
 
 ## Scope format
 
-If you add role assignments using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is typically listed as the *resource ID*.
+If you assign roles using the command line, you'll need to specify the scope. For command-line tools, scope is a potentially long string that identifies the exact scope of the role assignment. In the Azure portal, this scope is typically listed as the *resource ID*.
 
 The scope consists of a series of identifiers separated by the slash (/) character. You can think of this string as expressing the following hierarchy, where text without placeholders (`{}`) are fixed identifiers:
 
@@ -115,8 +115,20 @@ It's fairly simple to determine the scope for a management group, subscription, 
       }
     ```
 
+## Scope and ARM templates
+
+A role assignment is a special type in Azure Resource Manager called an *extension resource*. An extension resource is a resource that adds to another resource's capabilities. They always exist as an extension (like a child) of another resource. For example, a role assignment at subscription scope is an extension resource of the subscription. The name of a role assignment is always the name of the resource you are extending plus `/Microsoft.Authorization/roleAssignments/{roleAssignmentId}`. When assigning roles using Azure Resource Manager template (ARM template), you typically don't need to provide the scope. The reason is that the scope field ends up always being the ID of the resource you are extending. The scope can be determined from the ID of the role assignment itself. The following table shows examples of a role assignment ID and the corresponding scope:
+
+> [!div class="mx-tableFixed"]
+> | Role assignment ID | Scope |
+> | --- | --- |
+> | `/subscriptions/{subscriptionId}/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}` | `/subscriptions/{subscriptionId}` |
+> | `/subscriptions/{subscriptionId}/resourceGroups/Example-Storage-rg/providers/Microsoft.Authorization/roleAssignments/{roleAssignmentId}` | `/subscriptions/{subscriptionId}/resourceGroups/Example-Storage-rg` |
+
+For more information about scope and ARM templates, see [Assign Azure roles using Azure Resource Manager templates](role-assignments-template.md). For a full list of extension resource types, see [Resource types that extend capabilities of other resources](../azure-resource-manager/management/extension-resource-types.md).
+
 ## Next steps
 
-- [Steps to add a role assignment](role-assignments-steps.md)
+- [Steps to assign an Azure role](role-assignments-steps.md)
 - [Resource providers for Azure services](../azure-resource-manager/management/azure-services-resource-providers.md)
 - [What are Azure management groups?](../governance/management-groups/overview.md)

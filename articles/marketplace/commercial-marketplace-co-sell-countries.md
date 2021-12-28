@@ -6,12 +6,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 author: palanis-MSFT
 ms.author: palanis
-ms.date: 08/27/2019
+ms.date: 04/27/2021
 ---
 
 # Co-sell country and region codes
 
-Use these two-letter country/region codes when [providing contact info on your offer's Co-sell page](commercial-marketplace-co-sell.md).
+Use these two-letter country/region codes when [providing contact info on your offer's Co-sell page](./co-sell-configure.md).
 
 If the contact covers all Countries/Regions, use the three letter code "OOO".
 
@@ -268,8 +268,7 @@ If a contact covers more than one Country/Region, enter each of the two letter c
 | Yemen                               | YE        |
 | Zambia                              | ZM        |
 | Zimbabwe                            | ZW        |
-|   |   |   |
 
 ## Next steps
 
-- Learn about the [co-sell option in the commercial marketplace](./commercial-marketplace-co-sell.md).
+- Learn about the [co-sell option in the commercial marketplace](./co-sell-configure.md).

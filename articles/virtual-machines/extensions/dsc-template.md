@@ -1,19 +1,19 @@
 ---
 title: Desired State Configuration extension with Azure Resource Manager templates
 description: Learn about the Resource Manager template definition for the Desired State Configuration (DSC) extension in Azure.
-services: virtual-machines-windows
-author: bobbytreed
-manager: carmonm
+services: virtual-machines
+author: mgoedtel
 tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: b5402e5a-1768-4075-8c19-b7f7402687af
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
-ms.date: 10/05/2018
-ms.author: robreed
+ms.date: 02/09/2021
+ms.author: magoedte
 ---
 # Desired State Configuration extension with Azure Resource Manager templates
 
@@ -27,6 +27,8 @@ registration](../../automation/automation-dsc-onboarding.md#enable-machines-secu
 
 > [!NOTE]
 > You might encounter slightly different schema examples. The change in schema occurred in the October 2016 release. For details, see [Update from a previous format](#update-from-a-previous-format).
+>
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../../governance/policy/concepts/guest-configuration.md). The guest configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
 
 ## Template example for a Windows VM
 
@@ -38,7 +40,7 @@ For more information, see
 ```json
 {
   "type": "Microsoft.Compute/virtualMachines/extensions",
-  "name": "Microsoft.Powershell.DSC",
+  "name": "[concat(parameters('VMName'), '/Microsoft.Powershell.DSC')]",
   "apiVersion": "2018-06-01",
   "location": "[parameters('location')]",
   "dependsOn": [
@@ -201,7 +203,7 @@ for the default configuration script, see
 ## Default configuration script
 
 For more information about the following values, see
-[Local Configuration Manager basic settings](/powershell/scripting/dsc/managing-nodes/metaConfig#basic-settings).
+[Local Configuration Manager basic settings](/powershell/dsc/managing-nodes/metaConfig#basic-settings).
 You can use the DSC extension default configuration script
 to configure only the LCM properties that are listed in the following table.
 
@@ -468,4 +470,4 @@ or settings.configuration.module is specified"
 - Learn about [using virtual machine scale sets with the Azure DSC extension](../../virtual-machine-scale-sets/virtual-machine-scale-sets-dsc.md).
 - Find more details about [DSC's secure credential management](dsc-credentials.md).
 - Get an [introduction to the Azure DSC extension handler](dsc-overview.md).
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview/overview).

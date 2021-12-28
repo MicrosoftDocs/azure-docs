@@ -1,11 +1,8 @@
 ---
 title: Offerings from partners - Azure partner solutions
 description: Learn about solutions offered by partners on Azure.
-author: tfitzmac
 ms.topic: conceptual
-ms.service: partner-services
-ms.date: 01/19/2021
-ms.author: tomfitz
+ms.date: 05/25/2021
 ---
 
 # Extend Azure with solutions from partners
@@ -17,3 +14,6 @@ Partner solutions are available through the Marketplace.
 | Partner solution | Description |
 | :--- | :--- |
 | [Apache Kafka for Confluent Cloud](./apache-kafka-confluent-cloud/overview.md) | Fully managed event streaming platform powered by Apache Kafka |
+| [Datadog](./datadog/overview.md) | Monitor your servers, clouds, metrics, and apps in one place. |
+| [Elastic](./elastic/overview.md) | Monitor the health and performance of your Azure environment. |
+| [Logz.io](./logzio/overview.md)  | Monitor the health and performance of your Azure environment. |

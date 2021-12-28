@@ -2,7 +2,8 @@
 title: Move Azure VMs to new subscription or resource group
 description: Use Azure Resource Manager to move virtual machines to a new resource group or subscription.
 ms.topic: conceptual
-ms.date: 12/01/2020
+ms.date: 12/13/2021 
+ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Move guidance for virtual machines
@@ -24,18 +25,37 @@ The following scenarios aren't yet supported:
 You can't move a virtual machine that is integrated with a key vault to implement [Azure Disk Encryption for Linux VMs](../../../virtual-machines/linux/disk-encryption-overview.md) or [Azure Disk Encryption for Windows VMs](../../../virtual-machines/windows/disk-encryption-overview.md). To move the VM, you must disable encryption.
 
 ```azurecli-interactive
-az vm encryption disable --resource-group demoRG --name myVm1
+az vm encryption disable --resource-group demoRG --name myVm1 --volume-type all
 ```
 
 ```azurepowershell-interactive
-Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1
+Disable-AzVMDiskEncryption -ResourceGroupName demoRG -VMName myVm1 -VolumeType all
 ```
 
 ## Virtual machines with Marketplace plans
 
 Virtual machines created from Marketplace resources with plans attached can't be moved across subscriptions. To work around this limitation, you can de-provision the virtual machine in the current subscription, and deploy it again in the new subscription. The following steps help you recreate the virtual machine in the new subscription. However, they might not work for all scenarios. If the plan is no longer available in the Marketplace, these steps won't work.
 
-1. Copy information about the plan.
+1. Get information about the plan.
+
+   ```azurepowershell
+   $vm = get-AzVM -ResourceGroupName demoRG -Name myVm1
+   $vm.Plan
+   ```
+
+   ```azurecli
+   az vm show --resource-group demoRG --name myVm1 --query plan
+   ```
+
+1. Check that the offering still exists in the Marketplace.
+
+   ```azurepowershell
+   Get-AzVMImageSku -Location "Central US" -PublisherName "Fabrikam" -Offer "LinuxServer"
+   ```
+
+   ```azurecli
+   az vm image list-skus --publisher Fabrikam --offer LinuxServer --location centralus
+   ```
 
 1. Either clone the OS disk to the destination subscription, or move the original disk after deleting the virtual machine from source subscription.
 
@@ -45,15 +65,19 @@ Virtual machines created from Marketplace resources with plans attached can't be
    Get-AzMarketplaceTerms -Publisher {publisher} -Product {product/offer} -Name {name/SKU} | Set-AzMarketplaceTerms -Accept
    ```
 
+   ```azurecli
+   az vm image terms accept --publisher {publisher} --offer {product/offer} --plan {name/SKU}
+   ```
+
    Or, you can create a new instance of a virtual machine with the plan through the portal. You can delete the virtual machine after accepting the terms in the new subscription.
 
-1. In the destination subscription, recreate the virtual machine from the cloned OS disk using PowerShell, CLI, or an Azure Resource Manager template. Include the marketplace plan that's attached to the disk. The information about the plan should match the plan you purchased in the new subscription.
+1. In the destination subscription, recreate the virtual machine from the cloned OS disk using PowerShell, CLI, or an Azure Resource Manager template. Include the marketplace plan that's attached to the disk. The information about the plan should match the plan you purchased in the new subscription. For more information, see [Create the VM](../../../virtual-machines/marketplace-images.md#create-the-vm).
 
 ## Virtual machines with Azure Backup
 
-To move virtual machines configured with Azure Backup, you must delete the restore points from the vault.
+To move virtual machines configured with Azure Backup, you must delete the restore points collections (snapshots) from the vault. Restore points already copied to the vault can be retained and moved.
 
-If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) or wait 14 days after deleting the restore points.
+If [soft delete](../../../backup/soft-delete-virtual-machines.md) is enabled for your virtual machine, you can't move the virtual machine while those restore points are kept. Either [disable soft delete](../../../backup/backup-azure-security-feature-cloud.md#enabling-and-disabling-soft-delete) or wait 14 days after deleting the restore points.
 
 ### Portal
 
@@ -68,7 +92,7 @@ If [soft delete](../../../backup/backup-azure-security-feature-cloud.md) is enab
    6. After the delete operation is complete, you can move your virtual machine.
 
 3. Move the VM to the target resource group.
-4. Resume the backup.
+4. Reconfigure the backup.
 
 ### PowerShell
 

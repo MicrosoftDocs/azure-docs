@@ -1,12 +1,10 @@
 ---
 title: 'Quickstart: Create/manage Apache Storm topology - Azure HDInsight'
 description: In the quickstart, learn how to create and monitor an Apache Storm topology in Azure HDInsight.
-
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 06/14/2019
-ms.custom: mvc
-
+ms.custom: mvc, mode-other
 #Customer intent: I want to learn how to create Apache Storm topologies and deploy them to a Storm cluster in Azure HDInsight.
 ---
 
@@ -46,7 +44,7 @@ Use the following steps to monitor the topology using the Storm UI:
 
 2. Under **Topology Summary**, select the **wordcount** entry in the **Name** column. Information about the topology is displayed.
 
-    ![Storm Dashboard with storm-starter WordCount topology information.](./media/apache-storm-quickstart/hdi-topology-summary.png)
+    :::image type="content" source="./media/apache-storm-quickstart/hdi-topology-summary.png" alt-text="Storm Dashboard with storm-starter WordCount topology information." border="true":::
 
     The new page provides the following information:
 
@@ -63,7 +61,7 @@ Use the following steps to monitor the topology using the Storm UI:
 
 3. From this page, select an entry from the **Spouts** or **Bolts** section. Information about the selected component is displayed.
 
-    ![Storm Dashboard with information about selected components.](./media/apache-storm-quickstart/hdi-component-summary.png)
+    :::image type="content" source="./media/apache-storm-quickstart/hdi-component-summary.png" alt-text="Storm Dashboard with information about selected components." border="true":::
 
     The new page displays the following information:
 

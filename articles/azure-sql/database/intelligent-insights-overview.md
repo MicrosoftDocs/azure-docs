@@ -7,10 +7,10 @@ ms.subservice: performance
 ms.custom: sqldbrb=2
 ms.devlang: 
 ms.topic: conceptual
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
-ms.date: 06/12/2020
+author: AlainDormehlMSFT
+ms.author: aldorme
+ms.reviewer: kendralittle, mathoma, wiassaf
+ms.date: 10/18/2021
 ---
 # Intelligent Insights using AI to monitor and troubleshoot database performance (preview)
 [!INCLUDE[appliesto-sqldb-sqlmi](../includes/appliesto-sqldb-sqlmi.md)]
@@ -54,11 +54,6 @@ Identified database performance degradations are recorded in the SQLInsights log
 | Root cause analysis | Root cause analysis of the issue identified in a human-readable format. Some insights might contain a performance improvement recommendation where possible. |
 |||
 
-For a hands-on overview on using Intelligent Insights with Azure SQL Analytics and for typical usage scenarios, see this video:
-
-> [!VIDEO https://channel9.msdn.com/Shows/Azure-Friday/Get-Intelligent-Insights-for-Improving-Azure-SQL-Database-Performance/player]
->
-
 Intelligent Insights shines in discovering and troubleshooting database performance issues. In order to use Intelligent Insights to troubleshoot database performance issues, see [Troubleshoot performance issues with Intelligent Insights](intelligent-insights-troubleshoot-performance.md).
 
 ## Intelligent Insights options
@@ -101,7 +96,7 @@ The following example shows an Intelligent Insights viewed through Azure SQL Ana
 
 ### Set up with Event Hubs
 
-To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and [Stream Azure diagnostics logs to Event Hubs](../../azure-monitor/platform/resource-logs.md#send-to-azure-event-hubs).
+To use Intelligent Insights with Event Hubs, configure Intelligent Insights log data to be streamed to Event Hubs, see [Metrics and diagnostics logging](metrics-diagnostic-telemetry-logging-streaming-export-configure.md) and [Stream Azure diagnostics logs to Event Hubs](../../azure-monitor/essentials/resource-logs.md#send-to-azure-event-hubs).
 
 To use Event Hubs to set up custom monitoring and alerting, see [What to do with metrics and diagnostics logs in Event Hubs](metrics-diagnostic-telemetry-logging-streaming-export-configure.md#what-to-do-with-metrics-and-resource-logs-in-event-hubs).
 

@@ -114,6 +114,5 @@ You learned how to move an Azure event source and its associated system topic fr
 
 - [Move custom topics across regions](move-custom-topics-across-regions.md). 
 - [Move domains across regions](move-domains-across-regions.md). 
-- [Move partner namespaces across regions](move-partner-namespaces-across-regions.md). 
 
 To learn more about moving resources between regions and disaster recovery in Azure, see the following article: [Move resources to a new resource group or subscription](../azure-resource-manager/management/move-resource-group-and-subscription.md).

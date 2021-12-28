@@ -2,15 +2,15 @@
 title: Communication Services Logs
 titleSuffix: An Azure Communication Services concept document
 description: Learn about logging in Azure Communication Services
-author: mikben
-manager: jken
+author: probableprime
+manager: chpalm
 services: azure-communication-services
 
-ms.author: mikben
-ms.date: 10/15/2020
-ms.topic: overview
+ms.author: rifox
+ms.date: 06/30/2021
+ms.topic: conceptual
 ms.service: azure-communication-services
-
+ms.subservice: data
 ---
 
 # Communication Services logs
@@ -27,7 +27,7 @@ New settings take effect in about ten minutes. Logs will begin appearing in the 
 
 :::image type="content" source="./media/diagnostic-settings.png" alt-text="ACS Diagnostic Settings Options.":::
 
-For more information about configuring diagnostics, see the overview of [Azure resource logs](../../azure-monitor/platform/platform-logs-overview.md).
+For more information about configuring diagnostics, see the overview of [Azure resource logs](../../azure-monitor/essentials/platform-logs-overview.md).
 
 ## Resource log categories
 
@@ -94,7 +94,7 @@ Communication Services offers three types of logs that you can enable:
 | OutgoingMessageLength | The number of characters in the outgoing message. |
 | IncomingMessageLength | The number of characters in the incoming message. |
 | DeliveryAttempts | The number of attempts made to deliver this message. |
-| PhoneNumber | The phone number the SMS message is being sent to. |
+| PhoneNumber | The phone number the SMS message is being sent from. |
 | SdkType | The SDK type used in the request. |
 | PlatformType | The platform type used in the request. |
 | Method | The method used in the request. |

@@ -8,7 +8,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: conceptual
-ms.date: 08/20/2020
+ms.date: 05/17/2021
 ms.author: banders
 ---
 
@@ -111,7 +111,7 @@ To download an invoice:
 
 ## Get MOSP subscription invoice in email
 
-You must have an account admin role on a subscription or a support plan to opt in to receive its invoice by email. Email invoices are available only for subscriptions and support plans, not for reservations or Azure Marketplace purchases. Once you've opted-in you can add additional recipients, who receive the invoice by email as well.
+You must have an account admin role on a subscription or a support plan to opt in to receive its invoice by email. Once you've opted-in you can add additional recipients, who receive the invoice by email as well.
 
 1.  Sign in to the [Azure portal](https://portal.azure.com).
 2.  Search for **Cost Management + Billing**.  
@@ -242,7 +242,7 @@ There could be several reasons that you don't see an invoice:
 
            ![Screenshot that shows selecting switch directory in the portal](./media/download-azure-invoice/select-switch-directory.png)
 
-        3. Select a directory from the **All directories** section.
+        3. Select **Switch** for a directory from the **All directories** section.
 
            ![Screenshot that shows selecting a directory in the portal](./media/download-azure-invoice/select-directory.png)
 

@@ -5,8 +5,9 @@ author: jlian
 ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
-ms.date: 10/19/2020
-ms.author: jlian
+ms.date: 03/22/2021
+ms.author: jlian 
+ms.custom: devx-track-azurepowershell
 ---
 
 # Use IP filters
@@ -15,25 +16,25 @@ Security is an important aspect of any IoT solution based on Azure IoT Hub. Some
 
 ## When to use
 
-Use IP filter to receive traffic only from a specified range of IP addresses and reject everything else. For example, you're using your IoT hub with [Azure Express Route](https://azure.microsoft.com/documentation/articles/expressroute-faqs/#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
+Use IP filter to receive traffic only from a specified range of IP addresses and reject everything else. For example, you're using your IoT hub with [Azure Express Route](../expressroute/expressroute-faqs.md#supported-services) to create private connections between an IoT hub and your on-premises infrastructure.
 
 ## Default setting
 
 To get to the IP Filter settings page, select **Networking**, **Public access**, then choose **Selected IP Ranges**:
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="IoT Hub default IP filter settings":::
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-default.png" alt-text="Screenshot showing how to set default IP filter settings.":::
 
 By default, the **IP Filter** grid in the portal for an IoT hub is empty. This default setting means that your hub blocks connections from all IP addresses. This default setting is equivalent to a rule that blocks the `0.0.0.0/0` IP address range.
 
 ## Add or edit an IP filter rule
 
-To add an IP filter rule, select **+ Add IP Filter Rule**.
+To add an IP filter rule, select **+ Add IP Filter Rule**. To quickly add your computer's IP address, click the **Add your client IP address**. 
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Add an IP filter rule to an IoT hub":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-add-rule.png" alt-text="Screenshot showing how to add an IP filter rule to an IoT hub.":::
 
-After selecting **Add IP Filter Rule**, fill in the fields.
+After selecting **Add IP Filter Rule**, fill in the fields. These fields are pre-filled for you if you selected to add your client IP address.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="After selecting Add an IP Filter rule":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-after-selecting-add.png" alt-text="Screenshot that shows what to do after adding an IP filter rule.":::
 
 * Provide a **name** for the IP Filter rule. This name must be a unique, case-insensitive, alphanumeric string up to 128 characters long. Only the ASCII 7-bit alphanumeric characters plus `{'-', ':', '/', '\', '.', '+', '%', '_', '#', '*', '?', '!', '(', ')', ',', '=', '@', ';', '''}` are accepted.
 
@@ -41,7 +42,7 @@ After selecting **Add IP Filter Rule**, fill in the fields.
 
 After filling in the fields, select **Save** to save the rule. You see an alert notifying you that the update is in progress.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Notification about saving an IP filter rule":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-save-new-rule.png" alt-text="Screenshot that shows notification about saving an IP filter rule.":::
 
 The **Add** option is disabled when you reach the maximum of 10 IP filter rules.
 
@@ -51,13 +52,13 @@ To edit an existing rule, select the data you want to change, make the change, t
 
 To delete an IP filter rule, select the trash can icon on that row and then select **Save**. The rule is removed and the change is saved.
 
-:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Delete an IoT Hub IP filter rule":::
+:::image type="content" source="./media/iot-hub-ip-filtering/ip-filter-delete-rule.png" alt-text="Screenshot showing how to delete an IoT Hub IP filter rule.":::
 
 ## Apply IP filter rules to the built-in Event Hub compatible endpoint
 
 To apply the IP filter rules to the built-in Event Hub compatible endpoint, check the box next to **Apply IP filters to the built-in endpoint?**, then select **Save**.
 
-:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-built-in-endpoint.png" alt-text="Image showing the toggle for the built-in endpoint and save":::
+:::image type="content" source="media/iot-hub-ip-filtering/ip-filter-built-in-endpoint.png" alt-text="Screenshot showing the toggle for the built-in endpoint.":::
 
 > [!NOTE]
 > This option isn't available to free (F1) IoT hubs. To apply IP filter rules to the built-in endpoint, use a paid IoT hub.
@@ -80,6 +81,10 @@ Any connection attempt from an IP address that isn't explicitly allowed receives
 IP filter rules are *allow* rules and applied without ordering. Only IP addresses that you add are allowed to connect to IoT Hub. 
 
 For example, if you want to accept addresses in the range `192.168.100.0/22` and reject everything else, you only need to add one rule in the grid with address range `192.168.100.0/22`.
+
+### Azure portal 
+
+IP filter rules are also applied when using IoT Hub through Azure portal. This is because API calls to the IoT Hub service are made directly using your browser with your credentials, which is consistent with other Azure services. To access IoT Hub using Azure portal when IP filter is enabled, add your computer's IP address to the allowlist. 
 
 ## Retrieve and update IP filters using Azure CLI
 
@@ -159,7 +164,7 @@ $iothubResource | Set-AzResource -Force
 ## Update IP filter rules using REST
 
 
-You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](https://docs.microsoft.com/rest/api/iothub/iothubresource/createorupdate).
+You may also retrieve and modify your IoT Hub's IP filter using Azure resource Provider's REST endpoint. See `properties.networkRuleSets` in [createorupdate method](/rest/api/iothub/iothubresource/createorupdate).
 
 ## IP filter (classic) retirement
 
@@ -169,7 +174,7 @@ Classic IP filter has been retired. To learn more, see [IoT Hub classic IP filte
 
 To further explore the capabilities of IoT Hub, see:
 
-* [IoT Hub metrics](iot-hub-metrics.md)
+* [IoT Hub metrics](./monitor-iot-hub.md)
 * [IoT Hub support for virtual networks with Private Link and Managed Identity](virtual-network-support.md)
 * [Managing public network access for your IoT hub](iot-hub-public-network-access.md)
 * [Monitor IoT Hub](monitor-iot-hub.md)

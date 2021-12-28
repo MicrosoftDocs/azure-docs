@@ -3,11 +3,11 @@ title: Azure Enterprise enrollment invoices
 description: This article explains how to manage and act on your Azure Enterprise invoice.
 author: bandersmsft
 ms.author: banders
-ms.date: 01/19/2021
+ms.date: 12/03/2021
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.subservice: enterprise
-ms.reviewer: boalcsva
+ms.reviewer: sapnakeshari
 ms.custom: contperf-fy21q1
 ---
 
@@ -38,7 +38,7 @@ To view the usage summary reports and graphs:
    To change the date range for **Usage Summary**, you can toggle from **M** (Monthly) to **C** (Custom) on the top right of the page and then enter custom start and end dates.  
    ![Create and view usage summary and download reports in custom view](./media/ea-portal-enrollment-invoices/create-ea-view-usage-summary-and-download-reports-custom-view.png)
 1. To view additional details, you can select a period or month on the graph.
-   - The graph shows month-over-month usage with a breakdown of utilized usage, service overcharge, charges billed separately, and Azure Marketplace charges.
+   - The graph shows month-over-month usage with a breakdown of utilized usage, service overage, charges billed separately, and Azure Marketplace charges.
    - For the selected month, you can use the fields below the graph to filter by departments, accounts, and subscriptions.
    - You can toggle between **Charge by Services** and **Charge by Hierarchy**.
    - View details from **Azure Service**, **Charges Billed Separately**, and **Azure Marketplace** by expanding the relevant sections.
@@ -93,29 +93,41 @@ The Azure Enterprise portal filters inactive enrollments out of view. You'll nee
 
 ## Change a PO number for an upcoming overage invoice
 
-The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email.
+The Azure Enterprise portal automatically generates a default purchase order (PO) number unless the enterprise administrator sets one before the invoice date. An enterprise administrator can update the PO number up to seven days after receiving an automated invoice notification email. 
 
-### To update the Azure services purchase order number:
+To prevent automatic generation of PO numbers every month, you can lock the PO number. See [Lock PO number](#lock-po-number-to-prevent-automatic-update-in-upcoming-billing-cycles).
+
+### Update the Azure services purchase order number
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Azure Services** radio button.
 1. Select an **Invoice Period** from the date ranges drop-down menu.
-
    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
 
-### To update the Azure Marketplace purchase order number:
+### Update the Azure Marketplace purchase order number
 
 1. From the Azure Enterprise portal, select **Report** > **Usage Summary**.
 1. Select **Edit PO Numbers** in the upper-right corner.
 1. Select the **Marketplace** radio button.
-1. Select an **Invoice Period** from the date ranges drop-down menu.
-
-   You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
+1. Select an **Invoice Period** from the date ranges drop-down menu.  
+    You can edit a PO number during a seven-day period after you get an invoice notification, but before you've paid the invoice.
 1. Enter a new PO number in the **PO Number** field.
 1. Select **Save** to submit your change.
+
+### Lock PO number to prevent automatic update in upcoming billing cycles
+
+After you lock the PO number, it remains locked for all new invoices and you don't have to update the PO number.
+
+1.	In the Azure Enterprise portal, select **Report** > **Usage Summary**.
+2.	Select **Edit PO Numbers** in the upper-right corner.
+3.	Type a new PO number in the **PO Number** field.
+4.	Select the **Lock PO number** box.
+5.	Select **Save** to submit your change.  
+    :::image type="content" source="./media/ea-portal-enrollment-invoices/lock-po.png" alt-text="Screenshot showing the View/Edit PO Numbers box." lightbox="./media/ea-portal-enrollment-invoices/lock-po.png" :::
+
 
 ## Azure enterprise billing frequency
 
@@ -214,7 +226,7 @@ To apply your Azure Prepayment to overages, you must meet the following criteria
 - Your available Azure Prepayment amount covers the full number of incurred charges, including all past unpaid Azure invoices.
 - The billing term that you want to complete must be fully closed. Billing fully closes after the fifth day of each month.
 - The billing period that you want to offset must be fully closed.
-- Your Azure Prepayment Discount (ACD) is based on the actual new Prepayment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume Azure Prepayment, so doesn't apply to Azure Marketplace charges. Azure Marketplace charges are billed separately.
+- Your Azure Prepayment Discount (APD) is based on the actual new Prepayment minus any funds planned for the previous consumption. This requirement applies only to overage charges incurred. It's only valid for services that consume Azure Prepayment, so doesn't apply to Azure Marketplace charges. Azure Marketplace charges are billed separately.
 
 To complete an overage offset, you or the account team can open a support request. An emailed approval from your enterprise administrator or Bill to Contact is required.
 
@@ -299,7 +311,7 @@ The combined invoice shows Azure usage first, followed by any Azure Marketplace 
 
 If there's no overage usage at the end of the standard billing cycle, charges billed separately are invoiced separately. This process applies to customers in Australia, Japan, and Singapore.
 
-The following services are billed separately:
+The following services are examples of charges billed separately. You can get a full list of the services where charges are billed separately by submitting a [support request](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview).
 
 - Canonical
 - Citrix XenApp Essentials

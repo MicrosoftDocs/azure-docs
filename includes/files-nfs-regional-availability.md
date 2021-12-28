@@ -5,18 +5,11 @@ services: storage
 author: roygara
 ms.service: storage
 ms.topic: "include"
-ms.date: 09/15/2020
+ms.date: 06/04/2021
 ms.author: rogarana
 ms.custom: "include file"
 ---
-- East US (LRS and ZRS)
-- East US 2
-- West US 2
-- West Europe
-- Southeast Asia
-- UK South
-- Australia East (LRS and ZRS)
-- France Central
-- KoreaCentral
-- KoreaSouth
 
+Azure NFS file shares is supported in all the same regions that support premium file storage.
+
+For the most up-to-date list, see the **Premium Files Storage** entry on the [Azure Products available by region page](https://azure.microsoft.com/global-infrastructure/services/?products=storage&regions=all).

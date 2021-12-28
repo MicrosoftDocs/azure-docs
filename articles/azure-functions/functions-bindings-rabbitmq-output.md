@@ -149,7 +149,7 @@ Here's JavaScript code:
 
 ```javascript
 module.exports = function (context, input) {
-    context.bindings.myQueueItem = input.body;
+    context.bindings.outputMessage = input.body;
     context.done();
 };
 ```
@@ -203,7 +203,7 @@ def main(req: func.HttpRequest, outputMessage: func.Out[str]) -> func.HttpRespon
 
 # [Java](#tab/java)
 
-The following example shows a Java function that sends a message to RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
+The following Java function uses the `@RabbitMQOutput` annotation from the [Java RabbitMQ types](https://mvnrepository.com/artifact/com.microsoft.azure.functions/azure-functions-java-library-rabbitmq) to describe the configuration for a RabbitMQ queue output binding. The function sends a message to the RabbitMQ queue when triggered by a TimerTrigger every 5 minutes.
 
 ```java
 @FunctionName("RabbitMQOutputExample")
@@ -304,7 +304,7 @@ When working with C# Script functions:
 
 # [JavaScript](#tab/javascript)
 
-The queue message is available via context.bindings.<NAME> where <NAME> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
+The queue message is available via context.bindings.\<NAME\> where \<NAME\> matches the name defined in function.json. If the payload is JSON, the value is deserialized into an object.
 
 # [Python](#tab/python)
 

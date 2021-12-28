@@ -7,9 +7,9 @@ ms.subservice: performance
 ms.custom: 
 ms.devlang: 
 ms.topic: how-to
-author: danimir
-ms.author: danil
-ms.reviewer: wiassaf, sstein
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma, wiassaf
 ms.date: 05/04/2020
 ---
 # Create alerts for Azure SQL Managed Instance using the Azure portal
@@ -35,13 +35,13 @@ You can configure an alert to do the following when it triggers:
 * Call Azure runbook
 * Call an external ticketing ITSM compatible system
 
-You can configure and get information about alert rules using [the Azure portal, PowerShell or the Azure CLI](../../azure-monitor/platform/alerts-classic-portal.md) or [Azure Monitor REST API](/rest/api/monitor/alertrules). 
+You can configure and get information about alert rules using [the Azure portal, PowerShell or the Azure CLI](../../azure-monitor/alerts/alerts-classic-portal.md) or [Azure Monitor REST API](/rest/api/monitor/alertrules). 
 
 ## Alerting metrics available for managed instance
 
 > [!IMPORTANT]
 > Alerting metrics are available for managed instance only. Alerting metrics for individual databases in managed instance are not available. 
-> Database diagnostics telemetry is on the other hand available in the form of [diagnostics logs](../database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export). Alerts on diagnostics logs can be setup from within [SQL Analytics](../../azure-monitor/insights/azure-sql.md) product using [log alert scripts](../../azure-monitor/insights/azure-sql.md#creating-alerts-for-sql-managed-instance) for managed instance.
+> Database diagnostics telemetry is on the other hand available in the form of [diagnostics logs](../database/metrics-diagnostic-telemetry-logging-streaming-export-configure.md#diagnostic-telemetry-for-export). Alerts on diagnostics logs can be setup from within [SQL Analytics](../../azure-monitor/insights/azure-sql.md) product using [log alert scripts](../../azure-monitor/insights/azure-sql.md#create-alerts-for-sql-managed-instance) for managed instance.
 
 The following managed instance metrics are available for alerting configuration:
 
@@ -108,7 +108,7 @@ New alert rule will become active within a few minutes and will be triggered bas
 ## Verifying alerts
 
 > [!NOTE]
-> To supress noisy alerts, see [Supression of alerts using action rules](../../azure-monitor/platform/alerts-action-rules.md#suppression-of-alerts).
+> To supress noisy alerts, see [Supression of alerts using action rules](../../azure-monitor/alerts/alerts-action-rules.md#suppression-of-alerts).
 
 Upon setting up an alerting rule, verify that you are satisfied with the alerting trigger and its frequency. For the example shown on this page for setting up an alert on storage space used, if your alerting option was email, you might receive email such is the one shown below.
 
@@ -137,8 +137,8 @@ To view, suspend, activate, modify and delete existing alerts:
 
 ## Next steps
 
-* Learn about Azure Monitor alerting system, see [Overview of alerts in Microsoft Azure](../../azure-monitor/platform/alerts-overview.md)
-* Learn more about metric alerts, see [Understand how metric alerts work in Azure Monitor](../../azure-monitor/platform/alerts-metric-overview.md)
-* Learn about configuring a webhook in alerts, see [Call a webhook with a classic metric alert](../../azure-monitor/platform/alerts-webhooks.md)
+* Learn about Azure Monitor alerting system, see [Overview of alerts in Microsoft Azure](../../azure-monitor/alerts/alerts-overview.md)
+* Learn more about metric alerts, see [Understand how metric alerts work in Azure Monitor](../../azure-monitor/alerts/alerts-metric-overview.md)
+* Learn about configuring a webhook in alerts, see [Call a webhook with a classic metric alert](../../azure-monitor/alerts/alerts-webhooks.md)
 * Learn about configuring and managing alerts using PowerShell, see [Action rules](/powershell/module/az.monitor/add-azmetricalertrulev2)
 * Learn about configuring and managing alerts using API, see [Azure Monitor REST API reference](/rest/api/monitor/)

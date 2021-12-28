@@ -6,7 +6,7 @@ author: tamram
 
 ms.service: storage
 ms.subservice: blobs
-ms.devlang: cli
+ms.devlang: azurecli
 ms.topic: sample
 ms.date: 06/22/2017
 ms.author: tamram 

@@ -19,7 +19,6 @@ Azure HDInsight clusters have different types of virtual machines, or nodes. Eac
 | Head node |  For all cluster types except Apache Storm, the head nodes host the processes that manage execution of the distributed application. The head node is also the node that you can SSH into and execute applications that are then coordinated to run across the cluster resources. The number of head nodes is fixed at two for all cluster types. |
 | ZooKeeper node | Zookeeper coordinates tasks between the nodes that are doing data processing. It also does leader election of the head node, and keeps track of which head node is running a specific master service. The number of ZooKeeper nodes is fixed at three. |
 | Worker node | Represents the nodes that support data processing functionality. Worker nodes can be added or removed from the cluster to scale computing capability and manage costs. |
-| R Server edge node | The R Server edge node represents the node you can SSH into and execute applications that are then coordinated to run across the cluster resources. An edge node doesn't  participate in data analysis within the cluster. This node also hosts R Studio Server, enabling you to run R application using a browser. |
 | Region node | For the HBase cluster type, the region node (also referred to as a Data Node) runs the Region Server. Region Servers serve and manage a portion of the data managed by HBase. Region nodes can be added or removed from the cluster to scale computing capability and manage costs.|
 | Nimbus node | For the Storm cluster type, the Nimbus node provides functionality similar to the Head node. The Nimbus node assigns tasks to other nodes in a cluster through Zookeeper, which coordinates the running of Storm topologies. |
 | Supervisor node | For the Storm cluster type, the supervisor node executes the instructions provided by the Nimbus node to do the processing. |
@@ -38,7 +37,7 @@ If you need just the host name, use only the first part of the FQDN: `<node-type
 
 The following diagram shows the placement of HDInsight nodes and network resources in Azure.
 
-![Diagram of HDInsight entities created in Azure custom VNET](./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png)
+:::image type="content" source="./media/hdinsight-virtual-network-architecture/hdinsight-vnet-diagram.png" alt-text="Diagram of HDInsight entities created in Azure custom VNET" border="false":::
 
 The default resources in an Azure Virtual Network include the cluster node types mentioned in the previous table. And network devices that support communication between the virtual network and outside networks.
 

@@ -1,10 +1,11 @@
 ---
 title: Create a Python 3 runbook (preview) in Azure Automation
-description: This article teaches you to create, test, and publish a simple Python 3 runbook (preview).
+description: This article teaches you to create, test, and publish a simple Python 3 runbook (preview) in your Azure Automation account.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/22/2020
+ms.date: 04/28/2021
 ms.topic: tutorial
+ms.custom: has-adal-ref, devx-track-python
 ---
 
 # Tutorial: Create a Python 3 runbook (preview)
@@ -23,19 +24,9 @@ To complete this tutorial, you need the following:
 
 - Azure subscription. If you don't have one yet, you can [activate your MSDN subscriber benefits](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/) or sign up for a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-- [Automation account](../automation-security-overview.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine.
+- [Automation account](../automation-security-overview.md) to hold the runbook and authenticate to Azure resources. This account must have permission to start and stop the virtual machine. The [Run As account](../automation-security-overview.md#run-as-accounts) is required for this tutorial. 
 
 - An Azure virtual machine. During this tutorial, you will start and stop this machine, so it should not be a production VM.
-
-- You can use a Linux or Windows Hybrid Runbook Worker to run Python 3 runbooks. Follow the instructions for installing a [Linux](../automation-linux-hrw-install.md) or [Windows](../automation-windows-hrw-install.md) Hybrid Runbook Worker. There is no specific pre-requisite for a Linux Hybrid Worker. However, to use a Windows Hybrid Worker for Python 3 runbooks, configure your the machine hosting the runbook worker based on if you are only supporting Python 3, or if Python 2 and 3 need to coexist.
-
-   * If you have Python 2 or Python 3 *only* installed, you need to append the path of the folder where python.exe is located to the **PATH** environmental variable. For example, if python.exe is in the installation path `C:\Python`, then that path needs to be appended to the **PATH** environmental variable.
-
-   * If you have both Python 2 and Python 3 installed and you want to run both types of runbooks, then you need to configure the following environmental variables:
-
-     * Python 2 - Create a new environmental variable called `PYTHON_2_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python27`, then this path needs to be added to the variable.
-     
-     * Python 3 - Create a new environmental variable called `PYTHON_3_PATH` and specify the installation folder. For example, if the installation folder is `C:\Python3`, then this path needs to be added to the variable.
 
 ## Create a new runbook
 
@@ -43,7 +34,7 @@ You start by creating a simple runbook that outputs the text *Hello World*.
 
 1. In the Azure portal, open your Automation account.
 
-    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules that are automatically included in a new Automation account. You should also have the Credential asset that's mentioned in the [prerequisites](#prerequisites).
+    The Automation account page gives you a quick view of the resources in this account. You should already have some assets. Most of those assets are the modules that are automatically included in a new Automation account. You should also have the Run As account credential asset that's mentioned in the [prerequisites](#prerequisites).
 
 2. Select **Runbooks** under **Process Automation** to open the list of runbooks.
 
@@ -113,65 +104,64 @@ The runbook that you created is still in draft mode. You need to publish it befo
 ## Add authentication to manage Azure resources
 
 You've tested and published your runbook, but so far it doesn't do anything useful. You want to have it manage Azure resources.
-To do this, the script has to authenticate using the credentials from your Automation account.
+To do this, the script has to authenticate using the Run As account credential from your Automation account.
 
 > [!NOTE]
-> The Automation account must have been created with the service principal feature for there to be a Run As certificate.
-> If your Automation account was not created with the service principal, you can authenticate as described in
-> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate).
+> The Automation account must have been created with the Run As account for there to be a Run As certificate.
+> If your Automation account was not created with the Run As account, you can authenticate as described in
+> [Authenticate with the Azure Management Libraries for Python](/azure/python/python-sdk-azure-authenticate) or [create a Run As account](../create-run-as-account.md).
 
 1. Open the textual editor by selecting **Edit** on the **MyFirstRunbook-Python3** pane.
 
 2. Add the following code to authenticate to Azure:
 
-   ```python
-   import os
-   from azure.mgmt.compute import ComputeManagementClient
-   import azure.mgmt.resource 
-   import automationassets 
-   
-   def get_automation_runas_credential(runas_connection): 
-   from OpenSSL import crypto 
-   import binascii 
-   from msrestazure import azure_active_directory 
-   import adal 
+    ```python
+    import os
+    from azure.mgmt.compute import ComputeManagementClient
+    import azure.mgmt.resource
+    import automationassets
     
-   # Get the Azure Automation RunAs service principal certificate 
-   cert = automationassets.get_automation_certificate("AzureRunAsCertificate") 
-   pks12_cert = crypto.load_pkcs12(cert) 
-   pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey()) 
+    def get_automation_runas_credential(runas_connection):
+        from OpenSSL import crypto
+        import binascii
+        from msrestazure import azure_active_directory
+        import adal
     
-   # Get run as connection information for the Azure Automation service principal 
-   application_id = runas_connection["ApplicationId"] 
-   thumbprint = runas_connection["CertificateThumbprint"] 
-   tenant_id = runas_connection["TenantId"] 
+        # Get the Azure Automation RunAs service principal certificate
+        cert = automationassets.get_automation_certificate("AzureRunAsCertificate")
+        pks12_cert = crypto.load_pkcs12(cert)
+        pem_pkey = crypto.dump_privatekey(crypto.FILETYPE_PEM,pks12_cert.get_privatekey())
     
-   # Authenticate with service principal certificate 
-   resource ="https://management.core.windows.net/" 
-   authority_url = ("https://login.microsoftonline.com/"+tenant_id) 
-   context = adal.AuthenticationContext(authority_url) 
-   return azure_active_directory.AdalAuthentication( 
-   lambda: context.acquire_token_with_client_certificate( 
-           resource, 
-           application_id, 
-           pem_pkey, 
-           thumbprint) 
-   ) 
+        # Get run as connection information for the Azure Automation service principal
+        application_id = runas_connection["ApplicationId"]
+        thumbprint = runas_connection["CertificateThumbprint"]
+        tenant_id = runas_connection["TenantId"]
     
-   # Authenticate to Azure using the Azure Automation RunAs service principal 
-   runas_connection = automationassets.get_automation_connection("AzureRunAsConnection") 
-   azure_credential = get_automation_runas_credential(runas_connection) 
-   ```
+        # Authenticate with service principal certificate
+        resource ="https://management.core.windows.net/"
+        authority_url = ("https://login.microsoftonline.com/"+tenant_id)
+        context = adal.AuthenticationContext(authority_url)
+        return azure_active_directory.AdalAuthentication(
+        lambda: context.acquire_token_with_client_certificate(
+                resource,
+                application_id,
+                pem_pkey,
+                thumbprint)
+        )
+    
+    # Authenticate to Azure using the Azure Automation RunAs service principal
+    runas_connection = automationassets.get_automation_connection("AzureRunAsConnection")
+    azure_credential = get_automation_runas_credential(runas_connection)
+    ```
 
 ## Add code to create Python Compute client and start the VM
 
-To work with Azure VMs, create an instance of the
-[Azure Compute client for Python](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
+To work with Azure VMs, create an instance of the [Azure Compute client for Python](/python/api/azure-mgmt-compute/azure.mgmt.compute.computemanagementclient).
 
 Use the compute client to start the VM. Add the following code to the runbook:
 
 ```python
-# Initialize the compute management client with the RunAs credential and specify the subscription to work against.
+# Initialize the compute management client with the Run As credential and specify the subscription to work against.
 compute_client = ComputeManagementClient(
     azure_credential,
     str(runas_connection["SubscriptionId"])
@@ -201,7 +191,7 @@ resource_group_name = str(sys.argv[1])
 vm_name = str(sys.argv[2])
 ```
 
-This imports the `sys` module, and creates two variables to hold the Resource Group and VM names. Notice that the element of the argument list, `sys.argv[0]`, is the name of the script, and is not input by the user.
+This imports the `sys` module, and creates two variables to hold the resource group and VM names. Notice that the element of the argument list, `sys.argv[0]`, is the name of the script, and is not input by the user.
 
 Now you can modify the last two lines of the runbook to use the input parameter values instead of using hard-coded values:
 
@@ -246,8 +236,8 @@ except Exception as detail:
 
 ## Next steps
 
-- To know more about runbook types, their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
+- To learn more about runbook types, their advantages and limitations, see [Azure Automation runbook types](../automation-runbook-types.md).
 
 - To learn about developing for Azure with Python, see [Azure for Python developers](/azure/python/).
 
-- To view sample Python 3 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python).
+- To view sample Python 3 runbooks, see the [Azure Automation GitHub](https://github.com/azureautomation/runbooks/tree/master/Utility/Python) repository.

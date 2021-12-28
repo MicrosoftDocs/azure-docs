@@ -2,13 +2,11 @@
 title: Author entry script for advanced scenarios
 titleSuffix: Azure Machine Learning entry script authoring
 description: Learn how to write Azure Machine Learning entry scripts for pre- and post-processing during deployment.
-author: gvashishtha
 services: machine-learning
 ms.service: machine-learning
-ms.subservice: core
-ms.topic: conceptual
-ms.date: 09/17/2020
-ms.author: gopalv
+ms.subservice: mlops
+ms.topic: how-to
+ms.date: 10/21/2021
 ms.reviewer: larryfr
 ms.custom: deploy
 ---
@@ -71,27 +69,27 @@ def init():
     model = joblib.load(model_path)
 
 
-    # providing 3 sample inputs for schema generation
-    numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
-    pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
-    standard_sample_input = StandardPythonParameterType(0.0)
+# providing 3 sample inputs for schema generation
+numpy_sample_input = NumpyParameterType(np.array([[1,2,3,4,5,6,7,8,9,10],[10,9,8,7,6,5,4,3,2,1]],dtype='float64'))
+pandas_sample_input = PandasParameterType(pd.DataFrame({'name': ['Sarah', 'John'], 'age': [25, 26]}))
+standard_sample_input = StandardPythonParameterType(0.0)
 
-    # This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
-    sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
-                                            'input2': pandas_sample_input, 
-                                            'input3': standard_sample_input})
+# This is a nested input sample, any item wrapped by `ParameterType` will be described by schema
+sample_input = StandardPythonParameterType({'input1': numpy_sample_input, 
+                                        'input2': pandas_sample_input, 
+                                        'input3': standard_sample_input})
 
-    sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
-    sample_output = StandardPythonParameterType([1.0, 1.0])
-    outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
+sample_global_parameters = StandardPythonParameterType(1.0) # this is optional
+sample_output = StandardPythonParameterType([1.0, 1.0])
+outputs = StandardPythonParameterType({'Results':sample_output}) # 'Results' is case sensitive
 
-    @input_schema('Inputs', sample_input) 
-    # 'Inputs' is case sensitive
-    
-    @input_schema('GlobalParameters', sample_global_parameters) 
-    # this is optional, 'GlobalParameters' is case sensitive
+@input_schema('Inputs', sample_input) 
+# 'Inputs' is case sensitive
 
-    @output_schema(outputs)
+@input_schema('GlobalParameters', sample_global_parameters) 
+# this is optional, 'GlobalParameters' is case sensitive
+
+@output_schema(outputs)
 
 def run(Inputs, GlobalParameters): 
     # the parameters here have to match those in decorator, both 'Inputs' and 
@@ -107,6 +105,16 @@ def run(Inputs, GlobalParameters):
         return error
 ```
 
+> [!TIP]
+> The return value from the script can be any Python object that is serializable to JSON. For example, if your model returns a Pandas dataframe that contains multiple columns, you might use an output decorator similar to the following code:
+> 
+> ```python
+> output_sample = pd.DataFrame(data=[{"a1": 5, "a2": 6}])
+> @output_schema(PandasParameterType(output_sample))
+> ...
+> result = model.predict(data)
+> return result
+> ```
 
 ## <a id="binary-data"></a> Binary (i.e. image) data
 
@@ -163,7 +171,7 @@ import requests
 uri = service.scoring_uri
 image_path = 'test.jpg'
 files = {'image': open(image_path, 'rb').read()}
-response = requests.post(url, files=files)
+response = requests.post(uri, files=files)
 
 print(response.json)
 ```
@@ -191,21 +199,35 @@ def run(request):
     print("This is run()")
     print("Request: [{0}]".format(request))
     if request.method == 'GET':
-        # For this example, just return the URL for GETs.
+        # For this example, just return the URL for GET.
+        # For a real-world solution, you would load the data from URL params or headers
+        # and send it to the model. Then return the response.
         respBody = str.encode(request.full_path)
-        return AMLResponse(respBody, 200)
+        resp = AMLResponse(respBody, 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
+        return resp
     elif request.method == 'POST':
         reqBody = request.get_data(False)
         # For a real-world solution, you would load the data from reqBody
         # and send it to the model. Then return the response.
-
-        # For demonstration purposes, this example
-        # adds a header and returns the request body.
         resp = AMLResponse(reqBody, 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
         resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
+        return resp
+    elif request.method == 'OPTIONS':
+        resp = AMLResponse("", 200)
+        resp.headers["Allow"] = "OPTIONS, GET, POST"
+        resp.headers["Access-Control-Allow-Methods"] = "OPTIONS, GET, POST"
+        resp.headers['Access-Control-Allow-Origin'] = "http://www.example.com"
+        resp.headers['Access-Control-Allow-Headers'] = "*"
         return resp
     else:
-        return AMLResponse("bad request", 500)
+        return AMLResponse("bad request", 400)
 ```
 
 > [!IMPORTANT]
@@ -286,7 +308,7 @@ second_model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), second_model_na
 
 ### get_model_path
 
-When you register a model, you provide a model name that's used for managing the model in the registry. You use this name with the [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model?preserve-view=true&view=azure-ml-py#&preserve-view=trueget-model-path-model-name--version-none---workspace-none-) method to retrieve the path of the model file or files on the local file system. If you register a folder or a collection of files, this API returns the path of the directory that contains those files.
+When you register a model, you provide a model name that's used for managing the model in the registry. You use this name with the [Model.get_model_path()](/python/api/azureml-core/azureml.core.model.model#get-model-path-model-name--version-none---workspace-none-) method to retrieve the path of the model file or files on the local file system. If you register a folder or a collection of files, this API returns the path of the directory that contains those files.
 
 When you register a model, you give it a name. The name corresponds to where the model is placed, either locally or during service deployment.
 
@@ -296,7 +318,7 @@ More entry script examples for specific machine learning use cases can be found 
 
 * [PyTorch](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/pytorch)
 * [TensorFlow](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/ml-frameworks/tensorflow)
-* [Keras](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.yml)
+* [Keras](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/ml-frameworks/keras/train-hyperparameter-tune-deploy-with-keras/train-hyperparameter-tune-deploy-with-keras.ipynb)
 * [AutoML](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features)
 * [ONNX](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/deployment/onnx/)
 
@@ -306,7 +328,7 @@ More entry script examples for specific machine learning use cases can be found 
 * [Deploy to Azure Kubernetes Service](how-to-deploy-azure-kubernetes-service.md)
 * [Create client applications to consume web services](how-to-consume-web-service.md)
 * [Update web service](how-to-deploy-update-web-service.md)
-* [How to deploy a model using a custom Docker image](how-to-deploy-custom-docker-image.md)
+* [How to deploy a model using a custom Docker image](./how-to-deploy-custom-container.md)
 * [Use TLS to secure a web service through Azure Machine Learning](how-to-secure-web-service.md)
 * [Monitor your Azure Machine Learning models with Application Insights](how-to-enable-app-insights.md)
 * [Collect data for models in production](how-to-enable-data-collection.md)

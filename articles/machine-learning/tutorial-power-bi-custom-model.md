@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.author: samkemp
 author: samuel100
 ms.reviewer: sdgilley
-ms.date: 12/11/2020
+ms.date: 12/22/2021
 ---
 
 # Tutorial: Power BI integration - Create the predictive model with a Jupyter Notebook (part 1 of 2)
 
-In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You will also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you'll use the model to predict outcomes in Microsoft Power BI.
+In part 1 of this tutorial, you train and deploy a predictive machine learning model by using code in a Jupyter Notebook. You also create a scoring script to define the input and output schema of the model for integration into Power BI.  In part 2, you use the model to predict outcomes in Microsoft Power BI.
 
 In this tutorial, you:
 
@@ -35,7 +35,7 @@ But you could instead use one of the other options:
 
 ## Prerequisites
 
-- An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://aka.ms/AMLFree). 
+- An Azure subscription. If you don't already have a subscription, you can use a [free trial](https://azure.microsoft.com/free/). 
 - An Azure Machine Learning workspace. If you don't already have a workspace, see [Create and manage Azure Machine Learning workspaces](./how-to-manage-workspace.md#create-a-workspace).
 - Introductory knowledge of the Python language and machine learning workflows.
 
@@ -113,7 +113,7 @@ Create a new *code cell* in your notebook. Then copy the following code and past
 import joblib
 from sklearn.linear_model import Ridge
 
-model = Ridge().fit(X,y)
+model = Ridge().fit(X_df,y_df)
 joblib.dump(model, 'sklearn_regression_model.pkl')
 ```
 
@@ -225,7 +225,7 @@ def run(data):
         return error
 ```
 
-### Define the custom environment
+## Define the custom environment
 
 Next, define the environment to score the model. In the environment, define the Python packages, such as pandas and scikit-learn, that the scoring script (*score.py*) requires.
 
@@ -249,7 +249,7 @@ environment.python.conda_dependencies = CondaDependencies.create(pip_packages=[
 inference_config = InferenceConfig(entry_script='./score.py',environment=environment)
 ```
 
-### Deploy the model
+## Deploy the model
 
 To deploy the model, copy the following code and paste it into a new *code cell* in your notebook:
 
@@ -281,10 +281,8 @@ We recommend that you test the web service to ensure it works as expected. To re
 ```python
 import json
 
-
 input_payload = json.dumps({
-    'data': X_df[0:2].values.tolist(),
-    'method': 'predict'  # If you have a classification model, you can get probabilities by changing this to 'predict_proba'.
+    'data': X_df[0:2].values.tolist()
 })
 
 output = service.run(input_payload)

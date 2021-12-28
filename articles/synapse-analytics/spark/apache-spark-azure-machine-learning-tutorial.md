@@ -26,7 +26,7 @@ In this tutorial, you learn how to:
 ## Before you begin
 
 - Create a serverless Apache Spark pool by following the [Create a serverless Apache Spark pool](../quickstart-create-apache-spark-pool-studio.md) quickstart.
-- Complete the [Azure Machine Learning workspace setup](../../machine-learning/tutorial-1st-experiment-sdk-setup.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
+- Complete the [Azure Machine Learning workspace setup](../../machine-learning/quickstart-create-resources.md) tutorial if you don't have an existing Azure Machine Learning workspace. 
 
 ## Understand regression models
 
@@ -139,7 +139,7 @@ ws = Workspace(workspace_name = workspace_name,
 ```
 
 ## Convert a DataFrame to an Azure Machine Learning dataset
-To submit a remote experiment, convert your dataset into an Azure Machine Learning ```TabularDatset``` instance. [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset?preserve-view=true&view=azure-ml-py) represents data in a tabular format by parsing the provided files.
+To submit a remote experiment, convert your dataset into an Azure Machine Learning ```TabularDatset``` instance. [TabularDataset](/python/api/azureml-core/azureml.data.tabulardataset) represents data in a tabular format by parsing the provided files.
 
 The following code gets the existing workspace and the default Azure Machine Learning datastore. It then passes the datastore and file locations to the path parameter to create a new ```TabularDataset``` instance. 
 

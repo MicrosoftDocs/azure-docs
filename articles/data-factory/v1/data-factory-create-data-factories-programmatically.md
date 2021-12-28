@@ -1,18 +1,14 @@
 ---
 title: Create data pipelines by using Azure .NET SDK 
 description: Learn how to programmatically create, monitor, and manage Azure data factories by using Data Factory SDK.
-services: data-factory
-documentationcenter: ''
 author: dcstwh
 ms.author: weetok
-manager: jroth
-ms.reviewer: maghan
+ms.reviewer: jburchel
 ms.service: data-factory
-ms.workload: data-services
-
+ms.subservice: v1
 ms.topic: conceptual
-ms.date: 01/22/2018
-ms.custom: devx-track-csharp
+ms.date: 10/22/2021
+ms.custom: devx-track-csharp, devx-track-azurepowershell
 ---
 
 # Create, monitor, and manage Azure data factories using Azure Data Factory .NET SDK

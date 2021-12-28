@@ -3,7 +3,7 @@ title: Performance considerations for Azure NetApp Files | Microsoft Docs
 description: Learn about performance for Azure NetApp Files, including the relationship of quota and throughput limit and how to dynamically increase/decrease volume quota.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/22/2020
-ms.author: b-juche
+ms.date: 02/19/2021
+ms.author: anfdocs
 ---
 # Performance considerations for Azure NetApp Files
 
@@ -67,5 +67,6 @@ If you use manual QoS volumes, you don’t have to overprovision the volume quot
 
 ## Next steps
 
+- [Azure NetApp Files Performance Calculator](https://cloud.netapp.com/azure-netapp-files/tco?hs_preview=tIKQbfoF-41214739590)
 - [Service levels for Azure NetApp Files](azure-netapp-files-service-levels.md)
 - [Performance benchmarks for Linux](performance-benchmarks-linux.md)

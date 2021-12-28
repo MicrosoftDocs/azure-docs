@@ -71,7 +71,7 @@ The complete mapping in Azure Load Balancer is now as follows:
 
 Each rule must produce a flow with a unique combination of destination IP address and destination port. By varying the destination port of the flow, multiple rules can deliver flows to the same DIP on different ports.
 
-Health probes are always directed to the DIP of a VM. You must ensure you that your probe reflects the health of the VM.
+Health probes are always directed to the DIP of a VM. You must ensure that your probe reflects the health of the VM.
 
 ## Rule type #2: backend port reuse by using Floating IP
 

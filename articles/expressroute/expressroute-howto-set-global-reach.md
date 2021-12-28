@@ -7,7 +7,8 @@ author: duongau
 ms.service: expressroute
 ms.topic: how-to
 ms.date: 02/25/2019
-ms.author: duau
+ms.author: duau 
+ms.custom: devx-track-azurepowershell
 
 ---
 
@@ -23,6 +24,10 @@ Before you start configuration, confirm the following:
 * Your ExpressRoute circuits are in a provisioned state.
 * Azure private peering is configured on your ExpressRoute circuits.
 * If you want to run PowerShell locally, verify that the latest version of Azure PowerShell is installed on your computer.
+
+> [!NOTE]
+> Global Reach does **not** support configuration updates at this time. This means that if you create a Global Reach connection using the following instructions, you must delete and recreate the connection with any configuration updates. Attempting to update an existing Global Reach connection will put your ExpressRoute circuit in a failed state.
+>
 
 ### Working with Azure PowerShell
 

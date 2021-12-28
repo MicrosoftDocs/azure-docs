@@ -1,21 +1,19 @@
 ---
-title:  How to get a Media Processor instance using REST | Microsoft Docs
+title: How to get a Media Processor instance using REST | Microsoft Docs
 description: Learn how to create a media processor component to encode, convert format, encrypt, or decrypt media content for Azure Media Services.
 services: media-services
 documentationcenter: ''
 author: IngridAtMicrosoft
 manager: femila
 editor: ''
-
 ms.assetid: f9ff1997-0da6-4528-aaed-792837e5be41
 ms.service: media-services
 ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/03/2020
+ms.date: 3/10/2021
 ms.author: inhenkel
-
 ---
 # How to get a Media Processor instance
 

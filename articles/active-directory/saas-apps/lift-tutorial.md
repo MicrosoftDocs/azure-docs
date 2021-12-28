@@ -35,7 +35,7 @@ To get started, you need the following items:
 In this tutorial, you configure and test Azure AD SSO in a test environment.
 
 * LIFT supports **SP** initiated SSO
-* Once you configure LIFT you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Cloud App Security](/cloud-app-security/proxy-deployment-aad)
+* Once you configure LIFT you can enforce Session Control, which protect exfiltration and infiltration of your organization’s sensitive data in real-time. Session Control extend from Conditional Access. [Learn how to enforce session control with Microsoft Defender for Cloud Apps](/cloud-app-security/proxy-deployment-aad).
 
 ## Adding LIFT from the gallery
 
@@ -131,7 +131,7 @@ In this section, you create a user called B.Simon in LIFT. Work with [LIFT suppo
 
 In this section, you test your Azure AD single sign-on configuration using the Access Panel.
 
-When you click the LIFT tile in the Access Panel, you should be automatically signed in to the LIFT for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](../user-help/my-apps-portal-end-user-access.md).
+When you click the LIFT tile in the Access Panel, you should be automatically signed in to the LIFT for which you set up SSO. For more information about the Access Panel, see [Introduction to the Access Panel](https://support.microsoft.com/account-billing/sign-in-and-start-apps-from-the-my-apps-portal-2f3b1bae-0e5a-4a86-a33e-876fbd2a4510).
 
 ## Additional resources
 
@@ -143,4 +143,4 @@ When you click the LIFT tile in the Access Panel, you should be automatically si
 
 - [Try LIFT with Azure AD](https://aad.portal.azure.com/)
 
-- [What is session control in Microsoft Cloud App Security?](/cloud-app-security/proxy-intro-aad)
+- [What is session control in Microsoft Defender for Cloud Apps?](/cloud-app-security/proxy-intro-aad)

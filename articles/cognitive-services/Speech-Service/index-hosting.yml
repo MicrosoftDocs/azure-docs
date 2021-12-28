@@ -6,12 +6,12 @@ metadata:
   title: Hosting documentation - Tutorials, API Reference - Azure Cognitive Services | Microsoft Docs
   titleSuffix: Azure Cognitive Services
   services: cognitive-services
-  author: trevorbye
+  author: eric-urban
   manager: nitinme
   ms.service: speech-service
   ms.topic: landing-page
   ms.date: 03/23/2020
-  ms.author: trbye
+  ms.author: eur
 
 landingContent:
 - title: About hosting
@@ -41,7 +41,7 @@ landingContent:
         - text: Sovereign clouds
           url: sovereign-clouds.md
         - text: Containers FAQ
-          url: speech-container-faq.md
+          url: ./speech-container-howto.md
           
 - title: Help and feedback
   linkLists:

@@ -3,15 +3,15 @@ title: Azure Key Vault moving a vault to a different subscription | Microsoft Do
 description: Guidance on moving a key vault to a different subscription.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: azure-resource-manager
 
 ms.service: key-vault
 ms.subservice: general
 ms.topic: how-to
 ms.date: 05/05/2020
-ms.author: mbaldwin
-Customer intent: As a key vault administrator, I want to move my vault to another subscription.
+ms.author: mbaldwin 
+ms.custom: devx-track-azurepowershell
+# Customer intent: As a key vault administrator, I want to move my vault to another subscription.
 ---
 
 # Moving an Azure Key Vault to another subscription
@@ -26,6 +26,10 @@ Customer intent: As a key vault administrator, I want to move my vault to anothe
 > If you are using Managed Service Identities (MSI) please read the post-move instructions at the end of the document. 
 
 [Azure Key Vault](overview.md) is automatically tied to the default [Azure Active Directory](../../active-directory/fundamentals/active-directory-whatis.md) tenant ID for the subscription in which it is created. You can find tenant ID associated with your subscription by following this [guide](../../active-directory/fundamentals/active-directory-how-to-find-tenant.md). All access policy entries and roles assignments are also tied to this tenant ID.  If you move your Azure subscription from tenant A to tenant B, your existing key vaults will be inaccessible by the service principals (users and applications) in tenant B. To fix this issue, you need to:
+
+> [!NOTE]
+> If Key Vault is created through [Azure Lighthouse](../../lighthouse/overview.md), it is tied to managing tenant id instead. Azure Lighthouse is only supported by vault access policy permission model.
+> For more information about tenants in Azure Lighthouse, see [Tenants, users, and roles in Azure Lighthouse](../../lighthouse/concepts/tenants-users-roles.md).
 
 * Change the tenant ID associated with all existing key vaults in the subscription to tenant B.
 * Remove all existing access policy entries.
@@ -86,7 +90,7 @@ Connect-AzAccount                                                          #Log 
 
 ```azurecli
 az account set -s <your-subscriptionId>                                    # Select your Azure Subscription
-tenantId=$(az account show --query tenantId)                               # Get your tenantId
+$tenantId=$(az account show --query tenantId)                               # Get your tenantId
 az keyvault update -n myvault --remove Properties.accessPolicies           # Remove the access policies
 az keyvault update -n myvault --set Properties.tenantId=$tenantId          # Update the key vault tenantId
 ```
@@ -103,9 +107,9 @@ For assigning policies, see:
 - [Assign an access policy using PowerShell](assign-access-policy-powershell.md)
 
 For adding role assignments, see:
-- [Add role assignment using Portal](../../role-based-access-control/role-assignments-portal.md)
-- [Add role assignment using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
-- [Add role assignment using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
+- [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md)
+- [Assign Azure roles using Azure CLI](../../role-based-access-control/role-assignments-cli.md)
+- [Assign Azure roles using PowerShell](../../role-based-access-control/role-assignments-powershell.md)
 
 
 ### Update managed identities
@@ -122,5 +126,5 @@ If you are using managed identity, you'll also have to update the identity becau
 - Learn more about [keys, secrets, and certificates](about-keys-secrets-certificates.md)
 - For conceptual information, including how to interpret Key Vault logs, see [Key Vault logging](logging.md)
 - [Key Vault Developer's Guide](../general/developers-guide.md)
-- [Secure your key vault](secure-your-key-vault.md)
+- [Azure Key Vault security features](security-features.md)
 - [Configure Azure Key Vault firewalls and virtual networks](network-security.md)

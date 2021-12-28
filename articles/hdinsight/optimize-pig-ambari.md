@@ -18,7 +18,7 @@ Apache Pig properties can be  modified from the Ambari web UI to tune Pig querie
 
 1. Select **Save** on the top-right side of the window to save the new value. Some properties may require a service restart.
 
-    ![Advanced Apache pig properties](./media/optimize-pig-ambari/advanced-pig-properties.png)
+    :::image type="content" source="./media/optimize-pig-ambari/advanced-pig-properties.png" alt-text="Advanced Apache pig properties" border="true":::
 
 > [!NOTE]  
 > Any session-level settings override property values in the `pig.properties` file.

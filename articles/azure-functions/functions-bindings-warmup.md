@@ -24,7 +24,7 @@ This article explains how to work with the warmup trigger in Azure Functions. A 
 
 ## Packages - Functions 2.x and higher
 
-The [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version **3.0.5 or higher** is required. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/master/src/WebJobs.Extensions.Http/) GitHub repository. 
+The [Microsoft.Azure.WebJobs.Extensions](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Extensions) NuGet package, version **3.0.5 or higher** is required. Source code for the package is in the [azure-webjobs-sdk-extensions](https://github.com/Azure/azure-webjobs-sdk-extensions/tree/main/src/WebJobs.Extensions/Extensions/Warmup) GitHub repository. 
 
 [!INCLUDE [functions-package](../../includes/functions-package-auto.md)]
 
@@ -236,7 +236,7 @@ No additional information is provided to a warmup triggered function when it is 
 
 ## Trigger - limits
 
-* The warmup trigger is only available to apps running on the [Premium plan](./functions-premium-plan.md).
+* The warmup trigger is not available to apps running on the [Consumption plan](./consumption-plan.md).
 * The warmup trigger is only called during scale-out operations, not during restarts or other non-scale startups. You must ensure your logic can load all necessary dependencies without using the warmup trigger. Lazy loading is a good pattern to achieve this.
 * The warmup trigger cannot be invoked once an instance is already running.
 * There can only be one warmup trigger function per function app.

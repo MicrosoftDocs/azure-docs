@@ -14,7 +14,8 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 07/28/2020
 ms.author: rolyon
-ms.reviewer: bagovind
+ms.reviewer: bagovind 
+ms.custom: devx-track-azurepowershell
 ---
 # List Azure role assignments using Azure PowerShell
 
@@ -23,7 +24,7 @@ ms.reviewer: bagovind
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
 > [!NOTE]
-> If your organization has outsourced management functions to a service provider who uses [Azure delegated resource management](../lighthouse/concepts/azure-delegated-resource-management.md), role assignments authorized by that service provider won't be shown here.
+> If your organization has outsourced management functions to a service provider who uses [Azure Lighthouse](../lighthouse/overview.md), role assignments authorized by that service provider won't be shown here.
 
 ## Prerequisites
 
@@ -183,4 +184,4 @@ Get-AzRoleAssignment -IncludeClassicAdministrators
 
 ## Next steps
 
-- [Add or remove Azure role assignments using Azure PowerShell](role-assignments-powershell.md)
+- [Assign Azure roles using Azure PowerShell](role-assignments-powershell.md)

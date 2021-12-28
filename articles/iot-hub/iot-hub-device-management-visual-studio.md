@@ -13,7 +13,7 @@ ms.author: xshi
 
 ![End-to-end diagram](media/iot-hub-device-management-visual-studio/iot-e2e-simple.png)
 
-[Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) is a useful Visual Studio extension that enables you to view your Azure resources, inspect their properties and perform key developer actions from within Visual Studio. It comes with management options that you can use to perform various tasks.
+In this article, you learn how to use the Cloud Explorer for Visual Studio with various management options on your development computer. [Cloud Explorer](https://marketplace.visualstudio.com/items?itemName=ms-azuretools.CloudExplorerForVS) is a useful Visual Studio extension that enables you to view your Azure resources, inspect their properties and perform key developer actions from within Visual Studio. It comes with management options that you can use to perform various tasks.
 
 [!INCLUDE [iot-hub-basic](../../includes/iot-hub-basic-whole.md)]
 
@@ -28,17 +28,7 @@ For more detailed explanation on the differences and guidance on using these opt
 
 Device twins are JSON documents that store device state information, including metadata, configurations, and conditions. IoT Hub persists a device twin for each device that connects to it. For more information about device twins, see [Get started with device twins](iot-hub-node-node-twin-getstarted.md).
 
-## What you learn
-
-In this article, you learn how to use the Cloud Explorer for Visual Studio with various management options on your development computer.
-
-## What you do
-
-In this article, run Cloud Explorer for Visual Studio with various management options.
-
-## What you need
-
-You need the following prerequisites:
+## Prerequisites
 
 - An active Azure subscription.
 
@@ -46,7 +36,7 @@ You need the following prerequisites:
 
 - Microsoft Visual Studio 2017 Update 9 or later. This article uses [Visual Studio 2017 or Visual Studio 2019](https://www.visualstudio.com/vs/).
 
-- Cloud Explorer component from Visual Studio Installer, which selected by default with Azure Workload.
+- Cloud Explorer component from Visual Studio Installer, which is selected by default with Azure Workload.
 
 ## Update Cloud Explorer to latest version
 

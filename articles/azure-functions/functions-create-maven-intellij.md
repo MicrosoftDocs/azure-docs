@@ -1,10 +1,10 @@
 ---
 title: Create a Java function in Azure Functions using IntelliJ 
 description: Learn how to use IntelliJ to create a simple HTTP-triggered Java function, which you then publish to run in a serverless environment in Azure.
-author: jeffhollan
+author: yucwan
 ms.topic: how-to
 ms.date: 07/01/2018
-ms.author: jehollan
+ms.author: yucwan
 ms.custom: mvc, devcenter, devx-track-java
 ---
 
@@ -24,7 +24,7 @@ This article shows you:
 To create and publish Java functions to Azure using IntelliJ, install the following software:
 
 + An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
-+ An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-jdk-long-term-support) for Java 8
++ An [Azure supported Java Development Kit (JDK)](/azure/developer/java/fundamentals/java-support-on-azure) for Java 8
 + An [IntelliJ IDEA](https://www.jetbrains.com/idea/download/) Ultimate Edition or Community Edition installed
 + [Maven 3.5.0+](https://maven.apache.org/download.cgi)
 + Latest [Function Core Tools](https://github.com/Azure/azure-functions-core-tools)
@@ -51,7 +51,7 @@ To create and publish Java functions to Azure using IntelliJ, install the follow
 
    ![The device login browser][intellij-azure-link-ms-account]
 
-6. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **OK**.
+6. In the **Select Subscriptions** dialog box, select the subscriptions that you want to use, and then click **Select**.
 
    ![The Select Subscriptions dialog box][intellij-azure-login-select-subs]
    
@@ -99,17 +99,9 @@ In this section, you use Azure Toolkit for IntelliJ to create a local Azure Func
 
     ![Deploy project to Azure](media/functions-create-first-java-intellij/deploy-functions-to-azure.png)
 
-1. If you don't have any Function App yet, click *No available function, click to create a new one*.
+1. If you don't have any Function App yet, click *+* in the *Function* line. Type in the function app name and choose proper platform, here we can simply accept default. Click *OK* and the new function app you just created will be automatically selected. Click *Run* to deploy your functions.
 
     ![Create function app in Azure](media/functions-create-first-java-intellij/deploy-functions-create-app.png)
-
-1. Type in the function app name and choose proper subscription/platform/resource group/App Service plan, you can also create resource group/App Service plan here. Then, keep app settings unchanged, click *OK* and wait some minutes for the new function app to be created. After *Creating New Function App...* progress bar disappears.
-
-    ![Deploy function app to Azure create app wizard](media/functions-create-first-java-intellij/deploy-functions-create-app-wizard.png)
-
-1. Select the function app you want to deploy to, (the new function app you just created will be automatically selected). Click *Run* to deploy your functions.
-
-    ![Screenshot shows the Deploy Azure Functions dialog box.](media/functions-create-first-java-intellij/deploy-functions-run.png)
 
     ![Deploy function app to Azure log](media/functions-create-first-java-intellij/deploy-functions-log.png)
 

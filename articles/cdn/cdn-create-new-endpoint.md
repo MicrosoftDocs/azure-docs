@@ -1,22 +1,13 @@
 ---
 title: Quickstart - Create an Azure CDN profile and endpoint
 description: This quickstart shows how to enable Azure CDN by creating a new CDN profile and CDN endpoint.
-services: cdn
-documentationcenter: ''
-author: asudbring
-manager: danielgi
-editor: ''
-
+author: duongau
 ms.assetid: 4ca51224-5423-419b-98cf-89860ef516d2
 ms.service: azure-cdn
-ms.workload: media
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: quickstart
 ms.date: 04/30/2020
-ms.author: allensu
-ms.custom: mvc
-
+ms.author: duau
+ms.custom: mvc, mode-other
 ---
 # Quickstart: Create an Azure CDN profile and endpoint
 
@@ -53,7 +44,7 @@ After you've created a CDN profile, you use it to create an endpoint.
     | **Origin type** | Select **Storage**. | 
     | **Origin hostname** | Select the host name of the Azure Storage account you're using from the drop-down list, such as *cdnstorageacct123.blob.core.windows.net*. |
     | **Origin path** | Leave blank. |
-    | **Origin host header** | Leave the default value (which is the host name for the storage account). |  
+    | **Origin host header** | Leave the default value (which is the Origin hostname). |  
     | **Protocol** | Leave the default **HTTP** and **HTTPS** options selected. |
     | **Origin port** | Leave the default port values. | 
     | **Optimized for** | Leave the default selection, **General web delivery**. |
@@ -66,6 +57,9 @@ After you've created a CDN profile, you use it to create an endpoint.
     
    The time it takes for the endpoint to propagate depends on the pricing tier selected when you created the profile. **Standard Akamai** usually completes within one minute, **Standard Microsoft** in 10 minutes, and **Standard Verizon** and **Premium Verizon** in up to 30 minutes.
 
+> [!NOTE]
+> For *Verizon CDN endpoints*, when an endpoint is **disabled** or **stopped** for any reason, all resources configured through the Verizon supplemental portal will be cleaned up. These configurations can't be restored automatically by restarting the endpoint. You will need to make those configuration changes again.
+
 ## Clean up resources
 
 In the preceding steps, you created a CDN profile and an endpoint in a resource group. Save these resources if you want to go to [Next steps](#next-steps) and learn how to add a custom domain to your endpoint. However, if you don't expect to use these resources in the future, you can delete them by deleting the resource group, thus avoiding additional charges:
@@ -77,7 +71,4 @@ In the preceding steps, you created a CDN profile and an endpoint in a resource 
 ## Next steps
 
 > [!div class="nextstepaction"]
-> [Tutorial: Use CDN to server static content from a web app](cdn-add-to-web-app.md)
-
-> [!div class="nextstepaction"]
-> [Tutorial: Add a custom domain to your Azure CDN endpoint](cdn-map-content-to-custom-domain.md)
+> [Tutorial: Use CDN to serve static content from a web app](cdn-add-to-web-app.md)

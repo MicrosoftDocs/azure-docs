@@ -4,8 +4,7 @@ titleSuffix: Azure Data Science Virtual Machine
 description: Overview of Azure Data Science Virtual Machine - An easy to use virtual machine on the Azure cloud platform with preinstalled and configured tools and libraries for doing data science.
 keywords: data science tools, data science virtual machine, tools for data science, linux data science
 services: machine-learning
-ms.service: machine-learning
-ms.subservice: data-science-vm
+ms.service: data-science-vm
 
 author: vijetajo
 ms.author: vijetaj
@@ -25,7 +24,7 @@ The DSVM is available on:
 
 ## Comparison with Azure Machine Learning
 
-The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-ml.md) (AzureML) is an end-to-end platform that encompasses:
+The DSVM is a customized VM image for Data Science but [Azure Machine Learning](../overview-what-is-azure-machine-learning.md) (AzureML) is an end-to-end platform that encompasses:
 
 + Fully Managed Compute
   + Compute Instances

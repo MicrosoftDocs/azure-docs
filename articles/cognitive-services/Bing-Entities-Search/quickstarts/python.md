@@ -5,13 +5,13 @@ description: Use this quickstart to send a request to the Bing Entity Search RES
 services: cognitive-services
 author: aahill
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: bing-entity-search
 ms.topic: quickstart
 ms.date: 05/08/2020
 ms.author: aahi
-ms.custom: devx-track-python
+ms.devlang: python
+ms.custom: devx-track-python, mode-api
 ---
 
 # Quickstart: Send a search request to the Bing Entity Search REST API using Python
@@ -40,8 +40,8 @@ Although this application is written in Python, the API is a RESTful Web service
     import json
     
     subscriptionKey = 'ENTER YOUR KEY HERE'
-    host = 'api.cognitive.microsoft.com'
-    path = '/bing/v7.0/entities'
+    host = 'api.bing.microsoft.com'
+    path = '/v7.0/search'
     mkt = 'en-US'
     query = 'italian restaurants near me'
     ```

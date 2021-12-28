@@ -26,7 +26,7 @@ A CDN profile is a container for CDN endpoints and specifies a pricing tier.
    
     | Setting  | Value |
     | -------- | ----- |
-    | **Name** | Enter *cdn-profile-123* for your profile name. This name must be globally unique; if it's already in use, enter a different name. |
+    | **Name** | Enter *cdn-profile-123* for your profile name. |
     | **Subscription** | Select an Azure subscription from the drop-down list. |
     | **Resource group** | Select **Create new** and enter *CDNQuickstart-rg* for your resource group name, or select **Use existing** and choose *CDNQuickstart-rg* if you have the group already. | 
     | **Resource group location** | Select a location near you from the drop-down list. |

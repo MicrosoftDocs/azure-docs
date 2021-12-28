@@ -77,7 +77,7 @@ If you need a Windows Server VM, you can create and configure one using a Resour
 
 To create a Windows Server VM then join it to a managed domain, complete the following steps:
 
-1. Browse to the [quickstart template](https://azure.microsoft.com/resources/templates/201-vm-domain-join/). Select the option to **Deploy to Azure**.
+1. Browse to the [quickstart template](https://azure.microsoft.com/resources/templates/vm-domain-join/). Select the option to **Deploy to Azure**.
 1. On the **Custom deployment** page, enter the following information to create and join a Windows Server VM to the managed domain:
 
     | Setting                   | Value |
@@ -110,7 +110,7 @@ If you have an existing VM, or group of VMs, that you wish to join to a managed 
 
 To join an existing Windows Server VM to a managed domain, complete the following steps:
 
-1. Browse to the [quickstart template](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/). Select the option to **Deploy to Azure**.
+1. Browse to the [quickstart template](https://azure.microsoft.com/resources/templates/vm-domain-join-existing/). Select the option to **Deploy to Azure**.
 1. On the **Custom deployment** page, enter the following information to join the VM to the managed domain:
 
     | Setting                   | Value |

@@ -1,7 +1,7 @@
 ---
 title: Desired State Configuration for Azure overview
 description: Learn how to use the Microsoft Azure extension handler for PowerShell Desired State Configuration (DSC). The article includes prerequisites, architecture, and cmdlets.
-services: virtual-machines-windows
+services: virtual-machines
 documentationcenter: ''
 author: mgoedtel
 manager: evansma
@@ -9,22 +9,26 @@ editor: ''
 tags: azure-resource-manager
 keywords: 'dsc'
 ms.assetid: bbacbc93-1e7b-4611-a3ec-e3320641f9ba
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
 ms.subservice: extensions
+ms.collection: windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: na
 ms.date: 07/13/2020
-ms.author: magoedte 
-ms.custom: devx-track-azurecli, devx-track-azurepowershell
+ms.author: magoedte
+ms.custom: devx-track-azurepowershell
 ---
 # Introduction to the Azure Desired State Configuration extension handler
 
 The Azure VM Agent and associated extensions are part of Microsoft Azure infrastructure services. VM extensions are software components that extend VM functionality and simplify various VM management operations.
 
+> [!NOTE]
+> Before you enable the DSC extension, we would like you to know that a newer version of DSC is now available in preview, managed by a feature of Azure Policy named [guest configuration](../../governance/policy/concepts/guest-configuration.md). The guest configuration feature combines features of the Desired State Configuration (DSC) extension handler, Azure Automation State Configuration, and the most commonly requested features from customer feedback. Guest configuration also includes hybrid machine support through [Arc-enabled servers](../../azure-arc/servers/overview.md).
+
 The primary use case for the Azure Desired State Configuration (DSC) extension is to bootstrap a VM to the
 [Azure Automation State Configuration (DSC) service](../../automation/automation-dsc-overview.md).
-The service provides [benefits](/powershell/scripting/dsc/managing-nodes/metaConfig#pull-service)
+The service provides [benefits](/powershell/dsc/managing-nodes/metaConfig#pull-service)
 that include ongoing management of the VM configuration and integration with other operational tools, such as Azure Monitoring.
 Using the extension to register VM's to the service provides a flexible solution that even works across Azure subscriptions.
 
@@ -49,7 +53,7 @@ This guide assumes familiarity with the following concepts:
 
 ## Architecture
 
-The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension accepts a configuration document and a set of parameters. If no file is provided, a [default configuration script](#default-configuration-script) is embedded with the extension. The default configuration script is used only to set metadata in [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig).
+The Azure DSC extension uses the Azure VM Agent framework to deliver, enact, and report on DSC configurations running on Azure VMs. The DSC extension accepts a configuration document and a set of parameters. If no file is provided, a [default configuration script](#default-configuration-script) is embedded with the extension. The default configuration script is used only to set metadata in [Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig).
 
 When the extension is called for the first time, it installs a version of WMF by using the following logic:
 
@@ -61,7 +65,7 @@ Installing WMF requires a restart. After restarting, the extension downloads the
 
 ### Default configuration script
 
-The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/scripting/dsc/managing-nodes/metaConfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/dsc-extension-azure-automation-pullserver/UpdateLCMforAAPull.zip?raw=true).
+The Azure DSC extension includes a default configuration script that's intended to be used when you onboard a VM to the Azure Automation DSC service. The script parameters are aligned with the configurable properties of [Local Configuration Manager](/powershell/dsc/managing-nodes/metaConfig). For script parameters, see [Default configuration script](dsc-template.md#default-configuration-script) in [Desired State Configuration extension with Azure Resource Manager templates](dsc-template.md). For the full script, see the [Azure quickstart template in GitHub](https://github.com/Azure/azure-quickstart-templates/blob/master/demos/azmgmt-demo/nestedtemplates/scripts/UpdateLCMforAAPull.zip).
 
 ## Information for registering with Azure Automation State Configuration (DSC) service
 
@@ -153,7 +157,7 @@ For a virtual machine running Windows:
 az vm extension set \
   --resource-group myResourceGroup \
   --vm-name myVM \
-  --name Microsoft.Powershell.DSC \
+  --name DSC \
   --publisher Microsoft.Powershell \
   --version 2.77 --protected-settings '{}' \
   --settings '{}'
@@ -194,7 +198,7 @@ The portal collects the following input:
 
 - **Data Collection**: Determines if the extension will collect telemetry. For more information, see [Azure DSC extension data collection](https://devblogs.microsoft.com/powershell/azure-dsc-extension-data-collection-2/).
 
-- **Version**: Specifies the version of the DSC extension to install. For information about versions, see [DSC extension version history](/powershell/scripting/dsc/getting-started/azuredscexthistory).
+- **Version**: Specifies the version of the DSC extension to install. For information about versions, see [DSC extension version history](/powershell/dsc/getting-started/azuredscexthistory).
 
 - **Auto Upgrade Minor Version**: This field maps to the **AutoUpdate** switch in the cmdlets and enables the extension to automatically update to the latest version during installation. **Yes** will instruct the extension handler to use the latest available version and **No** will force the **Version** specified to be installed. Selecting neither **Yes** nor **No** is the same as selecting **No**.
 
@@ -204,7 +208,7 @@ Logs for the extension are stored in the following location: `C:\WindowsAzure\Lo
 
 ## Next steps
 
-- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/scripting/dsc/overview/overview).
+- For more information about PowerShell DSC, go to the [PowerShell documentation center](/powershell/dsc/overview/overview).
 - Examine the [Resource Manager template for the DSC extension](dsc-template.md).
 - For more functionality that you can manage by using PowerShell DSC, and for more DSC resources, browse the [PowerShell gallery](https://www.powershellgallery.com/packages?q=DscResource&x=0&y=0).
 - For details about passing sensitive parameters into configurations, see [Manage credentials securely with the DSC extension handler](dsc-credentials.md).

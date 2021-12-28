@@ -3,13 +3,12 @@ title: Management API reference for Azure SQL Managed Instance
 description: Learn about creating and configuring managed instances of Azure SQL Managed Instance.
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
-ms.custom: devx-track-azurecli
+ms.subservice: development
 ms.devlang: 
 ms.topic: reference
-author: stevestein
-ms.author: sstein
-ms.reviewer:
+author: urosmil
+ms.author: urmilano
+ms.reviewer: mathoma
 ms.date: 03/12/2019
 ---
 # Managed API reference for Azure SQL Managed Instance
@@ -54,18 +53,18 @@ To create and configure managed instances with [Azure CLI](/cli/azure), use the 
 
 | Cmdlet | Description |
 | --- | --- |
-|[az sql mi create](/cli/azure/sql/mi#az-sql-mi-create) |Creates a managed instance.|
-|[az sql mi list](/cli/azure/sql/mi#az-sql-mi-list)|Lists available managed instances.|
-|[az sql mi show](/cli/azure/sql/mi#az-sql-mi-show)|Gets the details for a managed instance.|
-|[az sql mi update](/cli/azure/sql/mi#az-sql-mi-update)|Updates a managed instance.|
-|[az sql mi delete](/cli/azure/sql/mi#az-sql-mi-delete)|Removes a managed instance.|
+|[az sql mi create](/cli/azure/sql/mi#az_sql_mi_create) |Creates a managed instance.|
+|[az sql mi list](/cli/azure/sql/mi#az_sql_mi_list)|Lists available managed instances.|
+|[az sql mi show](/cli/azure/sql/mi#az_sql_mi_show)|Gets the details for a managed instance.|
+|[az sql mi update](/cli/azure/sql/mi#az_sql_mi_update)|Updates a managed instance.|
+|[az sql mi delete](/cli/azure/sql/mi#az_sql_mi_delete)|Removes a managed instance.|
 |[az sql mi op list](/cli/azure/sql/mi/op#az_sql_mi_op_list)|Gets a list of management operations performed on the managed instance.|
 |[az sql mi op show](/cli/azure/sql/mi/op#az_sql_mi_op_show)|Gets the specific management operation performed on the managed instance.|
 |[az sql mi op cancel](/cli/azure/sql/mi/op#az_sql_mi_op_cancel)|Cancels the specific management operation performed on the managed instance.|
-|[az sql midb create](/cli/azure/sql/midb#az-sql-midb-create) |Creates a managed database.|
-|[az sql midb list](/cli/azure/sql/midb#az-sql-midb-list)|Lists available managed databases.|
-|[az sql midb restore](/cli/azure/sql/midb#az-sql-midb-restore)|Restores a managed database.|
-|[az sql midb delete](/cli/azure/sql/midb#az-sql-midb-delete)|Removes a managed database.|
+|[az sql midb create](/cli/azure/sql/midb#az_sql_midb_create) |Creates a managed database.|
+|[az sql midb list](/cli/azure/sql/midb#az_sql_midb_list)|Lists available managed databases.|
+|[az sql midb restore](/cli/azure/sql/midb#az_sql_midb_restore)|Restores a managed database.|
+|[az sql midb delete](/cli/azure/sql/midb#az_sql_midb_delete)|Removes a managed database.|
 
 ## Transact-SQL: Create and configure instance databases
 

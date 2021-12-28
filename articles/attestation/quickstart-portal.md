@@ -86,7 +86,7 @@ Follow the steps in this section to view, add, and delete policy signer certific
 1. Go to the Azure portal menu or the home page and select **All resources**.
 1. In the filter box, enter the attestation provider name.
 1. Select the attestation provider and go to the overview page.
-1. Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane.
+1. Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane. If you see a prompt to select certificate for authentication,  please click cancel to proceed.
 1. Select **Download policy signer certificates**. The button will be disabled for attestation providers created without the policy signing requirement.
 1. The downloaded text file will have all certificates in a JWS format.
 1. Verify the certificate count and the downloaded certificates.
@@ -96,7 +96,7 @@ Follow the steps in this section to view, add, and delete policy signer certific
 1.	Go to the Azure portal menu or the home page and select **All resources**.
 1.	In the filter box, enter the attestation provider name.
 1.	Select the attestation provider and go to the overview page.
-1.	Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane.
+1.	Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane. If you see a prompt to select certificate for authentication,  please click cancel to proceed.
 1.	Select **Add** on the upper menu. The button will be disabled for attestation providers created without the policy signing requirement.
 1.	Upload the policy signer certificate file and select **Add**. [See examples of policy signer certificates](./policy-signer-examples.md).
 
@@ -105,7 +105,7 @@ Follow the steps in this section to view, add, and delete policy signer certific
 1.	Go to the Azure portal menu or the home page and select **All resources**.
 1.	In the filter box, enter the attestation provider name.
 1.	Select the attestation provider and go to the overview page.
-1.	Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane.
+1.	Select **Policy signer certificates** on the resource menu on the left side of the window or on the lower pane. If you see a prompt to select certificate for authentication,  please click cancel to proceed.
 1.	Select **Delete** on the upper menu. The button will be disabled for attestation providers created without the policy signing requirement.
 1.	Upload the policy signer certificate file and select **Delete**. [See examples of policy signer certificates](./policy-signer-examples.md). 
 
@@ -118,7 +118,7 @@ This section describes how to view an attestation policy and how to configure po
 1.	Go to the Azure portal menu or the home page and select **All resources**.
 1.	In the filter box, enter the attestation provider name.
 1.	Select the attestation provider and go to the overview page.
-1.	Select **Policy** on the resource menu on the left side of the window or on the lower pane.
+1.	Select **Policy** on the resource menu on the left side of the window or on the lower pane. If you see a prompt to select certificate for authentication, please click cancel to proceed.
 1.	Select the preferred **Attestation Type** and view the **Current policy**.
 
 ### Configure an attestation policy
@@ -128,7 +128,7 @@ Follow these steps to upload a policy in JWT or text format if the attestation p
 1. Go to the Azure portal menu or the home page and select **All resources**.
 1. In the filter box, enter the attestation provider name.
 1. Select the attestation provider and go to the overview page.
-1. Select **Policy** on the resource menu on the left side of the window or on the lower pane.
+1. Select **Policy** on the resource menu on the left side of the window or on the lower pane. If you see a prompt to select certificate for authentication, please click cancel to proceed.
 1. Select **Configure** on the upper menu.
 1. Select **Policy Format** as **JWT** or as **Text**.
 
@@ -140,6 +140,7 @@ Follow these steps to upload a policy in JWT or text format if the attestation p
    For the file upload option, the policy preview is shown in text format and isn't editable.
 
 1. Select **Refresh** on the upper menu to view the configured policy.
+
 
 If the attestation provider was created with a policy signing requirement,  follow these steps to upload a policy in JWT format.
 

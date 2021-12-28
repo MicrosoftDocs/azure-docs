@@ -59,12 +59,12 @@ The following areas of Application Insights can be helpful when evaluating the b
 | ---- | ----------- |
 | **[Failures](../azure-monitor/app/asp-net-exceptions.md)** |  Create charts and alerts based on function failures and server exceptions. The **Operation Name** is the function name. Failures in dependencies aren't shown unless you implement custom telemetry for dependencies. |
 | **[Performance](../azure-monitor/app/performance-counters.md)** | Analyze performance issues by viewing resource utilization and throughput per **Cloud role instances**. This performance data can be useful for debugging scenarios where functions are bogging down your underlying resources. |
-| **[Metrics](../azure-monitor/platform/metrics-charts.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
+| **[Metrics](../azure-monitor/essentials/metrics-charts.md)** | Create charts and alerts that are based on metrics. Metrics include the number of function invocations, execution time, and success rates. |
 | **[Live Metrics](../azure-monitor/app/live-stream.md)** | View metrics data as it's created in near real time. |
 
 ## Query telemetry data
 
-[Application Insights Analytics](../azure-monitor/log-query/log-query-overview.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
+[Application Insights Analytics](../azure-monitor/logs/log-query-overview.md) gives you access to all telemetry data in the form of tables in a database. Analytics provides a query language for extracting, manipulating, and visualizing the data. 
 
 Choose **Logs** to explore or query for logged events.
 
@@ -135,22 +135,9 @@ The following telemetry queries are specific to metrics that impact the cost of 
 
 [!INCLUDE [functions-consumption-metrics-queries](../../includes/functions-consumption-metrics-queries.md)]
 
-## Azure Monitor metrics
-
-In addition to telemetry data collected by Application Insights, you can also get data about how the function app is running from [Azure Monitor Metrics](../azure-monitor/platform/data-platform-metrics.md). Along with the usual [metrics available to App Service apps](../app-service/web-sites-monitor.md#understand-metrics), there are two metrics specific to Functions that are of interest:
-
-| Metric | Description |
-| ---- | ---- |
-| **FunctionExecutionCount** | Function execution count indicates the number of times your function app has executed. This correlates to the number of times a function runs in your app. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux. |
-| **FunctionExecutionUnits** | Function execution units are a combination of execution time and your memory usage.  Memory data isn't a metric currently available through Azure Monitor. However, if you want to optimize the memory usage of your app, can use the performance counter data collected by Application Insights. This metric isn't currently supported for Premium and Dedicated (App Service) plans running on Linux.|
-
-To learn more about calculating costs for a Consumption plan using Application Insights data, see [Estimating Consumption plan costs](functions-consumption-costs.md). To learn more about using Monitor Explorer to view metrics, see [Getting started with Azure Metrics Explorer](../azure-monitor/platform/metrics-getting-started.md).
-
-
 ## Next steps
 
 Learn more about monitoring Azure Functions:
 
 + [Monitor Azure Functions](functions-monitoring.md)
 + [How to configure monitoring for Azure Functions](configure-monitoring.md)
-

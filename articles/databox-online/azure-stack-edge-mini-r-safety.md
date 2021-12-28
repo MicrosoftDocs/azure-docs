@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/08/2021
+ms.date: 02/12/2021
 ms.author: alkohli
 ---
 
@@ -157,7 +157,6 @@ Operation in the band 5150–5250 MHz is only for indoor use to reduce the poten
 
 ![Regulatory information warning - indoor use](./media/azure-stack-edge-mini-r-safety/regulatory-information-indoor-use-only.png)
 
-
 Users are advised that high-power radars are allocated as primary users (priority users) of the bands 5250–5350 MHz and 5650–5850 MHz, and these radars could cause interference and/or damage to LE-LAN devices.
 
 This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instructions, may cause harmful interference to radio communications. However, there is no guarantee that interference will not occur in a particular installation.
@@ -201,12 +200,13 @@ A table with the Specific Absorption Rate (SAR) averaged over 1 g for each produ
 
 #### EUROPEAN UNION:
 
-Request a copy of the EU Declaration of Conformity for this equipment.
+Request a copy of the EU Declaration of Conformity for this equipment. Send email to [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
 
 The  Netgear A6150 WiFi USB Adapter provided with this equipment is in compliance with Directive 2014/53/EU and can also be provided on request.
 
-> ![Warning Icon 13](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)
-> This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
+![Warning Icon 13](./media/azure-stack-edge-mini-r-safety/icon-safety-warning.png)  **WARNING:**
+
+This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
 
 Disposal of waste batteries and electrical and electronic equipment:
 

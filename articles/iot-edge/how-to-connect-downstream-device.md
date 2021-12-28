@@ -2,7 +2,7 @@
 title: Connect downstream devices - Azure IoT Edge | Microsoft Docs
 description: How to configure downstream or leaf devices to connect to Azure IoT Edge gateway devices. 
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 10/15/2020
 ms.topic: conceptual
@@ -12,6 +12,8 @@ ms.custom:  [amqp, mqtt, devx-track-js]
 ---
 
 # Connect a downstream device to an Azure IoT Edge gateway
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 This article provides instructions for establishing a trusted connection between downstream devices and IoT Edge transparent gateways. In a transparent gateway scenario, one or more devices can pass their messages through a single gateway device that maintains the connection to IoT Hub.
 
@@ -36,7 +38,19 @@ In this article, the terms *gateway* and *IoT Edge gateway* refer to an IoT Edge
 
 ## Prepare a downstream device
 
+<!-- 1.1 -->
+:::moniker range="iotedge-2018-06"
 A downstream device can be any application or platform that has an identity created with the Azure IoT Hub cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself. However, another IoT Edge device cannot be downstream of an IoT Edge gateway.
+:::moniker-end
+<!-- end 1.1 -->
+
+<!-- 1.2 -->
+:::moniker range=">=iotedge-2020-11"
+A downstream device can be any application or platform that has an identity created with the Azure IoT Hub cloud service. In many cases, these applications use the [Azure IoT device SDK](../iot-hub/iot-hub-devguide-sdks.md). A downstream device could even be an application running on the IoT Edge gateway device itself.
+
+This article provides the steps for connecting an IoT device as a downstream device. If you have an IoT Edge device as a downstream device, see [Connect a downstream IoT Edge device to an Azure IoT Edge gateway](how-to-connect-downstream-iot-edge-device.md).
+:::moniker-end
+<!-- end 1.2 -->
 
 >[!NOTE]
 >IoT devices registered with IoT Hub can use [module twins](../iot-hub/iot-hub-devguide-module-twins.md) to isolate different processes, hardware, or functions on a single device. IoT Edge gateways support downstream module connections using symmetric key authentication but not X.509 certificate authentication.
@@ -92,7 +106,7 @@ You should see a message that says, "Updating certificates in /etc/ssl/certs... 
 
 The following steps are an example of how to install a CA certificate on a Windows host. This example assumes that you're using the **azure-iot-test-only.root.ca.cert.pem** certificate from the prerequisites articles, and that you've copied the certificate into a location on the downstream device.
 
-You can install certificates using PowerShell's [Import-Certificate](/powershell/module/pkiclient/import-certificate) as an administrator:
+You can install certificates using PowerShell's [Import-Certificate](/powershell/module/pki/import-certificate) as an administrator:
 
 ```powershell
 import-certificate  <file path>\azure-iot-test-only.root.ca.cert.pem -certstorelocation cert:\LocalMachine\root
@@ -125,7 +139,7 @@ Have two things ready before using the application-level samples:
 
 This section provides a sample application to connect an Azure IoT NodeJS device client to an IoT Edge gateway. For NodeJS applications, you must install the root CA certificate at the application level as shown here. NodeJS applications don't use the system's certificate store.
 
-1. Get the sample for **edge_downstream_device.js** from the [Azure IoT device SDK for Node.js samples repo](https://github.com/Azure/azure-iot-sdk-node/tree/master/device/samples).
+1. Get the sample for **edge_downstream_device.js** from the [Azure IoT device SDK for Node.js samples repo](https://github.com/Azure/azure-iot-sdk-node/tree/main/device/samples).
 2. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file.
 3. In the edge_downstream_device.js file, update the **connectionString** and **edge_ca_cert_path** variables.
 4. Refer to the SDK documentation for instructions on how to run the sample on your device.
@@ -176,7 +190,7 @@ On Windows hosts, if you're not using OpenSSL or another TLS library, the SDK de
 
 This section introduces a sample application to connect an Azure IoT Java device client to an IoT Edge gateway.
 
-1. Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/master/device/iot-device-samples).
+1. Get the sample for **Send-event** from the [Azure IoT device SDK for Java samples](https://github.com/Azure/azure-iot-sdk-java/tree/main/device/iot-device-samples).
 2. Make sure that you have all the prerequisites to run the sample by reviewing the **readme.md** file.
 3. Refer to the SDK documentation for instructions on how to run the sample on your device.
 
@@ -184,7 +198,7 @@ This section introduces a sample application to connect an Azure IoT Java device
 
 This section introduces a sample application to connect an Azure IoT Python device client to an IoT Edge gateway.
 
-1. Get the sample for **send_message_downstream** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples/async-edge-scenarios).
+1. Get the sample for **send_message_downstream** from the [Azure IoT device SDK for Python samples](https://github.com/Azure/azure-iot-sdk-python/tree/main/azure-iot-device/samples/async-edge-scenarios).
 2. Set the `IOTHUB_DEVICE_CONNECTION_STRING` and `IOTEDGE_ROOT_CA_CERT_PATH` environment variables as specified in the Python script comments.
 3. Refer to the SDK documentation for any additional instructions on how to run the sample on your device.
 
@@ -206,7 +220,7 @@ The output of this command may be long, including information about all the cert
 
 If your leaf device has intermittent connection to its gateway device, try the following steps for resolution.
 
-1. Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config.yaml file on the gateway device?
+1. Is the gateway hostname in the connection string the same as the hostname value in the IoT Edge config file on the gateway device?
 2. Is the gateway hostname resolvable to an IP Address? You can resolve intermittent connections either by using DNS or by adding a host file entry on the leaf device.
 3. Are communication ports open in your firewall? Communication based on the protocol used (MQTTS:8883/AMQPS:5671/HTTPS:433) must be possible between downstream device and the transparent IoT Edge.
 

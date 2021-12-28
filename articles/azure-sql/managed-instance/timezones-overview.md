@@ -3,13 +3,13 @@ title: Azure SQL Managed Instance time zones
 description: Learn about the time zone specifics of Azure SQL Managed Instance
 services: sql-database
 ms.service: sql-managed-instance
-ms.subservice: operations
+ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: reference
 author: MladjoA
 ms.author: mlandzic
-ms.reviewer: 
+ms.reviewer: mathoma
 ms.date: 10/12/2020
 ---
 # Time zones in Azure SQL Managed Instance
@@ -45,7 +45,7 @@ When you enter parameters for a new instance, select a time zone from the list o
 
 ### Azure Resource Manager template
 
-Specify the timezoneId property in your [Resource Manager template](./scripts/create-powershell-azure-resource-manager-template.md) to set the time zone during instance creation.
+Specify the timezoneId property in your [Resource Manager template](./create-template-quickstart.md) to set the time zone during instance creation.
 
 ```json
 "properties": {

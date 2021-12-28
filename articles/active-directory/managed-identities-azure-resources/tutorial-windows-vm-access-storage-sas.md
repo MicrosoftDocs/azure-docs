@@ -13,9 +13,10 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/15/2020
+ms.date: 06/24/2021
 ms.author: barclayn
-ms.collection: M365-identity-device-management
+ms.collection: M365-identity-device-management 
+ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
 
 # Tutorial: Use a Windows VM system-assigned managed identity to access Azure Storage via a SAS credential
@@ -35,7 +36,7 @@ A Service SAS provides the ability to grant limited access to objects in a stora
 
 - An understanding of Managed identities. If you're not familiar with the managed identities for Azure resources feature, see this [overview](overview.md). 
 - An Azure account, [sign up for a free account](https://azure.microsoft.com/free/).
-- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Use Role-Based Access Control to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
+- "Owner" permissions at the appropriate scope (your subscription or resource group) to perform required resource creation and role management steps. If you need assistance with role assignment, see [Assign Azure roles to manage access to your Azure subscription resources](../../role-based-access-control/role-assignments-portal.md).
 - You also need a Windows Virtual machine that has system assigned managed identities enabled.
   - If you need to create  a virtual machine for this tutorial, you can follow the article titled [Create a virtual machine with system-assigned identity enabled](./qs-configure-portal-windows-vm.md#system-assigned-managed-identity)
 
@@ -70,14 +71,18 @@ Later we will upload and download a file to the new storage account. Because fil
 Azure Storage does not natively support Azure AD authentication.  However, you can use a managed identity to retrieve a storage SAS from Resource Manager, then use the SAS to access storage.  In this step, you grant your VM's system-assigned managed identity access to your storage account SAS.   
 
 1. Navigate back to your newly created storage account.   
-2. Click the **Access control (IAM)** link in the left panel.  
-3. Click **+ Add role assignment** on top of the page to add a new role assignment for your VM
-4. Set **Role** to "Storage Account Contributor", on the right side of the page.  
-5. In the next dropdown, set **Assign access to** the resource "Virtual Machine".  
-6. Next, ensure the proper subscription is listed in **Subscription** dropdown, then set **Resource Group** to "All resource groups".  
-7. Finally, under **Select** choose your Windows Virtual Machine in the dropdown, then click **Save**. 
+1. Click **Access control (IAM)**.
+1. Click **Add** > **Add role assignment** to open the Add role assignment page.
+1. Assign the following role. For detailed steps, see [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+    
+    | Setting | Value |
+    | --- | --- |
+    | Role | Storage Account Contributor |
+    | Assign access to | Managed identity |
+    | System-assigned | Virtual Machine |
+    | Select | &lt;your Windows virtual machine&gt; |
 
-    ![Alt image text](./media/msi-tutorial-linux-vm-access-storage/msi-storage-role-sas.png)
+    ![Add role assignment page in Azure portal.](../../../includes/role-based-access-control/media/add-role-assignment-page.png)
 
 ## Get an access token using the VM's identity and use it to call Azure Resource Manager 
 

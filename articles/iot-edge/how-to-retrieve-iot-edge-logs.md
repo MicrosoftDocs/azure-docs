@@ -1,9 +1,9 @@
 ---
 title: Retrieve IoT Edge logs - Azure IoT Edge
 description: IoT Edge module log retrieval and upload to Azure Blob Storage. 
-author: v-tcassi
-manager: philmea
-ms.author: v-tcassi
+author: kgremban
+
+ms.author: kgremban
 ms.date: 11/12/2020
 ms.topic: conceptual
 ms.reviewer: veyalla
@@ -12,6 +12,8 @@ ms.custom: devx-track-azurecli
 services: iot-edge
 ---
 # Retrieve logs from IoT Edge deployments
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Retrieve logs from your IoT Edge deployments without needing physical or SSH access to the device by using the direct methods included in the IoT Edge agent module. Direct methods are implemented on the device, and then can be invoked from the cloud. The IoT Edge agent includes direct methods that help you monitor and manage your IoT Edge devices remotely. The direct methods discussed in this article are generally available with the 1.0.10 release.
 
@@ -27,13 +29,27 @@ While not required, for best compatibility with this feature, the recommended lo
 <{Log Level}> {Timestamp} {Message Text}
 ```
 
-`{Log Level}` should follow the [Syslog severity level format](https://wikipedia.org/wiki/Syslog#Severity_level) and `{Timestamp}` should be formatted as `yyyy-MM-dd hh:mm:ss.fff zzz`.
+`{Timestamp}` should be formatted as `yyyy-MM-dd HH:mm:ss.fff zzz`, and `{Log Level}` should follow the table below, which derives its severity levels from the [Severity code in the Syslog standard](https://wikipedia.org/wiki/Syslog#Severity_level).
+
+| Value | Severity |
+|-|-|
+| 0 | Emergency |
+| 1 | Alert |
+| 2 | Critical |
+| 3 | Error |
+| 4 | Warning |
+| 5 | Notice |
+| 6 | Informational |
+| 7 | Debug |
 
 The [Logger class in IoT Edge](https://github.com/Azure/iotedge/blob/master/edge-util/src/Microsoft.Azure.Devices.Edge.Util/Logger.cs) serves as a canonical implementation.
 
 ## Retrieve module logs
 
 Use the **GetModuleLogs** direct method to retrieve the logs of an IoT Edge module.
+
+>[!TIP]
+>The IoT Edge troubleshooting page in the Azure portal provides a simplified experience for viewing module logs. For more information, see [Monitor and troubleshoot IoT Edge devices from the Azure portal](troubleshoot-in-portal.md).
 
 This method accepts a JSON payload with the following schema:
 
@@ -191,7 +207,7 @@ For example:
 The following invocation uploads the last 100 log lines from all modules, in compressed JSON format:
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",
@@ -213,7 +229,7 @@ az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d 
 The following invocation uploads the last 100 log lines from edgeAgent and edgeHub with the last 1000 log lines from tempSensor module in uncompressed text format:
 
 ```azurecli
-az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m \$edgeAgent --method-payload \
+az iot hub invoke-module-method --method-name UploadModuleLogs -n <hub name> -d <device id> -m '$edgeAgent' --method-payload \
 '
     {
         "schemaVersion": "1.0",
@@ -364,7 +380,7 @@ A successful request to upload logs returns a **"status": 200** followed by a pa
 
 | Name | Type | Description |
 |-|-|-|
-| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, or `Unknown`. |
+| status | string | One of `NotStarted`, `Running`, `Completed`, `Failed`, 'Cancelled', or `Unknown`. |
 | message | string | Message if error, empty string otherwise. |
 | correlationId | string   | ID to query to status of the upload request. |
 

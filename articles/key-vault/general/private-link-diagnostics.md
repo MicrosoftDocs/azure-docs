@@ -274,7 +274,7 @@ For the key vault name resolution to work, there must be an `A` record with the 
 Also, the value of the `A` record (the IP address) must be [the key vault private IP address](#find-the-key-vault-private-ip-address-in-the-virtual-network). If you find the `A` record but it contains the wrong IP address, you must remove the wrong IP address and add a new one. It's recommended that you remove the entire `A` record and add a new one.
 
 >[!NOTE]
-> Whenever you remove or modify an `A` record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not be expired yet. It is recommended that you always specify a TTL value no smaller than 60 seconds (one minute) and no bigger than 600 seconds (10 minutes). If you specify a value that is too large, your clients may take too long to recover from outages.
+> Whenever you remove or modify an `A` record, the machine may still resolve to the old IP address because the TTL (Time To Live) value might not be expired yet. It is recommended that you always specify a TTL value no smaller than 10 seconds and no bigger than 600 seconds (10 minutes). If you specify a value that is too large, your clients may take too long to recover from outages.
 
 ### DNS resolution for more than one Virtual Network
 

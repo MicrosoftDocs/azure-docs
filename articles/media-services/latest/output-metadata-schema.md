@@ -48,8 +48,8 @@ Each physical AssetFile can contain in it zero or more videos tracks interleaved
 | Name | Description |
 | --- | --- |
 | **Id**<br /> Required |Zero-based index of this video track. **Note:**  This **Id** is not necessarily the TrackID as used in an MP4 file. <br /><br />Example: `"Id": 1`|
-| **FourCC**<br />Required | Video codec FourCC code that is reported by ffmpeg.  <br /><br />Example: `"FourCC": "avc1"`|
-| **Profile** |H264 profile (only applicable to H264 codec).  <br /><br />Example: `"Profile": "High"` |
+| **FourCC**<br />Required | Video codec FourCC code that is reported by ffmpeg.  <br /><br />Example: `"FourCC": "avc1" | "hev1" | "hvc1"`|
+| **Profile** |H264 profile (only applicable to H264 codec)  <br /><br />Example: `"Profile": "High"` |
 | **Level** |H264 level (only applicable to H264 codec).  <br /><br />Example: `"Level": "3.2"`|
 | **Width**<br />Required |Encoded video width in pixels.  <br /><br />Example: `"Width": "1280"`|
 | **Height**<br />Required |Encoded video height in pixels.  <br /><br />Example: `"Height": "720"`|

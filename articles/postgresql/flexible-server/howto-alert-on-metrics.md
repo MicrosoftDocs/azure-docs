@@ -1,17 +1,16 @@
 ---
 title: Configure alerts - Azure portal - Azure Database for PostgreSQL - Flexible Server
 description: This article describes how to configure and access metric alerts for Azure Database for PostgreSQL - Flexible Server from the Azure portal.
-author: lfittl-msft
-ms.author: lufittl
+author: sunilagarwal
+ms.author: sunila
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 09/22/2020
+ms.date: 11/30/2021
 ---
 
 # Use the Azure portal to set up alerts on metrics for Azure Database for PostgreSQL - Flexible Server
 
-> [!IMPORTANT]
-> Azure Database for PostgreSQL - Flexible Server is in preview
+
 
 This article shows you how to set up Azure Database for PostgreSQL alerts using the Azure portal. You can receive an alert based on monitoring metrics for your Azure services.
 
@@ -25,8 +24,8 @@ You can configure an alert to do the following actions when it triggers:
 
 You can configure and get information about alert rules using:
 
-* [Azure portal](../../azure-monitor/platform/alerts-metric.md#create-with-azure-portal)
-* [Azure CLI](../../azure-monitor/platform/alerts-metric.md#with-azure-cli)
+* [Azure portal](../../azure-monitor/alerts/alerts-metric.md#create-with-azure-portal)
+* [Azure CLI](../../azure-monitor/alerts/alerts-metric.md#with-azure-cli)
 * [Azure Monitor REST API](/rest/api/monitor/metricalerts)
 
 ## Create an alert rule on a metric from the Azure portal
@@ -87,5 +86,5 @@ Once you have created an alert, you can select it and do the following actions:
 
 ## Next steps
 
-* Learn more about [configuring webhooks in alerts](../../azure-monitor/platform/alerts-webhooks.md).
-* Get an [overview of metrics collection](../../azure-monitor/platform/data-platform.md) to make sure your service is available and responsive.
+* Learn more about [configuring webhooks in alerts](../../azure-monitor/alerts/alerts-webhooks.md).
+* Get an [overview of metrics collection](../../azure-monitor/data-platform.md) to make sure your service is available and responsive.

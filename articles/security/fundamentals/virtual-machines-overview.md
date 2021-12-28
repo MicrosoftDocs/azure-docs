@@ -47,11 +47,11 @@ Learn more about [Microsoft Antimalware for Azure](antimalware.md) and the core 
 Learn more about antimalware software to help protect your virtual machines:
 
 * [Deploying Antimalware Solutions on Azure Virtual Machines](https://azure.microsoft.com/blog/deploying-antimalware-solutions-on-azure-virtual-machines/)
-* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](../../virtual-machines/extensions/trend.md)
+* [How to install and configure Trend Micro Deep Security as a service on a Windows VM](/previous-versions/azure/virtual-machines/extensions/trend)
 * [How to install and configure Symantec Endpoint Protection on a Windows VM](../../virtual-machines/extensions/symantec.md)
 * [Security solutions in the Azure Marketplace](https://azure.microsoft.com/marketplace/?term=security)
 
-For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](/windows/security/threat-protection/windows-defender-atp/windows-defender-advanced-threat-protection). With Windows Defender ATP, you get:
+For even more powerful protection, consider using [Windows Defender Advanced Threat Protection](/mem/configmgr/protect/deploy-use/defender-advanced-threat-protection). With Windows Defender ATP, you get:
 
 * [Attack surface reduction](/windows/security/threat-protection/windows-defender-atp/overview-attack-surface-reduction)  
 * [Next generation protection](/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)  
@@ -65,7 +65,7 @@ For even more powerful protection, consider using [Windows Defender Advanced Thr
 Learn more:
 
 * [Get Started with WDATP](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
-* [Overview of WDATP capabilities](/windows/security/threat-protection/windows-defender-atp/overview)  
+* [Overview of WDATP capabilities](https://techcommunity.microsoft.com/t5/microsoft-defender-for-endpoint/what-s-new-in-the-wdatp-portal/ba-p/200828)  
 
 ## Hardware security module
 
@@ -96,7 +96,7 @@ Azure Backup is a scalable solution that helps protect your application data wit
 Learn more:
 
 * [What is Azure Backup?](../../backup/backup-overview.md)
-* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.md)
+* [Azure Backup service FAQ](../../backup/backup-azure-backup-faq.yml)
 
 ## Azure Site Recovery
 
@@ -130,18 +130,18 @@ Learn more:
 
 ## Security policy management and reporting
 
-Azure Security Center helps you prevent, detect, and respond to threats. Security Center gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
+Microsoft Defender for Cloud helps you prevent, detect, and respond to threats. Defender for Cloud gives you increased visibility into, and control over, the security of your Azure resources. It provides integrated security monitoring and policy management across your Azure subscriptions. It helps detect threats that might otherwise go unnoticed, and works with a broad ecosystem of security solutions.
 
-Security Center helps you optimize and monitor the security of your virtual machines by:
+Defender for Cloud helps you optimize and monitor the security of your virtual machines by:
 
 * Providing [security recommendations](../../security-center/security-center-recommendations.md) for the virtual machines. Example recommendations include: apply system updates, configure ACLs endpoints, enable antimalware, enable network security groups, and apply disk encryption.
 * Monitoring the state of your virtual machines.
 
 Learn more:
 
-* [Introduction to Azure Security Center](../../security-center/security-center-introduction.md)
-* [Azure Security Center frequently asked questions](../../security-center/faq-general.md)
-* [Azure Security Center planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
+* [Introduction to Microsoft Defender for Cloud](../../security-center/security-center-introduction.md)
+* [Microsoft Defender for Cloud frequently asked questions](../../security-center/faq-general.yml)
+* [Microsoft Defender for Cloud planning and operations](../../security-center/security-center-planning-and-operations-guide.md)
 
 ## Compliance
 

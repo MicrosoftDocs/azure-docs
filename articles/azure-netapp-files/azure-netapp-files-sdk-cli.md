@@ -3,7 +3,7 @@ title: Azure NetApp Files SDKs and CLI tools  | Microsoft Docs
 description: "Learn about supported SDKs for Azure NetApp Files and their published locations in GitHub, and about supported command-line tools: Azure CLI and PowerShell."
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 10/21/2020
-ms.author: b-juche
+ms.author: anfdocs
 ---
 # Azure NetApp Files SDKs, CLI tools, and ARM templates
 
@@ -39,8 +39,8 @@ The table below lists the supported CLI tools and their command reference.
 
 |    Tool    |    Command reference    |
 |------------------|--------------------------------------------|
-|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles?view=azure-cli-latest&preserve-view=true)    |
-|    PowerShell   |    [Azure PowerShell for Azure NetApp Files](/powershell/module/az.netappfiles/?view=azps-2.5.0#netapp_files&preserve-view=true)    |
+|    Azure CLI  |    [az netappfiles](/cli/azure/netappfiles)    |
+|    PowerShell   |    [Azure PowerShell for Azure NetApp Files](/powershell/module/az.netappfiles/#netapp_files&preserve-view=true)    |
 
 ## Code samples
 

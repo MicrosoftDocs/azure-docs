@@ -1,26 +1,30 @@
 ---
 title: Human-labeled transcriptions guidelines - Speech service
 titleSuffix: Azure Cognitive Services
-description: To improve speech recognition accuracy, such as when words are deleted or incorrectly substituted, you can use human-labeled transcriptions along with your audio data. Human-labeled transcriptions are word-by-word, verbatim transcriptions of an audio file.
+description: You use human-labeled transcriptions with your audio data to improve speech recognition accuracy. This is especially helpful when words are deleted or incorrectly replaced. 
 services: cognitive-services
-author: erhopf
+author: eric-urban
 manager: nitinme
-
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 09/06/2019
-ms.author: erhopf
+ms.date: 02/12/2021
+ms.author: eur
 ---
 
 # How to create human-labeled transcriptions
 
-If you're looking to improve recognition accuracy, especially issues that are caused when words are deleted or incorrectly substituted, you'll want to use human-labeled transcriptions along with your audio data. What are human-labeled transcriptions? That's easy, they're word-by-word, verbatim transcriptions of an audio file.
+Human-labeled transcriptions are word-by-word transcriptions of an audio file. You use human-labeled transcriptions to improve recognition accuracy, especially when words are deleted or incorrectly replaced.
 
-A large sample of transcription data is required to improve recognition, we suggest providing between 10 and 20 hours of transcription data. On this page, we'll review guidelines designed to help you create high-quality transcriptions. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
+A large sample of transcription data is required to improve recognition. We suggest providing between 1 and 20 hours of transcription data. The Speech service will use up to 20 hours of audio for training. On this page, we'll review guidelines designed to help you create high-quality transcriptions. This guide is broken up by locale, with sections for US English, Mandarin Chinese, and German.
 
 > [!NOTE]
-> Not all base models support customization with audio files. If a base model does not support it, training will just use the text of the transcriptions in the same way as related text is used.
+> Not all base models support customization with audio files. If a base model does not support it, training will just use the text of the transcriptions in the same way as related text is used. See [Language support](language-support.md#speech-to-text) for a list of base models that support training with audio data.
+
+> [!NOTE]
+> In cases when you change the base model used for training, and you have audio in the training dataset, *always* check whether the new selected base model [supports training with audio data](language-support.md#speech-to-text). If the previously used base model did not support training with audio data, and the training dataset contains audio, training time with the new base model will **drastically** increase, and may easily go from several hours to several days and more. This is especially true if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
+>
+> If you face the issue described in the paragraph above, you can quickly decrease the training time by reducing the amount of audio in the dataset or removing it completely and leaving only the text. The latter option is highly recommended if your Speech service subscription is **not** in a [region with the dedicated hardware](custom-speech-overview.md#set-up-your-azure-account) for training.
 
 ## US English (en-US)
 
@@ -32,7 +36,7 @@ Here are a few examples:
 | ------------------- | ------------ | ----- |
 | “Hello world” | "Hello world" | The opening and closing quotations marks have been substituted with appropriate ASCII characters. |
 | John’s day | John's day | The apostrophe has been substituted with the appropriate ASCII character. |
-| it was good—no, it was great! | it was good--no, it was great! | The em dash was substituted with two hyphens. |
+| It was good—no, it was great! | it was good--no, it was great! | The em dash was substituted with two hyphens. |
 
 ### Text normalization for US English
 
@@ -48,7 +52,7 @@ Text normalization is the transformation of words into a consistent format used 
 
 Here are a few examples of normalization that you should perform on the transcription:
 
-| Original text               | Text after normalization              |
+| Original text               | Text after normalization (human)      |
 | --------------------------- | ------------------------------------- |
 | Dr. Bruce Banner            | Doctor Bruce Banner                   |
 | James Bond, 007             | James Bond, double oh seven           |
@@ -59,6 +63,7 @@ Here are a few examples of normalization that you should perform on the transcri
 | Water is H20                | Water is H 2 O                        |
 | Play OU812 by Van Halen     | Play O U 8 1 2 by Van Halen           |
 | UTF-8 with BOM              | U T F 8 with BOM                      |
+| It costs \$3.14             | It costs three fourteen               |
 
 The following normalization rules are automatically applied to transcriptions:
 
@@ -68,7 +73,7 @@ The following normalization rules are automatically applied to transcriptions:
 
 Here are a few examples of normalization automatically performed on the transcription:
 
-| Original text                          | Text after normalization          |
+| Original text                          | Text after normalization (automatic) |
 | -------------------------------------- | --------------------------------- |
 | "Holy cow!" said Batman.               | holy cow said batman              |
 | "What?" said Batman's sidekick, Robin. | what said batman's sidekick robin |
@@ -77,7 +82,6 @@ Here are a few examples of normalization automatically performed on the transcri
 | 104 Elm Street                         | one oh four Elm street            |
 | Tune to 102.7                          | tune to one oh two point seven    |
 | Pi is about 3.14                       | pi is about three point one four  |
-| It costs \$3.14                        | it costs three fourteen           |
 
 ## Mandarin Chinese (zh-CN)
 
@@ -111,7 +115,7 @@ The following normalization rules are automatically applied to transcriptions:
 - Convert full-width letters to half-width letters
 - Using uppercase letters for all English words
 
-Here are a few examples of normalization automatically performed on the transcription:
+Here are some examples of automatic transcription normalization:
 
 | Original text | Text after normalization |
 | ------------- | ------------------------ |
@@ -161,7 +165,7 @@ Here are a few examples of normalization automatically performed on the transcri
 | ---------------- | ------------------------ |
 | Frankfurter Ring | frankfurter ring         |
 | ¡Eine Frage!     | eine frage               |
-| wir, haben       | wir haben                |
+| Wir, haben       | wir haben                |
 
 ### Text normalization for Japanese
 

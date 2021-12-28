@@ -5,16 +5,15 @@ description: In this quickstart, you learn how to create an Azure Active Directo
 services: active-directory
 author: rwike77
 manager: CelesteDG
-
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: quickstart
-ms.date: 03/12/2020
+ms.date: 02/15/2021
 ms.author: ryanwi
 ms.reviewer: jmprieur
-ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-#Customer intent: As an application developer, I need to create an Microsoft identity environment so I can use it to register applications.
+ms.custom: aaddev, identityplatformtop40, fasttrack-edit, mode-other
+#Customer intent: As an application developer, I need to create a Microsoft identity environment so I can use it to register applications.
 ---
 
 # Quickstart: Set up a tenant
@@ -47,7 +46,7 @@ Many developers already have tenants through services or subscriptions that are 
 
 To check the tenant:
 
-1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal<span class="docon docon-navigate-external x-hidden-focus"></span></a>. Use the account you'll use to manage your application.
+1. Sign in to the <a href="https://portal.azure.com/" target="_blank">Azure portal</a>. Use the account you'll use to manage your application.
 1. Check the upper-right corner. If you have a tenant, you'll automatically be signed in. You see the tenant name directly under your account name.
    * Hover over your account name to see your name, email address, directory or tenant ID (a GUID), and domain.
    * If your account is associated with multiple tenants, you can select your account name to open a menu where you can switch between tenants. Each tenant has its own tenant ID.
@@ -66,7 +65,7 @@ If you don't already have an Azure AD tenant or if you want to create a new one 
 You'll provide the following information to create your new tenant:
 
 - **Organization name**
-- **Initial domain** - This domain is part of *.onmicrosoft.com. You can customize the domain later.
+- **Initial domain** - Initial domain `<domainname>.onmicrosoft.com` can't be edited or deleted. You can add a customized domain name later.
 - **Country or region**
 
 > [!NOTE]

@@ -3,7 +3,7 @@ title: Using Azure CDN with SAS | Microsoft Docs
 description: Azure CDN supports the use of Shared Access Signature (SAS) to grant limited access to private storage containers.
 services: cdn
 documentationcenter: ''
-author: asudbring
+author: duongau
 manager: danielgi
 editor: ''
 
@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 06/21/2018
-ms.author: allensu
+ms.author: duau
 
 ---
 # Using Azure CDN with SAS
@@ -36,7 +36,8 @@ After you've generated a SAS token, you can access your blob storage file by app
 `https://<account name>.blob.core.windows.net/<container>/<file>?sv=<SAS token>`
  
 For example:
- ```
+
+```
 https://democdnstorage1.blob.core.windows.net/container1/demo.jpg?sv=2017-07-29&ss=b&srt=co&sp=r&se=2038-01-02T21:30:49Z&st=2018-01-02T13:30:49Z&spr=https&sig=QehoetQFWUEd1lhU5iOMGrHBmE727xYAbKJl5ohSiWI%3D
 ```
 
@@ -77,7 +78,7 @@ This option is available only for **Azure CDN Premium from Verizon** profiles. W
    The following sample URL Rewrite rule uses a regular expression pattern with a capturing group and an endpoint named *sasstoragedemo*:
    
    Source:   
-   `(container1\/.*)`
+   `(container1/.*)`
 
 
    Destination:   
@@ -117,7 +118,7 @@ To use Azure CDN security token authentication, you must have an **Azure CDN Pre
    The following sample URL Rewrite rule uses a regular expression pattern with a capturing group and an endpoint named *sasstoragedemo*:
    
    Source:   
-   `(container1\/.*)`
+   `(container1/.*)`
    
    Destination:   
    ```

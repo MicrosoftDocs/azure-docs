@@ -1,9 +1,9 @@
 ---
 title: Configure built-in container registry for Azure Red Hat OpenShift 4
 description: Configure built-in container registry for Azure Red Hat OpenShift 4
-author: jiangma
+author: majguo
 ms.author: jiangma
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 10/15/2020
 ---

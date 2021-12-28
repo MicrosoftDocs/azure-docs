@@ -119,6 +119,35 @@ Host file
 }
 ```
 
+## Enable Snapshot Debugger for other clouds
+
+Currently the only regions that require endpoint modifications are [Azure Government](../../azure-government/compare-azure-government-global-azure.md#application-insights) and [Azure China](/azure/china/resources-developer-guide).
+
+Below is an example of the `host.json` updated with the US Government Cloud agent endpoint:
+```json
+{
+  "version": "2.0",
+  "logging": {
+    "applicationInsights": {
+      "samplingExcludedTypes": "Request",
+      "samplingSettings": {
+        "isEnabled": true
+      },
+      "snapshotConfiguration": {
+        "isEnabled": true,
+        "agentEndpoint": "https://snapshot.monitor.azure.us"
+      }
+    }
+  }
+}
+```
+
+Below are the supported overrides of the Snapshot Debugger agent endpoint:
+
+|Property    | US Government Cloud | China Cloud |   
+|---------------|---------------------|-------------|
+|AgentEndpoint         | `https://snapshot.monitor.azure.us`    | `https://snapshot.monitor.azure.cn` |
+
 ## Disable Snapshot Debugger
 
 To disable Snapshot Debugger in your Function app, you just need to update your `host.json` file by setting to `false` the property `snapshotConfiguration.isEnabled`.

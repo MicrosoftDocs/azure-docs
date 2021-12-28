@@ -1,9 +1,9 @@
 ---
-author: trevorbye
+author: eric-urban
 ms.service: cognitive-services
 ms.topic: include
 ms.date: 04/04/2020
-ms.author: trbye
+ms.author: eur
 ---
 
 ## Prerequisites

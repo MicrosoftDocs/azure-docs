@@ -1,10 +1,10 @@
 ---
 title: What is Azure FarmBeats
 description: Provides an overview of Azure FarmBeats
-author: uhabiba04
+author: RiyazPishori
 ms.topic: overview
 ms.date: 11/04/2019
-ms.author: v-umha
+ms.author: riyazp
 ---
 
 
@@ -29,7 +29,7 @@ With the preview of Azure FarmBeats you can:
 ## Datahub
 
 The Azure FarmBeats Datahub is an API layer, which enables aggregation, normalization, and contextualization of various agriculture datasets across providers. You can use Azure FarmBeats to get:
-- **Sensor data** from two sensor providers [Davis Instruments](https://www.davisinstruments.com/product/enviromonitor-gateway/), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)
+- **Sensor data** from two sensor providers [Davis Instruments](https://www.davisinstruments.com/products/enviromonitor-gateway-us-lte), [Teralytic](https://teralytic.com/), [Pessl Instruments](https://metos.at/)
 - **Satellite imagery** from European Space Agency's [Sentinel-2](https://sentinel.esa.int/web/sentinel/home) satellite mission
 - **Drone imagery** from three drone imagery providers [senseFly](https://www.sensefly.com/) , [SlantRange](https://slantrange.com/) , [DJI](https://dji.com/)
 

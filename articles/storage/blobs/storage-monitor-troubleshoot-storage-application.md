@@ -17,10 +17,10 @@ This tutorial is part four and the final part of a series. You learn how to moni
 In part four of the series, you learn how to:
 
 > [!div class="checklist"]
-> * Turn on logging and metrics
-> * Enable alerts for authorization errors
-> * Run test traffic with incorrect SAS tokens
-> * Download and analyze logs
+> - Turn on logging and metrics
+> - Enable alerts for authorization errors
+> - Run test traffic with incorrect SAS tokens
+> - Download and analyze logs
 
 [Azure storage analytics](../common/storage-analytics.md) provides logging and metric data for a storage account. This data provides insights into the health of your storage account. To collect data from Azure storage analytics, you can configure logging, metrics and alerts. This process involves turning on logging, configuring metrics, and enabling alerts.
 
@@ -107,10 +107,10 @@ Once the log opens, you can view the storage events. As you can see from the fol
 In part four and the final part of the series, you learned how to monitor and troubleshoot your storage account, such as how to:
 
 > [!div class="checklist"]
-> * Turn on logging and metrics
-> * Enable alerts for authorization errors
-> * Run test traffic with incorrect SAS tokens
-> * Download and analyze logs
+> - Turn on logging and metrics
+> - Enable alerts for authorization errors
+> - Run test traffic with incorrect SAS tokens
+> - Download and analyze logs
 
 Follow this link to see pre-built storage samples.
 

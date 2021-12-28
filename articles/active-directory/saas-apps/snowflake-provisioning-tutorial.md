@@ -2,15 +2,15 @@
 title: 'Tutorial: Configure Snowflake for automatic user provisioning with Azure Active Directory | Microsoft Docs'
 description: Learn how to configure Azure Active Directory to automatically provision and deprovision user accounts to Snowflake.
 services: active-directory
-author: zchia
-writer: zchia
+author: twimmers
+writer: twimmers
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.topic: tutorial
 ms.date: 07/26/2019
-ms.author: zhchia
+ms.author: thwimmer
 ---
 
 # Tutorial: Configure Snowflake for automatic user provisioning
@@ -39,8 +39,8 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 ## Step 1: Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
-2. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
-3. Determine what data to [map between Azure AD and Snowflake](../app-provisioning/customize-application-attributes.md). 
+1. Determine who will be in [scope for provisioning](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md).
+1. Determine what data to [map between Azure AD and Snowflake](../app-provisioning/customize-application-attributes.md). 
 
 ## Step 2: Configure Snowflake to support provisioning with Azure AD
 
@@ -48,15 +48,27 @@ Before you configure Snowflake for automatic user provisioning with Azure AD, yo
 
 1. Sign in to your Snowflake admin console. Enter the following query in the highlighted worksheet, and then select **Run**.
 
-	![Screenshot of the Snowflake admin console with query and Run button.](media/Snowflake-provisioning-tutorial/image00.png)
+   ![Screenshot of the Snowflake admin console with query and Run button.](media/Snowflake-provisioning-tutorial/image00.png)
+	
+   ```
+   use role accountadmin;
+   
+   create or replace role aad_provisioner;
+   grant create user on account to aad_provisioner;
+   grant create role on account to aad_provisioner;
+   grant role aad_provisioner to role accountadmin;
+   create or replace security integration aad_provisioning type=scim scim_client=azure run_as_role='AAD_PROVISIONER';
+   
+   select SYSTEM$GENERATE_SCIM_ACCESS_TOKEN('AAD_PROVISIONING');
+   ```
 
-2.  A SCIM access token is generated for your Snowflake tenant. To retrieve it, select the link highlighted in the following screenshot.
+1.  A SCIM access token is generated for your Snowflake tenant. To retrieve it, select the link highlighted in the following screenshot.
 
-	![Screenshot of a worksheet in the Snowflake U I with the S C I M access token called out.](media/Snowflake-provisioning-tutorial/image01.png)
+   ![Screenshot of a worksheet in the Snowflake U I with the S C I M access token called out.](media/Snowflake-provisioning-tutorial/image01.png)
 
-3. Copy the generated token value and select **Done**. This value is entered in the **Secret Token** box on the **Provisioning** tab of your Snowflake application in the Azure portal.
+1. Copy the generated token value and select **Done**. This value is entered in the **Secret Token** box on the **Provisioning** tab of your Snowflake application in the Azure portal.
 
-	![Screenshot of the Details section, showing the token copied into the text field and the Done option called out.](media/Snowflake-provisioning-tutorial/image02.png)
+   ![Screenshot of the Details section, showing the token copied into the text field and the Done option called out.](media/Snowflake-provisioning-tutorial/image02.png)
 
 ## Step 3: Add Snowflake from the Azure AD application gallery
 

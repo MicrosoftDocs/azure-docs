@@ -3,7 +3,6 @@ title: Rotation tutorial for resources with one set of authentication credential
 description: Use this tutorial to learn how to automate the rotation of a secret for resources that use one set of authentication credentials.
 services: key-vault
 author: msmbaldwin
-manager: rkarlin
 tags: 'rotation'
 
 ms.service: key-vault
@@ -11,6 +10,7 @@ ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 01/26/2020
 ms.author: mbaldwin
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 
 ---

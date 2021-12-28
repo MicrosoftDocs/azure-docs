@@ -4,7 +4,7 @@ title: Reset a user's password - Azure Active Directory | Microsoft Docs
 description: Instructions about how to reset a user's password using Azure Active Directory.
 services: active-directory
 author: ajburnle
-manager: daveba
+manager: karenhoran
 
 ms.assetid: fad5624b-2f13-4abc-b3d4-b347903a8f16
 ms.service: active-directory
@@ -26,11 +26,11 @@ As an administrator, you can reset a user's password if the password is forgotte
 >Unless your Azure AD tenant is the home directory for a user, you won't be able reset their password. This means that if your user is signing in to your organization using an account from another organization, a Microsoft account, or a Google account, you won't be able to reset their password.<br><br>If your user has a source of authority as Windows Server Active Directory, you'll only be able to reset the password if you've turned on password writeback.<br><br>If your user has a source of authority as External Azure AD, you won't be able to reset the password. Only the user, or an administrator in External Azure AD, can reset the password.
 
 >[!Note]
->If you're not an administrator and are instead looking for instructions about how to reset your own work or school password, see [Reset your work or school password](../user-help/active-directory-passwords-update-your-own-password.md).
+>If you're not an administrator and are instead looking for instructions about how to reset your own work or school password, see [Reset your work or school password](https://support.microsoft.com/account-billing/reset-your-work-or-school-password-using-security-info-23dde81f-08bb-4776-ba72-e6b72b9dda9e).
 
 ## To reset a password
 
-1. Sign in to the [Azure portal](https://portal.azure.com/) as a user administrator, or password administrator. For more information about the available roles, see [Assigning administrator roles in Azure Active Directory](../roles/permissions-reference.md#available-roles)
+1. Sign in to the [Azure portal](https://portal.azure.com/) as a user administrator, or password administrator. For more information about the available roles, see [Azure AD built-in roles](../roles/permissions-reference.md)
 
 2. Select **Azure Active Directory**, select **Users**, search for and select the user that needs the reset, and then select **Reset Password**.
 
@@ -47,6 +47,10 @@ As an administrator, you can reset a user's password if the password is forgotte
 
     >[!Note]
     >The temporary password never expires. The next time the user signs in, the password will still work, regardless how much time has passed since the temporary password was generated.
+
+> [!IMPORTANT]
+> If an administrator is unable to reset the user's password, and in the Application Event Logs on the Azure AD Connect server the following error code hr=80231367 is seen, review the user's attributes in Active Directory.  If the attribute **AdminCount** is set to 1, this will prevent an administrator from resetting the user's password.  The attribute **AdminCount** must be set to 0, in order for an administrators to reset the user's password.
+
 
 ## Next steps
 

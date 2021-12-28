@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: custom-vision
 ms.topic: conceptual
-ms.date: 03/25/2019
+ms.date: 05/13/2021
 ms.author: pafarley
 ---
 
@@ -19,13 +19,13 @@ There are two tiers of keys for the Custom Vision service. You can sign up for a
 
 The number of training images per project and tags per project are expected to increase over time for S0 projects.
 
-|Factor|**F0**|**S0**|
+|Factor|**F0 (free)**|**S0 (standard)**|
 |-----|-----|-----|
 |Projects|2|100|
 |Training images per project |5,000|100,000|
 |Predictions / month|10,000 |Unlimited|
 |Tags / project|50|500|
-|Iterations |10|10|
+|Iterations |20|20|
 |Min labeled images per Tag, Classification (50+ recommended) |5|5|
 |Min labeled images per Tag, Object Detection (50+ recommended)|15|15|
 |How long prediction images stored|30 days|30 days|

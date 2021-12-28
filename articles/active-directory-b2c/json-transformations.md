@@ -3,14 +3,14 @@ title: JSON claims transformation examples for custom policies
 titleSuffix: Azure AD B2C
 description: JSON claims transformation examples for the Identity Experience Framework (IEF) schema of Azure Active Directory B2C.
 services: active-directory-b2c
-author: msmimart
-manager: celestedg
+author: kengaderdus
+manager: CelesteDG
 
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 10/13/2020
-ms.author: mimart
+ms.date: 06/27/2021
+ms.author: kengaderdus
 ms.subservice: B2C
 ---
 
@@ -113,8 +113,8 @@ The following claims transformation outputs a JSON string claim that will be the
 - Input claims :
   - **email**,  transformation claim type  **customerEntity.email**: "john.s@contoso.com"
   - **objectId**, transformation claim type **customerEntity.userObjectId** "01234567-89ab-cdef-0123-456789abcdef"
-  - **objectId**, transformation claim type **customerEntity.firstName** "John"
-  - **objectId**, transformation claim type **customerEntity.lastName** "Smith"
+  - **givenName**, transformation claim type **customerEntity.firstName** "John"
+  - **surname**, transformation claim type **customerEntity.lastName** "Smith"
 - Input parameter:
   - **customerEntity.role.name**: "Administrator"
   - **customerEntity.role.id** 1
@@ -171,6 +171,28 @@ In the following example, the claims transformation extracted the `emailAddress`
 - Output claims:
   - **extractedClaim**: someone@example.com
 
+The GetClaimFromJson claims transformation gets a single element from a JSON data. In the preceding example, the emailAddress. To get the displayName, create another claims transformation. For example:
+
+```xml
+<ClaimsTransformation Id="GetDispalyNameClaimFromJson" TransformationMethod="GetClaimFromJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="customUserData" TransformationClaimType="inputJson" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="claimToExtract" DataType="string" Value="displayName" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="displayName" TransformationClaimType="extractedClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+- Input claims:
+  - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
+- Input parameter:
+    - **claimToExtract**: displayName
+- Output claims:
+  - **extractedClaim**: Someone
 
 ## GetClaimsFromJsonArray
 

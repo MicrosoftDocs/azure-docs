@@ -3,6 +3,7 @@ title: Overview of Windows VMs in Azure
 description: Overview of Windows virtual machines in Azure.
 author: cynthn
 ms.service: virtual-machines
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 11/14/2019
@@ -11,6 +12,8 @@ ms.custom: mvc
 ---
 
 # Windows virtual machines in Azure
+
+**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 Azure Virtual Machines (VM) is one of several types of [on-demand, scalable computing resources](/azure/architecture/guide/technology-choices/compute-decision-tree) that Azure offers. Typically, you choose a VM when you need more control over the computing environment than the other choices offer. This article gives you information about what you should consider before you create a VM, how you create it, and how you manage it.
 
@@ -44,12 +47,8 @@ This table shows some of the ways you can get a list of available locations.
 | --- | --- |
 | Azure portal |Select a location from the list when you create a VM. |
 | Azure PowerShell |Use the [Get-AzLocation](/powershell/module/az.resources/get-azlocation) command. |
-| REST API |Use the [List locations](/rest/api/resources/subscriptions) operation. |
+| REST API |Use the [List locations](/rest/api/resources/subscriptions/listlocations) operation. |
 | Azure CLI |Use the [az account list-locations](/cli/azure/account) operation. |
-
-### Singapore data residency
-
-In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
 
 ## Availability
 Azure announced an industry leading single instance virtual machine Service Level Agreement of 99.9% provided you deploy the VM with premium storage for all disks.  In order for your deployment to qualify for the standard 99.95% VM Service Level Agreement, you still need to deploy two or more VMs running your workload inside of an availability set. An availability set ensures that your VMs are distributed across multiple fault domains in the Azure data centers as well as deployed onto hosts with different maintenance windows. The full [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/) explains the guaranteed availability of Azure as a whole.
@@ -61,7 +60,7 @@ The [size](../sizes.md) of the VM that you use is determined by the workload tha
 Azure charges an [hourly price](https://azure.microsoft.com/pricing/details/virtual-machines/windows/) based on the VM’s size and operating system. For partial hours, Azure charges only for the minutes used. Storage is priced and charged separately.
 
 ## VM Limits
-Your subscription has default [quota limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by [filing a support ticket requesting an increase](../../azure-portal/supportability/resource-manager-core-quotas-request.md)
+Your subscription has default [quota limits](../../azure-resource-manager/management/azure-subscription-service-limits.md) in place that could impact the deployment of many VMs for your project. The current limit on a per subscription basis is 20 VMs per region. Limits can be raised by [filing a support ticket requesting an increase](../../azure-portal/supportability/regional-quota-requests.md)
 
 ### Operating system disks and images
 Virtual machines use [virtual hard disks (VHDs)](../managed-disks-overview.md) to store their operating system (OS) and data. VHDs are also used for the images you can choose from to install an OS. 
@@ -96,14 +95,14 @@ The resources in this table are used by the VM and need to exist or be created w
 | [Resource group](../../azure-resource-manager/management/overview.md) |Yes |The VM must be contained in a resource group. |
 | [Storage account](../../storage/common/storage-account-create.md) |Yes |The VM needs the storage account to store its virtual hard disks. |
 | [Virtual network](../../virtual-network/virtual-networks-overview.md) |Yes |The VM must be a member of a virtual network. |
-| [Public IP address](../../virtual-network/public-ip-addresses.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
+| [Public IP address](../../virtual-network/ip-services/public-ip-addresses.md) |No |The VM can have a public IP address assigned to it to remotely access it. |
 | [Network interface](../../virtual-network/virtual-network-network-interface.md) |Yes |The VM needs the network interface to communicate in the network. |
 | [Data disks](attach-managed-disk-portal.md) |No |The VM can include data disks to expand storage capabilities. |
 
 
 ## Data residency
 
-In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azuredatacentermap.azurewebsites.net/).
+In Azure, the feature to enable storing customer data in a single region is currently only available in the Southeast Asia Region (Singapore) of the Asia Pacific Geo and Brazil South (Sao Paulo State) Region of Brazil Geo. For all other regions, customer data is stored in Geo. For more information, see [Trust Center](https://azure.microsoft.com/global-infrastructure/data-residency/).
 
 
 ## Next steps

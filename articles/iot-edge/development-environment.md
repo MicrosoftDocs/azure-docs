@@ -2,7 +2,7 @@
 title: Azure IoT Edge development environment | Microsoft Docs 
 description: Learn about the supported systems and first-party development tools that will help you create IoT Edge modules
 author: kgremban
-manager: philmea
+
 ms.author: kgremban
 ms.date: 01/04/2019
 ms.topic: conceptual
@@ -11,6 +11,8 @@ services: iot-edge
 ---
 
 # Prepare your development and test environment for IoT Edge
+
+[!INCLUDE [iot-edge-version-all-supported](../../includes/iot-edge-version-all-supported.md)]
 
 Azure IoT Edge moves your existing business logic to devices operating at the edge. To prepare your applications and workloads to run as [IoT Edge modules](iot-edge-modules.md), you need to build them as containers. This article provides guidance around how to configure your development environment so that you can successfully create an IoT Edge solution. Once you have your development environment set up, then you can learn how to [Develop your own IoT Edge modules](module-development.md).
 
@@ -50,10 +52,10 @@ The module templates for some languages and services have prerequisites that are
 
 | Module template | Prerequisite |
 | --------------- | ------------ |
-| Azure Functions | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
+| Azure Functions | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
 | C | [Git](https://git-scm.com/) |
-| C# | [.NET Core 2.1 SDK](https://www.microsoft.com/net/download) |
-| Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-jdk-long-term-support) <li> [Set the JAVA_HOME environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
+| C# | [.NET Core 2.1 SDK](https://dotnet.microsoft.com/download/dotnet/2.1) |
+| Java | <ul><li>[Java SE Development Kit 10](/azure/developer/java/fundamentals/java-support-on-azure) <li> [Set the JAVA_HOME environment variable](https://docs.oracle.com/cd/E19182-01/820-7851/inst_cli_jdk_javahome_t/) <li> [Maven](https://maven.apache.org/)</ul> |
 | Node.js | <ul><li>[Node.js](https://nodejs.org/) <li> [Yeoman](https://www.npmjs.com/package/yo) <li> [Azure IoT Edge Node.js module generator](https://www.npmjs.com/package/generator-azure-iot-edge-module)</ul> |
 | Python |<ul><li> [Python](https://www.python.org/downloads/) <li> [Pip](https://pip.pypa.io/en/stable/installing/#installation) <li> [Git](https://git-scm.com/) </ul> |
 
@@ -116,5 +118,4 @@ For more information, guidance, and examples, see the following pages:
 
 * [Continuous integration and continuous deployment to Azure IoT Edge](how-to-continuous-integration-continuous-deployment.md)
 * [Create a CI/CD pipeline for IoT Edge with Azure DevOps Starter](how-to-devops-starter.md)
-* [Azure IoT Edge Jenkins plugin](https://plugins.jenkins.io/azure-iot-edge)
 * [IoT Edge DevOps GitHub repo](https://github.com/toolboc/IoTEdge-DevOps)

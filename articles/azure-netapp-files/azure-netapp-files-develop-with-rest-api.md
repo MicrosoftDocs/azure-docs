@@ -3,7 +3,7 @@ title: Develop for Azure NetApp Files with REST API | Microsoft Docs
 description: The REST API for the Azure NetApp Files service defines HTTP operations for resources such as the NetApp account, the capacity pool, the volumes, and snapshots.
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -13,8 +13,8 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
-ms.date: 06/02/2020
-ms.author: b-juche
+ms.date: 06/29/2021
+ms.author: anfdocs
 ---
 # Develop for Azure NetApp Files with REST API 
 
@@ -26,17 +26,24 @@ The REST API specification for Azure NetApp Files is published through [GitHub](
 
 `https://github.com/Azure/azure-rest-api-specs/tree/master/specification/netapp/resource-manager`
 
+## Considerations
+
+* When the API limit has been exceeded, the HTTP response code is **429**.  For example:
+
+   `"Microsoft.Azure.ResourceProvider.Common.Exceptions.ResourceProviderException: Error getting Pool. Rate limit exceeded for this endpoint - try again later ---> CloudVolumes.Service.Client.Client.ApiException: Error calling V2DescribePool: {\"code\":429,\"message\":\"Rate limit exceeded for this endpoint - try again later\"}`
+   
+   This response code can come from throttling or a temporary condition. See [Azure Resource Manager HTTP 429 response code](../azure-resource-manager/management/request-limits-and-throttling.md#error-code) for more information.
 
 ## Access the Azure NetApp Files REST API  
 
-1. [Install the Azure CLI](/cli/azure/install-azure-cli?view=azure-cli-latest) if you haven't done so already.
+1. [Install the Azure CLI](/cli/azure/install-azure-cli) if you haven't done so already.
 2. Create a service principal in your Azure Active Directory (Azure AD):
    1. Verify that you have [sufficient permissions](../active-directory/develop/howto-create-service-principal-portal.md#permissions-required-for-registering-an-app).
 
    2. Enter the following command in the Azure CLI: 
     
         ```azurecli
-        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE
+        az ad sp create-for-rbac --name $YOURSPNAMEGOESHERE --role Contributor
         ```
 
       The command output is similar to the following example:  

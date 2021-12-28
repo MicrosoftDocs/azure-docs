@@ -1,19 +1,21 @@
 ---
 title: NVIDIA GPU Driver Extension - Azure Linux VMs 
 description: Microsoft Azure Extension for installing NVIDIA GPU Drivers on N-series compute VMs running Linux.
-services: virtual-machines-linux
+services: virtual-machines
 documentationcenter: ''
 author: vermagit
 manager: gwallace
 editor: ''
 ms.assetid:
-ms.service: virtual-machines-linux
-ms.subservice: extensions
+ms.service: virtual-machines
+ms.subservice: hpc
+ms.collection: linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/21/2021
-ms.author: amverma
+ms.date: 11/15/2021
+ms.author: amverma 
+ms.custom: devx-track-azurepowershell
 
 ---
 # NVIDIA GPU Driver Extension for Linux
@@ -22,7 +24,7 @@ ms.author: amverma
 
 This extension installs NVIDIA GPU drivers on Linux N-series VMs. Depending on the VM family, the extension installs CUDA or GRID drivers. When you install NVIDIA drivers using this extension, you are accepting and agreeing to the terms of the [NVIDIA End-User License Agreement](https://go.microsoft.com/fwlink/?linkid=874330). During the installation process, the VM may reboot to complete the driver setup.
 
-Instructions on manual installation of the drivers and the current supported versions are available [here](../linux/n-series-driver-setup.md).
+Instructions on manual installation of the drivers and the current supported versions are available. For more information, see [Azure N-series GPU driver setup for Linux](../linux/n-series-driver-setup.md).
 An extension is also available to install NVIDIA GPU drivers on [Windows N-series VMs](hpccompute-gpu-windows.md).
 
 ## Prerequisites
@@ -33,9 +35,13 @@ This extension supports the following OS distros, depending on driver support fo
 
 | Distribution | Version |
 |---|---|
-| Linux: Ubuntu | 16.04 LTS, 18.04 LTS |
+| Linux: Ubuntu | 16.04 LTS, 18.04 LTS, 20.04 LTS |
 | Linux: Red Hat Enterprise Linux | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
 | Linux: CentOS | 7.3, 7.4, 7.5, 7.6, 7.7, 7.8 |
+
+> [!NOTE]
+> The latest supported CUDA drivers for NC-series VMs is currently 470.82.01. Later driver versions are not supported on the K80 cards in NC. While the exension is being updated with this end-of-support for NC, please install CUDA drivers manually for K80 cards on the NC-series.
+
 
 ### Internet connectivity
 
@@ -57,7 +63,7 @@ The following JSON shows the schema for the extension.
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.6",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -72,7 +78,7 @@ The following JSON shows the schema for the extension.
 | apiVersion | 2015-06-15 | date |
 | publisher | Microsoft.HpcCompute | string |
 | type | NvidiaGpuDriverLinux | string |
-| typeHandlerVersion | 1.3 | int |
+| typeHandlerVersion | 1.6 | int |
 
 ### Settings
 
@@ -86,6 +92,33 @@ All settings are optional. The default behavior is to not update the kernel if n
 
 
 ## Deployment
+### Azure portal
+
+You can deploy Azure Nvidia VM extensions in the Azure portal.
+
+1. In a browser, go to the [Azure portal](https://portal.azure.com).
+
+2. Go to the virtual machine on which you want to install the driver.
+
+3. In the left menu, select **Extensions**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/extensions-menu-linux.png" alt-text="Screenshot that shows selecting Extensions in the Azure portal menu.":::
+
+4. Select **Add**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/add-extension-linux.png" alt-text="Screenshot that shows adding a V M extension for the selected V M.":::
+
+5. Scroll to find and select **NVIDIA GPU Driver Extension**, and then select **Next**.
+
+    :::image type="content" source="./media/nvidia-ext-portal/select-nvidia-extension-linux.png" alt-text="Screenshot that shows selecting NVIDIA G P U driver.":::
+
+6. Select **Review + create** and then click **Create**, wait a few minutes for the driver to be deployed.
+
+    :::image type="content" source="./media/nvidia-ext-portal/create-nvidia-extension-linux.png" alt-text="Screenshot that shows selecting the review and create button.":::
+  
+7. Verify that the extension is added to the list of installed extensions.
+
+    :::image type="content" source="./media/nvidia-ext-portal/verify-extension-linux.png" alt-text="Screenshot that shows the new extension in the list of extensions for the V M.":::
 
 
 ### Azure Resource Manager Template 
@@ -108,7 +141,7 @@ The following example assumes the extension is nested inside the virtual machine
   "properties": {
     "publisher": "Microsoft.HpcCompute",
     "type": "NvidiaGpuDriverLinux",
-    "typeHandlerVersion": "1.3",
+    "typeHandlerVersion": "1.6",
     "autoUpgradeMinorVersion": true,
     "settings": {
     }
@@ -126,7 +159,7 @@ Set-AzVMExtension
     -Publisher "Microsoft.HpcCompute" `
     -ExtensionName "NvidiaGpuDriverLinux" `
     -ExtensionType "NvidiaGpuDriverLinux" `
-    -TypeHandlerVersion 1.3 `
+    -TypeHandlerVersion 1.6 `
     -SettingString '{ `
 	}'
 ```
@@ -141,10 +174,10 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 
+  --version 1.6 
 ```
 
-The following example also adds two optional custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the '--settings' are optional and default. Note that updating the kernel may increase the extension installation times. Also choosing a specific (older) CUDA tolkit version may not always be compatible with newer kernels.
+The following example also adds two optional custom settings as an example for non-default driver installation. Specifically, it updates the OS kernel to the latest and installs a specific CUDA toolkit version driver. Again, note the '--settings' are optional and default. Note that updating the kernel may increase the extension installation times. Also choosing a specific (older) CUDA toolkit version may not always be compatible with newer kernels.
 
 ```azurecli
 az vm extension set \
@@ -152,7 +185,7 @@ az vm extension set \
   --vm-name myVM \
   --name NvidiaGpuDriverLinux \
   --publisher Microsoft.HpcCompute \
-  --version 1.3 \
+  --version 1.6 \
   --settings '{ \
     "updateOS": true, \
     "driverVersion": "10.0.130" \

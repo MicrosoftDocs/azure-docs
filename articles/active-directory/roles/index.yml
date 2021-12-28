@@ -12,9 +12,9 @@ metadata:
   ms.subservice: roles
   manager: daveba
   ms.topic: landing-page
-  ms.date: 10/19/2020
-  author: curtand
-  ms.author: curtand
+  ms.date: 12/17/2021
+  author: rolyon
+  ms.author: rolyon
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -33,7 +33,7 @@ landingContent:
             url: concept-understand-roles.md
           - text: Understand administrative units in Azure AD
             url: administrative-units.md
-          - text: Use cloud groups to manage role assignments
+          - text: Use groups to manage role assignments
             url: groups-concept.md
 
   # Card
@@ -75,7 +75,7 @@ landingContent:
         links:
           - text: Create role-assignable groups
             url: groups-create-eligible.md
-          - text: Assign a role to a cloud group
+          - text: Assign roles to groups
             url: groups-assign-role.md
           - text: Make a group eligible for PIM
             url: groups-pim-eligible.md
@@ -87,11 +87,9 @@ landingContent:
     linkLists:
       - linkListType: how-to-guide
         links:
-          - text: Add and remove administrative units
+          - text: Create or delete administrative units
             url: admin-units-manage.md
-          - text: Assign users to units
-            url: admin-units-add-manage-users.md
-          - text: Assign groups to units  
-            url: admin-units-add-manage-groups.md
-          - text: Assign groups with scope  
+          - text: Add members
+            url: admin-units-members-add.md
+          - text: Assign roles with scope
             url: admin-units-assign-roles.md

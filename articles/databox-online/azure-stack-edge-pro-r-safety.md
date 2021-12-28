@@ -7,7 +7,7 @@ author:   alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: conceptual
-ms.date: 02/04/2021
+ms.date: 02/12/2021
 ms.author: alkohli
 ---
 
@@ -33,7 +33,8 @@ The following hazard icons are to be observed when setting up and running your A
 | Icon | Description |
 |:--- |:--- |
 | ![Read All Instructions First](./media/azure-stack-edge-pro-r-safety/icon-safety-read-all-instructions.png) | Read All Instructions First |
-| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. || ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
+| ![Notice Icon](./media/azure-stack-edge-mini-r-safety/icon-safety-notice.png) **NOTICE:** | Indicates information considered important, but not hazard-related. |
+| ![Hazard Symbol](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) | Hazard Symbol |
 | ![Tip Hazard Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-tip-hazard.png)  | Tip Hazard|
 | ![Heavy Weight Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-heavy-weight.png)  | Heavy Weight Hazard|
 | ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) | Electric Shock Hazard |
@@ -41,7 +42,7 @@ The following hazard icons are to be observed when setting up and running your A
 | ![Multiple Power Sources Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-disconnect-all-power.png)  | Multiple power sources. Disconnect all power cords to remove all power from the equipment. |
 | ![Pinching Points Icon](./media/azure-stack-edge-pro-r-safety/icon-pinching-points.png)  | Pinching points are present. |
 | ![Hot Components or Surfaces Icon](./media/azure-stack-edge-pro-r-safety/icon-hot-component-surface.png)  | Indicates hot components or surfaces. |
-|
+
 
 ## Handling precautions and site selection
 
@@ -130,6 +131,7 @@ The following hazard icons are to be observed when setting up and running your A
 
 * For systems without an uninterrupted power supply (UPS), unplug all AC power cord(s) to completely remove AC power from the equipment.
 * For systems with UPS, unplug all AC power cord(s) and use the UPS power switch to de-energize the System. UPS contains hazardous AC and DC voltages.
+* If a system includes a UPS, the UPS was provided with a shielded input power cable. You must use the shielded input power cable, do not replace or modify the cord.
 
 ![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
 ![Electrical Shock Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-electric-shock.png) **WARNING:**
@@ -206,9 +208,9 @@ A device that has a UPS installed is designed to operate in the following enviro
 
 > ![Notice Icon - 2](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;Changes or modifications made to the equipment not expressly approved by Microsoft may void the user's authority to operate the equipment.
 
-CANADA and USA:
+#### CANADA and USA:
 
-NOTICE: This equipment  has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
+> ![Notice Icon - 2](./media/azure-stack-edge-pro-r-safety/icon-safety-notice.png) **NOTICE:** &nbsp;This equipment  has been tested and found to comply with the limits for a Class A digital device, pursuant to part 15 of the FCC Rules. These limits are designed to provide reasonable protection against harmful interference when the equipment is operated in a commercial environment. This equipment generates, uses, and can radiate radio frequency energy and, if not installed and used in accordance with the instruction manual, may cause harmful interference to radio communications. Operation of this equipment in a residential area is likely to cause harmful interference in which case the user will be required to correct the interference at their own expense.
 
 This device complies with part 15 of the FCC Rules and Industry Canada license-exempt RSS standard(s). Operation is subject to the following two conditions: (1) this device may not cause harmful interference, and (2) this device must accept any interference received, including interference that may cause undesired operation of the device.
 
@@ -216,14 +218,15 @@ This device complies with part 15 of the FCC Rules and Industry Canada license-e
 
 
 CAN ICES-3(A)/NMB-3(A)
-Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA.
+Microsoft Corporation, One Microsoft Way, Redmond, WA 98052, USA
 United States: (800) 426-9400
 Canada: (800) 933-4750
 
-EUROPEAN UNION:
-Request a copy of the EU Declaration of Conformity. 
+#### EUROPEAN UNION:
 
-![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png)
+Request a copy of the EU Declaration of Conformity. Send email to [CSI_Compliance@microsoft.com](mailto:CSI_Compliance@microsoft.com).
+
+![Warning Icon](./media/azure-stack-edge-pro-r-safety/icon-safety-warning.png) **WARNING!**
 
 This is a class A product. In a domestic environment, this product may cause radio interference in which case the user may be required to take adequate measures.
 
@@ -238,7 +241,6 @@ This product contains coin cell battery(ies).
 Microsoft Ireland Sandyford Ind Est Dublin D18 KX32 IRL
 Telephone number: +353 1 295 3826
 Fax number: +353 1 706 4110
-
 
 
 ## Next steps

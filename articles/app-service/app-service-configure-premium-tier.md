@@ -5,7 +5,7 @@ keywords: app service, azure app service, scale, scalable, app service plan, app
 ms.assetid: ff00902b-9858-4bee-ab95-d3406018c688
 ms.topic: article
 ms.date: 10/01/2020
-ms.custom: seodec18, devx-track-azurecli
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 
 ---
 
@@ -21,7 +21,7 @@ To scale-up an app to **PremiumV3**, you need to have an Azure App Service app t
 
 ## PremiumV3 availability
 
-The **PremiumV3** tier is available for both native and container apps, including both Windows containers and Linux containers.
+The **PremiumV3** tier is available for both native and custom containers, including both Windows containers and Linux containers.
 
 > [!NOTE]
 > Any Windows containers running in the **Premium Container** tier during the preview period continue to function as is, but the **Premium Container** tier will continue to remain in preview. The **PremiumV3** tier is the official replacement for the **Premium Container** tier. 
@@ -119,5 +119,6 @@ New-AzAppServicePlan -ResourceGroupName <resource_group_name> `
 
 ## More resources
 
-[Scale up an app in Azure](manage-scale-up.md)
-[Scale instance count manually or automatically](../azure-monitor/platform/autoscale-get-started.md)
+* [Scale up an app in Azure](manage-scale-up.md)
+* [Scale instance count manually or automatically](../azure-monitor/autoscale/autoscale-get-started.md)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

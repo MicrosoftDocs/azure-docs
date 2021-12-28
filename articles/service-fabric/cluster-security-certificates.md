@@ -179,7 +179,7 @@ It was mentioned previously that the security settings of a Service Fabric clust
 
 As mentioned, certificate validation always implies building and evaluating the certificate's chain. For CA-issued certificates, this apparently-simple OS API call typically entails several outbound calls to various endpoints of the issuing PKI, caching of responses and so on. Given the prevalence of certificate validation calls in a Service Fabric cluster, any issues in the PKI's endpoints can result in reduced availability of the cluster, or outright breakdown. While the outbound calls cannot be suppressed (see below in the FAQ section for more on this), the following settings can be used to mask out validation errors caused by failing CRL calls.
 
-  * CrlCheckingFlag - under the 'Security' section, string converted to UINT. The value of this setting is used by Service Fabric to mask out certificate chain status errors by changing the behavior of chain building; it is passed in to the Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) call as the 'dwFlags' parameter, and can be set to any valid combination of flags accepted by the function. A value of 0 forces the Service Fabric runtime to ignore any trust status errors - this is not recommended, as its use would constitute a significant security exposure. The default value is 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
+  * CrlCheckingFlag - under the "Security" section, string converted to UINT. The value of this setting is used by Service Fabric to mask out certificate chain status errors by changing the behavior of chain building; it is passed in to the Win32 CryptoAPI [CertGetCertificateChain](/windows/win32/api/wincrypt/nf-wincrypt-certgetcertificatechain) call as the 'dwFlags' parameter, and can be set to any valid combination of flags accepted by the function. A value of 0 forces the Service Fabric runtime to ignore any trust status errors - this is not recommended, as its use would constitute a significant security exposure. The default value is 0x40000000 (CERT_CHAIN_REVOCATION_CHECK_CHAIN_EXCLUDE_ROOT).
 
   When to use: for local testing, with self-signed certificates or developer certificates which aren't fully formed/do not have a proper public key infrastructure to support the certificates. May also use as mitigation in air-gapped environments during transition between PKIs.
 
@@ -194,7 +194,7 @@ As mentioned, certificate validation always implies building and evaluating the 
     </Section>
   ```
 
-  * IgnoreCrlOfflineError - under the 'Security' section, boolean with a default value of 'false'. Represents a shortcut for suppressing a 'revocation offline' chain building error status (or a subsequent chain policy validation error status).
+  * IgnoreCrlOfflineError - under the "Security" section, boolean with a default value of 'false'. Represents a shortcut for suppressing a 'revocation offline' chain building error status (or a subsequent chain policy validation error status).
 
   When to use: local testing, or with developer certificates not backed by a proper PKI. Use as mitigation in air-gapped environments or when the PKI is known to be inaccessible.
 
@@ -205,7 +205,7 @@ As mentioned, certificate validation always implies building and evaluating the 
     </Section>
   ```
 
-  Other notable settings (all under the 'Security' section):
+  Other notable settings (all under the "Security" section):
   * AcceptExpiredPinnedClusterCertificate - discussed in the section dedicated to thumbprint-based certificate validation; allows accepting expired self-signed cluster certificates. 
   * CertificateExpirySafetyMargin - interval, expressed in minutes prior to the certificate's NotAfter timestamp, and during which the certificate is considered at risk for expiration. Service Fabric monitors cluster certificate(s) and periodically emits health reports on their remaining availability. Inside the 'safety' interval, these health reports are elevated to 'warning' status. The default is 30 days.
   * CertificateHealthReportingInterval - controls the frequency of health reports concerning the remaining time validity of cluster certificates. Reports will only be emitted once per this interval. The value is expressed in seconds, with a default of 8 hours.

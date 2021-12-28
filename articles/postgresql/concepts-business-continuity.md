@@ -27,7 +27,7 @@ The following table compares RTO and RPO in a **typical workload** scenario:
 
 | **Capability** | **Basic** | **General Purpose** | **Memory optimized** |
 | :------------: | :-------: | :-----------------: | :------------------: |
-| Point in Time Restore from backup | Any restore point within the retention period | Any restore point within the retention period | Any restore point within the retention period |
+| Point in Time Restore from backup | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min| Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min | Any restore point within the retention period <br/> RTO - Varies <br/>RPO < 15 min |
 | Geo-restore from geo-replicated backups | Not supported | RTO - Varies <br/>RPO < 1 h | RTO - Varies <br/>RPO < 1 h |
 | Read replicas | RTO - Minutes* <br/>RPO < 5 min* | RTO - Minutes* <br/>RPO < 5 min*| RTO - Minutes* <br/>RPO < 5 min*|
 
@@ -39,8 +39,7 @@ You can use the service’s backups to recover a server from various disruptive 
 
 You can perform a **point-in-time-restore** to create a copy of your server to a known good point in time. This point in time must be within the backup retention period you have configured for your server. After the data is restored to the new server, you can either replace the original server with the newly restored server or copy the needed data from the restored server into the original server.
 
-> [!IMPORTANT]
-> Deleted servers **cannot** be restored. If you delete the server, all databases that belong to the server are also deleted and cannot be recovered. Use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server.
+We recommend that you use [Azure resource lock](../azure-resource-manager/management/lock-resources.md) to help prevent accidental deletion of your server. If you accidentally deleted your server, you might be able to restore it if the deletion happened within the last 5 days. For more information, see [Restore a dropped Azure Database for PostgreSQL server](howto-restore-dropped-server.md).
 
 ## Recover from an Azure data center outage
 
@@ -50,7 +49,7 @@ One option is to wait for your server to come back online when the data center o
 
 ## Geo-restore
 
-The geo-restore feature restores the server using geo-redundant backups. The backups are hosted in your server's [paired region](../best-practices-availability-paired-regions.md). You can restore from these backups to any other region. The geo-restore creates a new server with the data from the backups. Learn more about geo-restore from the [backup and restore concepts article](concepts-backup.md).
+The geo-restore feature restores the server using geo-redundant backups. The backups are hosted in your server's [paired region](../availability-zones/cross-region-replication-azure.md). You can restore from these backups to any other region. The geo-restore creates a new server with the data from the backups. Learn more about geo-restore from the [backup and restore concepts article](concepts-backup.md).
 
 > [!IMPORTANT]
 > Geo-restore is only possible if you provisioned the server with geo-redundant backup storage. If you wish to switch from locally redundant to geo-redundant backups for an existing server, you must take a dump using pg_dump of your existing server and restore it to a newly created server configured with geo-redundant backups.

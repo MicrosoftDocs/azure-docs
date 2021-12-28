@@ -2,7 +2,9 @@
 title: Create a Windows VM from a specialized VHD in the Azure portal
 description: Create a new Windows VM from a VHD in the Azure portal.
 author: cynthn
-ms.service: virtual-machines-windows
+ms.service: virtual-machines
+ms.subservice: imaging
+ms.collection: windows
 ms.workload: infrastructure-services
 ms.topic: how-to
 ms.date: 01/18/2019
@@ -10,6 +12,8 @@ ms.author: cynthn
 
 ---
 # Create a VM from a VHD by using the Azure portal
+
+**Applies to:** :heavy_check_mark: Windows VMs 
 
 There are several ways to create a virtual machine (VM) in Azure:
 
@@ -36,19 +40,20 @@ Create a snapshot and then create a disk from the snapshot. This strategy allows
 2. In the **All services** search box, enter **disks** and then select **Disks** to display the list of available disks.
 3. Select the disk that you would like to use. The **Disk** page for that disk appears.
 4. From the menu at the top, select **Create snapshot**.
-5. Enter a **Name** for the snapshot.
-6. Choose a **Resource group** for the snapshot. You can use either an existing resource group or create a new one.
-7. For **Account type**, choose either **Standard (HDD)** or **Premium (SSD)** storage.
-8. When you're done, select **Create** to create the snapshot.
-9. After the snapshot has been created, select **Create a resource** in the left menu.
-10. In the search box, enter **managed disk** and then select **Managed Disks** from the list.
-11. On the **Managed Disks** page, select **Create**.
-12. Enter a **Name** for the disk.
+5. Choose a **Resource group** for the snapshot. You can use either an existing resource group or create a new one.
+6. Enter a **Name** for the snapshot.
+7. For **Snapshot type**, choose either **Full** or **Incremental**.
+8. For **Storage type**, choose **Standard HDD**, **Premium SSD**, or **Zone-redundant** storage.
+9. When you're done, select **Create** to create the snapshot.
+10. After the snapshot has been created, select **Create a resource** in the left menu.
+11. In the search box, enter **managed disk** and then select **Managed Disks** from the list.
+12. On the **Managed Disks** page, select **Create**.
 13. Choose a **Resource group** for the disk. You can use either an existing resource group or create a new one. This selection will also be used as the resource group where you create the VM from the disk.
-14. For **Account type**, choose either **Standard (HDD)** or **Premium (SSD)** storage.
-15. In **Source type**, ensure **Snapshot** is selected.
-16. In the **Source snapshot** drop-down, select the snapshot you want to use.
-17. Make any other adjustments as needed and then select **Create** to create the disk.
+14. Enter a **Name** for the disk.
+16. In **Source type**, ensure **Snapshot** is selected.
+17. In the **Source snapshot** drop-down, select the snapshot you want to use.
+18. For **Size**, choose either **Standard (HDD)** or **Premium (SSD)** storage.
+19. Make any other adjustments as needed and then select **Create** to create the disk.
 
 ## Create a VM from a disk
 

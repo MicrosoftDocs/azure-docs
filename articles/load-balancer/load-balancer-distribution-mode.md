@@ -8,7 +8,7 @@ author: asudbring
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: how-to
-ms.custom: seodec18
+ms.custom: seodec18, devx-track-azurecli, devx-track-azurepowershell
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/04/2021
@@ -57,7 +57,7 @@ Use PowerShell to change the load-balancer distribution settings on an existing 
 
 ```azurepowershell-interactive
 $lb = Get-AzLoadBalancer -Name MyLoadBalancer -ResourceGroupName MyResourceGroupLB
-$lb.LoadBalancingRules[0].LoadDistribution = 'sourceIp'
+$lb.LoadBalancingRules[0].LoadDistribution = 'default'
 Set-AzLoadBalancer -LoadBalancer $lb
 ```
 
@@ -78,7 +78,7 @@ Use Azure CLI to change the load-balancer distribution settings on an existing l
 ```azurecli-interactive
 az network lb rule update \
     --lb-name myLoadBalancer \
-    --load-distribution SourceIP \
+    --load-distribution Default \
     --name myHTTPRule \
     --resource-group myResourceGroupLB 
 ```

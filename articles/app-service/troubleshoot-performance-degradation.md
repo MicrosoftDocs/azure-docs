@@ -57,7 +57,7 @@ Some of the metrics that you might want to monitor for your app are
 For more information, see:
 
 * [Monitor apps in Azure App Service](web-sites-monitor.md)
-* [Receive alert notifications](../azure-monitor/platform/alerts-overview.md)
+* [Receive alert notifications](../azure-monitor/alerts/alerts-overview.md)
 
 #### Monitor web endpoint status
 If you are running your app in the **Standard** pricing tier, App Service lets you monitor two endpoints from three geographic locations.
@@ -160,3 +160,7 @@ Restarting is often the simplest way to recover from one-time issues. On the [Az
 
 You can also manage your app using Azure PowerShell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
+
+## More resources
+
+[Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

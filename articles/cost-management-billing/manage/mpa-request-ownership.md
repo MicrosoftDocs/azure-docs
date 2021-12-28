@@ -6,7 +6,7 @@ tags: billing
 ms.service: cost-management-billing
 ms.subservice: billing
 ms.topic: how-to
-ms.date: 10/19/2020
+ms.date: 11/17/2021
 ms.author: banders
 ---
 
@@ -19,6 +19,8 @@ This feature is available only for CSP Direct Bill Partners certified as [Azure 
 To request the billing ownership, you must have **Global Admin** or **Admin Agents** role. To learn more, see [Partner Center - Assign users roles and permissions](/partner-center/permissions-overview).
 
 This article applies to billing accounts for Microsoft Partner Agreements. These accounts are created for Cloud Solution Providers (CSPs) to manage billing for their customers in the new commerce experience. The new experience is only available for partners, who have at least one customer that has accepted a Microsoft Customer Agreement (MCA) and has an Azure Plan. [Check if you have access to a Microsoft Partner Agreement](#check-access-to-a-microsoft-partner-agreement).
+
+When you send or accept transfer request, you agree to terms and conditions. For more information, see [Transfer terms and conditions](subscription-transfer.md#transfer-terms-and-conditions).
 
 ## Prerequisites
 
@@ -172,4 +174,4 @@ If you need help, [contact support](https://portal.azure.com/?#blade/Microsoft_A
 ## Next steps
 
 * The billing ownership of the Azure subscriptions is transferred to you. Keep track of the charges for these subscriptions in the [Azure portal](https://portal.azure.com).
-* Work with the customer to get access to the transferred Azure subscriptions. [Add or remove Azure role assignments using the Azure portal](../../role-based-access-control/role-assignments-portal.md).
+* Work with the customer to get access to the transferred Azure subscriptions. [Assign Azure roles using the Azure portal](../../role-based-access-control/role-assignments-portal.md).

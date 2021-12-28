@@ -3,7 +3,7 @@ title: Run privileged containers in an Azure Red Hat OpenShift cluster | Microso
 description: Run privileged containers to monitor security and compliance.
 author: makdaam
 ms.author: b-lejaku
-ms.service: container-service
+ms.service: azure-redhat-openshift
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
@@ -179,7 +179,7 @@ You can get the URL assigned to Twistlock console with this command:
 
 Follow the Twistlock documentation.
 
-### Install Defender
+### Install Defender for Cloud
 
 During `oc create -f defender.yaml` in Step 2, you'll get Errors when creating the Cluster Role and Cluster Role Binding.
 You can ignore them.

@@ -79,7 +79,9 @@ Follow these steps to connect to Azure:
 
 4. [Connect](#connect-to-your-spark-pools) to your Azure account if you haven't yet done so.
 
-5. Select a Spark pool as the default Spark pool for the current script file. The tools automatically update the **.VSCode\settings.json** configuration file:
+5. Select a Spark pool as the default Spark pool for the current script file. 
+
+6. Use **Synapse: PySpark Interactive** to submit this file. And the tools automatically update the **.VSCode\settings.json** configuration file:
 
      ![Set default cluster configuration](./media/vscode-tool-synapse/set-default-cluster-configuration.png)
 
@@ -185,6 +187,29 @@ for (word, count) in sortedCollection:
 >2. Switch to Synapse Pyspark kernel, disabling auto-settings in Azure Portal is encouraged. Otherwise it may take a long while to wake up the cluster and set synapse kernel for the first time use. 
 >
 >    ![auto settings](./media/vscode-tool-synapse/auto-settings.png)
+
+## Spark session config
+
+You can specify the timeout duration, the number, and the size of executors to give to the current Spark session in **Configure session**. Restart the Spark session is for configuration changes to take effect. All cached notebook variables are cleared.
+
+```python
+%%configure -f
+{
+    // refer to https://github.com/cloudera/livy#request-body for a list of valid parameters to config the session.
+    "driverMemory":"2g",
+    "driverCores":3,
+    "executorMemory":"2g",
+    "executorCores":2,
+    "jars":[],
+    "conf":{
+        "spark.driver.maxResultSize":"10g"
+    }
+}
+```
+
+> [!NOTE]
+>
+> Display function and Spark SQL may not be rendered properly in the output cell. 
 
 ## Submit PySpark batch job to Spark pool
 

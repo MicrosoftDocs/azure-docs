@@ -9,7 +9,7 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: face-api
 ms.topic: reference
-ms.date: 03/01/2018
+ms.date: 02/17/2021
 ms.author: sbowles
 ---
 

@@ -9,10 +9,6 @@ ms.date: 06/20/2020
 ---
 # Tutorial: Troubleshoot an App Service app with Azure Monitor
 
-> [!NOTE]
-> Azure Monitor integration with App Service is in [preview](https://aka.ms/appsvcblog-azmon).
->
-
 This tutorial shows how to troubleshoot an [App Service](overview.md) app using [Azure Monitor](../azure-monitor/overview.md). The sample app includes code meant to exhaust memory and cause HTTP 500 errors, so you can diagnose and fix the problem using Azure Monitor. When you're finished, you'll have a sample app running on App Service on Linux integrated with [Azure Monitor](../azure-monitor/overview.md).
 
 [Azure Monitor](../azure-monitor/overview.md) maximizes the availability and performance of your applications and services by delivering a comprehensive solution for collecting, analyzing, and acting on telemetry from your cloud and on-premises environments.
@@ -38,19 +34,22 @@ To complete this tutorial, you'll need:
 
 ## Create Azure resources
 
-First, you run several commands locally to setup a sample app to use with this tutorial. The commands clone a sample app, create Azure resources, create a deployment user and deploy the app to Azure. You'll be prompted for the password supplied as a part of the creation of the deployment user. 
+First, you run several commands locally to setup a sample app to use with this tutorial. The commands create Azure resources, create a deployment user, and deploy the sample app to Azure. You'll be prompted for the password supplied as a part of the creation of the deployment user. 
 
 ```bash
-git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
 az group create --name myResourceGroup --location "South Central US"
 az webapp deployment user set --user-name <username> --password <password>
 az appservice plan create --name myAppServicePlan --resource-group myResourceGroup --sku B1 --is-linux
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app-name> --runtime "PHP|7.3" --deployment-local-git
-git remote add azure <url_from_previous_step>
+az webapp config appsettings set --name <app-name> --resource-group myResourceGroup --settings DEPLOYMENT_BRANCH='main'
+git clone https://github.com/Azure-Samples/App-Service-Troubleshoot-Azure-Monitor
+cd App-Service-Troubleshoot-Azure-Monitor
+git branch -m main
+git remote add azure <url-from-app-webapp-create>
 git push azure main
 ```
 
-## Configure Azure Monitor (preview)
+## Configure Azure Monitor
 
 ### Create a Log Analytics Workspace
 
@@ -73,7 +72,7 @@ Diagnostic settings can be used to collect metrics for certain Azure services in
 You run the following commands to create diagnostic settings for AppServiceConsoleLogs (standard output/error) and AppServiceHTTPLogs (web server logs). Replace _\<app-name>_ and _\<workspace-name>_ with your values. 
 
 > [!NOTE]
-> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](../azure-monitor/platform/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
+> The first two commands, `resourceID` and `workspaceID`, are variables to be used in the `az monitor diagnostic-settings create` command. See [Create diagnostic settings using Azure CLI](../azure-monitor/essentials/diagnostic-settings.md#create-using-azure-cli) for more information on this command.
 >
 
 ```bash
@@ -124,7 +123,7 @@ In the Azure portal, select your Log Analytics workspace.
 
 ### Log queries
 
-Log queries help you to fully leverage the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](../azure-monitor/log-query/log-query-overview.md) for more information on log queries.
+Log queries help you to fully apply the value of the data collected in Azure Monitor Logs. You use log queries to identify the logs in both AppServiceHTTPLogs and AppServiceConsoleLogs. See the [log query overview](../azure-monitor/logs/log-query-overview.md) for more information on log queries.
 
 ### View AppServiceHTTPLogs with log query
 
@@ -264,6 +263,7 @@ What you learned:
 > * Used log queries to identify and troubleshoot web app errors
 
 ## <a name="nextsteps"></a> Next steps
-* [Query logs with Azure Monitor](../azure-monitor/log-query/log-query-overview.md)
+* [Query logs with Azure Monitor](../azure-monitor/logs/log-query-overview.md)
 * [Troubleshooting Azure App Service in Visual Studio](troubleshoot-dotnet-visual-studio.md)
 * [Analyze app Logs in HDInsight](https://gallery.technet.microsoft.com/scriptcenter/Analyses-Windows-Azure-web-0b27d413)
+* [Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)
