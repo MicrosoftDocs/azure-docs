@@ -429,8 +429,8 @@ The `request` section of the `[pollingConfig](#configure-your-connectors-polling
 |**apiEndpoint**     |   String | Mandatory. Defines the endpoint to pull data from.      |
 |**httpMethod**     |String | Mandatory. Defines the API method: `GET` or `POST`       |
 |**queryTimeFormat**     |  String, or *UnixTimestamp* or *UnixTimestampInMills* | Mandatory.  Defines the format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp.  |
-|**startTimeAttributeName**     |  String | Mandatory<sup*</sup>Defines the name of the attribute that defines the query start time.        |
-|**endTimeAttributeName**     |  String | Mandatory<sup>*</sup>. Defines the name of the attribute that defines the query end time.      |
+|**startTimeAttributeName**     |  String | Optional. Defines the name of the attribute that defines the query start time.        |
+|**endTimeAttributeName**     |  String | Optional. Defines the name of the attribute that defines the query end time.      |
 |**queryTimeIntervalAttributeName**     | String. | Optional. Defines the name of the attribute that defines the query time interval. |
 |**queryTimeIntervalDelimiter**     |   String | Optional. Defines the query time interval delimiter. |
 |**queryWindowInMin**     |  String | Optional. Defines the available query window, in minutes. <br><br>Minimum value: `5` |
