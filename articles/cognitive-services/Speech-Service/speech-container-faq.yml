@@ -163,9 +163,7 @@ sections:
       - question: |
           Is CentOS supported for Speech containers?
         answer: |
-          Speech containers should run on most Operating Systems, but the speech SDK is required for the container to operate.
-          
-          For more information on supported environments, see [Get Speech SDK](speech-sdk?tabs=linux%2Cubuntu%2Cios-xcode%2Cmac-xcode%2Candroid-studio#get-the-speech-sdk).
+          Speech containers run on most operating systems, including some CentOS configurations. For more information about supported environments, see [Get the Speech SDK](speech-sdk.md?tabs=linux%2Cubuntu%2Cios-xcode%2Cmac-xcode%2Candroid-studio#get-the-speech-sdk).
           
       - question: |
           Why am I getting errors when attempting to call LUIS prediction endpoints?
