@@ -30,7 +30,7 @@ To access Azure Backup functionality, you can use the following standard automat
 
 You can also use Azure Backup associated with other Azure services, such as Logic Apps, Runbooks, Action Groups, and Azure Resource Graph to set up end-to-end automation workflows.
 
-For more information about various scenarios that automation clients support and the corresponding document references, see the [supported automation solutions for Azure Backup](backup-support-automation.md)6.
+For more information about various scenarios that automation clients support and the corresponding document references, see the [supported automation solutions for Azure Backup](backup-support-automation.md).
 
 ## Sample automation scenarios
 
