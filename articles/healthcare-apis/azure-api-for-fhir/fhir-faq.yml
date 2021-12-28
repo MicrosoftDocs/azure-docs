@@ -168,7 +168,7 @@ sections:
       - question: |
           Is there an out of the box solution for de-identifying EHR data?
         answer: |
-          We have an open-source tool to de-identify FHIR data. The same technology is also integrated to Azure API for FHIR in the form of [de-identified](de-identified-export.md) export.  
+          We have an open-source tool to de-identify FHIR data. The same technology is also integrated to Azure API for FHIR in the form of [de-identified](./fhir/de-identified-export.md) export.  
 
       - question: |
           Is de-identified export available at Patient and Group level as well?
