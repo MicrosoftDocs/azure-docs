@@ -197,7 +197,7 @@ The agent will now be configured and stated,
   Check the configuration files in the ADO Repo
   
 
-# Next steps
+## Next steps
 
   Adapt the configuration to production needs
   Use the name generator to use specific naming conventions
