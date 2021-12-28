@@ -14,15 +14,13 @@ Read this article to learn some basic uses for Kusto Query Language (KQL) in Mic
 
 ## Background - Why KQL?
 
-Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces to store all of its data. This data includes any of the following:
-- data ingested from external sources into predefined tables using Microsoft Sentinel data connectors.
-- data ingested from external sources into user-defined custom tables, using custom-created data connectors as well as some types of out-of-the-box connectors. 
-- data created by Sentinel itself, resulting from the analyses Sentinel creates and performs - for example, alerts, incidents, and UEBA-related information.
-- data uploaded to Sentinel to assist with detection and analysis - for example, threat intelligence feeds and watchlists.
+Microsoft Sentinel is built on top of the Azure Monitor service and it uses Azure Monitor’s [Log Analytics](../azure-monitor/logs/log-analytics-overview.md) workspaces to store all of its data. This data includes both:
+- the data ingested from external sources and 
+- data created by Sentinel itself, resulting from the analyses Sentinel creates and performs. 
 
 [Kusto Query Language](/data-explorer/kusto/query/) (KQL) was developed as part of the [Azure Data Explorer](/data-explorer/) service, and it’s therefore optimized for searching through big-data stores in a cloud environment. Inspired by famed undersea explorer Jacques Cousteau (and pronounced accordingly "koo-STOH"), it’s designed to help you dive deep into your oceans of data and explore their hidden treasures. 
 
-KQL is also used in Azure Monitor (and therefore in Microsoft Sentinel), including some additional Azure Monitor features, to retrieve, visualize, analyze, and parse data in Log Analytics data stores. In Microsoft Sentinel, you're using tools based on Kusto Query Language whenever you’re visualizing and analyzing data and hunting for threats, whether in existing rules and workbooks, or in building your own.
+KQL is also used in Azure Monitor (and therefore in Microsoft Sentinel), using specific additional Azure Monitor features, to retrieve, visualize, analyze, and parse data in Log Analytics data stores. In Microsoft Sentinel, you use Kusto Query Language whenever you’re visualizing and analyzing data and hunting for threats, whether in existing rules and workbooks, or to build your own.
 
 Because Kusto Query Language is a part of nearly everything you do in Microsoft Sentinel, a clear understanding of how KQL works will help you get that much more out of your SIEM.
 
@@ -55,20 +53,13 @@ Explore the demo environment. Like Log Analytics in your production environment,
 
 In this article all the examples are run in the demo environment, so you can try them out. 
 
-
-You can query and filter data in the Microsoft Sentinel console  > **Logs** page. You can select a table and drill down to see columns. You can modify the default columns shown, and the default time range for queries.
-
-:::image type="content" source="./media/kql-overview/portal-placement.png" alt-text="Shows where to run KQL queries in the Sentinel portal.":::
-
-
-
 ## Before you start
 
-Before you start trying out KQL queries for Microsoft Sentinel, review some [query best practices](/azure/data-explorer/kusto/query/best-practices).
+Before you start trying out KQL queries for Microsoft Sentinel, review some [query best practices](/data-explorer/kusto/query/best-practices).
 
 ## Data flow in Kusto queries
 
-When you want to glean usable information from large amounts of data in Microsoft Sentinel, you follow a query process that starts with a set of data. Each step in the process takes the data fed into it, transforms that data, and passes it to the next step in the process using the ` | ` (pipe) delimiter. These are the essential steps in a simple query process:
+When you want to glean usable information from large amounts of data in Microsoft Sentinel, you follow a query process that starts with a set of data. Each step in the process takes the data fed into it, transforms that data, and passes it to the next step in the process using the ` ! ` (pipe) delimiter. These are the essential steps in a simple query process:
 
 `Get data | Filter | Summarize | Sort | Select`
 
@@ -137,27 +128,273 @@ And here's the output now:
 >
 > The location of operations in the pipeline can also affect performance. That's why it's a good idea to put your filtering operations as close as possible to the beginning of your query statement, so that only the relevant data gets passed to the next operations in the pipeline.
 
-:::image type="content" source="./media/kql-overview/pipe-command.png" alt-text="Shows how the pipe command works.":::
-
 Now, let's go through some examples of various queries, starting with the simplest and increasing in complexity.
 
 ## Count rows
 
-The **`SecurityEvent`** table contains raw data about events that took place on Windows systems monitored by Microsoft Sentinel. To find out how large the table is, we'll pipe its content into a summarization operator - one that counts rows.
+The [SecurityIncident](/azure/azure-monitor/reference/tables/securityincident) table contains data about incidents that have been generated by Microsoft Sentinel as the results of analytics rules, or ingested and synchronized from other compatible incident-producing platforms (like Microsoft 365 Defender). Incidents represent the workload of your SOC analysts. To find out how large the table is, we'll pipe its content into a summarization operator - one that counts rows.
 
-This query takes the entire **`SecurityEvent`** table and passes it to the [count operator](/azure/data-explorer/kusto/query/countoperator). The `count` operator displays the results because the operator is the last command in the query.
+This query takes the entire `SecurityIncident` table and passes it to the [count operator](/azure/data-explorer/kusto/query/countoperator). The `count` operator displays the results because the operator is the last command in the query.
+
+```kusto
+//Count the records in the SecurityIncident table.
+SecurityIncident | count
+```
+
+Here's the output:
+
+| Count |
+| ----- |
+| 456   |
+|
+    
+
+## Filter by Boolean expression: *where*
+
+Now we want to see the actual rows in the SecurityIncident table, but only those representing *high-severity* incidents during a specific week.
+
+The [where](/azure/data-explorer/kusto/query/whereoperator) operator is one of the most common in the Kusto Query Language. This operator filters a table to rows that match specific criteria. In the following example, the query uses multiple commands. First, it gets all records for the table. Then, it filters the data for records that are in the specified time range. Finally, it filters those results for records that have a severity level of "High".
+
+> [!NOTE]
+> In addition to specifying a filter in your query by using the `TimeGenerated` column, you can specify the time range in Log Analytics. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope).
+
+```kusto
+SecurityIncident
+| where TimeGenerated > datetime(10-01-2021) and TimeGenerated < datetime(10-07-2021)
+| where Severity == "High"
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-where-results.png" lightbox="images/tutorial/azure-monitor-where-results.png" alt-text="Screenshot that shows the results of the where operator example.":::
+
+## Select a subset of columns: *project*
+
+Use [project](./projectoperator.md) to include only the columns you want. Building on the preceding example, let's limit the output to certain columns:
+
+```kusto
+AzureActivity
+| where TimeGenerated > datetime(10-01-2020) and TimeGenerated < datetime(10-07-2020)
+| where Level == 'Critical'
+| project TimeGenerated, Level, OperationNameValue, ResourceGroup, _ResourceId
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-project-results.png" lightbox="images/tutorial/azure-monitor-project-results.png" alt-text="Screenshot that shows the results of the project operator example.":::
+
+## Show *n* rows: *take*
+
+[NetworkMonitoring](/azure/azure-monitor/reference/tables/networkmonitoring) contains monitoring data for Azure virtual networks. Let's use the [take](./takeoperator.md) operator to look at 10 random sample rows in that table. The [take](./takeoperator.md) shows some rows from a table in no particular order:
+
+```kusto
+NetworkMonitoring
+| take 10
+| project TimeGenerated, Computer, SourceNetwork, DestinationNetwork, HighLatency, LowLatency
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-take-results.png" lightbox="images/tutorial/azure-monitor-take-results.png" alt-text="Screenshot that shows the results of the take operator example.":::
+
+## Order results: *sort*, *top*
+
+Instead of random records, we can return the latest five records by first sorting by time:
+
+```kusto
+NetworkMonitoring
+| sort by TimeGenerated desc
+| take 5
+| project TimeGenerated, Computer, SourceNetwork, DestinationNetwork, HighLatency, LowLatency
+```
+
+You can get this exact behavior by instead using the [top](./topoperator.md) operator: 
+
+```kusto
+NetworkMonitoring
+| top 5 by TimeGenerated desc
+| project TimeGenerated, Computer, SourceNetwork, DestinationNetwork, HighLatency, LowLatency
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-top-results.png" lightbox="images/tutorial/azure-monitor-top-results.png" alt-text="Screenshot that shows the results of the top operator example.":::
+
+## Compute derived columns: *extend*
+
+The [extend](./projectoperator.md) operator is similar to [project](./projectoperator.md), but it adds to the set of columns instead of replacing them. You can use both operators to create a new column based on a computation on each row.
+
+The [Perf](/azure/azure-monitor/reference/tables/perf) table has performance data that's collected from virtual machines that run the Log Analytics agent. 
+
+```kusto
+Perf
+| where ObjectName == "LogicalDisk" and CounterName == "Free Megabytes"
+| project TimeGenerated, Computer, FreeMegabytes = CounterValue
+| extend FreeGigabytes = FreeMegabytes / 1000
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-extend-results.png" lightbox="images/tutorial/azure-monitor-extend-results.png" alt-text="Screenshot that shows the results of the extend operator example.":::
+
+## Aggregate groups of rows: *summarize*
+
+The [summarize](./summarizeoperator.md) operator groups together rows that have the same values in the `by` clause. Then, it uses an aggregation function like `count` to combine each group in a single row. A range of [aggregation functions](./summarizeoperator.md#list-of-aggregation-functions) are available. You can use several aggregation functions in one `summarize` operator to produce several computed columns. 
+
+The [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) table contains security events like logons and processes that started on monitored computers. You can count how many events of each level occurred on each computer. In this example, a row is produced for each computer and level combination. A column contains the count of events.
+
+```kusto
+SecurityEvent
+| summarize count() by Computer, Level
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-summarize-count-results.png" lightbox="images/tutorial/azure-monitor-summarize-count-results.png" alt-text="Screenshot that shows the results of the summarize count operator example.":::
+
+## Summarize by scalar values
+
+You can aggregate by scalar values like numbers and time values, but you should use the [bin()](./binfunction.md) function to group rows into distinct sets of data. For example, if you aggregate by `TimeGenerated`, you'll get a row for most time values. Use `bin()` to consolidate values per hour or day.
+
+The [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table contains performance data that's organized according to insights from Azure Monitor for VMs and Azure Monitor for containers. The following query shows the hourly average processor utilization for multiple computers:
+
+```kusto
+InsightsMetrics
+| where Computer startswith "DC"
+| where Namespace  == "Processor" and Name == "UtilizationPercentage"
+| summarize avg(Val) by Computer, bin(TimeGenerated, 1h)
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-summarize-avg-results.png" lightbox="images/tutorial/azure-monitor-summarize-avg-results.png" alt-text="Screenshot that shows the results of the avg operator example.":::
+
+## Display a chart or table: *render*
+
+The [render](./renderoperator.md?pivots=azuremonitor) operator specifies how the output of the query is rendered. Log Analytics renders output as a table by default. You can select different chart types after you run the query. The `render` operator is useful to include in queries in which a specific chart type usually is preferred.
+
+The following example shows the hourly average processor utilization for a single computer. It renders the output as a timechart.
+
+```kusto
+InsightsMetrics
+| where Computer == "DC00.NA.contosohotels.com"
+| where Namespace  == "Processor" and Name == "UtilizationPercentage"
+| summarize avg(Val) by Computer, bin(TimeGenerated, 1h)
+| render timechart
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-render-results.png" lightbox="images/tutorial/azure-monitor-render-results.png" alt-text="Screenshot that shows the results of the render operator example.":::
+
+## Work with multiple series
+
+If you use multiple values in a `summarize by` clause, the chart displays a separate series for each set of values:
+
+```kusto
+InsightsMetrics
+| where Computer startswith "DC"
+| where Namespace  == "Processor" and Name == "UtilizationPercentage"
+| summarize avg(Val) by Computer, bin(TimeGenerated, 1h)
+| render timechart
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-render-multiple-results.png" lightbox="images/tutorial/azure-monitor-render-multiple-results.png" alt-text="Screenshot that shows the results of the render operator with multiple series example.":::
+
+## Join data from two tables
+
+What if you need to retrieve data from two tables in a single query? You can use the [join](./joinoperator.md?pivots=azuremonitor) operator to combine rows from multiple tables in a single result set. Each table must have a column that has a matching value so that the join understands which rows to match.
+
+[VMComputer](/azure/azure-monitor/reference/tables/vmcomputer) is a table that Azure Monitor uses for VMs to store details about virtual machines that it monitors. [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) contains performance data that's collected from those virtual machines. One value collected in *InsightsMetrics* is available memory, but not the percentage memory that's available. To calculate the percentage, we need the physical memory for each virtual machine. That value is in `VMComputer`.
+
+The following example query uses a join to perform this calculation. The [distinct](./distinctoperator.md) operator is used with `VMComputer` because details are regularly collected from each computer. As result, the table contains multiple rows for each computer. The two tables are joined using the `Computer` column. A row is created in the resulting set that includes columns from both tables for each row in `InsightsMetrics`, where the value in `Computer` has the same value in the `Computer` column in `VMComputer`.
+
+```kusto
+VMComputer
+| distinct Computer, PhysicalMemoryMB
+| join kind=inner (
+    InsightsMetrics
+    | where Namespace == "Memory" and Name == "AvailableMB"
+    | project TimeGenerated, Computer, AvailableMemoryMB = Val
+) on Computer
+| project TimeGenerated, Computer, PercentMemory = AvailableMemoryMB / PhysicalMemoryMB * 100
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-join-results.png" lightbox="images/tutorial/azure-monitor-join-results.png" alt-text="Screenshot that shows the results of the join operator example.":::
+
+## Assign a result to a variable: *let*
+
+Use [let](./letstatement.md) to make queries easier to read and manage. You can use this operator to assign the results of a query to a variable that you can use later. By using the `let` statement, the query in the preceding example can be rewritten as:
+
+ 
+```kusto
+let PhysicalComputer = VMComputer
+    | distinct Computer, PhysicalMemoryMB;
+let AvailableMemory = InsightsMetrics
+    | where Namespace == "Memory" and Name == "AvailableMB"
+    | project TimeGenerated, Computer, AvailableMemoryMB = Val;
+PhysicalComputer
+| join kind=inner (AvailableMemory) on Computer
+| project TimeGenerated, Computer, PercentMemory = AvailableMemoryMB / PhysicalMemoryMB * 100
+```
+
+:::image type="content" source="images/tutorial/azure-monitor-let-results.png" lightbox="images/tutorial/azure-monitor-let-results.png" alt-text="Screenshot that shows the results of the let operator example.":::
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+When you search for data in Microsoft Sentinel, you typically move through a query process as follows.
+
+
+:::image type="content" source="./media/kql-overview/pipe-command.png" alt-text="Shows how the pipe command works.":::
+
+1. **Step 1: Retrieve data**: Data that streams into Microsoft Sentinel is stored in Log Analytics tables. You select tables that contain the data you want to query.
+2. **Step 2: Narrow down**. 
+    - **Filter**: Use operators to filter table and column data.
+    - **Parse and prepare**. Prepare the filtered data further by parsing, aggregating etc. 
+    - **Analyze**: Analyze the prepared results. After analysis, you might filter or parse again to hone in more sharply.
+3. **Step 3: Gather the evidence**: Prepare the results so that they're useful in your Microsoft Sentinel environment.
+
+You can query and filter data in the Microsoft Sentinel console  > **Logs** page. You can select a table and drill down to see columns. You can modify the default columns shown, and the default time range for queries.
+
+:::image type="content" source="./media/kql-overview/portal-placement.png" alt-text="Shows where to run KQL queries in the Sentinel portal.":::
+
+## Retrieve data
+
+Microsoft Sentinel data is organized into different types of tables: 
+
+- Tables created by default in Log Analytics.
+- Tables created when you set up data connectors and Microsoft Sentinel ingests data.
+- Custom tables that are created when you set up [custom connectors](create-custom-connector.md).
+
+You can retrieve data from a standard table, a custom table, or use operators to retrieve and manipulate tables.
+
+
+### Example 1
 ```kusto
 //Count the records in the SecurityEvent table.
 SecurityEvent 
 | count
 ```
-### Results
+#### Results
 :::image type="content" source="./media/kql-overview/table-count-results.png" alt-text="Shows the result for counting records in the SecurityEvent table.":::
 
 
-<!--### Example 2
+### Example 2
 
 ```kusto
 //Use union to return all rows in the SecurityEvent and SecurityAlert tables.
@@ -214,17 +451,17 @@ SecurityEvent
 ##### Results
 
 :::image type="content" source="./media/kql-overview/table-security-events-newest.png" alt-text="Show latest security events for columns specified by project operator.AccountName column for duplicated TimeGenerated values.":::
--->
 
-## Filter by Boolean expression: *where*
 
-Now we want to see actual rows in the SecurityEvent table, but only those representing particular types of events.
+## Filter data
 
-The [where](/azure/data-explorer/kusto/query/whereoperator) operator is one of the most common in the Kusto Query Language. This operator filters a table to rows that match specific criteria. Let's look at a few examples of the use of `where`:
+After retrieving and perhaps sorting table data, you can filter it to narrow down results to points of interest.
 
-### Example 1
+### Using where
 
-In the following example, we want to see all the successful logon events. The query first gets all records for the table. It then filters the data for records with the Event ID for successful logon (4624). Finally, it sorts those results in descending order of recent occurrence and displays the most recent ten events.
+The where operator is one of the most common filters. It's best to use *where* early in a query. This improves performance by reducing the amount of data you need to process as you dig down into the query results.
+
+#### Example 1
 
 ```kusto
 //Retrieve the latest 10 occurrences of EventID 4624 (successful Windows logon) in the SecurityEvent table.
@@ -233,19 +470,18 @@ SecurityEvent
 | order by TimeGenerated desc
 | take 10
 ```
-### Results
 
-:::image type="content" source="./media/kql-overview/table-where-event-sort.png" alt-text="Screenshot of results of request to get occurrences of Event I D 4624 in the SecurityEvent table.":::
+##### Results
 
-### Example 2
+:::image type="content" source="./media/kql-overview/table-where-event-sort.png" alt-text="Get occurrences of EventID 4624 in the SecurityEvent table.":::
 
-In this example, we want to see both successful logon and logoff events from the past week. 
+![Get occurrences of EventID 4624 in the SecurityEvent table](./media/kql-overview/table-where-event-sort.png)
 
-- We can use the [in operator](/azure/data-explorer/kusto/query/in-cs-operator) to give our filter a choice of values that can evaluate to true. 
-- We can use the [ago function](/azure/data-explorer/kusto/query/agofunction) to delineate a dynamic time frame: we want to see events that occurred in the past seven days every time we run this query.
+
+#### Example 2
 
 ```kusto
-//Retrieve 10 occurrences (descending TimeGenerated order) of EventID 4624 or 4634 in the SecurityEvent table, seven or fewer days ago. Note that you can combine where statements.
+//Retrieve 10 occurrences (descending TimeGenerated order) of EventID 4624 or 4634 in the SecurityEvent table, seven or more days ago. Note that you can combine where statements.
 SecurityEvent
 | where EventID in (4624, 4634)
 | where TimeGenerated >= ago(7d)
