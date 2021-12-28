@@ -6,10 +6,7 @@ ms.date: 12/27/2021
 ms.author: eur
 ---
 
-## Speech CLI (also known as SPX)
-
->[!NOTE]
->Get started with the Azure Speech service command line interface (CLI) [here](../../spx-basics.md). The CLI enables you to use the Azure Speech service without writing any code.
+Get started with the Azure Speech service command line interface (CLI) [here](../../spx-basics.md). The CLI (also known as SPX) enables you to use the Azure Speech service without writing any code.
 
 ## Speech CLI: 2021-May release
 

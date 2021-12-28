@@ -15,6 +15,8 @@ ms.custom: ignite-fall-2021
 
 # Speech Service release notes
 
+See below for information about changes to Speech services and resources.
+
 **Choose a service or resource**
 
 # [Services](#tab/speech-services)
