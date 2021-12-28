@@ -789,7 +789,7 @@ There are some general system constraints that may affect your workload:
 | Max size of the result set | up to 200 GB (shared between concurrent queries) |
 | Max concurrency | Not limited and depends on the query complexity and amount of data scanned. One serverless SQL pool can concurrently handle 1000 active sessions that are executing lightweight queries, but the numbers will drop if the queries are more complex or scan a larger amount of data. |
 
-### Cannot creata a database in serverless SQL pool
+### Cannot create a database in serverless SQL pool
 
 The serverless SQL pools have limitations and you cannot create more than 20 databases per workspace. If you need to separate objects and isolate them, use schemas.
 
