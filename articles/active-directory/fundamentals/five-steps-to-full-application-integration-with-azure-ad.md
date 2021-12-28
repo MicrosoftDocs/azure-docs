@@ -92,7 +92,7 @@ In addition, you can integrate application delivery controllers like F5 BIG-IP A
 
 - [Akamai Enterprise Application Access (EAA)](../saas-apps/akamai-tutorial.md)
 - [Citrix Application Deliver Controller (ADC)](../saas-apps/citrix-netscaler-tutorial.md) (Formerly known as Citrix Netscaler)
-- [F5 BIG-IP APM](../saas-apps/headerf5-tutorial.md)
+- [F5 BIG-IP APM](../manage-apps/f5-aad-integration.md)
 - [Zscaler Private Access (ZPA)](../saas-apps/zscalerprivateaccess-tutorial.md)
 
 ## 5. Integrate apps your developers build

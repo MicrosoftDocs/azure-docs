@@ -24,7 +24,7 @@ For detailed deployment steps and network configuration, see:
 
 ## Access options
 
-By default, an API Management instance must be accessible from the internet. Using a virtual network, you can configure the developer portal, API gateway, and other API Management endpoints to be accessible either from the internet (external mode) or only within the VNET (internal mode). 
+When created, an API Management instance must be accessible from the internet. Using a virtual network, you can configure the developer portal, API gateway, and other API Management endpoints to be accessible either from the internet (external mode) or only within the VNET (internal mode). 
 
 * **External** - The API Management endpoints are accessible from the public internet via an external load balancer. The gateway can access resources within the VNET.
 

@@ -34,7 +34,7 @@ The automation framework also uses credentials for the default virtual machine (
 
 Create your service principals:
 
-1. Sign in to the [Azure Command Line Interface (Azure CLI)](/cli/azure/) with an account that has adequate privileges to create a Service Principal.
+1. Sign in to the [Azure CLI](/cli/azure/) with an account that has adequate privileges to create a Service Principal.
 1. Create a new Service Principal by running the command `az ad sp create-for-rbac`. Make sure to use a description name for `--name`. For example:
     ```azurecli
     az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx" --name="DEV-Deployment-Account"

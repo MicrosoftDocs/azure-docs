@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: app-provisioning
 ms.workload: identity
 ms.topic: how-to
-ms.date: 05/11/2021
+ms.date: 12/10/2021
 ms.author: kenwith
 ms.reviewer: arvinh
 ---
@@ -95,6 +95,7 @@ Scoping filters are configured as part of the attribute mappings for each Azure 
 
 >[!IMPORTANT] 
 > - The IsMemberOf filter is not supported currently.
+> - The members attribute on a group is not supported currently.
 > - EQUALS and NOT EQUALS are not supported for multi-valued attributes
 
 9. Optionally, repeat steps 7-8 to add more scoping clauses.

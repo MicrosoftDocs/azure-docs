@@ -9,8 +9,88 @@ ms.date: 11/10/2021
 
 This article lists significant changes to Azure Monitor documentation.
 
-## October, 2021
+## November, 2021
 
+### General
+
+**Updated articles**
+
+- [What is monitored by Azure Monitor?](monitor-reference.md)
+
+### Agents
+
+**Updated articles**
+
+- [Azure Monitor agent overview](agents/azure-monitor-agent-overview.md)
+
+### Alerts
+
+**Updated articles**
+
+- [Troubleshooting problems in Azure Monitor alerts](alerts/alerts-troubleshoot.md)
+- [How to update alert rules or alert processing rules when their target resource moves to a different Azure region](alerts/alerts-resource-move.md)
+- [Alert processing rules (preview)](alerts/alerts-action-rules.md)
+
+### Application Insights
+
+**Updated articles**
+
+- [Troubleshooting no data - Application Insights for .NET/.NET Core](app/asp-net-troubleshoot-no-data.md)
+- [Manage usage and costs for Application Insights](app/pricing.md)
+- [Azure Monitor OpenTelemetry-based auto-instrumentation for Java applications](app/java-in-process-agent.md)
+- [Enable Azure Monitor OpenTelemetry Exporter for .NET, Node.js, and Python applications (preview)](app/opentelemetry-enable.md)
+- [Release notes for Azure Web App extension for Application Insights](app/web-app-extension-release-notes.md)
+- [Tips for updating your JVM args - Azure Monitor Application Insights for Java](app/java-standalone-arguments.md)
+- [Configuration options - Azure Monitor Application Insights for Java](app/java-standalone-config.md)
+- [Supported languages](app/platforms.md)
+- [What is Distributed Tracing?](app/distributed-tracing.md)
+
+### Containers
+
+**New articles**
+
+- [Transition to using Container Insights on Azure Arc-enabled Kubernetes](containers/container-insights-transition-hybrid.md)
+
+**Updated articles**
+
+- [Azure Monitor Container Insights for Azure Arc-enabled Kubernetes clusters](containers/container-insights-enable-arc-enabled-clusters.md)
+
+### Essentials
+
+**Updated articles**
+
+- [Create diagnostic settings to send Azure Monitor platform logs and metrics to different destinations](essentials/diagnostic-settings.md)
+
+### Insights
+
+**New articles**
+
+- [Azure Monitor - Service Bus insights](insights/service-bus-insights.md)
+
+**Updated articles**
+
+- [Enable SQL insights (preview)](insights/sql-insights-enable.md)
+- [Troubleshoot SQL insights (preview)](insights/sql-insights-troubleshoot.md)
+
+### Logs
+
+**Updated articles**
+
+- [Configure your Private Link](logs/private-link-configure.md)
+- [Design your Private Link setup](logs/private-link-design.md)
+- [Use Azure Private Link to connect networks to Azure Monitor](logs/private-link-security.md)
+- [Log Analytics workspace data export in Azure Monitor (preview)](logs/logs-data-export.md)
+- [Query data in Azure Monitor using Azure Data Explorer](logs/azure-data-explorer-monitor-proxy.md)
+- [Log data ingestion time in Azure Monitor](logs/data-ingestion-time.md)
+
+### Virtual Machines
+
+**Updated articles**
+
+- [VM insights guest health alerts (preview)](vm/vminsights-health-alerts.md)
+
+
+## October, 2021
 ### General
 
 **New articles**

@@ -14,7 +14,7 @@ manager: daveba
 ms.reviewer: michmcla
 
 ms.collection: M365-identity-device-management
-ms.custom: has-adal-ref
+ms.custom: 
 ---
 # Integrate your existing Network Policy Server (NPS) infrastructure with Azure AD Multi-Factor Authentication
 
@@ -361,7 +361,7 @@ After you run this command, go to the root of your *C:* drive, locate the file, 
 
 Check that your password hasn't expired. The NPS extension doesn't support changing passwords as part of the sign-in workflow. Contact your organization's IT Staff for further assistance.
 
-### Why are my requests failing with ADAL token error?
+### Why are my requests failing with security token error?
 
 This error could be due to one of several reasons. Use the following steps to troubleshoot:
 

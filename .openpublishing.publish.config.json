@@ -818,6 +818,7 @@
     ".openpublishing.redirection.sql-database.json",
     ".openpublishing.redirection.synapse-analytics.json",
     ".openpublishing.redirection.azure-web-pubsub.json",
+    ".openpublishing.redirection.azure-monitor.json",
     ".openpublishing.redirection.azure-percept.json",
     "articles/azure-fluid-relay/.openpublishing.redirection.fluid-relay.json",
     "articles/azure-netapp-files/.openpublishing.redirection.azure-netapp-files.json",   

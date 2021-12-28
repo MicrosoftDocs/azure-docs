@@ -1,16 +1,16 @@
 ---
 title: Cross-region replication in Azure
 description: Learn about Cross-region replication in Azure.
-author: prsandhu
+author: awysza
 ms.service: azure
 ms.topic: conceptual
-ms.date: 10/21/2021
+ms.date: 12/10/2021
 ms.author: rarco
 ms.reviewer: cynthn
 ms.custom: references_regions
 ---
 
-# Cross-region replication in Azure: Business continuity and disaster recovery
+# Cross-region replication in Azure: Business continuity and disaster recovery 
 
 Many organizations require both high availability provided by availability zones that are also supported with protection from large-scale phenomena and regional disasters. As discussed in the resiliency [overview](overview.md) for regions and availability zones, Azure regions are designed to offer protection against local disasters with availability zones. But they can also provide protection from regional or large geography disasters with disaster recovery by making use of another region that uses *cross-region replication*.
 

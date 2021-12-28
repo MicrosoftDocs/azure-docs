@@ -98,7 +98,7 @@
       href: tutorial-multiple-data-sources.md
   - name: Index any data
     href: tutorial-optimize-indexing-push-api.md
-  - name: Use AI to create content
+  - name: Enrich with AI (skills)
     items:
     - name: C#
       href: cognitive-search-tutorial-blob-dotnet.md
@@ -138,10 +138,10 @@
       href: index-similarity-and-scoring.md     
   - name: Indexing
     items:
-    - name: Import
-      href: search-what-is-data-import.md
     - name: Search indexes
       href: search-what-is-an-index.md
+    - name: Import
+      href: search-what-is-data-import.md
     - name: Analyzers
       href: search-analyzers.md
     - name: Indexers
@@ -150,6 +150,8 @@
     items:
     - name: Enrichment overview
       href: cognitive-search-concept-intro.md
+    - name: Enrichment cache
+      href: cognitive-search-incremental-indexing-conceptual.md
     - name: Skillsets
       href: cognitive-search-working-with-skillsets.md
     - name: Debug sessions
@@ -158,8 +160,6 @@
       href: knowledge-store-concept-intro.md
     - name: Projections
       href: knowledge-store-projection-overview.md
-    - name: Enrichment cache
-      href: cognitive-search-incremental-indexing-conceptual.md
   - name: Security
     items:
     - name: Security overview

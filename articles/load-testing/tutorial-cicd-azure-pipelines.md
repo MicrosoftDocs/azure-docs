@@ -35,7 +35,7 @@ You'll learn how to:
 ## Prerequisites
 
 * An Azure account with an active subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you begin.  
-* An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up.md?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline.md?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
+* An Azure DevOps organization and project. If you don't have an Azure DevOps organization, you can [create one for free](/azure/devops/pipelines/get-started/pipelines-sign-up?view=azure-devops&preserve-view=true). If you need help with getting started with Azure Pipelines, see [Create your first pipeline](/azure/devops/pipelines/create-first-pipeline?preserve-view=true&view=azure-devops&tabs=java%2Ctfs-2018-2%2Cbrowser).
 * A GitHub account, where you can create a repository. If you don't have one, you can [create one for free](https://github.com/).  
 * An existing Azure Load Testing resource. To create a Load Testing resource, see [Create and run a load test](./quickstart-create-and-run-load-test.md#create_resource).
 
@@ -72,10 +72,10 @@ Update the Apache JMeter script with the URL of your sample web app:
 1. Replace all three instances of the value with the URL of your sample web app: 
 
    ```xml
-   <stringProp name="HTTPSampler.domain">{your-app-name}.azurewebsites.net</stringProp>
+   <stringProp name="HTTPSampler.domain">your-app-name.azurewebsites.net</stringProp>
    ```
 
-    You'll deploy the sample application to an Azure App Service web app by using Azure Pipelines in the subsequent steps. For now, replace the placeholder text `{your-app-name}` in the previous XML snippet with a unique name that you want to provide to the App Service web app. You'll then use this same name to create the web app.
+    You'll deploy the sample application to an Azure App Service web app by using Azure Pipelines in the subsequent steps. For now, replace the placeholder text `your-app-name` in the previous XML snippet with a unique name that you want to provide to the App Service web app. You'll then use this same name to create the web app.
 
     > [!IMPORTANT]
     > Don't include `https` or `http` in the sample application's URL.

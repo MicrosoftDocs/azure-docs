@@ -107,17 +107,23 @@ This article describes limitations and known issues of SFTP support in Azure Blo
 
 ## Troubleshooting
 
-The user gets the following error when trying to enable SFTP:
+- To resolve the `Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.` error, ensure that the following pre-requisites are met at the storage account level:
 
-`Failed to update SFTP settings for account 'accountname'. Error: The value 'True' is not allowed for property isSftpEnabled.`
+  - The account needs to be a GPv2 or Block Blob Storage account.
+  
+  - The account needs to have LRS or ZRS replication setup.
+  
+  - The account needs to have hierarchical namespace enabled on it.
+  
+  - The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
+  
+  - Customer's subscription needs to be signed up for the preview. See this.
 
-To troubleshoot, ensure that the following pre-requisites are met at the storage account level:
-
-- The account needs to be a GPv2 or Block Blob Storage account.
-- The account needs to have LRS or ZRS replication setup.
-- The account needs to have hierarchical namespace enabled on it.
-- The account needs to be in a [supported regions](secure-file-transfer-protocol-support.md#regional-availability).
-- Customer's subscription needs to be signed up for the preview. See this.
+- To resolve the `Home Directory not accessible error.` error, check that:
+  
+  - The user has been assigned appropriate permissions to the container.
+  
+  -	The container name is specified in the connection string if you have not configured (set home directory) and provisioned (create the directory inside the container) a home directory for the user.
 
 ## See also
 

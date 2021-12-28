@@ -138,6 +138,8 @@
         href: tutorial-ssl-cli.md
       - name: Configure Key Vault - PowerShell
         href: configure-keyvault-ps.md
+      - name: Configure Key Vault - Portal
+        href: configure-key-vault-portal.md
     - name: End-to-end SSL
       items:
       - name: End-to-end SSL - Portal

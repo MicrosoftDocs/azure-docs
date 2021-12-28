@@ -4,7 +4,6 @@ description: This quickstart will show you how to use Azure Front Door to create
 services: front-door
 author: duongau
 manager: KumudD
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: frontdoor
 ms.devlang: na
 ms.topic: quickstart
@@ -12,7 +11,8 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 4/19/2021
 ms.author: duau
-ms.custom: mode-other
+ms.custom: mode-api
+#Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Front Door for a highly available global web application using Azure CLI

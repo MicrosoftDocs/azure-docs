@@ -5,7 +5,7 @@ services: azure-resource-manager
 author: dlepow
 ms.service: azure-resource-manager
 ms.topic: quickstart
-ms.custom: subject-armqs, mode-arm
+ms.custom: subject-armqs, mode-api
 ms.author: danlep
 ms.date: 10/09/2020
 ---

@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 12/08/2021
+ms.date: 12/28/2021
 ---
 
 # Resource functions for Bicep
@@ -17,11 +17,11 @@ To get values from the current deployment, see [Deployment value functions](./bi
 
 `extensionResourceId(resourceId, resourceType, resourceName1, [resourceName2], ...)`
 
-Returns the resource ID for an [extension resource](../management/extension-resource-types.md), which is a resource type that is applied to another resource to add to its capabilities.
+Returns the resource ID for an [extension resource](../management/extension-resource-types.md). An extension resource is a resource type that's applied to another resource to add to its capabilities.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
-The extensionResourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
+The `extensionResourceId` function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
 
 The basic format of the resource ID returned by this function is:
 
@@ -121,7 +121,7 @@ The secret value for the secret name.
 
 ### Example
 
-The following Bicep file is used as a module.  It has an *adminPassword* parameter defined with the `@secure()` decorator.
+The following Bicep file is used as a module.  It has an `adminPassword` parameter defined with the `@secure()` decorator.
 
 ```bicep
 param sqlServerName string
@@ -180,19 +180,19 @@ A [namespace qualifier](bicep-functions.md#namespaces-for-functions) isn't neede
 | Parameter | Required | Type | Description |
 |:--- |:--- |:--- |:--- |
 | apiVersion |No |string |If you don't provide this parameter, the API version for the resource is used. Only provide a custom API version when you need the function to be run with a specific version. Use the format, **yyyy-mm-dd**. |
-| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as **listAccountSas** on a storage account. An example of passing function values is shown in this article. |
+| functionValues |No |object | An object that has values for the function. Only provide this object for functions that support receiving an object with parameter values, such as `listAccountSas` on a storage account. An example of passing function values is shown in this article. |
 
 ### Valid uses
 
-The list functions can be used in the properties of a resource definition. Don't use a list function that exposes sensitive information in the outputs section of a Bicep file. Output values are stored in the deployment history and could be retrieved by a malicious user.
+The `list` functions can be used in the properties of a resource definition. Don't use a `list` function that exposes sensitive information in the outputs section of a Bicep file. Output values are stored in the deployment history and could be retrieved by a malicious user.
 
-When used with an [iterative loop](loops.md), you can use the list functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the list function is resolved.
+When used with an [iterative loop](loops.md), you can use the `list` functions for `input` because the expression is assigned to the resource property. You can't use them with `count` because the count must be determined before the `list` function is resolved.
 
-If you use a **list** function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the **list** function refers to a resource that doesn't exist. Use the [conditional expression **?:** operator](./operators-logical.md#conditional-expression--) to make sure the function is only evaluated when the resource is being deployed.
+If you use a `list` function in a resource that is conditionally deployed, the function is evaluated even if the resource isn't deployed. You get an error if the `list` function refers to a resource that doesn't exist. Use the [conditional expression **?:** operator](./operators-logical.md#conditional-expression--) to make sure the function is only evaluated when the resource is being deployed.
 
 ### Return value
 
-The returned object varies by the list function you use. For example, the listKeys for a storage account returns the following format:
+The returned object varies by the list function you use. For example, the `listKeys` for a storage account returns the following format:
 
 ```json
 {
@@ -211,11 +211,11 @@ The returned object varies by the list function you use. For example, the listKe
 }
 ```
 
-Other list functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example Bicep file.
+Other `list` functions have different return formats. To see the format of a function, include it in the outputs section as shown in the example Bicep file.
 
 ### List example
 
-The following example deploys a storage account and then calls listKeys on that storage account. The key is used when setting a value for [deployment scripts](../templates/deployment-script-template.md).
+The following example deploys a storage account and then calls `listKeys` on that storage account. The key is used when setting a value for [deployment scripts](../templates/deployment-script-template.md).
 
 ```bicep
 resource stg 'Microsoft.Storage/storageAccounts@2019-06-01' = {
@@ -242,7 +242,7 @@ resource dScript 'Microsoft.Resources/deploymentScripts@2019-10-01-preview' = {
 }
 ```
 
-The next example shows a list function that takes a parameter. In this case, the function is **listAccountSas**. Pass an object for the expiry time. The expiry time must be in the future.
+The next example shows a `list` function that takes a parameter. In this case, the function is `listAccountSas`. Pass an object for the expiry time. The expiry time must be in the future.
 
 ```bicep
 param accountSasProperties object {
@@ -259,18 +259,18 @@ sasToken: stg.listAccountSas('2021-04-01', accountSasProperties).accountSasToken
 
 ### Implementations
 
-The possible uses of list* are shown in the following table.
+The possible uses of `list*` are shown in the following table.
 
 | Resource type | Function name |
 | ------------- | ------------- |
 | Microsoft.Addons/supportProviders | listsupportplaninfo |
 | Microsoft.AnalysisServices/servers | [listGatewayStatus](/rest/api/analysisservices/servers/listgatewaystatus) |
-| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/authorization-server/list-secrets) |
-| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/2021-04-01-preview/gateway/list-keys) |
-| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/identity-provider/list-secrets) |
-| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/2021-04-01-preview/named-value/list-value) |
-| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/openid-connect-provider/list-secrets) |
-| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/2021-04-01-preview/subscription/list-secrets) |
+| Microsoft.ApiManagement/service/authorizationServers | [listSecrets](/rest/api/apimanagement/current-ga/authorization-server/list-secrets) |
+| Microsoft.ApiManagement/service/gateways | [listKeys](/rest/api/apimanagement/current-ga/gateway/list-keys) |
+| Microsoft.ApiManagement/service/identityProviders | [listSecrets](/rest/api/apimanagement/current-ga/identity-provider/list-secrets) |
+| Microsoft.ApiManagement/service/namedValues | [listValue](/rest/api/apimanagement/current-ga/named-value/list-value) |
+| Microsoft.ApiManagement/service/openidConnectProviders | [listSecrets](/rest/api/apimanagement/current-ga/openid-connect-provider/list-secrets) |
+| Microsoft.ApiManagement/service/subscriptions | [listSecrets](/rest/api/apimanagement/current-ga/subscription/list-secrets) |
 | Microsoft.AppConfiguration/configurationStores | [ListKeys](/rest/api/appconfiguration/configurationstores/listkeys) |
 | Microsoft.AppPlatform/Spring | [listTestKeys](/rest/api/azurespringcloud/services/listtestkeys) |
 | Microsoft.Automation/automationAccounts | [listKeys](/rest/api/automation/keys/listbyautomationaccount) |
@@ -410,7 +410,7 @@ To determine which resource types have a list operation, you have the following 
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region.
+Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -426,7 +426,7 @@ Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
 ### Return value
 
-An array with the supported zones. When using the default values for offset and numberOfZones, a resource type and region that supports zones returns the following array:
+An array with the supported zones. When using the default values for offset and `numberOfZones`, a resource type and region that supports zones returns the following array:
 
 ```json
 [
@@ -451,13 +451,19 @@ When the resource type or region doesn't support zones, an empty array is return
 ]
 ```
 
+### Remarks
+
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+
+To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`.  If the response isn't empty, the region supports availability zones.
+
 ### pickZones example
 
-The following Bicep file shows three results for using the pickZones function.
+The following Bicep file shows three results for using the `pickZones` function.
 
 ```bicep
 output supported array = pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')
-output notSupportedRegion array = pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')
+output notSupportedRegion array = pickZones('Microsoft.Compute', 'virtualMachines', 'westus')
 output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2')
 ```
 
@@ -469,7 +475,7 @@ The output from the preceding examples returns three arrays.
 | notSupportedRegion | array | [] |
 | notSupportedType | array | [] |
 
-You can use the response from pickZones to determine whether to provide null for zones or assign virtual machines to different zones.
+You can use the response from `pickZones` to determine whether to provide null for zones or assign virtual machines to different zones.
 
 ## providers
 
@@ -529,7 +535,7 @@ Returns the unique identifier of a resource.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
-The resourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
+The `resourceId` function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
 
 You use this function when the resource name is ambiguous or not provisioned within the same Bicep file. The format of the returned identifier varies based on whether the deployment happens at the scope of a resource group, subscription, management group, or tenant.
 
@@ -572,7 +578,7 @@ Returns the unique identifier for a resource deployed at the subscription level.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
-The subscriptionResourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
+The `subscriptionResourceId` function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
 
 The identifier is returned in the following format:
 
@@ -586,7 +592,7 @@ You use this function to get the resource ID for resources that are [deployed to
 
 ### subscriptionResourceID example
 
-The following Bicep file assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the subscriptionResourceId function to get the resource ID for built-in roles.
+The following Bicep file assigns a built-in role. You can deploy it to either a resource group or subscription. It uses the `subscriptionResourceId` function to get the resource ID for built-in roles.
 
 ```bicep
 @description('Principal Id')
@@ -629,7 +635,7 @@ Returns the unique identifier for a resource deployed at the tenant level.
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
-The tenantResourceId function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
+The `tenantResourceId` function is available in Bicep files, but typically you don't need it. Instead, use the symbolic name for the resource and access the `id` property.
 
 The identifier is returned in the following format:
 
@@ -637,7 +643,7 @@ The identifier is returned in the following format:
 /providers/{resourceProviderNamespace}/{resourceType}/{resourceName}
 ```
 
-Built-in policy definitions are tenant level resources. To deploy a policy assignment that references a built-in policy definition, use the tenantResourceId function.
+Built-in policy definitions are tenant level resources. To deploy a policy assignment that references a built-in policy definition, use the `tenantResourceId` function.
 
 ```bicep
 @description('Specifies the ID of the policy definition or policy set definition being assigned.')

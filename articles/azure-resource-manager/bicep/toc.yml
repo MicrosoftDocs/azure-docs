@@ -98,16 +98,24 @@
           href: linter-rule-admin-username-should-not-be-literal.md
         - name: No hardcoded environment URLs
           href: linter-rule-no-hardcoded-environment-urls.md
+        - name: No unnecessary dependsOn entries
+          href: linter-rule-no-unnecessary-dependson.md
         - name: No unused parameters
           href: linter-rule-no-unused-parameters.md
         - name: No unused variables
           href: linter-rule-no-unused-variables.md
+        - name: Outputs should not contain secrets
+          href: linter-rule-outputs-should-not-contain-secrets.md
         - name: Prefer interpolation
           href: linter-rule-prefer-interpolation.md
         - name: Secure parameter default
           href: linter-rule-secure-parameter-default.md
         - name: Simplify interpolation
           href: linter-rule-simplify-interpolation.md
+        - name: Use protectedSettings for commandToExecute secrets
+          href: linter-rule-use-protectedsettings-for-commandtoexecute-secrets.md
+        - name: Use stable VM image
+          href: linter-rule-use-stable-vm-image.md
     - name: Best practices
       href: best-practices.md
     - name: Patterns
@@ -120,6 +128,13 @@
         href: patterns-name-generation.md
       - name: Shared variable file
         href: patterns-shared-variable-file.md
+  - name: Provide parameters
+    items:
+    - name: Create parameter file
+      href: parameter-files.md
+    - name: Pass sensitive values
+      displayName: key vault
+      href: key-vault-parameter.md
   - name: Scenarios
     items:
     - name: Access control
@@ -143,13 +158,6 @@
         href: deploy-powershell.md
       - name: Deploy - Cloud Shell
         href: deploy-cloud-shell.md
-    - name: Parameters
-      items:
-      - name: Create parameter file
-        href: parameter-files.md
-      - name: Pass sensitive values
-        displayName: key vault
-        href: key-vault-parameter.md
   - name: Configure settings
     items:
     - name: Bicep config file

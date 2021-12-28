@@ -1,11 +1,11 @@
 ---
 title: Migrate an Azure Cosmos DB account from periodic to continuous backup mode
 description: Azure Cosmos DB currently supports a one-way migration from periodic to continuous mode and it’s irreversible. After migrating from periodic to continuous mode, you can leverage the benefits of continuous mode.
-author: SnehaGunda
+author: kanshiG
+ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.date: 10/28/2021
-ms.author: sngun
+ms.date: 12/08/2021
 ms.topic: how-to
 ms.reviewer: sngun
 ---
@@ -74,24 +74,6 @@ Install the [latest version of Azure PowerShell](/powershell/azure/install-az-ps
      -BackupPolicyType Continuous
    ```
 
-### Check the migration status
-
-Run the following command and check the **status**, **targetType** properties of the **backupPolicy** object. The status shows in-progress after the migration starts:
-
-```azurepowershell-interactive
-az cosmosdb show -n "myAccount" -g "myrg"
-```
-
-:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="Check the migration status using PowerShell command":::
-
-When the migration is complete, backup type changes to **Continuous**. Run the same command again to check the status:
-
-```azurepowershell-interactive
-az cosmosdb show -n "myAccount" -g "myrg"
-```
-
-:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="Backup type changes to continuous after the migration is complete":::
-
 ## <a id="cli"></a>Migrate using CLI
 
 1. Install the latest version of Azure CLI:
@@ -126,6 +108,24 @@ az cosmosdb show -n "myAccount" -g "myrg"
     …
     }
    ```
+
+### Check the migration status
+
+Run the following command and check the **status**, **targetType** properties of the **backupPolicy** object. The status shows in-progress after the migration starts:
+
+```azurecli-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-started-powershell.png" alt-text="Check the migration status using PowerShell command":::
+
+When the migration is complete, backup type changes to **Continuous**. Run the same command again to check the status:
+
+```azurecli-interactive
+az cosmosdb show -n "myAccount" -g "myrg"
+```
+
+:::image type="content" source="./media/migrate-continuous-backup/migration-status-complete-powershell.png" alt-text="Backup type changes to continuous after the migration is complete":::
 
 ## <a id="ARM-template"></a> Migrate using Resource Manager template
 

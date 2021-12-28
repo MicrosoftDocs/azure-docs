@@ -11,7 +11,7 @@ ms.date: 08/01/2021
 
 Before you set up your Azure Monitor Private Link, consider your network topology, and specifically your DNS routing topology.
 
-As discussed in [How it works](./private-link-security.md#how-it-works), setting up a Private Link affects traffic to all Azure Monitor resources. That's especially true for Application Insights resources. Additionally, it affects not only the network connected to the Private Endpoint but also all other networks sharing the same DNS.
+As discussed in the [Azure Monitor Private Link overview article](private-link-security.md), setting up a Private Link affects traffic to all Azure Monitor resources. That's especially true for Application Insights resources. Additionally, it affects not only the network connected to the Private Endpoint but also all other networks sharing the same DNS.
 
 The simplest and most secure approach would be:
 1. Create a single Private Link connection, with a single Private Endpoint and a single AMPLS. If your networks are peered, create the Private Link connection on the shared (or hub) VNet.

@@ -76,6 +76,8 @@
       href: active-directory-backup-restore.md
     - name: Supported VM SKUs for Azure Policy
       href: backup-azure-policy-supported-skus.md
+    - name: Automation in Azure Backup
+      href: backup-support-automation.md
   - name: Frequently asked questions (FAQ)
     items:
     - name: FAQ-Recovery Services vaults
@@ -148,7 +150,7 @@
         href: backup-instant-restore-capability.md
       - name: Enable backup when you create an Azure VM
         href: backup-during-vm-creation.md
-      - name: Back up an Azure VM using enhanced policy
+      - name: Back up an Azure VM using Enhanced policy
         href: backup-azure-vms-enhanced-policy.md
       - name: Back up an Azure VM from VM settings
         href: backup-azure-vms-first-look-arm.md
@@ -589,6 +591,8 @@
       href: backup-azure-vm-file-recovery-troubleshoot.md
     - name: Azure Backup agent or VM extension timed out
       href: backup-azure-troubleshoot-vm-backup-fails-snapshot-timeout.md
+    - name: Encrypted Azure VM backup
+      href: backup-azure-encrypted-vm-troubleshoot.md
     - name: Azure Backup agent
       href: backup-azure-mars-troubleshoot.md
     - name: Files and folders backup is slow
@@ -618,7 +622,7 @@
   - name: Azure CLI
     href: /cli/azure/backup
   - name: Azure Data Protection - CLI
-    href: /cli/azure/dataprotection?view=azure-cli-latest&preserve-view=true
+    href: /cli/azure/dataprotection
   - name: Azure PowerShell
     href: /powershell/module/az.recoveryservices/
   - name: Azure Data Protection - PowerShell
