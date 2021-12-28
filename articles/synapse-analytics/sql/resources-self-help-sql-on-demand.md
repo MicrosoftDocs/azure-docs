@@ -682,8 +682,8 @@ The serverless SQL pool assign the resources to the queries based on the size of
 ### Query duration is very long
 
 If you have queries with the query duration longer than 30min, this indicates that returning results to the client is slow. Serverless SQL pool has 30min limit for execution, and any additional time is spent on result streaming. Try with 
-- If you are using [Synapse studio](#query-is-slow-when-executed-using-synapse-studio) try to reproduce the issues with some other application like SQL Server Managemenet Studio or Azure Data Studio.
-- If your query is slow when executed using [SSMS, ADS, Power BI, or soem other application](#query-is-slow-when-executed-using-application) check networking issues and best practices.
+- If you are using [Synapse studio](#query-is-slow-when-executed-using-synapse-studio) try to reproduce the issues with some other application like SQL Server Management Studio or Azure Data Studio.
+- If your query is slow when executed using [SSMS, ADS, Power BI, or some other application](#query-is-slow-when-executed-using-application) check networking issues and best practices.
 
 #### Query is slow when executed using Synapse studio 
 
@@ -720,8 +720,8 @@ See the [Synapse Studio section](#synapse-studio).
 
 ## Security
 
-### AAD service principal login failures when SPI is creating a role assignment
-If you want to create role assignment for Service Principal Identifier/AAD app using another SPI, or have already created one and it fails to login, you're probably receiving following error:
+### Azure AD service principal login failures when SPI is creating a role assignment
+If you want to create role assignment for Service Principal Identifier/Azure AD app using another SPI, or have already created one and it fails to login, you're probably receiving following error:
 ```
 Login error: Login failed for user '<token-identified principal>'.
 ```
