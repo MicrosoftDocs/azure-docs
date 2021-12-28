@@ -72,7 +72,7 @@ The following video provides an end-to-end walk-through of the scenario: <br><br
 
 ## Additional resources
 
-- [Support martix for automation in Azure Backup](backup-support-automation.md)
+- [Support matrix for automation in Azure Backup](backup-support-automation.md)
 - [Azure Quickstart templates](https://github.com/Azure/azure-quickstart-templates)
 - [Terraform Samples](https://github.com/hashicorp/terraform-provider-azurerm/tree/main/examples)
 - [Ansible Samples](https://docs.ansible.com/ansible/latest/collections/azure/azcollection/azure_rm_backupazurevm_module.html#examples)
