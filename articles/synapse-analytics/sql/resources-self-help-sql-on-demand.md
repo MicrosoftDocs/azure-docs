@@ -720,11 +720,12 @@ If you are executing the same query and observing variations in the query durati
 
 ## Connections
 
-### SQL on-demand is currently unavailable
+### SQL pool is warming up
 
-The serverless SQL pool endpoint is automatically deactivated when it is not used. The endpoint is automatically activated when the next SQL request is received from any client. In some cases, the endpoint might not properly start when a first query is executed. In most cases like this, this is a transient error. Retrying the query will activate the instance.
+Following a longer period of inactivity Serverless SQL pool will be deactivated. The activation will happen automatically on the first next activity, such as the first connection attempt. Activation process may take a bit longer than a single connection attempt interval, thus the error message is displayed. Re-trying the connection attempt should be enough.  
+As a best practice, for the clients which support it, use ConnectionRetryCount and ConnectRetryInterval connection string keywords to control the reconnect behaviour. 
 
-If you are seeing this message for a longer time, file a support ticket through the Azure portal.
+If the error message persists, file a support ticket through the Azure portal.
 
 ### Cannot connect from Synapse Studio
 
