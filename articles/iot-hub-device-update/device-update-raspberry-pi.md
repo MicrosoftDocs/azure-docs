@@ -161,19 +161,19 @@ Use that version number in the Import Update step below.
    
    :::image type="content" source="media/import-update/select-update-files.png" alt-text="Screenshot showing update file selection." lightbox="media/import-update/select-update-files.png":::
 
-5. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
+6. Select the folder icon or text box under "Select a storage container". Then select the appropriate storage account.
 
-6. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.).  Select the container you wish to use and click "Select".
+7. If you’ve already created a container, you can reuse it. (Otherwise, select "+ Container" to create a new storage container for updates.) Select the container you wish to use and click "Select".
   
-  :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
+   :::image type="content" source="media/import-update/container.png" alt-text="Screenshot showing container selection." lightbox="media/import-update/container.png":::
 
-7. Select "Submit" to start the import process.
+8. Select "Submit" to start the import process.
 
-8. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
+9. The import process begins, and the screen changes to the "Import History" section. Select "Refresh" to view progress until the import process completes. Depending on the size of the update, this may complete in a few minutes but could take longer.
    
    :::image type="content" source="media/import-update/update-publishing-sequence-2.png" alt-text="Screenshot showing update import sequence." lightbox="media/import-update/update-publishing-sequence-2.png":::
 
-9. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
+10. When the Status column indicates the import has succeeded, select the "Ready to Deploy" header. You should see your imported update in the list now.
 
 [Learn more](import-update.md) about importing updates.
 
