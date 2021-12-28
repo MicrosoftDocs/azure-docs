@@ -87,8 +87,6 @@ Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManife
 
 The overridden delay duration only applies to the invoked upgrade instance and does not otherwise change individual service delay configurations. For example, you can use this to specify a delay of `0` in order to skip any preconfigured upgrade delays.
 
-
-
 > [!NOTE]
 > * The settings to drain requests will not be able to prevent the Azure Load balancer from sending new requests to the endpoints which are undergoing drain.
 > * A complaint based resolution mechanism will not result in graceful draining of requests, as it triggers a service resolution after a failure. As described earlier, this should instead be enhanced to subscribe to the endpoint change notifications using [ServiceNotificationFilterDescription](/dotnet/api/system.fabric.description.servicenotificationfilterdescription).
