@@ -6,7 +6,7 @@ ms.date: 12/27/2021
 ms.author: eur
 ---
 
-# Speech Service release notes
+## Speech Services 
 
 ## Speech SDK 1.19.0: 2021-Nov release  
 
@@ -19,7 +19,7 @@ ms.author: eur
 
 - Speaker Recognition service is generally available (GA) now. Speech SDK APIs are available on C++, C#, Java, and JavaScript. With Speaker recognition you can accurately verify and identify speakers by their unique voice characteristics. See the [documentation](speaker-recognition-overview.md) for more details. 
 
-- We have dropped support for Ubuntu 16.04 in conjunction with Azure DevOps and GitHub. Ubuntu 16.04 reached end of life back in April of 2021. Please migrate Ubuntu 16.04 workflows to Ubuntu 18.04 or newer.   
+- We have dropped support for Ubuntu 16.04 in conjunction with Azure DevOps and GitHub. Ubuntu 16.04 reached end of life back in April of 2021. Please migrate Ubuntu 16.04 workflows to Ubuntu 18.04 or newer. 
 
 - OpenSSL linking in Linux binaries changed to dynamic. Linux binary size has been reduced by about 50%. 
 
