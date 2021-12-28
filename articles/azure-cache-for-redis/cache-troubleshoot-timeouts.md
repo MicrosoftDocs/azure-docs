@@ -6,12 +6,12 @@ ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
 ms.custom: devx-track-csharp
-ms.date: 12/01/2021
+ms.date: 12/30/2021
 ---
 
 # Troubleshoot Azure Cache for Redis latency and timeouts
 
-A client operation that does not receive a timely response can result in a high latency or timeout exception. An operation could timeout at various stages. Where the timeout comes from helps to determine the cause and the mitigation.
+A client operation that doesn't receive a timely response can result in a high latency or timeout exception. An operation could time out at various stages. Where the timeout comes from helps to determine the cause and the mitigation.
 
 This section discusses troubleshooting for latency and timeout issues that occur when connecting to Azure Cache for Redis.
 
@@ -26,12 +26,7 @@ This section discusses troubleshooting for latency and timeout issues that occur
 
 ### Traffic burst and thread pool configuration
 
-<!-- Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis server but not yet consumed on the client side. Check the metric "Errors" (Type: UnresponsiveClients) to validate if your client hosts can keep up with a sudden spike in traffic.
--->
-
-From cache-troubleshoot-client.md
-
-Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis Server but not yet consumed on the client side.
+Bursts of traffic combined with poor `ThreadPool` settings can result in delays in processing data already sent by the Redis server but not yet consumed on the client side. Check the metric "Errors" (Type: UnresponsiveClients) to validate if your client hosts can keep up with a sudden spike in traffic.
 
 Monitor how your `ThreadPool` statistics change over time using [an example `ThreadPoolLogger`](https://github.com/JonCole/SampleCode/blob/master/ThreadPoolMonitor/ThreadPoolLogger.cs). You can use  `TimeoutException` messages from StackExchange.Redis like below to further investigate:
 
@@ -61,19 +56,7 @@ You can use the `redis-cli --bigkeys` command to check for large keys in your ca
 
 ### High CPU on client hosts
 
-<!--
-High CPU usage on the client side can cause that the client host to fail to keep up with the responses from Redis server and result in a timeout. Our recommendation is to keep client CPU below 80%. Check the metric "Errors" (Type: `UnresponsiveClients`) to determine if your client hosts can process responses from Redis server in time.
-
-Monitor the client's system-wide CPU usage using metrics available in the Azure portal or through performance counters on the machine. Be careful not to monitor *process* CPU because a single process might have low CPU usage but the system-wide CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. High CPU can also cause high in: XXX values in TimeoutException error messages as described in the [Traffic burst](cache-troubleshoot-client.md#traffic-burst) section.
-
-To mitigate a client machine's high CPU usage:
-    - Investigate what is causing CPU spikes.
-    - Upgrade your client to a larger VM size with more CPU capacity.
--->
-
-From cache-troubleshoot-client.md
-
-High client CPU usage indicates the system can't keep up with the work it's been asked to do. Even though the cache sent the response quickly, the client may fail to process the response in a timely fashion.
+High client CPU usage indicates the system can't keep up with the work it's been asked to do. Even though the cache sent the response quickly, the client may fail to process the response in a timely fashion. Our recommendation is to keep client CPU below 80%. Check the metric "Errors" (Type: `UnresponsiveClients`) to determine if your client hosts can process responses from Redis server in time.
 
 Monitor the client's system-wide CPU usage using metrics available in the Azure portal or through performance counters on the machine. Be careful not to monitor *process* CPU because a single process can have low CPU usage but the system-wide CPU can be high. Watch for spikes in CPU usage that correspond with timeouts. High CPU may also cause high `in: XXX` values in `TimeoutException` error messages as described in the [[Traffic burst](#traffic-burst-and-thread-pool-configuration)] section.
 
@@ -87,16 +70,6 @@ To mitigate a client's high CPU usage:
 - Upgrade your client to a larger VM size with more CPU capacity.
 
 ### Network bandwidth limitation on client hosts
-
-<!--
-Depending on the architecture of client machines, they may have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data isn't processed on the client side as quickly as the server is sending it. This situation can lead to timeouts. We recommend hosting client applications in the same region as the Azure Cache For Redis. We recommend that client machines have as much network bandwidth as the cache you're using.
-
-Monitor how your bandwidth usage change over time using [an example BandwidthLogger](https://github.com/JonCole/SampleCode/blob/master/BandWidthMonitor/BandwidthLogger.cs). This code might not run successfully in some environments with restricted permissions (like Azure web sites).
-
-To mitigate, reduce network bandwidth consumption or increase the client VM size to one with more network capacity
--->
-
-From cache-troubleshoot-client.md -section _Client-side bandwidth limitation_
 
 Depending on the architecture of client machines, they may have limitations on how much network bandwidth they have available. If the client exceeds the available bandwidth by overloading network capacity, then data isn't processed on the client side as quickly as the server is sending it. This situation can lead to timeouts.
 
@@ -133,50 +106,37 @@ If you're using `RedisSessionStateProvider`, ensure you have set the retry time
 
 ### Server maintenance
 
-Planned or unplanned maintenance can cause disruptions with client connections. The number and type of exceptions depends on the location of the request in the code path, when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully. To check whether your Azure Cache for Redis had a failover during when timeouts occured, check the metric "Errors" (Type: Failover) on the portal. For more information on failovers, see [Failover and patching for Azure Cache for Redis](cache-failover.md).
+Planned or unplanned maintenance can cause disruptions with client connections. The number and type of exceptions depends on the location of the request in the code path, when the cache closes its connections. For instance, an operation that sends a request but hasn't received a response when the failover occurs might get a time-out exception. New requests on the closed connection object receive connection exceptions until the reconnection happens successfully. To check whether your Azure Cache for Redis had a failover during when timeouts occurred, check the metric **Errors** by Typing `Failover` on the portal. For more information on failovers, see [Failover and patching for Azure Cache for Redis](cache-failover.md).
 
-### High CPU load
+### High Server load
 
-A high server load or CPU usage means the server can't process requests in a timely fashion. The server might be slow to respond and unable to keep up with request rates.
+High server load means the Redis server is unable to keep up with the requests, leading to timeouts. The server might be slow to respond and unable to keep up with request rates.
 
-[Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) such as CPU or server load. Watch for spikes in CPU usage that correspond with timeouts.
+[Monitor metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) such as server load. Watch for spikes in `Server Load` usage that correspond with timeouts. [Create alerts](cache-how-to-monitor.md#alerts) on metrics on server load to be notified early about potential impacts.
 
 There are several changes you can make to mitigate high server load:
 
-- Investigate what is causing CPU spikes such as [long-running commands](#long-running-commands) noted below or page faulting because of high memory pressure.
-- [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
+- Investigate what is causing high server load such as [long-running commands](#long-running-commands), noted below because of high memory pressure.
 - [Scale](cache-how-to-scale.md) out to more shards to distribute load across multiple Redis processes or scale up to a larger cache size with more CPU cores. For more information, see  [Azure Cache for Redis planning FAQs](./cache-planning-faq.yml).
-
-<!--
-High CPU load means the Redis server is unable to keep up with the requests leading to timeout. Check the "Server Load" metric on your cache to check CPU load. Common causes for high CPU load are running expensive or [long running commands](#long-running-commands) and high volume of operations. Depending on the expected operations volume and client connections, your cache may need to be scaled up or out. See when to scale. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
--->
 
 ### High Memory usage
 
-High memory usage causes page faults, which in turn leads to increase in CPU load. Check the "Used Memory", "Used Memory Percentage" and "Used Memory RSS" metrics on the portal to see your Azure Cache for Redis memory usage. More information on memory management. Consider scaling to a large cache sku to get more memory. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like CPU or server load to be notified early about potential impacts.
+This section was moved. For more information, see [High memory usage](cache-troubleshoot-server.md#high-memory-usage).
 
 ### Long running commands
 
-From cache-troubleshoot-server.md.
+Some Redis commands are more expensive to execute than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. Redis command processing is single-threaded. Any command that takes a long time to run can block all others that come after it.
 
-Some Redis commands are more expensive to execute than others. The [Redis commands documentation](https://redis.io/commands) shows the time complexity of each command. Because Redis command processing is single-threaded, a command that takes time to run blocks all others that come after it. Review the commands that you're issuing to your Redis server to understand their performance impacts. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
+Review the commands that you're issuing to your Redis server to understand their performance impacts. For instance, the [KEYS](https://redis.io/commands/keys) command is often used without knowing that it's an O(N) operation. You can avoid KEYS by using [SCAN](https://redis.io/commands/scan) to reduce CPU spikes.
 
 Using the [SLOWLOG GET](https://redis.io/commands/slowlog-get) command, you can measure expensive commands being executed against the server.
 
-<!--
-Some commands are more expensive than others to execute, depending on their complexity, and that may cause high CPU/Server Load, or Redis timeouts as that type of commands can be computational &/or memory intensive. Because Redis is a single-threaded server-side system, the time needed to run some more time expensive commands may cause some latency or timeouts on client side, as server can be busy dealing with these expensive commands. Command complexity is described on top of each command description, on [Redis.io commands](https://redis.io/commands):
--->
-
-_New content added._
-
 Customers can use a console to run these Redis commands to investigate long running and expensive commands.
 
-- [SLOWLOG](https://redis.io/commands/slowlog) is used in order to read and reset the Redis slow queries log and can be used to investigate long running commands on client side.
-The Redis Slow Log is a system to log queries that exceeded a specified execution time. The execution time does not include I/O operations like talking with the client, sending the reply, and so forth, but just the time needed to actually execute the command. Using the SLOWLOG command, Customers can measure/log expensive commands being executed against their Redis server.
-- [MONITOR](https://redis.io/commands/monitor) is a debugging command that streams back every command processed by the Redis server. It can help in understanding what is happening to the database. Be aware that this command have high performance impact and may cause performance degradation.
-- [INFO](https://redis.io/commands/info) - command returns information and statistics about the server in a format that is simple to parse by computers and easy to read by humans. In this  case, the CPU section could be useful to investigate the CPU usage.
-
-A **server_load** of 100 (maximum value) signifies that the Redis server has been busy all the time (has not been idle) processing the requests.
+- [SLOWLOG](https://redis.io/commands/slowlog) is used to read and reset the Redis slow queries log. It can be used to investigate long running commands on client side.
+The Redis Slow Log is a system to log queries that exceeded a specified execution time. The execution time does not include I/O operations like talking with the client, sending the reply, and so forth, but just the time needed to actually execute the command. Using the SLOWLOG command, Customers can measure/log expensive commands being executed against their Redis server.
+- [MONITOR](https://redis.io/commands/monitor) is a debugging command that streams back every command processed by the Redis server. It can help in understanding what is happening to the database. This command is demanding and can negatively affect performance. It can degrade performance.
+- [INFO](https://redis.io/commands/info) - command returns information and statistics about the server in a format that is simple to parse by computers and easy to read by humans. In this  case, the CPU section could be useful to investigate the CPU usage. A **server_load** of 100 (maximum value) signifies that the Redis server has been busy all the time (has not been idle) processing the requests.
 
 Output sample:
 
@@ -192,26 +152,18 @@ event_wait_count:10
 event_no_wait_count:1
 ```
 
-- [CLIENT LIST](https://redis.io/commands/client-list)  - returns information and statistics about the client connections server in a mostly human readable format.
+- [CLIENT LIST](https://redis.io/commands/client-list) -  returns information and statistics about the client connections server in a mostly human readable format.
 
-### Network bandwidth exceeded
+### Network bandwidth limitation
 
-Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data won't be sent to the client as quickly. Clients requests could time out because the server can't push data to the client fast enough.
+Different cache sizes have different network bandwidth capacities. If the server exceeds the available bandwidth, then data won't be sent to the client as quickly. Client requests could time out because the server can't push data to the client fast enough.
 
-The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) in the portal.
+The "Cache Read" and "Cache Write" metrics can be used to see how much server-side bandwidth is being used. You can [view these metrics](cache-how-to-monitor.md#view-metrics-with-azure-monitor-metrics-explorer) in the portal. [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 
 To mitigate situations where network bandwidth usage is close to maximum capacity:
 
 - Change client call behavior to reduce network demand.
-- [Create alerts](cache-how-to-monitor.md#alerts) on metrics like cache read or cache write to be notified early about potential impacts.
 - [Scale](cache-how-to-scale.md) to a larger cache size with more network bandwidth capacity. For more information, see [Azure Cache for Redis planning FAQs](cache-planning-faq.yml#azure-cache-for-redis-performance).
-
-<!--
-If the Redis server exceeds the available network bandwidth, then responses are not be sent back fast enough,causing timeouts on the client side.
-
-You can estimate how much network bandwidth is being used by checking the Cache Read and Cache Write metrics on the portal. For bandwidth information per tier, see [Azure Cache for Redis planning FAQs](cache-planning-faq.yml#azure-cache-for-redis-performance).
-
--->
 
 ## StackExchange.Redis timeout exceptions
 
