@@ -15,4 +15,18 @@ ms.custom: ignite-fall-2021
 
 # Speech Service release notes
 
-[!INCLUDE [release notes](../includes/release-notes/notes.md)]
+**Choose a service or resource**
+
+# [Services](#tab/speech-services)
+
+[!INCLUDE [speech-services](./includes/release-notes/release-notes-services.md)]
+
+# [SDKs](#tab/speech-sdk)
+
+[!INCLUDE [speech-sdk](./includes/release-notes/release-notes-sdk.md)]
+
+# [CLI](#tab/speech-cli)
+
+[!INCLUDE [speech-cli](./includes/release-notes/release-notes-cli.md]
+
+***
