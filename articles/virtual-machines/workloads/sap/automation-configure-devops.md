@@ -164,12 +164,12 @@ You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops
 
 1. From your home page, open your user settings, and then select *Personal access tokens*.
 
-:::image type="content" source="./media/automation-deployment-framework/select-personal-access-tokens.png" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
+:::image type="content" source="./media/automation-devops/automation-select-personal-access-tokens.jpg" alt-text="Diagram showing the creation of the Personal Access Token (PAT).":::
 
 
 1. Create a personal access token. Ensure that *Read & manage* is selected for *Agent Pools* and *Read & write* is selected for *Code*. Write down the created token value.
 
-:::image type="content" source="./media/automation-deployment-framework/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
+:::image type="content" source="./media/automation-devops/automation-new-pat.png" alt-text="Diagram showing the attributes of the Personal Access Token (PAT).":::
 ## Configuring the Agent
 
 1. Connect to the Deployer using the steps described here [Using Visual Studio Code](automation-tools-configuration.md#configuring-visual-studio-code) 
