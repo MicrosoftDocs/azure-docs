@@ -17,7 +17,7 @@ ms.date: 12/10/2021
 
 **Input query validation** is a technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure the schema we submit to the core business logic matches its expectations. It also adds a second stage, in which we triage exceptions. In this stage, we can reject invalid records into a secondary output. This article illustrates how to implement this technic.
 
-To see an example of a query set up with input validation, see the section: [Example of query with input validation](azure/stream-analytics/input-validation#example-of-query-with-input-validation)
+To see an example of a query set up with input validation, see the section: [Example of query with input validation](#example-of-query-with-input-validation)
 
 ## Context
 
@@ -37,7 +37,7 @@ With input validation, we add preliminary steps to our query to handle such malf
 
 We'll be building a new ASA job that will ingest data from a single event hub. As is most often the case, we aren't responsible for the data producers. Here the producers are IoT devices sold by multiple hardware vendors.
 
-After a series of meetings with the stakeholders, we agree on a serialization format (JSON) and a schema contract. All the devices will push such messages to a common event hub, input of the ASA job.
+Meeting with the stakeholders, we agree on a serialization format and a schema. All the devices will push such messages to a common event hub, input of the ASA job.
 
 The schema contract is defined as follows:
 
@@ -49,7 +49,7 @@ The schema contract is defined as follows:
 |`readingNum`|Numeric||
 |`readingArray`|Array of String||
 
-Which in turns gives us the following sample message (JSON serialization):
+Which in turns gives us the following sample message under JSON serialization:
 
 ```JSON
 {
@@ -324,7 +324,7 @@ With the last input file we used (the one with errors), this query will return t
 |3|2021-12-10T10:01:20|A Third String|**NaN**|["D","E","F"]|3|2021-12-10T10:01:20.0000000Z|A Third String|**NULL**|["D","E","F"]|
 |4|2021-12-10T10:02:10|A Forth String|1.2126|**{}**|4|2021-12-10T10:02:10.0000000Z|A Forth String|1.2126|**NULL**|
 
-Already we can see two of our errors being addressed (not a number and not an array). We're also now confident that these records will be inserted properly in the destination SQL table.
+Already we can see two of our errors being addressed. We transformed `NaN` and `{}` into `NULL`. We're now confident these records will be inserted properly in the destination SQL table.
 
 We now have to decide how to address the records with missing or invalid values. After some discussion, we decide to reject records with an empty/invalid `readingArray` or a missing `readingStr`.
 
@@ -499,7 +499,7 @@ FROM readingsToBeRejected
 
 [Unit-testing](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#automated-test) is a good practice to ensure our query is resilient. We'll build a series of tests that consist of input files and their expected output. Our query will have to match the output it generates to pass. In ASA, unit-testing is done via the [asa-streamanalytics-cicd](/azure/stream-analytics/cicd-tools?tabs=visual-studio-code#installation) npm module. Test cases with various malformed events should be created and tested in the deployment pipeline.
 
-Finally, we can do a first pass of integration testing via the [live input / live output](/azure/stream-analytics/visual-studio-code-local-run-all) mode in VS Code. We can check the mapping of the output schema to the target database table via a live run to live output.
+Finally, we do some light integration testing in VS Code. We can check that we can insert into the SQL table via a [local run to a live output](/azure/stream-analytics/visual-studio-code-local-run-all).
 
 ## Get support
 
