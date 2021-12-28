@@ -18,6 +18,8 @@ This article contains information about how to troubleshoot most frequent proble
 
 ## Synapse Studio
 
+Synapse studio is easy to use too that enables you to access your data using a browser without a need to install database access tools. However, Synapse studio is not designed to read a large set of data or full management of SQL objects.
+
 ### Serverless SQL pool is grayed out in Synapse Studio
 
 If Synapse Studio can't establish connection to serverless SQL pool, you'll notice that serverless SQL pool is grayed out or shows status "Offline". Usually, this problem occurs when one of the following cases happens:
@@ -35,13 +37,15 @@ If the issue still continues, create a [support ticket](../../azure-portal/suppo
 
 ## Query execution
 
+You might get errors during the query execution if the caller [cannot access some objects](develop-storage-files-overview.md#permissions), query [cannot access external data](develop-storage-files-storage-access-control.md#storage-permissions), or you are using some functionalities that are [not supported in serverless SQL pools](overview-features.md).
+
 ### Query fails because file cannot be opened
 
 If your query fails with the error 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file or because a firewall is blocking access to the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
-#### Alternative to Storage Blob Data Contributor role
+**Alternative to Storage Blob Data Contributor role**
 
 Instead of granting Storage Blob Data Contributor, you can also grant more granular permissions on a subset of files. 
 
@@ -98,9 +102,9 @@ The easiest way is to resolve this issue is grant yourself `Storage Blob DataCon
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md).
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
  
-#### Content of DataVerse table cannot be listed
+#### Content of Dataverse table cannot be listed
 
-If you are using the Synapse link for DataVerse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool.
+If you are using the Synapse link for Dataverse to read the linked DataVerse tables, you need to use Azure AD account to access the linked data using the serverless SQL pool.
 If you try to use a SQL login to read an external table that is referencing the DataVerse table, you will get the following error:
 
 ```
@@ -223,8 +227,8 @@ The serverless sql pools cannot read the files that are modified while the query
 If you know that the modification operation is **append**, you can try to set the following option `{"READ_OPTIONS":["ALLOW_INCONSISTENT_READS"]}`. See how to [query append-only files](query-single-csv-file.md#querying-appendable-files) or [create tables on append-only files](create-use-external-tables.md#external-table-on-appendable-files).
 
 ### Query fails with data conversion error
-If your query fails with the error message 
-'bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]', it means that your data types did not match the actual data for row number n and column m. 
+
+If your query fails with the error message 'bulk load data conversion error (type mismatches or invalid character for the specified codepage) for row n, column m [columnname] in the data file [filepath]', it means that your data types did not match the actual data for row number n and column m. 
 
 For instance, if you expect only integers in your data but in row n there might be a string, this is the error message you will get. 
 To resolve this problem, inspect the file and the according data types you did choose. Also check if your row delimiter and field terminator settings are correct. The following example shows how inspecting can be done using VARCHAR as column type. 
@@ -508,6 +512,8 @@ spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 
 ## Configuration
 
+Serverless pools enable you to use T-SQL to configure database objects. There are some constraints, such as - you cannot create objects in master and lake house/spark databases, you need to have master key to create credentials, you need to have permission to reference data that is used in the objects.
+
 ### Please create a master key in the database or open the master key in the session before performing this operation.
 
 If your query fails with the error message 'Please create a master key in the database or open the master key in the session before performing this operation.', it means that your user database has no access to a master key in the moment. 
@@ -567,7 +573,7 @@ If you are getting an error while trying to create new Azure AD login or user in
 
 ## Cosmos DB
 
-Possible errors and troubleshooting actions are listed in the following table.
+If you cannot connect to your Cosmos Db account, take a look at [prerequisites](query-cosmos-db-analytical-store.md#prerequisites). Possible errors and troubleshooting actions are listed in the following table.
 
 | Error | Root cause |
 | --- | --- |
@@ -726,6 +732,29 @@ See the [Synapse Studio section](#synapse-studio).
 
 ## Security
 
+Make sure that a user has permissions to access databases, [permissions to execute commands](develop-storage-files-overview.md#permissions), and permissions to access [data lake](develop-storage-files-storage-access-control.md?tabs=service-principal) or [Cosmos DB storage](query-cosmos-db-analytical-store.md#prerequisites). 
+
+### Cannot read, list or access files on data lake storage
+
+If you are using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
+
+If you are accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ALC permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it didn't expired. 
+If you are using SQL login and the `OPENROWSET` function [without data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
+
+### Cannot access Cosmos DB account
+
+Make sure that your Cosmos DB container has analytical storage. Make sure that you correctly specified account, database, and container name. You must use read-only cosmos DB credential to access your analytical storage, so make sure that it did not expire.
+
+If you are getting the [Resolving Cosmos DB path has failed](#resolving-cosmosdb-path-has-failed) error, make sure that you configured firewall.
+
+### Cannot access Lakehouse/Spark database
+
+If a user cannot access a lake house or Spark database, it might not have permissions to access and read the database. A user with `CONTROL SERVER` permission should have full access to all databases. As a restricted permission, you might try to use [CONNECT ANY DATABASE and SELECT ALL USER SECURABLES](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/synapse-serverless-shared-database-and-tables-access-for-non/ba-p/2645947).
+
+### SQL user cannot access Dataverse tables
+
+Dataverse tables are accessing storage using the callers Azure AD identity. SQL user with high permissions might try to select data from a table, but the table would not be able to access Dataverse data. This scenario is not supported.
+
 ### Azure AD service principal login failures when SPI is creating a role assignment
 If you want to create role assignment for Service Principal Identifier/Azure AD app using another SPI, or have already created one and it fails to login, you're probably receiving following error:
 ```
@@ -797,34 +826,29 @@ You don't need to use separate databases to isolate data for different tenants. 
 
 ## Querying Azure data
 
-Serverless SQL pools enable you to query data in Azure storage or Azure Cosmos DB using [external tables and the OPENROWSET function](develop-storage-files-overview.md).  
-Make sure that you have proper [permission setup](develop-storage-files-overview.md#permissions) on your storage.
+Review the following articles to learn more about how to use serverless SQL pool to query data.
 
 ### Querying CSV data
 
-Learn here how to [query single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md). You can [query partitioned files](query-specific-files.md).
+Learn here how to [query single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md)
+
+- [Query specific files](query-specific-files.md)
 
 ### Querying Parquet data 
 
-Learn here how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md). You can [query partitioned files](query-specific-files.md).
+Learn here how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md).
 
-### Querying Delta Lake 
-
-Learn here how to [query Delta Lake files](query-delta-lake-format.md) with [nested types](query-parquet-nested-types.md). 
-
-### Querying Cosmos DB data
+### Querying Cosmos DB data 
 
 Learn here how to [query Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the `WITH` clause based on a sample Cosmos Db document.
-Yu can [create views](create-use-views.md#cosmosdb-view)
 
 ### Querying JSON data 
 
-Learn here how to [query JSON files](query-json-files.md). You can [query partitioned files](query-specific-files.md).
+Learn here how to [query JSON files](query-json-files.md).
 
 ### Create views, tables and other database objects
 
 Learn here how to create and use [views](create-use-views.md), [external tables](create-use-external-tables.md), or setup [row-level security](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759).
-If you have [partitioned files](query-specific-files.md), make sure that you are using [partitioned views](create-use-views.md#partitioned-views).
 
 ### Copy and transform data (CETAS)
 
