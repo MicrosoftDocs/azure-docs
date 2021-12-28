@@ -18,7 +18,7 @@ This article contains information about how to troubleshoot most frequent proble
 
 ## Synapse Studio
 
-Synapse studio is easy to use too that enables you to access your data using a browser without a need to install database access tools. However, Synapse studio is not designed to read a large set of data or full management of SQL objects.
+Synapse studio is easy to use tool that enables you to access your data using a browser without a need to install database access tools. However, Synapse studio is not designed to read a large set of data or full management of SQL objects.
 
 ### Serverless SQL pool is grayed out in Synapse Studio
 
@@ -830,13 +830,11 @@ Review the following articles to learn more about how to use serverless SQL pool
 
 ### Querying CSV data
 
-Learn here how to [query single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md)
-
-- [Query specific files](query-specific-files.md)
+Learn here how to [query single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md). You can also [query partitioned files](query-specific-files.md)
 
 ### Querying Parquet data 
 
-Learn here how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md).
+Learn here how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md). You can also [query partitioned files](query-specific-files.md)
 
 ### Querying Cosmos DB data 
 
@@ -844,7 +842,7 @@ Learn here how to [query Cosmos DB analytical store](query-cosmos-db-analytical-
 
 ### Querying JSON data 
 
-Learn here how to [query JSON files](query-json-files.md).
+Learn here how to [query JSON files](query-json-files.md). You can also [query partitioned files](query-specific-files.md)
 
 ### Create views, tables and other database objects
 
