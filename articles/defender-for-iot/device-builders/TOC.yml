@@ -13,8 +13,8 @@
 - name: Quickstarts
   expanded: true
   items:
-  - name: Onboard to Defender for IoT agent-based solution
-    displayName: IoT Hub, existing, enable
+  - name: Enable Microsoft Defender for IoT on Azure IoT Hub
+    displayName: IoT Hub, existing, enable, enable, onboard
     href: quickstart-onboard-iot-hub.md
   - name: Install Defender for IoT micro agent (Preview)
     displayName: package, authentication, methods, certificate, authenticate, version
