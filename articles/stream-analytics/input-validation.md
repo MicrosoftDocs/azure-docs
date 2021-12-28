@@ -67,9 +67,9 @@ There's another discrepancy. **ASA uses its own type system** that doesn't match
 
 Back to our query, here we intend to:
 
-- Pass readingStr to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions)
+- Pass `readingStr` to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions)
 - Count the number of records in the array
-- Round readingNum to the second decimal place
+- Round `readingNum` to the second decimal place
 - Insert the data into a SQL table
 
 The destination SQL table has the following schema:
@@ -166,7 +166,7 @@ function main(arg1) {
 }
 ```
 
-In local runs, we don't need to define outputs. We don't even need to use `INTO` unless there are more than one output. In the `.asaql` file, we can replace the existing query by:
+In [local runs](/azure/stream-analytics/visual-studio-code-local-run-all), we don't need to define outputs. We don't even need to use `INTO` unless there are more than one output. In the `.asaql` file, we can replace the existing query by:
 
 ```SQL
 SELECT
@@ -188,7 +188,7 @@ GROUP BY
 
 Let's quickly go through the query we submitted:
 
-- To count the number of records in each array, we first need to unpack them. We'll use **[CROSS APPLY](/stream-analytics-query/apply-azure-stream-analytics)** and [GetArrayElements()](/stream-analytics-query/  getarrayelements-azure-stream-analytics) (more [samples here](/azure/stream-analytics/stream-analytics-parsing-json))
+- To count the number of records in each array, we first need to unpack them. We'll use **[CROSS APPLY](/stream-analytics-query/apply-azure-stream-analytics)** and [GetArrayElements()](/stream-analytics-query/getarrayelements-azure-stream-analytics) (more [samples here](/azure/stream-analytics/stream-analytics-parsing-json))
   - Doing so, we surface two data sets in the query: the original input and the array values. To make sure we don't mix up fields, we define aliases (`AS r`) and use them everywhere
   - Then to actually `COUNT` the array values, we need to aggregate with **[GROUP BY](/stream-analytics-query/group-by-azure-stream-analytics)**
   - For that we must define a [time window](/azure/stream-analytics/stream-analytics-window-functions). Here since we don't need one for our logic, the [snapshot window](/stream-analytics-query/snapshot-window-azure-stream-analytics) is the  right choice
@@ -277,9 +277,9 @@ Let's extend our query to validate the input.
 
 The first step of input validation is to define the schema expectations of the core business logic. Looking back at original requirement, our main logic is to:
 
-- Pass readingStr to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) to measure its length
+- Pass `readingStr` to a [JavaScript UDF](/azure/stream-analytics/stream-analytics-javascript-user-defined-functions) to measure its length
 - Count the number of records in the array
-- Round readingNum to the second decimal place
+- Round `readingNum` to the second decimal place
 - Insert the data into a SQL table
 
 For each point we can list the expectations:
@@ -330,7 +330,7 @@ Already we can see two of our errors being addressed. We transformed `NaN` and `
 
 We now have to decide how to address the records with missing or invalid values. After some discussion, we decide to reject records with an empty/invalid `readingArray` or a missing `readingStr`.
 
-So we add two steps that will triage records between the validation one and the main logic:
+So we add a second layer that will triage records between the validation one and the main logic:
 
 ```SQL
 WITH readingsValidated AS (
