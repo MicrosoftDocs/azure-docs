@@ -15,7 +15,7 @@ ms.date: 12/10/2021
 
 # Input validation in Azure Stream Analytics queries
 
-**Input validation** is a technic to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure the schema we submit to the core business logic matches its expectations. It also adds a second stage, in which we triage exceptions. In this stage, we can reject invalid records into a secondary output. This article illustrates how to implement this technic.
+**Input validation** is a technique to use to protect the main query logic from malformed or unexpected events. It adds a first stage to a query, in which we make sure the schema we submit to the core business logic matches its expectations. It also adds a second stage, in which we triage exceptions. In this stage, we can reject invalid records into a secondary output. This article illustrates how to implement this technic.
 
 To see an example of a query set up with input validation, see the section: [Example of query with input validation](#example-of-query-with-input-validation)
 
@@ -507,7 +507,7 @@ Finally, we can do some light integration testing in VS Code. We can insert reco
 
 For further assistance, try our [Microsoft Q&A question page for Azure Stream Analytics](/answers/topics/azure-stream-analytics.html).
 
-## Next Steps
+## Next steps
 
 * [Set up CI/CD pipelines and unit testing by using the npm package](./cicd-overview.md)
 * [Overview of local Stream Analytics runs in Visual Studio Code with ASA Tools](visual-studio-code-local-run-all.md)
