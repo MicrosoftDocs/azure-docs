@@ -789,24 +789,32 @@ The serverless SQL pools have limitations and you cannot create more than 20 dat
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Cosmos DB. The metadata (table, views, function definitions) can be successfully isolated using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
-## Next steps
+## Querying Azure data
 
-Review the following articles to learn more about how to use serverless SQL pool:
+Review the following articles to learn more about how to use serverless SQL pool to query data.
 
-- [Query single CSV file](query-single-csv-file.md)
+### Querying CSV data
 
-- [Query folders and multiple CSV files](query-folders-multiple-csv-files.md)
+Learn here how to [query single CSV file](query-single-csv-file.md) or [folders and multiple CSV files](query-folders-multiple-csv-files.md)
 
 - [Query specific files](query-specific-files.md)
 
-- [Query Parquet files](query-parquet-files.md)
+### Querying Parquet data 
 
-- [Query Parquet nested types](query-parquet-nested-types.md)
+Learn here how to [query Parquet files](query-parquet-files.md) with [nested types](query-parquet-nested-types.md).
 
-- [Query JSON files](query-json-files.md)
+### Querying Cosmos DB data 
 
-- [Create and using views](create-use-views.md)
+Learn here how to [query Cosmos DB analytical store](query-cosmos-db-analytical-store.md). You can use [online generator](https://htmlpreview.github.io/?https://github.com/Azure-Samples/Synapse/blob/main/SQL/tools/cosmosdb/generate-openrowset.html) to generate the `WITH` clause based on a sample Cosmos Db document.
 
-- [Create and using external tables](create-use-external-tables.md)
+### Querying JSON data 
 
-- [Store query results to storage](create-external-table-as-select.md)
+Learn here how to [query JSON files](query-json-files.md).
+
+### Create views, tables and other database objects
+
+Learn here how to create and use [views](create-use-views.md), [external tables](create-use-external-tables.md), or setup [row-level security](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759).
+
+### Copy and transform data (CETAS)
+
+Learn here how to [store query results to storage](create-external-table-as-select.md) using Create external table as select (CETAS) command.
