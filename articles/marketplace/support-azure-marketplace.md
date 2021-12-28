@@ -15,13 +15,13 @@ Do you have questions about getting started as a Microsoft commercial marketplac
 
 ## Onboarding
 
-Open a ticket with Microsoft [marketplace publisher support](https://aka.ms/marketplacepublishersupport) for issues with onboarding and getting started.
+Open a ticket with Microsoft [marketplace publisher support](https://go.microsoft.com/fwlink/?linkid=2165533) for issues with onboarding and getting started.
 
 ## Partner Center
 
 | Support channel | Description | Availability |  
 |:--- |:--- |:--- |  
-| For assistance, visit the Create an incident page located at [Marketplace Support](https://aka.ms/marketplacepublishersupport)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |
+| For assistance, visit the Create an incident page located at [Marketplace Support](https://go.microsoft.com/fwlink/?linkid=2165533)</li> </ul> | Support for Partner Center. | Support is provided 24x5. |
 |
 
 ## Technical  
