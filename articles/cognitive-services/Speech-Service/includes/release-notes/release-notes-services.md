@@ -6,19 +6,19 @@ ms.date: 12/27/2021
 ms.author: eur
 ---
 
-## Text-to-Speech 2021-October release
+### Text-to-Speech 2021-October release
 
-### New languages and voices
+#### New languages and voices
 
 **Added 49 new languages and variants for Neural TTS** - 98 new voices in 49 new locales are added into the neural TTS languages list: Adri in `af-ZA` Afrikaans (South Africa), Willem in `af-ZA` Afrikaans (South Africa), Mekdes in `am-ET` Amharic (Ethiopia), Ameha in `am-ET` Amharic (Ethiopia), Fatima in `ar-AE` Arabic (United Arab Emirates), Hamdan in `ar-AE` Arabic (United Arab Emirates), Laila in `ar-BH` Arabic (Bahrain), Ali in `ar-BH` Arabic (Bahrain), Amina in `ar-DZ` Arabic (Algeria), Ismael in `ar-DZ` Arabic (Algeria), Rana in `ar-IQ` Arabic (Iraq), Bassel in `ar-IQ` Arabic (Iraq), Sana in `ar-JO` Arabic (Jordan), Taim in `ar-JO` Arabic (Jordan), Noura in `ar-KW` Arabic (Kuwait), Fahed in `ar-KW` Arabic (Kuwait), Iman in `ar-LY` Arabic (Libya), Omar in `ar-LY` Arabic (Libya), Mouna in `ar-MA` Arabic (Morocco), Jamal in `ar-MA` Arabic (Morocco), Amal in `ar-QA` Arabic (Qatar), Moaz in `ar-QA` Arabic (Qatar), Amany in `ar-SY` Arabic (Syria), Laith in `ar-SY` Arabic (Syria), Reem in `ar-TN` Arabic (Tunisia), Hedi in `ar-TN` Arabic (Tunisia), Maryam in `ar-YE` Arabic (Yemen), Saleh in `ar-YE` Arabic (Yemen), Nabanita in `bn-BD` Bangla (Bangladesh), Pradeep in `bn-BD` Bangla (Bangladesh), Asilia in `en-KE` English (Kenya), Chilemba in `en-KE` English (Kenya), Ezinne in `en-NG` English (Nigeria), Abeo in `en-NG` English (Nigeria), Imani in `en-TZ` English (Tanzania), Elimu in `en-TZ` English (Tanzania), Sofia in `es-BO` Spanish (Bolivia), Marcelo in `es-BO` Spanish (Bolivia), Catalina in `es-CL` Spanish (Chile), Lorenzo in `es-CL` Spanish (Chile), Maria in `es-CR` Spanish (Costa Rica), Juan in `es-CR` Spanish (Costa Rica), Belkys in `es-CU` Spanish (Cuba), Manuel in `es-CU` Spanish (Cuba), Ramona in `es-DO` Spanish (Dominican Republic), Emilio in `es-DO` Spanish (Dominican Republic), Andrea in `es-EC` Spanish (Ecuador), Luis in `es-EC` Spanish (Ecuador), Teresa in `es-GQ` Spanish (Equatorial Guinea), Javier in `es-GQ` Spanish (Equatorial Guinea), Marta in `es-GT` Spanish (Guatemala), Andres in `es-GT` Spanish (Guatemala), Karla in `es-HN` Spanish (Honduras), Carlos in `es-HN` Spanish (Honduras), Yolanda in `es-NI` Spanish (Nicaragua), Federico in `es-NI` Spanish (Nicaragua), Margarita in `es-PA` Spanish (Panama), Roberto in `es-PA` Spanish (Panama), Camila in `es-PE` Spanish (Peru), Alex in `es-PE` Spanish (Peru), Karina in `es-PR` Spanish (Puerto Rico), Victor in `es-PR` Spanish (Puerto Rico), Tania in `es-PY` Spanish (Paraguay), Mario in `es-PY` Spanish (Paraguay), Lorena in `es-SV` Spanish (El Salvador), Rodrigo in `es-SV` Spanish (El Salvador), Valentina in `es-UY` Spanish (Uruguay), Mateo in `es-UY` Spanish (Uruguay), Paola in `es-VE` Spanish (Venezuela), Sebastian in `es-VE` Spanish (Venezuela), Dilara in `fa-IR` Persian (Iran), Farid in `fa-IR` Persian (Iran), Blessica in `fil-PH` Filipino (Philippines), Angelo in `fil-PH` Filipino (Philippines), Sabela in `gl-ES` Galician (Spain), Roi in `gl-ES` Galician (Spain), Siti in `jv-ID` Javanese (Indonesia), Dimas in `jv-ID` Javanese (Indonesia), Sreymom in `km-KH` Khmer (Cambodia), Piseth in `km-KH` Khmer (Cambodia), Nilar in `my-MM` Burmese (Myanmar), Thiha in `my-MM` Burmese (Myanmar), Ubax in `so-SO` Somali (Somalia), Muuse in `so-SO` Somali (Somalia), Tuti in `su-ID` Sundanese (Indonesia), Jajang in `su-ID` Sundanese (Indonesia), Rehema in `sw-TZ` Swahili (Tanzania), Daudi in `sw-TZ` Swahili (Tanzania), Saranya in `ta-LK` Tamil (Sri Lanka), Kumar in `ta-LK` Tamil (Sri Lanka), Venba in `ta-SG` Tamil (Singapore), Anbu in `ta-SG` Tamil (Singapore), Gul in `ur-IN` Urdu (India), Salman in `ur-IN` Urdu (India), Madina in `uz-UZ` Uzbek (Uzbekistan), Sardor in `uz-UZ` Uzbek (Uzbekistan), Thando in `zu-ZA` Zulu (South Africa), Themba in `zu-ZA` Zulu (South Africa).
 
-## Text-to-Speech 2021-September release
+### Text-to-Speech 2021-September release
 - **New chatbot voice in `en-US` English (US)**: Sara, represents a young female adult that talks more casually and fits best for the chatbot scenarios. 
 - **New styles added for `ja-JP` Japanese voice Nanami**: Three new styles are now available with Nanami: chat, customer service, and cheerful.
 - **Overall pronunciation improvement**: Ardi in `id-ID`, Premwadee in `th-TH`, Christel in `da-DK`, HoaiMy and NamMinh in `vi-VN`.
 - **Two new voices in `zh-CN` Chinese (Mandarin, China) in preview**: Xiaochen & Xiaoyan, optimized for spontaneous speech and customer service scenarios.
 
-## Text-to-Speech 2021-July release
+### Text-to-Speech 2021-July release
 
 **Neural TTS updates**
 - Reduced pronunciation errors in Hebrew by 20%.
@@ -27,14 +27,14 @@ ms.author: eur
 - **Custom Neural Voice**: Updated the training pipeline to UniTTSv3 with which the model quality is improved while training time is reduced by 50% for acoustic models. 
 - **Audio Content Creation**: Fixed the "Export" performance issue and the bug on custom neural voice selection.  
 
-## Text-to-Speech 2021-June release
+### Text-to-Speech 2021-June release
 
-### Speech Studio updates
+#### Speech Studio updates
 
 - **Custom Neural Voice**: Custom Neural Voice training extended to support South East Asia. New features released to support data uploading status checking. 
 - **Audio Content Creation**: Released a new feature to support custom lexicon. With this feature, users can easily create their lexicon files and define the customized pronunciation for their audio output. 
 
-## Text-to-Speech 2021-May release
+### Text-to-Speech 2021-May release
 
 **New languages and voices added for neural TTS**
 
@@ -44,13 +44,13 @@ ms.author: eur
 
 - **Five `zh-CN` Chinese (Mandarin, Simplified) voices are generally available** - 5 Chinese (Mandarin, Simplified) voices are changed from preview to generally available. They are Yunxi, Xiaomo, Xiaoman, Xiaoxuan, Xiaorui. Now, these voices are available in all [regions](../../regions.md#prebuilt-neural-voices). Yunxi is added with a new 'assistant' style, which is suitable for chat bot and voice agent. Xiaomo's voice styles are refined to be more natural and featured.
 
-## Text-to-Speech 2021-April release
+### Text-to-Speech 2021-April release
 
 **Neural TTS is available across 21 regions**
 
 - **Twelve new regions added** - Neural TTS is now available in these new 12 regions: `Japan East`, `Japan West`, `Korea Central`, `North Central US`, `North Europe`, `South Central US`, `Southeast Asia`, `UK South`, `west Central US`, `West Europe`, `West US`, `West US 2`. Check [here](../../regions.md#text-to-speech) for full list of 21 supported regions.
 
-## Text-to-Speech 2021-March release
+### Text-to-Speech 2021-March release
 
 **New languages and voices added for neural TTS**
 
@@ -72,15 +72,15 @@ Neural Text-to-Speech now includes the [viseme event](../../how-to-speech-synthe
 
 The [bookmark element](../../speech-synthesis-markup.md#bookmark-element) allows you to insert custom markers in SSML to get the offset of each marker in the audio stream. It can be used to reference a specific location in the text or tag sequence.
 
-## Text-to-Speech 2021-February release
+### Text-to-Speech 2021-February release
 
 **Custom Neural Voice GA**
 
 Custom Neural Voice is GA in February in 13 languages: Chinese (Mandarin, Simplified), English (Australia), English (India), English (United Kingdom), English (United States), French (Canada), French (France), German (Germany), Italian (Italy), Japanese (Japan), Korean (Korea), Portuguese (Brazil), Spanish (Mexico), and Spanish (Spain). Learn more about [what is Custom Neural Voice](../../custom-neural-voice.md) and [how to use it responsibly](../../concepts-guidelines-responsible-deployment-synthetic.md).
-Custom Neural Voice feature requires registration and Microsoft may limit access based on Microsoft's eligibility criteria. Learn more about the [limited access](../../legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).
+Custom Neural Voice feature requires registration and Microsoft may limit access based on Microsoft's eligibility criteria. Learn more about the [limited access](/legal/cognitive-services/speech-service/custom-neural-voice/limited-access-custom-neural-voice?context=/azure/cognitive-services/speech-service/context/context).
 
 
-## Text-to-Speech 2020-December release
+### Text-to-Speech 2020-December release
 
 **New neural voices in GA and preview**
 
@@ -105,7 +105,7 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 - Updated all `zh-CN` multi-style neural voices to support `StyleDegree` control. Emotion intensity (soft or strong) is adjustable.
 - Updated `zh-CN-YunyeNeural` to support multiple styles which can perform different emotions.
 
-## Text-to-Speech 2020-November release
+### Text-to-Speech 2020-November release
 
 **New locales and voices in preview**
 - **Five new voices and languages** are introduced to the Neural TTS portfolio. They are: Grace in Maltese (Malta), Ona in Lithuanian (Lithuania), Anu in Estonian (Estonia), Orla in Irish (Ireland) and Everita in Latvian (Latvia).
@@ -116,16 +116,16 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 **Neural TTS Container GA**
 - With Neural TTS Container, developers can run speech synthesis with the most natural digital voices in their own environment for specific security and data governance requirements. Check [how to install Speech Containers](../../speech-container-howto.md).
 
-### New features
+#### New features
 - **Custom Voice**: enabled users to copy a voice model from one region to another; supported endpoint suspension and resuming. Go to the [portal](https://speech.microsoft.com/customvoice) here.
 - [SSML silence tag](../../speech-synthesis-markup.md#add-silence) support.
 - General TTS voice quality improvements: Improved word-level pronunciation accuracy in nb-NO. Reduced 53% pronunciation error.
 
 > Read more at [this tech blog](https://techcommunity.microsoft.com/t5/azure-ai/neural-text-to-speech-previews-five-new-languages-with/ba-p/1907604).
 
-## Text-to-Speech 2020-October release
+### Text-to-Speech 2020-October release
 
-### New features
+#### New features
 - Jenny supports a new `newscast` style. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md#adjust-speaking-styles).
 - **Neural voices upgraded to HiFiNet vocoder, with higher audio fidelity and faster synthesis speed**. This benefits customers whose scenario relies on hi-fi audio or long interactions, including video dubbing, audio books, or online education materials. [Read more about the story and hear the voice samples on our tech community blog](https://techcommunity.microsoft.com/t5/azure-ai/azure-neural-tts-upgraded-with-hifinet-achieving-higher-audio/ba-p/1847860)
 - **[Custom Voice](https://speech.microsoft.com/customvoice) & [Audio Content Creation Studio](https://speech.microsoft.com/audiocontentcreation) localized to 17 locales**. Users can easily switch the UI to a local language for a more friendly experience.
@@ -137,9 +137,9 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 - `zh-CN-XiaoxiaoNeural`: Improved sentiment/CustomerService/Newscast/Cheerful/Angry style voice quality.
 - `zh-CN`: Improved Erhua pronunciation and light tone and refined space prosody, which greatly improves intelligibility.
 
-## Text-to-Speech 2020-September release
+### Text-to-Speech 2020-September release
 
-### New features
+#### New features
 
 * **Neural TTS**
     * **Extended to support 18 new languages/locales.** They are Bulgarian, Czech, German (Austria),  German (Switzerland), Greek, English (Ireland), French (Switzerland), Hebrew, Croatian, Hungarian, Indonesian, Malay, Romanian, Slovak, Slovenian, Tamil, Telugu and Vietnamese.
@@ -150,9 +150,9 @@ Visit the [Audio Content Creation tool](https://speech.microsoft.com/audioconten
 
 Read the [full announcement of the TTS updates for Ignite 2020](https://techcommunity.microsoft.com/t5/azure-ai/ignite-2020-neural-tts-updates-new-language-support-more-voices/ba-p/1698544)
 
-## Text-to-Speech 2020-August release
+### Text-to-Speech 2020-August release
 
-### New features
+#### New features
 
 * **Neural TTS: new speaking style for `en-US` Aria voice**. AriaNeural can sound like a news caster when reading news. The 'newscast-formal' style sounds more serious, while the 'newscast-casual' style is more relaxed and informal. See [how to use the speaking styles in SSML](../../speech-synthesis-markup.md).
 
@@ -170,7 +170,7 @@ Read the [full announcement of the TTS updates for Ignite 2020](https://techcomm
 
 * **The Voice List API is updated to include a user-friendly display name and the speaking styles supported for neural voices**.
 
-### General TTS voice quality improvements
+#### General TTS voice quality improvements
 
 * Reduced word-level pronunciation error % for `ru-RU` (errors reduced by 56%) and `sv-SE` (errors reduced by 49%)
 
@@ -189,14 +189,14 @@ Read the [full announcement of the TTS updates for Ignite 2020](https://techcomm
     | `ja-JP` | Nanami |
     | `ko-KR` | Sun-Hi |
 
-### Bug fixes
+#### Bug fixes
 
 * Fixed a number of bugs with the Audio Content Creation tool
     * Fixed issue with auto refreshing.
     * Fixed issues with voice styles in zh-CN in the South East Asia region.
     * Fixed stability issue, including an export error with the 'break' tag, and errors in punctuation.
 
-## New speech-to-text locales: 2020-August Release
+### New speech-to-text locales: 2020-August Release
 Speech-to-text released 26 new locales in August: 2 European languages `cs-CZ` and `hu-HU`, 5 English locales and 19 Spanish locales that cover most South American countries. Below is a list of the new locales. See the complete language list [here](../../language-support.md).
 
 | Locale  | Language                          |
