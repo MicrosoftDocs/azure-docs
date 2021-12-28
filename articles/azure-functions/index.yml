@@ -40,32 +40,32 @@ landingContent:
             url: create-first-function-vs-code-csharp.md
           - text: Create a Java function in Azure from the command line
             url: create-first-function-cli-java.md
-          - text: JavaScript
+          - text: Create a JavaScript function in Azure using Visual Studio Code
             url: create-first-function-vs-code-node.md
-          - text: PowerShell
+          - text: Create a PowerShell function in Azure using Visual Studio Code
             url: create-first-function-vs-code-powershell.md
-          - text: Python
+          - text: Create a function in Azure with Python using Visual Studio Code
             url: create-first-function-vs-code-python.md
-          - text: Rust/Go
+          - text: Create a Go or Rust function in Azure using Visual Studio Code
             url: create-first-function-vs-code-other.md
-          - text: TypeScript
+          - text: Create a function in Azure with TypeScript using Visual Studio Code
             url: create-first-function-vs-code-typescript.md
   - title: Develop functions
     linkLists:
       - linkListType: concept
         links:
-          - text: Developer guide
+          - text: Azure Functions developer guide
             url: functions-reference.md
-          - text: Supported languages
+          - text: Supported languages in Azure Functions
             url: supported-languages.md
-          - text: Connect to services
+          - text: Azure Functions triggers and bindings concepts
             url: functions-triggers-bindings.md
-          - text: Local development
+          - text: Code and test Azure Functions locally
             url: functions-develop-local.md
       - linkListType: sample
         links:
           - text: Azure Functions samples
-            url: /samples/browse/?products=azure-functions
+            url: /samples/browse/?expanded=azure&languages=csharp&products=azure-functions
           - text: Azure Serverless Community Library
             url: https://www.serverlesslibrary.net/
           - text: Azure Resource Manager templates
