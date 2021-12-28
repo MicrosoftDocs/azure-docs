@@ -4,7 +4,7 @@ description: Describes the functions to use in a Bicep file to retrieve values a
 author: mumian
 ms.author: jgao
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 12/28/2021
 ---
 
 # Resource functions for Bicep
@@ -410,7 +410,7 @@ To determine which resource types have a list operation, you have the following 
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for a region.
+Determines whether a resource type supports zones for a region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
 Namespace: [az](bicep-functions.md#namespaces-for-functions).
 
@@ -451,13 +451,19 @@ When the resource type or region doesn't support zones, an empty array is return
 ]
 ```
 
+### Remarks
+
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zones for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+
+To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`.  If the response isn't empty, the region supports availability zones.
+
 ### pickZones example
 
 The following Bicep file shows three results for using the `pickZones` function.
 
 ```bicep
 output supported array = pickZones('Microsoft.Compute', 'virtualMachines', 'westus2')
-output notSupportedRegion array = pickZones('Microsoft.Compute', 'virtualMachines', 'northcentralus')
+output notSupportedRegion array = pickZones('Microsoft.Compute', 'virtualMachines', 'westus')
 output notSupportedType array = pickZones('Microsoft.Cdn', 'profiles', 'westus2')
 ```
 
