@@ -147,7 +147,7 @@ Apply the same mitigation and the best practices before you file a support ticke
 If your query fails with the error message 'error handling external file: Max errors count reached', it means that there is a mismatch of a specified column type and the data that needs to be loaded. 
 To get more information about the error and which rows and columns to look at, change the parser version from ‘2.0’ to ‘1.0’. 
 
-#### Example
+**Example**
 If you would like to query the file ‘names.csv’ with this query 1, Azure Synapse SQL serverless will return with such error. 
 
 names.csv
@@ -230,7 +230,7 @@ For instance, if you expect only integers in your data but in row n there might 
 To resolve this problem, inspect the file and the according data types you did choose. Also check if your row delimiter and field terminator settings are correct. The following example shows how inspecting can be done using VARCHAR as column type. 
 Read more on field terminators, row delimiters and escape quoting characters [here](query-single-csv-file.md). 
 
-#### Example 
+**Example** 
 If you would like to query the file ‘names.csv’ with this query 1, Azure Synapse SQL serverless will return with such error. 
 
 names.csv
@@ -311,7 +311,7 @@ In such circumstances, it is important to align with the business owner of the d
 If your query does not fail but you find that your result table is not loaded as expected, it is likely that row delimiter or field terminator have been chosen wrong. 
 To resolve this problem, it is needed to have another look at the data and change those settings. As a result table is shown, debugging this query is easy like in upcoming example. 
 
-#### Example
+**Example**
 If you would like to query the file ‘names.csv’ with this Query 1, Azure Synapse SQL serverless will return with result table that looks odd. 
 
 names.csv
@@ -408,7 +408,7 @@ To resolve this, inspect the file and the according data types you did choose. T
 Best practice hint: Specify mapping only for columns that would otherwise resolve into VARCHAR data type. 
 Avoiding VARCHAR when possible, leads to better performance in queries. 
 
-#### Example
+**Example**
 If you would like to query the file 'taxi-data.parquet' with this Query 1, Azure Synapse SQL serverless will return with such error.
 
 taxi-data.parquet:
@@ -470,9 +470,13 @@ FROM
     AS [result]
 ```
 
+### The query references an object that is not supported in distributed processing mode
+
+Some objects (such as system views) and functions cannot be used while querying data stored in Azure data lake or Cosmos DB analytical storage. Avoid using the queries that join external data with system views, load external data in a temp table, or use some security or metadata functions to filter external data. 
+
 ### `WaitIOCompletion` call failed
 
-This message indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake)
+This message indicates that the query failed while waiting to complete IO operation that reads data from the remote storage (Azure Data Lake).
 Make sure that your storage is placed in the same region as serverless SQL pool, and that you are not using `archive access` storage that is paused by default. Check the storage metrics and verify that there are no other workloads on the storage layer (uploading new files) that could saturate IO requests.
 
 ### Incorrect syntax near 'NOT'
