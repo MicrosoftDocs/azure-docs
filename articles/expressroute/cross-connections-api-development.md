@@ -79,8 +79,72 @@ Develop against the [expressRouteCrossConnections API](/rest/api/expressroute/ex
 #### Connectivity Management Workflow
 Once you receive the ExpressRoute service key from the target customer, follow the below workflow and sample API operations to configure ExpressRoute connectivity:
 1. **List expressRouteCrossConnection:** In order to manage ExpressRoute connectivity, you need to identify the *Name* and *ResourceGroup* of the target expressRouteCrossConnection resource, in order to form the GET API call. the *Name* of the expressRouteCrossConnection is the target service key of the customer's ExpressRoute circuit. In order to find the *ResourceGroupName*, you need to LIST all expressRouteCrossConnections in the provider subscription and search the results for the target service key. From here, you can record the *ResourceGroupName*
+
+`GET /subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/providers/Microsoft.Network/expressRouteCrossConnections?api-version=2018-02-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer eyJ0eXAiOiJKV...
+User-Agent: ARMClient/1.2.0.0
+Accept: application/json
+x-ms-request-id: f484de7d-6c19-412f-a5eb-e5c9dd247d3c
+
+
+---------- Response (601 ms) ------------
+
+HTTP/1.1 200 OK
+Pragma: no-cache
+x-ms-request-id: 620ec7bf-4fd1-446f-96e9-97fbae16722f
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Cache-Control: no-cache
+Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
+x-ms-ratelimit-remaining-subscription-reads: 14999
+x-ms-correlation-request-id: 6e484d0b-2f2e-4cef-9e18-87a9b7441bc4
+x-ms-routing-request-id: WESTUS:20180501T192531Z:6e484d0b-2f2e-4cef-9e18-87a9b7441bc4
+X-Content-Type-Options: nosniff
+Date: Tue, 01 May 2018 19:25:31 GMT
+
+{
+  "value": [
+    {
+      "name": "24e6ea2b-6940-4bec-b0b3-3a9e5471e512",
+      "id": "/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/24e6ea2b-6940-4bec-b0b3-3a9e5471e512",
+      "etag": "W/\"19fa7ada-5189-4817-a9d6-499b02e379cc\"",
+      "type": "Microsoft.Network/expressRouteCrossConnections",
+      "location": "eastus2euap",
+      "properties": {
+        "provisioningState": "Succeeded",
+        "expressRouteCircuit": {
+          "id": "/subscriptions/aee64b65-cb44-48fa-b328-3e6a50f9d9da/resourceGroups/Karthikcrossconnectiontest/providers/Microsoft.Network/expressRouteCircuits/TestCircuit2"
+        },
+        "peeringLocation": "EUAP Test",
+        "bandwidthInMbps": 200,
+        "serviceProviderProvisioningState": "Provisioned",
+        "peerings": []
+      }
+    },
+    {
+      "name": "9ee700ad-50b2-4b98-a63a-4e52f855ac24",
+      "id": "/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24",
+      "etag": "W/\"f07a267f-4a5c-4538-83e5-de1fcb183801\"",
+      "type": "Microsoft.Network/expressRouteCrossConnections",
+      "location": "eastus2euap",
+      "properties": {
+        "provisioningState": "Succeeded",
+        "expressRouteCircuit": {
+          "id": "/subscriptions/aee64b65-cb44-48fa-b328-3e6a50f9d9da/resourceGroups/Karthikcrossconnectiontest/providers/Microsoft.Network/expressRouteCircuits/TestCircuitXYZ"
+        },
+        "peeringLocation": "EUAP Test",
+        "bandwidthInMbps": 200,
+        "serviceProviderProvisioningState": "NotProvisioned",
+        "peerings": []
+      }
+    }
+  ]
+}`
+
 2. **GET expressRouteCrossConnection:** Once you have identified both the *Name* and *ResourceGroupName* of the target expressRouteCrossConnection resource, you need to perform the GET expressRouteCrossConnection API call.
+
 3. **PUT expressRouteCrossConnection:** Once you provision layer-2 connectivity, update the *ServiceProviderProvisioningState* to **Provisioned**. At this point, the customer can configure Microsoft or Private Peering and create a connection from the ExpressRoute circuit to a virtual network gateway deployed in the customer's subscription.
+
 4. **(Optional) PUT expressRouteCrossConnection to configure Microsoft and/or Private Peering:** If you manage layer-3 BGP connectivity, you can enable Microsoft and/or Private Peering.
 
 ## REST API
