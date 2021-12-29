@@ -3,7 +3,7 @@ title: Quickstart – Azure Key Vault Python client library – manage secrets
 description: Learn how to create, retrieve, and delete secrets from an Azure key vault using the Go client library 
 author: Duffney
 ms.author: jduffney
-ms.date: 12/27/2021
+ms.date: 12/29/2021
 ms.service: key-vault
 ms.subservice: secrets
 ms.topic: quickstart
@@ -12,47 +12,59 @@ ms.devlang: golang
 
 # Quickstart: Azure Key Vault secret client library for Go
 
-<!-- 2. Introductory paragraph 
-Required. Lead with a light intro that describes what the article covers. Answer the 
-fundamental “why would I want to know this?” question. Keep it short.
--->
+In this quickstart, you'll learn to use the Azure SDK for Go to create, retrieve, list, and delete secrets from Azure Key Vault.
 
-[Add your introductory paragraph]
+ Azure Key Vault can store [several objects types](azure/key-vault/general/about-keys-secrets-certificates#object-types). But, this quickstart focuses on secrets. By using Azure Key Vault to store secrets, you avoid storing secrets in your code, which increases the security of your applications. 
 
-<!-- 3. Create a free trial account 
-Required if a free trial account exists. Include a link to a free trial before the 
-first H2, if one exists. You can find listed examples in [Write quickstart]
-(contribute-how-to-mvc-quickstart.md)
--->
-
-If you don’t have a <service> subscription, create a free trial account...
-
-<!-- 4. Prerequisites 
-Required. First prerequisite is a link to a free trial account if one exists. If there 
-are no prerequisites, state that no prerequisites are needed for this quickstart.
--->
+Get started with the [azsecrets](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets) package and learn how to manage Azure Key Vault secrets using Go.
 
 ## Prerequisites
 
 - An Azure subscription - [create one for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 - **Go installed**: Version 1.16 or [above](https://golang.org/dl/)
+- [Azure CLI](/cli/azure/install-azure-cli)
 
 ## Setup
 
-1. Sign into Azure
-1. Create a resource group
-1. Create an Azure Key Vault instance
-1. Install packages
+This quickstart uses the [azidentity](https://pkg.go.dev/github.com/Azure/azure-sdk-for-go/sdk/azidentity) package to authenticate to Azure using Azure CLI. To learn more about different methods of authentication, see [Azure authentication with the Azure SDK for Go](azure/developer/go/azure-sdk-authentication).
 
-```azurecli
-go get -u github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets
-go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
-```
+###  Sign into Azure
 
+1. Run the `az login` command:
+
+    ```azurecli-interactive
+    az login
+    ```
+
+    If the CLI can open your default browser, it will do so and load an Azure sign in page.
+
+    Otherwise, open a browser page at [https://aka.ms/devicelogin](https://aka.ms/devicelogin) and enter the
+    authorization code displayed in your terminal.
+
+2. Sign in with your account credentials in the browser.
+
+### Create a resource group and key vault instance
+
+1. Run the following Azure CLI commands:
+
+	```azurecli
+	az group create --name quickstart-rg --location eastus
+	az keyvault create --name quickstart-kv --resource-group quickstart-rg
+	```
+
+### Create a new Go module and install packages
+
+1. Run the following Go commands:
+
+	```azurecli
+	go mod init kvSecrets
+	go get -u github.com/Azure/azure-sdk-for-go/sdk/keyvault/azsecrets
+	go get -u github.com/Azure/azure-sdk-for-go/sdk/azidentity
+	```
 
 ## Code examples
 
-The Azure Key Vault secret package for the Azure SDK for Go allows you to manage secrets. This Code examples section shows how to create a client, set a secret, retrieve a secret, and delete a secret.
+This Code examples section shows how to create a client, set a secret, retrieve a secret, and delete a secret.
 
 ### Authenticate and create a client
 
@@ -115,7 +127,9 @@ if err != nil {
 }
 ```
 
-## Run the code
+## Sample Code
+
+Create a file named `main.go` and copy the following code into the file:
 
 ```go
 package main
@@ -181,20 +195,38 @@ func main() {
 		log.Fatalf("failed to delete secret: %v", err)
 	}
 
-	fmt.Println(mySecretName + "has been deleted")
+	fmt.Println(mySecretName + " has been deleted\n")
 }
 ```
 
-Create environment variable `KEY_VAULT_NAME`.
+## Run the code
+
+Before you run the code, create an environment variable named `KEY_VAULT_NAME`. Set the environment variable's value to the name of the Azure Key Vault created previously.
 
 ```azurecli
-go mod init azKeyVaultSecrets
+export KEY_VAULT_NAME=quickstart-kv
+```
+
+Run the following `go run` command to run the Go app:
+
+```azurecli
 go run main.go
+```
+
+```output
+secretValue: createdWithGO
+Secret ID: https://quickstart-kv.vault.azure.net/secrets/quickstart-secret
+Secret ID: https://quickstart-kv.vault.azure.net/secrets/secretName
+quickstart-secret has been deleted
 ```
 
 ## Clean up resources
 
-Delete resource group
+Run the following command to delete the resource group and all its remaining resources:
+
+```azurecli
+az group delete --resource-group quickstart-rg
+```
 
 ## Next steps
 
