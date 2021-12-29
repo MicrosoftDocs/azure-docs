@@ -100,11 +100,11 @@ The following steps show you how to create and display the Map control in a web 
 
    Some things to know about the above JavaScript:
 
-   * This is the core of the `GetMap` function, which initializes the Map Control API for your Azure Maps account.
+   * This code is the core of the `GetMap` function, which initializes the Map Control API for your Azure Maps account.
    * [atlas](/javascript/api/azure-maps-control/atlas) is the namespace that contains the Azure Maps API and related visual components.
    * [atlas.Map](/javascript/api/azure-maps-control/atlas.map) provides the control for a visual and interactive web map.
 
-4. Save the file and open it in your browser. This will display a basic map in your browser window by calling `atlas.Map` using your Azure Maps primary subscription key.
+4. Save the file and open it in your browser. The browser will display a basic map by calling `atlas.Map` using your Azure Maps primary subscription key.
 
     :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="A screenshot that shows the most basic map you can make by calling the atlas Map API, using your Azure Maps primary subscription key.":::
 
@@ -208,7 +208,7 @@ In this tutorial, two routes will be calculated and rendered on the map. The fir
    * The start and end points are added to the data source.
    * The bounding box for the start and end points is calculated using the `atlas.data.BoundingBox.fromData` function. This bounding box is used to set the map cameras view over the entire route using the `map.setCamera` function.
    * Padding is added to compensate for the pixel dimensions of the symbol icons.
-   * For more information see the [setCamera](/javascript/api/azure-maps-control/atlas.map#setCamera_CameraOptions___CameraBoundsOptions___AnimationOptions_) function in the Microsoft technical documentation.
+   * For more information, see the [setCamera](/javascript/api/azure-maps-control/atlas.map#setCamera_CameraOptions___CameraBoundsOptions___AnimationOptions_) function in the Microsoft technical documentation.
 
 3. Save **TruckRoute.html** and refresh your browser. The map is now centered over Seattle. The blue teardrop pin marks the start point. The round blue pin marks the end point.
 
