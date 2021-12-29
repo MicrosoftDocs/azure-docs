@@ -87,7 +87,7 @@ When you're determining how to structure your labs, consider the following point
 
     Similar to quota setting, if you need to set different schedules for users, you need to create a separate lab for each schedule.
 
-By default, each lab has its own virtual network.  If you have [virtual network injection](how-to-connect-vnet-injection.md) enabled, each lab will used the specified network.
+By default, each lab has its own virtual network.  If you have [virtual network injection](how-to-connect-vnet-injection.md) enabled, each lab will use the specified network.
 
 ## Shared image gallery
 
@@ -95,7 +95,7 @@ A shared image gallery is attached to a lab plan and serves as a central reposit
 
 Instructors can publish an image version from the shared image gallery when they create a new lab. Although the gallery stores multiple versions of an image, educators can select only the most recent version during lab creation.  The most recent version is chosen based on the highest value of MajorVersion, then MinorVersion, then Patch.  For more information about versioning, see [Image versions](../virtual-machines/shared-image-galleries.md#image-versions).
 
-The shared image gallery service is an optional resource that you might not need immediately if you're starting with only a few labs. However, shared image gallery offers many benefits that are helpful as you scale up to additional labs:
+The shared image gallery service is an optional resource that you might not need immediately if you're starting with only a few labs. However, shared image gallery offers many benefits that are helpful as you scale up to more labs:
 
 - **You can save and manage versions of a template VM image**
 
@@ -109,50 +109,52 @@ The shared image gallery service is an optional resource that you might not need
 
     You can [upload custom images other environments outside of the context of labs](how-to-attach-detach-shared-image-gallery-2.md).  For example, you can upload images from your own physical lab environment or from an Azure VM into shared image gallery.  Once an image is imported into the gallery, you can then use the images to create labs.
 
-To logically group shared images, you can do either of the following:
+To logically group shared images, you can do either of the following methods:
 
 - Create multiple shared image galleries. Each lab plan can connect to only one shared image gallery, so this option also requires you to create multiple lab plans.
 - Use a single shared image gallery that's shared by multiple lab plans. In this case, each lab plan can enable only images that are applicable to the labs in that plan.
 
 ## Naming
 
-As you get started with Azure Lab Services, we recommend that you establish naming conventions for resource groups, lab plans, labs, and the shared image gallery. Although the naming conventions that you establish will be unique to the needs of your organization, the following table provides general guidelines:
+As you get started with Azure Lab Services, we recommend that you establish naming conventions for Azure and Azure Lab Services related resources.  Although the naming conventions that you establish will be unique to the needs of your organization, the following table provides general guidelines:
 
 | Resource type | Role | Suggested pattern | Examples |
 | ------------- | ---- | ----------------- | -------- |
-| Resource group | Contains one or more lab plans and one or more shared image galleries | \<organization short name\>-\<environment\>-rg<ul><li>**Organization short name** identifies the name of the organization that the resource group supports.</li><li>**Environment** identifies the environment for the resource, such as *pilot* or *production*.</li><li>**Rg** stands for the resource type *resource group*.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
-| Lab plan | Contains one or more labs | \<organization short name\>-\<environment\>-la<ul><li>**Organization short name** identifies the name of the organization that the resource group supports.</li><li>**Environment** identifies the environment for the resource, such as *pilot* or *production*.</li><li>**La** stands for the resource type *lab plan*.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
-| Lab | Contains one or more VMs |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Class name** identifies the name of the class that the lab supports.</li><li>**Timeframe** identifies the timeframe in which the class is offered.</li>**Educator identifier** identifies the educator who owns the lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| Shared image gallery | Contains one or more VM image versions | \<organization short name\>gallery | contosouniversitylabsgallery |
+| Resource group | Contains one or more lab plans, labs and/or shared image galleries. |{org-name}labs-{env}-rg, {dept-name}labs-rg | contosolabs-rg, contosolabs-pilot-rg, contosolabs-prod-rg, mathdept-rg |
+| Lab plan | Template for newly created labs. | {org-name}-{env}-lp, {dept-name}-{env}-lp | contoso-lp, mathdept-lp, cs-pilot-lp |
+| Lab | Contains one or more student VMs. | {class-name}-{time}-{educator} | CS101-Fall2021, CS101-Fall2021-JohnDoe |
+| Shared image gallery | Contains one or more VM image versions | {org-name}-sig, {dept-name}-sig | contoso-sig, mathdept-sig |
+
+In the proceeding table, we used some terms and tokens in the suggested name patterns.  Let's go over those terms in a little more detail.
+
+| Pattern term/token | Definition | Example |
+| ------------ | ---------- | ------- |
+| {org-name} | Token for organization short name with no spaces. | contoso |
+| {dept-name} | Token for short name of department in organization. | math, bio, cs |
+| {env} | Token for environment name | prod for production, pilot for small test |
+| {class-name} | Token for short name or code for class being supported. | CS101, Bio101 |
+| {educator} | Alias of educator running the lab. | johndoe |
+| {time} | Token for short name (with no spaces) for time the class is being offered. | Spring2021, Dec 2021|
+| rg | Indicates resource is a resource group. | |
+| lp | Indicates resource is a lab plan. | |
+| sig | Indicates resource is a shared image gallery. | |
 
 For more information about naming other Azure resources, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
 
 ## Regions
 
-When you set up your Azure Lab Services resources, you're required to provide a region or location of the datacenter that will host the resources. Lab plan enable one or more region in which labs may be created. The next sections describe how a region or location might affect each resource that's involved with setting up a lab.
+When you set up your Azure Lab Services resources, you're required to provide a region or location of the data center that will host the resources. Lab plans can enable one or more regions in which labs may be created. The next sections describe how a region or location might affect each resource that's involved with setting up a lab.
 
-### Resource group
-
-The region specifies the datacenter where information about a resource group is stored. Azure resources contained within the resource group can be in a different region from that of their parent.
-
-### Lab plan
-
-A lab plan's location indicates the region that a resource exists in.  
-
-When a lab plan is connected to your own virtual network, the network must be in the same region as the lab plan. In addition, labs will be created in the same Azure region as that virtual network.
-
-### Lab
-
-The location that a lab exists in varies, and doesn't need to be in the same location as the lab plan. Administrators control which regions labs can be created in through the lab plan settings.  However, when a lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.
-
-A general rule is to set a resource's region to one that's closest to its users. For labs, this means creating the lab that's closest to your students. For online courses whose students are located all over the world, use your best judgment to create a lab that's centrally located. Or you can split a class into multiple labs according to your students' regions.
+- **Resource group**. The region specifies the datacenter where information about a resource group is stored. Azure resources contained within the resource group can be in a different region from that of their parent.
+- **Lab plan**. A lab plan's location indicates the region that a resource exists in.  When a lab plan is connected to your own virtual network, the network must be in the same region as the lab plan. Also, labs will be created in the same Azure region as that virtual network.
+- **Lab**.  The location that a lab exists in varies, and doesn't need to be in the same location as the lab plan. Administrators control which regions labs can be created in through the lab plan settings. A general rule is to set a resource's region to one that's closest to its users. For labs, this means creating the lab that's closest to your students. For online courses whose students are located all over the world, use your best judgment to create a lab that's centrally located. Or you can split a class into multiple labs according to your students' regions.
 
 > [!NOTE]
 > To help ensure that a region has sufficient VM capacity, it's important to first [request capacity](capacity-limits.md#request-a-limit-increase).
 
 ## VM sizing
 
-When administrators or Lab Creators create a lab, they can choose from a variety of VM sizes, depending on the needs of their classroom. Remember that the size availability depends on the region that your lab plan is located in.
+When administrators or Lab Creators create a lab, they can choose from various VM sizes, depending on the needs of their classroom. Remember that the size availability depends on the region that your lab plan is located in.
 
 For information on VM sizes and their cost, see the [Azure Lab Services Pricing](https://azure.microsoft.com/pricing/details/lab-services/).
 
@@ -197,7 +199,7 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
 
 - **Lab Assistant**
 
-    When applied to a resource group or a lab, enables the user to view an existing lab and can only perform actions on the lab VMs (reset, start, stop, connect) and send invites to the lab. The user will not have the ability to change create a lab, publish a lab, change lab capacity, or manage quota and schedules. This user can’t adjust individual quota.
+    When applied to a resource group or a lab, enables the user to view an existing lab and can only perform actions on the lab VMs (reset, start, stop, connect) and send invites to the lab. The user will not have the ability to change a lab, create a lab, publish a lab, change lab capacity, or manage quota and schedules. This user can’t adjust individual quota.
 
 - **Lab Services Contributor**
 
@@ -205,7 +207,7 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
 
 - **Lab Services Reader**
 
-    When applied to a resource group, enables the user to view, but not change, all lab plans and lab resources. External resources like image galleries and virtual networks that may be connected to a lab plan are not included.
+    When applied to a resource group, enables the user to view, but not change, all lab plans and lab resources. External resources like image galleries and virtual networks that may be connected to a lab plan aren't included.
 
 When you're assigning roles, it helps to follow these tips:
 
@@ -224,7 +226,7 @@ There are two approaches that schools typically consider for content filtering:
 
 Lab Services hosts each lab's virtual network within a Microsoft-managed Azure subscription.  You'll need to use [advanced networking](how-to-connect-vnet-injection.md) in the lab plan.  Make sure to check known limitation os virtual network injection before proceeding.
 
-We recommend the second approach which is to install 3rd party software on each lab's template VM.  There are a few key points to highlight as part of this solution:
+We recommend the second approach, which is to install 3rd party software on each lab's template VM.  There are a few key points to highlight as part of this solution:
 
 - If you plan to use the [auto-shutdown settings](./cost-management-guide.md#automatic-shutdown-settings-for-cost-control), you will need to unblock several Azure host names with the 3rd party software.  The auto-shutdown settings use a diagnostic extension that must be able to communicate back to Lab Services.  Otherwise, the auto-shutdown settings will fail to enable for the lab.
 - You may also want to have each student use a non-admin account on their VM so that they can't uninstall the content filtering software.  By default, Lab Services creates an admin account that each student uses to sign into their VM.  It is possible to add a non-admin account using a specialized image, but there are some known limitations.
@@ -237,7 +239,7 @@ Many endpoint management tools, such as [Microsoft Endpoint Manager](https://tec
 
 With Lab Services, even if you use a *generalized* image to create a lab, the template VM and student VMs will all have the same machine SID.  The VMs have the same SID because the template VM's image is in a *specialized* state when it's published to create the student VMs.
 
-For example, the Azure Marketplace images are generalized.  If you create a lab from the Win 10 marketplace image and publish the template VM, all of the student VMs within a lab will have the same machine SID as the template VM.  The machine SIDs can be verified by using a tool such as [PsGetSid](/sysinternals/downloads/psgetsid).
+For example, the Azure Marketplace images are generalized.  If you create a lab from the Windows 10 marketplace image and publish the template VM, all of the student VMs within a lab will have the same machine SID as the template VM.  The machine SIDs can be verified by using a tool such as [PsGetSid](/sysinternals/downloads/psgetsid).
 
 If you plan to use an endpoint management tool or similar software, we recommend that you test it with lab VMs to ensure that it works properly when machine SIDs are the same.  
 
@@ -275,7 +277,7 @@ Let's look at an example of the cost of saving a template VM image to a shared i
 
 - You have one custom VM image.
 - You're saving two versions of the image.
-- Your replicated the image to eight regions.
+- You replicated the image to eight regions.
 - Each image version is 32 GB in
 
 The total cost per month is estimated as:

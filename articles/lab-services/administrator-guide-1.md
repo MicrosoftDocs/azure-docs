@@ -113,14 +113,28 @@ To logically group shared images, you can do either of the following:
 
 ## Naming
 
-As you get started with Azure Lab Services, we recommend that you establish naming conventions for resource groups, lab accounts, labs, and the shared image gallery. Although the naming conventions that you establish will be unique to the needs of your organization, the following table provides general guidelines:
+As you get started with Azure Lab Services, we recommend that you establish naming conventions for Azure and Azure Lab Services related resources.  Although the naming conventions that you establish will be unique to the needs of your organization, the following table provides general guidelines:
 
 | Resource type | Role | Suggested pattern | Examples |
-| ------------- | ---- | ----------------- | -------- | 
-| Resource group | Contains one or more lab accounts and one or more shared image galleries | \<organization short name\>-\<environment\>-rg<ul><li>**Organization short name** identifies the name of the organization that the resource group supports.</li><li>**Environment** identifies the environment for the resource, such as *pilot* or *production*.</li><li>**Rg** stands for the resource type *resource group*.</li></ul> | contosouniversitylabs-rg<br/>contosouniversitylabs-pilot-rg<br/>contosouniversitylabs-prod-rg |
-| Lab account | Contains one or more labs | \<organization short name\>-\<environment\>-la<ul><li>**Organization short name** identifies the name of the organization that the resource group supports.</li><li>**Environment** identifies the environment for the resource, such as *pilot* or *production*.</li><li>**La** stands for the resource type *lab account*.</li></ul> | contosouniversitylabs-la<br/>mathdeptlabs-la<br/>sciencedeptlabs-pilot-la<br/>sciencedeptlabs-prod-la |
-| Lab | Contains one or more VMs |\<class name\>-\<timeframe\>-\<educator identifier\><ul><li>**Class name** identifies the name of the class that the lab supports.</li><li>**Timeframe** identifies the timeframe in which the class is offered.</li>**Educator identifier** identifies the educator who owns the lab.</li></ul> | CS1234-fall2019-johndoe<br/>CS1234-spring2019-johndoe |
-| Shared image gallery | Contains one or more VM image versions | \<organization short name\>gallery | contosouniversitylabsgallery |
+| ------------- | ---- | ----------------- | -------- |
+| Resource group | Contains one or more lab plans, labs and/or shared image galleries. |{org-name}labs-{env}-rg, {dept-name}labs-rg | contosolabs-rg, contosolabs-pilot-rg, contosolabs-prod-rg, mathdept-rg |
+| Lab account | Contains one or more labs. | {org-name}-{env}-la, {dept-name}-{env}-la | contoso-la, mathdept-la, cs-pilot-la |
+| Lab | Contains one or more student VMs. | {class-name}-{time}-{educator} | CS101-Fall2021, CS101-Fall2021-JohnDoe |
+| Shared image gallery | Contains one or more VM image versions | {org-name}-sig, {dept-name}-sig | contoso-sig, mathdept-sig |
+
+In the proceeding table, we used some terms and tokens in the suggested name patterns.  Let's go over those terms in a little more detail.
+
+| Pattern term/token | Definition | Example |
+| ------------ | ---------- | ------- |
+| {org-name} | Token for organization short name with no spaces. | contoso |
+| {dept-name} | Token for short name of department in organization. | math, bio, cs |
+| {env} | Token for environment name | prod for production, pilot for small test |
+| {class-name} | Token for short name or code for class being supported. | CS101, Bio101 |
+| {educator} | Alias of educator running the lab. | johndoe |
+| {time} | Token for short name (with no spaces) for time the class is being offered. | Spring2021, Dec 2021|
+| rg | Indicates resource is a resource group. | |
+| la | Indicates resource is a lab account. | |
+| sig | Indicates resource is a shared image gallery. | |
 
 For more information about naming other Azure resources, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
 
