@@ -305,7 +305,7 @@ Select **Access** > **Single Sign-on** > **Kerberos** > **Create** and provide t
 
 ![Screenshot that shows selections for configuring Kerberos single sign-on.](./media/f5-big-ip-kerberos-advanced/configure-kerberos-sso.png)
 
-You can leave KDC undefined if the user realm is different from the back-end server realm. This rule also applies for multiple-domain realm scenarios. If you leave KDC undefined, BIG-IP will attempt to discover a Kerberos realm through a DNS lookup of SRV records for the back-end server's domain. So it expects the domain name to be the same as the realm name. If the domain name is different from the realm name, it must be specified in the [/etc/krb5.conf](https://support.f5.com/csp/article/K17976428) file.
+You can leave KDC undefined if the user realm is different from the back-end server realm. This rule also applies for multiple-domain realm scenarios. If you leave KDC undefined, BIG-IP will try to discover a Kerberos realm through a DNS lookup of SRV records for the back-end server's domain. So it expects the domain name to be the same as the realm name. If the domain name is different from the realm name, it must be specified in the [/etc/krb5.conf](https://support.f5.com/csp/article/K17976428) file.
 
 Kerberos SSO processing is fastest when a KDC is specified by IP address. Kerberos SSO processing is slower when a KDC is specified by host name. Because of additional DNS queries, processing is even slower when a KDC is left undefined. For this reason, you should ensure that your DNS is performing optimally before moving a proof of concept into production. 
 
@@ -383,7 +383,7 @@ Although it's optional, adding a *LogonID_Mapping* configuration enables the BIG
 
 ### Configure the back-end pool
 
-For BIG-IP to know where to forward client traffic, you need to create a BIG-IP node object that represents the back-end server hosting your application. Then, place that node in a BIG-IP server pool.
+For BIG-IP to know where to forward client traffic, you need to create a BIG-IP node object that represents the back-end server that hosts your application. Then, place that node in a BIG-IP server pool.
 
 1. Select **Local Traffic** > **Pools** > **Pool List** > **Create** and provide a name for a server pool object. For example, enter **MyApps_VMs**.
 
@@ -442,7 +442,7 @@ One way to achieve this is by adding an SLO function to your application's sign-
 
 If you can't change the app, consider having BIG-IP listen for the app's sign-out call. When it detects the request, it should trigger SLO. 
 
-For more details, see the F5 articles [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
+For more information, see the F5 articles [Configuring automatic session termination (logout) based on a URI-referenced file name](https://support.f5.com/csp/article/K42052145) and [Overview of the Logout URI Include option](https://support.f5.com/csp/article/K12056).
 
 ## Summary
 
@@ -495,7 +495,7 @@ If you don't see a BIG-IP error page, the problem is probably more related to th
 
 2. Select the link for your active session. The **View Variables** link in this location might also help you determine root-cause KCD problems, particularly if the BIG-IP APM fails to get the right user and domain identifiers.
 
-For help in diagnosing KCD-related issues, see the F5 BIG-IP deployment guide [Configuring Kerberos Constrained Delegation](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf).
+For help with diagnosing KCD-related issues, see the F5 BIG-IP deployment guide [Configuring Kerberos Constrained Delegation](https://www.f5.com/pdf/deployment-guides/kerberos-constrained-delegation-dg.pdf).
 
 ## Additional resources
 
