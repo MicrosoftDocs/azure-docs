@@ -26,6 +26,10 @@ Active geo-replication groups up to five Enterprise Azure Cache for Redis instan
 1. In the **Advanced** tab of **New Redis Cache** creation UI, select **Enterprise** for **Clustering Policy**.
 
     ![Configure active geo-replication](./media/cache-how-to-active-geo-replication/cache-active-geo-replication-not-configured.png)
+    
+    The OSS Cluster mode allows clients to communicate with Redis using the same Redis Cluster API as open-source Redis. This mode provides optimal latency and near-linear scalability improvements when scaling the cluster. Your client library must support clustering to use the OSS Cluster mode.
+
+    The Enterprise Cluster mode is a simpler configuration that exposes a single endpoint for client connections. This mode allows an application designed to use a standalone, or non-clustered, Redis server to seamlessly operate with a scalable, multi-node, Redis implementation. Enterprise Cluster mode abstracts the Redis Cluster implementation from the client by internally routing requests to the correct node in the cluster. Clients are not required to support OSS Cluster mode.
 
 1. Select **Configure** to set up **Active geo-replication**.
 

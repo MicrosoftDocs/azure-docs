@@ -50,9 +50,12 @@ You'll need an Azure subscription before you begin. If you don't have one, creat
 
    :::image type="content" source="media/cache-create/enterprise-tier-advanced.png" alt-text="Screenshot that shows the Enterprise tier Advanced tab.":::
 
+    The OSS Cluster mode allows clients to communicate with Redis using the same Redis Cluster API as open-source Redis. This mode provides optimal latency and near-linear scalability improvements when scaling the cluster. Your client library must support clustering to use the OSS Cluster mode.
+
+    The Enterprise Cluster mode is a simpler configuration that exposes a single endpoint for client connections. This mode allows an application designed to use a standalone, or non-clustered, Redis server to seamlessly operate with a scalable, multi-node, Redis implementation. Enterprise Cluster mode abstracts the Redis Cluster implementation from the client by internally routing requests to the correct node in the cluster. Clients are not required to support OSS Cluster mode.
+
    > [!NOTE]
-   > Redis Enterprise supports two clustering policies. Use the **Enterprise** policy to access
-   > your cache using the regular Redis API, and **OSS** the OSS Cluster API.
+   > Redis Enterprise supports two clustering policies. Use the **Enterprise** policy to access your cache using the regular Redis API, and **OSS** the OSS Cluster API.
    >
 
    > [!NOTE]
