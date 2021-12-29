@@ -345,7 +345,7 @@ Response for this query should look similar to the example below, trimmed for br
     },
 ```
 
-## Example 6: Geo-search
+## Example 6: Geospatial search
 
 The hotels-sample index includes a geo_location field with latitude and longitude coordinates. This example uses the [geo.distance function](search-query-odata-geo-spatial-functions.md#examples) that filters on documents within the circumference of a starting point, out to an arbitrary distance (in kilometers) that you provide. You can adjust the last value in the query (10) to reduce or enlarge the surface area of the query.
 

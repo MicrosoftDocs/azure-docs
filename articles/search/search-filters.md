@@ -29,7 +29,7 @@ Common scenarios include the following:
 + Implement a search experience comes with a filter depedency:
 
   + [Faceted navigation](search-faceted-navigation.md) uses a filter to pass back the facet category selected by the user.
-  + Geo-search uses a filter to pass coordinates of the current location in "find near me" apps. 
+  + [Geospatial search](search-query-odata-geo-spatial-functions.md) uses a filter to pass coordinates of the current location in "find near me" apps. 
   + [Security filters](search-security-trimming-for-azure-search.md) pass security identifiers as filter criteria, where a match in the index serves as a proxy for access rights to the document.
 
 + Do a "numbers search". Numeric fields are retrievable and can appear in search results, but they are not searchable (subject to full text search) individually. If you need selection criteria based on numeric data, use a filter.

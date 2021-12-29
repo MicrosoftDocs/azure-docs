@@ -227,7 +227,7 @@ For more information about query scenarios enabled by the full query parser, see
 
 ### <a name="geo-search"></a> Try geospatial search
 
-Geospatial search is supported through the [edm.GeographyPoint data type](/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geosearch is a type of filter, specified in [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
+Geospatial search is enabled through the [edm.GeographyPoint data type](/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geospatial search is specified in a filter expression, using [OData geospatial functions in Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
 
 #### Example (geo-coordinate filters): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
 
@@ -241,7 +241,7 @@ This tutorial provided a quick introduction to Azure Cognitive Search using the 
 
 You learned how to create a search index using the **Import data** wizard. You learned about [indexers](search-indexer-overview.md), as well as the basic workflow for index design, including [supported modifications to a published index](/rest/api/searchservice/update-index).
 
-Using the **Search explorer** in the Azure portal, you learned some basic query syntax through hands-on examples that demonstrated key capabilities such as filters, hit highlighting, fuzzy search, and geo-search.
+Using the **Search explorer** in the Azure portal, you learned some basic query syntax through hands-on examples that demonstrated key capabilities such as filters, hit highlighting, fuzzy search, and geospatial search.
 
 You also learned how to find indexes, indexers, and data sources in the portal. Given any new data source in the future, you can use the portal to quickly check its definitions or field collections with minimal effort.
 
