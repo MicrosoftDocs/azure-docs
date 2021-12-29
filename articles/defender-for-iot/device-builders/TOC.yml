@@ -104,9 +104,6 @@
       href: agent-based-recommendations.md
 - name: How-to guides
   items:
-  - name: Connect to Microsoft Sentinel
-    displayName: log analytics, service notes
-    href: how-to-configure-with-sentinel.md
   - name: Configure Microsoft Defender for IoT agent-based solution
     displayName: data, collection, geolocation, log analytics, raw events
     href: how-to-configure-agent-based-solution.md
