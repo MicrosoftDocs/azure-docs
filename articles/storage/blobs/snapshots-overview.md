@@ -69,6 +69,9 @@ Creating a snapshot, which is a read-only copy of a blob, can result in addition
 
 Blob snapshots, like blob versions, are billed at the same rate as active data. How snapshots are billed depends on whether you have explicitly set the tier for the base blob or for any of its snapshots (or versions). For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](access-tiers-overview.md).
 
+> [!NOTE]
+> Snapshots cannot be created for blobs in Archive tier.
+
 If you have not changed a blob or snapshot's tier, then you are billed for unique blocks of data across that blob, its snapshots, and any versions it may have. For more information, see [Billing when the blob tier has not been explicitly set](#billing-when-the-blob-tier-has-not-been-explicitly-set).
 
 If you have changed a blob or snapshot's tier, then you are billed for the entire object, regardless of whether the blob and snapshot are eventually in the same tier again. For more information, see [Billing when the blob tier has been explicitly set](#billing-when-the-blob-tier-has-been-explicitly-set).
