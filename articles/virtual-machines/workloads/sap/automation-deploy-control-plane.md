@@ -112,7 +112,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<spn_ID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
+> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
 
 ## Next step
 
