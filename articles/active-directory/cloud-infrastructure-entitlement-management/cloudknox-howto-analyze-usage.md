@@ -14,7 +14,7 @@ ms.author: v-ydequadros
 
 # Microsoft CloudKnox Permissions Management -  Analyze usage for an identity, a task, or an authorization system
 
-This topic describes how you can use the Usage Analytics dashboard to analyse usage for an authorization system, a task, or an identity type (user).
+This topic describes how you can use the Usage Analytics dashboard to analyze usage for an authorization system, a task, or an identity type (user).
 
 ## Analyze usage for an authorization system
 
@@ -35,7 +35,7 @@ This topic describes how you can use the Usage Analytics dashboard to analyse us
 
     The **Usage Analytics** tab page displays a list of users that match your criteria. The list includes **Local** users and **SAML** (Security Assertions Markup Language) users.
 
-    The **Privilege Creep Index** (PCI) column displays the level of privileges available to the user compared to how much the user is using. The PCI helps you determine if the user is using all, some, or none of the privileges  they have been granted.
+    The **Privilege Creep Index** (PCI) column displays the level of privileges available to the user compared to what the user is currently using. The PCI number helps you determine if the user is using all, some, or none of the privileges they've been granted.
 3. To sort the PCI in ascending or descending order, select **Index**.
 4. To view which privileges have been granted to, and used by, a user, select a username.
 5. CloudKnox displays:
@@ -45,23 +45,27 @@ This topic describes how you can use the Usage Analytics dashboard to analyse us
     The **Roles** available to the user.
     The **Roles** the user has accessed.
 
-### For a deeper dive into the identity's usage
+### Get an in-dept view of the identity's usage
 
 1. On the **Usage Analytics** tab page, select a username.
 
-    The **User Explorer** appears, displaying more information about the user, the user groups they are in, the policies attached to the user, the roles available to them, and the roles they have accessed.
-2. Select **View** (the eye icon) to the right of a policy or role to view its details.
+    The **User Explorer** appears, displaying more information about the user, the user groups they are in, the policies attached to the user, the roles available to them, and the roles they've accessed.
+2. Select **View** (the eye icon) to the right of a policy or role to view the JSON code.
 
-### View the IMKeys the user has created
+    The JSON code displays which policies are granted to a user and how the trust relationship is set up.
 
-1. On the **Usage Analytics** tab page, select an **IMKey** from the drop-down list in the upper left of the page.
+### View the Identity and Access Management (IAM) keys the user created
 
-    CloudKnox displays a list of IMKeys created for the user.
+1. On the **Usage Analytics** tab page, from the drop-down list in the top-left of the page, select **Access Key Entitlements and Usage**.
+
+    CloudKnox displays a list of Access Key IDs.
 2. Select a username to view their privilege access and usage details.
 
-    The **Access Key Info** displays when the user last used the privileges. This information helps you determine if the user is currently active and how active they are.
+    **Access Key Info** includes when the user last used the privileges. This indicates if the user is currently active, how active they are, and which of the permissions that were granted are being used.
 
-## Grant access to individual accounts to a user
+    CloudKnox also tracks the **Access Key Age** to determine when the key was initially created and if it is currently still active.
+
+### Grant access to individual accounts to a user
 
 1. In the **Filter** tab on the left, select **Authorization systems** (the lock icon).
 2. Select an authorization system.
@@ -71,9 +75,41 @@ This topic describes how you can use the Usage Analytics dashboard to analyse us
 4. To see if a user has a cross-account role they can assume, in the **Domain/Account** column, select the user’s account.
 
     CloudKnox displays the **Account Explorer** displaying lists of **Roles that Provide Access**, **Connecting Roles**, and **Identities with Access**.
-5. To evaluate the IMRole and who can assume it, in the **Roles that Provide Access** box, select a role.
-<!---Text to come.--->
+5. To see if a user can access an Identity and Access Management (IAM) role, in the **Roles that Provide Access** box, select a role.
+6. Select **View** (the eye icon on the right of the role name). 
 
+    CloudKnox displays the JSON code you can use to view the policies that have been granted to a user and how the trust relationship is set up.
+
+### Determine if a user has access to an account
+
+1. From the drop-down list in the top-left of the page, select **User Entitlements and Usage**.
+2. In the **Domain/Asset** column, select a domain.
+3. In the Filter tab on the left, select **Authorization systems**, and then select an account.
+4. Select **Apply**.
+
+    CloudKnox displays a list of users who have access to the account. 
+5. Use **Search** to locate the user you want.
+
+### Determine if a user has access to a global account
+
+1. Select a **Global account**, and in the **Domain/Asset** column, select a domain.
+
+    CloudKnox displays a list of IAM roles.
+2. Select an IAM role.
+
+    CloudKnox displays a diagram that displays how the role accesses the global account.
+3. Select an account in the diagram.
+
+    CloudKnox displays the JSON code you can use to view the policies that have been granted to a user and how the trust relationship is set up.
+
+### Determine if a user has access to a resource
+
+1. In the **Search** box at the top of the page, enter a user, resource, or task name, and then press **Enter**.
+2. Select a resource from the displayed list to see the **Identities**, **Policies**, and **Sources** that have access to the resource. 
+3. In the top-left of the page, you can see if the selected resource is encrypted, globally accessible, or private.
+4. Select a user to display a diagram of how they have access to policies, roles, and resources.
+
+    CloudKnox displays the JSON code you can use to view the policies that have been granted to a user and how the trust relationship is set up.
 
 
 
