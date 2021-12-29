@@ -106,24 +106,28 @@ cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
 
 
 ```bash
-cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-WEEU-SAP01-INFRASTRUCTURE
 
-export subscriptionID=<subscriptionID>
-export appId=<appID>
-export spn_secret=<password>
-export tenant_id=<tenant>
-export keyvault=<keyvaultName>
-export storageaccount=<storageaccountName>
-export statefile_subscription=<statefile_subscription>
+export subscriptionID="<subscriptionID>"
+export spn_id="<appID>"
+export spn_secret="<password>"
+export tenant_id="<tenant>"
+export region_code="WEEU"
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh \
-        --parameterfile DEV-WEEU-SAP01-INFRASTRUCTURE.tfvars   \
-        --keyvault $keyvault                                   \
-        --state_subscription $statefile_subscription           \
-        --subscription $subscriptionID                         \
-        --spn_id $appID                                        \
-        --spn_secret $spn_secret                               \
-        --tenant_id $tenant_id
+export DEPLOYMENT_REPO_PATH="${HOME}/Azure_SAP_Automated_Deployment/sap-automation"
+export ARM_SUBSCRIPTION_ID="${subscriptionID}"
+
+cd ~/Azure_SAP_Automated_Deployment/WORKSPACES/LANDSCAPE/DEV-${region_code}-SAP01-INFRASTRUCTURE
+
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                        \
+    --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                  \
+    --deployer_environment MGMT                                                       \
+    --deployer_tfstate_key MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate \
+    --keyvault "${key_vault}"                                                         \
+    --storageaccountname "${storage_account}"                                         \
+    --subscription "${subscriptionID}"                                                \
+    --spn_id "${spn_id}"                                                              \
+    --spn_secret "${spn_secret}"                                                      \
+    --tenant_id "${tenant_id}"
 ```
 # [Windows](#tab/windows)
 
