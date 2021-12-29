@@ -35,9 +35,17 @@ To resolve this issue, rerun this query. If this message occurs often in your en
 
 If the issue still continues, create a [support ticket](../../azure-portal/supportability/how-to-create-azure-support-request.md) through the Azure portal and try [Azure Data Studio](/sql/azure-data-studio/download-azure-data-studio) or [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms) for the same queries instead of Synapse Studio for further investigation.
 
-## Query execution
+## Storage access
 
-You might get errors during the query execution if the caller [cannot access some objects](develop-storage-files-overview.md#permissions), query [cannot access external data](develop-storage-files-storage-access-control.md#storage-permissions), or you are using some functionalities that are [not supported in serverless SQL pools](overview-features.md).
+If you are getting the errors while trying to access the files on storage, make sure that you have permissions to access data. You should be able to access publicly available files. If you are accessing data without credentials, make sure that your Azure AD identity can directly access the files.
+If you have SAS key that you should use to access files, make sure that you created a credential ([server-level](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#server-scoped-credential) or [database-scoped](develop-storage-files-storage-access-control.md?tabs=shared-access-signature#database-scoped-credential)) that contains that credential. The credentials are required if you need to access data using the workspace [managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity#database-scoped-credential) and custom [service principal name](develop-storage-files-storage-access-control.md?tabs=service-principal#database-scoped-credential).
+
+### Cannot read, list or access files on data lake storage
+
+If you are using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
+
+If you are accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ALC permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it didn't expired. 
+If you are using SQL login and the `OPENROWSET` function [without data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
 
 ### Query fails because file cannot be opened
 
@@ -77,6 +85,10 @@ If you would like to query data2.csv in this example, the following permissions 
 
 > [!NOTE]
 > For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Azure Synapse. 
+
+## Query execution
+
+You might get errors during the query execution if the caller [cannot access some objects](develop-storage-files-overview.md#permissions), query [cannot access external data](develop-storage-files-storage-access-control.md#storage-permissions), or you are using some functionalities that are [not supported in serverless SQL pools](overview-features.md).
 
 ### Query fails because it cannot be executed due to current resource constraints 
 
@@ -748,13 +760,6 @@ Even if a tool enables you to enter only a logical server name and predefines `d
 ## Security
 
 Make sure that a user has permissions to access databases, [permissions to execute commands](develop-storage-files-overview.md#permissions), and permissions to access [data lake](develop-storage-files-storage-access-control.md?tabs=service-principal) or [Cosmos DB storage](query-cosmos-db-analytical-store.md#prerequisites). 
-
-### Cannot read, list or access files on data lake storage
-
-If you are using Azure AD login without explicit credential, make sure that your Azure AD identity can access the files on storage. Your Azure AD identity need to have Blob Data Reader or list/read ACL permissions to access the files - see [Query fails because file cannot be opened](#query-fails-because-file-cannot-be-opened).
-
-If you are accessing storage using [credentials](develop-storage-files-storage-access-control.md#credentials), make sure that your [Managed identity](develop-storage-files-storage-access-control.md?tabs=managed-identity) or [SPN](develop-storage-files-storage-access-control.md?tabs=service-principal) has Data Reader/Contributor role, or ALC permissions. If you have used [SAS token](develop-storage-files-storage-access-control.md?tabs=shared-access-signature) make sure that it has `rl` permission and that it didn't expired. 
-If you are using SQL login and the `OPENROWSET` function [without data source](develop-storage-files-overview.md#query-files-using-openrowset), make sure that you have a server-level credential that matches the storage URI and has permission to access the storage.
 
 ### Cannot access Cosmos DB account
 
