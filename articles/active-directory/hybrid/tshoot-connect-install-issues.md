@@ -4,7 +4,7 @@ description: This topic provides steps for how to troubleshoot issues with insta
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: curtand
 ms.service: active-directory
 ms.workload: identity

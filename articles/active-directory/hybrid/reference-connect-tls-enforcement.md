@@ -4,7 +4,7 @@ description: Learn how to force your Azure AD Connect server to use only Transpo
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.devlang: na

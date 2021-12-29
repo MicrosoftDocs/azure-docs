@@ -4,7 +4,7 @@ description: Learn how to review access of Azure resource and Azure AD roles in 
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
