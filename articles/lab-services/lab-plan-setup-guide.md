@@ -24,15 +24,15 @@ The following sections outline what you need to do before you can set up a lab p
 
 ### Access your Azure subscription
 
-To create a lab plan, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab plans.  Azure subscriptions are usually managed by your IT department.  For more information, see the "Subscription" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#subscription).
+To create a lab plan, you need access to an Azure subscription that's already set up for your school. Your school might have one or more subscriptions. You use a subscription to manage billing and security for all your Azure resources and services, including lab plans.  Azure subscriptions are usually managed by your IT department.  For more information, see the "Subscription" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#subscription).
 
 ### Estimate how many VMs and VM sizes you need
 
-It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide-2.md#vm-sizing) your school lab requires.
+It's important to know how many [virtual machines (VMs) and VM sizes](./administrator-guide.md#vm-sizing) your school lab requires.
 
 For guidance on structuring your labs and images, see the blog post [Moving from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931).
 
-For additional guidance on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#lab).
+For additional guidance on how to structure labs, see the "Lab" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab).
 
 ### Understand subscription VM limits and regional VM capacity
 
@@ -49,8 +49,8 @@ To get started quickly, create a single lab plan within its own resource group. 
 
 For more information about lab plans, resource groups, and separating costs, see:
 
-- The "Resource group" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#resource-group)
-- The "Lab plan" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#lab-plan)
+- The "Resource group" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#resource-group)
+- The "Lab plan" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#lab-plan)
 - [Cost management for Azure Lab Services](./cost-management-guide.md)
 
 ## Plan your lab plan settings
@@ -61,7 +61,7 @@ To plan your lab plan settings, consider the following questions.
 
 Your school's IT administrators ordinarily take on the Owner and Contributor roles for a lab plan. These roles are responsible for managing the policies that apply to all the labs in the lab plan. The person who creates the lab plan is automatically an Owner. You can add additional Owners and Contributors from the Azure Active Directory (Azure AD) tenant that's associated with your subscription.
 
-For more information about the lab plan Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#manage-identity).
+For more information about the lab plan Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
 
 [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 
@@ -71,13 +71,13 @@ Lab users see only a single list of the VMs that they have access to across Azur
 
 You may choose to have your IT team or faculty members create labs. To create labs, you then assign these people to the Lab Creator role within the lab plan. You ordinarily assign this role from the Azure AD tenant that's associated with your school subscription. Whoever creates a lab is automatically assigned as the Owner of the lab.  
 
-For more information about the Lab Creator role, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#manage-identity).
+For more information about the Lab Creator role, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
 
 ### Who will be allowed to own and manage labs?
 
 You can also choose to have IT and faculty members own\manage labs *without* giving them the ability to create labs.  In this case, users from your subscription's Azure AD tenant are assigned either the Owner or Contributor for existing labs.  
 
-For more information about the lab Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#manage-identity).
+For more information about the lab Owner and Contributor roles, see the "Manage identity" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#manage-identity).
 
 ### Do you want to save images and share them across labs?
 
@@ -89,8 +89,8 @@ If you decide to use the Shared Image Gallery service, you'll need to create or 
 
 For more information, see:
 
-- The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#shared-image-gallery)
-- The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#pricing)
+- The "Shared image gallery" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#shared-image-gallery)
+- The "Pricing" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#pricing)
 
 ### Which images in Azure Marketplace will your labs use?
 
@@ -131,7 +131,7 @@ After you've finished planning, you're ready to set up your lab plan.
 
 1. **Create your lab plan**. For instructions, see [Create a lab plan](./tutorial-setup-lab-plan.md#create-a-lab-plan).
 
-   For information about naming conventions, see the "Naming" section of [Azure Lab Services - Administrator guide](./administrator-guide-2.md#naming).
+   For information about naming conventions, see the "Naming" section of [Azure Lab Services - Administrator guide](./administrator-guide.md#naming).
 
 1. **Add users to the Lab Creator role**. For instructions, see [Add users to the Lab Creator role](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
 

@@ -37,7 +37,7 @@ To provide educators the permission to create labs for their classes, add them t
 
 To add a user as a lab creator, you use their email accounts. The following types of email accounts might be used:
 
-- An email account that's provided by your university’s Azure Active Directory (AAD).
+- An email account that's provided by your university’s Azure Active Directory (Azure AD).
 - A Microsoft email account, such as `@outlook.com`, `@hotmail.com`, `@msn.com`, or `@live.com`.
 - A non-Microsoft email account, such as one provided by Yahoo or Google. However, these types of accounts must be linked with a Microsoft account.
 - A GitHub account. This account must be linked with a Microsoft account.
@@ -70,7 +70,7 @@ Finally, they are prompted to create a Microsoft account that's linked to their 
 
 See the following articles:
 
-- [As a lab owner, create and manage labs](how-to-manage-classroom-labs-2.md)
+- [As a lab owner, create and manage labs](how-to-manage-labs.md)
 - [As a lab owner, set up and publish templates](how-to-create-manage-template.md)
 - [As a lab owner, configure and control usage of a lab](how-to-configure-student-usage.md)
 - [As a lab user, access labs](how-to-use-classroom-lab.md)

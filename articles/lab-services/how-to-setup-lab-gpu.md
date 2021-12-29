@@ -39,11 +39,13 @@ The *visualization* GPU sizes are intended for graphics-intensive applications. 
 > You may not see some of these VM sizes in the list when creating a classroom lab. The list is populated based on the current capacity of the lab's location. If the lab plan creator [allows lab creators to pick a location for the lab](allow-lab-creator-pick-lab-location.md), you may try choosing a different location for the lab and see if the VM size is available. For availability of VMs, see [Products available by region](https://azure.microsoft.com/regions/services/?products=virtual-machines).
 
 ## Ensure that the appropriate GPU drivers are installed
+
 To take advantage of the GPU capabilities of your lab VMs, ensure that the appropriate GPU drivers are installed.  In the lab creation wizard, when you select a GPU VM size, you can select the **Install GPU drivers** option.  
 
 ![Screenshot of the "New lab" showing the "Install GPU drivers" option](./media/how-to-setup-gpu/lab-gpu-drivers.png)
 
 As shown in the preceding image, this option is enabled by default, which ensures that recently released drivers are installed for the type of GPU and image that you selected:
+
 - When you select a *compute* GPU size, your lab VMs are powered by the [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/Solutions/Data-Center/tesla-product-literature/Tesla-K80-BoardSpec-07317-001-v05.pdf) GPU.  In this case, recent [Compute Unified Device Architecture (CUDA)](http://developer.download.nvidia.com/compute/cuda/2_0/docs/CudaReferenceManual_2.0.pdf) drivers are installed, which enables high-performance computing.
 - When you select a *visualization* GPU size, your lab VMs are powered by the [NVIDIA Tesla M60](https://images.nvidia.com/content/tesla/pdf/188417-Tesla-M60-DS-A4-fnl-Web.pdf) GPU and [GRID technology](https://www.nvidia.com/content/dam/en-zz/Solutions/design-visualization/solutions/resources/documents1/NVIDIA_GRID_vPC_Solution_Overview.pdf).  In this case, recent GRID drivers are installed, which enables the use of graphics-intensive applications.
 
@@ -51,17 +53,18 @@ As shown in the preceding image, this option is enabled by default, which ensure
 > The **Install GPU drivers** option only installs the drivers when they aren't present on your lab's image.  For example, the GPU drivers are already installed on the Azure marketplace's [Data Science image](../machine-learning/data-science-virtual-machine/overview.md#whats-included-on-the-dsvm).  If you create a lab using the Data Science image and choose to **Install GPU drivers**, the drivers won't be updated to a more recent version.  To update the drivers, you will need to manually install them as explained in the next section.  
 
 ### Install the drivers manually
+
 You might need to install a different version of the drivers than the version that Azure Lab Services installs for you.  This section shows how to manually install the appropriate drivers, depending on whether you're using a *compute* GPU or a *visualization* GPU.
 
 #### Install the compute GPU drivers
 
 To manually install drivers for the *compute* GPU size, do the following:
 
-1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-classroom-labs.md), disable the **Install GPU drivers** setting.
+1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-labs.md), disable the **Install GPU drivers** setting.
 
 1. After your lab is created, connect to the template VM to install the appropriate drivers.
 
-   ![Screenshot of the NVIDIA Driver Downloads page](./media/how-to-setup-gpu/nvidia-driver-download.png) 
+   ![Screenshot of the NVIDIA Driver Downloads page](./media/how-to-setup-gpu/nvidia-driver-download.png)
 
    a. In a browser, go to the [NVIDIA Driver Downloads page](https://www.nvidia.com/Download/index.aspx).  
    b. Set the **Product Type** to **Tesla**.  
@@ -71,7 +74,7 @@ To manually install drivers for the *compute* GPU size, do the following:
    f. Select **Search** to look for your drivers.  
    g. Select **Download** to download the installer.  
    h. Run the installer so that the drivers are installed on the template VM.  
-1. Validate that the drivers are installed correctly by following the instructions in the [Validate the installed drivers](how-to-setup-lab-gpu.md#validate-the-installed-drivers) section. 
+1. Validate that the drivers are installed correctly by following the instructions in the [Validate the installed drivers](how-to-setup-lab-gpu.md#validate-the-installed-drivers) section.
 1. After you've installed the drivers and other software that are required for your class, select **Publish** to create your students' VMs.
 
 > [!NOTE]
@@ -81,11 +84,11 @@ To manually install drivers for the *compute* GPU size, do the following:
 
 To manually install drivers for the *visualization* GPU sizes, do the following:
 
-1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-classroom-labs.md), disable the **Install GPU drivers** setting.
+1. In the lab creation wizard, when you're [creating your lab](./how-to-manage-labs.md), disable the **Install GPU drivers** setting.
 1. After your lab is created, connect to the template VM to install the appropriate drivers.
 1. Install the GRID drivers that are provided by Microsoft on the template VM by following the instructions for your operating system:
-   -  [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
-   -  [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
+   - [Windows NVIDIA GRID drivers](../virtual-machines/windows/n-series-driver-setup.md#nvidia-grid-drivers)
+   - [Linux NVIDIA GRID drivers](../virtual-machines/linux/n-series-driver-setup.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json#nvidia-grid-drivers)
   
 1. Restart the template VM.
 1. Validate that the drivers are installed correctly by following the instructions in the [Validate the installed drivers](how-to-setup-lab-gpu.md#validate-the-installed-drivers) section.
@@ -101,7 +104,7 @@ This section describes how to validate that your GPU drivers are properly instal
 1. If you're using a *visualization* GPU, you can also:
     - View and adjust your GPU settings in the NVIDIA Control Panel. To do so, in **Windows Control Panel**, select **Hardware**, and then select **NVIDIA Control Panel**.
 
-      ![Screenshot of Windows Control Panel showing the NVIDIA Control Panel link](./media/how-to-setup-gpu/control-panel-nvidia-settings.png) 
+      ![Screenshot of Windows Control Panel showing the NVIDIA Control Panel link](./media/how-to-setup-gpu/control-panel-nvidia-settings.png)
 
     - View your GPU performance by using **Task Manager**.  To do so, select the **Performance** tab, and then select the **GPU** option.
 
@@ -113,11 +116,13 @@ This section describes how to validate that your GPU drivers are properly instal
  Depending on your scenario, you may also need to do additional validation to ensure the GPU is properly configured.  Read the class type about [Python and Jupyter Notebooks](class-type-jupyter-notebook.md#template-machine-configuration) that explains an example where specific versions of drivers are needed.
 
 #### Linux images
+
 Follow the instructions in the "Verify driver installation" section of [Install NVIDIA GPU drivers on N-series VMs running Linux](../virtual-machines/linux/n-series-driver-setup.md#verify-driver-installation).
 
 ## Next steps
+
 See the following articles:
 
-- [Create and manage labs](how-to-manage-classroom-labs.md)
+- [Create and manage labs](how-to-manage-labs.md)
 - [SOLIDWORKS computer-aided design (CAD) class type](class-type-solidworks.md)
 - [MATLAB (matrix laboratory) class type](class-type-matlab.md)

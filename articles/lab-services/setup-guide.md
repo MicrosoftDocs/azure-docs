@@ -37,6 +37,7 @@ You can choose from a variety of compute sizes:
 - **GPU sizes**: Lets your students use computer-intensive types of applications. For example, this choice is often used with artificial intelligence and machine learning.
 
 For guidance on selecting the appropriate VM size, see:
+
 - [VM sizing](./administrator-guide.md#vm-sizing)
 - [Move from a physical lab to Azure Lab Services](https://techcommunity.microsoft.com/t5/azure-lab-services/moving-from-a-physical-lab-to-azure-lab-services/ba-p/1654931)
 
@@ -97,7 +98,7 @@ After you understand the requirements for your class's lab, you're ready to set 
 1. **Customize images and publish lab VMs**. To connect to a special VM called the template VM, see:
     - [Create and manage a template VM](./tutorial-setup-classroom-lab.md#publish-the-lab)
     - [Use a shared image gallery](./how-to-use-shared-image-gallery.md)
- 
+
     > [!NOTE]
     > If your class requires nested virtualization, see [Enable nested virtualization](./how-to-enable-nested-virtualization-template-vm.md).
 
@@ -127,13 +128,13 @@ After you understand the requirements for your class's lab, you're ready to set 
    - [Enable automatic shutdown on disconnect](./how-to-enable-shutdown-disconnect.md)
 
         > [!NOTE]
-        > Schedules and quotas don't apply to the template VM, but the automatic shutdown settings do apply. 
-        > 
-        > When you create a lab, the template VM is created but not started. You can start the template VM, connect to it, install any prerequisite software for the lab, and then publish it. When you publish the template VM, it is automatically shut down for you if you haven’t done so manually. 
-        > 
+        > Schedules and quotas don't apply to the template VM, but the automatic shutdown settings do apply.
+        >
+        > When you create a lab, the template VM is created but not started. You can start the template VM, connect to it, install any prerequisite software for the lab, and then publish it. When you publish the template VM, it is automatically shut down for you if you haven’t done so manually.
+        >
         > Template VMs incur *cost* when they're running, so ensure that the template VM is shut down when you don’t need it to be running.
 
-    - [Create and manage Lab Services schedules in Teams](./how-to-create-schedules-within-teams.md) 
+   - [Create and manage Lab Services schedules in Teams](./how-to-create-schedules-within-teams.md)
 
 1. **Use the dashboard**. For instructions, see [Use the classroom lab dashboard](./use-dashboard.md).
 
@@ -143,5 +144,6 @@ After you understand the requirements for your class's lab, you're ready to set 
 ## Next steps
 
 As part of managing your labs, see the following articles:
+
 - [Track classroom lab usage](tutorial-track-usage.md)  
 - [Access a classroom lab](tutorial-connect-virtual-machine-classroom-lab.md)

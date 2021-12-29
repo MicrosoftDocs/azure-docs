@@ -94,8 +94,8 @@ The size of the virtual machine (VM) that we recommend using for PLTW classes de
 
 | Lab setting | Value and description | Class recommendation |
 | ------------ | ------------------ | --- |
-| Virtual Machine Size | **Small GPU (Visualization)**<br>Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | We recommend using this size for the following PLTW classes: Civil Engineering and Architecture, Digital Electronics, Computer Integrated Manufacturing, Engineering Design and Development, and Introduction to Engineering Design.
-| Virtual Machine Size | **Large**<br>Best suited for applications that need faster CPUs, better local disk performance, large databases, and large memory caches. | We recommend using this size for the following PLTW classes: Principles of Engineering, Computer Science Essentials, Computer Science Principles, and Computer Science A. |
+| Virtual Machine Size | **Small GPU (Visualization)**.  Best suited for remote visualization, streaming, gaming, and encoding with frameworks such as OpenGL and DirectX. | We recommend using this size for the following PLTW classes: Civil Engineering and Architecture, Digital Electronics, Computer Integrated Manufacturing, Engineering Design and Development, and Introduction to Engineering Design.
+| Virtual Machine Size | **Large**. Best suited for applications that need faster CPUs, better local disk performance, large databases, and large memory caches. | We recommend using this size for the following PLTW classes: Principles of Engineering, Computer Science Essentials, Computer Science Principles, and Computer Science A. |
 
 ### Template machine configuration
 

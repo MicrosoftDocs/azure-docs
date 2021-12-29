@@ -20,10 +20,8 @@
     href: tutorial-connect-virtual-machine-classroom-lab.md
   - name: Track usage of a classroom lab
     href: tutorial-track-usage.md
-  - name: (deprecated)
-    items:
-    - name: Set up a lab account
-      href: tutorial-setup-lab-account.md
+  - name: Set up a lab account (deprecated)
+    href: tutorial-setup-lab-account.md
 - name: Concepts
   items:
   - name: Labs concepts
@@ -68,18 +66,14 @@
         href: class-type-pltw.md
       - name: Python and Jupyter Notebooks
         href: class-type-jupyter-notebook.md
-      - name: React web development
-        items:
-        - name: React (Linux)
-          href: class-type-react-linux.md
-        - name: React (Windows) 
-          href: class-type-react-windows.md
-      - name: RStudio
-        items:
-        - name: RStudio (Linux)
-          href: class-type-rstudio-linux.md
-        - name: RStudio (Windows)
-          href: class-type-rstudio-windows.md
+      - name: React web development (Linux)
+        href: class-type-react-linux.md
+      - name: React web development (Windows) 
+        href: class-type-react-windows.md
+      - name: RStudio (Linux)
+        href: class-type-rstudio-linux.md
+      - name: RStudio (Windows)
+        href: class-type-rstudio-windows.md
       - name: Shell scripting on Linux
         href: class-type-shell-scripting-linux.md
       - name: SolidWorks computer-aided design (CAD)
@@ -88,57 +82,35 @@
       - name: Sql database management and development
         href: class-type-sql-server.md
     - name: Use Azure Lab Services within Canvas
-      items:
-        - name: Overview 
-          displayName: labs within Canvas
-          href: lab-services-within-canvas-overview.md
+      href: lab-services-within-canvas-overview.md
     - name: Use Azure Lab Services within Teams
-      items:
-        - name: Overview 
-          displayName: labs within Teams
-          href: lab-services-within-teams-overview.md
+      href: lab-services-within-teams-overview.md
 - name: How-to guides
   items:
   - name: Administrator guide
-    href: administrator-guide-2.md
+    href: administrator-guide.md
   - name: Accelerated lab plan setup guide
-    href: account-setup-guide-2.md
+    href: lab-plan-setup-guide.md
   - name: Accelerated lab setup guide
     href: setup-guide.md
-  - name: Create and configure lab plans
+  - name: Create and configure lab plans (administrator)
     items:
     - name: Create and manage lab plans
       href: how-to-manage-lab-plans.md
     - name: Manage labs
-      href: manage-labs-2.md
+      href: manage-labs.md
     - name: Configure auto-shutdown of VMs for a lab plan
       href: how-to-configure-auto-shutdown-lab-plans.md
     - name: Add a lab creator
       href: add-lab-creator.md
     - name: Connect to a virtual network
       href: how-to-connect-vnet-injection.md
-    - name: Use shared image gallery for custom images
-      items:
-      - name: Attach or detach a shared image gallery
-        href: how-to-attach-detach-shared-image-gallery-2.md
-  - name: Create and configure lab accounts (deprecated)
-    items:
-    - name: Create and manage lab accounts
-      href: how-to-manage-lab-accounts.md
-    - name: Manage labs in a lab account
-      href: manage-labs.md
-    - name: Configure auto-shutdown of VMs for a lab account
-      href: how-to-configure-lab-accounts.md
-    - name: Allow lab creator to pick lab location
-      href: allow-lab-creator-pick-lab-location.md
-    - name: Connect to a peer virtual network
-      href: how-to-connect-peer-virtual-network.md
     - name: How to create a lab with a shared resource
       href: how-to-create-a-lab-with-shared-resource.md
     - name: Use shared image gallery for custom images
       items:
       - name: Attach or detach a shared image gallery
-        href: how-to-attach-detach-shared-image-gallery.md
+        href: how-to-attach-detach-shared-image-gallery-2.md
       - name: Create custom images for labs
         href: approaches-for-custom-image-creation.md
       - name: Windows
@@ -153,19 +125,16 @@
             href: how-to-bring-custom-linux-image-azure-vm.md
           - name: Bring a custom image from a physical environment
             href: how-to-bring-custom-linux-image-vhd.md
-    - name: Add additional owners to a classroom lab
-      href: how-to-add-user-lab-owner.md
     - name: Configure firewall settings
       href: how-to-configure-firewall-settings.md
     - name: Specify Marketplace images for labs 
       href: specify-marketplace-images.md
     - name: Specify support information (lab account owner)
       href: lab-account-owner-support-information.md
- 
   - name: Create and configure labs (educator)
     items:        
     - name: Create and manage labs
-      href: how-to-manage-classroom-labs-2.md
+      href: how-to-manage-labs.md
     - name: Use dashboard
       href: use-dashboard.md
     - name: Set up, customize, and publish templates
@@ -206,6 +175,22 @@
       items:
       - name: Create and manage labs
         href: how-to-manage-classroom-labs.md        
+      - name: Create and configure lab accounts (deprecated)
+        items:
+        - name: Create and manage lab accounts
+          href: how-to-manage-lab-accounts.md
+        - name: Manage labs in a lab account
+          href: manage-labs-1.md
+        - name: Configure auto-shutdown of VMs for a lab account
+          href: how-to-configure-lab-accounts.md
+        - name: Allow lab creator to pick lab location
+          href: allow-lab-creator-pick-lab-location.md
+        - name: Connect to a peer virtual network 
+          href: how-to-connect-peer-virtual-network.md
+        - name: Attach or detach a shared image gallery
+          href: how-to-attach-detach-shared-image-gallery.md
+        - name: Add additional owners to a lab
+          href: how-to-add-user-lab-owner.md
   - name: Connect to VMs in labs (student)
     items:        
     - name: Access labs
@@ -251,10 +236,9 @@
   - name: (deprecated)
     items:
     - name: Administrator guide
-      href: administrator-guide.md
+      href: administrator-guide-1.md
     - name: Accelerated lab account setup guide
-      href: account-setup-guide.md
-      
+      href: account-setup-guide.md    
 - name: Reference
   items:
   - name: REST API
@@ -271,6 +255,8 @@
     href: https://azure.microsoft.com/updates/?product=lab-services
   - name: Pricing
     href: https://azure.microsoft.com/pricing/details/lab-services/
+  - name: Q & A
+    href: https://aka.ms/azlabs/questions
   - name: Tech community forum
     href: https://techcommunity.microsoft.com/t5/azure-lab-services/bd-p/AzureLabServices
   - name: Frequently asked questions

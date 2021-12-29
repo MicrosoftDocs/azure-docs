@@ -19,13 +19,13 @@ We've made fundamental improvements for the service to boost performance, reliab
 
 **[Improved auto-shutdown](how-to-configure-auto-shutdown-lab-plans.md)**. Auto-shutdown settings are now available for **all** operating systems! If we detect a student shut down their VM, we’ll stop billing.
 
-**[More built-in roles](administrator-guide-2.md#manage-identity)**. In addition to Lab Creator, we’ve added Lab Operator and Lab Assistant roles. Lab Operators can manage existing labs, but not create new ones. Lab Assistant can only help students by starting, stopping, or redeploying virtual machines. They will not be able to adjust quota or set schedules.
+**[More built-in roles](administrator-guide.md#manage-identity)**. In addition to Lab Creator, we’ve added Lab Operator and Lab Assistant roles. Lab Operators can manage existing labs, but not create new ones. Lab Assistant can only help students by starting, stopping, or redeploying virtual machines. They will not be able to adjust quota or set schedules.
 
 **[Improved cost tracking in Cost Management](cost-management-guide.md#separate-the-costs)**. Lab virtual machines are now the cost unit tracked in Azure Cost Management. Tags for lab plan ID and lab name are automatically added if you want to group lab VM cost entries together. Custom tags on labs will propagate to Azure Cost Management entries to allow further cost analysis.  
 
-**[Updates to lab owner experience](how-to-manage-classroom-labs-2.md)**. Now you can choose to skip the template creation process and automatically publish the lab if you already have an image ready to use. In addition, we’ve added the ability to add a non-admin user to lab VMs and made some scheduling improvements while we were at it.
+**[Updates to lab owner experience](how-to-manage-labs.md)**. Now you can choose to skip the template creation process and automatically publish the lab if you already have an image ready to use. In addition, we’ve added the ability to add a non-admin user to lab VMs and made some scheduling improvements while we were at it.
 
-**[Updates to student experience](get-started-manage-labs.md#redeploy-vms)**. Student can now redeploy their VM without losing data.  Also, if the lab is set up to use AAD group sync, Teams or Canvas, there is no longer a need to send an invitation email so students can register for a virtual machine—one is assigned to the student automatically.
+**[Updates to student experience](get-started-manage-labs.md#redeploy-vms)**. Student can now redeploy their VM without losing data.  Also, if the lab is set up to use Azure AD group sync, Teams or Canvas, there is no longer a need to send an invitation email so students can register for a virtual machine—one is assigned to the student automatically.
 
 **SDKs**. The Azure Lab Services PowerShell will now be integrated with the Az PowerShell module and will release with the next monthly update of the Az module. Also, check out the C# SDK.
 
@@ -43,7 +43,7 @@ For the new version of Lab Services, the lab account concept is being replaced w
 
 |Lab account (classic)|Lab plan|
 |-|-|
-|Lab account was the only resource that administrators could interact with inside the Azure Portal.|Administrators can now manage two types of resources, lab plan and lab, in the Azure Portal.|
+|Lab account was the only resource that administrators could interact with inside the Azure portal.|Administrators can now manage two types of resources, lab plan and lab, in the Azure portal.|
 |Lab account served as the **parent** for the labs.|Lab plan is a **sibling** resource to the lab resource. Grouping of labs is now done by the resource group.|
 |Lab account served as a container for the labs.  A change to the lab account often affected the lab.|The lab plan serves as a collection of configurations and settings that apply when a lab is **created**. If you change a lab plan’s settings, these changes won’t impact any existing labs that were previously created from the lab plan. (The exception to this is the internal help information settings, which will affect all labs.)|
 
@@ -51,12 +51,12 @@ By moving to a sibling relationship between the lab plan and lab instead of a pa
 
 |Feature/area|Lab account (classic)|Lab plan|
 |-|-|-|
-|Resource Management|Lab account was the only resource tracked in the Azure portal. All other resources were child resources of the lab account and tracked in Lab Services directly.|Lab plans and labs are now sibling resources. Administrators can now use existing tools in the Azure portal to manage labs.</br>Virtual machines will continue to be a child resource of labs.| 
+|Resource Management|Lab account was the only resource tracked in the Azure portal. All other resources were child resources of the lab account and tracked in Lab Services directly.|Lab plans and labs are now sibling resources. Administrators can now use existing tools in the Azure portal to manage labs.</br>Virtual machines will continue to be a child resource of labs.|
 |Cost tracking|In Azure Cost Management, admins were able to track and analyze cost only at the service level and at the lab account level.|In Azure Cost Management, entries are for lab virtual machines. Automatic tags on each entry specify the lab plan ID and the lab. Now you can analyze cost by lab plan, lab, or virtual machine from within the Azure portal. Custom tags on the lab will also show in the cost data.|  
 |Selecting regions|By default, labs were created in the same geography as the lab account.  A geography typically aligns with a country and contains one or more Azure regions. Lab owners were not able to manage exactly which Azure region the labs resided in, only the geography.|In the lab plan, administrator now can manage the exact Azure regions to allowed for lab creation. By default, labs will be created in the same Azure region as the lab plan they were created from. </br>Note that when a lab plan is connected to your own virtual network, labs can only be created in the same Azure region as that virtual network.|
 |Deletion experience|When a lab account is deleted, all labs within it are also deleted.|When deleting a lab plan, labs are *not* deleted. Labs that were created from a deleted lab plan will continue to retain references to:</br>- A virtual network, if advanced networking was configured on the lab plan.</br>- An image from Shared Image Gallery, if a custom image was used to create the lab.</br>- However, the labs will no longer be able to export an image to Shared Image Gallery.|
 |Connecting to a virtual network|The lab account provided an option to peer to a virtual network. If you already had labs in the lab account before you peered to a virtual network, the virtual network connection did not apply to existing labs. This created a situation where admins could not tell which labs in the lab account were peered to the virtual network.|In a lab plan, admins will have the ability to set up the advanced networking only at the time of lab plan creation. Once a lab plan is created, you will see and read-only connection to the connected virtual network.</br>If you need to use another virtual network, create a new lab plan configured with the new virtual network.|
-|Labs Portal Experience|Labs are lab listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com).</br>If there are multiple lab plans in the same resource group, instructors will be able to choose which lab plan to use when creating the lab.|
+|Labs portal experience|Labs are lab listed under lab accounts in [https://labs.azure.com](https://labs.azure.com).|Labs are listed under resource group name in [https://labs.azure.com](https://labs.azure.com).</br>If there are multiple lab plans in the same resource group, instructors will be able to choose which lab plan to use when creating the lab.|
 |Permissions needed to manage labs|To create a lab, administrator must assign:</br>- **Lab Contributor** role on the lab account.</br>To modify an existing lab, administrator must assign:</br>- **Reader** role on the lab account.</br>- **Lab Creator** or **Contributor** role on the lab.|To create a lab, administrator must assign:</br>- **Owner** or **Contributor** role on the resource group that contains the lab plan.</br>- **Lab Creator** role on the lab plan.</br>To modify an existing lab, administrator must assign:</br>- **Contributor** role on the lab.|
 
 ### Migrate from lab account to lab plan
@@ -98,3 +98,4 @@ Remember, changes made to the lab settings from the lab plan will apply only to 
 
 - [Create a lab plan](tutorial-setup-lab-plan.md).
 - [Manage your lab plan](how-to-manage-lab-plans.md).
+- [Set up a classroom lab](tutorial-setup-classroom-lab.md)
