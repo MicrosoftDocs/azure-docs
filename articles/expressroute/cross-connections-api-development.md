@@ -189,6 +189,67 @@ Date: Tue, 01 May 2018 19:32:29 GMT
 ```
 3. **PUT expressRouteCrossConnection:** Once you provision layer-2 connectivity, update the *ServiceProviderProvisioningState* to **Provisioned**. At this point, the customer can configure Microsoft or Private Peering and create a connection from the ExpressRoute circuit to a virtual network gateway deployed in the customer's subscription.
 
+```PUT /subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24?api-version=2018-02-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer eyJ0eXAiOiJKV...
+User-Agent: ARMClient/1.2.0.0
+Accept: application/json
+x-ms-request-id: d867c3c9-2acf-4c54-a0f0-d7ca50fc7b9b
+
+{
+  "properties": {
+    "serviceProviderProvisioningState": "Provisioned",
+    "peeringLocation": "EUAP Test",
+    "expressRouteCircuit": {
+      "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/Karthikcrossconnectiontest/providers/Microsoft.Network/expressRouteCircuits/TestCircuitXYZ"
+    },
+    "bandwidthInMbps": 200
+  },
+  "location": "East US 2 EUAP"
+}
+---------- Response (1740 ms) ------------
+
+HTTP/1.1 200 OK
+Pragma: no-cache
+Retry-After: 10
+x-ms-request-id: 0a8d458b-8fe3-44e6-89c9-1b156b946693
+Azure-AsyncOperation: https://management.azure.com/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/providers/Microsoft.Network/locations/eastus2euap/operations/0a8d458b-8fe3-44e6-89c9-1b156b946693?api-version=2018-02-01
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Cache-Control: no-cache
+Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
+x-ms-ratelimit-remaining-subscription-writes: 1199
+x-ms-correlation-request-id: d2d38c28-0dbe-4b40-8824-c74968c46b50
+x-ms-routing-request-id: WESTUS:20180501T222105Z:d2d38c28-0dbe-4b40-8824-c74968c46b50
+X-Content-Type-Options: nosniff
+Date: Tue, 01 May 2018 22:21:04 GMT
+
+{
+  "name": "9ee700ad-50b2-4b98-a63a-4e52f855ac24",
+  "id": "/subscriptions/<ProviderManagementSubscription>/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24",
+  "etag": "W/\"ecdcb1a4-873b-4dad-ae56-a4b17795a84a\"",
+  "type": "Microsoft.Network/expressRouteCrossConnections",
+  "location": "eastus2euap",
+  "properties": {
+    "provisioningState": "Updating",
+    "expressRouteCircuit": {
+      "id": "/subscriptions/<TargetCustomerSubscription>/resourceGroups/Karthikcrossconnectiontest/providers/Microsoft.Network/expressRouteCircuits/TestCircuitXYZ"
+    },
+    "peeringLocation": "EUAP Test",
+    "bandwidthInMbps": 200,
+    "serviceProviderProvisioningState": "Provisioned",
+    "primaryAzurePort": "",
+    "secondaryAzurePort": "",
+    "sTag": 0,
+    "peerings": []
+  }
+}
+
+C:\Users\kaanan\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/locations/eastus2euap/operations/0a8d458b-8fe3-44e6-89c9-1b156b946693?api-version=2018-02-01
+{
+  "status": "Succeeded"
+}
+```
+
 4. **(Optional) PUT expressRouteCrossConnection to configure Microsoft and/or Private Peering:** If you manage layer-3 BGP connectivity, you can enable Microsoft and/or Private Peering.
 
 ## REST API
