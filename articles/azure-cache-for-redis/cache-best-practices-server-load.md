@@ -35,9 +35,15 @@ High memory usage on the server makes it more likely that the system needs to pa
 
 Redis server is a single-threaded system. Long running commands can cause latency or timeouts on the client side because the server can't respond to any other requests while it's busy working on a long running command. For more information, see [Troubleshoot Azure Cache for Redis server-side issues](cache-troubleshoot-server.md).  
 
-## Monitor Server Load
+## Monitor server Load
 
 Add monitoring on server load to ensure you get notifications when high server load occurs. Monitoring can help you understand your application constraints. Then, you can work proactively to mitigate issues. We recommend trying to keep server load under 80% to avoid negative performance effects.
+
+Currently, Azure Cache For Redis exposes two metrics: CPU and Server Load. Understanding what is measured by each metric is important when monitoring server load.
+
+The CPU metric indicates the CPU usage for the node that hosts the cache. The CPU metric also includes processes that are not strictly Redis server processes including background processes for anti-malware and others. As a result, the CPU metric can sometimes spike and might not be a perfect indicator of CPU usage for the Redis server.
+
+In contrast, the Server Load metric represents the load on the Redis Server alone. We recommend monitoring the Server Load metric instead of CPU.
 
 ## Plan for server maintenance
 
