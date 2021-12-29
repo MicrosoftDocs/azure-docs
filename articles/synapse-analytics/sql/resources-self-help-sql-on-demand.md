@@ -86,26 +86,6 @@ If you would like to query data2.csv in this example, the following permissions 
 > [!NOTE]
 > For guest users, this needs to be done directly with the Azure Data Lake Service as it can not be done directly through Azure Synapse. 
 
-## Query execution
-
-You might get errors during the query execution if the caller [cannot access some objects](develop-storage-files-overview.md#permissions), query [cannot access external data](develop-storage-files-storage-access-control.md#storage-permissions), or you are using some functionalities that are [not supported in serverless SQL pools](overview-features.md).
-
-### Query fails because it cannot be executed due to current resource constraints 
-
-If your query fails with the error message 'This query can't be executed due to current resource constraints', it means that serverless SQL pool isn't able to execute it at this moment due to resource constraints: 
-
-- Make sure data types of reasonable sizes are used.  
-
-- If your query targets Parquet files, consider defining explicit types for string columns because they'll be VARCHAR(8000) by default. [Check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types).
-
-- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
-
-- Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
-
-### Query timeout expired
-
-The **Query timeout expired** error is returned if the query executed more than 30 minutes on serverless SQL pool. This is a limit of serverless SQL pool that cannot be changed. Try to optimize your query by applying [best practices](best-practices-serverless-sql-pool.md#prepare-files-for-querying), or try to materialize parts of your queries using [CETAS](create-external-table-as-select.md). Check is there a concurrent workload running on the serverless pool because the other queries might take the resources. In that case you might split the workload on multiple workspaces.
-
 ### Content of directory on the path cannot be listed
 
 This error indicates that the user who is querying Azure Data Lake cannot list the files on a storage. There are several scenarios where this error might happen:
@@ -146,6 +126,26 @@ with (line varchar(max)) as logs
 ```
 
 If this query fails, the caller does not have permission to read the underlying storage files.  
+
+## Query execution
+
+You might get errors during the query execution if the caller [cannot access some objects](develop-storage-files-overview.md#permissions), query [cannot access external data](develop-storage-files-storage-access-control.md#storage-permissions), or you are using some functionalities that are [not supported in serverless SQL pools](overview-features.md).
+
+### Query fails because it cannot be executed due to current resource constraints 
+
+If your query fails with the error message 'This query can't be executed due to current resource constraints', it means that serverless SQL pool isn't able to execute it at this moment due to resource constraints: 
+
+- Make sure data types of reasonable sizes are used.  
+
+- If your query targets Parquet files, consider defining explicit types for string columns because they'll be VARCHAR(8000) by default. [Check inferred data types](./best-practices-serverless-sql-pool.md#check-inferred-data-types).
+
+- If your query targets CSV files, consider [creating statistics](develop-tables-statistics.md#statistics-in-serverless-sql-pool). 
+
+- Visit [performance best practices for serverless SQL pool](./best-practices-serverless-sql-pool.md) to optimize query.  
+
+### Query timeout expired
+
+The **Query timeout expired** error is returned if the query executed more than 30 minutes on serverless SQL pool. This is a limit of serverless SQL pool that cannot be changed. Try to optimize your query by applying [best practices](best-practices-serverless-sql-pool.md#prepare-files-for-querying), or try to materialize parts of your queries using [CETAS](create-external-table-as-select.md). Check is there a concurrent workload running on the serverless pool because the other queries might take the resources. In that case you might split the workload on multiple workspaces.
 
 ###  Invalid object name
 
