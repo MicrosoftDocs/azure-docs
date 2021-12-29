@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/27/2021
+ms.date: 12/29/2021
 ms.author: v-ydequadros
 ---
 
@@ -18,7 +18,7 @@ This topic describes how you can create group-based permissions in Microsoft Clo
 
 ## Create a group with a custom set of permissions settings
 
-1. Select your account name in the top right corner of the page, and then, from the drop-down list, select **User Management**.
+1. Select your account name in the top-right corner of the page, and then, from the drop-down list, select **User Management**.
 2. Select the **Groups** tab.
 3. Select **Create Permission**.
 4. In the **Set Group Permission** box, enter a name for your group.
@@ -36,7 +36,7 @@ This topic describes how you can create group-based permissions in Microsoft Clo
 
 ## Create a group with administrative permissions for a selection of authorization system types
 
-1. Select your account name in the top right corner of the page, and then, from the drop-down list, select **User Management**.
+1. Select your account name in the top-right corner of the page, and then, from the drop-down list, select **User Management**.
 2. Select the **Groups** tab.
 3. Select **Create Permission**.
 4. In the **Set Group Permission** box, enter a name for your group.
@@ -54,7 +54,7 @@ This topic describes how you can create group-based permissions in Microsoft Clo
 
 ## Create a group with administrative permissions for all authorization system types
 
-1. Select your account name in the top right corner of the page, and then, from the drop-down list, select **User Management**.
+1. Select your account name in the top-right corner of the page, and then, from the drop-down list, select **User Management**.
 2. Select the **Groups** tab.
 3. Select **Create Permission**.
 4. In the **Set Group Permission** box, enter a name for your group.

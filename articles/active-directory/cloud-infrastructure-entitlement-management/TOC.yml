@@ -42,7 +42,6 @@
       href: cloudknox-idp-for-saml-login.md
     - name: Configure and reconfigure Sentry for VCenter
       href: cloudknox-vcenter-sentry-config-modification.md
-    - name: The CloudKnox dashboard
     - name: G Suite integration for GCP Sentry configuration
       href: cloudknox-gsuite-integration-gcp-sentry.md
     - name: Create custom queries

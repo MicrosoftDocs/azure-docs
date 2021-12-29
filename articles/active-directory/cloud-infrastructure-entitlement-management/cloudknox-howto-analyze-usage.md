@@ -31,11 +31,11 @@ This topic describes how you can use the Usage Analytics dashboard to analyse us
 ## Analyze usage for a user identity type
 
 1. In the **Filter** tab on the left, select **Users** (the people icon).
-2. Select the type of user, role, or resource you want you want, and then select **Apply**.
+2. Select the type of user, role, or resource you want, and then select **Apply**.
 
     The **Usage Analytics** tab page displays a list of users that match your criteria. The list includes **Local** users and **SAML** (Security Assertions Markup Language) users.
 
-    The **Privilege Creep Index** (PCI) column displays the level of privileges available to the user compared to how much the user has actually been using. The PCI helps you determine if the user is using all, some, or none of the privileges  they have been granted.
+    The **Privilege Creep Index** (PCI) column displays the level of privileges available to the user compared to how much the user is using. The PCI helps you determine if the user is using all, some, or none of the privileges  they have been granted.
 3. To sort the PCI in ascending or descending order, select **Index**.
 4. To view which privileges have been granted to, and used by, a user, select a username.
 5. CloudKnox displays:
