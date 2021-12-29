@@ -480,7 +480,7 @@ F5 provides a great BIG-IP specific paper to help diagnose KCD related issues, s
 
 ## Additional resources
 
-* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
+* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 * [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 

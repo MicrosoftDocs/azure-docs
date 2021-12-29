@@ -4,7 +4,7 @@ description: Learn about the request process for an access package and when emai
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: mamtakumar
 ms.service: active-directory
 ms.workload: identity

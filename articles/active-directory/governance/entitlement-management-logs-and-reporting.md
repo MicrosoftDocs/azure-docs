@@ -4,7 +4,7 @@ description: Learn how to archive logs and create reports with Azure Monitor in 
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
