@@ -330,25 +330,9 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Supported by** | Microsoft |
 | | |
 
-## Microsoft Defender for Cloud
+## Azure Defender
 
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
-| **Log Analytics table(s)** | SecurityAlert |
-| **Supported by** | Microsoft |
-| | |
-
-<a name="azure-defender-for-iot"></a>
-
-## Microsoft Defender for IoT
-
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **Log Analytics table(s)** | SecurityAlert |
-| **Supported by** | Microsoft |
-| | |
+See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 
 ## Azure Firewall
 
@@ -445,11 +429,13 @@ You will only see the storage types that you actually have defined resources for
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Log Analytics agent - custom logs**](connect-custom-logs.md) |
-| **Log Analytics table(s)** | Syslog |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md) |
+| **Log Analytics table(s)** | CommonSecurityLog (Barracuda)<br>Barracuda_CL |
 | **Vendor documentation/<br>installation instructions** | https://aka.ms/asi-barracuda-connector |
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 | | |
+
+See Barracuda instructions - note the assigned facilities for the different types of logs and be sure to add them to the default Syslog configuration.
 
 ## BETTER Mobile Threat Defense (MTD) (Preview)
 
@@ -1063,6 +1049,15 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+## Microsoft Defender for Cloud
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
+| **Log Analytics table(s)** | SecurityAlert |
+| **Supported by** | Microsoft |
+| | |
+
 <a name="microsoft-cloud-app-security-mcas"></a>
 
 ## Microsoft Defender for Cloud Apps
@@ -1085,6 +1080,17 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | | |
 
 ## Microsoft Defender for Identity
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **Log Analytics table(s)** | SecurityAlert |
+| **Supported by** | Microsoft |
+| | |
+
+<a name="azure-defender-for-iot"></a>
+
+## Microsoft Defender for IoT
 
 | Connector attribute | Description |
 | --- | --- |
