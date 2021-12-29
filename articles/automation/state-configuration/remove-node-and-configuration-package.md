@@ -31,7 +31,7 @@ If you no longer want a node to be managed by State Configuration (DSC), you can
 
    :::image type="content" source="./media/remove-node-and-configuration-package/unregister-node.png" alt-text="Screenshot of the Node details page highlighting the Unregister button." lightbox="./media/remove-node-and-configuration-package/unregister-node.png":::
 
-# [PowerShell](#tab/powershell)
+# [Azure PowerShell](#tab/powershell)
 
 You can also unregister a node using the PowerShell cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode).
 
@@ -43,9 +43,9 @@ You can also unregister a node using the PowerShell cmdlet [Unregister-AzAutomat
 
 ## Delete a configuration
 
-When you're ready to remove an imported DSC configuration document (which is a Managed Object Format (MOF) or .mof file) that's assigned to one or more nodes, follow these steps.
+When you're ready to remove an imported DSC configuration document (which is a Managed Object Format (MOF) or .mof file) that's assigned to one or more nodes, follow either of these steps.
 
-### Delete a configuration from the Azure portal
+# [Delete configuration from the Azure portal](#tab/deleteazureportal)
 
 You can delete configurations for both Windows and Linux nodes from the Azure portal.
 
@@ -61,17 +61,19 @@ You can delete configurations for both Windows and Linux nodes from the Azure po
 
    :::image type="content" source="./media/remove-node-and-configuration-package/delete-extension.png" alt-text="Screenshot of deleting an extension." lightbox="./media/remove-node-and-configuration-package/delete-extension.png":::
 
-## Manually delete a configuration file from a node
+# [Manually delete a configuration file from a node](#tab/manualdelete)
 
-If you don't want to use the Azure portal, you can manually delete the .mof configuration files as follows.
+To manually delete the .mof configuration files, follow the steps:
 
-### Delete a Windows configuration using PowerShell
+**Delete a Windows configuration using PowerShell**
 
 To remove an imported DSC configuration document (.mof), use the [Remove-DscConfigurationDocument](/powershell/module/psdesiredstateconfiguration/remove-dscconfigurationdocument) cmdlet.
 
-### Delete a Linux configuration
+**Delete a Linux configuration**
 
 The configuration files are stored in /etc/opt/omi/conf/dsc/configuration/. Remove the .mof files in this directory to delete the node's configuration.
+
+---
 
 ## Remove the DSC package from a Linux node
 
