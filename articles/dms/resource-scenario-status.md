@@ -73,7 +73,7 @@ The following table shows Azure Database Migration Service support for online mi
 | **Azure SQL DB MI** | SQL Server | ✔ | GA |
 |   | RDS SQL | ✔ | GA |
 |   | Oracle | X |  |
-| **Azure SQL VM** | SQL Server | X |   |
+| **Azure SQL VM** | SQL Server | ✔ | Preview |
 |   | Oracle  | X |  |
 | **Azure Cosmos DB** | MongoDB | ✔ | GA |
 | **Azure DB for MySQL** | MySQL | X |  |
