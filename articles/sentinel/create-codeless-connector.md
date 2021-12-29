@@ -397,7 +397,7 @@ The `auth` section of the `[pollingConfig](#configure-your-connectors-polling-se
 |**RefreshToken** |String | Mandatory for OAuth2 auth types. Defines the OAuth2 refresh token. |
 |**TokenEndpoint** |String | Mandatory for OAuth2 auth types. Defines the OAuth2 token service endpoint. |
 |**AuthorizationEndpoint** |String | Optional. Defines the OAuth2 authorization service endpoint. Used only during onboarding or when renewing a refresh token. |
-|**RedirectionEndpoint** |String | Optional. Defines a redirection endpoint during onboarding. <br><br>**Note**: Must be provided by the Microsoft Sentinel RP team.<!--what is an RP team?--> |
+|**RedirectionEndpoint** |String | Optional. Defines a redirection endpoint during onboarding. |
 | **AccessTokenExpirationDateTimeInUtc**|String | Optional. Defines an access token expiration datetime, in UTC format. Relevant for when the access token doesn't expire, and therefore has a large datetime in UTC, or when the access token has a large expiration datetime. |
 | **RefreshTokenExpirationDateTimeInUtc**|String | Mandatory for OAuth2 auth types. Defines the refresh token expiration datetime in UTC format.|
 |**TokenEndpointHeaders** | String. | Optional. Defines the headers when calling an OAuth2 token service endpoint. <br><br> Define a string in the serialized `dictionary<string, string>` format: `{'<attr_name>': '<val>', '<attr_name>': '<val>'... }`  |
@@ -425,8 +425,8 @@ The `request` section of the `[pollingConfig](#configure-your-connectors-polling
 |**apiEndpoint**     |   String | Mandatory. Defines the endpoint to pull data from.      |
 |**httpMethod**     |String | Mandatory. Defines the API method: `GET` or `POST`       |
 |**queryTimeFormat**     |  String, or *UnixTimestamp* or *UnixTimestampInMills* | Mandatory.  Defines the format used to define the query time.    <br><br>This value can be a string, or in *UnixTimestamp* or *UnixTimestampInMills* format to indicate the query start and end time in the UnixTimestamp.  |
-|**startTimeAttributeName**     |  String | Mandatory<sup*</sup>Defines the name of the attribute that defines the query start time.        |
-|**endTimeAttributeName**     |  String | Mandatory<sup>*</sup>. Defines the name of the attribute that defines the query end time.      |
+|**startTimeAttributeName**     |  String | Optional. Defines the name of the attribute that defines the query start time.        |
+|**endTimeAttributeName**     |  String | Optional. Defines the name of the attribute that defines the query end time.      |
 |**queryTimeIntervalAttributeName**     | String. | Optional. Defines the name of the attribute that defines the query time interval. |
 |**queryTimeIntervalDelimiter**     |   String | Optional. Defines the query time interval delimiter. |
 |**queryWindowInMin**     |  String | Optional. Defines the available query window, in minutes. <br><br>Minimum value: `5` |
