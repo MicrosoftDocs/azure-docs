@@ -87,6 +87,9 @@ Persistence writes Redis data into an Azure Storage account that you own and man
 
 It takes a while for the cache to create. You can monitor progress on the Azure Cache for Redis **Overview** page. When **Status** shows as **Running**, the cache is ready to use.
 
+> [!NOTE]
+> If you enable data persistence, geo-replication cannot be enabled for you Premium Redis cache.
+
 ## Persistence FAQ
 
 The following list contains answers to commonly asked questions about Azure Cache for Redis persistence.
