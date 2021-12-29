@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
-ms.date: 12/28/2021
+ms.date: 12/29/2021
 ms.topic: how-to
 ---
 
@@ -21,7 +21,7 @@ This article covers the following installation information:
 
 - **Virtual Appliances:** Virtual machine details and software installation.
 
-After installation, connect your sensor to your network.
+After the software is installed, connect your sensor to your network.
 
 ## About Defender for IoT appliances
 
@@ -29,7 +29,7 @@ The following sections provide information about Defender for IoT sensor applian
 
 ### Physical appliances
 
-The Defender for IoT appliance sensor connects to a SPAN port or network TAP and immediately begins collecting ICS network traffic by using passive (agentless) monitoring. This process has zero impact on OT networks and devices because it isn't placed in the data path and doesn't actively scan OT devices.
+The Defender for IoT appliance sensor connects to a SPAN port, or network TAP. Once connected, the sensor immediately collects ICS network traffic by using passive (agentless) monitoring. This process has zero impact on OT networks, and devices because it isn't placed in the data path, and doesn't actively scan OT devices.
 
 The following rack mount appliances are available:
 
@@ -68,11 +68,11 @@ The following virtual appliances are available:
 
 ### Access the ISO installation image
 
-The installation image is accessible from Defender for IoT in the Azure portal.
+The installation image is accessible from Defender for IoT, in the [Azure portal](https://ms.portal.azure.com).
 
 **To access the file**:
 
-1. Navigate to the Azure portal.
+1. Navigate to the [Azure portal](https://ms.portal.azure.com).
 
 1. Search for, and select **Microsoft Defender for IoT**.
 
@@ -112,7 +112,7 @@ Before the installation, ensure you have:
 
 - An ISO installer image file.
 
-The disk on a key will be erased in this process.
+This process will format the disk on a key and any data stored on the disk on key will be erased.
 
 **To prepare a disk on a key**:
 
@@ -260,11 +260,11 @@ After you access the BIOS, go to **Device Settings**.
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-To install:
+**To install the software**:
 
 1. Verify that the version media is mounted to the appliance in one of the following ways:
 
-   - Connect the external CD or disk on a key with the release.
+   - Connect the external CD, or disk on a key with the release.
 
    - Mount the ISO image by using iDRAC. After signing in to iDRAC, select the virtual console, and then select **Virtual Media**.
 
@@ -280,33 +280,7 @@ To install:
 
 1. Start the appliance. When you're using iDRAC, you can restart the servers by selecting the **Consul Control** button. Then, on the **Keyboard Macros**, select the **Apply** button, which will start the Ctrl+Alt+Delete sequence.
 
-1. Select **English**.
-
-1. Select **SENSOR-RELEASE-\<version\> Enterprise**.
-
-   :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Select your sensor version and enterprise type.":::
-
-1. Define the appliance profile, and network properties:
-
-   :::image type="content" source="media/tutorial-install-components/appliance-profile-screen-v2.png" alt-text="Screenshot that shows the appliance profile, and network properties.":::
-
-   | Parameter | Configuration |
-   |--|--|
-   | **Hardware profile** | **enterprise** |
-   | **Management interface** | **eno1** |
-   | **Network parameters (provided by the customer)** | - |
-   |**management network IP address:** | - |
-   | **subnet mask:** | - |
-   | **appliance hostname:** | - |
-   | **DNS:** | - |
-   | **default gateway IP address:** | - |
-   | **input interfaces:** |  The system generates the list of input interfaces for you. To mirror the input interfaces, copy all the items presented in the list with a comma separator. You do not have to configure the bridge interface. This option is used for special use cases only. |
-
-1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.  
-
-1. Save the appliance ID and passwords. You'll need these credentials to access the platform the first time you use it.
-
-1. Select **Enter** to continue.
+1. Follow the software installation instructions located [here](#sensor-software-installation).
 
 ## HPE ProLiant DL20 installation
 
@@ -750,6 +724,69 @@ To install:
 1. Access the management console via the IP address previously configured: `https://ip_address`.
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
+
+## Sensor software installation
+
+Ensure you followed the installation instruction for your device prior to starting the software installation, and have downloaded the containerized sensor version ISO file.
+
+Mount the ISO file using one of the following options;
+
+- Physical media – burn the ISO file to a DVD, or USB, and boot from the media.  
+
+- Virtual mount – use iLO for HPE, or iDRAC for Dell to boot the iso file.
+
+> [!Note]
+> At the end of this process you will be presented with the usernames, and passwords for your device. Make sure to copy these down as these passwords will not be presented again.
+
+**To install the sensor's software**:
+
+1. Select the installation language.
+
+    :::image type="content" source="media/tutorial-install-components/language-select.png" alt-text="Screenshot of the sensor's language select screen.":::
+
+1. Select the sensor's architecture.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-architecture.png" alt-text="Screenshot of the sensor's architecture select screen.":::
+
+1. The Sensor will reboot, and the Package configuration screen will appear. Press the up, or down arrows to navigate, and the Space bar to select an option. Press the Enter key to advance to the next screen.  
+
+1. Select the monitor interface.
+
+    :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
+
+1. Press the **Enter** key.
+
+1. If one of the monitoring ports is for ERSPAN, select it, and press the **Enter** key.
+
+    :::image type="content" source="media/tutorial-install-components/erspan-monitor.png" alt-text="Screenshot of the select erspan monitor screen.":::
+
+1. Select the interface to be used as the management interface, and press the **Enter** key.
+
+    :::image type="content" source="media/tutorial-install-components/management-interface.png" alt-text="Screenshot of the management interface select screen.":::
+
+1. Enter the sensor's IP address, and press the **Enter** key.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-ip-address.png" alt-text="Screenshot of the sensor IP address screen.":::
+
+1. Enter the path of the mounted logs folder. We recommenced to use the default path, and press the **Enter** key.
+
+    :::image type="content" source="media/tutorial-install-components/mounted-backups-path.png" alt-text="Screenshot of the mounted backup path screen.":::
+
+1. Enter the Subnet Mask IP address, and press the **Enter** key.
+
+1. Enter the default gateway IP address, and press the **Enter** key.
+
+1. Enter the DNS Server IP address, and press the **Enter** key.
+
+1. Enter the sensor hostname, and press the **Enter** key.
+
+    :::image type="content" source="media/tutorial-install-components/sensor-hostname.png" alt-text="Screenshot of the screen where you enter a hostname for your sensor.":::
+
+1. The installation process runs.
+
+1. When the installation process completes, save the appliance ID, and passwords. Copy these credentials to a safe place as you'll need them to access the platform the first time you use it.
+
+    :::image type="content" source="media/tutorial-install-components/login-information.png" alt-text="Screenshot of the final screen of the installation with usernames, and passwords.":::
 
 ## On-premises management console installation
 
