@@ -3,7 +3,7 @@ title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
 author: batamig
 ms.topic: reference
-ms.date: 12/01/2021
+ms.date: 12/23/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -49,6 +49,10 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
 
 > [!IMPORTANT]
 > Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Data connector prerequisites
+
+[!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
 ## Agari Phishing Defense and Brand Protection (Preview)
 
