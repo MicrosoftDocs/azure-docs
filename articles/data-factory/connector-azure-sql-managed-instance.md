@@ -178,19 +178,19 @@ To use a service principal-based Azure AD application token authentication, foll
     - Application key
     - Tenant ID
 
-3. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the managed identity. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
+3. [Create logins](/sql/t-sql/statements/create-login-transact-sql) for the service principal. In SQL Server Management Studio (SSMS), connect to your managed instance using a SQL Server account that is a **sysadmin**. In **master** database, run the following T-SQL:
 
     ```sql
     CREATE LOGIN [your application name] FROM EXTERNAL PROVIDER
     ```
 
-4. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the managed identity. Connect to the database from or to which you want to copy data, run the following T-SQL: 
+4. [Create contained database users](../azure-sql/database/authentication-aad-configure.md#create-contained-users-mapped-to-azure-ad-identities) for the service principal. Connect to the database from or to which you want to copy data, run the following T-SQL: 
   
     ```sql
     CREATE USER [your application name] FROM EXTERNAL PROVIDER
     ```
 
-5. Grant the managed identity needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
+5. Grant the service principal needed permissions as you normally do for SQL users and others. Run the following code. For more options, see [this document](/sql/t-sql/statements/alter-role-transact-sql).
 
     ```sql
     ALTER ROLE [role name e.g. db_owner] ADD MEMBER [your application name]
