@@ -103,21 +103,21 @@ You do the following tasks on this page (don't do these steps for the tutorial. 
     [!INCLUDE [Select a tenant](./includes/multi-tenant-support.md)]
 1. Confirm that you see all the labs in the selected lab plan. On the lab's tile, you see the number of virtual machines in the lab and the quota for each user.
 
-    ![All labs](./media/how-to-manage-classroom-labs-2/all-labs.png)
+    ![All labs](./media/how-to-manage-labs/all-labs.png)
 1. Use the drop-down list at the top to select a different lab plan. You see labs in the selected lab plan.
 
 ## Delete a lab
 
 1. On the tile for the lab, select three dots (...) in the corner, and then select **Delete**.
 
-    ![Delete button](./media/how-to-manage-classroom-labs-2/delete-button.png)
+    ![Delete button](./media/how-to-manage-labs/delete-button.png)
 1. On the **Delete lab** dialog box, select **Delete** to continue with the deletion.
 
 ## Switch to another lab
 
 To switch to another lab from the current, select the drop-down list of labs in the resource group at the top.
 
-![Select the lab from drop-down list at the top](./media/how-to-manage-classroom-labs-2/switch-lab.png)
+![Select the lab from drop-down list at the top](./media/how-to-manage-labs/switch-lab.png)
 
 To switch to a different lab plan, select the left drop-down and choose the resource group that contains the lab plan.  The Azure Lab Services portal organizes labs by resource group, then lab name.
 
