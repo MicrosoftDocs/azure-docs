@@ -60,13 +60,16 @@ To modify a setting:
 3. Assign a new availability zone, availability set, or SKU to the destination VM. **Availability zone** and **SKU**.
 4. Modify or add new tag name or value of the destination VM.
 
-     ![Extension resource tag for VM](media\modify-target-settings\extension-resource-tag-vm.png)
-1. Choose to **Retain** or **Do not retain** the user-assigned managed identity.
- 
-    ![Extension resource UMI for VM](media\modify-target-settings\extension-resource-umi-vm.png)
+     ![Extension resource tag for VM](media\modify-target-settings\extension-resources-tag-vm.png)
+
+5. Choose to **Retain** or **Do not retain** the user-assigned managed identity.
+
+     ![Extension resource umi for VM](media\modify-target-settings\extension-resources-umi-vm.png)
+
+> [!NOTE] 
+> Retain would assign the user-assigned managed identity to the newly created destination resource. Do not retain would not assign the user-assigned managed identity to the destination resource. The user-assigned managed identity as a resource itself is not been moved to the destination region.
 
 Changes are only made for the resource you're editing. You need to update any dependent resource separately.
-
 
 ## Modify SQL settings
 
