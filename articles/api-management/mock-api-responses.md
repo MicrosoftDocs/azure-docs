@@ -42,8 +42,8 @@ The steps in this section show how to create a blank API with no backend.
 
 
 1. Sign in to the Azure portal, and navigate to your API Management instance.
-1. Select **APIs** > **+ Add API** > **Blank API**.
-1. In the **Create a Blank API** window, select **Full**.
+1. Select **APIs** > **+ Add API** > **HTTP**.
+1. In the **Create a HTTP API** window, select **Full**.
 1. Enter *Test API* for **Display name**.
 1. Select **Unlimited** for **Products**.
 1. Ensure **Managed** is selected in **Gateways**.
