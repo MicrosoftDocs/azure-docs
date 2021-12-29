@@ -530,7 +530,6 @@ The Azure Defender connector now supports bi-directional syncing of alerts' stat
 
 See this [complete description of the updated Azure Defender connector](connect-defender-for-cloud.md).
 
-
 ## Next steps
 
 > [!div class="nextstepaction"]

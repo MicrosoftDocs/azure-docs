@@ -4,7 +4,7 @@ description: Planning guide for a successful access reviews deployment.
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
