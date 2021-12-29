@@ -153,7 +153,7 @@ The error *Query timeout expired* is returned if the query executed more than 30
 
 ###  Invalid object name
 
-The error *Invalid object name '<tabla name>'* indicates that you are using an object (table or view) that doesn't exist in the serverless SQL pool database.
+The error *Invalid object name 'table name'* indicates that you are using an object (table or view) that doesn't exist in the serverless SQL pool database.
 - List the tables/views and check does the object exists. Use SSMS or ADS because Synapse studio might show some tables that are not available in the serverless SQL pool.
 - If you see the object, check are you using some case-sensitive/binary database collation. Maybe the object name does not match the name that you used in the query. With a binary database collation, `Employee` and `employee` are two different objects.
 - If you don't see the object, maybe you are trying to query a table from a Lake/Spark database. There are a few reasons why the table might not be available in the serverless pool:
