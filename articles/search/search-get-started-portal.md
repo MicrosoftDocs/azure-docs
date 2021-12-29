@@ -227,13 +227,11 @@ For more information about query scenarios enabled by the full query parser, see
 
 ### <a name="geo-search"></a> Try geospatial search
 
-Geospatial search is enabled through the [edm.GeographyPoint data type](/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geospatial search is specified in a filter expression, using [OData geospatial functions in Azure Cognitive Search](search-query-odata-geo-spatial-functions.md).
+Geospatial search is enabled through the [Edm.GeographyPoint data type](/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geospatial search is specified in a filter expression, using [OData geospatial functions](search-query-odata-geo-spatial-functions.md) in Azure Cognitive Search.
 
-#### Example (geo-coordinate filters): `search=*&$count=true&$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5`
+#### Example (geo-coordinate filters): `$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5&search=*&$select=HotelName, Address/City, Address/StateProvince&$count=true`
 
-The example query filters all results for positional data, where results are less than 5 kilometers from a given point (specified as latitude and longitude coordinates). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates.
-
-Geospatial search is useful if your search application has a "find near me" feature or uses map navigation. It is not full text search, however. If you have user requirements for searching on a city or country/region by name, add fields containing city or country/region names, in addition to coordinates.
+The example query filters all results for positional data, where results are less than 5 kilometers from a given point as specified by latitude and longitude coordinates (this example uses Redmond, Washington as the locus point). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates. Adding **$select** returns just those fields that are useful in results.
 
 ## Takeaways
 

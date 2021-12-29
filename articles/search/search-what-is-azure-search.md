@@ -63,15 +63,19 @@ For more information about specific functionality, see [Features of Azure Cognit
 
 An end-to-end exploration of core search features can be achieved in four steps:
 
-1. [**Create a search service**](search-create-service-portal.md) at the shared Free tier or a [billable tier](https://azure.microsoft.com/pricing/details/search/) for dedicated resources used only by your service. All quickstarts and tutorials can be completed on a shared service.
+1. Determine whether to use a free or [billable search service](https://azure.microsoft.com/pricing/details/search/). If you currently have an Azure subscription, you can add a new search service free of charge, subject to the [maximum limits](search-limits-quotas-capacity.md) of a free service. All quickstarts and tutorials can be completed on a free service. For more capacity and capabilities, you will need to create a billable service.
+
+1. [**Create a search service**](search-create-service-portal.md) in the Azure portal.
+
+1. For initial exploration, start with the [**Import data wizard**](search-get-started-portal.md) and a built-in sample data source to create, load, and query an index in minutes.
+
+Alternatively, you can create, load, and query a search index in separate steps:
 
 1. [**Create a search index**](search-what-is-an-index.md) using the portal, [REST API](/rest/api/searchservice/create-index), [.NET SDK](search-howto-dotnet-sdk.md), or another SDK. The index schema defines the structure of searchable content.
 
-1. [**Upload content**](search-what-is-data-import.md) using the ["push" model](tutorial-optimize-indexing-push-api.md) to push JSON documents from any source, or use the ["pull" model (indexers)](search-indexer-overview.md) if your source data is on Azure.
+1. [**Upload content**](search-what-is-data-import.md) using the ["push" model](tutorial-optimize-indexing-push-api.md) to push JSON documents from any source, or use the ["pull" model (indexers)](search-indexer-overview.md) if your source data is of a [supported type](search-indexer-overview.md#supported-data-sources).
 
 1. [**Query an index**](search-query-overview.md) using [Search explorer](search-explorer.md) in the portal, [REST API](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search), or another SDK.
-
-For initial exploration, start with the [**Import data wizard**](search-get-started-portal.md) and a built-in Azure data source to create, load, and query an index in minutes.
 
 For help with complex or custom solutions, [**contact a partner**](resource-partners-knowledge-mining.md) with deep expertise in Cognitive Search technology.
 
@@ -90,12 +94,12 @@ Among cloud providers, Azure Cognitive Search is strongest for full text search 
 
 Key strengths include:
 
-+ Azure data integration (crawlers) at the indexing layer
-+ Azure Private Link integration to support off-internet security requirements
-+ Integration with AI processing to make unsearchable content types text-searchable.
-+ Linguistic and custom analysis, with analyzers for solid full text search in 56 languages
-+ [A rich search experience](search-features-list.md): rich query language, relevance tuning, faceting, autocomplete, synonyms, geospatial search, and result composition.
-+ Azure scale, reliability, and world-class availability
++ Data integration (crawlers) at the indexing layer.
++ Security integration with Azure Active Directory for trusted connections, and with Azure Private Link integration to support private connections to a search index in no-internet scenarios.
++ Machine learning and AI integration with Azure Cognitive Services, useful if you need to make unsearchable content types full text-searchable.
++ Linguistic and custom text analysis in 56 languages.
++ [Full search experience](search-features-list.md): rich query language, relevance tuning and semantic ranking, faceting, autocomplete queries and suggested results, and synonyms.
++ Azure scale, reliability, and world-class availability.
 
 Among our customers, those able to leverage the widest range of features in Azure Cognitive Search include online catalogs, line-of-business programs, and document discovery applications.
 
