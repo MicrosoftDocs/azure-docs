@@ -14,11 +14,12 @@ This article covers how to unregister a node managed by Automation State Configu
 
 ## Unregister a node
 
-If you no longer want a node to be managed by State Configuration (DSC), you can unregister it from the Azure portal or with Azure PowerShell using the following steps.
-
 Unregistering a node from the service only sets the Local Configuration Manager settings so the node is no longer connecting to the service. This does not effect the configuration that's currently applied to the node, and leaves the related files in place on the node. You can optionally clean up those files. See [Delete a configuration](#delete-a-configuration).
 
-### Unregister in the Azure portal
+If you no longer want a node to be managed by State Configuration (DSC), you can unregister it from the Azure portal or with Azure PowerShell using the following steps.
+
+ # [Azure portal](#tab/azureportal)
+
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 1. Search for and select **Automation Accounts**.
@@ -30,12 +31,15 @@ Unregistering a node from the service only sets the Local Configuration Manager 
 
    :::image type="content" source="./media/remove-node-and-configuration-package/unregister-node.png" alt-text="Screenshot of the Node details page highlighting the Unregister button." lightbox="./media/remove-node-and-configuration-package/unregister-node.png":::
 
-### Unregister using PowerShell
+# [PowerShell](#tab/powershell)
 
 You can also unregister a node using the PowerShell cmdlet [Unregister-AzAutomationDscNode](/powershell/module/az.automation/unregister-azautomationdscnode).
 
 >[!NOTE]
->If your organization still uses the deprecated AzureRM modules, you can use [Unregister-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/unregister-azurermautomationdscnode).
+> If your organization still uses the deprecated AzureRM modules, you can use [Unregister-AzureRmAutomationDscNode](/powershell/module/azurerm.automation/unregister-azurermautomationdscnode).
+
+---
+
 
 ## Delete a configuration
 
