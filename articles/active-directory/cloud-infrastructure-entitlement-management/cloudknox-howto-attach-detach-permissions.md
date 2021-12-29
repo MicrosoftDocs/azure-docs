@@ -28,8 +28,8 @@ This topic describes how you can attach and detach permissions for users, roles,
 
     > [!NOTE]
     > If you select Microsoft Azure, you can only modify permissions for users. You cannot modify permissions for groups.
-5. From the **Search For**  drop-down list, select **User**, **Role** or **Resources**.
-6. To search for additional parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **User Name**  drop-down lists below.
+5. From the **Search For**  drop-down list, select **User**, **Role**, or **Resources**.
+6. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **User Name**  drop-down lists below.
 7. Select **Search**.
 
     CloudKnox displays a list of users, roles, or resources who match your criteria.
@@ -61,8 +61,8 @@ This topic describes how you can attach and detach permissions for users, roles,
 
     > [!NOTE]
     > If you select Microsoft Azure, you can only modify permissions for users. You cannot modify permissions for groups.
-5. From the **Search For**  drop-down list, select **User**, **Role** or **Resources**.
-6. To search for additional parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **User Name**  drop-down lists below.
+5. From the **Search For**  drop-down list, select **User**, **Role**, or **Resources**.
+6. To search for more parameters, you can make a selection from the **User States**, **Privilege Creep Index**, and **User Name**  drop-down lists below.
 7. Select **Search**.
 
     CloudKnox displays a list of users, roles, or resources who match your criteria.
@@ -77,7 +77,7 @@ This topic describes how you can attach and detach permissions for users, roles,
 10. To make more granular selections by role, select the **Role** tab, and then select a role from the **Remove Role** list.
 
     The roles you select appear in the **Selected to Remove** list on the left.
-11. To make more granular selections by task, select the **Task** tab, and then select a role from the **Revokable list**.
+11. To make more granular selections by task, select the **Task** tab, and then select a role from the **Revocable list**.
 
     The roles you select appear in the **Selected to Revoke** list on the left.
 12. Click **Submit**.
@@ -95,7 +95,7 @@ This topic describes how you can attach and detach permissions for users, roles,
 
     > [!NOTE]
     > If you select Microsoft Azure, you can only modify permissions for users. You cannot modify permissions for groups.
-5. From the **Search For**  drop-down list, select **User**, **Role** or **Resources**.
+5. From the **Search For**  drop-down list, select **User**, **Role**, or **Resources**.
 6. From the list, select the user, role, or resources you want.
 7. On the **Attach/Detach Policies** tab, from the **Attachable** list select a policy you want to add.
     The policies you select appear in the **Selected to Attach** list on the right.
@@ -108,7 +108,7 @@ This topic describes how you can attach and detach permissions for users, roles,
 
     The **Active** tab displays a list of the tasks CloudKnox is currently processing.
 
-    The **Completed** tab displays a list of the tasks CloudKnox has completed.
+    The **Completed** tab displays a list of the tasks CloudKnox has completed processing.
 
 ## Allow CloudKnox to detach permissions
 
@@ -120,7 +120,7 @@ This topic describes how you can attach and detach permissions for users, roles,
 
     > [!NOTE]
     > If you select Microsoft Azure, you can only modify permissions for users. You cannot modify permissions for groups.
-5. From the **Search For**  drop-down list, select **User**, **Role** or **Resources**.
+5. From the **Search For**  drop-down list, select **User**, **Role**, or **Resources**.
 6. From the list, select the user, role, or resources you want.
 7. On the **Attach/Detach Policies** tab, from the **Detachable** list, select a policy you want to remove.
     The policies you select appear in the **Selected to Detach** list on the left.

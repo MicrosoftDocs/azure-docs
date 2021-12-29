@@ -8,7 +8,7 @@ ms.service: active-directory
 ms.subservice: ciem
 ms.workload: identity
 ms.topic: how-to
-ms.date: 12/27/2021
+ms.date: 12/28/2021
 ms.author: v-ydequadros
 ---
 
@@ -41,7 +41,7 @@ This topic describes how you can use the Role/Policy tab in the Just Enough Perm
 5. To filter policies by **Policy Type**, select the type of policy you want from the drop-down list.
 
     CloudKnox displays a list of policy types that match your criteria.
-6. Select a role/policy to review data.
+6. Select a role/policy to review the data.
 
 ## Create a role/policy
 
@@ -72,7 +72,7 @@ This topic describes how you can use the Role/Policy tab in the Just Enough Perm
     - To add individual tasks from a category, select the plus sign next to the category name, and then select individual tasks.
 
     The tasks you select appear the **Selected Tasks** list.
-12. To add an additional statement to your role/policy, select **Add a statement**, and then add a category of tasks or individual tasks as described in Step 11.
+12. To add another statement to your role/policy, select **Add a statement**, and then add a category of tasks or individual tasks as described in Step 11.
 13. In **Resources**, select **All Resources**, **Specific Resources**, or **No Resources**.
 
     If you select **Specific Resources**, a list of available resources appears.
@@ -80,7 +80,7 @@ This topic describes how you can use the Role/Policy tab in the Just Enough Perm
 15. In **Effect**, select **Allow** or **Deny**.
 16. Select **Next**.
 17. Review the code to confirm it's what you want.
-18. If your controller is not enabled, select **Download JSON** or **Download Script** to download the code and run it yourself.
+18. If your controller isn't enabled, select **Download JSON** or **Download Script** to download the code and run it yourself.
 
     If your controller is enabled, skip this step.
 19. Select **Submit**.

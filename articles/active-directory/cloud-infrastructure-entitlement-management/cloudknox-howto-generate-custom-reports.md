@@ -24,18 +24,18 @@ This topic describes how you can use the Audit Trail dashboard to generate custo
 
 - In CloudKnox, select the **Audit Trail** tab.
 
-    Cloudknox displays the query options available to you.
+    CloudKnox displays the query options available to you.
 
 ## Generate a custom report on-demand
 
-1. In the the **Audit Trail** tab, load the query you want to use to generate a report.
+1. In the **Audit Trail** tab, load the query you want to use to generate a report.
 2. Select **Download**.
 
     CloudKnox generates the report and displays it on the screen.
 
 ## Create a schedule to automatically generate and share a report
 
-1. In the the **Audit Trail** tab, load the query you want to use to generate your report.
+1. In the **Audit Trail** tab, load the query you want to use to generate your report.
 2. Select **Settings** (the gear icon).
 3. In **Repeat On**, select on which days of the week you want the report to run.
 4. In **Date**, select the date when you want the query to run.
@@ -44,14 +44,14 @@ This topic describes how you can use the Audit Trail dashboard to generate custo
 7. In **Share Report with People**, enter email addresses for people to whom you want to send the report.
 8. Select **Schedule**.
 
-    Cloudknox generates the report as set in Steps 3 to 6, and emails it to the recipients you specified in Step 7.
+    CloudKnox generates the report as set in Steps 3 to 6, and emails it to the recipients you specified in Step 7.
 
 ## Delete the schedule for a report
 
-1. In the the **Audit Trail** tab, load the query whose report schedule you want to delete.
+1. In the **Audit Trail** tab, load the query whose report schedule you want to delete.
 2. Select the ellipses menu **(…)** on the far right, and then select **Delete Schedule**.
 
-    CloudKnox deletes the schedule for running the query. The query itself is not deleted.
+    CloudKnox deletes the schedule for running the query. The query itself isn't deleted.
 
 <!---## Next steps--->
 <!---Use the Audit Trail dashboard to generate create queries--->

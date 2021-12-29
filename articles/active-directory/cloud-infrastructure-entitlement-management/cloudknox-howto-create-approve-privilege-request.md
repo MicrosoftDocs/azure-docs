@@ -16,7 +16,7 @@ ms.author: v-ydequadros
 
 This topic describes how you can create or approve a request for privileges with the privilege on demand (POD) work flow in the Just Enough Permissions (JEP) Controller.
 
-The POD has 2 workflows: 
+The POD has two workflows:
 - **New Request** – Used by a user to create a request for privileges for a specified duration.
 - **Approver** – Used by an approver to review and approve or reject a user’s request for privileges.
 
@@ -28,10 +28,10 @@ The POD has 2 workflows:
 1. Select the **JEP Controller** tab.
 2. Select the **My Requests** tab.
 
-    The tab displays the following options:
-    - Pending Requests: A list of requests you’ve made but have not yet been reviewed.
-    - Approved Requests: A list of requests that have been reviewed and approved by the approver. These requests have either already been activated or are in the process of being activated.
-    - Processed Requests: A summary of the requests you’ve created that have been approved (**Done**), **Rejected**, and requests that have been **Canceled**.
+    The **My Requests** tab displays the following options:
+    - **Pending Requests**: A list of requests you’ve made but haven't yet been reviewed.
+    - **Approved Requests**: A list of requests that have been reviewed and approved by the approver. These requests have either already been activated or are in the process of being activated.
+    - **Processed Requests**: A summary of the requests you’ve created that have been approved (**Done**), **Rejected**, and requests that have been **Canceled**.
 3. Select **New Request** to open the wizard.
 4. From the **Select an Auth System Type** drop-down list, select the authorization system type you want to access.
 5. From the **Select an Auth System** drop-down list, select the authorization system you want to access.
@@ -49,7 +49,7 @@ The POD has 2 workflows:
     3. To select a specific task, select the plus sign, and then select the task you want.
 
     The tasks you’ve selected appear in the **Selected Tasks** box.
-10. If the user already has policies, they are displayed in **Existing Policies**.
+10. If the user already has policies, they're displayed in **Existing Policies**.
 11. Select **Next**.
 
     The **Scope** page appears.
@@ -88,8 +88,8 @@ The POD has 2 workflows:
 1. Select the **JEP Controller** tab.
 2. Select the **Requests** tab.
 
-    The tab displays the following:
-    - **Pending Requests**: A list of requests that have not yet been reviewed.
+    The **Requests** tab displays the following options:
+    - **Pending Requests**: A list of requests that haven't yet been reviewed.
     - **Approved Requests**: A list of requests that have been reviewed and approved. These requests have either already been activated or are in the process of being activated.
     - **Processed Requests**: A summary of requests that have been approved (**Done**) or **Rejected**, and requests that have been **Canceled**.
 3. In the **Request Summary** list, select the ellipses **(…)** menu on the right of a request.
