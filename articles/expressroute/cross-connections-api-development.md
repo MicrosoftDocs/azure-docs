@@ -76,6 +76,13 @@ Once authentication has been successfully configured, you need to grant Network 
 
 Develop against the [expressRouteCrossConnections API](/rest/api/expressroute/expressroutecrossconnections).
 
+#### Connectivity Management Workflow
+Once you receive the ExpressRoute service key from the target customer, follow the below workflow and sample API operations to configure ExpressRoute connectivity:
+1. **List expressRouteCrossConnection:** In order to manage ExpressRoute connectivity, you need to identify the *Name* and *ResourceGroup* of the target expressRouteCrossConnection resource, in order to form the GET API call. the *Name* of the expressRouteCrossConnection is the target service key of the customer's ExpressRoute circuit. In order to find the *ResourceGroupName*, you need to LIST all expressRouteCrossConnections in the provider subscription and search the results for the target service key. From here, you can record the *ResourceGroupName*
+2. **GET expressRouteCrossConnection:** Once you have identified both the *Name* and *ResourceGroupName* of the target expressRouteCrossConnection resource, you need to perform the GET expressRouteCrossConnection API call.
+3. **PUT expressRouteCrossConnection:** Once you provision layer-2 connectivity, update the *ServiceProviderProvisioningState* to **Provisioned**. At this point, the customer can configure Microsoft or Private Peering and create a connection from the ExpressRoute circuit to a virtual network gateway deployed in the customer's subscription.
+4. **(Optional) PUT expressRouteCrossConnection to configure Microsoft and/or Private Peering:** If you manage layer-3 BGP connectivity, you can enable Microsoft and/or Private Peering.
+
 ## REST API
 
 See [ExpressRoute CrossConnections REST API](/rest/api/expressroute/expressroutecrossconnections) for REST API documentation.
