@@ -3,6 +3,7 @@ title: Python developer reference for Azure Functions
 description: Understand how to develop functions with Python
 ms.topic: article
 ms.date: 11/4/2020
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 

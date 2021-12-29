@@ -4,7 +4,7 @@ description: Learn how to onboard role-assignable groups to manage as privileged
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
