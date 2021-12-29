@@ -93,10 +93,10 @@ You might also need filters to invoke a specialized query form, as described in 
 Geospatial search matches on a location's latitude and longitude coordinates for "find near me" or map-based search experience. In Azure Cognitive Search, you can implement geospatial search by following these steps:
 
 + Define a filterable field of one of these types: [Edm.GeographyPoint, Collection(Edm.GeographyPoint, Edm.GeographyPolygon)](/rest/api/searchservice/supported-data-types).
-+ Ensure that the documents you are indexing include a field that provides the appropriate coordinates.
-+ After indexing is complete, build a query request that uses a filter and a [geo-spatial function](search-query-odata-geo-spatial-functions.md). For more information and an example, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
++ Verify the incoming documents include the appropriate coordinates.
++ After indexing is complete, build a query that uses a filter and a [geo-spatial function](search-query-odata-geo-spatial-functions.md). 
 
-Your application code must provide the map controls and interaction logic.
+For more information and an example, see [Geospatial search example](search-query-simple-examples.md#example-6-geospatial-search).
 
 ## Document look-up
 

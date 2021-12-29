@@ -63,11 +63,11 @@ For more information about specific functionality, see [Features of Azure Cognit
 
 An end-to-end exploration of core search features can be achieved in four steps:
 
-1. Determine whether to use a free or [billable search service](https://azure.microsoft.com/pricing/details/search/). If you currently have an Azure subscription, you can add a new search service free of charge, subject to the [maximum limits](search-limits-quotas-capacity.md) of a free service. All quickstarts and tutorials can be completed on a free service. For more capacity and capabilities, you will need to create a billable service.
+1. [**Choose a tier**](search-sku-tier.md). One free search service is allowed per Azure subscription. All quickstarts and tutorials can be completed on a free service. For more capacity and capabilities, you will need to create a [billable service](https://azure.microsoft.com/pricing/details/search/).
 
 1. [**Create a search service**](search-create-service-portal.md) in the Azure portal.
 
-1. For initial exploration, start with the [**Import data wizard**](search-get-started-portal.md) and a built-in sample data source to create, load, and query an index in minutes.
+1. [**Start with Import data wizard**](search-get-started-portal.md) for the initial exploration. Choose a built-in sample data source to create, load, and query an index in minutes.
 
 Alternatively, you can create, load, and query a search index in separate steps:
 
