@@ -4,7 +4,7 @@ description: Learn how to complete an access review of group members or applicat
 services: active-directory
 documentationcenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: markwahl-msft
 ms.service: active-directory
 ms.workload: identity

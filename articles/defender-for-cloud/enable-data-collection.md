@@ -2,7 +2,7 @@
 title: Auto-deploy agents for Microsoft Defender for Cloud | Microsoft Docs
 description: This article describes how to set up auto provisioning of the Log Analytics agent and other agents and extensions used by Microsoft Defender for Cloud
 ms.topic: quickstart
-ms.date: 11/09/2021
+ms.date: 12/26/2021
 ms.custom: mode-other
 ---
 # Configure auto provisioning for agents and extensions from Microsoft Defender for Cloud
@@ -271,7 +271,6 @@ To turn off automatic provisioning of an agent:
 
 ## Troubleshooting
 
--	To identify auto provision installation issues, see [Monitoring agent health issues](troubleshooting-guide.md#mon-agent).
 -  To identify monitoring agent network requirements, see [Troubleshooting monitoring agent network requirements](troubleshooting-guide.md#mon-network-req).
 -	To identify manual onboarding issues, see [How to troubleshoot Operations Management Suite onboarding issues](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues).
 
