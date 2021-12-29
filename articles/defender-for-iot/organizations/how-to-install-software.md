@@ -725,7 +725,7 @@ To install:
 
     :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
 
-## Sensor software installation
+## Install the software
 
 Ensure you followed the installation instruction for your device prior to starting the software installation, and have downloaded the containerized sensor version ISO file.
 
@@ -750,11 +750,9 @@ Mount the ISO file using one of the following options;
 
 1. The Sensor will reboot, and the Package configuration screen will appear. Press the up, or down arrows to navigate, and the Space bar to select an option. Press the Enter key to advance to the next screen.  
 
-1. Select the monitor interface.
+1. Select the monitor interface, and press the **Enter** key.
 
     :::image type="content" source="media/tutorial-install-components/monitor-interface.png" alt-text="Screenshot of the select monitor interface screen.":::
-
-1. Press the **Enter** key.
 
 1. If one of the monitoring ports is for ERSPAN, select it, and press the **Enter** key.
 
