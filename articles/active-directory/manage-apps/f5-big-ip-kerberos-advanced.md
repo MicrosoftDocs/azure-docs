@@ -285,17 +285,17 @@ In this section, you create an APM SSO object for performing KCD SSO to back-end
 
 Select **Access** > **Single Sign-on** > **Kerberos** > **Create** and provide the following information:
 
-* **Name**: You can use a descriptive name. After you create it, other published applications can also use the Kerberos SSO APM object. For example, *Contoso_KCD_sso* can be used for multiple published applications for the entire Contoso domain. But *MyExpenses_KCD_sso* can be used for a single application only.
+* **Name**: You can use a descriptive name. After you create it, other published applications can also use the Kerberos SSO APM object. For example, **Contoso_KCD_sso** can be used for multiple published applications for the entire Contoso domain. But **MyExpenses_KCD_sso** can be used for a single application only.
 
-* **Username Source**: Specify the preferred source for user ID. You can specify any APM session variable as the source, but *session.saml.last.identity* is typically best because it contains the logged-in user ID derived from the Azure AD claim.
+* **Username Source**: Specify the preferred source for user ID. You can specify any APM session variable as the source, but **session.saml.last.identity** is typically best because it contains the logged-in user's ID derived from the Azure AD claim.
 
-* **User Realm Source**: This source is required in scenarios where the user domain is different from the Kerberos realm that will be used for KCD. If users are in a separate trusted domain, you make the APM aware by specifying the APM session variable that contains the logged-in user's domain. An example is *session.saml.last.attr.name.domain*. You also do this in scenarios where the UPN of users is based on an alternative suffix.
+* **User Realm Source**: This source is required in scenarios where the user domain is different from the Kerberos realm that will be used for KCD. If users are in a separate trusted domain, you make the APM aware by specifying the APM session variable that contains the logged-in user's domain. An example is **session.saml.last.attr.name.domain**. You also do this in scenarios where the UPN of users is based on an alternative suffix.
 
 * **Kerberos Realm**: Enter the user's domain suffix in uppercase.
 
-* **KDC**: Enter the IP of a domain controller. (Or enter a fully qualified domain name if DNS is configured and efficient.)
+* **KDC**: Enter the IP address of a domain controller. (Or enter a fully qualified domain name if DNS is configured and efficient.)
 
-* **UPN Support**: Select this checkbox if the specified source for username is in UPN format, such as if you're using the `session.saml.last.identity` variable.
+* **UPN Support**: Select this checkbox if the specified source for username is in UPN format, such as if you're using the **session.saml.last.identity** variable.
 
 * **Account Name** and **Account Password**: Provide APM service account credentials to perform KCD.
 
@@ -307,18 +307,18 @@ Select **Access** > **Single Sign-on** > **Kerberos** > **Create** and provide t
 
 You can leave KDC undefined if the user realm is different from the back-end server realm. This rule also applies for multiple-domain realm scenarios. If you leave KDC undefined, BIG-IP will attempt to discover a Kerberos realm through a DNS lookup of SRV records for the back-end server's domain. So it expects the domain name to be the same as the realm name. If the domain name is different from the realm name, it must be specified in the [/etc/krb5.conf](https://support.f5.com/csp/article/K17976428) file.
 
-Kerberos SSO processing is fastest when a KDC is specified by IP. Kerberos SSO processing is slower when a KDC is specified by host name. Because of additional DNS queries, processing is even slower when a KDC is left undefined. For this reason, you should ensure that your DNS is performing optimally before moving a proofs of concept into production. 
+Kerberos SSO processing is fastest when a KDC is specified by IP address. Kerberos SSO processing is slower when a KDC is specified by host name. Because of additional DNS queries, processing is even slower when a KDC is left undefined. For this reason, you should ensure that your DNS is performing optimally before moving a proof of concept into production. 
 
 > [!NOTE]
 > If back-end servers are in multiple realms, you must create a separate SSO configuration object for each realm.
 
 You can inject headers as part of the SSO request to the back-end application. Simply change the **General Properties** setting from **Basic** to **Advanced**. 
 
-For more information on configuring an APM for KCD SSO, refer to the F5 article [Overview of Kerberos constrained delegation](https://support.f5.com/csp/article/K17976428).
+For more information on configuring an APM for KCD SSO, see the F5 article [Overview of Kerberos constrained delegation](https://support.f5.com/csp/article/K17976428).
 
 ### Configure an access profile
 
-An *access profile* binds many APM elements that manage access to BIG-IP virtual servers*. These elements include access policies, SSO configuration, and UI settings. 
+An *access profile* binds many APM elements that manage access to BIG-IP virtual servers. These elements include access policies, SSO configuration, and UI settings. 
 
 1. Select **Access** > **Profiles / Policies** > **Access Profiles (Per-Session Policies)** > **Create** and provide these general properties:
 
@@ -354,9 +354,9 @@ An *access profile* binds many APM elements that manage access to BIG-IP virtual
 
 ### Configure attribute mappings
 
-Although optional, adding a *LogonID_Mapping* configuration enables the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This information is useful when you're analyzing logs or troubleshooting.
+Although it's optional, adding a *LogonID_Mapping* configuration enables the BIG-IP active sessions list to display the UPN of the logged-in user instead of a session number. This information is useful when you're analyzing logs or troubleshooting.
 
-1. Click the **+** symbol for the **SAML Auth Successful** branch. 
+1. Select the **+** symbol for the **SAML Auth Successful** branch. 
 
 2. In the pop-up dialog, select **Assignment** > **Variable Assign** > **Add Item**.
 
@@ -377,7 +377,7 @@ Although optional, adding a *LogonID_Mapping* configuration enables the BIG-IP a
 
 7. Select the **Deny** terminal of the access policy's **Successful** branch and change it to **Allow**. Then select **Save**.
 
-8. Commit those settings by selecting **Apply Access Policy** and close the visual policy editor.
+8. Commit those settings by selecting **Apply Access Policy**, and close the visual policy editor.
 
     ![Screenshot of the button for applying an access policy.](./media/f5-big-ip-kerberos-advanced/apply-access-policy.png)
 
@@ -403,19 +403,19 @@ For BIG-IP to know where to forward client traffic, you need to create a BIG-IP 
 
 ### Configure the virtual server
 
-A *virtual server* is a BIG-IP data plane object that's represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM access profile associated with the virtual server, before being directed according to the policy results and settings. 
+A *virtual server* is a BIG-IP data plane object that's represented by a virtual IP address listening for client requests to the application. Any received traffic is processed and evaluated against the APM access profile that's associated with the virtual server, before being directed according to the policy results and settings. 
 
 To configure a virtual server:
 
 1. Select **Local Traffic** > **Virtual Servers** > **Virtual Server List** > **Create**.
 
-2. Provide the virtual server with a **Name** value and an IP of IPv4/IPv6 that isn't already allocated to an existing BIG-IP object or device on the connected network. The IP will be dedicated to receiving client traffic for the published back-end application. Then set **Service Port** to **443**.
+2. Provide the virtual server with a **Name** value and an IPv4/IPv6 address that isn't already allocated to an existing BIG-IP object or device on the connected network. The IP address will be dedicated to receiving client traffic for the published back-end application. Then set **Service Port** to **443**.
 
     ![Screenshot that shows selections and entries for configuring a virtual server.](./media/f5-big-ip-kerberos-advanced/configure-new-virtual-server.png)
 
 3. Set **HTTP Profile (Client)** to **http**. 
 
-4. Enable a virtual server for Transport Layer Security, allowing services to be published over HTTPS. For **SSL Profile (Client)**, select the profile that you created as part of the prerequisites. (Or leave the default if you're testing.)
+4. Enable a virtual server for Transport Layer Security to allow services to be published over HTTPS. For **SSL Profile (Client)**, select the profile that you created as part of the prerequisites. (Or leave the default if you're testing.)
 
     ![Screenshot that shows selections for H T T P profile and S S L profile for the client.](./media/f5-big-ip-kerberos-advanced/update-http-profile-client.png)
 
@@ -434,9 +434,9 @@ To configure a virtual server:
 
 BIG-IP's session management settings define the conditions under which user sessions are terminated or allowed to continue, limits for users and IP addresses, and error pages. You can create your own policy here. Go to **Access Policy** > **Access Profiles** > **Access Profile** and select your application from the list.
 
-If you've defined a **Single Log-out URI** value in Azure AD, it will ensure that an IdP-initiated sign-out from the MyApps portal also ends the session between the client and the BIG-IP APM. The imported application's federation metadata.xml file provides the APM with the Azure AD SAML log-out endpoint for SP-initiated sign-outs. But for this to be truly effective, the APM needs to know exactly when a user signs out. 
+If you've defined a **Single Logout URI** value in Azure AD, it will ensure that an IdP-initiated sign-out from the MyApps portal also ends the session between the client and the BIG-IP APM. The imported application's federation metadata XML file provides the APM with the Azure AD SAML logout endpoint for SP-initiated sign-outs. But for this to be truly effective, the APM needs to know exactly when a user signs out. 
 
-Consider a scenario where a BIG-IP web portal is not used. The user has no way of instructing the APM to sign out. Even if the user signs out of the application itself, BIG-IP is technically oblivious to this, so the application session could easily be reinstated through SSO. For this reason, SP-initiated sign-out needs careful consideration to ensure sessions are securely terminated when no longer required.
+Consider a scenario where a BIG-IP web portal is not used. The user has no way of instructing the APM to sign out. Even if the user signs out of the application itself, BIG-IP is technically oblivious to this, so the application session could easily be reinstated through SSO. For this reason, SP-initiated sign-out needs careful consideration to ensure that sessions are securely terminated when no longer required.
 
 One way to achieve this is by adding an SLO function to your application's sign-out button. This function can redirect your client to the Azure AD SAML sign-out endpoint. You can find this SAML sign-out endpoint at **App Registrations** > **Endpoints**.
 
