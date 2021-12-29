@@ -40,7 +40,7 @@ You can use Microsoft Sentinel's built-in connector to collect data from [Azure 
 
 - Your user must be assigned the [Microsoft Sentinel Contributor](/azure/role-based-access-control/built-in-roles#microsoft-sentinel-contributor) role on the workspace.
 
-- Your user must be assigned the [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator) or [Security Administrator](//azure/active-directory/roles/permissions-reference#security-administrator) roles on the tenant you want to stream the logs from.
+- Your user must be assigned the [Global Administrator](/azure/active-directory/roles/permissions-reference#global-administrator) or [Security Administrator](/azure/active-directory/roles/permissions-reference#security-administrator) roles on the tenant you want to stream the logs from.
 
 - Your user must have read and write permissions to the Azure AD diagnostic settings in order to be able to see the connection status.
 
