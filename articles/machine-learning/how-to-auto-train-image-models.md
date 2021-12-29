@@ -6,9 +6,8 @@ services: machine-learning
 author: swatig007
 ms.author: swatig
 ms.service: machine-learning
-ms.subservice: core
+ms.subservice: automl
 ms.topic: how-to
-ms.custom: automl
 ms.date: 10/06/2021
 
 # Customer intent: I'm a data scientist with ML knowledge in the computer vision space, looking to build ML models using image data in Azure Machine Learning with full control of the model algorithm, hyperparameters, and training and deployment environments.
@@ -51,7 +50,8 @@ image classification multi-label | `ImageTask.IMAGE_CLASSIFICATION_MULTILABEL`
 image object detection | `ImageTask.IMAGE_OBJECT_DETECTION`
 image instance segmentation| `ImageTask.IMAGE_INSTANCE_SEGMENTATION`
 
-This task type is a required parameter and is passed in using the `task` parameter in the `AutoMLImageConfig`. 
+This task type is a required parameter and is passed in using the `task` parameter in the [`AutoMLImageConfig`](/python/api/azureml-train-automl-client/azureml.train.automl.automlimageconfig.automlimageconfig). 
+
 For example:
 
 ```python
@@ -192,7 +192,7 @@ The model algorithm is required and is passed in via `model_name` parameter. You
 
 ### Supported model algorithms
 
-The following table summarizes the supported models for each computer vision task. 
+The following table summarizes the supported models for each computer vision task. See the reference documentation for model specific hyperparameters. 
 
 Task |  Model algorithms | String literal syntax<br> ***`default_model`\**** denoted with \*
 ---|----------|----------
@@ -200,55 +200,20 @@ Image classification<br> (multi-class and multi-label)| **MobileNet**: Light-wei
 Object detection | **YOLOv5**: One stage object detection model   <br>  **Faster RCNN ResNet FPN**: Two stage object detection models  <br> **RetinaNet ResNet FPN**: address class imbalance with Focal Loss <br> <br>*Note: Refer to [`model_size` hyperparameter](#model-specific-hyperparameters) for YOLOv5 model sizes.*| ***`yolov5`\**** <br> `fasterrcnn_resnet18_fpn` <br> `fasterrcnn_resnet34_fpn` <br> `fasterrcnn_resnet50_fpn` <br> `fasterrcnn_resnet101_fpn` <br> `fasterrcnn_resnet152_fpn` <br> `retinanet_resnet50_fpn` 
 Instance segmentation | **MaskRCNN ResNet FPN**| `maskrcnn_resnet18_fpn` <br> `maskrcnn_resnet34_fpn` <br> ***`maskrcnn_resnet50_fpn`\****  <br> `maskrcnn_resnet101_fpn` <br> `maskrcnn_resnet152_fpn` <br>`maskrcnn_resnet50_fpn`
 
-
-### Model agnostic hyperparameters
-
-The following table describes the hyperparameters that are model agnostic.
-
-| Parameter name | Description | Default|
-| ------------ | ------------- | ------------ |
-| `number_of_epochs` | Number of training epochs. <br>Must be a positive integer. |  15 <br> (except `yolov5`: 30) |
-| `training_batch_size` | Training batch size.<br> Must be a positive integer.  | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 2 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 2  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
-| `validation_batch_size` | Validation batch size.<br> Must be a positive integer. | Multi-class/multi-label: 78 <br>(except *vit-variants*: <br> `vits16r224`: 128 <br>`vitb16r224`: 48 <br>`vitl16r224`:10)<br><br>Object detection: 1 <br>(except `yolov5`: 16) <br><br> Instance segmentation: 1  <br> <br> *Note: The defaults are largest batch size that can be used on 12 GiB GPU memory*.|
-| `grad_accumulation_step` | Gradient accumulation means running a configured number of `grad_accumulation_step` without updating the model weights while accumulating the gradients of those steps, and then using the accumulated gradients to compute the weight updates. <br> Must be a positive integer. | 1 |
-| `early_stopping` | Enable early stopping logic during training. <br> Must be 0 or 1.| 1 |
-| `early_stopping_patience` | Minimum number of epochs or validation evaluations with<br>no primary metric improvement before the run is stopped.<br> Must be a positive integer. | 5 |
-| `early_stopping_delay` | Minimum number of epochs or validation evaluations to wait<br>before primary metric improvement is tracked for early stopping.<br> Must be a positive integer. | 5 |
-| `learning_rate` | Initial learning rate. <br>Must be a float in the range [0, 1]. | Multi-class: 0.01 <br>(except *vit-variants*: <br> `vits16r224`: 0.0125<br>`vitb16r224`: 0.0125<br>`vitl16r224`: 0.001) <br><br> Multi-label: 0.035 <br>(except *vit-variants*:<br>`vits16r224`: 0.025<br>`vitb16r224`: 0.025 <br>`vitl16r224`: 0.002) <br><br> Object detection: 0.005 <br>(except `yolov5`: 0.01) <br><br> Instance segmentation: 0.005  |
-| `lr_scheduler` | Type of learning rate scheduler. <br> Must be `warmup_cosine` or `step`. | `warmup_cosine` |
-| `step_lr_gamma` | Value of gamma when learning rate scheduler is `step`.<br> Must be a float in the range [0, 1]. | 0.5 |
-| `step_lr_step_size` | Value of step size when learning rate scheduler is `step`.<br> Must be a positive integer. | 5 |
-| `warmup_cosine_lr_cycles` | Value of cosine cycle when learning rate scheduler is `warmup_cosine`. <br> Must be a float in the range [0, 1]. | 0.45 |
-| `warmup_cosine_lr_warmup_epochs` | Value of warmup epochs when learning rate scheduler is `warmup_cosine`. <br> Must be a positive integer. | 2 |
-| `optimizer` | Type of optimizer. <br> Must be either `sgd`, `adam`, `adamw`.  | `sgd` |
-| `momentum` | Value of momentum when optimizer is `sgd`. <br> Must be a float in the range [0, 1]. | 0.9 |
-| `weight_decay` | Value of weight decay when optimizer is `sgd`, `adam`, or `adamw`. <br> Must be a float in the range [0, 1]. | 1e-4 |
-|`nesterov`| Enable `nesterov` when optimizer is `sgd`. <br> Must be 0 or 1.| 1 |
-|`beta1` | Value of `beta1` when optimizer is `adam` or `adamw`. <br> Must be a float in the range [0, 1]. | 0.9 |
-|`beta2` | Value of `beta2` when optimizer is `adam` or `adamw`.<br> Must be a float in the range [0, 1]. | 0.999 |
-|`amsgrad` | Enable `amsgrad` when optimizer is `adam` or `adamw`.<br> Must be 0 or 1. | 0 |
-|`evaluation_frequency`| Frequency to evaluate validation dataset to get metric scores. <br> Must be a positive integer. | 1 |
-|`split_ratio`| If validation data is not defined, this specifies the split ratio for splitting train data into random train and validation subsets. <br> Must be a float in the range [0, 1].| 0.2 |
-|`checkpoint_frequency`| Frequency to store model checkpoints. <br> Must be a positive integer. | Checkpoint at epoch with best primary metric on validation.|
-|`layers_to_freeze`| How many layers to freeze for your model. For instance, passing 2 as value for `seresnext` means freezing layer0 and layer1 referring to the below supported model layer info. <br> Must be a positive integer. <br><br>`'resnet': [('conv1.', 'bn1.'), 'layer1.', 'layer2.', 'layer3.', 'layer4.'],`<br>`'mobilenetv2': ['features.0.', 'features.1.', 'features.2.', 'features.3.', 'features.4.', 'features.5.', 'features.6.', 'features.7.', 'features.8.', 'features.9.', 'features.10.', 'features.11.', 'features.12.', 'features.13.', 'features.14.', 'features.15.', 'features.16.', 'features.17.', 'features.18.'],`<br>`'seresnext': ['layer0.', 'layer1.', 'layer2.', 'layer3.', 'layer4.'],`<br>`'vit': ['patch_embed', 'blocks.0.', 'blocks.1.', 'blocks.2.', 'blocks.3.', 'blocks.4.', 'blocks.5.', 'blocks.6.','blocks.7.', 'blocks.8.', 'blocks.9.', 'blocks.10.', 'blocks.11.'],`<br>`'yolov5_backbone': ['model.0.', 'model.1.', 'model.2.', 'model.3.', 'model.4.','model.5.', 'model.6.', 'model.7.', 'model.8.', 'model.9.'],`<br>`'resnet_backbone': ['backbone.body.conv1.', 'backbone.body.layer1.', 'backbone.body.layer2.','backbone.body.layer3.', 'backbone.body.layer4.']` | no default  |
-
-
 ### Task-specific hyperparameters
 
 The following table summarizes hyperparmeters for image classification (multi-class and multi-label) tasks.
-
-
+  
 | Parameter name       | Description           | Default  |
 | ------------- |-------------|-----|
 | `weighted_loss` | 0 for no weighted loss.<br>1 for weighted loss with sqrt.(class_weights) <br> 2 for weighted loss with class_weights. <br> Must be 0 or 1 or 2. | 0 |
 | `valid_resize_size` | Image size to which to resize before cropping for validation dataset. <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> Training run may get into CUDA OOM if the size is too big*.  | 256  |
 | `valid_crop_size` | Image crop size that's input to your neural network for validation dataset.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `valid_crop_size` and `train_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
-| `train_crop_size` | Image crop size that's input to your neural network for train dataset.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `valid_crop_size` and `train_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 |
-
+| `train_crop_size` | Image crop size that's input to your neural network for train dataset.  <br> Must be a positive integer. <br> <br> *Notes: <li> `seresnext` doesn't take an arbitrary size. <li> *ViT-variants* should have the same `valid_crop_size` and `train_crop_size`. <li> Training run may get into CUDA OOM if the size is too big*. | 224 | 
 
 The following hyperparameters are for object detection and instance segmentation tasks.
 
-> [!Warning]
+> [!WARNING]
 > These parameters are not supported with the `yolov5` algorithm.
 
 | Parameter name       | Description           | Default  |
@@ -263,18 +228,6 @@ The following hyperparameters are for object detection and instance segmentation
 | `tile_overlap_ratio` | Overlap ratio between adjacent tiles in each dimension. <br> Must be float in the range of [0, 1) | 0.25 |
 | `tile_predictions_nms_thresh` | The IOU threshold to use to perform NMS while merging predictions from tiles and image. Used in validation/ inference. <br> Must be float in the range of [0, 1] | 0.25 |
 
-### Model-specific hyperparameters
-
-This table summarizes hyperparameters specific to the `yolov5` algorithm.
-
-| Parameter name       | Description           | Default  |
-| ------------- |-------------|----|
-| `validation_metric_type` | Metric computation method to use for validation metrics.  <br> Must be `none`, `coco`, `voc`, or `coco_voc`. | `voc` |
-| `img_size` | Image size for train and validation. <br> Must be a positive integer. <br> <br> *Note: training run may get into CUDA OOM if the size is too big*. | 640 |
-| `model_size` | Model size. <br> Must be `small`, `medium`, `large`, or `xlarge`. <br><br> *Note: training run may get into CUDA OOM if the model size is too big*.  | `medium` |
-| `multi_scale` | Enable multi-scale image by varying image size by +/- 50% <br> Must be 0 or 1. <br> <br> *Note: training run may get into CUDA OOM if no sufficient GPU memory*. | 0 |
-| `box_score_thresh` | During inference, only return proposals with a score greater than `box_score_thresh`. The score is the multiplication of the objectness score and classification probability. <br> Must be a float in the range [0, 1]. | 0.1 |
-| `box_iou_thresh` | IoU threshold used during inference in non-maximum suppression post processing. <br> Must be a float in the range [0, 1]. | 0.5 |
 
 
 ### Data augmentation 
