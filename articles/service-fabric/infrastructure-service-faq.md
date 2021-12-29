@@ -3,7 +3,7 @@ title: Infrastructure Service frequently asked questions
 description: Frequently asked questions about Service Fabric Infrastructure Service
 
 ms.topic: troubleshooting
-ms.date: 012/21/2021
+ms.date: 12/21/2021
 ms.author: saharsh
 ---
 
