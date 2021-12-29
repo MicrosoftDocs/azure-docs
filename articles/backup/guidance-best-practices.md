@@ -343,7 +343,7 @@ As a backup user or administrator, you should be able to monitor all backup solu
 
 * In addition,
   * You can send data (for example, jobs, policies, and so on) to the **Log Analytics** workspace. This will enable the features of Azure Monitor Logs to enable correlation of data with other monitoring data collected by Azure Monitor, consolidate log entries from multiple Azure subscriptions and tenants into one location for analysis together, use log queries to perform complex analysis and gain deep insights on Log entries. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-log-analytics-workspace).
-  * You can send data to Azure Event Hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
+  * You can send data to an Azure Event Hub to send entries outside of Azure, for example to a third-party SIEM (Security Information and Event Management) or other log analytics solution. [Learn more here](../azure-monitor/essentials/activity-log.md#send-to-azure-event-hubs).
   * You can send data to an Azure Storage account if you want to retain your log data longer than 90 days for audit, static analysis, or backup. If you only need to retain your events for 90 days or less, you don't need to set up archives to a storage account, since Activity Log events are kept in the Azure platform for 90 days. [Learn more](../azure-monitor/essentials/activity-log.md#send-to-azure-storage).
 
 ### Alerts
@@ -371,7 +371,7 @@ You can configure such critical alerts and route them to any preferred notificat
 Many of the failure errors or the outage scenarios are transient in nature, and you can remediate by setting up the right Azure role-based access control (Azure RBAC) permissions3 or re-trigger the backup/restore job. As the solution to such failures is  simple, that you don’t need tp invest time waiting for an engineer to manually trigger the job or to assign the relevant permission. Therefore, the smarter way to handle this scenario is to automate the retry of the failed jobs. This will highly minimize the time taken to recover from failures. 
 You can achieve this by retrieving relevant backup data via Azure Resource Graph (ARG) and combine it with corrective [PowerShell/CLI procedure](/azure/architecture/framework/resiliency/auto-retry). 
 
-Watch the following video to learn how to re-trigger backup for all failed jobs (across vaults, subscriptions, tenants) using ARG and PowerShell. <br><br>
+Watch the following video to learn how to re-trigger backup for all failed jobs (across vaults, subscriptions, tenants) using ARG and PowerShell.
 
 > [!VIDEO https://www.youtube.com/embed/8dioCgHNb5w]
 
@@ -379,7 +379,7 @@ Watch the following video to learn how to re-trigger backup for all failed jobs 
 
 While transient errors can be corrected, some persistent errors might require in-depth analysis, and retriggering the jobs may not be the viable solution. You may have your own monitoring/ticketing mechanisms to ensure such failures are properly tracked and fixed. To handle such scenarios, you can choose to route the alerts to your preferred notification channel (email, ITSM, Webhook, runbook, and so on) by creating an Action Rule on the alert. 
 
-Watch the following video to learn how to leverage Azure Monitor to configure various notification mechanisms for critical alerts. <br><br>
+Watch the following video to learn how to leverage Azure Monitor to configure various notification mechanisms for critical alerts.
 
 > [!VIDEO https://www.youtube.com/embed/oYuIJKEPOYY]
 
