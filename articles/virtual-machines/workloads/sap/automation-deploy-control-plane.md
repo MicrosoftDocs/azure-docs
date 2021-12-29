@@ -70,13 +70,14 @@ export       subscriptionID=<subscriptionID>
 export               spn_id=<appID>
 export           spn_secret=<password>
 export            tenant_id=<tenant>
+export          region_code=WEEU
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
-        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
-        --subscription $subscriptionID                                                                           \
-        --spn_id "${spn_id}"                                                                                     \
-        --spn_secret "${spn_secret}"                                                                             \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                            \
+        --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
+        --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                     \
+        --subscription $subscriptionID                                                                                              \
+        --spn_id "${spn_id}"                                                                                                        \
+        --spn_secret "${spn_secret}"                                                                                                \
         --tenant_id "${tenant_id}"
 ```
 
@@ -111,7 +112,7 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<spn_ID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
+> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
 
 ## Next step
 
