@@ -96,6 +96,24 @@
       href: cloudknox-product-reports.md
     - name: The Permissions Analytics report
       href: cloudknox-product-permissions-analytics-reports.md
+  - name: How-to guides
+    expanded: true
+    items:
+    - name: Create custom queries
+      href: cloudknox-howto-create-custom-queries.md
+    - name: Generate custom reports
+      href: cloudknox-howto-generate-custom-reports.md
+    - name: Attach and detach permissions for users, roles, and resources
+      href: cloudknox-howto-attach-detach-permissions.md
+    - name: Create a role/policy
+      href: cloudknox-howto-create-role-policy.md
+    - name: Create or approve a request for privileges 
+      href: cloudknox-howto-create-approve-privilege-request.md
+  #- name: Compliance
+    #expanded: true
+    #items:
+    #- name: Compliance with established guidelines
+      #href: cloudknox-product-compliance.md
   - name: Reference
     expanded: true
     items:
