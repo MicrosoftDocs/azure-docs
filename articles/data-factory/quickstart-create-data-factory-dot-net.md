@@ -4,11 +4,11 @@ description: Create an Azure Data Factory and pipeline using .NET SDK to copy da
 author: linda33wj
 ms.service: data-factory
 ms.subservice: data-movement
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 03/27/2021
 ms.author: jingwang
-ms.custom: devx-track-azurepowershell, mode-other
+ms.custom: devx-track-azurepowershell, mode-api
 ---
 # Quickstart: Create a data factory and pipeline using .NET SDK
 

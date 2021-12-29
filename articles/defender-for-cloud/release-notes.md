@@ -2,7 +2,7 @@
 title: Release notes for Microsoft Defender for Cloud
 description: A description of what's new and changed in Microsoft Defender for Cloud
 ms.topic: reference
-ms.date: 12/09/2021
+ms.date: 12/14/2021
 ---
 # What's new in Microsoft Defender for Cloud?
 
@@ -24,12 +24,13 @@ Updates in December include:
 - [Microsoft Defender for Containers plan released for general availability (GA)](#microsoft-defender-for-containers-plan-released-for-general-availability-ga)
 - [New alerts for Microsoft Defender for Storage released for general availability (GA)](#new-alerts-for-microsoft-defender-for-storage-released-for-general-availability-ga)
 - [Improvements to alerts for Microsoft Defender for Storage](#improvements-to-alerts-for-microsoft-defender-for-storage)
+- ['PortSweeping' alert removed from network layer alerts](#portsweeping-alert-removed-from-network-layer-alerts)
 
 ### Microsoft Defender for Containers plan released for general availability (GA)
 
-Over two years ago, we introduced "Defender for Kubernetes" and "Defender for container registries" as part of the Azure Defender offering within Microsoft Defender for Cloud.
+Over two years ago, we introduced [Defender for Kubernetes](defender-for-kubernetes-introduction.md) and [Defender for container registries](defender-for-container-registries-introduction.md) as part of the Azure Defender offering within Microsoft Defender for Cloud.
 
-With the release of **Microsoft Defender for Containers**, we're merging these two existing Defender plans. 
+With the release of [Microsoft Defender for Containers](defender-for-containers-introduction.md), we've merged these two existing Defender plans. 
 
 The new plan:
 
@@ -37,10 +38,10 @@ The new plan:
 - **Brings new and improved features** - including multi-cloud support, host level threat detection with over **sixty** new Kubernetes-aware analytics, and vulnerability assessment for running images
 - **Introduces Kubernetes-native at-scale onboarding** - by default, when you enable the plan all relevant components are configured to be deployed automatically
 
-With this release, the availability and presentation of Defender for Kubernetes and Defender for container registries will change as follows:
+With this release, the availability and presentation of Defender for Kubernetes and Defender for container registries has changed as follows:
 
-- New subscriptions - The two previous container plans will no longer be offered
-- Existing subscriptions - Wherever they appear in the Azure portal, the plans will be shown as **Deprecated** with instructions for how to upgrade to the newer plan
+- New subscriptions - The two previous container plans are no longer available
+- Existing subscriptions - Wherever they appear in the Azure portal, the plans are shown as **Deprecated** with instructions for how to upgrade to the newer plan
     :::image type="content" source="media/release-notes/defender-plans-deprecated-indicator.png" alt-text="Defender for container registries and Defender for Kubernetes plans showing 'Deprecated' and upgrade information.":::
 
 The new plan is free for the month of December 2021. For the potential changes to the billing from the old plans to Defender for Containers, and for more details on the benefits introduced with this plan, see [Introducing Microsoft Defender for Containers](https://techcommunity.microsoft.com/t5/microsoft-defender-for-cloud/introducing-microsoft-defender-for-containers/ba-p/2952317).
@@ -124,6 +125,17 @@ For more information, see:
 - [List of alerts provided by Microsoft Defender for Storage](alerts-reference.md#alerts-azurestorage)
 
 
+### 'PortSweeping' alert removed from network layer alerts
+
+The following alert was removed from our network layer alerts due to inefficiencies:
+
+| Alert (alert type)                                                                                                                                               | Description     | MITRE tactics | Severity      |
+|------------------------------------------------------------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------:|---------------|
+| **Possible outgoing port scanning activity detected**<br>(PortSweeping) | Network traffic analysis detected suspicious outgoing traffic from %{Compromised Host}. This traffic may be a result of a port scanning activity. When the compromised resource is a load balancer or an application gateway, the suspected outgoing traffic has been originated from to one or more of the resources in the backend pool (of the load balancer or application gateway). If this behavior is intentional, please note that performing port scanning is against Azure Terms of service. If this behavior is unintentional, it may mean your resource has been compromised. | Discovery | Medium   |
+||||
+
+
+
 ## November 2021
 
 Our Ignite release includes:
@@ -143,6 +155,7 @@ Other changes in November include:
 - [Snapshot export for recommendations and security findings (in preview)](#snapshot-export-for-recommendations-and-security-findings-in-preview)
 - [Auto provisioning of vulnerability assessment solutions released for general availability (GA)](#auto-provisioning-of-vulnerability-assessment-solutions-released-for-general-availability-ga)
 - [Software inventory filters in asset inventory released for general availability (GA)](#software-inventory-filters-in-asset-inventory-released-for-general-availability-ga)
+- [New AKS security policy added to default initiative – for use by private preview customers only](#new-aks-security-policy-added-to-default-initiative--for-use-by-private-preview-customers-only)
 - [Inventory display of on-premises machines applies different template for resource name](#inventory-display-of-on-premises-machines-applies-different-template-for-resource-name)
 
 

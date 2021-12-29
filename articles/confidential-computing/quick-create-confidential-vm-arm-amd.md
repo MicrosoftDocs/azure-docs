@@ -8,7 +8,7 @@ ms.workload: infrastructure
 ms.topic: quickstart
 ms.date: 11/15/2021
 ms.author: RunCai
-ms.custom: mode-other
+ms.custom: mode-arm
 ---
 
 

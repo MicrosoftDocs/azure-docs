@@ -424,9 +424,9 @@ Settings specific to Azure Cosmos DB are available in the **Source Options** tab
 
 **Preferred regions:** Choose the preferred read regions for this process.
 
-**Change feed (Preview):** If true, you will get data from [Azure Cosmos DB change feeds](/azure/cosmos-db/change-feed) which is a persistent record of changes to a container in the order they occur. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feeds (preview)](#azure-cosmos-db-change-feeds-preview).
+**Change feed (Preview):** If true, you will get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) which is a persistent record of changes to a container in the order they occur from last run automatically. When you set it true, do not set both **Infer drifted column types** and **Allow schema drift** as true at the same time. For more details, see [Azure Cosmos DB change feed (preview)](#azure-cosmos-db-change-feed-preview).
 
-**Start from beginning (Preview):** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feeds (preview)](#azure-cosmos-db-change-feeds-preview).
+**Start from beginning (Preview):** If true, you will get initial load of full snapshot data in the first run, followed by capturing changed data in next runs. If false, the initial load will be skipped in the first run, followed by capturing changed data in next runs. The setting is aligned with the same setting name in [Cosmos DB reference](https://github.com/Azure/azure-cosmosdb-spark/wiki/Configuration-references#reading-cosmosdb-collection-change-feed). For more details, see [Azure Cosmos DB change feed (preview)](#azure-cosmos-db-change-feed-preview).
 
 #### JSON Settings
 
@@ -482,15 +482,15 @@ To achieve schema-agnostic copy:
 
 When migrating from a relational database e.g. SQL Server to Azure Cosmos DB, copy activity can easily map tabular data from source to flatten JSON documents in Cosmos DB. In some cases, you may want to redesign the data model to optimize it for the NoSQL use-cases according to [Data modeling in Azure Cosmos DB](../cosmos-db/modeling-data.md), for example, to de-normalize the data by embedding all of the related sub-items within one JSON document. For such case, refer to [this article](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md) with a walk-through on how to achieve it using the copy activity.
 
-## Azure Cosmos DB change feeds (preview) 
+## Azure Cosmos DB change feed (preview) 
 
-Azure Data Factory can get data from [Azure Cosmos DB change feeds](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You do not have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
+Azure Data Factory can get data from [Azure Cosmos DB change feed](/azure/cosmos-db/change-feed) by enabling it in the mapping data flow source transformation. With this connector option, you can read change feeds and apply transformations before loading transformed data into destination datasets of your choice. You do not have to use Azure functions to read the change feed and then write custom transformations. You can use this option to move data from one container to another, prepare change feed driven material views for fit purpose or automate container backup or recovery based on change feed, and enable many more such use cases using visual drag and drop capability of Azure Data Factory.
 
-Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can always be recorded from the last run to get changes from there. If you change your pipeline name or activity name, the checkpoint will be reset, and you will start from the beginning in the next run.
+Make sure you keep the pipeline and activity name unchanged, so that the checkpoint can be recorded by ADF for you to get changed data from the last run automatically. If you change your pipeline name or activity name, the checkpoint will be reset, which leads you to start from beginning or get changes from now in the next run.
 
-When you debug the pipeline, the **Change feed (Preview)** works as well. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the result from debug run, you can publish and trigger the pipeline. It will always start from the beginning regardless of the previous checkpoint recorded by debug run. 
+When you debug the pipeline, this feature works the same. Be aware that the checkpoint will be reset when you refresh your browser during the debug run. After you are satisfied with the pipeline result from debug run, you can go ahead to publish and trigger the pipeline. At the moment when you first time trigger your published pipeline, it automatically restarts from the beginning or gets changes from now on.
 
-In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changes are always gotten from the checkpoint record in your selected pipeline run. 
+In the monitoring section, you always have the chance to rerun a pipeline. When you are doing so, the changed data is always captured from the previous checkpoint of your selected pipeline run.
 
 ## Next steps
 

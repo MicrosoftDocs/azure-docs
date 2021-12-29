@@ -9,8 +9,7 @@ ms.date: 11/18/2021
 ms.topic: quickstart
 ms.service: azure-communication-services
 ms.subservice: calling
-
-
+ms.custom: mode-other
 ---
 
 # Raw media access

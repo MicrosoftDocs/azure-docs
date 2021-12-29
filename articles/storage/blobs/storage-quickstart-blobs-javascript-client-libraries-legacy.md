@@ -3,15 +3,15 @@ title: "Quickstart: Azure Blob storage for JavaScript v10 in the browser"
 description: Learn to upload, list, and delete blobs using JavaScript v10 SDK in an HTML page.
 services: storage
 author: normesta
-ms.custom: mvc, devx-track-js, mode-other
+ms.custom: mvc, devx-track-js, mode-api
 ms.service: storage
 ms.author: normesta
 ms.date: 07/24/2020
 ms.topic: quickstart
 ms.subservice: blobs
+ms.devlang: javascript
+#Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage.
 ---
-
-<!-- Customer intent: As a web application developer I want to interface with Azure Blob storage entirely on the client so that I can build a SPA application that is able to upload and delete files on blob storage. -->
 
 # Quickstart: Manage blobs with JavaScript v10 SDK in browser
 

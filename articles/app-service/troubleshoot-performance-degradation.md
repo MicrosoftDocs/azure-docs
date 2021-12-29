@@ -160,3 +160,7 @@ Restarting is often the simplest way to recover from one-time issues. On the [Az
 
 You can also manage your app using Azure PowerShell. For more information, see
 [Using Azure PowerShell with Azure Resource Manager](../azure-resource-manager/management/manage-resources-powershell.md).
+
+## More resources
+
+[Tutorial: Run a load test to identify performance bottlenecks in a web app](../load-testing/tutorial-identify-bottlenecks-azure-portal.md)

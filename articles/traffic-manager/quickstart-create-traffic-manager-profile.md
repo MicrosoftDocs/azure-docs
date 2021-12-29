@@ -11,8 +11,8 @@ ms.service: traffic-manager
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.custom: mode-other
-# Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
+ms.custom: mode-ui
+#Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ---
 
 # Quickstart: Create a Traffic Manager profile using the Azure portal

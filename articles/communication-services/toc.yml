@@ -40,7 +40,9 @@ items:
       - name: Port a phone number into Azure
         href: quickstarts/telephony/port-phone-number.md
       - name: Add phone calling to your app
-        href: quickstarts/voice-video-calling/pstn-call.md
+        href: quickstarts/telephony/pstn-call.md
+      - name: Add emergency calling to your app
+        href: quickstarts/telephony/emergency-calling.md
   - name: SMS
     items:
       - name: Send an SMS message
@@ -69,12 +71,8 @@ items:
       href: quickstarts/voice-video-calling/get-started-raw-media-access.md
   - name: UI Library
     items:
-    - name: Get started with Composites
-      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-composites--page
-    - name: Get started with Stateful Client
-      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-statefulclient--page
-    - name: Get started with UI Components
-      href: https://azure.github.io/communication-ui-library/?path=/story/quickstarts-uicomponents--page
+    - name: Get started with UI Library
+      href: quickstarts/ui-library/get-started-composites.md
   - name: Access TURN relays
     href: quickstarts/relay-token.md    
 - name: Tutorials
@@ -144,6 +142,8 @@ items:
         href: concepts/telephony/certified-session-border-controllers.md
       - name: Pair the Session Border Controller and configure voice routing
         href: concepts/telephony/direct-routing-provisioning.md
+      - name: Emergency calling in Azure Communication Services
+        href: concepts/telephony/emergency-calling-concept.md 
   - name: SMS
     items:
       - name: SMS SDK overview
@@ -318,6 +318,11 @@ items:
     items:
     - name: UI Library (JavaScript)
       href: https://docs.microsoft.com/javascript/api/@azure/communication-react/?view=azure-node-latest
+    - name: UI Library (iOS)
+      href: https://github.com/Azure/communication-ui-library-ios/blob/main/docs/api/CallComposite/Reference.md
+    - name: UI Library (Android)
+      href: https://github.com/Azure/communication-ui-library-android/blob/main/docs/api/CallComposite/Reference.md
+   
 - name: Resources
   items:
   - name: Release notes

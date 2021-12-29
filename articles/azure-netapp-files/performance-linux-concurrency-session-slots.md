@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/02/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Linux concurrency best practices for Azure NetApp Files - Session slots and slot table entries
 

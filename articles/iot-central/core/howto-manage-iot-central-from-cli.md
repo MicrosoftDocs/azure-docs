@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 07/06/2021
+ms.date: 12/27/2021
 ms.topic: how-to 
 ms.custom: [devx-track-azurecli, devx-track-azurepowershell]
 ---

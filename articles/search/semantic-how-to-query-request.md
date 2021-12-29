@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 07/21/2021
+ms.date: 12/17/2021
 ---
 
 # Create a query that invokes semantic ranking and returns semantic captions
@@ -93,11 +93,11 @@ A semantic configuration contains properties to list three different types of fi
 + **Content fields** - Content fields should contain text in natural language form. Common examples of content are the text of a document, the description of a product, or other free-form text.
 + **Keyword fields** - Keyword fields should be a list of keywords, such as the tags on a document, or a descriptive term, such as the category of an item. 
 
-You can only specify a single title field as part of your semantic configuration but you can specify as many content and keyword fields as you like. However, it's important that you list the content and keyword fields in priority order because lower priority fields may get truncated. Fields listed first will be given higher priority. Any field of type `Edm.String` or `Collection(Edm.String)` can be used as part of a semantic configuration.
+You can only specify a single title field as part of your semantic configuration but you can specify as many content and keyword fields as you like. However, it's important that you list the content and keyword fields in priority order because lower priority fields may get truncated. Fields listed first will be given higher priority. 
 
 You're only required to specify one field between `titleField`, `prioritizedContentFields`, and `prioritizedKeywordsFields`, but it's best to add the fields to your semantic configuration if they exist in your search index.
 
-Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index). When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
+Similar to [scoring profiles](index-add-scoring-profiles.md), semantic configurations are a part of your [index definition](/rest/api/searchservice/preview-api/create-or-update-index) and can be updated at any time without rebuilding your index. When you issue a query, you'll add the `semanticConfiguration` that specifies which semantic configuration to use for the query.
 
 ### [**REST API**](#tab/rest)
 
@@ -161,10 +161,23 @@ definition.SemanticSettings = semanticSettings;
 adminClient.CreateOrUpdateIndex(definition);
 ```
 
+---
+
 To see an example of creating a semantic configuration and using it to issue a semantic query, check out the
 [semantic search Postman sample](https://github.com/Azure-Samples/azure-search-postman-samples/tree/master/semantic-search).
 
----
+### Allowed data types
+
+When selecting fields for your semantic configuration, choose only fields of the following [supported data types](/rest/api/searchservice/supported-data-types). If you happen to include an invalid field, there is no error, but those fields won't be used in semantic ranking.
+
+| Data type | Example from hotels-sample-index |
+|-----------|----------------------------------|
+| Edm.String | HotelName, Category, Description |
+| Edm.ComplexType | Address.StreetNumber, Address.City, Address.StateProvince, Address.PostalCode |
+| Collection(Edm.String) | Tags (a comma-delimited list of strings) |
+
+> [!NOTE]
+> Subfields of Collection(Edm.ComplexType) fields are not currently supported by semantic search and won't be used for semantic ranking, captions, or answers.
 
 ## Query using REST
 

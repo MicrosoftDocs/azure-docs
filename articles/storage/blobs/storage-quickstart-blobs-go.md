@@ -7,8 +7,8 @@ ms.date: 12/10/2021
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.custom: mode-other
-ms.devlang: golang #Tracking tag for Golang article performance
+ms.devlang: golang
+ms.custom: mode-api
 ---
 
 # Quickstart: Upload, download, and list blobs using Go

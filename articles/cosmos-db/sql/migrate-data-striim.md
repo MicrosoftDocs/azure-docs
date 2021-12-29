@@ -1,12 +1,12 @@
 ---
 title: Migrate data to Azure Cosmos DB SQL API account using Striim 
 description: Learn how to use Striim to migrate data from an Oracle database to an Azure Cosmos DB SQL API account. 
-author: SnehaGunda
+author: kanshiG
+ms.author: govindk
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.topic: how-to
 ms.date: 12/09/2021
-ms.author: sngun
 ms.reviewer: sngun
 ---
 
