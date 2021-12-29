@@ -5,7 +5,8 @@ author: flang-msft
 ms.author: franlanglois
 ms.service: cache
 ms.topic: conceptual
-ms.date: 12/01/2021
+ms.date: 12/30/2021
+
 ---
 
 # Troubleshoot Azure Cache for Redis server issues
@@ -20,7 +21,7 @@ This section discusses troubleshooting issues caused by conditions on an Azure C
 
 ## High server load
 
-High server load means the Redis server is very busy and is unable to keep up with requests, leading to timeouts. Check the **Redis Server Load** metric on your cache by selecting **Monitor** from settings on the left.
+High server load means the Redis server is busy and unable to keep up with requests, leading to timeouts. Check the **Redis Server Load** metric on your cache by selecting **Monitor** from the Resource menu on the left. You can Redis Server Load graph in the working pane.
 
 Following are some common reasons for high server load.
 
@@ -38,13 +39,13 @@ Scaling operations are CPU and memory intensive as it could involve moving data 
 
 ### Server maintenance
 
-If your Azure Cache for Redis underwent a failover, all client connections from the node that went down are transferred to the node that is still running. The server load could see a spike because of the increased connections. You can try rebooting your client applications so that all the client connections get recreated and redistributed among the two nodes.
+If your Azure Cache for Redis underwent a failover, all client connections from the node that went down are transferred to the node that is still running. The server load could spike because of the increased connections. You can try rebooting your client applications so that all the client connections get recreated and redistributed among the two nodes.
 
 ## High server load mitigation
 
 ### Add more shards
 
-Scale out to add more shards, so that load is distributed across multiple Redis processes. Also, consider scaling up to a larger cache size with more CPU cores. For more information, see . [Azure Cache for Redis planning FAQs](cache-planning-faq.yml).
+Scale out to add more shards, so that load is distributed across multiple Redis processes. Also, consider scaling up to a larger cache size with more CPU cores. For more information, see [Azure Cache for Redis planning FAQs](cache-planning-faq.yml).
 
 ### Create alerts
 
