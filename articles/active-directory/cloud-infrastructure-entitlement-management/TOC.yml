@@ -35,16 +35,32 @@
       href: cloudknox-product-dashboard.md
     - name: CloudKnox FortSentry registration
       href: cloudknox-fortsentry-registration.md
-  - name: How to
+  - name: How-to guides
     expanded: true
     items:
-    - name: Configure an IDP to enable the SAML log in process
+    - name: Configure an IDP to enable the SAML login process
       href: cloudknox-idp-for-saml-login.md
     - name: Configure and reconfigure Sentry for VCenter
       href: cloudknox-vcenter-sentry-config-modification.md
     - name: The CloudKnox dashboard
-    - name: GSuite integration for GCP Sentry configuration
+    - name: G Suite integration for GCP Sentry configuration
       href: cloudknox-gsuite-integration-gcp-sentry.md
+    - name: Create custom queries
+      href: cloudknox-howto-create-custom-queries.md
+    - name: Generate custom reports
+      href: cloudknox-howto-generate-custom-reports.md
+    - name: Attach and detach permissions for users, roles, and resources
+      href: cloudknox-howto-attach-detach-permissions.md
+    - name: Create a role/policy
+      href: cloudknox-howto-create-role-policy.md
+    - name: Create or approve a request for privileges 
+      href: cloudknox-howto-create-approve-privilege-request.md
+    - name: Create group-based permissions
+      href: cloudknox-howto-create-group-based-permissions.md
+    - name: Analyze usage for an identity, a task, or an authorization system
+      href: cloudknox-howto-analyze-usage.md
+    - name: Create an alert trigger
+      href: cloudknox-howto-create-alert-trigger.md
   - name: Dashboards
     expanded: true
     items:
@@ -96,19 +112,6 @@
       href: cloudknox-product-reports.md
     - name: The Permissions Analytics report
       href: cloudknox-product-permissions-analytics-reports.md
-  - name: How-to guides
-    expanded: true
-    items:
-    - name: Create custom queries
-      href: cloudknox-howto-create-custom-queries.md
-    - name: Generate custom reports
-      href: cloudknox-howto-generate-custom-reports.md
-    - name: Attach and detach permissions for users, roles, and resources
-      href: cloudknox-howto-attach-detach-permissions.md
-    - name: Create a role/policy
-      href: cloudknox-howto-create-role-policy.md
-    - name: Create or approve a request for privileges 
-      href: cloudknox-howto-create-approve-privilege-request.md
   #- name: Compliance
     #expanded: true
     #items:
