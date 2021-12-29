@@ -7,6 +7,7 @@ ms.assetid:
 ms.topic: reference
 ms.date: 12/17/2020
 ms.author: cachai
+ms.devlang: csharp, java, javascript, python
 ms.custom: 
 ---
 

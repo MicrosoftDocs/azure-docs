@@ -3,6 +3,7 @@ title: Improve throughput performance of Python apps in Azure Functions
 description: Learn how to develop Azure Functions apps using Python that are highly performant and scale well under load. 
 ms.topic: article
 ms.date: 10/13/2020
+ms.devlang: python
 ms.custom: devx-track-python
 ---
 # Improve throughput performance of Python apps in Azure Functions
