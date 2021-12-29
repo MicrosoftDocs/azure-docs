@@ -47,6 +47,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 |Enable on-premises multi-factor authentication solutions.| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Support smartcard authentication for my users.<sup>4</sup>| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 |Display password expiry notifications in the Office Portal and on the Windows 10 desktop.| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
+|Using Hybrid Joined devices in combination with non-routable UPNs.<sup>5</sup>| | |![Recommended](./media/whatis-hybrid-identity/ic195031.png)| 
 
 > <sup>1</sup> Password hash synchronization with single sign-on. 
 > 
@@ -56,6 +57,7 @@ Here are some common hybrid identity and access management scenarios with recomm
 >  
 > <sup>4</sup> AD FS can be integrated with your enterprise PKI to allow sign-in using certificates. These certificates can be soft-certificates deployed via trusted provisioning channels such as MDM or GPO or smartcard certificates (including PIV/CAC cards) or Hello for Business (cert-trust). For more information about smartcard authentication support, see [this blog](/archive/blogs/samueld/adfs-certauth-aad-o365). 
 > 
+> <sup>5</sup> Sometimes, your on-premises AD users UPNs could be different from your Azure AD UPNs. In such cases, Windows 10 Hybrid Azure AD join provides limited support for on-premises AD UPNs based on the authentication method, domain type and Windows 10 version. See the [planning section of Hybrid Azure AD join](https://docs.microsoft.com/en-us/azure/active-directory/devices/hybrid-azuread-join-plan#review-on-premises-ad-users-upn-support-for-hybrid-azure-ad-join). 
 
 ## License requirements for using Azure AD Connect
 
