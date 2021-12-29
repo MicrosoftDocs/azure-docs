@@ -250,8 +250,137 @@ C:\Users\kaanan\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-m
 }
 ```
 
-4. **(Optional) PUT expressRouteCrossConnection to configure Microsoft and/or Private Peering:** If you manage layer-3 BGP connectivity, you can enable Microsoft and/or Private Peering.
+4. **(Optional) PUT expressRouteCrossConnection to configure Private Peering** If you manage layer-3 BGP connectivity, you can enable Private Peering
 
+```PUT /subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/AzurePrivatePeering?api-version=2018-02-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer eyJ0eXAiOiJKV...
+User-Agent: ARMClient/1.2.0.0
+Accept: application/json
+x-ms-request-id: 9c1413a5-6d27-4e87-b075-1fedb15d63a3
+
+{
+  "properties": {
+    "peeringType": "AzurePrivatePeering",
+    "peerASN": 500,
+    "primaryPeerAddressPrefix": "10.0.0.0/30",
+    "secondaryPeerAddressPrefix": "10.0.0.4/30",
+    "sharedKey": "A1B2C3D4",
+    "vlanId": 200
+  },
+  "name": "AzurePrivatePeering"
+}
+---------- Response (2354 ms) ------------
+
+HTTP/1.1 201 Created
+Pragma: no-cache
+Retry-After: 10
+x-ms-request-id: 344eccc8-2958-4958-aa6f-3958f3fd5648
+Azure-AsyncOperation: https://management.azure.com/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/providers/Microsoft.Network/locations/eastus2euap/operations/344eccc8-2958-4958-aa6f-3958f3fd5648?api-version=2018-02-01
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Cache-Control: no-cache
+Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
+x-ms-ratelimit-remaining-subscription-writes: 1199
+x-ms-correlation-request-id: b5d08e36-339c-423a-ac2c-b6ec2063c8a6
+x-ms-routing-request-id: WESTUS:20180501T194026Z:b5d08e36-339c-423a-ac2c-b6ec2063c8a6
+X-Content-Type-Options: nosniff
+Date: Tue, 01 May 2018 19:40:26 GMT
+
+{
+  "name": "AzurePrivatePeering",
+  "id": "/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/AzurePrivatePeering",
+  "properties": {
+    "provisioningState": "Updating",
+    "peeringType": "AzurePrivatePeering",
+    "azureASN": 0,
+    "peerASN": 500,
+    "primaryPeerAddressPrefix": "10.0.0.0/30",
+    "secondaryPeerAddressPrefix": "10.0.0.4/30",
+    "sharedKey": "A1B2C3D4",
+    "state": "Disabled",
+    "vlanId": 200,
+    "lastModifiedBy": ""
+  }
+}
+
+C:\Users\kaanan\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/providers/Microsoft.Network/locations/eastus2euap/operations/344eccc8-2958-4958-aa6f-3958f3fd5648?api-version=2018-02-01
+{
+  "status": "Succeeded"
+}
+```
+
+5. **(Optional) PUT expressRouteCrossConnection to configure Microsoft Peering** If you manage layer-3 BGP connectivity, you can enable Microsoft Peering
+
+```PUT /subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/MicrosoftPeering?api-version=2018-02-01 HTTP/1.1
+Host: management.azure.com
+Authorization: Bearer eyJ0eXAiOiJKV...
+User-Agent: ARMClient/1.2.0.0
+Accept: application/json
+x-ms-request-id: af4527eb-7b68-4a50-b953-c0606524d8f3
+
+{
+  "properties": {
+    "peeringType": "MicrosoftPeering",
+    "peerASN": 900,
+    "primaryPeerAddressPrefix": "123.0.0.0/30",
+    "secondaryPeerAddressPrefix": "123.0.0.4/30",
+    "vlanId": 300,
+    "microsoftPeeringConfig": {
+      "advertisedPublicPrefixes": [
+        "123.1.0.0/24"
+      ],
+      "customerASN": 45,
+      "routingRegistryName": "ARIN"
+    }
+  },
+  "name": "MicrosoftPeering"
+}
+---------- Response (2530 ms) ------------
+
+HTTP/1.1 201 Created
+Pragma: no-cache
+Retry-After: 10
+x-ms-request-id: e3aa0bbd-4709-4092-a1f1-aa78080929d0
+Azure-AsyncOperation: https://management.azure.com/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/providers/Microsoft.Network/locations/eastus2euap/operations/e3aa0bbd-4709-4092-a1f1-aa78080929d0?api-version=2018-02-01
+Strict-Transport-Security: max-age=31536000; includeSubDomains
+Cache-Control: no-cache
+Server: Microsoft-HTTPAPI/2.0; Microsoft-HTTPAPI/2.0
+x-ms-ratelimit-remaining-subscription-writes: 1199
+x-ms-correlation-request-id: 8e26bc5d-f1cd-4305-a373-860aaf7bb694
+x-ms-routing-request-id: WESTUS:20180501T213857Z:8e26bc5d-f1cd-4305-a373-860aaf7bb694
+X-Content-Type-Options: nosniff
+Date: Tue, 01 May 2018 21:38:56 GMT
+
+{
+  "name": "MicrosoftPeering",
+  "id": "/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/resourceGroups/CrossConnection-EUAPTest/providers/Microsoft.Network/expressRouteCrossConnections/9ee700ad-50b2-4b98-a63a-4e52f855ac24/peerings/MicrosoftPeering",
+  "properties": {
+    "provisioningState": "Updating",
+    "peeringType": "MicrosoftPeering",
+    "azureASN": 0,
+    "peerASN": 900,
+    "primaryPeerAddressPrefix": "123.0.0.0/30",
+    "secondaryPeerAddressPrefix": "123.0.0.4/30",
+    "state": "Disabled",
+    "vlanId": 300,
+    "lastModifiedBy": "",
+    "microsoftPeeringConfig": {
+      "advertisedPublicPrefixes": [
+        "123.1.0.0/24"
+      ],
+      "advertisedPublicPrefixesState": "NotConfigured",
+      "customerASN": 45,
+      "legacyMode": 0,
+      "routingRegistryName": "ARIN"
+    }
+  }
+}
+
+C:\Users\kaanan\Documents\Expressroute\Partner APIs\ARMClient-master\ARMClient-master>armclient get https://management.azure.com/subscriptions/8030cec9-2c0c-4361-9949-1655c6e4b0fa/providers/Microsoft.Network/locations/eastus2euap/operations/e3aa0bbd-4709-4092-a1f1-aa78080929d0?api-version=2018-02-01
+{
+  "status": "Succeeded"
+}
+```
 ## REST API
 
 See [ExpressRoute CrossConnections REST API](/rest/api/expressroute/expressroutecrossconnections) for REST API documentation.
