@@ -83,6 +83,9 @@ After geo-replication is configured, the following restrictions apply to your li
     :::image type="content" source="media/cache-how-to-geo-replication/cache-geo-location-link-successful.png" alt-text="Cache status":::
 
     The primary linked cache remains available for use during the linking process. The secondary linked cache isn't available until the linking process completes.
+    
+> [!NOTE]
+> Geo-replication can be enabled for this cache if you scale it to 'Premium' pricing tier and disable data persistence. This feature is not available at this time when using extra replicas.
 
 ## Remove a geo-replication link
 
