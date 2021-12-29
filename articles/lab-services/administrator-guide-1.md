@@ -138,7 +138,7 @@ In the proceeding table, we used some terms and tokens in the suggested name pat
 
 For more information about naming other Azure resources, see [Naming conventions for Azure resources](/azure/architecture/best-practices/naming-conventions).
 
-## Regions\locations
+## Regions/locations
 
 When you set up your Azure Lab Services resources, you're required to provide a region or location of the datacenter that will host the resources. The next sections describe how a region or location might affect each resource that's involved with setting up a lab.
 

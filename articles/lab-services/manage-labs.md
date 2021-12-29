@@ -9,7 +9,7 @@ ms.date: 11/12/2021
 
 This article shows you how a lab plan owner or administrator can view all the labs and delete labs associated with a lab plan.
 
-Lab plans and labs are sibling resources contained in a resource group. Administrators can use existing tools in the Azure Portal to manage labs.
+Lab plans and labs are sibling resources contained in a resource group. Administrators can use existing tools in the Azure portal to manage labs.
 
 ## View labs
 
