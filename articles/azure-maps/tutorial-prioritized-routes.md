@@ -13,7 +13,9 @@ ms.custom: mvc, devx-track-js
 
 # Tutorial: Find and display routes for different modes of travel using Azure Maps
 
-This tutorial shows you how to use the Azure Maps [Route service](/rest/api/maps/route) and [Map control](./how-to-use-map-control.md) to display route directions for both private vehicles and commercial vehicles (trucks) with `USHazmatClass2` cargo type . In addition, we'll walk you through how to visualize real-time traffic data on a map. In this tutorial, you learn how to:
+This tutorial shows you how to use the Azure Maps [Route service](/rest/api/maps/route) and [Map control](./how-to-use-map-control.md) to display route directions for both private vehicles and commercial vehicles (trucks) with `USHazmatClass2` cargo type.
+
+In this tutorial, you learn how to:
 
 > [!div class="checklist"]
 >
@@ -81,7 +83,7 @@ The following steps show you how to create and display the Map control in a web 
 
    * The HTML header includes CSS and JavaScript resource files that are hosted by the Azure Map Control library.
    * The `onload` event in the body of the page calls the `GetMap` function when the body of the page has loaded.
-   * The `GetMap` function will contain the inline JavaScript code used to access the Azure Maps APIs. It is added in the next step.
+   * The `GetMap` function will contain the inline JavaScript code used to access the Azure Maps API.
 
 3. Next, add the following JavaScript code to the `GetMap` function, just beneath the code added in the last step. This code creates a map control and initializes it using your Azure Maps primary subscription keys that you provide. Make sure and replace the string `<Your Azure Maps Key>` with the Azure Maps primary key that you copied from your Maps account.
 
@@ -104,11 +106,11 @@ The following steps show you how to create and display the Map control in a web 
 
 4. Save the file and open it in your browser. This will display a basic map in your browser window by calling `atlas.Map` using your Azure Maps primary subscription key.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="A screenshot showing the most basic map that you can make by calling atlas.Map using your Azure Maps primary subscription key.":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/basic-map.png" alt-text="A screenshot that shows the most basic map you can make by calling the atlas Map API, using your Azure Maps primary subscription key.":::
 
 ## Render real-time traffic data on a map
 
-1. In the `GetMap` function, after initializing the map, add the following JavaScript code. This code implements the Map control's `ready` event handler. 
+1. In the `GetMap` function, after initializing the map, add the following JavaScript code. This code implements the Map control's `ready` event handler.
 
     ```javascript
     map.events.add("ready", function() {
@@ -125,9 +127,9 @@ The following steps show you how to create and display the Map control in a web 
    * In the map `ready` event handler, the traffic flow setting on the map is set to `relative`, which is the speed of the road relative to free-flow.
    * For more traffic options, see [TrafficOptions interface](/javascript/api/azure-maps-control/atlas.trafficoptions).
 
-2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you zoom into any city, like Los Angeles, you will see that the streets display with current traffic flow data.
+2. Save the **MapTruckRoute.html** file and refresh the page in your browser. If you zoom into any city, like Los Angeles, you'll see that the streets display with current traffic flow data.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="A screenshot showing a map of Los Angeles, with the streets displaying traffic flow data.":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/traffic-map.png" alt-text="A screenshot that shows a map of Los Angeles, with the streets displaying traffic flow data.":::
 
 <a id="queryroutes"></a>
 
@@ -210,7 +212,7 @@ In this tutorial, two routes will be calculated and rendered on the map. The fir
 
 3. Save **TruckRoute.html** and refresh your browser. The map is now centered over Seattle. The blue teardrop pin marks the start point. The round blue pin marks the end point.
 
-   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="A screenshot showing a map with a route containing a blue teardrop pin marking the start point and a blue round pin marking the end point.":::
+   :::image type="content" source="./media/tutorial-prioritized-routes/pins-map.png" alt-text="A screenshot that shows a map with a route containing a blue teardrop pin marking the start point and a blue round pin marking the end point.":::
 
 <a id="multipleroutes"></a>
 
@@ -235,7 +237,7 @@ This section shows you how to use the Azure Maps Route service to get directions
 
     * The [routeURL](/javascript/api/azure-maps-rest/atlas.service.routeurl) represents a URL to Azure Maps [Route](/rest/api/maps/route) operations.
 
-2. After setting up credentials and the URL, add the following JavaScript code to construct a truck route route from the start to end points. This route is created and displayed for a truck carrying `USHazmatClass2` classed cargo.
+2. After setting up credentials and the URL, add the following JavaScript code to construct a truck route from the start to end points. This route is created and displayed for a truck carrying `USHazmatClass2` classed cargo.
 
     ```JavaScript
     //Start and end point input to the routeURL
@@ -268,7 +270,7 @@ This section shows you how to use the Azure Maps Route service to get directions
    * The route line is then extracted from the GeoJSON feature collection from the response that is extracted using the `geojson.getFeatures()` method.
    * The route line is then added to the data source.
    * Two properties are added to the truck route line: a blue stroke color `#2272B9`, and a stroke width of nine pixels.
-   * We are giving the route line an index of 0 to ensure that the truck route is rendered before any other lines in the data source. The reason is the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it.
+   * The route line is given an index of 0 to ensure that the truck route is rendered before any other lines in the data source. The reason is the truck route calculation will often be slower than a car route calculation. If the truck route line is added to the data source after the car route, it will render above it.
 
     >[!TIP]
     > To see all possible options and values for the Azure Maps Route Directions API, see [URI Parameters for Post Route Directions](/rest/api/maps/route/postroutedirections#uri-parameters).
@@ -299,10 +301,10 @@ This section shows you how to use the Azure Maps Route service to get directions
 
 4. Save the **TruckRoute.html** file and refresh your web browser. The map should now display both the truck and car routes.
 
-    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="A screenshot that displays both a private and a commercial vehicle route on a map using the Azure Route Service.":::
+    :::image type="content" source="./media/tutorial-prioritized-routes/prioritized-routes.png" alt-text="A screenshot that displays both a private as well as a commercial vehicle route on a map using the Azure Route Service.":::
 
     * The truck route is displayed using a thick blue line and the car route is displayed using a thin purple line.
-    * The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are in residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different route that does not have this restriction.
+    * The car route goes across Lake Washington via I-90, passing through tunnels beneath residential areas. Because the tunnels are in residential areas, hazardous waste cargo is restricted. The truck route, which specifies a `USHazmatClass2` cargo type, is directed to use a different route that doesn't have this restriction.
 
 * For the completed code used in this tutorial, see [truckRoute.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/truckRoute.html) on GitHub.
 * To view this sample live, see [Multiple routes by mode of travel](https://azuremapscodesamples.azurewebsites.net/?sample=Multiple%20routes%20by%20mode%20of%20travel) on the **Azure Maps Code Samples** site.
