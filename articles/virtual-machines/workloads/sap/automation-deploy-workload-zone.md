@@ -122,8 +122,6 @@ ${DEPLOYMENT_REPO_PATH}/deploy/scripts/install_workloadzone.sh                  
     --parameterfile ./DEV-${region_code}-SAP01-INFRASTRUCTURE.tfvars                  \
     --deployer_environment MGMT                                                       \
     --deployer_tfstate_key MGMT-${region_code}-DEP00-INFRASTRUCTURE.terraform.tfstate \
-    --keyvault "${key_vault}"                                                         \
-    --storageaccountname "${storage_account}"                                         \
     --subscription "${subscriptionID}"                                                \
     --spn_id "${spn_id}"                                                              \
     --spn_secret "${spn_secret}"                                                      \
