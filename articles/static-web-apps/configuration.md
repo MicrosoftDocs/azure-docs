@@ -43,8 +43,6 @@ You can define rules for one or more routes in your static web app. Route rules 
 - Rules are defined in the `routes` array, even if you only have one route.
 - Rules are evaluated in the order as they appear in the `routes` array.
 - Rule evaluation stops at the first match. A match occurs when the `route` and `method` (if specified) properties match the request. Each request can match at most one rule.
-- You have full control over custom role names.
-  - There are a few built-in role names which include [`anonymous`](./authentication-authorization.md) and [`authenticated`](./authentication-authorization.md).
 
 The routing concerns significantly overlap with authentication (identifying the user) and authorization (assigning abilities to the user) concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
@@ -367,7 +365,7 @@ For example, the following configuration shows how you can add a unique identifi
 {
   "routes": [
     {
-      "route": "/profile",
+      "route": "/profile*",
       "allowedRoles": ["authenticated"]
     },
     {
@@ -452,8 +450,8 @@ Based on the above configuration, review the following scenarios.
 
 | Requests to... | results in... |
 |--|--|
-| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are redirected to _/login_. |
-| _/admin_, _/admin/_, or _/admin/index.html_ | Authenticated users in the _administrator_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrator_ role are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_ by the `401` response override rule. |
+| _/profile_ | Authenticated users are served the _/profile/index.html_ file. Unauthenticated users are redirected to _/login_ by the `401` response override rule. |
+| _/admin_, _/admin/_, or _/admin/index.html_ | Authenticated users in the _administrator_ role are served the _/admin/index.html_ file. Authenticated users not in the _administrator_ role are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_ |
 | _/images/logo.png_ | Serves the image with a custom cache rule where the max age is a little over 182 days (15,770,000 seconds). |
 | _/api/admin_ | `GET` requests from authenticated users in the _registeredusers_ role are sent to the API. Authenticated users not in the _registeredusers_ role and unauthenticated users are served a `401` error.<br/><br/>`POST`, `PUT`, `PATCH`, and `DELETE` requests from authenticated users in the _administrator_ role are sent to the API. Authenticated users not in the _administrator_ role and unauthenticated users are served a `401` error. |
 | _/customers/contoso_ | Authenticated users who belong to either the _administrator_ or _customers_contoso_ roles are served the _/customers/contoso/index.html_ file. Authenticated users not in the _administrator_ or _customers_contoso_ roles are served a `403` error<sup>1</sup>. Unauthenticated users are redirected to _/login_. |
