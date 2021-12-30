@@ -16,13 +16,20 @@ The Codeless Connector Platform (CCP) provides partners, advanced users, and dev
 
 Connectors created using CCP are fully SaaS, without any requirements for service installations, and also include health monitoring and full support from Microsoft Sentinel.
 
-This article describes the syntax used in the JSON configuration file that defines how your connector works, and procedures for deploying your connector via API, an ARM template, or a Microsoft Sentinel solution.
+Create your data connector by defining the JSON configuration file, with settings for how the data connector page in Microsoft Sentinel looks and works and polling settings that define how the connection works between Microsoft Sentinel and your data source.
 
-## Define your connector JSON configuration
+**Use the following steps to create your connector's JSON configuration file**:
 
-A codeless connector JSON configuration file defines both the user interface displayed for the connector in Microsoft Sentinel, and the back-end polling connection between Microsoft Sentinel and your data source.
+> [!div class="checklist"]
+> * Configure the connector's user interface
+> * Configure the connector's polling settings
+> * Connect from Microsoft Sentinel to your data source to start ingesting data
 
-The following sample shows the basic syntax of the JSON configuration file:
+This article describes the syntax used in the CCP JSON configuration file and procedures for deploying your connector via API, an ARM template, or a Microsoft Sentinel solution.
+
+## Connector JSON configuration syntax
+
+The following sample shows the basic syntax of the CCP JSON configuration file:
 
 ```json
 {
