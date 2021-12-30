@@ -5,7 +5,7 @@ author: TerryLanfear
 ms.author: terrylan
 ms.service: security
 ms.topic: reference
-ms.date: 12/14/2021
+ms.date: 12/30/2021
 ---
 
 # Cloud feature availability for commercial and US Government customers
@@ -249,6 +249,7 @@ The following tables display the current Microsoft Sentinel feature availability
 | - [Azure Active Directory](../../sentinel/connect-azure-active-directory.md) | GA | GA |
 | - [Azure ADIP](../../sentinel/data-connectors-reference.md#azure-active-directory-identity-protection) | GA | GA |
 | - [Azure DDoS Protection](../../sentinel/data-connectors-reference.md#azure-ddos-protection) | GA | GA |
+| - [Azure Purview](../../sentinel/data-connectors-reference.md#azure-purview) | Public Preview | Not Available |
 | - [Microsoft Defender for Cloud](../../sentinel/connect-azure-security-center.md) | GA | GA |
 | - [Microsoft Defender for IoT](../../sentinel/data-connectors-reference.md#microsoft-defender-for-iot) | Public Preview | Not Available |
 | - [Microsoft Insider Risk Management](/azure/sentinel/sentinel-solutions-catalog#domain-solutions) | Public Preview | Not Available |
