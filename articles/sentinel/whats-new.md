@@ -27,6 +27,12 @@ If you're looking for items older than six months, you'll find them in the [Arch
 >
 > You can also contribute! Join us in the [Microsoft Sentinel Threat Hunters GitHub community](https://github.com/Azure/Azure-Sentinel/wiki).
 
+## January 2021
+
+- [Data connector and out-of-the-box solution for Azure Purview](#data-connector-and-out-of-the-box-solution-for-azure-purview)
+
+### Data connector and out-of-the-box solution for Azure Purview
+
 ## December 2021
 
 - [IoT OT Threat Monitoring with Defender for IoT solution](#iot-ot-threat-monitoring-with-defender-for-iot-solution-public-preview)
