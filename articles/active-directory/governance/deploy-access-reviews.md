@@ -417,7 +417,7 @@ Popular access reviews tasks to automate by using the Microsoft Graph API for ac
 * Collect decisions from an access review.
 * Collect decisions from completed reviews where the reviewer made a different decision than what the system recommended.
 
-When you create new Microsoft Graph API queries for automation, use the [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer). You can build and explore your Microsoft Graph queries before you put them into scripts and code. This step can help you to quickly iterate your query so that you get exactly the results you're looking for, without changing the code of your script.
+When you create new Microsoft Graph API queries for automation, use [Graph Explorer](https://developer.microsoft.com/en-us/graph/graph-explorer) to build and explore your Microsoft Graph queries before you put them into scripts and code. This step can help you to quickly iterate your query so that you get exactly the results you're looking for, without changing the code of your script.
 
 ## Monitor access reviews
 
