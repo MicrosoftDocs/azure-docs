@@ -1,7 +1,7 @@
 ---
 title: Defender for IoT installation
 description: Learn how to install a sensor and the on-premises management console for Microsoft Defender for IoT.
-ms.date: 12/29/2021
+ms.date: 12/30/2021
 ms.topic: how-to
 ---
 
@@ -309,9 +309,9 @@ This section describes the HPE ProLiant DL20 installation process, which include
 
 Use the following procedure to set up network options and update the default password.
 
-To enable and update the password:
+**To enable, and update the password**:
 
-1. Connect a screen and a keyboard to the HP appliance, turn on the appliance, and press **F9**.
+1. Connect a screen, and a keyboard to the HP appliance, turn on the appliance, and press **F9**.
 
     :::image type="content" source="media/tutorial-install-components/hpe-proliant-screen-v2.png" alt-text="Screenshot that shows the HPE ProLiant window.":::
 
@@ -335,7 +335,7 @@ To enable and update the password:
 
 ### Configure the HPE BIOS
 
-The following procedure describes how to configure the HPE BIOS for the enterprise and SMB appliances.
+The following procedure describes how to configure the HPE BIOS for the enterprise, and SMB appliances.
 
 **To configure the HPE BIOS**:
 
@@ -393,30 +393,7 @@ To install the software:
 
 1. Start the appliance.
 
-1. Select **English**.
-
-    :::image type="content" source="media/tutorial-install-components/select-english-screen.png" alt-text="Selection of English in the CLI window.":::
-
-1. Select **SENSOR-RELEASE-\<version> Enterprise**.
-
-    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot of the screen for selecting a version.":::
-
-1. In the Installation Wizard define the hardware profile and network properties:
-
-    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
-
-    | Parameter | Configuration |
-    | ----------| ------------- |
-    | **Hardware profile** | Select **Enterprise** or **Office** for SMB deployments. |
-    | **Management interface** | **eno2** |
-    | **Default network parameters (usually the parameters are provided by the customer)** | **management network IP address:** <br/> <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
-    | **input interfaces:** | The system generates the list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator: **eno5, eno3, eno1, eno6, eno4**<br/><br/>**For HPE DL20: Do not list eno1, enp1s0f4u4 (iLo interfaces)**<br/><br/>**BRIDGE**: There's no need to configure the bridge interface. This option is used for special use cases only. Press **Enter** to continue. |
-
-1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **Support** user.
-
-1. Save the appliance's ID and passwords. You'll need the credentials to access the platform for the first time.
-
-1. Select **Enter** to continue.
+1. Follow the software installation instructions located [here](#install-the-software).
 
 ## HPE ProLiant DL360 installation
 
@@ -451,7 +428,7 @@ The enterprise configuration is identical.
 
 This procedure describes the iLO installation from a virtual drive.
 
-To install:
+**To perform the iLO installation from a virtual drive**:
 
 1. Sign in to the iLO console, and then right-click the servers' screen.
 
@@ -465,42 +442,19 @@ To install:
 
 1. Go to the left icon, select **Power**, and the select **Reset**.
 
-1. The appliance will restart and run the sensor installation process.
+1. The appliance will restart, and run the sensor installation process.
 
 ### Software installation (HPE DL360)
 
 The installation process takes about 20 minutes. After the installation, the system is restarted several times.
 
-To install:
+**To install the software**:
 
-1. Connect the screen and keyboard to the appliance, and then connect to the CLI.
+1. Connect a screen, and keyboard to the appliance, and then connect to the CLI.
 
 1. Connect an external CD or disk on a key with the ISO image that you downloaded from the **Updates** page of Defender for IoT in the Azure portal.
 
-1. Start the appliance.
-
-1. Select **English**.
-
-1. Select **SENSOR-RELEASE-\<version> Enterprise**.
-
-    :::image type="content" source="media/tutorial-install-components/sensor-version-select-screen-v2.png" alt-text="Screenshot that shows selecting the version.":::
-
-1. In the Installation Wizard, define the appliance profile and network properties.
-
-    :::image type="content" source="media/tutorial-install-components/installation-wizard-screen-v2.png" alt-text="Screenshot that shows the Installation Wizard.":::
-
-    | Parameter | Configuration |
-    | ----------| ------------- |
-    | **Hardware profile** | Select **corporate**. |
-    | **Management interface** | **eno2** |
-    | **Default network parameters (provided by the customer)** | **management network IP address:** <br> **subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**the default gateway IP address:**|
-    | **input interfaces:**  | The system generates a list of input interfaces for you.<br/><br/>To mirror the input interfaces, copy all the items presented in the list with a comma separator.<br/><br/> You do not need to configure the bridge interface. This option is used for special use cases only. |
-
-1. After about 10 minutes, the two sets of credentials appear. One is for a **CyberX** user, and one is for a **support** user.
-
-1. Save the appliance's ID and passwords. You'll need these credentials to access the platform for the first time.
-
-1. Select **Enter** to continue.
+1. Follow the software installation instructions located [here](#install-the-software).
 
 ## HP EdgeLine 300 installation
 
@@ -516,7 +470,7 @@ To install:
 
 1. Enter the iSM IP Address into your web browser.
 
-1. Sign in using the default username and password found on your appliance.
+1. Sign in using the default username, and password found on your appliance.
 
 1. Navigate to **Wired and Wireless Network** > **IPV4**
 
@@ -531,7 +485,7 @@ To install:
 
 1. Select **Apply**.
 
-1. Sign out and reboot the appliance.
+1. Sign out, and reboot the appliance.
 
 ### Configure the BIOS
 
@@ -539,7 +493,7 @@ The following procedure describes how to configure the BIOS for HP EL300 applian
 
 **To configure the BIOS**:
 
-1. Turn on the appliance and push **F9** to enter the BIOS.
+1. Turn on the appliance, and push **F9** to enter the BIOS.
 
 1. Select **Advanced**, and scroll down to **CSM Support**.
 
@@ -547,9 +501,9 @@ The following procedure describes how to configure the BIOS for HP EL300 applian
 
 1. Push **Enter** to enable CSM Support.
 
-1. Navigate to **Storage** and push **+/-** to change it to Legacy.
+1. Navigate to Storage, and push **+/-** to change it to Legacy.
 
-1. Navigate to **Video** and push **+/-** to change it to Legacy.
+1. Navigate to Video, and push **+/-** to change it to Legacy.
 
     :::image type="content" source="media/tutorial-install-components/storage-and-video.png" alt-text="Navigate to storage and video and change them to Legacy.":::
 
@@ -571,28 +525,7 @@ The following procedure describes how to configure the BIOS for HP EL300 applian
 
 1. Select the device with the sensor image. Either **DVD** or **USB**.
 
-1. Select your language.
-
-1. Select **sensor-10.0.3.12-62a2a3f724 Office: 4 CPUS, 8GB RAM, 100GB STORAGE**.
-
-    :::image type="content" source="media/tutorial-install-components/sensor-select-screen.png" alt-text="Select the sensor version as shown.":::
-
-1. In the Installation Wizard, define the appliance profile, and network properties:
-
-    :::image type="content" source="media/tutorial-install-components/appliance-parameters.png" alt-text="Define the appliance's profile and network configurations with the following parameters.":::
-
-    | Parameter | Configuration |
-    |--|--|
-    | **configure hardware profile** | **office** |
-    | **configure management network interface** | **enp3s0** <br /> or <br />**possible value** |
-    | **configure management network IP address:** | **IP address provided by the customer** |
-    | **configure subnet mask:** | **IP address provided by the customer** |
-    | **configure DNS:** | **IP address provided by the customer** |
-    | **configure default gateway IP address:** | **IP address provided by the customer** |
-    | **configure input interface(s)** | **enp4s0** <br /> or <br />**possible value** |
-    | **configure bridge interface(s)** | N/A |
-
-1. Accept the settings and continue by entering `Y`.
+1. Follow the software installation instructions located [here](#install-the-software).
 
 ## Sensor installation for the virtual appliance
 
@@ -618,15 +551,19 @@ Make sure the hypervisor is running.
 
 ### Create the virtual machine (ESXi)
 
+This procedure describes how to create a virtual machine by using ESXi.
+
+**To create the virtual machine using ESXi**:
+
 1. Sign in to the ESXi, choose the relevant **datastore**, and select **Datastore Browser**.
 
-1. **Upload** the image and select **Close**.
+1. Select **Upload**, to upload the image, and select **Close**.
 
-1. Go to **Virtual Machines**, and then select **Create/Register VM**.
+1. Navigate to VM, and then select **Create/Register VM**.
 
 1. Select **Create new virtual machine**, and then select **Next**.
 
-1. Add a sensor name and choose:
+1. Add a sensor name, and select the following options:
 
    - Compatibility: **&lt;latest ESXi version&gt;**
 
@@ -648,7 +585,7 @@ Make sure the hypervisor is running.
 
 This procedure describes how to create a virtual machine by using Hyper-V.
 
-To create a virtual machine:
+**To create the virtual machine using Hyper-V**:
 
 1. Create a virtual disk in Hyper-V Manager.
 
@@ -660,7 +597,7 @@ To create a virtual machine:
 
 1. Enter the required size (according to the architecture).
 
-1. Review the summary and select **Finish**.
+1. Review the summary, and select **Finish**.
 
 1. On the **Actions** menu, create a new virtual machine.
 
@@ -668,17 +605,17 @@ To create a virtual machine:
 
 1. Select **Specify Generation** > **Generation 1**.
 
-1. Specify the memory allocation (according to the architecture) and select the check box for dynamic memory.
+1. Specify the memory allocation (according to the architecture), and select the check box for dynamic memory.
 
 1. Configure the network adaptor according to your server network topology.
 
 1. Connect the VHDX created previously to the virtual machine.
 
-1. Review the summary and select **Finish**.
+1. Review the summary, and select **Finish**.
 
-1. Right-click the new virtual machine and select **Settings**.
+1. Right-click on the new virtual machine, and select **Settings**.
 
-1. Select **Add Hardware** and add a new network adapter.
+1. Select **Add Hardware**, and add a new network adapter.
 
 1. Select the virtual switch that will connect to the sensor management network.
 
@@ -698,32 +635,9 @@ To install:
 
 1. Open the virtual machine console.
 
-1. The VM will start from the ISO image, and the language selection screen will appear. Select **English**.
+1. The VM will start from the ISO image, and the language selection screen will appear.
 
-1. Select the required architecture.
-
-1. Define the appliance profile and network properties:
-
-    | Parameter | Configuration |
-    | ----------| ------------- |
-    | **Hardware profile** | &lt;required architecture&gt; |
-    | **Management interface** | **ens192** |
-    | **Network parameters (provided by the customer)** | **management network IP address:** <br/>**subnet mask:** <br/>**appliance hostname:** <br/>**DNS:** <br/>**default gateway:** <br/>**input interfaces:**|
-    | **bridge interfaces:** | There's no need to configure the bridge interface. This option is for special use cases only. |
-
-1. Enter **Y** to accept the settings.
-
-1. Sign-in credentials are automatically generated and presented. Copy the username and password in a safe place, because they're required for sign-in and administration.
-
-      - **Support**: The administrative user for user management.
-
-      - **CyberX**: The equivalent of root for accessing the appliance.
-
-1. The appliance restarts.
-
-1. Access the management console via the IP address previously configured: `https://ip_address`.
-
-    :::image type="content" source="media/tutorial-install-components/defender-for-iot-sign-in-screen.png" alt-text="Screenshot that shows access to the management console.":::
+1. Follow the software installation instructions located [here](#install-the-software).
 
 ## Install the software
 
