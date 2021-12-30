@@ -61,13 +61,15 @@ For more information about specific functionality, see [Features of Azure Cognit
 
 ## How to get started
 
-An end-to-end exploration of core search features can be achieved in four steps:
+An end-to-end exploration of core search features can be accomplished in four steps:
 
 1. [**Choose a tier**](search-sku-tier.md). One free search service is allowed per subscription. All quickstarts can be completed on the free tier. For more capacity and capabilities, you will need a [billable tier](https://azure.microsoft.com/pricing/details/search/).
 
 1. [**Create a search service**](search-create-service-portal.md) in the Azure portal.
 
 1. [**Start with Import data wizard**](search-get-started-portal.md). Choose a built-in sample data source to create, load, and query an index in minutes.
+
+1. [**Finish with Search Explorer**](search-explorer.md), using a portal client to query the search index you just created.
 
 Alternatively, you can create, load, and query a search index in separate steps:
 
