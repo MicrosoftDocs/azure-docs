@@ -234,7 +234,7 @@ Some common use cases for global headers include:
 - Encoding settings
 - Configuring cross-origin resource sharing ([CORS](https://developer.mozilla.org/docs/Web/HTTP/CORS))
 
-The following is an example of how to implement a custom CORS configuration.
+The following example implements a custom CORS configuration.
 
 ```json
 {
@@ -255,7 +255,7 @@ The following HTTP codes are available to override:
 |--|--|--|
 | [400](https://developer.mozilla.org/docs/Web/HTTP/Status/400) | Bad request | Invalid invitation link |
 | [401](https://developer.mozilla.org/docs/Web/HTTP/Status/401) | Unauthorized | Request to restricted pages while unauthenticated |
-| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden | <ul><li>User is logged in but doesn't have the roles required to view the page.<li>User is logged in but the runtime cannot get the user details from their identity claims.<li>There are too many users logged in to the site with custom roles, therefore the runtime can't login the user.</ul> |
+| [403](https://developer.mozilla.org/docs/Web/HTTP/Status/403) | Forbidden | <ul><li>User is logged in but doesn't have the roles required to view the page.<li>User is logged in but the runtime cannot get the user details from their identity claims.<li>There are too many users logged in to the site with custom roles, therefore the runtime can't log in the user.</ul> |
 | [404](https://developer.mozilla.org/docs/Web/HTTP/Status/404) | Not found | File not found |
 
 The following example configuration demonstrates how to override an error code.
@@ -287,7 +287,7 @@ The `networking` section controls the network configuration of your static web a
 > [!NOTE]
 > Networking configuration is only available in the Azure Static Web Apps Standard plan.
 
-Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Each IPv4 address block can denote either a public or private address space. If you only want to allow access from a single IP Address you can use the `/32` CIDR block.
+Define each IPv4 address block in Classless Inter-Domain Routing (CIDR) notation. To learn more about CIDR notation, see [Classless Inter-Domain Routing](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing). Each IPv4 address block can denote either a public or private address space. If you only want to allow access from a single IP Address, you can use the `/32` CIDR block.
 
 ```json
 {
