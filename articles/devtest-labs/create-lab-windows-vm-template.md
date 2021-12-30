@@ -3,12 +3,12 @@ title: Create a lab in Azure DevTest Labs by using an Azure Resource Manager tem
 description: Use an Azure Resource Manager (ARM) template to create a lab that has a virtual machine in Azure DevTest Labs.
 ms.topic: quickstart
 ms.custom: subject-armqs, mode-arm
-ms.date: 12/21/2021
+ms.date: 01/03/2022
 ---
 
 # Quickstart: Use an ARM template to create a lab in DevTest Labs
 
-This quickstart uses an Azure Resource Manager (ARM) template to create a lab that has one Windows Server 2019 Datacenter virtual machine (VM) in Azure DevTest Labs.
+This quickstart uses an Azure Resource Manager (ARM) template to create a lab in Azure DevTest Labs that has one Windows Server 2019 Datacenter virtual machine (VM) in it.
 
 In this quickstart, you take the following actions:
 
@@ -26,7 +26,7 @@ If you don't have an Azure subscription, [create a free account](https://azure.m
 
 [!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-DevTest Labs can use ARM templates to help carry out many tasks, from creating and provisioning labs to adding users. This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template from the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab). The template defines the following resource types:
+DevTest Labs can use ARM templates for many tasks, from creating and provisioning labs to adding users. This quickstart uses the [Creates a lab with a claimed VM](https://azure.microsoft.com/resources/templates/dtl-create-lab-windows-vm-claimed) ARM template from the [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab). The template defines the following resource types:
 
 - [Microsoft.DevTestLab/labs](/azure/templates/microsoft.devtestlab/labs) creates the lab.
 - [Microsoft.DevTestLab/labs/virtualnetworks](/azure/templates/microsoft.devtestlab/labs/virtualnetworks) creates a virtual network.
@@ -34,27 +34,15 @@ DevTest Labs can use ARM templates to help carry out many tasks, from creating a
 
 :::code language="json" source="~/quickstart-templates/quickstarts/microsoft.devtestlab/dtl-create-lab-windows-vm-claimed/azuredeploy.json":::
 
-The [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab) and the [Azure Quickstart Templates public GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devtestlab) have several other DevTest Labs ARM quickstart templates you can use.
+The [Azure Quickstart Templates gallery](https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Devtestlab) and [Azure Quickstart Templates public GitHub repository](https://github.com/Azure/azure-quickstart-templates/tree/master/quickstarts/microsoft.devtestlab) have several other DevTest Labs ARM quickstart templates.
+
+The [Azure Lab Services Community public GitHub repository](https://github.com/Azure/azure-devtestlab/tree/master) also has many DevTest Labs [artifacts](https://github.com/Azure/azure-devtestlab/tree/master/Artifacts), [environments](https://github.com/Azure/azure-devtestlab/tree/master/Environments), [PowerShell scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts), and [quickstart ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) you can use or customize for your needs.
 
 ## Deploy the template
 
-Select the following **Deploy to Azure** button to sign in to the Azure portal and open the the quickstart ARM template to the lab creation screen:
+1. Select the following **Deploy to Azure** button to sign in to the Azure portal and open the quickstart ARM template:
 
-[![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
-
-Or, to deploy the quickstart template from the Azure portal:
-
-1. Sign in to the [Azure portal](https://portal.azure.com), enter *arm template* in the top search bar, and then select **Deploy a custom template**.
-
-1. On the **Custom deployment** screen, make sure **Quickstart template** is selected, and select the dropdown arrow next to **Quickstart template (disclaimer)**.
-
-1. Type *devtest* in the filter box, and then select the **dtl-create-lab-windows-vm-claimed** template from the popup list.
-
-1. Select **Select template**. You can also select **Edit template** to modify the template.
-
-   :::image type="content" source="./media/create-lab-windows-vm-template/custom-deployment.png" alt-text="Screenshot of selecting the template on the Custom deployment page.":::
-
-To create the lab and VM:
+   [![Button that deploys the ARM template to Azure.](../media/template-deployments/deploy-to-azure.svg)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3A%2F%2Fraw.githubusercontent.com%2FAzure%2Fazure-quickstart-templates%2Fmaster%2Fquickstarts%2Fmicrosoft.devtestlab%2Fdtl-create-lab-windows-vm-claimed%2Fazuredeploy.json)
 
 1. On the **Creates a lab in Azure DevTest Labs with a claimed VM** screen, complete the following items:
 
@@ -77,11 +65,11 @@ To create the lab and VM:
 
    :::image type="content" source="./media/create-lab-windows-vm-template/navigate-resource-group.png" alt-text="Screenshot that shows deployment complete and the Go to resource group button.":::
 
-1. The **Resource group** page lists the resources in the resource group, including your lab and its dependent resources like virtual networks and VMs. Select the **DevTest Lab** resource to go to the new lab's **Overview** page.
+1. The **Resource group** page lists the resources in the resource group, including your lab and its dependent resources like virtual networks and VMs. Select the **DevTest Lab** resource to go to the lab's **Overview** page.
 
    :::image type="content" source="./media/create-lab-windows-vm-template/resource-group-overview.png" alt-text="Screenshot of resource group overview.":::
 
-1. On your lab's **Overview** page, you can see your VM under **My virtual machines**.
+1. On the lab **Overview** page, you can see the VM under **My virtual machines**.
 
    :::image type="content" source="./media/create-lab-windows-vm-template/lab-home-page.png" alt-text="Screenshot that shows the lab Overview page with the virtual machine.":::
 
@@ -90,7 +78,7 @@ To create the lab and VM:
 
 ## Clean up resources
 
-When you're finished with these lab resources, delete them to avoid further charges. You can't delete a resource group that has a lab in it, so delete the lab first:
+When you're done using these lab resources, delete them to avoid further charges. You can't delete a resource group that has a lab in it, so delete the lab first:
 
 1. On the lab overview page, select **Delete** from the top menu.
 
