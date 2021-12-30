@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 12/28/2021
+ms.date: 12/30/2021
 ms.author: cavoeg
 ms.custom: references_regions
 ---
@@ -124,7 +124,16 @@ We support sorting by string and dateTime fields in the FHIR service. For more i
 
 ### Does the FHIR service support any terminology operations?
 
-No, Azure API for FHIR doesn't support terminology operations today. 
+No, Azure API for FHIR doesn't support terminology operations today.
+
+### What are the differences between delete types in the FHIR service? 
+
+There two basic Delete types supported within the FHIR service - [Delete](././../fhir/fhir-rest-api-capabilities.md#delete) and [Conditional delete](././../fhir/fhir-rest-api-capabilities.md#conditional-delete).
+
+
+* With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
+* With Conditional Delete,  you can pass search criteria to delete a resource one item at a time or several at a time.
+* If you passed the `hardDelete` parameter with either Delete or Conditional Delete, all the records and history are deleted and unrecoverable.
 
 ## Using the FHIR service
 

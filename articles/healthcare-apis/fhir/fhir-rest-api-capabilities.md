@@ -5,7 +5,7 @@ author: stevewohl
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: conceptual
-ms.date: 10/06/2021
+ms.date: 12/30/2021
 ms.author: cavoeg
 ---
 
@@ -13,33 +13,57 @@ ms.author: cavoeg
 
 In this article, we'll cover some of the nuances of the RESTful interactions of Azure Healthcare APIs FHIR service (hereby called the FHIR service).
 
-
 ## Conditional create/update
 
 The FHIR service supports create, conditional create, update, and conditional update as defined by the FHIR specification. One useful header in these scenarios is the [If-Match](https://www.hl7.org/fhir/http.html#concurrency) header. The `If-Match` header is used and will validate the version being updated before making the update. If the `ETag` doesn’t match the expected `ETag`, it will produce the error message *412 Precondition Failed*. 
 
-## Delete
+## Delete types
 
-[Delete](https://www.hl7.org/fhir/http.html#delete) defined by the FHIR specification requires that after deleting, subsequent non-version specific reads of a resource returns a 410 HTTP status code, and the resource is no longer found through searching. Additionally, the FHIR service enables you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true (`DELETE {server}/{resource}/{id}?hardDelete=true`). If you don't pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
+The FHIR service offers two delete types. There is [Delete](https://www.hl7.org/fhir/http.html#delete), which is also know as Hard + Soft Delete, and [Conditional Delete](https://www.hl7.org/fhir/http.html#3.1.0.7.1).
+
+## Delete (Hard + Soft Delete)
+
+Delete defined by the FHIR specification requires that after deleting a resource, subsequent non-version specific reads of a resource returns a 410 HTTP status code. Therefore, the resource is no longer found through searching. Additionally, the FHIR service enables you to fully delete (including all history) the resource. To fully delete the resource, you can pass a parameter settings `hardDelete` to true `(DELETE {{FHIR_URL}}/{resource}/{id}?hardDelete=true)`. If you don't pass this parameter or set `hardDelete` to false, the historic versions of the resource will still be available.
 
 > [!NOTE]
-> If you want to delete only the history, the FHIR service supports a custom operations, `$purge-history`, which allows you to delete the history off of a resource. 
+> If you only want to delete the history, the FHIR service supports a custom operation called `$purge-history`. This operation allows you to delete the history off of a resource.
 
-## Conditional delete
+## Conditional Delete
 
-In addition to delete, the FHIR service supports conditional delete, which allows you to pass a search criteria to delete a resource. By default, the conditional delete allows you to delete one item at a time. You can also specify the `_count` parameter to delete up to 100 items at a time. Below are some examples of using conditional delete.
+ Conditional Delete allows you to pass search criteria to delete a resource. By default, the Conditional Delete allows you to delete one item at a time. You can also specify the `_count` parameter to delete up to 100 items at a time. Below are some examples of using Conditional Delete.
 
-To delete a single item using conditional delete, you must specify search criteria that returns a single item.
+To delete a single item using Conditional Delete, you must specify search criteria that returns a single item.
 
-DELETE `https://{{hostname}}/Patient?identifier=1032704`
+`DELETE https://{{FHIR_URL}}/Patient?identifier=1032704`
 
-You can do the same search but include hardDelete=true to also delete all history.
+You can do the same search but include `hardDelete=true` to also delete all history.
 
-DELETE `https://{{hostname}}/Patient?identifier=1032704&hardDelete=true`
+`DELETE https://{{FHIR_URL}}/Patient?identifier=1032704&hardDelete=true`
 
-If you want to delete multiple resources, you can include `_count=100`, which will delete up to 100 resources that match the search criteria.
+To delete multiple resources, include `_count=100` parameter. This parameter will delete up to 100 resources that match the search criteria.
 
-DELETE `https://{{hostname}}/Patient?identifier=1032704&_count=100`
+`DELETE https://{{FHIR_URL}}/Patient?identifier=1032704&_count=100`
+ 
+## Recovery of deleted files
+
+If you don't use the hard delete parameter, then the record(s) in the FHIR service should still exist. The record(s) can be found by doing a history search on the resource and looking for the last version with data.
+ 
+If the ID of the resource that was deleted is known, use the following URL pattern:
+
+`<FHIR_URL>/<resource-type>/<resource-id>/_history`
+
+For example: `https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/123456789/_history`
+ 
+If the ID of the resource is not known, do a history search on the entire resource type:
+
+`<FHIR_URL>/<resource-type>/_history`
+
+For example: `https://myworkspace-myfhirserver.fhir.azurehealthcareapis.com/Patient/_history`
+
+After you've found the record you want to restore, use the `PUT` operation to recreate the resource with the same ID, or use the `POST` operation to make a new resource with the same information.
+ 
+> [!NOTE]
+> There is no time-based expiration for history/soft delete data. The only way to remove history/soft deleted data is with a hard delete or the purge history operation.
 
 ## Patch and Conditional Patch
 
