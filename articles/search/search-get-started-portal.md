@@ -144,27 +144,36 @@ Moving forward, you should now have a search index that's ready to query using t
 
 ## Example queries
 
-You can enter terms and phrases, similar to what you might do in a Bing or Google search, or fully-specified query expressions. Results are returned as verbose JSON documents.
+All of the queries in this section are designed for **Search Explorer** and the Hotels sample index. Results are returned as verbose JSON documents. All fields marked as "retrievable" in the index can appear in results. For more information about queries, see [Querying in Azure Cognitive Search](search-query-overview.md).
 
-### Simple query with top N results
+| Query | Description |
+|-------|-------------|
+| `search=spa` | Simple full text query with top N results. The **`search=`** parameter is used for keyword search, in this case, returning hotel data for those containing *spa* in any searchable field in the document. |
+| `search=beach &$filter=Rating gt 4` | Filtered query. In this case, ratings greater than 4. |
+| `search=spa &$select=HotelName,Description,Tags &$count=true &$top=10` | Parameterized query. The **`&`** symbol is used to append search parameters, which can be specified in any order. </br>**`$select`** parameter returns a subset of fields for more concise search results. </br>**`$count=true`** parameter returns the total count of all documents that match the query. </br>**`$top=10`** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount using this parameter. |
+| `search=* &facet=Category &$top=2` | Facet query, used to return an aggregated count of documents that match a facet value you provide. On an empty or unqualified search, all documents are represented. In the hotels index, the Category field is marked as "facetable". |
+| `search=spa &facet=Rating`| Facet on numeric values. This query is facet for rating, on a text search for "spa". The term "Rating" can be specified as a facet because the field is marked as retrievable, filterable, and facetable in the index, and its numeric values (1 through 5) are suitable for grouping results by each value.|
+| `search=beach &highlight=Description &$select=HotelName, Description, Category, Tags` | Hit highlighting. The term "beach" will be highlighted when it appears in the "Description" field. |
+| `search=seatle` followed by `search=seatle~ &queryType=full` | Fuzzy search. By default, misspelled query terms, like *seatle* for "Seattle", fail to return matches in typical search. The first example returns no results. **`queryType=full`** invokes the full Lucene query parser, which supports the `~` operand for fuzzy search. |
+| `$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5 &search=* &$select=HotelName, Address/City, Address/StateProvince &$count=true` | Geospatial search. The example query filters all results for positional data, where results are less than 5 kilometers from a given point as specified by latitude and longitude coordinates (this example uses Redmond, Washington as the point of origin). |
 
-#### Example (string query): `search=spa`
+<!-- ### Simple query with top N results: `search=spa`
 
 + The **search** parameter is used to input a keyword search for full text search, in this case, returning hotel data for those containing *spa* in any searchable field in the document.
 
 + **Search explorer** returns results in JSON, which is verbose and hard to read if documents have a dense structure. This is intentional; visibility into the entire document is important for development purposes, especially during testing. For a better user experience, you will need to write code that [handles search results](search-pagination-page-layout.md) to bring out important elements.
 
-+ Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *hotels-sample* in the **Indexes** list.
++ Documents are composed of all fields marked as "retrievable" in the index. To view index attributes in the portal, click *hotels-sample* in the **Indexes** list. -->
 
-#### Example (parameterized query): `search=spa&$count=true&$top=10`
+<!-- #### Example (parameterized query): `search=spa&$count=true&$top=10`
 
 + The **&** symbol is used to append search parameters, which can be specified in any order.
 
 + The **$count=true** parameter returns the total count of all documents returned. This value appears near the top of the search results. You can verify filter queries by monitoring changes reported by **$count=true**. Smaller counts indicate your filter is working.
 
-+ The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount via **$top**.
++ The **$top=10** returns the highest ranked 10 documents out of the total. By default, Azure Cognitive Search returns the first 50 best matches. You can increase or decrease the amount via **$top**. -->
 
-### <a name="filter-query"></a> Filter the query
+<!-- ### <a name="filter-query"></a> Filter the query
 
 Filters are included in search requests when you append the **$filter** parameter. 
 
@@ -172,9 +181,9 @@ Filters are included in search requests when you append the **$filter** paramete
 
 + The **$filter** parameter returns results matching the criteria you provided. In this case, ratings greater than 4.
 
-+ Filter syntax is an OData construction. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search).
++ Filter syntax is an OData construction. For more information, see [Filter OData syntax](/rest/api/searchservice/odata-expression-syntax-for-azure-search). -->
 
-### <a name="facet-query"></a> Facet the query
+<!-- ### <a name="facet-query"></a> Facet the query
 
 Facet filters are included in search requests. You can use the facet parameter to return an aggregated count of documents that match a facet value you provide.
 
@@ -191,8 +200,8 @@ Facet filters are included in search requests. You can use the facet parameter t
 
 + Only filterable fields can be faceted. Only retrievable fields can be returned in the results.
 
-+ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters).
-
++ The *Rating* field is double-precision floating point and the grouping will be by precise value. For more information on grouping by interval (for instance, "3 star ratings," "4 star ratings," etc.), see ["Query parameters" in the REST API](/rest/api/searchservice/search-documents#query-parameters). -->
+<!-- 
 ### <a name="highlight-query"></a> Highlight search results
 
 Hit highlighting refers to formatting on text matching the keyword, given matches are found in a specific field. If your search term is deeply buried in a description, you can add hit highlighting to make it easier to spot.
@@ -205,9 +214,9 @@ Hit highlighting refers to formatting on text matching the keyword, given matche
 
 + Full text search recognizes basic variations in word forms. In this case, search results contain highlighted text for "beach", for hotels that have that word in their searchable fields, in response to a keyword search on "beaches". Different forms of the same word can appear in results because of linguistic analysis. 
 
-+ Azure Cognitive Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Cognitive Search is the standard Lucene analyzer.
++ Azure Cognitive Search supports 56 analyzers from both Lucene and Microsoft. The default used by Azure Cognitive Search is the standard Lucene analyzer. -->
 
-### <a name="fuzzy-search"></a> Try fuzzy search
+<!-- ### <a name="fuzzy-search"></a> Try fuzzy search
 
 By default, misspelled query terms, like *seatle* for "Seattle", fail to return matches in typical search. The following example returns no results.
 
@@ -223,15 +232,15 @@ When **queryType** is unspecified, the default simple query parser is used. The 
 
 Fuzzy search and wildcard search have implications on search output. Linguistic analysis is not performed on these query formats. Before using fuzzy and wildcard search, review [How full text search works in Azure Cognitive Search](search-lucene-query-architecture.md#stage-2-lexical-analysis) and look for the section about exceptions to lexical analysis.
 
-For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Cognitive Search](/rest/api/searchservice/lucene-query-syntax-in-azure-search).
-
+For more information about query scenarios enabled by the full query parser, see [Lucene query syntax in Azure Cognitive Search](/rest/api/searchservice/lucene-query-syntax-in-azure-search). -->
+<!-- 
 ### <a name="geo-search"></a> Try geospatial search
 
 Geospatial search is enabled through the [Edm.GeographyPoint data type](/rest/api/searchservice/supported-data-types) on a field containing coordinates. Geospatial search is specified in a filter expression, using [OData geospatial functions](search-query-odata-geo-spatial-functions.md) in Azure Cognitive Search.
 
 #### Example (geo-coordinate filters): `$filter=geo.distance(Location,geography'POINT(-122.12 47.67)') le 5&search=*&$select=HotelName, Address/City, Address/StateProvince&$count=true`
 
-The example query filters all results for positional data, where results are less than 5 kilometers from a given point as specified by latitude and longitude coordinates (this example uses Redmond, Washington as the locus point). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates. Adding **$select** returns just those fields that are useful in results.
+The example query filters all results for positional data, where results are less than 5 kilometers from a given point as specified by latitude and longitude coordinates (this example uses Redmond, Washington as the locus point). By adding **$count**, you can see how many results are returned when you change either the distance or the coordinates. Adding **$select** returns just those fields that are useful in results. -->
 
 ## Takeaways
 

@@ -63,11 +63,11 @@ For more information about specific functionality, see [Features of Azure Cognit
 
 An end-to-end exploration of core search features can be achieved in four steps:
 
-1. [**Choose a tier**](search-sku-tier.md). One free search service is allowed per Azure subscription. All quickstarts and tutorials can be completed on a free service. For more capacity and capabilities, you will need to create a [billable service](https://azure.microsoft.com/pricing/details/search/).
+1. [**Choose a tier**](search-sku-tier.md). One free search service is allowed per subscription. All quickstarts can be completed on the free tier. For more capacity and capabilities, you will need a [billable tier](https://azure.microsoft.com/pricing/details/search/).
 
 1. [**Create a search service**](search-create-service-portal.md) in the Azure portal.
 
-1. [**Start with Import data wizard**](search-get-started-portal.md) for the initial exploration. Choose a built-in sample data source to create, load, and query an index in minutes.
+1. [**Start with Import data wizard**](search-get-started-portal.md). Choose a built-in sample data source to create, load, and query an index in minutes.
 
 Alternatively, you can create, load, and query a search index in separate steps:
 
@@ -77,7 +77,8 @@ Alternatively, you can create, load, and query a search index in separate steps:
 
 1. [**Query an index**](search-query-overview.md) using [Search explorer](search-explorer.md) in the portal, [REST API](search-get-started-rest.md), [.NET SDK](/dotnet/api/azure.search.documents.searchclient.search), or another SDK.
 
-For help with complex or custom solutions, [**contact a partner**](resource-partners-knowledge-mining.md) with deep expertise in Cognitive Search technology.
+> [!TIP]
+> For help with complex or custom solutions, [**contact a partner**](resource-partners-knowledge-mining.md) with deep expertise in Cognitive Search technology.
 
 ## Compare search options
 
