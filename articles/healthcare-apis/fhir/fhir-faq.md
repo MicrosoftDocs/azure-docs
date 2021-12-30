@@ -50,7 +50,7 @@ For more information, see [Supported FHIR features](fhir-features-supported.md).
 
 The FHIR service is our implementation of the FHIR specification that sits in the Azure Healthcare APIs, which allows you to have a FHIR service and a DICOM service within a single workspace. The Azure API for FHIR was our initial GA product and is still available as a stand-alone product. The main feature differences are:
 
-* The FHIR service has a limit of 4TB and is in public preview while the Azure API for FHIR supports more than 4TB and is GA.
+* The FHIR service has a limit of 4 TB and is in public preview while the Azure API for FHIR supports more than 4 TB and is GA.
 * The FHIR service support [transaction bundles](https://www.hl7.org/fhir/http.html#transaction).
 * The Azure API for FHIR has more platform features (such as private link, customer managed keys, and logging) that are not yet available in the FHIR service in the Azure Healthcare APIs. More details will follow on these features by GA.
 
@@ -62,7 +62,7 @@ When you run the FHIR Server for Azure, you have direct access to the underlying
 
 ### In which regions is the FHIR service available?
 
-We are expanding the global footprints of the Healthcare APIs continually based on customer demands and is available in multiple geo-regions.
+To fulfill our customer demands, we're expanding the global footprints of the Healthcare APIs in multiple geo-regions.
 
 ### Where can I see what is releasing into the FHIR service?
 
@@ -128,7 +128,7 @@ No, Azure API for FHIR doesn't support terminology operations today.
 
 ### What are the differences between delete types in the FHIR service? 
 
-There two basic Delete types supported within the FHIR service - [Delete](././../fhir/fhir-rest-api-capabilities.md#delete-types) and [Conditional delete](././../fhir/fhir-rest-api-capabilities.md#conditional-delete).
+There're two basic Delete types supported within the FHIR service - [Delete](././../fhir/fhir-rest-api-capabilities.md#delete-types) and [Conditional delete](././../fhir/fhir-rest-api-capabilities.md#conditional-delete).
 
 
 * With Delete, you can choose to do a soft delete (most common type) and still be able to recover historic versions of your record.
