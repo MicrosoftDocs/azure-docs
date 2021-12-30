@@ -20,7 +20,7 @@ ms.author: Thwimmer
 
 # Tutorial: Configure BIC Cloud Design for automatic user provisioning
 
-This tutorial describes the steps you need to perform in both BIC Cloud Design and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [BIC Cloud Design](https://www.gbtec.de/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
+This tutorial describes the steps you need to perform in both BIC Cloud Design and Azure Active Directory (Azure AD) to configure automatic user provisioning. When configured, Azure AD automatically provisions and de-provisions users and groups to [BIC Cloud Design](https://www.gbtec.com/) using the Azure AD Provisioning service. For important details on what this service does, how it works, and frequently asked questions, see [Automate user provisioning and deprovisioning to SaaS applications with Azure Active Directory](../app-provisioning/user-provisioning.md). 
 
 
 ## Capabilities supported
@@ -37,7 +37,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 * [An Azure AD tenant](../develop/quickstart-create-new-tenant.md). 
 * A user account in Azure AD with [permission](../roles/permissions-reference.md) to configure provisioning (for example, Application Administrator, Cloud Application administrator, Application Owner, or Global Administrator). 
-
+* BIC Cloud Design User Management API enabled subscription.
 
 ## Step 1. Plan your provisioning deployment
 1. Learn about [how the provisioning service works](../app-provisioning/user-provisioning.md).
@@ -48,7 +48,7 @@ The scenario outlined in this tutorial assumes that you already have the followi
 
 To configure BIC Cloud Design to support provisioning with Azure AD - please write an email to [BIC Cloud Design support team](mailto:bicsupport@gbtec.de).
 
-## Step 3. Add Contoso from the Azure AD application gallery
+## Step 3. Add BIC Cloud Design from the Azure AD application gallery
 
 Add BIC Cloud Design from the Azure AD application gallery to start managing provisioning to BIC Cloud Design. If you have previously setup BIC Cloud Design for SSO, you can use the same application. However it is recommended that you create a separate app when testing out the integration initially. Learn more about adding an application from the gallery [here](../manage-apps/add-application-portal.md). 
 
@@ -73,7 +73,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. In the applications list, select **BIC Cloud Design**.
 
-	![The Contoso link in the Applications list](common/all-applications.png)
+	![The BIC Cloud Design link in the Applications list](common/all-applications.png)
 
 1. Select the **Provisioning** tab.
 
@@ -97,7 +97,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Review the user attributes that are synchronized from Azure AD to BIC Cloud Design in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the user accounts in BIC Cloud Design for update operations. If you choose to change the [matching target attribute](../app-provisioning/customize-application-attributes.md), you will need to ensure that the BIC Cloud Design API supports filtering users based on that attribute. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Real Links|
+   |Attribute|Type|Supported for filtering|Required by BIC Cloud Design|
    |---|---|---|---|
     |userName|String|&check;|&check;
     |emails[type eq "work"].value|String|&check;|&check;
@@ -110,7 +110,7 @@ This section guides you through the steps to configure the Azure AD provisioning
 
 1. Review the group attributes that are synchronized from Azure AD to BIC Cloud Design in the **Attribute-Mapping** section. The attributes selected as **Matching** properties are used to match the groups in BIC Cloud Design for update operations. Select the **Save** button to commit any changes.
 
-   |Attribute|Type|Supported for filtering|Required by Real Links|
+   |Attribute|Type|Supported for filtering|Required by BIC Cloud Design|
    |---|---|---|---|
       |displayName|String|&check;|&check;
       |externalId|String||&check;

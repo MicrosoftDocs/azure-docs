@@ -4,14 +4,14 @@ description: Get information on prepackaged collections of logic, visualization,
 ms.topic: conceptual
 author: rboucher
 ms.author: robb
-ms.date: 10/16/2021
+ms.date: 11/21/2021
 ms.custom: devx-track-azurepowershell, devx-track-azurecli
 ---
 
 # Monitoring solutions in Azure Monitor
 
 > [!CAUTION]
-> Monitoring solutions are no longer in active development.  The replacement technology is called [Azure Monitor Insights](../monitor-reference.md). We suggest you use the insights and not deploy new instances of solutions.  
+> Many monitoring solutions are no longer in active development.  We suggest you check each solution to see if it has a replacement. We suggest you not deploy new instances of solutions that have other options, even if those solutions are still available. Many have been replaced by a [newer curated visualization or insight](/azure/azure-monitor/monitor-reference#insights-and-curated-visualizations).  
 
 Monitoring solutions in Azure Monitor provide analysis of the operation of an Azure application or service. This article gives a brief overview of monitoring solutions in Azure and details on using and installing them. 
 

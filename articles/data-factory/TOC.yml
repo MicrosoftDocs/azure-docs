@@ -224,10 +224,15 @@ items:
             href: concepts-data-flow-performance-transformations.md
           - name: Using data flows in pipelines
             href: concepts-data-flow-performance-pipelines.md
+          - name: Memory optimized compute
+            href: memory-optimized-compute.md
       - name: Integration Runtime performance
         href: concepts-integration-runtime-performance.md
       - name: Manage data flow canvas
         href: concepts-data-flow-manage-graph.md
+      - name: Flowlets
+        href: concepts-data-flow-flowlet.md
+        displayName: flowlet
       - name: Expression builder
         href: concepts-data-flow-expression-builder.md
         displayName: regex, regular expressions
@@ -276,6 +281,8 @@ items:
         href: continuous-integration-delivery-sample-script.md
     - name: Automated publishing for CI/CD
       href: continuous-integration-delivery-improvements.md
+    - name: Deploy linked ARM templates with VSTS
+      href: deploy-linked-arm-templates-with-vsts.md
   - name: Connectors
     items:
     - name: Connector overview
@@ -582,6 +589,8 @@ items:
       href: transform-data-using-machine-learning.md
     - name: Machine Learning Studio (classic) Update Resource activity
       href: update-machine-learning-models.md
+    - name: Mapping data flows
+      href: tutorial-data-flow.md      
     - name: Stored Procedure activity
       href: transform-data-using-stored-procedure.md
     - name: Compute linked services
@@ -632,6 +641,8 @@ items:
     - name: Alter row
       href: data-flow-alter-row.md
       displayName: upsert
+    - name: Assert
+      href: data-flow-assert.md
     - name: Conditional split
       href: data-flow-conditional-split.md
     - name: Derived column
@@ -639,10 +650,15 @@ items:
     - name: Exists
       href: data-flow-exists.md
       displayName: timeout
+    - name: External call
+      href: data-flow-external-call.md
     - name: Filter
       href: data-flow-filter.md
     - name: Flatten
       href: data-flow-flatten.md
+    - name: Flowlet
+      href: data-flow-flowlet.md
+      displayName: flowlet
     - name: Join
       href: data-flow-join.md
       displayName: merge, timeout
@@ -945,6 +961,8 @@ items:
       href: solution-template-move-files.md
     - name: Transformation with Azure Databricks
       href: solution-template-databricks-notebook.md
+    - name: Call Synapse pipeline with a notebook activity
+      href: solution-template-synapse-notebook.md
   - name: Understanding pricing
     items:
     - name: Data flow reserved capacity overview

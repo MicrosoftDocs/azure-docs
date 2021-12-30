@@ -4,7 +4,7 @@ description: This page describes how to retrieve data from Azure AD Connect Heal
 services: active-directory
 documentationcenter: ''
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity

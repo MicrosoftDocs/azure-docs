@@ -6,7 +6,7 @@ author: msjasteppe
 ms.service: healthcare-apis
 ms.subservice: iomt
 ms.topic: how-to
-ms.date: 11/10/2021
+ms.date: 11/22/2021
 ms.author: jasteppe
 ---
 
@@ -71,6 +71,9 @@ In this article, you'll learn how to display IoT connector Metrics in the Azure 
 5. Select the dashboard that you pinned the Metrics tile to. For this example, the dashboard is `IoT connector Metrics`. The dashboard will display the IoT connector Metrics tile that you created in the previous steps.
 
     :::image type="content" source="media\iot-metrics\iot-dashboard-with-metrics-tile-displayed.png" alt-text="Dashboard with pinned IoT connector Metrics tile." lightbox="media\iot-metrics\iot-dashboard-with-metrics-tile-displayed.png":::
+
+> [!TIP]
+> See IoT connector [troubleshooting guide](./iot-troubleshoot-guide.md) for assistance fixing common errors and issues.
 
 ## Conclusion 
 

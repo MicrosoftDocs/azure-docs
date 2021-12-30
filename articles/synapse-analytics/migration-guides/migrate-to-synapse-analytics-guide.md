@@ -6,8 +6,8 @@ ms.subservice: sql
 ms.custom: 
 ms.devlang: 
 ms.topic: conceptual
-author: julieMSFT
-ms.author: jrasnick
+author: WilliamDAssafMSFT
+ms.author: wiassaf
 ms.reviewer: jrasnick
 ms.date: 03/10/2021
 ---

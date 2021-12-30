@@ -1,12 +1,7 @@
 ---
 title: Useful resources when working with Microsoft Sentinel
 description: This document provides you with a list of useful resources when working with Microsoft Sentinel.
-services: sentinel
 author: yelevin
-manager: rkarlin
-ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: yelevin

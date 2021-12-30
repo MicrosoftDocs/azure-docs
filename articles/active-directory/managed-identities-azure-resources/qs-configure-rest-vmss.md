@@ -4,9 +4,8 @@ description: Step by step instructions for configuring a system and user-assigne
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
-
 ms.service: active-directory
 ms.subservice: msi
 ms.devlang: na
@@ -16,6 +15,7 @@ ms.workload: identity
 ms.date: 01/29/2021
 ms.author: barclayn
 ms.collection: M365-identity-device-management
+ms.custom: mode-api
 ---
 
 # Configure managed identities for Azure resources on a virtual machine scale set using REST API calls

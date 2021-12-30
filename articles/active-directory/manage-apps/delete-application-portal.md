@@ -12,7 +12,8 @@ ms.workload: identity
 ms.date: 09/22/2021
 ms.author: davidmu
 ms.reviewer: ergleenl
-# Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
+ms.custom: mode-other
+#Customer intent: As an administrator of an Azure AD tenant, I want to delete an enterprise application.
 ---
 
 # Quickstart: Delete an enterprise application

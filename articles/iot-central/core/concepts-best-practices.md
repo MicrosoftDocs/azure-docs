@@ -3,7 +3,7 @@ title: Device development best practices in Azure IoT Central | Microsoft Docs
 description: This article outlines best practices for device connectivity in Azure IoT Central
 author: dominicbetts
 ms.author: dobett
-ms.date: 03/03/2021
+ms.date: 12/22/2021
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central

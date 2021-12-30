@@ -1,14 +1,14 @@
 ---
-title:  Overview of the Connected Machine agent
+title:  Overview of the Azure Connected Machine agent
 description: This article provides a detailed overview of the Azure Arc-enabled servers agent available, which supports monitoring virtual machines hosted in hybrid environments.
 ms.date: 11/03/2021
 ms.topic: conceptual 
 ms.custom: devx-track-azurepowershell
 ---
 
-# Overview of Azure Arc-enabled servers agent
+# Overview of Azure Connected Machine agent
 
-The Azure Arc-enabled servers Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
+The Azure Connected Machine agent enables you to manage your Windows and Linux machines hosted outside of Azure on your corporate network or other cloud providers. This article provides a detailed overview of the agent, system and network requirements, and the different deployment methods.
 
 >[!NOTE]
 > The [Azure Monitor agent](../../azure-monitor/agents/azure-monitor-agent-overview.md) (AMA) does not replace the Connected Machine agent. The Azure Monitor agent will replace the Log Analytics agent, Diagnostics extension, and Telegraf agent for both Windows and Linux machines. Review the Azure Monitor documentation about the new agent for more details.
@@ -49,6 +49,10 @@ Metadata information about the connected machine is collected after the Connecte
 * Policy compliance status and details (if using guest configuration policies)
 * SQL Server installed (Boolean value)
 * Cluster resource ID (for Azure Stack HCI nodes)
+* Hardware manufacturer
+* Hardware model
+* Cloud provider
+* Amazon Web Services (AWS) account ID, instance ID and region (if running in AWS)
 
 The following metadata information is requested by the agent from Azure:
 
@@ -160,13 +164,12 @@ To ensure the security of data in transit to Azure, we strongly encourage you to
 
 ## Networking configuration
 
-The Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. If the machine needs to connect through a firewall or proxy server to communicate over the internet, the agent communicates outbound instead using the HTTP protocol. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
+The Azure Connected Machine agent for Linux and Windows communicates outbound securely to Azure Arc over TCP port 443. By default, the agent uses the default route to the internet to reach Azure services. You can optionally [configure the agent to use a proxy server](manage-agent.md#update-or-remove-proxy-settings) if your network requires it. Proxy servers don't make the Connected Machine agent more secure because the traffic is already encrypted.
 
 To further secure your network connectivity to Azure Arc, instead of using public networks and proxy servers, you can implement an [Azure Arc Private Link Scope](private-link-security.md) (preview).
 
 > [!NOTE]
 > Azure Arc-enabled servers does not support using a [Log Analytics gateway](../../azure-monitor/agents/gateway.md) as a proxy for the Connected Machine agent.
->
 
 If outbound connectivity is restricted by your firewall or proxy server, make sure the URLs listed below are not blocked. When you only allow the IP ranges or domain names required for the agent to communicate with the service, you need to allow access to the following Service Tags and URLs.
 
@@ -182,7 +185,7 @@ URLs:
 
 | Agent resource | Description |
 |---------|---------|
-|`azgn*.servicebus.windows.net`|Azure Arc Connectivity Platform|
+|`azgn*.servicebus.windows.net`|Notification service for extensions|
 |`management.azure.com`|Azure Resource Manager|
 |`login.windows.net`|Azure Active Directory|
 |`login.microsoftonline.com`|Azure Active Directory|
@@ -313,7 +316,7 @@ After installing the Connected Machine agent for Linux, the following system-wid
 
 ### Agent resource governance
 
-Azure Arc-enabled servers Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
+Azure Connected Machine agent is designed to manage agent and system resource consumption. The agent approaches resource governance under the following conditions:
 
 * The Guest Configuration agent is limited to use up to 5% of the CPU to evaluate policies.
 * The Extension Service agent is limited to use up to 5% of the CPU to install and manage extensions.

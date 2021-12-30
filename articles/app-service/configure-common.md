@@ -190,7 +190,7 @@ Here, you can configure some common settings for the app. Some settings require 
 
 - **Stack settings**: The software stack to run the app, including the language and SDK versions.
 
-    For Linux apps and custom container apps, you can select the language runtime version and set an optional **Startup command** or a startup command file.
+    For Linux apps and custom containers, you can select the language runtime version and set an optional **Startup command** or a startup command file.
 
     ![General settings for Linux containers](./media/configure-common/open-general-linux.png)
 
@@ -239,6 +239,13 @@ Handler mappings let you add custom script processors to handle requests for spe
 - **Script processor**. The absolute path of the script processor to you. Requests to files that match the file extension are processed by the script processor. Use the path `D:\home\site\wwwroot` to refer to your app's root directory.
 - **Arguments**. Optional command-line arguments for the script processor.
 
+<a name="redirect-to-custom-directory" aria-hidden="true"></a>
+
+### Redirect to a custom directory
+
+> [!NOTE]
+> By default, App Service directs web requests to the root directory of your app code. But certain web frameworks don't start in the root directory. For example, [Laravel](https://laravel.com/) starts in the `public` subdirectory. To continue the `contoso.com` DNS example, such an app is accessible at `http://contoso.com/public`, but you typically want to direct `http://contoso.com` to the `public` directory instead.
+
 Each app has the default root path (`/`) mapped to `D:\home\site\wwwroot`, where your code is deployed by default. If your app root is in a different folder, or if your repository has more than one application, you can edit or add virtual applications and directories here. 
 
 From the **Path mappings** tab, click **New virtual application or directory**. 
@@ -257,7 +264,7 @@ You can [add custom storage for your containerized app](configure-connect-to-azu
 - **Storage accounts**: The storage account with the container you want.
 - **Storage type**: **Azure Blobs** or **Azure Files**.
   > [!NOTE]
-  > Windows container apps only support Azure Files.
+  > Windows custom containers only support Azure Files.
 - **Storage container**: For basic configuration, the container you want.
 - **Share name**: For advanced configuration, the file share name.
 - **Access key**: For advanced configuration, the access key.

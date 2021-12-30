@@ -1,20 +1,12 @@
-﻿---
+---
 title: Monitor the health of your Microsoft Sentinel data connectors | Microsoft Docs
 description: Use the SentinelHealth data table and the Health Monitoring workbook to keep track of your data connectors' connectivity and performance.
-services: sentinel
-documentationcenter: na
-author: batamig
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
+author: bagol
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/02/2021
-ms.author: bagol
+ms.date: 12/30/2021
+ms.author: yelevin
+---
 
 ---
 # Monitor the health of your data connectors
@@ -84,12 +76,6 @@ Once the health feature is turned on, the *SentinelHealth* data table is created
 > To configure the retention time for your health events, see the [Log Analytics retention configuration documentation](/azure/azure-monitor/logs/manage-cost-storage).
 >
 
-<!--not sure we want to make promises about costs>
-> [!NOTE]
-> While the *SentinelHealth* table will incur costs just like other tables in your Azure Sentinel workspace, the financial aspect logging health events in the *SentinelHealth* table should be minimal given the number of events logged and the way they're generated.
->
--->
-
 ### Supported data connectors
 
 The *SentinelHealth* data table is currently supported only for the following data connectors:
@@ -137,7 +123,7 @@ The following types of health events are logged in the *SentinelHealth* table:
 
     Potentially transient errors, such as source service throttling, are logged only after they've continued for more than 60 minutes. These 60 minutes allow Azure Sentinel to overcome a transient issue in the backend and catch up with the data, without requiring any user action. Errors that are definitely not transient are logged immediately.
 
-- **Result summary**. Logged once an hour, per connector, per workspace, with aggregated summary and audit information. Result summary events contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, the number of calls the succeeded and returned, or the number of calls that returned without results, or with failures.
+- **Failure summary**. Logged once an hour, per connector, per workspace, with an aggregated failure summary. Failure summary events are created only when the connector has experienced polling errors during the given hour. They contain any extra details provided in the *ExtendedProperties* column, such as the time period for which the connector's source platform was queried, and a distinct list of failures encountered during the time period.
 
 For more information, see [SentinelHealth table columns schema](#sentinelhealth-table-columns-schema).
 
@@ -220,10 +206,10 @@ The following table describes the columns and data generated in the *SentinelHea
 | ----------------------------------------------- | -------------- | --------------------------------------------------------------------------- |
 | **TenantId**      | String         | The tenant ID for your Azure Sentinel workspace.                    |
 | **TimeGenerated** | Datetime       | The time at which the health event occurred.         |
-| <a name="operationname"></a>**OperationName** | String         | The health operation. One of the following values: <br><br>-`Data fetch status change` for health or success indications <br>- `Result summary` for aggregated health summaries. <br><br>For more information, see [Understanding SentinelHealth table events](#understanding-sentinelhealth-table-events). |
+| <a name="operationname"></a>**OperationName** | String         | The health operation. One of the following values: <br><br>-`Data fetch status change` for health or success indications <br>- `Failure summary` for aggregated health summaries. <br><br>For more information, see [Understanding SentinelHealth table events](#understanding-sentinelhealth-table-events). |
 | <a name="sentinelresourceid"></a>**SentinelResourceId**        | String         | The unique identifier of the Azure Sentinel workspace and the associated connector on which the health event occurred. |
 | **SentinelResourceName**      | String         | The data connector name.                           |
-| <a name="status"></a>**Status**        | String         | Indicates `Success` or `Failure` for the `Data fetch status change` [OperationName](#operationname), and `Informational` for the `Result summary` [OperationName](#operationname).         |
+| <a name="status"></a>**Status**        | String         | Indicates `Success` or `Failure` for the `Data fetch status change` [OperationName](#operationname), and `Informational` for the `Failure summary` [OperationName](#operationname).         |
 | **Description**   | String         | Describes the operation, including extended data as needed. For example, for failures, this column might indicate the failure reason. |
 | **WorkspaceId**   | String         | The workspace GUID on which the health issue occurred. The full Azure Resource Identifier is available in the [SentinelResourceID](#sentinelresourceid) column. |
 | **SentinelResourceType**      | String         |The Azure Sentinel resource type being monitored: `Data connector`|

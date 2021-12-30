@@ -1,12 +1,8 @@
 ---
 title: Large-scale security analytics using Microsoft Sentinel notebooks and Azure Synapse integration
 description: This article describes how run big data queries in Azure Synapse Analytics with Microsoft Sentinel notebooks.
-services: sentinel
 author: batamig
 ms.author: bagol
-ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
 ms.topic: how-to
 ms.custom: mvc, ignite-fall-2021
 ms.date: 11/09/2021
@@ -255,3 +251,4 @@ For more information, see:
 - [Use Jupyter notebooks to hunt for security threats](notebooks.md)
 - [Tutorial: Get started with Jupyter notebooks and MSTICPy in Microsoft Sentinel](notebook-get-started.md)
 - [Link Azure Synapse Analytics and Azure Machine Learning workspaces and attach Apache Spark pools(preview)](../machine-learning/how-to-link-synapse-ml-workspaces.md)
+- [Create your first Microsoft Sentinel notebook](https://techcommunity.microsoft.com/t5/microsoft-sentinel-blog/creating-your-first-microsoft-sentinel-notebook/ba-p/2977745) (Blog series)

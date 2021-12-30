@@ -3,7 +3,7 @@ title: Build resilience in external user authentication with Azure Active Direct
 description: A guide for IT admins and architects to building resilient authentication for external users
 services: active-directory
 author: BarbaraSelden
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: fundamentals

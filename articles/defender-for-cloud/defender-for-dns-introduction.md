@@ -1,13 +1,8 @@
 ---
 title: Microsoft Defender for DNS - the benefits and features
 description: Learn about the benefits and features of Microsoft Defender for DNS
-author: memildin
-ms.author: memildin
 ms.date: 11/09/2021
 ms.topic: overview
-ms.service: defender-for-cloud
-manager: rkarlin
-
 ---
 
 # Introduction to Microsoft Defender for DNS

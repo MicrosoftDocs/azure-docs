@@ -1,16 +1,7 @@
 ---
 title: Advanced SIEM Information Model (ASIM) content | Microsoft Docs
 description: This article outlines the Microsoft Sentinel content that utilized Advanced SIEM Information Model (ASIM)
-services: sentinel
-cloud: na
-documentationcenter: na
 author: oshezaf
-manager: rkarlin
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 11/09/2021
 ms.author: ofshezaf

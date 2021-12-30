@@ -11,6 +11,8 @@ ms.author: azfuncdf
 
 The Durable Functions extension exposes a set of built-in HTTP APIs that can be used to perform management tasks on [orchestrations](durable-functions-types-features-overview.md#orchestrator-functions), [entities](durable-functions-types-features-overview.md#entity-functions), and [task hubs](durable-functions-task-hubs.md). These HTTP APIs are extensibility webhooks that are authorized by the Azure Functions host but handled directly by the Durable Functions extension.
 
+The base URL for the APIs mentioned in this article is the same as the base URL for your function app. When developing locally using the [Azure Functions Core Tools](../functions-run-local.md), the base URL is typically `http://localhost:7071`. In the Azure Functions hosted service, the base URL is typically `https://{appName}.azurewebsites.net`. Custom hostnames are also supported if configured on your App Service app.
+
 All HTTP APIs implemented by the extension require the following parameters. The data type of all parameters is `string`.
 
 | Parameter        | Parameter Type  | Description |

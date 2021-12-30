@@ -6,7 +6,7 @@ description: Learn how to create and manage search objects in a .NET application
 manager: nitinme
 author: brjohnstmsft
 ms.author: brjohnst
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 10/27/2020

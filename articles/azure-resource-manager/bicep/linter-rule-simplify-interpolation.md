@@ -2,14 +2,16 @@
 title: Linter rule - simplify interpolation
 description: Linter rule - simplify interpolation
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/18/2021
 ---
 
 # Linter rule - simplify interpolation
 
 This rule finds syntax that uses string interpolation when it isn't needed.
 
-## Returned code
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `simplify-interpolation`
 
