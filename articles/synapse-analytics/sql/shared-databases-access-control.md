@@ -2,11 +2,12 @@
 title: How to setup access control on synchronized objects in serverless SQL pool
 description: Authorize shared databases access to non-privileged AAD users in serverless SQL pool.
 services: synapse-analytics
-author: strrodic
+author: Stralle
 ms.service: synapse-analytics
 ms.subservice: sql
+ms.topic: how-to
 ms.date: 12/30/2021
-ms.author: stralle
+ms.author: strrodic
 ms.reviewer: vvasic, jovanpop, wiassaf 
 ---
 
