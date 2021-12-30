@@ -66,8 +66,6 @@ An educator can pick a custom image available in the shared image gallery for th
 > [!NOTE]
 > You can create a template VM based on both **generalized** and **specialized** images in Azure Lab Services.
 
-If you modify the disk size, note that the January 2022 Update allows additional options.
-
 ### Re-save a custom image to shared image gallery
 
 After you've created a lab from a custom image in a shared image gallery, you can make changes to the image using the template VM and reexport the image to shared image gallery.  When you reexport, you have the option to either create a new image or to update the original image.

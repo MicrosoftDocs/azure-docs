@@ -7,14 +7,13 @@ ms.date: 06/26/2020
 
 # Set up a lab to teach shell scripting on Linux
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article shows you how to set up a lab to teach shell scripting on Linux. Scripting is a useful part of system administration that allows administrators to avoid repetitive tasks. In this sample scenario, the class covers traditional bash scripts and enhanced scripts. Enhanced scripts are scripts that combine bash commands and Ruby. This approach allows Ruby to pass data around and bash commands to interact with the shell.
 
 Students taking these scripting classes get a Linux virtual machine to learn the basics of Linux, and also get familiar with the bash shell scripting. The Linux virtual machine comes with remote desktop access enabled and with [gedit](https://help.gnome.org/users/gedit/stable/) and [Visual Studio Code](https://code.visualstudio.com/) text editors installed.
 
 ## Lab configuration
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need access to an Azure subscription and a lab account. Discuss with your organization's admin to see if you can get access to an existing Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

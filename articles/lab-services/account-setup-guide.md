@@ -7,8 +7,7 @@ ms.date: 06/26/2020
 
 # Lab account setup guide (deprecated)
 
-> [!NOTE]
-> Use the January 2022 Update to see the new experience. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
 
 If you're an administrator, before you set up your Azure Lab Services environment, you first need to create a *lab account* within your Azure subscription. A lab account is a container for one or more labs, and it takes only a few minutes to set up.
 

@@ -5,7 +5,7 @@ ms.topic: overview
 ms.date: 11/19/2021
 ---
 
-# What's new in Azure Lab Services January 2022 updates
+# What's new in Azure Lab Services January 2022 Updates (preview)
 
 We've made fundamental improvements for the service to boost performance, reliability, and scalability. In this article, we describe all the great changes and new features that are available in this preview!
 

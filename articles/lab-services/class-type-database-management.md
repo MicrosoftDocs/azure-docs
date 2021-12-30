@@ -9,14 +9,13 @@ ms.author: enewman
 
 # Set up a lab to teach database management for relational databases
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article describes how to set up a lab for a basic databases management class in Azure Lab Services. Databases concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard. SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It is most noted for its quick processing, proven reliability, ease, and flexibility of use.
 
 In this article, we'll show how to set up a virtual machine template in a lab with both MySQL Database Server and SQL Server 2019 server.  [MySQL](https://www.mysql.com/) is a freely available open source Relational Database Management System (RDBMS).  [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) is the latest version of Microsoft’s RDBMS.
 
 ## Lab configuration
-
-> [!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

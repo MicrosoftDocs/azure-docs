@@ -9,6 +9,8 @@ ms.author: nicolela
 
 # Set up a lab for engineering classes using SOLIDWORKS
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 [SOLIDWORKS](https://www.solidworks.com/) provides a 3D computer-aided design (CAD) environment for modeling solid objects and is used in different kinds of engineering fields.  With SOLIDWORKS, engineers can easily create, visualize, simulate, and document their designs.
 
 A licensing option commonly used by universities is SOLIDWORKS’ Network Licensing.   With this option, users share a pool of licenses that are managed by a licensing server.  This type of license is sometimes called a “floating” license because you only need to have enough licenses for the number of concurrent users.  When a user is done using SOLIDWORKS, their license goes back into the centrally managed license pool so that it can be reused by another user.
@@ -30,9 +32,6 @@ After your license server is set up, you’ll need to [Connect to your virtual n
 See the instructions on [Modifying License Manager Computer Ports for Windows Firewall](http://help.solidworks.com/2019/english/installation/install_guide/t_mod_ports_on_lic_mgr_for_firewall.htm) that show how to add inbound and outbound rules to the license server's firewall.  You may also need to open up ports to the lab virtual machines.  Follow the steps in the article on [firewall settings for labs](./how-to-configure-firewall-settings.md) for more information on this, including how to get the lab's public IP address.
 
 ## Lab configuration
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need access to an Azure subscription and a lab account. Discuss with your organization's admin to see if you can get access to an existing Azure subscription. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

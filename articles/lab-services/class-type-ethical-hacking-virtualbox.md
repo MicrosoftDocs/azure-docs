@@ -7,6 +7,8 @@ ms.date: 06/11/2021
 
 # Set up a lab to teach ethical hacking class with VirtualBox
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article shows you how to set up a class that focuses on forensics side of ethical hacking. Penetration testing, a practice used by the ethical hacking community, occurs when someone attempts to gain access to the system or network to demonstrate vulnerabilities that a malicious attacker may exploit.
 
 In an ethical hacking class, students can learn modern techniques for defending against vulnerabilities. Each student gets a host virtual machine that has three nested virtual machines – two virtual machines with [Seed](https://seedsecuritylabs.org/lab_env.html) image and another machine with [Kali Linux](https://www.kali.org/) image. The Seed virtual machine is used for exploiting purposes and Kali virtual machine provides access to the tools needed to execute forensic tasks.
@@ -14,9 +16,6 @@ In an ethical hacking class, students can learn modern techniques for defending 
 This article has two main sections. The first section covers how to create the classroom lab. The second section covers how to create the template machine with nested virtualization enabled and with the tools and images needed. In this case, two Seed images and a Kali Linux image on a machine that has [VirtualBox](https://www.virtualbox.org/) enabled to host the images.
 
 ## Lab configuration
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription and lab account to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

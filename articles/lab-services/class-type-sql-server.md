@@ -9,6 +9,8 @@ ms.author: enewman
 
 # Set up a lab to manage and develop with SQL Server
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 This article describes how to set up a lab for a basic SQL Server management and development class in Azure Lab Services.  Database concepts are one of the introductory courses taught in most of the Computer Science departments in college. Structured Query Language (SQL) is an international standard.  SQL is the standard language for relation database management including adding, accessing, and managing content in a database.  It is most noted for its quick processing, proven reliability, ease, and flexibility of use.
 
 In this article, we'll show how to set up a virtual machine template in a lab with [Visual Studio 2019](https://visualstudio.microsoft.com/vs/), [SQL Server Management Studio](/sql/ssms/download-sql-server-management-studio-ssms), and [Azure Data Studio](https://github.com/microsoft/azuredatastudio).  For this lab, we will use one shared [SQL Server Database](../azure-sql/database/sql-database-paas-overview.md) for the entire lab. [Azure SQL Database](../azure-sql/database/sql-database-paas-overview.md) is Platform as a Service (PaaS) Database Engine offering from Azure.
@@ -55,9 +57,6 @@ Now that the networking side of things is handled, lets create a SQL Server Data
 Once the SQL Database deployment successfully completes, we can create the lab and install software on the lab template machine.
 
 ## Lab configuration
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

@@ -9,9 +9,6 @@ ms.date: 10/07/2020
 
 Azure Lab Services can be leveraged within Microsoft Teams using **Azure Lab Services** Teams App. Any team owner with owner/contributor/creator access to the lab plan will be able to create labs and provision virtual machines to everyone on the team.
 
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
-
 This article outlines the benefits of using Azure Lab Services within Teams and provides links to other articles for instructions on how to create and manage labs within Teams.
 
 > [!NOTE]

@@ -9,15 +9,14 @@ ms.author: enewman
 
 # Set up a lab to teach R on Windows
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-focused-article.md)]
+
 [R](https://www.r-project.org/about.html) is an open-source language used for statistical computing and graphics.  It's used in the statistical analysis of genetics to natural language processing to analyzing financial data.  R provides an [interactive command line](https://cran.r-project.org/doc/manuals/r-release/R-intro.html#Invoking-R-from-the-command-line) experience.  [RStudio](https://www.rstudio.com/products/rstudio/) is an interactive development environment (IDE) available for the R language.  The free version provides code-editing tools, an integrated debugging experience, and package development tools.
 
 This article will focus on solely RStudio and R as a building block for a class that requires the use of statistical computing.  The [deep learning](class-type-deep-learning-natural-language-processing.md) and [Python and Jupyter Notebooks](class-type-jupyter-notebook.md)
 class types set up RStudio differently.  Each article describes how to use the [Data Science Virtual Machine for Linux (Ubuntu)](https://azuremarketplace.microsoft.com/en-US/marketplace/apps/microsoft-dsvm.ubuntu-1804) marketplace image, which has many [data science related tools](../machine-learning/data-science-virtual-machine/tools-included.md), including RStudio, pre-installed.  
 
 ## Lab configuration
-
->[!NOTE]
-> In the January 2022 Update, lab plans replace lab accounts. For more information, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 To set up this lab, you need an Azure subscription and lab plan to get started. If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 

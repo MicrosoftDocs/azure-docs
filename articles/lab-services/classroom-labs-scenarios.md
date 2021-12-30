@@ -7,12 +7,11 @@ ms.date: 11/19/2021
 
 # Use labs for trainings
 
+[!INCLUDE [preview note](./includes/lab-services-new-update-note.md)]
+
 Azure Labs Services allows educators (teachers, professors, trainers, or teaching assistants, etc.) to quickly and easily create an online lab to provision pre-configured learning environments for the trainees. Each trainee would be able use identical and isolated environments for the training. Policies can be applied to ensure that the training environments are available to each trainee only when they need them and contain enough resources - such as virtual machines - required for the training.
 
 ![Classroom lab](./media/classroom-labs-scenarios/classroom.png)
-
->[!NOTE]
-> For the latest experience in Azure Lab Services, see [What's New in the January 2022 Update](lab-services-whats-new.md).
 
 Labs meets the following requirements that are required to conduct training in any virtual environment:
 

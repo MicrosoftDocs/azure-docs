@@ -68,7 +68,7 @@ Since cost entries are tied to the lab account, some schools use the lab account
 
 In the cost analysis pane, add a filter based on the resource group name with the appropriate resource group name for the class. Then, only the costs for that class will be visible. This allows a clearer delineation between the classes when you're viewing the costs. You can use the [scheduled export](../cost-management-billing/costs/tutorial-export-acm-data.md) feature of the cost analysis to download the costs of each class in separate files.
 
-In the [January 2022 Update](lab-services-whats-new.md):
+In the [January 2022 Update (preview)](lab-services-whats-new.md):
 
 - Cost entries are tied to a lab VM, *not* the lab plan.  
 - Cost entries get tagged with the name of the lab the VM is tied to. You can filter by the lab name tag to view total cost across VM in that lab.
