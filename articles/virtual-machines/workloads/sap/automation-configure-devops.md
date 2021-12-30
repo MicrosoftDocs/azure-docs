@@ -206,8 +206,10 @@ The agent will now be configured and stated,
 Newly created pipelines might not be visible in the default view. Click on recent tab and go back to All tab to view the new pipelines.
 Click on the pipeline and choose "Run"
 
-## Next steps
 
-> [!div class="nextstepaction"] > [Configure control plane](automation-configure-control-plane.md)
+## Next step
+
+> [!div class="nextstepaction"]
+> [Configure control plane](automation-configure-control-plane.md)
 
 Test
