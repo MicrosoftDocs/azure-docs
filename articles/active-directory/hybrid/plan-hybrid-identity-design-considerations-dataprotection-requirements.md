@@ -8,7 +8,6 @@ manager: karenhoran
 editor: ''
 ms.assetid: 40dc4baa-fe82-4ab6-a3e4-f36fa9dcd0df
 ms.service: active-directory
-ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
