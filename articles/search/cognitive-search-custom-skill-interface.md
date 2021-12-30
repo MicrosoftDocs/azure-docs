@@ -24,7 +24,7 @@ Building a custom skill gives you a way to insert transformations unique to your
 
 The interface for a custom skill is specified through the [Custom WebAPI skill](cognitive-search-custom-skill-web-api.md). 
 
-By default, the connection to the endpoint will timeout if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
+By default, the connection to the endpoint will time out if a response is not returned within a 30-second window. The indexing pipeline is synchronous and indexing will produce a timeout error if a response is not received in that time frame. You can increase the interval to a maximum value of 230 seconds by setting the timeout parameter:
 
 ```json
     "@odata.type": "#Microsoft.Skills.Custom.WebApiSkill",
@@ -116,7 +116,7 @@ The format of the output is a set of records containing a "recordId", and a prop
 
 ## Add a custom skill to a skillset
 
-When you create a Web API enricher, you can describe HTTP headers and parameters as part of the request. The snippet below shows how request parameters and *optional* HTTP headers may be described as part of the skillset definition. HTTP headers are not a requirement, but they allow you to add additional configuration capabilities to your skill and to set them from the skillset definition.
+When you create a Web API enricher, you can describe HTTP headers and parameters as part of the request. The snippet below shows how request parameters and optional HTTP headers can be included in the skillset definition. Setting an HTTP header is useful if you need to pass configuration settings to your code.
 
 ```json
 {
