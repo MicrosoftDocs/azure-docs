@@ -142,6 +142,6 @@
   expanded: true
   items:
   - name: Access reviews - Graph API
-    href: /graph/api/resources/accessreviewsv2-root
+    href: /graph/api/resources/accessreviewsv2-overview
   - name: Entitlement management - Graph API
     href: /graph/api/resources/entitlementmanagement-root
