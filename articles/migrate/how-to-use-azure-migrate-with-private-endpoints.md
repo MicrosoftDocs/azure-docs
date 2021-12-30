@@ -55,6 +55,6 @@ To enable public network access for the Azure Migrate project, sign in to the Az
 
 This three-part article series illustrates how to: 
 
-- [Discover and assess servers for migration using Private Link](./dicover-and-assess-using-private-endpoints.md)
+- [Discover and assess servers for migration using Private Link](discover-and-assess-using-private-endpoints.md)
 - [Migrate servers to Azure by using Private Link]()  
-- [Troubleshoot common issues with private endpoint connectivity](./troubleshoot-network-connectivity.md)
+- [Troubleshoot common issues with private endpoint connectivity](troubleshoot-network-connectivity.md)

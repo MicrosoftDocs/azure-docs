@@ -1,6 +1,6 @@
 ---
 title: Discover and assess using Azure Private Links
-description: Use Azure Migrate private link support to discover, assess, and migrate by using Azure Private Link.
+description: Create an Azure Migrate project, set up the Azure Migrate appliance, and use it to discover and assess servers for migration.
 author: deseelam
 ms.author: deseelam
 ms.manager: bsiva
