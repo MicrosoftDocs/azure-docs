@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: how-to
 ms.date: 11/02/2021
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Create volume replication for Azure NetApp Files
 

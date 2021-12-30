@@ -10,6 +10,7 @@ ms.subservice: language-service
 ms.topic: conceptual
 ms.date: 12/07/2021
 ms.author: aahi
+ms.devlang: csharp, python
 ms.custom: language-service-clu, ignite-fall-2021
 ---
 

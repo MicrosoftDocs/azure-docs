@@ -94,6 +94,7 @@ Azure Firewall has the following known issues:
 | Error encountered when creating more than 2000 rule collections. | The maximal number of NAT/Application or Network rule collections is 2000 (Resource Manager limit). | This is a current limitation. |
 |Unable to see Network Rule Name in Azure Firewall Logs|Azure Firewall network rule log data does not show the Rule name for network traffic.|A feature is being investigated to support this.|
 |XFF header in HTTP/S|XFF headers are overwritten with the original source IP address as seen by the firewall. This is applicable for the following use cases:<br>- HTTP requests<br>- HTTPS requests with TLS termination|A fix is being investigated.|
+| Firewall logs (Resource specific tables - Preview) | Resource specific log queries are in preview mode and aren't currently supported. | A fix is being investigated. |
 
 ## Next steps
 

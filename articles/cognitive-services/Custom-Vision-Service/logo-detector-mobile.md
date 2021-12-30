@@ -11,6 +11,7 @@ ms.subservice: custom-vision
 ms.topic: tutorial
 ms.date: 11/23/2020
 ms.author: pafarley
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 

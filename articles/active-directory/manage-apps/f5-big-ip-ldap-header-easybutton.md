@@ -13,9 +13,9 @@ ms.author: v-nisba
 ms.collection: M365-identity-device-management
 ---
 
-# Tutorial: Configure F5 BIG-IP’s Easy Button for Header-based and LDAP SSO
+# Tutorial: Configure F5 BIG-IP Easy Button for Header-based and LDAP SSO
 
-In this tutorial, you’ll learn to configure F5’s BIG-IP Access Policy Manager (APM) and Azure Active Directory (Azure AD) for secure hybrid access to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes.
+In this tutorial, you’ll implement Secure Hybrid Access (SHA) with Single Sign-on (SSO) to header-based applications that also require session augmentation through Lightweight Directory Access Protocol (LDAP) sourced attributes using F5’s BIG-IP Easy Button guided configuration.
 
 Configuring BIG-IP published applications with Azure AD provides many benefits, including:
 
@@ -31,9 +31,9 @@ To learn about all of the benefits, see the article on [F5 BIG-IP and Azure AD i
 
 For this scenario, we have a legacy application using HTTP authorization headers to control access to protected content. Azure AD pre-authentication provides the user identifier, while other attributes fetched from an LDAP connected Human Resource (HR) system provide fine grained application permissions.
 
-Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introduce inevitable costs, and risk potential downtime.
+Ideally, Azure AD should manage the application, but being legacy it does not support any form of modern authentication protocol. Modernization would take considerable effort, introducing inevitable costs and risk of potential downtime.
 
-Instead, a BIG-IP Virtual Edition (VE) deployed between the internet and the internal Azure VNet application is connected and will be used to gate inbound access, along with Azure AD for its extensive choice of authentication and authorization capabilities.
+Instead, a BIG-IP Virtual Edition (VE) deployed between the public internet and the internal Azure VNet application is connected and will be used to gate inbound access to the application, along with Azure AD for its extensive choice of authentication and authorization capabilities.
 
 Having a BIG-IP in front of the application enables us to overlay the service with Azure AD pre-authentication and header-based SSO. It significantly improves the overall security posture of the application, and allows the business to continue operating at pace, without interruption.
 
@@ -150,7 +150,7 @@ Before a client or service can access Microsoft Graph, it must be trusted by the
 
 ## Configure Easy Button
 
-Next, step through the Easy Button configurations, and complete the trust to start publishing the internal application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for secure hybrid access enabled services.
+Next, step through the Easy Button configurations, and complete the trust to start publishing the internal application. Start by provisioning your BIG-IP with an X509 certificate that Azure AD can use to sign SAML tokens and claims issued for SHA enabled services.
 
 1. From a browser, sign-in to the F5 BIG-IP management console
 2. Navigate to **System > Certificate Management > Traffic Certificate Management  SSL Certificate List > Import**
@@ -189,10 +189,9 @@ Some of these are global settings that can be reused for publishing more applica
 2. Enable **Single Sign-On (SSO) & HTTP Headers**
 
 3. Enter the **Tenant Id**, **Client ID**, and **Client Secret** from your registered application
+4. Confirm the BIG-IP can successfully connect to your tenant, and then select **Next**
 
 ![Screenshot for Configuration General and Service Account properties](./media/f5-big-ip-easy-button-ldap/config-properties.png)
-
-Before you select **Next**, confirm that BIG-IP can successfully connect to your tenant.
 
 ### Service Provider
 
@@ -302,7 +301,7 @@ Selected policies should either have an **Include** or **Exclude** option checke
 >[!NOTE]
 >The policy list is enumerated only once when first switching to this tab. A refresh button is available to manually force the wizard to query your tenant, but this button is displayed only when the application has been deployed.
 
-### Virtual Server
+### Virtual Server Properties
 
 A virtual server is a BIG-IP data plane object represented by a virtual IP address listening for clients requests to the application. Any received traffic is processed and evaluated against the APM profile associated with the virtual server, before being directed according to the policy results and settings.
 
@@ -312,11 +311,11 @@ A virtual server is a BIG-IP data plane object represented by a virtual IP addre
 
 3. Check **Enable Redirect Port** and then enter **Redirect Port**. It redirects incoming HTTP client traffic to HTTPS
 
-4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the pre-reqs or leave the default if testing
+4. Select **Client SSL Profile** to enable the virtual server for HTTPS so that client connections are encrypted over TLS. Select the client SSL profile you created as part of the prerequisites or leave the default if testing
 
     ![Screenshot for Virtual server](./media/f5-big-ip-easy-button-ldap/virtual-server.png)
 
-### Pool
+### Pool Properties
 
 The **Application Pool tab** details the services behind a BIG-IP that are represented as a pool, containing one or more application servers.
 
@@ -330,7 +329,7 @@ The **Application Pool tab** details the services behind a BIG-IP that are repre
 
 Our backend application sits on HTTP port 80 but obviously switch to 443 if yours is HTTPS.
 
-#### SSO & HTTP Headers
+#### Single Sign-On & HTTP Headers
 
 Enabling SSO allows users to access BIG-IP published services without having to enter credentials. The **Easy Button wizard** supports Kerberos, OAuth Bearer, and HTTP authorization headers for SSO, the latter of which we’ll enable to configure the following.
 
@@ -409,11 +408,10 @@ BIG-IP logs are a great source of information for isolating all sorts of authent
 
 3. Select **Debug** from the SSO list then **OK**
 
-Then reproduce your issue before looking at the logs but remember to switch this back when finished. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
+Reproduce your issue before looking at the logs but remember to switch this back when finished. If you see a BIG-IP branded error immediately after successful Azure AD pre-authentication, it’s possible the issue relates to SSO from Azure AD to the BIG-IP.
 
-1. Navigate to **Access > Overview > Access reports** and run the report for the last hour to see logs provide any clues
-
-2. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
+1. Navigate to **Access > Overview > Access reports**
+2. Run the report for the last hour to see logs provide any clues. The **View session** variables link for your session will also help understand if the APM is receiving the expected claims from Azure AD
 
 If you don’t see a BIG-IP error page, then the issue is probably more related to the backend request or SSO from the BIG-IP to the application.
 

@@ -4,7 +4,7 @@ description: Learn all about the SQL API and .NET SDK including release dates, r
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma

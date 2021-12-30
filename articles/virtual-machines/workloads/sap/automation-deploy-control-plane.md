@@ -65,19 +65,20 @@ cd ~/Azure_SAP_Automated_Deployment/WORKSPACES
 
 az logout
 az login
+export DEPLOYMENT_REPO_PATH=~/Azure_SAP_Automated_Deployment/sap-automation
+export       subscriptionID=<subscriptionID>
+export               spn_id=<appID>
+export           spn_secret=<password>
+export            tenant_id=<tenant>
+export          region_code=WEEU
 
-export subscriptionID=<subscriptionID>
-export appId=<appID>
-export spn_secret=<password>
-export tenant_id=<tenant>
-
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
-        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
-        --subscription $subscriptionID                                                                           \
-        --spn_id $appID                                                                                          \
-        --spn_secret  $spn_secret                                                                                \
-        --tenant_id $tenant_id
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                            \
+        --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
+        --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                     \
+        --subscription $subscriptionID                                                                                              \
+        --spn_id "${spn_id}"                                                                                                        \
+        --spn_secret "${spn_secret}"                                                                                                \
+        --tenant_id "${tenant_id}"
 ```
 
 # [Windows](#tab/windows)

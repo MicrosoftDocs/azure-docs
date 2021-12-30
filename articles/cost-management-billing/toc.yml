@@ -76,8 +76,10 @@
         href: reservations/understand-reservation-charges-mariadb.md?toc=/azure/cost-management-billing/toc.json
       - name: Database for MySQL
         href: reservations/understand-reservation-charges-mysql.md?toc=/azure/cost-management-billing/toc.json
-      - name: Database for PostgreSQL
+      - name: Database for PostgreSQL - Single Server
         href: reservations/understand-reservation-charges-postgresql.md?toc=/azure/cost-management-billing/toc.json
+      - name: Database for PostgreSQL - Hyperscale (Citus)
+        href: ../postgresql/concepts-hyperscale-reserved-pricing.md?toc=/azure/cost-management-billing/toc.json
       - name: Databricks
         href: reservations/reservation-discount-databricks.md
       - name: Data Explorer

@@ -31,7 +31,7 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 ### Label considerations
 
 - If you already have Microsoft 365 sensitivity labels in use in your environment, it is recommended that you continue to use your existing labels rather than making duplicate or more labels for Purview. This allows you to maximize the investment you have already made in the Microsoft 365 compliance space and ensures consistent labeling across your data estate.
-- If you have not yet created Microsoft 365 sensitivity labels, it is recommended that you review the documentation to [Get started with sensitivity labels](https://docs.microsoft.com/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide). Creating a classification schema is a tenant-wide operation and should be discussed thoroughly before enabling it within your organization.
+- If you have not yet created Microsoft 365 sensitivity labels, it is recommended that you review the documentation to [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels). Creating a classification schema is a tenant-wide operation and should be discussed thoroughly before enabling it within your organization.
 
 ### Label recommendations
 
@@ -52,6 +52,6 @@ It also abstracts the data itself, so you use labels to track the type of data, 
 
 ## Next steps
 
-- [Get started with sensitivity labels](https://docs.microsoft.com/microsoft-365/compliance/get-started-with-sensitivity-labels?view=o365-worldwide).
+- [Get started with sensitivity labels](/microsoft-365/compliance/get-started-with-sensitivity-labels).
 
-- [How to automatically apply sensitivity labels to your data in Azure Purview](https://docs.microsoft.com/azure/purview/how-to-automatically-label-your-content).
+- [How to automatically apply sensitivity labels to your data in Azure Purview](how-to-automatically-label-your-content.md).

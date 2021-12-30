@@ -25,7 +25,7 @@ Dashboards are an insightful way to monitor your business and view all your most
 ## Prerequisites
 
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) if you don't already have one.
-- Complete either [Detect motion and record video](detect-motion-record-video-clips-cloud.md) or [Continuous video recording](continuous-video-recording.md) - a pipeline with video sink is required.
+- Complete either [Detect motion in a (simulated) live video, record the video to the Video Analyzer account](detect-motion-record-video-clips-cloud.md) or [Continuous video recording](continuous-video-recording.md) - a pipeline with video sink is required.
 
   > [!NOTE]
   > Your video analyzer account should have a minimum of one video recorded to proceed. Check for list of videos by logging into your Azure Video Analyzer account > Videos > Video Analyzer section.

@@ -147,7 +147,7 @@ To create a load test in the Load Testing resource for the sample app:
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-test-plan.png" alt-text="Screenshot that shows the Test plan tab and how to upload an Apache JMeter script." :::
 
-    Optionally, you can select and upload additional Apache JMeter configuration files.
+    Optionally, you can select and upload additional Apache JMeter configuration files or other files that are referenced in the JMX file. For example, if your test script uses CSV data sets, you can upload the corresponding *.csv* file(s).
 
 1. On the **Load** tab, configure the following details. You can leave the default value for this tutorial.
 
@@ -168,6 +168,9 @@ To create a load test in the Load Testing resource for the sample app:
 1. Select **Review + create**, review all settings, and select **Create**.
 
    :::image type="content" source="./media/tutorial-identify-bottlenecks-azure-portal/create-new-test-review.png" alt-text="Screenshot that shows the tab for reviewing and creating a test." :::
+
+> [!NOTE]
+> You can update the test configuration at any time, for example to upload a different JMX file. Choose your test in the list of tests, and then select **Edit**.
 
 ## Run the load test in the Azure portal
 
