@@ -4,7 +4,7 @@ description: Describes email notifications in Azure AD Privileged Identity Manag
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na

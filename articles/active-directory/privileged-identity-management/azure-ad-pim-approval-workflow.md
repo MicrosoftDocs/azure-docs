@@ -4,7 +4,7 @@ description: Learn how to approve or deny requests for Azure AD roles in Azure A
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 editor: ''
 
 ms.service: active-directory

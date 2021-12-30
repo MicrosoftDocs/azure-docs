@@ -5,6 +5,7 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 05/11/2021
 ms.author: azfuncdf
+ms.devlang: csharp, javascript, powershell, python
 ---
 
 # HTTP Features

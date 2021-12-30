@@ -4,7 +4,7 @@ description: Learn how to list the users, groups, service principals, and manage
 services: active-directory
 documentationcenter: ''
 author: rolyon
-manager: mtillman
+manager: karenhoran
 
 ms.service: role-based-access-control
 ms.devlang: na
