@@ -157,17 +157,154 @@ SecurityEvent
 :::image type="content" source="./media/kql-overview/table-count-results.png" alt-text="Shows the result for counting records in the SecurityEvent table.":::
 
 
-<!--### Example 2
+## Filter data
+
+Now we want to see actual rows in the SecurityEvent table, but only those representing particular types of events.
+
+The [where](/azure/data-explorer/kusto/query/whereoperator) operator is one of the most common in the Kusto Query Language. This operator filters a table to rows that match specific criteria. Let's look at a few examples of the use of `where`:
+
+### Example 1
+
+In the following example, we want to see all the successful logon events. The query first gets all records for the table. It then filters the data for records with the Event ID for successful logon (4624). Finally, it sorts those results in descending order of recent occurrence and displays the most recent ten events.
 
 ```kusto
-//Use union to return all rows in the SecurityEvent and SecurityAlert tables.
-SecurityEvent 
-| union SecurityAlert  
+//Retrieve the latest 10 occurrences of EventID 4624 (successful Windows logon) in the SecurityEvent table.
+SecurityEvent
+| where EventID == 4624
+| order by TimeGenerated desc
+| take 10
 ```
-#### Results
 
-:::image type="content" source="./media/kql-overview/table-union-results.png" alt-text="Shows the union of the SecurityEvent and SecurityAlert tables.":::
+:::image type="content" source="./media/kql-overview/table-where-event-sort.png" alt-text="Screenshot of results of request to get occurrences of Event I D 4624 in the SecurityEvent table.":::
 
+### Example 2
+
+In this example, we want to see both successful logon and logoff events from the past week. 
+
+- We can use the [in operator](/azure/data-explorer/kusto/query/in-cs-operator) to give our filter a choice of values that can evaluate to true. 
+- We can use the [ago function](/azure/data-explorer/kusto/query/agofunction) to delineate a dynamic time frame: we want to see events that occurred in the past seven days every time we run this query.
+
+```kusto
+//Retrieve 10 occurrences (descending TimeGenerated order) of EventID 4624 or 4634 in the SecurityEvent table, seven or fewer days ago. Note that you can combine where statements.
+SecurityEvent
+| where EventID in (4624, 4634)
+| where TimeGenerated >= ago(7d)
+| order by TimeGenerated, AccountName desc
+| take 10
+```
+
+:::image type="content" source="./media/kql-overview/table-where-multiple-events.png" alt-text="Screenshot of results of request to get 10 occurrences in descending order for Event I D 4624, 4634.":::
+
+> [!TIP]
+> Just so you know, you can - and should, when possible ***(???)*** - combine multiple **`where`** operations into a single one using the **`and`** operator. ***(YL: IS THIS MORE PERFORMANT? ONE BOOLEAN OPERATION ON EVERY ROW INSTEAD OF MULTIPLES?)***
+>
+> ```kusto
+> //Combine where statements using the and operator.
+> SecurityEvent
+> | where EventID == 4624
+>   and TimeGenerated <= ago(1d)
+> | take 10
+> ```
+
+### Example 3
+
+```kusto
+//This example turns the EventID value into a string to filter on all EventIDs that start with "47"
+
+SecurityEvent  
+| where tostring(EventId) startswith "47" 
+```
+
+:::image type="content" source="./media/kql-overview/table-where-event-string.png" alt-text="Turn EventIDs that start with 47 into string operators.":::
+
+
+### Time queries
+
+Many Microsoft Sentinel rule queries and examples use time filters. KQL is optimized for time filters, and they're useful in narrowing down results. By default Microsoft Sentinel filters on the last 24 hours.
+
+### Example 1
+
+```kusto
+//Retrieves occurrences of EventID 4624 from the SecurityEvent table between five and seven days ago.
+
+SecurityEvent
+| where TimeGenerated between (ago(7d) .. ago(5d) ) 
+  and EventID == 4624
+```
+
+:::image type="content" source="./media/kql-overview/table-time-five-seven-days.png" alt-text="Get EventID 4624 occurrences from 5 to 7 days ago.":::
+
+### Example 2
+
+```kusto
+//Retrieves occurrences of EventID 4624 from the SecurityEvent table from July 1 until 9 a.m on July 30 2020.
+
+SecurityEvent
+| where TimeGenerated between ( datetime(2020-07-01) .. datetime(2020-07-30, 09:00) )
+  and EventID == 4624
+```
+
+:::image type="content" source="./media/kql-overview/table-time-between-dates.png" alt-text="Get EventID 4624 occurrences from July 1 to July 30.":::
+
+### Example 3
+
+```kusto
+//Operators that use the present time as start point return data changes each time your run the query.
+//This example uses the [startofday function](/data-explorer/kusto/query/startofdayfunction) as a fixed point in time (one day ago), until the present time. 
+
+SecurityEvent
+| where TimeGenerated > startofday(ago(1d))
+  and EventID == 4624
+```
+
+The query ran on October 26 2021, sorted in ascending order.
+
+:::image type="content" source="./media/kql-overview/table-start-day.png" alt-text="Get occurrences of EventID 4624 with the startofday function.":::
+
+
+### Example 4
+
+```kusto
+//This example combines the startofday function with the endofday function, to guarantee two fixed points for retrieving , with the same results each time the query runs. In this example we mix and match hours and days. Startofday is set to two days ago, endofday is set to one day ago.
+
+SecurityEvent
+| where TimeGenerated between ( startofday(ago(48hrs)) .. endofday(ago(1d)) )
+  and EventID == 4624
+```
+
+The query ran on October 26 2021, sorted in ascending order. The first record is close to midnight on October 24th, 2021.
+
+:::image type="content" source="./media/kql-overview/table-start-end-day.png" alt-text="Get occurrences of EventID 4624 with the startofday and endofday functions.":::
+
+
+
+### More examples
+
+There are additional timeline examples in Clive Watson's [TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-align-your-analytics-with-time-windows-in-azure-sentinel/ba-p/1667574), and in the [KQL docs](/data-explorer/kusto/query/samples?pivots=azuremonitor#date-and-time-operations).
+
+
+## Present data
+
+After initial filtering, you can manipulate data to make it more useful. Typically, you might summarize to aggregate data and output a new table, parse data, add or remove table columns, or join tables. 
+
+After preparing the data, you might then refilter to further pin down results.
+
+### Summarize data
+
+Use *summarize* to query table data and output a new table aggregated by one or more columns that you specify.
+
+### Example 1
+
+```kusto
+//Return multiple EventIDs in the SecurityEvent table using the [count() aggregation function](/data-explorer/kusto/query/count-aggfunction).
+// count_ is the automatically generated column name for the count() of requests for each EventID.
+
+SecurityEvent
+| summarize count() by EventID
+| order by count_
+```
+
+:::image type="content" source="./media/kql-overview/table-summarize-event.png" alt-text="Count the occurrence of different EventIDs in the SecurityEvent table.":::
 
 ### Limit and sort data
 
@@ -201,6 +338,8 @@ SecurityEvent
 
 :::image type="content" source="./media/kql-overview/table-sort-multiple.png" alt-text="Shows five records by AccountName column for duplicated TimeGenerated values.":::
 
+### Project columns
+
 #### Example 3
 
 ```kusto
@@ -215,195 +354,6 @@ SecurityEvent
 
 :::image type="content" source="./media/kql-overview/table-security-events-newest.png" alt-text="Show latest security events for columns specified by project operator.AccountName column for duplicated TimeGenerated values.":::
 -->
-
-## Filter by Boolean expression: *where*
-
-Now we want to see actual rows in the SecurityEvent table, but only those representing particular types of events.
-
-The [where](/azure/data-explorer/kusto/query/whereoperator) operator is one of the most common in the Kusto Query Language. This operator filters a table to rows that match specific criteria. Let's look at a few examples of the use of `where`:
-
-### Example 1
-
-In the following example, we want to see all the successful logon events. The query first gets all records for the table. It then filters the data for records with the Event ID for successful logon (4624). Finally, it sorts those results in descending order of recent occurrence and displays the most recent ten events.
-
-```kusto
-//Retrieve the latest 10 occurrences of EventID 4624 (successful Windows logon) in the SecurityEvent table.
-SecurityEvent
-| where EventID == 4624
-| order by TimeGenerated desc
-| take 10
-```
-### Results
-
-:::image type="content" source="./media/kql-overview/table-where-event-sort.png" alt-text="Screenshot of results of request to get occurrences of Event I D 4624 in the SecurityEvent table.":::
-
-### Example 2
-
-In this example, we want to see both successful logon and logoff events from the past week. 
-
-- We can use the [in operator](/azure/data-explorer/kusto/query/in-cs-operator) to give our filter a choice of values that can evaluate to true. 
-- We can use the [ago function](/azure/data-explorer/kusto/query/agofunction) to delineate a dynamic time frame: we want to see events that occurred in the past seven days every time we run this query.
-
-```kusto
-//Retrieve 10 occurrences (descending TimeGenerated order) of EventID 4624 or 4634 in the SecurityEvent table, seven or fewer days ago. Note that you can combine where statements.
-SecurityEvent
-| where EventID in (4624, 4634)
-| where TimeGenerated >= ago(7d)
-| order by TimeGenerated, AccountName desc
-| take 10
-```
-
-### Results
-
-:::image type="content" source="./media/kql-overview/table-where-multiple-events.png" alt-text="Screenshot of results of request to get 10 occurrences in descending order for Event I D 4624, 4634.":::
-
-> [!TIP]
-> Just so you know, you can - and should, when possible ***(???)*** - combine multiple `where` operations into a single one using the `and` operator. ***(YL: IS THIS MORE PERFORMANT? ONE BOOLEAN OPERATION ON EVERY ROW INSTEAD OF MULTIPLES?)***
->
-> ```kusto
-> //Combine where statements using the and operator.
-> SecurityEvent
-> | where EventID == 4624
-> >   and TimeGenerated <= ago(1d)
-> | take 10
-> ```
-
-
-### Example 3
-
-```kusto
-//This example turns the EventID value into a string to filter on all EventIDs that start with "47"
-
-SecurityEvent  
-| where tostring(EventId) startswith "47" 
-```
-
-##### Results
-
-:::image type="content" source="./media/kql-overview/table-where-event-string.png" alt-text="Turn EventIDs that start with 47 into string operators.":::
-
-
-### Time queries
-
-Many Microsoft Sentinel rule queries and examples use time filters. KQL is optimized for time filters, and they're useful in narrowing down results. By default Microsoft Sentinel filters on the last 24 hours.
-
-#### Example 1
-
-```kusto
-//Retrieves occurrences of EventID 4624 from the SecurityEvent table between five and seven days ago.
-
-SecurityEvent
-| where TimeGenerated between (ago(7d) .. ago(5d) ) 
-  and EventID == 4624
-```
-
-##### Results
-
-:::image type="content" source="./media/kql-overview/table-time-five-seven-days.png" alt-text="Get EventID 4624 occurrences from 5 to 7 days ago.":::
-
-#### Example 2
-
-```kusto
-//Retrieves occurrences of EventID 4624 from the SecurityEvent table from July 1 until 9 a.m on July 30 2020.
-
-SecurityEvent
-| where TimeGenerated between ( datetime(2020-07-01) .. datetime(2020-07-30, 09:00) )
-  and EventID == 4624
-```
-
-#### Results
-
-:::image type="content" source="./media/kql-overview/table-time-between-dates.png" alt-text="Get EventID 4624 occurrences from July 1 to July 30.":::
-
-
-#### Example 4
-
-```kusto
-//Operators that use the present time as start point return data changes each time your run the query.
-//This example uses the [startofday function](/data-explorer/kusto/query/startofdayfunction) as a fixed point in time (one day ago), until the present time. 
-
-SecurityEvent
-| where TimeGenerated > startofday(ago(1d))
-  and EventID == 4624
-```
-##### Results
-
-The query ran on October 26 2021, sorted in ascending order.
-
-:::image type="content" source="./media/kql-overview/table-start-day.png" alt-text="Get occurrences of EventID 4624 with the startofday function.":::
-
-
-#### Example 5 
-
-```kusto
-//This example combines the startofday function with the endofday function, to guarantee two fixed points for retrieving , with the same results each time the query runs. In this example we mix and match hours and days. Startofday is set to two days ago, endofday is set to one day ago.
-
-SecurityEvent
-| where TimeGenerated between ( startofday(ago(48hrs)) .. endofday(ago(1d)) )
-  and EventID == 4624
-```
-
-##### Results
-
-The query ran on October 26 2021, sorted in ascending order. The first record is close to midnight on October 24th, 2021.
-
-:::image type="content" source="./media/kql-overview/table-start-end-day.png" alt-text="Get occurrences of EventID 4624 with the startofday and endofday functions.":::
-
-
-
-#### More examples
-
-There are additional timeline examples in Clive Watson's [TechCommunity blog](https://techcommunity.microsoft.com/t5/azure-sentinel/how-to-align-your-analytics-with-time-windows-in-azure-sentinel/ba-p/1667574), and in the [KQL docs](/data-explorer/kusto/query/samples?pivots=azuremonitor#date-and-time-operations).
-
-
-## Prepare data
-
-After initial filtering, you can manipulate data to make it more useful. Typically, you might summarize to aggregate data and output a new table, parse data, add or remove table columns, or join tables. 
-
-After preparing the data, you might then refilter to further pin down results.
-
-:::image type="content" source="./media/kql-overview/filter-flow.png" alt-text="Shows the query filtering flow.":::
-
-![Shows the query filtering flow](./media/kql-overview/filter-flow.png)
-
-
-### Summarize data
-
-Use *summarize* to query table data and output a new table aggregated by one or more columns that you specify.
-
-#### Example 1
-
-```kusto
-//Return multiple EventIDs in the SecurityEvent table using the [count() aggregation function](/data-explorer/kusto/query/count-aggfunction).
-// count_ is the automatically generated column name for the count() of requests for each EventID.
-
-SecurityEvent
-| summarize count() by EventID
-| order by count_
-```
-
-##### Results
-
-:::image type="content" source="./media/kql-overview/table-summarize-event.png" alt-text="Count the occurrence of different EventIDs in the SecurityEvent table.":::
-
-
-#### Example 2
-
-```kusto
-// Retrieve entries from the Classification table where security or critical updates are needed in the last 10 days.
-// Show the results by Classification, Computer, and Resource ID
-
-Update
-| where Classification in ("Security Updates", "Critical Updates")
-| where UpdateState == 'Needed' and Optional == false and Approved == true
-| where TimeGenerated <= ago(10d)
-| summarize count() by Classification, Computer, _ResourceId
-// This query requires the Security or Update solutions
-```
-
-##### Results
-
-:::image type="content" source="./media/kql-overview/table-security-updates.png" alt-text="Retrieve entries needing security or critical updates.":::
 
 
 
