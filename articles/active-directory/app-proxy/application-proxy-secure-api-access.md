@@ -15,7 +15,7 @@ ms.custom: has-adal-ref
 ---
 # Secure access to on-premises APIs with Azure Active Directory Application Proxy
 
-You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Microsoft Authentication Library (MSAL)](../develop/reference-v2-libraries.md) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
+You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Microsoft Authentication Library (MSAL)](../develop/reference-v2-libraries.md) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
 
 This article walks you through setting up an Azure AD Application Proxy solution for hosting a web API service that native apps can access.
 
@@ -91,7 +91,7 @@ You've published your web API through Azure AD Application Proxy. Now, add users
 1. Back on the **Add Assignment** page, select **Assign**.
 
 > [!NOTE]
-> APIs that use integrated Windows authentication might require [additional steps](./application-proxy-configure-single-sign-on-with-kcd.md).
+> APIs that use integrated Windows authentication might require [additional steps](./application-proxy-configure-single-sign-on-with-kcd.md).
 
 ## Register the native app and grant access to the API
 
@@ -133,8 +133,8 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
 
 The last step is to configure the native app. The snippet below is based on the [Add the Microsoft Authentication Library to your code (.NET C# sample)](application-proxy-configure-native-client-application.md#step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample) and has been customized for this example. The code must be added to the *Form1.cs* file in the NativeClient sample app where it will cause the [MSAL library](../develop/reference-v2-libraries.md) to acquire the token for requesting the API call, and attach it as bearer to the app header.
 
-[!NOTE]
-The sample app uses [Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read here how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class.
+> [!NOTE]
+> The sample app uses [Azure Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read here how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class.
 
 Variables get their values from the *App.config* file. Replace the contents on the `GetTodoList()` method with the following code snippet:
 
@@ -187,7 +187,8 @@ To configure the native app to connect to Azure Active Directory and call the AP
 
 - Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding** page.
 
-[!NOTE] If the solution won't build and complains about an "invalid Resx file" caused by a missing file, in the solution explorer expand **Properties** and right-click Resources.resx to "View Code". Comment out lines 121 to 123.
+> [!NOTE]
+> If the solution won't build and reports error *invalid Resx file* go to the solution explorer, expand **Properties**, right-click `Resources.resx` and select **View Code**. Comment lines 121 to 123.
 
 After you configure the parameters, build and run the native app. When you select the **Sign In** button, the app lets you sign in, and then displays a success screen to confirm that it successfully connected to the SecretAPI.
 
