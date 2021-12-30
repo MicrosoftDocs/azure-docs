@@ -21,7 +21,7 @@ To set up a new Azure Migrate project, see [Create and manage projects](./create
 
 In the **Advanced** configuration section, provide the following details to create a private endpoint for your Azure Migrate project.
 1. In **Connectivity method**, choose **Private endpoint**.
-1. In **Disable public endpoint access**, keep the default setting **No**. Some migration tools might not be able to upload usage data to the Azure Migrate project if public network access is disabled. Learn more about [other integrated tools](#other-integrated-tools).
+1. In **Disable public endpoint access**, keep the default setting **No**. Some migration tools might not be able to upload usage data to the Azure Migrate project if public network access is disabled. Learn more about [other integrated tools](how-to-use-azure-migrate-with-private-endpoints.md#other-integrated-tools).
 1. In **Virtual network subscription**, select the subscription for the private endpoint virtual network.
 1. In **Virtual network**, select the virtual network for the private endpoint. The Azure Migrate appliance and other software components that need to connect to the Azure Migrate project must be on this network or a connected virtual network.
 1. In **Subnet**, select the subnet for the private endpoint.
