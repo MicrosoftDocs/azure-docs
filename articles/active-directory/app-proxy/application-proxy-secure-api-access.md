@@ -15,7 +15,7 @@ ms.custom: has-adal-ref
 ---
 # Secure access to on-premises APIs with Azure Active Directory Application Proxy
 
-You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Microsoft Authentication Library (MSAL)](../azuread-dev/active-directory-authentication-libraries.md) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
+You may have business logic APIs running on-premises, or hosted on virtual machines in the cloud. Your native Android, iOS, Mac, or Windows apps need to interact with the API endpoints to use data or provide user interaction. Azure AD Application Proxy and the [Microsoft Authentication Library (MSAL)](../develop/reference-v2-libraries.md) let your native apps securely access your on-premises APIs. Azure Active Directory Application Proxy is a faster and more secure solution than opening firewall ports and controlling authentication and authorization at the app layer.
 
 This article walks you through setting up an Azure AD Application Proxy solution for hosting a web API service that native apps can access.
 
@@ -29,9 +29,9 @@ The following diagram shows how you can use Azure AD Application Proxy to secure
 
 ![Azure AD Application Proxy API access](./media/application-proxy-secure-api-access/overview-publish-api-app-proxy.png)
 
-The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [Microsoft Authentication Library (MSAL)](../azuread-dev/active-directory-authentication-libraries.md) libraries.
+The Azure AD Application Proxy forms the backbone of the solution, working as a public endpoint for API access, and providing authentication and authorization. You can access your APIs from a vast array of platforms by using the [Microsoft Authentication Library (MSAL)](../develop/reference-v2-libraries.md) libraries.
 
-Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD Conditional Access to ensure only trusted devices can access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure AD Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
+Since Azure AD Application Proxy authentication and authorization are built on top of Azure AD, you can use Azure AD Conditional Access to ensure only trusted devices can access APIs published through Application Proxy. Use Azure AD Join or Azure AD Hybrid Joined for desktops, and Intune Managed for devices. You can also take advantage of Azure Active Directory Premium features like Azure AD Multi-Factor Authentication, and the machine learning-backed security of [Azure Identity Protection](../identity-protection/overview-identity-protection.md).
 
 ## Prerequisites
 
@@ -52,7 +52,7 @@ To publish the SecretAPI web API through Application Proxy:
 
 1. At the top of the **Enterprise applications - All applications** page, select **New application**.
 
-1. On the **Add an application** page, select **On-premises applications**. The **Add your own on-premises application** page appears.
+1. On the **Browse Azure AD Gallery** page, locate section **On-premises applications** and select **Add an on-premises application**. The **Add your own on-premises application** page appears.
 
 1. If you don't have an Application Proxy Connector installed, you'll be prompted to install it. Select **Download Application Proxy Connector** to download and install the connector.
 
@@ -105,9 +105,9 @@ To register the AppProxyNativeAppSample native app:
 
    1. Under **Name**, enter *AppProxyNativeAppSample*.
 
-   1. Under **Supported account types**, select **Accounts in any organizational directory**.
+   1. Under **Supported account types**, select **Accounts in any organizational directory (Any Azure AD directory - Multitenant)**.
 
-   1. Under **Redirect URL**, drop down and select **Public client (mobile & desktop)**, and then enter *https://login.microsoftonline.com/common/oauth2/nativeclient*.
+   1. Under **Redirect URL**, drop down and select **Public client/native (mobile & desktop)**, and then enter *https://login.microsoftonline.com/common/oauth2/nativeclient*.
 
    1. Select **Register**, and wait for the app to be successfully registered.
 
@@ -131,21 +131,26 @@ You've now registered the AppProxyNativeAppSample app in Azure Active Directory.
 
 ## Configure the native app code
 
-The last step is to configure the native app. The following snippet from the *Form1.cs* file in the NativeClient sample app causes the MSAL library to acquire the token for requesting the API call, and attach it as bearer to the app header.
+The last step is to configure the native app. The snippet below is based on the [Add the Microsoft Authentication Library to your code (.NET C# sample)](application-proxy-configure-native-client-application.md#step-4-add-the-microsoft-authentication-library-to-your-code-net-c-sample) and has been customized for this example. The code must be added to the *Form1.cs* file in the NativeClient sample app where it will cause the [MSAL library](../develop/reference-v2-libraries.md) to acquire the token for requesting the API call, and attach it as bearer to the app header.
+
+[!NOTE]
+The sample app uses [Active Directory Authentication Library (ADAL)](../azuread-dev/active-directory-authentication-libraries.md). Read here how to [add MSAL to your project](../develop/tutorial-v2-windows-desktop.md#add-msal-to-your-project). Remember to [add the reference to MSAL](../develop/tutorial-v2-windows-desktop.md#add-the-code-to-initialize-msal) to the class.
+
+Variables get their values from the *App.config* file. Replace the contents on the `GetTodoList()` method with the following code snippet:
 
 ```csharp
 // Acquire Access Token from AAD for Proxy Application
 IPublicClientApplication clientApp = PublicClientApplicationBuilder
-    .Create(<App ID of the Native app>)
+    .Create(clientId)
     .WithDefaultRedirectUri() // Will automatically use the default Uri for native app
-    .WithAuthority("https://login.microsoftonline.com/{<Tenant ID>}")
+    .WithAuthority(authority)
     .Build();
 
-AuthenticationResult authResult = null;
+Microsoft.Identity.Client.AuthenticationResult authResult = null;
 var accounts = await clientApp.GetAccountsAsync();
 IAccount account = accounts.FirstOrDefault();
 
-IEnumerable<string> scopes = new string[] {"<Scope>"};
+IEnumerable<string> scopes = new string[] {todoListResourceId + "/user_impersonation"};
 
 try
 {
@@ -159,10 +164,14 @@ catch (MsalUiRequiredException ex)
 if (authResult != null)
 {
     // Use the Access Token to access the Proxy Application
-
     HttpClient httpClient = new HttpClient();
-    HttpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
-    HttpResponseMessage response = await httpClient.GetAsync("<Proxy App Url>");
+    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", authResult.AccessToken);
+    // Call the To Do list service
+    HttpResponseMessage response = await httpClient.GetAsync(todoListBaseAddress + "/api/values/4");
+    
+    //MessageBox.Show(response.RequestMessage.ToString());
+    string s = await response.Content.ReadAsStringAsync();
+    MessageBox.Show(s);
 }
 ```
 
@@ -177,6 +186,8 @@ To configure the native app to connect to Azure Active Directory and call the AP
 - Paste the SecretAPI **Application ID URI** in the `<add key="todo:TodoListResourceId" value="" />` field. You can find and copy this value (a URI) from the SecretAPI **Expose an API** page.
 
 - Paste the SecretAPI **Home Page URL** in the `<add key="todo:TodoListBaseAddress" value="" />` field. You can find and copy this value (a URL) from the SecretAPI **Branding** page.
+
+[!NOTE] If the solution won't build and complains about an "invalid Resx file" caused by a missing file, in the solution explorer expand **Properties** and right-click Resources.resx to "View Code". Comment out lines 121 to 123.
 
 After you configure the parameters, build and run the native app. When you select the **Sign In** button, the app lets you sign in, and then displays a success screen to confirm that it successfully connected to the SecretAPI.
 
