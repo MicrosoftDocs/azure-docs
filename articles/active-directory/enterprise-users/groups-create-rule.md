@@ -4,7 +4,7 @@ description: How to create or update a group membership rule in the Azure portal
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 
 ms.service: active-directory
 ms.subservice: enterprise-users

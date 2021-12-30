@@ -4,7 +4,7 @@ description: Delete users in bulk in the Azure admin center in Azure Active Dire
 services: active-directory 
 author: curtand
 ms.author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.date: 07/09/2021
 ms.topic: how-to
 ms.service: active-directory

@@ -5,7 +5,7 @@ services: active-directory
 documentationcenter: ''
 ms.reviewer: zhiweiwangmsft
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.subservice: hybrid
 ms.workload: identity
