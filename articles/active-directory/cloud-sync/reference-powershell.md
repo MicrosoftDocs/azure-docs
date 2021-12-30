@@ -56,26 +56,82 @@ Here are some details about what you need:
 
 ## AADCloudSyncTools cmdlets
 
-|Cmdlet|Purpose|
-|-----|-----|
-|`Connect-AADCloudSyncTools`|Uses the MSAL.PS module to request a token for the Azure AD administrator to access Microsoft Graph.
-|`Export-AADCloudSyncToolsLogs`|Exports and packages all the troubleshooting data in a compressed file, as follows: </br><br>1. Sets verbose tracing and starts collecting data from the provisioning agent (same as `Start-AADCloudSyncToolsVerboseLogs`). <br>You can find these trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*. </br></br>2. Stops data collection after three minutes and disables verbose tracing (same as `Stop-AADCloudSyncToolsVerboseLogs`). <br>You can specify a different duration by using `-TracingDurationMins` or completely skip verbose tracing by using `-SkipVerboseTrace`. </br></br>3. Collects Event Viewer logs for the last 24 hours. </br></br>4. Compresses all the agent logs, verbose logs, and Event Viewer logs into a .zip file in the user's *Documents* folder. <br>You can specify a different output folder by using `-OutputPath <folder path>`. </br>
-|`Get-AADCloudSyncToolsInfo`|Shows Azure AD tenant details and the state of internal variables.
-|`Get-AADCloudSyncToolsJob`|Uses Microsoft Graph to get Azure AD service principals and returns the sync job information. Can also be called using the specific sync job ID as a parameter.
-|`Get-AADCloudSyncToolsJobSchedule`|Uses Microsoft Graph to get Azure AD service principals and returns the sync job's schedule. Can also be called using the specific sync job ID as a parameter.	
-|`Get-AADCloudSyncToolsJobSchema`|Uses Microsoft Graph to get Azure AD service principals and returns the sync job's schema.
-|`Get-AADCloudSyncToolsJobScope`|Uses Microsoft Graph to get the sync job's schema for the provided sync job ID and outputs all filter groups' scopes.
-|`Get-AADCloudSyncToolsJobSettings`|Uses Microsoft Graph to get Azure AD service principals and returns the sync job's settings. Can also be called using the specific sync job ID as a parameter.
-|`Get-AADCloudSyncToolsJobStatus`|Uses Microsoft Graph to get Azure AD service principals and returns the sync job's status. Can also be called using the specific sync job ID as a parameter.
-|`Get-AADCloudSyncToolsServicePrincipal`|Uses Microsoft Graph to get the service principals for Azure AD and/or Azure Service Fabric. Without parameters, will only return Azure AD service principals.
-|`Install-AADCloudSyncToolsPrerequisites`|Checks for the presence of PowerShellGet v2.2.4.1 or later and Azure AD and MSAL.PS modules, and installs these if they're missing.
-|`Invoke-AADCloudSyncToolsGraphQuery`|Invokes a web request for the URI, method, and body specified as parameters.	
-|`Repair-AADCloudSyncToolsAccount`|Uses Azure AD PowerShell to delete the current account (if present) and resets the sync account authentication with a new synchronization account in Azure AD.
-|`Restart-AADCloudSyncToolsJob`|Restarts a full synchronization.
-|`Resume-AADCloudSyncToolsJob`|Continues synchronization from the previous watermark.
-|`Start-AADCloudSyncToolsVerboseLogs`|Modifies *AADConnectProvisioningAgent.exe.config* to enable verbose tracing and restarts the AADConnectProvisioningAgent service. You can use `-SkipServiceRestart` to prevent service restart, but any configuration changes will not take effect. You can find these trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
-|`Stop-AADCloudSyncToolsVerboseLogs`|Modifies *AADConnectProvisioningAgent.exe.config* to disable verbose tracing and restarts the AADConnectProvisioningAgent service. You can use `-SkipServiceRestart` to prevent service restart, but any configuration changes will not take effect.
-|`Suspend-AADCloudSyncToolsJob`|Pauses synchronization.
+### Connect-AADCloudSyncTools
+
+This cmdlet uses the MSAL.PS module to request a token for the Azure AD administrator to access Microsoft Graph.
+
+### Export-AADCloudSyncToolsLogs
+
+This cmdlet exports and packages all the troubleshooting data in a compressed file, as follows: 
+
+1. Sets verbose tracing and starts collecting data from the provisioning agent (same as `Start-AADCloudSyncToolsVerboseLogs`). You can find these trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
+2. Stops data collection after three minutes and disables verbose tracing (same as `Stop-AADCloudSyncToolsVerboseLogs`). You can specify a different duration by using `-TracingDurationMins` or completely skip verbose tracing by using `-SkipVerboseTrace`.
+3. Collects Event Viewer logs for the last 24 hours. 
+4. Compresses all the agent logs, verbose logs, and Event Viewer logs into a .zip file in the user's *Documents* folder. You can specify a different output folder by using `-OutputPath <folder path>`.
+
+### Get-AADCloudSyncToolsInfo
+
+This cmdlet shows Azure AD tenant details and the state of internal variables.
+
+### Get-AADCloudSyncToolsJob
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's information. You can also call it by using the specific sync job ID as a parameter.
+
+### Get-AADCloudSyncToolsJobSchedule
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's schedule. You can also call it by using the specific sync job ID as a parameter.
+
+### Get-AADCloudSyncToolsJobSchema
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's schema.
+
+### Get-AADCloudSyncToolsJobScope
+
+This cmdlet uses Microsoft Graph to get the sync job's schema for the provided sync job ID and outputs all filter groups' scopes.
+
+### Get-AADCloudSyncToolsJobSettings
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's settings. You can also call it by using the specific sync job ID as a parameter.
+
+### Get-AADCloudSyncToolsJobStatus
+
+This cmdlet uses Microsoft Graph to get Azure AD service principals and returns the sync job's status. You can also call it by using the specific sync job ID as a parameter.
+
+### Get-AADCloudSyncToolsServicePrincipal
+
+This cmdlet uses Microsoft Graph to get the service principals for Azure AD and/or Azure Service Fabric. Without parameters, it will return only Azure AD service principals.
+
+### Install-AADCloudSyncToolsPrerequisites
+
+This cmdlet checks for the presence of PowerShellGet v2.2.4.1 or later, the Azure AD module, and the MSAL.PS module. It installs these items if they're missing.
+
+### Invoke-AADCloudSyncToolsGraphQuery
+
+This cmdlet invokes a web request for the URI, method, and body specified as parameters.
+
+### Repair-AADCloudSyncToolsAccount
+
+This cmdlet uses Azure AD PowerShell to delete the current account (if present). It then resets the sync account authentication with a new sync account in Azure AD.
+
+### Restart-AADCloudSyncToolsJob
+
+This cmdlet restarts a full synchronization.
+
+### Resume-AADCloudSyncToolsJob
+
+This cmdlet continues synchronization from the previous watermark.
+
+### Start-AADCloudSyncToolsVerboseLogs
+
+This cmdlet modifies *AADConnectProvisioningAgent.exe.config* to enable verbose tracing and restarts the AADConnectProvisioningAgent service. You can use `-SkipServiceRestart` to prevent service restart, but any configuration changes will not take effect. You can find these trace logs in the folder *C:\ProgramData\Microsoft\Azure AD Connect Provisioning Agent\Trace*.
+
+### Stop-AADCloudSyncToolsVerboseLogs
+
+This cmdlet modifies *AADConnectProvisioningAgent.exe.config* to disable verbose tracing and restarts the AADConnectProvisioningAgent service. You can use `-SkipServiceRestart` to prevent service restart, but any configuration changes will not take effect.
+
+### Suspend-AADCloudSyncToolsJob
+
+This cmdlet pauses synchronization.
 
 ## Next steps 
 
