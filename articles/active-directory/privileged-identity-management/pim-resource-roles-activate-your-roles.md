@@ -4,7 +4,7 @@ description: Learn how to activate your Azure resource roles in Azure AD Privile
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: KarenH444
+manager: karenhoran
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to
