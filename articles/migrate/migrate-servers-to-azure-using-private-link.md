@@ -1,5 +1,5 @@
 ---
-title: Discover and assess using Azure Private Links
+title: Migrate servers to Azure by using Private Link
 description: Use Azure Migrate with private endpoints for migrations by using ExpressRoute private peering or VPN connections.
 author: deseelam
 ms.author: deseelam
