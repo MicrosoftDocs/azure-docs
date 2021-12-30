@@ -65,6 +65,7 @@ $DEPLOYMENT_REPO_PATH/deploy/scripts/advanced_state_management.sh               
   --terraform_keyfile "${key_file}"               \
   --tf_resource_name "${tf_resource_name}"        \
  --azure_resource_id "${azure_resource_id}"
+ ```
 
 ## Parameters
 
