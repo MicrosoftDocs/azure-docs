@@ -113,6 +113,4 @@ We invite you to join our community here: <horizon-community@microsoft.com>
 
 ## Next steps
 
-Learn more about the [Horizon proprietary protocol dissector](references-horizon-sdk.md).
-
-Check out our [Horizon API](references-horizon-api.md).
+[About forwarded alert information](how-to-forward-alert-information-to-partners.md#about-forwarded-alert-information)
