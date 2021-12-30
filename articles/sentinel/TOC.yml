@@ -21,6 +21,8 @@
     href: tutorial-respond-threats-playbook.md
   - name: Integrate with Microsoft Defender for IoT
     href: iot-solution.md
+  - name: Integrate with Azure Purview
+    href: purview-solution.md
   - name: Get started with notebooks and MSTICPy
     href: notebook-get-started.md
   - name: Create a Power BI report from Microsoft Sentinel
