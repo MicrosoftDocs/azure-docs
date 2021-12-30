@@ -180,7 +180,7 @@ AzureActivity
 
 ## Show *n* rows: *take*
 
-[NetworkMonitoring](/azure/azure-monitor/reference/tables/networkmonitoring) contains monitoring data for Azure virtual networks. Let's use the [take](./takeoperator.md) operator to look at 10 random sample rows in that table. The [take](./takeoperator.md) shows some rows from a table in no particular order:
+[NetworkMonitoring](/azure/azure-monitor/reference/tables/networkmonitoring) contains monitoring data for Azure virtual networks. Let's use the [take](/azure/data-explorer/kusto/query/takeoperator) operator to look at 10 random sample rows in that table. The [take](/azure/data-explorer/kusto/query/takeoperator) shows some rows from a table in no particular order:
 
 ```kusto
 NetworkMonitoring
@@ -201,7 +201,7 @@ NetworkMonitoring
 | project TimeGenerated, Computer, SourceNetwork, DestinationNetwork, HighLatency, LowLatency
 ```
 
-You can get this exact behavior by instead using the [top](./topoperator.md) operator: 
+You can get this exact behavior by instead using the [top](/azure/data-explorer/kusto/query/topoperator) operator: 
 
 ```kusto
 NetworkMonitoring
@@ -213,7 +213,7 @@ NetworkMonitoring
 
 ## Compute derived columns: *extend*
 
-The [extend](./projectoperator.md) operator is similar to [project](./projectoperator.md), but it adds to the set of columns instead of replacing them. You can use both operators to create a new column based on a computation on each row.
+The [extend](./projectoperator.md) operator is similar to [project](/azure/data-explorer/kusto/query/projectoperator), but it adds to the set of columns instead of replacing them. You can use both operators to create a new column based on a computation on each row.
 
 The [Perf](/azure/azure-monitor/reference/tables/perf) table has performance data that's collected from virtual machines that run the Log Analytics agent. 
 
@@ -228,7 +228,7 @@ Perf
 
 ## Aggregate groups of rows: *summarize*
 
-The [summarize](./summarizeoperator.md) operator groups together rows that have the same values in the `by` clause. Then, it uses an aggregation function like `count` to combine each group in a single row. A range of [aggregation functions](./summarizeoperator.md#list-of-aggregation-functions) are available. You can use several aggregation functions in one `summarize` operator to produce several computed columns. 
+The [summarize](/azure/data-explorer/kusto/query/summarizeoperator) operator groups together rows that have the same values in the `by` clause. Then, it uses an aggregation function like `count` to combine each group in a single row. A range of [aggregation functions](/azure/data-explorer/kusto/query/summarizeoperator#list-of-aggregation-functions) are available. You can use several aggregation functions in one `summarize` operator to produce several computed columns. 
 
 The [SecurityEvent](/azure/azure-monitor/reference/tables/securityevent) table contains security events like logons and processes that started on monitored computers. You can count how many events of each level occurred on each computer. In this example, a row is produced for each computer and level combination. A column contains the count of events.
 
@@ -241,7 +241,7 @@ SecurityEvent
 
 ## Summarize by scalar values
 
-You can aggregate by scalar values like numbers and time values, but you should use the [bin()](./binfunction.md) function to group rows into distinct sets of data. For example, if you aggregate by `TimeGenerated`, you'll get a row for most time values. Use `bin()` to consolidate values per hour or day.
+You can aggregate by scalar values like numbers and time values, but you should use the [bin()](/azure/data-explorer/kusto/query/binfunction) function to group rows into distinct sets of data. For example, if you aggregate by `TimeGenerated`, you'll get a row for most time values. Use `bin()` to consolidate values per hour or day.
 
 The [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) table contains performance data that's organized according to insights from Azure Monitor for VMs and Azure Monitor for containers. The following query shows the hourly average processor utilization for multiple computers:
 
@@ -256,7 +256,7 @@ InsightsMetrics
 
 ## Display a chart or table: *render*
 
-The [render](./renderoperator.md?pivots=azuremonitor) operator specifies how the output of the query is rendered. Log Analytics renders output as a table by default. You can select different chart types after you run the query. The `render` operator is useful to include in queries in which a specific chart type usually is preferred.
+The [render](/azure/data-explorer/kusto/query/renderoperator?pivots=azuremonitor) operator specifies how the output of the query is rendered. Log Analytics renders output as a table by default. You can select different chart types after you run the query. The `render` operator is useful to include in queries in which a specific chart type usually is preferred.
 
 The following example shows the hourly average processor utilization for a single computer. It renders the output as a timechart.
 
@@ -286,11 +286,11 @@ InsightsMetrics
 
 ## Join data from two tables
 
-What if you need to retrieve data from two tables in a single query? You can use the [join](./joinoperator.md?pivots=azuremonitor) operator to combine rows from multiple tables in a single result set. Each table must have a column that has a matching value so that the join understands which rows to match.
+What if you need to retrieve data from two tables in a single query? You can use the [join](/azure/data-explorer/kusto/query/joinoperator?pivots=azuremonitor) operator to combine rows from multiple tables in a single result set. Each table must have a column that has a matching value so that the join understands which rows to match.
 
 [VMComputer](/azure/azure-monitor/reference/tables/vmcomputer) is a table that Azure Monitor uses for VMs to store details about virtual machines that it monitors. [InsightsMetrics](/azure/azure-monitor/reference/tables/insightsmetrics) contains performance data that's collected from those virtual machines. One value collected in *InsightsMetrics* is available memory, but not the percentage memory that's available. To calculate the percentage, we need the physical memory for each virtual machine. That value is in `VMComputer`.
 
-The following example query uses a join to perform this calculation. The [distinct](./distinctoperator.md) operator is used with `VMComputer` because details are regularly collected from each computer. As result, the table contains multiple rows for each computer. The two tables are joined using the `Computer` column. A row is created in the resulting set that includes columns from both tables for each row in `InsightsMetrics`, where the value in `Computer` has the same value in the `Computer` column in `VMComputer`.
+The following example query uses a join to perform this calculation. The [distinct](/azure/data-explorer/kusto/query/distinctoperator) operator is used with `VMComputer` because details are regularly collected from each computer. As result, the table contains multiple rows for each computer. The two tables are joined using the `Computer` column. A row is created in the resulting set that includes columns from both tables for each row in `InsightsMetrics`, where the value in `Computer` has the same value in the `Computer` column in `VMComputer`.
 
 ```kusto
 VMComputer
@@ -307,7 +307,7 @@ VMComputer
 
 ## Assign a result to a variable: *let*
 
-Use [let](./letstatement.md) to make queries easier to read and manage. You can use this operator to assign the results of a query to a variable that you can use later. By using the `let` statement, the query in the preceding example can be rewritten as:
+Use [let](/azure/data-explorer/kusto/query/letstatement) to make queries easier to read and manage. You can use this operator to assign the results of a query to a variable that you can use later. By using the `let` statement, the query in the preceding example can be rewritten as:
 
  
 ```kusto
