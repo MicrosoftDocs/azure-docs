@@ -4,11 +4,11 @@ description: In this quickstart, you learn how to build an Android app with Xama
 author: msftradford
 manager: MehranAzimi-msft
 services: azure-spatial-anchors
-
 ms.author: parkerra
 ms.date: 11/20/2020
 ms.topic: quickstart
 ms.service: azure-spatial-anchors
+ms.custom: mode-other
 ---
 
 # Quickstart: Create a Xamarin Android app with Azure Spatial Anchors

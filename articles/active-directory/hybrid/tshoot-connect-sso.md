@@ -4,7 +4,7 @@ description: This topic describes how to troubleshoot Azure Active Directory Sea
 services: active-directory
 author: billmath
 ms.reviewer: swkrish
-manager: daveba
+manager: karenhoran
 ms.assetid: 9f994aca-6088-40f5-b2cc-c753a4f41da7
 ms.service: active-directory
 ms.workload: identity
@@ -34,6 +34,7 @@ This article helps you find troubleshooting information about common problems re
 - Adding the Azure AD service URL (`https://autologon.microsoftazuread-sso.com`) to the Trusted sites zone instead of the Local intranet zone *blocks users from signing in*.
 - Seamless SSO supports the AES256_HMAC_SHA1, AES128_HMAC_SHA1 and RC4_HMAC_MD5 encryption types for Kerberos. It is recommended that the encryption type for the AzureADSSOAcc$ account is set to AES256_HMAC_SHA1, or one of the AES types vs. RC4 for added security. The encryption type is stored on the msDS-SupportedEncryptionTypes attribute of the account in your Active Directory.  If the AzureADSSOAcc$ account encryption type is set to RC4_HMAC_MD5, and you want to change it to one of the AES encryption types, please make sure that you first roll over the Kerberos decryption key of the AzureADSSOAcc$ account as explained in the [FAQ document](how-to-connect-sso-faq.yml) under the relevant question, otherwise Seamless SSO will not happen.
 -  If you have more than one forest with forest trust, enabling SSO in one of the forests, will enable SSO in all trusted forests. If you enable SSO in a forest where SSO is already enabled, you'll get an error saying that SSO is already enabled in the forest.
+-  The policy that enables Seamless SSO has a 25600 char limit. This limit is for everything included in the policy, including the forest names you want Seamless SSO to be enabled on. You may hit the char limit if you have a high number of forests in your environment. If your forests have trust between them, it’s enough to enable Seamless SSO only on one forests. For example, if you have contoso.com and fabrikam.com and there’s trust between the two, you can enable Seamless SSO only on contoso.com and that will apply on fabrikam.com as well. This way, you can reduce the number of forests enabled in the policy and avoid hitting the policy char limit.
 
 ## Check status of feature
 

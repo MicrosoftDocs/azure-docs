@@ -4,7 +4,7 @@ description: Learn how to assign Azure resource roles in Azure AD Privileged Ide
 services: active-directory
 documentationcenter: ''
 author: curtand
-manager: mtillman
+manager: karenhoran
 ms.service: active-directory
 ms.devlang: na
 ms.topic: how-to

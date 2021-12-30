@@ -4,7 +4,7 @@ description: Learn how to configure separation of duties enforcement for request
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.workload: identity
@@ -70,7 +70,7 @@ Follow these steps to change the list of incompatible groups or other access pac
 
 ### Configure incompatible access packages programmatically
 
-You can also configure the groups and other access packages that are incompatible with access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to add, remove, and list the incompatible groups and access packages [of an access package](/graph/api/resources/accesspackage?view=graph-rest-beta&preserve-view=true).
+You can also configure the groups and other access packages that are incompatible with access package using Microsoft Graph.  A user in an appropriate role with an application that has the delegated `EntitlementManagement.ReadWrite.All` permission, or an application with that application permission, can call the API to add, remove, and list the incompatible groups and access packages [of an access package](/graph/api/resources/accesspackage).
 
 
 ## View other access packages that are configured as incompatible with this one

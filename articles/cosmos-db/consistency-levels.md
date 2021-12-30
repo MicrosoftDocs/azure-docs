@@ -10,7 +10,7 @@ ms.date: 09/20/2021
 # Consistency levels in Azure Cosmos DB
 [!INCLUDE[appliesto-all-apis](includes/appliesto-all-apis.md)]
 
-Distributed databases that rely on replication for high availability, low latency, or both, must make a fundamental tradeoff between the read consistency, availability, latency, and throughput as defined by the [PACLC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). The linearizability of the strong consistency model is the gold standard of data programmability. But it adds a steep price from higher write latencies due to data having to replicate and commit across large distances. Strong consistency may also suffer from reduced availability (during failures) because data cannot replicate and commit in every region. Eventual consistency offers higher availability and better performance, but its more difficult to program applications because data may not be completely consistent across all regions.
+Distributed databases that rely on replication for high availability, low latency, or both, must make a fundamental tradeoff between the read consistency, availability, latency, and throughput as defined by the [PACELC theorem](https://en.wikipedia.org/wiki/PACELC_theorem). The linearizability of the strong consistency model is the gold standard of data programmability. But it adds a steep price from higher write latencies due to data having to replicate and commit across large distances. Strong consistency may also suffer from reduced availability (during failures) because data cannot replicate and commit in every region. Eventual consistency offers higher availability and better performance, but its more difficult to program applications because data may not be completely consistent across all regions.
 
 Most commercially available distributed NoSQL databases available in the market today provide only strong and eventual consistency. Azure Cosmos DB offers five well-defined levels. From strongest to weakest, the levels are:
 
@@ -164,18 +164,18 @@ The exact RTT latency is a function of speed-of-light distance and the Azure net
 
 ## <a id="rto"></a>Consistency levels and data durability
 
-Within a globally distributed database environment there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum acceptable time before the application fully recovers after a disruptive event. The time required for an application to fully recover is known as **recovery time objective** (**RTO**). You also need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as **recovery point objective** (**RPO**).
+Within a globally distributed database environment there is a direct relationship between the consistency level and data durability in the presence of a region-wide outage. As you develop your business continuity plan, you need to understand the maximum period of recent data updates the application can tolerate losing when recovering after a disruptive event. The time period of updates that you might afford to lose is known as **recovery point objective** (**RPO**).
 
-The table below defines the relationship between consistency model and data durability in the presence of a region wide outage. It is important to note that in a distributed system, even with strong consistency, it is impossible to have a distributed database with an RPO and RTO of zero due to [CAP Theorem](https://en.wikipedia.org/wiki/CAP_theorem).
+The table below defines the relationship between consistency model and data durability in the presence of a region wide outage.
 
-|**Region(s)**|**Replication mode**|**Consistency level**|**RPO**|**RTO**|
-|---------|---------|---------|---------|---------|
-|1|Single or Multiple write regions|Any Consistency Level|< 240 Minutes|<1 Week|
-|>1|Single write region|Session, Consistent Prefix, Eventual|< 15 minutes|< 15 minutes|
-|>1|Single write region|Bounded Staleness|*K* & *T*|< 15 minutes|
-|>1|Single write region|Strong|0|< 15 minutes|
-|>1|Multiple write regions|Session, Consistent Prefix, Eventual|< 15 minutes|0|
-|>1|Multiple write regions|Bounded Staleness|*K* & *T*|0|
+|**Region(s)**|**Replication mode**|**Consistency level**|**RPO**|
+|---------|---------|---------|---------|
+|1|Single or Multiple write regions|Any Consistency Level|< 240 Minutes|
+|>1|Single write region|Session, Consistent Prefix, Eventual|< 15 minutes|
+|>1|Single write region|Bounded Staleness|*K* & *T*|
+|>1|Single write region|Strong|0|
+|>1|Multiple write regions|Session, Consistent Prefix, Eventual|< 15 minutes|
+|>1|Multiple write regions|Bounded Staleness|*K* & *T*|
 
 *K* = The number of *"K"* versions (i.e., updates) of an item.
 

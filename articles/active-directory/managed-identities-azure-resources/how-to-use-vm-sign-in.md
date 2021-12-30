@@ -4,7 +4,7 @@ description: Step-by-step instructions and examples for using an Azure VM-manage
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
 ms.service: active-directory
 ms.subservice: msi

@@ -1,5 +1,5 @@
 ---
-title: Configure data collection for the Azure Monitor agent (preview)
+title: Configure data collection for the Azure Monitor agent
 description: Describes how to create a data collection rule to collect data from virtual machines using the Azure Monitor agent.
 ms.topic: conceptual
 author: bwren
@@ -119,7 +119,7 @@ Follow the steps below to create a data collection rule and association
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
-You can create a rule and an association for an Azure virtual machine or Azure Arc enabled server using Resource Manager templates. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates).
+You can create a rule and an association for an Azure virtual machine or Azure Arc-enabled server using Resource Manager templates. See [Resource Manager template samples for data collection rules in Azure Monitor](./resource-manager-data-collection-rules.md) for sample templates).
 
 
 ## Manage rules and association using PowerShell
@@ -152,7 +152,7 @@ You can create a rule and an association for an Azure virtual machine or Azure A
 > [!NOTE]
 > If you wish to send data to Log Analytics, you must create the data collection rule in the **same region** where your Log Analytics workspace resides. The rule can be associated to machines in other supported region(s).
 
-This is enabled as part of Azure CLI **monitor-control-service** Extension. [View all commands](/cli/azure/monitor/data-collection/rule?view=azure-cli-latest&preserve-view=true)
+This is enabled as part of Azure CLI **monitor-control-service** Extension. [View all commands](/cli/azure/monitor/data-collection/rule)
 
 
 ## Next steps

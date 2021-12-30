@@ -1,10 +1,10 @@
 ---
 title: 'Quickstart: Create a Redis Enterprise cache'
 description: In this quickstart, learn how to create an instance of Azure Cache for Redis in Enterprise tiers
-author: curib
-ms.author: cauribeg
+author: flang-msft
+ms.author: franlanglois
 ms.service: cache
-ms.custom: mvc
+ms.custom: mvc, mode-other
 ms.topic: quickstart
 ms.date: 02/08/2021
 #Customer intent: As a developer new to Azure Cache for Redis, I want to create an instance of Azure Cache for Redis Enterprise tier.

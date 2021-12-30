@@ -70,7 +70,7 @@ AI enrichment refers to modules that look for patterns or characteristics, and t
 
 In Azure Cognitive Search, *skills* are the individual components of AI processing that you can use standalone, or in combination with other skills. 
 
-+ Built-in skills are backed by Cognitive Services, with image analysis based on Computer Vision, and natural language processing based on Text Analytics. For the complete list, see [Built-in skills for content enrichment](cognitive-search-predefined-skills.md).
++ Built-in skills are backed by Cognitive Services, with image analysis based on Computer Vision, and natural language processing based on Azure Cognitive Services for Language. For the complete list, see [Built-in skills for content enrichment](cognitive-search-predefined-skills.md).
 
 + Custom skills are custom code, wrapped in an [interface definition](cognitive-search-custom-skill-interface.md) that allows for integration into the pipeline. In customer solutions, it's common practice to use both, with custom skills providing open-source, third-party, or first-party AI modules.
 
@@ -78,7 +78,7 @@ A *skillset* is the collection of skills used in a pipeline, and it's invoked af
 
 Custom skills might sound complex but can be simple and straightforward in terms of implementation. If you have existing packages that provide pattern matching or classification models, the content you extract from blobs could be passed to these models for processing. Since AI enrichment is Azure-based, your model should be on Azure also. Some common hosting methodologies include using [Azure Functions](cognitive-search-create-custom-skill-example.md) or [Containers](https://github.com/Microsoft/SkillsExtractorCognitiveSearch).
 
-Built-in skills backed by Cognitive Services require an [attached Cognitive Services](cognitive-search-attach-cognitive-services.md) all-in-one subscription key that gives you access to the resource. An all-in-one key gives you image analysis, language detection, text translation, and text analytics. Other built-in skills are features of Azure Cognitive Search and require no additional service or key. Shaper, splitter, and merger are examples of helper skills that are sometimes necessary when designing the pipeline.
+Built-in skills backed by Cognitive Services require an [attached Cognitive Services](cognitive-search-attach-cognitive-services.md) all-in-one subscription key that gives you access to the resource. An all-in-one key gives you OCR and image analysis, language detection, text translation, and natural language processing. Other built-in skills are features of Azure Cognitive Search and require no additional service or key. Shaper, splitter, and merger are examples of helper skills that are sometimes necessary when designing the pipeline.
 
 If you use only custom skills and built-in utility skills, there is no dependency or costs related to Cognitive Services.
 

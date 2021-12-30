@@ -4,7 +4,7 @@ description: Learn about the prerequisites to access the Azure AD reporting API
 services: active-directory
 documentationcenter: ''
 author: MarkusVi
-manager: daveba
+manager: karenhoran
 editor: ''
 
 ms.assetid: ada19f69-665c-452a-8452-701029bf4252

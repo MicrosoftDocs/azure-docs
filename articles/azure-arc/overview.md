@@ -65,11 +65,11 @@ The following Azure Arc control plane functionality is offered at no extra cost:
 
 * Update management.
 
-Any Azure service that is used on Azure Arc-enabled servers, such as Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
+Any Azure service that is used on Azure Arc-enabled servers, such as Microsoft Defender for Cloud or Azure Monitor, will be charged as per the pricing for that service. For more information, see the [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ### Azure Arc-enabled Kubernetes
 
-Any Azure service that is used on Azure Arc-enabled Kubernetes, such as Azure Security Center or Azure Monitor, will be charged as per the pricing for that service. For more information on pricing for configurations on top of Azure Arc-enabled Kubernetes, see [Azure pricing page](https://azure.microsoft.com/pricing/).
+Any Azure service that is used on Azure Arc-enabled Kubernetes, such as Microsoft Defender for Cloud or Azure Monitor, will be charged as per the pricing for that service. For more information on pricing for configurations on top of Azure Arc-enabled Kubernetes, see [Azure pricing page](https://azure.microsoft.com/pricing/).
 
 ### Azure Arc-enabled data services
 

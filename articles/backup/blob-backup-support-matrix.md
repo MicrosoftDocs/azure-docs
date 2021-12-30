@@ -2,7 +2,7 @@
 title: Support matrix for Azure Blobs backup
 description: Provides a summary of support settings and limitations when backing up Azure Blobs.
 ms.topic: conceptual
-ms.date: 10/01/2021
+ms.date: 10/07/2021
 ms.custom: references_regions
 ---
 
@@ -12,13 +12,13 @@ This article summarizes the regional availability, supported scenarios, and limi
 
 ## Supported regions
 
-Operational backup for blobs is available in all public cloud regions, except France South and South Africa West. It's also available in sovereign cloud regions - all Azure government regions and China regions (except China East).
+Operational backup for blobs is available in all public cloud regions, except France South and South Africa West. It's also available in sovereign cloud regions - all Azure Government regions and China regions (except China East).
 
 ## Limitations
 
 Operational backup of blobs uses blob point-in-time restore, blob versioning, soft delete for blobs, change feed for blobs and delete lock to provide a local backup solution. So limitations that apply to these capabilities also apply to operational backup.
 
-**Supported scenarios:** Operational backup supports block blobs in standard general-purpose v2 storage accounts only. So ADLS Gen2 accounts aren't supported. Also, any page blobs, append blobs, and premium blobs in your storage account won't be restored and only block blobs will be restored.
+**Supported scenarios:** Operational backup supports block blobs in standard general-purpose v2 storage accounts only. Storage accounts with hierarchical namespace enabled (that is, ADLS Gen2 accounts) aren't supported.   <br><br>   Also, any page blobs, append blobs, and premium blobs in your storage account won't be restored and only block blobs will be restored.
 
 **Other limitations:**
 

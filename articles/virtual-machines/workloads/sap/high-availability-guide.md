@@ -10,7 +10,7 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/24/2019
 ms.author: juergent
-ms.custom: H1Hack27Feb2017
+ms.custom: H1Hack27Feb2017, ignite-fall-2021
 ---
 
 # High availability for SAP NetWeaver on Azure VMs
@@ -64,8 +64,8 @@ ms.custom: H1Hack27Feb2017
 
 [azure-cli]:../../../cli-install-nodejs.md
 [azure-portal]:https://portal.azure.com
-[azure-ps]:https://docs.microsoft.com/powershell/azure/
-[azure-quickstart-templates-github]:https://github.com/Azure/azure-quickstart-templates
+[azure-ps]:/powershell/azure/
+[azure-quickstart-templates-github]: https://github.com/Azure/azure-quickstart-templates
 [azure-script-ps]:https://go.microsoft.com/fwlink/p/?LinkID=395017
 [azure-resource-manager/management/azure-subscription-service-limits]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
 [azure-resource-manager/management/azure-subscription-service-limits-subscription]:../../../azure-resource-manager/management/azure-subscription-service-limits.md
@@ -553,7 +553,7 @@ You need cluster shared storage for a high-availability SAP ASCS/SCS instance. A
 2. Run SIOS DataKeeper Cluster Edition on both virtual machine nodes.
 3. Configure SIOS DataKeeper Cluster Edition so that it mirrors the content of the additional VHD attached volume from the source virtual machine to the additional VHD attached volume of the target virtual machine. SIOS DataKeeper abstracts the source and target local volumes, and then presents them to Windows Server Failover Clustering as one shared disk.
 
-Get more information about [SIOS DataKeeper](https://us.sios.com/products/datakeeper-cluster/).
+Get more information about [SIOS DataKeeper](https://us.sios.com/products/windows/datakeeper-cluster/).
 
 ![Figure 3: Windows Server Failover Clustering configuration in Azure with SIOS DataKeeper][sap-ha-guide-figure-1002]
 

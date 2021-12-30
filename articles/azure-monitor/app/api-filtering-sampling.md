@@ -3,6 +3,7 @@ title: Filtering and preprocessing in the Application Insights SDK | Microsoft D
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
 ms.date: 11/23/2016
+ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 
@@ -507,6 +508,9 @@ What's the difference between telemetry processors and telemetry initializers?
 * Telemetry processors allow you to completely replace or discard a telemetry item.
 * All registered telemetry initializers are guaranteed to be called for every telemetry item. For telemetry processors, SDK guarantees calling the first telemetry processor. Whether the rest of the processors are called or not is decided by the preceding telemetry processors.
 * Use telemetry initializers to enrich telemetry with additional properties or override an existing one. Use a telemetry processor to filter out telemetry.
+
+> [!NOTE]
+> JavaScript only has telemetry initializers which can [filter out events by using ITelemetryInitializer](#javascript-web-applications)
 
 ## Troubleshoot ApplicationInsights.config
 

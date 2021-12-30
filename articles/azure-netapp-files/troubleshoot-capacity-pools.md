@@ -1,9 +1,9 @@
 ---
-title: Troubleshoot capacity pool issues for Azure NetApp Files | Microsoft Docs
+title: Troubleshoot capacity pool errors for Azure NetApp Files | Microsoft Docs
 description: Describes potential issues you might have when managing capacity pools and provides solutions for the issues. 
 services: azure-netapp-files
 documentationcenter: ''
-author: b-juche
+author: b-hchen
 manager: ''
 editor: ''
 
@@ -14,9 +14,9 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: troubleshooting
 ms.date: 01/14/2021
-ms.author: b-juche
+ms.author: anfdocs
 ---
-# Troubleshoot capacity pool issues
+# Troubleshoot capacity pool errors
 
 This article describes resolutions to issues you might have when managing capacity pools, including the pool change operation. 
 

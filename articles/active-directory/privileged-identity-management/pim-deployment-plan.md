@@ -1,17 +1,18 @@
 ---
-title: Plan a Privileged Identity Management deployment? - Azure AD | Microsoft Docs
+title: Plan a Privileged Identity Management deployment - Azure AD | Microsoft Docs
 description: Learn how to deploy Privileged Identity Management (PIM) in your Azure AD organization.
 services: active-directory
 documentationcenter: ''
-author: BarbaraSelden
-manager: martinco
+author: curtand
+manager: karenhoran
 editor: ''
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: pim
 ms.topic: conceptual
-ms.date: 09/28/2021
-ms.author: baselden
+ms.date: 12/10/2021
+ms.author: curtand
+ms.reviewer: shaunliu
 ms.custom: pim
 ms.collection: M365-identity-device-management
 ---
@@ -174,9 +175,9 @@ For Azure AD roles in PIM, only a user who is in the Privileged Role Administrat
 
 Follow the instructions in the links below:
 
-1.[Give eligible assignments](pim-how-to-add-role-to-user.md).
+1. [Give eligible assignments](pim-how-to-add-role-to-user.md).
 
-2.[Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md)
+1. [Allow eligible users to activate their Azure AD role just-in-time](pim-how-to-activate-role.md)
 
 When role nears its expiration, use [PIM to extend or renew the roles](pim-resource-roles-renew-extend.md). Both user-initiated actions require an approval from a Global administrator or Privileged role administrator.
 
@@ -291,7 +292,7 @@ The following table shows example settings:
 You can [assign eligibility to members or owners of the privileged access groups.](groups-assign-member-owner.md) With just one activation, they will have access to all the linked resources. 
 
 >[!NOTE] 
->You can assign the privileged group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 250 role-assignable groups can be created in a single Azure AD organization (tenant).
+>You can assign the privileged group to one or more Azure AD and Azure resource roles in the same way as you assign roles to users. A maximum of 400 role-assignable groups can be created in a single Azure AD organization (tenant).
 
 ![Assign eligibility for privileged access groups](media/pim-deployment-plan/privileged-access-groups.png)
 

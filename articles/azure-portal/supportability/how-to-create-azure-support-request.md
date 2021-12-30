@@ -3,7 +3,7 @@ title: How to create an Azure support request
 description: Customers who need assistance can use the Azure portal to find self-service solutions and to create and manage support requests.
 ms.topic: how-to
 ms.custom: support-help-page
-ms.date: 09/30/2021
+ms.date: 12/07/2021
 ---
 
 # Create an Azure support request
@@ -55,7 +55,10 @@ We'll walk you through some steps to gather information about your problem and h
 
 ### Problem description
 
-The first step of the support request process is to select an issue type. You'll then be prompted for more information, which can vary depending on what type of issue you selected. In most cases, you'll need to specify a subscription, briefly describe your issue, and select a problem type. If you select **Technical**, you'll need to specify the service that your issue relates to. Depending on the service, you'll see additional options for **Problem type** and **Problem subtype**.
+The first step of the support request process is to select an issue type. You'll then be prompted for more information, which can vary depending on what type of issue you selected. If you select **Technical**, you'll need to specify the service that your issue relates to. Depending on the service, you'll see additional options for **Problem type** and **Problem subtype**.
+
+> [!IMPORTANT]
+> In most cases, you'll need to specify a subscription. Choose the subscription where you are experiencing the problem. The support engineer assigned to your case will be able to access the subscription you specify here. You can tell them about additional subscriptions in your description (or by [sending a message](how-to-manage-azure-support-request.md#send-a-message) later), but the support engineer will only be able to work on [subscriptions to which you have access](#azure-role-based-access-control).
 
 :::image type="content" source="media/how-to-create-azure-support-request/basics2lower.png" alt-text="Screenshot of the Problem description step of the support request process.":::
 
@@ -73,7 +76,7 @@ Next, we collect additional details about the problem. Providing thorough and de
 
 1. Complete the **problem details** so that we have more information about your issue. If possible, tell us when the problem started and any steps to reproduce it. You can upload a file, such as a log file or output from diagnostics. For more information on file uploads, see [File upload guidelines](how-to-manage-azure-support-request.md#file-upload-guidelines).
 
-1. In the **Share diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. See the [Advanced diagnostic information logs](#advanced-diagnostic-information-logs) section for more details about the types of files we might collect.
+1. In the **Advanced diagnostic information** section, select **Yes** or **No**. Selecting **Yes** allows Azure support to gather [advanced diagnostic information](https://azure.microsoft.com/support/legal/support-diagnostic-information-collection/) from your Azure resources. If you prefer not to share this information, select **No**. See the [Advanced diagnostic information logs](#advanced-diagnostic-information-logs) section for more details about the types of files we might collect.
 
   In some cases, there will be additional options to choose from. For example, for certain types of Virtual Machine problem types, you can choose whether to [allow access to a virtual machine's memory](#memory-dump-collection).
 

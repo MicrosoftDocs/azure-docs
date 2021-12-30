@@ -5,7 +5,7 @@ description: A reference guide of content that teaches you how to configure and 
 services: sql-database
 ms.service: sql-managed-instance
 ms.subservice: deployment-configuration
-ms.custom: sqldbrb=1
+ms.custom: sqldbrb=1, ignite-fall-2021
 ms.devlang: 
 ms.topic: guide
 author: MashaMSFT
@@ -33,11 +33,13 @@ In this article you can find a content reference to various guides, scripts, and
 - [Create a new VNet and subnet](virtual-network-subnet-create-arm-template.md):
   Configure the virtual network and subnet according to the [network requirements](connectivity-architecture-overview.md#network-requirements). 
 - [Configure an existing VNet and subnet](vnet-existing-add-subnet.md):
-  Verify network requirements and configure your existing virtual network and subnet to deploy SQL Managed Instance. 
+  Verify network requirements and configure your existing virtual network and subnet to deploy SQL Managed Instance.
+- [Configure service endpoint policies for Azure Storage (Preview)](service-endpoint-policies-configure.md):
+  Secure your subnet against erroneous or malicious data exfiltration into unauthorized Azure Storage accounts.
 - [Configure custom DNS](custom-dns-configure.md):
   Configure custom DNS to grant external resource access to  custom domains from SQL Managed Instance via a linked server of db mail profiles. 
 - [Sync network configuration](azure-app-sync-network-configuration.md):
-  Refresh the networking configuration plan if you can't establish a connection after [integrating your app with an Azure virtual network](../../app-service/web-sites-integrate-with-vnet.md).
+  Refresh the networking configuration plan if you can't establish a connection after [integrating your app with an Azure virtual network](../../app-service/overview-vnet-integration.md).
 - [Find the management endpoint IP address](management-endpoint-find-ip-address.md): 
   Determine the public endpoint that SQL Managed Instance is using for management purposes. 
 - [Verify built-in firewall protection](management-endpoint-verify-built-in-firewall.md):

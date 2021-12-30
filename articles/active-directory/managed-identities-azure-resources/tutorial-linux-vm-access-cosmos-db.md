@@ -4,7 +4,7 @@ description: A tutorial that walks you through the process of using a Linux VM s
 services: active-directory
 documentationcenter: 
 author: barclayn
-manager: daveba
+manager: karenhoran
 editor: 
 
 ms.service: active-directory
@@ -15,6 +15,7 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/10/2020
 ms.author: barclayn
+ROBOTS: NOINDEX
 
 ms.collection: M365-identity-device-management
 ---

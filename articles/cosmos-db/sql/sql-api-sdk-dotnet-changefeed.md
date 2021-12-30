@@ -4,13 +4,13 @@ description: Learn all about the Change Feed Processor API and SDK including rel
 author: anfeldma-ms
 ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: reference
 ms.date: 04/06/2021
 ms.author: anfeldma
 ---
 
-# .NET Change Feed Processor SDK: Download and release notes
+# .NET Change Feed Processor SDK: Download and release notes (Legacy)
 [!INCLUDE[appliesto-sql-api](../includes/appliesto-sql-api.md)]
 
 > [!div class="op_single_selector"]

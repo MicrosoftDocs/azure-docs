@@ -3,7 +3,7 @@ title: Manage emergency access admin accounts - Azure AD
 description: This article describes how to use emergency access accounts to help prevent being inadvertently locked out of your Azure Active Directory (Azure AD) organization. 
 services: active-directory 
 author: markwahl-msft
-manager: daveba
+manager: karenhoran
 ms.author: rolyon
 ms.date: 11/05/2020
 ms.topic: conceptual
@@ -92,7 +92,29 @@ Organizations should monitor sign-in and audit log activity from the emergency a
     1. Under **Search query**, enter the following query, inserting the object IDs of the two break glass accounts.
         > [!NOTE]
         > For each additional break glass account you want to include, add another "or UserId == "ObjectGuid"" to the query.
-
+                
+        Sample queries:
+        ```kusto
+        // Search for a single Object ID (UserID)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448"
+        ```
+        
+        ```kusto
+        // Search for multiple Object IDs (UserIds)
+        SigninLogs
+        | project UserId 
+        | where UserId == "f66e7317-2ad4-41e9-8238-3acf413f7448" or UserId == "0383eb26-1cbc-4be7-97fd-e8a0d8f4e62b"
+        ```
+        
+        ```kusto
+        // Search for a single UserPrincipalName
+        SigninLogs
+        | project UserPrincipalName 
+        | where UserPrincipalName == "user@yourdomain.onmicrosoft.com"
+        ```
+        
         ![Add the object IDs of the break glass accounts to an alert rule](./media/security-emergency-access/query-image1.png)
 
     1. Under **Alert logic**, enter the following:

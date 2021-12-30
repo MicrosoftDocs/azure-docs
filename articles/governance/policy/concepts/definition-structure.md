@@ -132,7 +132,7 @@ see [Tag support for Azure resources](../../../azure-resource-manager/management
 
 ### Resource Provider modes
 
-The following Resource Provider mode is fully supported:
+The following Resource Provider modes are fully supported:
 
 - `Microsoft.Kubernetes.Data` for managing your Kubernetes clusters on or off Azure. Definitions
   using this Resource Provider mode use effects _audit_, _deny_, and _disabled_. This mode supports
@@ -142,21 +142,20 @@ The following Resource Provider mode is fully supported:
   GateKeeper v3
   [constraint template](https://open-policy-agent.github.io/gatekeeper/website/docs/howto/#constraint-templates). Use
   of the [EnforceOPAConstraint](./effects.md#enforceopaconstraint) effect is _deprecated_.
-
-The following Resource Provider modes are currently supported as a **preview**:
-
-- `Microsoft.ContainerService.Data` for managing admission controller rules on
-  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
-  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
-  mode is _deprecated_.
 - `Microsoft.KeyVault.Data` for managing vaults and certificates in
   [Azure Key Vault](../../../key-vault/general/overview.md). For more information on these policy
   definitions, see
   [Integrate Azure Key Vault with Azure Policy](../../../key-vault/general/azure-policy.md).
 
+The following Resource Provider mode is currently supported as a **preview**:
+
+- `Microsoft.ContainerService.Data` for managing admission controller rules on
+  [Azure Kubernetes Service](../../../aks/intro-kubernetes.md). Definitions using this Resource
+  Provider mode **must** use the [EnforceRegoPolicy](./effects.md#enforceregopolicy) effect. This
+  mode is _deprecated_.
+
 > [!NOTE]
-> Resource Provider modes only support built-in policy definitions and don't support
-> [exemptions](./exemption-structure.md) if not explicitly stated.
+>Unless explicitly stated, Resource Provider modes only support built-in policy definitions, and exemptions are not supported at the component-level.
 
 ## Metadata
 
@@ -173,6 +172,7 @@ _common_ properties used by Azure Policy and in built-ins. Each `metadata` prope
 - `preview` (boolean): True or false flag for if the policy definition is _preview_.
 - `deprecated` (boolean): True or false flag for if the policy definition has been marked as
   _deprecated_.
+- `portalReview` (string): Determines whether parameters should be reviewed in the portal, regardless of the required input. 
 
 > [!NOTE]
 > The Azure Policy service uses `version`, `preview`, and `deprecated` properties to convey level of

@@ -66,6 +66,8 @@ Live transcription is a feature you can use with live events that are either pas
 > [!NOTE]
 > Currently, live transcription is available as a preview feature in West US 2.
 
+[!INCLUDE [Warning on captions and encryption](./includes/warning-captions-encryption.md)]
+
 ## Live streaming workflow
 
 To understand the live streaming workflow in Media Services v3, you have to first review and understand the following concepts: 

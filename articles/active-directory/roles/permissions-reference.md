@@ -3,13 +3,13 @@ title: Azure AD built-in roles - Azure Active Directory
 description: Describes the Azure Active Directory built-in roles and permissions.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 search.appverid: MET150
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: reference
-ms.date: 10/06/2021
+ms.date: 11/10/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: generated, it-pro, fasttrack-edit
@@ -31,10 +31,14 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Application Developer](#application-developer) | Can create application registrations independent of the 'Users can register applications' setting. | cf1c38e5-3621-4004-a7cb-879624dced7c |
 > | [Attack Payload Author](#attack-payload-author) | Can create attack payloads that an administrator can initiate later. | 9c6df0f2-1e7c-4dc3-b195-66dfbd24aa8f |
 > | [Attack Simulation Administrator](#attack-simulation-administrator) | Can create and manage all aspects of attack simulation campaigns. | c430b396-e693-46cc-96f3-db01bf8bb62a |
+> | [Attribute Assignment Administrator](#attribute-assignment-administrator) | Assign custom security attribute keys and values to supported Azure AD objects. | 58a13ea3-c632-46ae-9ee0-9c0d43cd7f3d |
+> | [Attribute Assignment Reader](#attribute-assignment-reader) | Read custom security attribute keys and values for supported Azure AD objects. | ffd52fa5-98dc-465c-991d-fc073eb59f8f |
+> | [Attribute Definition Administrator](#attribute-definition-administrator) | Define and manage the definition of custom security attributes. | 8424c6f0-a189-499e-bbd0-26c1753c96d4 |
+> | [Attribute Definition Reader](#attribute-definition-reader) | Read the definition of custom security attributes. | 1d336d2c-4ae8-42ef-9711-b3604ce3fc2c |
 > | [Authentication Administrator](#authentication-administrator) | Can access to view, set and reset authentication method information for any non-admin user. | c4e39bd9-1100-46d3-8c65-fb160da0071f |
 > | [Authentication Policy Administrator](#authentication-policy-administrator) | Can create and manage the authentication methods policy, tenant-wide MFA settings, password protection policy, and verifiable credentials. | 0526716b-113d-4c15-b2c8-68e3c22b9f80 |
 > | [Azure AD Joined Device Local Administrator](#azure-ad-joined-device-local-administrator) | Users assigned to this role are added to the local administrators group on Azure AD-joined devices. | 9f06204d-73c1-4d4c-880a-6edb90606fd8 |
-> | [Azure DevOps Administrator](#azure-devops-administrator) | Can manage Azure DevOps organization policy and settings. | e3973bdf-4987-49ae-837a-ba8e231c7286 |
+> | [Azure DevOps Administrator](#azure-devops-administrator) | Can manage Azure DevOps policies and settings. | e3973bdf-4987-49ae-837a-ba8e231c7286 |
 > | [Azure Information Protection Administrator](#azure-information-protection-administrator) | Can manage all aspects of the Azure Information Protection product. | 7495fdc4-34c4-4d15-a289-98788ce399fd |
 > | [B2C IEF Keyset Administrator](#b2c-ief-keyset-administrator) | Can manage secrets for federation and encryption in the Identity Experience Framework (IEF). | aaf43236-0c0d-4d5f-883a-6955382ac081 |
 > | [B2C IEF Policy Administrator](#b2c-ief-policy-administrator) | Can create and manage trust framework policies in the Identity Experience Framework (IEF). | 3edaf663-341e-4475-9f94-5c398ef6c070 |
@@ -52,6 +56,7 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Directory Writers](#directory-writers) | Can read and write basic directory information. For granting access to applications, not intended for users. | 9360feb5-f418-4baa-8175-e2a00bac4301 |
 > | [Domain Name Administrator](#domain-name-administrator) | Can manage domain names in cloud and on-premises. | 8329153b-31d0-4727-b945-745eb3bc5f31 |
 > | [Dynamics 365 Administrator](#dynamics-365-administrator) | Can manage all aspects of the Dynamics 365 product. | 44367163-eba1-44c3-98af-f5787879f96a |
+> | [Edge Administrator](#edge-administrator) | Manage all aspects of Microsoft Edge. | 3f1acade-1e04-4fbc-9b69-f0302cd84aef |
 > | [Exchange Administrator](#exchange-administrator) | Can manage all aspects of the Exchange product. | 29232cdf-9323-42fd-ade2-1d097af3e4de |
 > | [Exchange Recipient Administrator](#exchange-recipient-administrator) | Can create or update Exchange Online recipients within the Exchange Online organization. | 31392ffb-586c-42d1-9346-e59415a2cc4e |
 > | [External ID User Flow Administrator](#external-id-user-flow-administrator) | Can create and manage all aspects of user flows. | 6e591065-9bad-43ed-90f3-e9424366d2f0 |
@@ -101,13 +106,14 @@ This article lists the Azure AD built-in roles you can assign to allow managemen
 > | [Teams Devices Administrator](#teams-devices-administrator) | Can perform management related tasks on Teams certified devices. | 3d762c5a-1b6c-493f-843e-55a3b42923d4 |
 > | [Usage Summary Reports Reader](#usage-summary-reports-reader) | Can see only tenant level aggregates in Microsoft 365 Usage Analytics and Productivity Score. | 75934031-6c7e-415a-99d7-48dbd49e875e |
 > | [User Administrator](#user-administrator) | Can manage all aspects of users and groups, including resetting passwords for limited admins. | fe930be7-5e62-47db-91af-98c3a49a38b1 |
+> | [Windows 365 Administrator](#windows-365-administrator) | Can provision and manage all aspects of Cloud PCs. | 11451d60-acb2-45eb-a7d6-43d0f0125c13 |
 > | [Windows Update Deployment Administrator](#windows-update-deployment-administrator) | Create and manage all aspects of Windows Update deployments through the Windows Update for Business deployment service. | 32696413-001a-46ae-978c-ce0f6b3620d2 |
 
 ## Application Administrator
 
 Users in this role can create and manage all aspects of enterprise applications, application registrations, and application proxy settings. Note that users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for both Microsoft Graph and Azure AD Graph.
+This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for Microsoft Graph.
 
 > [!IMPORTANT]
 > This exception means that you can still consent to application permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered). You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires a more privileged administrator, such as Global Administrator.
@@ -165,7 +171,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph and Azure AD Graph |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
@@ -216,6 +222,71 @@ Users in this role can create and manage all aspects of attack simulation creati
 > | microsoft.office365.protectionCenter/attackSimulator/reports/allProperties/read | Read reports of attack simulation responses and associated training |
 > | microsoft.office365.protectionCenter/attackSimulator/simulation/allProperties/allTasks | Create and manage attack simulation templates in Attack Simulator |
 
+## Attribute Assignment Administrator
+
+Users with this role can assign and remove custom security attribute keys and values for supported Azure AD objects such as users, service principals, and devices.
+
+By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
+> | microsoft.directory/devices/customSecurityAttributes/read | Read custom security attribute values for devices |
+> | microsoft.directory/devices/customSecurityAttributes/update | Update custom security attribute values for devices |
+> | microsoft.directory/servicePrincipals/customSecurityAttributes/read | Read custom security attribute values for service principals |
+> | microsoft.directory/servicePrincipals/customSecurityAttributes/update | Update custom security attribute values for service principals |
+> | microsoft.directory/users/customSecurityAttributes/read | Read custom security attribute values for users |
+> | microsoft.directory/users/customSecurityAttributes/update | Update custom security attribute values for users |
+
+## Attribute Assignment Reader
+
+Users with this role can read custom security attribute keys and values for supported Azure AD objects.
+
+By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
+> | microsoft.directory/devices/customSecurityAttributes/read | Read custom security attribute values for devices |
+> | microsoft.directory/servicePrincipals/customSecurityAttributes/read | Read custom security attribute values for service principals |
+> | microsoft.directory/users/customSecurityAttributes/read | Read custom security attribute values for users |
+
+## Attribute Definition Administrator
+
+Users with this role can define a valid set of custom security attributes that can be assigned to supported Azure AD objects. This role can also activate and deactivate custom security attributes.
+
+By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/attributeSets/allProperties/allTasks | Manage all aspects of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/allTasks | Manage all aspects of custom security attribute definitions |
+
+## Attribute Definition Reader
+
+Users with this role can read the definition of custom security attributes.
+
+By default, [Global Administrator](#global-administrator) and other administrator roles do not have permissions to read, define, or assign custom security attributes. To work with custom security attributes, you must be assigned one of the custom security attribute roles.
+
+For more information, see [Manage access to custom security attributes in Azure AD](../fundamentals/custom-security-attributes-manage.md).
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/attributeSets/allProperties/read | Read all properties of attribute sets |
+> | microsoft.directory/customSecurityAttributeDefinitions/allProperties/read | Read all properties of custom security attribute definitions |
+
 ## Authentication Administrator
 
 Users with this role can set or reset any authentication method (including passwords) for non-administrators and some roles. Authentication Administrators can require users who are non-administrators or assigned to some roles to re-register against existing non-password credentials (for example, MFA or FIDO), and can also revoke **remember MFA on the device**, which prompts for MFA on the next sign-in. For a list of the roles that an Authentication Administrator can read or update authentication methods, see [Password reset permissions](#password-reset-permissions).
@@ -236,7 +307,7 @@ The [Authentication Policy Administrator](#authentication-policy-administrator) 
 >* Application Registration and Enterprise Application owners, who can manage credentials of apps they own. Those apps may have privileged permissions in Azure AD and elsewhere not granted to Authentication Administrators. Through this path an Authentication Administrator can assume the identity of an application owner and then further assume the identity of a privileged application by updating the credentials for the application.
 >* Azure subscription owners, who may have access to sensitive or private information or critical configuration in Azure.
 >* Security Group and Microsoft 365 group owners, who can manage group membership. Those groups may grant access to sensitive or private information or critical configuration in Azure AD and elsewhere.
->* Administrators in other services outside of Azure AD like Exchange Online, Office Security and Compliance Center, and human resources systems.
+>* Administrators in other services outside of Azure AD like Exchange Online, Office 365 Security & Compliance Center, and human resources systems.
 >* Non-administrators like executives, legal counsel, and human resources employees who may have access to sensitive or private information.
 
 > [!IMPORTANT]
@@ -307,9 +378,8 @@ This role is available for assignment only as an additional local administrator 
 
 ## Azure DevOps Administrator
 
-Users with this role can manage the Azure DevOps policy to restrict new Azure DevOps organization creation to a set of configurable users or groups. Users in this role can manage this policy through any Azure DevOps organization that is backed by the company's Azure AD organization. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Azure AD organization.
+Users with this role can manage all enterprise Azure DevOps policies, applicable to all Azure DevOps organizations backed by the Azure AD. Users in this role can manage these policies by navigating to any Azure DevOps organization that is backed by the company's Azure AD. Additionally, users in this role can claim ownership of orphaned Azure DevOps organizations. This role grants no other Azure DevOps-specific permissions (for example, Project Collection Administrators) inside any of the Azure DevOps organizations backed by the company's Azure AD organization.
 
-All enterprise Azure DevOps policies can be managed by users in this role.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -384,7 +454,7 @@ Users with this role have full permissions in Cloud App Security. They can add a
 
 Users in this role have the same permissions as the Application Administrator role, excluding the ability to manage application proxy. This role grants the ability to create and manage all aspects of enterprise applications and application registrations. Users assigned to this role are not added as owners when creating new application registrations or enterprise applications.
 
-This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for both Microsoft Graph and Azure AD Graph.
+This role also grants the ability to consent for delegated permissions and application permissions, with the exception of application permissions for Microsoft Graph.
 
 > [!IMPORTANT]
 > This exception means that you can still consent to application permissions for _other_ apps (for example, non-Microsoft apps or apps that you have registered). You can still _request_ these permissions as part of the app registration, but _granting_ (that is, consenting to) these permissions requires a more privileged administrator, such as Global Administrator.
@@ -431,7 +501,7 @@ This role also grants the ability to consent for delegated permissions and appli
 > | microsoft.directory/servicePrincipals/synchronizationJobs/manage | Start, restart, and pause application provisioning syncronization jobs |
 > | microsoft.directory/servicePrincipals/synchronizationSchema/manage | Create and manage application provisioning syncronization jobs and schema |
 > | microsoft.directory/servicePrincipals/managePasswordSingleSignOnCredentials | Read password single sign-on credentials on service principals |
-> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph and Azure AD Graph |
+> | microsoft.directory/servicePrincipals/managePermissionGrantsForAll.microsoft-application-admin | Grant consent for application permissions and delegated permissions on behalf of any user or all users, except for application permissions for Microsoft Graph |
 > | microsoft.directory/servicePrincipals/appRoleAssignedTo/update | Update service principal role assignments |
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
@@ -588,7 +658,7 @@ Users in this role can read basic directory information. This role should be use
 > | microsoft.directory/devices/memberOf/read | Read device memberships |
 > | microsoft.directory/devices/registeredOwners/read | Read registered owners of devices |
 > | microsoft.directory/devices/registeredUsers/read | Read registered users of devices |
-> | microsoft.directory/directoryRoles/standard/read | Update basic properties in Azure AD roles |
+> | microsoft.directory/directoryRoles/standard/read | Read basic properties in Azure AD roles |
 > | microsoft.directory/directoryRoles/eligibleMembers/read | Read the eligible members of Azure AD roles |
 > | microsoft.directory/directoryRoles/members/read | Read all members of Azure AD roles |
 > | microsoft.directory/domains/standard/read | Read basic properties on domains |
@@ -753,6 +823,17 @@ Users with this role have global permissions within Microsoft Dynamics 365 Onlin
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
+## Edge Administrator
+
+Users in this role can create and manage the enterprise site list required for Internet Explorer mode on Microsoft Edge. This role grants permissions to create, edit, and publish the site list and additionally allows access to manage support tickets. [Learn more](https://go.microsoft.com/fwlink/?linkid=2165707)
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.edge/allEntities/allProperties/allTasks | Manage all aspects of Microsoft Edge |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
 ## Exchange Administrator
 
 Users with this role have global permissions within Microsoft Exchange Online, when the service is present. Also has the ability to create and manage all Microsoft 365 groups, manage support tickets, and monitor service health. More information at [About Microsoft 365 admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
@@ -763,6 +844,8 @@ Users with this role have global permissions within Microsoft Exchange Online, w
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/deletedItems.groups/delete | Permanently delete groups, which can no longer be restored |
+> | microsoft.directory/deletedItems.groups/restore | Restore soft deleted groups to original state |
 > | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groups.unified/create | Create Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups, excluding role-assignable groups |
@@ -822,7 +905,7 @@ This administrator manages federation between Azure AD organizations and externa
 
 ## Global Administrator
 
-Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like Microsoft 365 security center, Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators.
+Users with this role have access to all administrative features in Azure Active Directory, as well as services that use Azure Active Directory identities like the Microsoft 365 Defender portal, the Microsoft 365 compliance center, Exchange Online, SharePoint Online, and Skype for Business Online. Furthermore, Global Administrators can [elevate their access](../../role-based-access-control/elevate-access-global-admin.md) to manage all Azure subscriptions and management groups. This allows Global Administrators to get full access to all Azure resources using the respective Azure AD Tenant. The person who signs up for the Azure AD organization becomes a Global Administrator. There can be more than one Global Administrator at your company. Global Administrators can reset the password for any user and all other administrators.
 
 > [!NOTE]
 > As a best practice, Microsoft recommends that you assign the Global Administrator role to fewer than five people in your organization. For more information, see [Best practices for Azure AD roles](best-practices.md).
@@ -875,7 +958,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.directory/organization/allProperties/allTasks | Read and update all properties for an organization |
 > | microsoft.directory/policies/allProperties/allTasks | Create and delete policies, and read and update all properties |
 > | microsoft.directory/conditionalAccessPolicies/allProperties/allTasks | Manage all properties of conditional access policies |
-> | microsoft.directory/crossTenantAccessPolicies/allProperties/allTasks |  |
+> | microsoft.directory/crossTenantAccessPolicies/allProperties/allTasks | Manage cross tenant access policies |
 > | microsoft.directory/privilegedIdentityManagement/allProperties/read | Read all resources in Privileged Identity Management |
 > | microsoft.directory/provisioningLogs/allProperties/read | Read all properties of provisioning logs |
 > | microsoft.directory/roleAssignments/allProperties/allTasks | Create and delete role assignments, and read and update all role assignment properties |
@@ -931,9 +1014,9 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.office365.messageCenter/messages/read | Read messages in Message Center in the Microsoft 365 admin center, excluding security messages |
 > | microsoft.office365.messageCenter/securityMessages/read | Read security messages in Message Center in the Microsoft 365 admin center |
 > | microsoft.office365.network/performance/allProperties/read | Read all network performance properties in the Microsoft 365 admin center |
-> | microsoft.office365.protectionCenter/allEntities/allProperties/allTasks | Manage all aspects of the Security and Compliance centers |
+> | microsoft.office365.protectionCenter/allEntities/allProperties/allTasks | Manage all aspects of the Security & Compliance centers |
 > | microsoft.office365.search/content/manage | Create and delete content, and read and update all properties in Microsoft Search |
-> | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in the Microsoft 365 Security and Compliance Center |
+> | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in the Office 365 Security & Compliance Center |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.sharePoint/allEntities/allTasks | Create and delete all resources, and read and update standard properties in SharePoint |
 > | microsoft.office365.skypeForBusiness/allEntities/allTasks | Manage all aspects of Skype for Business Online |
@@ -943,6 +1026,7 @@ Users with this role have access to all administrative features in Azure Active 
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 > | microsoft.powerApps/allEntities/allTasks | Manage all aspects of Power Apps |
 > | microsoft.powerApps.powerBI/allEntities/allTasks | Manage all aspects of Power BI |
+> | microsoft.teams/allEntities/allProperties/allTasks | Manage all resources in Teams |
 > | microsoft.windows.defenderAdvancedThreatProtection/allEntities/allTasks | Manage all aspects of Microsoft Defender for Endpoint |
 > | microsoft.windows.updatesDeployments/allEntities/allProperties/allTasks | Read and configure all aspects of Windows Update Service |
 
@@ -1023,6 +1107,7 @@ Users in this role can read settings and administrative information across Micro
 > | microsoft.office365.securityComplianceCenter/allEntities/read | Read standard properties in Microsoft 365 Security and Compliance Center |
 > | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+> | microsoft.teams/allEntities/allProperties/read | Read all aspects of Microsoft Teams |
 > | microsoft.windows.updatesDeployments/allEntities/allProperties/read | Read all aspects of Windows Update Service |
 
 ## Groups Administrator
@@ -1032,6 +1117,8 @@ Users in this role can create/manage groups and its settings like naming and exp
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/deletedItems.groups/delete | Permanently delete groups, which can no longer be restored |
+> | microsoft.directory/deletedItems.groups/restore | Restore soft deleted groups to original state |
 > | microsoft.directory/groups/assignLicense | Assign product licenses to groups for group-based licensing |
 > | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/delete | Delete Security groups and Microsoft 365 groups, excluding role-assignable groups |
@@ -1143,7 +1230,6 @@ Users in this role can create, manage and deploy provisioning configuration setu
 > | microsoft.directory/servicePrincipals/audience/update | Update audience properties on service principals |
 > | microsoft.directory/servicePrincipals/authentication/update | Update authentication properties on service principals |
 > | microsoft.directory/servicePrincipals/basic/update | Update basic properties on service principals |
-> | microsoft.directory/servicePrincipals/credentials/update | Update credentials of service principals |
 > | microsoft.directory/servicePrincipals/notes/update | Update notes of service principals |
 > | microsoft.directory/servicePrincipals/owners/update | Update owners of service principals |
 > | microsoft.directory/servicePrincipals/permissions/update | Update permissions of service principals |
@@ -1404,6 +1490,7 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 > | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
+> | microsoft.directory/deletedItems.groups/restore | Restore soft deleted groups to original state |
 > | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/delete | Delete Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/restore | Restore deleted groups |
@@ -1452,6 +1539,7 @@ Do not use. This role has been deprecated and will be removed from Azure AD in t
 > | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
+> | microsoft.directory/deletedItems.groups/restore | Restore soft deleted groups to original state |
 > | microsoft.directory/domains/allProperties/allTasks | Create and delete domains, and read and update all properties |
 > | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups/delete | Delete Security groups and Microsoft 365 groups, excluding role-assignable groups |
@@ -1658,7 +1746,7 @@ Users in this role can create, manage, and delete content for Microsoft Search i
 
 ## Security Administrator
 
-Users with this role have permissions to manage security-related features in the Microsoft 365 security center, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
+Users with this role have permissions to manage security-related features in the Microsoft 365 Defender portal, Azure Active Directory Identity Protection, Azure Active Directory Authentication, Azure Information Protection, and Office 365 Security & Compliance Center. More information about Office 365 permissions is available at [Permissions in the Security & Compliance Center](https://support.office.com/article/Permissions-in-the-Office-365-Security-Compliance-Center-d10608af-7934-490a-818e-e68f17d0e9c1).
 
 In | Can do
 --- | ---
@@ -1748,7 +1836,7 @@ Users with this role can manage alerts and have global read-only access on secur
 > | microsoft.azure.advancedThreatProtection/allEntities/allTasks | Manage all aspects of Azure Advanced Threat Protection |
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.intune/allEntities/read | Read all resources in Microsoft Intune |
-> | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in the Microsoft 365 Security and Compliance Center |
+> | microsoft.office365.securityComplianceCenter/allEntities/allTasks | Create and delete all resources, and read and update standard properties in the Office 365 Security & Compliance Center |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
 > | microsoft.windows.defenderAdvancedThreatProtection/allEntities/allTasks | Manage all aspects of Microsoft Defender for Endpoint |
 
@@ -1797,7 +1885,7 @@ Windows Defender ATP and EDR | View and investigate alerts. When you turn on rol
 Users with this role can open support requests with Microsoft for Azure and Microsoft 365 services, and views the service dashboard and message center in the [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). More information at [About admin roles](https://support.office.com/article/About-Office-365-admin-roles-da585eea-f576-4f55-a1e0-87090b6aaa9d).
 
 > [!NOTE]
-> Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the exsiting name in Microsoft Graph API, Azure AD Graph API, and Azure AD PowerShell.
+> Previously, this role was called "Service Administrator" in [Azure portal](https://portal.azure.com) and [Microsoft 365 admin center](https://admin.microsoft.com). We have renamed it to "Service Support Administrator" to align with the existing name in Microsoft Graph API and Azure AD PowerShell.
 
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
@@ -1822,6 +1910,8 @@ Users with this role have global permissions within Microsoft SharePoint Online,
 > [!div class="mx-tableFixed"]
 > | Actions | Description |
 > | --- | --- |
+> | microsoft.directory/deletedItems.groups/delete | Permanently delete groups, which can no longer be restored |
+> | microsoft.directory/deletedItems.groups/restore | Restore soft deleted groups to original state |
 > | microsoft.directory/groups.unified/create | Create Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/restore | Restore Microsoft 365 groups |
@@ -1863,6 +1953,8 @@ Users in this role can manage all aspects of the Microsoft Teams workload via th
 > | Actions | Description |
 > | --- | --- |
 > | microsoft.directory/authorizationPolicy/standard/read | Read standard properties of authorization policies |
+> | microsoft.directory/deletedItems.groups/delete | Permanently delete groups, which can no longer be restored |
+> | microsoft.directory/deletedItems.groups/restore | Restore soft deleted groups to original state |
 > | microsoft.directory/groups/hiddenMembers/read | Read hidden members of Security groups and Microsoft 365 groups, including role-assignable groups |
 > | microsoft.directory/groups.unified/create | Create Microsoft 365 groups, excluding role-assignable groups |
 > | microsoft.directory/groups.unified/delete | Delete Microsoft 365 groups, excluding role-assignable groups |
@@ -1975,6 +2067,7 @@ Users with this role can create users, and manage all aspects of users with some
 > | microsoft.directory/contacts/create | Create contacts |
 > | microsoft.directory/contacts/delete | Delete contacts |
 > | microsoft.directory/contacts/basic/update | Update basic properties on contacts |
+> | microsoft.directory/deletedItems.groups/restore | Restore soft deleted groups to original state |
 > | microsoft.directory/entitlementManagement/allProperties/allTasks | Create and delete resources, and read and update all properties in Azure AD entitlement management |
 > | microsoft.directory/groups/assignLicense | Assign product licenses to groups for group-based licensing |
 > | microsoft.directory/groups/create | Create Security groups and Microsoft 365 groups, excluding role-assignable groups |
@@ -2011,6 +2104,50 @@ Users with this role can create users, and manage all aspects of users with some
 > | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
 > | microsoft.office365.serviceHealth/allEntities/allTasks | Read and configure Service Health in the Microsoft 365 admin center |
 > | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
+
+## Windows 365 Administrator
+
+Users with this role have global permissions on Windows 365 resources, when the service is present. Additionally, this role contains the ability to manage users and devices in order to associate policy, as well as create and manage groups.
+
+This role can create and manage security groups, but does not have administrator rights over Microsoft 365 groups. That means administrators cannot update owners or memberships of Microsoft 365 groups in the organization. However, they can manage the Microsoft 365 group they create, which is a part of their end-user privileges. So, any Microsoft 365 group (not security group) they create is counted against their quota of 250.
+
+Assign the Windows 365 Administrator role to users who need to do the following tasks:
+
+- Manage Windows 365 Cloud PCs in Microsoft Endpoint Manager
+- Enroll and manage devices in Azure AD, including assigning users and policies
+- Create and manage security groups, but not role-assignable groups
+- View basic properties in the Microsoft 365 admin center
+- Read usage reports in the Microsoft 365 admin center
+- Create and manage support tickets in Azure AD and the Microsoft 365 admin center
+
+> [!div class="mx-tableFixed"]
+> | Actions | Description |
+> | --- | --- |
+> | microsoft.directory/devices/create | Create devices (enroll in Azure AD) |
+> | microsoft.directory/devices/delete | Delete devices from Azure AD |
+> | microsoft.directory/devices/disable | Disable devices in Azure AD |
+> | microsoft.directory/devices/enable | Enable devices in Azure AD |
+> | microsoft.directory/devices/basic/update | Update basic properties on devices |
+> | microsoft.directory/devices/extensionAttributeSet1/update | Update the extensionAttribute1 to extensionAttribute5 properties on devices |
+> | microsoft.directory/devices/extensionAttributeSet2/update | Update the extensionAttribute6 to extensionAttribute10 properties on devices |
+> | microsoft.directory/devices/extensionAttributeSet3/update | Update the extensionAttribute11 to extensionAttribute15 properties on devices |
+> | microsoft.directory/devices/registeredOwners/update | Update registered owners of devices |
+> | microsoft.directory/devices/registeredUsers/update | Update registered users of devices |
+> | microsoft.directory/groups.security/create | Create Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/delete | Delete Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/basic/update | Update basic properties on Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/classification/update | Update the classification property on Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/dynamicMembershipRule/update | Update dynamic membership rule of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/members/update | Update members of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/owners/update | Update owners of Security groups, excluding role-assignable groups |
+> | microsoft.directory/groups.security/visibility/update | Update the visibility property on Security groups, excluding role-assignable groups |
+> | microsoft.directory/deviceManagementPolicies/standard/read | Read standard properties on device management application policies |
+> | microsoft.directory/deviceRegistrationPolicy/standard/read | Read standard properties on device registration policies |
+> | microsoft.azure.supportTickets/allEntities/allTasks | Create and manage Azure support tickets |
+> | microsoft.cloudPC/allEntities/allProperties/allTasks | Manage all aspects of Windows 365 |
+> | microsoft.office365.supportTickets/allEntities/allTasks | Create and manage Microsoft 365 service requests |
+> | microsoft.office365.usageReports/allEntities/allProperties/read | Read Office 365 usage reports |
 > | microsoft.office365.webPortal/allEntities/standard/read | Read basic properties on all resources in the Microsoft 365 admin center |
 
 ## Windows Update Deployment Administrator
@@ -2071,6 +2208,8 @@ Workplace Device Join | Deprecated | [Deprecated roles documentation](#deprecate
 ## Password reset permissions
 
 Column headings represent the roles that can reset passwords. Table rows contain the roles for which their password can be reset.
+
+The following table is for roles assigned at the scope of a tenant. For roles assigned at the scope of an administrative unit, [further restrictions apply](admin-units-assign-roles.md#roles-that-can-be-assigned-with-administrative-unit-scope).
 
 Password can be reset | Password Admin | Helpdesk Admin | Authentication Admin | User Admin | Privileged Authentication Admin | Global Admin
 ------ | ------ | ------ | ------ | ------ | ------ | ------

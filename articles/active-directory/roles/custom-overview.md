@@ -3,12 +3,12 @@ title: Overview of Azure Active Directory role-based access control (RBAC)
 description: Learn how to understand the parts of a role assignment and restricted scope in Azure Active Directory.
 services: active-directory
 author: rolyon
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: roles
 ms.topic: overview
-ms.date: 09/13/2021
+ms.date: 10/06/2021
 ms.author: rolyon
 ms.reviewer: abhijeetsinha
 ms.custom: it-pro
@@ -20,7 +20,7 @@ ms.collection: M365-identity-device-management
 
 This article describes how to understand Azure Active Directory (Azure AD) role-based access control. Azure AD roles allow you to grant granular permissions to your admins, abiding by the principle of least privilege. Azure AD built-in and custom roles operate on concepts similar to those you will find in [the role-based access control system for Azure resources](../../role-based-access-control/overview.md) (Azure roles). The [difference between these two role-based access control systems](../../role-based-access-control/rbac-and-directory-admin-roles.md) is:
 
-- Azure AD roles control access to Azure AD resources such as users, groups, and applications using Graph API
+- Azure AD roles control access to Azure AD resources such as users, groups, and applications using the Microsoft Graph API
 - Azure roles control access to Azure resources such as virtual machines or storage using Azure Resource Management
 
 Both systems contain similarly used role definitions and role assignments. However, Azure AD role permissions can't be used in Azure custom roles and vice versa.
@@ -38,8 +38,8 @@ Once you’ve created your custom role definition (or using a built-in role), yo
 
 The following are the high-level steps that Azure AD uses to determine if you have access to a management resource. Use this information to troubleshoot access issues.
 
-1. A user (or service principal) acquires a token to the Microsoft Graph or Azure AD Graph endpoint.
-1. The user makes an API call to Azure Active Directory (Azure AD) via Microsoft Graph or Azure AD Graph using the issued token.
+1. A user (or service principal) acquires a token to the Microsoft Graph endpoint.
+1. The user makes an API call to Azure Active Directory (Azure AD) via Microsoft Graph using the issued token.
 1. Depending on the circumstance, Azure AD takes one of the following actions:
    - Evaluates the user’s role memberships based on the [wids claim](../develop/access-tokens.md) in the user’s access token.
    - Retrieves all the role assignments that apply for the user, either directly or via group membership, to the resource on which the action is being taken.
@@ -54,7 +54,7 @@ A role assignment is an Azure AD resource that attaches a *role definition* to a
 - Role definition - A collection of permissions. 
 - Scope - A way to constrain where those permissions are applicable.
 
-You can [create role assignments](manage-roles-portal.md) using the Azure portal, Azure AD PowerShell, or Graph API. You can also [list the role assignments](view-assignments.md).
+You can [create role assignments](manage-roles-portal.md) and [list the role assignments](view-assignments.md) using the Azure portal, Azure AD PowerShell, or Microsoft Graph API. Azure CLI is not supported for Azure AD role assignments.
 
 The following diagram shows an example of a role assignment. In this example, Chris has been assigned the App Registration Administrator custom role at the scope of the Contoso Widget Builder app registration. The assignment grants Chris the permissions of the App Registration Administrator role for only this specific app registration.
 

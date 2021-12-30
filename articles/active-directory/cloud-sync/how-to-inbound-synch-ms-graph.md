@@ -3,7 +3,7 @@ title: 'How to programmatically configure cloud sync using MS Graph API'
 description: This topic describes how to enable inbound synchronization using just the Graph API
 services: active-directory
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
@@ -47,9 +47,9 @@ The first of those two commands, require Azure Active Directory credentials. The
 
 ## Create service principals
 
-Next, we need to create the [AD2AAD application/ service principal](/graph/api/applicationtemplate-instantiate?view=graph-rest-beta&tabs=http&preserve-view=true)
+Next, we need to create the [AD2AAD application/ service principal](/graph/api/applicationtemplate-instantiate)
 
-You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The displayName is the AD domain url, if used in the portal (for example, contoso.com), but it may be named something else.
+You need to use this application ID 1a4721b3-e57f-4451-ae87-ef078703ec94. The displayName is the AD domain URL, if used in the portal (for example, contoso.com), but it may be named something else.
 
 ```
 POST https://graph.microsoft.com/beta/applicationTemplates/1a4721b3-e57f-4451-ae87-ef078703ec94/instantiate
@@ -133,7 +133,7 @@ DisplayName: testApp
 
 We're going to need to update the domain this configuration is targeting, so update the secrets for this domain.
 
-Make sure the domain name you use is the same url you set for your on-prem domain controller
+Make sure the domain name you use is the same URL you set for your on-premises domain controller.
 
 ```
 PUT – https://graph.microsoft.com/beta/servicePrincipals/[SERVICE_PRINCIPAL_ID]/synchronization/secrets

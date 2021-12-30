@@ -2,7 +2,7 @@
 title: 'Azure AD Connect: Cloud authentication via staged rollout | Microsoft Docs'
 description: This article explains how to migrate from federated authentication, to cloud authentication, by using a staged rollout.
 author: billmath
-manager: daveba
+manager: karenhoran
 ms.service: active-directory
 ms.workload: identity
 ms.topic: how-to
@@ -63,6 +63,8 @@ The following scenarios are supported for staged rollout. The feature works only
 - Group size is currently limited to 50,000 users.  If you have groups that are larger then 50,000 users, it is recommended to split this group over multiple groups for staged rollout.
 
 - Windows 10 Hybrid Join or Azure AD Join primary refresh token acquisition without line-of-sight to the federation server for Windows 10 version 1903 and newer, when user’s UPN is routable and domain suffix is verified in Azure AD.
+
+- Autopilot enrollment is supported in Staged rollout with Windows 10 version 1909 or later. 
 
 ## Unsupported scenarios
 

@@ -3,7 +3,8 @@ title: Monitor Azure app services performance ASP.NET | Microsoft Docs
 description: Application performance monitoring for Azure app services using ASP.NET. Chart load and response time, dependency information, and set alerts on performance.
 ms.topic: conceptual
 ms.date: 08/05/2021
-ms.custom: "devx-track-js, devx-track-dotnet"
+ms.devlang: javascript
+ms.custom: devx-track-dotnet
 ---
 
 # Application Monitoring for Azure App Service and ASP.NET 
@@ -116,6 +117,9 @@ Starting with version 2.8.9 the pre-installed site extension is used. If you are
 If the upgrade is done from a version prior to 2.5.1, check that the ApplicationInsigths dlls are removed from the application bin folder [see troubleshooting steps](#troubleshooting).
 
 ## Troubleshooting
+
+> [!NOTE]
+> When you create a web app with the `ASP.NET` runtimes in Azure App Services it deploys a single static HTML page as a starter website. It is **not** recommended to troubleshoot an issue with default template. Deploy an application before troubleshooting an issue.
 
 Below is our step-by-step troubleshooting guide for extension/agent based monitoring for ASP.NET based applications running on Azure App Services.
 

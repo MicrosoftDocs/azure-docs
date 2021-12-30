@@ -11,7 +11,7 @@ metadata:
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
-  ms.date: 9/01/2020
+  ms.date: 10/27/2021
 
 
 # linkListType: architecture | concept | deploy | download | get-started | how-to-guide | learn | overview | quickstart | reference | tutorial | video | whats-new
@@ -30,8 +30,6 @@ landingContent:
         links:
           - text: What's new in Face service?
             url: releasenotes.md
-
-  
 
   - title: Face recognition
     linkLists:
@@ -94,8 +92,6 @@ landingContent:
             url: /java/api/overview/azure/cognitiveservices/client/faceapi
           - text: Node.js SDK
             url: /javascript/api/overview/azure/cognitive-services/face-readme
-          - text: Go SDK
-            url: https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/face
           - text: Azure PowerShell
             url: /powershell/module/az.cognitiveservices/#cognitive_services
           - text: Azure Command-Line Interface (CLI)

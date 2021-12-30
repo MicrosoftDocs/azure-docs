@@ -1,8 +1,8 @@
 ---
-title: How reservation discounts apply to Azure Synapse Analytics | Microsoft Docs
+title: How reservation discounts apply to Azure Synapse Analytics (data warehousing only) | Microsoft Docs
 description: Learn how reservation discounts apply to Azure Synapse Analytics to help save you money.
-author: yashesvi
-ms.reviewer: yashar
+author: bandersmsft
+ms.reviewer: primittal
 ms.service: cost-management-billing
 ms.subservice: reservations
 ms.topic: conceptual
@@ -10,13 +10,13 @@ ms.date: 09/15/2021
 ms.author: banders
 ---
 
-# How reservation discounts apply to Azure Synapse Analytics
+# How reservation discounts apply to Azure Synapse Analytics (data warehousing only)
 
 After you buy Azure Synapse Analytics reserved capacity, the reservation discount is automatically applied to your provisioned instances that exist in that region. The reservation discount applies to the usage emitted by the Azure Synapse Analytics cDWU meter. Storage and networking are charged at pay-as-you-go rates.
 
 ## Reservation discount application
 
-The Azure Synapse Analytics reserved capacity discount is applied to running warehouses on an hourly basis. If you don't have a warehouse deployed for an hour, then the reserved capacity is wasted for that hour. It doesn't carry over.
+The Azure Synapse Analytics reserved capacity discount is applied to running data warehouses on an hourly basis. If you don't have a warehouse deployed for an hour, then the reserved capacity is wasted for that hour. It doesn't carry over.
 
 After purchase, the reservation that you buy is matched to Azure Synapse Analytics usage emitted by running warehouses at any point in time. If you shut down some warehouses, then reservation discounts automatically apply to any other matching warehouses.
 

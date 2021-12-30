@@ -9,7 +9,7 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: troubleshooting
 ms.workload: identity
-ms.date: 01/28/2021
+ms.date: 10/21/2021
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: jesakowi
@@ -24,7 +24,7 @@ If you are unable to complete the process or are experiencing unexpected behavio
 
 1. Review the list of [common issues](#common-issues).
 
-1. Reproduce the request using [Graph Explorer](#making-microsoft-graph-api-calls) to gather additional info and rule out any issues in the UI.
+1. Reproduce the request using [Graph Explorer](#making-microsoft-graph-api-calls) to gather more info and rule out any issues in the UI.
 
 ## Common Issues
 Below are some common issues that may occur during the process. 
@@ -48,14 +48,14 @@ Below are some common issues that may occur during the process.
     1. Go to your [partner profile](https://partner.microsoft.com/pcv/accountsettings/connectedpartnerprofile) and verify that: 
         - The MPN ID is correct. 
         - There are no errors or “pending actions” shown, and the verification status under Legal business profile and Partner info both say “authorized” or “success”.
-    1. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you are signing with a user account from is on the list of associated tenants. To add an additional tenant, follow the instructions [here](/partner-center/multi-tenant-account). Please be aware that all Global Admins of any tenant you add will be granted Global Admin privileges on your Partner Center account.
+    1. Go to the [MPN tenant management page](https://partner.microsoft.com/dashboard/account/v3/tenantmanagement) and confirm that the tenant the app is registered in and that you are signing with a user account from is on the list of associated tenants. To add an additional tenant, follow the instructions [here](/partner-center/multi-tenant-account). Be aware that all Global Admins of any tenant you add will be granted Global Admin privileges on your Partner Center account.
     1. Go to the [MPN User Management page](https://partner.microsoft.com/pcv/users) and confirm the user you are signing in as is either a Global Admin, MPN Admin, or Accounts Admin. To add a user to a role in Partner Center, follow the instructions [here](/partner-center/create-user-accounts-and-set-permissions).
 
 - **When I sign into the Azure AD portal, I do not see any apps registered. Why?** 
     Your app registrations may have been created using a different user account in this tenant, a personal/consumer account, or in a different tenant. Ensure you are signed in with the correct account in the tenant where your app registrations were created.
 
 - **I'm getting an error related to multi-factor authentication. What should I do?** 
-    Please ensure [multi-factor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and **required** for the user you are signing in with and for this scenario. For example, MFA could be:
+    Ensure [multifactor authentication](../fundamentals/concept-fundamentals-mfa-get-started.md) is enabled and **required** for the user you are signing in with and for this scenario. For example, MFA could be:
     - Always required for the user you are signing in with
     - [Required for Azure management](../conditional-access/howto-conditional-access-policy-azure-management.md).
     - [Required for the type of administrator](../conditional-access/howto-conditional-access-policy-admin-mfa.md) you are signing in with.
@@ -155,7 +155,7 @@ Most commonly caused by the signed-in user not being a member of the proper role
 
 The MPN ID you provided (`MPNID`) is not valid. Provide a valid MPN ID and try again.
     
-Most commonly caused when an MPN ID is provided that corresponds to a Partner Location Account (PLA). Only Partner Global Accounts are supported. See [Partner Center account structure](/partner-center/account-structure) for more details.
+Most commonly caused when an MPN ID is provided which corresponds to a Partner Location Account (PLA). Only Partner Global Accounts are supported. See [Partner Center account structure](/partner-center/account-structure) for more details.
 
 ### MPNAccountInvalid
 
@@ -185,7 +185,7 @@ Most commonly caused by the wrong MPN ID being provided.
 
 The target application (`AppId`) cannot be found. Provide a valid application ID and try again.
     
-Most commonly caused when verification is being performed via Graph API, and the id of the application provided is incorrect. Note- the id of the application must be provided, not the AppId/ClientId.
+Most commonly caused when verification is being performed via Graph API, and the ID of the application provided is incorrect. Note- the ID of the application must be provided, not the AppId/ClientId.
 
 ### B2CTenantNotAllowed
 
@@ -223,17 +223,17 @@ This feature is not supported for Microsoft consumer accounts. Only applications
 
 ### InteractionRequired
 
-Occurs when multi-factor authentication has not been performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information. Note: MFA must be performed in the same session when attempting to add a verified publisher. If MFA is enabled but not required to be performed in the session, the request will fail. 
+Occurs when multifactor authentication has not been performed before attempting to add a verified publisher to the app. See [common issues](#common-issues) for more information. Note: MFA must be performed in the same session when attempting to add a verified publisher. If MFA is enabled but not required to be performed in the session, the request will fail. 
 
-The error message displayed will be: "Due to a configuration change made by your administrator, or because you moved to a new location, you must use multi-factor authentication to proceed."
+The error message displayed will be: "Due to a configuration change made by your administrator, or because you moved to a new location, you must use multifactor authentication to proceed."
 
 ### UnableToAddPublisher
 
-The error message displayed is: "A verified publisher cannot be added to this application. Please contact your administrator for assistance."
+One of these error messages are displayed: "A verified publisher cannot be added to this application. Contact your administrator for assistance.", or "You are unable to add a verified publisher to this application. Contact your administrator for assistance."
 
 First, verify you've met the [publisher verification requirements](publisher-verification-overview.md#requirements).
 
-When a request to add a verified publisher is made, a number of signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft does not disclose the specific criteria used to determine whether a request is risky or not.
+When a request to add a verified publisher is made, many signals are used to make a security risk assessment. If the request is determined to be risky an error will be returned. For security reasons, Microsoft does not disclose the specific criteria used to determine whether a request is risky or not. If you received this error and believe the "risky" assessment is incorrect, try waiting and resubmitting the verification request. Some customers have reported success after multiple attempts.
 
 ## Next steps
 

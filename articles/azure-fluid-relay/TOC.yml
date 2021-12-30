@@ -16,6 +16,8 @@
     href: concepts/container-management.md
   - name: 'Distributed data structures'
     href: concepts/data-structures.md
+  - name: Data encryption in Azure Fluid Relay
+    href: concepts/data-encryption.md
   - name: 'Authentication and authorization in your app'
     href: concepts/authentication-authorization.md
   - name: Version compatibility
@@ -30,6 +32,8 @@
       href: how-tos/local-mode-with-azure-client.md
     - name: 'How to: Write a TokenProvider with an Azure Function'
       href: how-tos/azure-function-token-provider.md
+    - name: 'How to: Deploy Fluid applications using Azure Static Web Apps'
+      href: how-tos/deploy-fluid-static-web-apps.md
     - name: 'How to: Use JWT tokens'
       href: how-tos/fluid-json-web-token.md
     - name: 'How to: Use test automation with Azure Fluid Relay'

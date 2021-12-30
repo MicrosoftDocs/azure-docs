@@ -6,7 +6,7 @@ ms.author: makromer
 ms.service: data-factory
 ms.subservice: data-flows
 ms.topic: conceptual
-ms.date: 10/05/2021
+ms.date: 10/06/2021
 ---
 
 # Stringify transformation in mapping data flow
@@ -14,6 +14,8 @@ ms.date: 10/05/2021
 [!INCLUDE[appliesto-adf-asa-md](includes/appliesto-adf-asa-md.md)]
 
 Use the stringify transformation to turn complex data types into strings. This can be very useful when you need to store or send column data as a single string entity that may originate as a structure, map, or array type.
+
+> [!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RWMTs9]
 
 ## Configuration
 

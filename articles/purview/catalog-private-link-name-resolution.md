@@ -6,14 +6,14 @@ ms.author: viseshag
 ms.service: purview
 ms.subservice: purview-data-catalog
 ms.topic: how-to
-ms.date: 09/27/2021
+ms.date: 10/18/2021
 # Customer intent: As a Purview admin, I want to set up private endpoints for my Purview account, for secure access.
 ---
 
 # Configure and verify DNS Name Resolution for Azure Purview private endpoints
 
 > [!IMPORTANT]
-> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before October 11, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
+> If you created a _portal_ private endpoint for your Purview account **prior to 27 September 2021 at 15:30 UTC**, you'll need to take the required actions as detailed in, [Reconfigure DNS for portal private endpoints](./catalog-private-link.md#reconfigure-dns-for-portal-private-endpoints). **These actions must be completed before November 12, 2021. Failing to do so will cause existing portal private endpoints to stop functioning**.
 
 ## Conceptual overview
 Accurate name resolution is a critical requirement when setting up private endpoints for your Azure Purview accounts. 
@@ -177,17 +177,18 @@ If you do not use DNS forwarders and instead you manage A records directly in yo
 | `Contoso-Purview.catalog.Purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
 | `Contoso-Purview.proxy.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
 | `Contoso-Purview.guardian.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
+| `gateway.purview.azure.com` | A | \<account private endpoint IP address of Azure Purview\> |
 | `Contoso-Purview.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.catalog.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.cseo.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.datascan.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.datashare.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.datasource.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
-| `Contoso-Purview.sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `manifest.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `cdn.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `hub.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `catalog.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `cseo.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `datascan.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `datashare.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `datasource.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `policy.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
+| `sensitivity.prod.ext.web.purview.azure.com` | A | \<portal private endpoint IP address of Azure Purview\> |
 
 
 ## Verify and DNS test name resolution and connectivity 

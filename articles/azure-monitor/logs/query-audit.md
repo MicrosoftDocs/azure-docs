@@ -4,7 +4,7 @@ description: Details of log query audit logs which provide telemetry about log q
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 09/03/2020
+ms.date: 10/20/2021
 
 ---
 

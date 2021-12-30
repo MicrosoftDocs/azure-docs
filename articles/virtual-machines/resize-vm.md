@@ -12,7 +12,7 @@ ms.custom: devx-track-azurepowershell
 ---
 # Change the size of a virtual machine 
 
-**Applies to:** :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
+**Applies to:** :heavy_check_mark: Linux VMs :heavy_check_mark: Windows VMs :heavy_check_mark: Flexible scale sets 
 
 This article shows you how to move a VM to a different [VM size](sizes.md).
 

@@ -58,7 +58,9 @@ While searching is great if you know what you are looking for, there are times w
 
 ## Search query syntax
 
-All search queries consist of keywords and operators. A keyword is a something that would be part of an asset's properties. Potential keywords can be a classification, glossary term, asset description, or an asset name. A keyword can be just a part of the property you are looking to match to. Use keywords and the operators listed below to ensure Azure Purview returns the assets you are looking for. 
+All search queries consist of keywords and operators. A keyword is a something that would be part of an asset's properties. Potential keywords can be a classification, glossary term, asset description, or an asset name. A keyword can be just a part of the property you are looking to match to. Use keywords and the operators listed below to ensure Azure Purview returns the assets you are looking for.
+
+Certain characters including spaces, dashes, and commas are interpreted as delimiters. Searching a string like `hive-database` is the same as searching two keywords `hive database`. 
 
 Below are the operators that can be used to compose a search query. Operators can be combined as many times as need in a single query.
 

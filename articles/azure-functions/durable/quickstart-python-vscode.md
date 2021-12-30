@@ -2,10 +2,11 @@
 title: Create your first durable function in Azure using Python
 description: Create and publish an Azure Durable Function in Python using Visual Studio Code.
 author: anthonychu
-
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
+ms.devlang: python
+ms.custom: mode-api
 ---
 
 # Create your first durable function in Python

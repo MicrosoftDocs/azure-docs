@@ -3,6 +3,7 @@ title: Overview of transaction processing in Azure Service Bus
 description: This article gives you an overview of transaction processing and the send via feature in Azure Service Bus.
 ms.topic: article
 ms.date: 09/21/2021
+ms.devlang: csharp
 ms.custom: devx-track-csharp
 ---
 
@@ -77,8 +78,7 @@ For more information about Service Bus queues, see the following articles:
 
 * [How to use Service Bus queues](service-bus-dotnet-get-started-with-queues.md)
 * [Chaining Service Bus entities with autoforwarding](service-bus-auto-forwarding.md)
-* [Autoforward sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward)
-* [Atomic Transactions with Service Bus sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions)
-* [Azure Queues and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)
-
-
+* [Autoforward sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AutoForward) (`Microsoft.ServiceBus.Messaging` library)
+* [Atomic Transactions with Service Bus sample](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.ServiceBus.Messaging/AtomicTransactions) (`Microsoft.ServiceBus.Messaging` library)
+* [Working with transactions sample](https://github.com/Azure/azure-sdk-for-net/blob/main/sdk/servicebus/Azure.Messaging.ServiceBus/samples/Sample06_Transactions.md) (`Azure.Messaging.ServiceBus` library)
+* [Azure Queue Storage and Service Bus queues compared](service-bus-azure-and-service-bus-queues-compared-contrasted.md)

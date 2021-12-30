@@ -8,7 +8,7 @@ ms.service: machine-learning
 ms.subservice: mldata
 ms.topic: how-to
 ms.custom: data4ml
-ms.date: 05/14/2020
+ms.date: 10/21/2021
 
 # Customer intent: As an experienced Python developer, I need to export my data labels and use them for machine learning tasks.
 ---
@@ -45,6 +45,8 @@ When you complete a data labeling project, you can export the label data from a 
 You can access the exported Azure Machine Learning dataset in the **Datasets** section of your Azure Machine Learning studio. The dataset **Details** page also provides sample code to access your labels from Python.
 
 ![Exported dataset](./media/how-to-create-labeling-projects/exported-dataset.png)
+
+Once you have exported your labeled data to an Azure Machine Learning dataset, you can use AutoML to build computer vision models trained on your labeled data. Learn more at [Set up AutoML to train computer vision models with Python (preview)](how-to-auto-train-image-models.md)
 
 ## Explore labeled datasets
 
