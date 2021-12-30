@@ -137,8 +137,6 @@ And here's the output now:
 >
 > The location of operations in the pipeline can also affect performance. That's why it's a good idea to put your filtering operations as close as possible to the beginning of your query statement, so that only the relevant data gets passed to the next operations in the pipeline.
 
-:::image type="content" source="./media/kql-overview/pipe-command.png" alt-text="Shows how the pipe command works.":::
-
 Now, let's go through some examples of various queries, starting with the simplest and increasing in complexity.
 
 ## Count rows
@@ -153,7 +151,7 @@ This query takes the entire **`SecurityEvent`** table and passes it to the [coun
 SecurityEvent 
 | count
 ```
-### Results
+
 :::image type="content" source="./media/kql-overview/table-count-results.png" alt-text="Shows the result for counting records in the SecurityEvent table.":::
 
 

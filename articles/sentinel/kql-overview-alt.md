@@ -141,19 +141,13 @@ This query takes the entire `SecurityAlert` table and passes it to the [count op
 SecurityAlert | count
 ```
 
-Here's the output:
-
-| Count |
-| ----- |
-| 456   |
-|
-    
+:::image type="content" source="media/kql-overview/table-count-results.png" alt-text="Screenshot of table count results.":::
 
 ## Filter by Boolean expression: *where*
 
 Now we want to see the actual rows in the SecurityAlert table, but only those representing *high-severity* alerts during a specific week.
 
-The [where](/azure/data-explorer/kusto/query/whereoperator) operator is one of the most common in the Kusto Query Language. This operator filters a table to rows that match specific criteria. In the following example, the query uses multiple commands. First, it gets all records for the table. Then, it filters the data for records that are in the specified time range. Finally, it filters those results for records that have a severity level of "High".
+The [where](/azure/data-explorer/kusto/query/whereoperator) operator is one of the most common in the Kusto Query Language. This operator filters a table to rows that match specific criteria. In the following example, the query uses multiple operations. First, it gets all records for the table. Then, it filters the data for records that are in the specified time range. Finally, it filters those results for records that have a severity level of "High".
 
 > [!NOTE]
 > In addition to specifying a filter in your query by using the `TimeGenerated` column, you can specify the time range in Log Analytics. For more information, see [Log query scope and time range in Azure Monitor Log Analytics](/azure/azure-monitor/log-query/scope).
@@ -165,9 +159,10 @@ SecurityAlert
 ```
 
 :::image type="content" source="media/kql-overview/table-where-timegen-severity.png" alt-text="Screenshot that shows the results of the where operator example." lightbox="media/kql-overview/table-where-timegen-severity.png":::
+
 ## Select a subset of columns: *project*
 
-Use [project](/azure/data-explorer/kusto/query//projectoperator) to include only the columns you want. Building on the preceding example, let's limit the output to certain columns:
+Use [project](/azure/data-explorer/kusto/query/projectoperator) to include only the columns you want. Building on the preceding example, let's limit the output to certain columns:
 
 ```kusto
 AzureActivity
@@ -176,7 +171,7 @@ AzureActivity
 | project TimeGenerated, Level, OperationNameValue, ResourceGroup, _ResourceId
 ```
 
-:::image type="content" source="images/tutorial/azure-monitor-project-results.png" lightbox="images/tutorial/azure-monitor-project-results.png" alt-text="Screenshot that shows the results of the project operator example.":::
+:::image type="content" source="media/kql-overview/table-project.png" lightbox="images/tutorial/azure-monitor-project-results.png" alt-text="Screenshot that shows the results of the project operator example.":::
 
 ## Show *n* rows: *take*
 
