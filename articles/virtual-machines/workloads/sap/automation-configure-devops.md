@@ -15,9 +15,9 @@ You can use Azure DevOps Services (Azure Repos and Azure Pipelines) as your conf
 
 ## Sign up for Azure DevOps Services
 
-To use Azure DevOps Services you will need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD).To create an account open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _Sign In_ or create a new account.
+To use Azure DevOps Services, you will need an Azure DevOps organization. An organization is used to connect groups of related projects. Use your work or school account to automatically connect your organization to your Azure Active Directory (Azure AD).To create an account open [Azure DevOps](https://azure.microsoft.com/services/devops/) and either _Sign In_ or create a new account.
 
-## Set up the Azure DevOps project
+## Create a new project
 
 You can use Azure Repos to store both system and environment configuration files (\*.tfvars), Terraform templates and Ansible playbooks.
 
@@ -34,7 +34,7 @@ Start by importing the SAP Deployment Automation Framework GitHub repository int
 
 To remove the Azure resources, you need an Azure Resource Manager service connection.
 
-To create the service connection go to Project settings and navigate to the Service connections setting in the Pipelines section.
+To create the service connection, go to Project settings and navigate to the Service connections setting in the Pipelines section.
 
 :::image type="content" source="./media/automation-devops/automation-create-service-connection.png" alt-text="Picture showing how to create a Service connection":::
 
@@ -188,7 +188,7 @@ You can use the Deployer as a [self-hosted agent for Azure DevOps](/azure/devops
 
 1. Connect to the Deployer using the steps described here [Using Visual Studio Code](automation-tools-configuration.md#configuring-visual-studio-code)
 
-1. Open a Terminal window and run
+1. Open a Terminal window and run:
 
 ```bash
 cd ~/Azure_SAP_Automated_Deployment/
@@ -196,15 +196,17 @@ cd ~/Azure_SAP_Automated_Deployment/
 $DEPLOYMENT_REPO_PATH/deploy/scripts/setup_ado.sh
 ```
 
-Accept the license. When prompted for server URL, enter the URL you captured in the previous step. For authentication, choose PAT and enter the token value from the previous step.
-Enter the application pool name you created in the previous step when prompted. Accept the default agent name. Accept the default work folder name.
+Accept the license and when prompted for server URL, enter the URL you captured in the previous step. For authentication, choose PAT and enter the token value from the previous step.
 
-The agent will now be configured and stated,
+Enter the application pool name you created in the previous step when prompted. Accept the default agent name and the default work folder name.
+
+The agent will now be configured and started.
 
 ## Run Azure Pipelines
 
 Newly created pipelines might not be visible in the default view. Click on recent tab and go back to All tab to view the new pipelines.
-Click on the pipeline and choose "Run"
+
+Select the _Control plane deployment_ pipeline and choose "Run" to deploy the control plane.
 
 
 ## Next step
