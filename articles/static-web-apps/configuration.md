@@ -42,7 +42,7 @@ You can define rules for one or more routes in your static web app. Route rules 
 
 - Rules are defined in the `routes` array, even if you only have one route.
 - Rules are evaluated in the order as they appear in the `routes` array.
-- Rule evaluation stops at the first match. A match occurs when the `route` and `method` (if specified) properties match the request. Each request can match at most one rule.
+- Rule evaluation stops at the first match. A match occurs when the `route` property and a value in the `methods` array (if specified) match the request. Each request can match at most one rule.
 
 The routing concerns significantly overlap with authentication (identifying the user) and authorization (assigning abilities to the user) concepts. Make sure to read the [authentication and authorization](authentication-authorization.md) guide along with this article.
 
@@ -51,7 +51,7 @@ The routing concerns significantly overlap with authentication (identifying the 
 Each rule is composed of a route pattern, along with one or more of the optional rule properties. Route rules are defined in the `routes` array. See the [example configuration file](#example-configuration-file) for usage examples.
 
 > [!IMPORTANT]
-> Only the `route` and `method` (if specified) properties are used to determine whether a rule matches a request.
+> Only the `route` and `methods` (if specified) properties are used to determine whether a rule matches a request.
 
 | Rule property | Required | Default value | Comment |
 |--|--|--|--|
