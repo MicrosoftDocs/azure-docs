@@ -540,7 +540,7 @@ Serverless pools enable you to use T-SQL to configure database objects. There ar
 
 ### Cannot create a database
 
-If you are getting the error *CREATE DATABASE failed. User database limit has been already reached.* you have created the maximal number of databases that are supported in one workspace (see [Constraints](#constraints)).
+If you are getting the error '*CREATE DATABASE failed. User database limit has been already reached.*' you have created the maximal number of databases that are supported in one workspace (see [Constraints](#constraints)).
 - If you need to separate the objects, use schemas within the databases.
 - If you just need to reference Azure Data Lake storage, create Lake house databases or Spark databases that will be synchronized in the serverless SQL pool.
 
@@ -851,6 +851,8 @@ There are some general system constraints that may affect your workload:
 ### Cannot create a database in serverless SQL pool
 
 The serverless SQL pools have limitations and you cannot create more than 20 databases per workspace. If you need to separate objects and isolate them, use schemas.
+
+If you are getting the error '*CREATE DATABASE failed. User database limit has been already reached.*' you have created the maximal number of databases that are supported in one workspace.
 
 You don't need to use separate databases to isolate data for different tenants. All data is stored externally on a data lake and Cosmos DB. The metadata (table, views, function definitions) can be successfully isolated using schemas. Schema-based isolation is also used in Spark where databases and schemas are the same concepts.
 
