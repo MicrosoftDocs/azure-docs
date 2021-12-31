@@ -27,7 +27,7 @@ You can customize and use an ARM template from any Azure VM base to deploy more 
 
 1. If you want to create an instance of the VM now, on the **Basic Settings** tab, select **Create**.
 
-You can also create your own ARM templates. For guidelines and suggestions to help you create reliable, easy-to-use ARM templates, see [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md).
+You can also create your own DevTest Lab ARM templates. Single-VM ARM templates use the [Microsoft.DevTestLab/labs/virtualmachines](/azure/templates/microsoft.devtestlab/2018-09-15/labs/virtualmachines) resource type. For guidelines and suggestions to help you create reliable, easy-to-use ARM templates, see [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md).
 
 ### Set VM expiration date
 

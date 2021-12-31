@@ -9,7 +9,7 @@ ms.date: 12/20/2021
 
 Multi-tier web apps or SharePoint farms have multiple virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision these PaaS resources and infrastructure-as-a-service (IaaS) VMs in Azure DevTest Labs by using [Azure Resource Manager (ARM)](../azure-resource-manager/templates/syntax.md) environment templates.
 
-An ARM environment template defines a solution's infrastructure and configuration. Lab users can use the template to easily and consistently deploy multiple VMs with preinstalled resources as a single environment.
+An ARM environment template defines a solution's infrastructure and configuration. Multi-VM ARM environment templates use the [Microsoft.Compute/virtualmachines](/azure/templates/microsoft.compute/virtualmachines) resource type. Lab users can use the templates to easily and consistently deploy multiple VMs with preinstalled resources as a single environment.
 
 You can configure DevTest Labs to load ARM templates directly from public or private Git source control repositories. Lab users can then create environments by selecting an environment template in the Azure portal, just as they can select individual [VM base images](devtest-lab-comparing-vm-base-image-types.md) to create VMs.
 
@@ -208,5 +208,5 @@ To automate ARM environment template deployment with Azure PowerShell:
 
 ## Next steps
 
-- [Public ARM environment template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments
+- [Public ARM environment template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments)
 - [Azure quickstart template gallery](https://github.com/Azure/azure-quickstart-templates)
