@@ -91,6 +91,14 @@ items:
       href: visualize/resource-manager-workbooks.md
     - name: VM insights
       href: vm/resource-manager-vminsights.md
+  - name: Data collection rules
+    items: 
+    - name: Agent
+      href: platform/dcr-sample-agent.md
+    - name: Custom logs
+      href: platform/dcr-sample-custom-logs.md
+    - name: Default DCR
+      href: platform/dcr-sample-default.md
   - name: Azure CLI
     href: cli-samples.md
   - name: Monitor Logs in Azure CLI
