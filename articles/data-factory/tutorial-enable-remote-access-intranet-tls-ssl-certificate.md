@@ -17,13 +17,13 @@ In this tutorial, you will learn how to set up a self-hosted integration runtime
 
 - An introduction to [SSL/TLS Strong Encryption](https://httpd.apache.org/docs/2.0/ssl/ssl_intro.html).
 - Certificate could be a general TLS certificate for a Web Server. Requirements:
-    1. The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public partner certification authority (CA).
-    1. Each integration runtime node must trust this certificate.
-    1. We recommend Subject Alternative Name (SAN) certificates because all the fully qualified domain names (FQDN) of integration runtime nodes are required to be secured by this certificate. (WCF TLS/SSL validate only check last DNS Name in SAN was fixed in .NET Framework 4.6.1. Refer to [Mitigation: X509CertificateClaimSet.FindClaims Method](/dotnet/framework/migration-guide/mitigation-x509certificateclaimset-findclaims-method?redirectedfrom=MSDN) for more information.)
-    1. Wildcard certificates (*) are not supported.
-    1. The certificate must have a private key (like PFX format).
-    1. The certificate can use any key size supported by Windows Server 2012 R2 for TLS/SSL certificates.
-    1. We only support CSP (Cryptographic Service Provider) certificate so far. Certificates that use CNG keys (Key Storage Provider) aren't supported.
+    - The certificate must be a publicly trusted X509 v3 certificate. We recommend that you use certificates that are issued by a public partner certification authority (CA).
+    - Each integration runtime node must trust this certificate.
+    - We recommend Subject Alternative Name (SAN) certificates because all the fully qualified domain names (FQDN) of integration runtime nodes are required to be secured by this certificate. (WCF TLS/SSL validate only check last DNS Name in SAN was fixed in .NET Framework 4.6.1. Refer to [Mitigation: X509CertificateClaimSet.FindClaims Method](/dotnet/framework/migration-guide/mitigation-x509certificateclaimset-findclaims-method?redirectedfrom=MSDN) for more information.)
+    - Wildcard certificates (*) are not supported.
+    - The certificate must have a private key (like PFX format).
+    - The certificate can use any key size supported by Windows Server 2012 R2 for TLS/SSL certificates.
+    - We only support CSP (Cryptographic Service Provider) certificate so far. Certificates that use CNG keys (Key Storage Provider) aren't supported.
 
 ## Steps
 
