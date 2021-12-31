@@ -15,9 +15,9 @@ ms.collection: M365-identity-device-management
 
 # Azure AD Connect: Version release history
 
-The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions are applicable to all audiences.
+The Azure Active Directory (Azure AD) team regularly updates Azure AD Connect with new features and functionality. Not all additions apply to all audiences.
 
-This article is designed to help you keep track of the versions that have been released, and to understand what the changes are in the latest version.
+This article helps you keep track of the versions that have been released and understand what the changes are in the latest version.
 
 ## Looking for the latest versions?
 
@@ -27,7 +27,7 @@ You can upgrade your Azure AD Connect server from all supported versions with th
  - If you're still using an *older version of Windows Server*, use *Azure AD Connect V1.6*. You can download the latest version of Azure AD Connect V1 from the [Microsoft Download Center](https://www.microsoft.com/download/details.aspx?id=103336). See the [release notes for the latest V1.6 release](reference-connect-version-history.md#16160).
  - We're only applying critical changes to the V1.x versions going forward. You might not find some of the features and fixes for V2.0 in the V1.x releases. For this reason, upgrade to the V2.0 version as soon as possible. Most notably, there's an issue with the 1.16.4.2 build. When you upgrade to this V1.6 build or any newer builds, the group limit resets to 50,000. When you upgrade a server to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
 
-This table is a list of related topics:
+The following table lists related topics:
 
 Topic |  Details
 --------- | --------- |
@@ -52,9 +52,9 @@ For version history information on retired versions, see [Azure AD Connect: Vers
 
 Not all releases of Azure AD Connect are made available for auto-upgrade. The release status indicates whether a release is made available for auto-upgrade or for download only. If auto-upgrade was enabled on your Azure AD Connect server, that server automatically upgrades to the latest version of Azure AD Connect that's released for auto-upgrade. Not all Azure AD Connect configurations are eligible for auto-upgrade.
 
-Auto-upgrade is meant to push all important updates and critical fixes to you. It isn't necessarily the latest version, because not all versions will require or include a fix to a critical security issue. (This example is just one of many.) Critical issues are usually addressed with a new version provided via auto-upgrade. If there are no such issues, there are no updates pushed out by using auto-upgrade. In general, if you're using the latest auto-upgrade version, you should be good.
+Auto-upgrade is meant to push all important updates and critical fixes to you. It isn't necessarily the latest version because not all versions will require or include a fix to a critical security issue. (This example is just one of many.) Critical issues are usually addressed with a new version provided via auto-upgrade. If there are no such issues, there are no updates pushed out by using auto-upgrade. In general, if you're using the latest auto-upgrade version, you should be good.
 
-If you want all the latest features and updates, the best way to see if there are any is to check this page and install them as you see fit.
+If you want all the latest features and updates, check this page and install what you need.
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
@@ -66,7 +66,7 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Bug fixes
 
-- We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users and mailboxes of certain resource objects, were getting deleted.
+We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users and mailboxes of certain resource objects, were getting deleted.
 
 ## 2.0.88.0
 
@@ -79,29 +79,29 @@ To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-t
 
 ### Bug fixes
 
- - We upgraded the version of Microsoft.Data.OData from 5.8.1 to 5.8.4 to fix a vulnerability.
- - Accessibility fixes:
-    - We made the Azure AD Connect wizard resizable to account for different zoom levels and screen resolutions.
-    - We named elements to satisfy accessibility requirements.
- - We fixed a bug where miisserver failed because of a null reference.
- - We fixed a bug to ensure the desktop SSO value persists after upgrading Azure AD Connect to a newer version.
- - We modified the inetorgperson sync rules to fix an issue with account/resource forests.
- - We fixed a radio button test to display a **Link More** link.
+- We upgraded the version of Microsoft.Data.OData from 5.8.1 to 5.8.4 to fix a vulnerability.
+- Accessibility fixes:
+  - We made the Azure AD Connect wizard resizable to account for different zoom levels and screen resolutions.
+  - We named elements to satisfy accessibility requirements.
+- We fixed a bug where miisserver failed because of a null reference.
+- We fixed a bug to ensure the desktop SSO value persists after upgrading Azure AD Connect to a newer version.
+- We modified the inetorgperson sync rules to fix an issue with account/resource forests.
+- We fixed a radio button test to display a **Link More** link.
 
 ### Functional changes
 
- - We made a change so that group writeback DN is now configurable with the display name of the synced group.
- - We removed the hard requirement for exchange schema when you enable group writeback.
- - Azure AD Kerberos changes:
-    - We extended the PowerShell command to support custom top-level names for trusted object creation.
-    - We made a change to set an official brand name for the Azure AD Kerberos feature.
+- We made a change so that group writeback DN is now configurable with the display name of the synced group.
+- We removed the hard requirement for exchange schema when you enable group writeback.
+- Azure AD Kerberos changes:
+  - We extended the PowerShell command to support custom top-level names for trusted object creation.
+  - We made a change to set an official brand name for the Azure AD Kerberos feature.
 
 ## 1.6.16.0
 
 > [!NOTE]
 > This release is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and can't upgrade their server to Windows Server 2016 or newer at this time. You can't use this version to update an Azure AD Connect V2.0 server.
 >
-> Don't install this release on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31, 2022. You need to upgrade your Server OS and Azure AD Connect version before that date.
+> Don't install this release on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31, 2022. Upgrade your Server OS and Azure AD Connect version before that date.
 >
 > When you upgrade to this V1.6 build or any newer builds, the group membership limit resets to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
 
@@ -129,11 +129,11 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 
 ### Bug fixes
 
- - We removed a download button for a PowerShell script on the **Group Writeback Permissions** page in the wizard. We also changed the text on the wizard page to include a **Learn More** link that links to an online article where the PowerShell script can be found.
- - We fixed a bug where the wizard was incorrectly blocking the installation when the .NET version on the server was greater than 4.6 because of missing registry keys. Those registry keys aren't required and should only block installation if they're intentionally set to false.
- - We fixed a bug where an error was thrown if phantom objects were found during the initialization of a sync step. This bug blocked the sync step or removed transient objects. The phantom objects are now ignored.
+- We removed a download button for a PowerShell script on the **Group Writeback Permissions** page in the wizard. We also changed the text on the wizard page to include a **Learn More** link that links to an online article where the PowerShell script can be found.
+- We fixed a bug where the wizard was incorrectly blocking the installation when the .NET version on the server was greater than 4.6 because of missing registry keys. Those registry keys aren't required and should only block installation if they're intentionally set to false.
+- We fixed a bug where an error was thrown if phantom objects were found during the initialization of a sync step. This bug blocked the sync step or removed transient objects. The phantom objects are now ignored.
 
-   A phantom object is a placeholder for an object that isn't there or hasn't been seen yet. For example, if a source object has a reference for a target object that isn't there, we create the target object as a phantom.
+  A phantom object is a placeholder for an object that isn't there or hasn't been seen yet. For example, if a source object has a reference for a target object that isn't there, we create the target object as a phantom.
 
 ### Functional changes
 
@@ -154,13 +154,13 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 
 ### Functional changes
 
- - We added the latest versions of Microsoft Identity Manager (MIM) Connectors (1.1.1610.0). For more information, see the [release history page of the MIM Connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
- - We added a configuration option to disable the Soft Matching feature in Azure AD Connect. We recommend that you disable Soft Matching unless you need it to take over cloud-only accounts. To disable Soft Matching, see [this reference article](/powershell/module/msonline/set-msoldirsyncfeature#example-2--block-soft-matching-for-the-tenant).
+- We added the latest versions of Microsoft Identity Manager (MIM) Connectors (1.1.1610.0). For more information, see the [release history page of the MIM Connectors](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-version-history#1116100-september-2021).
+- We added a configuration option to disable the Soft Matching feature in Azure AD Connect. We recommend that you disable Soft Matching unless you need it to take over cloud-only accounts. To disable Soft Matching, see [this reference article](/powershell/module/msonline/set-msoldirsyncfeature#example-2--block-soft-matching-for-the-tenant).
 
 ### Bug fixes
 
- - We fixed a bug where the desktop single sign-on settings weren't persisted after upgrade from a previous version.
- - We fixed a bug that caused the Set-ADSync\*Permission cmdlets to fail.
+- We fixed a bug where the desktop single sign-on settings weren't persisted after upgrade from a previous version.
+- We fixed a bug that caused the Set-ADSync\*Permission cmdlets to fail.
 
 ## 2.0.25.1
 
@@ -173,17 +173,17 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 
 ### Bug fixes
 
- - We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
- - We fixed an import configuration issue with writeback enabled when you use the existing Azure AD Connector account.
- - We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from V1.6 because of an invalid inheritance type.
- - We fixed an issue with the cmdlet we published in a previous release to set the TLS version. The cmdlet overwrote the keys, which destroyed any values that were in them. Now a new key is created only if one doesn't already exist. We added a warning to let users know the TLS registry changes aren't exclusive to Azure AD Connect and might affect other applications on the same server.
- - We added a check to enforce auto-upgrade for V2.0 to require Windows Server 2016 or newer.
- - We added the Replicating Directory Changes permission in the Set-ADSyncBasicReadPermissions cmdlet.
- - We made a change to prevent UseExistingDatabase and import configuration from being used together because they could contain conflicting configuration settings.
- - We made a change to allow a user with the Application Admin role to change the App Proxy service configuration.
- - We removed the (Preview) label from the labels of **Import/Export** settings. This functionality is generally available.
- - We changed some labels that still referred to Company Administrator. We now use the role name Global Administrator.
- - We created new Azure AD Kerberos PowerShell cmdlets (\*-AADKerberosServer) to add a Claims Transform rule to the Azure AD Service Principal.
+- We fixed a security issue where an unquoted path was used to point to the Azure AD Connect service. This path is now a quoted path.
+- We fixed an import configuration issue with writeback enabled when you use the existing Azure AD Connector account.
+- We fixed an issue in Set-ADSyncExchangeHybridPermissions and other related cmdlets, which were broken from V1.6 because of an invalid inheritance type.
+- We fixed an issue with the cmdlet we published in a previous release to set the TLS version. The cmdlet overwrote the keys, which destroyed any values that were in them. Now a new key is created only if one doesn't already exist. We added a warning to let users know the TLS registry changes aren't exclusive to Azure AD Connect and might affect other applications on the same server.
+- We added a check to enforce auto-upgrade for V2.0 to require Windows Server 2016 or newer.
+- We added the Replicating Directory Changes permission in the Set-ADSyncBasicReadPermissions cmdlet.
+- We made a change to prevent UseExistingDatabase and import configuration from being used together because they could contain conflicting configuration settings.
+- We made a change to allow a user with the Application Admin role to change the App Proxy service configuration.
+- We removed the (Preview) label from the labels of **Import/Export** settings. This functionality is generally available.
+- We changed some labels that still referred to Company Administrator. We now use the role name Global Administrator.
+- We created new Azure AD Kerberos PowerShell cmdlets (\*-AADKerberosServer) to add a Claims Transform rule to the Azure AD Service Principal.
 
 ### Functional changes
 
@@ -291,8 +291,8 @@ There are no functional changes in this release.
 - We upgraded the Visual C++ runtime library to version 14 as a prerequisite for SQL Server 2019.
 - We updated this release to use the Microsoft Authentication Library for authentication. We removed the older Azure AD Authentication Library, which will be retired in 2022.
 - We no longer apply permissions on AdminSDHolders following Windows security guidance. We changed the parameter SkipAdminSdHolders to IncludeAdminSdHolders in the ADSyncConfig.psm1 module.
-- We made a change so that passwords are now reevaluated when an expired password is "unexpired," no matter if the password itself is changed. If the password is set to "Must change password at next logon" for a user, and this flag is cleared (which "unexpires" the password), the unexpired status and the password hash are synced to Azure AD. When the user attempts to sign in in Azure AD, they can use the unexpired password.
-To sync an expired password from Active Directory to Azure AD, use the feature in Azure AD Connect to [synchronize temporary passwords](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon). You need to enable password writeback to use this feature, so the password the user updates is written back to Active Directory.
+- We made a change so that passwords are now reevaluated when an expired password is "unexpired," no matter if the password itself is changed. If the password is set to "Must change password at next logon" for a user, and this flag is cleared (which "unexpires" the password), the unexpired status and the password hash are synced to Azure AD. In Azure AD, when the user attempts to sign in, they can use the unexpired password.
+To sync an expired password from Active Directory to Azure AD, use the feature in Azure AD Connect to [synchronize temporary passwords](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon). Enable password writeback to use this feature so that the password the user updates is written back to Active Directory.
 - We added two new cmdlets to the ADSyncTools module to enable or retrieve TLS 1.2 settings from the Windows Server:
   - Get-ADSyncToolsTls12
   - Set-ADSyncToolsTls12
@@ -404,7 +404,7 @@ This release fixes a bug that occurred in version 1.6.2.4. After upgrade to that
 - We updated sync rules to support group writeback V2:
     - If the In from AAD - Group SOAInAAD rule is cloned and Azure AD Connect is upgraded:
         - The updated rule will be disabled by default, so targetWritebackType will be null.
-        - Azure AD Connect will writeback all Cloud Groups (including Azure AD Security Groups enabled for writeback) as Distribution Groups.
+        - Azure AD Connect will write back all Cloud Groups (including Azure AD Security Groups enabled for writeback) as Distribution Groups.
     - If the Out to AD - Group SOAInAAD rule is cloned and Azure AD Connect is upgraded:
         - The updated rule will be disabled by default. A new sync rule, Out to AD - Group SOAInAAD - Exchange, which is added will be enabled.
         - Depending on the Cloned Custom Sync Rule's precedence, Azure AD Connect will flow the Mail and Exchange attributes.
