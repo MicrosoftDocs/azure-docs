@@ -222,7 +222,7 @@ Backup storage redundancy impacts backup costs in the following way:
 For more details about backup storage pricing visit [Azure SQL Database pricing page](https://azure.microsoft.com/pricing/details/sql-database/single/) and [Azure SQL Managed Instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 > [!IMPORTANT]
-> Backup storage redundancy for Hyperscale and SQL Managed Instance can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
+> Backup storage redundancy for Hyperscale can only be set during database creation. This setting cannot be modified once the resource is provisioned. [Database copy](database-copy.md) process can be used to update the backup storage redundancy settings for an existing Hyperscale database. 
 
 > [!NOTE]
 > Backup storage redundancy for Hyperscale is currently in preview. 
@@ -474,7 +474,9 @@ For more information, see [Backup Retention REST API](/rest/api/sql/backupshortt
 
 ## Configure backup storage redundancy
 
-Configurable storage redundancy for SQL Databases can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. For SQL Managed Instance and HyperScale backup storage redundancy can only be specified during the create process. Once the resource is provisioned, you can't change the backup storage redundancy option. The default value is geo-redundant storage. For differences in pricing between locally redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
+Configurable storage redundancy for SQL Databases can be configured at the time of database creation or can be updated for an existing database; the changes made to an existing database apply to future backups only. 
+For SQL Managed Instance, backup storage redundancy is set on the instance level, and it is applied for all belonging managed databases. It can be configured at the time of an instance creation or updated for existing instances; the backup storage redundancy change would trigger then a new full backup per database and the change will apply for all future backups. The default storage redundancy type is geo-redundancy (RA-GRS).
+For HyperScale backup storage redundancy can only be specified during the create process. Once the resource is provisioned, you can't change the backup storage redundancy option. The default value is geo-redundant storage. For differences in pricing between locally redundant, zone-redundant and geo-redundant backup storage visit [managed instance pricing page](https://azure.microsoft.com/pricing/details/azure-sql/sql-managed-instance/single/).
 
 ### Configure backup storage redundancy by using the Azure portal
 
@@ -485,12 +487,14 @@ In Azure portal, you can configure the backup storage redundancy on the **Create
 
 #### [SQL Managed Instance](#tab/managed-instance)
 
-In the Azure portal, the option to change backup storage redundancy is located on the **Compute + storage** pane accessible from the **Configure Managed Instance** option on the **Basics** tab when you are creating your SQL Managed Instance.
+In the Azure portal, during an instance creation, the default option for the backup storage redundancy is Geo-redundancy. The option to change it is located on the **Compute + storage** pane accessible from the **Configure Managed Instance** option on the **Basics** tab.
 ![Open Compute+Storage configuration-pane](./media/automated-backups-overview/open-configuration-blade-managedinstance.png)
 
 Find the option to select backup storage redundancy on the **Compute + storage** pane.
 ![Configure backup storage redundancy](./media/automated-backups-overview/select-backup-storage-redundancy-managedinstance.png)
 
+To change the Backup storage redundancy option for an existing instance, go to the **Compute + storage** pane, select the new option and press **Apply**. For now, this change will be applied only for PITR backups, while LTR backups will stay on the old storage redundancy type. Please notice that this is a size of data operation due to immediate operation of taking full backups for all the instance belonging databases. The change of the backup storage redundancy operation can be combined with the UpdateSLO operation and information on the operation status can be seen on the Notification pane.
+![Notification on backup storage redundancy](./media/automated-backups-overview/change-backup-storage-redundancy-managedinstance-notification.png)
 ---
 
 ### Configure backup storage redundancy by using the Azure CLI
