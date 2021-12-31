@@ -30,9 +30,9 @@ If the enrichment pipeline does not have any errors, a debug session can be used
 
 The visual editor is organized into tabs and panes. This section introduces the components of the visual editor.
 
-The **Skill Graph** provides a hierarchical, visual representation of the skillset. The graph is a top to bottom representation of the order in which the skills are executed. Skills that are dependent upon the output of other skills will be shown lower in the graph. Skills at the same level in the hierarchy can execute in parallel. 
+The **Skill Graph** provides a visual hierarchy of the skillset and its order of execution from top to bottom. Skills that are dependent upon the output of other skills are positioned lower in the graph. Skills at the same level in the hierarchy can execute in parallel. Color coded labels of skills in the graph indicate the types of skills that are being executed in the skillset (TEXT or VISION).
 
-Selecting a skill in the graph will highlight the skills connected to it, the nodes that create its inputs and the nodes that accept its outputs. Each skill node displays its type, errors or warnings, and execution counts. The **Skill Graph** is where you will select which skill to debug or enhance. When you select a skill, its details will be displayed in the skill details pane to the right of the graph.
+Selecting a skill in the graph will display the details of that instance of the skill in the right pane, including it's definition, errors or warnings, and execution history. The **Skill Graph** is where you will select which skill to debug or enhance. When you select a skill, its details will be displayed in the skill details pane to the right of the graph.
 
 :::image type="content" source="media/cognitive-search-debug/skills-graph.png" alt-text="Screenshot of Skills Graph tab." border="true":::
 

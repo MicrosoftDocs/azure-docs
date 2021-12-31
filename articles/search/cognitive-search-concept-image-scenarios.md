@@ -7,7 +7,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: how-to
-ms.date: 12/16/2021
+ms.date: 12/31/2021
 ms.custom: devx-track-csharp
 ---
 
@@ -377,21 +377,25 @@ Image analysis output is illustrated in the JSON below (search result). In this 
     . . .
 ```
 
-## Scenario: Embedded images
+## Scenario: Embedded images in PDFs
 
-When you run OCR over source files that included documents with embedded images, the output is a single string containing all file contents, both text and image-origin text, achieved with this workflow:  
+When the images you want to process are embedded in other files, such as PDF or DOCX, the enrichment pipeline will extract just the images and then pass them to OCR or image analysis for processing. Separation of image from text content occurs during the document cracking phase, and once the images are separated, they remain separate until you explicitly merge the processed output back into the source text. The Text Merge skill is used for this purpose. Although Text Merge is not expressly required, it's frequently invoked so that image output (OCR text, OCR layout, image tags, image captions) can be reintroduced into the document at the same location as the image. Essentially, the goal is to replace an embedded binary image with an embedded textual representation of that image.
 
-1. The indexer cracks source documents, extracts text and images, and queues each content type for text and image processing.
+The following workflow describes the process of extraction, analysis, merging, and how to extend the pipeline to push processed output into other text-based skills such as Entity Recognition or Text Translation.
 
-1. Images are normalized and passed into enriched documents as a [`"document/normalized_images"`](#get-normalized-images) node.
+1. After connecting to the data source, the indexer loads and cracks source documents, extracting images and text, and queuing each content type for processing.
 
-1. OCR runs using `"/document/normalized_images"` as input.
+1. Images in the queue are [normalized](#get-normalized-images) and passed into enriched documents as a [`"document/normalized_images"`](#get-normalized-images) node.
 
-1. [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string.
+1. Image enrichments execute, using `"/document/normalized_images"` as input.
 
-1. Indexers reference output field mappings to send skill outputs to fields in a search index.
+1. Optionally but recommended, [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string, where the OCR output or image tags and captions are inserted in the same location as the image.
 
-The following example skillset creates a "merged_text" field containing the textual content of your document. It also includes the OCRed text from each of the embedded images. 
+   The output of Text Merge is now the definitive text to analyze for any downstream skills that perform text processing. For example, if your skillset includes both OCR and Entity Recognition, the input to Entity Recognition should be `document/merged_text` (the targetName of the Text Merge skill output).
+
+1. After all skills have executed, the enriched document is complete. In the last step, indexers refer to output field mappings to send enriched content to individual fields in the search index.
+
+The following example skillset creates a "merged_text" field containing the original text of your document with embedded OCRed text in place of embedded images. It also includes an Entity Recognition skill that uses "merged_text" as input.
 
 ### Request body syntax
 
@@ -438,6 +442,23 @@ The following example skillset creates a "merged_text" field containing the text
       "outputs": [
         {
           "name": "mergedText", "targetName" : "merged_text"
+        }
+      ]
+    },
+    {
+      "@odata.type": "#Microsoft.Skills.Text.V3.EntityRecognitionSkill",
+      "context": "/document",
+      "categories": [ "Person"],
+      "defaultLanguageCode": "en", 
+      "minimumPrecision": 0.5, 
+      "inputs": [
+        {
+            "name": "text", "source": "/document/merged_text"
+        }
+      ],
+      "outputs": [
+        {
+            "name": "persons", "targetName": "people"
         }
       ]
     }
