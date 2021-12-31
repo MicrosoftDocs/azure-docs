@@ -383,23 +383,25 @@ Image analysis output is illustrated in the JSON below (search result). In this 
 
 When the images you want to process are embedded in other files, such as PDF or DOCX, the enrichment pipeline will extract just the images and then pass them to OCR or image analysis for processing. Separation of image from text content occurs during the document cracking phase, and once the images are separated, they remain separate unless you explicitly merge the processed output back into the source text. 
 
-Text Merge is used to put image processing output back into the document. Although Text Merge is not a hard requirement, it's frequently invoked so that image output (OCR text, OCR layout, image tags, image captions) can be reintroduced into the document at the same location where the image was found. Essentially, the goal is to replace an embedded binary image with an in-placed textual representation of that image.
+[**Text Merge**](cognitive-search-skill-textmerger.md) is used to put image processing output back into the document. Although Text Merge is not a hard requirement, it's frequently invoked so that image output (OCR text, OCR layoutText, image tags, image captions) can be reintroduced into the document at the same location where the image was found. Essentially, the goal is to replace an embedded binary image with an in-place text equivalent.
 
-The following workflow describes the process of extraction, analysis, merging, and how to extend the pipeline to push image-processed output into other text-based skills such as Entity Recognition or Text Translation.
+The following workflow outlines the process of image extraction, analysis, merging, and how to extend the pipeline to push image-processed output into other text-based skills such as Entity Recognition or Text Translation.
 
-1. After connecting to the data source, the indexer loads and cracks source documents, extracting images and text, and queuing each content type for processing.
+1. After connecting to the data source, the indexer loads and cracks source documents, extracting images and text, and queuing each content type for processing. An enriched document consisting only of a root node (`"document"`) is created.
 
 1. Images in the queue are [normalized](#get-normalized-images) and passed into enriched documents as a [`"document/normalized_images"`](#get-normalized-images) node.
 
-1. Image enrichments execute, using "/document/normalized_images" as input. Image outputs vary by skill (text and layoutText for OCR, tags and captions for Image Analysis).
+1. Image enrichments execute, using `"/document/normalized_images"` as input. 
+
+1. Image outputs are passed into enriched documents, with each output as a separate node. Outputs vary by skill (text and layoutText for OCR, tags and captions for Image Analysis).
 
 1. Optional but recommended if you want search documents to include both text and image-origin text together, [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string, where the OCR output or image tags and captions are inserted in the same location as the image.
 
-   The output of Text Merge is now the definitive text to analyze for any downstream skills that perform text processing. For example, if your skillset includes both OCR and Entity Recognition, the input to Entity Recognition should be "document/merged_text" (the targetName of the Text Merge skill output).
+   The output of Text Merge is now the definitive text to analyze for any downstream skills that perform text processing. For example, if your skillset includes both OCR and Entity Recognition, the input to Entity Recognition should be `"document/merged_text"` (the targetName of the Text Merge skill output).
 
 1. After all skills have executed, the enriched document is complete. In the last step, indexers refer to [output field mappings](#output-field-mappings) to send enriched content to individual fields in the search index.
 
-The following example skillset creates a "merged_text" field containing the original text of your document with embedded OCRed text in place of embedded images. It also includes an Entity Recognition skill that uses "merged_text" as input.
+The following example skillset creates a `"merged_text"` field containing the original text of your document with embedded OCRed text in place of embedded images. It also includes an Entity Recognition skill that uses `"merged_text"` as input.
 
 ### Request body syntax
 

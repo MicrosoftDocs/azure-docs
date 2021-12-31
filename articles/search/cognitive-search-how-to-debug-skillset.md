@@ -68,17 +68,19 @@ If you're debugging a skillset that isn't producing output, one of the first thi
 
 ## Check skills
 
-If the field mappings are correct, check individual skills:
+If the field mappings are correct, check individual skills for configuration and content. If a skill fails to produce output, it might be missing a property or parameter, which can be determined through error and validation messages. 
 
-1. Select a skill. The Skill Details pane opens to the right.
+Other issues, such as an invalid context or input expression, can be harder to resolve because the error will tell you what is wrong, but not how to fix it. For help with context and input syntax, see [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts). For help with individual messages, see [Troubleshooting common indexer errors and warnings](cognitive-search-common-errors-warnings.md).
+
+The following steps show you how to get information about a skill.
+
+1. In **AI enrichment > Skill Graph**, select a skill. The Skill Details pane opens to the right.
 
 1. Select **Executions** to show which inputs and outputs were used during skill execution.
 
    :::image type="content" source="media/cognitive-search-debug/skill-input-output-detection.png" alt-text="Screenshot of Skill graph, details, and execution tab inputs and outputs." border="true":::
 
 1. Select **`</>`** Expression Evaluator to show the values returned by the skill.
-
-   Most likely, the skill is misconfigured (missing a property or parameter) or has an invalid context or input expression. For help with these concepts, see [Reference annotations in an Azure Cognitive Search skillset](cognitive-search-concept-annotations-syntax.md#background-concepts).
 
 ## Next steps
 
