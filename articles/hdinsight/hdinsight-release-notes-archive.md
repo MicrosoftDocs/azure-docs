@@ -21,8 +21,8 @@ The OS versions for this release are:
 - HDInsight 3.6: Ubuntu 16.04.7 LTS
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
 
-## New features
-### Azure HDInsight support for Restricted Public Connectivity is generally available on Oct 15 2021
+### New features
+#### Azure HDInsight support for Restricted Public Connectivity is generally available on Oct 15 2021
 Azure HDInsight now supports restricted public connectivity in all regions. Below are some of the key highlights of this capability: 
 
 - Ability to reverse resource provider to cluster communication such that it's outbound from the cluster to the resource provider 
@@ -31,7 +31,7 @@ Azure HDInsight now supports restricted public connectivity in all regions. Be
 
 By using this new capability, you can also skip the inbound network security group (NSG) service tag rules for HDInsight management IPs. Learn more about [restricting public connectivity](./hdinsight-restrict-public-connectivity.md)
 
-### Azure HDInsight support for Azure Private Link is generally available on Oct 15 2021
+#### Azure HDInsight support for Azure Private Link is generally available on Oct 15 2021
 You can now use private endpoints to connect to your HDInsight clusters over private link. Private link can be leveraged in cross VNET scenarios where VNET peering is not available or enabled. 
 
 Azure Private Link enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a [private endpoint](../private-link/private-endpoint-overview.md) in your virtual network. 
@@ -40,41 +40,41 @@ Traffic between your virtual network and the service travels the Microsoft backb
 
 Let more at [enable private link](./hdinsight-private-link.md).  
 
-### New Azure Monitor integration experience (Preview)
+#### New Azure Monitor integration experience (Preview)
 The new Azure monitor integration experience will be Preview in East US and West Europe with this release. Learn more details about the new Azure monitor experience [here](./log-analytics-migration.md#migrate-to-the-new-azure-monitor-integration).
 
-## Deprecation
-### Basic support for HDInsight 3.6 starting July 1, 2021
+### Deprecation
+#### Basic support for HDInsight 3.6 starting July 1, 2021
 Starting July 1, 2021, Microsoft offers [Basic support](hdinsight-component-versioning.md#support-options-for-hdinsight-versions) for certain HDInsight 3.6 cluster types. The Basic support plan will be available until 3 April 2022. You are automatically enrolled in Basic support starting July 1, 2021. No action is required by you to opt in. See [our documentation](hdinsight-36-component-versioning.md) for which cluster types are included under Basic support. 
 
 We don't recommend building any new solutions on HDInsight 3.6, freeze changes on existing 3.6 environments. We recommend that you [migrate your clusters to HDInsight 4.0](hdinsight-version-release.md#how-to-upgrade-to-hdinsight-40). Learn more about [what's new in HDInsight 4.0](hdinsight-version-release.md#whats-new-in-hdinsight-40).
 
-## Behavior changes
-### HDInsight Interactive Query only supports schedule-based Autoscale
+### Behavior changes
+#### HDInsight Interactive Query only supports schedule-based Autoscale
 As customer scenarios grow more mature and diverse, we have identified some limitations with Interactive Query (LLAP) load-based Autoscale. These limitations are caused by the nature of LLAP query dynamics, future load prediction accuracy issues, and issues in the LLAP scheduler's task redistribution. Due to these limitations, users may see their queries run slower on LLAP clusters when Autoscale is enabled. The effect on performance can outweigh the cost benefits of Autoscale.
 
 Starting from July 2021, the Interactive Query workload in HDInsight only supports schedule-based Autoscale. You can no longer enable load-based autoscale on new Interactive Query clusters. Existing running clusters can continue to run with the known limitations described above. 
 
 Microsoft recommends that you move to a schedule-based Autoscale for LLAP.  You can analyze your cluster's current usage pattern through the Grafana Hive dashboard. For more information, see [Automatically scale Azure HDInsight clusters](hdinsight-autoscale-clusters.md). 
 
-## Upcoming changes
+### Upcoming changes
 The following changes will happen in upcoming releases.
 
-### Built-in LLAP component in ESP Spark cluster will be removed
+#### Built-in LLAP component in ESP Spark cluster will be removed
 HDInsight 4.0 ESP Spark cluster has built-in LLAP components running on both head nodes. The LLAP components in ESP Spark cluster were originally added for HDInsight 3.6 ESP Spark, but has no real user case for HDInsight 4.0 ESP Spark. In the next release scheduled in Sep 2021, HDInsight will remove the built-in LLAP component from HDInsight 4.0 ESP Spark cluster. This change will help to offload head node workload and avoid confusion between ESP Spark and ESP Interactive Hive cluster type.
 
-## New region
+### New region
 - West US 3
 - Jio India West
 - Australia Central
 
-## Component version change
+### Component version change
 The following component version has been changed with this release:
 - ORC version from 1.5.1 to 1.5.9
 
 You can find the current component versions for HDInsight 4.0 and HDInsight 3.6 in [this doc](./hdinsight-component-versioning.md).
 
-## Back ported JIRAs
+### Back ported JIRAs
 Here are the back ported Apache JIRAs for this release:
 
 | Impacted Feature    |   Apache JIRA                                                      |
@@ -109,7 +109,7 @@ Here are the back ported Apache JIRAs for this release:
 |                     | [HIVE-23046](https://issues.apache.org/jira/browse/HIVE-23046)     |
 | Materialized view   | [HIVE-22566](https://issues.apache.org/jira/browse/HIVE-22566)     |
 
-## Price Correction for HDInsight Dv2 Virtual Machines
+### Price Correction for HDInsight Dv2 Virtual Machines
 
 A pricing error was corrected on April 25th, 2021, for the Dv2 VM series on HDInsight. The pricing error resulted in a reduced charge on some customer's bills prior to April 25th, and with the correction, prices now match what had been advertised on the HDInsight pricing page and the HDInsight pricing calculator. The pricing error impacted customers in the following regions who used Dv2 VMs:
 
