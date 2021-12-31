@@ -39,6 +39,9 @@ If the issue still continues, create a [support ticket](../../azure-portal/suppo
 
 If you do not see the databases that are created in serverless SQL pool, check is your serverless SQL pool started. If the serverless SQL pool is deactivated, the databases will not be shown. Execute any query (for example `SELECT 1`) on the serverless pool to activate it, and the databases will be shown.
 
+### Synapse Serverless SQL pool is showing as unavailable
+Wrong network configuration is often the cause for this behaviour. Make sure the ports are appropriatelly configured. In case you use firewall or Private Endpoint check their settings as well. Finally, make sure the appropriate roles are granted. 
+
 ## Storage access
 
 If you are getting the errors while trying to access the files on storage, make sure that you have permissions to access data. You should be able to access publicly available files. If you are accessing data without credentials, make sure that your Azure AD identity can directly access the files.
@@ -56,6 +59,10 @@ If you are using SQL login and the `OPENROWSET` function [without data source](d
 If your query fails with the error 'File cannot be opened because it does not exist or it is used by another process' and you're sure both file exist and it's not used by another process it means serverless SQL pool can't access the file. This problem usually happens because your Azure Active Directory identity doesn't have rights to access the file or because a firewall is blocking access to the file. By default, serverless SQL pool is trying to access the file using your Azure Active Directory identity. To resolve this issue, you need to have proper rights to access the file. Easiest way is to grant yourself 'Storage Blob Data Contributor' role on the storage account you're trying to query. 
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
+
+### Synapse Serverless SQL pool is showing as unavailable
+
+Wrong network configuration is often the cause for this behaviour. Please check if you have appropriate port, firewall orwell as firewall or Private Endpoint settings if you use them. Aslo, make sure the appropriate roles are granted. 
 
 **Alternative to Storage Blob Data Contributor role**
 
