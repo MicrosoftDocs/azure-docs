@@ -40,7 +40,6 @@ Metadata information about the connected machine is collected after the Connecte
 * Computer manufacturer and model
 * Computer fully qualified domain name (FQDN)
 * Domain name (if joined to an Active Directory domain)
-* Connected Machine agent version
 * Active Directory and DNS fully qualified domain name (FQDN)
 * UUID (BIOS ID)
 * Connected Machine agent heartbeat
