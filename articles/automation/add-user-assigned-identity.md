@@ -329,6 +329,7 @@ $AzureContext = Set-AzContext -SubscriptionName $AzureContext.Subscription -Defa
 For HTTP Endpoints make sure of the following.
 - The metadata header must be present and should be set to "true".
 - A resource must be passed along with the request, as a query parameter for a GET request and as form data for a POST request.
+- Set the value of the environment variable IDENTITY_HEADER to X-IDENTITY-HEADER.
 - Content Type for the Post request must be `application/x-www-form-urlencoded`.
 
 ### Get Access token for user-assigned managed identity using HTTP Get  

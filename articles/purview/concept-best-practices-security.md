@@ -230,6 +230,8 @@ For more information, see [Integrate Azure Purview with Azure security products]
 
 Azure Purview is a data governance solution in cloud. You can register and scan different data sources from various data systems from your on-premises, Azure, or multi-cloud environments into Azure Purview. While data source is registered and scanned in Purview, the actual data and data sources stay in their original locations, only metadata is extracted from data sources and stored in Purview Data Map which means, you do not need to move data out of the region or their original location to extract the metadata into Azure Purview.
 
+When an Azure Purview account is deployed, in addition, a managed resource group is also deployed in your Azure subscription. A managed Azure Storage Account and a Managed Event Hub are deployed inside this resource group. The managed storage account is used to ingest metadata from data sources during the scan. Since these resources are consumed by the Azure Purview they cannot be accessed by any other users or principals, except the Azure Purview account. This is because an Azure role-based access control (RBAC) deny assignment is added automatically for all principals to this resource group at the time of Purview account deployment, preventing any CRUD operations on these resources if they are not initiated from Azure Purview.
+
 ### Where is metadata stored? 
 
 Purview extracts only the metadata from different data source systems into [Azure Purview Data Map](concept-elastic-data-map.md) during the scanning process. 

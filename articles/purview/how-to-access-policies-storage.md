@@ -6,13 +6,12 @@ ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/15/2021
 ms.custom:
 ---
 
 # Dataset provisioning by data owner for Azure Storage (preview)
 
-## Supported capabilities
 This guide describes how a data owner can enable access to data stored in Azure Storage from Azure Purview. The Azure Purview policy authoring supports the following capabilities:
 -   Allow access to data stored in Blob and Azure Data Lake Storage (ADLS) Gen2.
 
@@ -55,7 +54,7 @@ Check the section on managing Purview role assignments in this [guide](how-to-cr
 
 >[!WARNING]
 > **Known issues** related to permissions
-> - In addition to Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory (AAD) to create data owner policy. For more on AAD Directory Reader [click here](../active-directory/roles/permissions-reference.md#directory-readers)
+> - In addition to Purview *Policy authors* role, user requires *Directory Reader* permission in Azure Active Directory to create data owner policy. Learn more about permissions for [Azure AD Directory Reader](../active-directory/roles/permissions-reference.md#directory-readers)
 > - Purview *Policy author* role is not sufficient to create policies. It also requires Purview *Data source admin* role as well.
 
 ### Register and scan data sources in Purview
@@ -88,7 +87,7 @@ If you would like to use a data source to create access policies in Purview, ena
     - **Case 2** shows a valid configuration where a Storage account is registered in a Purview account in a different subscription. 
     - **Case 3** shows an invalid configuration arising because Storage accounts S3SA1 and S3SA2 both belong to Subscription 3, but are registered to different Purview accounts. In that case, the *Data use governance* toggle will only work in the Purview account that wins and registers a data source in that subscription first. The toggle will then be greyed out for the other data source.
 
-:::image type="content" source="./media/how-to-access-policies-storage/valid-and-invalid configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Purview accounts to manage policies.":::
+:::image type="content" source="./media/how-to-access-policies-storage/valid-and-invalid-configurations.png" alt-text="Diagram shows valid and invalid configurations when using multiple Purview accounts to manage policies.":::
 
 ## Policy authoring
 
@@ -112,9 +111,9 @@ This section describes the steps to create a new policy in Azure Purview.
 
     :::image type="content" source="./media/how-to-access-policies-storage/create-new-policy.png" alt-text="Image shows how a data owner can create a new policy statement.":::
 
-1. Select the **Effect** button and choose Allow from the drop-down list.
+1. Select the **Effect** button and choose *Allow* from the drop-down list.
 
-1. Select the **Action** button and choose Read or Modify from the drop-down list.
+1. Select the **Action** button and choose *Read* or *Modify* from the drop-down list.
 
 1. Select the **Data Resources** button to bring up the options to provide the data asset path, which will open on the right.
 
@@ -135,13 +134,14 @@ This section describes the steps to create a new policy in Azure Purview.
 1. Select the **Save** button to save the policy
 
 > [!Note]
-> Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
-> - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
-> - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
+> - Policy statements set below container level on a Storage account are supported. If no access has been provided at Storage account level or container level, then the App that will execute the access will need to provide a fully qualified name (i.e., a direct absolute path) to the data object. The following documents show examples of how to do that:
+>   - [*abfs* for ADLS Gen2](../hdinsight/hdinsight-hadoop-use-data-lake-storage-gen2.md#access-files-from-the-cluster)
+>   - [*az storage blob download* for Blob Storage](../storage/blobs/storage-quickstart-blobs-cli.md#download-a-blob)
+> - Creating a policy at Storage account level will enable the Subjects to access system containers e.g., *$logs*. If this is undesired, first scan the data source and then create the policy at container or sub-container level.
 
 > [!WARNING]
 > **Known issues** related to Policy creation
-> - Do not create policy statements based on Purview resource sets. Even if displayed in Purview policy authoring UI, they are not yet enforced. For an explanation of the concept of resource sets [click here](concept-resource-sets.md).
+> - Do not create policy statements based on Purview resource sets. Even if displayed in Purview policy authoring UI, they are not yet enforced. Learn more about [resource sets](concept-resource-sets.md).
 > - Once subscription gets disabled for *Data use governance* any underlying assets that are enabled for *Data use governance* will be disabled, which is the right behavior. However, policy statements based on those assets will still be allowed after that.
 
 ### Update or delete a policy

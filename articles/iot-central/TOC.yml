@@ -147,6 +147,8 @@
           href: core/howto-export-data.md
         - name: Export data to cloud destinations (legacy)
           href: core/howto-export-data-legacy.md
+        - name: Transform data internally on ingress
+          href: core/howto-map-data.md
         - name: Transform data internally for export
           href: core/howto-transform-data-internally.md
         - name: Transform data externally
@@ -171,6 +173,8 @@
           href: core/howto-manage-data-export-with-rest-api.md
         - name: Manage device templates
           href: core/howto-manage-device-templates-with-rest-api.md
+        - name: Manage devices
+          href: core/howto-manage-devices-with-rest-api.md
         - name: Control devices
           href: core/howto-control-devices-with-rest-api.md
         - name: Manage jobs

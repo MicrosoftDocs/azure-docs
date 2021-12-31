@@ -317,6 +317,8 @@
       href: automation-configure-extra-disks.md
     - name: Using a custom naming convention
       href: automation-naming-module.md
+    - name: Configure external tools
+      href: automation-tools-configuration.md
   - name: Script reference
     items:               
     - name: Bash
@@ -375,7 +377,7 @@
       href: automation-deploy-system.md
     - name: Use Ansible for system configuration
       href: automation-run-ansible.md
-    - name: Automation framework tutorial
+    - name: Deployment hands-on lab
       href: automation-tutorial.md
     - name: Manual infrastructure deployment
       href: automation-manual-deployment.md

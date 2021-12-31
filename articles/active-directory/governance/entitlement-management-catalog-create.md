@@ -4,12 +4,11 @@ description: Learn how to create a new container of resources and access package
 services: active-directory
 documentationCenter: ''
 author: ajburnle
-manager: 
+manager: karenhoran
 editor: HANKI
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.subservice: compliance
 ms.date: 8/31/2021

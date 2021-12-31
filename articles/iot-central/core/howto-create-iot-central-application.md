@@ -5,7 +5,7 @@ services: iot-central
 ms.service: iot-central
 author: dominicbetts
 ms.author: dobett
-ms.date: 05/11/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ---
 

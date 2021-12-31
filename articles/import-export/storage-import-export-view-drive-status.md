@@ -5,7 +5,7 @@ author: alkohli
 services: storage
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/13/2021
+ms.date: 12/22/2021
 ms.author: alkohli
 ms.subservice: common
 ms.custom: contperf-fy21q3
@@ -23,7 +23,9 @@ You can view the status of your import and export jobs in the Azure portal. The 
 
 If you created your import or export job in Azure Data Box (the Preview experience), you'll track the job's status along with your other **Data Box** resources.
 
-1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
+[!INCLUDE [storage-import-export-view-jobs-and-drives.md](../../includes/storage-import-export-view-jobs-and-drives.md)]
+
+<!--1. Log on to [https://portal.azure.com/](https://portal.azure.com/).
 
 2. Search for **azure data box**.
 
@@ -45,8 +47,7 @@ If you created your import or export job in Azure Data Box (the Preview experien
 
    * Select a **Drive ID** to open a panel with full copy information, including the manifest file and hash.
 
-   [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-drive-status/preview-job-details.png) ](./media/storage-import-export-view-drive-status/preview-job-details.png#lightbox)
-
+   [ ![Screenshot of the Overview for an Import Export job in the Azure portal. The Order Status, and the Data Copy Status and Log URLs for a drive, are highlighted.](./media/storage-import-export-view-drive-status/preview-job-details.png) ](./media/storage-import-export-view-drive-status/preview-job-details.png#lightbox)-->
 
 ### [Portal (Classic)](#tab/azure-portal-classic)
 
@@ -89,7 +90,7 @@ If you create your job in the Preview portal, you see one of the following job s
 | Received                          | After all drives are received at the datacenter, the job state is set to **Received**.<br/>The job status may change 1 to 3 business days after the carrier delivers the device, when order processing completes in the datacenter. |
 | Data copy in progress             | Once processing begins for at least one drive, the job state is set to **Data copy in progress**. For more information, see [Drive status descriptions](#drive-status-descriptions). |
 | Data copy completed with errors   | The job moves to **Data copy completed with errors** state when the service has experienced errors while copying data in at least one of the drives. |
-| Data copy completed with warnings | The job moves to **Data copy completed with warnings** state when the service has completed the data copy but some warnings were encountered during the process. |
+| Data copy completed with warnings | The job moves to **Data copy completed with warnings** state when the service has completed the data copy but some files, folders, or containers were renamed. See the copy log for details. |
 | Data copy failed                  | Data copy failed due to issues encountered while copying data to or from at least one of the drives. |
 | Preparing to ship                 | After all drives have completed processing, the job is placed in **Preparing to ship** state until the drives are shipped back to you. |
 | Shipped to customer               | After all drives have been shipped back to you, the job status changes to **Shipped to customer**. |

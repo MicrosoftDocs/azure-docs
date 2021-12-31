@@ -8,8 +8,8 @@ ms.topic: quickstart
 ms.date: 08/03/2021
 ms.collection: embedded-developer, application-developer
 zone_pivot_groups: iot-develop-set1
-#Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ms.custom: mode-other
+#Customer intent: As a device application developer, I want to learn the basic workflow of using an Azure IoT device SDK to build a client app on a device, connect the device securely to Azure IoT Hub, and send telemetry.
 ---
 
 # Quickstart: Send telemetry from an IoT Plug and Play device to Azure IoT Hub

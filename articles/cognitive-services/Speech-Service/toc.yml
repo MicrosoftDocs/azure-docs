@@ -288,6 +288,8 @@ items:
       href: intent-recognition.md
     - name: Intent recognition quickstart
       href: get-started-intent-recognition.md
+    - name: Pattern Matching overview
+      href: pattern-matching-overview.md
     - name: How-to guides
       items:
         - name: 'Recognize speech intents with LUIS, C#'

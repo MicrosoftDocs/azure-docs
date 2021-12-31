@@ -10,7 +10,6 @@ tags: ''
 
 ms.assetid:
 ms.service: cosmos-db
-ms.devlang: dotnet
 ms.topic: "include"
 ms.tgt_pltfrm: na
 ms.workload: ''

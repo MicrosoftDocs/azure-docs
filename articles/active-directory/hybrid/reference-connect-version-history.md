@@ -58,14 +58,46 @@ If you want all the latest features and updates, the best way to see if there ar
 
 To read more about auto-upgrade, see [Azure AD Connect: Automatic upgrade](how-to-connect-install-automatic-upgrade.md).
 
+## 2.0.89.0
+
+### Release status
+12/22/2021: Released for download only, not available for auto upgrade.
+
+### Bug fixes
+- We fixed a bug in version 2.0.88.0 where, under certain conditions, linked mailboxes of disabled users and mailboxes of certain resource objects, were getting deleted.
+
+## 2.0.88.0
+> [!NOTE] 
+> This release requires Windows Server 2016 or newer. It fixes a vulnerability that is present in version 2.0 of Azure AD Connect, as well as some other bug fixes and minor feature updates.
+
+### Release status
+12/15/2021: Released for download only, not available for auto-upgrade
+
+### Bug fixes
+
+ - We upgraded the version of Microsoft.Data.OData from 5.8.1 to 5.8.4 to fix a vulnerability.
+ - Accessibility: We made the Azure AD Connect wizard resizable to account for different zoom levels and screen resolutions.
+ - Accessibility: We named elements to satisfy accessibility requirements.
+ - We fixed a bug where miisserver failed because of a null reference.
+ - We fixed a bug to ensure the desktop SSO value persists after upgrading Azure AD Connect to a newer version.
+ - We modified the inetorgperson sync rules to fix an issue with account/resource forests.
+ - We fixed a radio button test to display a **Link more** link.
+
+### Functional changes
+
+ - Group writeback DN is now configurable with the display name of the synced group.
+ - We removed the hard requirement for exchange schema when enabling group writeback.
+ - AAD Kerberos: We extended the PowerShell command to support custom top-level names for trusted object creation.
+ - AAD Kerberos: We made a change to set an official brand name for the AAD Kerberos feature.
+
 ## 1.6.16.0
 
 > [!NOTE]
-> This release is an update release of Azure AD Connect. It's intended to be used by customers who are running an older version of Windows Server and can't upgrade their server to Windows Server 2016 or newer at this time. You can't use this version to update an Azure AD Connect V2.0 server.
-
-Don't install this release on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31, 2022. You need to upgrade your server OS and Azure AD Connect version before that date.
-
-When you upgrade to this V1.6 build or any newer builds, the group membership limit resets to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
+> This release is an update release of Azure AD Connect. This version is intended to be used by customers who are running an older version of Windows Server and can't upgrade their server to Windows Server 2016 or newer at this time. You can't use this version to update an Azure AD Connect V2.0 server.
+>
+> Don't install this release on Windows Server 2016 or newer. This release includes SQL Server 2012 components and will be retired on August 31, 2022. You need to upgrade your Server OS and Azure AD Connect version before that date.
+>
+> When you upgrade to this v1.6 build or any newer builds, the group membership limit resets to 50,000. When a server is upgraded to this build, or any newer 1.6 builds, reapply the rule changes you applied when you initially increased the group membership limit to 250,000 before you enable sync for the server.
 
 ### Release status
 
@@ -166,11 +198,11 @@ When you upgrade to this V1.6 build or any newer builds, the group membership li
 
 ### Known issues
 
-Under certain circumstances, the installer for this version displays an error that states TLS 1.2 isn't enabled and stops the installation. This issue occurs because of an error in the code that verifies the registry setting for TLS 1.2. We'll correct this issue in a future release. If you see this issue, follow the instructions for enabling TLS 1.2 in [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
+Under certain circumstances, the installer for this version displays an error that states TLS 1.2 isn't enabled and stops the installation. This issue occurs because of an error in the code that verifies the registry setting for TLS 1.2. We'll correct this issue in a future release. If you see this issue, follow the instructions to enable TLS 1.2 in [TLS 1.2 enforcement for Azure AD Connect](reference-connect-tls-enforcement.md).
 
 ### Bug fixes
 
-We fixed a bug that occurred when a domain was renamed, and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
+We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
 
 ## 1.6.13.0
 
@@ -181,7 +213,7 @@ We fixed a bug that occurred when a domain was renamed, and Password Hash Sync f
 
 ### Bug fixes
 
-We fixed a bug that occurred when a domain was renamed, and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
+We fixed a bug that occurred when a domain was renamed and Password Hash Sync failed with an error that indicated "a specified cast is not valid" in the Event log. This regression is from earlier builds.
 
 ### Functional changes
 
@@ -198,7 +230,7 @@ There are no functional changes in this release.
 > [!NOTE]
 > This release is a hotfix update release of Azure AD Connect. This release requires Windows Server 2016 or newer. It addresses an issue that's present in version 2.0.8.0. This issue isn't present in Azure AD Connect version 1.6.
 
-We fixed a bug that occurred when you synced a large number of Password Hash Sync transactions, the Event log entry length exceeded the maximum-allowed length for a Password Hash Sync event entry. We now split the lengthy log entry into multiple entries.
+We fixed a bug that occurred when you synced a large number of Password Hash Sync transactions and the Event log entry length exceeded the maximum-allowed length for a Password Hash Sync event entry. We now split the lengthy log entry into multiple entries.
 
 ## 2.0.8.0
 
@@ -245,25 +277,23 @@ There are no functional changes in this release.
 
 ### Functional changes
 
- - We upgraded the LocalDB components of SQL Server to SQL Server 2019.
- - This release requires Windows Server 2016 or newer, because of the requirements of SQL Server 2019. An in-place upgrade of Windows Server on an Azure AD Connect server isn't supported. For this reason, you might need to use a [swing migration](how-to-upgrade-previous-version.md#swing-migration).
+ - We upgraded the LocalDB components of SQL Server to SQL 2019.
+ - This release requires Windows Server 2016 or newer because of the requirements of SQL Server 2019. An in-place upgrade of Windows Server on an Azure AD Connect server isn't supported. For this reason, you might need to use a [swing migration](how-to-upgrade-previous-version.md#swing-migration).
  - In this release, we enforce the use of TLS 1.2. If you enabled your Windows Server for TLS 1.2, Azure AD Connect uses this protocol. If TLS 1.2 isn't enabled on the server, you'll see an error message when you attempt to install Azure AD Connect. The installation won't continue until you've enabled TLS 1.2. You can use the new Set-ADSyncToolsTls12 cmdlets to enable TLS 1.2 on your server.
  - With this release, you can use the Hybrid Identity Administrator role to authenticate when you install Azure AD Connect. You no longer need to use the Global Administrator role.
  - We upgraded the Visual C++ runtime library to version 14 as a prerequisite for SQL Server 2019.
  - We updated this release to use the Microsoft Authentication Library for authentication. We removed the older Azure AD Authentication Library, which will be retired in 2022.
  - We no longer apply permissions on AdminSDHolders following Windows security guidance. We changed the parameter SkipAdminSdHolders to IncludeAdminSdHolders in the ADSyncConfig.psm1 module.
  - Passwords are now reevaluated when an expired password is "unexpired," no matter if the password itself is changed. If the password is set to "Must change password at next logon" for a user, and this flag is cleared (which "unexpires" the password), the unexpired status and the password hash are synced to Azure AD. When the user attempts to sign in in Azure AD, they can use the unexpired password.
-To sync an expired password from Active Directory to Azure AD, use the feature in Azure AD Connect to [synchronize temporary passwords](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon). You need to enable password writeback to use this feature so that the password the user updates is also written back to Active Directory.
-- We added two new cmdlets to the ADSyncTools module to enable or retrieve TLS 1.2 settings from the Windows server:
+To sync an expired password from Active Directory to Azure AD, use the feature in Azure AD Connect to [synchronize temporary passwords](how-to-connect-password-hash-synchronization.md#synchronizing-temporary-passwords-and-force-password-change-on-next-logon). You need to enable password writeback to use this feature, so the password the user updates is written back to Active Directory.
+ - We added two new cmdlets to the ADSyncTools module to enable or retrieve TLS 1.2 settings from the Windows Server.
+   - Get-ADSyncToolsTls12
+   - Set-ADSyncToolsTls12
 
-  - Get-ADSyncToolsTls12
-  - Set-ADSyncToolsTls12
+You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it as needed. TLS 1.2 must be enabled on the server for the installation or Azure AD Connect to succeed.
 
-   You can use these cmdlets to retrieve the TLS 1.2 enablement status or set it, as needed. TLS 1.2 must be enabled on the server for the installation or Azure AD Connect to succeed.
-
-- We revamped ADSyncTools with several new and improved cmdlets. For more information about these cmdlets, see [Azure AD Connect: ADSyncTools PowerShell](reference-connect-adsynctools.md).
-  The following cmdlets were added or updated:
-
+ -  We revamped ADSyncTools with several new and improved cmdlets. The [ADSyncTools article](reference-connect-adsynctools.md) has more details about these cmdlets.
+  The following cmdlets have been added or updated:
     - Clear-ADSyncToolsMsDsConsistencyGuid
     - ConvertFrom-ADSyncToolsAadDistinguishedName
     - ConvertFrom-ADSyncToolsImmutableID
@@ -282,18 +312,16 @@ To sync an expired password from Active Directory to Azure AD, use the feature i
     - Set-ADSyncToolsMsDsConsistencyGuid
     - Trace-ADSyncToolsADImport
     - Trace-ADSyncToolsLdapQuery
-- We now use the V2 endpoint for import and export, and we fixed an issue in the Get-ADSyncAADConnectorExportApiVersion cmdlet. To learn more about the V2 endpoint, see [Azure AD Connect sync V2 endpoint API](how-to-connect-sync-endpoint-api-v2.md).
-- We added the following new user properties to sync from on-premises Active Directory to Azure AD:
-
-     - employeeType
-     - employeeHireDate
-- This release requires PowerShell version 5.0 or newer to be installed on the Windows Server. This version is part of Windows Server 2016 and newer.
-- We increased the group sync membership limits to 250,000 with the new V2 endpoint.
-- We updated the Generic LDAP Connector and the Generic SQL Connector to the latest versions. To learn more about these connectors, see the reference documentation for:
-
-     - [Generic LDAP Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
-     - [Generic SQL Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
-- In the Microsoft 365 admin center, we now report the Azure AD Connect client version whenever there's export activity to Azure AD. This reporting ensures that the Microsoft 365 admin center always has the most up-to-date Azure AD Connect client version, and that it can detect when you're using an outdated version.
+-  We now use the V2 endpoint for import and export. We fixed an issue in the Get-ADSyncAADConnectorExportApiVersion cmdlet. To learn more about the V2 endpoint, see [Azure AD Connect sync V2 endpoint](how-to-connect-sync-endpoint-api-v2.md).
+-  We added the following new user properties to sync from on-premises Active Directory to Azure AD:
+    - employeeType
+    - employeeHireDate
+-  This release requires PowerShell version 5.0 or newer to be installed on the Windows server. This version is part of Windows Server 2016 and newer.
+-  We increased the group sync membership limits to 250,000 with the new V2 endpoint.
+-  We updated the Generic LDAP Connector and the Generic SQL Connector to the latest versions. To learn more about these connectors, see the reference documentation for:
+    - [Generic LDAP Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericldap)
+    - [Generic SQL Connector](/microsoft-identity-manager/reference/microsoft-identity-manager-2016-connector-genericsql)
+-  In the Microsoft 365 admin center, we now report the Azure AD Connect client version whenever there's export activity to Azure AD. This reporting ensures that the Microsoft 365 admin center always has the most up-to-date Azure AD Connect client version, and that it can detect when you're using an outdated version.
 
 ### Bug fixes
 
@@ -302,28 +330,28 @@ To sync an expired password from Active Directory to Azure AD, use the feature i
 - We fixed a bug where group writeback permissions weren't set on the sync account if a group writeback configuration was imported. We now set the group writeback permissions if group writeback is enabled on the imported configuration.
 - We updated the Azure AD Connect Health agent version to 3.1.110.0 to fix an installation failure.
 - We're seeing an issue with nondefault attributes from exported configurations where directory extension attributes are configured. In the process of importing these configurations to a new server or installation, the attribute inclusion list is overridden by the directory extension configuration step. As a result, after import, only default and directory extension attributes are selected in the sync service manager. Nondefault attributes aren't included in the installation, so the user must manually reenable them from the sync service manager if they want their imported sync rules to work. We now refresh the Azure AD Connector before configuring the directory extension to keep existing attributes from the attribute inclusion list.
-- We fixed an accessibility issue where the page header's font weight was set as Light. The font weight is now set to Bold for the page title, which applies to all page headers.
+- We fixed an accessibility issue where the page header's font weight was set as Light. Font weight is now set to Bold for the page title, which applies to the header of all pages.
 - We renamed the function Get-AdObject in ADSyncSingleObjectSync.ps1 to Get-AdDirectoryObject to prevent ambiguity with the Active Directory cmdlet.
 - We removed the condition that allowed duplicate rule precedence. The SQL function mms_CheckSynchronizationRuleHasUniquePrecedence had allowed duplicates precedence on outbound sync rules on different connectors.
 - We fixed a bug where the Single Object Sync cmdlet fails if the attribute flow data is null. An example is on exporting a delete operation.
 - We fixed a bug where the installation fails because the ADSync bootstrap service can't be started. We now add Sync Service Account to the Local Builtin User Group before starting the bootstrap service.
-- We fixed an accessibility issue where the active tab on the Azure AD Connect wizard wasn't showing the correct color on the High Contrast theme. The selected color code was being overwritten because of a missing condition in the normal color code configuration.
+- We fixed an accessibility issue where the active tab on Azure AD Connect wizard wasn't showing the correct color on High Contrast theme. The selected color code was being overwritten because of a missing condition in the normal color code configuration.
 - We addressed an issue where you were allowed to deselect objects and attributes used in sync rules by using the UI and PowerShell. We now show friendly error messages if you try to deselect any attribute or object that's used in any sync rules.
 - We made some updates to the "migrate settings code" to check and fix backward compatibility issues when the script runs on an older version of Azure AD Connect.
 - We fixed a bug that occurred when PHS tried to look up an incomplete object. It didn't use the same algorithm to resolve the DC as it used originally to fetch the passwords. In particular, it ignored affinitized DC information. The Incomplete object lookup should use the same logic to locate the DC in both instances.
-- We fixed a bug where Azure AD Connect can't read Application Proxy items by using Microsoft Graph because of a permissions issue with calling Microsoft Graph directly based on the Azure AD Connect client ID. To fix this issue, we removed the dependency on Microsoft Graph and instead use Azure AD PowerShell to work with the App Proxy Application objects.
+- We fixed a bug where Azure AD Connect can't read Application Proxy items by using Microsoft Graph because of a permissions issue with calling Microsoft Graph directly based on the Azure AD Connect client identifier. To fix this issue, we removed the dependency on Microsoft Graph and instead use Azure AD PowerShell to work with the App Proxy Application objects.
 - We removed the writeback member limit from the Out to AD - Group SOAInAAD Exchange sync rule.
 - We fixed a bug that occurred when you changed connector account permissions. If an object came in scope that hadn't changed since the last delta import, a delta import wouldn't import it. We now display a warning to alert you of the issue.
 - We fixed an accessibility issue where the screen reader wasn't reading the radio button position. We added positional text to the radio button accessibility text field.
 - We updated the Pass-Thru Authentication Agent bundle. The older bundle didn't have the correct reply URL for the HIP's first-party application in US Government.
-- We fixed a bug where a "stopped-extension-dll-exception" error on Azure AD Connector exported after clean installing the Azure AD Connect version 1.6.X.X, which defaulted to using DirSyncWebServices API V2, by using an existing database. Previously, the setting export version to V2 was only being done for upgrades. We changed it so that it's also set on clean install.
-- We removed the ADSyncPrep.psm1 module from the installation because it's no longer used.
+- We fixed a bug where a stopped-extension-dll-exception error on Azure AD Connector exported after clean installing the Azure AD Connect version 1.6.X.X, which defaulted to using DirSyncWebServices API V2, by using an existing database. Previously, the setting export version to V2 was only being done for upgrades. We changed it so that it's set on clean install.
+ - We removed the ADSyncPrep.psm1 module from the installation because it's no longer used.
 
 ### Known issues
 
 - The Azure AD Connect wizard shows the **Import Synchronization Settings** option as **Preview**, although this feature is generally available.
 - Some Active Directory connectors might be installed in a different order when you use the output of the migrate settings script to install the product.
-- The **User Sign In** options page in the Azure AD Connect wizard mentions Company Administrator. This term is no longer used and needs to be replaced by Global Administrator.
+- The **User Sign In** options page in the Azure AD Connect wizard mentions Company Administrator. This term is no longer used and needs to be replace by Global Administrator.
 - The **Export settings** option is broken when the **Sign In** option has been configured to use PingFederate.
 - While Azure AD Connect can now be deployed by using the Hybrid Identity Administrator role, configuring Self-Service Password Reset, Passthru Authentication, or single sign-on still requires a user with the Global Administrator role.
 - When you import the Azure AD Connect configuration while you deploy to connect with a different tenant than the original Azure AD Connect configuration, directory extension attributes aren't configured correctly.
@@ -363,26 +391,22 @@ This release fixes a bug that occurred in version 1.6.2.4. After upgrade to that
 
 ### Functional changes
 
-- We updated default sync rules to limit membership in writeback groups to 50,000 members:
-
+ - We updated default sync rules to limit membership in writeback groups to 50,000 members.
    - We added new default sync rules for limiting the membership count in group writeback (Out to AD - Group Writeback Member Limit) and group sync to Azure AD (Out to AAD - Group Writeup Member Limit) groups.
    - We added a member attribute to the Out to AD - Group SOAInAAD - Exchange rule to limit members in writeback groups to 50,000.
- - We updated sync rules to support Group Writeback V2:
-    - If the In from AAD - Group SOAInAAD rule is cloned and Azure AD Connect is upgraded:
-
-        - The updated rule will be disabled by default, so targetWritebackType will be null.
-        - Azure AD Connect will writeback all Cloud Groups (including Azure AD Security Groups enabled for writeback) as Distribution Groups.
-   - If the Out to AD - Group SOAInAAD rule is cloned and Azure AD Connect is upgraded:
-     - The updated rule will be disabled by default. However, a new sync rule, Out to AD - Group SOAInAAD - Exchange, which is added will be enabled.
-     - Depending on the Cloned Custom Sync Rule's precedence, Azure AD Connect will flow the Mail and Exchange attributes.
-     - If the Cloned Custom Sync Rule doesn't flow some Mail and Exchange attributes, the new Exchange Sync Rule will add those attributes.
-     - Group Writeback V2 is in private preview and not publicly available.
+ - We updated Sync Rules to support Group Writeback v2:
+      - If the In from AAD - Group SOAInAAD rule is cloned and Azure AD Connect is upgraded:
+          - The updated rule will be disabled by default, so targetWritebackType will be null.
+          - Azure AD Connect will writeback all Cloud Groups (including Azure AD Security Groups enabled for writeback) as Distribution Groups.
+      - If the Out to AD - Group SOAInAAD rule is cloned and Azure AD Connect is upgraded:
+           - The updated rule will be disabled by default. A new sync rule, Out to AD - Group SOAInAAD - Exchange, which is added will be enabled.
+           - Depending on the Cloned Custom Sync Rule's precedence, Azure AD Connect will flow the Mail and Exchange attributes.
+      - If the Cloned Custom Sync Rule doesn't flow some Mail and Exchange attributes, the new Exchange Sync Rule will add those attributes.
  - We added support for [Selective Password Hash Synchronization](./how-to-connect-selective-password-hash-synchronization.md).
  - We added the new [Single Object Sync cmdlet](./how-to-connect-single-object-sync.md). Use this cmdlet to troubleshoot your Azure AD Connect sync configuration.
- -  Azure AD Connect now supports the Hybrid Identity Administrator role for configuring the service.
- - We updated the AADConnectHealth agent to 3.1.83.0.
+ - Azure AD Connect now supports the Hybrid Identity Administrator role for configuring the service.
+ - We updated the Azure AD ConnectHealth agent to 3.1.83.0.
  - We introduced a new version of the [ADSyncTools PowerShell module](./reference-connect-adsynctools.md), which has several new or improved cmdlets:
-
    - Clear-ADSyncToolsMsDsConsistencyGuid
    - ConvertFrom-ADSyncToolsAadDistinguishedName
    - ConvertFrom-ADSyncToolsImmutableID
@@ -422,22 +446,22 @@ This release fixes a bug that occurred in version 1.6.2.4. After upgrade to that
 ### Bug fixes
 
  - We updated disabled foreground color to satisfy luminosity requirements on a white background. We added more conditions for the navigation tree to set the foreground text color to white when a disabled page is selected to satisfy luminosity requirements.
- - We increased granularity for the Set-ADSyncPasswordHashSyncPermissions cmdlet.
+ - We increased granularity for Set-ADSyncPasswordHashSyncPermissions cmdlet.
  - We updated the PHS permissions script (Set-ADSyncPasswordHashSyncPermissions) to include an optional ADobjectDN parameter.
  - We made an accessibility bug fix. The screen reader now describes the UX element that holds the list of forests as **Forests list** instead of **Forest List list**.
- - We updated screen reader output for some items in the Azure AD Connect wizard. We updated the button hover color to satisfy contrast requirements. We updated the Synchronization Service Manager title color to satisfy contrast requirements.
+ - We updated screen reader output for some items in the Azure AD Connect wizard. We updated the button hover color to satisfy contrast requirements. We updated Synchronization Service Manager title color to satisfy contrast requirements.
  - We fixed an issue with installing Azure AD Connect from exported configuration having custom extension attributes.
- - We added a condition to skip checking for extension attributes in the target schema while applying the sync rule.
+- We added a condition to skip checking for extension attributes in the target schema while applying the sync rule.
  - We added appropriate permissions on installation if the Group Writeback feature is enabled.
  - We fixed duplicate default sync rule precedence on import.
  - We fixed an issue that caused a staging error during V2 API delta import for a conflicting object that was repaired via the health portal.
  - We fixed an issue in the sync engine that caused Connector Spaces objects to have an inconsistent link state.
  - We added import counters to Get-ADSyncConnectorStatistics output.
  - We fixed an unreachable domain de-selection (selected previously) issue in some corner cases during the pass2 wizard.
- - We modified policy import and export to fail if a custom rule has duplicate precedence.
+ - We modified policy import and export to fail if custom rule has duplicate precedence.
  - We fixed a bug in the domain selection logic.
  - We fixed an issue with build 1.5.18.0 if you use mS-DS-ConsistencyGuid as the source anchor and have cloned the In from AD - Group Join rule.
- - Fresh Azure AD Connect installations will use the Export Deletion Threshold stored in the cloud if there's one available and there isn't a different one passed in.
+ - Fresh Azure AD Connect installations will use the Export Deletion Threshold stored in the cloud if there's one available and if there isn't a different one passed in.
  - We fixed an issue where Azure AD Connect wouldn't read Active Directory displayName changes of hybrid-joined devices.
 
 ## 1.5.45.0
@@ -452,7 +476,7 @@ This is a bug fix release. There are no functional changes in this release.
 
 ### Fixed issues
 
-- We fixed an issue where admin can't enable seamless single sign-on if the AZUREADSSOACC computer account is already present in the Active Directory.
+- We fixed an issue where admin can't enable seamless single sign-on if the AZUREADSSOACC computer account is already present in Active Directory.
 - We fixed an issue that caused a staging error during V2 API delta import for a conflicting object that was repaired via the health portal.
 - We fixed an issue in the import/export configuration where a disabled custom rule was imported as enabled.
 

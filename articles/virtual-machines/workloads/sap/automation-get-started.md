@@ -52,7 +52,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/samples/WORKSPACES WORKSPACES
 
 ```
 
@@ -87,7 +87,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
+cp -R sap-automation/samples/WORKSPACES WORKSPACES
 ```
 # [Windows](#tab/windows)
 
@@ -95,7 +95,7 @@ cp -R sap-automation/deploy/samples/WORKSPACES WORKSPACES
 cd C:\Azure_SAP_Automated_Deployment
 mkdir WORKSPACES
 
-xcopy sap-automation\deploy\samples\WORKSPACES WORKSPACES
+xcopy sap-automation\samples\WORKSPACES WORKSPACES
 ```
 
 ---

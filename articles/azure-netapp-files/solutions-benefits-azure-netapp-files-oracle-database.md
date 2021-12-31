@@ -14,7 +14,7 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/23/2020
-ms.author: b-hchen
+ms.author: anfdocs
 ---
 # Benefits of using Azure NetApp Files with Oracle Database
 
