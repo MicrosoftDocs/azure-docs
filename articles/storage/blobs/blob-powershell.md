@@ -12,9 +12,7 @@ ms.custom: template-how-to
 
 # Manage block blobs with PowerShell
 
-Blob storage supports block blobs, append blobs, and page blobs. Block blobs are objects that aren't subjected to random read and write operations, such as images or documents. WHAT IS A BLOCK BLOB?
-
-This article explains how to work with block blobs.
+Blob storage supports block blobs, append blobs, and page blobs. Block blobs are optimized for uploading large amounts of data efficiently. Block blobs are ideal for storing images, documents, and other types of data that isn't subjected to random read and write operations. This article explains how to work with block blobs.
 
 ## Prerequisites
 
