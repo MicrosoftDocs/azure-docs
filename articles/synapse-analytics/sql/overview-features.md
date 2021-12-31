@@ -23,10 +23,10 @@ Consumption models in Synapse SQL enables you to use different database objects.
 
 |   | Dedicated | Serverless |
 | --- | --- | --- |
-| **Tables** | [Yes](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | No, the in-database tables are not supported. Serverless SQL pool can query only [external tables](develop-tables-external-tables.md?tabs=native) that refernece data placed on [Azure Storage](#storage-options) |
+| **Tables** | [Yes](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | No, the in-database tables are not supported. Serverless SQL pool can query only [external tables](develop-tables-external-tables.md?tabs=native) that reference data placed on [Azure Storage](#storage-options) |
 | **Views** | [Yes](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true). Views can use [query language elements](#query-language) that are available in dedicated model. | [Yes](/sql/t-sql/statements/create-view-transact-sql?view=azure-sqldw-latest&preserve-view=true), you can create views over [external tables](develop-tables-external-tables.md?tabs=native) and other views. Views can use [query language elements](#query-language) that are available in serverless model. |
 | **Schemas** | [Yes](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true) | [Yes](/sql/t-sql/statements/create-schema-transact-sql?view=azure-sqldw-latest&preserve-view=true), schemas are supported. |
-| **Temporary tables** | [Yes](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?context=/azure/synapse-analytics/context/context) | No, temporary tables might be used just to store some information from sytem views. |
+| **Temporary tables** | [Yes](../sql-data-warehouse/sql-data-warehouse-tables-temporary.md?context=/azure/synapse-analytics/context/context) | No, temporary tables might be used just to store some information from system views. |
 | **User defined procedures** | [Yes](/sql/t-sql/statements/create-procedure-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, stored procedures can be placed in any user databases (not `master` database). |
 | **User defined functions** | [Yes](/sql/t-sql/statements/create-function-sql-data-warehouse?view=azure-sqldw-latest&preserve-view=true) | Yes, only inline table-valued functions. Scalar user defined functions are not supported. |
 | **Triggers** | No | No, serverless SQL pools do not allow changing data, so the triggers cannot react on data changes. |
@@ -47,13 +47,13 @@ Query languages used in Synapse SQL can have different supported features depend
 |   | Dedicated | Serverless |
 | --- | --- | --- |
 | **SELECT statement** | Yes. Transact-SQL query clauses [FOR XML/FOR JSON](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), OFFSET/FETCH  are not supported. | Yes. Transact-SQL query clauses [FOR XML](/sql/t-sql/queries/select-for-clause-transact-sql?view=azure-sqldw-latest&preserve-view=true), [MATCH](/sql/t-sql/queries/match-sql-graph?view=azure-sqldw-latest&preserve-view=true), [PREDICT](/sql/t-sql/queries/predict-transact-sql?view=azure-sqldw-latest&preserve-view=true), GROUPNG SETS, and query hints are not supported. |
-| **INSERT statement** | Yes | No, upload new data to Data lake using other tools. |
-| **UPDATE statement** | Yes | No, but data updated using Spark is automatically available in serverless pool. |
-| **DELETE statement** | Yes | No, but data deleted using Spark is automatically available in serverless pool. |
-| **MERGE statement** | Yes ([preview](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true)) | No, but data merged using Spark is automatically available in serverless pool. ||
+| **INSERT statement** | Yes | No |
+| **UPDATE statement** | Yes | No |
+| **DELETE statement** | Yes | No |
+| **MERGE statement** | Yes ([preview](/sql/t-sql/statements/merge-transact-sql?view=azure-sqldw-latest&preserve-view=true)) | No |
 | **[Transactions](develop-transactions.md)** | Yes | Yes, applicable on meta-data objects. |
 | **[Labels](develop-label.md)** | Yes | No |
-| **Data load** | Yes. Preferred utility is [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement, but the system supports both BULK load (BCP) and [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) for data loading. | No, you can initially load data into external table using CETAS statement. |
+| **Data load** | Yes. Preferred utility is [COPY](/sql/t-sql/statements/copy-into-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement, but the system supports both BULK load (BCP) and [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true) for data loading. | No |
 | **Data export** | Yes. Using [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). | Yes. Using [CETAS](/sql/t-sql/statements/create-external-table-as-select-transact-sql?view=azure-sqldw-latest&preserve-view=true). |
 | **Types** | Yes, all Transact-SQL types except [cursor](/sql/t-sql/data-types/cursor-transact-sql?view=azure-sqldw-latest&preserve-view=true), [hierarchyid](/sql/t-sql/data-types/hierarchyid-data-type-method-reference?view=azure-sqldw-latest&preserve-view=true), [ntext, text, and image](/sql/t-sql/data-types/ntext-text-and-image-transact-sql?view=azure-sqldw-latest&preserve-view=true), [rowversion](/sql/t-sql/data-types/rowversion-transact-sql?view=azure-sqldw-latest&preserve-view=true), [Spatial Types](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql?view=azure-sqldw-latest&preserve-view=true), [sql\_variant](/sql/t-sql/data-types/sql-variant-transact-sql?view=azure-sqldw-latest&preserve-view=true), and [xml](/sql/t-sql/xml/xml-transact-sql?view=azure-sqldw-latest&preserve-view=true) | Yes, all Transact-SQL types except [cursor](/sql/t-sql/data-types/cursor-transact-sql?view=azure-sqldw-latest&preserve-view=true), [hierarchyid](/sql/t-sql/data-types/hierarchyid-data-type-method-reference?view=azure-sqldw-latest&preserve-view=true), [ntext, text, and image](/sql/t-sql/data-types/ntext-text-and-image-transact-sql?view=azure-sqldw-latest&preserve-view=true), [rowversion](/sql/t-sql/data-types/rowversion-transact-sql?view=azure-sqldw-latest&preserve-view=true), [Spatial Types](/sql/t-sql/spatial-geometry/spatial-types-geometry-transact-sql?view=azure-sqldw-latest&preserve-view=true), [sql\_variant](/sql/t-sql/data-types/sql-variant-transact-sql?view=azure-sqldw-latest&preserve-view=true), [xml](/sql/t-sql/xml/xml-transact-sql?view=azure-sqldw-latest&preserve-view=true), and Table type |
 | **Cross-database queries** | No | Yes, including [USE](/sql/t-sql/language-elements/use-transact-sql?view=azure-sqldw-latest&preserve-view=true) statement. |
@@ -83,10 +83,10 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 | **Storage [Managed Identity](../../data-factory/data-factory-service-identity.md?context=/azure/synapse-analytics/context/context&tabs=synapse-analytics) authentication** | Yes, using [Managed Service Identity Credential](../../azure-sql/database/vnet-service-endpoint-rule-overview.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&preserve-view=true&toc=%2fazure%2fsynapse-analytics%2ftoc.json&view=azure-sqldw-latest&preserve-view=true) | Yes, using `Managed Identity` credential. |
 | **Storage Application identity authentication** | [Yes](/sql/t-sql/statements/create-external-data-source-transact-sql?view=azure-sqldw-latest&preserve-view=true) | No |
 | **Server-level roles** | No | Yes, sysadmin, public, and other server-roles are supported |
-| **SERVER SCOPED CREDENTIAL** | No | Yes, the server scoped credentials are used by the `OPENROWSET` function that do not uses explicit data source. |
-| **Permissions - [Server-level](/sql/relational-databases/security/authentication-access/server-level-roles)** | No | Yes, for example, `CONNECT ANY DATABASE` and `SELECT ALL USER SECURABLES` enable a user to read data from any databases. |
+| **SERVER SCOPED CREDENTIAL** | No | Yes |
+| **Permissions - [Server-level](/sql/relational-databases/security/authentication-access/server-level-roles)** | No | Yes |
 | **Database-scoped roles** | Yes | Yes |
-| **DATABASE SCOPED CREDENTIAL** | Yes, used in external data sources. | Yes, used in external data sources. |
+| **DATABASE SCOPED CREDENTIAL** | Yes | Yes |
 | **Permissions - [Database-level](/sql/relational-databases/security/authentication-access/database-level-roles?view=azure-sqldw-latest&preserve-view=true)** | Yes | Yes |
 | **Permissions - Schema-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the schema |
 | **Permissions - Object-level** | Yes, including ability to GRANT, DENY, and REVOKE permissions to users | Yes, including ability to GRANT, DENY, and REVOKE permissions to users/logins on the system objects that are supported |
@@ -97,7 +97,7 @@ Synapse SQL pools enable you to use built-in security features to secure your da
 | **Data Discovery & Classification** | [Yes](../../azure-sql/database/data-discovery-and-classification-overview.md) | No |
 | **Vulnerability Assessment** | [Yes](../../azure-sql/database/sql-vulnerability-assessment.md) | No |
 | **Advanced Threat Protection** | [Yes](../../azure-sql/database/threat-detection-overview.md)
-| **Auditing** | [Yes](../../azure-sql/database/auditing-overview.md) | No built-in support. Use custom views as a [workaround](https://techcommunity.microsoft.com/t5/azure-synapse-analytics-blog/how-to-implement-row-level-security-in-serverless-sql-pools/ba-p/2354759). |
+| **Auditing** | [Yes](../../azure-sql/database/auditing-overview.md) | No |
 | **[Firewall rules](../security/synapse-workspace-ip-firewall.md)**| Yes | Yes |
 | **[Private endpoint](../security/synapse-workspace-managed-private-endpoints.md)**| Yes | Yes |
 
@@ -130,7 +130,6 @@ Data that is analyzed can be stored on various storage types. The following tabl
 | **Azure Data Lake v2** | Yes | Yes |
 | **Azure Blob Storage** | Yes | Yes |
 | **Azure SQL (remote)** | No | No |
-| **Dataverse** | No | Yes, using Synapse link |
 | **Azure CosmosDB transactional storage** | No | No |
 | **Azure CosmosDB analytical storage** | No | Yes, using [Synapse Link](../../cosmos-db/synapse-link.md?bc=%2fazure%2fsynapse-analytics%2fbreadcrumb%2ftoc.json&toc=%2fazure%2fsynapse-analytics%2ftoc.json) |
 | **Apache Spark tables (in workspace)** | No | PARQUET tables only using [metadata synchronization](develop-storage-files-spark-tables.md) |
