@@ -40,7 +40,7 @@ If the issue still continues, create a [support ticket](../../azure-portal/suppo
 If you do not see the databases that are created in serverless SQL pool, check is your serverless SQL pool started. If the serverless SQL pool is deactivated, the databases will not be shown. Execute any query (for example `SELECT 1`) on the serverless pool to activate it, and the databases will be shown.
 
 ### Synapse Serverless SQL pool is showing as unavailable
-Wrong network configuration is often the cause for this behaviour. Make sure the ports are appropriatelly configured. In case you use firewall or Private Endpoint check their settings as well. Finally, make sure the appropriate roles are granted. 
+Wrong network configuration is often the cause for this behavior. Make sure the ports are appropriately configured. In case you use firewall or Private Endpoint check their settings as well. Finally, make sure the appropriate roles are granted. 
 
 ## Storage access
 
@@ -537,6 +537,12 @@ spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 ## Configuration
 
 Serverless pools enable you to use T-SQL to configure database objects. There are some constraints, such as - you cannot create objects in master and lake house/spark databases, you need to have master key to create credentials, you need to have permission to reference data that is used in the objects.
+
+### Cannot create a database
+
+If you are getting the error *CREATE DATABASE failed. User database limit has been already reached.* you have created the maximal number of databases that are supported in one workspace (see [Constraints](#constraints)).
+- If you need to separate the objects, use schemas within the databases.
+- If you just need to reference Azure Data Lake storage, create Lake house databases or Spark databases that will be synchronized in the serverless SQL pool.
 
 ### Please create a master key in the database or open the master key in the session before performing this operation.
 
