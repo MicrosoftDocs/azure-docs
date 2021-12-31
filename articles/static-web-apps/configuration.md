@@ -55,7 +55,7 @@ Each rule is composed of a route pattern, along with one or more of the optional
 
 | Rule property | Required | Default value | Comment |
 |--|--|--|--|
-| `route` | Yes | n/a | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths.<ul><li>For instance, the route _admin/\*_ matches any route under the _admin/_ path.</ul></ul> |
+| `route` | Yes | n/a | The route pattern requested by the caller.<ul><li>[Wildcards](#wildcards) are supported at the end of route paths.<ul><li>For instance, the route _/admin\*_ matches any route beginning with _/admin_.</ul></ul> |
 | `methods` | No | All methods | Defines an array of request methods which match a route. Available methods include: `GET`, `HEAD`, `POST`, `PUT`, `DELETE`, `CONNECT`, `OPTIONS`, `TRACE`, and `PATCH`. |
 | `rewrite` | No | n/a | Defines the file or path returned from the request.<ul><li>Is mutually exclusive to a `redirect` rule.<li>Rewrite rules don't change the browser's location.<li>Values must be relative to the root of the app.</ul> |
 | `redirect` | No | n/a | Defines the file or path redirect destination for a request.<ul><li>Is mutually exclusive to a `rewrite` rule.<li>Redirect rules change the browser's location.<li>Default response code is a [`302`](https://developer.mozilla.org/docs/Web/HTTP/Status/302) (temporary redirect), but you can override with a [`301`](https://developer.mozilla.org/docs/Web/HTTP/Status/301) (permanent redirect).</ul> |
@@ -107,7 +107,7 @@ For instance, to implement routes for a calendar application, you can rewrite al
 The _calendar.html_ file can then use client-side routing to serve a different view for URL variations like `/calendar/january/1`, `/calendar/2020`, and `/calendar/overview`.
 
 > [!NOTE]
-> A route pattern of `/calendar/*` matches all requests under the _/calendar/_ path. However, it will not match requests for the paths _/calendar_ or _/calendar/index.html_. Use `/calendar*` to match all requests that begin with _/calendar_.
+> A route pattern of `/calendar/*` matches all requests under the _/calendar/_ path. However, it will not match requests for the paths _/calendar_ or _/calendar.html_. Use `/calendar*` to match all requests that begin with _/calendar_.
 
 You can filter wildcard matches by file extension. For instance, if you wanted to add a rule that only matches HTML files in a given path you could create the following rule:
 
@@ -165,7 +165,7 @@ You can create new roles as needed in the `allowedRoles` array. To restrict a ro
 - Individual users are associated to roles through [invitations](authentication-authorization.md).
 
 > [!IMPORTANT]
-> When possible, use a wildcard pattern like `/profile*` to ensure all possible routes that begin with _/profile_ are protected.
+> When securing content, specify exact files when possible. If you have many files to secure, use wildcards after a shared prefix. For example: `/profile*` secures all possible routes that start with _/profile_, including _/profile_.
 
 ## Fallback routes
 
@@ -379,17 +379,17 @@ For example, the following configuration shows how you can add a unique identifi
       }
     },
     {
-      "route": "/api*",
+      "route": "/api/*",
       "methods": ["GET"],
       "allowedRoles": ["registeredusers"]
     },
     {
-      "route": "/api*",
+      "route": "/api/*",
       "methods": ["PUT", "POST", "PATCH", "DELETE"],
       "allowedRoles": ["administrator"]
     },
     {
-      "route": "/api*",
+      "route": "/api/*",
       "allowedRoles": ["authenticated"]
     },
     {
