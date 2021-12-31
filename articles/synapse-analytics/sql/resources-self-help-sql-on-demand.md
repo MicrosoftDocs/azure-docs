@@ -538,6 +538,12 @@ spark.conf.set("spark.sql.legacy.parquet.int96RebaseModeInWrite", "CORRECTED")
 
 Serverless pools enable you to use T-SQL to configure database objects. There are some constraints, such as - you cannot create objects in master and lake house/spark databases, you need to have master key to create credentials, you need to have permission to reference data that is used in the objects.
 
+### Cannot create a database
+
+If you are getting the error *CREATE DATABASE failed. User database limit has been already reached.* you have created the maximal number of databases that are supported in one workspace (see [Constraints](#constraints)).
+- If you need to separate the objects, use schemas within the databases.
+- If you just need to reference Azure Data Lake storage, create Lakehouse databases or Spark databases that will be synchronized in the serverless SQL pool.
+
 ### Please create a master key in the database or open the master key in the session before performing this operation.
 
 If your query fails with the error message *Please create a master key in the database or open the master key in the session before performing this operation*, it means that your user database has no access to a master key in the moment. 
