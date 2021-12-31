@@ -100,7 +100,7 @@ There are several sample datasets included in the designer for you to experiment
 
 You can visualize the data to understand the dataset that you'll use.
 
-1. Right-click the **Automobile price data (Raw)** and select **Visualize** > **Dataset output**.
+1. Right-click the **Automobile price data (Raw)** and select **Preview Data**.
 
 1. Select the different columns in the data window to view information about each one.
 
