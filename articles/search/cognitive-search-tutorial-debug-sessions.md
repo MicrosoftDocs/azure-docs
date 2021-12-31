@@ -103,7 +103,7 @@ You will need the [Postman collection](https://github.com/Azure-Samples/azure-se
 
 ## Check results in the portal
 
-The sample code intentionally creates a buggy index as a consequence of problems that occurred during skillset execution. The problem is missing data. 
+The sample code intentionally creates a buggy index as a consequence of problems that occurred during skillset execution. The problem in the index is missing data. 
 
 1. In Azure portal, on the search service **Overview** page, select the **Indexes** tab. 
 
@@ -146,7 +146,7 @@ Another way to investigate errors and warnings is through the Azure portal.
 > [!Important]
 > A debug session only works with a single document. You can choose which document to debug, or just use the first one.
 
-> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="New debug session started":::
+> :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Screenshot of Debug Session visual editor":::
 
 When the debug session has finished initializing, the session defaults to the **AI Enrichments** tab, highlighting the **Skill Graph**. The Skill Graph provides a visual hierarchy of the skillset and its order of execution sequentially and in parallel.
 
@@ -171,7 +171,7 @@ Many skills have a 'languageCode' parameter. By inspecting the operation, you ca
 
 Because all three notifications are about this skill, your next step is to debug this skill. If possible, start by solving input issues first before moving on to outputFieldMapping issues.
 
- :::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="New debug session started":::
+ :::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="Screenshot of the errors and warnings tab.":::
 
 ## Fix missing skill input value
 

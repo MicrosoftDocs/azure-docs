@@ -16,7 +16,7 @@ ms.custom: devx-track-csharp
 Through [AI enrichment](cognitive-search-concept-intro.md), Azure Cognitive Search gives you several options for creating and extracting searchable text from images, including:
 
 + [OCR](cognitive-search-skill-ocr.md) for optical character recognition of text and digits
-+ [Image Analysis](cognitive-search-skill-image-analysis.md) that describe images through visual features
++ [Image Analysis](cognitive-search-skill-image-analysis.md) that describes images through visual features
 + [Custom skills](#passing-images-to-custom-skills) to invoke any external image processing that you want to provide
 
 Through OCR, you can extract text from photos or pictures containing alphanumeric text, such as the word "STOP" in a stop sign. Through image analysis, you can generate a text representation of an image, such as "dandelion" for a photo of a dandelion, or the color "yellow". You can also extract metadata about the image, such as its size.
@@ -179,6 +179,8 @@ Whether you're using OCR and image analysis in the same, inputs have virtually t
     }
 ```
 
+<a name="output-field-mappings"></a>
+
 ## Map outputs to search fields
 
 Output is always text, represented as nodes in an internal enriched document tree, which must be mapped to fields in a search index or projections in a knowledge store to make the content available in your app. 
@@ -336,7 +338,7 @@ Skill outputs include "text" (OCR), "layoutText" (OCR), "merged_content", "capti
 
 + "imageTags" stores tags about an image as a collection of keywords, one collection for all images in the source document. 
 
-The following screenshot illustrates descriptions and tags for the following embedded images in a PDF. Image analysis detected three images. Other text in the example (including titles, headings, and body text) are text in the source document as well, and therefore were not included in OCR or image processing.
+The following screenshot illustrates descriptions and tags for the following embedded images in a PDF. Image analysis detected three images. Other text in the example (including titles, headings, and body text) is text in the source document as well, and therefore were not included in OCR or image processing.
 
 :::image type="content" source="media/cognitive-search-concept-image-scenarios/state-of-birds-screenshot.png" alt-text="Screenshot of three images in a PDF" border="true":::
 
@@ -379,21 +381,23 @@ Image analysis output is illustrated in the JSON below (search result). In this 
 
 ## Scenario: Embedded images in PDFs
 
-When the images you want to process are embedded in other files, such as PDF or DOCX, the enrichment pipeline will extract just the images and then pass them to OCR or image analysis for processing. Separation of image from text content occurs during the document cracking phase, and once the images are separated, they remain separate until you explicitly merge the processed output back into the source text. The Text Merge skill is used for this purpose. Although Text Merge is not expressly required, it's frequently invoked so that image output (OCR text, OCR layout, image tags, image captions) can be reintroduced into the document at the same location as the image. Essentially, the goal is to replace an embedded binary image with an embedded textual representation of that image.
+When the images you want to process are embedded in other files, such as PDF or DOCX, the enrichment pipeline will extract just the images and then pass them to OCR or image analysis for processing. Separation of image from text content occurs during the document cracking phase, and once the images are separated, they remain separate unless you explicitly merge the processed output back into the source text. 
 
-The following workflow describes the process of extraction, analysis, merging, and how to extend the pipeline to push processed output into other text-based skills such as Entity Recognition or Text Translation.
+Text Merge is used to put image processing output back into the document. Although Text Merge is not a hard requirement, it's frequently invoked so that image output (OCR text, OCR layout, image tags, image captions) can be reintroduced into the document at the same location where the image was found. Essentially, the goal is to replace an embedded binary image with an in-placed textual representation of that image.
+
+The following workflow describes the process of extraction, analysis, merging, and how to extend the pipeline to push image-processed output into other text-based skills such as Entity Recognition or Text Translation.
 
 1. After connecting to the data source, the indexer loads and cracks source documents, extracting images and text, and queuing each content type for processing.
 
 1. Images in the queue are [normalized](#get-normalized-images) and passed into enriched documents as a [`"document/normalized_images"`](#get-normalized-images) node.
 
-1. Image enrichments execute, using `"/document/normalized_images"` as input.
+1. Image enrichments execute, using "/document/normalized_images" as input. Image outputs vary by skill (text and layoutText for OCR, tags and captions for Image Analysis).
 
-1. Optionally but recommended, [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string, where the OCR output or image tags and captions are inserted in the same location as the image.
+1. Optional but recommended if you want search documents to include both text and image-origin text together, [Text Merge](cognitive-search-skill-textmerger.md) runs, combining the text representation of those images with the raw text extracted from the file. Text chunks are consolidated into a single large string, where the OCR output or image tags and captions are inserted in the same location as the image.
 
-   The output of Text Merge is now the definitive text to analyze for any downstream skills that perform text processing. For example, if your skillset includes both OCR and Entity Recognition, the input to Entity Recognition should be `document/merged_text` (the targetName of the Text Merge skill output).
+   The output of Text Merge is now the definitive text to analyze for any downstream skills that perform text processing. For example, if your skillset includes both OCR and Entity Recognition, the input to Entity Recognition should be "document/merged_text" (the targetName of the Text Merge skill output).
 
-1. After all skills have executed, the enriched document is complete. In the last step, indexers refer to output field mappings to send enriched content to individual fields in the search index.
+1. After all skills have executed, the enriched document is complete. In the last step, indexers refer to [output field mappings](#output-field-mappings) to send enriched content to individual fields in the search index.
 
 The following example skillset creates a "merged_text" field containing the original text of your document with embedded OCRed text in place of embedded images. It also includes an Entity Recognition skill that uses "merged_text" as input.
 
