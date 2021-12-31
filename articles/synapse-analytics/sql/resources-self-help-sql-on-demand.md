@@ -39,6 +39,9 @@ If the issue still continues, create a [support ticket](../../azure-portal/suppo
 
 If you do not see the databases that are created in serverless SQL pool, check is your serverless SQL pool started. If the serverless SQL pool is deactivated, the databases will not be shown. Execute any query (for example `SELECT 1`) on the serverless pool to activate it, and the databases will be shown.
 
+### Synapse Serverless SQL pool is showing as unavailable
+Wrong network configuration is often the cause for this behaviour. Make sure the ports are appropriatelly configured. In case you use firewall or Private Endpoint check their settings as well. Finally, make sure the appropriate roles are granted. 
+
 ## Storage access
 
 If you are getting the errors while trying to access the files on storage, make sure that you have permissions to access data. You should be able to access publicly available files. If you are accessing data without credentials, make sure that your Azure AD identity can directly access the files.
