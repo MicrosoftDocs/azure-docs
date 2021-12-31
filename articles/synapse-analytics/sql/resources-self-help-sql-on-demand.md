@@ -60,10 +60,6 @@ If your query fails with the error 'File cannot be opened because it does not ex
 - [Visit full guide on Azure Active Directory access control for storage for more information](../../storage/blobs/assign-azure-role-data-access.md). 
 - [Visit Control storage account access for serverless SQL pool in Azure Synapse Analytics](develop-storage-files-storage-access-control.md)
 
-### Synapse Serverless SQL pool is showing as unavailable
-
-Wrong network configuration is often the cause for this behaviour. Please check if you have appropriate port, firewall orwell as firewall or Private Endpoint settings if you use them. Aslo, make sure the appropriate roles are granted. 
-
 **Alternative to Storage Blob Data Contributor role**
 
 Instead of granting Storage Blob Data Contributor, you can also grant more granular permissions on a subset of files. 
