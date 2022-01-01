@@ -20,16 +20,16 @@ Linux-based Service Fabric clusters do not run directly on Windows, but to enabl
 
 Before you get started, you need:
 
-* WSL2 Setup in Windows and esnure WSL 2 as default version
+* WSL2 Setup in Windows and ensure WSL 2 as default version
 * Setup Ubuntu 18.04 Linux Distribution from Microsoft Store while setting up WSL2
 
 >[!TIP]
-> To install WSL2 on your Windows machine, follow the steps in the [WSL documentation](https://docs.microsoft.com/en-us/windows/wsl/install). After installing, please ensure installation of Ubuntu-18.04, make it your default distribution and it should be up and running.
+> To install WSL2 on your Windows machine, follow the steps in the [WSL documentation](https://docs.microsoft.com/windows/wsl/install). After installing, please ensure installation of Ubuntu-18.04, make it your default distribution and it should be up and running.
 >
 
 ## Setup Service Fabric SDK inside Linux Distribution
 Service Fabric Setup can not be done in WSL2 Linux Distribution straight forward the way it is done in standard linux OS as systemd as PID1 is not running inside VM and systemd as PID1 is a prerequisite for SF SDK to work successfully. 
-To enable systemd as PID1 is systemd-genie is used as work around. More details about systemd-genie can be found here https://github.com/arkane-systems/genie Script installation and manual installation steps cover installation of systemd-genie and service fabric sdk both.
+To enable systemd as PID1 is systemd-genie is used as work around. More details about systemd-genie can be found here [systemd-genie] (https://github.com/arkane-systems/genie) Script installation and manual installation steps cover installation of systemd-genie and service fabric sdk both.
 
 ## Script installation
 
@@ -52,7 +52,7 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
 
 4. Enter into genie namespace using genie -s
 
-5. Inside genie namespace, SF SDK can be installed as standard linux sf installation as mentioned under Script Installation or Manual Installation setps in [Set up a linux local cluster](#service-fabric-get-started-linux)
+5. Inside genie namespace, SF SDK can be installed as standard linux sf installation as mentioned under Script Installation or Manual Installation setps in [Set up a linux local cluster](service-fabric-get-started-linux.md)
 
 
 ## Set up a local cluster

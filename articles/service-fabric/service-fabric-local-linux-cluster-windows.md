@@ -9,6 +9,7 @@ ms.date: 10/16/2020
 # service-fabric-get-started-linux.md
 # service-fabric-get-started-mac.md
 # service-fabric-local-linux-cluster-windows.md
+# service-fabric-local-linux-cluster-windows-wsl2.md
 ---
 # Set up a Linux Service Fabric cluster on your Windows developer machine
 
