@@ -1,5 +1,5 @@
 ---
-title: Use Application Configuration Service 
+title: Use Application Configuration Service with Azure Spring Cloud
 titleSuffix: Azure Spring Cloud Enterprise Tier
 description: How to use Application Configuration service with Azure Spring Cloud Enterprise Tier.
 author: karlerickson

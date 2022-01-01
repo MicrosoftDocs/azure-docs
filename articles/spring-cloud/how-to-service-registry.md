@@ -1,5 +1,5 @@
 ---
-title: Service Registry
+title: How to Use Service Registry with Azure Spring Cloud Enterprise Tier
 titleSuffix: Azure Spring Cloud Enterprise Tier
 description: How to use Service Registry with Azure Spring Cloud Enterprise Tier.
 author: karlerickson
