@@ -16,7 +16,7 @@ ms.date: 10/31/2021
 This document covers how to set up a local Linux Service Fabric cluster via WSL2 on a Windows development machine. Setting up a local Linux cluster is useful to quickly test applications targeted for Linux clusters but are developed on a Windows machine.
 
 ## Prerequisites
-Linux-based Service Fabric clusters do not run directly on Windows, but to enable cross-platform prototyping we have provided a way to deploy Service Fabric Cluster inside Linux distribution via WSL2 (Windows Subsystem for Linux) for Windows.
+Linux based Service Fabric clusters do not run directly on Windows, but to enable cross-platform prototyping we have provided a way to deploy Service Fabric Cluster inside Linux distribution via WSL2 (Windows Subsystem for Linux) for Windows.
 
 Before you get started, you need:
 
@@ -28,12 +28,12 @@ Before you get started, you need:
 >
 
 ## Set up Service Fabric SDK inside Linux Distribution
-Service Fabric Set up cannot be done in WSL2 Linux Distribution straight forward the way it is done in standard linux OS as systemd as PID1 is not running inside VM and systemd as PID1 is a prerequisite for SF SDK to work successfully.
-To enable systemd as PID1 is systemd-genie is used as work-around. More details about systemd-genie can be found here [systemd-genie] (https://github.com/arkane-systems/genie) Script installation and manual installation steps cover installation of systemd-genie and service fabric sdk both.
+Service Fabric Setup cannot be done in WSL2 Linux Distribution the way it is done in standard linux OS. Because systemd as PID1 is not running inside VM and systemd as PID1 is a prerequisite for SF SDK to work successfully.
+To enable systemd as PID1, systemd-genie is used as work-around. More details about systemd-genie can be found at [systemd genie setup](https://github.com/arkane-systems/genie) Script installation and manual installation steps cover installation of systemd-genie and service fabric sdk both.
 
 ## Script installation
 
-For convenience, a script is provided to install the Service Fabric common SDK along with the [**sfctl** CLI](service-fabric-cli.md). Running the script assumes you agree to the licenses for all the software that is being installed. Alternatively you may run the [Manual installation](#manual-installation) steps in the next section which will present associated licenses as well as the components being installed.
+For convenience, a script is provided to install the Service Fabric common SDK along with the [**sfctl** CLI](service-fabric-cli.md). Running the script assumes you agree to the licenses for all the software that is being installed. Alternatively you may run the [Manual installation](#manual-installation) steps in the next section, which will present associated licenses and the components being installed.
 
 After the script runs successfully, you can skip to [Set up a local cluster](#set-up-a-local-cluster).
 
@@ -48,11 +48,11 @@ For manual installation of the Service Fabric runtime and common SDK, follow the
 
 2. Login into WSL2 Linux Distribution
 
-3. Set up systemd-genie as mentioned in [systemd genie setup](https://github.com/arkane-systems/genie) (if systemd-genie is already setup, you can jump to next step)
+3. Set up systemd-genie as mentioned in [systemd genie setup](https://github.com/arkane-systems/genie) (if systemd-genie is already set up, you can jump to next step)
 
 4. Enter into genie namespace using genie -s
 
-5. Inside genie namespace, SF SDK can be installed as standard linux sf installation as mentioned under Script Installation or Manual Installation steps in [Set up a linux local cluster](service-fabric-get-started-linux.md)
+5. Inside genie namespace, SF SDK can also be installed as mentioned under Script Installation or Manual Installation steps in [Set up a linux local cluster](service-fabric-get-started-linux.md)
 
 
 ## Set up a local cluster
@@ -60,20 +60,20 @@ Service Fabric inside WSL2 VM is recommended to manage from host windows
 
 1. Install Service Fabric SDK (verson >= 5.2.186) in Windows host
 
-2. In Windows cluster can be managed using ServiceFabricLocalClusterManager tool provided as part of SF SDK
+2. In Windows, cluster can be managed using ServiceFabricLocalClusterManager tool provided as part of SF SDK
 
-3. If WSL2 VM is running and systemd-genie, servicefabricruntime and servicefabricsdkcommon are properly installed, options to manage Linux Local Cluster will be automatically enabled. You can set up or switch to Linux Local Cluster from this tool.
+3. Option to manage Linux Local Cluster is enabled only when a. WSL2 VM is running and b. systemd-genie, servicefabricruntime and servicefabricsdkcommon packages are properly installed inside VM. You can set up or switch to Linux Local Cluster from this tool.
 
-4. Another way of setting up linux cluster is to deploy using cluster set up scripts provided as part SD SDK.
+4. Another way of setting up linux cluster is to deploy using cluster setup scripts provided as part SD SDK.
 
-5. Open a web browser and go to Service Fabric Explorer ``http://localhost:19080``. When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to be completely set up.
-   If your browser fails to open the URL or if Service Fabric Explorer doesn't show that the system is ready, wait a few minutes and try again. You can also see the cluster in ServiceFabricExplorer provided in SF SDK.
+5. Open a web browser and go to Service Fabric Explorer ``http://localhost:19080``. When the cluster starts, you see the Service Fabric Explorer dashboard. It might take several minutes for the cluster to be set up.
+   If your browser fails to open the URL or Service Fabric Explorer doesn't show the cluster, wait for a few minutes and try again. You can also see the cluster in ServiceFabricExplorer provided in SF SDK.
 
 6. Once Cluster is up and running, you can connect to local cluster in PowerShell and Visual Studio.
 
 
 ## Manual installation with custom ServiceFabric and ServieFabricSdkCommon Debian Package
-For manual installation of the Service Fabric runtime and common SDK from custom or downloaded debian packages, follow the rest of this guide.
+For manual installation of the Service Fabric from custom or downloaded debian packages, follow the rest of this guide.
 
 1. Open a terminal.
 
@@ -91,7 +91,7 @@ sudo curl -s https://raw.githubusercontent.com/Azure/service-fabric-scripts-and-
 sudo chmod +x SetupServiceFabric.sh
 ```
 
-5. Run set up script with local debian packages path. Please make sure that paths provided are valid. Below is an example:
+5. Run set up script with local debian packages path. Make sure that paths provided are valid. Below is an example:
 
 ```bash
 sudo ./SetupServiceFabric.sh --servicefabricruntime=/mnt/c/Users/testuser/Downloads/servicefabric.deb --servicefabricsdk=/mnt/c/Users/testuser/Downloads/servicefabric_sdkcommon.deb
@@ -103,24 +103,24 @@ sudo ./SetupServiceFabric.sh --servicefabricruntime=/mnt/c/Users/testuser/Downlo
  The following are known limitations of the local cluster running inside Linux Distribution: 
  
  * Currently Ubuntu-18.04 distribution is only supported.
- * To have a well-integrated experience with Local Cluster Manager, Visual Studio from host OS, it is recommended to manage cluster from windows host only via scripts or local cluster manager.
+ * To have a seamless experience with Local Cluster Manager and Visual Studio, it is recommended to manage cluster from PowerShell scripts or LocalClusterManager in Windows host.
 
 ### Frequently Asked Questions
  
- 1. What linux distributions are supported for SF Local Cluster Set up?
+ 1. What linux distributions are supported for SF Local Cluster Set up?  
     Currently, only Ubuntu-18.04 is supported for linux local cluster.
 
- 2. Can Windows and Linux SF Cluster be run in parallel with WSL2 set up?
+ 2. Can Windows and Linux SF Cluster be run in parallel with WSL2 setup?  
     No, at one time only one local cluster can be run either in host or in guest VM.
 
- 3. How to deploy one node linux local cluster?
-    One node or five node linux local cluster can be deployed from Linux Local Cluster Manager from the menu options. While deploying from set up scripts by default 5-node cluster is deployed and for one node cluster CreateOneNodeCluster should be passed.
+ 3. How to deploy one node linux local cluster?  
+    One node or five node linux local cluster can be deployed from Linux Local Cluster Manager from the menu options. While deploying from setup script, five node cluster is deployed by default and for one node cluster CreateOneNodeCluster should be passed.
 
- 4. How to connect to Linux Local Cluster in PowerShell and Visual Studio?
+ 4. How to connect to Linux Local Cluster in PowerShell and Visual Studio?  
     If linux local cluster is up and running, connect-servicefabriccluster cmdlet should automatically connect to this cluster. Similar Visual Studio will automatically detect this local cluster.
-    This can also be connected by providing cluster endpoint in PowerShell or visual studio.
+    This cluster can also be connected by providing cluster endpoint in PowerShell or visual studio.
 
- 5. Where is SF Cluster data is located for linux local cluster?
+ 5. Where is SF Cluster data is located for linux local cluster?  
     If using Ubuntu-18.04 distribution, SF data is located at \\wsl$\Ubuntu-18.04\home\sfuser\sfdevcluster from Windows host.
 
 ## Next steps
