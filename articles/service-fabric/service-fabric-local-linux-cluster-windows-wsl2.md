@@ -62,7 +62,7 @@ Service Fabric inside WSL2 VM is recommended to manage from host windows
 
 2. In Windows, cluster can be managed using ServiceFabricLocalClusterManager tool provided as part of SF SDK
 
-3. Option to manage Linux Local Cluster is enabled only when a. WSL2 VM is running and b. systemd-genie, servicefabricruntime and servicefabricsdkcommon packages are properly installed inside VM. You can set up or switch to Linux Local Cluster from this tool.
+3. Option to manage Linux Local Cluster is enabled only when a. WSL2 VM is running and b. Systemd-genie, servicefabricruntime, and servicefabricsdkcommon packages are properly installed inside VM. You can set up or switch to Linux Local Cluster from this tool.
 
 4. Another way of setting up linux cluster is to deploy using cluster setup scripts provided as part SD SDK.
 
