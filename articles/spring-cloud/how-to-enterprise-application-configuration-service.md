@@ -1,5 +1,5 @@
 ---
-title: Use Application Configuration Service with Azure Spring Cloud
+title: Use Application Configuration Service with Azure Spring Cloud Enterprise Tier
 titleSuffix: Azure Spring Cloud Enterprise Tier
 description: How to use Application Configuration service with Azure Spring Cloud Enterprise Tier.
 author: karlerickson
@@ -20,7 +20,7 @@ With Application Configuration Service, you have a central place to manage exter
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier service instance with Application Configuration Service enabled. For more information, see [Get started with Enterprise Tier](./get-started.md)
+- An already provisioned Azure Spring Cloud Enterprise tier service instance with Application Configuration Service enabled. For more information, see [Get started with Enterprise Tier](./enterprise-get-started.md)
 
    ![acs-overview](./media/application-configuration-service/overview.png)
 
@@ -37,7 +37,7 @@ The properties for each entry are described in the following table.
 | Property | Required? | Explanation |
 | - | - | - |
 | Name | Yes | A unique name to label each Git repository. |
-| Patterns | Yes | Patterns to search in Git repositories. For each pattern, use a format like *{application}* or *{application}/{profile}* instead of *{application}-{profile}.yml*, and separate the patterns with commas. For more information, see the following [Pattern](./application-configuration-service.md#pattern) section. |
+| Patterns | Yes | Patterns to search in Git repositories. For each pattern, use a format like *{application}* or *{application}/{profile}* instead of *{application}-{profile}.yml*, and separate the patterns with commas. For more information, see the following [Pattern](./how-to-enterprise-application-configuration-service.md#pattern) section. |
 | URI | Yes | A Git URI (for example, `https://github.com/Azure-Samples/piggymetrics-config` or `git@github.com:Azure-Samples/piggymetrics-config`) |
 | Label | Yes | The branch name to search in the Git repository. |
 | Search path | No | Optional search paths, separated by commas, for searching subdirectories of the Git repository. |
@@ -109,7 +109,7 @@ To claim that the app will use the centralized configurations, you must bind the
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
 
-1. Go to the **Apps** section and choose the [pattern(s)](./application-configuration-service.md#pattern) to be used by the apps.
+1. Go to the **Apps** section and choose the [pattern(s)](./how-to-enterprise-application-configuration-service.md#pattern) to be used by the apps.
 
    a. Open the **Apps** section to list all the apps.
 

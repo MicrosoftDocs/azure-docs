@@ -12,11 +12,11 @@ ms.custom: devx-track-java
 
 # Service Registry
 
-[Service Registry](https://docs.pivotal.io/spring-cloud-services/2-1/common/service-registry/index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. It can be difficult, and brittle in production, to hand-configure each client of a service or adopt some form of access convention. Instead, your apps can use the Service Registry to dynamically discover and call registered services.
+[Service Registry](https://docs.vmware.com/en/Spring-Cloud-Services-for-VMware-Tanzu/2.1/spring-cloud-services/GUID-service-registry-index.html) is one of the proprietary VMware Tanzu components. It provides your apps with an implementation of the Service Discovery pattern, one of the key tenets of a microservice-based architecture. It can be difficult, and brittle in production, to hand-configure each client of a service or adopt some form of access convention. Instead, your apps can use the Service Registry to dynamically discover and call registered services.
 
 ## Prerequisites
 
-- An already provisioned Azure Spring Cloud Enterprise tier service instance with Service Registry enabled. For more information, see [Get started](./get-started.md).
+- An already provisioned Azure Spring Cloud Enterprise tier service instance with Service Registry enabled. For more information, see [Get started](./get-started-enterprise.md).
 
    ![sr-overview](./media/service-registry/overview.png)
 
@@ -51,3 +51,8 @@ Use the following steps to bind an application to the Service Registry.
 1. Select **Bind app** and choose one app in the dropdown, then select **Apply** to bind.
 
    ![sr-app-bind-dropdown](./media/service-registry/app-bind-dropdown.png)
+
+## Next steps
+
+* [Create Roles and Permissions](./how-to-permissions.md)
+* [Access Config Server and Service Registry](./how-to-access-data-plane-azure-ad-rbac.md)
