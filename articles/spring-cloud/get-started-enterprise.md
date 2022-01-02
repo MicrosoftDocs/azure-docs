@@ -8,7 +8,6 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 12/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
-zone_pivot_groups: spring-cloud-tier-selection, programming-languages-spring-cloud
 ---
 
 # Get started with Enterprise Tier
@@ -64,7 +63,7 @@ Use the following steps to provision an Azure Spring Cloud service instance:
    - Give a **Sampling Rate** with in the range of 0-100, or use the default value 10.
 
    > [!NOTE]
-   > You'll pay for the usage of Application Insights when integrated with Azure Spring Cloud. For more information about Application Insights pricing, see [Manage usage and costs for Application Insights](../azure-monitor/app/pricing).
+   > You'll pay for the usage of Application Insights when integrated with Azure Spring Cloud. For more information about Application Insights pricing, see [Manage usage and costs for Application Insights](../azure-monitor/app/pricing.md).
 
    ![Application Insights settings](./media/enterprise/service-instance/application-insights.png)
 
@@ -218,7 +217,7 @@ Configure the Spring Cloud Gateway properties using the following command:
 az spring-cloud gateway update --api-description "api description" --api-title "api title" --api-version "v0.1" --server-url "<endpoint-in-the-previous-step>" --allowed-origins "*"
 ```
 
-The Spring Cloud Gateway properties will be used to integrate with the API portal in the [Use the API portal](#Use-the-API-portal) section. 
+The Spring Cloud Gateway properties will be used to integrate with the API portal in the [Use the API portal](#use-the-api-portal) section.
 
 ### Configure routing rules for the applications
 
@@ -312,13 +311,13 @@ You can configure Application Insights when provisioning Azure Spring Cloud serv
 
 ## Monitor apps with third-party APMs
 
-For more information on monitoring apps with third-party APMs, see [Buildpack Bindings](./how-to-enterprise-build-service.md#Buildpack-Bindings)
+For more information on monitoring apps with third-party APMs, see [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings)
 
 ## Clean up resources
 
 1. Open the [Azure portal](https://ms.portal.azure.com/?AppPlatformExtension=entdf#home), then delete the service instance as in the following screenshot.
 
-   ![delete-instance](./media/enterprise/service-instance/delete-instance.png)
+   ![Delete an instance image](./media/enterprise/service-instance/delete-instance.png)
 
 1. Run the following command to remove the preview version of the Azure CLI extension.
 

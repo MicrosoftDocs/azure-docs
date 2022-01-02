@@ -8,7 +8,6 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 12/31/2021
 ms.custom: devx-track-java, devx-track-azurecli
-zone_pivot_groups: spring-cloud-tier-selection, programming-languages-spring-cloud
 ---
 
 # Build Service
@@ -17,13 +16,13 @@ In Azure Spring Cloud, the existing Standard tier already supports compiling use
 
 ## Build Agent Pool
 
-Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There is a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks so there won't be resource contention with your running apps. You can configure the number of resources allocated to the build agent pool during or after provisioning a new service instance of Azure Spring Cloud using the **VMware Tanzu settings**.
+Build Service in the Enterprise tier is the entry point to containerize user applications from both source code and artifacts. There's a dedicated build agent pool that reserves compute resources for a given number of concurrent build tasks. The build agent pool prevents resource contention with your running apps. You can configure the number of resources given to the build agent pool during or after provisioning a new service instance of Azure Spring Cloud using the **VMware Tanzu settings**.
 
-![Where to allocate resources to Build Service](./media/build-service/agent-pool.png)
+![Where to allocate resources to Build Service](./media/enterprise/build-service/agent-pool.png)
 
 The image below shows the resources allocated to the Build Service Agent Pool after the service instance is provisioned successfully.
 
-![Finding resources allocated to Build Service](./media/build-service/agent-pool-size.png)
+![Finding resources allocated to Build Service](./media/enterprise/build-service/agent-pool-size.png)
 
 ## Default Builder and Tanzu Buildpacks
 
@@ -39,11 +38,11 @@ Detailed information on each buildpack can be found at [Using the Tanzu Partner 
 
 Besides the `default` builder, you can also create custom builders with the provided buildpacks. 
 
-All the builders configured in an Spring Cloud Service instance are listed in the **Build Service** section under **VMware Tanzu components**.
+All the builders configured in a Spring Cloud Service instance are listed in the **Build Service** section under **VMware Tanzu components**.
 
 ![List of configured builders](./media/enterprise/build-service/builder-list.png)
 
-Click **Add** to create a new builder. The image below shows the resources used to create the customized builder.
+Select **Add** to create a new builder. The image below shows the resources used to create the customized builder.
 
 ![Fields to fill in to Add a builder](./media/enterprise/build-service/builder-create.png)
 
@@ -59,15 +58,15 @@ When you deploy an app, you can build the app by specifying a specific builder i
 az spring-cloud app deploy --name <app_name> --builder <builder_name> --artifact-path <path_to_your_JAR_file>
 ```
 
-If the builder is not specified, the `default` builder will be used. 
+If the builder isn't specified, the `default` builder will be used. 
 
-## Real-time build logs
+## Real time build logs
 
 A build task will be triggered when an app is deployed from an Azure CLI command. Build logs are streamed in real-time as part of the CLI command output. See [Analyze logs and metrics with diagnostics settings](./diagnostic-services.md) to diagnose build logs.
 
 ## Buildpack Bindings
 
-You can configure Kpack Images with Service Bindings as described in the [Cloud Native Buildpacks Bindings specification](https://github.com/buildpacks/spec/blob/adbc70f5672e474e984b77921c708e1475e163c1/extensions/bindings.md). Azure Spring Cloud Enterprise tier leverages this Binding to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html). For example, we use Binding to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview) using the [Paketo Azure Application Insights Buildpack](https://github.com/paketo-buildpacks/azure-application-insights).
+You can configure Kpack Images with Service Bindings as described in the [Cloud Native Buildpacks Bindings specification](https://github.com/buildpacks/spec/blob/adbc70f5672e474e984b77921c708e1475e163c1/extensions/bindings.md). Azure Spring Cloud Enterprise tier uses Service Bindings to integrate with [Tanzu Partner Buildpacks](https://docs.pivotal.io/tanzu-buildpacks/partner-integrations/partner-integration-buildpacks.html). For example, we use Binding to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) using the [Paketo Azure Application Insights Buildpack](https://github.com/paketo-buildpacks/azure-application-insights).
 
 Currently, Buildpack Binding only supports binding the buildpacks listed below. Follow the documentation links listed under each type to configure the properties and secrets for Buildpack Binding.
 

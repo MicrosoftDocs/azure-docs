@@ -8,7 +8,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/08/2021
 ms.custom: devx-track-java, devx-track-azurecli
-zone_pivot_groups: spring-cloud-tier-selection, programming-languages-spring-cloud
+zone_pivot_groups: spring-cloud-tier-selection
 ---
 
 # Enable system-assigned managed identity for an application in Azure Spring Cloud

@@ -7,7 +7,7 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 12/15/2021
 ms.custom: devx-track-java, devx-track-azurecli
-zone_pivot_groups: spring-cloud-tier-selection, programming-languages-spring-cloud
+zone_pivot_groups: spring-cloud-tier-selection
 ---
 
 # Application Insights Java In-Process Agent in Azure Spring Cloud
@@ -126,7 +126,7 @@ Select the **Bound** hyperlink or **Edit Binding** to edit Application Insights 
 
 # [Azure CLI](#tab/azure-cli)
 
-Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview) with the type `ApplicationInsights`.
+Azure Enterprise tier uses [Buildpack Bindings](./how-to-enterprise-build-service.md#buildpack-bindings) to integrate [Azure Application Insights](../azure-monitor/app/app-insights-overview.md) with the type `ApplicationInsights`.
 
 To create an Application Insights buildpack binding, use the following command:
 

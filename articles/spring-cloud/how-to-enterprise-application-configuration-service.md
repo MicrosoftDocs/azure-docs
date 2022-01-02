@@ -8,7 +8,6 @@ ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 11/08/2021
 ms.custom: devx-track-java
-zone_pivot_groups: spring-cloud-tier-selection, programming-languages-spring-cloud
 ---
 
 # Application Configuration Service
