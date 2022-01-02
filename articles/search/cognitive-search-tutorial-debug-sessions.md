@@ -18,10 +18,10 @@ Skillsets coordinate a series of actions that analyze or transform content, wher
 
 **Debug sessions** in the Azure portal provides a holistic visualization of a skillset. Using this tool, you can drill down to specific steps to easily see where an action might be falling down.
 
-In this article, you'll use **Debug sessions** to find and fix 1) a missing input, and 2) output field mappings. The tutorial is all-inclusive. It provides data for you to index (clinical trials data), a Postman collection that creates objects, and instructions for using **Debug sessions** to find and fix problems in the skillset.
+In this article, you'll use **Debug sessions** to find and fix missing inputs and outputs. The tutorial is all-inclusive. It provides sample data, a Postman collection that creates objects, and instructions for debugging problems in the skillset.
 
 > [!Important]
-> Debug sessions is a preview feature provided without a service level agreement, and is not recommended for production workloads. For more information, see [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Debug sessions is a preview feature provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 >
 
 ## Prerequisites
@@ -174,7 +174,7 @@ Because all four notifications are about this skill, your next step is to debug 
 
 ## Fix missing skill input values
 
-In the **Errors/Warnings** tab, there are two input errors for an operation labeled `EntityRecognitionSkillV3.#1`. The detail of the first error explains that a required input for 'text' is missing. The second error indicates a problem with a an input value "/document/languageCode".
+In the **Errors/Warnings** tab, there are two missing inputs for an operation labeled `EntityRecognitionSkillV3.#1`. The detail of the first error explains that a required input for 'text' is missing. The second indicates a problem with an input value "/document/languageCode".
 
 1. In **AI Enrichments** >  **Skill Graph**, select the skill labeled **#1** to display its details in the right pane.
 
@@ -232,13 +232,11 @@ There are two ways to research this error. The first is to look at where the inp
 
 1. Select **Run**. 
 
-After the debug session execution completes, check the Errors/Warnings tab and it will show that all of the input warnings are gone.
-
-There now remains just the two warnings about output fields for organizations and locations.
+After the debug session execution completes, check the Errors/Warnings tab and it will show that all of the input warnings are gone. There now remains just the two warnings about output fields for organizations and locations.
 
 ## Fix missing skill output values
 
-The messages say to check the 'outputFieldMappings' property of your indexer, so lets check there first.
+The messages say to check the 'outputFieldMappings' property of your indexer, so lets start there.
 
 1. Go to **Skill Graph** and select Output Field Mappings. The mappings are actually correct, but normally you would check the index definition to ensure that fields exist for "locations" and "organizations".
 
