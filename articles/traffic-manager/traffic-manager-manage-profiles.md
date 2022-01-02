@@ -6,7 +6,6 @@ documentationcenter: ''
 author: duongau
 ms.service: traffic-manager
 manager: twooley
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
