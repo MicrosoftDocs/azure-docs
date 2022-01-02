@@ -20,13 +20,13 @@ You can move a Microsoft Defender for IoT “iotsecuritysolutions” resource to
 
 - Make sure that your Azure subscription allows you to create “iotsecuritysolutions” resources in the target region.
 
-- Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
+- Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)
 
 ## Prepare
 
 In this section, you will prepare to move the resource for the move by finding the resource and confirming it is in a region you wish to move from.
 
-Before transitioning the resource to the new region, we recommended using [log analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace) to store alerts, and raw events.
+Before transitioning the resource to the new region, we recommended using [log analytics](../../azure-monitor/logs/quick-create-workspace.md) to store alerts, and raw events.
 
 **To find the resource you want to move**:
 
@@ -90,7 +90,7 @@ In this section, you will verify that the resource has been moved, that the conn
 
 1. Ensure that the region has been changed.
 
-    :::image type="content" source="media/region-move/location-changed.png" alt-text="Screenshot showing you the region your hub is located in.":::
+    :::image type="content" source="media/region-move/location-changed.png" alt-text="Screenshot that shows you the region your hub is located in.":::
 
 Once you have located your resource and ensured it is in the new region, you will then need to enable that resource's connection to the IoT Hub.
 
@@ -110,13 +110,13 @@ Once you have enabled the connection to your IoT Hub, you will then need to veri
 
 **To ensure everything is working correctly**:
 
-1. Navigate to **IoT Hub** > **<Your hub>** > **Defender for IoT**, and select Recommendations.
+1. Navigate to **IoT Hub** > **`Your hub`** > **Defender for IoT**, and select Recommendations.
 
     ':::image type="content" source="media/region-move/recommendations.png" alt-text="Screenshot showing you where to go to see recommendations.":::
 
 The recommendations should have transferred and everything should be working correctly.
 
-## Clean Up Source Resources
+## Clean up source resources
 
 Don’t clean up until you have finished verifying that the resource has moved, and the recommendations have transferred. When you're ready, clean up the old resources by performing these steps:
 
