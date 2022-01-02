@@ -8,7 +8,7 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 05/27/2021
+ms.date: 01/02/2021
 ---
 
 # Return a semantic answer in Azure Cognitive Search
@@ -40,9 +40,9 @@ Answers are returned as an independent, top-level object in the query response p
 
 <a name="query-params"></a>
 
-## How to specify "answers" in a query request
+## Formulate a query rest for "answers"
 
-The approach for listing fields in priority order has changed recently, with semanticConfiguration replacing searchFields. If you are currently using searchFields, please update your code to the 2021-04-30-Preview API version and use semanticConfiguration instead.
+The approach for listing fields in priority order has changed recently, with "semanticConfiguration" replacing "searchFields". If you are currently using searchFields, update your code to the 2021-04-30-Preview API version and use "semanticConfiguration" instead.
 
 ### [**Semantic Configuration (recommended)**](#tab/semanticConfiguration)
 
@@ -71,7 +71,6 @@ The "semanticConfiguration" parameter is crucial to returning a high quality ans
 + A "semanticConfiguration" determines which string fields provide tokens to the extraction model. The same fields that produce captions also produce answers. For precise guidance on how to create an effective semantic configuration, see [Create a semantic configuration](semantic-how-to-query-request.md#searchfields). 
 
 + For "answers", parameter construction is `"answers": "extractive"`, where the default number of answers returned is one. You can increase the number of answers by adding a `count` as shown in the above example, up to a maximum of ten.  Whether you need more than one answer depends on the user experience of your app, and how you want to render results.
-
 
 ### [**searchFields**](#tab/searchFields)
 
@@ -102,19 +101,17 @@ The "searchFields" parameter is crucial to returning a high quality answer, both
 
 ---
 
-## Deconstruct an answer from the response
+## Unpack an "answer" from the response
 
-Answers are provided in the @search.answers array, which appears first in the response. If an answer is indeterminate, the response will show up as `"@search.answers": []`. When designing a search results page that includes answers, be sure to handle cases where answers are not found.
+Answers are provided in the `"@search.answers"` array, which appears first in the query response. Each answer in the array will include:
 
-Within @search.answers, the "key" is the document key or ID of the match. Given a document key, you can use [Lookup Document](/rest/api/searchservice/lookup-document) API to retrieve any or all parts of the search document to include on the search page or a detail page.
++ Document key
++ Text or content of the answer, in plain text or with formatting
++ Confidence score
 
-Both "text" and "highlights" provide identical content, in both plain text and with highlights. By default, highlights are styled as `<em>`, which you can override using the existing highlightPreTag and highlightPostTag parameters. As noted elsewhere, the substance of an answer is verbatim content from a search document. The extraction model looks for characteristics of an answer to find the appropriate content, but does not compose new language in the response.
+If an answer is indeterminate, the response will show up as `"@search.answers": []`. The answers array is followed by the value array, which is the standard response in a semantic query.
 
-The "score" is a confidence score that reflects the strength of the answer. If there are multiple answers in the response, this score is used to determine the order. Top answers and top captions can be derived from different search documents, where the top answer originates from one document, and the top caption from another, but in general you will see the same documents in the top positions within each array.
-
-Answers are followed by the "value" array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. For more information about items in the response, see [Create a semantic query](semantic-how-to-query-request.md).
-
-Given the query "how do clouds form", the following answer is returned in the response:
+Given the query "how do clouds form", the following example illustrates an answer:
 
 ```json
 {
@@ -148,6 +145,20 @@ Given the query "how do clouds form", the following answer is returned in the re
 }
 
 ```
+
+When designing a search results page that includes answers, be sure to handle cases where answers are not found.
+
+Within @search.answers:
+
++ **"key"** is the document key or ID of the match. Given a document key, you can use [Lookup Document](/rest/api/searchservice/lookup-document) API to retrieve any or all parts of the search document to include on the search page or a detail page.
+
++ **"text"** and **"highlights"** provide identical content, in both plain text and with highlights. 
+
+  By default, highlights are styled as `<em>`, which you can override using the existing highlightPreTag and highlightPostTag parameters. As noted elsewhere, the substance of an answer is verbatim content from a search document. The extraction model looks for characteristics of an answer to find the appropriate content, but does not compose new language in the response.
+
++ **"score"** is a confidence score that reflects the strength of the answer. If there are multiple answers in the response, this score is used to determine the order. Top answers and top captions can be derived from different search documents, where the top answer originates from one document, and the top caption from another, but in general you will see the same documents in the top positions within each array.
+
+Answers are followed by the **"value"** array, which always includes scores, captions, and any fields that are retrievable by default. If you specified the select parameter, the "value" array is limited to the fields that you specified. For more information about items in the response, see [Create a semantic query](semantic-how-to-query-request.md).
 
 ## Tips for producing high-quality answers
 
