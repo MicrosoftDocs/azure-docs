@@ -8,9 +8,9 @@ ms.date: 01/02/2022
 
 # Move an “iotsecuritysolutions” resource to another region by using the Azure portal
 
-There are various scenarios for moving an existing resources from one region to another. For example, you might want to take advantage of features, and services that are only available in specific regions, to meet internal policy and governance requirements, or in response to capacity planning requirements.
+There are various scenarios for moving an existing resource from one region to another. For example, you might want to take advantage of features, and services that are only available in specific regions, to meet internal policy and governance requirements, or in response to capacity planning requirements.
 
-You can move a Microsoft Defender for IoT “iotsecuritysolutions” resource to a different Azure region. The “iotsecuritysolutions” resource is a hidden resource that is connected to a specific IoT hub resource which is used to enable security on the hub. Learn how to [configure, and create](/azure/templates/microsoft.security/iotsecuritysolutions?tabs=bicep) this resource.
+You can move a Microsoft Defender for IoT “iotsecuritysolutions” resource to a different Azure region. The “iotsecuritysolutions” resource is a hidden resource that is connected to a specific IoT hub resource that is used to enable security on the hub. Learn how to [configure, and create](/azure/templates/microsoft.security/iotsecuritysolutions?tabs=bicep) this resource.
 
 ## Prerequisites
 
@@ -64,11 +64,11 @@ Once you have located your resource and ensured it is in a region that you wish 
 
 ## Move
 
-YOu are now ready to move your resource to your new location.
+You are now ready to move your resource to your new location.
 
 Follow [these instructions](/azure/iot-hub/iot-hub-how-to-clone) to move your IoT Hub.
 
-After transferring, and enabling the resource, you can link to the same log analytics workspace that was configured. earlier.
+After transferring, and enabling the resource, you can link to the same log analytics workspace that was configured earlier.
 
 ## Verify
 
