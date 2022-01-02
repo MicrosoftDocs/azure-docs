@@ -22,13 +22,13 @@ You can move a Microsoft Defender for IoT “iotsecuritysolutions” resource to
 
 - Make sure that your subscription has enough resources to support the addition of resources for this process. For more information, see [Azure subscription and service limits, quotas, and constraints](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits).
 
-## Prepare for the move
+## Prepare
 
-In this section, you prepare the resource for the move by using the configuration, the security rule move using the Azure portal, and the resource to the target region.
+In this section, you will prepare to move the resource for the move by finding the resource and confirming it is in a region you wish to move from.
 
 Before transitioning the resource to the new region, we recommended using [log analytics](https://docs.microsoft.com/azure/azure-monitor/logs/quick-create-workspace) to store alerts, and raw events.
 
-**To move the resource to the new region**:
+**To find the resource you want to move**:
 
 1. Sign in to the [Azure portal](https://portal.azure.com), and then select **All Resources**.
 
@@ -39,7 +39,33 @@ Before transitioning the resource to the new region, we recommended using [log a
 1. Select the **Type** filter, and enter `iotsecuritysolutions` in the search field.
 
 1. Select **Apply**.
-1. Select your hub from the list.
-1. 
 
-Disable security for the source IoT hub that is connected to the “iotsecuritysolutions” resource by navigating to the resource group and then clicking the connected IoT hub. 
+1. Select your hub from the list.
+
+1. Ensure that you have selected the correct hub, and that it is in the region you want to move it from.
+
+    :::image type="content" source="media/region-move/location.png" alt-text="Screenshot showing you the region your hub is located in.":::
+
+Once you have located your resource and ensured it is in a region that you wish to move from, you will then need to disable that resources connection to the IoT Hub.
+
+**To disable the connection to the IoT Hub**:
+
+1. Sign in to the [Azure portal](https://portal.azure.com), and then navigate to the IoT Hub.
+
+1. Locate, and select your hub.
+
+1. Navigate to **Device management** > **Devices** > **Device ID**, and select your device.
+
+    :::image type="content" source="media/region-move/your-device.png" alt-text="Screenshot showing you where to select your device in the IoT Hub.":::
+
+1. Disable the connection to the IoT Hub.
+
+:::image type="content" source="media/region-move/disable-connection.png" alt-text="Screenshot showing how to disable the connection to the IoT Hub.":::
+
+## Move
+
+YOu are now ready to move your resource to your new location.
+
+Follow [these instructions](/azure/iot-hub/iot-hub-how-to-clone) to move your IoT Hub.
+
+After transferring, and enabling the resource, you can link to the same log analytics workspace that was configured 
