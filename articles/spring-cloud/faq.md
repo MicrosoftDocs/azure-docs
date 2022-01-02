@@ -4,10 +4,10 @@ description: This article answers frequently asked questions about Azure Spring 
 author: karlerickson
 ms.service: spring-cloud
 ms.topic: conceptual
-ms.date: 09/08/2020
+ms.date: 12/15/2021
 ms.author: karler
 ms.custom: devx-track-java
-zone_pivot_groups: programming-languages-spring-cloud
+zone_pivot_groups: programming-languages-spring-cloud, spring-cloud-tier-selection
 ---
 
 # Azure Spring Cloud FAQ
@@ -251,6 +251,71 @@ This issue is introduced by the Spring framework with very low rate due to netwo
 There should be no impacts to user experience, eureka client has both heartbeat and retry policy to take care of this. You could consider it as one transient error and skip it safely.
 
 We will enhance this part and avoid this error from users’ applications in short future.
+
+## Enterprise Tier
+
+### Error 112404: Failed to wait for deplaoyment instance to be ready. Please check the application log (see https://aka.ms/azure-spring-cloud-doc-log) and try again later.
+
+Check for the following error message in the application log.
+
+- For Spring Boot 2.4 and higher versions:
+
+    ```log
+    Application failed to start due to an exception
+    org.springframework.cloud.commons.ConfigDataMissingEnvironmentPostProcessor$ImportException: No spring.config.import set
+    ```
+
+- For Spring Boot 2.3 and earlier versions:
+
+    ```log
+    WARN c.c.c.ConfigServicePropertySourceLocator : Could not locate PropertySource: I/O error on GET request for "http://localhost:8888/application/default": Connection refused: connect; nested exception is java.net.ConnectException: Connection refused: connect
+    ```
+
+This issue is caused by adding `spring-cloud-starter-config` starter by mistake. To fix the problem, remove the dependency and try again.
+
+### Error 112039: Failed to purchase on Azure Marketplace
+
+Creating an Azure Spring Cloud Enterprise tier instance fails with error code "112039". Check the detailed error message for more information:
+
+- **"Failed to purchase on Azure Marketplace because the Microsoft.SaaS RP is not registered on the Azure subscription."** : Azure Spring Cloud Enterprise tier purchase a SaaS offer from VMWare. 
+  
+  You must register the Microsoft.SaaS resource provider before creating Azure Spring Cloud Enterprise instance. See how to [register a resource provider](../azure-resource-manager/management/resource-providers-and-types.md#register-resource-provider).
+
+- **"Failed to load catalog product vmware-inc.azure-spring-cloud-vmware-tanzu-2 in the Azure subscription market."**: Your Azure subscription's billing account address is not in the supported location. 
+
+  For more information, see the section [No plans are available for market '\<Location>'](#no-plans-are-available-for-market-location).
+
+- **"Failed to purchase on Azure Marketplace due to signature verification on Marketplace legal agreement. Check the Azure subcription has agree terms vmware-inc.azure-spring-cloud-vmware-tanzu-2.tanzu-asc-ent-mtr"**: Your Azure subscription has not signed the terms for the offer and plan to be purchased. 
+
+  Go to your Azure subscription and run the following Azure CLI command to agree to the terms:
+  ```azurecli
+  az term accept --publisher vmware-inc --product azure-spring-cloud-vmware-tanzu-2 --plan tanzu-asc-ent-mtr
+  ```
+
+  If that doesn't help, you can contact the support team with the following info.
+
+  - `AZURE_TENANT_ID`: the Azure tenant ID that hosts the Azure subscription
+  - `AZURE_SUBSCRIPTION_ID`: the Azure subscription ID used to create the Spring Cloud instance
+  - `SPRING_CLOUD_NAME`: the failed instance name
+  - `ERROR_MESSAGE`: the observed error message
+
+### No plans are available for market '\<Location>'
+
+When you visit the SaaS offer [Azure Spring Cloud Enterprise Tier w/VMware Tanzu](https://aka.ms/ascmpoffer) in the Azure Marketplace, it may say "No plans are available for market '\<Location>'" as in the following image.
+
+![](./media/enterprise/marketplace/no-plans-available.png)
+
+Azure Spring Cloud Enterprise tier needs customers to pay for a license to Tanzu components through an Azure Marketplace offer. To purchase in the Azure Marketplace, the billing account's country or region for your Azure subscription should be in the SaaS offer's supported geographic locations.
+
+[Azure Spring Cloud Enterprise Tier w/VMware Tanzu](https://aka.ms/ascmpoffer) now supports all geographic locations that Azure Marketplace supports. See [Marketplace supported geographic location](../marketplace/marketplace-geo-availability-currencies.md#supported-geographic-locations).
+
+You can view the billing account for your subscription if you have admin access. See [view billing accounts](../cost-management-billing/manage/view-all-accounts#check-the-type-of-your-account).
+
+Azure Spring Cloud Enterprise tier is free for private preview.
+
+## How can I get Vmware Spring Runtime Support (Enterprise Tier only)?
+
+Enterprise tier has built-in Vmware Spring Runtime Support so you can directly open support tickets to [Vmware](https://via.vmw.com/ascevsrsupport) if you think your issue is in scope of Vmware Spring Runtime Support. For more information, see [https://tanzu.vmware.com/spring-runtime](https://tanzu.vmware.com/spring-runtime) to open tickets to Vmware. For any other issues, directly open support tickets with Microsoft.
 
 ## Next steps
 
