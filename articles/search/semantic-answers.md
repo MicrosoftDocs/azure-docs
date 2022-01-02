@@ -18,7 +18,7 @@ ms.date: 01/02/2021
 
 When invoking [semantic ranking and captions](semantic-how-to-query-request.md), you can optionally extract content from the top-matching documents that "answers" the query directly. One or more answers can be included in the response, which you can then render on a search page to improve the user experience of your app.
 
-In this article, learn how to request a semantic answer, unpack the response, and what content characteristics are most conducive to producing high quality answers.
+In this article, learn how to request a semantic answer, unpack the response, and what content characteristics are most conducive to producing high-quality answers.
 
 ## Prerequisites
 
@@ -48,7 +48,7 @@ The approach for listing fields in priority order has changed recently, with "se
 
 To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "semanticConfiguration", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
 
-The "semanticConfiguration" parameter is crucial to returning a high quality answer. 
+The "semanticConfiguration" parameter is crucial to returning a high-quality answer. 
 
 ```json
 {
@@ -76,7 +76,7 @@ The "semanticConfiguration" parameter is crucial to returning a high quality ans
 
 To return a semantic answer, the query must have the semantic "queryType", "queryLanguage", "searchFields", and the "answers" parameter. Specifying the "answers" parameter does not guarantee that you will get an answer, but the request must include this parameter if answer processing is to be invoked at all.
 
-The "searchFields" parameter is crucial to returning a high quality answer, both in terms of content and order (see below). 
+The "searchFields" parameter is crucial to returning a high-quality answer, both in terms of content and order (see below). 
 
 ```json
 {
@@ -166,7 +166,7 @@ For best results, return semantic answers on a document corpus having the follow
 
 + The "semanticConfiguration" must include fields that offer sufficient text in which an answer is likely to be found. Fields more likely to contain answers should be listed first in "prioritizedContentFields". Only verbatim text from a document can appear as an answer.
 
-+ query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
++ Query strings must not be null (search=`*`) and the string should have the characteristics of a question, as opposed to a keyword search (a sequential list of arbitrary terms or phrases). If the query string does not appear to be answer, answer processing is skipped, even if the request specifies "answers" as a query parameter.
 
 + Semantic extraction and summarization have limits over how many tokens per document can be analyzed in a timely fashion. In practical terms, if you have large documents that run into hundreds of pages, you should try to break the content up into smaller documents first.
 
