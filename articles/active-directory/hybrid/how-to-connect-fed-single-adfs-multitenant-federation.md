@@ -12,7 +12,6 @@ ms.assetid:
 ms.service: active-directory
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: how-to
 ms.date: 07/17/2017
 ms.subservice: hybrid
