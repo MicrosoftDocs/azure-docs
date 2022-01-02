@@ -2,7 +2,7 @@
 title: Exempt a Microsoft Defender for Cloud recommendation from a resource, subscription, management group, and secure score
 description: Learn how to create rules to exempt security recommendations from subscriptions or management groups and prevent them from impacting your secure score
 ms.topic: how-to
-ms.date: 11/18/2021
+ms.date: 12/26/2021
 ---
 
 # Exempting resources and recommendations from your secure score 
@@ -25,7 +25,7 @@ In such cases, you can create an exemption for a recommendation to:
 
 | Aspect                          | Details                                                                                                                                                                                                                                                                                                                            |
 |---------------------------------|:-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/security-center-preview-legal-text.md)]                                                                                                                                                                                                                                             |
+| Release state:                  | Preview<br>[!INCLUDE [Legalese](../../includes/defender-for-cloud-preview-legal-text.md)]                                                                                                                                                                                                                                             |
 | Pricing:                        | This is a premium Azure Policy capability that's offered at no additional cost for customers with Microsoft Defender for Cloud's enhanced security features enabled. For other users, charges might apply in the future.                                                                                                                                                                 |
 | Required roles and permissions: | **Owner** or **Resource Policy Contributor** to create an exemption<br>To create a rule, you need permissions to edit policies in Azure Policy.<br>Learn more in [Azure RBAC permissions in Azure Policy](../governance/policy/overview.md#azure-rbac-permissions-in-azure-policy).                                            |
 | Limitations:                    | Exemptions can be created only for recommendations included in Defender for Cloud's default initiative, [Azure Security Benchmark](/security/benchmark/azure/introduction), or any of the supplied regulatory standard initiatives. Recommendations that are generated from custom initiatives cannot be exempted. Learn more about the relationships between [policies, initiatives, and recommendations](security-policy-concept.md). |
@@ -67,7 +67,7 @@ To create an exemption rule:
             > When you exempt a recommendation as mitigated, you aren't given points towards your secure score. But because points aren't *removed* for the unhealthy resources, the result is that your score will increase.
 
         - **Risk accepted (waiver)** – if you’ve decided to accept the risk of not mitigating this recommendation
-    1. Optionally, enter a description.
+    1. Enter a description.
     1. Select **Create**.
 
     :::image type="content" source="media/exempt-resource/defining-recommendation-exemption.png" alt-text="Steps to create an exemption rule to exempt a recommendation from your subscription or management group.":::
@@ -210,6 +210,7 @@ These generally available recommendations don't support exemption:
 - IoT Devices - Permissive firewall rule in the output chain was found
 - IP Filter rule large IP range
 - Least privileged Linux capabilities should be enforced for containers
+- Machines should be configured securely
 - Overriding or disabling of containers AppArmor profile should be restricted
 - Privileged containers should be avoided
 - Running containers as root user should be avoided

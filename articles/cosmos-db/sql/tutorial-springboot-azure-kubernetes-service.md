@@ -8,6 +8,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 10/01/2021
 ms.author: abhishgu
+ms.custom: mode-api
 ---
 
 # Tutorial - Spring Boot Application with Azure Cosmos DB SQL API and Azure Kubernetes Service

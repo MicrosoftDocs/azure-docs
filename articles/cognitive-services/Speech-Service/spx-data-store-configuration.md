@@ -2,7 +2,6 @@
 title: "Speech CLI configuration options - Speech service"
 titleSuffix: Azure Cognitive Services
 description: Learn how to create and manage configuration files for use with the Azure Speech CLI.
-services: cognitive-services
 author: eric-urban
 manager: nitinme
 ms.service: cognitive-services
@@ -10,7 +9,7 @@ ms.subservice: speech-service
 ms.topic: quickstart
 ms.date: 01/13/2021
 ms.author: eur
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Speech CLI configuration options
@@ -20,7 +19,7 @@ Speech CLI's behavior can rely on settings in configuration files, which you can
 In the Speech CLI quickstart, you used the datastore to save your `@key` and `@region` values, so you did not need to specify them with each `spx` command. Keep in mind, that you can use configuration files to store your own configuration settings, or even use them to pass URLs or other dynamic content generated at runtime.
 
 > [!NOTE]
-> In PowerShell, the [stop-parsing token](https://docs.microsoft.com/powershell/module/microsoft.powershell.core/about/about_special_characters?view=powershell-7.2#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
+> In PowerShell, the [stop-parsing token](/powershell/module/microsoft.powershell.core/about/about_special_characters#stop-parsing-token---) (`--%`) should follow `spx`. For example, run `spx --% config @region` to view the current region config value.
 
 ## Create and manage configuration files in the datastore
 

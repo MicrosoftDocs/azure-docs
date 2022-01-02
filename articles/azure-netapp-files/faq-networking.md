@@ -4,8 +4,8 @@ description: Answers frequently asked questions (FAQs) about Azure NetApp Files 
 ms.service: azure-netapp-files
 ms.workload: storage
 ms.topic: conceptual
-author: b-juche
-ms.author: b-juche
+author: b-hchen
+ms.author: anfdocs
 ms.date: 11/08/2021
 ---
 # Networking FAQs for Azure NetApp Files

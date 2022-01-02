@@ -11,7 +11,7 @@ ms.author: rifox
 - An Azure account with an active subscription. [Create an account for free](https://azure.microsoft.com/free/dotnet/).
 - Install [Azure CLI](/cli/azure/install-azure-cli-windows?tabs=azure-cli) 
 
-Note that if you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony-sms/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
+Note that if you're planning on using phone numbers, you can't use the free trial account. Check that your subscription meets all the [requirements](../../concepts/telephony/plan-solution.md) if you plan to purchase phone numbers before creating your resource. 
 
 ## Create Azure Communication Services resource
 

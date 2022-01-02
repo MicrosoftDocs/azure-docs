@@ -10,9 +10,9 @@ ms.author: markvi
 author: MarkusVi
 manager: karenhoran
 ms.reviewer: besiler
-# Customer intent: As an IT admin, you need to know how to filter your audit log so that you can analyze management activities.
 ms.collection: M365-identity-device-management
 ms.custom: mode-other
+#Customer intent: As an IT admin, you need to know how to filter your audit log so that you can analyze management activities.
 ---
 # Quickstart: Filter your Azure AD audit log 
 

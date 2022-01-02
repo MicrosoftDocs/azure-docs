@@ -5,7 +5,7 @@ author: spelluru
 ms.topic: quickstart
 ms.date: 09/28/2021
 ms.author: spelluru
-ms.custom: mode-other
+ms.custom: mode-api
 ---
 
 # Use the Azure CLI to create a Service Bus namespace and a queue

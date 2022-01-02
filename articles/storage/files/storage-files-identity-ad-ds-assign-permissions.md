@@ -5,7 +5,7 @@ author: roygara
 ms.service: storage
 ms.subservice: files
 ms.topic: how-to
-ms.date: 07/13/2021
+ms.date: 12/16/2021
 ms.author: rogarana 
 ms.custom: devx-track-azurepowershell, subject-rbac-steps
 ---
@@ -143,7 +143,7 @@ az storage account update --name $storageAccountName --resource-group $resourceG
 
 ## What happens if you use both configurations
 
-You could also assign permissions to all authenticated Azure AD users and specific Azure AD users/groups. With this configuration, a specific user or group would have the superset of permissions allowed from the default share-level permission and RBAC assignment. To help you understand how this works, here's an example:  Say you granted a user the **Storage File Data SMB Reader** role on the target file share. You also granted the default share-level permission **Storage File Data SMB Share Elevated Contributor** to all authenticated users. With this configuration, that particular user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher-level permissions always take precedence.
+You could also assign permissions to all authenticated Azure AD users and specific Azure AD users/groups. With this configuration, a specific user or group will have whichever is the higher-level permission from the default share-level permission and RBAC assignment. In other words, say you granted a user the **Storage File Data SMB Reader** role on the target file share. You also granted the default share-level permission **Storage File Data SMB Share Elevated Contributor** to all authenticated users. With this configuration, that particular user will have **Storage File Data SMB Share Elevated Contributor** level of access to the file share. Higher-level permissions always take precedence.
 
 ## Next steps
 

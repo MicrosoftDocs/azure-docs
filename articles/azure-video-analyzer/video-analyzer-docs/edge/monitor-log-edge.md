@@ -1,5 +1,5 @@
 ---
-title: Monitoring and logging - Azure
+title: Monitoring and logging
 description: This article provides an overview of monitoring and logging in Azure Video Analyzer.
 ms.topic: how-to
 ms.date: 11/04/2021

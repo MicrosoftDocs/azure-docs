@@ -7,7 +7,7 @@ ms.date: 12/20/2018
 ms.topic: quickstart
 ms.service: stream-analytics
 ms.custom: mvc, devx-track-azurepowershell, devx-track-azurecli, mode-api
-#Customer intent: "As an IT admin/developer I want to create a Stream Analytics job, configure input and output & analyze data by using Azure PowerShell."
+#Customer intent: As an IT admin/developer I want to create a Stream Analytics job, configure input and output, analyze data by using Azure PowerShell.
 ---
 
 # Quickstart: Create a Stream Analytics job using Azure PowerShell
@@ -277,7 +277,7 @@ Add a transformation your job by using the [New-AzStreamAnalyticsTransformation]
     "properties":{
         "streamingUnits":1,
         "script":null,
-        "query":" SELECT * INTO BlobOutput FROM IoTHubInput HAVING Temperature > 27"
+        "query":" SELECT * INTO BlobOutput FROM IoTHubInput WHERE Temperature > 27"
     }
 }
 ```

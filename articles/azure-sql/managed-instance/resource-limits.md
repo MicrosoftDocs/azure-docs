@@ -44,18 +44,22 @@ Hardware generations have different characteristics, as described in the followi
 
 ### Regional support for premium-series hardware generations (preview)
 
-Support for the premium-series hardware generations (public preview) is currently available only in these specific regions:
-
+Support for the premium-series hardware generations (public preview) is currently available only in these specific regions: <br>
+Last updated: 11/24/2021
 
 | Region | **Premium-series** | **Memory optimized premium-series** | 
 |:--- |:--- |:--- |
-| Central US | Yes |  | 
+| Central US | Yes | Yes | 
 | East US  | Yes |  | 
 | East US 2 | Yes | Yes | 
-| North Europe |  | Yes | 
+| North Central US | Yes | Yes | 
+| North Europe | Yes | Yes | 
+| South Central US | Yes |  | 
+| UK South | Yes | Yes | 
 | West Europe | Yes | Yes | 
-| West US |  | Yes |  
+| West US | Yes | Yes |  
 | West US 2 | Yes | Yes | 
+| West US 3 | Yes | Yes | 
 
 
 ### In-memory OLTP available space 

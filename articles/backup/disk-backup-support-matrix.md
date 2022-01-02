@@ -2,8 +2,11 @@
 title: Azure Disk Backup support matrix
 description: Provides a summary of support settings and limitations Azure Disk Backup.
 ms.topic: conceptual
-ms.date: 05/27/2021
-ms.custom: references_regions 
+ms.date: 12/01/2021
+ms.custom: references_regions
+author: v-amallick
+ms.service: backup
+ms.author: v-amallick
 ---
 
 # Azure Disk Backup support matrix
@@ -12,7 +15,7 @@ You can use [Azure Backup](./backup-overview.md) to protect Azure Disks. This ar
 
 ## Supported regions
 
-Azure Disk Backup is available in all public cloud regions, except France South, South Africa West, and is currently not available in Sovereign cloud regions. These regions will be announced when they become available.
+Azure Disk Backup is available in all public cloud and Sovereign cloud regions.
 
 ## Limitations
 

@@ -1,6 +1,6 @@
 ---
-author: vlrodrig
-ms.author: whhender
+author: ePpnqeqR
+ms.author: vlrodrig
 ms.service: purview
 ms.subservice: purview-data-policies
 ms.topic: include

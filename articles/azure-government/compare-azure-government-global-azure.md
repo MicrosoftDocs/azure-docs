@@ -6,7 +6,8 @@ ms.topic: article
 author: stevevi
 ms.author: stevevi
 ms.custom: references_regions
-ms.date: 11/17/2021
+recommendations: false
+ms.date: 12/07/2021
 ---
 
 # Compare Azure Government and global Azure
@@ -21,6 +22,9 @@ You are responsible for designing and deploying your applications to meet [US ex
 
 Azure Government services operate the same way as the corresponding services in global Azure, which is why most of the existing online Azure documentation applies equally well to Azure Government. However, there are some key differences that developers working on applications hosted in Azure Government must be aware of. For more information, see [Guidance for developers](./documentation-government-developer-guide.md). As a developer, you must know how to connect to Azure Government and once you connect you will mostly have the same experience as in global Azure.
 
+> [!NOTE]
+> This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install the Azure Az PowerShell module**](/powershell/azure/install-az-ps).
+
 You can use AzureCLI or PowerShell to obtain Azure Government endpoints for services you provisioned:
 
 - Use **Azure CLI** to run the [az cloud show](/cli/azure/cloud#az_cloud_show) command and provide `AzureUSGovernment` as the name of the target cloud environment. For example,
@@ -31,13 +35,13 @@ You can use AzureCLI or PowerShell to obtain Azure Government endpoints for serv
 
   should get you different endpoints for Azure Government.
 
-- Use a **PowerShell** cmdlet such as [Get-AzureEnvironment](/powershell/module/servicemanagement/azure.service/get-azureenvironment) (or [Get-AzureRmEnvironment](/powershell/module/azurerm.profile/get-azurermenvironment)) to get endpoints and metadata for an instance of Azure service. For example,
+- Use a **PowerShell** cmdlet such as [Get-AzureEnvironment](/powershell/module/servicemanagement/azure.service/get-azureenvironment) to get endpoints and metadata for an instance of Azure service. For example,
 
   ```powershell
   Get-AzureEnvironment -Name AzureUSGovernment
   ```
 
-  should get you properties for Azure Government. These cmdlets get environments from your subscription data file.
+  should get you properties for Azure Government. This cmdlet gets environments from your subscription data file.
 
 Table below lists API endpoints in Azure vs. Azure Government for accessing and managing some of the more common services. If you provisioned a service that isn't listed in the table below, see the Azure CLI and PowerShell examples above for suggestions on how to obtain the corresponding Azure Government endpoint.
 
@@ -84,7 +88,7 @@ Table below lists API endpoints in Azure vs. Azure Government for accessing and 
 |||docs.loganalytics.io|docs.loganalytics.us||
 ||Azure Resource Manager|management.azure.com|management.usgovcloudapi.net||
 ||Gallery URL|gallery.azure.com|gallery.azure.us||
-||Microsoft Azure Portal|portal.azure.com|portal.azure.us||
+||Microsoft Azure portal|portal.azure.com|portal.azure.us||
 ||Microsoft Intune|enterpriseregistration.windows.net|enterpriseregistration.microsoftonline.us|Enterprise registration|
 |||manage.microsoft.com|\manage.microsoft.us|Enterprise enrollment|
 |**Migration**|Azure Site Recovery|hypervrecoverymanager.windowsazure.com|hypervrecoverymanager.windowsazure.us|Site Recovery service|
@@ -234,9 +238,6 @@ The following features have known limitations in Azure Government:
 
 This section outlines variations and considerations when using Management and Governance services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=managed-applications,azure-policy,network-watcher,monitor,traffic-manager,automation,scheduler,site-recovery,cost-management,backup,blueprints,advisor&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
-> [!NOTE]
->This article has been updated to use the new Azure PowerShell Az module. You can still use the AzureRM module, which will continue to receive bug fixes until at least December 2020. To learn more about the new Az module and AzureRM compatibility, see [**Introducing the new Azure PowerShell Az module**](/powershell/azure/new-azureps-module-az). For Az module installation instructions, see [**Install Azure PowerShell**](/powershell/azure/install-az-ps).
-
 ### [Automation](../automation/overview.md)
 
 The following Automation **features are not currently available** in Azure Government:
@@ -334,19 +335,16 @@ The following Azure Lighthouse **features are not currently available** in Azure
 
 ### [Azure Monitor](../azure-monitor/overview.md)
 
-The following Azure Monitor **features behave differently** in Azure Government:
+Azure Monitor enables the same features in both Azure and Azure Government.
 
-- To connect your System Center Operations Manager management group to Azure Monitor logs, you need to download and import updated management packs.
-  - System Center Operations Manager 2016
-    1. Install [Update Rollup 2 for System Center Operations Manager 2016](https://support.microsoft.com/help/3209591).
-    1. Import the management packs included as part of Update Rollup 2 into Operations Manager. For information about how to import a management pack from a disk, see [How to import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
-    1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
-  - System Center Operations Manager 2012 R2 UR3 (or later) / Operations Manager 2012 SP1 UR7 (or later)
-    1. Download and save the [updated management packs](https://go.microsoft.com/fwlink/?LinkId=828749).
-    1. Unzip the file that you downloaded.
-    1. Import the management packs into Operations Manager. For information about how to import a management pack from a disk, see [How to import an Operations Manager Management Pack](/previous-versions/system-center/system-center-2012-R2/hh212691(v=sc.12)).
-    1. To connect Operations Manager to Azure Monitor logs, follow the steps in [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
-- For more information about using computer groups from Configuration Manager, see [Connect Configuration Manager to Azure Monitor](../azure-monitor/logs/collect-sccm.md).
+- System Center Operations Manager 2019 is supported equally well in both Azure and Azure Government.
+
+The following options are available for previous versions of System Center Operations Manager:
+
+- Integrating System Center Operations Manager 2016 with Azure Government requires an updated Advisor management pack that is included with Update Rollup 2 or later.
+- System Center Operations Manager 2012 R2 requires an updated Advisor management pack included with Update Rollup 3 or later.
+
+For more information, see [Connect Operations Manager to Azure Monitor](../azure-monitor/agents/om-agents.md).
 
 **Frequently asked questions**
 
@@ -438,12 +436,6 @@ For feature variations and limitations, see [Cloud feature availability for US G
 
 This section outlines variations and considerations when using Storage services in the Azure Government environment. For service availability, see [Products available by region](https://azure.microsoft.com/global-infrastructure/services/?products=hpc-cache,managed-disks,storsimple,backup,storage&regions=non-regional,usgov-non-regional,us-dod-central,us-dod-east,usgov-arizona,usgov-texas,usgov-virginia).
 
-### [Azure Backup](../backup/backup-overview.md)
-
-The following Azure Backup **features are not currently available** in Azure Government:
-
-- Azure Disk Backup, as documented in [Azure Disk Backup support matrix](../backup/disk-backup-support-matrix.md).
-
 ### [Azure managed disks](../virtual-machines/managed-disks-overview.md)
 
 The following Azure managed disks **features are not currently available** in Azure Government:
@@ -483,10 +475,6 @@ The following App Service **features are not currently available** in Azure Gove
 
 ### [Azure Functions](../azure-functions/index.yml)
 
-The following Functions **features are not currently available** in Azure Government:
-
-- Running .NET 5 apps
-
 When connecting your Functions app to Application Insights in Azure Government, make sure you use [`APPLICATIONINSIGHTS_CONNECTION_STRING`](../azure-functions/functions-app-settings.md#applicationinsights_connection_string), which lets you customize the Application Insights endpoint.
 
 ## Next steps
@@ -494,6 +482,10 @@ When connecting your Functions app to Application Insights in Azure Government, 
 Learn more about Azure Government:
 
 - [Acquiring and accessing Azure Government](https://azure.microsoft.com/offers/azure-government/)
+- [Azure Government overview](./documentation-government-welcome.md)
+- [Azure support for export controls](./documentation-government-overview-itar.md)
+- [Azure Government security](./documentation-government-plan-security.md)
+- [Azure guidance for secure isolation](./azure-secure-isolation-guidance.md)
 
 Start using Azure Government:
 

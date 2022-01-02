@@ -1,5 +1,5 @@
 ---
-title: Connect to Azure Virtual Desktop from Android - Azure
+title: Connect to Azure Virtual Desktop with the Android client - Azure
 description: How to connect to Azure Virtual Desktop using the Android client.
 author: Heidilohr
 ms.topic: how-to

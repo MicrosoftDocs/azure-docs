@@ -8,7 +8,7 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 11/23/2021
 ms.author: anfeldma
-ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-other
+ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-api
 ---
 
 # Quickstart: Manage data with Azure Cosmos DB Spark 3 OLTP Connector for SQL API
@@ -25,7 +25,7 @@ ms.custom: seo-java-august2019, seo-java-september2019, devx-track-java, mode-ot
 
 This tutorial is a quick start guide to show how to use Cosmos DB Spark Connector to read from or write to Cosmos DB. Cosmos DB Spark Connector is based on Spark 3.1.x.
 
-Throughout this quick tutorial, we rely on [Azure Databricks Runtime 8.0 with Spark 3.1.1](/databricks/release-notes/runtime/8.0) and a Jupyter Notebook to show how to use the Cosmos DB Spark Connector.
+Throughout this quick tutorial, we rely on [Azure Databricks Runtime 8.0 with Spark 3.1.1](/azure/databricks/release-notes/runtime/8.0) and a Jupyter Notebook to show how to use the Cosmos DB Spark Connector.
 
 You can use any other Spark 3.1.1 spark offering as well, also you should be able to use any language supported by Spark (PySpark, Scala, Java, etc.), or any Spark interface you are familiar with (Jupyter Notebook, Livy, etc.).
 
@@ -33,7 +33,7 @@ You can use any other Spark 3.1.1 spark offering as well, also you should be abl
 
 * An active Azure account. If you don't have one, you can sign up for a [free account](https://azure.microsoft.com/try/cosmosdb/). Alternatively, you can use the [use Azure Cosmos DB Emulator](../local-emulator.md) for development and testing.
 
-* [Azure Databricks](/databricks/release-notes/runtime/8.0) runtime 8.0 with Spark 3.1.1.
+* [Azure Databricks](/azure/databricks/release-notes/runtime/8.0) runtime 8.0 with Spark 3.1.1.
 
 * (Optional) [SLF4J binding](https://www.slf4j.org/manual.html) is used to associate a specific logging framework with SLF4J.
 
@@ -138,7 +138,7 @@ customSchema = StructType([
       StructField("isAlive", BooleanType())
     ])
 
-df = spark.read.schema(schema).format("cosmos.oltp").options(**cfg)\
+df = spark.read.schema(customSchema).format("cosmos.oltp").options(**cfg)\
  .load()
  
 df.printSchema()
