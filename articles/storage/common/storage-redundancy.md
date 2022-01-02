@@ -216,7 +216,9 @@ The following table shows which redundancy options are supported by each type of
 
 | LRS | ZRS | GRS/RA-GRS | GZRS/RA-GZRS |
 |:-|:-|:-|:-|
-| General-purpose v2<br /> General-purpose v1<br /> Premium block blob<br /> Legacy blob<br /> Premium file shares | General-purpose v2<br /> Premium block blobs<br /> Premium file shares | General-purpose v2<br /> General-purpose v1<br /> Legacy blob | General-purpose v2 |
+| General-purpose v2<sup>1</sup><br /> General-purpose v1<br /> Premium block blob<sup>1</sup><br /> Legacy blob<br /> Premium file shares | General-purpose v2<sup>1</sup><br /> Premium block blobs<sup>1</sup><br /> Premium file shares | General-purpose v2<sup>1</sup><br /> General-purpose v1<br /> Legacy blob | General-purpose v2<sup>1</sup> |
+
+<sup>1</sup> Accounts of this type with a hierarchical namespace enabled also support the specified redundancy option.
 
 All data for all storage accounts is copied according to the redundancy option for the storage account. Objects including block blobs, append blobs, page blobs, queues, tables, and files are copied. Data in all tiers, including the archive tier, is copied. For more information about blob tiers, see [Hot, Cool, and Archive access tiers for blob data](../blobs/access-tiers-overview.md).
 
@@ -224,6 +226,20 @@ For pricing information for each redundancy option, see [Azure Storage pricing](
 
 > [!NOTE]
 > Azure Premium Disk Storage currently supports only locally redundant storage (LRS). Block blob storage accounts support locally redundant storage (LRS) and zone redundant storage (ZRS) in certain regions.
+
+### Support for customer-managed account failover
+
+All geo-redundant offerings support Microsoft-managed failover in the event of a disaster in the primary region. In addition, some account types support customer-managed account failover, as shown in the following table. Supported account types must use Azure Resource Manager deployments. For more information about disaster recovery and customer-managed failover, see [Disaster recovery and storage account failover](storage-disaster-recovery-guidance.md).
+
+| Type of failover | GRS/RA-GRS | GZRS/RA-GZRS |
+|---|---|---|
+| **Customer-managed failover** | General-purpose v2 accounts</br> General-purpose v1 accounts</br> Legacy Blob Storage accounts | General-purpose v2 accounts |
+| **Microsoft-managed failover** | All account types | General-purpose v2 accounts |
+
+> [!NOTE]
+> Customer-managed account failover is not yet supported in accounts that have a hierarchical namespace (Azure Data Lake Storage Gen2). To learn more, see [Blob storage features available in Azure Data Lake Storage Gen2](../blobs/storage-feature-support-in-storage-accounts.md).
+>
+> In the event of a disaster that affects the primary region, Microsoft will manage the failover for accounts with a hierarchical namespace. For more information, see [Microsoft-managed failover](storage-disaster-recovery-guidance.md#microsoft-managed-failover).
 
 ## Data integrity
 
