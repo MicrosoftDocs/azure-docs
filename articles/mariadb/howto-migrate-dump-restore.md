@@ -22,7 +22,7 @@ Before you begin migrating your database, do the following:
 - Download and install [MySQL Workbench](https://dev.mysql.com/downloads/workbench/) or another third-party MySQL tool for running dump and restore commands.
 
 ## Use common tools
-Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and restore data into your Azure database for MariaDB. Use these tools on your client machine with an internet connection to connect to the Azure database for MariaDB. Use an SSL-encrypted connection as a best security practice. For more information, see [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md). You don't need to move the dump files to any special cloud location when you migrate data to your Azure database for MariaDB. 
+Use common utilities and tools such as MySQL Workbench or mysqldump to remotely connect and restore data into your Azure database for MariaDB. Use these tools on your client machine with an internet connection to connect to the Azure Database for MariaDB. Use an SSL-encrypted connection as a best security practice. For more information, see [Configure SSL connectivity in Azure Database for MariaDB](concepts-ssl-connection-security.md). You don't need to move the dump files to any special cloud location when you migrate data to your Azure database for MariaDB. 
 
 ## Common uses for dump and restore
 You can use MySQL utilities such as mysqldump and mysqlpump to dump and load databases into an Azure database for MariaDB server in several common scenarios. 
