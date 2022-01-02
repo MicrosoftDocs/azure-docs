@@ -10,9 +10,9 @@ ms.date: 11/02/2021
 ms.custom: template-how-to, ignite-fall-2021, fasttrack-edit
 ---
 
-# Connect to and manage Azure Databases for MySQL in Azure Purview
+# Connect to and manage Azure Database for MySQL in Azure Purview
 
-This article outlines how to register an Azure Database for MySQL, and how to authenticate and interact with Azure Database for MySQLs in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
+This article outlines how to register a database in Azure Database for MySQL, and how to authenticate and interact with Azure Database for MySQL in Azure Purview. For more information about Azure Purview, read the [introductory article](overview.md).
 
 ## Supported capabilities
 
