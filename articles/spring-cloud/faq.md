@@ -8,7 +8,6 @@ ms.date: 12/15/2021
 ms.author: karler
 ms.custom: devx-track-java
 zone_pivot_groups: programming-languages-spring-cloud
-zone_pivot_groups: spring-cloud-tier-selection
 ---
 
 # Azure Spring Cloud FAQ
