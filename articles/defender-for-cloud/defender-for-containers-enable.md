@@ -653,6 +653,7 @@ The relevant template and parameters to remove the Defender profile from AKS are
         },
     }
 }
+```
 
 ---
 
