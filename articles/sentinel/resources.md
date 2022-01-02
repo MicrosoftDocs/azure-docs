@@ -27,7 +27,7 @@ Microsoft Sentinel uses Azure Monitor Log Analytics's Kusto Query Language (KQL)
 
 The [Azure Active Directory Security Operations Guide](/azure/active-directory/fundamentals/security-operations-introduction) includes specific guidance and knowledge about data that's important to monitor for security purposes, for several operational areas. 
 
-In each article, check for sections named [Things to monitor](/azure/active-directory/fundamentals/security-operations-privileged-accounts#things-to-monitor) for lists of events that we recommend alerting on and investingating, as well as analytics rule templates to deploy directly to Microsoft Sentinel.
+In each article, check for sections named [Things to monitor](/azure/active-directory/fundamentals/security-operations-privileged-accounts#things-to-monitor) for lists of events that we recommend alerting on and investigating, as well as analytics rule templates to deploy directly to Microsoft Sentinel.
 
 ## Learn more about creating automation
 
