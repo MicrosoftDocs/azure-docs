@@ -107,7 +107,7 @@ The sample code intentionally creates a buggy index as a consequence of problems
 
 1. In Azure portal, on the search service **Overview** page, select the **Indexes** tab. 
 
-1. Select the clinical-trials index.
+1. Select *clinical-trials*.
 
 1. Enter this query string: `$select=metadata_storage_path, organizations, locations&$count=true` to return fields for specific documents (identified by the unique `metadata_storage_path` field).
 
@@ -117,19 +117,17 @@ These fields should have been populated through the skillset's [Entity Recogniti
 
 Another way to investigate errors and warnings is through the Azure portal.
 
-1. Open the **Indexers** tab and select clinical-trials-idxr.
+1. Open the **Indexers** tab and select *clinical-trials-idxr*.
 
-1. Notice that while the indexer job succeeded overall, there were warnings.
+   Notice that while the indexer job succeeded overall, there were warnings.
 
 1. Select **Success** to view the warnings (if there were mostly errors, the detail link would be **Failed**). You'll see a long list of every warning emitted by the indexer.
 
-   :::image type="content" source="media/cognitive-search-debug/portal-indexer-errors-warnings.png" alt-text="view warnings":::
+   :::image type="content" source="media/cognitive-search-debug/portal-indexer-errors-warnings.png" alt-text="view warnings" border="true":::
 
 ## Start your debug session
 
-:::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="start a new debug session":::
-
-1. From the search overview page, click the **Debug sessions** tab.
+1. From the search service **Overview** page, click the **Debug sessions** tab.
 
 1. Select **+ New Debug Session**.
 
@@ -143,17 +141,23 @@ Another way to investigate errors and warnings is through the Azure portal.
 
 1. **Save** the session. Saving the session will kick off the enrichment pipeline as defined by the skillset for the selected document.
 
-When the debug session has finished initializing, the session defaults to the **AI Enrichments** tab, highlighting the **Skill Graph**. The Skill Graph provides a visual hierarchy of the skillset and its order of execution sequentially and in parallel.
+   :::image type="content" source="media/cognitive-search-debug/new-debug-session-screen-required.png" alt-text="start a new debug session" border="true":::
 
-   :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Screenshot of Debug Session visual editor":::
+1. When the debug session has finished initializing, the session defaults to the **AI Enrichments** tab, highlighting the **Skill Graph**. The Skill Graph provides a visual hierarchy of the skillset and its order of execution sequentially and in parallel.
+
+   :::image type="content" source="media/cognitive-search-debug/debug-execution-complete1.png" alt-text="Screenshot of Debug Session visual editor" border="true":::
 
 ## Find issues with the skillset
 
-Any issues reported by the indexer can be found in the adjacent **Errors/Warnings** tab. 
+Any issues reported by the indexer can be found in the adjacent **Errors/Warnings** tab.
+
+:::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="Screenshot of the errors and warnings tab." border="true":::
 
 Notice that the **Errors/Warnings** tab will provide a much smaller list than the one displayed earlier because this list is only detailing the errors for a single document. Like the list displayed by the indexer, you can click on a warning message and see the details of this warning.
 
-Select **Errors/Warnings** to review the notifications. You should see three:
+Select **Errors/Warnings** to review the notifications. You should see four:
+
++ "Could not execute skill because one or more skill input was invalid. Required skill input is missing. Name: 'text', Source: '/document/content'."
 
 + "Could not map output field 'locations' to search index. Check the 'outputFieldMappings' property of your indexer.
 Missing value '/document/merged_content/locations'."
@@ -164,15 +168,16 @@ Missing value '/document/merged_content/organizations'."
 + "Skill executed but may have unexpected results because one or more skill input was invalid.
 Optional skill input is missing. Name: 'languageCode', Source: '/document/languageCode'. Expression language parsing issues: Missing value '/document/languageCode'."
 
-Many skills have a 'languageCode' parameter. By inspecting the operation, you can see that this language code input is missing from the `EntityRecognitionSkillV3.#1`, which is the same Entity Recognition skill that is having trouble with 'locations' and 'organizations' output. 
+Many skills have a "languageCode" parameter. By inspecting the operation, you can see that this language code input is missing from the `EntityRecognitionSkillV3.#1`, which is the same Entity Recognition skill that is having trouble with 'locations' and 'organizations' output. 
 
-Because all three notifications are about this skill, your next step is to debug this skill. If possible, start by solving input issues first before moving on to outputFieldMapping issues.
-
-:::image type="content" source="media/cognitive-search-debug/debug-session-errors-warnings.png" alt-text="Screenshot of the errors and warnings tab." border="true":::
+Because all four notifications are about this skill, your next step is to debug this skill. If possible, start by solving input issues first before moving on to output issues.
 
 ## Fix missing skill input value
 
-In the **Errors/Warnings** tab, there is an error for an operation labeled `EntityRecognitionSkillV3.#1`. The detail of this error explains that there is a problem with a skill input value "/document/languageCode". 
+In the **Errors/Warnings** tab, there is an error for an operation labeled `EntityRecognitionSkillV3.#1`. The detail of this error explains that there is a problem with a required skill input, Name: 'text', Source: '/document/content'.
+
+
+<!-- In the **Errors/Warnings** tab, there is an error for an operation labeled `EntityRecognitionSkillV3.#1`. The detail of this error explains that there is a problem with a skill input value "/document/languageCode". 
 
 1. In **AI Enrichments** >  **Skill Graph**, select the skill labeled **#1** to display its details in the right pane.
 
@@ -206,7 +211,7 @@ Once the debug session execution completes, check the Errors/Warnings tab and it
 
 However, there are still two warnings that the service could not map output fields for organizations and locations to the search index. There are missing values: `/document/merged_content/organizations` and `/document/merged_content/locations`.
 
-:::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Errors and warnings":::
+:::image type="content" source="media/cognitive-search-debug/warnings-missing-value-locations-organizations.png" alt-text="Errors and warnings"::: -->
 
 ## Fix missing skill output values
 
