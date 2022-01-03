@@ -36,9 +36,19 @@ Aim to run the latest patch release of the minor version you're running. For exa
 
 ## Kubernetes Alias Minor Version
 
-Azure Kubernetes Service allows for you to create a cluster without specifiying the exact patch version. When creating a cluster without specifying the patch, your kubernetes version will be on that minor versions latest patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`** which is the latest patch version of *1.21*.
+Azure Kubernetes Service allows for you to create a cluster without specifiying the exact patch version. When creating a cluster without specifying a patch, the cluster will run the minor version's latest patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`**, which is the latest patch version of *1.21*.
 
-To see what patch you are on when using Alias Minor Version, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole kubernetes version.
+To see what patch you are on, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole Kubernetes version.
+
+```
+{
+ "apiServerAccessProfile": null,
+  "autoScalerProfile": null,
+  "autoUpgradeProfile": null,
+  "azurePortalFqdn": "myaksclust-myresourcegroup-998217-41b82424.portal.hcp.eastus.azmk8s.io",
+  "currentKubernetesVersion": "1.21.7",
+}
+```
 
 ## Kubernetes version support policy
 
