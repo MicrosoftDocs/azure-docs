@@ -12,3 +12,6 @@
   - name: Azure Arc
     tocHref: /azure-arc/kubernetes/
     topicHref: /azure/azure-arc/index
+  - name: Azure Arc
+    tocHref: /azure-arc/vmware-vsphere/
+    topicHref: /azure/azure-arc/index

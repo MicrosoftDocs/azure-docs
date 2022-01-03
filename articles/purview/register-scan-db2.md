@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/23/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -27,8 +27,16 @@ The supported IBM DB2 versions are DB2 for LUW 9.7 to 11.x. DB2 for z/OS (mainfr
 
 When scanning IBM DB2 source, Purview supports:
 
-- Extracting metadata including DB2 server, databases, schemas, tables, views, triggers, table/view columns, foreign keys, unique constraints, and indexes.
-- Fetching lineage on assets relationships among tables and views.
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Schemas
+    - Tables including the columns, foreign keys, indexes, and constraints
+    - Views including the columns
+    - Triggers
+
+- Fetching static lineage on assets relationships among tables and views.
 
 ## Prerequisites
 

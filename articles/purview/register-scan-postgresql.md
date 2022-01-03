@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to #Required; leave this attribute/value as-is.
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to #Required; leave this attribute/value as-is.
 ---
 
@@ -27,8 +27,15 @@ The supported PostgreSQL server versions are 8.4 to 12.x.
 
 When scanning PostgreSQL source, Purview supports:
 
-- Extracting metadata including PostgreSQL server, databases, schemas, tables, views, and table/view columns.
-- Fetching lineage on assets relationships among tables and views.
+- Extracting technical metadata including:
+
+    - Server
+    - Databases
+    - Schemas
+    - Tables including the columns
+    - Views including the columns
+    
+- Fetching static lineage on assets relationships among tables and views.
 
 ## Prerequisites
 
