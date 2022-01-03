@@ -40,7 +40,11 @@ Debug sessions work with all generally available data sources and most preview d
 
 1. Select the indexer that drives the skillset you want to debug. Copies of both the indexer and skillset are used to create the session.
 
-1. Choose a document. The session will default to the first document in the data source, but you can also choose which document to step through.
+1. Choose a document. The session will default to the first document in the data source, but you can also choose which document to step through. 
+
+   If your document resides in a blob container in the same storage account used to cache your debug session, you can copy the document URL from the blob property page in the portal.
+
+   :::image type="content" source="media/cognitive-search-debug/copy-blob-url.png" alt-text="Screenshot of the URI property in blob storage." border="true":::
 
 1. Optionally, specify any indexer execution settings that should be used to create the session. Any indexer options that you specify in a debug session have no effect on the indexer itself.
 
@@ -52,19 +56,39 @@ The debug session begins by executing the indexer and skillset on the selected d
 
 ## Start with errors and warnings
 
-Indexer execution history in the portal gives you the full error and warning list for all documents. In a debug session, the errors and warnings will be limited to one document. As a best practice, resolve problems with inputs before moving on to outputs. 
+Indexer execution history in the portal gives you the full error and warning list for all documents. In a debug session, the errors and warnings will be limited to one document. You'll work through this list, make your changes, and then return to the list to verify whether issues are resolved. To view the messages, select a skill in **AI Enrichment > Skill Graph** and then select **Errors/Warnings** in the details pane.
 
-To determine whether a modification resolves an error, follow these steps:
+As a best practice, resolve problems with inputs before moving on to outputs.
+
+To prove whether a modification resolves an error, follow these steps:
 
 1. Select **Save** in Skill Details to preserve your changes.
 
 1. Select **Run** in the session window to invoke skillset execution using the modified definition.
 
-1. Return to **Errors and warnings** to see if the count is reduced. The list is not refreshed until you open the tab.
+1. Return to **Errors/Warnings** to see if the count is reduced. The list will not be refreshed until you open the tab.
+
+## View content of enrichment nodes
+
+AI enrichment pipelines extract or infer information and structure from source documents, creating an enriched document in the process. An enriched document is first created during document cracking and populated with a root node (`/document`) plus nodes for any content that are directly ported from the data source (such as a document key). Additional nodes are created during skill execution, where each skill output adds a new node to the enrichment tree. 
+
+Enriched documents are internal objects, but a debug session gives you access to the content produced during skill execution. To view the content or output of each skill, follow these steps:
+
+1. Start with the default views: **AI enrichment > Skill Graph**, with the graph type set to **Dependency Graph**.
+
+1. Select a skill.
+
+1. In the details pane to the right, select **Executions**, select an OUTPUT, and then open the Expression Evaluator (**`</>`**) to view the expression and it's result.
+
+   :::image type="content" source="media/cognitive-search-debug/enriched-doc-output-expression.png" alt-text="Screenshot of a skill execution showing output values." border="true":::
+
+1. Alternatively, open **AI enrichment > Enriched Data Structure** to scroll down the list of nodes. The list includes potential and actual nodes, with a column for output, and another column that indicates the upstream object used to produce the output.
+
+   :::image type="content" source="media/cognitive-search-debug/enriched-doc-output.png" alt-text="Screenshot of enriched document showing output values." border="true":::
 
 ## Check field mappings
 
-If you're missing output, check the field mappings that specify how content moves out of the pipeline and into a search index.
+If skills produce output but the search index is empty, check the field mappings that specify how content moves out of the pipeline and into a search index.
 
 1. Start with the default views: **AI enrichment > Skill Graph**, with the graph type set to **Dependency Graph**.
 
@@ -78,7 +102,7 @@ If you're missing output, check the field mappings that specify how content move
 
    :::image type="content" source="media/cognitive-search-debug/output-field-mappings.png" alt-text="Screenshot of the Output Field Mappings node and details." border="true":::
 
-## Check skills
+## Edit skill definitions
 
 If the field mappings are correct, check individual skills for configuration and content. If a skill fails to produce output, it might be missing a property or parameter, which can be determined through error and validation messages. 
 
@@ -88,11 +112,7 @@ The following steps show you how to get information about a skill.
 
 1. In **AI enrichment > Skill Graph**, select a skill. The Skill Details pane opens to the right.
 
-1. Select **Executions** to show which inputs and outputs were used during skill execution.
-
-   :::image type="content" source="media/cognitive-search-debug/skill-input-output-detection.png" alt-text="Screenshot of Skill graph, details, and execution tab inputs and outputs." border="true":::
-
-1. Select **`</>`** Expression Evaluator to show the values returned by the skill.
+1. Edit a skill definition using either **Skill Settings** if you prefer a visual editor, or **Skill JSON Editor** for access to the JSON document.
 
 ## Next steps
 
