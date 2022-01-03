@@ -59,7 +59,7 @@ The following [offer types](https://azure.microsoft.com/support/legal/offer-deta
 -	Enterprise Agreement 
 -	Pay-as-you-go offer code (003P)
 -	Sponsored (0036P and 0136P)
-- For Cloud Service Provider (CSP), contact your partner
+- For Cloud Service Provider (CSP), see the [Partner Center](https://docs.microsoft.com/partner-center/azure-plan-get-started) or contact your partner directly.
 
 
 ## Pricing
