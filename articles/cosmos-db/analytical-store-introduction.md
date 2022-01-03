@@ -269,7 +269,7 @@ FROM OPENROWSET(PROVIDER = 'CosmosDB',
 WITH (num varchar(100)) AS [IntToFloat]
 ```
 
-  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the 2 documents below, and that the first one defined the analytical store base schema. The second document, where `id` is `2`, doesn't have a well-defined schema since property `"code"` is a string and the first document has `"code"` as a number. In this case, the analytical store registers the data type of `"code"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"code"` property will not.
+  * Properties that don't follow the base schema data type won't be represented in analytical store. For example, consider the 2 documents below: the first one defined the analytical store base schema. The second document, where `id` is `2`, **doesn't** have a well-defined schema since property `"code"` is a string and the first document has `"code"` as a number. In this case, the analytical store registers the data type of `"code"` as `integer` for lifetime of the container. The second document will still be included in analytical store, but its `"code"` property will not.
   
     * `{"id": "1", "code":123}` 
     * `{"id": "2", "code": "123"}`
