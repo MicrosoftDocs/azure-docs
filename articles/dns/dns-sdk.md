@@ -8,7 +8,7 @@ author: rohinkoul
 manager: kumudD
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
 ms.service: dns
-ms.devlang: na
+ms.devlang: csharp
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services

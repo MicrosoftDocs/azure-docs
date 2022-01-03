@@ -6,7 +6,7 @@ ms.author: jingwang
 ms.service: purview
 ms.subservice: purview-data-map
 ms.topic: how-to
-ms.date: 11/02/2021
+ms.date: 12/28/2021
 ms.custom: template-how-to, ignite-fall-2021
 ---
 
@@ -22,10 +22,19 @@ This article outlines how to register Hive Metastore databases, and how to authe
 
 \** Lineage is supported if the dataset is used as a source or sink in the [Azure Data Factory Copy activity](how-to-link-azure-data-factory.md).
 
-> [!Important]
-> The supported platforms are Apache Hadoop, Cloudera, Hortonworks, and Azure Databricks.
-> 
-> Supported Hive versions are 2.x to 3.x. Supported Azure Databricks versions are 8.0 and later.
+ The supported Hive versions are 2.x to 3.x. The supported platforms are Apache Hadoop, Cloudera, Hortonworks, and Azure Databricks (versions 8.0 and later).
+
+When scanning Hive metastore source, Purview supports:
+
+- Extracting technical metadata including:
+
+   - Server
+   - Databases
+   - Tables including the columns, foreign keys, unique constraints, and storage description
+   - Views including the columns and storage description
+   - Processes
+
+- Fetching static lineage on assets relationships among tables and views.
 
 ## Prerequisites
 
@@ -168,6 +177,8 @@ Use the following steps to scan Hive Metastore databases to automatically identi
 1. For **Scan trigger**, choose whether to set up a schedule or run the scan once.
 
 1. Review your scan and select **Save and Run**.
+
+[!INCLUDE [create and manage scans](includes/view-and-manage-scans.md)]
 
 ## Next steps
 
