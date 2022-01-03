@@ -9,11 +9,11 @@ ms.date: 01/03/2022
 
 There are several ways to use Azure Resource Manager (ARM) templates in Azure DevTest Labs:
 
-- [Use an ARM quickstart template](#arm-quickstart-templates) in the Azure portal to create a lab or a lab with a virtual machine (VM).
+- [Use an ARM quickstart template](#arm-quickstart-templates) in the Azure portal to create a lab with a virtual machine (VM).
 
-- Save an ARM template from any available Azure virtual machine (VM) base image, edit it to meet your needs, and use it to create more VMs or custom images. For more information and instructions, see [Create Azure virtual machines from ARM templates](devtest-lab-use-resource-manager-template.md).
+- Save an ARM template from any available Azure virtual machine (VM) base image, edit it to meet your needs, and use it to create more VMs or custom images. Or create your own ARM templates. For more information and instructions, see [Create Azure virtual machines from ARM templates](devtest-lab-use-resource-manager-template.md).
 
-- Use ARM environment templates to create multi-VM infrastructure-as-a-service (IaaS) and platform-as-a-service (PaaS) DevTest Labs environments. For more information and instructions, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
+- Use an ARM environment template to create a multi-VM infrastructure-as-a-service (IaaS) or platform-as-a-service (PaaS) DevTest Labs environment. For more information and instructions, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
 
 - [Use ARM templates with Azure PowerShell or Azure CLI automation](#arm-templates-with-azure-powershell-or-azure-cli) to create, deploy, and manage labs and VMs.
 
@@ -21,7 +21,7 @@ The public [DevTest Labs GitHub repository](https://github.com/Azure/azure-devte
 
 To create your own ARM templates, follow the steps at [Create your first Azure Resource Manager template](../azure-resource-manager/templates/quickstart-create-templates-use-the-portal.md), and modify the templates for your needs. [Best practices for creating Azure Resource Manager templates](../azure-resource-manager/templates/best-practices.md) has many guidelines and suggestions for creating reliable, easy to use ARM templates.
 
-You can connect public and private template repositories to DevTest Labs, so lab users can use the templates to create and manage their own resources and environments.
+You can [connect public and private template repositories to DevTest Labs](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs), so lab users can use the templates to create and manage their own resources and environments.
 
 ## Multi-VM vs. single-VM ARM templates
 
@@ -37,7 +37,7 @@ For more information and instructions for configuring and using environment temp
 
 ### Microsoft.DevTestLab/labs/virtualmachines
 
-To provision individual VM configurations, ARM templates use the [Microsoft.DevTestLab/labs/virtualmachines](/azure/templates/microsoft.devtestlab/2018-09-15/labs/virtualmachines) resource type. Each VM created with this resource type appears as a separate item in the DevTest Labs **My virtual machines** list. You can deploy VMs of this resource type with a quickstart template from the Azure portal, or automate deployment with Azure PowerShell or Azure CLI.
+To provision individual VM configurations, ARM templates use the [Microsoft.DevTestLab/labs/virtualmachines](/azure/templates/microsoft.devtestlab/2018-09-15/labs/virtualmachines) resource type. You can [use a quickstart template](#arm-quickstart-templates) from the Azure portal to create and deploy these VMs. You can also use an ARM template with Azure PowerShell or Azure CLI to [automate VM deployment](#automated-arm-template-deployment). Each VM created with this resource type appears as a separate item in the lab's **My virtual machines** list.
 
 :::image type="content" source="./media/devtest-lab-use-arm-and-powershell-for-lab-resources/devtestlab-lab-vm-single-item.png" alt-text="Screenshot that shows the list of single V Ms in the DevTest Labs virtual machines list.":::
 
@@ -45,9 +45,9 @@ To provision individual VM configurations, ARM templates use the [Microsoft.DevT
 
 To use an ARM template to quickly create a DevTest Labs lab with a Windows Server VM, follow the instructions at [Quickstart: Use an ARM template to create a lab in DevTest Labs](create-lab-windows-vm-template.md).
 
-Or, from the Azure portal:
+Or, to deploy the quickstart template from the Azure portal:
 
-1. Search for and select **Deploy a custom template**.
+1. In the Azure portal, search for and select **Deploy a custom template**.
 
 1. On the **Custom deployment** screen, make sure **Quickstart template** is selected, and select the dropdown arrow next to **Quickstart template (disclaimer)**.
 
@@ -68,15 +68,21 @@ Or, from the Azure portal:
 
 1. Select **Review + create**, and when validation passes, select **Create**. Deployment, especially creating a VM, takes a while.
 
-## ARM templates with Azure PowerShell or Azure CLI
+## Automated ARM template deployment
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-Lab administrators can provision VMs by using the Azure PowerShell commands [New-AzResource](/powershell/module/az.resources/new-azresource) or [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) with ARM templates. Provisioning VMs with PowerShell requires administrator permissions, so the DevTest Labs user role can't do these deployments. Lab administrators can use the templates to automate creating claimable lab VMs or image factory golden images. Users can then use the custom images to create VM instances.
+Lab administrators can deploy ARM templates with PowerShell or Azure CLI to automate VM and environment creation and management.
 
-Administrators can automate ARM template deployment with PowerShell or Azure CLI to manage development or test VMs and environments. For information, see [Create a DevTest Labs VM with Azure PowerShell](devtest-lab-vm-powershell.md) and [Automate environment creation with PowerShell](devtest-lab-create-environment-from-arm.md#automate-environment-creation-with-powershell).
+Use the Azure CLI commands [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) to automatically provision VMs with ARM templates. For more information and instructions, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+
+Use the Azure PowerShell commands [New-AzResource](/powershell/module/az.resources/new-azresource) and [New-AzResourceGroupDeployment](/powershell/module/az.resources/new-azresourcegroupdeployment) to provision VMs with ARM templates. Provisioning VMs with PowerShell requires administrator permissions, so the DevTest Labs user role can't do these deployments.
 
 [Deploy resources with Resource Manager templates and Azure PowerShell](../azure-resource-manager/templates/deploy-powershell.md) provides general information about using Azure PowerShell with ARM templates to deploy resources to Azure.
+
+Lab administrators can deploy ARM templates to create claimable lab VMs or image factory golden images. Lab users can then use the custom images to create VM instances. For more information and instructions, see [Create a DevTest Labs VM with Azure PowerShell](devtest-lab-vm-powershell.md).
+
+Administrators can also automate ARM environment template deployment to manage development and test environments. For information and instructions, see [Automate environment creation with PowerShell](devtest-lab-create-environment-from-arm.md#automate-environment-creation-with-powershell).
 
 You can automate several other common tasks by using ARM templates with PowerShell:
 
@@ -84,8 +90,6 @@ You can automate several other common tasks by using ARM templates with PowerShe
 - [Upload a VHD file to a lab's storage account using PowerShell](devtest-lab-upload-vhd-using-powershell.md)
 - [Add an external user to a lab using PowerShell](devtest-lab-add-devtest-user.md#add-an-external-user-to-a-lab-using-powershell)
 - [Create a lab custom role using PowerShell](devtest-lab-grant-user-permissions-to-specific-lab-policies.md#creating-a-lab-custom-role-using-powershell)
-
-The Azure CLI commands [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create) can also automatically provision VMs with ARM templates. For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
 
 ### Next steps
 

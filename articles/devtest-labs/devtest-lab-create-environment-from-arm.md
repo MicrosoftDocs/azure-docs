@@ -2,16 +2,18 @@
 title: Use ARM templates to create multi-VM environments and PaaS resources
 description: Learn how to use Azure Resource Manager (ARM) templates to create multi-VM, platform-as-a-service (PaaS) environments and resources in Azure DevTest Labs.
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 01/03/2021
 ---
 
 # Use ARM templates to create DevTest Labs environments
 
-Multi-tier web apps or SharePoint farms have multiple virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision these PaaS resources and infrastructure-as-a-service (IaaS) VMs in Azure DevTest Labs by using [Azure Resource Manager (ARM)](../azure-resource-manager/templates/syntax.md) environment templates.
+Azure multi-tier web apps or SharePoint farms use multiple virtual machines (VMs) with platform-as-a-service (PaaS) resources installed. You can provision these PaaS resources and infrastructure-as-a-service (IaaS) VMs in Azure DevTest Labs by using [Azure Resource Manager (ARM)](../azure-resource-manager/templates/syntax.md) environment templates.
 
-An ARM environment template defines a solution's infrastructure and configuration. Multi-VM ARM environment templates use the [Microsoft.Compute/virtualmachines](/azure/templates/microsoft.compute/virtualmachines) resource type. Lab users can use the templates to easily and consistently deploy multiple VMs with preinstalled resources as a single environment.
+[!INCLUDE [About Azure Resource Manager](../../includes/resource-manager-quickstart-introduction.md)]
 
-You can configure DevTest Labs to load ARM templates directly from public or private Git source control repositories. Lab users can then create environments by selecting an environment template in the Azure portal, just as they can select individual [VM base images](devtest-lab-comparing-vm-base-image-types.md) to create VMs.
+Multi-VM ARM environment templates use the [Microsoft.Compute/virtualmachines](/azure/templates/microsoft.compute/virtualmachines) resource type. Lab users can use the templates to easily and consistently deploy multiple VMs with preinstalled resources as a single environment. The VMs created with this resource type appear under their environments in the lab's **My environments** list.
+
+You can configure DevTest Labs to load ARM environment templates directly from public or private Git source control repositories. Lab users can then create environments by selecting the templates in the Azure portal, just as they can select individual [VM base images](devtest-lab-comparing-vm-base-image-types.md) to create VMs.
 
 VMs in the same environment share the same lifecycle, and lab users can manage the VMs together. You can track the cost of lab environments and PaaS resources, just as you track costs for individual lab VMs.
 
@@ -25,17 +27,17 @@ Consider these limitations when using ARM environment templates in DevTest Labs:
 
 <a name="create-your-own-template-repositories"></a>
 <a name="configure-your-own-template-repositories"></a>
-## Public and private environment template repositories
+## Use public and private template repositories
 
 Azure DevTest Labs has a [public ARM template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) that includes pre-authored environment templates for Azure Web Apps, an Azure Service Fabric cluster, and development SharePoint farms. The templates have minimal input parameters, for a smooth getting started experience with PaaS resources.
 
-You can use the public environment templates directly, or customize them to suit your needs. To suggest revisions or add your own ARM templates, you can submit a pull request against the open-source [public environment template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments).
+You can use the public environment templates as-is, or customize them to suit your needs. To suggest revisions or additions to the public templates, submit pull requests against the open-source [GitHub public template repository](https://github.com/Azure/azure-devtestlab/tree/master/Environments) 
 
-You can also store environment templates and artifacts in your own Git repositories, and connect those private repositories to your lab to make your templates available to all lab users. For more information and instructions, see [Store ARM templates in Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories) and [Add template repositories to labs](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs).
+You can also [store environment templates in your own Git repositories](devtest-lab-use-resource-manager-template.md#store-arm-templates-in-git-repositories), and [connect those repositories to your lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to make your templates available to all lab users. For instructions, see [Create Azure virtual machines by using ARM templates](devtest-lab-use-resource-manager-template.md).
 
 ## Enable and configure public environments
 
-Lab users don't have to connect to the public environment template repository externally. You can enable and configure lab access to the public repository so lab users can access the environment templates directly from the Azure portal.
+DevTest Labs users don't have to connect to the public template repository externally to use the environment templates. You can enable and configure lab access to the public repository so lab users can access the templates directly from the Azure portal.
 
 To enable public environment repository access for a lab, make sure **On** is selected in the **Public environments** field when you create the lab. The setting is **On** by default.
 
@@ -54,7 +56,9 @@ If you enable public environments, all the environment templates in the reposito
 <a name="create-environments-from-templates-in-the-azure-portal"></a>
 ## Create environments from templates
 
-Once you enable the public environment repository or add an environment template repository to a lab, lab users can use the repository templates to create environments. To create an environment from a template:
+Once you enable the public environment repository or [add a private template repository](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs) to your lab, lab users can use the repository templates to create environments.
+
+To create an environment from a template:
 
 1. On the lab's **Overview** page, select **Add** from the top toolbar.
 
@@ -74,7 +78,7 @@ Once you enable the public environment repository or add an environment template
 
    The environment starts provisioning immediately. You can see the provisioning status under **My environments** on the lab **Overview** page. Provisioning an environment can take a long time.
 
-1. Once the environment is created, expand the environment in **My environments** to see the list of VMs that the template provisioned.
+1. Once the environment is created, expand the environment under **My environments** to see the list of VMs that the template provisioned.
 
    ![Screenshot that shows the list of V Ms under an environment.](./media/devtest-lab-create-environment-from-arm/my-vm-list.png)
 
@@ -97,17 +101,19 @@ By default, lab users have **Reader** role in environments, so they can't change
    ![Screenshot that shows configuring lab user Contributor permissions.](./media/devtest-lab-create-environment-from-arm/config-access-rights.png)
 
 <a name="automate-deployment-of-environments"></a>
-## Automate environment creation with PowerShell
+## Automate environment creation
 
-If you need to create multiple environments for development or testing scenarios, you can automate environment deployment with Azure PowerShell.
+If you need to create multiple environments for development or testing scenarios, you can automate environment deployment with Azure PowerShell or Azure CLI.
 
-Only lab owners and administrators can use Azure PowerShell to create VMs and environments from ARM templates. Lab users can automate VM creation by using the Azure CLI commands [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create) or [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create). For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+Lab users can automate VM creation by using the Azure CLI commands [az lab vm create](/cli/azure/lab/vm#az_lab_vm_create) and [az deployment group create](/cli/azure/deployment/group#az_deployment_group_create). For more information, see [Deploy resources with Resource Manager templates and Azure CLI](../azure-resource-manager/templates/deploy-cli.md).
+
+Lab owners and administrators can use Azure PowerShell to create VMs and environments from ARM templates.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 To automate ARM environment template deployment with Azure PowerShell:
 
-1. Make sure you have an ARM environment template [checked in to a Git repository](devtest-lab-use-resource-manager-template.md#configure-your-own-template-repositories), and the repository is [added to the lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs).
+1. Have an ARM environment template [checked in to a Git repository](devtest-lab-use-resource-manager-template.md#configure-your-own-template-repositories), and the repository [added to the lab](devtest-lab-use-resource-manager-template.md#add-template-repositories-to-labs).
 
 1. Save the following PowerShell script to your computer as *deployenv.ps1*. This script calls the ARM template to create the environment in the lab.
 
@@ -123,38 +129,37 @@ To automate ARM environment template deployment with Azure PowerShell:
    # Name of the lab in which to create the environment
    [string] [Parameter(Mandatory=$true)] $LabName,
 
-   # Name of the connected repository in the lab
+   # Name of the template repository connected to the lab
    [string] [Parameter(Mandatory=$true)] $RepositoryName,
 
    # Name of the template (folder name in the Git repository)
    [string] [Parameter(Mandatory=$true)] $TemplateName,
 
-   # Name of the environment to be created in the lab
+   # Name of the environment to create in the lab
    [string] [Parameter(Mandatory=$true)] $EnvironmentName,
 
    # The parameters to be passed to the template. Each parameter is prefixed with "-param_".
    # For example, if the template has a parameter named "TestVMName" with a value of "MyVMName",
-   # the string in $Params will have the form: -param_TestVMName MyVMName.
+   # the string in $Params will be "-param_TestVMName MyVMName".
    # This convention allows the script to dynamically handle different templates.
    [Parameter(ValueFromRemainingArguments=$true)]
        $Params
    )
 
-   # Sign in to Azure.
-   # Comment out the following statement to completely automate the environment creation.
+   # Sign in to Azure, or comment out this statement to completely automate environment creation.
    Connect-AzAccount
 
    # Select the subscription that has the lab.  
    Set-AzContext -SubscriptionId $SubscriptionId | Out-Null
 
-   # Get information about the user, specifically the user ID, which is used later in the script.  
+   # Get the user ID to use later in the script.
    $UserId = $((Get-AzADUser -UserPrincipalName ((Get-AzContext).Account).Id).Id)
 
-   # Get information about the lab, such as lab location.
+   # Get the lab location.
    $lab = Get-AzResource -ResourceType "Microsoft.DevTestLab/labs" -Name $LabName
    if ($lab -eq $null) { throw "Unable to find lab $LabName in subscription $SubscriptionId." }
 
-   # Get information about the repository in the lab.
+   # Get information about the repository connected to the lab.
    $repository = Get-AzResource -ResourceGroupName $lab.ResourceGroupName `
        -ResourceType 'Microsoft.DevTestLab/labs/artifactsources' `
        -ResourceName $LabName `
@@ -163,7 +168,7 @@ To automate ARM environment template deployment with Azure PowerShell:
        | Select-Object -First 1
    if ($repository -eq $null) { throw "Unable to find repository $RepositoryName in lab $LabName." }
 
-   # Get information about the Resource Manager template base for the environment.
+   # Get information about the ARM template base for the environment.
    $template = Get-AzResource -ResourceGroupName $lab.ResourceGroupName `
        -ResourceType "Microsoft.DevTestLab/labs/artifactSources/armTemplates" `
        -ResourceName "$LabName/$($repository.Name)" `
@@ -172,11 +177,11 @@ To automate ARM environment template deployment with Azure PowerShell:
        | Select-Object -First 1
    if ($template -eq $null) { throw "Unable to find template $TemplateName in lab $LabName." }
 
-   # Build the template parameters with parameter name and values.  
+   # Build the template parameters by using parameter names and values.
    $parameters = Get-Member -InputObject $template.Properties.contents.parameters -MemberType NoteProperty | Select-Object -ExpandProperty Name
    $templateParameters = @()
 
-   # Extract the custom parameters from $Params and format as name/value pairs.
+   # Extract the custom parameters from $Params and format them as name/value pairs.
    $Params | ForEach-Object {
        if ($_ -match '^-param_(.*)' -and $Matches[1] -in $parameters) {
            $name = $Matches[1]                
@@ -186,10 +191,10 @@ To automate ARM environment template deployment with Azure PowerShell:
        }
    }
 
-   # Once name/value pairs are isolated, create an object to hold the necessary template properties.
+   # Create an object to hold the necessary template properties.
    $templateProperties = @{ "deploymentProperties" = @{ "armTemplateId" = "$($template.ResourceId)"; "parameters" = $templateParameters }; }
 
-   # Now, create or deploy the environment in the lab by using the New-AzResource command.
+   # Deploy the environment in the lab by using the New-AzResource command.
    New-AzResource -Location $Lab.Location `
        -ResourceGroupName $lab.ResourceGroupName `
        -Properties $templateProperties `
@@ -200,7 +205,13 @@ To automate ARM environment template deployment with Azure PowerShell:
    Write-Output "Environment $EnvironmentName completed."
    ```
 
-1. Run the script, substituting your own values for the example values in `SubscriptionId`, `LabName`, `ResourceGroupName`, `RepositoryName`, `TemplateName` (folder in the Git repository), and `EnvironmentName`.
+1. Run the script, using your own values to replace the example values for:
+   - `SubscriptionId`
+   - `LabName`
+   - `ResourceGroupName`
+   - `RepositoryName`
+   - `TemplateName` (template folder in the Git repository)
+   - `EnvironmentName`
 
    ```powershell
    ./deployenv.ps1 -SubscriptionId "000000000-0000-0000-0000-0000000000000" -LabName "mydevtestlab" -ResourceGroupName "mydevtestlabRG000000" -RepositoryName "myRepository" -TemplateName "ARM template folder name" -EnvironmentName "myNewEnvironment"
