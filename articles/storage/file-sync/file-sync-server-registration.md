@@ -163,6 +163,8 @@ For example, you can create a new throttle limit to ensure that Azure File Sync 
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 New-StorageSyncNetworkLimit -Day Monday, Tuesday, Wednesday, Thursday, Friday -StartHour 9 -EndHour 17 -LimitKbps 10000
 ```
+> [!NOTE]  
+> To apply the network limit for 24 hours, use 0 for the -StartHour and -EndHour parameters.
 
 You can see your limit by using the following cmdlet:
 
