@@ -15,7 +15,7 @@ There are several ways to use Azure Resource Manager (ARM) templates in Azure De
 
 - Use an ARM environment template to create a multi-VM infrastructure-as-a-service (IaaS) or platform-as-a-service (PaaS) DevTest Labs environment. For more information and instructions, see [Use ARM templates to create DevTest Labs environments](devtest-lab-create-environment-from-arm.md).
 
-- [Use ARM templates with Azure PowerShell or Azure CLI automation](#arm-templates-with-azure-powershell-or-azure-cli) to create, deploy, and manage labs and VMs.
+- [Use ARM templates with Azure PowerShell or Azure CLI automation](#arm-template-automation) to create, deploy, and manage labs and VMs.
 
 The public [DevTest Labs GitHub repository](https://github.com/Azure/azure-devtestlab) has preconfigured [ARM templates](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates) and [scripts](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts) for many DevTest Labs tasks. You can use these templates and scripts as-is, or customize them to meet your needs.
 
@@ -68,7 +68,7 @@ Or, to deploy the quickstart template from the Azure portal:
 
 1. Select **Review + create**, and when validation passes, select **Create**. Deployment, especially creating a VM, takes a while.
 
-## Automated ARM template deployment
+## ARM template automation
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -82,7 +82,7 @@ Use the Azure PowerShell commands [New-AzResource](/powershell/module/az.resourc
 
 Lab administrators can deploy ARM templates to create claimable lab VMs or image factory golden images. Lab users can then use the custom images to create VM instances. For more information and instructions, see [Create a DevTest Labs VM with Azure PowerShell](devtest-lab-vm-powershell.md).
 
-Administrators can also automate ARM environment template deployment to manage development and test environments. For information and instructions, see [Automate environment creation with PowerShell](devtest-lab-create-environment-from-arm.md#automate-environment-creation-with-powershell).
+Administrators can also automate ARM environment template deployment to manage development and test environments. For information and instructions, see [Automate environment creation with PowerShell](devtest-lab-create-environment-from-arm.md#automate-environment-creation).
 
 You can automate several other common tasks by using ARM templates with PowerShell:
 
