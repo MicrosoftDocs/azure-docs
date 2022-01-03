@@ -19,7 +19,9 @@ Blob storage supports block blobs, append blobs, and page blobs. Block blobs are
 
 - Azure PowerShell module Az, which is the recommended PowerShell module for interacting with Azure. To get started with the Az PowerShell module, see [Install Azure PowerShell](/powershell/azure/install-az-ps).
 
-You'll need to obtain authorization to an Azure subscription before you can use the examples in this article. Authorization can occur by authenticating with an Azure Active Directory (Azure AD) account or using a shared key. The examples in this article use Azure AD authorization in conjunction with context objects. Context objects encapsulate your Azure AD credentials and pass them during subsequent data operations, eliminating the need to reauthenticate.
+### Configure a context object to encapsulate credentials
+
+Every request to Azure Storage must be authorized. You can authorize a request made from PS with your Azure AD account or by using the account access keys. The examples in this article use Azure AD authorization in conjunction with context objects. Context objects encapsulate your Azure AD credentials and pass them during subsequent data operations.
 
 To sign in to your Azure account with an Azure AD account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
@@ -37,9 +39,11 @@ To use your default subscription, create the context by calling the `New-AzStora
 $ctx = New-AzStorageContext -StorageAccountName <storage account name> -UseConnectedAccount
 ```
 
-To change subscriptions, retrieve the context object with the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet, then change the current context with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext). More information is available on how to [change the active subscription](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
+To change subscriptions, retrieve the context object with the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet, then change the current context with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext). For more information, see [Change the active subscription](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
-All blob data is stored within containers, so you'll need at least one container resource before you can upload data. If needed, use the following example to create a storage container. You can get more information about [Managing blob containers using PowerShell](blob-containers-powershell.md).
+### Create a container
+
+All blob data is stored within containers, so you'll need at least one container resource before you can upload data. If needed, use the following example to create a storage container. For more information, see [Managing blob containers using PowerShell](blob-containers-powershell.md).
 
 ```azurepowershell
 #Create a container object
@@ -198,7 +202,7 @@ Get-AzStorageBlob -Container $containerName -Blob $fileList -Context $ctx | Get-
 Get-AzStorageContainer -MaxCount $maxCount -Context $ctx | Get-AzStorageBlob -Blob "louis*" | Get-AzStorageBlobContent
 ```
 
-The result displays the storage account name, the storage container name, and provides a list of the files downloaded.
+The result displays the storage account and container names and provides a list of the files downloaded.
 
 ```Result
    AccountName: demostorageaccount, ContainerName: demo-container
@@ -485,8 +489,6 @@ Foreach($blob in $blobs)
 ```
 
 ## Next steps
-
-<!-- Add a context sentence for the following links -->
 
 - [Run PowerShell commands with Azure AD credentials to access blob data](/azure/storage/blobs/authorize-data-operations-powershell)
 - [Create a storage account](/azure/storage/common/storage-account-create?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)
