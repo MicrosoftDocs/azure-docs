@@ -89,7 +89,7 @@ To create the watchlist from the template you populated,
 
 ## Deleted and recreated watchlists in Log Analytics view
 
-Be aware that if you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics within the five-minute SLA for data ingestion. If you see these entries together in Log Analytics for a longer period of time, please submit a support ticket.
+If you delete and recreate a watchlist, you might see both the deleted and recreated entries in Log Analytics within the five-minute SLA for data ingestion. If you see these entries together in Log Analytics for a longer period of time, submit a support ticket.
 
 ## Next steps
 
