@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 02/02/2019
 ms.author: anvang
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Use maintenance schedules to manage service updates and maintenance

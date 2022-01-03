@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to monitor activities in your Sy
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: monitoring
 ms.topic: tutorial

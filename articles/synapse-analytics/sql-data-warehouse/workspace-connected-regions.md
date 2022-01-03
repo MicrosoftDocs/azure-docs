@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw
 ms.date: 11/11/2020
 ms.author: anvang
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.custom: references_regions
 ---
 

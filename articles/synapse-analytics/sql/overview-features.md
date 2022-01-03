@@ -8,7 +8,7 @@ ms.topic: overview
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: jovanpop
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Transact-SQL features supported in Azure Synapse SQL

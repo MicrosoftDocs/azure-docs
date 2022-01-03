@@ -4,7 +4,7 @@ description: A tutorial on how to use Apache Spark MLlib to create a machine lea
 services: synapse-analytics
 author: euangMS
 ms.service:  synapse-analytics
-ms.reviewer: jrasnick 
+ms.reviewer: sngun 
 ms.topic: tutorial
 ms.subservice: machine-learning
 ms.date: 04/15/2020

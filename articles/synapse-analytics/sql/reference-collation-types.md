@@ -7,7 +7,7 @@ ms.topic: reference
 ms.subservice: sql
 ms.date: 04/15/2020
 ms.author: fipopovi
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Database collation support for Synapse SQL in Azure Synapse Analytics 

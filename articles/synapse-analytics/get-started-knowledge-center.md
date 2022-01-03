@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn how to use the Synapse Knowledge cen
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial

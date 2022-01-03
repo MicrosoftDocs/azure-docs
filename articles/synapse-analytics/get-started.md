@@ -4,7 +4,7 @@ description: In this tutorial, you'll learn the basic steps to set up and use Az
 services: synapse-analytics
 author: saveenr
 ms.author: saveenr
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: workspace
 ms.topic: tutorial
