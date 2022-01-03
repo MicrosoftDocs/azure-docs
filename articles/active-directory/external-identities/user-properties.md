@@ -76,7 +76,7 @@ This property indicates the user’s primary identity provider. A user can have 
 
 Issuer property value | Sign-in state
 --------------------- | -------------------------
-External Azure AD tenant | This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization. This type of sign-in corresponds to State 1.
+External Azure AD organization | This user is homed in an external organization and authenticates by using an Azure AD account that belongs to the other organization. This type of sign-in corresponds to State 1.
 Microsoft account |  This user is homed in a Microsoft account and authenticates by using a Microsoft account. This type of sign-in corresponds to State 2.
 {Host’s domain} | This user authenticates by using an Azure AD account that belongs to this organization. This type of sign-in corresponds to State 4.
 google.com | This user has a Gmail account and has signed up by using self-service to the other organization. This type of sign-in corresponds to State 2.
