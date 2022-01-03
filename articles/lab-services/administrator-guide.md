@@ -166,47 +166,47 @@ By using [Azure role-based access control (RBAC)](../role-based-access-control/o
 
 - **Owner**
 
-    An administrator who creates a lab plan is automatically assigned the lab plan Owner role. The Owner role can:
+  An administrator who creates a lab plan is automatically assigned the lab plan Owner role. The Owner role can:
 
-    - Change the lab plan settings.
-    - Grant other administrators access to the lab plan as an Owner or Contributor.
-    - Grant educators access to labs as a Creator, Owner, or Contributor.
-    - Create and manage all labs in the lab plan.
+  - Change the lab plan settings.
+  - Grant other administrators access to the lab plan as an Owner or Contributor.
+  - Grant educators access to labs as a Creator, Owner, or Contributor.
+  - Create and manage all labs in the lab plan.
 
 - **Contributor**
 
-    An administrator who's assigned the Contributor role can:
+  An administrator who's assigned the Contributor role can:
 
-    - Change the lab plan settings.
-    - Create and manage all labs in the lab plan.
+  - Change the lab plan settings.
+  - Create and manage all labs in the lab plan.
 
-    However, the Contributor *can't* grant other users access to either lab plans or labs.
+  However, the Contributor *can't* grant other users access to either lab plans or labs.
 
 - **Lab Creator**
 
-    When set in the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They will have full control over any labs they create as they are assigned as Owner to those created labs. For more information, see [Add a user to the Lab Creator role](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
+  When set in the lab plan, this role enables the user account to create labs from the lab plan. The user account can also see existing labs that are in the same resource group as the lab plan. When applied to a resource group, this role enables the user to view existing lab and create new labs. They will have full control over any labs they create as they are assigned as Owner to those created labs. For more information, see [Add a user to the Lab Creator role](./tutorial-setup-lab-plan.md#add-a-user-to-the-lab-creator-role).
 
 - **Lab Contributor**
 
-    When applied to an existing lab, this role enables the user to fully manage the lab. When applied to a resource group enables the user account to fully manage existing labs and create new labs in that resource group.
+  When applied to an existing lab, this role enables the user to fully manage the lab. When applied to a resource group enables the user account to fully manage existing labs and create new labs in that resource group.
 
-    A key difference between the lab Owner and Contributor roles is that only an Owner can grant other users access to manage a lab. A Contributor *can't* grant other users access to manage a lab.
+  A key difference between the lab Owner and Contributor roles is that only an Owner can grant other users access to manage a lab. A Contributor *can't* grant other users access to manage a lab.
 
 - **Lab Operator**
 
-    When applied to a resource group or a lab, this role enables the user to have limited ability to manage existing labs. This role won’t give the user the ability to create new labs. In an existing lab, the user can manage users, adjust individual users’ quota, manage schedules, and start/stop VMs. The user account will be able to publish a lab. The user will not have the ability to change lab capacity or change quota at the lab level. The user won’t be able to change the template title or description.
+  When applied to a resource group or a lab, this role enables the user to have limited ability to manage existing labs. This role won’t give the user the ability to create new labs. In an existing lab, the user can manage users, adjust individual users’ quota, manage schedules, and start/stop VMs. The user account will be able to publish a lab. The user will not have the ability to change lab capacity or change quota at the lab level. The user won’t be able to change the template title or description.
 
 - **Lab Assistant**
 
-    When applied to a resource group or a lab, enables the user to view an existing lab and can only perform actions on the lab VMs (reset, start, stop, connect) and send invites to the lab. The user will not have the ability to change a lab, create a lab, publish a lab, change lab capacity, or manage quota and schedules. This user can’t adjust individual quota.
+  When applied to a resource group or a lab, enables the user to view an existing lab and can only perform actions on the lab VMs (reset, start, stop, connect) and send invites to the lab. The user will not have the ability to change a lab, create a lab, publish a lab, change lab capacity, or manage quota and schedules. This user can’t adjust individual quota.
 
 - **Lab Services Contributor**
 
-    When applied to a resource group, enables the user to fully control all Lab Services scenarios in that resource group.
+  When applied to a resource group, enables the user to fully control all Lab Services scenarios in that resource group.
 
 - **Lab Services Reader**
 
-    When applied to a resource group, enables the user to view, but not change, all lab plans and lab resources. External resources like image galleries and virtual networks that may be connected to a lab plan aren't included.
+  When applied to a resource group, enables the user to view, but not change, all lab plans and lab resources. External resources like image galleries and virtual networks that may be connected to a lab plan aren't included.
 
 When you're assigning roles, it helps to follow these tips:
 
@@ -220,7 +220,7 @@ Your school may need to do content filtering to prevent students from accessing 
 
 There are two approaches that schools typically consider for content filtering:
 
-- Configure a firewall to filter content at the network level. 
+- Configure a firewall to filter content at the network level.
 - Install 3rd party software directly on each computer that performs content filtering.
 
 Lab Services hosts each lab's virtual network within a Microsoft-managed Azure subscription.  You'll need to use [advanced networking](how-to-connect-vnet-injection.md) in the lab plan.  Make sure to check known limitation os virtual network injection before proceeding.
