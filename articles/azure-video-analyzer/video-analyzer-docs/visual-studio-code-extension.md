@@ -86,88 +86,88 @@ The following sample pipeline topologies are available on the extension:
 ### Continuous Video Recording
 
 #### Record to Video Analyzer video
-![CVRToVideoSink](./media/visual-studio-code-extension/cvrtovideosink.png)
+![Screenshot of CVRToVideoSink topology on Visual Studio Code](./media/visual-studio-code-extension/cvrtovideosink.png)
 
 #### Record using gRPC Extension
-![CVRWithGrpcExtension](./media/visual-studio-code-extension/cvrwithgrpcextension.png)
+![Screenshot of CVRWithGrpcExtension topology on Visual Studio Code](./media/visual-studio-code-extension/cvrwithgrpcextension.png)
 
 #### Record using HTTP Extension
-![CVRWithHttpExtension](./media/visual-studio-code-extension/cvrwithhttpextension.png)
+![Screenshot of CVRWithHttpExtension topology on Visual Studio Code](./media/visual-studio-code-extension/cvrwithhttpextension.png)
 
 #### Record on motion detection
-![CVRWithMotionDetection](./media/visual-studio-code-extension/cvrwithmotiondetection.png)
+![Screenshot of CVRWithMotionDetection topology on Visual Studio Code](./media/visual-studio-code-extension/cvrwithmotiondetection.png)
 
 #### Record audio with video
-![AudioVideo](./media/visual-studio-code-extension/audiovideo.png)
+![Screenshot of AudioVideo topology on Visual Studio Code](./media/visual-studio-code-extension/audiovideo.png)
 
 ### Event-based Video Recording
 
 #### Record using gRPC Extension
-![EVRtoVideoSinkByGrpcExtension](./media/visual-studio-code-extension/evrtovideosinkbygrpcextension.png) 
+![Screenshot of EVRtoVideoSinkByGrpcExtension topology on Visual Studio Code](./media/visual-studio-code-extension/evrtovideosinkbygrpcextension.png) 
 
 #### Record using HTTP Extension
-![EVRtoVideoSinkByHttpExtension](./media/visual-studio-code-extension/evrtovideosinkbyhttpextension.png) 
+![Screenshot of EVRtoVideoSinkByHttpExtension topology on Visual Studio Code](./media/visual-studio-code-extension/evrtovideosinkbyhttpextension.png) 
 
 #### Record to Video Analyzer video based on inference events
-![EVRtoVideoSinkOnObjDetect](./media/visual-studio-code-extension/evrtovideosinkonobjdetect.png) 
+![Screenshot of EVRtoVideoSinkOnObjDetect topology on Visual Studio Code](./media/visual-studio-code-extension/evrtovideosinkonobjdetect.png) 
 
 #### Record to local files based on inference events
-![EVRtoFilesBasedOnHubMessages](./media/visual-studio-code-extension/evrtofilesbasedonhubmessages.png) 
+![Screenshot of EVRtoFilesBasedOnHubMessages topology on Visual Studio Code](./media/visual-studio-code-extension/evrtofilesbasedonhubmessages.png) 
 
 #### Record motion events to Video Analyzer video and local files 
-![EVRToFilesAndVideoSinkOnMotion](./media/visual-studio-code-extension/evrtofilesandvideosinkonmotion.png) 
+![Screenshot of EVRToFilesAndVideoSinkOnMotion topology on Visual Studio Code](./media/visual-studio-code-extension/evrtofilesandvideosinkonmotion.png) 
 
 #### Record motion events to Video Analyzer video
-![EVRtoVideoSinkOnMotionDetection](./media/visual-studio-code-extension/evrtovideosinkonmotiondetection.png) 
+![Screenshot of EVRtoVideoSinkOnMotionDetection topology on Visual Studio Code](./media/visual-studio-code-extension/evrtovideosinkonmotiondetection.png) 
 
 #### Record motion events to local files
-![EVRToFilesOnMotionDetection](./media/visual-studio-code-extension/evrtofilesonmotiondetection.png) 
+![Screenshot of EVRToFilesOnMotionDetection topology on Visual Studio Code](./media/visual-studio-code-extension/evrtofilesonmotiondetection.png) 
 
 ### Motion Detection
 
 #### Publish motion events to IoT Hub
-![MotionDetection](./media/visual-studio-code-extension/motiondetection.png) 
+![Screenshot of MotionDetection topology on Visual Studio Code](./media/visual-studio-code-extension/motiondetection.png) 
 
 #### Analyze motion events using gRPC Extension
-![EVROnMotionPlusGrpcExtension](./media/visual-studio-code-extension/evronmotionplusgrpcextension.png) 
+![Screenshot of EVROnMotionPlusGrpcExtension topology on Visual Studio Code](./media/visual-studio-code-extension/evronmotionplusgrpcextension.png) 
 
 #### Analyze motion events using HTTP Extension
-![EVROnMotionPlusHttpExtension](./media/visual-studio-code-extension/evronmotionplushttpextension.png) 
+![Screenshot of EVROnMotionPlusHttpExtension topology on Visual Studio Code](./media/visual-studio-code-extension/evronmotionplushttpextension.png) 
 
 ### Extensions
 
 #### Analyze video using HTTP Extension
-![InferencingWithHttpExtension](./media/visual-studio-code-extension/inferencingwithhttpextension.png) 
+![Screenshot of InferencingWithHttpExtension topology on Visual Studio Code](./media/visual-studio-code-extension/inferencingwithhttpextension.png) 
 
 #### Analyze video with Intel OpenVINO Model Server
-![InferencingWithOpenVINO](./media/visual-studio-code-extension/inferencingwithopenvino.png) 
+![Screenshot of InferencingWithOpenVINO topology on Visual Studio Code](./media/visual-studio-code-extension/inferencingwithopenvino.png) 
 
 ### Computer Vision
 
 #### Person count operation with Computer Vision for Spatial Analysis
-![PersonCountTopology](./media/visual-studio-code-extension/personcounttopology.png) 
+![Screenshot of PersonCountTopology topology on Visual Studio Code](./media/visual-studio-code-extension/personcounttopology.png) 
 
 #### Person crossing line operation with Computer Vision for Spatial Analysis
-![PersonCrossingLineTopology](./media/visual-studio-code-extension/personcrossinglinetopology.png) 
+![Screenshot of PersonCrossingLineTopology topology on Visual Studio Code](./media/visual-studio-code-extension/personcrossinglinetopology.png) 
 
 #### Person crossing zone operation with Computer Vision for Spatial Analysis
-![PersonZoneCrossingTopology](./media/visual-studio-code-extension/personzonecrossingtopology.png) 
+![Screenshot of PersonZoneCrossingTopology topology on Visual Studio Code](./media/visual-studio-code-extension/personzonecrossingtopology.png) 
 
 #### Person distance operation with Computer Vision for Spatial Analysis
-![PersonDistanceTopology](./media/visual-studio-code-extension/persondistancetopology.png) 
+![Screenshot of PersonDistanceTopology topology on Visual Studio Code](./media/visual-studio-code-extension/persondistancetopology.png) 
 
 #### Custom operation with Computer Vision for Spatial Analysis
-![PersonAttributesTopology](./media/visual-studio-code-extension/personattributestopology.png) 
+![Screenshot of PersonAttributesTopology topology on Visual Studio Code](./media/visual-studio-code-extension/personattributestopology.png) 
 
 ### AI Composition
 
 #### Record to the Video Analyzer service using multiple AI models
-![AIComposition](./media/visual-studio-code-extension/aicomposition.png) 
+![Screenshot of AIComposition topology on Visual Studio Code](./media/visual-studio-code-extension/aicomposition.png) 
 
 ### Miscellaneous 
 
 #### Record video based on the object tracking AI model
-![ObjectTrackingWithHttpExtension](./media/visual-studio-code-extension/objecttrackingwithhttpextension.png) 
+![Screenshot of ObjectTrackingWithHttpExtension topology on Visual Studio Code](./media/visual-studio-code-extension/objecttrackingwithhttpextension.png) 
 
 #### Record video based on the line crossing AI model
-![LineCrossingWithHttpExtension](./media/visual-studio-code-extension/linecrossingwithhttpextension.png) 
+![Screenshot of LineCrossingWithHttpExtension topology on Visual Studio Code](./media/visual-studio-code-extension/linecrossingwithhttpextension.png) 
