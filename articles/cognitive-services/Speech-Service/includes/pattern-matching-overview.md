@@ -94,6 +94,32 @@ Consider our elevator example.
 
 If "floorName" is a prebuilt integer entity the expectation is that whatever text is inside the slot will represent an integer. Here a floor number would match well, but a floor with a name such as "lobby" would not.
 
+### Optional items and grouping
+
+In the pattern it is allowed to include words or entities that may be present in the utterance or not. This is especially useful for determiners like  "the", "a", or "an". This doesn't have any functional difference from hard coding out the many combinations, but can help reduce the amount of patterns needed. Indicate optional items with "[" and "]". You may include multiple items in the same group by separating them with a '|' character.
+
+To see how this would reduce the number of patterns needed consider the following set.
+
+> "Take me to the {floorName}"</br>
+"Take me the {floorName}"</br>
+"Take me to {floorName}"</br>
+"take me {floorName}"</br>
+"Take me to the {floorName}" please</br>
+"Take me the {floorName}" please</br>
+"Take me to {floorName}" please</br>
+"take me {floorName}" please</br>
+
+These can all be reduced to a single pattern with optional items.
+
+>"Take me [to | the] {floorName} [please]"
+
+It is also possible to include optional entities. Imagine there are multiple parking levels and you want to matchthe word before the {floorName}. You could do so with a pattern like this:
+
+>"Take me to [{floorType}] {floorName}"
+
+[!NOTE]
+While it is helpful to use optional items it increases the chances of pattern collisions. This is where two patterns can match the same spoken phrase. If this occurs it can sometimes be solved by separating out the optional items into separate patterns.
+
 ### Intent Matching Priority
 
 Sometimes multiple patterns may match the same utterance. In this case the engine will give priority to patterns as follows.
