@@ -13,13 +13,15 @@ custom.ms: subject-rbac-steps
 
 # Manage authentication in Azure Maps
 
-When you create an Azure Maps account, your client ID is automatically generated along with primary and secondary keys that are required for authentication when using [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) or [Shared Key authentication](azure-maps-authentication#shared-key-authentication).
+When you create an Azure Maps account, your client ID is automatically generated along with primary and secondary keys that are required for authentication when using [Azure Active Directory (Azure AD)](../active-directory/fundamentals/active-directory-whatis) or [Shared Key authentication](./azure-maps-authentication#shared-key-authentication).
 
 ## Prerequisites
 
 Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
 - A familiarization with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Be sure to understand the two [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and how they differ.
 - [An Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
+- A familiarization with [Azure Maps Authentication](./azure-maps-authentication).
+
 ## View authentication details
 
 > [!IMPORTANT]
@@ -46,7 +48,7 @@ Depending on your application needs, there are specific pathways to application 
 
 ## How to add and remove managed identities
 
-To enable SAS token authentication with the Azure Maps REST API you need to add a user-assigned managed identity to your Azure Maps account.
+To enable [Shared access signature (SAS) token authentication](./azure-maps-authentication#shared-access-signature-token-authentication) with the Azure Maps REST API you need to add a user-assigned managed identity to your Azure Maps account.
 
 ### Create a managed identity
 
@@ -88,7 +90,7 @@ This table outlines common authentication and authorization scenarios in Azure M
 | [Trusted daemon or non-interactive client app](./how-to-secure-daemon-app.md)       | Azure AD       | High          | Low                | Medium             |
 | [Web single page app with interactive single-sign-on](./how-to-secure-spa-users.md) | Azure AD       | High          | Medium             | Medium             |
 | [Web single page app with non-interactive sign-on](./how-to-secure-spa-app.md)      | Azure AD       | High          | Medium             | Medium             |
-| [Web app, daemon app, or non-interactive sign-on app](./how-to-secure-sas-app.md)   | Sas Token      | High          | Medium             | Low                |
+| [Web app, daemon app, or non-interactive sign-on app](./how-to-secure-sas-app.md)   | SAS Token      | High          | Medium             | Low                |
 | [Web application with interactive single-sign-on](./how-to-secure-webapp-users.md)  | Azure AD       | High          | High               | Medium             |
 | [IoT device or an input constrained application](./how-to-secure-device-code.md)    | Azure AD       | High          | Medium             | Medium             |
 

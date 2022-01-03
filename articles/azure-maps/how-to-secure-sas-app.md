@@ -20,10 +20,10 @@ This article describes how to create an Azure Maps account and a SAS token which
 
 This scenario assumes:
 
-1. If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
-1. The current user must have subscription `Owner` role permissions on the Azure subscription to create a Azure Key Vault, User Assigned Managed Identity, assign the Managed Identity a role, and create an Azure Maps Account.
-1. Azure CLI is installed to deploy the resources. Read more on [How to install the Azure CLI](/cli/azure/install-azure-cli).
-1. The current user is signed-in to Azure CLI with an active Azure subscription using `az login`.
+- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
+- The current user must have subscription `Owner` role permissions on the Azure subscription to create a Azure Key Vault, User Assigned Managed Identity, assign the Managed Identity a role, and create an Azure Maps Account.
+- Azure CLI is installed to deploy the resources. Read more on [How to install the Azure CLI](/cli/azure/install-azure-cli).
+- The current user is signed-in to Azure CLI with an active Azure subscription using `az login`.
 
 ## Scenario: SAS token
 
@@ -31,13 +31,13 @@ Applications that use SAS token authentication should store the keys in a secure
 
 The following sample scenario will perform the steps outlined below with two Azure resource manager (ARM) template deployments:
 
-1. Create an Azure Key Vault.
-1. Create a user-assigned managed identity.
-1. Assign Azure RBAC `Azure Maps Data Reader` role to the user-assigned managed identity.
-1. Create a map account with a CORS configuration and attach the user-assigned managed identity.
-1. Create and save a SAS token into the Azure Key Vault
-1. Retrieve the SAS token secret from Azure Key Vault.
-1. Create an Azure Maps REST API request with the SAS token.
+- Create an Azure Key Vault.
+- Create a user-assigned managed identity.
+- Assign Azure RBAC `Azure Maps Data Reader` role to the user-assigned managed identity.
+- Create a map account with a CORS configuration and attach the user-assigned managed identity.
+- Create and save a SAS token into the Azure Key Vault
+- Retrieve the SAS token secret from Azure Key Vault.
+- Create an Azure Maps REST API request with the SAS token.
 
 When completed, you should see output from Azure Maps `Search Address (Non-Batch)` REST API results on PowerShell with Azure CLI. The Azure resources will be deployed with permissions to connect to the Azure Maps account with controls for maximum rate limit, allowed regions, `localhost` configured CORS policy, and Azure RBAC.
 
@@ -377,8 +377,8 @@ The following steps describe how to create and configure an Azure Maps account w
 
 In the current directory of the PowerShell session you should have:
 
-1. `prereq.azuredeploy.json` This creates the Key Vault and managed identity.
-1. `azuredeploy.json` This creates the Azure Maps account and configures the role assignment and managed identity, then stores the SAS Token into the Azure Key Vault.
+- `prereq.azuredeploy.json` This creates the Key Vault and managed identity.
+- `azuredeploy.json` This creates the Azure Maps account and configures the role assignment and managed identity, then stores the SAS Token into the Azure Key Vault.
 
 ```powershell
 az login
