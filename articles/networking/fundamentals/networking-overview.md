@@ -90,7 +90,7 @@ This section describes networking services in Azure that help protect your netwo
 
 ### <a name="privatelink"></a>Azure Private Link
 [Azure Private Link](../../private-link/private-link-overview.md) enables you to access Azure PaaS Services (for example, Azure Storage and SQL Database) and Azure hosted customer-owned/partner services over a private endpoint in your virtual network.
-Traffic between your virtual network and the service travels the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers.
+Traffic between your virtual network and the service travels through the Microsoft backbone network. Exposing your service to the public internet is no longer necessary. You can create your own private link service in your virtual network and deliver it to your customers.
 
 :::image type="content" source="./media/networking-overview/private-endpoint.png" alt-text="Private endpoint overview":::
 
