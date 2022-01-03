@@ -78,9 +78,10 @@ Develop against the [expressRouteCrossConnections API](/rest/api/expressroute/ex
 
 #### Connectivity Management Workflow
 Once you receive the ExpressRoute service key from the target customer, follow the below workflow and sample API operations to configure ExpressRoute connectivity:
-1. **List expressRouteCrossConnection:** In order to manage ExpressRoute connectivity, you need to identify the *Name* and *ResourceGroup* of the target expressRouteCrossConnection resource, in order to form the GET API call. the *Name* of the expressRouteCrossConnection is the target service key of the customer's ExpressRoute circuit. In order to find the *ResourceGroupName*, you need to LIST all expressRouteCrossConnections in the provider subscription and search the results for the target service key. From here, you can record the *ResourceGroupName*
+1. **List expressRouteCrossConnection:** In order to manage ExpressRoute connectivity, you need to identify the *Name* and *ResourceGroup* of the target expressRouteCrossConnection resource. The *Name* of the expressRouteCrossConnection is the target service key of the customer's ExpressRoute circuit. In order to find the *ResourceGroupName*, you need to LIST all expressRouteCrossConnections in the provider subscription and search the results for the target service key. From here, you can record the *ResourceGroupName* and form the GET expressRouteCrossConnection API call.
 
-  ```GET /subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/expressRouteCrossConnections?api-version=2018-02-01 HTTP/1.1
+  ```
+  GET /subscriptions/<ProviderManagementSubscription>/providers/Microsoft.Network/expressRouteCrossConnections?api-version=2018-02-01 HTTP/1.1
   Host: management.azure.com
   Authorization: Bearer eyJ0eXAiOiJKV...
   User-Agent: ARMClient/1.2.0.0
