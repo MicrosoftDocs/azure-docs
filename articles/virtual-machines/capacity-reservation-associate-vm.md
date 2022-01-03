@@ -3,9 +3,9 @@ title: Associate a virtual machine to a Capacity Reservation group (preview)
 description: Learn how to associate a new or existing virtual machine to a Capacity Reservation group.
 author: vargupt
 ms.author: vargupt
-ms.service: virtual-machines #Required
+ms.service: virtual-machines
 ms.topic: how-to
-ms.date: 08/09/2021
+ms.date: 01/03/2022
 ms.reviewer: cynthn, jushiman
 ms.custom: template-how-to
 ---
@@ -71,7 +71,6 @@ In the request body, include the `capacityReservationGroup` property as shown be
 1. Choose an **Image** and the **VM size**
 1. Under *Administrator account*, provide a **username** and a **password**
     1. The password must be at least 12 characters long and meet the defined complexity requirements
-1. Under *Inbound port rules*, choose **Allow selected ports** and then select **RDP** (3389) and **HTTP** (80) from the drop-down
 1. Go to the *Advanced section*
 1. In the **Capacity Reservations** dropdown, select the capacity reservation group that you want the VM to be associated with
 1. Select the **Review + create** button 
