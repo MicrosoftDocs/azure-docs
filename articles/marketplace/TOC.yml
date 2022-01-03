@@ -512,11 +512,11 @@
   - name: Commercial marketplace review policies
     href: /legal/marketplace/rating-review-policies?context=/azure/marketplace/context/context
   - name: Commercial Marketplace terms
-    href: /legal/marketplace/marketplace-terms
+    href: /legal/marketplace/marketplace-terms?context=/azure/marketplace/context/context
   - name: Microsoft Publisher Agreement
-    href: /legal/marketplace/msft-publisher-agreement
+    href: /legal/marketplace/msft-publisher-agreement?context=/azure/marketplace/context/context
   - name: Change history for Microsoft Publisher Agreement
-    href: /legal/marketplace/mpa-change-history
+    href: /legal/marketplace/mpa-change-history?context=/azure/marketplace/context/context
 - name: Reference
   items:
   - name: Guide to Marketplace APIs
