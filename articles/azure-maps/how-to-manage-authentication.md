@@ -13,13 +13,13 @@ custom.ms: subject-rbac-steps
 
 # Manage authentication in Azure Maps
 
-When you create an Azure Maps account, keys and a client ID are generated. The keys and client ID are used to support Azure Active Directory (Azure AD) authentication and Shared Key authentication.
+When you create an Azure Maps account, your client ID is automatically generated along with primary and secondary keys that are required for authentication when using [Azure Active Directory (Azure AD)](/azure/active-directory/fundamentals/active-directory-whatis) or [Shared Key authentication](azure-maps-authentication#shared-key-authentication).
 
 ## Prerequisites
 
-- If you don't already have an Azure account, [sign up for a free account](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) before you continue.
-- If you are unfamiliar with managed identities for Azure resources, check out the [overview section](../active-directory/managed-identities-azure-resources/overview.md). Be sure to review the [difference between a system-assigned and user-assigned managed identity](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types).
-
+Sign in to the [Azure portal](https://portal.azure.com). If you don't have an Azure subscription, create a [free account](https://azure.microsoft.com/free/) before you begin.
+- A familiarization with [managed identities for Azure resources](../active-directory/managed-identities-azure-resources/overview.md). Be sure to understand the two [Managed identity types](../active-directory/managed-identities-azure-resources/overview.md#managed-identity-types) and how they differ.
+- [An Azure Maps account](quick-demo-map-app.md#create-an-azure-maps-account).
 ## View authentication details
 
 > [!IMPORTANT]
@@ -29,11 +29,11 @@ To view your Azure Maps authentication details:
 
 1. Sign in to the [Azure portal](https://portal.azure.com).
 
-2. Navigate to the Azure portal menu. Select **All resources**, and then select your Azure Maps account.
+2. Select **All resources** in the **Azure services** section, then select your Azure Maps account.
 
    :::image type="content" border="true" source="./media/how-to-manage-authentication/select-all-resources.png" alt-text="Select Azure Maps account.":::
 
-3. Under **Settings** in the left pane, select **Authentication**.
+3. Select **Authentication** in the settings section of the left pane.
 
    :::image type="content" border="true" source="./media/how-to-manage-authentication/view-authentication-keys.png" alt-text="Authentication details.":::
 
@@ -42,9 +42,9 @@ To view your Azure Maps authentication details:
 Depending on your application needs, there are specific pathways to application security. Azure AD defines specific authentication categories to support a wide range of authentication flows. To choose the best category for your application, see [application categories](../active-directory/develop/authentication-flows-app-scenarios.md#application-categories).
 
 > [!NOTE]
-> Even if you use shared key authentication, understanding categories and scenarios helps you to secure the application.
+> Understanding categories and scenarios will help you secure your Azure Maps application, whether you use Azure Active Directory or shared key authentication.
 
-## How to add and remove Managed identities
+## How to add and remove managed identities
 
 To enable SAS token authentication with the Azure Maps REST API you need to add a user-assigned managed identity to your Azure Maps account.
 
