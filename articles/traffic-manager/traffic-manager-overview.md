@@ -4,7 +4,6 @@ description: This article provides an overview of Azure Traffic Manager. Find ou
 services: traffic-manager
 author: duongau
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
