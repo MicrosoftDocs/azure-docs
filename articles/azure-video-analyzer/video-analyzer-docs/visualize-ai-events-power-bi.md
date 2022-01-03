@@ -36,7 +36,7 @@ In this tutorial, you will:
   > [!TIP]
   >
   > - The [Line Crossing sample](use-line-crossing.md) uses a 5-minute video recording. For best results in visualization, use the 60-minute recording of vehicles on a freeway available in [Other dataset](https://github.com/Azure/video-analyzer/tree/main/media#other-dataset).
-  > - Refer Configuration and deployment section in [FAQs](faq-edge.yml) on how to add sample video files to rtsp simulator. Once added, edit `rtspUrl` value to point to the new video file.
+  > - Refer Configuration and deployment section in [FAQs](https://github.com/MicrosoftDocs/azure-docs-pr/pull/edge/faq.yml) on how to add sample video files to rtsp simulator. Once added, edit `rtspUrl` value to point to the new video file.
   > - If you followed the Line Crossing sample and are using the [AVA C# sample repository](https://github.com/Azure-Samples/video-analyzer-iot-edge-csharp), then edit operations.json file at properties -> parameters -> value to `"rtsp://rtspsim:554/media/camera-3600s.mkv"` to change video source to 60-minute recording.
 
 - A [Power BI](https://powerbi.microsoft.com/) account.

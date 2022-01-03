@@ -1,14 +1,9 @@
 ---
 title: Microsoft Defender for Cloud - an introduction
 description: Use Microsoft Defender for Cloud to protect your Azure, hybrid, and multi-cloud resources and workloads.
-services: security-center
-author: memildin
-manager: rkarlin
-ms.service: defender-for-cloud
 ms.topic: overview
 ms.custom: mvc
-ms.date: 11/09/2021
-ms.author: memildin
+ms.date: 12/12/2021
 ---
 # What is Microsoft Defender for Cloud?
 
@@ -133,11 +128,10 @@ Defender for Cloud provides:
 The **Defender plans** page of Microsoft Defender for Cloud offers the following plans for comprehensive defenses for the compute, data, and service layers of your environment:
 
 - [Microsoft Defender for servers](defender-for-servers-introduction.md)
-- [Microsoft Defender for App Service](defender-for-app-service-introduction.md)
 - [Microsoft Defender for Storage](defender-for-storage-introduction.md)
 - [Microsoft Defender for SQL](defender-for-sql-introduction.md)
-- [Microsoft Defender for Kubernetes](defender-for-kubernetes-introduction.md)
-- [Microsoft Defender for container registries](defender-for-container-registries-introduction.md)
+- [Microsoft Defender for Containers](defender-for-containers-introduction.md)
+- [Microsoft Defender for App Service](defender-for-app-service-introduction.md)
 - [Microsoft Defender for Key Vault](defender-for-key-vault-introduction.md)
 - [Microsoft Defender for Resource Manager](defender-for-resource-manager-introduction.md)
 - [Microsoft Defender for DNS](defender-for-dns-introduction.md)

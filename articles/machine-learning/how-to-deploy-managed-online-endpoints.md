@@ -8,7 +8,7 @@ ms.subservice: mlops
 ms.author: seramasu
 ms.reviewer: laobri
 author: rsethur
-ms.date: 10/21/2021
+ms.date: 12/22/2021
 ms.topic: how-to
 ms.custom: how-to, devplatv2, ignite-fall-2021
 ---
@@ -19,7 +19,7 @@ Learn how to use an online endpoint (preview) to deploy your model, so you don't
 
 You'll also learn how to view the logs and monitor the service-level agreement (SLA). You start with a model and end up with a scalable HTTPS/REST endpoint that you can use for online and real-time scoring. 
 
-For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
+Managed online endpoints help to deploy your ML models in a turnkey manner. Managed online endpoints work with powerful CPU and GPU machines in Azure in a scalable, fully managed way. Managed online endpoints take care of serving, scaling, securing, and monitoring your models, freeing you from the overhead of setting up and managing the underlying infrastructure. The main example in this doc uses managed online endpoints for deployment. To use Kubernetes instead, see the notes in this document inline with the managed online endpoint discussion. For more information, see [What are Azure Machine Learning endpoints (preview)?](concept-endpoints.md).
 
 [!INCLUDE [preview disclaimer](../../includes/machine-learning-preview-generic-disclaimer.md)]
 
@@ -60,9 +60,6 @@ To set your endpoint name, choose one of the following commands, depending on yo
 For Unix, run this command:
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="set_endpoint_name":::
-
-> [!NOTE]
-> We have recently changed the CLI interface: earlier we had both `endpoint` and `deployment` under `az ml endpoint`, now we have separated them into `az ml online-endpoint` and `az ml online-deployment`.  This will make it easier to use endpoints in CI/CD scripts.
 
 > [!NOTE]
 > Endpoint names must be unique within an Azure region. For example, in the Azure `westus2` region, there can be only one endpoint with the name `my-endpoint`. 
@@ -113,7 +110,7 @@ For more information about the YAML schema, see the [online endpoint YAML refere
 > [!NOTE]
 > To use Kubernetes instead of managed endpoints as a compute target:
 > 1. Create and attach your Kubernetes cluster as a compute target to your Azure Machine Learning workspace by using [Azure Machine Learning studio](how-to-attach-arc-kubernetes.md?&tabs=studio#attach-arc-cluster).
-> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/aks/simple-flow/1-create-aks-endpoint-with-blue.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target.
+> 1. Use the [endpoint YAML](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/endpoint.yml) to target Kubernetes instead of the managed endpoint YAML. You'll need to edit the YAML to change the value of `target` to the name of your registered compute target. You can use this [deployment.yaml](https://github.com/Azure/azureml-examples/blob/main/cli/endpoints/online/amlarc/blue-deployment.yml) that has additional properties applicable to Kubernetes deployment.
 >
 > All the commands that are used in this article (except the optional SLA monitoring and Azure Log Analytics integration) can be used either with managed endpoints or with Kubernetes endpoints.
 
@@ -142,7 +139,7 @@ As noted earlier, the `code_configuration.scoring_script` must have an `init()` 
 
 ## Deploy and debug locally by using local endpoints
 
-To save time debugging, we *highly recommend* that you test-run your endpoint locally. For more, see [Debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+To save time debugging, we *highly recommend* that you test-run your endpoint locally. For more, see [Debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 > [!NOTE]
 > * To deploy locally, [Docker Engine](https://docs.docker.com/engine/install/) must be installed.
@@ -166,7 +163,7 @@ Now, create a deployment named `blue` under the endpoint.
 The `--local` flag directs the CLI to deploy the endpoint in the Docker environment.
 
 > [!TIP]
-> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug managed online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
+> Use Visual Studio Code to test and debug your endpoints locally. For more information, see [debug online endpoints locally in Visual Studio Code](how-to-debug-managed-online-endpoints-visual-studio-code.md).
 
 ### Verify the local deployment succeeded
 
@@ -203,9 +200,9 @@ In the example *score.py* file, the `run()` method logs some output to the conso
 
 :::code language="azurecli" source="~/azureml-examples-main/cli/deploy-local-endpoint.sh" ID="get_logs":::
 
-##  Deploy your managed online endpoint to Azure
+##  Deploy your online endpoint to Azure
 
-Next, deploy your managed online endpoint to Azure.
+Next, deploy your online endpoint to Azure.
 
 ### Deploy to Azure
 
@@ -226,7 +223,7 @@ This deployment might take up to 15 minutes, depending on whether the underlying
 > [!TIP]
 > * If you prefer not to block your CLI console, you may add the flag `--no-wait` to the command. However, this will stop the interactive display of the deployment status.
 >
-> * Use [Troubleshooting managed online endpoints deployment (preview)](./how-to-troubleshoot-online-endpoints.md) to debug errors.
+> * Use [Troubleshooting online endpoints deployment (preview)](./how-to-troubleshoot-online-endpoints.md) to debug errors.
 
 ### Check the status of the deployment
 
@@ -339,10 +336,10 @@ If you aren't going use the deployment, you should delete it by running the foll
 To learn more, review these articles:
 
 - [Deploy models with REST (preview)](how-to-deploy-with-rest.md)
-- [Create and use managed online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
+- [Create and use online endpoints (preview) in the studio](how-to-use-managed-online-endpoint-studio.md)
 - [Safe rollout for online endpoints (preview)](how-to-safely-rollout-managed-endpoints.md)
 - [How to autoscale managed online endpoints](how-to-autoscale-endpoints.md)
 - [Use batch endpoints (preview) for batch scoring](how-to-use-batch-endpoint.md)
 - [View costs for an Azure Machine Learning managed online endpoint (preview)](how-to-view-online-endpoints-costs.md)
-- [Access Azure resources with a managed online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
-- [Troubleshoot managed online endpoints deployment](how-to-troubleshoot-online-endpoints.md)
+- [Access Azure resources with a online endpoint and managed identity (preview)](how-to-access-resources-from-endpoints-managed-identities.md)
+- [Troubleshoot online endpoints deployment](how-to-troubleshoot-online-endpoints.md)

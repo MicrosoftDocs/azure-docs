@@ -151,6 +151,9 @@ Finally, select __Create__ to create the private endpoint.
 
 Use one of the following methods to remove a private endpoint from a workspace:
 
+> [!IMPORTANT]
+> Public access is not enabled when you delete a private endpoint for a workspace. To enable public access, see the [Enable public access section](how-to-configure-private-link.md#enable-public-access).
+
 # [Python](#tab/python)
 
 Use [Workspace.delete_private_endpoint_connection](/python/api/azureml-core/azureml.core.workspace(class)#delete-private-endpoint-connection-private-endpoint-connection-name-) to remove a private endpoint.

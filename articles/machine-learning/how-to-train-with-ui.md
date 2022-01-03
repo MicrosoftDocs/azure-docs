@@ -115,7 +115,7 @@ The command is run from the root directory of the uploaded code folder. After yo
 
 If the code is in the root directory, you can directly refer to it in the command. For instance, `python main.py`.
 
-If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/train/pytorch/word-language-model) is:
+If the code isn't in the root directory, you should use the relative path. For example, the structure of the [word language model](https://github.com/Azure/azureml-examples/tree/main/cli/jobs/single-step/pytorch/word-language-model) is:
 
 ```tree
 .

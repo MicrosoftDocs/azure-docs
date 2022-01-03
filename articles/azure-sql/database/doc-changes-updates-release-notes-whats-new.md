@@ -3,8 +3,8 @@ title: What's new?
 titleSuffix: Azure SQL Database
 description: Learn about the new features and documentation improvements for Azure SQL Database.
 services: sql-database
-author: MashaMSFT
-ms.author: mathoma
+author: LitKnd
+ms.author: kendralittle
 ms.service: sql-database
 ms.subservice: service-overview
 ms.custom: sqldbrb=2, references_regions, ignite-fall-2021
@@ -18,6 +18,9 @@ ms.date: 09/21/2021
 This article summarizes the documentation changes associated with new features and improvements in the recent releases of [Azure SQL Database](https://azure.microsoft.com/products/azure-sql/database/). To learn more about Azure SQL Database, see the [overview](sql-database-paas-overview.md). 
 
 For Azure SQL Managed Instance, see [What's new](../managed-instance/doc-changes-updates-release-notes-whats-new.md).
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021)
 
 
 

@@ -10,7 +10,7 @@ ms.devlang:
 ms.topic: conceptual
 author: danimir
 ms.author: danil
-ms.reviewer: mathoma, urmilano
+ms.reviewer: kendralittle, mathoma, urmilano
 ms.date: 02/07/2019
 ---
 # General Purpose service tier - Azure SQL Database and Azure SQL Managed Instance

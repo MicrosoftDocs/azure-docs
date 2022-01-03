@@ -3,7 +3,7 @@ title: Azure Functions runtime versions overview
 description: Azure Functions supports multiple versions of the runtime. Learn the differences between them and how to choose the one that's right for you.
 ms.topic: conceptual
 ms.custom: devx-track-dotnet
-ms.date: 11/3/2021
+ms.date: 11/18/2021
 zone_pivot_groups: programming-languages-set-functions
 ---
 

@@ -4,9 +4,7 @@ description: Learn how to quickly create a Kubernetes cluster, deploy an applica
 services: container-service
 ms.topic: quickstart
 ms.date: 03/15/2021
-ms.custom: devx-track-azurepowershell
-
-
+ms.custom: devx-track-azurepowershell, mode-api
 #Customer intent: As a developer or cluster operator, I want to quickly create an AKS cluster and deploy an application so that I can see how to run and monitor applications using the managed Kubernetes service in Azure.
 ---
 
@@ -280,7 +278,7 @@ Pre-existing container images were used in this quickstart to create a Kubernete
 
 ## Next steps
 
-In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it. [Access the Kubernetes web dashboard][kubernetes-dashboard] for your AKS cluster.
+In this quickstart, you deployed a Kubernetes cluster and then deployed a multi-container application to it.
 
 To learn more about AKS, and walk through a complete code to deployment example, continue to the Kubernetes cluster tutorial.
 
@@ -305,5 +303,4 @@ To learn more about AKS, and walk through a complete code to deployment example,
 [kubernetes-service]: concepts-network.md#services
 [remove-azresourcegroup]: /powershell/module/az.resources/remove-azresourcegroup
 [sp-delete]: kubernetes-service-principal.md#additional-considerations
-[kubernetes-dashboard]: kubernetes-dashboard.md
 [aks-tutorial]: ./tutorial-kubernetes-prepare-app.md

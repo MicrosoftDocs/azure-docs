@@ -67,7 +67,7 @@ Global mesh is required when you want your spoke virtual networks to communicate
 
 ### Use hub as a gateway
 
-Another option you can enable in a hub-and-spoke configuration is to use the hub as a gateway. This setting will allow all virtual networks in the network group to use the VPN or ExpressRoute gateway in the hub virtual network to pass traffic. See [Gateways and on-premises connectivity](/azure/virtual-network/virtual-network-peering-overview#gateways-and-on-premises-connectivity).
+Another option you can enable in a hub-and-spoke configuration is to use the hub as a gateway. This setting will allow all virtual networks in the network group to use the VPN or ExpressRoute gateway in the hub virtual network to pass traffic. See [Gateways and on-premises connectivity](../virtual-network/virtual-network-peering-overview.md#gateways-and-on-premises-connectivity).
 
 When you deploy a hub and spoke topology from the Azure portal, the **Use hub as a gateway** is enabled by default for the spoke virtual networks in the network group. Azure Virtual Network Manager will attempt to create a virtual network peering connection between the hub and the spokes virtual network in the resource group. If the gateway doesn't exist in the hub virtual network, then the creation of the peering from the spoke virtual network to the hub will fail. The peering connection from the hub to the spoke will still be created without an established connection. 
 

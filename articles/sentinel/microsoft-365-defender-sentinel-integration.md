@@ -1,17 +1,8 @@
 ---
 title: Microsoft 365 Defender integration with Microsoft Sentinel | Microsoft Docs
 description: Learn how using Microsoft 365 Defender together with Microsoft Sentinel lets you use Microsoft Sentinel as your universal incidents queue while seamlessly applying Microsoft 365 Defender's strengths to help investigate Microsoft 365 security incidents. Also, learn how to ingest Defender components' advanced hunting data into Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021

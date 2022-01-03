@@ -28,6 +28,8 @@ landingContent:
         links:
           - text: What's new? 
             url: doc-changes-updates-release-notes-whats-new.md
+          - text: Survey to improve Azure SQL!
+            url: https://aka.ms/AzureSQLSurveyNov2021
       - linkListType: quickstart
         links:
           - text: Create SQL Managed Instance

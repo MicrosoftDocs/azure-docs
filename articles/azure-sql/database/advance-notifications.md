@@ -9,7 +9,7 @@ ms.devlang:
 ms.topic: how-to
 author: scott-kim-sql
 ms.author: scottkim
-ms.reviewer: mathoma, wiassaf
+ms.reviewer: kendralittle, mathoma, wiassaf
 ms.date: 09/14/2021
 ---
 # Advance notifications for planned maintenance events (Preview)

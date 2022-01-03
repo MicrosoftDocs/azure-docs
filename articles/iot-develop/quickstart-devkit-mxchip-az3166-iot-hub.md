@@ -7,6 +7,7 @@ ms.service: iot-develop
 ms.devlang: c
 ms.topic: quickstart
 ms.date: 06/09/2021
+ms.custom: mode-other
 ---
 
 # Quickstart: Connect an MXCHIP AZ3166 devkit to IoT Hub
@@ -93,7 +94,7 @@ To create an IoT hub:
     - If you prefer to use Cloud Shell, right-click the link for [Cloud Shell](https://shell.azure.com/bash) and select the option to open in a new tab.
     - If you're using Azure CLI locally, start your CLI console app and sign in to Azure CLI.
 
-1. Run [az extension add](/cli/azure/extension?view=azure-cli-latest#az_extension_add&preserve-view=true) to install or upgrade the *azure-iot* extension to the current version.
+1. Run [az extension add](/cli/azure/extension#az_extension_add) to install or upgrade the *azure-iot* extension to the current version.
 
     ```azurecli-interactive
     az extension add --upgrade --name azure-iot

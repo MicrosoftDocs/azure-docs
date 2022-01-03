@@ -1,19 +1,9 @@
 ---
 title: Use playbooks with automation rules in Microsoft Sentinel
 description: Use this tutorial to help you use playbooks together with automation rules in Microsoft Sentinel to automate your incident response and remediate security threats.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc, ignite-fall-2021
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ---

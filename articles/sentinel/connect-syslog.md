@@ -1,17 +1,8 @@
 ---
 title: Connect Syslog data to Microsoft Sentinel | Microsoft Docs
 description: Connect any machine or appliance that supports Syslog to Microsoft Sentinel by using an agent on a Linux machine between the appliance and Microsoft Sentinel.
-services: sentinel
-documentationcenter: na
 author: yelevin
-manager: rkarlin
-editor: ''
-ms.service: microsoft-sentinel
-ms.subservice: microsoft-sentinel
-ms.devlang: na
 ms.topic: how-to
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 11/09/2021
 ms.author: yelevin
 ms.custom: ignite-fall-2021
@@ -111,6 +102,8 @@ All connectors listed in the gallery will display any specific instructions on t
 ## Find your data
 
 1. To query the syslog log data in **Logs**, type `Syslog` in the query window.
+
+    (Some connectors using the Syslog mechanism might store their data in tables other than `Syslog`. Consult your connector's section in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.)
 
 1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/logs/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
 

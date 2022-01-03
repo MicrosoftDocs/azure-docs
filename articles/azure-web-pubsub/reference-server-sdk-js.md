@@ -10,7 +10,7 @@ ms.date: 11/11/2021
 
 # JavaScript SDK for Azure Web PubSub
 
-[Azure Web PubSub service](https://aka.ms/awps/doc) is an Azure-managed service that helps developers easily build web applications with real-time features and publish-subscribe pattern. Any scenario that requires real-time publish-subscribe messaging between server and clients or among clients can use Azure Web PubSub service. Traditional real-time features that often require polling from server or submitting HTTP requests can also use Azure Web PubSub service.
+[Azure Web PubSub service](./index.yml) is an Azure-managed service that helps developers easily build web applications with real-time features and publish-subscribe pattern. Any scenario that requires real-time publish-subscribe messaging between server and clients or among clients can use Azure Web PubSub service. Traditional real-time features that often require polling from server or submitting HTTP requests can also use Azure Web PubSub service.
 
 There are two libraries offered for JavaScript: the service client library and express middleware. The following sections contain more information about these libraries.
 
@@ -35,8 +35,8 @@ Details about the terms used here are described in [Key concepts](#key-concepts)
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/web-pubsub/web-pubsub) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub) |
-[API reference documentation](https://aka.ms/awps/sdk/js) |
-[Product documentation](https://aka.ms/awps/doc) |
+[API reference documentation]() |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
 ### Getting started
@@ -248,8 +248,8 @@ Details about the terms used here are described in [Key concepts](#key-concepts)
 
 [Source code](https://github.com/Azure/azure-sdk-for-js/blob/main/sdk/web-pubsub/web-pubsub-express) |
 [Package (NPM)](https://www.npmjs.com/package/@azure/web-pubsub-express) |
-[API reference documentation](https://aka.ms/awps/sdk/js) |
-[Product documentation](https://aka.ms/awps/doc) |
+[API reference documentation]() |
+[Product documentation](./index.yml) |
 [Samples][samples_ref]
 
 ### Getting started

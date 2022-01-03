@@ -1,12 +1,9 @@
 ---
 title: Find your Microsoft Sentinel data connector | Microsoft Docs
 description: Learn about specific configuration steps for Microsoft Sentinel data connectors.
-services: sentinel
-documentationcenter: na
 author: batamig
-ms.service: microsoft-sentinel
 ms.topic: reference
-ms.date: 11/09/2021
+ms.date: 12/23/2021
 ms.author: bagol
 ms.custom: ignite-fall-2021
 ---
@@ -52,6 +49,10 @@ This article describes how to deploy data connectors in Microsoft Sentinel, list
 
 > [!IMPORTANT]
 > Noted Microsoft Sentinel data connectors are currently in **Preview**. The [Azure Preview Supplemental Terms](https://azure.microsoft.com/support/legal/preview-supplemental-terms/) include additional legal terms that apply to Azure features that are in beta, preview, or otherwise not yet released into general availability.
+
+### Data connector prerequisites
+
+[!INCLUDE [data-connector-prereq](includes/data-connector-prereq.md)]
 
 ## Agari Phishing Defense and Brand Protection (Preview)
 
@@ -182,12 +183,21 @@ For more information, see the Cognito Detect Syslog Guide, which can be download
 
     Once you've created a new Syslog alert, check that the logs are correctly gathered on your server in a separate file. For example, to check your logs, you can use the *Test the configuration* button in the Syslog alert configuration in AFAD. If you used the Quickstart template, the Syslog server will by default listen on port 514 in UDP and 1514 in TCP, without TLS.
 
-## Amazon Web Services - CloudTrail
+## Amazon Web Services
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect AWS CloudTrail to Microsoft Sentinel](connect-aws.md)** (Top connector article) |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md?tabs=ct)** (Top connector article) |
 | **Log Analytics table(s)** | AWSCloudTrail |
+| **Supported by** | Microsoft |
+| | |
+
+## Amazon Web Services S3 (Preview)
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[Connect Microsoft Sentinel to Amazon Web Services to ingest AWS service log data](connect-aws.md?tabs=s3)** (Top connector article) |
+| **Log Analytics table(s)** | AWSCloudTrail<br>AWSGuardDuty<br>AWSVPCFlow |
 | **Supported by** | Microsoft |
 | | |
 
@@ -324,25 +334,9 @@ Before setting up the new Azure Activity log connector, you must disconnect the 
 | **Supported by** | Microsoft |
 | | |
 
-## Microsoft Defender for Cloud
+## Azure Defender
 
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-azure-security-center.md)** (Top connector article) |
-| **Log Analytics table(s)** | SecurityAlert |
-| **Supported by** | Microsoft |
-| | |
-
-<a name="azure-defender-for-iot"></a>
-
-## Microsoft Defender for IoT
-
-| Connector attribute | Description |
-| --- | --- |
-| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
-| **Log Analytics table(s)** | SecurityAlert |
-| **Supported by** | Microsoft |
-| | |
+See [Microsoft Defender for Cloud](#microsoft-defender-for-cloud).
 
 ## Azure Firewall
 
@@ -439,11 +433,13 @@ You will only see the storage types that you actually have defined resources for
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | [**Log Analytics agent - custom logs**](connect-custom-logs.md) |
-| **Log Analytics table(s)** | Syslog |
+| **Data ingestion method** | [**Syslog**](connect-syslog.md) |
+| **Log Analytics table(s)** | CommonSecurityLog (Barracuda)<br>Barracuda_CL |
 | **Vendor documentation/<br>installation instructions** | https://aka.ms/asi-barracuda-connector |
 | **Supported by** | [Barracuda](https://www.barracuda.com/support) |
 | | |
+
+See Barracuda instructions - note the assigned facilities for the different types of logs and be sure to add them to the default Syslog configuration.
 
 ## BETTER Mobile Threat Defense (MTD) (Preview)
 
@@ -589,7 +585,7 @@ Configure eNcore to stream data via TCP to the Log Analytics Agent. This configu
 | --- | --- |
 | **Data ingestion method** | [**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md) |
 | **Log Analytics table(s)** | CitrixAnalytics_SAlerts_CL​ |
-| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Microsoft Sentinel](https://aka.ms/Sentinel-Citrix-Connector) |
+| **Vendor documentation/<br>installation instructions** | [Connect Citrix to Microsoft Sentinel](https://docs.citrix.com/en-us/security-analytics/getting-started-security/siem-integration/azure-sentinel-integration.html) |
 | **Supported by** | [Citrix Systems](https://www.citrix.com/support/) |
 | | |
 
@@ -896,7 +892,7 @@ For more information, see the Eset documentation.
 
 | Connector attribute | Description |
 | --- | --- |
-| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Send Fortinet logs to the log forwarder](#send-fortinet-logs-to-the-log-forwarder) <br<br>Available in the [Fortinet Fortigate solution](sentinel-solutions-catalog.md#fortinet-fortigate)|
+| **Data ingestion method** | **[Common Event Format (CEF)](connect-common-event-format.md) over Syslog** <br><br>[Send Fortinet logs to the log forwarder](#send-fortinet-logs-to-the-log-forwarder) <br><br>Available in the [Fortinet Fortigate solution](sentinel-solutions-catalog.md#fortinet-fortigate)|
 | **Log Analytics table(s)** | CommonSecurityLog |
 | **Vendor documentation/<br>installation instructions** | [Fortinet Document Library](https://aka.ms/asi-syslog-fortinet-fortinetdocumentlibrary)<br>Choose your version and use the *Handbook* and *Log Message Reference* PDFs. |
 | **Supported by** | [Fortinet](https://support.fortinet.com/) |
@@ -919,6 +915,35 @@ end
 - Set the **syslog port** to **514** or the port set on the Syslog daemon on the forwarder.
 - To enable CEF format in early FortiOS versions, you might need to run the command set **csv disable**.
 
+
+## GitHub (Preview)
+
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** |[**Microsoft Sentinel Data Collector API**](connect-rest-api-template.md)<br><br>Only available after installing the [Continuous Threat Monitoring for GitHub](sentinel-solutions-catalog.md#github) solution. |
+| **Log Analytics table(s)** | GitHubAuditLogPolling_CL |
+| **API credentials** | GitHub access token |
+| **Connector deployment instructions** | [Extra configuration for the GitHub connector](#extra-configuration-for-the-github-connector) |
+| **Supported by** | Microsoft |
+| | |
+
+### Extra configuration for the GitHub connector
+
+**Prerequisite**: You must have a GitHub enterprise account and an accessible organization in order to connect to GitHub from Microsoft Sentinel.
+
+1. Install the **Continuous Threat Monitoring for GitHub** solution in your Microsoft Sentinel workspace. For more information, see [Centrally discover and deploy Microsoft Sentinel out-of-the-box content and solutions (Public preview)](sentinel-solutions-deploy.md).
+
+1. Create a GitHub personal access token for use in the Microsoft Sentinel connector. For more information, see the relevant [GitHub documentation](https://docs.github.com/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token).
+
+1. In the Microsoft Sentinel **Data connectors** area, search for and locate the GitHub connector. On the right, select **Open connector page**.
+
+1. On the **Instructions** tab, in the **Configuration** area, enter the following details:
+
+    - **Organization Name**: Enter the name of the organization who's logs you want to connect to.
+    - **API Key**: Enter the GitHub personal access token you'd created earlier in this procedure.
+
+1. Select **Connect** to start ingesting your GitHub logs to Microsoft Sentinel.
 
 
 ## Google Workspace (G-Suite) (Preview)
@@ -1028,6 +1053,15 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | **Supported by** | Microsoft |
 | | |
 
+## Microsoft Defender for Cloud
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration:<br>[Connect security alerts from Microsoft Defender for Cloud](connect-defender-for-cloud.md)** (Top connector article) |
+| **Log Analytics table(s)** | SecurityAlert |
+| **Supported by** | Microsoft |
+| | |
+
 <a name="microsoft-cloud-app-security-mcas"></a>
 
 ## Microsoft Defender for Cloud Apps
@@ -1050,6 +1084,17 @@ Add http://localhost:8081/ under **Authorized redirect URIs** while creating [We
 | | |
 
 ## Microsoft Defender for Identity
+
+| Connector attribute | Description |
+| --- | --- |
+| **Data ingestion method** | **Azure service-to-service integration: <br>[API-based connections](connect-azure-windows-microsoft-services.md#api-based-connections)** |
+| **Log Analytics table(s)** | SecurityAlert |
+| **Supported by** | Microsoft |
+| | |
+
+<a name="azure-defender-for-iot"></a>
+
+## Microsoft Defender for IoT
 
 | Connector attribute | Description |
 | --- | --- |

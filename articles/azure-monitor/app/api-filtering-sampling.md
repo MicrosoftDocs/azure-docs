@@ -3,6 +3,7 @@ title: Filtering and preprocessing in the Application Insights SDK | Microsoft D
 description: Write telemetry processors and telemetry initializers for the SDK to filter or add properties to the data before the telemetry is sent to the Application Insights portal.
 ms.topic: conceptual
 ms.date: 11/23/2016
+ms.devlang: csharp, javascript, python
 ms.custom: "devx-track-js, devx-track-csharp"
 ---
 

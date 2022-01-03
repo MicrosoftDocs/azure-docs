@@ -41,9 +41,9 @@ The following partners offer pre-built solutions to support **conditional access
 
 - [Datawiza Access Broker](../manage-apps/datawiza-with-azure-ad.md)
 
-- [F5 Big-IP APM ADC](../manage-apps/f5-aad-integration.md)
+- [F5 BIG-IP APM (ADC)](../manage-apps/f5-aad-integration.md)
 
-- [F5 Big-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
+- [F5 BIG-IP APM VPN](../manage-apps/f5-aad-password-less-vpn.md)
 
 - [Kemp](../saas-apps/kemp-tutorial.md)
 

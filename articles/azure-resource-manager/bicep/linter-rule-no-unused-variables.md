@@ -2,14 +2,16 @@
 title: Linter rule - no unused variables
 description: Linter rule - no unused variables
 ms.topic: conceptual
-ms.date: 10/14/2021
+ms.date: 11/18/2021
 ---
 
 # Linter rule - no unused variables
 
 This rule finds variables that aren't referenced anywhere in the Bicep file.
 
-## Returned code
+## Linter rule code
+
+Use the following value in the [Bicep configuration file](bicep-config-linter.md) to customize rule settings:
 
 `no-unused-vars`
 

@@ -4,6 +4,7 @@ description: In this quickstart, learn how to onboard and enable the Defender-Io
 services: defender-for-iot
 ms.topic: quickstart
 ms.date: 11/09/2021
+ms.custom: mode-other
 ---
 
 

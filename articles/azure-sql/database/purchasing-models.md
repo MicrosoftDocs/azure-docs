@@ -8,9 +8,9 @@ ms.subservice: service-overview
 ms.custom: sqldbrb=1
 ms.devlang: 
 ms.topic: conceptual
-author: MashaMSFT
-ms.author: mathoma
-ms.reviewer:
+author: LitKnd
+ms.author: kendralittle
+ms.reviewer: mathoma
 ms.date: 05/28/2020
 ---
 # Choose between the vCore and DTU purchasing models - Azure SQL Database and SQL Managed Instance
@@ -20,6 +20,11 @@ Azure SQL Database and Azure SQL Managed Instance let you easily purchase a full
 
 - [Virtual core (vCore)-based purchasing model](service-tiers-vcore.md) (recommended). This purchasing model provides a choice between a provisioned compute tier and a serverless compute tier. With the provisioned compute tier, you choose the exact amount of compute resources that are always provisioned for your workload. With the serverless compute tier, you specify the autoscaling of the compute resources over a configurable compute range. With this compute tier, you can also automatically pause and resume the database based on workload activity. The vCore unit price per unit of time is lower in the provisioned compute tier than it is in the serverless compute tier.
 - [Database transaction unit (DTU)-based purchasing model](service-tiers-dtu.md). This purchasing model provides bundled compute and storage packages balanced for common workloads.
+
+
+> [!div class="nextstepaction"]
+> [Survey to improve Azure SQL!](https://aka.ms/AzureSQLSurveyNov2021) 
+
 
 There are two purchasing models:
 

@@ -349,11 +349,11 @@ featurization_config = FeaturizationConfig(dataset_language='deu')
 
 automl_settings = {
     "experiment_timeout_minutes": 120,
-    "primary_metric": 'accuracy', 
-# All other settings you want to use 
+    "primary_metric": 'accuracy',
+# All other settings you want to use
     "featurization": featurization_config,
     
-  "enable_dnn": True, # This enables BERT DNN featurizer
+    "enable_dnn": True, # This enables BERT DNN featurizer
     "enable_voting_ensemble": False,
     "enable_stack_ensemble": False
 }

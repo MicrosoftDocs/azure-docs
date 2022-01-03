@@ -24,7 +24,7 @@ ms.subservice: data-explorer
 
 [!INCLUDE [data-connector-intro](../includes/data-explorer-ingest-data-intro.md)]
 
-In this article, you learn how to ingest blobs from your storage account into Azure Synapse Data Explorer using an Event Grid data connection. You'll create an Event Grid data connection that sets an [Azure Event Grid](/azure/event-grid/overview) subscription. The Event Grid subscription routes events from your storage account to Data Explorer via an Azure Event Hub. Then you'll see an example of the data flow throughout the system.
+In this article, you learn how to ingest blobs from your storage account into Azure Synapse Data Explorer using an Event Grid data connection. You'll create an Event Grid data connection that sets an [Azure Event Grid](../../../event-grid/overview.md) subscription. The Event Grid subscription routes events from your storage account to Data Explorer via an Azure Event Hub. Then you'll see an example of the data flow throughout the system.
 
 For general information about ingesting into Data Explorer from Event Grid, see [Connect to Event Grid](data-explorer-ingest-event-grid-overview.md).<!-- To create resources manually in the Azure portal, see [Manually create resources for Event Grid ingestion](ingest-data-event-grid-manual.md). -->
 
@@ -53,7 +53,7 @@ For general information about ingesting into Data Explorer from Event Grid, see 
         ```
 
 * Create [a storage account](/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal).
-* Event Grid notification subscription can be set on Azure Storage accounts for `BlobStorage`, `StorageV2`, or [Data Lake Storage Gen2](/azure/storage/blobs/data-lake-storage-introduction).
+* Event Grid notification subscription can be set on Azure Storage accounts for `BlobStorage`, `StorageV2`, or [Data Lake Storage Gen2](../../../storage/blobs/data-lake-storage-introduction.md).
 
 ## Sign in to the Azure portal
 
@@ -93,7 +93,7 @@ Now connect the storage account to Data Explorer, so that data flowing into the 
         * To define a filter on a blob prefix (or a folder in Azure Data Lake Gen2), the field *must* be set as follows: *`/blobServices/default/containers/[container name]/blobs/[folder/blob prefix]`*.
     * **Suffix** field is the *literal* suffix of the blob. No wildcards are allowed.
     * **Case-Sensitive** field indicates whether the prefix and suffix filters are case-sensitive
-    * For more information about filtering events, see [Blob storage events](/azure/storage/blobs/storage-blob-event-overview#filtering-events).
+    * For more information about filtering events, see [Blob storage events](../../../storage/blobs/storage-blob-event-overview.md#filtering-events).
 
     :::image type="content" source="../media/ingest-data-event-grid/filter-settings.png" alt-text="Filter settings Event Grid.":::
 
@@ -145,7 +145,7 @@ We'll work with a small shell script that issues a few basic Azure CLI commands 
 1. Uploads an existing file (as a blob) to that container.
 1. Lists the blobs in the container.
 
-You can use [Azure Cloud Shell](/azure/cloud-shell/overview) to execute the script directly in the portal.
+You can use [Azure Cloud Shell](../../../cloud-shell/overview.md) to execute the script directly in the portal.
 
 Save the data into a file and upload it with this script:
 

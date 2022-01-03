@@ -32,7 +32,7 @@ In this tutorial, you learn how to:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 # [C#](#tab/csharp)
 
@@ -40,7 +40,7 @@ In this tutorial, you learn how to:
 
 * [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) (v3 or higher preferred) to run Azure Function apps locally and deploy to Azure.
 
-* [Azure command-line interface (Azure CLI)](/cli/azure) to manage Azure resources.
+* The [Azure CLI](/cli/azure) to manage Azure resources.
 
 ---
 
@@ -65,7 +65,7 @@ In this tutorial, you learn how to:
 2. *Install `Microsoft.Azure.WebJobs.Extensions.WebPubSub` function extension package.
 
     > [!NOTE]
-    > The step will be optional when [Extension bundles](/azure/azure-functions/functions-bindings-register#extension-bundles) are supported.
+    > The step will be optional when [Extension bundles](../azure-functions/functions-bindings-register.md#extension-bundles) are supported.
 
    a. Remove `extensionBundle` section in `host.json` to enable install specific extension package in next step. Or simply make host json as simple a below.
     ```json
@@ -138,7 +138,7 @@ In this tutorial, you learn how to:
    - Update `index.cs` and replace `Run` function with following codes.
         ```c#
         [FunctionName("index")]
-        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req)
+        public static IActionResult Run([HttpTrigger(AuthorizationLevel.Anonymous)] HttpRequest req, ILogger log)
         {
             string indexFile = "index.html";
             if (Environment.GetEnvironmentVariable("HOME") != null)

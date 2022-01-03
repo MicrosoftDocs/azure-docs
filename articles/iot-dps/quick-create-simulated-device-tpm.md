@@ -1,14 +1,14 @@
 ---
 title: Quickstart - Provision a simulated TPM device to Microsoft Azure IoT Hub
 description: Quickstart - Learn how to provision a TPM simulated device to the Azure IoT Hub Device Provisioning Service
-author: anastasia-ms
-ms.author: v-stharr
-ms.date: 9/22/2021
+author: wesmc7777
+ms.author: wesmc
+ms.date: 12/14/2021
 ms.topic: quickstart
 ms.service: iot-dps
-services: iot-dps 
+services: iot-dps
 zone_pivot_groups: iot-dps-set1
-ms.custom:  [mvc, amqp, mqtt]
+ms.custom: mvc, amqp, mqtt, mode-other
 #Customer intent: As a new IoT developer, I want simulate a TPM device to learn how secure provisioning works.
 ---
 
@@ -118,7 +118,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-csharp"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [Azure IoT Samples for C#](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
 
@@ -130,7 +130,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-nodejs"
 
-1. Open a Git CMD or Git Bash command line environment.
+1. Open a Git CMD or Git Bash command-line environment.
 
 2. Clone the [azure-utpm-c](https://github.com/Azure-Samples/azure-iot-samples-csharp) GitHub repository using the following command:
 
@@ -142,15 +142,15 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-python"
 
-1. Open a Git CMD or Git Bash command line environment.
-  
+1. Open a Git CMD or Git Bash command-line environment.
+
 2. Clone the [Python](https://github.com/Azure/azure-iot-sdk-python) GitHub repository using the following command:
 
     ```cmd/sh
     git clone --single-branch --branch v1-deprecated https://github.com/Azure/azure-iot-sdk-python.git --recursive
     ```
 
-3. Create a folder in your local copy of this GitHub repo for the CMake build process. 
+3. Create a folder in your local copy of this GitHub repo for the CMake build process.
 
     ```cmd/sh
     cd azure-iot-sdk-python/c
@@ -162,7 +162,7 @@ In this section, you'll prepare a development environment used to build the [Azu
 
    > [!NOTE]
    > If running the `build_client.cmd` make sure to use the `--use-tpm-simulator` flag.
-   > 
+   >
    > [!NOTE]
    > If using `pip` make sure to also install the `azure-iot-provisioning-device-client` package. Note that the released PIP packages are using the real TPM, not the simulator. To use the simulator you need to compile from the source using the `--use-tpm-simulator` flag.
 
@@ -170,8 +170,8 @@ In this section, you'll prepare a development environment used to build the [Azu
 
 ::: zone pivot="programming-language-java"
 
-1. Open a Git CMD or Git Bash command line environment.
-  
+1. Open a Git CMD or Git Bash command-line environment.
+
 2. Clone the [Java](https://github.com/Azure/azure-iot-sdk-java.git) GitHub repository using the following command:
 
     ```cmd/sh
@@ -189,7 +189,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 1. Run the following command to build Azure IoT C SDK that includes the TPM device simulator sample code. A Visual Studio solution for the simulated device is generated in the `cmake` directory. This sample provides a TPM [attestation mechanism](concepts-service.md#attestation-mechanism) via Shared Access Signature (SAS) Token authentication.
 
     ```cmd
-    cmake -Duse_prov_client:BOOL=ON ..
+    cmake -Duse_prov_client:BOOL=ON -Duse_tpm_simulator:BOOL=ON ..
     ```
 
     >[!TIP]
@@ -229,7 +229,7 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
 2. Copy the **ID Scope** value.
 
-    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-csharp.png) 
+    ![Copy provisioning service Scope ID from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-csharp.png)
 
 3. In a command prompt, change directories to the project directory for the TPM device provisioning sample.
 
@@ -288,12 +288,12 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
 
     The command installs the following packages:
 
-   * a security client that works with TPM: `azure-iot-security-tpm`
-   * a transport for the device to connect to the Device Provisioning Service: either `azure-iot-provisioning-device-http` or `azure-iot-provisioning-device-amqp`
-   * a client to use the transport and security client: `azure-iot-provisioning-device`
-   * the device client: `azure-iot-device`
-   * a transport: any of `azure-iot-device-amqp`, `azure-iot-device-mqtt`, or `azure-iot-device-http`
-   * the security client that you already installed: `azure-iot-security-tpm`
+   * A security client that works with TPM: `azure-iot-security-tpm`
+   * A transport for the device to connect to the Device Provisioning Service: either `azure-iot-provisioning-device-http` or `azure-iot-provisioning-device-amqp`
+   * A client to use the transport and security client: `azure-iot-provisioning-device`
+   * The device client: `azure-iot-device`
+   * A transport: any of `azure-iot-device-amqp`, `azure-iot-device-mqtt`, or `azure-iot-device-http`
+   * The security client that you already installed: `azure-iot-security-tpm`
 
      > [!NOTE]
      > The samples in this quickstart use the `azure-iot-provisioning-device-http` and `azure-iot-device-mqtt` transports.
@@ -308,10 +308,10 @@ In this section, you'll build and run the TPM simulator. This simulator listens 
     ```Javascript
 
     'use strict';
-    
+
     var tpmSecurity = require('azure-iot-security-tpm');
     var tssJs = require("tss.js");
-    
+
     var myTpm = new tpmSecurity.TpmSecurityClient(undefined, new tssJs.Tpm(true));
     ```
 
@@ -419,7 +419,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
 3. On the Visual Studio menu, select **Build** > **Build Solution** to build all projects in the solution.
 
-4. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Tools** folder. Right-click the **tpm_device_provision** project and select **Set as Startup Project**. 
+4. In Visual Studio's *Solution Explorer* window, navigate to the **Provision\_Tools** folder. Right-click the **tpm_device_provision** project and select **Set as Startup Project**.
 
 5. On the Visual Studio menu, select **Debug** > **Start without debugging** to run the solution. The app reads and displays a **_Registration ID_** and an **_Endorsement key_**. Note or copy these values. These will be used in the next section for device enrollment.
 
@@ -445,7 +445,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
 
     ![Device Provisioning Service information](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-java.png)
 
-2. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted before.  
+2. Edit `src/main/java/samples/com/microsoft/azure/sdk/iot/ProvisioningTpmSample.java` to include your _ID Scope_ and _Provisioning Service Global Endpoint_ as noted before.
 
     ```java
     private static final String idScope = "[Your ID scope here]";
@@ -464,7 +464,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
     ```
 
 5. When the program begins running, it will display the *_Endorsement key_* and *_Registration ID_*.  Copy these values for the next section. Make sure to leave the program running.
-  
+
 ::: zone-end
 
 
@@ -492,7 +492,7 @@ In this section, you'll build and execute a sample that reads the endorsement ke
        * Update the **Initial device twin state** with the desired initial configuration for the device.
    * Once complete, press the **Save** button.
 
-      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)  
+      ![Enter device enrollment information in the portal](./media/quick-create-simulated-device-tpm/enter-device-enrollment.png)
 
 7. Select **Save**.
 
@@ -526,18 +526,19 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     //#define SAMPLE_HTTP
     ```
 
-5. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier. 
+5. Find the `id_scope` constant, and replace the value with your **ID Scope** value that you copied earlier.
 
     ```c
     static const char* id_scope = "0ne00002193";
     ```
 
-6. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_X509` instead of `SECURE_DEVICE_TYPE_TPM` as shown below.
+6. Find the definition for the `main()` function in the same file. Make sure the `hsm_type` variable is set to `SECURE_DEVICE_TYPE_TPM` instead of `SECURE_DEVICE_TYPE_X509` as shown below.
 
     ```c
     SECURE_DEVICE_TYPE hsm_type;
-    //hsm_type = SECURE_DEVICE_TYPE_TPM;
-    hsm_type = SECURE_DEVICE_TYPE_X509;
+    hsm_type = SECURE_DEVICE_TYPE_TPM;
+    //hsm_type = SECURE_DEVICE_TYPE_X509;
+    //hsm_type = SECURE_DEVICE_TYPE_SYMMETRIC_KEY;
     ```
 
 7. Right-click the **prov\_dev\_client\_sample** project and select **Set as Startup Project**.
@@ -567,7 +568,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 2. Copy the **_ID Scope_** value.
 
-     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-nodejs.png) 
+     ![Extract Device Provisioning Service endpoint information from the portal blade](./media/quick-create-simulated-device-tpm/extract-dps-endpoints-nodejs.png)
 
 3. Open a text editor of your choice.
 
@@ -588,8 +589,8 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     ```
 
     > [!NOTE]
-    > The **Azure IoT SDK for Node.js** supports additional protocols like _AMQP_, _AMQP WS_, and _MQTT WS_.  For more examples, see [Device Provisioning Service SDK for Node.js samples](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples).
-    > 
+    > The **Azure IoT SDK for Node.js** supports additional protocols like _AMQP_, _AMQP WS_, and _MQTT WS_.  For more examples, see [Device Provisioning Service SDK for Node.js samples](https://github.com/Azure/azure-iot-sdk-node/tree/main/provisioning/device/samples).
+    >
 
 6. Add **globalDeviceEndpoint** and **idScope** variables and use them to create a **ProvisioningDeviceClient** instance. Replace **{globalDeviceEndpoint}** and **{idScope}** with the **_Global Device Endpoint_** and **_ID Scope_** values from **Step 1**:
 
@@ -643,7 +644,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     });
     ```
 
-8. Save and close the _RegisterDevice.js_ file. 
+8. Save and close the _RegisterDevice.js_ file.
 
 9. Run the following command:
 
@@ -663,7 +664,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
     cd azure-iot-sdk-python/provisioning_device_client/samples
     ```
 
-2. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py** (replace ) `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
+2. Using your Python IDE, edit the python script named **provisioning\_device\_client\_sample.py** (replace `{globalServiceEndpoint}` and `{idScope}` to the values that you previously copied). Also, make sure *SECURITY\_DEVICE\_TYPE* is set to `ProvisioningSecurityDeviceType.TPM`.
 
     ```python
     GLOBAL_PROV_URI = "{globalServiceEndpoint}"
@@ -686,7 +687,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
 ::: zone pivot="programming-language-java"
 
-1. In the command window running the Java sample code on your machine, press *Enter* to continue running the application. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.  
+1. In the command window running the Java sample code on your machine, press *Enter* to continue running the application. Notice the messages that simulate the device booting and connecting to the Device Provisioning Service to get your IoT hub information.
 
     ![Java TPM device program final](./media/quick-create-simulated-device-tpm/program-final-java.png)
 
@@ -706,7 +707,7 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
     :::zone pivot="programming-language-ansi-c"
 
-    ![Device is registered with the IoT hub for C](./media/quick-create-simulated-device-tpm/hub-registration-ansi-c.png) 
+    ![Device is registered with the IoT hub for C](./media/quick-create-simulated-device-tpm/hub-registration-ansi-c.png)
 
     :::zone-end
 
@@ -724,13 +725,13 @@ In this section, you'll configure sample code to use the [Advanced Message Queui
 
     ::: zone pivot="programming-language-python"
 
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration-python.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration-python.png)
 
     ::: zone-end
 
     ::: zone pivot="programming-language-java"
 
-    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration-java.png) 
+    ![Device is registered with the IoT hub](./media/quick-create-simulated-device-tpm/hub-registration-java.png)
 
     ::: zone-end
 
