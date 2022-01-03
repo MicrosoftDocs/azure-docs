@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 11/29/2021
+ms.date: 01/03/2022
 ms.author: alkohli
 # Customer intent: As an IT admin, I need to understand how to create an order via the Azure Edge Hardware Center. 
 ---

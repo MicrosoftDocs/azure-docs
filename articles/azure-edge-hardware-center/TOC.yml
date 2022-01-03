@@ -16,7 +16,7 @@
       href: azure-edge-hardware-center-faq.yml
   - name: How to
     items:
-    - name: Track, cancel your order
+    - name: Track, cancel, return order
       href: azure-edge-hardware-center-manage-order.md
     - name: Move order resource
       href: azure-edge-hardware-center-resource-move-subscription-resource-group.md
@@ -25,7 +25,7 @@
     - name: Open Support ticket
       href: azure-edge-hardware-center-contact-microsoft-support.md
   - name: References
-    href: azure-edge-hardware-center-overview.md           
+    href: /powershell/module/az.edgeorder/?view=azps-7.0.0#edgeorder           
   - name: Resources
     items:
     - name: Azure Stack Edge product  

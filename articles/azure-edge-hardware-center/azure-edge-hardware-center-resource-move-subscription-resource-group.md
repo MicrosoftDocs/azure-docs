@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/21/2021
+ms.date: 01/03/2022
 ms.author: alkohli
 ---
 
@@ -28,17 +28,17 @@ All the Azure public regions where you can create an Azure Edge Hardware Center 
 Before you begin:
 
 - If moving your resource to a different subscription:
+
     - Make sure that both the source and destinations subscriptions are active.
     - Make sure that both the source and resource subscriptions exist within the same Azure Active Directory tenant.
     - The destination subscription must be registered to the `Microsoft.EdgeOrder` resource provider. If not, you receive an error stating that the subscription is not registered for a resource type. You might see this error when moving a resource to a new subscription, but that subscription has never been used with that resource type.
-- If moving your resource to a different resource group:
-    - Make sure that the account moving the resources must have at least the following permissions:
+- If moving your resource to a different resource group, make sure that the account moving the resources must have at least the following permissions:
 
-        Microsoft.Resources/subscriptions/resourceGroups/moveResources/action on the source resource group.
-        Microsoft.Resources/subscriptions/resourceGroups/write on the destination resource group.
+    - *Microsoft.Resources/subscriptions/resourceGroups/moveResources/action* on the source resource group.
+    - *Microsoft.Resources/subscriptions/resourceGroups/write* on the destination resource group.
 
 
-## Move to a different resource group or subscription
+## Move resource group or subscription
 
 1. In the Azure portal, go to the Azure Edge Hardware Center resource that you want to move. The Azure Edge Hardware Center resource in this example is created for an Azure Stack Edge order. 
 

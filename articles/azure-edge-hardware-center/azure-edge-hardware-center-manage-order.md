@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: how-to
-ms.date: 12/20/2021
+ms.date: 01/03/2022
 ms.author: alkohli
 ---
 # Use the Azure portal to manage your Azure Edge Hardware Center orders
