@@ -17,7 +17,7 @@ If you would like to subscribe on release notes, watch releases on [this GitHub 
 
 ## Release date: 12/27/2021
 
-This release applies for both HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
+This release applies for HDInsight 4.0. HDInsight release is made available to all regions over several days. The release date here indicates the first region release date. If you don't see below changes, wait for the release being live in your region over several days.
 
 The OS versions for this release are:
 - HDInsight 4.0: Ubuntu 18.04.5 LTS
