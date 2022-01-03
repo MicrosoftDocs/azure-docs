@@ -7,7 +7,7 @@ ms.service: azure-app-configuration
 ms.devlang: csharp
 ms.custom: devx-track-csharp, contperf-fy21q1, mode-other
 ms.topic: quickstart
-ms.date: 09/25/2020
+ms.date: 1/3/2022
 ms.author: alkemper
 #Customer intent: As an ASP.NET Core developer, I want to learn how to manage all my app settings in one place.
 ---
@@ -71,122 +71,125 @@ dotnet new mvc --no-https --output TestAppConfig
 
     Access this secret using the .NET Core Configuration API. A colon (`:`) works in the configuration name with the Configuration API on all supported platforms. For more information, see [Configuration keys and values](/aspnet/core/fundamentals/configuration#configuration-keys-and-values).
 
-    > [!IMPORTANT]
-    > `CreateHostBuilder` replaces `CreateWebHostBuilder` in .NET Core 3.x. Select the correct syntax based on your environment.
+1. Select the correct syntax based on your environment.
 
-#### [.NET 6.x](#tab/core6x)
+    #### [.NET 6.x](#tab/core6x)
+    In *Program.cs*, and replace its content with the following code: 
 
-1. In *Program.cs*, and replace its content with the following code: 
-    ```csharp
-    var builder = WebApplication.CreateBuilder(args);
-    builder.Host.ConfigureAppConfiguration(builder =>
-                    {
-                        builder.AddAzureAppConfiguration(options =>
-                        {
-                            //Connect to your App Config Store using a connection string 
-                            options.Connect(Environment.GetEnvironmentVariable("AppConfig"))
-                                   // Load all keys that start with `TestApp:` and have no label
-                                   .Select("TestApp:*");                               
-                        });
-                    })
-                    .ConfigureServices(services =>
-                    {
-                        // Make Azure App Configuration services available through dependency injection
-                        services.AddAzureAppConfiguration()
-                                .AddControllersWithViews();
-                    });
-    
-    var app = builder.Build();
-    
-    // Configure the HTTP request pipeline.
-    if (!app.Environment.IsDevelopment())
-    {
-        app.UseExceptionHandler("/Home/Error");
-    }
-    app.UseStaticFiles();
-    
-    app.UseAzureAppConfiguration(); 
-    
-    app.UseRouting();
-    
-    app.UseAuthorization();
-    
-    app.MapControllerRoute(
-        name: "default",
-        pattern: "{controller=Home}/{action=Index}/{id?}");
-    
-    app.Run();
-    ```
-    This will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. 
-
-
-#### [.NET 5.x](#tab/core5x)
-
-1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
-
-    ```csharp
-    using Microsoft.Extensions.Configuration;
-    ```
-
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
-
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    var settings = config.Build();
-                    var connection = settings.GetConnectionString("AppConfig");
-                    config.AddAzureAppConfiguration(connection);
-                }).UseStartup<Startup>());
-    ```
-#### [.NET Core 3.x](#tab/core3x)
-1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
-
-    ```csharp
-    using Microsoft.Extensions.Configuration;
-    ```
-
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
-
-    ```csharp
-    public static IHostBuilder CreateHostBuilder(string[] args) =>
-        Host.CreateDefaultBuilder(args)
-            .ConfigureWebHostDefaults(webBuilder =>
-                webBuilder.ConfigureAppConfiguration(config =>
-                {
-                    var settings = config.Build();
-                    var connection = settings.GetConnectionString("AppConfig");
-                    config.AddAzureAppConfiguration(connection);
-                }).UseStartup<Startup>());
-    ```
-
-#### [.NET Core 2.x](#tab/core2x)
-
-1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
-
-    ```csharp
-    using Microsoft.Extensions.Configuration;
-    ```
-
-1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
-
-    ```csharp
-    public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
-        WebHost.CreateDefaultBuilder(args)
-            .ConfigureAppConfiguration(config =>
+        ```csharp
+        var builder = WebApplication.CreateBuilder(args);
+        builder.Host.ConfigureAppConfiguration(builder =>
             {
-                var settings = config.Build();
-                var connection = settings.GetConnectionString("AppConfig");
-                config.AddAzureAppConfiguration(connection);
+                builder.AddAzureAppConfiguration(options =>
+                {
+                    //Connect to your App Config Store using a connection string 
+                    options.Connect(Environment.GetEnvironmentVariable("AppConfig"))
+                            // Load all keys that start with `TestApp:` and have no label
+                            .Select("TestApp:*");                               
+                });
             })
-            .UseStartup<Startup>();
-    ```
+            .ConfigureServices(services =>
+            {
+                // Make Azure App Configuration services available through dependency injection
+                services.AddAzureAppConfiguration()
+                        .AddControllersWithViews();
+            });
+        
+        var app = builder.Build();
+        
+        // Configure the HTTP request pipeline.
+        if (!app.Environment.IsDevelopment())
+        {
+            app.UseExceptionHandler("/Home/Error");
+        }
+        app.UseStaticFiles();
+        
+        app.UseAzureAppConfiguration(); 
+        
+        app.UseRouting();
+        
+        app.UseAuthorization();
+        
+        app.MapControllerRoute(
+            name: "default",
+            pattern: "{controller=Home}/{action=Index}/{id?}");
+        
+        app.Run();
+        ```
+    
+        This code will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. 
+    
+    
+    #### [.NET 5.x](#tab/core5x)
+    
+    1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
+    
+        ```csharp
+        using Microsoft.Extensions.Configuration;
+        ```
 
----
+    > [!IMPORTANT]
+    > `CreateHostBuilder` in .NET 5.x replaces `CreateWebHostBuilder` in .NET Core 3.x. 
 
-    With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
+    1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
+    
+        ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.ConfigureAppConfiguration(config =>
+                    {
+                        var settings = config.Build();
+                        var connection = settings.GetConnectionString("AppConfig");
+                        config.AddAzureAppConfiguration(connection);
+                    }).UseStartup<Startup>());
+        ```
+    #### [.NET Core 3.x](#tab/core3x)
+    1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
+    
+        ```csharp
+        using Microsoft.Extensions.Configuration;
+        ```
+    
+    1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
+    
+        ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                    webBuilder.ConfigureAppConfiguration(config =>
+                    {
+                        var settings = config.Build();
+                        var connection = settings.GetConnectionString("AppConfig");
+                        config.AddAzureAppConfiguration(connection);
+                    }).UseStartup<Startup>());
+        ```
+    
+    #### [.NET Core 2.x](#tab/core2x)
+    
+    1. In *Program.cs*, add a reference to the .NET Core Configuration API namespace:
+    
+        ```csharp
+        using Microsoft.Extensions.Configuration;
+        ```
+    
+    1. Update the `CreateWebHostBuilder` method to use App Configuration by calling the `AddAzureAppConfiguration` method.
+    
+        ```csharp
+        public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
+            WebHost.CreateDefaultBuilder(args)
+                .ConfigureAppConfiguration(config =>
+                {
+                    var settings = config.Build();
+                    var connection = settings.GetConnectionString("AppConfig");
+                    config.AddAzureAppConfiguration(connection);
+                })
+                .UseStartup<Startup>();
+        ```
+    
+    ---
+
+With the preceding change, the [configuration provider for App Configuration](/dotnet/api/Microsoft.Extensions.Configuration.AzureAppConfiguration) has been registered with the .NET Core Configuration API.
 
 ## Read from the App Configuration store
 
