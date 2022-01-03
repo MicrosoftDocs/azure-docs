@@ -45,7 +45,7 @@ To see what patch you are on, run the `az aks show --resource-group myResourceGr
  "apiServerAccessProfile": null,
   "autoScalerProfile": null,
   "autoUpgradeProfile": null,
-  "azurePortalFqdn": "myaksclust-myresourcegroup-998217-41b82424.portal.hcp.eastus.azmk8s.io",
+  "azurePortalFqdn": "myaksclust-myresourcegroup.portal.hcp.eastus.azmk8s.io",
   "currentKubernetesVersion": "1.21.7",
 }
 ```
