@@ -4,7 +4,7 @@ description: Presents a Xamarin code sample you can use to connect to and query 
 author: codemillmatt
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
-ms.devlang: dotnet
+ms.devlang: csharp
 ms.topic: quickstart
 ms.date: 08/26/2021
 ms.author: masoucou

@@ -103,6 +103,8 @@ All connectors listed in the gallery will display any specific instructions on t
 
 1. To query the syslog log data in **Logs**, type `Syslog` in the query window.
 
+    (Some connectors using the Syslog mechanism might store their data in tables other than `Syslog`. Consult your connector's section in the [Microsoft Sentinel data connectors reference](data-connectors-reference.md) page.)
+
 1. You can use the query parameters described in [Using functions in Azure Monitor log queries](../azure-monitor/logs/functions.md) to parse your Syslog messages. You can then save the query as a new Log Analytics function and use it as a new data type.
 
 ### Configure the Syslog connector for anomalous SSH login detection

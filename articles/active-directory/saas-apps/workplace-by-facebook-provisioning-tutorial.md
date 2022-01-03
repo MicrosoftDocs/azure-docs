@@ -210,7 +210,7 @@ POST https://graph.microsoft.com/beta/servicePrincipals/[object-id]/synchronizat
 9. Return to the first web browser window and select the Provisioning tab for your application. Your configuration will have been reset. You can confirm the upgrade has taken place by confirming the Job ID starts with “FacebookWorkplace”. 
 
 10. Update the tenant URL in the Admin Credentials section to the following: https://scim.workplace.com/  
-![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/credentials.png)
+![Screenshot of Admin Credentials in the Workplace by Facebook app in the Azure portalt](./media/workplace-by-facebook-provisioning-tutorial/provisionings.png)
 
 11. Restore any previous changes you made to the application (Authentication details, Scoping filters, Custom attribute mappings) and re-enable provisioning. 
 

@@ -6,7 +6,7 @@ author: caitlinv39
 ms.service: healthcare-apis
 ms.subservice: fhir
 ms.topic: reference
-ms.date: 11/11/2021
+ms.date: 12/27/2021
 ms.author: cavoeg
 ---
 

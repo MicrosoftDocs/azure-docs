@@ -243,7 +243,7 @@ These settings define the SAML SP properties that the APM will use for overlayin
 
     ![Create a new SAML SP service](./media/f5-big-ip-kerberos-advanced/create-new-saml-sp-service.png)
 
-4. You need not specify  **SP Name Settings** if the SAML entity ID is an exact match with the URL for the published application. For example, if the entity ID were urn:myexpenses:contosoonline then you would need to provide the **Scheme** and **Host** as https myexpenses.contoso.com. Whereas if the entity ID was [https://myexpenses.contoso.com](https://myexpenses.contoso.com/) then not.
+4. You need not specify  **SP Name Settings** if the SAML entity ID is an exact match with the URL for the published application. For example, if the entity ID were urn:myexpenses:contosoonline then you would need to provide the **Scheme** and **Host** as https myexpenses.contoso.com. Whereas if the entity ID was `https://myexpenses.contoso.com` then not.
 
 ### Configure external IdP connector 
 
@@ -482,7 +482,7 @@ F5 provides a great BIG-IP specific paper to help diagnose KCD related issues, s
 
 ## Additional resources
 
-* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
+* [BIG-IP Advanced configuration](https://techdocs.f5.com/kb/en-us/products/big-ip_apm/manuals/product/apm-authentication-single-sign-on-11-5-0/2.html)
 
 * [The end of passwords, go password-less](https://www.microsoft.com/security/business/identity/passwordless)
 

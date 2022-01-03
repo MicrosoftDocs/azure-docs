@@ -2,7 +2,7 @@
 title: Template functions - resources
 description: Describes the functions to use in an Azure Resource Manager template (ARM template) to retrieve values about resources.
 ms.topic: conceptual
-ms.date: 12/09/2021
+ms.date: 12/28/2021
 ms.custom: devx-track-azurepowershell
 ---
 
@@ -324,7 +324,7 @@ The next example shows a `list` function that takes a parameter. In this case, t
 
 `pickZones(providerNamespace, resourceType, location, [numberOfZones], [offset])`
 
-Determines whether a resource type supports zones for the specified location or region. This function only supports zonal resources, zone redundant services will return an empty array. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md). To use the pickZones function with zone redundant services, see the examples below.
+Determines whether a resource type supports zones for the specified location or region. This function **only supports zonal resources**. Zone redundant services return an empty array. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
 ### Parameters
 
@@ -365,9 +365,9 @@ When the resource type or region doesn't support zones, an empty array is return
 
 ### Remarks
 
-There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone number or numbers for a zonal resource.  For zone redundant services (ZRS), the function will return an empty array.  Zonal resources can typically be identified by the use of a `zones` property on the resource header.  Zone redundant services have different ways to identify and use availability zones per resource. Use the documentation for a specific service to determine the category of support for availability zones. For more information, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
+There are different categories for Azure Availability Zones - zonal and zone-redundant.  The `pickZones` function can be used to return an availability zone for a zonal resource.  For zone redundant services (ZRS), the function returns an empty array.  Zonal resources typically have a `zones` property at the top level of the resource definition. To determine the category of support for availability zones, see [Azure Services that support Availability Zones](../../availability-zones/az-region.md).
 
-To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, for example `Microsoft.Storage/storageAccounts`.  If the response is non-empty, the region supports availability zones.
+To determine if a given Azure region or location supports availability zones, call the `pickZones` function with a zonal resource type, such as `Microsoft.Network/publicIPAddresses`.  If the response isn't empty, the region supports availability zones.
 
 ### pickZones example
 
