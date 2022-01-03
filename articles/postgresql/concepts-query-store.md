@@ -142,7 +142,7 @@ This view returns all the data in Query Store. There is one row for each distinc
 |blk_write_time	|double precision	 ||	Total time the statement spent writing blocks, in milliseconds (if track_io_timing is enabled, otherwise zero)|
 	
 ### query_store.query_texts_view
-This view returns query text data in Query Store. There is one row for each distinct query_text.
+This view returns query text data in Query Store. There is one row for each distinct query_text. The data isn't available via the Intelligent Performance section in the portal, API's, or the CLI - but It can be found by connecting to azure_sys and querying 'query_store.query_texts_view'.
 
 | **Name** | **Type** | **Description** |
 |--|--|--|
