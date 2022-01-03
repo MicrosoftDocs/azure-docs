@@ -234,7 +234,7 @@ sections:
           In Azure AD B2C, if the time difference between `refreshTokensValidFromDateTime` and `refreshTokenIssuedTime` is less than or equal to 5 minutes, the refresh token is still considered as valid. However, if the `refreshTokenIssuedTime` is greater than the `refreshTokensValidFromDateTime`, then the refresh token is revoked.
           Follow this process to check if the RT is revoked or not:
           1. Retrieve the `RefreshToken` and the `AccessToken` by redeeming `authorization_code`.
-          1. Wait for 7 mins
+          1. Wait for 7 minutes.
           1. Use PowerShell cmdlet [Revoke-AzureADUserAllRefreshToken](https://docs.microsoft.com/en-us/powershell/module/azuread/revoke-azureaduserallrefreshtoken?view=azureadps-2.0) or Microsoft Graph API [invalidateAllRefreshTokens](https://docs.microsoft.com/en-us/graph/api/user-invalidateallrefreshtokens?view=graph-rest-beta&tabs=http) to run the `RevokeAllRefreshToken` command.
           1. Wait for 10 minutes.
           
