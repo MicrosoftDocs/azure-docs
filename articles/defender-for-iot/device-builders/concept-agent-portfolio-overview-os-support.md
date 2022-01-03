@@ -1,7 +1,7 @@
 ---
 title: Agent portfolio overview and OS support (Preview)
 description: Microsoft Defender for IoT provides a large portfolio of agents based on the device type. 
-ms.date: 12/26/2021
+ms.date: 01/03/2022
 ms.topic: conceptual
 ---
 
@@ -13,16 +13,31 @@ Microsoft Defender for IoT provides a large portfolio of agents based on the dev
 
 The standalone agent covers most of the Linux Operating Systems (OS), which can be deployed as a binary package or as a source code that can be incorporated as part of the firmware and allow modification and customization based on customer needs. The following are some examples of supported OS:
 
-| Operating system | AMD64 | ARM32v7 | ARM for Edge | ARM64 | ARM64 for Edge |
-|--|--|--|--|--|
-| Debian 9 | ✓ | ✓ | | | |
-| Debian 10| | | | | |
-| Ubuntu 18.04 | ✓ | ✓ | ✓ | ✓ | ✓ |
-| Ubuntu 20.04 | ✓ | ✓ | ✓ | ✓ | ✓ |
+| Operating system | AMD64 | ARM32v7 | ARM64 |
+|--|--|--|
+| Debian 9 | ✓ | ✓ | |
+| Debian 10| ✓ | ✓ | |
+| Debian 11| ✓ | ✓ | |
+| Ubuntu 18.04 | ✓ | ✓ | ✓ |
+| Ubuntu 20.04 | ✓ | ✓ | ✓ |
 
 For a more granular view of the micro agent operating system dependencies, see [Linux dependencies](concept-micro-agent-linux-dependencies.md#linux-dependencies).
 
 For additional information, supported operating systems, or to request access to the source code so you can incorporate it as a part of the device's firmware, contact your account manager, or send an email to <defender_micro_agent@microsoft.com>.
+
+## Edge agent
+
+What information do we add here????
+
+The Edge agent covers most of the Linux Operating Systems (OS), which can be deployed as a binary package or as a source code that can be incorporated as part of the firmware and allow modification and customization based on customer needs. The following are some examples of supported OS:
+
+| Operating system | AMD64 | ARM32v7 | ARM64 |
+|--|--|--|
+| Debian 9 | ✓ | ✓ | |
+| Debian 10| ✓ | ✓ | |
+| Debian 11| ✓ | ✓ | |
+| Ubuntu 18.04 | ✓ | ✓ | ✓ |
+| Ubuntu 20.04 | ✓ | ✓ | ✓ |
 
 ## Azure RTOS micro agent
 
