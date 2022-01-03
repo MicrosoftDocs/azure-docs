@@ -6,6 +6,7 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/06/2020
 ms.author: yajin1
+ms.devlang: csharp
 ---
 # Troubleshooting guide for Azure SignalR Service common issues
 
