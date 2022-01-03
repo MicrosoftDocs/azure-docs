@@ -181,7 +181,7 @@ items:
 - name: Resources
   expanded: true
   items:
-  - name: FAQs
+  - name: FAQs - Azure API for FHIR
     href: fhir-faq.yml
   - name: GitHub Projects
     href: fhir-github-projects.md

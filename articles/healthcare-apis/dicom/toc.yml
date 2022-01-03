@@ -61,7 +61,7 @@ items:
 - name: Resources
   expanded: true
   items:
-    - name: FAQs
+    - name: FAQs - DICOM service
       href: dicom-services-faqs.yml
     - name: API versioning for DICOM service
       href: api-versioning-dicom-service.md

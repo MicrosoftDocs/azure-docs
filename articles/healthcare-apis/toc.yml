@@ -64,7 +64,7 @@ items:
 - name: Resources
   expanded: true
   items:
-  - name: FAQs
+  - name: FAQs - Healthcare APIs
     href: healthcare-apis-faqs.md
   - name: GitHub projects
     href: github-projects.md
