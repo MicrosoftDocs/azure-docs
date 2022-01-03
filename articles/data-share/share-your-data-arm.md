@@ -6,7 +6,7 @@ ms.author: jgao
 ms.service: data-share
 ms.topic: quickstart
 ms.custom: subject-armqs, devx-track-azurepowershell
-ms.date: 08/19/2020
+ms.date: 01/03/2022
 ---
 
 # Quickstart: Share data using Azure Data Share and ARM template
