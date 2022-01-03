@@ -525,7 +525,7 @@ Your App Service app now can pull the container image securely from your private
     az webapp deployment container config --enable-cd true --name <app-name> --resource-group myResourceGroup --query CI_CD_URL --output tsv
     ```
 
-    `CI_CD_URL` is a URL that App Service generates for you. Your registry should this URL to notify App Service that an image push occurred. It doesn't actually create the webhook for you.
+    `CI_CD_URL` is a URL that App Service generates for you. Your registry should use this URL to notify App Service that an image push occurred. It doesn't actually create the webhook for you.
 
 1. Create a webhook in your container registry using the CI_CD_URL you got from the last step.
 

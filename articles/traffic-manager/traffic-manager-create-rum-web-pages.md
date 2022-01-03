@@ -6,7 +6,6 @@ documentationcenter: traffic-manager
 author: duongau
 manager: kumud
 ms.service: traffic-manager
-ms.devlang: na
 ms.topic: how-to
 ms.tgt_pltfrm: 
 ms.workload: infrastructure

@@ -4,7 +4,7 @@ metadata:
   description: This document describes frequently asked questions for cloud sync.
   services: active-directory
   author: billmath
-  manager: daveba
+  manager: karenhoran
   ms.service: active-directory
   ms.workload: identity
   ms.topic: reference

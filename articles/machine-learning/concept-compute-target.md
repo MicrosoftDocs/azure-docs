@@ -89,6 +89,7 @@ See the following table to learn more about supported series and restrictions.
 | [DSv3](../virtual-machines/dv3-dsv3-series.md#dsv3-series) | None.| General purpose | Compute clusters and instance |
 | [EAv4](../virtual-machines/eav4-easv4-series.md) | None. | Memory optimized | Compute clusters and instance |
 | [Ev3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
+| [ESv3](../virtual-machines/ev3-esv3-series.md) | None. | Memory optimized | Compute clusters and instance |
 | [FSv2](../virtual-machines/fsv2-series.md) | None. | Compute optimized | Compute clusters and instance |
 | [FX](../virtual-machines/fx-series.md) | Requires approval. | Compute optimized | Compute clusters |
 | [H](../virtual-machines/h-series.md) | None. | High performance compute | Compute clusters and instance |
