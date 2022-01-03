@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: overview
-ms.date: 12/22/2021
+ms.date: 01/03/2022
 ms.author: alkohli
 ms.custom: references_regions
 # Customer intent: As an IT admin, I need to understand how I can discover and order all first party Azure hardware and manage and track those orders.
@@ -26,7 +26,7 @@ Edge Hardware Center offers the following benefits:
 - **Save addresses for future orders** - You can save your frequently used addresses while placing an order. For subsequent orders, you can then select a shipping address from your address book.
 - **Stay updated with your order status** - You can view the order status updates for each of the order items. You can also choose to get notified through email when your order moves to next stage. You can add one or more people in the notification list.
 
-## Available hardware
+<!--## Available hardware
 
 Use the Edge Hardware Center to browse through and order SKUs from the following product families:  
 
@@ -36,7 +36,7 @@ Use the Edge Hardware Center to browse through and order SKUs from the following
 | Azure Stack Edge Pro R<sup>1</sup>  |Azure Stack Edge Pro R - single node <br> Azure Stack Edge Pro R - single node with UPS   | 
 | Azure Stack Edge Mini R<sup>2</sup>  |One configuration, selected automatically.    |      
 
-<sup>1,2</sup> R denotes rugged SKUs targeted for defense applications.
+<sup>1,2</sup> R denotes rugged SKUs targeted for defense applications.-->
 
 ## Resource provider
 
