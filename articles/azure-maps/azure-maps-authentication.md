@@ -339,7 +339,7 @@ The service will reject preflight requests if the following conditions occur:
 > [!NOTE]
 > A preflight request is evaluated against the service and not against the requested resource. The account owner must have enabled CORS by setting the appropriate account properties in order for the request to succeed.
 
-### Actual Request
+### Actual request
 
 Once the preflight request is accepted and the response is returned, the browser will dispatch the actual request against the map service. The browser will deny the actual request immediately if the preflight request is rejected.
 
