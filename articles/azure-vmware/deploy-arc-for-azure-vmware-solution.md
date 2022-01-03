@@ -351,7 +351,7 @@ Copy the JSON above into an empty file and save the file as `AzureArcAVSVMContri
 
 ## Create Arc enabled Azure VMware Solution VM
 
-This section will show users how to create a virtual machine on VMware vCenter using Azure Arc. Before you begin, check the prerequisite list below to ensure you're set up and ready to create an Arc enabled Azure VMware Solution VM. 
+This section shows users how to create a virtual machine on VMware vCenter using Azure Arc. Before you begin, check the prerequisite list below to ensure you're set up and ready to create an Arc enabled Azure VMware Solution VM. 
 
 ### Prerequisites
 
@@ -483,21 +483,38 @@ During onboarding
 
 ## Preview FAQ
 
->**Is the preview available in all regions?**
->
->Arc for Azure VMware Solution is currently available in EastUS and West EU.
->
->**How do you onboard a customer?**
-> 
->Fill in the [Customer Enrollment form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0SUP-7nYapHr1Tk0MFNflVUNEJQNzFONVhVOUlVTVk3V1hNTjJPVDM5WS4u) and we'll be in touch.
->
->**How does support work?**
->
->Standard support process for Azure VMware Solution has been enabled to support customers.
+**Is the preview available in all regions?**
 
+Arc for Azure VMware Solution is currently available in EastUS and West EU.
 
-
+**How do you onboard a customer?**
  
+Fill in the [Customer Enrollment form](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR0SUP-7nYapHr1Tk0MFNflVUNEJQNzFONVhVOUlVTVk3V1hNTjJPVDM5WS4u) and we'll be in touch.
+
+**How does support work?**
+
+Standard support process for Azure VMware Solution has been enabled to support customers.
+
+**Does Arc for Azure VMware Solution support private end point?**
+
+Yes. Arc for Azure VMware Solution will support private end point for general audience. However, it is not currently supported.
+
+**Is enabling internet the only option to enable Arc for Azure VMware Solution?**
+
+Yes
+
+**Is DHCP support available?**
+
+DHCP support is on the road map and will soon be available for customers. Currently, we are only supporting static IP.
+
+>[!NOTE]
+> This is Azure VMware Solution 2.0 only. It is not available for Azure VMware Solution by Cloudsimple.
+
+## Debugging tips for known issues
+
+The following serve as your self-help guide.
+
+- In windows jumpbox, if you have 32 bit Azure CLI installed, verify that your current version of Azure CLI has been uninstalled (this can be done from the Control Panel).
 
 
 
