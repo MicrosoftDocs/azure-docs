@@ -22,6 +22,7 @@ This article shows how to enable and disable system-assigned managed identities 
 If you're unfamiliar with managed identities for Azure resources, see the [Managed identities for Azure resources overview section](../active-directory/managed-identities-azure-resources/overview.md).
 
 ::: zone pivot="sc-enterprise-tier"
+
 - An already provisioned Azure Spring Cloud Enterprise tier instance. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md).
 - [Azure CLI version 2.0.67 or later](/cli/azure/install-azure-cli).
 - The preview version (available from 2.7.0a2) of the Azure Spring Cloud extension for Enterprise tier. Use the following command to install:
