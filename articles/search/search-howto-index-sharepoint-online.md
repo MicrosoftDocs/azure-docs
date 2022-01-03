@@ -266,7 +266,7 @@ There are a few steps to creating the indexer:
     ```
 
 > [!NOTE]
-> If the Azure AD application requires admin approval and was not approved before logging in, you may see the following screen. [Admin approval](https://docs.microsoft.com/azure/active-directory/manage-apps/grant-admin-consent) is required to continue.
+> If the Azure AD application requires admin approval and was not approved before logging in, you may see the following screen. [Admin approval](../active-directory/manage-apps/grant-admin-consent) is required to continue.
 :::image type="content" source="media/search-howto-index-sharepoint-online/no-admin-approval-error.png" alt-text="Admin approval required":::
 
 ### Step 7: Check the indexer status
