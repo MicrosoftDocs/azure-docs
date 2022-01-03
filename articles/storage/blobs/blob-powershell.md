@@ -6,7 +6,7 @@ author: StevenMatthew
 ms.author: shaas
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/30/2021
+ms.date: 01/03/2022
 ---
 
 # Manage block blobs with PowerShell
@@ -37,13 +37,7 @@ To use your default subscription, create the context by calling the `New-AzStora
 $ctx = New-AzStorageContext -StorageAccountName <storage account name> -UseConnectedAccount
 ```
 
-To change subscriptions, retrieve the context object with the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet, then change the current context with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext). The next example shows how to get a subscription in the currently active tenant, and set it as the active session. More information is available on how to [change the active subscription](/powershell/azure/manage-subscriptions-azureps?view=azps-7.0.0#change-the-active-subscription).
-
-```azurepowershell
-#Create a context object with an alternate subscription
-$ctx = Get-AzSubscription -SubscriptionId <subscription id>
-Set-AzContext $ctx
-```
+To change subscriptions, retrieve the context object with the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet, then change the current context with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext). More information is available on how to [change the active subscription](/powershell/azure/manage-subscriptions-azureps#change-the-active-subscription).
 
 All blob data is stored within containers, so you'll need at least one container resource before you can upload data. If needed, use the following example to create a storage container. You can get more information about [Managing blob containers using PowerShell](blob-containers-powershell.md).
 
@@ -130,7 +124,7 @@ Do
 
          #Display progress bar
          $percent = $($blobCount/$maxCount*100)
-         Write-Progress -Activity "Processing blobs" -Status "$percent% Complete" -PercentComplete $percentage
+         Write-Progress -Activity "Processing blobs" -Status "$percent% Complete" -PercentComplete $percent
          $blobCount++
      }
 
