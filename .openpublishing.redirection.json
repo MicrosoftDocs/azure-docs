@@ -17939,8 +17939,8 @@
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-overview.md",
-      "redirect_url": "/azure/lab-services/classroom-labs-overview",
-      "redirect_document_id": true
+      "redirect_url": "/azure/lab-services/get-started-manage-labs",
+      "redirect_document_id": false
     },
     {
       "source_path_from_root": "/articles/lab-services/classroom-labs/classroom-labs-scenarios.md",
@@ -44508,6 +44508,11 @@
       "redirect_url": "/azure/communication-services/concepts/telephony/port-phone-number",
       "redirect_document_id": false
     },
+      {
+        "source_path_from_root": "/articles/communication-services/quickstarts/voice-video-calling/pstn-call.md",
+        "redirect_url": "/azure/communication-services/quickstarts/telephony/pstn-call",
+        "redirect_document_id": false
+      },
     {
       "source_path_from_root": "/articles/communication-services/concepts/telephony-sms/concepts.md",
       "redirect_url": "/azure/communication-services/concepts/sms/concepts",

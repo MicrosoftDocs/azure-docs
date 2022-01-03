@@ -9,7 +9,6 @@ manager: rkarlin
 ms.assetid:
 ms.service: security
 ms.subservice: security-fundamentals
-ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2021
 ms.author: terrylan
