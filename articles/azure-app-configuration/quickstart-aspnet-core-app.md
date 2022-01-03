@@ -76,46 +76,46 @@ dotnet new mvc --no-https --output TestAppConfig
     #### [.NET 6.x](#tab/core6x)
     In *Program.cs*, and replace its content with the following code: 
 
-        ```csharp
-        var builder = WebApplication.CreateBuilder(args);
-        builder.Host.ConfigureAppConfiguration(builder =>
-            {
-                builder.AddAzureAppConfiguration(options =>
-                {
-                    //Connect to your App Config Store using a connection string 
-                    options.Connect(Environment.GetEnvironmentVariable("AppConfig"))
-                            // Load all keys that start with `TestApp:` and have no label
-                            .Select("TestApp:*");                               
-                });
-            })
-            .ConfigureServices(services =>
-            {
-                // Make Azure App Configuration services available through dependency injection
-                services.AddAzureAppConfiguration()
-                        .AddControllersWithViews();
-            });
-        
-        var app = builder.Build();
-        
-        // Configure the HTTP request pipeline.
-        if (!app.Environment.IsDevelopment())
+    ```csharp
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Host.ConfigureAppConfiguration(builder =>
         {
-            app.UseExceptionHandler("/Home/Error");
-        }
-        app.UseStaticFiles();
-        
-        app.UseAzureAppConfiguration(); 
-        
-        app.UseRouting();
-        
-        app.UseAuthorization();
-        
-        app.MapControllerRoute(
-            name: "default",
-            pattern: "{controller=Home}/{action=Index}/{id?}");
-        
-        app.Run();
-        ```
+            builder.AddAzureAppConfiguration(options =>
+            {
+                //Connect to your App Config Store using a connection string 
+                options.Connect(Environment.GetEnvironmentVariable("AppConfig"))
+                        // Load all keys that start with `TestApp:` and have no label
+                        .Select("TestApp:*");                               
+            });
+        })
+        .ConfigureServices(services =>
+        {
+            // Make Azure App Configuration services available through dependency injection
+            services.AddAzureAppConfiguration()
+                    .AddControllersWithViews();
+        });
+    
+    var app = builder.Build();
+    
+    // Configure the HTTP request pipeline.
+    if (!app.Environment.IsDevelopment())
+    {
+        app.UseExceptionHandler("/Home/Error");
+    }
+    app.UseStaticFiles();
+    
+    app.UseAzureAppConfiguration(); 
+    
+    app.UseRouting();
+    
+    app.UseAuthorization();
+    
+    app.MapControllerRoute(
+        name: "default",
+        pattern: "{controller=Home}/{action=Index}/{id?}");
+    
+    app.Run();
+    ```
     
     This code will connect to your App Configuration Store using a connection string and load all keys that have the *TestApp* prefix from a previous step. 
     
