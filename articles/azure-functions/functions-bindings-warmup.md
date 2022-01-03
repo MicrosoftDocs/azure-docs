@@ -5,6 +5,7 @@ author: craigshoemaker
 keywords: azure functions, functions, event processing, warmup, cold start, premium, dynamic compute, serverless architecture
 ms.service: azure-functions
 ms.topic: reference
+ms.devlang: csharp, java, javascript, python
 ms.custom: devx-track-csharp
 ms.date: 12/14/2021
 ms.author: cshoe

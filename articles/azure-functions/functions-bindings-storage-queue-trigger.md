@@ -5,6 +5,7 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 12/18/2021
 ms.author: cshoe
+ms.devlang: csharp, java, javascript, powershell, python
 ms.custom: "devx-track-csharp, cc996988-fb4f-47, devx-track-python"
 zone_pivot_groups: programming-languages-set-functions-lang-workers
 ---

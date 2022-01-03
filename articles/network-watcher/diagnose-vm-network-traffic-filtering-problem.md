@@ -13,7 +13,6 @@ ms.topic: quickstart
 ms.service: network-watcher
 ms.workload: infrastructure
 ms.tgt_pltfrm: network-watcher
-ms.devlang: na
 tags: azure-resource-manager
 ms.custom: mvc, mode-ui
 #Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.

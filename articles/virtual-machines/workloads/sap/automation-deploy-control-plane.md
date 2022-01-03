@@ -19,7 +19,7 @@ The control plane deployment for the [SAP deployment automation framework on Azu
 
 ## Prepare the deployment credentials
 
-The SAP Deployment Frameworks uses Service Principals when doing the deployment. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
+The SAP Deployment Frameworks uses Service Principals when doing the deployments. You can create the Service Principal for the Control Plane deployment using the following steps using an account with permissions to create Service Principals:
 
 
 ```azurecli
@@ -35,7 +35,7 @@ az ad sp create-for-rbac --role="Contributor" --scopes="/subscriptions/<subscrip
    > - password
    > - tenant
 
-Assign the correct permissions to the Service Principal: 
+Optionally assign the following permissions to the Service Principal: 
 
 ```azurecli
 az role assignment create --assignee <appId> --role "User Access Administrator"
@@ -56,7 +56,7 @@ You can copy the sample configuration files to start testing the deployment auto
 ```bash
 cd ~/Azure_SAP_Automated_Deployment
 
-cp -R sap-automation/samples/WORKSPACES WORKSPACES
+cp -Rp sap-automation/samples/WORKSPACES WORKSPACES
 
 ```
 
@@ -70,13 +70,14 @@ export       subscriptionID=<subscriptionID>
 export               spn_id=<appID>
 export           spn_secret=<password>
 export            tenant_id=<tenant>
+export          region_code=WEEU
 
-${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                         \
-        --deployer_parameter_file DEPLOYER/MGMT-WEEU-DEP00-INFRASTRUCTURE/MGMT-WEEU-DEP00-INFRASTRUCTURE.tfvars  \
-        --library_parameter_file LIBRARY/MGMT-WEEU-SAP_LIBRARY/MGMT-WEEU-SAP_LIBRARY.tfvars                      \
-        --subscription $subscriptionID                                                                           \
-        --spn_id "${spn_id}"                                                                                     \
-        --spn_secret "${spn_secret}"                                                                             \
+${DEPLOYMENT_REPO_PATH}/deploy/scripts/prepare_region.sh                                                                            \
+        --deployer_parameter_file DEPLOYER/MGMT-${region_code}-DEP00-INFRASTRUCTURE/MGMT-${region_code}-DEP00-INFRASTRUCTURE.tfvars \
+        --library_parameter_file LIBRARY/MGMT-${region_code}-SAP_LIBRARY/MGMT-${region_code}-SAP_LIBRARY.tfvars                     \
+        --subscription $subscriptionID                                                                                              \
+        --spn_id "${spn_id}"                                                                                                        \
+        --spn_secret "${spn_secret}"                                                                                                \
         --tenant_id "${tenant_id}"
 ```
 
@@ -111,11 +112,11 @@ New-SAPAutomationRegion -DeployerParameterfile .\DEPLOYER\MGMT-WEEU-DEP00-INFRAS
 
 > [!NOTE]
 > Be sure to replace the sample value `<subscriptionID>` with your subscription ID.
-> Replace the `<spn_ID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
+> Replace the `<appID>`, `<password>`, `<tenant>` values with the output values of the SPN creation
 
 ## Next step
 
 > [!div class="nextstepaction"]
-> [Configure SAP Workload Zone](automation-deploy-workload-zone.md)
+> [Configure SAP Workload Zone](automation-configure-workload-zone.md)
 
 
