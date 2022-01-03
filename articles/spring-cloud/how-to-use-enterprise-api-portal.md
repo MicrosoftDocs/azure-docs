@@ -21,7 +21,7 @@ This article describes the use of the API portal with Azure Spring Cloud Enterpr
 - An already provisioned Azure Spring Cloud Enterprise tier service instance with the API portal enabled. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
 - [Spring Cloud Gateway](./how-to-use-enterprise-spring-cloud-gateway.md) is enabled during provisioning and the corresponding API metadata is configured.
 
-   ![API Portal Overview image](./media/enterprise/api-portal/overview.png)
+   ![API Portal Installed Overview image](./media/enterprise/api-portal/overview.png)
 
 ## Configure the API portal
 
