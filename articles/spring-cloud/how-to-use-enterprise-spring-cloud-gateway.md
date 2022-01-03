@@ -148,9 +148,7 @@ Not all the filters/predicates are supported in Azure Spring Cloud because of se
    az spring-cloud gateway update --api-description "api description" --api-title "api title" --api-version "v0.1" --server-url "<endpoint-in-the-previous-step>" --allowed-origins "*"
    ```
 
-   > You can find complete command options [here](../../cli/azure/spring-cloud?view=azure-cli-latest) 
-
-   You can also view those properties in portal.
+   You can also view those properties in the portal.
 
    ![Properties endpoint for gateway](./media/enterprise/gateway/configuration.png)
 
