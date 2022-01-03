@@ -16,24 +16,29 @@
 1. Download and install the OpenVPN client (version 2.4 or higher) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 2. Download the VPN client profile package from the Azure portal, or use the 'New-AzVpnClientConfiguration' cmdlet in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
-4. Export the point-to-site client certificate you created and uploaded. Use the following article links:
+4. Export the point-to-site **root and client** certificates you created and uploaded. Use the following article links:
 
-   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) instructions
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) instructions
    
-   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) instructions
+   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#cer) instructions
 5. Extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using OpenSSL on your machine is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
-6. Open *profileinfo.txt* in Notepad. To get the thumbprint of the client (child) certificate, select the text (including and between)"-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
-7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below and replace everything between "cert" and "/cert".
+6. Copy your certificate chain from your exported child and root certificates.
+   -  Open *profileinfo.txt* (your client certificate) in Notepad. To get the thumbprint of the client (child) certificate, select the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" for the child certificate and copy it. You can identify the child certificate by looking at the subject=/ line.
+   - If you have public intermediate certificates in your *profileinfo.txt* file, the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" IS YOUR $INTERMEDIATECERT. Otherwise, leave this value blank.
+   - Open your exported root certificate in notepad. The text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----" is your $ROOTCERTIFICATE
+7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below and replace everything between "cert" and "/cert" with the values you copied from your *profileinfo.txt* and root certificate files.
 
    ```
    # P2S client certificate
    # please fill this field with a PEM formatted cert
    <cert>
    $CLIENTCERTIFICATE
+   $INTERMEDIATECERT (optional)
+   $ROOTCERTIFICATE
    </cert>
    ```
 8. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
