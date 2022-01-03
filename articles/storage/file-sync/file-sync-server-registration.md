@@ -4,7 +4,7 @@ description: Learn how to register and unregister a Windows Server with an Azure
 author: roygara
 ms.service: storage
 ms.topic: how-to
-ms.date: 04/13/2021
+ms.date: 01/3/2022
 ms.author: rogarana
 ms.subservice: files 
 ms.custom: devx-track-azurepowershell
