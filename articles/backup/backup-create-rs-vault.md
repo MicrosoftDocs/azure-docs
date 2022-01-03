@@ -39,7 +39,7 @@ Azure Backup automatically handles storage for the vault. You need to specify ho
 >[!NOTE]
 >The storage replication settings for the vault aren't relevant for Azure file share backup, because the current solution is snapshot based and no data is transferred to the vault. Snapshots are stored in the same storage account as the backed-up file share.
 
-## Set Cross Region Restore
+## Configure Cross Region Restore
 
 The Cross Region Restore option allows you to restore data in a secondary, [Azure paired region](../availability-zones/cross-region-replication-azure.md). You can use Cross Region Restore to conduct drills when there's an audit or compliance requirement. You can also use it to restore the data if there's a disaster in the primary region.
 
