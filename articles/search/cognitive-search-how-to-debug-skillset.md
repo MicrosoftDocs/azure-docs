@@ -15,10 +15,10 @@ ms.date: 12/31/2021
 
 Start a debug session to identify and resolve errors, validate changes, and push changes to a published skillset in your Azure Cognitive Search service.
 
-A debug session is a cached indexer and skillset execution, scoped to a single document, that you can edit and test interactively. If you are unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md).
+A debug session is a cached indexer and skillset execution, scoped to a single document, that you can edit and test your changes interactively. If you are unfamiliar with how a debug session works, see [Debug sessions in Azure Cognitive Search](cognitive-search-debug-session.md). To practice a debug workflow with a sample document, see [Tutorial: Debug sessions](cognitive-search-tutorial-debug-sessions.md).
 
 > [!Important]
-> Debug sessions is a preview portal feature, provided under [Supplemental Terms of Use for Microsoft Azure Previews](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
+> Debug sessions is a preview portal feature, provided under [Supplemental Terms of Use](https://azure.microsoft.com/support/legal/preview-supplemental-terms/).
 
 ## Prerequisites
 
@@ -50,9 +50,21 @@ Debug sessions work with all generally available data sources and most preview d
 
 The debug session begins by executing the indexer and skillset on the selected document. The document's content and metadata created will be visible and available in the session.
 
+## Start with errors and warnings
+
+Indexer execution history in the portal gives you the full error and warning list for all documents. In a debug session, the errors and warnings will be limited to one document. As a best practice, resolve problems with inputs before moving on to outputs. 
+
+To determine whether a modification resolves an error, follow these steps:
+
+1. Select **Save** in Skill Details to preserve your changes.
+
+1. Select **Run** in the session window to invoke skillset execution using the modified definition.
+
+1. Return to **Errors and warnings** to see if the count is reduced. The list is not refreshed until you open the tab.
+
 ## Check field mappings
 
-If you're debugging a skillset that isn't producing output, one of the first things to check is the field maps that specify how content moves out of the pipeline and into a search index.
+If you're missing output, check the field mappings that specify how content moves out of the pipeline and into a search index.
 
 1. Start with the default views: **AI enrichment > Skill Graph**, with the graph type set to **Dependency Graph**.
 
@@ -87,4 +99,4 @@ The following steps show you how to get information about a skill.
 Now that you understand the layout and capabilities of the Debug Sessions visual editor, try the tutorial for a hands-on experience.
 
 > [!div class="nextstepaction"]
-> [Explore Debug sessions feature tutorial](./cognitive-search-tutorial-debug-sessions.md)
+> [Tutorial: Explore Debug sessions](./cognitive-search-tutorial-debug-sessions.md)
