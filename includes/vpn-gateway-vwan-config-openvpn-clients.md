@@ -26,23 +26,23 @@
    ```
    openssl pkcs12 -in "filename.pfx" -nodes -out "profileinfo.txt"
    ```
-6. Copy your certificate chain from your exported child and root certificates.
-   -  Open *profileinfo.txt* (your client certificate) in Notepad. Your $CLIENTCERTIFICATE is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". You can identify the child certificate by looking at the subject=/ line.
-   - If you have public intermediate certificates in your *profileinfo.txt* file, your $INTERMEDIATECERT is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". Otherwise, do not include a value for $INTERMEDIATECERT.
-   - Open your exported root certificate in notepad. Your $ROOTCERTIFICATE is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". 
-7. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Find the section shown below and replace everything between `<cert>` and `</cert>` with the values you copied from your *profileinfo.txt* and root certificate files.
+6. Switch to the *vpnconfig.ovpn* file you opened in Notepad from step 3. Fill in the section between `<cert>` and `</cert>`, getting the values for `$CLIENT_CERTIFICATE`, `$INTERMEDIATE_CERTIFICATE`, and `$ROOT_CERTIFICATE` as shown below.
 
    ```
-   # P2S client certificate
-   # please fill this field with a PEM formatted cert
-   <cert>
-   $CLIENTCERTIFICATE
-   $INTERMEDIATECERT (optional)
-   $ROOTCERTIFICATE
-   </cert>
-   ```
-8. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
-9. Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and `<key>` and `</key>`.
+      # P2S client certificate
+      # please fill this field with a PEM formatted cert
+      <cert>
+      $CLIENT_CERTIFICATE
+      $INTERMEDIATE_CERTIFICATE (optional)
+      $ROOT_CERTIFICATE
+      </cert>
+      ```
+
+   -  Open *profileinfo.txt* from the previous step in Notepad. Your `$CLIENT_CERTIFICATE` is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". You can identify the child certificate by looking at the subject=/ line.
+   - If you have a public intermediate certificate in your *profileinfo.txt* file, your `$INTERMEDIATE_CERTIFICATE` is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". Otherwise, do not include a value for `$INTERMEDIATE_CERTIFICATE`.
+   - Open your exported **root** certificate *rootcertificate.cer* in Notepad. Your `$ROOT_CERTIFICATE` is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". 
+7. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
+8. Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and `<key>` and `</key>`.
 
    ```
    # P2S client root certificate private key
@@ -51,9 +51,9 @@
    $PRIVATEKEY
    </key>
    ```
-10. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
-11. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
-12. Right-click the OpenVPN icon in the system tray and click connect.
+9. Do not change any other fields. Use the filled in configuration in client input to connect to the VPN.
+10. Copy the vpnconfig.ovpn file to C:\Program Files\OpenVPN\config folder.
+11. Right-click the OpenVPN icon in the system tray and click connect.
 
 ## <a name="mac"></a>Mac clients
 
