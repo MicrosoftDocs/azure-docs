@@ -34,6 +34,12 @@ Each number in the version indicates general compatibility with the previous ver
 
 Aim to run the latest patch release of the minor version you're running. For example, your production cluster is on **`1.17.7`**. **`1.17.8`** is the latest available patch version available for the *1.17* series. You should upgrade to **`1.17.8`** as soon as possible to ensure your cluster is fully patched and supported.
 
+## Kubernetes Alias Minor Version
+
+Azure Kubernetes Service allows for you to create a cluster without specifiying the exact patch version. When creating a cluster without specifying the patch, your kubernetes version will be on that minor versions latest patch. For example, if you create a cluster with **`1.21`**, your cluster will be running **`1.21.7`** which is the latest patch version of *1.21*.
+
+To see what patch you are on when using Alias Minor Version, run the `az aks show --resource-group myResourceGroup --name myAKSCluster` command. The property `currentKubernetesVersion` shows the whole kubernetes version.
+
 ## Kubernetes version support policy
 
 AKS defines a generally available version as a version enabled in all SLO or SLA measurements and available in all regions. AKS supports three GA minor versions of Kubernetes:
