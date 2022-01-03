@@ -373,7 +373,7 @@ The following steps describe how to create and configure an Azure Maps account w
    az rest --method GET --url 'https://us.atlas.microsoft.com/search/address/json?api-version=1.0&query=15127 NE 24th Street, Redmond, WA 98052' --headers "Authorization=jwt-sas $($sasToken)" --query "results[].address"
    ```
 
-## Complete Example
+## Complete example
 
 In the current directory of the PowerShell session you should have:
 
