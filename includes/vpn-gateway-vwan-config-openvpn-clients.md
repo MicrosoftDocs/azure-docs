@@ -16,11 +16,11 @@
 1. Download and install the OpenVPN client (version 2.4 or higher) from the official [OpenVPN website](https://openvpn.net/index.php/open-source/downloads.html).
 2. Download the VPN client profile package from the Azure portal, or use the 'New-AzVpnClientConfiguration' cmdlet in PowerShell.
 3. Unzip the profile. Next, open the *vpnconfig.ovpn* configuration file from the OpenVPN folder using Notepad.
-4. Export the point-to-site **root and client** certificates you created and uploaded. Use the following article links:
+4. Export the point-to-site client certificate you created and uploaded. Use the following article links:
 
-   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#cer) instructions
+   * [VPN Gateway](../articles/vpn-gateway/vpn-gateway-certificates-point-to-site.md#clientexport) instructions
    
-   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#cer) instructions
+   * [Virtual WAN](../articles/virtual-wan/certificates-point-to-site.md#clientexport) instructions
 5. Extract the private key and the base64 thumbprint from the *.pfx*. There are multiple ways to do this. Using OpenSSL on your machine is one way. The *profileinfo.txt* file contains the private key and the thumbprint for the CA and the Client certificate. Be sure to use the thumbprint of the client certificate.
 
    ```
@@ -38,9 +38,9 @@
       </cert>
       ```
 
-   -  Open *profileinfo.txt* from the previous step in Notepad. Your `$CLIENT_CERTIFICATE` is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". You can identify the child certificate by looking at the subject=/ line.
-   - If you have a public intermediate certificate in your *profileinfo.txt* file, your `$INTERMEDIATE_CERTIFICATE` is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". Otherwise, do not include a value for `$INTERMEDIATE_CERTIFICATE`.
-   - Open your exported **root** certificate *rootcertificate.cer* in Notepad. Your `$ROOT_CERTIFICATE` is the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". 
+   - Open *profileinfo.txt* from the previous step in Notepad. You can identify each certificate by looking at the `subject=` line. For example, if your child certificate was called P2SChildCert, your client certificate will be after the `subject=CN = P2SChildCert` attribute. 
+   - For each certificate in the chain, copy the text (including and between) "-----BEGIN CERTIFICATE-----" and "-----END CERTIFICATE-----". 
+   - Only include a  `$INTERMEDIATE_CERTIFICATE` value if you have an intermediate certificate in your *profileinfo.txt* file. 
 7. Open the *profileinfo.txt* in Notepad. To get the private key, select the text (including and between) "-----BEGIN PRIVATE KEY-----" and "-----END PRIVATE KEY-----" and copy it.
 8. Go back to the vpnconfig.ovpn file in Notepad and find this section. Paste the private key replacing everything between and `<key>` and `</key>`.
 
