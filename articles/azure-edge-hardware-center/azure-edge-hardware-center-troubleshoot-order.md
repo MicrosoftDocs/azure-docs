@@ -7,7 +7,7 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: troubleshooting
-ms.date: 12/21/2021
+ms.date: 01/03/2022
 ms.author: alkohli
 ---
 # Troubleshoot your Azure Edge Hardware Center ordering issues
