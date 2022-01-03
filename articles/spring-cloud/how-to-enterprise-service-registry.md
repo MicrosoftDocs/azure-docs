@@ -18,7 +18,7 @@ ms.custom: devx-track-java
 
 - An already provisioned Azure Spring Cloud Enterprise tier service instance with Service Registry enabled. For more information, see [Get started](./get-started-enterprise.md).
 
-   ![sr-overview](./media/service-registry/overview.png)
+   ![sr-overview](./media/enterprise/service-registry/overview.png)
 
 ## Use Service Registry with apps
 
@@ -50,7 +50,7 @@ Use the following steps to bind an application to the Service Registry.
 
 1. Select **Bind app** and choose one app in the dropdown, then select **Apply** to bind.
 
-   ![sr-app-bind-dropdown](./media/service-registry/app-bind-dropdown.png)
+   ![sr-app-bind-dropdown](./media/enterprise/service-registry/app-bind-dropdown.png)
 
 ## Next steps
 

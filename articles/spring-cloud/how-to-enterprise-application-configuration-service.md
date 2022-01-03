@@ -22,7 +22,7 @@ With Application Configuration Service, you have a central place to manage exter
 
 - An already provisioned Azure Spring Cloud Enterprise tier service instance with Application Configuration Service enabled. For more information, see [Get started with Enterprise Tier](./get-started-enterprise.md)
 
-   ![acs-overview](./media/application-configuration-service/overview.png)
+   ![acs-overview](./media/enterprise/application-configuration-service/overview.png)
 
 ## Manage Application Configuration Service settings
 
@@ -30,7 +30,7 @@ Application Configuration Service supports Azure DevOps, GitHub, GitLab, and Bit
 
 To manage the service settings, open the **Settings** section and add a new entry in the **Repositories** section.
 
-![acs-settings](./media/application-configuration-service/settings.png)
+![acs-settings](./media/enterprise/application-configuration-service/settings.png)
 
 The properties for each entry are described in the following table.
 
@@ -53,7 +53,7 @@ Configuration will be pulled from Git backends using what is defined in a patter
 
 Application Configuration Service supports three repository types. The following list provides more details.
 
-![acs-auth](./media/application-configuration-service/auth.png)
+![acs-auth](./media/enterprise/application-configuration-service/auth.png)
 
 - Public repository
 
@@ -81,7 +81,7 @@ Application Configuration Service supports three repository types. The following
 
 To validate access to the target URI, select **Validate**. After validation is completed successfully, select **Apply** to update the configuration settings.
 
-![acs-settings2](./media/application-configuration-service/settings.png)
+![acs-settings2](./media/enterprise/application-configuration-service/settings.png)
 
 ## Restriction on using Application Configuration Service with apps
 
@@ -104,7 +104,7 @@ To claim that the app will use the centralized configurations, you must bind the
 
 1. Select **Bind app** and choose one app in the dropdown. Select **Apply** to bind.
 
-   ![acs-app-bind-dropdown](./media/application-configuration-service/app-bind-dropdown.png)
+   ![acs-app-bind-dropdown](./media/enterprise/application-configuration-service/app-bind-dropdown.png)
 
    > [!NOTE]
    > When you change the bind/unbind status, you must restart or redeploy the app to for the binding to take effect.
@@ -113,10 +113,10 @@ To claim that the app will use the centralized configurations, you must bind the
 
    a. Open the **Apps** section to list all the apps.
 
-      ![acs-app-dashboard](./media/application-configuration-service/app-dashboard.png)
+      ![acs-app-dashboard](./media/enterprise/application-configuration-service/app-dashboard.png)
 
    b. Select the target app to configure patterns.
 
    c. Open the **Configuration** section and find the **General settings** tab. Under the **Config file patterns** property, choose one or more patterns from the dropdown list. Select **Save** to save the changes.
 
-      ![acs-pattern](./media/application-configuration-service/pattern.png)
+      ![acs-pattern](./media/enterprise/application-configuration-service/pattern.png)

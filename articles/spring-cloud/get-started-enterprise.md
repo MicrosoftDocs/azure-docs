@@ -188,7 +188,7 @@ To build locally, use the following steps:
 
 Access the `application gateway` and `customers service` applications from the browser using the `Public Url` shown above. The Public Url has the format `https://<service_name>-api-gateway.azuremicroservices.io`.
 
-![Access petclinic customers service](./media/app-deployment/access-customers-service.png)
+![Access petclinic customers service](./media/enterprise/app-deployment/access-customers-service.png)
 
 ## Use Spring Cloud Gateway
 
