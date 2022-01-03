@@ -315,7 +315,7 @@ sections:
           
           1. Run the [latest Certification Test Tool for Azure VMs](https://aka.ms/AzureCertificationTestTool) on your image.
           
-          2. Raise a [support ticket](https://aka.ms/marketplacepublishersupport). Make sure to attach the toolkit report and provide offer details:
+          2. Raise a [support ticket](https://go.microsoft.com/fwlink/?linkid=2165533). Make sure to attach the toolkit report and provide offer details:
              - Offer name
              - Publisher name
              - Plan ID/SKU and version
@@ -543,15 +543,15 @@ sections:
 
           Publishers generally request exceptions in the following cases:
           
-          - **Exception for one or more test cases**. Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request exceptions for test cases.
+          - **Exception for one or more test cases**. Contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533) to request exceptions for test cases.
           
-          - **Locked-down VMs / No root access**. A few publishers have scenarios where VMs need to be locked because they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at [Partner Center support](https://aka.ms/marketplacepublishersupport).
+          - **Locked-down VMs / No root access**. A few publishers have scenarios where VMs need to be locked because they have software such as firewalls installed on the VM. In this case, download the [Certified Test Tool](https://aka.ms/AzureCertificationTestTool) and submit the report at [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533).
           
-          - **Custom templates**. Some publishers publish VM images that require a custom Azure Resource Manager (ARM) template to deploy the VMs. In this case, submit the custom templates at [Partner Center support](https://aka.ms/marketplacepublishersupport) so it can be used by the Certification team for validation.
+          - **Custom templates**. Some publishers publish VM images that require a custom Azure Resource Manager (ARM) template to deploy the VMs. In this case, submit the custom templates at [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533) so it can be used by the Certification team for validation.
           
           ### Information to provide for exception scenarios
 
-          Contact [Partner Center support](https://aka.ms/marketplacepublishersupport) to request an exception for one of the scenarios, and include the following information:
+          Contact [Partner Center support](https://go.microsoft.com/fwlink/?linkid=2165533) to request an exception for one of the scenarios, and include the following information:
           
           - **Publisher ID**. Type your Partner Central portal Publisher ID.
           - **Offer ID/name**. Enter the Offer ID or name.

@@ -616,7 +616,7 @@
       topicHref: /azure/healthcare-apis/dicom/index
     - name: Data Transformation
       tocHref: /azure/healthcare-apis/data-transformation/
-      topicHref: /azure/healthcare-apis/data-transformation/index
+      topicHref: /azure/healthcare-apis/fhir/convert-data
     - name: IoT Connector
       tocHref: /azure/healthcare-apis/iot/
       topicHref: /azure/healthcare-apis/iot/index

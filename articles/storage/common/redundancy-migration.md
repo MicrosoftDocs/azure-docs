@@ -70,7 +70,7 @@ To change the redundancy option for your storage account with PowerShell, call t
 
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource_group> `
-    -AccountName <storage_account> `
+    -Name <storage_account> `
     -SkuName <sku>
 ```
 

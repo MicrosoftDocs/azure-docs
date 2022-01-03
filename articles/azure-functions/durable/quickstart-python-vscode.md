@@ -5,6 +5,7 @@ author: anthonychu
 ms.topic: quickstart
 ms.date: 12/23/2020
 ms.reviewer: azfuncdf, antchu
+ms.devlang: python
 ms.custom: mode-api
 ---
 
