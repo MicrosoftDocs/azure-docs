@@ -4,7 +4,7 @@ description: This quickstart shows how to use the web tools to create a serverle
 services: synapse-analytics
 author: jasonwhowell
 ms.author: jasonh
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ms.service: synapse-analytics
 ms.subservice: spark
 ms.topic: quickstart

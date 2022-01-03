@@ -9,7 +9,7 @@ ms.topic: conceptual
 ms.subservice: sql-dw 
 ms.date: 02/04/2020
 ms.author: wiassaf
-ms.reviewer: jrasnick
+ms.reviewer: sngun
 ---
 
 # Monitor workload - Azure portal
