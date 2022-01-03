@@ -22,9 +22,9 @@ This article shows you how to [migrate on-premises VMware VMs to Azure](./tutori
 
 ## Set up the Azure Migrate appliance
 
-Azure Migrate Server Migration runs a lightweight VMware VM appliance that's used for discovery, assessment, and agentless migration of VMware VMs. If you followed the[assessment tutorial](tutorial-assess-vmware-azure-vm.md), you've already set the appliance up. If you didn't, set it up now using one of these methods: 
-- OVA template:[Set up](how-to-set-up-appliance-vmware.md)on a VMware VM using a downloaded OVA template. 
-- Script:[Set up](deploy-appliance-script.md) on a VMware VM or physical machine, using a PowerShell installer script. This method should be used if you can't set up a VM using an OVA template, or if you're in Azure Government. 
+Azure Migrate Server Migration runs a lightweight VMware VM appliance that's used for discovery, assessment, and agentless migration of VMware VMs. If you followed the [assessment tutorial](tutorial-assess-vmware-azure-vm.md), you've already set the appliance up. If you didn't, set it up now using one of these methods: 
+- OVA template: [Set up](how-to-set-up-appliance-vmware.md) on a VMware VM using a downloaded OVA template. 
+- Script: [Set up](deploy-appliance-script.md) on a VMware VM or physical machine, using a PowerShell installer script. This method should be used if you can't set up a VM using an OVA template, or if you're in Azure Government. 
 After creating the appliance, check that it can connect to Azure Migrate: Server Assessment, configure it for the first time, and register it with the Azure Migrate project. 
 
 ## Replicate VMs to Azure by using Private Link
@@ -40,87 +40,80 @@ After setting up the appliance and completing discovery, you can begin the repli
 Enable replication as follows:
 1. In the Azure Migrate project > **Servers** > **Migration tools** > Azure Migrate: Server Migration, click **Replicate**. 
 
-![Diagram that shows how to replicate servers.](./media/how-to-use-azure-migrate-with-private-endpoints/replicate-servers.png)
+    ![Diagram that shows how to replicate servers.](./media/how-to-use-azure-migrate-with-private-endpoints/replicate-servers.png)
 
 1. In **Replicate** > **Source settings** > **Are your machines virtualized?**, select **Yes, with VMware vSphere**.
 1. In **On-premises appliance**, select the name of the Azure Migrate appliance that you set up and click **OK**.
 
-<IMAGE> Source settings 
+    <IMAGE> Source settings 
 
 1. In **Virtual machines**, select the machines you want to replicate. To apply VM sizing and disk type from an assessment if you've run one, in **Import migration settings from an Azure Migrate assessment?**, select **Yes**, and select the VM group and assessment name. If you aren't using assessment settings, select **No**. 
 
-<IMAGE> Select assessment 
+    <IMAGE> Select assessment 
 
 1. In **Virtual machines**, select VMs you want to migrate. Then click **Next**. 
 
-<IMAGE> Select VMs 
+    <IMAGE> Select VMs 
 
 1. In **Target settings**, select the **target region** in which the Azure VMs will reside after migration.  
 
-<IMAGE>Graphical user interface, application, email
+    <IMAGE>Graphical user interface, application, email
 
 1. In **Replication storage account**, use the dropdown list to select a storage account to replicate over a private link.  
-
-Next, [create a private endpoint for the storage account]() to enable replications over a private link.   
+    Next, [create a private endpoint for the storage account]() to enable replications over a private link.   
 
 1. Select the **Subscription** and **Resource group** in which the Azure VMs reside after migration. 
-
 1. In **Virtual network**, select the Azure VNet/subnet which the Azure VMs join after migration. 
-
 1. In **Availability options**, select: 
 
- - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones 
+    - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones 
 
- - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. 
+    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. 
 
- - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines. 
+    - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines. 
 
 1. In **Disk encryption type**, select: 
 
- - Encryption-at-rest with platform-managed key 
+    - Encryption-at-rest with platform-managed key 
 
- - Encryption-at-rest with customer-managed key 
+    - Encryption-at-rest with customer-managed key 
 
- - Double encryption with platform-managed and customer-managed keys 
+    - Double encryption with platform-managed and customer-managed keys 
 
-> [!Note] 
-
+>[!Note] 
 > To replicate VMs with CMK, you'll need to create a disk encryption set under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 
 1. In **Azure Hybrid Benefit**: 
 
- - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**. 
+    - Select **No** if you don't want to apply Azure Hybrid Benefit. Then click **Next**. 
 
- - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**. 
+    - Select **Yes** if you have Windows Server machines that are covered with active Software Assurance or Windows Server subscriptions, and you want to apply the benefit to the machines you're migrating. Then click **Next**. 
 
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with Azure requirements. 
 
- - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in Azure VM size. 
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in Azure VM size. 
 
- - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
+    - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
 
- - **Availability Zone**: Specify the Availability Zone to use. 
+    - **Availability Zone**: Specify the Availability Zone to use. 
 
- - **Availability Set**: Specify the Availability Set to use. 
+    - **Availability Set**: Specify the Availability Set to use. 
 
-> [!Note] 
-
+>[!Note] 
 > If you want to select a different availability option for a sets of virtual machines, go to step 1 and repeat the steps by selecting different availability options after starting replication for one set of virtual machines. 
 
 1. In **Disks**, specify whether the VM disks should be replicated to Azure, and select the disk type (standard SSD/HDD or premium-managed disks) in Azure. Then click **Next**. 
 
-<IMAGE> Screenshot shows the Disks tab of the Replicate dialog box. 
+    <IMAGE> Screenshot shows the Disks tab of the Replicate dialog box. 
 
 1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
-
-Next, follow the instructions to perform migrations. 
+    Next, follow the instructions to perform migrations. 
 
 ## Create a private endpoint for the storage account  
 
 To replicate by using ExpressRoute with private peering, create a private endpoint for the cache/replication storage account (target subresource: blob). 
 
-> [!Note] 
-
+>[!Note] 
 > You can create private endpoints only on a general-purpose v2 storage account. For pricing information, see Azure Page Blobs pricing and Azure Private Link pricing. 
 
 Create the private endpoint for the storage account in the same virtual network as the Azure Migrate project private endpoint or another virtual network connected to this network. 
@@ -175,7 +168,6 @@ For migrating Hyper-V VMs, Azure Migrate: Server Migration installs software pro
     - The key is valid for five days after you generate it. 
 
     <IMAGE>
-
 1. Copy the provider setup file and registration key file to each Hyper-V host (or cluster node) running VMs you want to replicate.
 > [!Note]
 >Before you register the replication provider, ensure that the vault's private link FQDNs are reachable from the machine that hosts the replication appliance. Additional DNS configuration may be required for the on-premises replication appliance to resolve the private link FQDNs to their private IP addresses. Learn more about [how to verify network connectivity](./troubleshoot-network-connectivity.md#verify-dns-resolution)
@@ -200,27 +192,27 @@ With discovery completed, you can begin replication of Hyper-V VMs to Azure.
 
 1. In **Virtual machines**, search for VMs as needed, and select each VM you want to migrate. Then click **Next:Target settings**. 
 
-<IMAGE> Select VMs 
+    <IMAGE> Select VMs 
 
 1. In **Target settings**, select the target region to which you'll migrate, the subscription, and the resource group in which the Azure VMs will reside after migration.  
 
-<IMAGE>Graphical user interface, application, email
+    <IMAGE>Graphical user interface, application, email
 
 1. In **Replication storage account**, select the Azure storage account in which replicated data will be stored in Azure.  
 
-Next, [create a private endpoint for the storage account]() and [grant permissions to the Recovery Services vault managed identity]()to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
+    Next, [create a private endpoint for the storage account]() and [grant permissions to the Recovery Services vault managed identity]()to access the storage account required by Azure Migrate. This is mandatory before you proceed. 
 
-For Hyper-V VM migrations to Azure, if the replication storage account is of *Premium* type, you must select another storage account of *Standard* type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
+    For Hyper-V VM migrations to Azure, if the replication storage account is of *Premium* type, you must select another storage account of *Standard* type for the cache storage account. In this case, you must create private endpoints for both the replication and cache storage account.
 
 1. In **Virtual network**, select the Azure VNet/subnet which the Azure VMs join after migration. 
 
 1. In **Availability options**, select: 
 
- - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones. 
+    - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones. 
 
- - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. 
+    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. 
 
- - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines. 
+    - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines. 
 
 1. In **Azure Hybrid Benefit**: 
 
@@ -230,11 +222,11 @@ For Hyper-V VM migrations to Azure, if the replication storage account is of *Pr
     <IMAGE> Target settings
 1. In **Compute**, review the VM name, size, OS disk type, and availability configuration (if selected in the previous step). VMs must conform with Azure requirements. 
 
- - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
+    - **VM size**: If you're using assessment recommendations, the VM size dropdown shows the recommended size. Otherwise, Azure Migrate picks a size based on the closest match in the Azure subscription. Alternatively, pick a manual size in **Azure VM size**. 
 
- - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
+    - **OS disk**: Specify the OS (boot) disk for the VM. The OS disk is the disk that has the operating system bootloader and installer. 
 
- - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
+    - **Availability Set**: If the VM should be in an Azure availability set after migration, specify the set. The set must be in the target resource group you specify for the migration.
 
  <IMAGE>
 
@@ -246,7 +238,7 @@ For Hyper-V VM migrations to Azure, if the replication storage account is of *Pr
 
 1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
 
-> [!Note]
+>[!Note]
 > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
 Next, follow the instructions to perform migrations. 
@@ -371,11 +363,11 @@ Now, select machines for replication and migration.
 1. In **Virtual machines**, in **Import migration settings from an assessment?**, leave the default setting **No, I'll specify the migration settings manually**.
 1. Select each VM you want to migrate. Then click **Next:Target settings**. 
 
-<IMAGE> Select VMs 
+    <IMAGE> Select VMs 
 
 1. In **Target settings**, select the subscription,the target region to which you'll migrate, and the resource group in which the Azure VMs will reside after migration.  
 
-<IMAGE>Graphical user interface, application, email
+    <IMAGE>Graphical user interface, application, email
 
 1. In **Virtual network**, select the Azure VNet/subnet which the Azure VMs join after migration. 
 1. In **Cache storage account**, use the dropdown list to select a storage account to replicate over a private link.  
@@ -384,11 +376,11 @@ Next, [create a private endpoint for the storage account]() and [grant permissio
 
 1. In **Availability options**, select: 
 
- - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones. 
+    - Availability Zone to pin the migrated machine to a specific Availability Zone in the region. Use this option to distribute servers that form a multi-node application tier across Availability Zones. If you select this option, you'll need to specify the Availability Zone to use for each of the selected machine in the Compute tab. This option is only available if the target region selected for the migration supports Availability Zones. 
 
- - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. 
+    - Availability Set to place the migrated machine in an Availability Set. The target Resource Group that was selected must have one or more availability sets in order to use this option. 
 
- - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines. 
+    - No infrastructure redundancy required option if you don't need either of these availability configurations for the migrated machines. 
 
 1. In **Disk encryption type**, select: 
 
@@ -396,7 +388,7 @@ Next, [create a private endpoint for the storage account]() and [grant permissio
     - Encryption-at-rest with customer-managed key 
     - Double encryption with platform-managed and customer-managed keys 
 
->[!Note]
+> [!Note]
 > To replicate VMs with CMK, you'll need to create a disk encryption set under the target Resource Group. A disk encryption set object maps Managed Disks to a Key Vault that contains the CMK to use for SSE. 
 
 1. In **Azure Hybrid Benefit**: 
@@ -424,10 +416,10 @@ Next, [create a private endpoint for the storage account]() and [grant permissio
 
 1. In **Review and start replication**, review the settings, and click **Replicate** to start the initial replication for the servers. 
 
-> [!Note]
-> You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
+    > [!Note]
+    > You can update replication settings any time before replication starts, **Manage** > **Replicating machines**. Settings can't be changed after replication starts. 
 
-Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines#run-a-test-migration).
+    Next, follow the instructions to [perform migrations](tutorial-migrate-physical-virtual-machines#run-a-test-migration).
 
 
 ### Grant access permissions to the Recovery Services vault
