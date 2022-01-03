@@ -7,7 +7,6 @@ ms.author: shaas
 ms.service: storage
 ms.topic: how-to
 ms.date: 12/30/2021
-ms.custom: template-how-to
 ---
 
 # Manage block blobs with PowerShell
@@ -25,8 +24,8 @@ You'll need to obtain authorization to an Azure subscription before you can use 
 To sign in to your Azure account with an Azure AD account, open PowerShell and call the [Connect-AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet.
 
 ```azurepowershell
-# Connect to your Azure subscription
- Connect-AzAccount
+#Connect to your Azure subscription
+Connect-AzAccount
 ```
 
 After the connection has been established, create the Azure context. Authenticating with Azure AD automatically creates an Azure context for your default subscription. In some cases, you may need to access resources in a different subscription after authenticating. To accomplish this, you can change the subscription associated with your current Azure session by modifying the active session context.
@@ -34,14 +33,14 @@ After the connection has been established, create the Azure context. Authenticat
 To use your default subscription, create the context by calling the `New-AzStorageContext` cmdlet. Include the `-UseConnectedAccount` parameter so that data operations will be performed using your Azure AD credentials.
 
 ```azurepowershell
-# Create a context object using Azure AD credentials
- $ctx = New-AzStorageContext -StorageAccountName <storage account name> -UseConnectedAccount
+#Create a context object using Azure AD credentials
+$ctx = New-AzStorageContext -StorageAccountName <storage account name> -UseConnectedAccount
 ```
 
 To change subscriptions, retrieve the context object with the [Get-AzSubscription](/powershell/module/az.accounts/get-azsubscription) cmdlet, then change the current context with the [Set-AzContext](/powershell/module/az.accounts/set-azcontext). The next example shows how to get a subscription in the currently active tenant, and set it as the active session. More information is available on how to [change the active subscription](/powershell/azure/manage-subscriptions-azureps?view=azps-7.0.0#change-the-active-subscription).
 
 ```azurepowershell
-# Create a context object with an alternate subscription
+#Create a context object with an alternate subscription
 $ctx = Get-AzSubscription -SubscriptionId <subscription id>
 Set-AzContext $ctx
 ```
@@ -49,8 +48,8 @@ Set-AzContext $ctx
 All blob data is stored within containers, so you'll need at least one container resource before you can upload data. If needed, use the following example to create a storage container. You can get more information about [Managing blob containers using PowerShell](blob-containers-powershell.md).
 
 ```azurepowershell
-# Create a container object
- $container = New-AzStorageContainer -Name "demo-container" -Context $ctx
+#Create a container object
+$container = New-AzStorageContainer -Name "demo-container" -Context $ctx
 ```
 
 When you use the following examples, you'll need to replace the placeholder values in brackets with your own values. For more information about signing into Azure with PowerShell, see [Sign in with Azure PowerShell](/powershell/azure/authenticate-azureps).
@@ -61,20 +60,20 @@ To upload a file to a block blob, pass the required parameter values to the `Set
 
 This command creates the blob if it doesn't exist, or prompts for overwrite confirmation if it exists. You can overwrite the file without confirmation if you pass the `-Force` parameter to the cmdlet.
 
-The following example specifies a `-File` parameter value to upload a single, named file. It also demonstrates the use of the PowerShell pipeline operator and `Get-ChildItem` cmdlet to upload multiple files. The `Get-ChildItem` cmdlet uses the `-Path` parameter to specify *C:\Temp\*.png*. The inclusion of the asterisk (`*`) wildcard specifies all files with the *.png* filename extension. The `-Recurse` parameter searches the *Temp* directory and its subdirectories.
+The following example specifies a `-File` parameter value to upload a single, named file. It also demonstrates the use of the PowerShell pipeline operator and `Get-ChildItem` cmdlet to upload multiple files. The `Get-ChildItem` cmdlet uses the `-Path` parameter to specify *C:\Temp\\\*.png*. The inclusion of the asterisk (`*`) wildcard specifies all files with the *.png* filename extension. The `-Recurse` parameter searches the *Temp* directory and its subdirectories.
 
 ```azurepowershell
-# Set variables
- $path          = "C:\temp\" 
- $containerName = "demo-container"
- $filename      = "demo-file.txt"
- $imageFiles    = $path + "*.png"
- $file          = $path + $filename
+#Set variables
+$path          = "C:\temp\" 
+$containerName = "demo-container"
+$filename      = "demo-file.txt"
+$imageFiles    = $path + "*.png"
+$file          = $path + $filename
 
-# Upload a single named file
- Set-AzStorageBlobContent -File $file -Container $containerName -Context $ctx
+#Upload a single named file
+Set-AzStorageBlobContent -File $file -Container $containerName -Context $ctx
 
-# Upload multiple image files recursively
+#Upload multiple image files recursively
  Get-ChildItem -Path $imageFiles -Recurse | Set-AzStorageBlobContent -Container $containerName -Context $ctx
 ```
 
@@ -97,51 +96,51 @@ The `Get-AzStorageBlob` cmdlet is used to list blobs stored within a container. 
 
 There's no restriction on the number of containers or blobs a storage account may have. To potentially avoid retrieving thousands of blobs, it's a good idea to limit the amount of data returned. When retrieving multiple blobs, you can use the `-Prefix` parameter to specify blobs whose names begin with a specific string. You may also use the `-Name` parameter in conjunction with a wildcard to specify file names or types.
 
-The `-MaxCount` parameter can be used to limit the number of unfiltered blobs returned from a container. A service limit of 5,000 is imposed on all Azure resources. This limit ensures that manageable amounts of data are retrieved and performance is not impacted. If the number of blobs returned exceeds either the `-MaxCount` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve an infinite number of blobs. More information is available on [Enumerating blob resources](/rest/api/storageservices/enumerating-blob-resources).
+The `-MaxCount` parameter can be used to limit the number of unfiltered blobs returned from a container. A service limit of 5,000 is imposed on all Azure resources. This limit ensures that manageable amounts of data are retrieved and performance is not impacted. If the number of blobs returned exceeds either the `-MaxCount` value or the service limit, a continuation token is returned. This token allows you to use multiple requests to retrieve anynumber of blobs. More information is available on [Enumerating blob resources](/rest/api/storageservices/enumerating-blob-resources).
 
 The following example shows several approaches used to provide a list of blobs. The first approach lists a single blob within a specific container resource. The second approach uses a wildcard to list all `.jpg` files with a prefix of *louis*. The search is restricted to five containers using the `-MaxCount` parameter. The third approach uses `-MaxCount` and `-ContinuationToken` parameters to limit the retrieval of all blobs within a container.
 
 ```azurepowershell
-# Set variables
- $namedContainer  = "named-container"
- $demoContainer   = "demo-container"
- $containerPrefix = "demo"
+#Set variables
+$namedContainer  = "named-container"
+$demoContainer   = "demo-container"
+$containerPrefix = "demo"
 
- $maxCount = 1000
- $total     = 0
- $token     = $Null
+$maxCount = 1000
+$total     = 0
+$token     = $Null
 
-# Approach 1: List all blobs in a named container
- Get-AzStorageBlob -Container $namedContainer -Context $ctx
+#Approach 1: List all blobs in a named container
+Get-AzStorageBlob -Container $namedContainer -Context $ctx
 
-# Approach 2: Use a wildcard to list blobs in all containers
- Get-AzStorageContainer -MaxCount 5 -Context $ctx | Get-AzStorageBlob -Blob "louis*.jpg" 
+#Approach 2: Use a wildcard to list blobs in all containers
+Get-AzStorageContainer -MaxCount 5 -Context $ctx | Get-AzStorageBlob -Blob "*louis*.jpg" 
 
-# Approach 3: List batches of blobs using MaxCount and ContinuationToken parameters
- Do
- {
-     # Retrieve blobs using the MaxCount parameter
+#Approach 3: List batches of blobs using MaxCount and ContinuationToken parameters
+Do
+{
+     #Retrieve blobs using the MaxCount parameter
      $blobs = Get-AzStorageBlob -Container $demoContainer -MaxCount $maxCount -ContinuationToken $token -Context $ctx
      $blobCount = 1
      
-     # Loop through the batch
+     #Loop through the batch
      Foreach ($blob in $blobs)
      {
-         # Perform some work on individual blobs here
+         #To-do: Perform some work on individual blobs here
 
-         # Display progress bar
+         #Display progress bar
          $percent = $($blobCount/$maxCount*100)
          Write-Progress -Activity "Processing blobs" -Status "$percent% Complete" -PercentComplete $percentage
          $blobCount++
      }
 
-     # Update $total
+     #Update $total
      $total += $blobs.Count
       
-     # Exit if all blobs processed
+     #Exit if all blobs processed
      If($blobs.Length -le 0) { Break; }
       
-     # Set continuation token to retrieve the next batch
+     #Set continuation token to retrieve the next batch
      $token = $blobs[$blobs.Count -1].ContinuationToken
  }
  While ($null -ne $token)
@@ -187,22 +186,22 @@ Multiple blobs can be downloaded by combining the `Get-AzStorageBlob` cmdlet and
 The following sample code provides an example of both single and multiple download approaches. It also offers a simplified approach to searching all containers for specific files using a wildcard. Because some environments may have hundreds of thousands of resources, using the `-MaxCount` parameter is recommended.
 
 ```azurepowershell
-# Set variables
- $containerName = "demo-container"
- $path          = "C:\temp\downloads\"
- $fileName      = "demo-file.txt"
- $fileList      = "*.png"
- $pipelineList  = "louis*"
- $maxCount      = 10
+#Set variables
+$containerName = "demo-container"
+$path          = "C:\temp\downloads\"
+$blobName      = "demo-file.txt"
+$fileList      = "*.png"
+$pipelineList  = "louis*"
+$maxCount      = 10
 
-# Download a single named blob
- Get-AzStorageBlobContent -Container $containerName -Blob $fileName -Destination $path -Context $ctx
+#Download a single named blob
+Get-AzStorageBlobContent -Container $containerName -Blob $blobName -Destination $path -Context $ctx
 
-# Download multiple blobs using the pipeline
- Get-AzStorageBlob -Container $containerName -Blob $fileList -Context $ctx | Get-AzStorageBlobContent
+#Download multiple blobs using the pipeline
+Get-AzStorageBlob -Container $containerName -Blob $fileList -Context $ctx | Get-AzStorageBlobContent
 
-# Use wildcard to download blobs from all containers
- Get-AzStorageContainer -MaxCount $maxCount -Context $ctx | Get-AzStorageBlob -Blob "louis*" | Get-AzStorageBlobContent
+#Use wildcard to download blobs from all containers
+Get-AzStorageContainer -MaxCount $maxCount -Context $ctx | Get-AzStorageBlob -Blob "louis*" | Get-AzStorageBlobContent
 ```
 
 The result displays the storage account name, the storage container name, and provides a list of the files downloaded.
@@ -283,31 +282,31 @@ Blob metadata is an optional set of name/value pairs associated with a blob. As 
 The example below first updates and then commits a blob's metadata, and then retrieves it. The sample blob is flushed from memory to ensure the metadata isn't being read from the in-memory object.
 
 ```azurepowershell
-# Set variable
- $container = "demo-container"
- $blobName  = "blue-moon.mp3"
+#Set variable
+$container = "demo-container"
+$blobName  = "blue-moon.mp3"
 
-# Retrieve blob
- $blob = Get-AzStorageBlob -Blob $blobName -Container $container -Context $ctx
+#Retrieve blob
+$blob = Get-AzStorageBlob -Blob $blobName -Container $container -Context $ctx
 
-# Create IDictionary, add key-value metadata pairs to IDictionary
- $metadata = New-Object System.Collections.Generic.Dictionary"[String,String]"
- $metadata.Add("YearWritten","1934")
- $metadata.Add("YearRecorded","1958")
- $metadata.Add("Composer","Richard Rogers")
- $metadata.Add("Lyricist","Lorenz Hart")
- $metadata.Add("Artist","Tony Bennett")
+#Create IDictionary, add key-value metadata pairs to IDictionary
+$metadata = New-Object System.Collections.Generic.Dictionary"[String,String]"
+$metadata.Add("YearWritten","1934")
+$metadata.Add("YearRecorded","1958")
+$metadata.Add("Composer","Richard Rogers")
+$metadata.Add("Lyricist","Lorenz Hart")
+$metadata.Add("Artist","Tony Bennett")
 
-# Update metadata
-  $blob.BlobClient.SetMetadata($metadata, $null)
+#Update metadata
+$blob.BlobClient.SetMetadata($metadata, $null)
 
-# Flush blob from memory, retrieve updated blob, retrieve properties
- $blob = $null
- $blob = Get-AzStorageBlob -Blob $blobName -Container $container -Context $ctx
- $properties = $blob.BlobClient.GetProperties()
+#Flush blob from memory, retrieve updated blob, retrieve properties
+$blob = $null
+$blob = Get-AzStorageBlob -Blob $blobName -Container $container -Context $ctx
+$properties = $blob.BlobClient.GetProperties()
  
-# Display metadata
- Echo $properties.Value.Metadata
+#Display metadata
+Echo $properties.Value.Metadata
 ```
 
 The result returns the blob's newly updated metadata as shown below.
@@ -412,22 +411,22 @@ The following example illustrates how to add blob index tags to a series of blob
 The sample code creates a hash table and assigns the **$tags** variable to it. Next, it uses the `Get-Content` and `Get-Data` cmdlets to create an object based on the XML structure. It then adds key-value pairs to the hash table to be used as the tag values. Finally, it iterates through the XML object and creates tags for each `File` node.
 
 ```azurepowershell
-# Set variables
- $filePath = "C:\temp\blob-list.xml"
- $tags     = @{}
+#Set variables
+$filePath = "C:\temp\blob-list.xml"
+$tags     = @{}
 
-# Get data, set tag key-values
- [xml]$data = Get-Content -Path $filepath
- $tags.Add("VenueName", $data.Venue.Name)
- $tags.Add("VenueType", $data.Venue.Type)
+#Get data, set tag key-values
+[xml]$data = Get-Content -Path $filepath
+$tags.Add("VenueName", $data.Venue.Name)
+$tags.Add("VenueType", $data.Venue.Type)
  
-# Loop through files and add tag
- $data.Venue.Files.ChildNodes | ForEach-Object {
-    # break the path: container name, blob
-     $path = $_.Path -split "/",2
-    
-    # set apply the blob tags
-     Set-AzStorageBlobTag -Container $location[0] -Blob $location[1] -Tag $tags -Context $ctx
+#Loop through files and add tag
+$data.Venue.Files.ChildNodes | ForEach-Object {
+    #break the path: container name, blob
+    $path = $_.Path -split "/",2
+   
+    #set apply the blob tags
+    Set-AzStorageBlobTag -Container $location[0] -Blob $location[1] -Tag $tags -Context $ctx
  }
 ```
 
@@ -436,21 +435,21 @@ The sample code creates a hash table and assigns the **$tags** variable to it. N
 You can delete either a single blob or series of blobs with the `Remove-AzStorageBlob` cmdlet. When deleting multiple blobs, you can leverage conditional operations, loops, or the PowerShell pipeline as shown in the examples below.
 
 ```azurepowershell
-# Create variables
- $containerName  = "demo-container"
- $blobName       = "demo-file.txt"
- $prefixName     = "file"
+#Create variables
+$containerName  = "demo-container"
+$blobName       = "demo-file.txt"
+$prefixName     = "file"
 
-# Delete a single, named blob
- Remove-AzStorageBlob -Blob $blobName -Container $containerName -Context $ctx
+#Delete a single, named blob
+Remove-AzStorageBlob -Blob $blobName -Container $containerName -Context $ctx
 
-# Iterate a loop, deleting blobs
- for ($i = 1; $i -le 3; $i++) { 
-     Remove-AzStorageBlob -Blob (-join($prefixName, $i, ".txt")) -Container $containerName -Context $ctx
-    } 
+#Iterate a loop, deleting blobs
+for ($i = 1; $i -le 3; $i++) { 
+    Remove-AzStorageBlob -Blob (-join($prefixName, $i, ".txt")) -Container $containerName -Context $ctx
+} 
 
-# Retrieve blob list, delete using a pipeline
- Get-AzStorageBlob -Prefix $prefixName -Container $containerName -Context $ctx | Remove-AzStorageBlob
+#Retrieve blob list, delete using a pipeline
+Get-AzStorageBlob -Prefix $prefixName -Container $containerName -Context $ctx | Remove-AzStorageBlob
 ```
 
 In some cases, it's possible to retrieve blobs that have been deleted. If your storage account's soft delete data protection option is enabled, the `-IncludeDeleted` parameter will return blobs deleted within the associated retention period. To learn more about soft delete, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
@@ -458,8 +457,8 @@ In some cases, it's possible to retrieve blobs that have been deleted. If your s
 Use the following example to retrieve a list of blobs deleted within container's associated retention period. The result displays a list of recently deleted blobs.
 
 ```azurepowershell
-# Retrieve a list of blobs including those recently deleted
- Get-AzStorageBlob -Prefix $prefixName -IncludeDeleted -Context $ctx
+#Retrieve a list of blobs including those recently deleted
+Get-AzStorageBlob -Prefix $prefixName -IncludeDeleted -Context $ctx
 
 AccountName: demostorageaccount, ContainerName: demo-container
 
@@ -479,16 +478,16 @@ The following example explains how to restore a soft-deleted blob with the `Blob
 To learn more about the soft delete data protection option, refer to the [Soft delete for blobs](soft-delete-blob-overview.md) article.
 
 ```azurepowershell
-# Create variables
- $container = "demo-container"
+#Create variables
+$container = "demo-container"
 $prefix    = "file"
  
-# Retrieve all blobs, filter deleted resources, restore deleted
- $blobs = Get-AzStorageBlob -Container "demo-container" -Prefix "file" -Context $ctx -IncludeDeleted
- Foreach($blob in $blobs)
- {
+#Retrieve all blobs, filter deleted resources, restore deleted
+$blobs = Get-AzStorageBlob -Container "demo-container" -Prefix "file" -Context $ctx -IncludeDeleted
+Foreach($blob in $blobs)
+{
     if($blob.IsDeleted) { $blob.BlobBaseClient.Undelete() }
- }
+}
 ```
 
 ## Next steps
